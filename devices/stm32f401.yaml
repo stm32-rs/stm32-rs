@@ -1,0 +1,13 @@
+_svd: ../svd/stm32f401.svd
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0368
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+_include:
+ - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/gpio/gpio_v2.yaml
+ - ../peripherals/crc/crc_basic.yaml

@@ -1,0 +1,13 @@
+# CRC peripheral. Details specifically from RM0090 but widely applicable.
+# This covers the basic features - DR, IDR, and CR. For the more sophisticated
+# CRC available on some STM32s, use crc_advanced.yaml.
+
+CRC:
+  DR:
+    DR: [0-4294967295]
+  IDR:
+    IDR: [0-255]
+  CR:
+    RESET:
+      Reset: [1, "Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF"]
+      _usage: write

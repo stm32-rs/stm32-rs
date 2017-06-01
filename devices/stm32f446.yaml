@@ -1,0 +1,14 @@
+_svd: ../svd/stm32f446.svd
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0390
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+_include:
+ - ../peripherals/dac/dac_wavegen.yaml
+ - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/gpio/gpio_v2.yaml
+ - ../peripherals/crc/crc_basic.yaml

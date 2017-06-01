@@ -1,0 +1,96 @@
+# Applicable at least to STM32F4 and STM32F7.
+
+RCC:
+  PLLCFGR:
+    _merge: ["PLLM*", "PLLN*", "PLLP*", "PLLQ*"]
+    PLLSRC:
+      HSI: [0, "HSI clock selected as PLL and PLLI2S clock entry"]
+      HSE: [1, "HSE oscillator clock selected as PLL and PLLI2S clock entry"]
+    PLLQ: [2, 15]
+    PLLP:
+      DIV2: [0, "PLLP=2"]
+      DIV4: [1, "PLLP=4"]
+      DIV6: [2, "PLLP=6"]
+      DIV8: [3, "PLLP=8"]
+    PLLN: [50, 432]
+    PLLM: [2, 63]
+  CFGR:
+    _merge: ["SW[01]", "SWS[01]"]
+    MCO2:
+      SYSCLK: [0, "System clock (SYSCLK) selected"]
+      PLLI2S: [1, "PLLI2S clock selected"]
+      HSE: [2, "HSE oscillator clock selected"]
+      PLL: [3, "PLL clock selected"]
+    "MCO*PRE":
+      DIV1: [0, "No division"]
+      DIV2: [4, "Division by 2"]
+      DIV3: [5, "Division by 3"]
+      DIV4: [6, "Division by 4"]
+      DIV5: [7, "Division by 5"]
+    I2SSRC:
+      PLLI2S: [0, "PLLI2S clock used as I2S clock source"]
+      CKIN: [1, "External clock mapped on the I2S_CKIN pin used as I2S clock source"]
+    MCO1:
+      HSI: [0, "HSI clock selected"]
+      LSE: [1, "LSE oscillator selected"]
+      HSE: [2, "HSE oscillator clock selected"]
+      PLL: [3, "PLL clock selected"]
+    RTCPRE: [0, 31]
+    "PPRE[12]":
+      DIV1: [0, "AHB clock not divided"]
+      DIV2: [4, "AHB clock divided by 2"]
+      DIV4: [5, "AHB clock divided by 4"]
+      DIV8: [6, "AHB clock divided by 8"]
+      DIV16: [7, "AHB clock divided by 16"]
+    HPRE:
+      DIV1: [0, "system clock not divided"]
+      DIV2: [8, "system clock divided by 2"]
+      DIV4: [9, "system clock divided by 4"]
+      DIV8: [10, "system clock divided by 8"]
+      DIV16: [11, "system clock divided by 16"]
+      DIV64: [12, "system clock divided by 64"]
+      DIV128: [13, "system clock divided by 128"]
+      DIV256: [14, "system clock divided by 256"]
+      DIV512: [15, "system clock divided by 512"]
+    SWS:
+      HSI: [0, "HSI oscillator used as the system clock"]
+      HSE: [1, "HSE oscillator used as the system clock"]
+      PLL: [2, "PLL used as the system clock"]
+      _usage: read
+    SW:
+      HSI: [0, "HSI oscillator selected as system clock"]
+      HSE: [1, "HSE oscillator selected as system clock"]
+      PLL: [2, "PLL selected as system clock"]
+  "A?B?RSTR":
+    "*RST":
+      Reset: [1, "Reset the selected module"]
+  "A?B?ENR":
+    "*EN":
+      Disable: [0, "Disable the selected clock"]
+      Enable: [1, "Enable the selected clock"]
+  "A?B?LPENR":
+    "*LPEN":
+      DisableInSleep: [0, "Selected module is disabled during Sleep mode"]
+      EnableInSleep: [1, "Selected module is enabled during Sleep mode"]
+  BDCR:
+    _merge: ["RTCSEL[01]"]
+    BDRST:
+      Reset: [1, "Resets the entire Backup domain"]
+    RTCEN:
+      Disable: [0, "RTC clock disabled"]
+      Enable: [1, "RTC clock enabled"]
+    RTCSEL:
+      NoClock: [0, "No clock"]
+      LSE: [1, "LSE oscillator clock used as the RTC clock"]
+      LSI: [2, "LSI oscillator clock used as the RTC clock"]
+      HSE: [3, "HSE oscillator clock divided by a programmable prescaler used as the RTC clock"]
+    LSEBYP:
+      NotBypassed: [0, "LSE oscillator not bypassed"]
+      Bypassed: [1, "LSE oscillator bypassed"]
+    LSERDY:
+      NotReady: [0, "LSE clock not ready"]
+      Ready: [1, "LSE clock ready"]
+      _usage: read
+    LSEON:
+      Disable: [0, "LSE clock OFF"]
+      Enable: [1, "LSE clock ON"]

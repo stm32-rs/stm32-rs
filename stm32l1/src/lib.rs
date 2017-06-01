@@ -1,0 +1,26 @@
+//! Peripheral access API for STM32L1 microcontrollers
+//! (generated using [svd2rust])
+//! [svd2rust]: https://github.com/japaric/svd2rust
+//!
+//! You can find an overview of the API here:
+//! https://docs.rs/svd2rust/0.8.1/svd2rust/#peripheral-api
+//!
+//! For more details see the README here:
+//! https://github.com/adamgreig/stm32-rs
+
+#![feature(const_fn)]
+#![feature(optin_builtin_traits)]
+#![no_std]
+
+extern crate cortex_m;
+extern crate vcell;
+
+#[cfg(feature = "stm32l100")]
+pub mod stm32l100;
+
+#[cfg(feature = "stm32l151")]
+pub mod stm32l151;
+
+#[cfg(feature = "stm32l162")]
+pub mod stm32l162;
+

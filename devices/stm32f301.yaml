@@ -1,0 +1,13 @@
+_svd: ../svd/stm32f301.svd
+
+"SPI*":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0366
+      TIFRFE:
+        name: "FRE"
+
+_include:
+ - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/spi/spi_v2.yaml
+ - ../peripherals/spi/spi_common.yaml

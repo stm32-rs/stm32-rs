@@ -1,0 +1,144 @@
+# SPIv1 is used on F1 and F4
+
+"SPI*":
+  CR1:
+    BIDIMODE:
+      Unidirectional: [0, "2-line unidirectional data mode selected"]
+      Bidirectional: [1, "1-line bidirectional data mode selected"]
+    BIDIOE:
+      OutputDisabled: [0, "Output disabled (receive-only mode)"]
+      OutputEnabled: [1, "Output enabled (transmit-only mode)"]
+    CRCEN:
+      Disabled: [0, "CRC calculation disabled"]
+      Enabled: [1, "CRC calculation enabled"]
+    CRCNEXT:
+      TxBuffer: [0, "Next transmit value is from Tx buffer"]
+      CRC: [1, "Next transmit value is from Tx CRC register"]
+    RXONLY:
+      FullDuplex: [0, "Full duplex (Transmit and receive)"]
+      OutputDisabled: [1, "Output disabled (Receive-only mode)"]
+    SSM:
+      Disabled: [0, "Software slave management disabled"]
+      Enabled: [1, "Software slave management enabled"]
+    LSBFIRST:
+      MSBFirst: [0, "Data is transmitted/received with the MSB first"]
+      LSBFirst: [1, "Data is transmitted/received with the LSB first"]
+    SPE:
+      Disabled: [0, "Peripheral disabled"]
+      Enabled: [1, "Peripheral enabled"]
+    BR:
+      Div2: [0, "f_PCLK / 2"]
+      Div4: [1, "f_PCLK / 4"]
+      Div8: [2, "f_PCLK / 8"]
+      Div16: [3, "f_PCLK / 16"]
+      Div32: [4, "f_PCLK / 32"]
+      Div64: [5, "f_PCLK / 64"]
+      Div128: [6, "f_PCLK / 128"]
+      Div256: [7, "f_PCLK / 256"]
+    MSTR:
+      Slave: [0, "Slave configuration"]
+      Master: [1, "Master configuration"]
+    CPOL:
+      IdleLow: [0, "CK to 0 when idle"]
+      IdleHigh: [1, "CK to 1 when idle"]
+    CPHA:
+      FirstEdge: [0, "The first clock transition is the first data capture edge"]
+      SecondEdge: [1, "The second clock transition is the first data capture edge"]
+  CR2:
+    TXEIE:
+      Masked: [0, "TXE interrupt masked"]
+      NotMasked: [1, "TXE interrupt not masked"]
+    RXNEIE:
+      Masked: [0, "RXE interrupt masked"]
+      NotMasked: [1, "RXE interrupt not masked"]
+    ERRIE:
+      Masked: [0, "Error interrupt masked"]
+      NotMasked: [1, "Error interrupt not masked"]
+    FRF:
+      Motorola: [0, "SPI Motorola mode"]
+      TI: [1, "SPI TI mode"]
+    SSOE:
+      Disabled: [0, "SS output is disabled in master mode"]
+      Enabled: [1, "SS output is enabled in master mode"]
+    TXDMAEN:
+      Disabled: [0, "Tx buffer DMA disabled"]
+      Enabled: [1, "Tx buffer DMA enabled"]
+    RXDMAEN:
+      Disabled: [0, "Rx buffer DMA disabled"]
+      Enabled: [1, "Rx buffer DMA enabled"]
+  SR:
+    FRE:
+      NoError: [0, "No frame format error"]
+      Error: [1, "A frame format error occurred"]
+      _usage: read
+    BSY:
+      NotBusy: [0, "SPI not busy"]
+      Busy: [1, "SPI busy"]
+      _usage: read
+    OVR:
+      NoOverrun: [0, "No overrun occurred"]
+      Overrun: [1, "Overrun occurred"]
+      _usage: read
+    MODF:
+      NoFault: [0, "No mode fault occurred"]
+      Fault: [1, "Mode fault occurred"]
+      _usage: read
+    CRCERR:
+      Match: [0, "CRC value received matches the SPIx_RXCRCR value"]
+      NoMatch: [1, "CRC value received does not match the SPIx_RXCRCR value"]
+    UDR:
+      NoUnderrun: [0, "No underrun occurred"]
+      Underrun: [1, "Underrun occurred"]
+      _usage: read
+    CHSIDE:
+      Left: [0, "Channel left has to be transmitted or has been received"]
+      Right: [1, "Channel right has to be transmitted or has been received"]
+    TXE:
+      NotEmpty: [0, "Tx buffer not empty"]
+      Empty: [1, "Tx buffer empty"]
+    RXNE:
+      Empty: [0, "Rx buffer empty"]
+      NotEmpty: [1, "Rx buffer not empty"]
+  DR:
+    DR: [0-65535]
+  CRCPR:
+    CRCPOLY: [0-65535]
+  I2SCFGR:
+    I2SMOD:
+      SPIMode: [0, "SPI mode is selected"]
+      I2SMode: [1, "I2S mode is selected"]
+    I2SE:
+      Disabled: [0, "I2S peripheral is disabled"]
+      Enabled: [1, "I2S peripheral is enabled"]
+    I2SCFG:
+      SlaveTx: [0, "Slave - transmit"]
+      SlaveRx: [1, "Slave - receive"]
+      MasterTx: [2, "Master - transmit"]
+      MasterRx: [3, "Master - receive"]
+    PCMSYNC:
+      Short: [0, "Short frame synchronisation"]
+      Long: [1, "Long frame synchronisation"]
+    I2SSTD:
+      Philips: [0, "I2S Philips standard"]
+      MSB: [1, "MSB justified standard"]
+      LSB: [2, "LSB justified standard"]
+      PCM: [3, "PCM standard"]
+    CKPOL:
+      IdleLow: [0, "I2S clock inactive state is low level"]
+      IdleHigh: [1, "I2S clock inactive state is high level"]
+    DATLEN:
+      SixteenBit: [0, "16-bit data length"]
+      TwentyFourBit: [1, "24-bit data length"]
+      ThirtyTwoBit: [2, "32-bit data length"]
+    CHLEN:
+      SixteenBit: [0, "16-bit wide"]
+      ThirtyTwoBit: [1, "32-bit wide"]
+  I2SPR:
+    MCKOE:
+      Disabled: [0, "Master clock output is disabled"]
+      Enabled: [1, "Master clock output is enabled"]
+    ODD:
+      Even: [0, "Real divider value is I2SDIV * 2"]
+      Odd: [1, "Real divider value is (I2SDIV * 2) + 1"]
+    I2SDiv: [2-255]
+

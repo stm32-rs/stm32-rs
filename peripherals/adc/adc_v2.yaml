@@ -1,0 +1,81 @@
+# ADC as used on F4 and F7
+
+ADC:
+  SR:
+    OVR:
+      NoOverrun: [0, "No overrun occurred"]
+      Overrun: [1, "Overrun occurred"]
+    STRT:
+      NotStarted: [0, "No regular channel conversion started"]
+      Started: [1, "Regular channel conversion has started"]
+    JSTRT:
+      NotStarted: [0, "No injected channel conversion started"]
+      Started: [1, "Injected channel conversion has started"]
+    JEOC:
+      NotComplete: [0, "Conversion is not complete"]
+      Complete: [1, "Conversion complete"]
+    EOC:
+      NotComplete: [0, "Conversion is not complete"]
+      Complete: [1, "Conversion complete"]
+    AWD:
+      NoEvent: [0, "No analog watchdog event occurred"]
+      Event: [1, "Analog watchdog event occurred"]
+  CR1:
+    OVRIE:
+      Disabled: [0, "Overrun interrupt disabled"]
+      EnableD: [1, "Overrun interrupt enabled"]
+    RES:
+      TwelveBit: [0, "12-bit (15 ADCCLK cycles)"]
+      TenBit: [1, "10-bit (13 ADCCLK cycles)"]
+      EightBit: [2, "8-bit (11 ADCCLK cycles)"]
+      SixBit: [3, "6-bit (9 ADCCLK cycles)"]
+    AWDEN:
+      Disabled: [0, "Analog watchdog disabled on regular channels"]
+      Enabled: [1, "Analog watchdog enabled on regular channels"]
+    JAWDEN:
+      Disabled: [0, "Analog watchdog disabled on injected channels"]
+      Enabled: [1, "Analog watchdog enabled on injected channels"]
+    DISCNUM: [0-7]
+    JDISCEN:
+      Disabled: [0, "Discontinuous mode on injected channels disabled"]
+      Enabled: [1, "Discontinuous mode on injected channels enabled"]
+    DISCEN:
+      Disabled: [0, "Discontinuous mode on regular channels disabled"]
+      Enabled: [1, "Discontinuous mode on regular channels enabled"]
+    JAUTO:
+      Disabled: [0, "Automatic injected group conversion disabled"]
+      Enabled: [1, "Automatic injected group conversion enabled"]
+    AWDSGL:
+      AllChannels: [0, "Analog watchdog enabled on all channels"]
+      SingleChannel: [1, "Analog watchdog enabled on a single channel"]
+    SCAN:
+      Disabled: [0, "Scan mode disabled"]
+      EnableD: [1, "Scan mode enabled"]
+    JEOCIE:
+      Disabled: [0, "JEOC interrupt disabled"]
+      Enabled: [1, "JEOC interrupt enabled"]
+    AWDIE:
+      Disabled: [0, "Analogue watchdog interrupt disabled"]
+      Enabled: [1, "Analogue watchdog interrupt enabled"]
+    EOCIE:
+      Disabled: [0, "EOC interrupt disabled"]
+      Enabled: [1, "EOC interrupt enabled"]
+    AWDCH: [0-18]
+  CR2:
+    SWSTART:
+      Start: [1, "Starts conversion of regular channels"]
+      _usage: write
+    EXTEN:
+      Disabled: [0, "Trigger detection disabled"]
+      RisingEdge: [1, "Trigger detection on the rising edge"]
+      FallingEdge: [2, "Trigger detection on the falling edge"]
+      BothEdges: [3, "Trigger detection on both the rising and falling edges"]
+    EXTSEL:
+      TIM1CC1: [0, "Timer 1 CC1 event"]
+      TIM1CC2: [1, "Timer 1 CC2 event"]
+      TIM1CC3: [2, "Timer 1 CC3 event"]
+      TIM2CC2: [3, "Timer 2 CC2 event"]
+      TIM2CC3: [4, "Timer 2 CC3 event"]
+      TIM2CC4: [5, "Timer 2 CC4 event"]
+      TIM2TRGO: [6, "Timer 2 TRGO event"]
+
