@@ -145,6 +145,13 @@ def iter_fields(rtag, fspec):
             yield ftag
 
 
+def process_device_modify(device, pspec, pmod):
+    """Modify pspec inside device according to pmod."""
+    for ptag in iter_peripherals(device, pspec):
+        for (key, value) in pmod.items():
+            ptag.find(key).text = value
+
+
 def process_peripheral_modify(ptag, rspec, rmod):
     """Modify rspec inside ptag according to rmod."""
     for rtag in iter_registers(ptag, rspec):
@@ -157,6 +164,36 @@ def process_register_modify(rtag, fspec, fmod):
     for ftag in iter_fields(rtag, fspec):
         for (key, value) in fmod.items():
             ftag.find(key).text = str(value)
+
+
+def process_device_add(device, pname, padd):
+    """Add pname given by padd to device."""
+    parent = device.find('peripherals')
+    pnew = ET.SubElement(parent, 'peripheral')
+    ET.SubElement(pnew, 'name').text = pname
+    for (key, value) in padd.items():
+        if key == "registers":
+            for rname in value:
+                process_peripheral_add(pnew, rname, value[rname])
+        elif key == "addressBlock":
+            ab = ET.SubElement(pnew, 'addressBlock')
+            for (ab_key, ab_value) in value:
+                ET.SubElement(ab, ab_key).text = str(ab_value)
+        else:
+            ET.SubElement(pnew, key).text = str(value)
+
+
+def process_peripheral_add(ptag, rname, radd):
+    """Add rname given by radd to ptag."""
+    parent = ptag.find('registers')
+    rnew = ET.SubElement(parent, 'register')
+    ET.SubElement(rnew, 'name').text = rname
+    for (key, value) in radd.items():
+        if key == "fields":
+            for fname in value:
+                process_register_add(rnew, fname, value[fname])
+        else:
+            ET.SubElement(rnew, key).text = str(value)
 
 
 def process_register_add(rtag, fname, fadd):
@@ -288,6 +325,10 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
         for rspec in peripheral.get("_modify", []):
             rmod = peripheral["_modify"][rspec]
             process_peripheral_modify(ptag, rspec, rmod)
+        # Handle additions
+        for rname in peripheral.get("_add", []):
+            radd = peripheral["_add"][rname]
+            process_peripheral_add(ptag, rname, radd)
         # Handle registers
         for rspec in peripheral:
             if not rspec.startswith("_"):
@@ -314,6 +355,16 @@ def main():
 
     # Load all included YAML files
     yaml_includes(root)
+
+    # Handle any peripheral modifications
+    for pspec in root.get("_modify", []):
+        pmod = root["_modify"][pspec]
+        process_device_modify(svd, pspec, pmod)
+
+    # Handle any new peripherals (!)
+    for pname in root.get("_add", []):
+        padd = root["_add"][pname]
+        process_device_add(root, pname, padd)
 
     # Now process all peripherals
     for periphspec in root:

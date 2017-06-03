@@ -1,5 +1,11 @@
 _svd: ../svd/stm32f469.svd
 
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0386
   CR:
@@ -12,3 +18,5 @@ _include:
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/adc/adc_v2_smpr.yaml
+ - ../peripherals/adc/adc_v2.yaml

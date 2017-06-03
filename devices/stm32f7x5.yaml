@@ -1,5 +1,11 @@
 _svd: ../svd/stm32f7x5.svd
 
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.

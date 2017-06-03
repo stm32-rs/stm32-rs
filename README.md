@@ -93,9 +93,36 @@ _svd: "../svd/STM32F0x0.svd"
 _include:
     - "../peripherals/gpio_v2.yaml"
 
+# Alter peripherals for this device
+_modify:
+    C_ADC:
+        name: ADC_Common
+
+# Add whole new peripherals to this device.
+# Incredibly this feature is required.
+_add:
+    ADC_Common:
+        description: ADC Common registers
+        groupName: ADC
+        baseAddress: 0x40012300
+        addressBlock:
+            offset: 0x0
+            size: 0x400
+        registers:
+            CSR:
+                description: ADC Common status register
+                addressOffset: 0x0
+                access: read-only
+                resetValue: 0x00000000
+                fields:
+                    OVR3:
+                        description: Overrun flag of ADC3
+                        bitOffset: 21
+                        bitWidth: 1
+
 # An STM32 peripheral, matches an SVD <peripheral> tag.
 # Does not match any tag with derivedFrom attribute set.
-PERIPHERAL:
+"GPIO*":
     # We can include other YAML files inside this peripheral
     _include:
         - "path/to/file.yaml"
@@ -105,11 +132,23 @@ PERIPHERAL:
         # Rename this badly named registed. Takes effect before anything else.
         # Don't use wildcard matches if you are changing the name!
         # We could have specified name or description or other tags to update.
-        REGISTER:
-          name: NEWNAME
+        GPIOB_OSPEEDR:
+          name: OSPEEDR
+
+    # Add new registers to this peripheral
+    _add:
+        EXAMPLER:
+            description: An example register
+            addressOffset: 0x04
+            access: read-write
+            fields:
+                EXR1:
+                    description: Example field
+                    bitOffset: 16
+                    bitWidth: 4
 
     # A register on this peripheral, matches an SVD <register> tag
-    REGISTER:
+    MODER:
         # As in the peripheral scope, rename or redescribe a field.
         # Don't use wildcard matches if you are changing the name!
         _modify:
