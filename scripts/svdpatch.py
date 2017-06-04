@@ -33,8 +33,8 @@ def parseargs():
 def matchname(name, spec):
     """Check if name matches against a specification."""
     return (
-        (not name.startswith("_"))
-        and any(fnmatch(subname, spec) for subname in name.split(",")))
+        (not spec.startswith("_"))
+        and any(fnmatch(name, subspec) for subspec in spec.split(",")))
 
 
 def abspath(frompath, relpath):

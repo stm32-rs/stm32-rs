@@ -1,5 +1,12 @@
 _svd: ../svd/stm32f410.svd
 
+"SPI*":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0401
+      TIFRFE:
+        name: "FRE"
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0401
   CR:
@@ -14,3 +21,4 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v1.yaml

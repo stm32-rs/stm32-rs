@@ -1,3 +1,5 @@
+# STM32F7x5 devices as per reference manual RM0410.
+
 _svd: ../svd/stm32f7x5.svd
 
 _modify:
@@ -5,6 +7,13 @@ _modify:
   # we'll prefer the more sensible (and better for sorting) ADC_Common
   C_ADC:
     name: ADC_Common
+
+"SPI3":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0410
+      "[_]FRE":
+        name: "FRE"
 
 "GPIO*":
   _modify:
@@ -53,3 +62,4 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v2.yaml

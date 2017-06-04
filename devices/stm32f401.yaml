@@ -1,5 +1,12 @@
 _svd: ../svd/stm32f401.svd
 
+"I2S*":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0368
+      TIFRFE:
+        name: "FRE"
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0368
   CR:
@@ -13,3 +20,4 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v1.yaml

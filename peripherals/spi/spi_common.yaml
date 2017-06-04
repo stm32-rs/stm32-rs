@@ -1,6 +1,8 @@
-# SPIv1 is used on F1 and F4
+# Common fields between SPIv1 and SPIv2 (most of them)
+# Note that frustratingly the peripheral everything else derives from
+# is occasionally I2S2ext instead of SPI1 in the SVD.
 
-"SPI*":
+"SPI*,I2S*":
   CR1:
     BIDIMODE:
       Unidirectional: [0, "2-line unidirectional data mode selected"]

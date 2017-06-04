@@ -3,7 +3,7 @@
 _include:
   - "spi_common.yaml"
 
-"SPI*":
+"SPI*,I2S*":
   CR1:
     DFF:
       EightBit: [0, "8-bit data frame format is selected for transmission/reception"]

@@ -6,6 +6,13 @@ _modify:
   C_ADC:
     name: ADC_Common
 
+"SPI*":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0090
+      TIFRFE:
+        name: "FRE"
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -22,3 +29,4 @@ _include:
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v1.yaml
