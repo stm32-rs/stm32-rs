@@ -315,7 +315,7 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
 
 
 def process_peripheral(svd, pspec, peripheral, update_fields=True):
-    """Work through a peripheral, handling all fields."""
+    """Work through a peripheral, handling all registers."""
     # Handle includes
     yaml_includes(peripheral)
 
@@ -341,6 +341,26 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
         raise MissingPeripheralError("Could not find {}".format(pspec))
 
 
+def process_device(svd, device, update_fields=True):
+    """Work through a device, handling all peripherals"""
+    # Handle any peripheral modifications
+    for pspec in device.get("_modify", []):
+        pmod = device["_modify"][pspec]
+        process_device_modify(svd, pspec, pmod)
+
+    # Handle any new peripherals (!)
+    for pname in device.get("_add", []):
+        padd = device["_add"][pname]
+        process_device_add(svd, pname, padd)
+
+    # Now process all peripherals
+    for periphspec in device:
+        if not periphspec.startswith("_"):
+            device[periphspec]["_path"] = device["_path"]
+            process_peripheral(svd, periphspec, device[periphspec],
+                               update_fields)
+
+
 def main():
     # Load the specified YAML root file
     args = parseargs()
@@ -358,21 +378,8 @@ def main():
     # Load all included YAML files
     yaml_includes(root)
 
-    # Handle any peripheral modifications
-    for pspec in root.get("_modify", []):
-        pmod = root["_modify"][pspec]
-        process_device_modify(svd, pspec, pmod)
-
-    # Handle any new peripherals (!)
-    for pname in root.get("_add", []):
-        padd = root["_add"][pname]
-        process_device_add(svd, pname, padd)
-
-    # Now process all peripherals
-    for periphspec in root:
-        if not periphspec.startswith("_"):
-            root[periphspec]["_path"] = root["_path"]
-            process_peripheral(svd, periphspec, root[periphspec])
+    # Process device
+    process_device(svd, root)
 
     # SVD should now be updated, write it out
     svd.write(svdpath_out)

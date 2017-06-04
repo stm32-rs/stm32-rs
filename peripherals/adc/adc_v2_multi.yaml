@@ -1,0 +1,53 @@
+# ADC_Common as used on F4 and F7 with multiple ADCs
+
+_include:
+  - "adc_v2.yaml"
+
+ADC_Common:
+  CSR:
+    "OVR?":
+      NoOverrun: [0, "No overrun occurred"]
+      Overrun: [1, "Overrun occurred"]
+    "STRT?":
+      NotStarted: [0, "No regular channel conversion started"]
+      Started: [1, "Regular channel conversion has started"]
+    "JSTRT?":
+      NotStarted: [0, "No injected channel conversion started"]
+      Started: [1, "Injected channel conversion has started"]
+    "JEOC?":
+      NotComplete: [0, "Conversion is not complete"]
+      Complete: [1, "Conversion complete"]
+    "EOC?":
+      NotComplete: [0, "Conversion is not complete"]
+      Complete: [1, "Conversion complete"]
+    "AWD?":
+      NoEvent: [0, "No analog watchdog event occurred"]
+      Event: [1, "Analog watchdog event occurred"]
+  CCR:
+    _modify:
+      # This appears to have the wrong name in every single SVD.
+      MULT:
+        name: MULTI
+    DMA:
+      Disabled: [0, "DMA mode disabled"]
+      Mode1: [1, "DMA mode 1 enabled (2 / 3 half-words one by one - 1 then 2 then 3)"]
+      Mode2: [2, "DMA mode 2 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)"]
+      Mode3: [3, "DMA mode 3 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)"]
+    DDS:
+      Single: [0, "No new DMA request is issued after the last transfer"]
+      Continuous: [1, "DMA requests are issued as long as data are converted and DMA=01, 10 or 11"]
+    DELAY: [0-15]
+    MULTI:
+      Independent: [0, "All the ADCs independent: independent mode"]
+      DualRJ: [1, "Dual ADC1 and ADC2, combined regular and injected simultaneous mode"]
+      DualRA: [2, "Dual ADC1 and ADC2, combined regular and alternate trigger mode"]
+      DualJ: [5, "Dual ADC1 and ADC2, injected simultaneous mode only"]
+      DualR: [6, "Dual ADC1 and ADC2, regular simultaneous mode only"]
+      DualI: [7, "Dual ADC1 and ADC2, interleaved mode only"]
+      DualA: [9, "Dual ADC1 and ADC2, alternate trigger mode only"]
+      TripleRJ: [17, "Triple ADC, regular and injected simultaneous mode"]
+      TripleRA: [18, "Triple ADC, regular and alternate trigger mode"]
+      TripleJ: [21, "Triple ADC, injected simultaneous mode only"]
+      TripleR: [22, "Triple ADC, regular simultaneous mode only"]
+      TripleI: [23, "Triple ADC, interleaved mode only"]
+      TripleA: [24, "Triple ADC, alternate trigger mode only"]
