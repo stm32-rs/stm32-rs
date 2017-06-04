@@ -1,0 +1,108 @@
+# DMA as used on F4 and F7
+
+"DMA?":
+  "[LH]ISR":
+    "TCIF?":
+      NotComplete: [0, "No transfer complete event on stream x"]
+      Complete: [1, "A transfer complete event occurred on stream x"]
+    "HTIF?":
+      NotHalf: [0, "No half transfer event on stream x"]
+      Half: [1, "A half transfer event occurred on stream x"]
+    "TEIF?":
+      NoError: [0, "No transfer error on stream x"]
+      Error: [1, "A transfer error occurred on stream x"]
+    "DMEIF?":
+      NoError: [0, "No Direct Mode error on stream x"]
+      Error: [1, "A Direct Mode error occurred on stream x"]
+    "FEIF?":
+      NoError: [0, "No FIFO error event on stream x"]
+      Error: [1, "A FIFO error event occurred on stream x"]
+  "[LH]IFCR":
+    "CTCIF?":
+      Clear: [1, "Clear the corresponding TCIFx flag"]
+    "CHTIF?":
+      Clear: [1, "Clear the corresponding HTIFx flag"]
+    "CTEIF?":
+      Clear: [1, "Clear the corresponding TEIFx flag"]
+    "CDMEIF?":
+      Clear: [1, "Clear the corresponding DMEIFx flag"]
+    "CFEIF?":
+      Clear: [1, "Clear the corresponding CFEIFx flag"]
+  "S?CR":
+    CHSEL: [0-7]
+    "[MP]BURST":
+      Single: [0, "Single transfer"]
+      INCR4: [1, "Incremental burst of 4 beats"]
+      INCR8: [2, "Incremental burst of 8 beats"]
+      INCR16: [3, "Incremental burst of 16 beats"]
+    CT:
+      Memory0: [0, "The current target memory is Memory 0"]
+      Memory1: [1, "The current target memory is Memory 1"]
+    DBM:
+      Disabled: [0, "No buffer switching at the end of transfer"]
+      Enabled: [1, "Memory target switched at the end of the DMA transfer"]
+    PL:
+      Low: [0, "Low"]
+      Medium: [1, "Medium"]
+      High: [2, "High"]
+      VeryHigh: [3, "Very high"]
+    PINCOS:
+      PSIZE: [0, "The offset size for the peripheral address calculation is linked to the PSIZE"]
+      Fixed4: [1, "The offset size for the peripheral address calculation is fixed to 4 (32-bit alignment)"]
+    "[MP]SIZE":
+      Byte: [0, "Byte (8-bit)"]
+      HalfWord: [1, "Half-word (16-bit)"]
+      Word: [2, "Word (32-bit)"]
+    "[MP]INC":
+      Fixed: [0, "Address pointer is fixed"]
+      Incremented: [1, "Address pointer is incremented after each data transfer"]
+    CIRC:
+      Disabled: [0, "Circular mode disabled"]
+      Enabled: [1, "Circular mode enabled"]
+    DIR:
+      PeripheralToMemory: [0, "Peripheral-to-memory"]
+      MemoryToPeripheral: [1, "Memory-to-peripheral"]
+      MemoryToMemory: [2, "Memory-to-memory"]
+    PFCTRL:
+      DMA: [0, "The DMA is the flow controller"]
+      Peripheral: [1, "The peripheral is the flow controller"]
+    TCIE:
+      Disabled: [0, "TC interrupt disabled"]
+      Enabled: [1, "TC interrupt enabled"]
+    HTIE:
+      Disabled: [0, "HT interrupt disabled"]
+      Enabled: [1, "HT interrupt enabled"]
+    TEIE:
+      Disabled: [0, "TE interrupt disabled"]
+      Enabled: [1, "TE interrupt enabled"]
+    DMEIE:
+      Disabled: [0, "DME interrupt disabled"]
+      Enabled: [1, "DME interrupt enabled"]
+    EN:
+      Disabled: [0, "Stream disabled"]
+      Enabled: [1, "Stream enabled"]
+  "S?NDTR":
+    NDT: [0-65535]
+  "S?PAR":
+    PAR: [0-4294967295]
+  "S?M?AR":
+    "M?A": [0-4294967295]
+  "S?FCR":
+    FEIE:
+      Disabled: [0, "FE interrupt disabled"]
+      Enabled: [1, "FE interrupt enabled"]
+    FS:
+      FirstQuarter: [0, "0 < fifo_level < 1/4"]
+      SecondQuarter: [1, "1/4 <= fifo_level < 1/2"]
+      ThirdQuarter: [2, "1/2 <= fifo_level < 3/4"]
+      FourthQuarter: [3, "3/4 <= fifo_level < full"]
+      Empty: [4, "FIFO is empty"]
+      Full: [5, "FIFO is full"]
+    DMDIS:
+      Enabled: [0, "Direct mode is enabled"]
+      Disabled: [1, "Direct mode is disabled"]
+    FTH:
+      Quarter: [0, "1/4 full FIFO"]
+      Half: [1, "1/2 full FIFO"]
+      ThreeQuarters: [2, "3/4 full FIFO"]
+      Full: [3, "Full FIFO"]
