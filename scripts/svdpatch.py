@@ -171,13 +171,14 @@ def process_device_add(device, pname, padd):
     parent = device.find('peripherals')
     pnew = ET.SubElement(parent, 'peripheral')
     ET.SubElement(pnew, 'name').text = pname
+    ET.SubElement(pnew, 'registers')
     for (key, value) in padd.items():
         if key == "registers":
             for rname in value:
                 process_peripheral_add(pnew, rname, value[rname])
         elif key == "addressBlock":
             ab = ET.SubElement(pnew, 'addressBlock')
-            for (ab_key, ab_value) in value:
+            for (ab_key, ab_value) in value.items():
                 ET.SubElement(ab, ab_key).text = str(ab_value)
         else:
             ET.SubElement(pnew, key).text = str(value)
@@ -188,6 +189,7 @@ def process_peripheral_add(ptag, rname, radd):
     parent = ptag.find('registers')
     rnew = ET.SubElement(parent, 'register')
     ET.SubElement(rnew, 'name').text = rname
+    ET.SubElement(rnew, 'fields')
     for (key, value) in radd.items():
         if key == "fields":
             for fname in value:
@@ -364,7 +366,7 @@ def main():
     # Handle any new peripherals (!)
     for pname in root.get("_add", []):
         padd = root["_add"][pname]
-        process_device_add(root, pname, padd)
+        process_device_add(svd, pname, padd)
 
     # Now process all peripherals
     for periphspec in root:

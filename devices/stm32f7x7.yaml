@@ -1,10 +1,156 @@
 _svd: ../svd/stm32f7x7.svd
 
+_add:
+  # This SVD is missing the ADC_Common peripheral that most other parts with
+  # this ADC contain; consequently it's missing the CSR and CCR and CDR regs
+  # from RM0410.
+  ADC_Common:
+    description: ADC common registers
+    groupName: ADC
+    baseAddress: 0x40012300
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+    registers:
+      CSR:
+        description: ADC common status register
+        addressOffset: 0x0
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          OVR3:
+            description: Overrun flag of ADC3
+            bitOffset: 21
+            bitWidth: 1
+          STRT3:
+            description: Regular channel Start flag of ADC3
+            bitOffset: 20
+            bitWidth: 1
+          JSTRT3:
+            description: Injected channel Start flag of ADC3
+            bitOffset: 19
+            bitWidth: 1
+          JEOC3:
+            description: Injected channel end of conversion of ADC3
+            bitOffset: 18
+            bitWidth: 1
+          EOC3:
+            description: End of conversion of ADC3
+            bitOffset: 17
+            bitWidth: 1
+          AWD3:
+            description: Analog watchdog flag of ADC3
+            bitOffset: 16
+            bitWidth: 1
+
+          OVR2:
+            description: Overrun flag of ADC2
+            bitOffset: 13
+            bitWidth: 1
+          STRT2:
+            description: Regular channel Start flag of ADC2
+            bitOffset: 12
+            bitWidth: 1
+          JSTRT2:
+            description: Injected channel Start flag of ADC2
+            bitOffset: 11
+            bitWidth: 1
+          JEOC2:
+            description: Injected channel end of conversion of ADC2
+            bitOffset: 10
+            bitWidth: 1
+          EOC2:
+            description: End of conversion of ADC2
+            bitOffset: 9
+            bitWidth: 1
+          AWD2:
+            description: Analog watchdog flag of ADC2
+            bitOffset: 8
+            bitWidth: 1
+
+          OVR1:
+            description: Overrun flag of ADC1
+            bitOffset: 5
+            bitWidth: 1
+          STRT1:
+            description: Regular channel Start flag of ADC1
+            bitOffset: 4
+            bitWidth: 1
+          JSTRT1:
+            description: Injected channel Start flag of ADC1
+            bitOffset: 3
+            bitWidth: 1
+          JEOC1:
+            description: Injected channel end of conversion of ADC1
+            bitOffset: 2
+            bitWidth: 1
+          EOC1:
+            description: End of conversion of ADC1
+            bitOffset: 1
+            bitWidth: 1
+          AWD1:
+            description: Analog watchdog flag of ADC1
+            bitOffset: 0
+            bitWidth: 1
+
+      CCR:
+        description: ADC common control register
+        addressOffset: 0x04
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          TSVREFE:
+            description: Temperature sensor and V_REFINT enable
+            bitOffset: 23
+            bitWidth: 1
+          VBATE:
+            description: V_BAT enable
+            bitOffset: 22
+            bitWidth: 1
+          ADCPRE:
+            description: ADC prescaler
+            bitOffset: 16
+            bitWidth: 2
+          DMA:
+            description: Direct memory access mode for multi ADC mode
+            bitOffset: 14
+            bitWidth: 2
+          DDS:
+            description: DMA disable selection (for multi-ADC mode)
+            bitOffset: 13
+            bitWidth: 1
+          DELAY:
+            description: Delay between 2 sampling phases
+            bitOffset: 8
+            bitWidth: 4
+          MULTI:
+            description: Multi ADC mode selection
+            bitOffset: 0
+            bitWidth: 4
+
+      CDR:
+        description: ADC common regular data register for dual and triple modes
+        addressOffset: 0x08
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          DATA2:
+            description: 2nd data item of a pair of regular conversions
+            bitOffset: 16
+            bitWidth: 16
+          DATA1:
+            description: 1st data item of a pair of regular conversions
+            bitOffset: 0
+            bitWidth: 0
+
+
+
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
     GPIOB_OSPEEDR:
       name: OSPEEDR
+
 RCC:
   # Add the LSEDRV that's not in the SVD but is in RM0410
   BDCR:

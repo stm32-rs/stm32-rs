@@ -159,9 +159,9 @@ _add:
         _add:
             NEWFIELD:
               description: DESCRIPTION
-              bitOffset: BITOFFSET
-              bitWidth: BITWIDTH
-              access: ACCESS
+              bitOffset: 12
+              bitWidth: 4
+              access: read-write
 
         # Often fields that should be one contiguous integer are specified
         # as a number of individual bits instead. This merges any matching
