@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>STM32 Family Tree</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class=container id=root>
+</div>
+
+<script>
+function render_peripheral(peripheral, data) {
+  var root = document.getElementById("root");
+
+  // Make a new panel for this peripheral
+  var panel = document.createElement("div");
+  panel.className = "panel panel-default";
+
+  // Make the header
+  var phead = document.createElement("div");
+  phead.className = "panel-heading";
+  pa = document.createElement("a");
+  pa.name = peripheral;
+  pa.href = "#" + peripheral;
+  pa.innerText = peripheral;
+  ph2 = document.createElement("h2");
+  ph2.className = "panel-title";
+  ph2.appendChild(pa);
+  phead.appendChild(ph2);
+  panel.appendChild(phead);
+
+  // Now make all the nested children
+  var child_container = document.createElement("div");
+  child_container.className = "panel-body";
+  insert_children(child_container, data);
+  panel.appendChild(child_container);
+
+  root.appendChild(panel);
+};
+
+function insert_children(container, data) {
+  for (child in data) {
+    var panel = document.createElement("div");
+    panel.className = "panel panel-default";
+    var fields = child.split(",");
+    for (idx in fields) {
+      var fp = document.createElement("p");
+      fp.innerText = fields[idx];
+      panel.appendChild(fp);
+    }
+    if (Object.prototype.toString.call(data[child]) === "[object Object]") {
+      insert_children(panel, data[child]);
+    } else {
+      for (idx in data[child]) {
+        var pdev = document.createElement("p");
+        pdev.innerText = data[child][idx];
+        panel.appendChild(pdev);
+      }
+    }
+    container.appendChild(panel);
+  }
+}
+
+var req = new XMLHttpRequest();
+req.onreadystatechange = function () {
+  if (req.readyState == 4 && req.status == 200) {
+    var data = JSON.parse(req.responseText);
+    for (peripheral in data) {
+      render_peripheral(peripheral, data[peripheral]);
+    }
+  }
+}
+req.open("GET", "groups.json", true);
+req.send();
+
+</script>
+
+</body>
