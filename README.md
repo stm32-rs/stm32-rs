@@ -11,9 +11,9 @@ that device family.
 possible chip yet! While they're all generated from ST-provided SVD files,
 we can't make any guarantee of correctness. Please report any bugs you find!**
 
-## Prerquirements
+## Prerequirement
 Make sure that you use latest rustfmt. First remove installed rustfmt by 
-`cargo uninstall rustfmt'
+`cargo uninstall rustfmt`
 Install rustfmt via rustup
 `rustup component add rustfmt-preview`
 
