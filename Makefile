@@ -22,43 +22,43 @@ svd/%.svd.patched: devices/%.yaml svd/%.svd
 # Please let me know if there's a better way to do this...
 stm32f0/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32f1/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32f2/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32f3/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32f4/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32f7/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32l0/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32l1/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32l4/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 stm32h7/src/stm32%.rs: svd/stm32%.svd.patched
 	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,2d' $@
+	sed -i '1,3d;5,11d;13,16d;21s/interrupt/self::interrupt/' $@
 
 patch: $(PATCHED_SVDS)
 

@@ -144,6 +144,10 @@ _add:
             bitWidth: 16
 
 
+_modify:
+  # Fix typo in the name of the LTDC peripheral
+  "LTCD":
+    name: "LTDC"
 
 "GPIO*":
   _modify:
@@ -160,6 +164,18 @@ RCC:
         bitOffset: 3
         bitWidth: 2
         access: read-write
+  AHB1ENR:
+    _add:
+      DTCMRAMEN:
+        description: DTCM data RAM clock enable
+        bitOffset: 20
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      MDIOEN:
+        description: MDIO clock enable
+        bitOffset: 30
+        bitWidth: 1
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
@@ -192,4 +208,5 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
+ - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/dma/dma_v2.yaml

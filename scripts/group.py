@@ -69,7 +69,7 @@ def main(devices, output):
                 if field != field2 and devices == devices2:
                     merged_key.append(field2)
                     skip_fields.add(field2)
-            merged_fields[pname][",".join(merged_key)] = devices
+            merged_fields[pname][",".join(sorted(merged_key))] = devices
 
     print("Stage 3: Building tree of subsets")
     field_tree = {}

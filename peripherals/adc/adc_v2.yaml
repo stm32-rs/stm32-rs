@@ -23,7 +23,7 @@
   CR1:
     OVRIE:
       Disabled: [0, "Overrun interrupt disabled"]
-      EnableD: [1, "Overrun interrupt enabled"]
+      Enabled: [1, "Overrun interrupt enabled"]
     RES:
       TwelveBit: [0, "12-bit (15 ADCCLK cycles)"]
       TenBit: [1, "10-bit (13 ADCCLK cycles)"]
@@ -50,7 +50,7 @@
       SingleChannel: [1, "Analog watchdog enabled on a single channel"]
     SCAN:
       Disabled: [0, "Scan mode disabled"]
-      EnableD: [1, "Scan mode enabled"]
+      Enabled: [1, "Scan mode enabled"]
     JEOCIE:
       Disabled: [0, "JEOC interrupt disabled"]
       Enabled: [1, "JEOC interrupt enabled"]

@@ -66,19 +66,19 @@ RCC:
       Reset: [1, "Reset the selected module"]
   "A?B?ENR":
     "*EN":
-      Disable: [0, "Disable the selected clock"]
-      Enable: [1, "Enable the selected clock"]
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
   "A?B?LPENR":
     "*LPEN":
-      DisableInSleep: [0, "Selected module is disabled during Sleep mode"]
-      EnableInSleep: [1, "Selected module is enabled during Sleep mode"]
+      DisabledInSleep: [0, "Selected module is disabled during Sleep mode"]
+      EnabledInSleep: [1, "Selected module is enabled during Sleep mode"]
   BDCR:
     _merge: ["RTCSEL[01]"]
     BDRST:
       Reset: [1, "Resets the entire Backup domain"]
     RTCEN:
-      Disable: [0, "RTC clock disabled"]
-      Enable: [1, "RTC clock enabled"]
+      Disabled: [0, "RTC clock disabled"]
+      Enabled: [1, "RTC clock enabled"]
     RTCSEL:
       NoClock: [0, "No clock"]
       LSE: [1, "LSE oscillator clock used as the RTC clock"]
@@ -92,5 +92,5 @@ RCC:
       Ready: [1, "LSE clock ready"]
       _usage: read
     LSEON:
-      Disable: [0, "LSE clock OFF"]
-      Enable: [1, "LSE clock ON"]
+      Disabled: [0, "LSE clock OFF"]
+      Enabled: [1, "LSE clock ON"]

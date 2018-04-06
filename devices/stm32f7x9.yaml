@@ -143,6 +143,13 @@ _add:
             bitOffset: 0
             bitWidth: 16
 
+
+_modify:
+  # Fix typo in the name of the LTDC peripheral
+  "LTCD":
+    name: "LTDC"
+
+
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.

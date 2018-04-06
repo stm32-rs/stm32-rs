@@ -2,7 +2,7 @@
 name = "stm32f4"
 version = "0.1.0"
 authors = ["Adam Greig <adam@adamgreig.com>"]
-description = "Support crates for STM32F4 devices"
+description = "Device support crates for STM32F4 devices"
 repository = "https://github.com/adamgreig/stm32-rs"
 readme = "README.md"
 keywords = ["stm32", "svd2rust", "no_std", "embedded"]
@@ -10,11 +10,14 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-cortex-m = "0.2.7"
+bare-metal = "0.1.1"
 vcell = "0.1.0"
+cortex-m = "0.4.3"
+cortex-m-rt = "0.3.14"
 
 [features]
 default = []
+rt = []
 stm32f401 = []
 stm32f405 = []
 stm32f407 = []

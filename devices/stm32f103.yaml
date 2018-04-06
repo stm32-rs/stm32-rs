@@ -1,4 +1,15 @@
 _svd: ../svd/stm32f103.svd
 
+_modify:
+  # Fix case on Ethernet peripherals to match other devices
+  ETHERNET_DMA:
+    name: Ethernet_DMA
+  ETHERNET_MAC:
+    name: Ethernet_MAC
+  ETHERNET_MMC:
+    name: Ethernet_MMC
+  ETHERNET_PTP:
+    name: Ethernet_PTP
+
 _include:
  - ../peripherals/crc/crc_basic.yaml

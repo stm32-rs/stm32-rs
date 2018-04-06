@@ -1,0 +1,45 @@
+# The most common features, found on Basic timers TIM6 and TIM7,
+# and found on all more advanced timers.
+
+"TIM*":
+  CR1:
+    APRE:
+      Disabled: [0, "TIMx_APRR register is not buffered"]
+      Enabled: [1, "TIMx_APRR register is buffered"]
+    OPM:
+      Disabled: [0, "Counter is not stopped at update event"]
+      Enabled: [1, "Counter stops counting at the next update event (clearing the CEN bit)"]
+    URS:
+      AnyEvent: [0, "Any of counter overflow/underflow, setting UG, or update through slave mode, generates an update interrupt or DMA request"]
+      CounterOnly: [1, "Only counter overflow/underflow generates an update interrupt or DMA request"]
+    UDIS:
+      Enabled: [0, "Update event enabled"]
+      Disabled: [1, "Update event disabled"]
+    CEN:
+      Disabled: [0, "Counter disabled"]
+      Enabled: [1, "Counter enabled"]
+  CR2:
+    MMS:
+      Reset: [0, "The UG bit from the TIMx_EGR register is used as a trigger output"]
+      Enable: [1, "The counter enable signal, CNT_EN, is used as a trigger output"]
+      Update: [2, "The update event is selected as a trigger output"]
+  DIER:
+    UDE:
+      Disabled: [0, "Update DMA request disabled"]
+      Enabled: [1, "Update DMA request enabled"]
+    UIE:
+      Disabled: [0, "Update interrupt disabled"]
+      Enabled: [1, "Update interrupt enabled"]
+  SR:
+    UIF:
+      Clear: [0, "No update occurred"]
+      UpdatePending: [1, "Update interrupt pending."]
+  EGR:
+    UG:
+      Update: [1, "Re-initializes the timer counter and generates an update of the reigsters."]
+  CNT:
+    CNT: [0-65535]
+  PSC:
+    PSC: [0-65535]
+  ARR:
+    ARR: [0-65535]
