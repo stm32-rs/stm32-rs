@@ -35,7 +35,7 @@
     JAWDEN:
       Disabled: [0, "Analog watchdog disabled on injected channels"]
       Enabled: [1, "Analog watchdog enabled on injected channels"]
-    DISCNUM: [0-7]
+    DISCNUM: [0, 7]
     JDISCEN:
       Disabled: [0, "Discontinuous mode on injected channels disabled"]
       Enabled: [1, "Discontinuous mode on injected channels enabled"]
@@ -60,7 +60,7 @@
     EOCIE:
       Disabled: [0, "EOC interrupt disabled"]
       Enabled: [1, "EOC interrupt enabled"]
-    AWDCH: [0-18]
+    AWDCH: [0, 18]
   CR2:
     SWSTART:
       Start: [1, "Starts conversion of regular channels"]
@@ -130,19 +130,19 @@
       Cycles144: [6, "144 cycles"]
       Cycles480: [7, "480 cycles"]
   "JOFR?":
-    "JOFFSET?": [0-4095]
+    "JOFFSET?": [0, 4095]
   HTR:
-    HT: [0-4095]
+    HT: [0, 4095]
   LTR:
-    LT: [0-4095]
+    LT: [0, 4095]
   SQR1:
-    L: [0-15]
-    "SQ*": [0-18]
+    L: [0, 15]
+    "SQ*": [0, 18]
   "SQR?":
-    "SQ*": [0-18]
+    "SQ*": [0, 18]
   JSQR:
-    JL: [0-3]
-    "JSQ?": [0-18]
+    JL: [0, 3]
+    "JSQ?": [0, 18]
 
 ADC_Common:
   CCR:

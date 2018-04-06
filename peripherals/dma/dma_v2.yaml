@@ -29,7 +29,7 @@
     "CFEIF?":
       Clear: [1, "Clear the corresponding CFEIFx flag"]
   "S?CR":
-    CHSEL: [0-7]
+    CHSEL: [0, 7]
     "[MP]BURST":
       Single: [0, "Single transfer"]
       INCR4: [1, "Incremental burst of 4 beats"]
@@ -82,11 +82,11 @@
       Disabled: [0, "Stream disabled"]
       Enabled: [1, "Stream enabled"]
   "S?NDTR":
-    NDT: [0-65535]
+    NDT: [0, 65535]
   "S?PAR":
-    PAR: [0-4294967295]
+    PA: [0, 4294967295]
   "S?M?AR":
-    "M?A": [0-4294967295]
+    "M?A": [0, 4294967295]
   "S?FCR":
     FEIE:
       Disabled: [0, "FE interrupt disabled"]

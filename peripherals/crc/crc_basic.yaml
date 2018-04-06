@@ -4,9 +4,9 @@
 
 CRC:
   DR:
-    DR: [0-4294967295]
+    DR: [0, 4294967295]
   IDR:
-    IDR: [0-255]
+    IDR: [0, 255]
   CR:
     RESET:
       Reset: [1, "Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF"]

@@ -36,7 +36,7 @@ ADC_Common:
     DDS:
       Single: [0, "No new DMA request is issued after the last transfer"]
       Continuous: [1, "DMA requests are issued as long as data are converted and DMA=01, 10 or 11"]
-    DELAY: [0-15]
+    DELAY: [0, 15]
     MULTI:
       Independent: [0, "All the ADCs independent: independent mode"]
       DualRJ: [1, "Dual ADC1 and ADC2, combined regular and injected simultaneous mode"]

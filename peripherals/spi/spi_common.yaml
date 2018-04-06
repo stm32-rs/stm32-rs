@@ -102,9 +102,9 @@
       Empty: [0, "Rx buffer empty"]
       NotEmpty: [1, "Rx buffer not empty"]
   DR:
-    DR: [0-65535]
+    DR: [0, 65535]
   CRCPR:
-    CRCPOLY: [0-65535]
+    CRCPOLY: [0, 65535]
   I2SCFGR:
     I2SMOD:
       SPIMode: [0, "SPI mode is selected"]
@@ -142,5 +142,5 @@
     ODD:
       Even: [0, "Real divider value is I2SDIV * 2"]
       Odd: [1, "Real divider value is (I2SDIV * 2) + 1"]
-    I2SDiv: [2-255]
+    I2SDIV: [2, 255]
 
