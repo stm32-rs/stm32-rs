@@ -1,5 +1,17 @@
 _svd: ../svd/stm32l151.svd
 
+CRC:
+  DR:
+    # The SVD calls the DR field "Data_register"
+    _modify:
+      Data_register:
+        name: DR
+  IDR:
+    # The SVD calls the IDR field "Independet_data_register"
+    _modify:
+      Independent_data_register:
+        name: IDR
+
 _include:
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
