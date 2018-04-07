@@ -13,6 +13,16 @@ _modify:
       TIFRFE:
         name: "FRE"
 
+"TIM1[01]":
+  CR1:
+    _add:
+      # This field is missing from TIM10 and TIM11 compared to RM0090
+      OPM:
+        description: One-pulse mode
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -30,3 +40,4 @@ _include:
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
+ - ../peripherals/tim/tim_basic.yaml
