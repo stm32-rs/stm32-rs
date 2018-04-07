@@ -47,6 +47,21 @@
   DMATDLAR:
     STL: [0, 0xFFFFFFFF]
 
+  DMASR:
+    TPS:
+      Stopped: [0, "Stopped, Reset or Stop Transmit command issued"]
+      RunningFetching: [1, "Running, fetching transmit transfer descriptor"]
+      RunningWaiting: [2, "Running, waiting for status"]
+      RunningReading: [3, "Running, reading data from host memory buffer"]
+      Suspended: [6, "Suspended, transmit descriptor unavailable or transmit buffer underflow"]
+      Running: [7, "Running, closing transmit descriptor"]
+    RPS:
+      Stopped: [0, "Stopped, reset or Stop Receive command issued"]
+      RunningFetching: [1, "Running, fetching receive transfer descriptor"]
+      RunningWaiting: [3, "Running, waiting for receive packet"]
+      Suspended: [4, "Suspended, receive descriptor unavailable"]
+      RunningWriting: [7, "Running, writing data to host memory buffer"]
+
   DMAOMR:
     DTCEFD:
       Enabled: [0, "Drop frames with errors only in the receive checksum offload engine"]
