@@ -1,5 +1,17 @@
 _svd: ../svd/stm32f107.svd
 
+# Merge the thousands of individal bit fields into a single field for each
+# CAN filter register. This is not only much easier to use but also saves
+# a huge amount of filespace and compilation time etc -- as much as 30% of all
+# fields in many devices are just these CAN filter bank fields.
+CAN1:
+  "F?R?":
+    _merge:
+      - "FB*"
+  "F??R?":
+    _merge:
+      - "FB*"
+
 _modify:
   # Fix case on Ethernet peripherals to match other devices
   ETHERNET_DMA:
