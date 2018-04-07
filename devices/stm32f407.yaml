@@ -45,6 +45,7 @@ Ethernet_MAC:
 Ethernet_DMA:
   DMABMR:
     _modify:
+      # This field is named incorrectly in the SVD compared to the RM
       RTPR:
         name: PM
 

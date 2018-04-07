@@ -189,6 +189,32 @@ CRC:
         bitWidth: 2
         access: read-write
 
+Ethernet_MAC:
+  # All these fields are named incorrectly in the SVD compared to RM0090
+  MACA1LR:
+    _modify:
+      MACA1LR:
+        name: MACA1L
+  MACA2HR:
+    _modify:
+      MAC2AH:
+        name: MACA2H
+  MACA2LR:
+    _modify:
+      MACA2L:
+        bitWidth: 32
+  MACA3LR:
+    _modify:
+      MBCA3L:
+        name: MACA3L
+
+Ethernet_DMA:
+  DMABMR:
+    _modify:
+      # This field is named incorrectly in the SVD compared to the RM
+      RTPR:
+        name: PM
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -220,3 +246,6 @@ _include:
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/eth/eth_dma.yaml
+ - ../peripherals/eth/eth_mmc.yaml
+ - ../peripherals/eth/eth_mac.yaml
