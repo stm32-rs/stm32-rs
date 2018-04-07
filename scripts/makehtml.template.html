@@ -133,6 +133,7 @@
                     <tr>
                       {% for field in row.fields %}
                       <td colspan={{ field.width }}>
+                        {% if field.name %}
                         <a class=fieldlink href="#{{ pname }}:{{ register.name }}:{{ field.name }}">
                         {% if field.doc %}
                         <span class=doccol>
@@ -140,6 +141,7 @@
                         <span>
                         {% endif %}
                         {{ field.name }}</span></a>
+                        {% endif %}
                       </td>
                       {% endfor %}
                     </tr>

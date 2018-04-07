@@ -69,7 +69,7 @@ def parse_device(svdfile):
                 enum = ftag.find('enumeratedValues')
                 wc = ftag.find('writeConstraint')
                 doc = False
-                if enum is not None or wc is not None:
+                if enum is not None or wc is not None or raccs == "read-only":
                     register_fields_documented += 1
                     if enum is not None:
                         doc = "Allowed values:<br>"
@@ -96,51 +96,25 @@ def parse_device(svdfile):
                 fields[foffset] = {"name": fname, "offset": foffset,
                                    "width": fwidth, "description": fdesc,
                                    "doc": doc}
-            # table is four lists, one for each byte of a register,
-            # containing field dicts for each row sorted in reverse offset
-            # order, with dicts with blank names inserted in between.
-            table = [[], []]
+            table = [[{"name": "", "width": 1, "doc": False}
+                      for _ in range(16)] for _ in range(2)]
             for foffset in reversed(sorted(fields.keys())):
-                # determine which row to insert into
                 fwidth = fields[foffset]['width']
-                trowidx = (31 - foffset)//16
-                trow = table[trowidx]
-                trowtop = ((foffset//16) * 16) + 15
-                # check the gap to the previous entry (or start of row)
-                if trow:
-                    gap = trow[-1]['offset'] - (foffset + fwidth)
-                else:
-                    gap = trowtop - (foffset + fwidth) + 1
-                # insert a blank if there is a gap
-                if gap > 0:
-                    offset = trowtop - gap
-                    trow.append(
-                        {"name": "", "width": gap, "offset": offset})
-                # add this field to table
-                trow.append(dict(fields[foffset]))
-                # check if this field must be split over the rows
-                if gap < 0:
-                    table[0].append(dict(fields[foffset]))
-                    table[0][-1]['width'] = -gap
-                    table[1][-1]['width'] += gap
-                    table[0][-1]['offset'] += table[1][-1]['width']
-            for trowidx, trow in enumerate(table):
-                offset = trowidx * 16
-                # insert a long blank to an empty row
-                if not trow:
-                    trow.append(
-                        {"name": "", "width": 16, "offset": offset})
-                # insert a trailing blank to a row that ends with a gap
-                if trow[-1]['offset'] % 16 != 0:
-                    gap = trow[-1]['offset'] % 16
-                    trow.append({"name": "", "width": gap, "offset": offset})
-                # insert a leading blank to a row that starts with a gap
-                # (only a problem when a field is split into two and added
-                # to the top row but no other fields are on the top row)
-                if (trow[0]['offset'] + trow[0]['width']) % 16 != 0:
-                    gap = 16 - (trow[0]['offset'] + trow[0]['width']) % 16
-                    trow.insert(0,
-                                {"name": "", "width": gap, "offset": offset})
+                fname = fields[foffset]['name']
+                fdoc = bool(fields[foffset]['doc'])
+                for idx in range(foffset, foffset + fwidth):
+                    trowidx = (31 - idx)//16
+                    tcolidx = 15 - (idx % 16)
+                    table[trowidx][tcolidx]['name'] = fname
+                    table[trowidx][tcolidx]['doc'] = fdoc
+            for trow in table:
+                idx = 0
+                while idx < len(trow)-1:
+                    if trow[idx]['name'] == trow[idx+1]['name']:
+                        trow[idx]['width'] += 1
+                        del trow[idx+1]
+                        continue
+                    idx += 1
             table = [
                 {"headers": reversed(list(range(16, 32))), "fields": table[0]},
                 {"headers": reversed(list(range(0, 16))), "fields": table[1]}]
