@@ -3,9 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name=viewport content="width=device-width, initial-scale=1">
-<title>{{ device.name }}</title>
+<title>{{ device.name }} Peripheral Coverage</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<style>
+.peripheral {
+  border-radius: 3px;
+  border: solid 1px #eee;
+  margin-bottom: 5px;
+}
+.register {
+  border-radius: 3px;
+  border: solid 1px #eee;
+  margin-bottom: 3px;
+}
+.field {
+  border-radius: 3px;
+  border: solid 1px #eee;
+  margin-bottom: 3px;
+}
+.registers {
+  display: none;
+}
+.bitfield td {
+  text-align: center;
+}
+.doccol {
+  color: rgb(92, 184, 92);
+}
+.headerlink {
+  font-size: 50%;
+}
+.fields {
+  display: none;
+}
+</style>
 </head>
 
 <body>
@@ -13,7 +45,13 @@
 <nav class="navbar navbar-inverse">
   <div class=container>
     <div class=navbar-header>
-      <a class=navbar-brand href=#>{{ device.name }}</a>
+      <a class=navbar-brand href=#>{{ device.name }} Peripheral Coverage</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href=# id=show-all-registers>Show All Registers</a></li>
+        <li><a href=# id=hide-all-registers>Hide All Registers</a></li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -21,38 +59,173 @@
 <div class=container>
   <div class=row>
     <div class=col-sm-12>
+      <div>
+        Overall: {{ device.fields_documented }}/{{ device.fields_total }}
+        fields covered
+      </div>
       <div class=progress>
         {% set width = (100 * device.fields_documented) / device.fields_total %}
         <div class="progress-bar progress-bar-success" style="width: {{ width }}%">
         </div>
       </div>
-      <div>
-        {{ device.fields_documented }}/{{ device.fields_total }} fields
-        documented
-      </div>
     </div>
   </div>
   <div class=row>
-    <div class=col-sm-8>
-      <div class=list-group>
-        {% for name, peripheral in device.peripherals|dictsort %}
-          <a href=# class=list-group-item>
-            <h4 class=list-group-item-heading>{{ name }}</h4>
+    <div class=col-sm-1></div>
+    <div class=col-sm-9>
+    </div>
+  </div>
+  {% for pname, peripheral in device.peripherals|dictsort %}
+  <div class=row>
+    <div class="col-sm-12 peripheral">
+      <h3>
+        <a name="{{ pname }}"></a>
+        {{ pname }}
+        <a class=headerlink href="#{{ pname }}">
+          <span class="glyphicon glyphicon-link"></span>
+        </a>
+      </h3>
+      <p>{{ peripheral.base }}: {{ peripheral.description }}</p>
+      <div class=progress>
+        {% set pwidth = (100 * peripheral.fields_documented) / peripheral.fields_total %}
+        <div class="progress-bar progress-bar-success" style="width: {{ pwidth }}%"></div>
+      </div>
+      <p>
+        <em>
+          {{ peripheral.fields_documented }}/{{peripheral.fields_total }}
+          fields covered.
+        </em>
+        <a class=toggle-registers href=#>Toggle Registers</a>.
+      </p>
+      <div class="container registers" id="{{ pname }}-registers">
+        {% for roffset, register in peripheral.registers|dictsort %}
+        <div class=row>
+          <div class="col-sm-11 register">
+            <h4>
+              <a name="{{ pname }}:{{ register.name }}"></a>
+              {{ register.name }}
+              <a class=headerlink href="#{{ pname }}:{{ register.name }}">
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h4>
+            <p>{{ register.description }}</p>
+            <p>Offset: {{ register.offset }}, reset: {{ register.resetValue }}, access: {{ register.access }}</p>
             <div class=progress>
-              {% set width = (100 * peripheral.fields_documented) / peripheral.fields_total %}
-              <div class="progress-bar progress-bar-success" style="width: {{ width }}%">
-              </div>
+              {% set rwidth = (100 * register.fields_documented) / register.fields_total %}
+              <div class="progress-bar progress-bar-success" style="width: {{ rwidth }}%"></div>
             </div>
             <p>
-              {{ peripheral.fields_documented }}/{{peripheral.fields_total }}
-              fields documented
+              <em>
+                {{ register.fields_documented}}/{{ register.fields_total }}
+                fields covered.
+              </em>
             </p>
-          </a>
+            <div class="container bitfield">
+              <div class=row>
+                <div class=col-sm-10>
+                  <table class="table table-striped table-bordered bitfield">
+                    {% for row in register.table %}
+                    <tr>
+                      {% for header in row.headers %}
+                      <th>{{ header }}</th>
+                      {% endfor %}
+                    </tr>
+                    <tr>
+                      {% for field in row.fields %}
+                      <td colspan={{ field.width }}>
+                        <a class=fieldlink href="#{{ pname }}:{{ register.name }}:{{ field.name }}">
+                        {% if field.doc %}
+                        <span class=doccol>
+                        {% else %}
+                        <span>
+                        {% endif %}
+                        {{ field.name }}</span></a>
+                      </td>
+                      {% endfor %}
+                    </tr>
+                    {% endfor %}
+                  </table>
+                  <a href=# class=toggle-fields>Toggle Fields</a>.
+                </div>
+              </div>
+            </div>
+            <div class="container fields" id="{{ pname }}-{{ register.name }}-fields">
+              {% for foffset, field in register.fields|dictsort %}
+              <div class=row>
+                <div class=col-sm-10>
+                  <h4>
+                    <a name="{{ pname }}:{{ register.name }}:{{ field.name }}">
+                    </a>
+                    {{ field.name }}
+                    <a class=headerlink href="#{{ pname }}:{{ register.name }}:{{ field.name }}">
+                      <span class="glyphicon glyphicon-link"></span>
+                    </a>
+                  </h4>
+                  <p>
+                    {% if field.width > 1 %}
+                      Bits {{ field.offset }}-{{ field.offset + field.width }}:
+                    {% else %}
+                      Bit {{ field.offset }}:
+                    {% endif %}
+                    {{ field.description }}.</p>
+                  {% if field.doc %}
+                  <p>{{ field.doc }}</p>
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
         {% endfor %}
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+  $('.toggle-registers').click(function(e) {
+    $(this).parent().siblings(".registers").toggle();
+    e.preventDefault();
+  });
+  $('#show-all-registers').click(function(e) {
+    $('.registers').show();
+    e.preventDefault();
+  });
+  $('#hide-all-registers').click(function(e) {
+    $('.registers').hide();
+    e.preventDefault();
+  });
+  $('.fieldlink').click(function(e) {
+    $(this).parents(".container").first().siblings(".fields").show();
+  });
+  $('.toggle-fields').click(function(e) {
+    $(this).parents(".container").first().siblings(".fields").toggle();
+    e.preventDefault();
+  });
+  if(window.location.hash && window.location.hash.includes(":")) {
+    var hash = window.location.hash;
+    var parts = hash.substr(1).split(":");
+    var peripheral = parts[0];
+    var register = parts[1];
+    $('#' + peripheral + '-registers').show(0, function() {
+      if(parts.length == 3) {
+        console.log("parts.length == 3");
+        $('#' + peripheral + '-' + register + '-fields').show(0, function() {
+          window.location.hash = hash;
+        });
+      } else {
+        window.location.hash = hash;
+      }
+    });
+  }
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
 </body>

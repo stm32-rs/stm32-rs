@@ -10,10 +10,9 @@ peripheral and register and their level of coverage.
 import os.path
 import argparse
 import xml.etree.ElementTree as ET
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader
 
-env = Environment(loader=PackageLoader('makehtml', ''),
-                  autoescape=select_autoescape(['html']))
+env = Environment(loader=PackageLoader('makehtml', ''))
 
 
 def generate_device_page(device):
@@ -34,9 +33,14 @@ def parse_device(svdfile):
         pname = ptag.find('name').text
         pbase = ptag.find('baseAddress').text
         if 'derivedFrom' in ptag.attrib:
-            # peripherals[pname] = {"name": pname, "base": pbase}
-            # peripherals[pname]["derivedFrom"] = ptag.attrib["derivedFrom"]
-            continue
+            dfname = ptag.attrib['derivedFrom']
+            dffrom = tree.findall(".//peripheral/[name='" + dfname + "']")
+            if dffrom:
+                ptag = dffrom[0]
+            else:
+                print("Can't find derivedFrom={} for {}"
+                      .format(dfname, pname))
+                continue
         pdesc = ptag.find('description').text
         for rtag in ptag.iter('register'):
             fields = {}
@@ -58,16 +62,90 @@ def parse_device(svdfile):
                 foffset = int(ftag.find('bitOffset').text)
                 fwidth = int(ftag.find('bitWidth').text)
                 enum = ftag.find('enumeratedValues')
-                if enum is not None:
+                wc = ftag.find('writeConstraint')
+                doc = False
+                if enum is not None or wc is not None:
                     register_fields_documented += 1
-                fields[fname] = {"name": fname, "offset": foffset,
-                                 "width": fwidth, "description": fdesc}
-            registers[rname] = {"name": rname, "offset": roffset,
-                                "description": rdesc, "resetValue": rrstv,
-                                "access": raccs, "fields": fields,
-                                "fields_total": register_fields_total,
-                                "fields_documented":
-                                    register_fields_documented}
+                    if enum is not None:
+                        doc = "Allowed values:<br>"
+                        if 'derivedFrom' in enum.attrib:
+                            dfname = enum.attrib['derivedFrom']
+                            dffrom = rtag.findall(
+                                ".//enumeratedValues/[name='" + dfname + "']")
+                            if dffrom:
+                                enum = dffrom[0]
+                        for value in enum.iter('enumeratedValue'):
+                            doc += "<strong>"
+                            doc += value.find('value').text
+                            doc += ": "
+                            doc += value.find('name').text
+                            doc += "</strong>: "
+                            doc += value.find('description').text
+                            doc += "<br>"
+                    elif wc is not None:
+                        wcrange = wc.find('range')
+                        if wcrange is not None:
+                            mn = wcrange.find('minimum').text
+                            mx = wcrange.find('maximum').text
+                            doc = "Allowed values: {}-{}".format(mn, mx)
+                fields[foffset] = {"name": fname, "offset": foffset,
+                                   "width": fwidth, "description": fdesc,
+                                   "doc": doc}
+            # table is four lists, one for each byte of a register,
+            # containing field dicts for each row sorted in reverse offset
+            # order, with dicts with blank names inserted in between.
+            table = [[], []]
+            for foffset in reversed(sorted(fields.keys())):
+                # determine which row to insert into
+                fwidth = fields[foffset]['width']
+                trowidx = (31 - foffset)//16
+                trow = table[trowidx]
+                trowtop = ((foffset//16) * 16) + 15
+                # check the gap to the previous entry (or start of row)
+                if trow:
+                    gap = trow[-1]['offset'] - (foffset + fwidth)
+                else:
+                    gap = trowtop - (foffset + fwidth) + 1
+                # insert a blank if there is a gap
+                if gap > 0:
+                    offset = trowtop - gap
+                    trow.append(
+                        {"name": "", "width": gap, "offset": offset})
+                # add this field to table
+                trow.append(dict(fields[foffset]))
+                # check if this field must be split over the rows
+                if gap < 0:
+                    table[0].append(dict(fields[foffset]))
+                    table[0][-1]['width'] = -gap
+                    table[1][-1]['width'] += gap
+                    table[0][-1]['offset'] += table[1][-1]['width']
+            for trowidx, trow in enumerate(table):
+                # insert a long blank to an empty row
+                if not trow:
+                    offset = trowidx*16
+                    trow.append(
+                        {"name": "", "width": 16, "offset": offset})
+                # insert a trailing blank to a row that ends with a gap
+                if trow[-1]['offset'] % 16 != 0:
+                    gap = trow[-1]['offset']
+                    trow.append({"name": "", "width": gap, "offset": 0})
+            # check for field being split over the rows
+            if False and table[1][0]['offset'] + table[1][0]['width'] > 16:
+                # if so, cut it in two
+                field = table[1][0]
+                table[0].append(dict(field))
+                table[1][0]['width'] = 16 - table[1][0]['offset']
+                table[0][-1]['width'] -= table[1][0]['width']
+            table = [
+                {"headers": reversed(list(range(16, 32))), "fields": table[0]},
+                {"headers": reversed(list(range(0, 16))), "fields": table[1]}]
+            registers[roffset] = {"name": rname, "offset": hex(roffset),
+                                  "description": rdesc, "resetValue": rrstv,
+                                  "access": raccs, "fields": fields,
+                                  "table": table,
+                                  "fields_total": register_fields_total,
+                                  "fields_documented":
+                                      register_fields_documented}
             peripheral_fields_total += register_fields_total
             peripheral_fields_documented += register_fields_documented
         peripherals[pname] = {"name": pname, "base": pbase,
