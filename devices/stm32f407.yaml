@@ -42,6 +42,12 @@ Ethernet_MAC:
       MBCA3L:
         name: MACA3L
 
+Ethernet_DMA:
+  DMABMR:
+    _modify:
+      RTPR:
+        name: PM
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -61,3 +67,5 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/eth/eth_mac.yaml
+ - ../peripherals/eth/eth_mmc.yaml
+ - ../peripherals/eth/eth_dma.yaml

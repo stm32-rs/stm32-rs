@@ -1,0 +1,41 @@
+
+"Ethernet_MMC":
+  MMCCR:
+    MCFHP:
+      AlmostHalf: [0, "When MCP is set, MMC counters are preset to almost-half value 0x7FFF_FFF0"]
+      AlmostFull: [1, "When MCP is set, MMC counters are preset to almost-full value 0xFFFF_FFF0"]
+    MCP:
+      Preset: [1, "MMC counters will be preset to almost full or almost half. Cleared automatically"]
+    MCF:
+      Unfrozen: [0, "All MMC counters update normally"]
+      Frozen: [1, "All MMC counters frozen to their current value"]
+    ROR:
+      Disabled: [0, "MMC counters do not reset on read"]
+      Enabled: [1, "MMC counters reset to zero after read"]
+    CSR:
+      Disabled: [0, "Counters roll over to zero after reaching the maximum value"]
+      Enabled: [1, "Counters do not roll over to zero after reaching the maximum value"]
+    CR:
+      Reset: [1, "Reset all counters. Cleared automatically"]
+
+  MMCRIMR:
+    RGUFM:
+      Unmasked: [0, "Received-good-unicast counter half-full interrupt enabled"]
+      Masked: [1, "Received-good-unicast counter half-full interrupt disabled"]
+    RFAEM:
+      Unmasked: [0, "Received-alignment-error counter half-full interrupt enabled"]
+      Masked: [1, "Received-alignment-error counter half-full interrupt disabled"]
+    RFCEM:
+      Unmasked: [0, "Received-crc-error counter half-full interrupt enabled"]
+      Masked: [1, "Received-crc-error counter half-full interrupt disabled"]
+
+  MMCTIMR:
+    TGFM:
+      Unmasked: [0, "Transmitted-good counter half-full interrupt enabled"]
+      Masked: [1, "Transmitted-good counter half-full interrupt disabled"]
+    TGFMSCM:
+      Unmasked: [0, "Transmitted-good-multiple-collision half-full interrupt enabled"]
+      Masked: [1, "Transmitted-good-multiple-collision half-full interrupt disabled"]
+    TGFSCM:
+      Unmasked: [0, "Transmitted-good-single-collision half-full interrupt enabled"]
+      Masked: [1, "Transmitted-good-single-collision half-full interrupt disabled"]

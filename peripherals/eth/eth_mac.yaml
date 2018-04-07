@@ -166,11 +166,11 @@
 
   MACIMR:
     TSTIM:
-      Enabled: [0, "Time stamp interrupt generation enabled"]
-      Disabled: [1, "Time stamp interrupt generation disabled"]
+      Unmasked: [0, "Time stamp interrupt generation enabled"]
+      Masked: [1, "Time stamp interrupt generation disabled"]
     PMTIM:
-      Enabled: [0, "PMT Status interrupt generation enabled"]
-      Disabled: [1, "PMT Status interrupt generation disabled"]
+      Unmasked: [0, "PMT Status interrupt generation enabled"]
+      Masked: [1, "PMT Status interrupt generation disabled"]
 
   MACA0HR:
     MACA0H: [0, 0xFFFF]

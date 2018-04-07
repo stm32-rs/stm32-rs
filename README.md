@@ -222,6 +222,12 @@ Peripheral, register, and field names can be specified:
 
 You must quote the name if using any special characters in YAML.
 
+### Style Guide
+
+* Enumerated values should be named in the past tense ("enabled", "masked", 
+  etc).
+* Descriptions should start with capital letters but do not end with a period
+
 ## License
 
 Licensed under either of

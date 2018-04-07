@@ -23,22 +23,6 @@ _modify:
         bitWidth: 1
         access: read-write
 
-
-Ethernet_MAC:
-  # All these fields are named incorrectly in the SVD compared to RM0090
-  MACA1LR:
-    _modify:
-      MACA1LR:
-        name: MACA1L
-  MACA2HR:
-    _modify:
-      MAC2AH:
-        name: MACA2H
-  MACA3LR:
-    _modify:
-      MBCA3L:
-        name: MACA3L
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -57,4 +41,3 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/eth/eth_mac.yaml
