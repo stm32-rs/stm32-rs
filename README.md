@@ -105,6 +105,12 @@ Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 If you've added a new peripheral, consider using the `matchperipherals.py` 
 script to see which devices it would cleanly apply to.
 
+To generate a new peripheral file from scratch, consider using 
+`periphtemplate.py`, which creates an empty peripheral file based on a single
+SVD file, with registers and fields ready to be populated. For single bit wide 
+fields with names ending in 'E' or 'D' it additionally generates sample 
+"Enabled"/"Disabled" entries to save time.
+
 ## Device and Peripheral YAML Format
 
 The patch specifications are in YAML and have the following general format:
