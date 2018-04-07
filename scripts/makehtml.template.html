@@ -163,7 +163,7 @@
                   </h4>
                   <p>
                     {% if field.width > 1 %}
-                      Bits {{ field.offset }}-{{ field.offset + field.width }}:
+                      Bits {{ field.offset }}-{{ field.offset + field.width - 1 }}:
                     {% else %}
                       Bit {{ field.offset }}:
                     {% endif %}

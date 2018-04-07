@@ -1,6 +1,6 @@
 """
 makehtml.py
-Copyright 2017 Adam Greig
+Copyright 2017, 2018 Adam Greig
 Licensed under the MIT and Apache 2.0 licenses.
 
 Generates a webpage for a given SVD file containing details on every
@@ -125,22 +125,22 @@ def parse_device(svdfile):
                     table[1][-1]['width'] += gap
                     table[0][-1]['offset'] += table[1][-1]['width']
             for trowidx, trow in enumerate(table):
+                offset = trowidx * 16
                 # insert a long blank to an empty row
                 if not trow:
-                    offset = trowidx*16
                     trow.append(
                         {"name": "", "width": 16, "offset": offset})
                 # insert a trailing blank to a row that ends with a gap
                 if trow[-1]['offset'] % 16 != 0:
-                    gap = trow[-1]['offset']
-                    trow.append({"name": "", "width": gap, "offset": 0})
-            # check for field being split over the rows
-            if False and table[1][0]['offset'] + table[1][0]['width'] > 16:
-                # if so, cut it in two
-                field = table[1][0]
-                table[0].append(dict(field))
-                table[1][0]['width'] = 16 - table[1][0]['offset']
-                table[0][-1]['width'] -= table[1][0]['width']
+                    gap = trow[-1]['offset'] % 16
+                    trow.append({"name": "", "width": gap, "offset": offset})
+                # insert a leading blank to a row that starts with a gap
+                # (only a problem when a field is split into two and added
+                # to the top row but no other fields are on the top row)
+                if (trow[0]['offset'] + trow[0]['width']) % 16 != 0:
+                    gap = 16 - (trow[0]['offset'] + trow[0]['width']) % 16
+                    trow.insert(0,
+                                {"name": "", "width": gap, "offset": offset})
             table = [
                 {"headers": reversed(list(range(16, 32))), "fields": table[0]},
                 {"headers": reversed(list(range(0, 16))), "fields": table[1]}]
