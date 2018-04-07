@@ -24,6 +24,11 @@ _modify:
         access: read-write
 
 Ethernet_MAC:
+  MACFFR:
+    _modify:
+      # This field should be 2 bits wide but is only 1 bit in the SVD
+      PCF:
+        bitWidth: 2
   # All these fields are named incorrectly in the SVD compared to RM0090
   MACA1LR:
     _modify:
