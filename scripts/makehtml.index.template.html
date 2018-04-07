@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  {% for device in devices %}
+  {% for name, device in devices|dictsort %}
   <div class=row>
     <div class=col-sm-4>
       <div>

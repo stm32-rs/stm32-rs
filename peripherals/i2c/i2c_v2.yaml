@@ -1,0 +1,130 @@
+# I2C peripheral used in STM32F0, F3, F7, L0, and L4 platforms
+
+"I2C*":
+  CR1:
+    PECEN:
+    ALERTEN:
+    SMBDEN:
+    SMBHEN:
+    GCEN:
+    WUPEN:
+    NOSTRETCH:
+    SBC:
+    RXDMAEN:
+    TXDMAEN:
+    ANFOFF:
+    DNF:
+    ERRIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    TCIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    STOPIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    NACKIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    ADDRIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    RXIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    TXIE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    PE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+
+  CR2:
+    PECBYTE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    AUTOEND:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    RELOAD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    NBYTES:
+    NACK:
+    STOP:
+    START:
+    HEAD10R:
+    ADD10:
+    RD_WRN:
+    SADD:
+
+  OAR1:
+    OA1EN:
+    OA1MODE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    OA1:
+
+  OAR2:
+    OA2EN:
+    OA2MSK:
+    OA2:
+
+  TIMINGR:
+    PRESC:
+    SCLDEL:
+    SDADEL:
+    SCLH:
+    SCLL:
+
+  TIMEOUTR:
+    TEXTEN:
+    TIMEOUTB:
+    TIMOUTEN:
+    TIDLE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    TIMEOUTA:
+
+  ISR:
+    ADDCODE:
+    DIR:
+    BUSY:
+    ALERT:
+    TIMEOUT:
+    PECERR:
+    OVR:
+    ARLO:
+    BERR:
+    TCR:
+    TC:
+    STOPF:
+    NACKF:
+    ADDR:
+    RXNE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    TXIS:
+    TXE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+
+  ICR:
+    ALERTCF:
+    TIMOUTCF:
+    PECCF:
+    OVRCF:
+    ARLOCF:
+    BERRCF:
+    STOPCF:
+    NACKCF:
+    ADDRCF:
+
+  PECR:
+    PEC:
+
+  RXDR:
+    RXDATA:
+
+  TXDR:
+    TXDATA:

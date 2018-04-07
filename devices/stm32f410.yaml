@@ -7,6 +7,11 @@ _svd: ../svd/stm32f410.svd
       TIFRFE:
         name: "FRE"
 
+# Rename I2C4 to FMPI2C4 to match RM0401 and disambiguate from non-FMP I2C
+_modify:
+  I2C4:
+    name: FMPI2C4
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0401
   CR:
@@ -24,3 +29,4 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_usart.yaml
+ - ../peripherals/i2c/i2c_v1.yaml

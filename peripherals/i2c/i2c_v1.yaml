@@ -1,0 +1,93 @@
+# I2C peripheral used in STM32F1, F4, and L1 platforms
+
+"I2C*":
+  CR1:
+    SWRST:
+      NotReset: [0, "I2C peripheral not under reset"]
+      Reset: [1, "I2C peripheral under reset"]
+    ALERT:
+      Release: [0, "SMBA pin released high"]
+      Drive: [1, "SMBA pin driven low"]
+    PEC:
+      Disabled: [0, "No PEC transfer"]
+      Enabled: [1, "PEC transfer"]
+    POS:
+      Current: [0, "ACK bit controls the (N)ACK of the current byte being received"]
+      Next: [1, "ACK bit controls the (N)ACK of the next byte to be received"]
+    ACK:
+      NAK: [0, "No acknowledge returned"]
+      ACK: [1, "Acknowledge returned after a byte is received"]
+    STOP:
+      NoStop: [0, "No Stop generation"]
+      Stop: [1, "In master mode: stop generation after current byte/start, in slave mode: release SCL and SDA after current byte"]
+    START:
+      NoStart: [0, "No Start generation"]
+      Start: [1, "In master mode: repeated start generation, in slave mode: start generation when bus is free"]
+    NOSTRETCH:
+      Enabled: [0, "Clock stretching enabled"]
+      Disabled: [1, "Clock stretching disabled"]
+    ENGC:
+      Disabled: [0, "General call disabled"]
+      Enabled: [1, "General call enabled"]
+    ENPEC:
+      Disabled: [0, "PEC calculation disabled"]
+      Enabled: [1, "PEC calculation enabled"]
+    ENARP:
+      Disabled: [0, "ARP disabled"]
+      Enabled: [1, "ARP enabled"]
+    SMBTYPE:
+      Device: [0, "SMBus Device"]
+      Host: [1, "SMBus Host"]
+    SMBUS:
+      I2C: [0, "I2C Mode"]
+      SMBus: [1, "SMBus"]
+    PE:
+      Disabled: [0, "Peripheral disabled"]
+      Enabled: [1, "Peripheral enabled"]
+
+  CR2:
+    LAST:
+      NotLast: [0, "Next DMA EOT is not the last transfer"]
+      Last: [1, "Next DMA EOT is the last transfer"]
+    DMAEN:
+      Disabled: [0, "DMA requests disabled"]
+      Enabled: [1, "DMA request enabled when TxE=1 or RxNE=1"]
+    ITBUFEN:
+      Disabled: [0, "TxE=1 or RxNE=1 does not generate any interrupt"]
+      Enabled: [1, "TxE=1 or RxNE=1 generates Event interrupt"]
+    ITEVTEN:
+      Disabled: [0, "Event interrupt disabled"]
+      Enabled: [1, "Event interrupt enabled"]
+    ITERREN:
+      Disabled: [0, "Error interrupt disabled"]
+      Enabled: [1, "Error interrupt enabled"]
+    FREQ: [2, 50]
+
+  OAR1:
+    ADDMODE:
+      ADD7: [0, "7-bit slave address"]
+      ADD10: [1, "10-bit slave address"]
+    ADD10: [0, 3]
+    ADD7: [0, 0x7F]
+    ADD0: [0, 1]
+
+  OAR2:
+    ADD2: [0, 0x7F]
+    ENDUAL:
+      Single: [0, "Single addressing mode"]
+      Dual: [1, "Dual addressing mode"]
+
+  DR:
+    DR: [0, 0xFF]
+
+  CCR:
+    F_S:
+      Standard: [0, "Standard mode I2C"]
+      Fast: [1, "Fast mode I2C"]
+    DUTY:
+      Duty2_1: [0, "Duty cycle t_low/t_high = 2/1"]
+      Duty16_9: [1, "Duty cycle t_low/t_high = 16/9"]
+    CCR: [1, 0xFFF]
+
+  TRISE:
+    TRISE: [0, 0x3F]

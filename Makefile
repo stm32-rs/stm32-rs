@@ -64,6 +64,9 @@ patch: $(PATCHED_SVDS)
 
 svd2rust: $(RUST_SRCS)
 
+html: $(PATCHED_SVDS)
+	python3 scripts/makehtml.py html/ svd/stm32*.svd.patched
+
 clean-rs:
 	rm -f $(RUST_SRCS)
 

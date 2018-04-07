@@ -60,6 +60,16 @@ Ethernet_DMA:
     _merge:
       - "FB*"
 
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - "b*"
+  "IV[01][LR]R":
+    _merge:
+      - "IV*"
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -85,3 +95,4 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_common.yaml
+ - ../peripherals/i2c/i2c_v1.yaml

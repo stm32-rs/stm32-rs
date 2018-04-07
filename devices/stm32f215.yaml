@@ -12,6 +12,16 @@ _svd: ../svd/stm32f215.svd
     _merge:
       - "FB*"
 
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - "b*"
+  "IV[01][LR]R":
+    _merge:
+      - "IV*"
+
 _include:
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml

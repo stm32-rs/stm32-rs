@@ -148,11 +148,11 @@ if __name__ == "__main__":
     parser.add_argument("svdfiles", help="Path to patched SVD files",
                         nargs="*")
     args = parser.parse_args()
-    devices = []
+    devices = {}
     for svdfile in args.svdfiles:
         print("Processing", svdfile)
         device = parse_device(svdfile)
-        devices.append(device)
+        devices[device['name']] = device
         page = generate_device_page(device)
         pagename = "{}.html".format(device["name"])
         with open(os.path.join(args.htmldir, pagename), "w") as f:
