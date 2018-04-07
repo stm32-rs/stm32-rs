@@ -4,5 +4,5 @@ python:
 install:
   - pip install pyyaml
 script:
-  - cd svd && ./extract.sh
+  - cd svd && ./extract.sh && cd ..
   - make patch
