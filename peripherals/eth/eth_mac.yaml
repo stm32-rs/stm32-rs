@@ -29,20 +29,20 @@
       Enabled: [0, "MAC receives all packets from PHY while transmitting"]
       Disabled: [1, "MAC disables reception of frames in half-duplex mode"]
     LM:
-      Disabled: [0, "Normal mode"]
-      Enabled: [1, "MAC operates in loopback mode at the MII"]
+      Normal: [0, "Normal mode"]
+      Loopback: [1, "MAC operates in loopback mode at the MII"]
     DM:
-      Disabled: [0, "MAC operates in half-duplex mode"]
-      Enabled: [1, "MAC operates in full-duplex mode"]
+      HalfDuplex: [0, "MAC operates in half-duplex mode"]
+      FullDuplex: [1, "MAC operates in full-duplex mode"]
     IPCO:
       Disabled: [0, "IPv4 checksum offload disabled"]
-      EnableD: [1, "IPv4 checksums are checked in received frames"]
+      Offload: [1, "IPv4 checksums are checked in received frames"]
     RD:
       Enabled: [0, "MAC attempts retries based on the settings of BL"]
       Disabled: [1, "MAC attempts only 1 transmission"]
     APCS:
       Disabled: [0, "MAC passes all incoming frames unmodified"]
-      Enabled: [1, "MAC strips the Pad/FCS field on incoming frames only for lengths less than or equal to 1500 bytes"]
+      Strip: [1, "MAC strips the Pad/FCS field on incoming frames only for lengths less than or equal to 1500 bytes"]
     BL:
       BL10: [0, "For retransmission n, wait up to 2^min(n, 10) time slots"]
       BL8: [1, "For retransmission n, wait up to 2^min(n, 8) time slots"]
