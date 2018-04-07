@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>stm32-rs Device Coverage</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class=container>
+    <div class=navbar-header>
+      <a class=navbar-brand href=#>stm32-rs Device Coverage</a>
+    </div>
+  </div>
+</nav>
+
+<div class=container>
+  <div class=row>
+    <div class=col-sm-12>
+      <div>
+        <h3>Available Devices</h3>
+      </div>
+    </div>
+  </div>
+  {% for device in devices %}
+  <div class=row>
+    <div class=col-sm-4>
+      <div>
+        <a href="{{ device.name }}.html"><strong>{{ device.name }}</strong></a>:
+        {{ device.fields_documented }}/{{ device.fields_total }} fields
+        documented
+      </div>
+    </div>
+    <div class=col-sm-8>
+      <div class=progress>
+        {% set width = (100 * device.fields_documented) / device.fields_total %}
+        <div class="progress-bar progress-bar-success" style="width: {{ width }}%"></div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

@@ -11,6 +11,10 @@ that device family.
 possible chip yet! While they're all generated from ST-provided SVD files,
 we can't make any guarantee of correctness. Please report any bugs you find!**
 
+You can see current coverage status for each chip
+[here](https://stm32.agg.io/rs). That page also allows you to drill down
+into each field on each register on each peripheral.
+
 ## Prerequirement
 Make sure that you use latest rustfmt. First remove installed rustfmt by 
 `cargo uninstall rustfmt`

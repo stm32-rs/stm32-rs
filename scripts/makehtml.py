@@ -15,6 +15,11 @@ from jinja2 import Environment, PackageLoader
 env = Environment(loader=PackageLoader('makehtml', ''))
 
 
+def generate_index_page(devices):
+    template = env.get_template('makehtml.index.template.html')
+    return template.render(devices=devices)
+
+
 def generate_device_page(device):
     template = env.get_template('makehtml.template.html')
     return template.render(device=device)
@@ -139,6 +144,9 @@ def parse_device(svdfile):
             table = [
                 {"headers": reversed(list(range(16, 32))), "fields": table[0]},
                 {"headers": reversed(list(range(0, 16))), "fields": table[1]}]
+            # Bodge to prevent /0 when there are no fields in a register
+            if register_fields_total == 0:
+                register_fields_total = 1
             registers[roffset] = {"name": rname, "offset": hex(roffset),
                                   "description": rdesc, "resetValue": rrstv,
                                   "access": raccs, "fields": fields,
@@ -166,10 +174,15 @@ if __name__ == "__main__":
     parser.add_argument("svdfiles", help="Path to patched SVD files",
                         nargs="*")
     args = parser.parse_args()
+    devices = []
     for svdfile in args.svdfiles:
         print("Processing", svdfile)
         device = parse_device(svdfile)
+        devices.append(device)
         page = generate_device_page(device)
         pagename = "{}.html".format(device["name"])
         with open(os.path.join(args.htmldir, pagename), "w") as f:
             f.write(page)
+    index_page = generate_index_page(devices)
+    with open(os.path.join(args.htmldir, "index.html"), "w") as f:
+        f.write(index_page)
