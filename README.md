@@ -30,6 +30,19 @@ version = "0.1.0"
 features = ["stm32f405"]
 ```
 
+You may also want the `rt` feature.
+
+Then, in your code:
+
+```rust
+extern crate stm32f4;
+use stm32f4::stm32f405;
+
+let mut peripherals = stm32f407::Peripherals::take().unwrap();
+```
+
+Refer to `svd2rust` documentation for further usage.
+
 ## Helping
 
 This project is still young and there's a lot to do!
@@ -66,6 +79,8 @@ check if its sibling is supported instead.**
 
 Many peripherals are not yet patched to provide the type-safe friendly-name
 interface; please consider helping out with this!
+
+Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 
 ## Adding New Devices
 
