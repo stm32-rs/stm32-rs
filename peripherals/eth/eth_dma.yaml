@@ -2,9 +2,17 @@
 "Ethernet_DMA":
   DMABMR:
     MB:
+      Normal: [0, "Fixed burst transfers (INCRx and SINGLE) for burst lengths of 16 and below"]
+      Mixed: [1, "If FB is low, start all bursts greater than 16 with INCR (undefined burst)"]
     AAB:
+      Unaligned: [0, "Bursts are not aligned"]
+      Aligned: [1, "Align bursts to start address LS bits. First burst alignment depends on FB bit"]
     FPM:
+      x1: [0, "PBL values used as-is"]
+      x4: [1, "PBL values multiplied by 4"]
     USP:
+      Combined: [0, "PBL value used for both Rx and Tx DMA"]
+      Separate: [1, "RxDMA uses RDP value, TxDMA uses PBL value"]
     RDP:
       RDP1: [1, "1 beat per RxDMA transaction"]
       RDP2: [2, "2 beats per RxDMA transaction"]
@@ -13,6 +21,8 @@
       RDP16: [16, "16 beats per RxDMA transaction"]
       RDP32: [32, "32 beats per RxDMA transaction"]
     FB:
+      Variable: [0, "AHB uses SINGLE and INCR burst transfers"]
+      Fixed: [1, "AHB uses only fixed burst transfers"]
     PM:
       OneToOne: [0, "RxDMA priority over TxDMA is 1:1"]
       TwoToOne: [1, "RxDMA priority over TxDMA is 2:1"]
