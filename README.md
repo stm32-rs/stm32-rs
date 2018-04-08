@@ -15,22 +15,19 @@ You can see current coverage status for each chip
 [here](https://stm32.agg.io/rs). That page also allows you to drill down
 into each field on each register on each peripheral.
 
-## Prerequirement
-Make sure that you use latest rustfmt. First remove installed rustfmt by 
-`cargo uninstall rustfmt`
-Install rustfmt via rustup
-`rustup component add rustfmt-preview`
+## Using Device Crates In Your Own Pooject
 
-## Usage
+At the moment none of these crates are published on crates.io, so you must
+clone this repository and generate them yourself (see below) before you can
+use them.
 
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.stm32f4]
-version = "0.1.0"
-features = ["stm32f405"]
+path = "/path/to/stm32-rs/stm32f4"
+features = ["stm32f405", "rt"]
 ```
-
-You may also want the `rt` feature.
+The `rt` feature is optional but helpful.
 
 Then, in your code:
 
@@ -41,7 +38,16 @@ use stm32f4::stm32f405;
 let mut peripherals = stm32f407::Peripherals::take().unwrap();
 ```
 
-Refer to `svd2rust` documentation for further usage.
+Refer to `svd2rust` [documentation](https://docs.rs/svd2rust) for further usage.
+
+## Generating Device Crates
+
+* Install `svd2rust`: `cargo install svd2rust`
+* Install latest rustfmt: `cargo uninstall rustfmt; rustup component add rustfmt-preview`
+* Install PyYAML: `pip install pyyaml`
+* Unzip bundled SVD zip files: `cd svd; ./extract.sh`
+* Generate patched SVD files: `cd ..; make patch`
+* Generate svd2rust device crates: `make svd2rust` (you probably want `-j8` for this)
 
 ## Helping
 
