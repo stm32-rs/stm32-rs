@@ -53,10 +53,10 @@ RCC:
       DIV256: [14, "system clock divided by 256"]
       DIV512: [15, "system clock divided by 512"]
     SWS:
-      HSI: [0, "HSI oscillator used as the system clock"]
-      HSE: [1, "HSE oscillator used as the system clock"]
-      PLL: [2, "PLL used as the system clock"]
-      _usage: read
+      _read:
+        HSI: [0, "HSI oscillator used as the system clock"]
+        HSE: [1, "HSE oscillator used as the system clock"]
+        PLL: [2, "PLL used as the system clock"]
     SW:
       HSI: [0, "HSI oscillator selected as system clock"]
       HSE: [1, "HSE oscillator selected as system clock"]
@@ -88,9 +88,9 @@ RCC:
       NotBypassed: [0, "LSE oscillator not bypassed"]
       Bypassed: [1, "LSE oscillator bypassed"]
     LSERDY:
-      NotReady: [0, "LSE clock not ready"]
-      Ready: [1, "LSE clock ready"]
-      _usage: read
+      _read:
+        NotReady: [0, "LSE clock not ready"]
+        Ready: [1, "LSE clock ready"]
     LSEON:
       Disabled: [0, "LSE clock OFF"]
       Enabled: [1, "LSE clock ON"]

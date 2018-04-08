@@ -70,28 +70,28 @@
       Enabled: [1, "Rx buffer DMA enabled"]
   SR:
     FRE:
-      NoError: [0, "No frame format error"]
-      Error: [1, "A frame format error occurred"]
-      _usage: read
+      _read:
+        NoError: [0, "No frame format error"]
+        Error: [1, "A frame format error occurred"]
     BSY:
-      NotBusy: [0, "SPI not busy"]
-      Busy: [1, "SPI busy"]
-      _usage: read
+      _read:
+        NotBusy: [0, "SPI not busy"]
+        Busy: [1, "SPI busy"]
     OVR:
-      NoOverrun: [0, "No overrun occurred"]
-      Overrun: [1, "Overrun occurred"]
-      _usage: read
+      _read:
+        NoOverrun: [0, "No overrun occurred"]
+        Overrun: [1, "Overrun occurred"]
     MODF:
-      NoFault: [0, "No mode fault occurred"]
-      Fault: [1, "Mode fault occurred"]
-      _usage: read
+      _read:
+        NoFault: [0, "No mode fault occurred"]
+        Fault: [1, "Mode fault occurred"]
     CRCERR:
       Match: [0, "CRC value received matches the SPIx_RXCRCR value"]
       NoMatch: [1, "CRC value received does not match the SPIx_RXCRCR value"]
     UDR:
-      NoUnderrun: [0, "No underrun occurred"]
-      Underrun: [1, "Underrun occurred"]
-      _usage: read
+      _read:
+        NoUnderrun: [0, "No underrun occurred"]
+        Underrun: [1, "Underrun occurred"]
     CHSIDE:
       Left: [0, "Channel left has to be transmitted or has been received"]
       Right: [1, "Channel right has to be transmitted or has been received"]

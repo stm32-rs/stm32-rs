@@ -63,8 +63,8 @@
     AWDCH: [0, 18]
   CR2:
     SWSTART:
-      Start: [1, "Starts conversion of regular channels"]
-      _usage: write
+      _write:
+        Start: [1, "Starts conversion of regular channels"]
     EXTEN:
       Disabled: [0, "Trigger detection disabled"]
       RisingEdge: [1, "Trigger detection on the rising edge"]
@@ -79,8 +79,8 @@
       TIM2CC4: [5, "Timer 2 CC4 event"]
       TIM2TRGO: [6, "Timer 2 TRGO event"]
     JSWSTART:
-      Start: [1, "Starts conversion of injected channels"]
-      _usage: write
+      _write:
+        Start: [1, "Starts conversion of injected channels"]
     JEXTEN:
       Disabled: [0, "Trigger detection disabled"]
       RisingEdge: [1, "Trigger detection on the rising edge"]

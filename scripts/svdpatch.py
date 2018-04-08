@@ -88,16 +88,14 @@ def make_write_constraint(wc_range):
     return wc
 
 
-def make_enumerated_values(name, values):
+def make_enumerated_values(name, values, usage="read-write"):
     """
     Given a name and a dict of values which maps variant names to (value,
     description), returns an enumeratedValues Element.
-    Optional _usage key in values specifies usage.
     """
     ev = ET.Element('enumeratedValues')
     ET.SubElement(ev, 'name').text = name
-    if "_usage" in values:
-        ET.SubElement(ev, 'usage').text = values["_usage"]
+    ET.SubElement(ev, 'usage').text = usage
     for name in values:
         if name.startswith("_"):
             continue
@@ -248,13 +246,13 @@ def process_register_merge(rtag, fspec):
     ET.SubElement(fnew, 'bitWidth').text = str(bitwidth)
 
 
-def process_field_enum(pname, rtag, fspec, field):
+def process_field_enum(pname, rtag, fspec, field, usage="read-write"):
     """Add an enumeratedValues given by field to all fspec in rtag."""
     derived = None
     for ftag in iter_fields(rtag, fspec):
         name = ftag.find('name').text
         if derived is None:
-            enum = make_enumerated_values(name, field)
+            enum = make_enumerated_values(name, field, usage=usage)
             ftag.append(enum)
             derived = make_derived_enumerated_values(name)
         else:
@@ -280,7 +278,15 @@ def process_field_range(pname, rtag, fspec, field):
 def process_register_field(pname, rtag, fspec, field):
     """Work through a field, handling either an enum or a range."""
     if isinstance(field, dict):
-        process_field_enum(pname, rtag, fspec, field)
+        usages = ("_read", "_write")
+
+        if not any(u in field for u in usages):
+            process_field_enum(pname, rtag, fspec, field)
+
+        for usage in (u for u in usages if u in field):
+            process_field_enum(pname, rtag, fspec, field[usage],
+                               usage=usage.replace("_", ""))
+
     elif isinstance(field, list) and len(field) == 2:
         process_field_range(pname, rtag, fspec, field)
 
