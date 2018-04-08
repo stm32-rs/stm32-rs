@@ -36,10 +36,12 @@
       Reset: [1, "Reset all MAC subsystem internal registers and logic. Cleared automatically"]
 
   DMATPDR:
-    TPD: [0, 0xFFFFFFFF]
+    TPD:
+      Poll: [0, "Poll the transmit descriptor list"]
 
   DMARPDR:
-    RPD: [0, 0xFFFFFFFF]
+    RPD:
+      Poll: [0, "Poll the receive descriptor list"]
 
   DMARDLAR:
     SRL: [0, 0xFFFFFFFF]
