@@ -55,95 +55,67 @@
       Enabled: [1, "Corresponding memory bank is enabled"]
       Disabled: [0, "Corresponding memory bank is disabled"]
 
-  BTR1:
+  BTR?:
     ACCMOD:
-    DATLAT:
-    CLKDIV:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
+      A: [0, "Access mode A"]
+      B: [1, "Access mode B"]
+      C: [2, "Access mode C"]
+      D: [3, "Access mode D"]
+    DATLAT: [0, 15]
+    CLKDIV: [1, 15]
+    BUSTURN: [0, 15]
+    DATAST: [0, 255]
+    ADDHLD: [1, 15]
+    ADDSET: [0, 15]
 
-  BCR2:
+  BCR[234]:
     CBURSTRW:
+      Enabled: [1, "Write operations are performed in synchronous mode"]
+      Disabled: [0, "Write operations are always performed in asynchronous mode"]
     CPSIZE:
+      NoBurstSplit: [0, "No burst split when crossing page boundary"]
+      CPSize128Bytes: [1, "128 bytes CRAM page size"]
+      CPSize256Bytes: [2, "256 bytes CRAM page size"]
+      CPSize512Bytes: [3, "512 bytes CRAM page size"]
+      CPSize1024Bytes: [4, "1024 bytes CRAM page size"]
     ASYNCWAIT:
+      Enabled: [1, "Wait signal used even in asynchronous mode"]
+      Disabled: [1, "Wait signal not used in asynchronous mode"]
     EXTMOD:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
+      Enabled: [0, "Values inside the FMC_BWTR are not taken into account"]
+      Disabled: [1, "Values inside the FMC_BWTR are taken into account"]
     WAITEN:
+      Enabled: [1, "NWAIT signal enabled"]
+      Disabled: [0, "Values inside the FMC_BWTR are taken into account"]
     WREN:
+      Enabled: [1, "Write operations enabled for the bank by the FMC"]
+      Disabled: [0, "Write operations disabled for the bank by the FMC"]
     WAITCFG:
+      ActiveDuringWaitState: [1, "NWAIT signal is active during wait state"]
+      ActiveOneCycleBeforeWaitState: [1, "NWAIT signal is active one data cycle before wait state"]
     WAITPOL:
+      ActiveLow: [0, "NWAIT active low"]
+      ActiveHigh: [1, "NWAIT active high"]
     BURSTEN:
+      Enabled: [1, "Burst mode enabled"]
+      Disabled: [0, "Burst mode disabled"]
     FACCEN:
+      Enabled: [1, "Corresponding NOR Flash memory access is enabled"]
+      Disabled: [0, "Corresponding NOR Flash memory access is disabled"]
     MWID:
+      MWID8Bits: [0, "Memory data bus width 8 bits"]
+      MWID16Bits: [1, "Memory data bus width 16 bits"]
+      MWID32Bits: [2, "Memory data bus width 32 bits"]
     MTYP:
+      SRAM: [0, "SRAM memory type"]
+      PSRAM: [1, "PSRAM (CRAM) memory type"]
+      NORFlashOneNANDFlash: [2, "NOR Flash/OneNAND Flash"]
     MUXEN:
+      Enabled: [1, "Address/Data multiplexed on databus"]
+      Disabled: [0, "Address/Data non-multiplexed"]
     MBKEN:
-
-  BTR2:
-    ACCMOD:
-    DATLAT:
-    CLKDIV:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
-
-  BCR3:
-    CBURSTRW:
-    CPSIZE:
-    ASYNCWAIT:
-    EXTMOD:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
-    WAITEN:
-    WREN:
-    WAITCFG:
-    WAITPOL:
-    BURSTEN:
-    FACCEN:
-    MWID:
-    MTYP:
-    MUXEN:
-    MBKEN:
-
-  BTR3:
-    ACCMOD:
-    DATLAT:
-    CLKDIV:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
-
-  BCR4:
-    CBURSTRW:
-    CPSIZE:
-    ASYNCWAIT:
-    EXTMOD:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
-    WAITEN:
-    WREN:
-    WAITCFG:
-    WAITPOL:
-    BURSTEN:
-    FACCEN:
-    MWID:
-    MTYP:
-    MUXEN:
-    MBKEN:
-
-  BTR4:
-    ACCMOD:
-    DATLAT:
-    CLKDIV:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
+      Enabled: [1, "Corresponding memory bank is enabled"]
+      Disabled: [0, "Corresponding memory bank is disabled"]
 
   PCR:
     ECCPS:
