@@ -144,12 +144,26 @@
 
   SR:
     FEMPT:
+      NotEmpty: [0, "FIFO not empty"]
+      Empty: [1, "FIFO empty"]
     IFEN:
+      Enabled: [1: "Interrupt falling edge detection request enabled"]
+      Disabled: [0: "Interrupt falling edge detection request disabled"]
     ILEN:
+      Enabled: [1, "Interrupt high-level detection request enabled"]
+      Disabled: [0, "Interrupt high-level detection request disabled"]
     IREN:
+      Enabled: [1, "Interrupt rising edge detection request enabled"]
+      Disabled: [0, "Interrupt rising edge detection request disabled"]
     IFS:
+      Occurred: [1, "Interrupt falling edge occurred"]
+      DidNotOccur: [0, "Interrupt falling edge did not occur"]
     ILS:
+      Occurred: [1, "Interrupt high-level occurred"]
+      DidNotOccur: [0, "Interrupt high-level did not occur"]
     IRS:
+      Occurred: [1, "Interrupt rising edge occurred"]
+      DidNotOccur: [0, "Interrupt rising edge did not occur"]
 
   PMEM:
     MEMHIZx:
@@ -166,35 +180,14 @@
   ECCR:
     ECCx:
 
-  BWTR1:
+  BWTR?:
     ACCMOD:
     BUSTURN:
     DATAST:
     ADDHLD:
     ADDSET:
 
-  BWTR2:
-    ACCMOD:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
-
-  BWTR3:
-    ACCMOD:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
-
-  BWTR4:
-    ACCMOD:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
-
-  SDCR1:
+  SDCR?:
     RPIPE:
     RBURST:
     SDCLK:
@@ -205,26 +198,7 @@
     NR:
     NC:
 
-  SDCR2:
-    RBURST:
-    SDCLK:
-    WP:
-    CAS:
-    NB:
-    MWID:
-    NR:
-    NC:
-
-  SDTR1:
-    TRCD:
-    TRP:
-    TWR:
-    TRC:
-    TRAS:
-    TXSR:
-    TMRD:
-
-  SDTR2:
+  SDTR?:
     TRCD:
     TRP:
     TWR:
