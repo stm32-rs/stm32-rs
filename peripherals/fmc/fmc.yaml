@@ -119,13 +119,28 @@
 
   PCR:
     ECCPS:
-    TAR:
-    TCLR:
+      PageSize256Bytes: [0, "ECC page size 256 bytes"]
+      PageSize512Bytes: [1, "ECC page size 512 bytes"]
+      PageSize1024Bytes: [2, "ECC page size 1024 bytes"]
+      PageSize2048Bytes: [3, "ECC page size 2048 bytes"]
+      PageSize4096Bytes: [4, "ECC page size 4096 bytes"]
+      PageSize8192Bytes: [5, "ECC page size 8192 bytes"]
+    TAR: [0, 15]
+    TCLR: [0, 15]
     ECCEN:
+      Enabled: [1, "ECC logic is enabled"]
+      Disabled: [0, "ECC logic is disabled and reset"]
     PWID:
+      Width8Bits: [0, "External memory device width 8 bits"]
+      Width16Bits: [1, "External memory device width 16 bits"]
     PTYP:
+      NANDFlash: [1, "NAND Flash"]
     PBKEN:
+      Enabled: [1, "Corresponding memory bank is enabled"]
+      Disabled: [0, "Corresponding memory bank is disabled"]
     PWAITEN:
+      Enabled: [1, "Wait feature enabled"]
+      Disabled: [0, "Wait feature disabled"]
 
   SR:
     FEMPT:
