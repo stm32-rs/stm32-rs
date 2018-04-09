@@ -166,64 +166,104 @@
       DidNotOccur: [0, "Interrupt rising edge did not occur"]
 
   PMEM:
-    MEMHIZx:
-    MEMHOLDx:
-    MEMWAITx:
-    MEMSETx:
+    MEMHIZx: [0, 254]
+    MEMHOLDx: [1, 254]
+    MEMWAITx: [1, 254]
+    MEMSETx: [0, 254]
 
   PATT:
-    ATTHIZx:
-    ATTHOLDx:
-    ATTWAITx:
-    ATTSETx:
+    ATTHIZx: [0, 254]
+    ATTHOLDx: [1, 254]
+    ATTWAITx: [1, 254]
+    ATTSETx: [0, 254]
 
   ECCR:
-    ECCx:
+    ECCx: [0, 4294967295]
 
   BWTR?:
     ACCMOD:
-    BUSTURN:
-    DATAST:
-    ADDHLD:
-    ADDSET:
+      A: [0, "Access mode A"]
+      B: [1, "Access mode B"]
+      C: [2, "Access mode C"]
+      D: [3, "Access mode D"]
+    BUSTURN: [0, 15]
+    DATAST: [1, 255]
+    ADDHLD: [1, 15]
+    ADDSET: [0, 15]
 
   SDCR?:
-    RPIPE:
+    RPIPE: [0, 2]
     RBURST:
+      Enabled: [1, "Single read requests are always managed as bursts"]
+      Disabled: [0, "Single read requests are not managed as bursts"]
     SDCLK:
+      Disabled: [0, "SDCLK clock disabled"]
+      Period2: [2, "SDCLK period = 2 x HCLK period"]
+      Period3: [3, "SDCLK period = 3 x HCLK period"]
     WP:
-    CAS:
+      Allowed: [0, "Write accesses allowed"]
+      Ignored: [1, "Write accesses ignored"]
+    CAS: [1, 3]
     NB:
+      NB2: [0, "Two internal Banks"]
+      NB4: [1, "Four internal Banks"]
     MWID:
+      MWID8Bits: [0, "Memory data bus width 8 bits"]
+      MWID16Bits: [1, "Memory data bus width 16 bits"]
+      MWID32Bits: [2, "Memory data bus width 32 bits"]
     NR:
+      NR11Bits: [0, "11 bits"]
+      NR12Bits: [1, "12 bits"]
+      NR13Bits: [2, "13 bits"]
     NC:
+      NC8Bits: [0, "8 bits"]
+      NC9Bits: [1, "9 bits"]
+      NC10Bits: [2, "10 bits"]
+      NC11Bits: [3, "11 bits"]
 
   SDTR?:
-    TRCD:
-    TRP:
-    TWR:
-    TRC:
-    TRAS:
-    TXSR:
-    TMRD:
+    TRCD: [0, 15]
+    TRP: [0, 15]
+    TWR: [0, 15]
+    TRC: [0, 15]
+    TRAS:[0, 15]
+    TXSR: [0, 15]
+    TMRD: [0, 15]
 
   SDCMR:
-    MRD:
-    NRFS:
+    MRD: [0, 8191]
+    NRFS: [0, 15]
     CTB1:
+      Enabled: [1, "Command issued to SDRAM Bank 1"]
+      Disabled: [0, "Command not issued to SDRAM Bank 1"]
     CTB2:
+      Enabled: [1, "Command issued to SDRAM Bank 2"]
+      Disabled: [0, "Command not issued to SDRAM Bank 2"]
     MODE:
+      Normal: [0, "Normal Mode"]
+      ClockConfigurationEnable: [1, "Clock Configuration Enable"]
+      PALL: [2, "PALL (All Bank Precharge) command"]
+      AutoRefreshCommand: [3, "Auto-refresh command"]
+      LoadModeRegister: [4, "Load Mode Resgier"]
+      SelfRefreshCommand: [5, "Self-refresh command"]
+      PowerDownCommand: [6, "Power-down command"]
 
   SDRTR:
     REIE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
-    COUNT:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated if RE = 1"]
+    COUNT: [0, 8191]
     CRE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
+      Cleared: [1, "Refresh Error Flag is cleared"]
 
   SDSR:
     BUSY:
+      Busy: [1, "SDRAM Controller is not ready to accept a new request"]
+      NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
     MODES2:
-    MODES1:
+      NormalMode: [0, "Normal Mode"]
+      SelfRefreshMode: [1, "Self-refresh mode"]
+      PowerDownMode: [2, "Power-down mode"]
+    RE:
+      Detected: [1, "A refresh error has been detected"]
+      NotDetected: [0, "No refresh error has been detected"]
