@@ -15,7 +15,7 @@ You can see current coverage status for each chip
 [here](https://stm32.agg.io/rs). That page also allows you to drill down
 into each field on each register on each peripheral.
 
-## Using Device Crates In Your Own Pooject
+## Using Device Crates In Your Own Project
 
 At the moment none of these crates are published on crates.io, so you must
 clone this repository and generate them yourself (see below) before you can
@@ -212,11 +212,18 @@ _add:
             # By giving the field a dictionary we construct an enumerateValues
             VARIANT: [VALUE, DESCRIPTION]
             VARIANT: [VALUE, DESCRIPTION]
-            # Optional usage key specifies read, write, or read-write (default)
-            _usage: read
 
         # Another field. A list of two numbers gives a range writeConstraint.
         FIELD: [MINIMUM, MAXIMUM]
+
+        # Another field with separate enumuerated values for read and write
+        FIELD:
+            _read:
+                VARIANT: [VALUE, DESCRIPTION]
+                VARIANT: [VALUE, DESCRIPTION]
+            _write:
+                VARIANT: [VALUE, DESCRIPTION]
+                VARIANT: [VALUE, DESCRIPTION]
 ```
 
 ### Name Matching

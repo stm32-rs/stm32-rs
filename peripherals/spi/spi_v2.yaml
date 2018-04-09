@@ -37,14 +37,14 @@ _include:
       PulseGenerated: [1, "NSS pulse generated"]
   SR:
     FTLVL:
-      Empty: [0, "Tx FIFO Empty"]
-      Quarter: [1, "Tx 1/4 FIFO"]
-      Half: [2, "Tx 1/2 FIFO"]
-      Full: [3, "Tx FIFO full"]
-      _usage: read
+      _read:
+        Empty: [0, "Tx FIFO Empty"]
+        Quarter: [1, "Tx 1/4 FIFO"]
+        Half: [2, "Tx 1/2 FIFO"]
+        Full: [3, "Tx FIFO full"]
     FRLVL:
-      Empty: [0, "Rx FIFO Empty"]
-      Quarter: [1, "Rx 1/4 FIFO"]
-      Half: [2, "Rx 1/2 FIFO"]
-      Full: [3, "Rx FIFO full"]
-      _usage: read
+      _read:
+        Empty: [0, "Rx FIFO Empty"]
+        Quarter: [1, "Rx 1/4 FIFO"]
+        Half: [2, "Rx 1/2 FIFO"]
+        Full: [3, "Rx FIFO full"]

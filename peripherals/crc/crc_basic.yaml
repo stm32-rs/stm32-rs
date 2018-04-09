@@ -9,5 +9,5 @@ CRC:
     IDR: [0, 255]
   CR:
     RESET:
-      Reset: [1, "Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF"]
-      _usage: write
+      _write:
+        Reset: [1, "Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF"]
