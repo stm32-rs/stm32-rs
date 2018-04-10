@@ -32,7 +32,7 @@ license = "MIT/Apache-2.0"
 bare-metal = "0.1.1"
 vcell = "0.1.0"
 cortex-m = "0.4.3"
-cortex-m-rt = "0.3.15"
+cortex-m-rt = "0.4.0"
 
 [features]
 default = []
