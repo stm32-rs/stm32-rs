@@ -26,11 +26,8 @@
 
   CR:
     LOCK:
-      _read:
-        Unlocked: [0, "FLASH_CR register is unlocked"]
-        Locked: [1, "FLASH_CR register is locked"]
-      _write:
-        Locked: [1, "Lock FLASH_CR register"]
+      Unlocked: [0, "FLASH_CR register is unlocked"]
+      Locked: [1, "FLASH_CR register is locked"]
     ERRIE:
       Disabled: [0, "Error interrupt generation disabled"]
       Enabled: [1, "Error interrupt generation enabled"]
