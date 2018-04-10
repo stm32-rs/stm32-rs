@@ -105,6 +105,35 @@ Ethernet_DMA:
       RTPR:
         name: PM
 
+FMC:
+  BCR1:
+    _add:
+      WFDIS:
+        description: Write FIFO enable
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+      CPSIZE:
+        description: CRAM page size
+        bitOffset: 16
+        bitWidth: 3
+        access: read-write
+  BCR?:
+    _add:
+      CPSIZE:
+        description: CRAM page size
+        bitOffset: 16
+        bitWidth: 3
+        access: read-write
+
+  BWTR?:
+    _add:
+      BUSTURN:
+        description: Bus turnaround phase duration
+        bitOffset: 16
+        bitWidth: 4
+        access: read-write
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -181,3 +210,4 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
+ - ../peripherals/fmc/fmc.yaml

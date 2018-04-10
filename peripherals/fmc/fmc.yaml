@@ -147,8 +147,8 @@
       NotEmpty: [0, "FIFO not empty"]
       Empty: [1, "FIFO empty"]
     IFEN:
-      Enabled: [1: "Interrupt falling edge detection request enabled"]
-      Disabled: [0: "Interrupt falling edge detection request disabled"]
+      Enabled: [1, "Interrupt falling edge detection request enabled"]
+      Disabled: [0, "Interrupt falling edge detection request disabled"]
     ILEN:
       Enabled: [1, "Interrupt high-level detection request enabled"]
       Disabled: [0, "Interrupt high-level detection request disabled"]
@@ -226,7 +226,7 @@
     TRP: [0, 15]
     TWR: [0, 15]
     TRC: [0, 15]
-    TRAS:[0, 15]
+    TRAS: [0, 15]
     TXSR: [0, 15]
     TMRD: [0, 15]
 
