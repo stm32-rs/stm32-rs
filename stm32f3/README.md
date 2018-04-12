@@ -13,7 +13,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.stm32f3]
 version = "0.1.0"
-features = ["stm32f303"]
+features = ["stm32f301"]
 ```
 
 Include the "rt" feature to bring in support for `cortex-m-rt` as well.

@@ -127,6 +127,7 @@ def main():
     input("Enter to continue, ctrl-C to cancel")
 
     for family in devices:
+        devices[family] = sorted(devices[family])
         crate = family.lower()
         features = make_features(devices[family])
         mods = make_mods(devices[family])
@@ -137,7 +138,7 @@ def main():
             family=ufamily, crate=crate, device=devices[family][0],
             version=VERSION,
             devices="\n".join(d.upper().replace("X", "x")
-                              for d in sorted(devices[family])))
+                              for d in devices[family]))
         lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods)
 
         os.makedirs(os.path.join(crate, "src"), exist_ok=True)
