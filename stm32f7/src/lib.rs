@@ -26,6 +26,12 @@ extern crate cortex_m;
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
 
+#[cfg(feature = "stm32f7x2")]
+pub mod stm32f7x2;
+
+#[cfg(feature = "stm32f7x3")]
+pub mod stm32f7x3;
+
 #[cfg(feature = "stm32f7x5")]
 pub mod stm32f7x5;
 

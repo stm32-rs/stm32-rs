@@ -13,7 +13,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.stm32f7]
 version = "0.1.0"
-features = ["stm32f7x6", "rt"]
+features = ["stm32f7x2", "rt"]
 ```
 
 The `rt` feature is optional and brings in support for `cortex-m-rt`.
@@ -23,6 +23,8 @@ https://docs.rs/svd2rust/0.8.1/svd2rust/#peripheral-api
 
 ## Supported Devices
 
+* STM32F7x2
+* STM32F7x3
 * STM32F7x5
 * STM32F7x6
 * STM32F7x7
