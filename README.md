@@ -17,17 +17,15 @@ into each field on each register on each peripheral.
 
 ## Using Device Crates In Your Own Project
 
-At the moment none of these crates are published on crates.io, so you must
-clone this repository and generate them yourself (see below) before you can
-use them.
-
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.stm32f4]
-path = "/path/to/stm32-rs/stm32f4"
+version = "0.1.0"
 features = ["stm32f405", "rt"]
 ```
-The `rt` feature is optional but helpful.
+The `rt` feature is optional but helpful. See
+[svd2rust](https://docs.rs/svd2rust/0.12.0/svd2rust/#the-rt-feature) for 
+details.
 
 Then, in your code:
 
@@ -39,6 +37,10 @@ let mut peripherals = stm32f407::Peripherals::take().unwrap();
 ```
 
 Refer to `svd2rust` [documentation](https://docs.rs/svd2rust) for further usage.
+
+Replace `stm32f4` and `stm32f405` with your own device; see the individual
+crate READMEs for the complete list of supported devices. All current STM32
+devices should be supported to some level.
 
 ## Generating Device Crates
 
