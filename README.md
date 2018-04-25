@@ -33,7 +33,7 @@ Then, in your code:
 extern crate stm32f4;
 use stm32f4::stm32f405;
 
-let mut peripherals = stm32f407::Peripherals::take().unwrap();
+let mut peripherals = stm32f405::Peripherals::take().unwrap();
 ```
 
 Refer to `svd2rust` [documentation](https://docs.rs/svd2rust) for further usage.
