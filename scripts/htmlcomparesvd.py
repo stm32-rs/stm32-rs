@@ -43,7 +43,8 @@ def parse(svdfile):
             peripherals[pname]["derives"] = ptag.attrib["derivedFrom"]
     for pname, periph in list(peripherals.items()):
         if 'derives' in periph:
-            peripherals[pname] = peripherals[periph['derives']]
+            peripherals[pname]['registers'] = \
+                peripherals[periph['derives']]['registers']
     return {"name": svdfile.split(".")[0], "peripherals": peripherals}
 
 
