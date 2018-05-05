@@ -15,16 +15,17 @@
 #![no_std]
 
 #![cfg_attr(feature = "rt", feature(global_asm))]
-#![cfg_attr(feature = "rt", feature(macro_reexport))]
+#![cfg_attr(feature = "rt", feature(use_extern_macros))]
 #![cfg_attr(feature = "rt", feature(used))]
 
 extern crate vcell;
 extern crate bare_metal;
 extern crate cortex_m;
 
-#[macro_reexport(default_handler, exception)]
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
+#[cfg(feature = "rt")]
+pub use cortex_m_rt::{default_handler, exception};
 
 #[cfg(feature = "stm32l100")]
 pub mod stm32l100;
