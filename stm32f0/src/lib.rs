@@ -11,7 +11,7 @@
 #![allow(non_camel_case_types)]
 #![allow(private_no_mangle_statics)]
 #![feature(const_fn)]
-#![feature(optin_builtin_traits)]
+#![feature(try_from)]
 #![no_std]
 
 #![cfg_attr(feature = "rt", feature(global_asm))]
