@@ -14,7 +14,7 @@ import sys
 import glob
 import os.path
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 CARGO_TOML_TPL = """\
 [package]
@@ -68,7 +68,7 @@ extern crate cortex_m;
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
 #[cfg(feature = "rt")]
-pub use cortex_m_rt::{default_handler, exception};
+pub use cortex_m_rt::{{default_handler, exception}};
 
 {mods}
 """
