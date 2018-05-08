@@ -99,7 +99,7 @@ Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 * You can run `scripts/matchperipherals.py` script to find out what existing
   peripherals could be cleanly applied to this new SVD. If they look sensible,
   you can include them in your device YAML.
-* Re-run `scripts/makecrates.py` to update the crates with the new devices.
+* Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.
 
