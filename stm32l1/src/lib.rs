@@ -3,7 +3,7 @@
 //! [svd2rust]: https://github.com/japaric/svd2rust
 //!
 //! You can find an overview of the API here:
-//! https://docs.rs/svd2rust/0.8.1/svd2rust/#peripheral-api
+//! https://docs.rs/svd2rust/0.12.1/svd2rust/#peripheral-api
 //!
 //! For more details see the README here:
 //! https://github.com/adamgreig/stm32-rs
