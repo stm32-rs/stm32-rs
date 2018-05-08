@@ -142,7 +142,8 @@ def main():
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
             devices="\n".join("* " + d.upper().replace("X", "x")
                               for d in devices[family]))
-        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods, svd2rust_version=SVD2RUST_VERSION)
+        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods,
+                                       svd2rust_version=SVD2RUST_VERSION)
 
         os.makedirs(os.path.join(crate, "src"), exist_ok=True)
         with open(os.path.join(crate, "Cargo.toml"), "w") as f:
