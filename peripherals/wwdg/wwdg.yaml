@@ -22,11 +22,17 @@
         description: "Window value to be compared to the downcounter."
         bitOffset: 0
         bitWidth: 7
-    WDGTB:
-      Div1: [00, "Counter clock (PCLK1 div 4096) div 1"]
-      Div2: [01, "Counter clock (PCLK1 div 4096) div 2"]
-      Div4: [10, "Counter clock (PCLK1 div 4096) div 4"]
-      Div8: [11, "Counter clock (PCLK1 div 4096) div 8"]
+    _add:
+      WDGTB:
+        Div1: [00, "Counter clock (PCLK1 div 4096) div 1"]
+        Div2: [01, "Counter clock (PCLK1 div 4096) div 2"]
+        Div4: [10, "Counter clock (PCLK1 div 4096) div 4"]
+        Div8: [11, "Counter clock (PCLK1 div 4096) div 8"]
+      registers:
+        WDGTB0:
+          description: "First bit of the WDGTB register"
+        WDGTB1:
+          description: "Second bit of the WDGTB register"
   SR:
     EWIF:
       _read:
