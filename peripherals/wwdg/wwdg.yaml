@@ -5,36 +5,32 @@
   CR:
     _modify:
       WDGA: 
-        description: Activation bit for the watchdog. This bit is set by software and only cleared after a reset.
+        description: "Activation bit for the watchdog. This bit is set by software and only cleared after a reset."
         bitOffset: 7
         bitWidth: 1
-        access: read-set
       T:
-        description: These bits contain the value of the watchdog counter. A reset is produced when it rolls over from 0x40 to 0x3F (T6 us cleared).
+        description: "These bits contain the value of the watchdog counter. A reset is produced when it rolls over from 0x40 to 0x3F (T6 us cleared)."
         bitOffset: 0
         bitWidth: 7
-        access: read-write
   CFR:
     _modify:
       EWI:
-        description: Used to enable early wakeup interrupt. This allows an interrupt to be serviced before device reset. Only cleared after a reset
+        description: "Used to enable early wakeup interrupt. This allows an interrupt to be serviced before device reset. Only cleared after a reset"
         bitOffset: 9
         bitWidth: 1
-        access: read-set
       W:
-        description: Window value to be compared to the downcounter.
+        description: "Window value to be compared to the downcounter."
         bitOffset: 0
         bitWidth: 7
-        access: read-write
     WDGTB:
-      Div1: [00, Counter clock (PCLK1 div 4096) div 1]
-      Div2: [00, Counter clock (PCLK1 div 4096) div 2]
-      Div4: [00, Counter clock (PCLK1 div 4096) div 4]
-      Div8: [00, Counter clock (PCLK1 div 4096) div 8]
+      Div1: [00, "Counter clock (PCLK1 div 4096) div 1"]
+      Div2: [01, "Counter clock (PCLK1 div 4096) div 2"]
+      Div4: [10, "Counter clock (PCLK1 div 4096) div 4"]
+      Div8: [11, "Counter clock (PCLK1 div 4096) div 8"]
   SR:
     EWIF:
       _read:
-        Pending: [1, The EWI Interrupt Service Routine has been triggered] 
-        Finished: [0, The EWI Interrupt Service Routine has been serviced]
+        Pending: [1, "The EWI Interrupt Service Routine has been triggered"] 
+        Finished: [0, "The EWI Interrupt Service Routine has been serviced"]
       _write:
-        Finished: [0, The EWI Interrupt Service Routine has been serviced]
+        Finished: [0, "The EWI Interrupt Service Routine has been serviced"]
