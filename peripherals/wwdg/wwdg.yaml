@@ -1,7 +1,7 @@
 # The most common features, found on Basic timers TIM6 and TIM7,
 # and found on all more advanced timers.
 
-"WWDG":
+WWDG:
   CR:
     _modify:
       WDGA: 
@@ -13,6 +13,13 @@
         bitOffset: 0
         bitWidth: 7
   CFR:
+    WDGTB:
+      Div1: [0, "Counter clock (PCLK1 div 4096) div 1"]
+      Div2: [1, "Counter clock (PCLK1 div 4096) div 2"]
+      Div4: [2, "Counter clock (PCLK1 div 4096) div 4"]
+      Div8: [3, "Counter clock (PCLK1 div 4096) div 8"]
+      _merge:
+        - "WDGTB*"
     _modify:
       EWI:
         description: "Used to enable early wakeup interrupt. This allows an interrupt to be serviced before device reset. Only cleared after a reset"
@@ -22,17 +29,6 @@
         description: "Window value to be compared to the downcounter."
         bitOffset: 0
         bitWidth: 7
-    _add:
-      WDGTB:
-        Div1: [00, "Counter clock (PCLK1 div 4096) div 1"]
-        Div2: [01, "Counter clock (PCLK1 div 4096) div 2"]
-        Div4: [10, "Counter clock (PCLK1 div 4096) div 4"]
-        Div8: [11, "Counter clock (PCLK1 div 4096) div 8"]
-      registers:
-        WDGTB0:
-          description: "First bit of the WDGTB register"
-        WDGTB1:
-          description: "Second bit of the WDGTB register"
   SR:
     EWIF:
       _read:
