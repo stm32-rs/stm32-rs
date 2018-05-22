@@ -22,7 +22,12 @@ _modify:
     name: Ethernet_MMC
   ETHERNET_PTP:
     name: Ethernet_PTP
-
+WWDG:  
+  # EWIF is named incorrectly in the SVD compared to it's name in RM0008
+  SR:
+    _modify:
+      EWI:
+        name: EWIF
 _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/i2c/i2c_v1.yaml
