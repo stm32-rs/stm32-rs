@@ -66,16 +66,16 @@ This project is still young and there's a lot to do!
 
 ## Supported Device Families
 
-* STM32F0 ![crates.io](https://img.shields.io/crates/v/stm32f0.svg)
-* STM32F1 ![crates.io](https://img.shields.io/crates/v/stm32f1.svg)
-* STM32F2 ![crates.io](https://img.shields.io/crates/v/stm32f2.svg)
-* STM32F3 ![crates.io](https://img.shields.io/crates/v/stm32f3.svg)
-* STM32F4 ![crates.io](https://img.shields.io/crates/v/stm32f4.svg)
-* STM32F7 ![crates.io](https://img.shields.io/crates/v/stm32f7.svg)
-* STM32L0 ![crates.io](https://img.shields.io/crates/v/stm32l0.svg)
-* STM32L1 ![crates.io](https://img.shields.io/crates/v/stm32l1.svg)
-* STM32L4 ![crates.io](https://img.shields.io/crates/v/stm32l4.svg)
-* STM32H7 ![crates.io](https://img.shields.io/crates/v/stm32h7.svg)
+* STM32F0 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg)](https://crates.io/crates/stm32f0)
+* STM32F1 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg)](https://crates.io/crates/stm32f1)
+* STM32F2 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg)](https://crates.io/crates/stm32f2)
+* STM32F3 [![crates.io](https://img.shields.io/crates/v/stm32f3.svg)](https://crates.io/crates/stm32f3)
+* STM32F4 [![crates.io](https://img.shields.io/crates/v/stm32f4.svg)](https://crates.io/crates/stm32f4)
+* STM32F7 [![crates.io](https://img.shields.io/crates/v/stm32f7.svg)](https://crates.io/crates/stm32f7)
+* STM32L0 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg)](https://crates.io/crates/stm32l0)
+* STM32L1 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg)](https://crates.io/crates/stm32l1)
+* STM32L4 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg)](https://crates.io/crates/stm32l4)
+* STM32H7 [![crates.io](https://img.shields.io/crates/v/stm32h7.svg)](https://crates.io/crates/stm32h7)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
