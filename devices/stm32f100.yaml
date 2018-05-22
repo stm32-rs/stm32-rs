@@ -1,7 +1,14 @@
 _svd: ../svd/stm32f100.svd
 
+WWDG:
+  # EWIF is named incorrectly in the SVD compared to it's name in RM0008
+  SR:
+    _modify:
+      EWI:
+        name: EWIF
 _include:
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/i2c/i2c_v1.yaml
+ - ../peripherals/wwdg/wwdg.yaml
