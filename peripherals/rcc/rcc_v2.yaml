@@ -73,7 +73,6 @@ RCC:
       DisabledInSleep: [0, "Selected module is disabled during Sleep mode"]
       EnabledInSleep: [1, "Selected module is enabled during Sleep mode"]
   BDCR:
-    _merge: ["RTCSEL[01]"]
     BDRST:
       Reset: [1, "Resets the entire Backup domain"]
     RTCEN:
