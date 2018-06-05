@@ -132,10 +132,23 @@ _svd: "../svd/STM32F0x0.svd"
 _include:
     - "../peripherals/gpio_v2.yaml"
 
-# Alter peripherals for this device
+# Alter top-level information and peripherals for this device
 _modify:
+    version: 1.1
+    description: bla bla
+    addressUnitBits: 8
+    width: 32
+    cpu:
+        revision: r1p2
+        mpuPresent: true
+    # Peripherals can either live directly at this level (but other top-level
+    # fields will name match first)
     C_ADC:
         name: ADC_Common
+    # Or they can be inside a _peripherals block, to avoid name conflicts.
+    _peripherals:
+        FSMC:
+            description: Flexible static memory controller
 
 # Add whole new peripherals to this device.
 # Incredibly this feature is required.
@@ -147,7 +160,7 @@ _add:
         addressBlock:
             offset: 0x0
             size: 0x400
-        registers:
+        _registers:
             CSR:
                 description: ADC Common status register
                 addressOffset: 0x0
@@ -158,6 +171,10 @@ _add:
                         description: Overrun flag of ADC3
                         bitOffset: 21
                         bitWidth: 1
+        _interrupts:
+            ADC1_2:
+                description: ADC global interrupt
+                value: 18
 
 # An STM32 peripheral, matches an SVD <peripheral> tag.
 # Does not match any tag with derivedFrom attribute set.
@@ -168,13 +185,24 @@ _add:
 
     # Alter fields on existing registers inside this peripheral
     _modify:
-        # Rename this badly named registed. Takes effect before anything else.
+        # Rename this badly named register. Takes effect before anything else.
         # Don't use wildcard matches if you are changing the name!
         # We could have specified name or description or other tags to update.
         GPIOB_OSPEEDR:
           name: OSPEEDR
+        # Equivalently the register could go in a '_registers' block
+        _registers:
+            GPIOB_OSPEEDR:
+                name: OSPEEDR
+        # Change the value of an interrupt in this peripheral
+        _interrupts:
+            EXTI0:
+                value: 101
 
-    # Add new registers to this peripheral
+
+    # Add new registers to this peripheral. Entries are registers by default,
+    # which can also go inside a '_registers' block, or interrupts go in an
+    # '_interrupts' block.
     _add:
         EXAMPLER:
             description: An example register
@@ -185,6 +213,13 @@ _add:
                     description: Example field
                     bitOffset: 16
                     bitWidth: 4
+        _registers:
+            EXAMPLR2:
+                description: Another example register
+        _interrupts:
+            EXAMPLEI:
+                description: An example interrupt
+                value: 100
 
     # A register on this peripheral, matches an SVD <register> tag
     MODER:
