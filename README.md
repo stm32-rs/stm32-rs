@@ -160,7 +160,7 @@ _add:
         addressBlock:
             offset: 0x0
             size: 0x400
-        _registers:
+        registers:
             CSR:
                 description: ADC Common status register
                 addressOffset: 0x0
@@ -171,7 +171,7 @@ _add:
                         description: Overrun flag of ADC3
                         bitOffset: 21
                         bitWidth: 1
-        _interrupts:
+        interrupts:
             ADC1_2:
                 description: ADC global interrupt
                 value: 18

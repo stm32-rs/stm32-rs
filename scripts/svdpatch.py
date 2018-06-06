@@ -198,7 +198,10 @@ def process_device_add(device, pname, padd):
     for (key, value) in padd.items():
         if key == "registers":
             for rname in value:
-                process_peripheral_add(pnew, rname, value[rname])
+                process_peripheral_add_reg(pnew, rname, value[rname])
+        elif key == "interrupts":
+            for iname in value:
+                process_peripheral_add_int(pnew, iname, value[iname])
         elif key == "addressBlock":
             ab = ET.SubElement(pnew, 'addressBlock')
             for (ab_key, ab_value) in value.items():
@@ -207,7 +210,7 @@ def process_device_add(device, pname, padd):
             ET.SubElement(pnew, key).text = str(value)
 
 
-def process_peripheral_add(ptag, rname, radd):
+def process_peripheral_add_reg(ptag, rname, radd):
     """Add rname given by radd to ptag."""
     parent = ptag.find('registers')
     rnew = ET.SubElement(parent, 'register')
@@ -219,6 +222,14 @@ def process_peripheral_add(ptag, rname, radd):
                 process_register_add(rnew, fname, value[fname])
         else:
             ET.SubElement(rnew, key).text = str(value)
+
+
+def process_peripheral_add_int(ptag, iname, iadd):
+    """Add iname given by iadd to ptag."""
+    inew = ET.SubElement(ptag, 'interrupt')
+    ET.SubElement(inew, 'name').text = iname
+    for key, val in iadd.items():
+        ET.SubElement(inew, key).text = str(val)
 
 
 def process_register_add(rtag, fname, fadd):
