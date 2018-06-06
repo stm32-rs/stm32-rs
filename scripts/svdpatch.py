@@ -13,6 +13,13 @@ from fnmatch import fnmatch
 from collections import OrderedDict
 
 
+DEVICE_CHILDREN = [
+    "vendor", "vendorID", "name", "series", "version", "description",
+    "licenseText", "headerSystemFilename", "headerDefinitionsPrefix",
+    "addressUnitBits", "width", "size", "access", "protection", "resetValue",
+    "resetMask"]
+
+
 # Set up pyyaml to use ordered dicts so we generate the same
 # XML output each time
 def dict_constructor(loader, node):
@@ -143,11 +150,29 @@ def iter_fields(rtag, fspec):
             yield ftag
 
 
-def process_device_modify(device, pspec, pmod):
+def process_device_peripheral_modify(device, pspec, pmod):
     """Modify pspec inside device according to pmod."""
     for ptag in iter_peripherals(device, pspec):
         for (key, value) in pmod.items():
-            ptag.find(key).text = value
+            ptag.find(key).text = str(value)
+
+
+def process_device_child_modify(device, key, val):
+    """Modify key inside device and set it to val."""
+    for child in device.findall(key):
+        child.text = str(val)
+
+
+def process_device_cpu_modify(device, mod):
+    """Modify the `cpu` node inside `device` according to `mod`."""
+    cpu = device.find('cpu')
+    for key, val in mod.items():
+        field = cpu.find(key)
+        if field is not None:
+            field.text = str(val)
+        else:
+            field = ET.SubElement(cpu, key)
+            field.text = str(val)
 
 
 def process_peripheral_modify(ptag, rspec, rmod):
@@ -349,10 +374,19 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
 
 def process_device(svd, device, update_fields=True):
     """Work through a device, handling all peripherals"""
-    # Handle any peripheral modifications
-    for pspec in device.get("_modify", []):
-        pmod = device["_modify"][pspec]
-        process_device_modify(svd, pspec, pmod)
+    # Handle any modifications
+    for key in device.get("_modify", {}):
+        val = device["_modify"][key]
+        if key == "cpu":
+            process_device_cpu_modify(svd, val)
+        elif key == "_peripherals":
+            for pspec in val:
+                pmod = device['_modify']['_peripherals'][pspec]
+                process_device_peripheral_modify(svd, pspec, pmod)
+        elif key in DEVICE_CHILDREN:
+            process_device_child_modify(svd, key, val)
+        else:
+            process_device_peripheral_modify(svd, key, val)
 
     # Handle any new peripherals (!)
     for pname in device.get("_add", []):
