@@ -8,6 +8,7 @@ _svd: ../svd/stm32f301.svd
         name: "FRE"
 
 _include:
+ - common_patches/4_nvic_prio_bits.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/spi/spi_common.yaml

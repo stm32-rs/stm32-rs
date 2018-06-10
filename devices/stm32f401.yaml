@@ -15,6 +15,7 @@ CRC:
         name: RESET
 
 _include:
+ - common_patches/4_nvic_prio_bits.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml

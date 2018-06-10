@@ -1,5 +1,6 @@
 _svd: ../svd/stm32f373.svd
 
 _include:
+ - common_patches/4_nvic_prio_bits.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml

@@ -11,4 +11,5 @@ CRYP:
       - "IV*"
 
 _include:
+ - common_patches/4_nvic_prio_bits.yaml
  - ../peripherals/crc/crc_basic.yaml
