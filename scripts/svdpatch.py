@@ -366,13 +366,20 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
     for ptag in iter_peripherals(svd, pspec):
         pcount += 1
         # Handle modifications
-        for rspec in peripheral.get("_modify", []):
+        for rspec in peripheral.get("_modify", {}):
             rmod = peripheral["_modify"][rspec]
             process_peripheral_modify(ptag, rspec, rmod)
         # Handle additions
-        for rname in peripheral.get("_add", []):
+        for rname in peripheral.get("_add", {}):
             radd = peripheral["_add"][rname]
-            process_peripheral_add(ptag, rname, radd)
+            if rname == "_registers":
+                for rname in radd:
+                    process_peripheral_add_reg(ptag, rname, radd[rname])
+            elif rname == "_interrupts":
+                for iname in radd:
+                    process_peripheral_add_int(ptag, iname, radd[iname])
+            else:
+                process_peripheral_add_reg(ptag, rname, radd)
         # Handle registers
         for rspec in peripheral:
             if not rspec.startswith("_"):

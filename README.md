@@ -200,9 +200,9 @@ _add:
                 value: 101
 
 
-    # Add new registers to this peripheral. Entries are registers by default,
-    # which can also go inside a '_registers' block, or interrupts go in an
-    # '_interrupts' block.
+    # Add new registers and interrupts to this peripheral.
+    # Entries are registers by default, which can also go inside a '_registers'
+    # block, or interrupts go in an '_interrupts' block.
     _add:
         EXAMPLER:
             description: An example register
