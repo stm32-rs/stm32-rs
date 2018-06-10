@@ -35,7 +35,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched
 	rm $$(@D)/build.rs
 	$(eval DEVICE := $(basename $$(<F)))
 	export DEVICE=$$$$(basename $$< .svd.patched); \
-        sed -i'' "1,6d;10d;293,303s/crate::Interrupt/crate::$$$${DEVICE}::Interrupt/" $$(@D)/mod.rs
+        sed -i'' "1,6d;10d;s/crate::Interrupt/crate::$$$${DEVICE}::Interrupt/" $$(@D)/mod.rs
 endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
