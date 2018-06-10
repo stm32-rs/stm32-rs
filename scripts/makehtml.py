@@ -9,6 +9,7 @@ peripheral and register and their level of coverage.
 
 import os.path
 import argparse
+import multiprocessing
 import xml.etree.ElementTree as ET
 from jinja2 import Environment, PackageLoader
 
@@ -142,6 +143,16 @@ def parse_device(svdfile):
             "fields_documented": device_fields_documented}
 
 
+def process_svd(svdfile):
+    print("Processing", svdfile)
+    device = parse_device(svdfile)
+    page = generate_device_page(device)
+    pagename = "{}.html".format(device["name"])
+    with open(os.path.join(args.htmldir, pagename), "w") as f:
+        f.write(page)
+    return device
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("htmldir", help="Path to write HTML files to")
@@ -149,14 +160,9 @@ if __name__ == "__main__":
                         nargs="*")
     args = parser.parse_args()
     devices = {}
-    for svdfile in args.svdfiles:
-        print("Processing", svdfile)
-        device = parse_device(svdfile)
-        devices[device['name']] = device
-        page = generate_device_page(device)
-        pagename = "{}.html".format(device["name"])
-        with open(os.path.join(args.htmldir, pagename), "w") as f:
-            f.write(page)
+    with multiprocessing.Pool() as p:
+        devices = p.map(process_svd, args.svdfiles)
+    devices = {d['name']: d for d in devices}
     index_page = generate_index_page(devices)
     with open(os.path.join(args.htmldir, "index.html"), "w") as f:
         f.write(index_page)
