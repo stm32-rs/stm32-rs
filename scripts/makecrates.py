@@ -14,8 +14,8 @@ import sys
 import glob
 import os.path
 
-VERSION = "0.1.1"
-SVD2RUST_VERSION = "0.12.1"
+VERSION = "0.2.0"
+SVD2RUST_VERSION = "0.13.1"
 
 CARGO_TOML_TPL = """\
 [package]
@@ -30,10 +30,10 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "0.1.1"
+bare-metal = "0.2.0"
 vcell = "0.1.0"
-cortex-m = "0.4.3"
-cortex-m-rt = "0.4.0"
+cortex-m = "0.5.2"
+cortex-m-rt = "0.5.1"
 
 [features]
 default = []
@@ -53,7 +53,6 @@ SRC_LIB_RS_TPL = """\
 //! https://github.com/adamgreig/stm32-rs
 
 #![allow(non_camel_case_types)]
-#![allow(private_no_mangle_statics)]
 #![feature(const_fn)]
 #![feature(try_from)]
 #![no_std]
@@ -68,8 +67,6 @@ extern crate cortex_m;
 
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
-#[cfg(feature = "rt")]
-pub use cortex_m_rt::{{default_handler, exception}};
 
 {mods}
 """
@@ -104,6 +101,23 @@ https://docs.rs/svd2rust/{svd2rust_version}/svd2rust/#peripheral-api
 """
 
 
+BUILD_TPL = """\
+use std::env;
+use std::fs;
+use std::path::PathBuf;
+fn main() {{
+    if env::var_os("CARGO_FEATURE_RT").is_some() {{
+        let out = &PathBuf::from(env::var_os("OUT_DIR").unwrap());
+        println!("cargo:rustc-link-search={{}}", out.display());
+        let device_file = {device_clauses};
+        fs::copy(device_file, out.join("device.x")).unwrap();
+        println!("cargo:rerun-if-changed={{}}", device_file);
+    }}
+    println!("cargo:rerun-if-changed=build.rs");
+}}
+"""
+
+
 def make_features(devices):
     return "\n".join("{} = []".format(d) for d in sorted(devices))
 
@@ -111,6 +125,13 @@ def make_features(devices):
 def make_mods(devices):
     return "\n".join('#[cfg(feature = "{0}")]\npub mod {0};\n'.format(d)
                      for d in sorted(devices))
+
+def make_device_clauses(devices):
+    return " else ".join("""\
+        if env::var_os("CARGO_FEATURE_{}").is_some() {{
+            "src/{}/device.x"
+        }}""".format(d.upper(), d) for d in sorted(devices)) + \
+            " else { panic!(\"No device features selected\"); }"
 
 
 def main():
@@ -133,6 +154,7 @@ def main():
         devices[family] = sorted(devices[family])
         crate = family.lower()
         features = make_features(devices[family])
+        clauses = make_device_clauses(devices[family])
         mods = make_mods(devices[family])
         ufamily = family.upper()
         cargo_toml = CARGO_TOML_TPL.format(
@@ -144,6 +166,7 @@ def main():
                               for d in devices[family]))
         lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods,
                                        svd2rust_version=SVD2RUST_VERSION)
+        build_rs = BUILD_TPL.format(device_clauses=clauses)
 
         os.makedirs(os.path.join(crate, "src"), exist_ok=True)
         with open(os.path.join(crate, "Cargo.toml"), "w") as f:
@@ -152,6 +175,8 @@ def main():
             f.write(readme)
         with open(os.path.join(crate, "src", "lib.rs"), "w") as f:
             f.write(lib_rs)
+        with open(os.path.join(crate, "build.rs"), "w") as f:
+            f.write(build_rs)
 
 
 if __name__ == "__main__":

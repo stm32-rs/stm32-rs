@@ -1,5 +1,7 @@
 all: patch svd2rust
 
+SHELL := /bin/bash
+
 CRATES := stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
           stm32l0 stm32l1 stm32l4
 
@@ -9,56 +11,34 @@ YAMLS := $(wildcard devices/*.yaml)
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 
-# Each device will lead to a crate/src/device.rs file
+# Each device will lead to a crate/src/device/mod.rs file
 RUST_SRCS := $(foreach crate, $(CRATES), \
                $(patsubst devices/$(crate)%.yaml, \
-                          $(crate)/src/$(crate)%.rs, \
+                          $(crate)/src/$(crate)%/mod.rs, \
+                          $(wildcard devices/$(crate)*.yaml)))
+
+RUST_DIRS := $(foreach crate, $(CRATES), \
+               $(patsubst devices/$(crate)%.yaml, \
+                          $(crate)/src/$(crate)%/, \
                           $(wildcard devices/$(crate)*.yaml)))
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
 	python3 scripts/svdpatch.py $<
 
-# Please let me know if there's a better way to do this...
-stm32f0/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
+define crate_template
+$(1)/src/%/mod.rs: svd/%.svd.patched
+	mkdir -p $$(@D)
+	cd $$(@D); svd2rust -i ../../../$$<
+	mv $$(@D)/lib.rs $$(@D)/mod.rs
+	rustfmt $$(@D)/mod.rs
+	rm $$(@D)/build.rs
+	$(eval DEVICE := $(basename $$(<F)))
+	export DEVICE=$$$$(basename $$< .svd.patched); \
+        sed -i'' "1,6d;10d;293,303s/crate::Interrupt/crate::$$$${DEVICE}::Interrupt/" $$(@D)/mod.rs
+endef
 
-stm32f1/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32f2/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32f3/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32f4/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32f7/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32l0/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32l1/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32l4/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
-
-stm32h7/src/stm32%.rs: svd/stm32%.svd.patched
-	- svd2rust -i $< | rustfmt > $@
-	sed -i '1,3d;5,11d;13,16d;23s/interrupt/self::interrupt/' $@
+$(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
 
 patch: $(PATCHED_SVDS)
 
@@ -70,7 +50,7 @@ html/index.html: $(PATCHED_SVDS)
 html: html/index.html
 
 clean-rs:
-	rm -f $(RUST_SRCS)
+	rm -rf $(RUST_DIRS)
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)
