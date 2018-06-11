@@ -33,11 +33,14 @@ license = "MIT/Apache-2.0"
 bare-metal = "0.2.0"
 vcell = "0.1.0"
 cortex-m = "0.5.2"
+
+[dependencies.cortex-m-rt]
+optional = true
 cortex-m-rt = "0.5.1"
 
 [features]
 default = []
-rt = []
+rt = ["cortex-m-rt/device"]
 {features}
 """
 
