@@ -1,5 +1,29 @@
 _svd: ../svd/stm32h7x3.svd
 
+"GPIOA":
+  _modify:
+    # The SVD incorrectly names all the GPIO registers compared to RM0433.
+    GPIOA_MODER:
+        name: MODER
+    GPIOA_OTYPER:
+        name: OTYPER
+    GPIOA_OSPEEDR:
+        name: OSPEEDR
+    GPIOA_PUPDR:
+        name: PUPDR
+    GPIOA_IDR:
+        name: IDR
+    GPIOA_ODR:
+        name: ODR
+    GPIOA_BSRR:
+        name: BSRR
+    GPIOA_LCKR:
+        name: LCKR
+    GPIOA_AFRL:
+        name: AFRL
+    GPIOA_AFRH:
+        name: AFRH
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
