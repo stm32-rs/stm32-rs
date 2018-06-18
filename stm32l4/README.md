@@ -26,4 +26,5 @@ https://docs.rs/svd2rust/0.13.1/svd2rust/#peripheral-api
 * STM32L4x1
 * STM32L4x2
 * STM32L4x3
+* STM32L4x5
 * STM32L4x6

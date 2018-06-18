@@ -33,6 +33,9 @@ pub mod stm32l4x2;
 #[cfg(feature = "stm32l4x3")]
 pub mod stm32l4x3;
 
+#[cfg(feature = "stm32l4x5")]
+pub mod stm32l4x5;
+
 #[cfg(feature = "stm32l4x6")]
 pub mod stm32l4x6;
 
