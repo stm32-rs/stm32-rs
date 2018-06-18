@@ -11,6 +11,8 @@ fn main() {
             "src/stm32l4x2/device.x"
         } else         if env::var_os("CARGO_FEATURE_STM32L4X3").is_some() {
             "src/stm32l4x3/device.x"
+        } else         if env::var_os("CARGO_FEATURE_STM32L4X5").is_some() {
+            "src/stm32l4x5/device.x"
         } else         if env::var_os("CARGO_FEATURE_STM32L4X6").is_some() {
             "src/stm32l4x6/device.x"
         } else { panic!("No device features selected"); };
