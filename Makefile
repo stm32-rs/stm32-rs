@@ -31,8 +31,9 @@ $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -i ../../../$$<
 	export DEVICE=$$$$(basename $$< .svd.patched); \
-        sed "s/crate :: Interrupt/crate :: $$$${DEVICE} :: Interrupt/" $$(@D)/lib.rs > $$(@D)/mod.rs
-	form -i $$(@D)/mod.rs -o $$(@D)/
+        sed -i "s/crate :: Interrupt/crate :: $$$${DEVICE} :: Interrupt/" $$(@D)/lib.rs
+	form -i $$(@D)/lib.rs -o $$(@D)/
+	mv $$(@D)/lib.rs $$(@D)/mod.rs
 	rm $$(@D)/build.rs
 	find $$(@D) -name *.rs -exec rustfmt {} +
 endef
