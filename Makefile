@@ -30,10 +30,11 @@ define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -i ../../../$$<
-	rustfmt $$(@D)/lib.rs
 	export DEVICE=$$$$(basename $$< .svd.patched); \
-        sed "1,6d;10d;s/crate::Interrupt/crate::$$$${DEVICE}::Interrupt/" $$(@D)/lib.rs > $$(@D)/mod.rs
-	rm $$(@D)/build.rs $$(@D)/lib.rs
+        sed "s/crate :: Interrupt/crate :: $$$${DEVICE} :: Interrupt/" $$(@D)/lib.rs > $$(@D)/mod.rs
+	form -i $$(@D)/mod.rs -o $$(@D)/
+	rm $$(@D)/build.rs
+	find $$(@D) -name *.rs -exec rustfmt {} +
 endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
