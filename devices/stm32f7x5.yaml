@@ -33,6 +33,14 @@ RCC:
         bitOffset: 3
         bitWidth: 2
         access: read-write
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: PLL division factor for DSI clock
+        bitOffset: 28
+        bitWidth: 3
+        access: read-write
+    PLLR: [2, 7]
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
