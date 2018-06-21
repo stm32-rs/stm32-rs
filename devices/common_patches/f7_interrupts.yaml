@@ -1,0 +1,111 @@
+# Add the many missing interrupts for the STM32F7x{5,6,7,9} devices.
+
+PWR:
+  _add:
+    _interrupts:
+      PVD:
+        description: PVD through EXTI line detection interrupt
+        value: 1
+
+TIM1:
+  _add:
+    _interrupts:
+      TIM1_UP_TIM10:
+        description: TIM1 Update interrupt and TIM10 global interrupt
+        value: 25
+      TIM1_CC:
+        description: TIM1 Capture Compare interrupt
+        value: 27
+
+I2C1:
+  _add:
+    _interrupts:
+      I2C2_EV:
+        description: I2C2 event interrupt
+        value: 33
+      I2C2_ER:
+        description: I2C2 error interrupt
+        value: 34
+
+USART6:
+  _add:
+    _interrupts:
+      UART4:
+        description: UART4 global interrupt
+        value: 52
+
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
+
+I2C1:
+  _add:
+    _interrupts:
+      I2C3_EV:
+        description: I2C3 event interrupt
+        value: 72
+      I2C3_ER:
+        description: I2C3 error interrupt
+        value: 73
+
+CRYP:
+  _add:
+    _interrupts:
+      CRYP:
+        description: CRYP crypto global interrupt
+        value: 79
+
+USART6:
+  _add:
+    _interrupts:
+      UART7:
+        description: UART7 global interrupt
+        value: 82
+
+SAI1:
+  _add:
+    _interrupts:
+      SAI1:
+        description: SAI1 global interrupt
+        value: 91
+
+QUADSPI:
+  _add:
+    _interrupts:
+      QuadSPI:
+        description: QuadSPI global interrupt
+        value: 92
+
+LPTIM1:
+  _add:
+    _interrupts:
+      LP_Timer1:
+        description: LP Timer1 global interrupt
+        value: 93
+
+CRC:
+  _add:
+    _interrupts:
+      HDMI_CEC:
+        description: HDMI-CEC global interrupt
+        value: 94
+
+I2C1:
+  _add:
+    _interrupts:
+      I2C4_EV:
+        description: I2C4 event interrupt
+        value: 95
+      I2C4_ER:
+        description: I2C4 error interrupt
+        value: 96
+
+SPDIFRX:
+  _add:
+    _interrupts:
+      SPDIFRX:
+        description: SPDIFRX global interrupt
+        value: 97

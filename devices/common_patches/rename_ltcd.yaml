@@ -1,0 +1,6 @@
+# Several devices have the LTDC peripheral misnamed as LTCD.
+
+_modify:
+  _peripherals:
+    LTCD:
+      name: LTDC
