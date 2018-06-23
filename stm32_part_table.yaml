@@ -1,0 +1,451 @@
+# This file contains a table of all supported STM32 microcontrollers.
+#
+# It lists them by family (which corresponds to a crate),
+# then by the "device" in that family (corresponds to an SVD file,
+# and to a module within each crate).
+#
+# For each device, there is a link to the product page and reference manual,
+# the reference manual ID, the title from the reference manual,
+# and a list of actual members of this family (without size/package codes).
+#
+# This data is used to generate more informative crate READMEs.
+
+
+stm32f0:
+  stm32f0x0:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x0-value-line.html
+    rm: RM0360
+    rm_title: STM32F030x4/x6/x8/xC and STM32F070x6/xB
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00091010.pdf
+    members:
+      - STM32F030
+      - STM32F070
+
+  stm32f0x1:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x1.html
+    rm: RM0091
+    rm_title: STM32F0x1/STM32F0x2/STM32F0x8
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031936.pdf
+    members:
+      - STM32F031
+      - STM32F051
+      - STM32F071
+      - STM32F091
+
+  stm32f0x2:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x2.html
+    rm: RM0091
+    rm_title: STM32F0x1/STM32F0x2/STM32F0x8
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031936.pdf
+    members:
+      - STM32F042
+      - STM32F072
+
+  stm32f0x8:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x8.html
+    rm: RM0091
+    rm_title: STM32F0x1/STM32F0x2/STM32F0x8
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031936.pdf
+    members:
+      - STM32F038
+      - STM32F048
+      - STM32F058
+      - STM32F078
+      - STM32F098
+
+
+stm32f1:
+  stm32f100:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f100-value-line.html
+    rm: RM0041
+    rm_title: STM32F100xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00246267.pdf
+    members:
+      - STM32F100
+
+  stm32f101:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f101.html
+    rm: RM0008
+    rm_title: STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx, and STM32F107xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00171190.pdf
+    members:
+      - STM32F101
+
+  stm32f102:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f102.html
+    rm: RM0008
+    rm_title: STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx, and STM32F107xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00171190.pdf
+    members:
+      - STM32F102
+
+  stm32f103:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f103.html
+    rm: RM0008
+    rm_title: STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx, and STM32F107xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00171190.pdf
+    members:
+      - STM32F103
+
+  stm32f107:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f105-107.html
+    rm: RM0008
+    rm_title: STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx, and STM32F107xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00171190.pdf
+    members:
+      - STM32F105
+      - STM32F107
+
+
+stm32f2:
+  stm32f215:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f2-series/stm32f2x5.html
+    rm: RM0033
+    rm_title: STM32F205xx, STM32F207xx, STM32F215xx and STM32F217xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00225773.pdf
+    members:
+      - STM32F205
+      - STM32F215
+
+  stm32f217:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f2-series/stm32f2x7.html
+    rm: RM0033
+    rm_title: STM32F205xx, STM32F207xx, STM32F215xx and STM32F217xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00225773.pdf
+    members:
+      - STM32F207
+      - STM32F217
+
+
+stm32f3:
+  stm32f301:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f301.html
+    rm: RM0366
+    rm_title: STM32F301x6/8 and STM32F318x8
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00094350.pdf
+    members:
+      - STM32F301
+
+  stm32f302:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f302.html
+    rm: RM0365
+    rm_title: STM32F302xB/C/D/E and STM32F302x6/8
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00094349.pdf
+    members:
+      - STM32F302
+
+  stm32f303:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f303.html
+    rm: RM0316
+    rm_title: STM32F303xB/C/D/E, STM32F303x6/8, STM32F328x8, STM32F358xC, STM32F398xE
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00043574.pdf
+    members:
+      - STM32F303
+
+  stm32f373:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f3x8.html
+    rm: RM0313
+    rm_title: STM32F37xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00041563.pdf
+    members:
+      - STM32F373
+
+  stm32f3x4:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f334.html
+    rm: RM0364
+    rm_title: STM32F334xx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00093941.pdf
+    members:
+      - STM32F334
+
+  stm32f3x8:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f373.html
+    rm: RM0316
+    rm_title: STM32F303xB/C/D/E, STM32F303x6/8, STM32F328x8, STM32F358xC, STM32F398xE
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00043574.pdf
+    members:
+      - STM32F318
+      - STM32F328
+      - STM32F358
+      - STM32F378
+      - STM32F398
+
+
+stm32f4:
+  stm32f401:
+    url: https://www.st.com/en/microcontrollers/stm32f401.html
+    rm: RM0368
+    rm_title: STM32F401xB/C and STM32F401xD/E
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00096844.pdf
+    members:
+      - STM32F401
+
+  stm32f405:
+    url: https://www.st.com/en/microcontrollers/stm32f405-415.html
+    rm: RM0090
+    rm_title: STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031020.pdf
+    members:
+      - STM32F405
+      - STM32F415
+
+  stm32f407:
+    url: https://www.st.com/en/microcontrollers/stm32f407-417.html
+    rm: RM0090
+    rm_title: STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031020.pdf
+    members:
+      - STM32F407
+      - STM32F417
+
+  stm32f410:
+    url: https://www.st.com/en/microcontrollers/stm32f410.html
+    rm: RM0401
+    rm_title: STM32F410
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00180366.pdf
+    members:
+      - STM32F410
+
+  stm32f411:
+    url: https://www.st.com/en/microcontrollers/stm32f411.html
+    rm: RM0383
+    rm_title: STM32F411xC/E
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00119316.pdf
+    members:
+      - STM32F411
+
+  stm32f412:
+    url: https://www.st.com/en/microcontrollers/stm32f412.html
+    rm: RM0402
+    rm_title: STM32F412
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00180369.pdf
+    members:
+      - STM32F412
+
+  stm32f413:
+    url: https://www.st.com/en/microcontrollers/stm32f413-423.html
+    rm: RM0430
+    rm_title: STM32F413/423
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00305666.pdf
+    members:
+      - STM32F413
+      - STM32F423
+
+  stm32f427:
+    url: https://www.st.com/en/microcontrollers/stm32f427-437.html
+    rm: RM0090
+    rm_title: STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031020.pdf
+    members:
+      - STM32F427
+      - STM32F437
+
+  stm32f429:
+    url: https://www.st.com/en/microcontrollers/stm32f429-439.html
+    rm: RM0090
+    rm_title: STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00031020.pdf
+    members:
+      - STM32F429
+      - STM32F439
+
+  stm32f446:
+    url: https://www.st.com/en/microcontrollers/stm32f446.html
+    rm: RM0390
+    rm_title: STM32F446xx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00135183.pdf
+    members:
+      - STM32F446
+
+  stm32f469:
+    url: https://www.st.com/en/microcontrollers/stm32f469-479.html
+    rm: RM0368
+    rm_title: STM32F469xx and STM32F479xx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00127514.pdf
+    members:
+      - STM32F469
+      - STM32F479
+
+
+stm32f7:
+  stm32f7x2:
+    url: https://www.st.com/en/microcontrollers/stm32f7x2.html
+    rm: RM0431
+    rm_title: STM32F72xxx and STM32F73xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00305990.pdf
+    members:
+      - STM32F722
+      - STM32F732
+
+  stm32f7x3:
+    url: https://www.st.com/en/microcontrollers/stm32f7x3.html
+    rm: RM0431
+    rm_title: STM32F72xxx and STM32F73xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00305990.pdf
+    members:
+      - STM32F723
+      - STM32F733
+
+  stm32f7x5:
+    url: https://www.st.com/en/microcontrollers/stm32f7x5.html
+    rm: RM0410
+    rm_title: STM32F76xxx and STM32F77xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00224583.pdf
+    members:
+      - STM32F745
+      - STM32F765
+
+  stm32f7x6:
+    url: https://www.st.com/en/microcontrollers/stm32f7x6.html
+    rm: RM0385
+    rm_title: STM32F75xxx and STM32F74xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00124865.pdf
+    members:
+      - STM32F746
+      - STM32F756
+
+  stm32f7x7:
+    url: https://www.st.com/en/microcontrollers/stm32f7x7.html
+    rm: RM0410
+    rm_title: STM32F76xxx and STM32F77xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00224583.pdf
+    members:
+      - STM32F767
+      - STM32F777
+
+  stm32f7x9:
+    url: https://www.st.com/en/microcontrollers/stm32f7x9.html
+    rm: RM0410
+    rm_title: STM32F76xxx and STM32F77xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00224583.pdf
+    members:
+      - STM32F769
+      - STM32F778
+      - STM32F779
+
+
+stm32h7:
+  stm32h7x3:
+    url: https://www.st.com/en/microcontrollers/stm32h743-753.html
+    rm: RM0433
+    rm_title: STM32H743/753
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00314099.pdf
+    members:
+      - STM32H743
+      - STM32H753
+
+
+stm32l0:
+  stm32l0x1:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x1.html
+    rm: RM0377
+    rm_title: STM32L0x1
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00108282.pdf
+    members:
+      - STM32L011
+      - STM32L021
+      - STM32L031
+      - STM32L041
+      - STM32L051
+      - STM32L071
+      - STM32L081
+
+  stm32l0x2:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x2.html
+    rm: RM0376
+    rm_title: STM32L0x2
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00108281.pdf
+    members:
+      - STM32L052
+      - STM32L062
+      - STM32L072
+      - STM32L082
+
+  stm32l0x3:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x3.html
+    rm: RM0367
+    rm_title: STM32L0x3
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00095744.pdf
+    members:
+      - STM32L053
+      - STM32L063
+      - STM32L073
+      - STM32L083
+
+
+stm32l1:
+  stm32l100:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l100-value-line.html
+    rm: RM0038
+    rm_title: STM32L100xx, STM32L151xx, STM32L152xx and STM32L162xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00240193.pdf
+    members:
+      - STM32L100
+
+  stm32l151:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l151-152.html
+    rm: RM0038
+    rm_title: STM32L100xx, STM32L151xx, STM32L152xx and STM32L162xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00240193.pdf
+    members:
+      - STM32L151
+      - STM32L152
+
+  stm32l162:
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l162.html
+    rm: RM0038
+    rm_title: STM32L100xx, STM32L151xx, STM32L152xx and STM32L162xx
+    rm_url: https://www.st.com/resource/en/reference_manual/cd00240193.pdf
+    members:
+      - STM32L162
+
+
+stm32l4:
+  stm32l4x1:
+    url: https://www.st.com/en/microcontrollers/stm32l4x1.html?
+    rm: RM0394
+    rm_title: STM32L43xxx STM32L44xxx STM32L45xxx STM32L46xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00151940.pdf
+    members:
+      - STM32L431
+      - STM32L451
+      - STM32L471
+
+  stm32l4x2:
+    url: https://www.st.com/en/microcontrollers/stm32l4x2.html
+    rm: RM0394
+    rm_title: STM32L43xxx STM32L44xxx STM32L45xxx STM32L46xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00151940.pdf
+    members:
+      - STM32L432
+      - STM32L442
+      - STM32L452
+      - STM32L462
+
+  stm32l4x3:
+    url: https://www.st.com/en/microcontrollers/stm32l4x3.html
+    rm: RM0394
+    rm_title: STM32L43xxx STM32L44xxx STM32L45xxx STM32L46xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00151940.pdf
+    members:
+      - STM32L433
+      - STM32L443
+
+  stm32l4x5:
+    url: https://www.st.com/en/microcontrollers/stm32l4x5.html
+    rm: RM0351
+    rm_title: STM32L4x5 and STM32L4x6
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00083560.pdf
+    members:
+      - STM32L475
+
+  stm32l4x6:
+    url: https://www.st.com/en/microcontrollers/stm32l4x6.html
+    rm: RM0351
+    rm_title: STM32L4x5 and STM32L4x6
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00083560.pdf
+    members:
+      - STM32L476
+      - STM32L486
+      - STM32L496
+      - STM32L4A6
