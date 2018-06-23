@@ -12,8 +12,10 @@ possible chip yet! While they're all generated from ST-provided SVD files,
 we can't make any guarantee of correctness. Please report any bugs you find!**
 
 You can see current coverage status for each chip
-[here](https://stm32.agg.io/rs). That page also allows you to drill down
-into each field on each register on each peripheral.
+[here](https://stm32.agg.io/rs). Coverage means that individual fields are
+documented with possible values, but even devices with low coverage should
+have every register and field available in the API. That page also allows you
+to drill down into each field on each register on each peripheral.
 
 ## Using Device Crates In Your Own Project
 
@@ -42,14 +44,35 @@ Replace `stm32f4` and `stm32f405` with your own device; see the individual
 crate READMEs for the complete list of supported devices. All current STM32
 devices should be supported to some level.
 
-## Generating Device Crates
+## Generating Device Crates / Building Locally
 
 * Install `svd2rust`: `cargo install svd2rust`
 * Install latest rustfmt: `cargo uninstall rustfmt; rustup component add rustfmt-preview`
 * Install PyYAML: `pip install pyyaml`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh`
 * Generate patched SVD files: `cd ..; make patch`
-* Generate svd2rust device crates: `make svd2rust` (you probably want `-j8` for this)
+* Generate svd2rust device crates: `make svd2rust` (you probably want `-j` for this)
+
+## Motivation and Objectives
+
+This project serves two purposes:
+
+* Create a source of high-quality STM32 SVD files, with manufacturer errors
+  and inconsistencies fixed. These files could be used with svd2rust or other
+  tools, or in other projects. They should hopefully be useful in their own
+  right.
+* Create and publish svd2rust-generated crates covering all STM32s, using
+  the SVD files.
+
+At present many individual crates exist for specific STM32 devices, typically
+maintained by many seprate users with hand-edited updates to the SVD files.
+This means that support for less-common STM32s is completely missing, and
+the hand-edited SVDs may be inconsistent with other crates. Plus, it's a huge
+duplication of work, since so many peripherals are the same between devices.
+
+This project hopes to reduce the duplication of effort, and hopefully in the
+future enable further automation / code generation based on automatically
+identifying similarities between different devices.
 
 ## Helping
 
@@ -57,25 +80,25 @@ This project is still young and there's a lot to do!
 
 * More peripheral patches need to be written, most of all. See what we've got
   in `peripherals/` and grab a reference manual!
-* Also everything needs testing, and you can't so easily automate finding bugs 
+* Also everything needs testing, and you can't so easily automate finding bugs
   in the SVD files...
-* Is this really the best way to support a lot of devices? We end up with a 
+* Is this really the best way to support a lot of devices? We end up with a
   handful of crates, each with a lot of features, and each feature enables a
-  gigantic module, but they all share a lot of code. Can we automatically 
+  gigantic module, but they all share a lot of code. Can we automatically
   factor out the shared structures?
 
 ## Supported Device Families
 
-* STM32F0 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg)](https://crates.io/crates/stm32f0)
-* STM32F1 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg)](https://crates.io/crates/stm32f1)
-* STM32F2 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg)](https://crates.io/crates/stm32f2)
-* STM32F3 [![crates.io](https://img.shields.io/crates/v/stm32f3.svg)](https://crates.io/crates/stm32f3)
-* STM32F4 [![crates.io](https://img.shields.io/crates/v/stm32f4.svg)](https://crates.io/crates/stm32f4)
-* STM32F7 [![crates.io](https://img.shields.io/crates/v/stm32f7.svg)](https://crates.io/crates/stm32f7)
-* STM32L0 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg)](https://crates.io/crates/stm32l0)
-* STM32L1 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg)](https://crates.io/crates/stm32l1)
-* STM32L4 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg)](https://crates.io/crates/stm32l4)
-* STM32H7 [![crates.io](https://img.shields.io/crates/v/stm32h7.svg)](https://crates.io/crates/stm32h7)
+* [STM32F0](stm32f0/) [![crates.io](https://img.shields.io/crates/v/stm32f0.svg)](https://crates.io/crates/stm32f0)
+* [STM32F1](stm32f1/) [![crates.io](https://img.shields.io/crates/v/stm32f1.svg)](https://crates.io/crates/stm32f1)
+* [STM32F2](stm32f2/) [![crates.io](https://img.shields.io/crates/v/stm32f2.svg)](https://crates.io/crates/stm32f2)
+* [STM32F3](stm32f3/) [![crates.io](https://img.shields.io/crates/v/stm32f3.svg)](https://crates.io/crates/stm32f3)
+* [STM32F4](stm32f4/) [![crates.io](https://img.shields.io/crates/v/stm32f4.svg)](https://crates.io/crates/stm32f4)
+* [STM32F7](stm32f7/) [![crates.io](https://img.shields.io/crates/v/stm32f7.svg)](https://crates.io/crates/stm32f7)
+* [STM32L0](stm32l0/) [![crates.io](https://img.shields.io/crates/v/stm32l0.svg)](https://crates.io/crates/stm32l0)
+* [STM32L1](stm32l1/) [![crates.io](https://img.shields.io/crates/v/stm32l1.svg)](https://crates.io/crates/stm32l1)
+* [STM32L4](stm32l4/) [![crates.io](https://img.shields.io/crates/v/stm32l4.svg)](https://crates.io/crates/stm32l4)
+* [STM32H7](stm32h7/) [![crates.io](https://img.shields.io/crates/v/stm32h7.svg)](https://crates.io/crates/stm32h7)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
@@ -110,13 +133,13 @@ Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 * Run `make` to rebuild all the crates using `svdpatch.py` and `svd2rust`.
 * Test your new stuff compiles: `cd stm32f4; cargo build --features stm32f405`
 
-If you've added a new peripheral, consider using the `matchperipherals.py` 
+If you've added a new peripheral, consider using the `matchperipherals.py`
 script to see which devices it would cleanly apply to.
 
-To generate a new peripheral file from scratch, consider using 
+To generate a new peripheral file from scratch, consider using
 `periphtemplate.py`, which creates an empty peripheral file based on a single
-SVD file, with registers and fields ready to be populated. For single bit wide 
-fields with names ending in 'E' or 'D' it additionally generates sample 
+SVD file, with registers and fields ready to be populated. For single bit wide
+fields with names ending in 'E' or 'D' it additionally generates sample
 "Enabled"/"Disabled" entries to save time.
 
 ## Device and Peripheral YAML Format
@@ -274,7 +297,7 @@ You must quote the name if using any special characters in YAML.
 
 ### Style Guide
 
-* Enumerated values should be named in the past tense ("enabled", "masked", 
+* Enumerated values should be named in the past tense ("enabled", "masked",
   etc).
 * Descriptions should start with capital letters but do not end with a period
 
