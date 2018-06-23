@@ -1,5 +1,5 @@
 //! Peripheral access API for STM32F0 microcontrollers
-//! (generated using [svd2rust])
+//! (generated using [svd2rust] 0.13.1)
 //! [svd2rust]: https://github.com/japaric/svd2rust
 //!
 //! You can find an overview of the API here:
