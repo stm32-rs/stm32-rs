@@ -148,12 +148,20 @@ _modify:
   # Fix typo in the name of the LTDC peripheral
   "LTCD":
     name: "LTDC"
+  "Flash":
+    name: "FLASH"
 
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
     GPIOB_OSPEEDR:
       name: OSPEEDR
+
+FLASH:
+  OPTKEYR:
+    _modify:
+      OPTKEY:
+        name: OPTKEYR
 
 RCC:
   # Add the LSEDRV that's not in the SVD but is in RM0410
@@ -280,3 +288,4 @@ _include:
  - ../peripherals/eth/eth_mmc.yaml
  - ../peripherals/eth/eth_mac.yaml
  - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/flash/flash_v2.yaml
