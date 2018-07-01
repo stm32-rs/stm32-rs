@@ -1,5 +1,13 @@
 _svd: ../svd/stm32l4x1.svd
 
+# SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
+RCC:
+  APB1ENR1:
+    _modify:
+      USART1EN:
+        name: USART3EN
+        description: USART3 clock enable
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
