@@ -1,6 +1,6 @@
 # Changelog
 
-## v 0.2.1 2018-07-02
+## v 0.2.1 954966a 2018-07-02
 * Add STM32L4x5 device (#28)
 * Add PLLR field for STM32F7x7 (#30)
 * Add missing interrupts for STM32F7 devices (#27)
