@@ -15,7 +15,7 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 SVD2RUST_VERSION = "0.13.1"
 
 CARGO_TOML_TPL = """\
