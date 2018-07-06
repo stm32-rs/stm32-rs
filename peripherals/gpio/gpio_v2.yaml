@@ -1,4 +1,4 @@
-# This GPIO is used on the STM32F0, F3, F4, F7, and L0 families.;
+# This GPIO is used on the STM32F0, F3, F4, F7, and L0 families.
 
 "GPIO*":
   MODER:
@@ -22,6 +22,14 @@
       Floating: [0, "No pull-up, pull-down"]
       PullUp: [1, "Pull-up"]
       PullDown: [2, "Pull-down"]
+  IDR:
+    "IDR*":
+      High: [1, "Input is logic high"]
+      Low: [0, "Input is logic low"]
+  ODR:
+    "ODR*":
+      High: [1, "Set output to logic high"]
+      Low: [0, "Set output to logic low"]
   BSRR:
     "BR*":
       _write:
