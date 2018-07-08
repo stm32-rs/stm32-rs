@@ -23,3 +23,6 @@ default = []
 rt = ["cortex-m-rt/device"]
 stm32f215 = []
 stm32f217 = []
+
+[package.metadata.docs.rs]
+all-features = true

@@ -1,0 +1,42 @@
+# Reference: ARMv6-M Architecture Reference Manual issue C
+
+_add:
+  CPUID:
+    description: CPUID
+    baseAddress: 0xE000ED00
+    addressBlock:
+      offset: 0x0
+      size: 4
+    registers:
+      Base:
+        description: Provides identification information for the processor
+        addressOffset: 0x0
+        access: read-only
+        fields:
+          IMPLEMENTER:
+            description: This field defines the implementer
+            bitOffset: 24
+            bitWidth: 7
+          VARIANT:
+            description: Implementation defined
+            bitOffset: 20
+            bitWidth: 4
+          ARCHITECTURE:
+            description: This field defines the architecture
+            bitOffset: 16
+            bitWidth: 4
+          PARTNO:
+            description: Implementation defined.
+            bitOffset: 4
+            bitWidth: 12
+          REVISION:
+            description: Implementation defined.
+            bitOffset: 0
+            bitWidth: 4
+
+CPUID:
+  Base:
+    IMPLEMENTER:
+      ARM: [0x41, "ARM Limited"]
+    ARCHITECTURE:
+      ARMv6M: [0xC, "ARMv6-M"]

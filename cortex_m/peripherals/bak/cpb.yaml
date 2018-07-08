@@ -1,0 +1,75 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  CPB:
+    description: Cache and branch predictor maintenance operations
+    baseAddress: 0xE000EF50
+    addressBlock:
+      offset: 0x0
+      size: 52
+    registers:
+      ICIALLU:
+        description: I-cache invalidate all to PoU
+        addressOffset: 0x0
+        access: write-only
+      ICIMVAU:
+        description: I-cache invalidate by MVA to PoU
+        addressOffset: 0x8
+        access: write-only
+        fields:
+          MVA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      DCIMVAC:
+        description: D-cache invalidate by MVA to PoC
+        addressOffset: 0xC
+        access: write-only
+        fields:
+          MVA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      DCISW:
+        description: D-cache invaldiate by set-way
+        addressOffset: 0x10
+        access: write-only
+      DCCMVAU:
+        description: D-cache clean by MVA to PoU
+        addressOffset: 0x14
+        access: write-only
+        fields:
+          MVA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      DCCMVAC:
+        description: D-cache clean by MVA to PoC
+        addressOffset: 0x18
+        access: write-only
+        fields:
+          MVA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      DCCSW:
+        description: D-cache clean by set-way
+        addressOffset: 0x1C
+        access: write-only
+      DCCIMVAC:
+        description: D-cache clean and invalidate by MVA to PoC
+        addressOffset: 0x20
+        access: write-only
+        fields:
+          MVA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      DCCISW:
+        description: D-cache clean and invalidate by set-way
+        addressOffset: 0x24
+        access: write-only
+      BPIALL:
+        description: Branch predictor invalidate all
+        addressOffset: 0x28
+        access: write-only

@@ -1,0 +1,242 @@
+# Reference: ARMv6-M Architecture Reference Manual issue C
+
+_add:
+  DWT:
+    description: Data Watchpoint and Trace Unit
+    baseAddress: 0xE0001000
+    addressBlock:
+      offset: 0x0
+      size: 0x1000
+    registers:
+      CTRL:
+        description: Control register
+        addressOffset: 0x0
+        access: read-write
+      CYCCNT:
+        description: Cycle Count register
+        addressOffset: 0x4
+        access: read-write
+      CPICNT:
+        description: CPI Count register
+        addressOffset: 0x8
+        access: read-write
+      EXCCNT:
+        description: Exception Overhead Count register
+        addressOffset: 0xC
+        access: read-write
+      SLEEPCNT:
+        description: Sleep Count register
+        addressOffset: 0x10
+        access: read-write
+      LSUCNT:
+        description: LSU Count register
+        addressOffset: 0x14
+        access: read-write
+      FOLDCNT:
+        description: Folded-instruction Count register
+        addressOffset: 0x18
+        access: read-write
+      PCSR:
+        description: Program Counter Sample Register
+        addressOffset: 0x1C
+        access: read-only
+      COMP0:
+        description: Comparator register 0
+        addressOffset: 0x20
+        access: read-write
+      MASK0:
+        description: Comparator Mask register 0
+        addressOffset: 0x24
+        access: read-write
+      FUNCTION0:
+        description: Comparator Function register 0
+        addressOffset: 0x28
+        access: read-write
+      COMP1:
+        description: Comparator register 1
+        addressOffset: 0x30
+        access: read-write
+      MASK1:
+        description: Comparator Mask register 1
+        addressOffset: 0x34
+        access: read-write
+      FUNCTION1:
+        description: Comparator Function register 1
+        addressOffset: 0x38
+        access: read-write
+      COMP2:
+        description: Comparator register 2
+        addressOffset: 0x40
+        access: read-write
+      MASK2:
+        description: Comparator Mask register 2
+        addressOffset: 0x44
+        access: read-write
+      FUNCTION2:
+        description: Comparator Function register 2
+        addressOffset: 0x48
+        access: read-write
+      COMP3:
+        description: Comparator register 3
+        addressOffset: 0x50
+        access: read-write
+      MASK3:
+        description: Comparator Mask register 3
+        addressOffset: 0x54
+        access: read-write
+      FUNCTION3:
+        description: Comparator Function register 3
+        addressOffset: 0x58
+        access: read-write
+      COMP4:
+        description: Comparator register 4
+        addressOffset: 0x60
+        access: read-write
+      MASK4:
+        description: Comparator Mask register 4
+        addressOffset: 0x64
+        access: read-write
+      FUNCTION4:
+        description: Comparator Function register 4
+        addressOffset: 0x68
+        access: read-write
+      COMP5:
+        description: Comparator register 5
+        addressOffset: 0x70
+        access: read-write
+      MASK5:
+        description: Comparator Mask register 5
+        addressOffset: 0x74
+        access: read-write
+      FUNCTION5:
+        description: Comparator Function register 5
+        addressOffset: 0x78
+        access: read-write
+      COMP6:
+        description: Comparator register 6
+        addressOffset: 0x80
+        access: read-write
+      MASK6:
+        description: Comparator Mask register 6
+        addressOffset: 0x84
+        access: read-write
+      FUNCTION6:
+        description: Comparator Function register 6
+        addressOffset: 0x88
+        access: read-write
+      COMP7:
+        description: Comparator register 7
+        addressOffset: 0x90
+        access: read-write
+      MASK7:
+        description: Comparator Mask register 7
+        addressOffset: 0x94
+        access: read-write
+      FUNCTION7:
+        description: Comparator Function register 7
+        addressOffset: 0x98
+        access: read-write
+      COMP8:
+        description: Comparator register 8
+        addressOffset: 0xa0
+        access: read-write
+      MASK8:
+        description: Comparator Mask register 8
+        addressOffset: 0xa4
+        access: read-write
+      FUNCTION8:
+        description: Comparator Function register 8
+        addressOffset: 0xa8
+        access: read-write
+      COMP9:
+        description: Comparator register 9
+        addressOffset: 0xb0
+        access: read-write
+      MASK9:
+        description: Comparator Mask register 9
+        addressOffset: 0xb4
+        access: read-write
+      FUNCTION9:
+        description: Comparator Function register 9
+        addressOffset: 0xb8
+        access: read-write
+      COMP10:
+        description: Comparator register 10
+        addressOffset: 0xc0
+        access: read-write
+      MASK10:
+        description: Comparator Mask register 10
+        addressOffset: 0xc4
+        access: read-write
+      FUNCTION10:
+        description: Comparator Function register 10
+        addressOffset: 0xc8
+        access: read-write
+      COMP11:
+        description: Comparator register 11
+        addressOffset: 0xd0
+        access: read-write
+      MASK11:
+        description: Comparator Mask register 11
+        addressOffset: 0xd4
+        access: read-write
+      FUNCTION11:
+        description: Comparator Function register 11
+        addressOffset: 0xd8
+        access: read-write
+      COMP12:
+        description: Comparator register 12
+        addressOffset: 0xe0
+        access: read-write
+      MASK12:
+        description: Comparator Mask register 12
+        addressOffset: 0xe4
+        access: read-write
+      FUNCTION12:
+        description: Comparator Function register 12
+        addressOffset: 0xe8
+        access: read-write
+      COMP13:
+        description: Comparator register 13
+        addressOffset: 0xf0
+        access: read-write
+      MASK13:
+        description: Comparator Mask register 13
+        addressOffset: 0xf4
+        access: read-write
+      FUNCTION13:
+        description: Comparator Function register 13
+        addressOffset: 0xf8
+        access: read-write
+      COMP14:
+        description: Comparator register 14
+        addressOffset: 0x100
+        access: read-write
+      MASK14:
+        description: Comparator Mask register 14
+        addressOffset: 0x104
+        access: read-write
+      FUNCTION14:
+        description: Comparator Function register 14
+        addressOffset: 0x108
+        access: read-write
+      COMP15:
+        description: Comparator register 15
+        addressOffset: 0x110
+        access: read-write
+      MASK15:
+        description: Comparator Mask register 15
+        addressOffset: 0x114
+        access: read-write
+      FUNCTION15:
+        description: Comparator Function register 15
+        addressOffset: 0x118
+        access: read-write
+      LSR:
+        description: Lock Status register
+        addressOffset: 0xFB4
+        access: read-only
+      LAR:
+        description: Lock Access register
+        addressOffset: 0xFB0
+        access: write-only

@@ -1,0 +1,38 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  TPIU:
+    description: Trace Port Interface Unit
+    baseAddress: 0xE0040000
+    addressBlock:
+      offset: 0x0
+      size: 0x1000
+    registers:
+      SSPSR:
+        description: Supported Parallel Port Sizes Register
+        addressOffset: 0x0
+        access: read-only
+      CSPSR:
+        description: Current Parallel Port Size Register
+        addressOffset: 0x4
+        access: read-write
+      ACPR:
+        description: Asynchronous Clock Prescaler Register
+        addressOffset: 0x10
+        access: read-write
+      SPPR:
+        description: Selected Pin Protocol Register
+        addressOffset: 0xF0
+        access: read-write
+      TYPE:
+        description: TPIU Type Register
+        addressOffset: 0xFC8
+        access: read-only
+      LSR:
+        description: Lock Status Register
+        addressOffset: 0xFB4
+        access: read-only
+      LAR:
+        description: Lock Access Register
+        addressOffset: 0xFB0
+        access: write-only

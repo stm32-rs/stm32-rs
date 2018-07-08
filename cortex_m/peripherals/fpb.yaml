@@ -1,0 +1,90 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  FPB:
+    description: Flash Patch and Breakpoint Unit
+    baseAddress: 0xE0002000
+    addressBlock:
+      offset: 0x0
+      size: 0x1000
+    registers:
+      CTRL:
+        description: FlashPatch Control Register
+        addressOffset: 0x0
+        access: read-write
+      REMAP:
+        description: FlashPatch Remap Register
+        addressOffset: 0x4
+        access: read-write
+      COMP0:
+        description: FlashPatch Comparator Register 0
+        addressOffset: 0x8
+        access: read-write
+      COMP1:
+        description: FlashPatch Comparator Register 1
+        addressOffset: 0xc
+        access: read-write
+      COMP2:
+        description: FlashPatch Comparator Register 2
+        addressOffset: 0x10
+        access: read-write
+      COMP3:
+        description: FlashPatch Comparator Register 3
+        addressOffset: 0x14
+        access: read-write
+      COMP4:
+        description: FlashPatch Comparator Register 4
+        addressOffset: 0x18
+        access: read-write
+      COMP5:
+        description: FlashPatch Comparator Register 5
+        addressOffset: 0x1c
+        access: read-write
+      COMP6:
+        description: FlashPatch Comparator Register 6
+        addressOffset: 0x20
+        access: read-write
+      COMP7:
+        description: FlashPatch Comparator Register 7
+        addressOffset: 0x24
+        access: read-write
+      COMP8:
+        description: FlashPatch Comparator Register 8
+        addressOffset: 0x28
+        access: read-write
+      COMP9:
+        description: FlashPatch Comparator Register 9
+        addressOffset: 0x2c
+        access: read-write
+      COMP10:
+        description: FlashPatch Comparator Register 10
+        addressOffset: 0x30
+        access: read-write
+      COMP11:
+        description: FlashPatch Comparator Register 11
+        addressOffset: 0x34
+        access: read-write
+      COMP12:
+        description: FlashPatch Comparator Register 12
+        addressOffset: 0x38
+        access: read-write
+      COMP13:
+        description: FlashPatch Comparator Register 13
+        addressOffset: 0x3c
+        access: read-write
+      COMP14:
+        description: FlashPatch Comparator Register 14
+        addressOffset: 0x40
+        access: read-write
+      COMP15:
+        description: FlashPatch Comparator Register 15
+        addressOffset: 0x44
+        access: read-write
+      LSR:
+        description: Lock Status Register
+        addressOffset: 0xFB4
+        access: read-only
+      LAR:
+        description: Lock Access Register
+        addressOffset: 0xFB0
+        access: write-only

@@ -1,0 +1,34 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  FPU:
+    description: Floating Point Unit
+    baseAddress: 0xE000EF30
+    addressBlock:
+      offset: 0x0
+      size: 0x1C
+    registers:
+      FPCCR:
+        description: Floating Point Context Control Register
+        addressOffset: 0x4
+        access: read-write
+      FPCAR:
+        description: Floating Point Context Address Register
+        addressOffset: 0x8
+        access: read-write
+      FPDSCR:
+        description: Floating Point Default Status Control Register
+        addressOffset: 0xC
+        access: read-write
+      MVFR0:
+        description: Media and FP Feature Register 0
+        addressOffset: 0x10
+        access: read-only
+      MVFR1:
+        description: Media and FP Feature Register 1
+        addressOffset: 0x14
+        access: read-only
+      MVFR2:
+        description: Media and FP Feature Register 2
+        addressOffset: 0x18
+        access: read-only

@@ -1,0 +1,33 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+SCB:
+  _add:
+    _registers:
+      SHPR1:
+        description: System Handler Priority Register 1
+        addressOffset: 0x18
+        access: read-write
+      CFSR:
+        description: Configurable Fault Status Register
+        addressOffset: 0x28
+        access: read-write
+      HFSR:
+        description: HardFault Status Register
+        addressOffset: 0x2C
+        access: read-write
+      MMFAR:
+        description: MemManage Fault Address Register
+        addressOffset: 0x34
+        access: read-write
+      BFAR:
+        description: BusFault Address Register
+        addressOffset: 0x38
+        access: read-write
+      AFSR:
+        description: Auxiliary Fault Status Register
+        addressOffset: 0x3C
+        access: read-write
+      CPACR:
+        description: Coprocessor Access Control Register
+        addressOffset: 0x88
+        access: read-write

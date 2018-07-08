@@ -1,0 +1,26 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  DCB:
+    description: Debug Control Block
+    baseAddress: 0xE000EDF0
+    addressBlock:
+      offset: 0x0
+      size: 0x110
+    registers:
+      DHCSR:
+        description: Debug Halting Control and Status Register
+        addressOffset: 0x0
+        access: read-write
+      DCRSR:
+        description: Debug Core Register Selector Register
+        addressOffset: 0x4
+        access: write-only
+      DCRDR:
+        description: Debug Core Register Data Register
+        addressOffset: 0x8
+        access: read-write
+      DEMCR:
+        description: Debug Exception and Monitor Control Register
+        addressOffset: 0xC
+        access: read-write

@@ -1,0 +1,54 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  MPU:
+    description: Memory Protection Unit
+    baseAddress: 0xE000ED90
+    addressBlock:
+      offset: 0x0
+      size: 0x60
+    registers:
+      TYPE:
+        description: MPU Type register
+        addressOffset: 0x0
+        access: read-only
+      CTRL:
+        description: MPU Control register
+        addressOffset: 0x4
+        access: read-write
+      RNR:
+        description: MPU Region Number register
+        addressOffset: 0x8
+        access: read-write
+      RBAR:
+        description: MPU Region Base Address register
+        addressOffset: 0xC
+        access: read-write
+      RASR:
+        description: MPU Region Attribute and Size register
+        addressOffset: 0x10
+        access: read-write
+      RBAR_A1:
+        description: Alias 1 of RBAR
+        addressOffset: 0x14
+        access: read-write
+      RASR_A1:
+        description: Alias 1 of RSAR
+        addressOffset: 0x18
+        acces: read-write
+      RBAR_A2:
+        description: Alias 2 of RBAR
+        addressOffset: 0x1C
+        access: read-write
+      RASR_A2:
+        description: Alias 2 of RSAR
+        addressOffset: 0x20
+        acces: read-write
+      RBAR_A3:
+        description: Alias 3 of RBAR
+        addressOffset: 0x24
+        access: read-write
+      RASR_A3:
+        description: Alias 3 of RSAR
+        addressOffset: 0x28
+        acces: read-write

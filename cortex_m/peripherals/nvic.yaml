@@ -1,0 +1,266 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  NVIC:
+    description: Nested Vector Interrupt Controller
+    baseAddress: 0xE000E100
+    addressBlock:
+      offset: 0x0
+      size: 0xC00
+    registers:
+      ISER0:
+        description: Interrupt Set-Enable Register 0
+        addressOffset: 0x0
+        access: read-write
+      ISER1:
+        description: Interrupt Set-Enable Register 1
+        addressOffset: 0x4
+        access: read-write
+      ISER2:
+        description: Interrupt Set-Enable Register 2
+        addressOffset: 0x8
+        access: read-write
+      ISER3:
+        description: Interrupt Set-Enable Register 3
+        addressOffset: 0xc
+        access: read-write
+      ISER4:
+        description: Interrupt Set-Enable Register 4
+        addressOffset: 0x10
+        access: read-write
+      ISER5:
+        description: Interrupt Set-Enable Register 5
+        addressOffset: 0x14
+        access: read-write
+      ISER6:
+        description: Interrupt Set-Enable Register 6
+        addressOffset: 0x18
+        access: read-write
+      ISER7:
+        description: Interrupt Set-Enable Register 7
+        addressOffset: 0x1c
+        access: read-write
+      ISER8:
+        description: Interrupt Set-Enable Register 8
+        addressOffset: 0x20
+        access: read-write
+      ISER9:
+        description: Interrupt Set-Enable Register 9
+        addressOffset: 0x24
+        access: read-write
+      ISER10:
+        description: Interrupt Set-Enable Register 10
+        addressOffset: 0x28
+        access: read-write
+      ISER11:
+        description: Interrupt Set-Enable Register 11
+        addressOffset: 0x2c
+        access: read-write
+      ISER12:
+        description: Interrupt Set-Enable Register 12
+        addressOffset: 0x30
+        access: read-write
+      ISER13:
+        description: Interrupt Set-Enable Register 13
+        addressOffset: 0x34
+        access: read-write
+      ISER14:
+        description: Interrupt Set-Enable Register 14
+        addressOffset: 0x38
+        access: read-write
+      ISER15:
+        description: Interrupt Set-Enable Register 15
+        addressOffset: 0x3c
+        access: read-write
+      ICER0:
+        description: Interrupt Clear-Enable Register 0
+        addressOffset: 0x80
+        access: read-write
+      ICER1:
+        description: Interrupt Clear-Enable Register 1
+        addressOffset: 0x84
+        access: read-write
+      ICER2:
+        description: Interrupt Clear-Enable Register 2
+        addressOffset: 0x88
+        access: read-write
+      ICER3:
+        description: Interrupt Clear-Enable Register 3
+        addressOffset: 0x8c
+        access: read-write
+      ICER4:
+        description: Interrupt Clear-Enable Register 4
+        addressOffset: 0x90
+        access: read-write
+      ICER5:
+        description: Interrupt Clear-Enable Register 5
+        addressOffset: 0x94
+        access: read-write
+      ICER6:
+        description: Interrupt Clear-Enable Register 6
+        addressOffset: 0x98
+        access: read-write
+      ICER7:
+        description: Interrupt Clear-Enable Register 7
+        addressOffset: 0x9c
+        access: read-write
+      ICER8:
+        description: Interrupt Clear-Enable Register 8
+        addressOffset: 0xa0
+        access: read-write
+      ICER9:
+        description: Interrupt Clear-Enable Register 9
+        addressOffset: 0xa4
+        access: read-write
+      ICER10:
+        description: Interrupt Clear-Enable Register 10
+        addressOffset: 0xa8
+        access: read-write
+      ICER11:
+        description: Interrupt Clear-Enable Register 11
+        addressOffset: 0xac
+        access: read-write
+      ICER12:
+        description: Interrupt Clear-Enable Register 12
+        addressOffset: 0xb0
+        access: read-write
+      ICER13:
+        description: Interrupt Clear-Enable Register 13
+        addressOffset: 0xb4
+        access: read-write
+      ICER14:
+        description: Interrupt Clear-Enable Register 14
+        addressOffset: 0xb8
+        access: read-write
+      ICER15:
+        description: Interrupt Clear-Enable Register 15
+        addressOffset: 0xbc
+        access: read-write
+      ISPR0:
+        description: Interrupt Set-Pending Register 0
+        addressOffset: 0x100
+        access: read-write
+      ISPR1:
+        description: Interrupt Set-Pending Register 1
+        addressOffset: 0x104
+        access: read-write
+      ISPR2:
+        description: Interrupt Set-Pending Register 2
+        addressOffset: 0x108
+        access: read-write
+      ISPR3:
+        description: Interrupt Set-Pending Register 3
+        addressOffset: 0x10c
+        access: read-write
+      ISPR4:
+        description: Interrupt Set-Pending Register 4
+        addressOffset: 0x110
+        access: read-write
+      ISPR5:
+        description: Interrupt Set-Pending Register 5
+        addressOffset: 0x114
+        access: read-write
+      ISPR6:
+        description: Interrupt Set-Pending Register 6
+        addressOffset: 0x118
+        access: read-write
+      ISPR7:
+        description: Interrupt Set-Pending Register 7
+        addressOffset: 0x11c
+        access: read-write
+      ISPR8:
+        description: Interrupt Set-Pending Register 8
+        addressOffset: 0x120
+        access: read-write
+      ISPR9:
+        description: Interrupt Set-Pending Register 9
+        addressOffset: 0x124
+        access: read-write
+      ISPR10:
+        description: Interrupt Set-Pending Register 10
+        addressOffset: 0x128
+        access: read-write
+      ISPR11:
+        description: Interrupt Set-Pending Register 11
+        addressOffset: 0x12c
+        access: read-write
+      ISPR12:
+        description: Interrupt Set-Pending Register 12
+        addressOffset: 0x130
+        access: read-write
+      ISPR13:
+        description: Interrupt Set-Pending Register 13
+        addressOffset: 0x134
+        access: read-write
+      ISPR14:
+        description: Interrupt Set-Pending Register 14
+        addressOffset: 0x138
+        access: read-write
+      ISPR15:
+        description: Interrupt Set-Pending Register 15
+        addressOffset: 0x13c
+        access: read-write
+      ICPR0:
+        description: Interrupt Clear-Pending Register 0
+        addressOffset: 0x180
+        access: read-write
+      ICPR1:
+        description: Interrupt Clear-Pending Register 1
+        addressOffset: 0x184
+        access: read-write
+      ICPR2:
+        description: Interrupt Clear-Pending Register 2
+        addressOffset: 0x188
+        access: read-write
+      ICPR3:
+        description: Interrupt Clear-Pending Register 3
+        addressOffset: 0x18c
+        access: read-write
+      ICPR4:
+        description: Interrupt Clear-Pending Register 4
+        addressOffset: 0x190
+        access: read-write
+      ICPR5:
+        description: Interrupt Clear-Pending Register 5
+        addressOffset: 0x194
+        access: read-write
+      ICPR6:
+        description: Interrupt Clear-Pending Register 6
+        addressOffset: 0x198
+        access: read-write
+      ICPR7:
+        description: Interrupt Clear-Pending Register 7
+        addressOffset: 0x19c
+        access: read-write
+      ICPR8:
+        description: Interrupt Clear-Pending Register 8
+        addressOffset: 0x1a0
+        access: read-write
+      ICPR9:
+        description: Interrupt Clear-Pending Register 9
+        addressOffset: 0x1a4
+        access: read-write
+      ICPR10:
+        description: Interrupt Clear-Pending Register 10
+        addressOffset: 0x1a8
+        access: read-write
+      ICPR11:
+        description: Interrupt Clear-Pending Register 11
+        addressOffset: 0x1ac
+        access: read-write
+      ICPR12:
+        description: Interrupt Clear-Pending Register 12
+        addressOffset: 0x1b0
+        access: read-write
+      ICPR13:
+        description: Interrupt Clear-Pending Register 13
+        addressOffset: 0x1b4
+        access: read-write
+      ICPR14:
+        description: Interrupt Clear-Pending Register 14
+        addressOffset: 0x1b8
+        access: read-write
+      ICPR15:
+        description: Interrupt Clear-Pending Register 15
+        addressOffset: 0x1bc
+        access: read-write

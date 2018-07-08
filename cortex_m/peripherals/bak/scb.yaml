@@ -1,0 +1,51 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  SCB:
+    description: System Control Block
+    baseAddress: 0xE000ED00
+    addressBlock:
+      offset: 0x0
+      size: 0x90
+    registers:
+      CPUID:
+        description: CPUID Base register
+        addressOffset: 0x0
+        access: read-only
+      ICSR:
+        description: Interrupt Control and State register
+        addressOffset: 0x4
+        access: read-write
+      VTOR:
+        description: Vector Table Offset register
+        addressOffset: 0x8
+        access: read-write
+      AIRCR:
+        description: Application Interrupt and Reset Control regsiter
+        addressOffset: 0xC
+        access: read-write
+      SCR:
+        description: System Control register
+        addressOffset: 0x10
+        access: read-write
+      CCR:
+        description: Configuration and Control register
+        addressOffset: 0x14
+        access: read-only
+      SHPR2:
+        description: System Handler Priority Register 2
+        addressOffset: 0x1C
+        access: read-write
+      SHPR3:
+        description: System Handler Priority Register 3
+        addressOffset: 0x20
+        access: read-write
+      SHCSR:
+        description: System Handler Control and State Register
+        addressOffset: 0x24
+        access: read-write
+      DFSR:
+        description: Debug Fault Status Register
+        addressOffset: 0x30
+        access: read-write
+

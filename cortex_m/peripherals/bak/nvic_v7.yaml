@@ -1,0 +1,499 @@
+NVIC:
+  _add:
+    _registers:
+      IPR0:
+        description: Interrupt Priority register 0
+        addressOffset: 0x300
+        access: read-write
+      IPR1:
+        description: Interrupt Priority register 1
+        addressOffset: 0x304
+        access: read-write
+      IPR2:
+        description: Interrupt Priority register 2
+        addressOffset: 0x308
+        access: read-write
+      IPR3:
+        description: Interrupt Priority register 3
+        addressOffset: 0x30c
+        access: read-write
+      IPR4:
+        description: Interrupt Priority register 4
+        addressOffset: 0x310
+        access: read-write
+      IPR5:
+        description: Interrupt Priority register 5
+        addressOffset: 0x314
+        access: read-write
+      IPR6:
+        description: Interrupt Priority register 6
+        addressOffset: 0x318
+        access: read-write
+      IPR7:
+        description: Interrupt Priority register 7
+        addressOffset: 0x31c
+        access: read-write
+      IPR8:
+        description: Interrupt Priority register 8
+        addressOffset: 0x320
+        access: read-write
+      IPR9:
+        description: Interrupt Priority register 9
+        addressOffset: 0x324
+        access: read-write
+      IPR10:
+        description: Interrupt Priority register 10
+        addressOffset: 0x328
+        access: read-write
+      IPR11:
+        description: Interrupt Priority register 11
+        addressOffset: 0x32c
+        access: read-write
+      IPR12:
+        description: Interrupt Priority register 12
+        addressOffset: 0x330
+        access: read-write
+      IPR13:
+        description: Interrupt Priority register 13
+        addressOffset: 0x334
+        access: read-write
+      IPR14:
+        description: Interrupt Priority register 14
+        addressOffset: 0x338
+        access: read-write
+      IPR15:
+        description: Interrupt Priority register 15
+        addressOffset: 0x33c
+        access: read-write
+      IPR16:
+        description: Interrupt Priority register 16
+        addressOffset: 0x340
+        access: read-write
+      IPR17:
+        description: Interrupt Priority register 17
+        addressOffset: 0x344
+        access: read-write
+      IPR18:
+        description: Interrupt Priority register 18
+        addressOffset: 0x348
+        access: read-write
+      IPR19:
+        description: Interrupt Priority register 19
+        addressOffset: 0x34c
+        access: read-write
+      IPR20:
+        description: Interrupt Priority register 20
+        addressOffset: 0x350
+        access: read-write
+      IPR21:
+        description: Interrupt Priority register 21
+        addressOffset: 0x354
+        access: read-write
+      IPR22:
+        description: Interrupt Priority register 22
+        addressOffset: 0x358
+        access: read-write
+      IPR23:
+        description: Interrupt Priority register 23
+        addressOffset: 0x35c
+        access: read-write
+      IPR24:
+        description: Interrupt Priority register 24
+        addressOffset: 0x360
+        access: read-write
+      IPR25:
+        description: Interrupt Priority register 25
+        addressOffset: 0x364
+        access: read-write
+      IPR26:
+        description: Interrupt Priority register 26
+        addressOffset: 0x368
+        access: read-write
+      IPR27:
+        description: Interrupt Priority register 27
+        addressOffset: 0x36c
+        access: read-write
+      IPR28:
+        description: Interrupt Priority register 28
+        addressOffset: 0x370
+        access: read-write
+      IPR29:
+        description: Interrupt Priority register 29
+        addressOffset: 0x374
+        access: read-write
+      IPR30:
+        description: Interrupt Priority register 30
+        addressOffset: 0x378
+        access: read-write
+      IPR31:
+        description: Interrupt Priority register 31
+        addressOffset: 0x37c
+        access: read-write
+      IPR32:
+        description: Interrupt Priority register 32
+        addressOffset: 0x380
+        access: read-write
+      IPR33:
+        description: Interrupt Priority register 33
+        addressOffset: 0x384
+        access: read-write
+      IPR34:
+        description: Interrupt Priority register 34
+        addressOffset: 0x388
+        access: read-write
+      IPR35:
+        description: Interrupt Priority register 35
+        addressOffset: 0x38c
+        access: read-write
+      IPR36:
+        description: Interrupt Priority register 36
+        addressOffset: 0x390
+        access: read-write
+      IPR37:
+        description: Interrupt Priority register 37
+        addressOffset: 0x394
+        access: read-write
+      IPR38:
+        description: Interrupt Priority register 38
+        addressOffset: 0x398
+        access: read-write
+      IPR39:
+        description: Interrupt Priority register 39
+        addressOffset: 0x39c
+        access: read-write
+      IPR40:
+        description: Interrupt Priority register 40
+        addressOffset: 0x3a0
+        access: read-write
+      IPR41:
+        description: Interrupt Priority register 41
+        addressOffset: 0x3a4
+        access: read-write
+      IPR42:
+        description: Interrupt Priority register 42
+        addressOffset: 0x3a8
+        access: read-write
+      IPR43:
+        description: Interrupt Priority register 43
+        addressOffset: 0x3ac
+        access: read-write
+      IPR44:
+        description: Interrupt Priority register 44
+        addressOffset: 0x3b0
+        access: read-write
+      IPR45:
+        description: Interrupt Priority register 45
+        addressOffset: 0x3b4
+        access: read-write
+      IPR46:
+        description: Interrupt Priority register 46
+        addressOffset: 0x3b8
+        access: read-write
+      IPR47:
+        description: Interrupt Priority register 47
+        addressOffset: 0x3bc
+        access: read-write
+      IPR48:
+        description: Interrupt Priority register 48
+        addressOffset: 0x3c0
+        access: read-write
+      IPR49:
+        description: Interrupt Priority register 49
+        addressOffset: 0x3c4
+        access: read-write
+      IPR50:
+        description: Interrupt Priority register 50
+        addressOffset: 0x3c8
+        access: read-write
+      IPR51:
+        description: Interrupt Priority register 51
+        addressOffset: 0x3cc
+        access: read-write
+      IPR52:
+        description: Interrupt Priority register 52
+        addressOffset: 0x3d0
+        access: read-write
+      IPR53:
+        description: Interrupt Priority register 53
+        addressOffset: 0x3d4
+        access: read-write
+      IPR54:
+        description: Interrupt Priority register 54
+        addressOffset: 0x3d8
+        access: read-write
+      IPR55:
+        description: Interrupt Priority register 55
+        addressOffset: 0x3dc
+        access: read-write
+      IPR56:
+        description: Interrupt Priority register 56
+        addressOffset: 0x3e0
+        access: read-write
+      IPR57:
+        description: Interrupt Priority register 57
+        addressOffset: 0x3e4
+        access: read-write
+      IPR58:
+        description: Interrupt Priority register 58
+        addressOffset: 0x3e8
+        access: read-write
+      IPR59:
+        description: Interrupt Priority register 59
+        addressOffset: 0x3ec
+        access: read-write
+      IPR60:
+        description: Interrupt Priority register 60
+        addressOffset: 0x3f0
+        access: read-write
+      IPR61:
+        description: Interrupt Priority register 61
+        addressOffset: 0x3f4
+        access: read-write
+      IPR62:
+        description: Interrupt Priority register 62
+        addressOffset: 0x3f8
+        access: read-write
+      IPR63:
+        description: Interrupt Priority register 63
+        addressOffset: 0x3fc
+        access: read-write
+      IPR64:
+        description: Interrupt Priority register 64
+        addressOffset: 0x400
+        access: read-write
+      IPR65:
+        description: Interrupt Priority register 65
+        addressOffset: 0x404
+        access: read-write
+      IPR66:
+        description: Interrupt Priority register 66
+        addressOffset: 0x408
+        access: read-write
+      IPR67:
+        description: Interrupt Priority register 67
+        addressOffset: 0x40c
+        access: read-write
+      IPR68:
+        description: Interrupt Priority register 68
+        addressOffset: 0x410
+        access: read-write
+      IPR69:
+        description: Interrupt Priority register 69
+        addressOffset: 0x414
+        access: read-write
+      IPR70:
+        description: Interrupt Priority register 70
+        addressOffset: 0x418
+        access: read-write
+      IPR71:
+        description: Interrupt Priority register 71
+        addressOffset: 0x41c
+        access: read-write
+      IPR72:
+        description: Interrupt Priority register 72
+        addressOffset: 0x420
+        access: read-write
+      IPR73:
+        description: Interrupt Priority register 73
+        addressOffset: 0x424
+        access: read-write
+      IPR74:
+        description: Interrupt Priority register 74
+        addressOffset: 0x428
+        access: read-write
+      IPR75:
+        description: Interrupt Priority register 75
+        addressOffset: 0x42c
+        access: read-write
+      IPR76:
+        description: Interrupt Priority register 76
+        addressOffset: 0x430
+        access: read-write
+      IPR77:
+        description: Interrupt Priority register 77
+        addressOffset: 0x434
+        access: read-write
+      IPR78:
+        description: Interrupt Priority register 78
+        addressOffset: 0x438
+        access: read-write
+      IPR79:
+        description: Interrupt Priority register 79
+        addressOffset: 0x43c
+        access: read-write
+      IPR80:
+        description: Interrupt Priority register 80
+        addressOffset: 0x440
+        access: read-write
+      IPR81:
+        description: Interrupt Priority register 81
+        addressOffset: 0x444
+        access: read-write
+      IPR82:
+        description: Interrupt Priority register 82
+        addressOffset: 0x448
+        access: read-write
+      IPR83:
+        description: Interrupt Priority register 83
+        addressOffset: 0x44c
+        access: read-write
+      IPR84:
+        description: Interrupt Priority register 84
+        addressOffset: 0x450
+        access: read-write
+      IPR85:
+        description: Interrupt Priority register 85
+        addressOffset: 0x454
+        access: read-write
+      IPR86:
+        description: Interrupt Priority register 86
+        addressOffset: 0x458
+        access: read-write
+      IPR87:
+        description: Interrupt Priority register 87
+        addressOffset: 0x45c
+        access: read-write
+      IPR88:
+        description: Interrupt Priority register 88
+        addressOffset: 0x460
+        access: read-write
+      IPR89:
+        description: Interrupt Priority register 89
+        addressOffset: 0x464
+        access: read-write
+      IPR90:
+        description: Interrupt Priority register 90
+        addressOffset: 0x468
+        access: read-write
+      IPR91:
+        description: Interrupt Priority register 91
+        addressOffset: 0x46c
+        access: read-write
+      IPR92:
+        description: Interrupt Priority register 92
+        addressOffset: 0x470
+        access: read-write
+      IPR93:
+        description: Interrupt Priority register 93
+        addressOffset: 0x474
+        access: read-write
+      IPR94:
+        description: Interrupt Priority register 94
+        addressOffset: 0x478
+        access: read-write
+      IPR95:
+        description: Interrupt Priority register 95
+        addressOffset: 0x47c
+        access: read-write
+      IPR96:
+        description: Interrupt Priority register 96
+        addressOffset: 0x480
+        access: read-write
+      IPR97:
+        description: Interrupt Priority register 97
+        addressOffset: 0x484
+        access: read-write
+      IPR98:
+        description: Interrupt Priority register 98
+        addressOffset: 0x488
+        access: read-write
+      IPR99:
+        description: Interrupt Priority register 99
+        addressOffset: 0x48c
+        access: read-write
+      IPR100:
+        description: Interrupt Priority register 100
+        addressOffset: 0x490
+        access: read-write
+      IPR101:
+        description: Interrupt Priority register 101
+        addressOffset: 0x494
+        access: read-write
+      IPR102:
+        description: Interrupt Priority register 102
+        addressOffset: 0x498
+        access: read-write
+      IPR103:
+        description: Interrupt Priority register 103
+        addressOffset: 0x49c
+        access: read-write
+      IPR104:
+        description: Interrupt Priority register 104
+        addressOffset: 0x4a0
+        access: read-write
+      IPR105:
+        description: Interrupt Priority register 105
+        addressOffset: 0x4a4
+        access: read-write
+      IPR106:
+        description: Interrupt Priority register 106
+        addressOffset: 0x4a8
+        access: read-write
+      IPR107:
+        description: Interrupt Priority register 107
+        addressOffset: 0x4ac
+        access: read-write
+      IPR108:
+        description: Interrupt Priority register 108
+        addressOffset: 0x4b0
+        access: read-write
+      IPR109:
+        description: Interrupt Priority register 109
+        addressOffset: 0x4b4
+        access: read-write
+      IPR110:
+        description: Interrupt Priority register 110
+        addressOffset: 0x4b8
+        access: read-write
+      IPR111:
+        description: Interrupt Priority register 111
+        addressOffset: 0x4bc
+        access: read-write
+      IPR112:
+        description: Interrupt Priority register 112
+        addressOffset: 0x4c0
+        access: read-write
+      IPR113:
+        description: Interrupt Priority register 113
+        addressOffset: 0x4c4
+        access: read-write
+      IPR114:
+        description: Interrupt Priority register 114
+        addressOffset: 0x4c8
+        access: read-write
+      IPR115:
+        description: Interrupt Priority register 115
+        addressOffset: 0x4cc
+        access: read-write
+      IPR116:
+        description: Interrupt Priority register 116
+        addressOffset: 0x4d0
+        access: read-write
+      IPR117:
+        description: Interrupt Priority register 117
+        addressOffset: 0x4d4
+        access: read-write
+      IPR118:
+        description: Interrupt Priority register 118
+        addressOffset: 0x4d8
+        access: read-write
+      IPR119:
+        description: Interrupt Priority register 119
+        addressOffset: 0x4dc
+        access: read-write
+      IPR120:
+        description: Interrupt Priority register 120
+        addressOffset: 0x4e0
+        access: read-write
+      IPR121:
+        description: Interrupt Priority register 121
+        addressOffset: 0x4e4
+        access: read-write
+      IPR122:
+        description: Interrupt Priority register 122
+        addressOffset: 0x4e8
+        access: read-write
+      IPR123:
+        description: Interrupt Priority register 123
+        addressOffset: 0x4ec
+        access: read-write

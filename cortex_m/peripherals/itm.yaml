@@ -1,0 +1,1082 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  ITM:
+    description: Instrumentation Trace Macrocell
+    baseAddress: 0xE0000000
+    addressBlock:
+      offset: 0x0
+      size: 0x1000
+    registers:
+      STIM0:
+        description: Stimulus Port Register 0
+        addressOffset: 0x0
+        access: read-write
+      STIM1:
+        description: Stimulus Port Register 1
+        addressOffset: 0x4
+        access: read-write
+      STIM2:
+        description: Stimulus Port Register 2
+        addressOffset: 0x8
+        access: read-write
+      STIM3:
+        description: Stimulus Port Register 3
+        addressOffset: 0xc
+        access: read-write
+      STIM4:
+        description: Stimulus Port Register 4
+        addressOffset: 0x10
+        access: read-write
+      STIM5:
+        description: Stimulus Port Register 5
+        addressOffset: 0x14
+        access: read-write
+      STIM6:
+        description: Stimulus Port Register 6
+        addressOffset: 0x18
+        access: read-write
+      STIM7:
+        description: Stimulus Port Register 7
+        addressOffset: 0x1c
+        access: read-write
+      STIM8:
+        description: Stimulus Port Register 8
+        addressOffset: 0x20
+        access: read-write
+      STIM9:
+        description: Stimulus Port Register 9
+        addressOffset: 0x24
+        access: read-write
+      STIM10:
+        description: Stimulus Port Register 10
+        addressOffset: 0x28
+        access: read-write
+      STIM11:
+        description: Stimulus Port Register 11
+        addressOffset: 0x2c
+        access: read-write
+      STIM12:
+        description: Stimulus Port Register 12
+        addressOffset: 0x30
+        access: read-write
+      STIM13:
+        description: Stimulus Port Register 13
+        addressOffset: 0x34
+        access: read-write
+      STIM14:
+        description: Stimulus Port Register 14
+        addressOffset: 0x38
+        access: read-write
+      STIM15:
+        description: Stimulus Port Register 15
+        addressOffset: 0x3c
+        access: read-write
+      STIM16:
+        description: Stimulus Port Register 16
+        addressOffset: 0x40
+        access: read-write
+      STIM17:
+        description: Stimulus Port Register 17
+        addressOffset: 0x44
+        access: read-write
+      STIM18:
+        description: Stimulus Port Register 18
+        addressOffset: 0x48
+        access: read-write
+      STIM19:
+        description: Stimulus Port Register 19
+        addressOffset: 0x4c
+        access: read-write
+      STIM20:
+        description: Stimulus Port Register 20
+        addressOffset: 0x50
+        access: read-write
+      STIM21:
+        description: Stimulus Port Register 21
+        addressOffset: 0x54
+        access: read-write
+      STIM22:
+        description: Stimulus Port Register 22
+        addressOffset: 0x58
+        access: read-write
+      STIM23:
+        description: Stimulus Port Register 23
+        addressOffset: 0x5c
+        access: read-write
+      STIM24:
+        description: Stimulus Port Register 24
+        addressOffset: 0x60
+        access: read-write
+      STIM25:
+        description: Stimulus Port Register 25
+        addressOffset: 0x64
+        access: read-write
+      STIM26:
+        description: Stimulus Port Register 26
+        addressOffset: 0x68
+        access: read-write
+      STIM27:
+        description: Stimulus Port Register 27
+        addressOffset: 0x6c
+        access: read-write
+      STIM28:
+        description: Stimulus Port Register 28
+        addressOffset: 0x70
+        access: read-write
+      STIM29:
+        description: Stimulus Port Register 29
+        addressOffset: 0x74
+        access: read-write
+      STIM30:
+        description: Stimulus Port Register 30
+        addressOffset: 0x78
+        access: read-write
+      STIM31:
+        description: Stimulus Port Register 31
+        addressOffset: 0x7c
+        access: read-write
+      STIM32:
+        description: Stimulus Port Register 32
+        addressOffset: 0x80
+        access: read-write
+      STIM33:
+        description: Stimulus Port Register 33
+        addressOffset: 0x84
+        access: read-write
+      STIM34:
+        description: Stimulus Port Register 34
+        addressOffset: 0x88
+        access: read-write
+      STIM35:
+        description: Stimulus Port Register 35
+        addressOffset: 0x8c
+        access: read-write
+      STIM36:
+        description: Stimulus Port Register 36
+        addressOffset: 0x90
+        access: read-write
+      STIM37:
+        description: Stimulus Port Register 37
+        addressOffset: 0x94
+        access: read-write
+      STIM38:
+        description: Stimulus Port Register 38
+        addressOffset: 0x98
+        access: read-write
+      STIM39:
+        description: Stimulus Port Register 39
+        addressOffset: 0x9c
+        access: read-write
+      STIM40:
+        description: Stimulus Port Register 40
+        addressOffset: 0xa0
+        access: read-write
+      STIM41:
+        description: Stimulus Port Register 41
+        addressOffset: 0xa4
+        access: read-write
+      STIM42:
+        description: Stimulus Port Register 42
+        addressOffset: 0xa8
+        access: read-write
+      STIM43:
+        description: Stimulus Port Register 43
+        addressOffset: 0xac
+        access: read-write
+      STIM44:
+        description: Stimulus Port Register 44
+        addressOffset: 0xb0
+        access: read-write
+      STIM45:
+        description: Stimulus Port Register 45
+        addressOffset: 0xb4
+        access: read-write
+      STIM46:
+        description: Stimulus Port Register 46
+        addressOffset: 0xb8
+        access: read-write
+      STIM47:
+        description: Stimulus Port Register 47
+        addressOffset: 0xbc
+        access: read-write
+      STIM48:
+        description: Stimulus Port Register 48
+        addressOffset: 0xc0
+        access: read-write
+      STIM49:
+        description: Stimulus Port Register 49
+        addressOffset: 0xc4
+        access: read-write
+      STIM50:
+        description: Stimulus Port Register 50
+        addressOffset: 0xc8
+        access: read-write
+      STIM51:
+        description: Stimulus Port Register 51
+        addressOffset: 0xcc
+        access: read-write
+      STIM52:
+        description: Stimulus Port Register 52
+        addressOffset: 0xd0
+        access: read-write
+      STIM53:
+        description: Stimulus Port Register 53
+        addressOffset: 0xd4
+        access: read-write
+      STIM54:
+        description: Stimulus Port Register 54
+        addressOffset: 0xd8
+        access: read-write
+      STIM55:
+        description: Stimulus Port Register 55
+        addressOffset: 0xdc
+        access: read-write
+      STIM56:
+        description: Stimulus Port Register 56
+        addressOffset: 0xe0
+        access: read-write
+      STIM57:
+        description: Stimulus Port Register 57
+        addressOffset: 0xe4
+        access: read-write
+      STIM58:
+        description: Stimulus Port Register 58
+        addressOffset: 0xe8
+        access: read-write
+      STIM59:
+        description: Stimulus Port Register 59
+        addressOffset: 0xec
+        access: read-write
+      STIM60:
+        description: Stimulus Port Register 60
+        addressOffset: 0xf0
+        access: read-write
+      STIM61:
+        description: Stimulus Port Register 61
+        addressOffset: 0xf4
+        access: read-write
+      STIM62:
+        description: Stimulus Port Register 62
+        addressOffset: 0xf8
+        access: read-write
+      STIM63:
+        description: Stimulus Port Register 63
+        addressOffset: 0xfc
+        access: read-write
+      STIM64:
+        description: Stimulus Port Register 64
+        addressOffset: 0x100
+        access: read-write
+      STIM65:
+        description: Stimulus Port Register 65
+        addressOffset: 0x104
+        access: read-write
+      STIM66:
+        description: Stimulus Port Register 66
+        addressOffset: 0x108
+        access: read-write
+      STIM67:
+        description: Stimulus Port Register 67
+        addressOffset: 0x10c
+        access: read-write
+      STIM68:
+        description: Stimulus Port Register 68
+        addressOffset: 0x110
+        access: read-write
+      STIM69:
+        description: Stimulus Port Register 69
+        addressOffset: 0x114
+        access: read-write
+      STIM70:
+        description: Stimulus Port Register 70
+        addressOffset: 0x118
+        access: read-write
+      STIM71:
+        description: Stimulus Port Register 71
+        addressOffset: 0x11c
+        access: read-write
+      STIM72:
+        description: Stimulus Port Register 72
+        addressOffset: 0x120
+        access: read-write
+      STIM73:
+        description: Stimulus Port Register 73
+        addressOffset: 0x124
+        access: read-write
+      STIM74:
+        description: Stimulus Port Register 74
+        addressOffset: 0x128
+        access: read-write
+      STIM75:
+        description: Stimulus Port Register 75
+        addressOffset: 0x12c
+        access: read-write
+      STIM76:
+        description: Stimulus Port Register 76
+        addressOffset: 0x130
+        access: read-write
+      STIM77:
+        description: Stimulus Port Register 77
+        addressOffset: 0x134
+        access: read-write
+      STIM78:
+        description: Stimulus Port Register 78
+        addressOffset: 0x138
+        access: read-write
+      STIM79:
+        description: Stimulus Port Register 79
+        addressOffset: 0x13c
+        access: read-write
+      STIM80:
+        description: Stimulus Port Register 80
+        addressOffset: 0x140
+        access: read-write
+      STIM81:
+        description: Stimulus Port Register 81
+        addressOffset: 0x144
+        access: read-write
+      STIM82:
+        description: Stimulus Port Register 82
+        addressOffset: 0x148
+        access: read-write
+      STIM83:
+        description: Stimulus Port Register 83
+        addressOffset: 0x14c
+        access: read-write
+      STIM84:
+        description: Stimulus Port Register 84
+        addressOffset: 0x150
+        access: read-write
+      STIM85:
+        description: Stimulus Port Register 85
+        addressOffset: 0x154
+        access: read-write
+      STIM86:
+        description: Stimulus Port Register 86
+        addressOffset: 0x158
+        access: read-write
+      STIM87:
+        description: Stimulus Port Register 87
+        addressOffset: 0x15c
+        access: read-write
+      STIM88:
+        description: Stimulus Port Register 88
+        addressOffset: 0x160
+        access: read-write
+      STIM89:
+        description: Stimulus Port Register 89
+        addressOffset: 0x164
+        access: read-write
+      STIM90:
+        description: Stimulus Port Register 90
+        addressOffset: 0x168
+        access: read-write
+      STIM91:
+        description: Stimulus Port Register 91
+        addressOffset: 0x16c
+        access: read-write
+      STIM92:
+        description: Stimulus Port Register 92
+        addressOffset: 0x170
+        access: read-write
+      STIM93:
+        description: Stimulus Port Register 93
+        addressOffset: 0x174
+        access: read-write
+      STIM94:
+        description: Stimulus Port Register 94
+        addressOffset: 0x178
+        access: read-write
+      STIM95:
+        description: Stimulus Port Register 95
+        addressOffset: 0x17c
+        access: read-write
+      STIM96:
+        description: Stimulus Port Register 96
+        addressOffset: 0x180
+        access: read-write
+      STIM97:
+        description: Stimulus Port Register 97
+        addressOffset: 0x184
+        access: read-write
+      STIM98:
+        description: Stimulus Port Register 98
+        addressOffset: 0x188
+        access: read-write
+      STIM99:
+        description: Stimulus Port Register 99
+        addressOffset: 0x18c
+        access: read-write
+      STIM100:
+        description: Stimulus Port Register 100
+        addressOffset: 0x190
+        access: read-write
+      STIM101:
+        description: Stimulus Port Register 101
+        addressOffset: 0x194
+        access: read-write
+      STIM102:
+        description: Stimulus Port Register 102
+        addressOffset: 0x198
+        access: read-write
+      STIM103:
+        description: Stimulus Port Register 103
+        addressOffset: 0x19c
+        access: read-write
+      STIM104:
+        description: Stimulus Port Register 104
+        addressOffset: 0x1a0
+        access: read-write
+      STIM105:
+        description: Stimulus Port Register 105
+        addressOffset: 0x1a4
+        access: read-write
+      STIM106:
+        description: Stimulus Port Register 106
+        addressOffset: 0x1a8
+        access: read-write
+      STIM107:
+        description: Stimulus Port Register 107
+        addressOffset: 0x1ac
+        access: read-write
+      STIM108:
+        description: Stimulus Port Register 108
+        addressOffset: 0x1b0
+        access: read-write
+      STIM109:
+        description: Stimulus Port Register 109
+        addressOffset: 0x1b4
+        access: read-write
+      STIM110:
+        description: Stimulus Port Register 110
+        addressOffset: 0x1b8
+        access: read-write
+      STIM111:
+        description: Stimulus Port Register 111
+        addressOffset: 0x1bc
+        access: read-write
+      STIM112:
+        description: Stimulus Port Register 112
+        addressOffset: 0x1c0
+        access: read-write
+      STIM113:
+        description: Stimulus Port Register 113
+        addressOffset: 0x1c4
+        access: read-write
+      STIM114:
+        description: Stimulus Port Register 114
+        addressOffset: 0x1c8
+        access: read-write
+      STIM115:
+        description: Stimulus Port Register 115
+        addressOffset: 0x1cc
+        access: read-write
+      STIM116:
+        description: Stimulus Port Register 116
+        addressOffset: 0x1d0
+        access: read-write
+      STIM117:
+        description: Stimulus Port Register 117
+        addressOffset: 0x1d4
+        access: read-write
+      STIM118:
+        description: Stimulus Port Register 118
+        addressOffset: 0x1d8
+        access: read-write
+      STIM119:
+        description: Stimulus Port Register 119
+        addressOffset: 0x1dc
+        access: read-write
+      STIM120:
+        description: Stimulus Port Register 120
+        addressOffset: 0x1e0
+        access: read-write
+      STIM121:
+        description: Stimulus Port Register 121
+        addressOffset: 0x1e4
+        access: read-write
+      STIM122:
+        description: Stimulus Port Register 122
+        addressOffset: 0x1e8
+        access: read-write
+      STIM123:
+        description: Stimulus Port Register 123
+        addressOffset: 0x1ec
+        access: read-write
+      STIM124:
+        description: Stimulus Port Register 124
+        addressOffset: 0x1f0
+        access: read-write
+      STIM125:
+        description: Stimulus Port Register 125
+        addressOffset: 0x1f4
+        access: read-write
+      STIM126:
+        description: Stimulus Port Register 126
+        addressOffset: 0x1f8
+        access: read-write
+      STIM127:
+        description: Stimulus Port Register 127
+        addressOffset: 0x1fc
+        access: read-write
+      STIM128:
+        description: Stimulus Port Register 128
+        addressOffset: 0x200
+        access: read-write
+      STIM129:
+        description: Stimulus Port Register 129
+        addressOffset: 0x204
+        access: read-write
+      STIM130:
+        description: Stimulus Port Register 130
+        addressOffset: 0x208
+        access: read-write
+      STIM131:
+        description: Stimulus Port Register 131
+        addressOffset: 0x20c
+        access: read-write
+      STIM132:
+        description: Stimulus Port Register 132
+        addressOffset: 0x210
+        access: read-write
+      STIM133:
+        description: Stimulus Port Register 133
+        addressOffset: 0x214
+        access: read-write
+      STIM134:
+        description: Stimulus Port Register 134
+        addressOffset: 0x218
+        access: read-write
+      STIM135:
+        description: Stimulus Port Register 135
+        addressOffset: 0x21c
+        access: read-write
+      STIM136:
+        description: Stimulus Port Register 136
+        addressOffset: 0x220
+        access: read-write
+      STIM137:
+        description: Stimulus Port Register 137
+        addressOffset: 0x224
+        access: read-write
+      STIM138:
+        description: Stimulus Port Register 138
+        addressOffset: 0x228
+        access: read-write
+      STIM139:
+        description: Stimulus Port Register 139
+        addressOffset: 0x22c
+        access: read-write
+      STIM140:
+        description: Stimulus Port Register 140
+        addressOffset: 0x230
+        access: read-write
+      STIM141:
+        description: Stimulus Port Register 141
+        addressOffset: 0x234
+        access: read-write
+      STIM142:
+        description: Stimulus Port Register 142
+        addressOffset: 0x238
+        access: read-write
+      STIM143:
+        description: Stimulus Port Register 143
+        addressOffset: 0x23c
+        access: read-write
+      STIM144:
+        description: Stimulus Port Register 144
+        addressOffset: 0x240
+        access: read-write
+      STIM145:
+        description: Stimulus Port Register 145
+        addressOffset: 0x244
+        access: read-write
+      STIM146:
+        description: Stimulus Port Register 146
+        addressOffset: 0x248
+        access: read-write
+      STIM147:
+        description: Stimulus Port Register 147
+        addressOffset: 0x24c
+        access: read-write
+      STIM148:
+        description: Stimulus Port Register 148
+        addressOffset: 0x250
+        access: read-write
+      STIM149:
+        description: Stimulus Port Register 149
+        addressOffset: 0x254
+        access: read-write
+      STIM150:
+        description: Stimulus Port Register 150
+        addressOffset: 0x258
+        access: read-write
+      STIM151:
+        description: Stimulus Port Register 151
+        addressOffset: 0x25c
+        access: read-write
+      STIM152:
+        description: Stimulus Port Register 152
+        addressOffset: 0x260
+        access: read-write
+      STIM153:
+        description: Stimulus Port Register 153
+        addressOffset: 0x264
+        access: read-write
+      STIM154:
+        description: Stimulus Port Register 154
+        addressOffset: 0x268
+        access: read-write
+      STIM155:
+        description: Stimulus Port Register 155
+        addressOffset: 0x26c
+        access: read-write
+      STIM156:
+        description: Stimulus Port Register 156
+        addressOffset: 0x270
+        access: read-write
+      STIM157:
+        description: Stimulus Port Register 157
+        addressOffset: 0x274
+        access: read-write
+      STIM158:
+        description: Stimulus Port Register 158
+        addressOffset: 0x278
+        access: read-write
+      STIM159:
+        description: Stimulus Port Register 159
+        addressOffset: 0x27c
+        access: read-write
+      STIM160:
+        description: Stimulus Port Register 160
+        addressOffset: 0x280
+        access: read-write
+      STIM161:
+        description: Stimulus Port Register 161
+        addressOffset: 0x284
+        access: read-write
+      STIM162:
+        description: Stimulus Port Register 162
+        addressOffset: 0x288
+        access: read-write
+      STIM163:
+        description: Stimulus Port Register 163
+        addressOffset: 0x28c
+        access: read-write
+      STIM164:
+        description: Stimulus Port Register 164
+        addressOffset: 0x290
+        access: read-write
+      STIM165:
+        description: Stimulus Port Register 165
+        addressOffset: 0x294
+        access: read-write
+      STIM166:
+        description: Stimulus Port Register 166
+        addressOffset: 0x298
+        access: read-write
+      STIM167:
+        description: Stimulus Port Register 167
+        addressOffset: 0x29c
+        access: read-write
+      STIM168:
+        description: Stimulus Port Register 168
+        addressOffset: 0x2a0
+        access: read-write
+      STIM169:
+        description: Stimulus Port Register 169
+        addressOffset: 0x2a4
+        access: read-write
+      STIM170:
+        description: Stimulus Port Register 170
+        addressOffset: 0x2a8
+        access: read-write
+      STIM171:
+        description: Stimulus Port Register 171
+        addressOffset: 0x2ac
+        access: read-write
+      STIM172:
+        description: Stimulus Port Register 172
+        addressOffset: 0x2b0
+        access: read-write
+      STIM173:
+        description: Stimulus Port Register 173
+        addressOffset: 0x2b4
+        access: read-write
+      STIM174:
+        description: Stimulus Port Register 174
+        addressOffset: 0x2b8
+        access: read-write
+      STIM175:
+        description: Stimulus Port Register 175
+        addressOffset: 0x2bc
+        access: read-write
+      STIM176:
+        description: Stimulus Port Register 176
+        addressOffset: 0x2c0
+        access: read-write
+      STIM177:
+        description: Stimulus Port Register 177
+        addressOffset: 0x2c4
+        access: read-write
+      STIM178:
+        description: Stimulus Port Register 178
+        addressOffset: 0x2c8
+        access: read-write
+      STIM179:
+        description: Stimulus Port Register 179
+        addressOffset: 0x2cc
+        access: read-write
+      STIM180:
+        description: Stimulus Port Register 180
+        addressOffset: 0x2d0
+        access: read-write
+      STIM181:
+        description: Stimulus Port Register 181
+        addressOffset: 0x2d4
+        access: read-write
+      STIM182:
+        description: Stimulus Port Register 182
+        addressOffset: 0x2d8
+        access: read-write
+      STIM183:
+        description: Stimulus Port Register 183
+        addressOffset: 0x2dc
+        access: read-write
+      STIM184:
+        description: Stimulus Port Register 184
+        addressOffset: 0x2e0
+        access: read-write
+      STIM185:
+        description: Stimulus Port Register 185
+        addressOffset: 0x2e4
+        access: read-write
+      STIM186:
+        description: Stimulus Port Register 186
+        addressOffset: 0x2e8
+        access: read-write
+      STIM187:
+        description: Stimulus Port Register 187
+        addressOffset: 0x2ec
+        access: read-write
+      STIM188:
+        description: Stimulus Port Register 188
+        addressOffset: 0x2f0
+        access: read-write
+      STIM189:
+        description: Stimulus Port Register 189
+        addressOffset: 0x2f4
+        access: read-write
+      STIM190:
+        description: Stimulus Port Register 190
+        addressOffset: 0x2f8
+        access: read-write
+      STIM191:
+        description: Stimulus Port Register 191
+        addressOffset: 0x2fc
+        access: read-write
+      STIM192:
+        description: Stimulus Port Register 192
+        addressOffset: 0x300
+        access: read-write
+      STIM193:
+        description: Stimulus Port Register 193
+        addressOffset: 0x304
+        access: read-write
+      STIM194:
+        description: Stimulus Port Register 194
+        addressOffset: 0x308
+        access: read-write
+      STIM195:
+        description: Stimulus Port Register 195
+        addressOffset: 0x30c
+        access: read-write
+      STIM196:
+        description: Stimulus Port Register 196
+        addressOffset: 0x310
+        access: read-write
+      STIM197:
+        description: Stimulus Port Register 197
+        addressOffset: 0x314
+        access: read-write
+      STIM198:
+        description: Stimulus Port Register 198
+        addressOffset: 0x318
+        access: read-write
+      STIM199:
+        description: Stimulus Port Register 199
+        addressOffset: 0x31c
+        access: read-write
+      STIM200:
+        description: Stimulus Port Register 200
+        addressOffset: 0x320
+        access: read-write
+      STIM201:
+        description: Stimulus Port Register 201
+        addressOffset: 0x324
+        access: read-write
+      STIM202:
+        description: Stimulus Port Register 202
+        addressOffset: 0x328
+        access: read-write
+      STIM203:
+        description: Stimulus Port Register 203
+        addressOffset: 0x32c
+        access: read-write
+      STIM204:
+        description: Stimulus Port Register 204
+        addressOffset: 0x330
+        access: read-write
+      STIM205:
+        description: Stimulus Port Register 205
+        addressOffset: 0x334
+        access: read-write
+      STIM206:
+        description: Stimulus Port Register 206
+        addressOffset: 0x338
+        access: read-write
+      STIM207:
+        description: Stimulus Port Register 207
+        addressOffset: 0x33c
+        access: read-write
+      STIM208:
+        description: Stimulus Port Register 208
+        addressOffset: 0x340
+        access: read-write
+      STIM209:
+        description: Stimulus Port Register 209
+        addressOffset: 0x344
+        access: read-write
+      STIM210:
+        description: Stimulus Port Register 210
+        addressOffset: 0x348
+        access: read-write
+      STIM211:
+        description: Stimulus Port Register 211
+        addressOffset: 0x34c
+        access: read-write
+      STIM212:
+        description: Stimulus Port Register 212
+        addressOffset: 0x350
+        access: read-write
+      STIM213:
+        description: Stimulus Port Register 213
+        addressOffset: 0x354
+        access: read-write
+      STIM214:
+        description: Stimulus Port Register 214
+        addressOffset: 0x358
+        access: read-write
+      STIM215:
+        description: Stimulus Port Register 215
+        addressOffset: 0x35c
+        access: read-write
+      STIM216:
+        description: Stimulus Port Register 216
+        addressOffset: 0x360
+        access: read-write
+      STIM217:
+        description: Stimulus Port Register 217
+        addressOffset: 0x364
+        access: read-write
+      STIM218:
+        description: Stimulus Port Register 218
+        addressOffset: 0x368
+        access: read-write
+      STIM219:
+        description: Stimulus Port Register 219
+        addressOffset: 0x36c
+        access: read-write
+      STIM220:
+        description: Stimulus Port Register 220
+        addressOffset: 0x370
+        access: read-write
+      STIM221:
+        description: Stimulus Port Register 221
+        addressOffset: 0x374
+        access: read-write
+      STIM222:
+        description: Stimulus Port Register 222
+        addressOffset: 0x378
+        access: read-write
+      STIM223:
+        description: Stimulus Port Register 223
+        addressOffset: 0x37c
+        access: read-write
+      STIM224:
+        description: Stimulus Port Register 224
+        addressOffset: 0x380
+        access: read-write
+      STIM225:
+        description: Stimulus Port Register 225
+        addressOffset: 0x384
+        access: read-write
+      STIM226:
+        description: Stimulus Port Register 226
+        addressOffset: 0x388
+        access: read-write
+      STIM227:
+        description: Stimulus Port Register 227
+        addressOffset: 0x38c
+        access: read-write
+      STIM228:
+        description: Stimulus Port Register 228
+        addressOffset: 0x390
+        access: read-write
+      STIM229:
+        description: Stimulus Port Register 229
+        addressOffset: 0x394
+        access: read-write
+      STIM230:
+        description: Stimulus Port Register 230
+        addressOffset: 0x398
+        access: read-write
+      STIM231:
+        description: Stimulus Port Register 231
+        addressOffset: 0x39c
+        access: read-write
+      STIM232:
+        description: Stimulus Port Register 232
+        addressOffset: 0x3a0
+        access: read-write
+      STIM233:
+        description: Stimulus Port Register 233
+        addressOffset: 0x3a4
+        access: read-write
+      STIM234:
+        description: Stimulus Port Register 234
+        addressOffset: 0x3a8
+        access: read-write
+      STIM235:
+        description: Stimulus Port Register 235
+        addressOffset: 0x3ac
+        access: read-write
+      STIM236:
+        description: Stimulus Port Register 236
+        addressOffset: 0x3b0
+        access: read-write
+      STIM237:
+        description: Stimulus Port Register 237
+        addressOffset: 0x3b4
+        access: read-write
+      STIM238:
+        description: Stimulus Port Register 238
+        addressOffset: 0x3b8
+        access: read-write
+      STIM239:
+        description: Stimulus Port Register 239
+        addressOffset: 0x3bc
+        access: read-write
+      STIM240:
+        description: Stimulus Port Register 240
+        addressOffset: 0x3c0
+        access: read-write
+      STIM241:
+        description: Stimulus Port Register 241
+        addressOffset: 0x3c4
+        access: read-write
+      STIM242:
+        description: Stimulus Port Register 242
+        addressOffset: 0x3c8
+        access: read-write
+      STIM243:
+        description: Stimulus Port Register 243
+        addressOffset: 0x3cc
+        access: read-write
+      STIM244:
+        description: Stimulus Port Register 244
+        addressOffset: 0x3d0
+        access: read-write
+      STIM245:
+        description: Stimulus Port Register 245
+        addressOffset: 0x3d4
+        access: read-write
+      STIM246:
+        description: Stimulus Port Register 246
+        addressOffset: 0x3d8
+        access: read-write
+      STIM247:
+        description: Stimulus Port Register 247
+        addressOffset: 0x3dc
+        access: read-write
+      STIM248:
+        description: Stimulus Port Register 248
+        addressOffset: 0x3e0
+        access: read-write
+      STIM249:
+        description: Stimulus Port Register 249
+        addressOffset: 0x3e4
+        access: read-write
+      STIM250:
+        description: Stimulus Port Register 250
+        addressOffset: 0x3e8
+        access: read-write
+      STIM251:
+        description: Stimulus Port Register 251
+        addressOffset: 0x3ec
+        access: read-write
+      STIM252:
+        description: Stimulus Port Register 252
+        addressOffset: 0x3f0
+        access: read-write
+      STIM253:
+        description: Stimulus Port Register 253
+        addressOffset: 0x3f4
+        access: read-write
+      STIM254:
+        description: Stimulus Port Register 254
+        addressOffset: 0x3f8
+        access: read-write
+      STIM255:
+        description: Stimulus Port Register 255
+        addressOffset: 0x3fc
+        access: read-write
+      TER0:
+        description: Trace Enable Register 0
+        addressOffset: 0xe00
+        access: read-write
+      TER1:
+        description: Trace Enable Register 1
+        addressOffset: 0xe04
+        access: read-write
+      TER2:
+        description: Trace Enable Register 2
+        addressOffset: 0xe08
+        access: read-write
+      TER3:
+        description: Trace Enable Register 3
+        addressOffset: 0xe0c
+        access: read-write
+      TER4:
+        description: Trace Enable Register 4
+        addressOffset: 0xe10
+        access: read-write
+      TER5:
+        description: Trace Enable Register 5
+        addressOffset: 0xe14
+        access: read-write
+      TER6:
+        description: Trace Enable Register 6
+        addressOffset: 0xe18
+        access: read-write
+      TER7:
+        description: Trace Enable Register 7
+        addressOffset: 0xe1c
+        access: read-write
+      TPR:
+        description: Trace Privilege Register
+        addressOffset: 0xe40
+        access: read-write
+      TCR:
+        description: Trace Control Register
+        addressOffset: 0xe80
+        access: read-write
+      LSR:
+        description: Lock Status Register
+        addressOffset: 0xFB4
+        access: read-only
+      LAR:
+        description: Lock Access Register
+        addressOffset: 0xFB0
+        access: write-only

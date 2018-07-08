@@ -1,0 +1,110 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  CPUID:
+    description: CPUID
+    baseAddress: 0xE000ED00
+    addressBlock:
+      offset: 0x0
+      size: 0x88
+    registers:
+      Base:
+        description: Provides identification information for the processor
+        addressOffset: 0x0
+        access: read-only
+        fields:
+          IMPLEMENTER:
+            description: This field defines the implementer
+            bitOffset: 24
+            bitWidth: 7
+          VARIANT:
+            description: Implementation defined
+            bitOffset: 20
+            bitWidth: 4
+          ARCHITECTURE:
+            description: This field defines the architecture
+            bitOffset: 16
+            bitWidth: 4
+          PARTNO:
+            description: Implementation defined.
+            bitOffset: 4
+            bitWidth: 12
+          REVISION:
+            description: Implementation defined.
+            bitOffset: 0
+            bitWidth: 4
+      PFR0:
+        description: Processor Feature Register 0
+        addressOffset: 0x40
+        access: read-only
+      PFR1:
+        description: Processor Feature Register 1
+        addressOffset: 0x44
+        access: read-only
+      DFR0:
+        description: Debug Feature Register 0
+        addressOffset: 0x48
+        access: read-only
+      AFR0:
+        description: Auxiliary Feature Register 0
+        addressOffset: 0x4C
+        access: read-only
+      MMFR0:
+        description: Memory Model Feature Register 0
+        addressOffset: 0x50
+        access: read-only
+      MMFR1:
+        description: Memory Model Feature Register 1
+        addressOffset: 0x54
+        access: read-only
+      MMFR2:
+        description: Memory Model Feature Register 2
+        addressOffset: 0x58
+        access: read-only
+      MMFR3:
+        description: Memory Model Feature Register 3
+        addressOffset: 0x5C
+        access: read-only
+      ISAR0:
+        description: Instruction Set Attribute Register 0
+        addressOffset: 0x60
+        access: read-only
+      ISAR1:
+        description: Instruction Set Attribute Register 1
+        addressOffset: 0x64
+        access: read-only
+      ISAR2:
+        description: Instruction Set Attribute Register 2
+        addressOffset: 0x68
+        access: read-only
+      ISAR3:
+        description: Instruction Set Attribute Register 3
+        addressOffset: 0x6C
+        access: read-only
+      ISAR4:
+        description: Instruction Set Attribute Register 4
+        addressOffset: 0x70
+        access: read-only
+      CLIDR:
+        description: Cache Level ID Register
+        addressOffset: 0x78
+        access: read-only
+      CTR:
+        description: Cache Type Register
+        addressOffset: 0x7C
+        access: read-only
+      CCSIDR:
+        description: Cache Size ID Register
+        addressOffset: 0x80
+        access: read-only
+      CSSELR:
+        description: Cache Size Selection Register
+        addressOffset: 0x84
+        access: read-write
+
+CPUID:
+  Base:
+    IMPLEMENTER:
+      ARM: [0x41, "ARM Limited"]
+    ARCHITECTURE:
+      ARMv6M: [0xC, "ARMv6-M"]

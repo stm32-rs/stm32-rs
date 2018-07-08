@@ -1,0 +1,26 @@
+# Reference: ARMv7-M Architecture Reference Manual issue E.b
+
+_add:
+  SYST:
+    description: System Timer
+    baseAddress: 0xE000E010
+    addressBlock:
+      offset: 0x0
+      size: 0xF0
+    registers:
+      CSR:
+        description: SysTick Control and Status Register
+        addressOffset: 0x0
+        access: read-write
+      RVR:
+        description: SysTick Reload Value Register
+        addressOffset: 0x4
+        access: read-write
+      CVR:
+        description: SysTick Current Value Register
+        addressOffset: 0x8
+        access: read-write
+      CALIB:
+        description: SysTick Calibration Value Register
+        addressOffset: 0x1C
+        access: read-only

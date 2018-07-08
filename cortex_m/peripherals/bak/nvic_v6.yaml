@@ -1,0 +1,35 @@
+NVIC:
+  _add:
+    _registers:
+      IPR0:
+        description: Interrupt Priority register 0
+        addressOffset: 0x300
+        access: read-write
+      IPR1:
+        description: Interrupt Priority register 1
+        addressOffset: 0x304
+        access: read-write
+      IPR2:
+        description: Interrupt Priority register 2
+        addressOffset: 0x308
+        access: read-write
+      IPR3:
+        description: Interrupt Priority register 3
+        addressOffset: 0x30c
+        access: read-write
+      IPR4:
+        description: Interrupt Priority register 4
+        addressOffset: 0x310
+        access: read-write
+      IPR5:
+        description: Interrupt Priority register 5
+        addressOffset: 0x314
+        access: read-write
+      IPR6:
+        description: Interrupt Priority register 6
+        addressOffset: 0x318
+        access: read-write
+      IPR7:
+        description: Interrupt Priority register 7
+        addressOffset: 0x31c
+        access: read-write
