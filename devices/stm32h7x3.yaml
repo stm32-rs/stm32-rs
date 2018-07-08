@@ -1,5 +1,10 @@
 _svd: ../svd/stm32h7x3.svd
 
+# Rename in accordance with other devices and reference manual.
+_modify:
+  Flash:
+    name: FLASH
+
 "GPIOA":
   _modify:
     # The SVD incorrectly names all the GPIO registers compared to RM0433.
@@ -243,6 +248,12 @@ CRYP:
   "IV[01][LR]R":
     _merge:
       - "IV*"
+
+FLASH:
+  _modify:
+    PRAR_PRG2:
+      addressOffset: "0x12C"
+      alternateRegister: ""
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
