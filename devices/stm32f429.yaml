@@ -42,6 +42,16 @@ CRYP:
     _merge:
       - "IV*"
 
+# Offset of BWTR3 and BWTR4 is incorrect
+FMC:
+  _modify:
+    BWTR3:
+      addressOffset: "0x114"
+      alternateRegister: ""
+    BWTR4:
+      addressOffset: "0x11C"
+      alternateRegister: ""
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
