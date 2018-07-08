@@ -75,7 +75,7 @@ def yaml_includes(parent):
         if path in included:
             continue
         with open(path) as f:
-            child = yaml.load(f)
+            child = yaml.safe_load(f)
         child["_path"] = path
         included.append(path)
         included += yaml_includes(child)
@@ -423,7 +423,7 @@ def main():
     # Load the specified YAML root file
     args = parseargs()
     with open(args.yaml) as f:
-        root = yaml.load(f)
+        root = yaml.safe_load(f)
         root["_path"] = args.yaml
 
     # Load the specified SVD file

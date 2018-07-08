@@ -162,6 +162,7 @@ def make_mods(devices):
     return "\n".join('#[cfg(feature = "{0}")]\npub mod {0};\n'.format(d)
                      for d in sorted(devices))
 
+
 def make_device_clauses(devices):
     return " else ".join("""\
         if env::var_os("CARGO_FEATURE_{}").is_some() {{
