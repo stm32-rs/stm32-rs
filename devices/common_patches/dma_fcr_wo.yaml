@@ -1,0 +1,6 @@
+# Many devices have these flag clear registers incorrectly set to read-write
+
+"DMA?":
+  _modify:
+    "[LH]IFCR":
+      access: write-only
