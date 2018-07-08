@@ -7,9 +7,12 @@ _include:
   - peripherals/dwt.yaml
   - peripherals/fpb.yaml
   - peripherals/itm.yaml
-  - peripherals/mpu.yaml
-  - peripherals/nvic.yaml
-  - peripherals/nvic_v7.yaml
+  # These two peripherals are included in the ST SVD files, so don't
+  # include them in the generic ARMv7-M SVD as well.
+  # Uncomment them here if you want to include them for some other reason.
+  #- peripherals/mpu.yaml
+  #- peripherals/nvic.yaml
+  #- peripherals/nvic_v7.yaml
   - peripherals/scb.yaml
   - peripherals/scb_v7.yaml
   - peripherals/syst.yaml
