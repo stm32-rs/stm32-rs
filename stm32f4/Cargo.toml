@@ -18,6 +18,9 @@ cortex-m = "0.5.2"
 optional = true
 version = "0.5.1"
 
+[package.metadata.docs.rs]
+features = ['rt', 'stm32f401', 'stm32f407', 'stm32f413', 'stm32f469']
+
 [features]
 default = []
 rt = ["cortex-m-rt/device"]

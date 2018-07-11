@@ -1,5 +1,14 @@
 # Changelog
 
+## v 0.2.2 2018-07-11
+* Released crates now built with Form (#19, #29)
+* Add a selection of documentation targets for docs.rs (#3)
+* Many families: Add High/Low enum values for IDR/ODR on gpio_v2 (6c30cdc)
+* Many families: Set DMA LIFCR and HIFCR to write-only (128b3d4)
+* STM32F42{7,9}: Fix incorrect BWTR{3,4} (86dd104)
+* STM32H7x3: Rename Flash->FLASH and fix PRAR_PRG2 (1e61674)
+* STM32F7x{5,7,8,9}: Add PLLSAIRDY and PLLSAION (#35)
+
 ## v 0.2.1 954966a 2018-07-02
 * Add STM32L4x5 device (#28)
 * Add PLLR field for STM32F7x7 (#30)

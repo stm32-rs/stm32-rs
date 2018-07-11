@@ -15,8 +15,22 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 SVD2RUST_VERSION = "0.13.1"
+
+CRATE_DOC_FEATURES = {
+    "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
+    "stm32f1": ["rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103",
+                "stm32f107"],
+    "stm32f2": ["rt", "stm32f215", "stm32f217"],
+    "stm32f3": ["rt", "stm32f303", "stm32f373", "stm32f3x8"],
+    "stm32f4": ["rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
+    "stm32f7": ["rt", "stm32f7x3", "stm32f7x9"],
+    "stm32h7": ["rt", "stm32h7x3"],
+    "stm32l0": ["rt", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
+    "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
+    "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
+}
 
 CARGO_TOML_TPL = """\
 [package]
@@ -38,6 +52,9 @@ cortex-m = "0.5.2"
 [dependencies.cortex-m-rt]
 optional = true
 version = "0.5.1"
+
+[package.metadata.docs.rs]
+features = {docs_features}
 
 [features]
 default = []
@@ -197,13 +214,12 @@ def main():
         mods = make_mods(devices[family])
         ufamily = family.upper()
         cargo_toml = CARGO_TOML_TPL.format(
-            family=ufamily, crate=crate, version=VERSION, features=features)
+            family=ufamily, crate=crate, version=VERSION, features=features,
+            docs_features=str(CRATE_DOC_FEATURES[crate]))
         readme = README_TPL.format(
             family=ufamily, crate=crate, device=devices[family][0],
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
             devices=make_device_rows(table, family))
-            # devices="\n".join("* " + d.upper().replace("X", "x")
-                              # for d in devices[family]))
         lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods,
                                        svd2rust_version=SVD2RUST_VERSION)
         build_rs = BUILD_TPL.format(device_clauses=clauses)
