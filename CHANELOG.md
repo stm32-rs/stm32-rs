@@ -1,6 +1,6 @@
 # Changelog
 
-## v 0.2.2 2018-07-11
+## v 0.2.2 e648dae 2018-07-11
 * Released crates now built with Form (#19, #29)
 * Add a selection of documentation targets for docs.rs (#3)
 * Many families: Add High/Low enum values for IDR/ODR on gpio_v2 (6c30cdc)
