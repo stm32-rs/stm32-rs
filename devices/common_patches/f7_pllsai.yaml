@@ -1,0 +1,14 @@
+# Add missing PLLSAIRDY, PLLSAION bits to RCC_CR
+RCC:
+  CR:
+    _add:
+      PLLSAIRDY:
+        description: PLLSAI clock ready flag
+        bitOffset: 29
+        bitWidth: 1
+        access: read-only
+      PLLSAION:
+        description: PLLSAI enable
+        bitOffset: 28
+        bitWidth: 1
+        access: read-write
