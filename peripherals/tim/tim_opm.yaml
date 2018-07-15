@@ -1,0 +1,7 @@
+# Describes OPM for all timers, where tim_basic.yaml omits it for
+# TIM10,11,13,14.
+"TIM*":
+  CR1:
+    OPM:
+      Disabled: [0, "Counter is not stopped at update event"]
+      Enabled: [1, "Counter stops counting at the next update event (clearing the CEN bit)"]

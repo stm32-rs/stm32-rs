@@ -6,9 +6,6 @@
     ARPE:
       Disabled: [0, "TIMx_APRR register is not buffered"]
       Enabled: [1, "TIMx_APRR register is buffered"]
-    OPM:
-      Disabled: [0, "Counter is not stopped at update event"]
-      Enabled: [1, "Counter stops counting at the next update event (clearing the CEN bit)"]
     URS:
       AnyEvent: [0, "Any of counter overflow/underflow, setting UG, or update through slave mode, generates an update interrupt or DMA request"]
       CounterOnly: [1, "Only counter overflow/underflow generates an update interrupt or DMA request"]
@@ -29,3 +26,11 @@
   EGR:
     UG:
       Update: [1, "Re-initializes the timer counter and generates an update of the reigsters."]
+
+# OPM is often missing on TIM10, TIM11, TIM13, TIM14.
+# Annoyingly it is not always missing - include tim_opm.yaml for those devices.
+"TIM?,TIM12":
+  CR1:
+    OPM:
+      Disabled: [0, "Counter is not stopped at update event"]
+      Enabled: [1, "Counter stops counting at the next update event (clearing the CEN bit)"]
