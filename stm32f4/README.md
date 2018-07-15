@@ -46,4 +46,4 @@ https://docs.rs/svd2rust/0.13.1/svd2rust/#peripheral-api
 | stm32f427 | STM32F427, STM32F437 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f427-437.html) |
 | stm32f429 | STM32F429, STM32F439 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f429-439.html) |
 | stm32f446 | STM32F446 | [RM0390](https://www.st.com/resource/en/reference_manual/dm00135183.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f446.html) |
-| stm32f469 | STM32F469, STM32F479 | [RM0368](https://www.st.com/resource/en/reference_manual/dm00127514.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f469-479.html) |
+| stm32f469 | STM32F469, STM32F479 | [RM0386](https://www.st.com/resource/en/reference_manual/dm00127514.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f469-479.html) |
