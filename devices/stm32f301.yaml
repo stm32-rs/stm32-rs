@@ -1,5 +1,18 @@
 _svd: ../svd/stm32f301.svd
 
+# The SVD puts CSR and CCR at 0x0 and 0x8 offset, which is their offset
+# for a common ADC peripheral which is 0x300 above ADC, but this peripheral
+# isn't defined in the SVD and instead the fields are described as aliasing
+# onto the main ADC1 ISR and CR, which isn't the case.
+"ADC":
+  _modify:
+    CSR:
+      addressOffset: "0x300"
+      alternateRegister: ""
+    CCR:
+      addressOffset: "0x308"
+      alternateRegister: ""
+
 "SPI*":
   SR:
     _modify:
