@@ -6,15 +6,15 @@ _include:
   - peripherals/dcb.yaml
   - peripherals/dwt.yaml
   - peripherals/fpb.yaml
-  # These four peripherals are included in the ST SVD files, so don't
+  # These five peripherals are included in the ST SVD files, so don't
   # include them in the generic ARMv7E-M SVD as well.
   # Uncomment them here if you want to include them for some other reason.
   #- peripherals/fpu.yaml
   #- peripherals/mpu.yaml
   #- peripherals/nvic.yaml
   #- peripherals/nvic_v7.yaml
+  #- peripherals/scb.yaml
+  #- peripherals/scb_v7.yaml
   - peripherals/itm.yaml
-  - peripherals/scb.yaml
-  - peripherals/scb_v7.yaml
   - peripherals/syst.yaml
   - peripherals/tpiu.yaml

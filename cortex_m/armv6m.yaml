@@ -4,11 +4,11 @@ _include:
   - peripherals/cpuid_v6.yaml
   - peripherals/dcb.yaml
   - peripherals/dwt.yaml
-  # These two peripherals are included in the ST SVD files, so don't
+  # These three peripherals are included in the ST SVD files, so don't
   # include them in the generic ARMv6-M SVD as well.
   # Uncomment them here if you want to include them for some other reason.
   #- peripherals/mpu.yaml
   #- peripherals/nvic.yaml
   #- peripherals/nvic_v6.yaml
-  - peripherals/scb.yaml
+  #- peripherals/scb.yaml
   - peripherals/syst.yaml
