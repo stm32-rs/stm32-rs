@@ -47,11 +47,11 @@ license = "MIT/Apache-2.0"
 [dependencies]
 bare-metal = "0.2.0"
 vcell = "0.1.0"
-cortex-m = "0.5.2"
+cortex-m = "0.5.4"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.5.1"
+version = "0.5.2"
 
 [package.metadata.docs.rs]
 features = {docs_features}
