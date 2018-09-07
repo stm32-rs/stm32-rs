@@ -15,7 +15,7 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.2.2"
+VERSION = "0.2.3"
 SVD2RUST_VERSION = "0.13.1"
 
 CRATE_DOC_FEATURES = {
@@ -45,13 +45,13 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "0.2.0"
+bare-metal = "0.2.3"
 vcell = "0.1.0"
-cortex-m = "0.5.4"
+cortex-m = "0.5.7"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.5.2"
+version = "0.6.1"
 
 [package.metadata.docs.rs]
 features = {docs_features}
@@ -64,14 +64,22 @@ rt = ["cortex-m-rt/device"]
 
 SRC_LIB_RS_TPL = """\
 //! Peripheral access API for {family} microcontrollers
-//! (generated using [svd2rust] {svd2rust_version})
-//! [svd2rust]: https://github.com/japaric/svd2rust
+//! (generated using [svd2rust](https://github.com/rust-embedded/svd2rust)
+//! {svd2rust_version})
 //!
 //! You can find an overview of the API here:
 //! https://docs.rs/svd2rust/{svd2rust_version}/svd2rust/#peripheral-api
 //!
 //! For more details see the README here:
 //! https://github.com/adamgreig/stm32-rs
+//!
+//! This crate supports all {family} devices; for the complete list please
+//! see:
+//! https://github.com/adamgreig/stm32-rs/tree/master/{family}
+//!
+//! Due to doc build limitations, not all devices may be shown on docs.rs;
+//! a representative few have been selected instead. For a complete list of
+//! available registers and fields see: https://stm32.agg.io/rs
 
 #![allow(non_camel_case_types)]
 #![feature(const_fn)]

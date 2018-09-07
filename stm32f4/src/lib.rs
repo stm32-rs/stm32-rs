@@ -1,12 +1,20 @@
 //! Peripheral access API for STM32F4 microcontrollers
-//! (generated using [svd2rust] 0.13.1)
-//! [svd2rust]: https://github.com/japaric/svd2rust
+//! (generated using [svd2rust](https://github.com/rust-embedded/svd2rust)
+//! 0.13.1)
 //!
 //! You can find an overview of the API here:
 //! https://docs.rs/svd2rust/0.13.1/svd2rust/#peripheral-api
 //!
 //! For more details see the README here:
 //! https://github.com/adamgreig/stm32-rs
+//!
+//! This crate supports all STM32F4 devices; for the complete list please
+//! see:
+//! https://github.com/adamgreig/stm32-rs/tree/master/STM32F4
+//!
+//! Due to doc build limitations, not all devices may be shown on docs.rs;
+//! a representative few have been selected instead. For a complete list of
+//! available registers and fields see: https://stm32.agg.io/rs
 
 #![allow(non_camel_case_types)]
 #![feature(const_fn)]
