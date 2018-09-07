@@ -1172,6 +1172,106 @@ _add:
             description: MAC Address3 [47:32]
             bitOffset: 0 
             bitWidth: 16
+      TX_SINGLE_COLLISION_GOOD_PACKETS:
+        description: Tx single collision good packets register
+        addressOffset: 0x074C
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          TXSNGLCOLG:
+            description: Tx Single Collision Good Packets
+            bitOffset: 0 
+            bitWidth: 32
+      TX_MULTIPLE_COLLISION_GOOD_PACKETS:
+        description: Tx multiple collision good packets register
+        addressOffset: 0x0750
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          TXMULTCOLG:
+            description: Tx Multiple Collision Good Packets
+            bitOffset: 0 
+            bitWidth: 32
+      TX_PACKET_COUNT_GOOD:
+        description: Tx packet count good register
+        addressOffset: 0x0768
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          TXPKTG:
+            description: Tx Packet Count Good
+            bitOffset: 0 
+            bitWidth: 32
+      RX_CRC_ERROR_PACKETS:
+        description: Rx CRC error packets register
+        addressOffset: 0x0794
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          RXCRCERR:
+            description: Rx CRC Error Packets
+            bitOffset: 0 
+            bitWidth: 32
+      RX_ALIGNMENT_ERROR_PACKETS:
+        description: Rx alignment error packets register
+        addressOffset: 0x0798
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          RXALGNERR:
+            description: Rx Alignment Error Packets
+            bitOffset: 0 
+            bitWidth: 32
+      RX_UNICAST_PACKETS_GOOD:
+        description: Rx unicast packets good register
+        addressOffset: 0x07C4
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          RXUCASTG:
+            description: Rx Unicast Packets Good
+            bitOffset: 0 
+            bitWidth: 32
+      TX_LPI_USEC_CNTR:
+        description: Tx LPI microsecond timer register
+        addressOffset: 0x07EC
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          TXLPIUSC:
+            description: Tx LPI Microseconds Counter
+            bitOffset: 0 
+            bitWidth: 32
+      TX_LPI_TRAN_CNTR:
+        description: Tx LPI transition counter register
+        addressOffset: 0x07F0
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          TXLPITRC:
+            description: Tx LPI Transition counter
+            bitOffset: 0 
+            bitWidth: 32
+      RX_LPI_USEC_CNTR:
+        description: Rx LPI microsecond counter register
+        addressOffset: 0x07F4
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          RXLPIUSC:
+            description: Rx LPI Microseconds Counter
+            bitOffset: 0 
+            bitWidth: 32
+      RX_LPI_TRAN_CNTR:
+        description: Rx LPI transition counter register
+        addressOffset: 0x07F8
+        resetValue: 0x00000000
+        access: read-only
+        fields:
+          RXLPITRC:
+            description: Rx LPI Transition counter
+            bitOffset: 0 
+            bitWidth: 32
       MACL3L4C0R:
         description: L3 and L4 control 0 register
         addressOffset: 0x0900
