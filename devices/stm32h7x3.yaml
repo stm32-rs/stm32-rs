@@ -1045,7 +1045,7 @@ _add:
         description: ARP address register
         # TODO - this might actually be at 0xAE0 - the reference manual says it
         # is, but ST's own HAL and where they locate it in the map disagree.
-        addressOffset: 0x0B10
+        addressOffset: 0x0210
         resetValue: 0x00000000
         access: read-write
         fields:
