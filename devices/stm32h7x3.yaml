@@ -1043,8 +1043,9 @@ _add:
             bitWidth: 16
       MACARPAR:
         description: ARP address register
-        # TODO - this might actually be at 0xB10 based on its location in the reference manual register map
-        addressOffset: 0x0AE0
+        # TODO - this might actually be at 0xAE0 - the reference manual says it
+        # is, but ST's own HAL and where they locate it in the map disagree.
+        addressOffset: 0x0B10
         resetValue: 0x00000000
         access: read-write
         fields:
