@@ -37,7 +37,7 @@ _add:
         description: Interrupt status Register
         addressOffset: 0x0C20
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           Q0IS:
             description: Queue interrupt status
@@ -73,7 +73,7 @@ _add:
         description: Tx queue underflow register
         addressOffset: 0x0D04
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           UFCNTOVF:
             description: Overflow Bit for Underflow Packet Counter
@@ -87,7 +87,7 @@ _add:
         description: Tx queue debug Register
         addressOffset: 0x0D08
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           STXSTSF:
             description: Number of Status Words in Tx Status FIFO of Queue
@@ -185,7 +185,7 @@ _add:
         description: Rx queue missed packet and overflow counter register
         addressOffset: 0x0D34
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           MISCNTOVF:
             description: Missed Packet Counter Overflow Bit
@@ -207,7 +207,7 @@ _add:
         description: Rx queue debug register
         addressOffset: 0x0D38
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           PRXQ:
             description: Number of Packets in Receive Queue
@@ -616,9 +616,9 @@ _add:
             bitOffset: 0 
             bitWidth: 1
       MACISR:
-        description: Ethernet MAC Interupt status register
+        description: Ethernet MAC Interrupt status register
         addressOffset: 0xB0
-        access: read-write
+        access: read-only
         resetValue: 0x00000000
         fields:
           RXSTSIS:
@@ -690,7 +690,7 @@ _add:
       MACRXTXSR:
         description: Ethernet MAC Rx Tx status register
         addressOffset: 0xB8
-        access: read-write
+        access: read-only
         resetValue: 0x00000000
         fields:
           RWT:
@@ -861,7 +861,7 @@ _add:
         description: Version register
         addressOffset: 0x0110
         resetValue: 0x00003041
-        access: read-write
+        access: read-only
         fields:
           USERVER:
             description: ST-defined version
@@ -875,7 +875,7 @@ _add:
         description: Debug register
         addressOffset: 0x0114
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           TFCSTS:
             description: MAC Transmit Packet Controller Status
@@ -897,7 +897,7 @@ _add:
         description: HW feature 1 register
         addressOffset: 0x0120
         resetValue: 0x11841904
-        access: read-write
+        access: read-only
         fields:
           L3L4FNUM:
             description: Total number of L3 or L4 Filters
@@ -955,7 +955,7 @@ _add:
         description: HW feature 2 register
         addressOffset: 0x0124
         resetValue: 0x41000000
-        access: read-write
+        access: read-only
         fields:
           AUXSNAPNUM:
             description: Number of Auxiliary Snapshot Inputs
@@ -1480,12 +1480,22 @@ _add:
         description: System time seconds register
         addressOffset: 0x0B08
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           TSSS:
             description: Timestamp Sub-seconds
             bitOffset: 0 
             bitWidth: 31
+      MACSTNR:
+          description: System time nanoseconds register
+          addressOffset: 0x0B0C
+          resetValue: 0x00000000
+          access: read-only
+          fields:
+            TSSS:
+                description: Timestamp Sub-seconds
+                bitOffset: 0 
+                bitWidth: 31
       MACSTSUR:
         description: System time seconds update register
         addressOffset: 0x0B10
@@ -1524,7 +1534,7 @@ _add:
         description: Timestamp status register
         addressOffset: 0x0B20
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           ATSNS:
             description: Number of Auxiliary Timestamp Snapshots
@@ -1562,7 +1572,7 @@ _add:
         description: Tx timestamp status nanoseconds register
         addressOffset: 0x0B30
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           TXTSSMIS:
             description: Transmit Timestamp Status Missed
@@ -1576,7 +1586,7 @@ _add:
         description: Tx timestamp status seconds register
         addressOffset: 0x0B34
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           TXTSSHI:
             description: Transmit Timestamp Status High
@@ -1612,7 +1622,7 @@ _add:
         description: Auxiliary timestamp nanoseconds register
         addressOffset: 0x0B48
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           AUXTSLO:
             description: Auxiliary Timestamp
@@ -1622,7 +1632,7 @@ _add:
         description: Auxiliary timestamp seconds register
         addressOffset: 0x0B4C
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           AUXTSHI:
             description: Auxiliary Timestamp
@@ -1875,7 +1885,7 @@ _add:
         description: MMC Rx interrupt register
         addressOffset: 0x0004
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           RXLPITRCIS:
             description: MMC Receive LPI transition counter interrupt status
@@ -1901,7 +1911,7 @@ _add:
         description: MMC Tx interrupt register
         addressOffset: 0x0008
         resetValue: 0x00000000
-        access: read-write
+        access: read-only
         fields:
           TXLPITRCIS:
             description: MMC Transmit LPI transition counter interrupt status
