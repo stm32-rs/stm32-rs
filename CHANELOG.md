@@ -1,5 +1,12 @@
 # Changelog
 
+## v 0.2.3 c15e4a6 2018-09-07
+* STM32F301: Fix incorrect aliasing of ADC.CSR and CCR
+* STM32F4x9: Fix name of RM0386
+* STM32F4: Improve timer coverage
+* STM32F407: Include `TIM_OPM`
+* Update to latest cortex-m-rt 0.6
+
 ## v 0.2.2 e648dae 2018-07-11
 * Released crates now built with Form (#19, #29)
 * Add a selection of documentation targets for docs.rs (#3)
