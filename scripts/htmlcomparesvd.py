@@ -91,9 +91,27 @@ def who_has_what_register_fields(parts, peripheral, register):
 
 
 def html_table_peripherals(parts, peripherals):
-    out = ["<table><thead><tr><th>Peripheral</th><th>Address</th>"]
+    out = ["""
+    <style>
+    table thead tr {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: white;
+    }
+    td:first-child,
+    th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 6;
+        background: white;
+    }
+    </style>
+    """]
+    out.append("<table><thead><tr><th>Peripheral</th><th>Address</th>")
     for part in parts:
         out.append("<th>{}</th>".format(part['name']))
+    out.append("</thead><tbody>")
     for periph in sorted(peripherals.keys()):
         name, base = periph
         base = "0x{:08X}".format(base)
@@ -106,7 +124,7 @@ def html_table_peripherals(parts, peripherals):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
