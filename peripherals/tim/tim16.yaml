@@ -1,0 +1,42 @@
+# TIM16 and TIM17 peripherals
+# All devices that has TIM16 has TIM17 except stm32l4x{1,2,3} where only TIM16
+# exists.
+#
+
+"TIM16":
+  CR1:
+    OPM:
+      NotStopped: [0, "Not stopped at update event"]
+      Stopped: [1, "Counter stops counting at next update event"]
+    ARPE:
+      NotBuffered: [0, "TIMx_ARR register is not buffered"]
+      Buffered: [1, "TIMx_ARR register is buffered"]
+  CR2:
+    CCPC:
+      NotPreloaded: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
+      Preloaded: [1, "CCxE, CCxNE and OCxM bits are preloaded"]
+    CCUS:
+      WithoutRisingEdge: [0, "Capture/compare are updated only by setting the COMG bit"]
+      WithRisingEdge: [1, "Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI"] 
+    CCDS:
+      OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
+      OnUpdate: [0, "CCx DMA request sent when update event occurs"]
+    OIS1N:
+      Low: [0, "OC1N=0 after a dead-time when MOE=0"]
+      High: [0, "OC1N=1 after a dead-time when MOE=0"]
+    OIS1:
+      Low: [0, "OC1=0 (after a dead-time if OC1N is implemented) when MOE=0"]
+      High: [1, "OC1=1 (after a dead-time if OC1N is implemented) when MOE=0"]
+  DIER:
+    CC1IE:
+      Disable: [0, "CC1 interrupt disabled"]
+      Enable: [1, "CC1 interrupt enabled"]
+    COMIE:
+      Disable: [0, "COM interrupt disabled"]
+      Enable: [1, "COM interrupt enabled"]
+    BIE:
+      Disable: [0, "Break interrupt disabled"]
+      Enable: [1, "Break interrupt enabled"]
+    CC1DE:
+      Disable: [0, "CC1 DMA request disabled"]
+      Enable: [1, "CC1 DMA request enabled"]
