@@ -1,0 +1,23 @@
+# IWDG peripheral.
+# Documented from stm32f0x1 reference manual
+
+IWDG:
+  KR:
+    KEY:
+      Enable: [21845, "Enable access to PR, RLR and WINR registers (0x5555)"]
+      Reset: [43690, "Reset the watchdog value (0xAAAA)"]
+      Start: [52428, "Start the watchdog (0xCCCC)"]
+  PR:
+    PR:
+      DivideBy4: [0, "Divider /4"]
+      DivideBy8: [1, "Divider /8"]
+      DivideBy16: [2, "Divider /16"]
+      DivideBy32: [3, "Divider /32"]
+      DivideBy64: [4, "Divider /64"]
+      DivideBy128: [5, "Divider /128"]
+      DivideBy256: [6, "Divider /256"]
+      DivideBy256bis: [7, "Divider /256"]
+  RLR:
+    RL: [0, 4095]
+  WINR:
+    WIN: [0, 4095]
