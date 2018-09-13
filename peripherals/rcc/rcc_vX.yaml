@@ -1,0 +1,35 @@
+# RCC peripheral
+# Applicable to STM32F0, F1, F3, L0, L4
+# PLLSRC[0] available only on STM32F04x, STM32F07x and STM32F09x
+
+RCC:
+  CR:
+    PLLRDY:
+      _read:
+        Unlocked: [0, "PLL unlocked"]
+        Locked: [1, "PLL locked"]
+    PLLON:
+      "Off": [0, "PLL off"]
+      "On":  [1, "PLL on" ]
+    CSSON:
+      Disable: [0, "Clock security system disabled (clock detector OFF)"]
+      Enable: [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
+    HSEBYP:
+      NotBypass: [0, "HSE crystal oscillator not bypassed"]
+      Bypass: [0, "HSE crystal oscillator bypassed with external clock"]
+    HSERDY:
+      _write:
+        NotReady: [0, "HSE oscillator not ready"]
+        Ready: [1, "HSE oscillator ready"]
+    HSEON:
+      "Off": [0, "HSE oscillator OFF"]
+      "On": [1, "HSE oscillator ON"]
+    HSICAL: [0, 255]
+    HSITRIM: [0, 31]
+    HSIRDY:
+      _read:
+        NotReady: [0, "HSI oscillator not ready"]
+        Ready: [1, "HSI oscillator ready"]
+    HSION:
+      "Off": [0, "HSI oscillator Off"]
+      "On": [1, "HSI oscillator On"]
