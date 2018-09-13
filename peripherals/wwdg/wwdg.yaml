@@ -15,6 +15,9 @@ WWDG:
       Div4: [2, "Counter clock (PCLK1 div 4096) div 4"]
       Div8: [3, "Counter clock (PCLK1 div 4096) div 8"]
     W: [0, 127]
+    EWI:
+      _write:
+        Enable: [1, "interrupt occurs whenever the counter reaches the value 0x40"]
   SR:
     EWIF:
       _read:
