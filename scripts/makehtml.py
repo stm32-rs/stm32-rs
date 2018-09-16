@@ -25,10 +25,12 @@ def generate_device_page(device):
     template = env.get_template('makehtml.template.html')
     return template.render(device=device)
 
+def short_access(accs):
+    return {"read-write": "rw", "read-only" : "r", "write-only" :"w"}.get(accs, "N/A")
 
 def parse_device(svdfile):
     tree = ET.parse(svdfile)
-    dname = tree.find('name').text
+    dname = tree.findtext('name')
     peripherals = {}
     device_fields_total = 0
     device_fields_documented = 0
@@ -36,8 +38,8 @@ def parse_device(svdfile):
         registers = {}
         peripheral_fields_total = 0
         peripheral_fields_documented = 0
-        pname = ptag.find('name').text
-        pbase = ptag.find('baseAddress').text
+        pname = ptag.findtext('name')
+        pbase = ptag.findtext('baseAddress')
         if 'derivedFrom' in ptag.attrib:
             dfname = ptag.attrib['derivedFrom']
             dffrom = tree.findall(".//peripheral/[name='" + dfname + "']")
@@ -47,30 +49,27 @@ def parse_device(svdfile):
                 print("Can't find derivedFrom={} for {}"
                       .format(dfname, pname))
                 continue
-        pdesc = ptag.find('description').text
+        pdesc = ptag.findtext('description')
         for rtag in ptag.iter('register'):
             fields = {}
             register_fields_total = 0
             register_fields_documented = 0
-            rname = rtag.find('name').text
-            rdesc = rtag.find('description').text
-            rrstv = rtag.find('resetValue').text
-            raccs = rtag.find('access')
-            if raccs is not None:
-                raccs = raccs.text
-            else:
-                raccs = "Unspecified"
-            roffset = int(rtag.find('addressOffset').text, 16)
+            rname = rtag.findtext('name')
+            rdesc = rtag.findtext('description')
+            rrstv = rtag.findtext('resetValue')
+            raccs = rtag.findtext('access') or "Unspecified"
+            roffset = int(rtag.findtext('addressOffset'), 16)
             for ftag in rtag.iter('field'):
                 register_fields_total += 1
-                fname = ftag.find('name').text
-                fdesc = ftag.find('description').text
-                foffset = int(ftag.find('bitOffset').text)
-                fwidth = int(ftag.find('bitWidth').text)
+                fname = ftag.findtext('name')
+                fdesc = ftag.findtext('description')
+                foffset = int(ftag.findtext('bitOffset'))
+                fwidth = int(ftag.findtext('bitWidth'))
+                faccs = ftag.findtext('access') or raccs
                 enum = ftag.find('enumeratedValues')
                 wc = ftag.find('writeConstraint')
                 doc = False
-                if enum is not None or wc is not None or raccs == "read-only":
+                if enum is not None or wc is not None or faccs == "read-only":
                     register_fields_documented += 1
                     if enum is not None:
                         doc = "Allowed values:<br>"
@@ -82,32 +81,34 @@ def parse_device(svdfile):
                                 enum = dffrom[0]
                         for value in enum.iter('enumeratedValue'):
                             doc += "<strong>"
-                            doc += value.find('value').text
+                            doc += value.findtext('value')
                             doc += ": "
-                            doc += value.find('name').text
+                            doc += value.findtext('name')
                             doc += "</strong>: "
-                            doc += value.find('description').text
+                            doc += value.findtext('description')
                             doc += "<br>"
                     elif wc is not None:
                         wcrange = wc.find('range')
                         if wcrange is not None:
-                            mn = wcrange.find('minimum').text
-                            mx = wcrange.find('maximum').text
+                            mn = wcrange.findtext('minimum')
+                            mx = wcrange.findtext('maximum')
                             doc = "Allowed values: {}-{}".format(mn, mx)
                 fields[foffset] = {"name": fname, "offset": foffset,
                                    "width": fwidth, "description": fdesc,
-                                   "doc": doc}
+                                   "doc": doc, "access": faccs}
             table = [[{"name": "", "width": 1, "doc": False}
                       for _ in range(16)] for _ in range(2)]
             for foffset in reversed(sorted(fields.keys())):
                 fwidth = fields[foffset]['width']
                 fname = fields[foffset]['name']
                 fdoc = bool(fields[foffset]['doc'])
+                faccs = fields[foffset]['access']
                 for idx in range(foffset, foffset + fwidth):
                     trowidx = (31 - idx)//16
                     tcolidx = 15 - (idx % 16)
                     table[trowidx][tcolidx]['name'] = fname
                     table[trowidx][tcolidx]['doc'] = fdoc
+                    table[trowidx][tcolidx]['access'] = short_access(faccs)
             for trow in table:
                 idx = 0
                 while idx < len(trow)-1:

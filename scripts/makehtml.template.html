@@ -25,7 +25,7 @@
 .registers {
   display: none;
 }
-.bitfield td {
+.bitfield td, .bitfield th {
   text-align: center;
 }
 .doccol {
@@ -141,6 +141,8 @@
                         <span>
                         {% endif %}
                         {{ field.name }}</span></a>
+                        <br>
+                        {{ field.access }}
                         {% endif %}
                       </td>
                       {% endfor %}
