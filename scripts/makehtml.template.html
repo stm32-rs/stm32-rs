@@ -37,6 +37,14 @@
 .fields {
   display: none;
 }
+nav.menu {
+  line-height: 2
+}
+nav.menu a{
+  display: block-inline;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  padding: 3pt}
 </style>
 </head>
 
@@ -75,6 +83,11 @@
     <div class=col-sm-9>
     </div>
   </div>
+  <nav class="menu">
+    {% for pname, peripheral in device.peripherals|dictsort %}
+      <a href="#{{ pname }}">{{ pname }}</a>
+    {% endfor %}
+  </nav>
   {% for pname, peripheral in device.peripherals|dictsort %}
   <div class=row>
     <div class="col-sm-12 peripheral">
