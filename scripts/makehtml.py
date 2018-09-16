@@ -106,9 +106,11 @@ def parse_device(svdfile):
                 for idx in range(foffset, foffset + fwidth):
                     trowidx = (31 - idx)//16
                     tcolidx = 15 - (idx % 16)
-                    table[trowidx][tcolidx]['name'] = fname
-                    table[trowidx][tcolidx]['doc'] = fdoc
-                    table[trowidx][tcolidx]['access'] = short_access(faccs)
+                    tcell = table[trowidx][tcolidx]
+                    tcell['name'] = fname
+                    tcell['doc'] = fdoc
+                    tcell['access'] = short_access(faccs)
+                    tcell['separated'] = foffset < 16 and foffset + fwidth > 16
             for trow in table:
                 idx = 0
                 while idx < len(trow)-1:
@@ -123,7 +125,7 @@ def parse_device(svdfile):
             # Bodge to prevent /0 when there are no fields in a register
             if register_fields_total == 0:
                 register_fields_total = 1
-            registers[roffset] = {"name": rname, "offset": hex(roffset),
+            registers[roffset] = {"name": rname, "offset": "0x{:X}".format(roffset),
                                   "description": rdesc, "resetValue": rrstv,
                                   "access": raccs, "fields": fields,
                                   "table": table,

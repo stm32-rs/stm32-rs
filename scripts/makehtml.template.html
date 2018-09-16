@@ -45,6 +45,9 @@ nav.menu a{
   border-radius: 5px;
   border: solid 1px #ccc;
   padding: 3pt}
+.bitfield td.separated{
+  background-color:#eee
+}
 </style>
 </head>
 
@@ -145,7 +148,7 @@ nav.menu a{
                     </tr>
                     <tr>
                       {% for field in row.fields %}
-                      <td colspan={{ field.width }}>
+                      <td colspan={{ field.width }} {% if field.separated %} class="separated"{% endif %}>
                         {% if field.name %}
                         <a class=fieldlink href="#{{ pname }}:{{ register.name }}:{{ field.name }}">
                         {% if field.doc %}
