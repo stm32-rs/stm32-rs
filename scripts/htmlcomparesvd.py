@@ -101,14 +101,14 @@ def html_page(title, table):
 table thead tr {
     position: sticky;
     top: 0;
-    z-index: 5;
+    z-index: 6;
     background: white;
 }
 td:first-child,
 th:first-child {
     position: sticky;
     left: 0;
-    z-index: 6;
+    z-index: 5;
     background: white;
 }
 </style>
