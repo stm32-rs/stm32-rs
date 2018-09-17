@@ -89,8 +89,7 @@ def who_has_what_register_fields(parts, peripheral, register):
                     fields[name].append(part['name'])
     return fields
 
-
-def html_table_peripherals(parts, peripherals):
+def html_page(table):
     out = ["""
     <style>
     table thead tr {
@@ -108,6 +107,11 @@ def html_table_peripherals(parts, peripherals):
     }
     </style>
     """]
+    out.append(table)
+    return "\n".join(out)
+
+def html_table_peripherals(parts, peripherals):
+    out=[]
     out.append("<table><thead><tr><th>Peripheral</th><th>Address</th>")
     for part in parts:
         out.append("<th>{}</th>".format(part['name']))
@@ -180,18 +184,18 @@ def html_tables(parts):
     peripherals = who_has_what_peripherals(parts)
     files = {}
     peripheral_table = html_table_peripherals(parts, peripherals)
-    files["index.html"] = peripheral_table
+    files["index.html"] = html_page(peripheral_table)
     for pname in peripherals:
         registers = who_has_what_peripheral_registers(parts, pname)
         register_table = html_table_registers(parts, pname, registers)
         filename = "{}_0x{:08X}.html".format(pname[0], pname[1])
-        files[filename] = register_table
+        files[filename] = html_page(register_table)
         for rname in registers:
             fields = who_has_what_register_fields(parts, pname, rname)
             field_table = html_table_fields(parts, pname, rname, fields)
             filename = "{}_0x{:08X}_{}_0x{:04X}.html".format(
                 pname[0], pname[1], rname[1], rname[0])
-            files[filename] = field_table
+            files[filename] = html_page(field_table)
     return files
 
 
