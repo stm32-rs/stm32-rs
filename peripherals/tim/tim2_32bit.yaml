@@ -1,0 +1,31 @@
+# TIM2 32bit peripheral
+# TIM3 16bit
+# TIM2 is present on all devices except stm32f410 and stm32f0x0.
+# TIM2 is 16bit on STM32F1 family.
+# TIM3 is present on all devices with TIM2 except STML4x3 family.
+# TIM3 is present on stm32f0x0.
+
+
+"TIM2":
+  CNT:
+    # Actualy a 32bit register
+    _modify:
+      CNT_H:
+        name: CNTH
+        description: Counter value
+      CNT_L:
+        name: CNTL
+    _merge:
+      - "CNT*"
+    CNT: [0, 4294967295]
+  ARR:
+    # Actualy a 32bit register
+    _modify:
+      ARR_H:
+        name: ARRH
+        #value: [0, 65536]
+      ARR_L: 
+        name: ARRL
+    _merge:
+      - "ARR*"
+    ARR: [0, 65536]
