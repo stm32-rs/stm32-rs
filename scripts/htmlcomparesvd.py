@@ -122,7 +122,7 @@ def html_table_peripherals(parts, peripherals):
     out=[]
     out.append("<table><thead><tr><th>Peripheral</th><th>Address</th>")
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
     out.append("</thead><tbody>")
     for periph in sorted(peripherals.keys()):
         name, base = periph
@@ -144,7 +144,7 @@ def html_table_peripherals(parts, peripherals):
 def html_table_registers(parts, peripheral, registers):
     out = ["<table><thead><tr><th>Register</th><th>Offset</th>"]
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
     out.append("</thead><tbody>")
     for reg in sorted(registers.keys()):
         offset, name = reg
@@ -167,7 +167,7 @@ def html_table_registers(parts, peripheral, registers):
 def html_table_fields(parts, peripheral, register, fields):
     out = ["<table><thead><tr><th>Field</th><th>Offset</th><th>Width</th>"]
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
     out.append("</thead><tbody>")
     for field in reversed(sorted(fields.keys())):
         offset, width, name = field
