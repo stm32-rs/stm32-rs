@@ -134,6 +134,7 @@ def html_table_registers(parts, peripheral, registers):
            "<table><thead><tr><th>Register</th><th>Offset</th>"]
     for part in parts:
         out.append("<th>{}</th>".format(part['name']))
+    out.append("</thead><tbody>")
     for reg in sorted(registers.keys()):
         offset, name = reg
         offset = "0x{:04X}".format(offset)
@@ -147,7 +148,7 @@ def html_table_registers(parts, peripheral, registers):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
@@ -158,6 +159,7 @@ def html_table_fields(parts, peripheral, register, fields):
            "<table><thead><tr><th>Field</th><th>Offset</th><th>Width</th>"]
     for part in parts:
         out.append("<th>{}</th>".format(part['name']))
+    out.append("</thead><tbody>")
     for field in reversed(sorted(fields.keys())):
         offset, width, name = field
         field_parts = fields[field]
@@ -169,7 +171,7 @@ def html_table_fields(parts, peripheral, register, fields):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
