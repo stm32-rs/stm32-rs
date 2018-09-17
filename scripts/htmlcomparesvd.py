@@ -91,6 +91,11 @@ def who_has_what_register_fields(parts, peripheral, register):
 
 def html_page(table):
     out = ["""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
     <style>
     table thead tr {
         position: sticky;
@@ -106,8 +111,9 @@ def html_page(table):
         background: white;
     }
     </style>
-    """]
+    <body>"""]
     out.append(table)
+    out.append("</body></html>")
     return "\n".join(out)
 
 def html_table_peripherals(parts, peripherals):
