@@ -91,27 +91,27 @@ def who_has_what_register_fields(parts, peripheral, register):
 
 def html_page(table):
     out = ["""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <style>
-    table thead tr {
-        position: sticky;
-        top: 0;
-        z-index: 5;
-        background: white;
-    }
-    td:first-child,
-    th:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 6;
-        background: white;
-    }
-    </style>
-    <body>"""]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+table thead tr {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: white;
+}
+td:first-child,
+th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 6;
+    background: white;
+}
+</style>
+<body>"""]
     out.append(table)
     out.append("</body></html>")
     return "\n".join(out)
