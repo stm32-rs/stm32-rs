@@ -1,5 +1,11 @@
 _svd: ../svd/stm32f0x8.svd
 
+RCC:
+  CIR:
+    _modify:
+      HSI14RDYE:
+        name: HSI14RDYIE
+
 _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
