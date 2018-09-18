@@ -98,7 +98,7 @@ def html_page(title, table):
     out.append('<title>{}</title>'.format(title))
     out.append("""</head>
 <style>
-table thead tr {
+table thead tr th {
     position: sticky;
     top: 0;
     z-index: 6;
