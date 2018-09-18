@@ -111,3 +111,81 @@ RCC:
       HSE: [1, "HSE selected as system clock"]
       PLL: [2, "PLL selected as system clock"]
       HSI48: [3, "HSI48 selected as system clock (when available)"]
+  CIR:
+    CSSC:
+      _write:
+        Clear: [1, "Clear CSSF flag"]
+    HSI48RDYC:
+      _write:
+        Clear: [1, "Clear HSI48RDYE flag"]
+    HSI14RDYC:
+      _write:
+        Clear: [1, "Clear HSI14RDYF flag"]
+    PLLRDYC:
+      _write:
+        Clear: [1, "Clear PLLRDYF flag"]
+    HSERDYC:
+      _write:
+        Clear: [1, "Clear HSIRDYF flag"]
+    HSIRDYC:
+      _write:
+        Clear: [1, "Clear HSIRDYF flag"]
+    LSERDYC:
+      _write:
+        Clear: [1, "Clear LSERDYF flag"]
+    LSIRDYC:
+      _write:
+        Clear: [1, "Clear LSIRDYF flag"]
+    HSI48RDYIE:
+      Disable: [0, "HSI48 ready interrupt disabled"]
+      Enable: [1, "HSI48 ready interrupt enabled"]
+    HSI14RDYIE:
+      Disable: [0, "HSI14 ready interrupt disabled"]
+      Enable: [1, "HSI14 ready interrupt enabled"]
+    PLLRDYIE:
+      Disable: [0, "PLL ready  interrupt disabled"]
+      Enable: [1, "PLL ready interrupt enabled"]
+    HSERDYIE:
+      Disable: [0, "HSE ready interrupt disabled"]
+      Enable: [1, "HSE ready interrupt enabled"]
+    HSIRDYIE:
+      Disable: [0, "HSI ready interrupt disabled"]
+      Enable: [1, "HSI ready interrupt enabled"]
+    LSERDYIE:
+      Disable: [0, "LSE ready interrupt disabled"]
+      Enable: [1, "LSE ready interrupt enabled"]
+    LSIRDYIE:
+      Disable: [0, "LSI ready interrupt disabled"]
+      Enable: [1, "LSI ready interrupt enabled"]
+    CSSF:
+      _read:
+        NoInterrupt: [0, "No clock security interrupt caused by HSE clock failure"]
+        Interrupt: [1, "Clock security interrupt caused by HSE clock failure"]
+    HSI48RDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the HSI48 oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the HSI48 oscillator"]
+    HSI14RDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the HSI14 oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the HSI14 oscillator"]
+    PLLRDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the PLL lock"]
+        Interrupt: [1, "Clock ready interrupt caused by the PLL lock"]
+    HSERDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the HSE oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the HSE oscillator"]
+    HSIRDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the HSI oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the HSI oscillator"]
+    LSERDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the LSE oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the LSE oscillator"]
+    LSIRDYF:
+      _read:
+        NoInterrupt: [0, "No clock ready interrupt caused by the LSI oscillator"]
+        Interrupt: [1, "Clock ready interrupt caused by the LSI oscillator"]
