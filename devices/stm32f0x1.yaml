@@ -8,6 +8,7 @@ Flash:
         bitWidth: 1
 
 _include:
+ - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
