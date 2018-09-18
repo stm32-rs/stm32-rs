@@ -89,11 +89,40 @@ def who_has_what_register_fields(parts, peripheral, register):
                     fields[name].append(part['name'])
     return fields
 
+def html_page(title, table):
+    out = ["""
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">"""]
+    out.append('<title>{}</title>'.format(title))
+    out.append("""</head>
+<style>
+table thead tr th {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    background: white;
+}
+td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: white;
+}
+</style>
+<body>""")
+    out.append('<h1>{}</h1>'.format(title))
+    out.append(table)
+    out.append("</body></html>")
+    return "\n".join(out)
 
 def html_table_peripherals(parts, peripherals):
-    out = ["<table><thead><tr><th>Peripheral</th><th>Address</th>"]
+    out=[]
+    out.append("<table><thead><tr><th>Peripheral</th><th>Address</th>")
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
+    out.append("</thead><tbody>")
     for periph in sorted(peripherals.keys()):
         name, base = periph
         base = "0x{:08X}".format(base)
@@ -106,16 +135,16 @@ def html_table_peripherals(parts, peripherals):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
 
 def html_table_registers(parts, peripheral, registers):
-    out = ["<h1>Registers In {} 0x{:08X}</h1>".format(*peripheral),
-           "<table><thead><tr><th>Register</th><th>Offset</th>"]
+    out = ["<table><thead><tr><th>Register</th><th>Offset</th>"]
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
+    out.append("</thead><tbody>")
     for reg in sorted(registers.keys()):
         offset, name = reg
         offset = "0x{:04X}".format(offset)
@@ -129,17 +158,16 @@ def html_table_registers(parts, peripheral, registers):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
 
 def html_table_fields(parts, peripheral, register, fields):
-    out = ["<h1>Fields In {}_{} (0x{:08X}, 0x{:04X})</h1>".format(
-           peripheral[0], register[1], peripheral[1], register[0]),
-           "<table><thead><tr><th>Field</th><th>Offset</th><th>Width</th>"]
+    out = ["<table><thead><tr><th>Field</th><th>Offset</th><th>Width</th>"]
     for part in parts:
-        out.append("<th>{}</th>".format(part['name']))
+        out.append("<th>{}</th>".format(part['name'].replace('svd/', '')))
+    out.append("</thead><tbody>")
     for field in reversed(sorted(fields.keys())):
         offset, width, name = field
         field_parts = fields[field]
@@ -151,7 +179,7 @@ def html_table_fields(parts, peripheral, register, fields):
             else:
                 out.append('<td align=center bgcolor="#ffcccc">&#10008;</td>')
         out.append("</tr>")
-    out.append("</tr></thead><tbody>")
+    out.append("</tr>")
     out.append("</tbody></table>")
     return "\n".join(out)
 
@@ -160,18 +188,22 @@ def html_tables(parts):
     peripherals = who_has_what_peripherals(parts)
     files = {}
     peripheral_table = html_table_peripherals(parts, peripherals)
-    files["index.html"] = peripheral_table
+    peripheral_title = "Compare peripherals"
+    files["index.html"] = html_page(peripheral_title, peripheral_table)
     for pname in peripherals:
         registers = who_has_what_peripheral_registers(parts, pname)
         register_table = html_table_registers(parts, pname, registers)
+        register_title = "Registers In {} 0x{:08X}".format(*pname)
         filename = "{}_0x{:08X}.html".format(pname[0], pname[1])
-        files[filename] = register_table
+        files[filename] = html_page(register_title, register_table)
         for rname in registers:
             fields = who_has_what_register_fields(parts, pname, rname)
             field_table = html_table_fields(parts, pname, rname, fields)
+            field_title = "Fields In {}_{} (0x{:08X}, 0x{:04X})".format(
+                pname[0], rname[1], pname[1], rname[0])
             filename = "{}_0x{:08X}_{}_0x{:04X}.html".format(
                 pname[0], pname[1], rname[1], rname[0])
-            files[filename] = field_table
+            files[filename] = html_page(field_title, field_table)
     return files
 
 
