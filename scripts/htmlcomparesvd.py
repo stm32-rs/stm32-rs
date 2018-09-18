@@ -104,8 +104,7 @@ table thead tr th {
     z-index: 6;
     background: white;
 }
-td:first-child,
-th:first-child {
+td:first-child {
     position: sticky;
     left: 0;
     z-index: 5;
