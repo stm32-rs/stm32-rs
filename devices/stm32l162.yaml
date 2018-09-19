@@ -13,6 +13,7 @@ CRC:
         name: IDR
 
 _include:
+ - ./common_patches/rename_TIM2_CCR3_CCR3.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -21,3 +22,4 @@ _include:
  - ../devices/common_patches/gpio_with_OSPEEDER.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim2_16bit.yaml
