@@ -17,3 +17,19 @@
     OPM:
       NotStopped: [0, "Counter is not stopped at update event"]
       Stopped: [1, "Counter stops counting at the next update event"]
+  CR2:
+    TI1S:
+      Normal: [0, "The TIMx_CH1 pin is connected to TI1 input"]
+      XOR: [1, "The TIMx_CH1, CH2, CH3 pins are connected to TI1 input"]
+    MMS:
+      Reset: [0, "The UG bit from the TIMx_EGR register is used as trigger output"]
+      Enable: [1, "The counter enable signal, CNT_EN, is used as trigger output"]
+      Update: [2, "The update event is selected as trigger output"]
+      ComparePulse: [3, "The trigger output send a positive pulse when the CC1IF flag it to be set, as soon as a capture or a compare match occurred"]
+      CompareOC1: [4, "OC1REF signal is used as trigger output"]
+      CompareOC2: [5, "OC2REF signal is used as trigger output"] 
+      CompareOC3: [6, "OC3REF signal is used as trigger output"]
+      CompareOC4: [7, "OC4REF signal is used as trigger output"]
+    CCDS:
+      OnCCx: [0, "CCx DMA request sent when CCx event occurs"]
+      OnUpdate: [1, "CCx DMA request sent when update event occurs"]
