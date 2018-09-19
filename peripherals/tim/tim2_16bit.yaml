@@ -1,6 +1,9 @@
 # 16bit TIM2 peripheral
 # Present on stm32f1 and stm32l1 families
 
+_include:
+  - ./tim2_common.yaml
+
 "TIM[23]":
   CNT:
     CNT: [0, 65535]

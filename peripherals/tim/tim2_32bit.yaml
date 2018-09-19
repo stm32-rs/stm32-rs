@@ -4,6 +4,8 @@
 # TIM3 is present on all devices with TIM2 except STML4x3 family.
 # TIM3 is present on stm32f0x0.
 
+_include:
+  - ./tim2_common.yaml
 
 "TIM[23]":
   CNT:
