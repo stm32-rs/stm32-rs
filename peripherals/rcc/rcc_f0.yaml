@@ -16,7 +16,7 @@ RCC:
       Enable: [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
     HSEBYP:
       NotBypass: [0, "HSE crystal oscillator not bypassed"]
-      Bypass: [0, "HSE crystal oscillator bypassed with external clock"]
+      Bypass: [1, "HSE crystal oscillator bypassed with external clock"]
     HSERDY:
       _write:
         NotReady: [0, "HSE oscillator not ready"]
@@ -45,7 +45,7 @@ RCC:
       NotDivided: [1, "PLL is not divided for MCO"]
     MCOPRE: # Not available on stm32f05x
       DivideBy1: [0, "MCO is divided by 1"]
-      DivideBy2: [2, "MCO is divided by 2"]
+      DivideBy2: [1, "MCO is divided by 2"]
       DivideBy4: [2, "MCO is divided by 4"]
       DivideBy8: [3, "MCO is divided by 8"]
       DivideBy16: [4, "MCO is divided by 16"]
