@@ -29,14 +29,14 @@
       High: [1, "OC1=1 (after a dead-time if OC1N is implemented) when MOE=0"]
   DIER:
     CC1IE:
-      Disable: [0, "CC1 interrupt disabled"]
-      Enable: [1, "CC1 interrupt enabled"]
+      Disabled: [0, "CC1 interrupt disabled"]
+      Enabled: [1, "CC1 interrupt enabled"]
     COMIE:
-      Disable: [0, "COM interrupt disabled"]
-      Enable: [1, "COM interrupt enabled"]
+      Disabled: [0, "COM interrupt disabled"]
+      Enabled: [1, "COM interrupt enabled"]
     BIE:
-      Disable: [0, "Break interrupt disabled"]
-      Enable: [1, "Break interrupt enabled"]
+      Disabled: [0, "Break interrupt disabled"]
+      Enabled: [1, "Break interrupt enabled"]
     CC1DE:
-      Disable: [0, "CC1 DMA request disabled"]
-      Enable: [1, "CC1 DMA request enabled"]
+      Disabled: [0, "CC1 DMA request disabled"]
+      Enabled: [1, "CC1 DMA request enabled"]
