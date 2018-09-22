@@ -68,7 +68,10 @@ clean-rs:
 clean-patch:
 	rm -f $(PATCHED_SVDS)
 
-clean: clean-rs clean-patch
+clean-html:
+	rm -rf html/fg
+
+clean: clean-rs clean-patch clean-html
 	rm -rf .deps
 
 # Generate dependencies for each device YAML
