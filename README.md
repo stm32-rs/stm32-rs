@@ -26,7 +26,7 @@ version = "0.1.1"
 features = ["stm32f405", "rt"]
 ```
 The `rt` feature is optional but helpful. See
-[svd2rust](https://docs.rs/svd2rust/0.12.0/svd2rust/#the-rt-feature) for 
+[svd2rust](https://docs.rs/svd2rust/0.12.0/svd2rust/#the-rt-feature) for
 details.
 
 Then, in your code:
@@ -284,6 +284,11 @@ _add:
             _write:
                 VARIANT: [VALUE, DESCRIPTION]
                 VARIANT: [VALUE, DESCRIPTION]
+        # Sometimes fields are to big so we need to split them into smaller fields
+        EXTI:
+          IMR:
+            # This would split MR into MRi where i = 0 ... bitlength
+            _split: [MR]
 ```
 
 ### Name Matching

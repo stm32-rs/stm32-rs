@@ -282,6 +282,26 @@ def process_register_merge(rtag, fspec):
     ET.SubElement(fnew, 'bitWidth').text = str(bitwidth)
 
 
+def process_register_split(rtag, fspec):
+    """split all fspec in rtag."""
+    fields = list(iter_fields(rtag, fspec))
+    if len(fields) == 0:
+        rname = rtag.find('name').text
+        raise RegisterMergeError("Could not find any fields to split {}.{}"
+                                 .format(rname, fspec))
+    parent = rtag.find('fields')
+    name = os.path.commonprefix([f.find('name').text for f in fields])
+    desc = fields[0].find('description').text
+    bitwidth = sum(int(f.find('bitWidth').text) for f in fields)
+    bitoffset = min(int(f.find('bitOffset').text) for f in fields)
+    parent.remove(fields[0])
+    for i in range(bitwidth):
+        fnew = ET.SubElement(parent, 'field')
+        ET.SubElement(fnew, 'name').text = name + str(i)
+        ET.SubElement(fnew, 'description').text = desc
+        ET.SubElement(fnew, 'bitOffset').text = str(i)
+        ET.SubElement(fnew, 'bitWidth').text = str(1)
+
 def process_field_enum(pname, rtag, fspec, field, usage="read-write"):
     """Add an enumeratedValues given by field to all fspec in rtag."""
     derived = None
@@ -345,6 +365,9 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
         # Handle merges
         for fspec in register.get("_merge", []):
             process_register_merge(rtag, fspec)
+        # Handle splits
+        for fspec in register.get("_split", []):
+            process_register_split(rtag, fspec)
         # Handle fields
         if update_fields:
             for fspec in register:
