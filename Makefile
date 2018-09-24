@@ -1,5 +1,7 @@
 all: patch svd2rust
 
+.PHONY: patch svd2rust form clean-rs clean-patch clean-html clean
+
 SHELL := /bin/bash
 
 CRATES := stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
@@ -55,6 +57,7 @@ svd2rust: $(RUST_SRCS)
 form: $(FORM_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
+	@mkdir -p html
 	python3 scripts/makehtml.py html/ svd/stm32*.svd.patched
 
 html: html/index.html
@@ -65,7 +68,10 @@ clean-rs:
 clean-patch:
 	rm -f $(PATCHED_SVDS)
 
-clean: clean-rs clean-patch
+clean-html:
+	rm -rf html
+
+clean: clean-rs clean-patch clean-html
 	rm -rf .deps
 
 # Generate dependencies for each device YAML
