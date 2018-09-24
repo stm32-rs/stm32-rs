@@ -171,7 +171,7 @@ if __name__ == "__main__":
     parser.add_argument("htmldir", help="Path to write HTML files to")
     parser.add_argument("svdfiles", help="Path to patched SVD files", nargs="*")
     args = parser.parse_args()
-    devices = []
+    devices = {}
     with multiprocessing.Pool() as p:
          devices = p.map(process_svd, args.svdfiles)
          p.map(generate_if_newer, devices)

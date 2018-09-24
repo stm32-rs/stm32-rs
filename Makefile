@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch svd2rust form clean-rs clean-patch clean
+.PHONY: patch svd2rust form clean-rs clean-patch clean-html clean
 
 SHELL := /bin/bash
 
@@ -57,7 +57,7 @@ svd2rust: $(RUST_SRCS)
 form: $(FORM_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
-	@mkdir html
+	@mkdir -p html
 	python3 scripts/makehtml.py html/ svd/stm32*.svd.patched
 
 html: html/index.html
@@ -69,7 +69,7 @@ clean-patch:
 	rm -f $(PATCHED_SVDS)
 
 clean-html:
-	rm -rf html/fg
+	rm -rf html
 
 clean: clean-rs clean-patch clean-html
 	rm -rf .deps
