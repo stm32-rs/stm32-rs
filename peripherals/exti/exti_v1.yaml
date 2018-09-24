@@ -2,11 +2,11 @@ EXTI:
   IMR:
     "MR*":
       Masked: [0, "Interrupt request line is masked"]
-      Unmasked: [1, "Interrupt request line is masked"]
+      Unmasked: [1, "Interrupt request line is unmasked"]
   EMR:
     "MR*":
       Masked: [0, "Interrupt request line is masked"]
-      Unmasked: [1, "Interrupt request line is masked"]
+      Unmasked: [1, "Interrupt request line is unmasked"]
   RTSR:
     "TR*":
       Disabled: [0, "Rising edge trigger is disabled"]
