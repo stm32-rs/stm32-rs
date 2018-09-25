@@ -80,10 +80,10 @@ RCC:
       MultiplyBy16: [14, "PLL input clock x16"]
       MultiplyBy16: [15, "PLL input clock x16"]
     PLLSRC:
-      HSIDividedBy2: [0, "HSI divided by 2 selected as PLL input clock"]
-      HSIDividedByPREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
-      HSEDividedByPREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
-      HSI48DividedByPREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
+      HSIDiv2: [0, "HSI divided by 2 selected as PLL input clock"]
+      HSIDivPREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
+      HSEDivPREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
+      HSI48DivPREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
     PPRE:
       NotDivided: [0, "HCLK not divided"] # Same for [0, 8]
       DividedBy2: [4, "HCLK divided by 2"]
