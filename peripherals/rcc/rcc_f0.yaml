@@ -12,8 +12,8 @@ RCC:
       "Off": [0, "PLL off"]
       "On":  [1, "PLL on" ]
     CSSON:
-      Disable: [0, "Clock security system disabled (clock detector OFF)"]
-      Enable: [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
+      "Off": [0, "Clock security system disabled (clock detector OFF)"]
+      "On": [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
     HSEBYP:
       NotBypass: [0, "HSE crystal oscillator not bypassed"]
       Bypass: [1, "HSE crystal oscillator bypassed with external clock"]
