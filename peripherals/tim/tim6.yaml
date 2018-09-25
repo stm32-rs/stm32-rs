@@ -1,0 +1,18 @@
+# TIM6 and TIM7
+# Present accross all STM32 except STM32F401, STM32F413 and STM32F411 devices.
+# STM32F410 has only TIM6
+
+"TIM6":
+  CR2:
+    MMS:
+      Reset: [0, "Use UG bit from TIMx_EGR register"]
+      Enable: [1, "Use CNT bit from TIMx_CEN register"]
+      Update: [2, "Use the update event"]
+  CNT:
+    CNT: [0, 65536]
+  ARR:
+    ARR: [0, 65536]
+  DIER:
+    UDE:
+      Disabled: [0, "Update DMA request disabled"]
+      Enabled: [1, "Update DMA request enabled"]

@@ -1,6 +1,8 @@
 _svd: ../svd/stm32f0x0.svd
 
 _include:
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -8,3 +10,5 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - ../peripherals/tim/tim16.yaml
+ - ../peripherals/tim/tim6.yaml

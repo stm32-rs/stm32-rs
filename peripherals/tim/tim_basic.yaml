@@ -26,6 +26,8 @@
   EGR:
     UG:
       Update: [1, "Re-initializes the timer counter and generates an update of the reigsters."]
+  PSC:
+    PSC: [0, 65536]
 
 # OPM is often missing on TIM10, TIM11, TIM13, TIM14.
 # Annoyingly it is not always missing - include tim_opm.yaml for those devices.
