@@ -159,33 +159,33 @@ RCC:
       Enable: [1, "LSI ready interrupt enabled"]
     CSSF:
       _read:
-        NoInterrupt: [0, "No clock security interrupt caused by HSE clock failure"]
-        Interrupt: [1, "Clock security interrupt caused by HSE clock failure"]
+        NotInterrupted: [0, "No clock security interrupt caused by HSE clock failure"]
+        Interrupted: [1, "Clock security interrupt caused by HSE clock failure"]
     HSI48RDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the HSI48 oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the HSI48 oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the HSI48 oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the HSI48 oscillator"]
     HSI14RDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the HSI14 oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the HSI14 oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the HSI14 oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the HSI14 oscillator"]
     PLLRDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the PLL lock"]
-        Interrupt: [1, "Clock ready interrupt caused by the PLL lock"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the PLL lock"]
+        Interrupted: [1, "Clock ready interrupt caused by the PLL lock"]
     HSERDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the HSE oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the HSE oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the HSE oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the HSE oscillator"]
     HSIRDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the HSI oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the HSI oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the HSI oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the HSI oscillator"]
     LSERDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the LSE oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the LSE oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the LSE oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the LSE oscillator"]
     LSIRDYF:
       _read:
-        NoInterrupt: [0, "No clock ready interrupt caused by the LSI oscillator"]
-        Interrupt: [1, "Clock ready interrupt caused by the LSI oscillator"]
+        NotInterrupted: [0, "No clock ready interrupt caused by the LSI oscillator"]
+        Interrupted: [1, "Clock ready interrupt caused by the LSI oscillator"]
