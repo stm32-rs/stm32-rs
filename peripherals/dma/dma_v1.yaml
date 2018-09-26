@@ -17,3 +17,12 @@
     "GIF*":
       NoEvent: [0, "No transfer error, half event, complete event"]
       Event: [1, "A transfer error, half event or complete event has occured"]
+  IFCR:
+    "CTEIF*":
+      Clear: [1, "Clears the TEIF flag in the ISR register"]
+    "CHTIF*":
+      Clear: [1, "Clears the HTIF flag in the ISR register"]
+    "CTCIF*":
+      Clear: [1, "Clears the TCIF flag in the ISR register"]
+    "CGIF*":
+      Clear: [1, "Clears the GIF, TEIF, HTIF, TCIF flags in the ISR register"]
