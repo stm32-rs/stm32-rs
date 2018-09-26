@@ -26,3 +26,37 @@
       Clear: [1, "Clears the TCIF flag in the ISR register"]
     "CGIF*":
       Clear: [1, "Clears the GIF, TEIF, HTIF, TCIF flags in the ISR register"]
+  "CCR*":
+    MEM2MEM:
+      Disabled: [0, "Memory to memory mode disabled"]
+      Enabled: [1, "Memory to memory mode enabled"]
+    PL:
+      Low: [0, "Low priority"]
+      Medium: [1, "Medium priority"]
+      High: [2, "High priority"]
+      VeryHigh: [3, "Very high priority"]
+    "[MP]SIZE":
+      Bit8: [0, "8-bit size"] # or Byte
+      Bit16: [1, "16-bit size"] # of HalfWord
+      Bit32: [2, "32-bit size"] # or Word
+    "[MP]INC":
+      Disabled: [0, "Increment mode disabled"]
+      Enabled: [1, "Increment mode enabled"]
+    CIRC:
+      Disabled: [0, "Circular buffer disabled"]
+      Enabled: [1, "Circular buffer enabled"]
+    DIR:
+      FromPeripheral: [0, "Read from peripheral"]
+      FromMemory: [1, "Read from memory"]
+    TEIE:
+      Disabled: [0, "Transfer Error interrupt disabled"]
+      Enabled: [1, "Transfer Error interrupt enabled"]
+    HTIE:
+      Disabled: [0, "Half Transfer interrupt disabled"]
+      Enabled: [1, "Half Transfer interrupt enabled"]
+    TCIE:
+      Disabled: [0, "Transfer Complete interrupt disabled"]
+      Enabled: [1, "Transfer Complete interrupt enabled"]
+    EN:
+      Disabled: [0, "Channel disabled"]
+      Enabled: [1, "Channel enabled"]
