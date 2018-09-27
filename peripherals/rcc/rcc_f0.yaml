@@ -403,3 +403,24 @@ RCC:
       Div_14: [13, "PREDIV input clock divided by 14"]
       Div_15: [14, "PREDIV input clock divided by 15"]
       Div_16: [15, "PREDIV input clock divided by 16"]
+  CR2:
+    HSI48CAL: [0, 255]
+    HSI48RDY:
+      _read:
+        NotReady: [0, "HSI48 oscillator ready"]
+        Ready: [1, "HSI48 oscillator ready"]
+    HSI48ON:
+      "Off": [0, "HSI48 oscillator off"]
+      "On": [1, "HSI48 oscillator on"]
+    HSI14CAL: [0, 255]
+    HSI14TRIM: [0, 31]
+    HSI14DIS:
+      Allow: [0, "ADC can turn on the HSI14 oscillator"]
+      Disallow: [1, "ADC can not turn on the HSI14 oscillator"]
+    HSI14RDY:
+      _read:
+        NotReady: [0, "HSI14 oscillator not ready"]
+        Ready: [1, "HSI14 oscillator ready"]
+    HSI14ON:
+      "Off": [0, "HSI14 oscillator off"]
+      "On": [1, "HSI14 oscillator on"]
