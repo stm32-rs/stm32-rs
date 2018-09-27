@@ -385,3 +385,21 @@ RCC:
       Reset: [1, "Reset I/O port B"]
     IOPARST:
       Reset: [1, "Reset I/O port A"]
+  CFGR2:
+    PREDIV:
+      NotDivided: [0, "PREDIV input clock not divided"]
+      Div_2: [1, "PREDIV input clock divided by 2"]
+      Div_3: [2, "PREDIV input clock divided by 3"]
+      Div_4: [3, "PREDIV input clock divided by 4"]
+      Div_5: [4, "PREDIV input clock divided by 5"]
+      Div_6: [5, "PREDIV input clock divided by 6"]
+      Div_7: [6, "PREDIV input clock divided by 7"]
+      Div_8: [7, "PREDIV input clock divided by 8"]
+      Div_9: [8, "PREDIV input clock divided by 9"]
+      Div_10: [9, "PREDIV input clock divided by 10"]
+      Div_11: [10, "PREDIV input clock divided by 11"]
+      Div_12: [11, "PREDIV input clock divided by 12"]
+      Div_13: [12, "PREDIV input clock divided by 13"]
+      Div_14: [13, "PREDIV input clock divided by 14"]
+      Div_15: [14, "PREDIV input clock divided by 15"]
+      Div_16: [15, "PREDIV input clock divided by 16"]
