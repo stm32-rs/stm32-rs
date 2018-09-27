@@ -1,5 +1,6 @@
-# IWDG peripheral.
-# Documented from stm32f0x1 reference manual
+# IWDG peripheral
+# Present on F1, F2, F4 and L1 families.
+# Base for `iwdg_with_window.yaml`.
 
 IWDG:
   KR:
@@ -19,5 +20,3 @@ IWDG:
       DivideBy256bis: [7, "Divider /256"]
   RLR:
     RL: [0, 4095]
-  WINR:
-    WIN: [0, 4095]
