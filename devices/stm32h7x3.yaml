@@ -252,6 +252,14 @@ IWDG:
       name: SR
     IWDG_WINR:
       name: WINR
+WWDG:
+  _modify:
+    WWDG_CR:
+      name: CR
+    WWDG_CFR:
+      name: CFR
+    WWDG_SR:
+      name: SR
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -278,3 +286,4 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/wwdg/wwdg.yaml
