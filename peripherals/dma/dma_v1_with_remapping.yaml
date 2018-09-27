@@ -1,0 +1,25 @@
+# DMA v1 with remapping functionnality
+# Found on F0 and F4 family and on specific devices (stm32f09x).
+
+_include:
+  - ./dma_v1.yaml
+
+"DMA[12]":
+  CSELR:
+    "C*S":
+      NoMapping: [0, "Default mapping"]
+      Map_1: [1, "Mapping 1"]
+      Map_2: [2, "Mapping 2"]
+      Map_3: [3, "Mapping 3"]
+      Map_4: [4, "Mapping 4"]
+      Map_5: [5, "Mapping 5"]
+      Map_6: [6, "Mapping 6"]
+      Map_7: [7, "Mapping 7"]
+      Map_8: [8, "Mapping 8"]
+      Map_9: [9, "Mapping 9"]
+      Map_10: [10, "Mapping 10"]
+      Map_11: [11, "Mapping 11"]
+      Map_12: [12, "Mapping 12"]
+      Map_13: [13, "Mapping 13"]
+      Map_14: [14, "Mapping 14"]
+      Map_15: [15, "Mapping 15"]
