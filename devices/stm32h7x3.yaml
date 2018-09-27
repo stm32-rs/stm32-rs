@@ -252,6 +252,32 @@ IWDG:
       name: SR
     IWDG_WINR:
       name: WINR
+"I2C*":
+  _modify:
+    I2C_CR1:
+      name: CR1
+    I2C_CR2:
+      name: CR2
+    I2C_OAR1:
+      name: OAR1
+    I2C_OAR2:
+      name: OAR2
+    I2C_TIMINGR:
+      name: TIMINGR
+    I2C_TIMEOUTR:
+      name: TIMEOUTR
+    I2C_ISR:
+      name: ISR
+    I2C_ICR:
+      name: ICR
+    I2C_PECR:
+      name: PECR
+    I2C_PXDR:
+      name: PXDR
+    I2C_TXDR:
+      name: TXDR
+    I2C_RXDR:
+      name: RXDR
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
