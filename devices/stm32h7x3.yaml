@@ -239,6 +239,20 @@ _modify:
       AFSEL15:
         name: AFR15
 
+# Make IWDG register consitant
+IWDG:
+  _modify:
+    IWDG_KR:
+      name: KR
+    IWDG_PR:
+      name: PR
+    IWDG_RLR:
+      name: RLR
+    IWDG_SR:
+      name: SR
+    IWDG_WINR:
+      name: WINR
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -262,3 +276,4 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
