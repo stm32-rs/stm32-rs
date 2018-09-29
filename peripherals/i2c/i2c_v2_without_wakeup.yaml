@@ -135,13 +135,16 @@
     SCLL: [0, 255]
   TIMEOUTR:
     TEXTEN:
-    TIMEOUTB:
+      Disabled: [0, "Extended clock timeout detection is disabled"]
+      Enabled: [1, "Extended clock timeout detection is enabled"]
+    TIMEOUTB: [0, 4095]
     TIMOUTEN:
+      Disabled: [0, "SCL timeout detection is disabled"]
+      Enabled: [1, "SCL timeout detection is enabled"]
     TIDLE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
-    TIMEOUTA:
-
+      Disabled: [0, "TIMEOUTA is used to detect SCL low timeout"]
+      Enabled: [1, "TIMEOUTA is used to detect both SCL and SDA high timeout (bus idle condition)"]
+    TIMEOUTA: [0, 4095]
   ISR:
     ADDCODE:
     DIR:
