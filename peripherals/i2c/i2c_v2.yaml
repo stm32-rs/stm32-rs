@@ -3,3 +3,8 @@
 _include:
   - i2c_v2_without_wakeup.yaml
 
+"I2C*":
+  CR1:
+    WUPEN:
+      Disabled: [0, "Wakeup from Stop mode disabled"]
+      Enabled: [1, "Wakeup from Stop mode enabled"]
