@@ -146,27 +146,55 @@
       Enabled: [1, "TIMEOUTA is used to detect both SCL and SDA high timeout (bus idle condition)"]
     TIMEOUTA: [0, 4095]
   ISR:
-    ADDCODE:
+    ADDCODE: [0, 127]
     DIR:
+      Write: [0, "Write transfer, slave enters receiver mode"]
+      Read: [1, "Read transfer, slave enters transmitter mode"]
     BUSY:
+      NotBusy: [0, "No communication is in progress on the bus"]
+      Busy: [1, "A communication is in progress on the bus"]
     ALERT:
+      NoAlert: [0, "SMBA alert is not detected"]
+      Alert: [1, "SMBA alert event is detected on SMBA pin"]
     TIMEOUT:
+      NoTimeout: [0, "No timeout occured"]
+      Timeout: [1, "Timeout occured"]
     PECERR:
+      Match: [0, "Received PEC does match with PEC register"]
+      NoMatch: [1, "Received PEC does not match with PEC register"]
     OVR:
+      NoOverrun: [0, "No overrun/underrun error occurs"]
+      Overrun: [1, "slave mode with NOSTRETCH=1, when an overrun/underrun error occurs"] 
     ARLO:
+      NotLost: [0, "No arbitration lost"]
+      Lost: [1, "Arbitration lost"]
     BERR:
+      NoError: [0, "No bus error"]
+      Error: [1, "Misplaced Start and Stop condition is detected"]
     TCR:
+      NotComplete: [0, "Transfer is not complete"]
+      Complete: [1, "NBYTES has been transfered"]
     TC:
+      NotComplete: [0, "Transfer is not complete"]
+      Complete: [1, "NBYTES has been transfered"]
     STOPF:
+      NoStop: [0, "No Stop condition detected"]
+      Stop: [1, "Stop condition detected"]
     NACKF:
+      NoNack: [0, ""]
+      Nack: [1, "NACK is received after a byte transmission"]
     ADDR:
+      NotMatch: [0, ""]
+      Match: [1, "Received slave address matched with one of the enabled slave addresses"]
     RXNE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
+      Empty: [0, ""]
+      NotEmpty: [1, "received data is copied into the RXDR register, and is ready to be read"]
     TXIS:
+      NotEmpty: [0, ""]
+      Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
     TXE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
+      NotEmpty: [0, ""]
+      Empty: [1, "The TXDR register is empty"]
 
   ICR:
     ALERTCF:
