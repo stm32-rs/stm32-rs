@@ -115,9 +115,18 @@
     OA1: [0, 1023]
   OAR2:
     OA2EN:
+      Disabled: [0, "Own address 2 disabled. The received slave address OA2 is NACKed"]
+      Enabled: [1, "Own address 2 enabled. The received slave address OA2 is ACKed"]
     OA2MSK:
-    OA2:
-
+      NoMask: [0, "No mask"]
+      Mask_1: [1, "OA2[1] is masked and don’t care. Only OA2[7:2] are compared"]
+      Mask_2: [2, "OA2[2:1] are masked and don’t care. Only OA2[7:3] are compared"]
+      Mask_3: [3, "OA2[3:1] are masked and don’t care. Only OA2[7:4] are compared"]
+      Mask_4: [4, "OA2[4:1] are masked and don’t care. Only OA2[7:5] are compared"]
+      Mask_5: [5, "OA2[5:1] are masked and don’t care. Only OA2[7:6] are compared"]
+      Mask_6: [6, "OA2[6:1] are masked and don’t care. Only OA2[7] is compared."]
+      Mask_7: [7, "OA2[7:1] are masked and don’t care. No comparison is done, and all (except reserved) 7-bit received addresses are acknowledged"]
+    OA2: [0, 127]
   TIMINGR:
     PRESC:
     SCLDEL:
