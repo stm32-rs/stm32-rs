@@ -77,23 +77,34 @@
       Enabled: [1, "Peripheral enabled"]
   CR2:
     PECBYTE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
+      NoPec: [0, "No PEC transfer"]
+      Pec: [1, "PEC transmission/reception is requested"]
     AUTOEND:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
+      Software: [0, "Software end mode: TC flag is set when NBYTES data are transferred, stretching SCL low"]
+      Automatic: [1, "Automatic end mode: a STOP condition is automatically sent when NBYTES data are transferred"]
     RELOAD:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
-    NBYTES:
+      Completed: [0, "The transfer is completed after the NBYTES data transfer (STOP or RESTART will follow)"]
+      NotCompeted: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES will be reloaded)"]
     NACK:
+      Ack: [0, "an ACK is sent after current received byte"]
+      Nack: [1, "a NACK is sent after current received byte"]
     STOP:
+      NoStop: [0, "No Stop generation"]
+      Stop: [1, "Stop generation after current byte transfer"]
     START:
+      NoStart: [0, "No Start generation"]
+      Start: [1, "Restart/Start generation"]
     HEAD10R:
+      Complete: [0, "The master sends the complete 10 bit slave address read sequence"]
+      Partial: [1, "The master only sends the 1st 7 bits of the 10 bit address, followed by Read direction"]
     ADD10:
+      Bit_7: [0, "The master operates in 7-bit addressing mode"]
+      Bit_10: [1, "The master operates in 10-bit addressing mode"]
     RD_WRN:
-    SADD:
-
+      Write: [0, "Master requests a write transfer"]
+      Read: [1, "Master requests a read transfer"]
+    NBYTES: [0, 255]
+    SADD: [0, 1023]
   OAR1:
     OA1EN:
     OA1MODE:
