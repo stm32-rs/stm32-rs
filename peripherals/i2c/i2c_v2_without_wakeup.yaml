@@ -128,12 +128,11 @@
       Mask_7: [7, "OA2[7:1] are masked and don’t care. No comparison is done, and all (except reserved) 7-bit received addresses are acknowledged"]
     OA2: [0, 127]
   TIMINGR:
-    PRESC:
-    SCLDEL:
-    SDADEL:
-    SCLH:
-    SCLL:
-
+    PRESC: [0, 15]
+    SCLDEL: [0, 15]
+    SDADEL: [0, 15]
+    SCLH: [0, 255]
+    SCLL: [0, 255]
   TIMEOUTR:
     TEXTEN:
     TIMEOUTB:
