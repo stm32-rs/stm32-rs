@@ -1,0 +1,6 @@
+# Merge together I2C CR2 wrongly separated SADDx fields
+
+"I2C*":
+  CR2:
+    _merge:
+      - "SADD*"
