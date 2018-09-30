@@ -22,6 +22,7 @@ _svd: ../svd/stm32f301.svd
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
+ - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/spi/spi_common.yaml
