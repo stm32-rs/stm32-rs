@@ -67,9 +67,7 @@
     ADDMODE:
       ADD7: [0, "7-bit slave address"]
       ADD10: [1, "10-bit slave address"]
-    ADD10: [0, 3]
-    ADD7: [0, 0x7F]
-    ADD0: [0, 1]
+    ADD: [0, 1023]
 
   OAR2:
     ADD2: [0, 0x7F]
