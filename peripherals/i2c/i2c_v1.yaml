@@ -80,6 +80,46 @@
   DR:
     DR: [0, 0xFF]
 
+  SR1:
+    SMBALERT:
+      NoAlert: [0, "No SMBALERT occured"]
+      Alert: [1, "SMBALERT occurred"]
+    TIMEOUT:
+      NoTimeout: [0, "No Timeout error"]
+      Timeout: [1, "SCL remained LOW for 25 ms"]
+    PECERR:
+      NoError: [0, "no PEC error: receiver returns ACK after PEC reception (if ACK=1)"]
+      Error: [1, "PEC error: receiver returns NACK after PEC reception (whatever ACK)"]
+    OVR:
+      NoOverrun: [0, "No overrun/underrun occured"]
+      Overrun: [1, "Overrun/underrun occured"]
+    AF:
+      NoFailure: [0, "No acknowledge failure"]
+      Failure: [1, "Acknowledge failure"]
+    ARLO:
+      NoLost: [0, "No Arbitration Lost detected"]
+      Lost: [1, "Arbitration Lost detected"]
+    BERR:
+      NoError: [0, "No misplaced Start or Stop condition"]
+      Error: [1, "Misplaced Start or Stop condition"]
+    TxE:
+      NotEmpty: [0, "Data register not empty"]
+      Empty: [1, "Data register empty"]
+    RxNE:
+      Empty: [0, "Data register empty"]
+      NotEmpty: [1, "Data register not empty"]
+    STOPF:
+      NoStop: [0, "No Stop condition detected"]
+      Stop: [1, "Stop condition detected"]
+    BTF:
+      NotFinished: [0, "Data byte transfer not done"]
+      Finished: [1, "Data byte transfer successful"]
+    ADDR:
+      NotMatch: [0, "Adress mismatched or not received"]
+      Match: [1, "Received slave address matched with one of the enabled slave addresses"]
+    SB:
+      NoStart: [0, "No Start condition"]
+      Start: [1, "Start condition generated"]
   CCR:
     F_S:
       Standard: [0, "Standard mode I2C"]
