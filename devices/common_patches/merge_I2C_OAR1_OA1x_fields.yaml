@@ -1,0 +1,13 @@
+# Merge together I2C OAR1 wrongly separated 0A1x fields
+
+"I2C*":
+  OAR1:
+    _modify:
+      OA1_0:
+        name: OA10
+      OA1_1:
+        name: OA11
+      OA1_8:
+        name: OA18
+    _merge:
+      - "OA1[018]"
