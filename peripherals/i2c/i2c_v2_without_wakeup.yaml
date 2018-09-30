@@ -184,7 +184,7 @@
       NoNack: [0, ""]
       Nack: [1, "NACK is received after a byte transmission"]
     ADDR:
-      NotMatch: [0, ""]
+      NotMatch: [0, "Adress mismatched or not received"]
       Match: [1, "Received slave address matched with one of the enabled slave addresses"]
     RXNE:
       Empty: [0, ""]
@@ -193,20 +193,28 @@
       NotEmpty: [0, ""]
       Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
     TXE:
-      NotEmpty: [0, ""]
-      Empty: [1, "The TXDR register is empty"]
+      NotEmpty: [0, "TXDR register not empty"]
+      Empty: [1, "TXDR register empty"]
 
   ICR:
     ALERTCF:
+      Clear: [1, "Clears the ALERT flag in ISR register"]
     TIMOUTCF:
+      Clear: [1, "Clears the TIMOUT flag in ISR register"]
     PECCF:
+      Clear: [1, "Clears the PEC flag in ISR register"]
     OVRCF:
+      Clear: [1, "Clears the OVR flag in ISR register"]
     ARLOCF:
+      Clear: [1, "Clears the ARLO flag in ISR register"]
     BERRCF:
+      Clear: [1, "Clears the BERR flag in ISR register"]
     STOPCF:
+      Clear: [1, "Clears the STOP flag in ISR register"]
     NACKCF:
+      Clear: [1, "Clears the NACK flag in ISR register"]
     ADDRCF:
-
+      Clear: [1, "Clears the ADDR flag in ISR register"]
   PECR:
     PEC: [0, 255]
   RXDR:
