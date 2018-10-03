@@ -1,5 +1,10 @@
 _svd: ../svd/stm32l0x3.svd
 
+# Use LPUART1 cannonical name
+_modify:
+  LPUSART1:
+    name: LPUART1
+
 _include:
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/crc/crc_basic.yaml
