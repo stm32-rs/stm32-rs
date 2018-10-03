@@ -14,6 +14,7 @@ _svd: ../svd/stm32l4x5.svd
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
