@@ -8,6 +8,7 @@ _modify:
 _include:
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
