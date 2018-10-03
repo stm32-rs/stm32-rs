@@ -1,0 +1,6 @@
+# Merge USART CR1 DEDTx fields
+
+"USART*":
+  CR1:
+    _merge:
+      - "DEDT*"
