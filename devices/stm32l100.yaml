@@ -26,16 +26,65 @@ EXTI:
   PR:
     _split: [PR]
 
+RCC:
+  CR:
+    _merge: ["RTCPRE*"]
+  AHBLPENR:
+    _add:
+      FSMCLPEN:
+        description: "FSMC clock enable during Sleep mode"
+        bitOffset: 30
+        bitWidth: 1
+      AESLPEN:
+        description: "AES clock enable during Sleep mode"
+        bitOffset: 27
+        bitWidth: 1
+  APB1LPENR:
+    _add:
+      UART5LPEN:
+        description: "USART 5 clock enable during Sleep mode"
+        bitOffset: 20
+        bitWidth: 1
+      UART4LPEN:
+        description: "USART 4 clock enable during Sleep mode"
+        bitOffset: 19
+        bitWidth: 1
+      SPI3LPEN:
+        description: "SPI 3 clock enable during Sleep mode"
+        bitOffset: 15
+        bitWidth: 1
+      TIM5LPEN:
+        description: "Timer 5 clock enable during Sleep mode"
+        bitOffset: 3
+        bitWidth: 1
+  CSR:
+    _add:
+      OBLRSTF:
+        description: "Options bytes loading reset flag"
+        bitOffset: 25
+        bitWidth: 1
+      LSECSSD:
+        description: "CSS on LSE failure Detection"
+        bitOffset: 12
+        bitWidth: 1
+      LSECSSON:
+        description: "CSS on LSE enable"
+        bitOffset: 11
+        bitWidth: 1
+
 _include:
  - ./common_patches/rename_TIM2_CCR3_CCR3.yaml
+ - ./common_patches/rcc_LSECSSC_LSECSSF.yaml
+ - ./common_patches/gpio_with_OSPEEDER.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../devices/common_patches/gpio_with_OSPEEDER.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_16bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - ../peripherals/exti/exti_v1.yaml
+ - ../peripherals/rcc/rcc_l1.yaml
