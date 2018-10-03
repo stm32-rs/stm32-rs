@@ -82,13 +82,7 @@ SRC_LIB_RS_TPL = """\
 //! available registers and fields see: https://stm32.agg.io/rs
 
 #![allow(non_camel_case_types)]
-#![feature(const_fn)]
-#![feature(try_from)]
 #![no_std]
-
-#![cfg_attr(feature = "rt", feature(global_asm))]
-#![cfg_attr(feature = "rt", feature(use_extern_macros))]
-#![cfg_attr(feature = "rt", feature(used))]
 
 extern crate vcell;
 extern crate bare_metal;
