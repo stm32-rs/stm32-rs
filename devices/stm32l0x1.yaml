@@ -1,6 +1,7 @@
 _svd: ../svd/stm32l0x1.svd
 
 _include:
+ - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
