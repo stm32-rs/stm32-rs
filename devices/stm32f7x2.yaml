@@ -10,6 +10,7 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_v2.yaml
