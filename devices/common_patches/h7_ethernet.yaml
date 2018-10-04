@@ -148,7 +148,7 @@ _add:
             bitOffset: 14 
             bitWidth: 3
           RFA:
-            description: Threshold for Activating Flow Control (in half-duplex and full-duplex
+            description: Threshold for Activating Flow Control (in half-duplex and full-duplex modes)
             bitOffset: 8 
             bitWidth: 3
           EHFC:
@@ -821,7 +821,7 @@ _add:
         description: Ethernet MAC LPI timers control register
         addressOffset: 0xD4
         access: read-write
-        resetValue: 0x00000000
+        resetValue: 0x03E80000
         fields:
           LST:
             description: LPI LS Timer
@@ -1577,10 +1577,10 @@ _add:
         resetValue: 0x00000000
         access: read-only
         fields:
-          TSSS:
-            description: Timestamp Sub-seconds
+          TSS:
+            description: Timestamp Second
             bitOffset: 0 
-            bitWidth: 31
+            bitWidth: 32
       MACSTNR:
           description: System time nanoseconds register
           addressOffset: 0x0B0C
