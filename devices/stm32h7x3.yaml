@@ -272,6 +272,7 @@ FLASH:
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
+ - common_patches/h7_ethernet.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim16.yaml
