@@ -1,0 +1,11 @@
+# Merge LPUART CR2 ADDx fields
+
+"LPUART*":
+  CR2:
+    _modify:
+      "ADD0_3":
+        name: ADD0
+      "ADD4_7":
+        name: ADD4
+    _merge:
+      - "ADD[04]"
