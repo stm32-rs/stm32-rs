@@ -1787,26 +1787,8 @@ _add:
             description: Flexible PPS Output Mode Enable
             bitOffset: 4 
             bitWidth: 1
-          PPSCTRL:
-            description: PPS Output Frequency Control
-            bitOffset: 0 
-            bitWidth: 4
-      MACPPSCR:
-        description: PPS control register
-        addressOffset: 0x0B70
-        resetValue: 0x00000000
-        access: read-write
-        fields:
-          TRGTMODSEL0:
-            description: Target Time Register Mode for PPS Output
-            bitOffset: 5 
-            bitWidth: 2
-          PPSEN0:
-            description: Flexible PPS Output Mode Enable
-            bitOffset: 4 
-            bitWidth: 1
           PPSCMD:
-            description: Flexible PPS Output (ptp_pps_o[0]) Control
+            description: Flexible PPS Output (ptp_pps_o[0]) Control or PPSCTRL PPS Output Frequency Control if PPSEN0 is cleared
             bitOffset: 0 
             bitWidth: 4
       MACPPSTTSR:
