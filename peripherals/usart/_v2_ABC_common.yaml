@@ -1,0 +1,44 @@
+# Common fields between v2 A, B and C peripherals
+
+CR1:
+  DEAT: [0, 0b11111]
+  DEDT: [0, 0b11111]
+  CMIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated when the CMF bit is set in the ISR register"]
+  MME:
+    Disabled: [0, "Receiver in active mode permanently"]
+    Enabled: [1, "Receiver can switch between mute mode and active mode"]
+  WAKE:
+    Idle: [0, "Idle line"]
+    Address: [1, "Address mask"]
+  PCE:
+    Disabled: [0, "Parity control disabled"]
+    Enabled: [1, "Parity control enabled"]
+  PS:
+    Even: [0, "Even parity"]
+    Odd: [1, "Odd parity"]
+  PEIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated whenever PE=1 in the ISR register"]
+  TXEIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated whenever TXE=1 in the ISR register"]
+  TCIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated whenever TC=1 in the ISR register"]
+  RXNEIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated whenever ORE=1 or RXNE=1 in the ISR register"]
+  IDLEIE:
+    Disabled: [0, "Interrupt is disabled"]
+    Enabled: [1, "Interrupt is generated whenever IDLE=1 in the ISR register"]
+  TE:
+    Disabled: [0, "Transmitter is disabled"]
+    Enabled: [1, "Transmitter is enabled"]
+  RE:
+    Disabled: [0, "Receiver is disabled"]
+    Enabled: [1, "Receiver is enabled"]
+  UE:
+    Disabled: [0, "UART is disabled"]
+    Enabled: [1, "UART is enabled"]
