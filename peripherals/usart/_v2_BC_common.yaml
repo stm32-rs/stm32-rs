@@ -76,3 +76,10 @@ ISR:
   EOBF:
   RTOF:
   LBDF:
+ICR:
+  EOBCF:
+    Clear: [1, "Clears the EOBF flag in the ISR register"]
+  LBDCF:
+    Clear: [1, "Clears the LBDF flag in the ISR register"]
+  RTOCF:
+    Clear: [1, "Clears the RTOF flag in the ISR register"]
