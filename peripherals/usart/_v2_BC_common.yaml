@@ -40,3 +40,20 @@ CR2:
   LBDL:
     Bit_10: [0, "10-bit break detection"]
     Bit_11: [1, "11-bit break detection"]
+CR3:
+  SCARCNT: [0, 7]
+  ONEBIT:
+    Sample_3: [0, "Three sample bit method"]
+    Sample_1: [1, "One sample bit method"]
+  SCEN:
+    Disabled: [0, "Smartcard Mode disabled"]
+    Enabled: [1, "Smartcard Mode enabled"]
+  NACK:
+    Disabled: [0, "NACK transmission in case of parity error is disabled"]
+    Enabled: [1, "NACK transmission during parity error is enabled"]
+  IRLP:
+    Normal: [0, "Normal mode"]
+    LowPower: [1, "Low-power mode"]
+  IREN:
+    Disabled: [0, "IrDA disabled"]
+    Enabled: [1, "IrDA enabled"]

@@ -70,3 +70,37 @@ CR2:
   ADDM7:
     Bit_4: [0, "4-bit address detection"]
     Bit_7: [1, "7-bit address detection"]
+CR3:
+  DEP:
+    High: [0, "DE signal is active high"]
+    Low: [1, "DE signal is active low"]
+  DEM:
+    Disabled: [0, "DE function is disabled"]
+    Enabled: [1, "The DE signal is output on the RTS pin"]
+  DDRE:
+    NotDisabled: [0, "DMA is not disabled in case of reception error"]
+    Disabled: [1, "DMA is disabled following a reception error"]
+  OVRDIS:
+    Enabled: [0, "Overrun Error Flag, ORE, is set when received data is not read before receiving new data"]
+    Disabled: [1, "Overrun functionality is disabled. If new data is received while the RXNE flag is still set the ORE flag is not set and the new received data overwrites the previous content of the RDR register"]
+  CTSIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An interrupt is generated whenever CTSIF=1 in the ISR register"]
+  CTSE:
+    Disabled: [0, "CTS hardware flow control disabled"]
+    Enabled: [1, "CTS mode enabled, data is only transmitted when the CTS input is asserted"]
+  RTSE:
+    Disabled: [0, "RTS hardware flow control disabled"]
+    Enabled: [1, "RTS output enabled, data is only requested when there is space in the receive buffer"]
+  DMAT:
+    Disabled: [0, "DMA mode is disabled for transmission"]
+    Enabled: [1, "DMA mode is enabled for transmission"]
+  DMAR:
+    Disabled: [0, "DMA mode is disabled for reception"]
+    Enabled: [1, "DMA mode is enabled for reception"]
+  HDSEL:
+    NotSelected: [0, "Half duplex mode is not selected"]
+    Selected: [1, "Half duplex mode is selected"]
+  EIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An interrupt is generated when FE=1 or ORE=1 or NF=1 in the ISR register"]
