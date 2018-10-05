@@ -65,3 +65,8 @@ GTPR:
 RTOR:
   BLEN: [0, 0xFF]
   RTO: [0, 0xFFFFFF]
+RQR:
+  TXFRQ:
+    Discard: [1, "Set the TXE flags. This allows to discard the transmit data"]
+  ABRRQ:
+    Request: [1, "resets the ABRF flag in the USART_ISR and request an automatic baud rate measurement on the next received data frame"]

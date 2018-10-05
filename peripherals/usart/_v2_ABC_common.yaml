@@ -104,3 +104,10 @@ CR3:
   EIE:
     Disabled: [0, "Interrupt is inhibited"]
     Enabled: [1, "An interrupt is generated when FE=1 or ORE=1 or NF=1 in the ISR register"]
+RQR:
+  RXFRQ:
+    Discard: [1, "clears the RXNE flag. This allows to discard the received data without reading it, and avoid an overrun condition"]
+  MMRQ:
+    Mute: [1, "Puts the USART in mute mode and sets the RWU flag"]
+  SBKRQ:
+    Break: [1, "sets the SBKF flag and request to send a BREAK on the line, as soon as the transmit machine is available"]
