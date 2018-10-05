@@ -10,3 +10,33 @@ CR1:
   RTOIE:
     Disabled: [0, "Interrupt is inhibited"]
     Enabled: [1, "An USART interrupt is generated when the RTOF bit is set in the ISR register"]
+CR2:
+  RTOEN:
+    Disabled: [0, "Receiver timeout feature disabled"]
+    Enabled: [1, "Receiver timeout feature enabled"]
+  ABRMOD:
+    Start: [0, "Measurement of the start bit is used to detect the baud rate"]
+    Edge: [1, "Falling edge to falling edge measurement"]
+    Frame_7F: [2, "0x7F frame detection"]
+    Frame_55: [3, "0x55 frame detection"]
+  ABREN:
+    Disabled: [0, "Auto baud rate detection is disabled"]
+    Enabled: [1, "Auto baud rate detection is enabled"]
+  LINEN:
+    Disabled: [0, "LIN mode disabled"]
+    Enabled: [1, "LIN mode enabled"]
+  CPOL:
+    Low: [0, "Steady low value on CK pin outside transmission window"]
+    High: [1, "Steady high value on CK pin outside transmission window"]
+  CPHA:
+    First: [0, "The first clock transition is the first data capture edge"]
+    Second: [1, "The second clock transition is the first data capture edge"]
+  LBCL:
+    NotOutput: [0, "The clock pulse of the last data bit is not output to the CK pin"]
+    Output: [1, "The clock pulse of the last data bit is output to the CK pin"]
+  LBDIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An interrupt is generated whenever LBDF=1 in the ISR register"]
+  LBDL:
+    Bit_10: [0, "10-bit break detection"]
+    Bit_11: [1, "11-bit break detection"]
