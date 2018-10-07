@@ -1,6 +1,6 @@
 # Changelog
 
-## v 0.3.1 2018-10-07
+## v 0.3.1 fe63529 2018-10-07
 * Fix typo in `tim16.yaml` that prevents builds on most devices
 
 ## v 0.3.0 241ca45 2018-10-07
