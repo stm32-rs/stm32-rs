@@ -1,4 +1,4 @@
 #!/bin/bash
 for f in vendor/*.zip; do
-    unzip -jLL $f '*.svd'
+    unzip -juLL $f '*.svd'
 done
