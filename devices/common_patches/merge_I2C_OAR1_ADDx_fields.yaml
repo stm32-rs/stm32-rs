@@ -1,0 +1,23 @@
+# Merge together I2C OAR1 wrongly separated ADDx fields
+#
+# Some devices have ADD_0 ADD_1_7 and ADD_8_9 so they need to be renamed before merging.
+# Some devices have ADD0 ADD7 ADD10 (example F4 family)
+#
+# We can't use ADD* to merge the fields because the register has an ADDMODE
+# field and I haven't find a way to merge ADD0, ADD7, ADD10 so I rename ADD10
+# to ADD9 as a workaround.
+#
+
+"I2C*":
+  OAR1:
+    _modify:
+      ADD_0:
+        name: ADD0
+      ADD_1_7:
+        name: ADD7
+      ADD_8_9:
+        name: ADD9
+      ADD10: # On purpose, see comment
+        name: ADD9
+    _merge:
+      - "ADD[079]"

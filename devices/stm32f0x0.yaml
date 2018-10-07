@@ -2,6 +2,8 @@ _svd: ../svd/stm32f0x0.svd
 
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
+ - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
+ - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -15,3 +17,4 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/rcc/rcc_f0.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - ../peripherals/i2c/i2c_v2.yaml

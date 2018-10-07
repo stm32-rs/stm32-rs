@@ -9,6 +9,8 @@ _svd: ../svd/stm32f303.svd
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
+ - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
+ - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -21,3 +23,4 @@ _include:
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
