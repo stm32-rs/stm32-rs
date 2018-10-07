@@ -1,6 +1,6 @@
 # Changelog
 
-## v 0.3.0 2018-10-07
+## v 0.3.0 241ca45 2018-10-07
 * H7x3: Add ETHERNET peripheral from scratch (#42)
 * F0 and F1: GPIO updated (#49)
 * F0: RCC updated (#58)
