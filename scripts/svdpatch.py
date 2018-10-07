@@ -25,6 +25,7 @@ DEVICE_CHILDREN = [
 def dict_constructor(loader, node):
     return OrderedDict(loader.construct_pairs(node))
 
+
 _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
 yaml.add_constructor(_mapping_tag, dict_constructor)
 
@@ -103,12 +104,15 @@ def make_enumerated_values(name, values, usage="read-write"):
     ev = ET.Element('enumeratedValues')
     ET.SubElement(ev, 'name').text = name
     ET.SubElement(ev, 'usage').text = usage
-    for name in values:
-        if name.startswith("_"):
+    for vname in values:
+        if vname.startswith("_"):
             continue
-        value, description = values[name]
+        value, description = values[vname]
+        if not description:
+            raise ValueError("enumeratedValue {}: can't have empty description"
+                             " for value {}".format(name, value))
         el = ET.SubElement(ev, 'enumeratedValue')
-        ET.SubElement(el, 'name').text = name
+        ET.SubElement(el, 'name').text = vname
         ET.SubElement(el, 'description').text = description
         ET.SubElement(el, 'value').text = str(value)
     ev.tail = "\r\n            "
@@ -293,7 +297,6 @@ def process_register_split(rtag, fspec):
     name = os.path.commonprefix([f.find('name').text for f in fields])
     desc = fields[0].find('description').text
     bitwidth = sum(int(f.find('bitWidth').text) for f in fields)
-    bitoffset = min(int(f.find('bitOffset').text) for f in fields)
     parent.remove(fields[0])
     for i in range(bitwidth):
         fnew = ET.SubElement(parent, 'field')
@@ -301,6 +304,7 @@ def process_register_split(rtag, fspec):
         ET.SubElement(fnew, 'description').text = desc
         ET.SubElement(fnew, 'bitOffset').text = str(i)
         ET.SubElement(fnew, 'bitWidth').text = str(1)
+
 
 def process_field_enum(pname, rtag, fspec, field, usage="read-write"):
     """Add an enumeratedValues given by field to all fspec in rtag."""

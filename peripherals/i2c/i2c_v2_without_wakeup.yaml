@@ -181,16 +181,16 @@
       NoStop: [0, "No Stop condition detected"]
       Stop: [1, "Stop condition detected"]
     NACKF:
-      NoNack: [0, ""]
-      Nack: [1, "NACK is received after a byte transmission"]
+      NoNack: [0, "No NACK has been received"]
+      Nack: [1, "NACK has been received"]
     ADDR:
       NotMatch: [0, "Adress mismatched or not received"]
       Match: [1, "Received slave address matched with one of the enabled slave addresses"]
     RXNE:
-      Empty: [0, ""]
-      NotEmpty: [1, "received data is copied into the RXDR register, and is ready to be read"]
+      Empty: [0, "The RXDR register is empty"]
+      NotEmpty: [1, "Received data is copied into the RXDR register, and is ready to be read"]
     TXIS:
-      NotEmpty: [0, ""]
+      NotEmpty: [0, "The TXDR register is not empty"]
       Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
     TXE:
       NotEmpty: [0, "TXDR register not empty"]
