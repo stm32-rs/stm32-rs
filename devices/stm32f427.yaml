@@ -57,6 +57,7 @@ _include:
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_macmiidr.yaml
+ - common_patches/f4_ethernet.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_v2.yaml
@@ -69,6 +70,9 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_gp1.yaml
+ - ../peripherals/eth/eth_mac.yaml
+ - ../peripherals/eth/eth_mmc.yaml
+ - ../peripherals/eth/eth_dma.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml

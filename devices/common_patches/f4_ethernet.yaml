@@ -1,0 +1,34 @@
+Ethernet_MAC:
+  MACFFR:
+    _modify:
+      # This field should be 2 bits wide but is only 1 bit in the SVD
+      PCF:
+        bitWidth: 2
+  # All these fields are named incorrectly in the SVD compared to RM0090
+  MACA1LR:
+    _modify:
+      MACA1LR:
+        name: MACA1L
+  MACA2HR:
+    _modify:
+      MAC2AH:
+        name: MACA2H
+  MACA2LR:
+    _modify:
+      MACA2L:
+        bitWidth: 32
+  MACA3LR:
+    _modify:
+      MBCA3L:
+        name: MACA3L
+  MACMIIDR:
+    _modify:
+      TD:
+        name: MD
+
+Ethernet_DMA:
+  DMABMR:
+    _modify:
+      # This field is named incorrectly in the SVD compared to the RM
+      RTPR:
+        name: PM
