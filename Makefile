@@ -50,6 +50,9 @@ endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
 
+svd/%.svd:
+	cd svd && ./extract.sh
+
 patch: $(PATCHED_SVDS)
 
 svd2rust: $(RUST_SRCS)
