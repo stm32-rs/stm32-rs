@@ -1,5 +1,12 @@
 # Changelog
 
+## v 0.3.2 2018-10-07
+* F4: Update ethernet peripheral across entire family (#71, #73)
+
+### Breaking Changes
+* F4 ethernet MACMIIDR field TD is renamed MD to align with the reference
+  manual
+
 ## v 0.3.1 fe63529 2018-10-07
 * Fix typo in `tim16.yaml` that prevents builds on most devices
 
