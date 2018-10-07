@@ -1,5 +1,8 @@
 # Changelog
 
+## v 0.3.1 2018-10-07
+* Fix typo in `tim16.yaml` that prevents builds on most devices
+
 ## v 0.3.0 241ca45 2018-10-07
 * H7x3: Add ETHERNET peripheral from scratch (#42)
 * F0 and F1: GPIO updated (#49)
