@@ -104,6 +104,9 @@ def make_enumerated_values(name, values, usage="read-write"):
     ev = ET.Element('enumeratedValues')
     ET.SubElement(ev, 'name').text = name
     ET.SubElement(ev, 'usage').text = usage
+    if len(set(v[0] for v in values.values())) != len(values):
+        raise ValueError("enumeratedValue {}: can't have duplicate values"
+                         .format(name))
     for vname in values:
         if vname.startswith("_"):
             continue

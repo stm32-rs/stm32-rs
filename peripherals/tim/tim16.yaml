@@ -20,10 +20,10 @@
       WithRisingEdge: [1, "Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI"] 
     CCDS:
       OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
-      OnUpdate: [0, "CCx DMA request sent when update event occurs"]
+      OnUpdate: [1, "CCx DMA request sent when update event occurs"]
     OIS1N:
       Low: [0, "OC1N=0 after a dead-time when MOE=0"]
-      High: [0, "OC1N=1 after a dead-time when MOE=0"]
+      High: [1, "OC1N=1 after a dead-time when MOE=0"]
     OIS1:
       Low: [0, "OC1=0 (after a dead-time if OC1N is implemented) when MOE=0"]
       High: [1, "OC1=1 (after a dead-time if OC1N is implemented) when MOE=0"]
