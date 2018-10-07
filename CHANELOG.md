@@ -1,5 +1,27 @@
 # Changelog
 
+## v 0.3.0 2018-10-07
+* H7x3: Add ETHERNET peripheral from scratch (#42)
+* F0 and F1: GPIO updated (#49)
+* F0: RCC updated (#58)
+* L1: GPIO updated (#54)
+* IWDG added for most devices (#45, #64)
+* WWDG added for most devices (#48, #68)
+* CRC added or updated for most devices (#46)
+* Timers added or updated for most devices (#57)
+* DMA added for most devices (#62)
+* I2C added for most devices (#65)
+* Supports Rust 1.30-beta for 2018 edition
+
+### Breaking Changes
+* Most I2C peripherals have their `SADDx`, `OA1x`, or `ADDx` registers merged
+  into a single `SADD`, `OA1`, or `ADD` register. 7-bit addresses will need
+  to be written shifted left by 1, i.e., in 8-bit mode.
+  See https://github.com/adamgreig/stm32-rs/pull/65.
+
+Thanks to @ehntoo, @octronics, @burrbull, and @MattCatz for lots of work in
+this release!
+
 ## v 0.2.3 c15e4a6 2018-09-07
 * STM32F301: Fix incorrect aliasing of ADC.CSR and CCR
 * STM32F4x9: Fix name of RM0386

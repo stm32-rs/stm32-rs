@@ -15,7 +15,7 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.2.3"
+VERSION = "0.3.0"
 SVD2RUST_VERSION = "0.13.1"
 
 CRATE_DOC_FEATURES = {
@@ -51,7 +51,7 @@ cortex-m = "0.5.7"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.1"
+version = "0.6.4"
 
 [package.metadata.docs.rs]
 features = {docs_features}
