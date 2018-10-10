@@ -1,0 +1,6 @@
+# USART v2 without 7bit data
+
+CR1:
+  M:
+    Bit_8: [0, "1 start bit, 8 data bits, n stop bits"]
+    Bit_9: [1, "1 start bit, 9 data bits, n stop bits"]
