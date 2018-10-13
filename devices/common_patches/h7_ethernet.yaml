@@ -5,6 +5,7 @@ _modify:
     description: "Ethernet: DMA controller operation"
 _add:
   Ethernet_MTL:
+    description: "Ethernet: MAC Transaction Layer"
     baseAddress: 0x40028000
     addressBlock:
       offset: 0
@@ -220,6 +221,7 @@ _add:
             bitOffset: 0 
             bitWidth: 1
   Ethernet_MAC:
+    description: "Ethernet: Media Access Control"
     baseAddress: 0x40028000
     addressBlock:
       offset: 0x0
@@ -1919,6 +1921,7 @@ _add:
             bitWidth: 8
 
   Ethernet_MMC:
+    description: "Ethernet: MAC Management Counters"
     baseAddress: 0x40028700
     addressBlock:
       offset: 0x0
