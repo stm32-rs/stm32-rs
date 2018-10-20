@@ -1,0 +1,20 @@
+# USART v2B2 found on some L4 devices
+# Same as USART v2B1 with more fields
+
+# Handle USART1 and USART3 common field
+_include:
+  - usart_v2B1.yaml
+
+# USART3 specific fields
+"USART3":
+  CR3:
+    TCBGTIE:
+      Disabled: [0, "Interrupt is inhibited"]
+      Enabled: [1, "An USART interrupt is generated whenever TCBGT=1 in the ISR register"]
+    UCESM:
+      Disabled: [0, "USART clock is disabled in STOP mode"]
+      Enabled: [1, "USART clock is enabled in STOP mode"]
+  ISR:
+    TCBGT:
+      NotCompleted: [0, "Transmission not completed"]
+      Completed: [1, "Transmission has completed"]
