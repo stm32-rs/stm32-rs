@@ -28,6 +28,7 @@ _include:
  - ./common_patches/merge_USART_BRR_fields.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
+ - ./common_patches/unprefix_USB_registers.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/spi/spi_common.yaml
