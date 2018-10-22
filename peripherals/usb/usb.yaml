@@ -61,3 +61,12 @@ USB:
       To: [0, "data transmitted by the USB peripheral to the host PC"]
       From: [1, "data received by the USB peripheral from the host PC"]
     EP_ID: [0, 0b1111]
+  FNR:
+    RXDP:
+      Received: [1, "received data plus upstream port data line"]
+    RXDM:
+      Received: [1, "received data minus upstream port data line"]
+    LCK:
+      Locked: [1, "the frame timer remains in this state until an USB reset or USB suspend event occurs"]
+    LSOF: [0, 0b11]
+    FN: [0, 0b11111111111]
