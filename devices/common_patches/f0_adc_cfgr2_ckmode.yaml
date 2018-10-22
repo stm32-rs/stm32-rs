@@ -1,0 +1,13 @@
+# Merge together ADC CFGR2 separated JITOFF_Dx fields
+# and properly rename to CKMODE
+
+"ADC":
+  CFGR2:
+    _modify:
+      JITOFF_D2:
+        name: CKMODE0
+      JITOFF_D4:
+        name: CKMODE1
+        description: "ADC clock mode"
+    _merge:
+      - "CKMODE*"
