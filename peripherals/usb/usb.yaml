@@ -70,3 +70,8 @@ USB:
       Locked: [1, "the frame timer remains in this state until an USB reset or USB suspend event occurs"]
     LSOF: [0, 0b11]
     FN: [0, 0b11111111111]
+  DADDR:
+    EF:
+      Disabled: [0, "USB device disabled"]
+      Enabled: [1, "USB device enabled"]
+    ADD: [0, 0b1111111]
