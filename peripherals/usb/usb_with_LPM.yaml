@@ -1,0 +1,15 @@
+# Extends USB peripheral with Low-Power Mode
+
+_include:
+ - usb.yaml
+
+USB:
+  CNTR:
+    L1REQM:
+      Disabled: [0, "L1REQ Interrupt disabled"]
+      Enabled: [1, "L1REQ Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    L1RESUME:
+      Requested: [1, "LPM L1 request requested"]
+  ISTR:
+    L1REQ:
+      Received: [1, "LPM command to enter the L1 state is successfully received and acknowledged"] 
