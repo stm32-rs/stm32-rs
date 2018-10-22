@@ -14,6 +14,7 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
+ - ./common_patches/unprefix_USB_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
