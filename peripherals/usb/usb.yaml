@@ -1,0 +1,42 @@
+# USB peripheral and associated SRAM
+
+USB:
+  CNTR:
+    CTRM:
+      Disabled: [0, "Correct Transfer (CTR) Interrupt disabled"]
+      Enabled: [1, "CTR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    PMAOVRM:
+      Disabled: [0, "PMAOVR Interrupt disabled"]
+      Enabled: [1, "PMAOVR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    ERRM:
+      Disabled: [0, "ERR Interrupt disabled"]
+      Enabled: [1, "ERR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    WKUPM:
+      Disabled: [0, "WKUP Interrupt disabled"]
+      Enabled: [1, "WKUP Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    SUSPM:
+      Disabled: [0, "Suspend Mode Request SUSP Interrupt disabled"]
+      Enabled: [1, "SUSP Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    RESETM:
+      Disabled: [0, "RESET Interrupt disabled"]
+      Enabled: [1, "RESET Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    SOFM:
+      Disabled: [0, "SOF Interrupt disabled"]
+      Enabled: [1, "SOF Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    ESOFM:
+      Disabled: [0, "ESOF Interrupt disabled"]
+      Enabled: [1, "ESOF Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    RESUME:
+      Requested: [1, "Resume requested"]
+    FSUSP:
+      NoEffect: [0, "No effect"]
+      Suspend: [1, "Enter suspend mode. Clocks and static power dissipation in the analog transceiver are left unaffected"]
+    LPMODE:
+      Disabled: [0, "No low-power mode"]
+      Enabled: [1, "Enter low-power mode"]
+    PDWN:
+      Disabled: [0, "No power down"]
+      Enabled: [1, "Enter power down mode"]
+    FRES:
+      NoReset: [0, "Clear USB reset"]
+      Reset: [1, "Force a reset of the USB peripheral, exactly like a RESET signaling on the USB"]
