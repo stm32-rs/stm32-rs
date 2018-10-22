@@ -77,3 +77,28 @@ USB:
     ADD: [0, 0b1111111]
   BTABLE:
     BTABLE: [0, 0b1111111111111]
+  "EP*R":
+    CTR_RX:
+    DTOG_RX:
+    STAT_RX:
+      Disabled: [0, "all reception requests addressed to this endpoint are ignored"]
+      Stall: [1, "the endpoint is stalled and all reception requests result in a STALL handshake"]
+      Nak: [2, "the endpoint is naked and all reception requests result in a NAK handshake"]
+      Valid: [3, "this endpoint is enabled for reception"]
+    SETUP:
+      #"the last completed transaction is a SETUP"]
+    EP_TYPE:
+      Bulk: [0, "Bulk endpoint"]
+      Control: [1, "Control endpoint"]
+      Iso: [2, "Iso endpoint"]
+      Interrupt: [3, "Interrupt endpoint"]
+    EP_KIND: 
+      #"DBL_BUF if EP_TYPE=Bulk or STATUS_OUT if EP_TYPE=Control"]
+    CTR_TX:
+    DTOG_TX:
+    STAT_TX:
+      Disabled: [0, "all transmission requests addressed to this endpoint are ignored"]
+      Stall: [1, "the endpoint is stalled and all transmission requests result in a STALL handshake"]
+      Nak: [2, "the endpoint is naked and all transmission requests result in a NAK handshake"]
+      Valid: [3, "this endpoint is enabled for transmission"]
+    EA: [0, 0b1111]
