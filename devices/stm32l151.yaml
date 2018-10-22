@@ -15,6 +15,7 @@ CRC:
 _include:
  - ./common_patches/rename_TIM2_CCR3_CCR3.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - ./common_patches/unprefix_USB_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
