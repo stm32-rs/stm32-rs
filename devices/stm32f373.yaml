@@ -6,12 +6,9 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
-<<<<<<< HEAD
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
-=======
  - ./common_patches/unprefix_USB_registers.yaml
->>>>>>> Unprefix USB registers on F3 family
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
@@ -26,4 +23,4 @@ _include:
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
-
+ - ../peripherals/usb/usb.yaml
