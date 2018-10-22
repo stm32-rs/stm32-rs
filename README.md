@@ -47,11 +47,13 @@ devices should be supported to some level.
 ## Generating Device Crates / Building Locally
 
 * Install `svd2rust`: `cargo install svd2rust`
+* Install `form`: `cargo install form`
 * Install latest rustfmt: `cargo uninstall rustfmt; rustup component add rustfmt-preview`
 * Install PyYAML: `pip install pyyaml`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh`
 * Generate patched SVD files: `cd ..; make patch`
 * Generate svd2rust device crates: `make svd2rust` (you probably want `-j` for this)
+* Optional: Format device crates: `make form` (you probably want `-j` for this)
 
 ## Motivation and Objectives
 
