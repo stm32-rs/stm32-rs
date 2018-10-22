@@ -1,0 +1,7 @@
+# Rename USB_FS peripheral to USB peripheral
+# Allow all devices with USB to have same peripheral name
+
+_modify:
+  _peripherals:
+    USB_FS:
+      name: USB
