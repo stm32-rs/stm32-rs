@@ -20,6 +20,7 @@ _include:
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/unprefix_USB_registers.yaml
+ - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
