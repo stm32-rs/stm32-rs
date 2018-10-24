@@ -79,6 +79,12 @@ def yaml_includes(parent):
             child = yaml.load(f)
         child["_path"] = path
         included.append(path)
+        # Process any peripheral-level includes in child
+        for pspec in child:
+            if not pspec.startswith("_") and "_include" in child[pspec]:
+                child[pspec]["_path"] = path
+                included += yaml_includes(child[pspec])
+        # Process any top-level includes in child
         included += yaml_includes(child)
         update_dict(parent, child)
     return included
@@ -388,9 +394,6 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
 
 def process_peripheral(svd, pspec, peripheral, update_fields=True):
     """Work through a peripheral, handling all registers."""
-    # Handle includes
-    yaml_includes(peripheral)
-
     # Find all peripherals that match the spec
     pcount = 0
     for ptag in iter_peripherals(svd, pspec):
