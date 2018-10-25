@@ -20,6 +20,7 @@ _include:
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
+ - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - ../peripherals/crc/crc_basic.yaml
