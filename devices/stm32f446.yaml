@@ -35,6 +35,25 @@ CRC:
     _merge:
       - "FB*"
 
+# Fix misnamed RCC enable bits, add PLLSAI clock
+RCC:
+  CR:
+    _add:
+      PLLSAIRDY:
+        description: PLLSAI clock ready flag
+        bitOffset: 29
+        bitWidth: 1
+        access: read-only
+      PLLSAION:
+        description: PLLSAI enable
+        bitOffset: 28
+        bitWidth: 1
+        access: read-write
+  APB2ENR:
+    _modify:
+      SPI4ENR:
+        name: SPI4EN
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
