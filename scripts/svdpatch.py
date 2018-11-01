@@ -199,7 +199,13 @@ def process_register_modify(rtag, fspec, fmod):
     """Modify fspec inside rtag according to fmod."""
     for ftag in iter_fields(rtag, fspec):
         for (key, value) in fmod.items():
-            ftag.find(key).text = str(value)
+            try:
+                ftag.find(key).text = str(value)
+            except AttributeError:
+                raise SvdPatchError('invalid attribute {!r} for '
+                                    'register {}, field {}'
+                                    .format(key, rtag.find('name').text,
+                                            ftag.find('name').text))
 
 
 def process_device_add(device, pname, padd):
