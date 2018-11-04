@@ -44,20 +44,57 @@
       RxPriority: [1, "Rx has priority over Tx"]
     SR:
       Reset: [1, "Reset all MAC subsystem internal registers and logic. Cleared automatically"]
+    _modify:
+      MB:
+        description: Mixed burst
+      AAB:
+        description: Address-aligned beats
+      FPM:
+        description: 4xPBL mode
+      USP:
+        description: Use separate PBL
+      RDP:
+        description: Rx DMA PBL
+      FB:
+        description: Fixed burst
+      PM:
+        description: Rx-Tx priority ratio
+      PBL:
+        description: Programmable burst length
+      EDFE:
+        description: Enhanced descriptor format enable
+      DSL:
+        description: Descriptor skip length
+      DA:
+        description: DMA arbitration
+      SR:
+        description: Software reset
 
   DMATPDR:
     TPD:
       Poll: [0, "Poll the transmit descriptor list"]
+    _modify:
+      TPD:
+        description: Transmit poll demand
 
   DMARPDR:
     RPD:
       Poll: [0, "Poll the receive descriptor list"]
+    _modify:
+      RPD:
+        description: Receive poll demand
 
   DMARDLAR:
     SRL: [0, 0xFFFFFFFF]
+    _modify:
+      SRL:
+        description: Start of receive list
 
   DMATDLAR:
     STL: [0, 0xFFFFFFFF]
+    _modify:
+      STL:
+        description: Start of transmit list
 
   DMASR:
     TPS:
@@ -73,6 +110,49 @@
       RunningWaiting: [3, "Running, waiting for receive packet"]
       Suspended: [4, "Suspended, receive descriptor unavailable"]
       RunningWriting: [7, "Running, writing data to host memory buffer"]
+    _modify:
+      TSTS:
+        description: Time stamp trigger status
+      PMTS:
+        description: PMT status
+      MMCS:
+        description: MMC status
+      EBS:
+        description: Error bits status
+      TPS:
+        description: Transmit process state
+      RPS:
+        description: Receive process state
+      NIS:
+        description: Normal interrupt summary
+      AIS:
+        description: Abnormal interrupt summary
+      ERS:
+        description: Early receive status
+      FBES:
+        description: Fatal bus error status
+      ETS:
+        description: Early transmit status
+      RWTS:
+        description: Receive watchdog timeout status
+      RPSS:
+        description: Receive process stopped status
+      RBUS:
+        description: Receive buffer unavailable status
+      RS:
+        description: Receive status
+      TUS:
+        description: Transmit underflow status
+      ROS:
+        description: Receive overflow status
+      TJTS:
+        description: Transmit jabber timeout status
+      TBUS:
+        description: Transmit buffer unavailable status
+      TPSS:
+        description: Transmit process stopped status
+      TS:
+        description: Transmit status
 
   DMAOMR:
     DTCEFD:
@@ -114,6 +194,98 @@
     SR:
       Stopped: [0, "Reception is stopped after transfer of the current frame"]
       Started: [1, "Reception is placed in the Running state"]
+    _modify:
+      DTCEFD:
+        description: Dropping of TCP/IP checksum error frames disable
+      RSF:
+        description: Receive store and forward
+      DFRF:
+        description: Disable flushing of received frames
+      TSF:
+        description: Transmit store and forward
+      FTF:
+        description: Flush transmit FIFO
+      TTC:
+        description: Transmit threshold control
+      ST:
+        description: Start/stop transmission
+      FEF:
+        description: Forward error frames
+      FUGF:
+        description: Forward undersized good frames
+      RTC:
+        description: Receive threshold control
+      OSF:
+        description: Operate on second frame
+      SR:
+        description: Start/stop receive
+
+  DMAIER:
+    _modify:
+      NISE:
+        description: Normal interrupt summary enable
+      AISE:
+        description: Abnormal interrupt summary enable
+      ERIE:
+        description: Early receive interrupt enable
+      FBEIE:
+        description: Fatal bus error interrupt enable
+      ETIE:
+        description: Early transmit interrupt enable
+      RWTIE:
+        description: Receive watchdog timeout interrupt enable
+      RPSIE:
+        description: Receive process stopped interrupt enable
+      RBUIE:
+        description: Receive buffer unavailable interrupt enable
+      RIE:
+        description: Receive interrupt enable
+      TUIE:
+        description: Transmit underflow interrupt enable
+      ROIE:
+        description: Receive overflow interrupt enable
+      TJTIE:
+        description: Transmit jabber timeout interrupt enable
+      TBUIE:
+        description: Transmit buffer unavailable interrupt enable
+      TPSIE:
+        description: Transmit process stopped interrupt enable
+      TIE:
+        description: Transmit interrupt enable
+
+  DMAMFBOCR:
+    _modify:
+      OFOC:
+        description: Overflow bit for FIFO overflow counter
+      MFA:
+        description: Missed frames by the application
+      OMFC:
+        description: Overflow bit for missed frame counter
+      MFC:
+        description: Missed frames by the controller
 
   DMARSWTR:
     RSWTC: [0, 0xFF]
+    _modify:
+      RSWTC:
+        description: Receive status watchdog timer count
+
+  DMACHTDR:
+    _modify:
+      HTDAP:
+        description: Host transmit descriptor address pointer
+
+  DMACHRDR:
+    _modify:
+      HRDAP:
+        description: Host receive descriptor address pointer
+
+  DMACHTBAR:
+    _modify:
+      HTBAP:
+        description: Host transmit buffer address pointer
+
+  DMACHRBAR:
+    _modify:
+      HRBAP:
+        description: Host receive buffer address pointer
