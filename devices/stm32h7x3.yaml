@@ -310,6 +310,12 @@ _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/h7_ethernet.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml
+ - common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim16.yaml
@@ -317,3 +323,4 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/usart/usart_v2B1.yaml

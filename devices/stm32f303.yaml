@@ -11,6 +11,8 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -24,3 +26,4 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/usart/usart_v2B.yaml

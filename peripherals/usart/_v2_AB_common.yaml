@@ -1,0 +1,21 @@
+# Common fields between v2 A and B peripherals
+
+CR1:
+  UESM:
+    Disabled: [0, "USART not able to wake up the MCU from Stop mode"]
+    Enabled: [1, "USART able to wake up the MCU from Stop mode"]
+CR3:
+  WUFIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An USART interrupt is generated whenever WUF=1 in the ISR register"]
+  WUS:
+    Address: [0, "WUF active on address match"]
+    Start: [2, "WuF active on Start bit detection"]
+    RXNE: [3, "WUF active on RXNE"]
+ISR:
+  REAK:
+  WUF:
+  RWU:
+ICR:
+  WUCF:
+    Clear: [1, "Clears the WUF flag in the ISR register"]

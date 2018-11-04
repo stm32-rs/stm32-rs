@@ -1,0 +1,6 @@
+# Merge LPUART CR1 DEDTx fields
+
+"LPUART*":
+  CR1:
+    _merge:
+      - "DEDT*"

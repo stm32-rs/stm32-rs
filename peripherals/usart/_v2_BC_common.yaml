@@ -1,0 +1,85 @@
+# Common fields between v2 B and C peripherals
+
+CR1:
+  OVER8:
+    Oversampling_16: [0, "Oversampling by 16"]
+    Oversampling_8: [1, "Oversampling by 8"]
+  EOBIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "A USART interrupt is generated when the EOBF flag is set in the ISR register"]
+  RTOIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An USART interrupt is generated when the RTOF bit is set in the ISR register"]
+CR2:
+  RTOEN:
+    Disabled: [0, "Receiver timeout feature disabled"]
+    Enabled: [1, "Receiver timeout feature enabled"]
+  ABRMOD:
+    Start: [0, "Measurement of the start bit is used to detect the baud rate"]
+    Edge: [1, "Falling edge to falling edge measurement"]
+    Frame_7F: [2, "0x7F frame detection"]
+    Frame_55: [3, "0x55 frame detection"]
+  ABREN:
+    Disabled: [0, "Auto baud rate detection is disabled"]
+    Enabled: [1, "Auto baud rate detection is enabled"]
+  LINEN:
+    Disabled: [0, "LIN mode disabled"]
+    Enabled: [1, "LIN mode enabled"]
+  CPOL:
+    Low: [0, "Steady low value on CK pin outside transmission window"]
+    High: [1, "Steady high value on CK pin outside transmission window"]
+  CPHA:
+    First: [0, "The first clock transition is the first data capture edge"]
+    Second: [1, "The second clock transition is the first data capture edge"]
+  LBCL:
+    NotOutput: [0, "The clock pulse of the last data bit is not output to the CK pin"]
+    Output: [1, "The clock pulse of the last data bit is output to the CK pin"]
+  LBDIE:
+    Disabled: [0, "Interrupt is inhibited"]
+    Enabled: [1, "An interrupt is generated whenever LBDF=1 in the ISR register"]
+  LBDL:
+    Bit_10: [0, "10-bit break detection"]
+    Bit_11: [1, "11-bit break detection"]
+CR3:
+  SCARCNT: [0, 7]
+  ONEBIT:
+    Sample_3: [0, "Three sample bit method"]
+    Sample_1: [1, "One sample bit method"]
+  SCEN:
+    Disabled: [0, "Smartcard Mode disabled"]
+    Enabled: [1, "Smartcard Mode enabled"]
+  NACK:
+    Disabled: [0, "NACK transmission in case of parity error is disabled"]
+    Enabled: [1, "NACK transmission during parity error is enabled"]
+  IRLP:
+    Normal: [0, "Normal mode"]
+    LowPower: [1, "Low-power mode"]
+  IREN:
+    Disabled: [0, "IrDA disabled"]
+    Enabled: [1, "IrDA enabled"]
+BRR:
+  BRR: [0, 0xFFFF]
+GTPR:
+  GT: [0, 0xFF]
+  PSC: [0, 0xFF]
+RTOR:
+  BLEN: [0, 0xFF]
+  RTO: [0, 0xFFFFFF]
+RQR:
+  TXFRQ:
+    Discard: [1, "Set the TXE flags. This allows to discard the transmit data"]
+  ABRRQ:
+    Request: [1, "resets the ABRF flag in the USART_ISR and request an automatic baud rate measurement on the next received data frame"]
+ISR:
+  ABRF:
+  ABRE:
+  EOBF:
+  RTOF:
+  LBDF:
+ICR:
+  EOBCF:
+    Clear: [1, "Clears the EOBF flag in the ISR register"]
+  LBDCF:
+    Clear: [1, "Clears the LBDF flag in the ISR register"]
+  RTOCF:
+    Clear: [1, "Clears the RTOF flag in the ISR register"]

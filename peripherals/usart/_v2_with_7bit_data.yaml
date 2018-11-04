@@ -1,0 +1,10 @@
+# USART v2 with 7bit data
+
+# FIXME workaround separated M0 and M1 fields
+CR1:
+  M0:
+    Bit_8: [0, "1 start bit, 8 data bits, n stop bits"]
+    Bit_9: [1, "1 start bit, 9 data bits, n stop bits"]
+  M1:
+    M0: [0, "Use M0 to set the data bits"]
+    Bit_7: [1, "1 start bit, 7 data bits, n stop bits"]

@@ -1,6 +1,21 @@
 _svd: ../svd/stm32l0x2.svd
 
+# Use LPUART1 cannonical name
+_modify:
+  LPUSART1:
+    name: LPUART1
+
 _include:
+ - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
+ - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
+ - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
+ - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - ./common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -10,3 +25,5 @@ _include:
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/usart/lpuart_v2A.yaml
+ - ../peripherals/usart/usart_v2B1.yaml

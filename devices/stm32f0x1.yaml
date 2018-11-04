@@ -12,6 +12,9 @@ _include:
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/f0_adc_cfgr2_ckmode.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/rename_USART_CR1_M0_field.yaml
+ - common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
@@ -28,3 +31,4 @@ _include:
  - ../peripherals/rcc/rcc_f0.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/usart/usart_v2B1.yaml

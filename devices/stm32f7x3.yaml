@@ -19,6 +19,12 @@ WWDG:
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
+ - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_v2.yaml
@@ -34,3 +40,4 @@ _include:
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2_without_wakeup.yaml
+ - ../peripherals/usart/usart_v2C.yaml

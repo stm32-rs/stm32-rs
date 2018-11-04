@@ -1,0 +1,12 @@
+# LPUART1 found on L0 and L4 families
+
+LPUART1:
+  _include:
+    - _v2_ABC_common.yaml
+    - _v2_AB_common.yaml
+    - _v2_with_7bit_data.yaml
+
+  ISR:
+    CMCF:
+  BRR:
+    BRR: [0, 0xFFFFF]

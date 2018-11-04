@@ -14,6 +14,16 @@ _svd: ../svd/stm32l4x3.svd
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
+ - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
+ - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_BRR_fields.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -23,3 +33,5 @@ _include:
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/usart/lpuart_v2A.yaml
+ - ../peripherals/usart/usart_v2B1.yaml
