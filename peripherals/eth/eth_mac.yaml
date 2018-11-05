@@ -57,6 +57,39 @@
     RE:
       Disabled: [0, "MAC receive state machine is disabled after the completion of the reception of the current frame"]
       Enabled: [1, "MAC receive state machine is enabled"]
+    _modify:
+      CSTF:
+        description: CRC stripping for type frames
+      WD:
+        description: Watchdog disable
+      JD:
+        description: Jabber disable
+      IFG:
+        description: Interframe gap
+      CSD:
+        description: Carrier sense disable
+      FES:
+        description: Fast Ethernet speed
+      ROD:
+        description: Receive own disable
+      LM:
+        description: Loopback mode
+      DM:
+        description: Duplex mode
+      IPCO:
+        description: IPv4 checksum offload
+      RD:
+        description: Retry disable
+      APCS:
+        description: Automatic pad/CRC stripping
+      BL:
+        description: Back-off limit
+      DC:
+        description: Deferral check
+      TE:
+        description: Transmitter enable
+      RE:
+        description: Receiver enable
 
   MACFFR:
     RA:
@@ -79,7 +112,7 @@
     BFD:
       Enabled: [0, "Address filters pass all received broadcast frames"]
       Disabled: [1, "Address filters filter all incoming broadcast frames"]
-    RAM:
+    PAM:
       Disabled: [0, "Filtering of multicast frames depends on HM"]
       Enabled: [1, "All received frames with a multicast destination address are passed"]
     DAIF:
@@ -94,12 +127,42 @@
     PM:
       Disabled: [0, "Normal address filtering"]
       Enabled: [1, "Address filters pass all incoming frames regardless of their destination or source address"]
+    _modify:
+      RA:
+        description: Receive all
+      HPF:
+        description: Hash or perfect filter
+      SAF:
+        description: Source address filter
+      SAIF:
+        description: Source address inverse filtering
+      PCF:
+        description: Pass control frames
+      BFD:
+        description: Broadcast frames disable
+      RAM:
+        name: PAM
+        description: Pass all multicast
+      DAIF:
+        description: Destination address unique filtering
+      HM:
+        description: Hash multicast
+      HU:
+        description: Hash unicast
+      PM:
+        description: Promiscuous mode
 
   MACHTHR:
     HTH: [0, 0xFFFFFFFF]
+    _modify:
+      HTH:
+        description: Upper 32 bits of hash table
 
   MACHTLR:
     HTL: [0, 0xFFFFFFFF]
+    _modify:
+      HTL:
+        description: Lower 32 bits of hash table
 
   MACMIIAR:
     PA: [0, 0x1F]
@@ -115,9 +178,23 @@
       Write: [1, "Write operation"]
     MB:
       Busy: [1, "This bit is set to 1 by the application to indicate that a read or write access is in progress"]
+    _modify:
+      PA:
+        description: PHY address - select which of possible 32 PHYs is being accessed
+      MR:
+        description: MII register - select the desired MII register in the PHY device
+      CR:
+        description: Clock range
+      MW:
+        description: MII write
+      MB:
+        description: MII busy
 
   MACMIIDR:
     MD: [0, 0xFFFF]
+    _modify:
+      MD:
+        description: MII data read from/written to the PHY
 
   MACFCR:
     PT: [0, 0xFFFF]
@@ -141,13 +218,32 @@
     FCB:
       PauseOrBackPressure: [1, "In full duplex, initiate a Pause control frame. In half duplex, assert back pressure"]
       DisableBackPressure: [0, "In half duplex only, deasserts back pressure"]
-
+    _modify:
+      PT:
+        description: Pause time
+      ZQPD:
+        description: Zero-quanta pause disable
+      PLT:
+        description: Pause low threshold
+      UPFD:
+        description: Unicast pause frame detect
+      RFCE:
+        description: Receive flow control enable
+      TFCE:
+        description: Transmit flow control enable
+      FCB:
+        description: Flow control busy/back pressure activate
 
   MACVLANTR:
     VLANTC:
       VLANTC16: [0, "Full 16 bit VLAN identifiers are used for comparison and filtering"]
       VLANTC12: [1, "12 bit VLAN identifies are used for comparison and filtering"]
     VLANTI: [0, 0xFFFF]
+    _modify:
+      VLANTC:
+        description: 12-bit VLAN tag comparison
+      VLANTI:
+        description: VLAN tag identifier (for receive frames)
 
   MACPMTCSR:
     WFFRPR:
@@ -163,6 +259,34 @@
       Enabled: [1, "Enable generation of a power management event due to Magic Packet reception"]
     PD:
       Enabled: [1, "All received frames will be dropped. Cleared automatically when a magic packet or wakeup frame is received"]
+    _modify:
+      WFFRPR:
+        description: Wakeup frame filter register pointer reset
+      GU:
+        description: Global unicast
+      WFR:
+        description: Wakeup frame received
+      MPR:
+        description: Magic packet received
+      WFE:
+        description: Wakeup frame enable
+      MPE:
+        description: Magic packet enable
+      PD:
+        description: Power down
+
+  MACSR:
+    _modify:
+      TSTS:
+        description: Time stamp trigger status
+      MMCTS:
+        description: MMC transmit status
+      MMCRS:
+        description: MMC receive status
+      MMCS:
+        description: MMC status
+      PMTS:
+        description: PMT status
 
   MACIMR:
     TSTIM:
@@ -171,6 +295,11 @@
     PMTIM:
       Unmasked: [0, "PMT Status interrupt generation enabled"]
       Masked: [1, "PMT Status interrupt generation disabled"]
+    _modify:
+      TSTIM:
+        description: Time stamp trigger interrupt mask
+      PMTIM:
+        description: PMT interrupt mask
 
   MACA0HR:
     MACA0H: [0, 0xFFFF]

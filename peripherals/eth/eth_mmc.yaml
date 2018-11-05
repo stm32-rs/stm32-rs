@@ -17,6 +17,37 @@
       Enabled: [1, "Counters do not roll over to zero after reaching the maximum value"]
     CR:
       Reset: [1, "Reset all counters. Cleared automatically"]
+    _modify:
+      MCFHP:
+        description: MMC counter Full-Half preset
+      MCP:
+        description: MMC counter preset
+      MCF:
+        description: MMC counter freeze
+      ROR:
+        description: Reset on read
+      CSR:
+        description: Counter stop rollover
+      CR:
+        description: Counter reset
+
+  MMCRIR:
+    _modify:
+      RGUFS:
+        description: Received good Unicast frames status
+      RFAES:
+        description: Received frames alignment error status
+      RFCES:
+        description: Received frames CRC error status
+
+  MMCTIR:
+    _modify:
+      TGFS:
+        description: Transmitted good frames status
+      TGFMSCS:
+        description: Transmitted good frames more than single collision status
+      TGFSCS:
+        description: Transmitted good frames single collision status
 
   MMCRIMR:
     RGUFM:
@@ -28,6 +59,13 @@
     RFCEM:
       Unmasked: [0, "Received-crc-error counter half-full interrupt enabled"]
       Masked: [1, "Received-crc-error counter half-full interrupt disabled"]
+    _modify:
+      RGUFM:
+        description: Received good Unicast frames mask
+      RFAEM:
+        description: Received frames alignment error mask
+      RFCEM:
+        description: Received frame CRC error mask
 
   MMCTIMR:
     TGFM:
@@ -39,3 +77,15 @@
     TGFSCM:
       Unmasked: [0, "Transmitted-good-single-collision half-full interrupt enabled"]
       Masked: [1, "Transmitted-good-single-collision half-full interrupt disabled"]
+    _modify:
+      TGFM:
+        description: Transmitted good frames mask
+      TGFMSCM:
+        description: Transmitted good frames more than single collision mask
+      TGFSCM:
+        description: Transmitted good frames single collision mask
+
+  MMCTGFSCCR:
+    _modify:
+      TGFSCC:
+        description: Transmitted good frames single collision counter
