@@ -6,17 +6,6 @@
       NotDivided: [0, "CK_INT not divided"]
       DividedBy2: [1, "CK_INT divided by 2"]
       DividedBy4: [2, "CK_INT divided by 4"]
-    CMS:
-      Edge: [0, "The counter counts up or down depending on the direction bit (DIR)"]
-      CenterDown: [1, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting down"]
-      CenterUp: [2, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting up"]
-      CenterBoth: [3, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting up or down"]
-    DIR:
-      Up: [0, "Counter used as upcounter"]
-      Down: [1, "Counter used as downcounter"]
-    OPM:
-      NotStopped: [0, "Counter is not stopped at update event"]
-      Stopped: [1, "Counter stops counting at the next update event"]
   CR2:
     TI1S:
       Normal: [0, "The TIMx_CH1 pin is connected to TI1 input"]

@@ -5,6 +5,7 @@ RCC:
         description: "LSE Clock security system interrupt clear"
         bitOffset: 22
         bitWidth: 1
+        access: write-only
       LSECSSF:
         description: "LSE Clock security system interrupt flag"
         bitOffset: 6

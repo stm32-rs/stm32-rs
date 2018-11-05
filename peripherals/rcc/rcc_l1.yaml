@@ -15,7 +15,7 @@ RCC:
     HSEBYP:
       NotBypassed: [0, "HSE oscillator not bypassed"]
       Bypassed: [1, "HSE oscillator bypassed"]
-    "*RDY":
+    "HSERDY,HSIRDY,MSIRDY":
       _read:
         NotReady: [0, "Oscillator is not stable"]
         Ready: [1, "Oscillator is stable"]
@@ -80,9 +80,6 @@ RCC:
       HSE: [2, "HSE oscillator used as system clock"]
       PLL: [3, "PLL used as system clock"]
   CIR:
-    CSSC:
-      _write:
-        Clear: [1, "Clear interrupt"]
     "*CSSC":
       _write:
         Clear: [1, "Clear interrupt"]

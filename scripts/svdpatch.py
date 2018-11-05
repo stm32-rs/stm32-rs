@@ -108,7 +108,11 @@ def make_enumerated_values(name, values, usage="read-write"):
     description), returns an enumeratedValues Element.
     """
     ev = ET.Element('enumeratedValues')
-    ET.SubElement(ev, 'name').text = name
+    usagekey = {
+        "read": "R",
+        "write": "W",
+    }.get(usage, "")
+    ET.SubElement(ev, 'name').text = name + usagekey
     ET.SubElement(ev, 'usage').text = usage
     if len(set(v[0] for v in values.values())) != len(values):
         raise ValueError("enumeratedValue {}: can't have duplicate values"
@@ -364,8 +368,17 @@ def process_field_enum(pname, rtag, fspec, field, usage="read-write"):
         name = ftag.find('name').text
         if derived is None:
             enum = make_enumerated_values(name, field, usage=usage)
+            enum_name = enum.find('name').text
+            enum_usage = enum.find('usage').text
+            for ev in ftag.iter('enumeratedValues'):
+                ev_usage = ev.find('usage').text
+                if ev_usage == enum_usage or ev_usage == "read-write":
+                    print(pname, fspec, field)
+                    raise SvdPatchError(
+                        "{}: field {} already has enumeratedValues for {}"
+                        .format(pname, name, ev_usage))
             ftag.append(enum)
-            derived = make_derived_enumerated_values(name)
+            derived = make_derived_enumerated_values(enum_name)
         else:
             ftag.append(derived)
     if derived is None:

@@ -24,4 +24,5 @@ EXTI:
       _write:
         Clear: [1, "Clears pending bit"]
       _read:
-        Pending: [1, "Selected trigger request occured"]
+        NotPending: [0, "No trigger request occurred"]
+        Pending: [1, "Selected trigger request occurred"]

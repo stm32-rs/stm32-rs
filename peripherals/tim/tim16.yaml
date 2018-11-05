@@ -8,9 +8,6 @@
     OPM:
       NotStopped: [0, "Not stopped at update event"]
       Stopped: [1, "Counter stops counting at next update event"]
-    ARPE:
-      NotBuffered: [0, "TIMx_ARR register is not buffered"]
-      Buffered: [1, "TIMx_ARR register is buffered"]
   CR2:
     CCPC:
       NotPreloaded: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
