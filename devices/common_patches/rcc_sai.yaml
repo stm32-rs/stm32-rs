@@ -1,0 +1,32 @@
+# Add missing reset/enable bits for the SAI clock and PLL
+RCC:
+  CR:
+    _add:
+      PLLSAIRDY:
+        description: PLLSAI clock ready flag
+        bitOffset: 29
+        bitWidth: 1
+        access: read-only
+      PLLSAION:
+        description: PLLSAI enable
+        bitOffset: 28
+        bitWidth: 1
+        access: read-write
+  APB2RSTR:
+    _add:
+      SAI1RST:
+        description: SAI1 reset
+        bitOffset: 22
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      SAI1EN:
+        description: SAI1 clock enable
+        bitOffset: 22
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      SAI1LPEN:
+        description: SAI1 clock enable during Sleep mode
+        bitOffset: 22
+        bitWidth: 1

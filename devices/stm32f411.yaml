@@ -14,9 +14,19 @@ CRC:
       CR:
         name: RESET
 
+# Add missing reset bit for SPI 4 (enable bits are present)
+RCC:
+  APB2RSTR:
+    _add:
+      SPI4RST:
+        description: SPI4 reset
+        bitOffset: 13
+        bitWidth: 1
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/rcc_spi5.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml

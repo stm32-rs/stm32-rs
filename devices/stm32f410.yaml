@@ -19,6 +19,21 @@ CRC:
       CR:
         name: RESET
 
+# Add missing reset/enable bits for SPI 5 (SPI5EN is present)
+RCC:
+  APB2RSTR:
+    _add:
+      SPI5RST:
+        description: SPI5 reset
+        bitOffset: 20
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      SPI5LPEN:
+        description: SPI5 clock enable during Sleep mode
+        bitOffset: 20
+        bitWidth: 1
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

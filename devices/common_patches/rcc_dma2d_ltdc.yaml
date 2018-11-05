@@ -1,0 +1,38 @@
+# Add missing reset/enable bits for the LCD controller and 2D-DMA
+RCC:
+  AHB1RSTR:
+    _add:
+      DMA2DRST:
+        description: DMA2D reset
+        bitOffset: 23
+        bitWidth: 1
+  APB2RSTR:
+    _add:
+      LTDCRST:
+        description: LTDC reset
+        bitOffset: 26
+        bitWidth: 1
+  AHB1ENR:
+    _add:
+      DMA2DEN:
+        description: DMA2D clock enable
+        bitOffset: 23
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      LTDCEN:
+        description: LTDC clock enable
+        bitOffset: 26
+        bitWidth: 1
+  AHB1LPENR:
+    _add:
+      DMA2DLPEN:
+        description: DMA2D clock enable during Sleep mode
+        bitOffset: 23
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      LTDCLPEN:
+        description: LTDC clock enable during Sleep mode
+        bitOffset: 26
+        bitWidth: 1

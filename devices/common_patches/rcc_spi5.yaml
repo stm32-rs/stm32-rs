@@ -1,0 +1,20 @@
+# Add missing reset/enable bits for SPI 5
+RCC:
+  APB2RSTR:
+    _add:
+      SPI5RST:
+        description: SPI5 reset
+        bitOffset: 20
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      SPI5EN:
+        description: SPI5 clock enable
+        bitOffset: 20
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      SPI5LPEN:
+        description: SPI5 clock enable during Sleep mode
+        bitOffset: 20
+        bitWidth: 1
