@@ -3,18 +3,18 @@ RCC:
   APB2RSTR:
     _add:
       SPI4RST:
-        description: SPI 4 reset
+        description: SPI4 reset
         bitOffset: 13
         bitWidth: 1
   APB2ENR:
     _add:
       SPI4EN:
-        description: SPI 4 clock enable
+        description: SPI4 clock enable
         bitOffset: 13
         bitWidth: 1
   APB2LPENR:
     _add:
       SPI4LPEN:
-        description: SPI 4 clock enable during Sleep mode
+        description: SPI4 clock enable during Sleep mode
         bitOffset: 13
         bitWidth: 1

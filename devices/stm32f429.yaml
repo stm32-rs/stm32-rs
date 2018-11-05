@@ -52,13 +52,61 @@ FMC:
       addressOffset: "0x11C"
       alternateRegister: ""
 
-# Add missing RCC enable bit
+# Add missing RCC reset/enable bits
 RCC:
   AHB1LPENR:
     _add:
       SRAM3LPEN:
-        description: SRAM 3 interface clock enable during Sleep mode
+        description: SRAM3 interface clock enable during Sleep mode
         bitOffset: 19
+        bitWidth: 1
+  APB1RSTR:
+    _add:
+      UART7RST:
+        description: UART7 reset
+        bitOffset: 30
+        bitWidth: 1
+      UART8RST:
+        description: UART8 reset
+        bitOffset: 31
+        bitWidth: 1
+  APB1ENR:
+    _add:
+      UART7EN:
+        description: UART7 clock enable
+        bitOffset: 30
+        bitWidth: 1
+      UART8EN:
+        description: UART8 clock enable
+        bitOffset: 31
+        bitWidth: 1
+  APB1LPENR:
+    _add:
+      UART7LPEN:
+        description: UART7 clock enable during Sleep mode
+        bitOffset: 30
+        bitWidth: 1
+      UART8LPEN:
+        description: UART8 clock enable during Sleep mode
+        bitOffset: 31
+        bitWidth: 1
+  APB2RSTR:
+    _add:
+      SPI6RST:
+        description: SPI6 reset
+        bitOffset: 21
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      SPI6EN:
+        description: SPI6 clock enable
+        bitOffset: 21
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      SPI6LPEN:
+        description: SPI6 clock enable during Sleep mode
+        bitOffset: 21
         bitWidth: 1
 
 _include:
@@ -71,8 +119,6 @@ _include:
  - common_patches/rcc_dma2d_ltdc.yaml
  - common_patches/rcc_spi4.yaml
  - common_patches/rcc_spi5.yaml
- - common_patches/rcc_spi6.yaml
- - common_patches/rcc_uart7_8.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_v2.yaml
