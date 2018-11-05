@@ -112,7 +112,7 @@
     BFD:
       Enabled: [0, "Address filters pass all received broadcast frames"]
       Disabled: [1, "Address filters filter all incoming broadcast frames"]
-    RAM:
+    PAM:
       Disabled: [0, "Filtering of multicast frames depends on HM"]
       Enabled: [1, "All received frames with a multicast destination address are passed"]
     DAIF:
@@ -141,6 +141,7 @@
       BFD:
         description: Broadcast frames disable
       RAM:
+        name: PAM
         description: Pass all multicast
       DAIF:
         description: Destination address unique filtering
