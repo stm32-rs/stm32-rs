@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch svd2rust form clean-rs clean-patch clean-html clean
+.PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
 
 SHELL := /bin/bash
 
@@ -26,6 +26,10 @@ FORM_SRCS := $(foreach crate, $(CRATES), \
                $(patsubst devices/$(crate)%.yaml, \
                           $(crate)/src/$(crate)%/.form, \
                           $(wildcard devices/$(crate)*.yaml)))
+CHECK_SRCS := $(foreach crate, $(CRATES), \
+               $(patsubst devices/$(crate)%.yaml, \
+                          $(crate)/src/$(crate)%/.check, \
+                          $(wildcard devices/$(crate)*.yaml)))
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
@@ -46,6 +50,10 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	find $$(@D) -name "*.rs" -exec rustfmt {} +
 	touch $$@
 
+$(1)/src/%/.check: $(1)/src/%/mod.rs
+	cd $(1) && cargo check --target-dir ../target/check/$$* --features $$*
+	touch $$@
+
 endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
@@ -58,6 +66,8 @@ patch: $(PATCHED_SVDS)
 svd2rust: $(RUST_SRCS)
 
 form: $(FORM_SRCS)
+
+check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html

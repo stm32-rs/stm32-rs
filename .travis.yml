@@ -1,8 +1,19 @@
-language: python
-python:
-  - "3.6"
+language: rust
+
+rust:
+  - stable
+
+addons:
+  apt:
+    packages:
+      - python3-yaml
+
 install:
-  - pip install pyyaml
+  - cargo install svd2rust
+  - rustup component add rustfmt-preview
+
+# disabling incremental build gives a nice speedup for check...
 script:
   - cd svd && ./extract.sh && cd ..
-  - make patch
+  - make -j$(nproc) all
+  - CARGO_INCREMENTAL=0 make -j$(nproc) check
