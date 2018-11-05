@@ -135,11 +135,13 @@ def make_derived_enumerated_values(name):
     return evd
 
 
-def iter_peripherals(tree, pspec):
+def iter_peripherals(tree, pspec, check_derived=True):
     """Iterates over all peripherals that match pspec."""
     for ptag in tree.iter('peripheral'):
         name = ptag.find('name').text
-        if matchname(name, pspec) and "derivedFrom" not in ptag.attrib:
+        if matchname(name, pspec):
+            if check_derived and "derivedFrom" in ptag.attrib:
+                continue
             yield ptag
 
 
@@ -260,6 +262,24 @@ def process_register_add(rtag, fname, fadd):
         ET.SubElement(fnew, key).text = str(value)
 
 
+def process_device_delete(device, pspec):
+    """Delete registers matched by rspec inside ptag."""
+    for ptag in list(iter_peripherals(device, pspec, check_derived=False)):
+        device.find('peripherals').remove(ptag)
+
+
+def process_peripheral_delete(ptag, rspec):
+    """Delete registers matched by rspec inside ptag."""
+    for rtag in list(iter_registers(ptag, rspec)):
+        ptag.find('registers').remove(rtag)
+
+
+def process_register_delete(rtag, fspec):
+    """Delete fields matched by fspec inside rtag."""
+    for ftag in list(iter_fields(rtag, fspec)):
+        rtag.find('fields').remove(ftag)
+
+
 class SvdPatchError(ValueError):
     pass
 
@@ -373,6 +393,9 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
     rcount = 0
     for rtag in iter_registers(ptag, rspec):
         rcount += 1
+        # Handle deletions
+        for fspec in register.get("_delete", []):
+            process_register_delete(rtag, fspec)
         # Handle modifications
         for fspec in register.get("_modify", []):
             fmod = register["_modify"][fspec]
@@ -404,6 +427,9 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
     pcount = 0
     for ptag in iter_peripherals(svd, pspec):
         pcount += 1
+        # Handle deletions
+        for rspec in peripheral.get("_delete", []):
+            process_peripheral_delete(ptag, rspec)
         # Handle modifications
         for rspec in peripheral.get("_modify", {}):
             rmod = peripheral["_modify"][rspec]
@@ -431,6 +457,11 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
 
 def process_device(svd, device, update_fields=True):
     """Work through a device, handling all peripherals"""
+
+    # Handle any deletions
+    for pspec in device.get("_delete", []):
+        process_device_delete(svd, pspec)
+
     # Handle any modifications
     for key in device.get("_modify", {}):
         val = device["_modify"][key]

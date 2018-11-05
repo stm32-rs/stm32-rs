@@ -246,6 +246,12 @@ _add:
                 description: An example interrupt
                 value: 100
 
+    # Anywhere you can '_add' something, you can also '_delete' it.
+    # Wildcards are supported. Note that the value here is a YAML list,
+    # not a mapping like for most other keys.
+    _delete:
+        - GPIO*_EXTRAR
+
     # A register on this peripheral, matches an SVD <register> tag
     MODER:
         # As in the peripheral scope, rename or redescribe a field.
