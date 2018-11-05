@@ -211,6 +211,10 @@ def process_register_modify(rtag, fspec, fmod):
 def process_device_add(device, pname, padd):
     """Add pname given by padd to device."""
     parent = device.find('peripherals')
+    for ptag in parent.iter('peripheral'):
+        if ptag.find('name').text == pname:
+            raise SvdPatchError('device already has a peripheral {}'
+                                .format(pname))
     pnew = ET.SubElement(parent, 'peripheral')
     ET.SubElement(pnew, 'name').text = pname
     ET.SubElement(pnew, 'registers')
@@ -232,6 +236,10 @@ def process_device_add(device, pname, padd):
 def process_peripheral_add_reg(ptag, rname, radd):
     """Add rname given by radd to ptag."""
     parent = ptag.find('registers')
+    for rtag in parent.iter('register'):
+        if rtag.find('name').text == rname:
+            raise SvdPatchError('peripheral {} already has a register {}'
+                                .format(ptag.find('name').text, rname))
     rnew = ET.SubElement(parent, 'register')
     ET.SubElement(rnew, 'name').text = rname
     ET.SubElement(rnew, 'fields')
@@ -245,6 +253,10 @@ def process_peripheral_add_reg(ptag, rname, radd):
 
 def process_peripheral_add_int(ptag, iname, iadd):
     """Add iname given by iadd to ptag."""
+    for itag in ptag.iter('interrupt'):
+        if itag.find('name').text == iname:
+            raise SvdPatchError('peripheral {} already has an interrupt {}'
+                                .format(ptag.find('name').text, iname))
     inew = ET.SubElement(ptag, 'interrupt')
     ET.SubElement(inew, 'name').text = iname
     for key, val in iadd.items():
@@ -254,6 +266,10 @@ def process_peripheral_add_int(ptag, iname, iadd):
 def process_register_add(rtag, fname, fadd):
     """Add fname given by fadd to rtag."""
     parent = rtag.find('fields')
+    for ftag in parent.iter('field'):
+        if ftag.find('name').text == fname:
+            raise SvdPatchError('register {} already has a field {}'
+                                .format(rtag.find('name').text, fname))
     fnew = ET.SubElement(parent, 'field')
     ET.SubElement(fnew, 'name').text = fname
     for (key, value) in fadd.items():
