@@ -98,7 +98,7 @@ def make_write_constraint(wc_range):
     minimum.text = str(wc_range[0])
     maximum = ET.SubElement(r, 'maximum')
     maximum.text = str(wc_range[1])
-    wc.tail = "\r\n            "
+    wc.tail = "\n            "
     return wc
 
 
@@ -124,14 +124,14 @@ def make_enumerated_values(name, values, usage="read-write"):
         ET.SubElement(el, 'name').text = vname
         ET.SubElement(el, 'description').text = description
         ET.SubElement(el, 'value').text = str(value)
-    ev.tail = "\r\n            "
+    ev.tail = "\n            "
     return ev
 
 
 def make_derived_enumerated_values(name):
     """Returns an enumeratedValues Element which is derivedFrom name."""
     evd = ET.Element('enumeratedValues', {"derivedFrom": name})
-    evd.tail = "\r\n            "
+    evd.tail = "\n            "
     return evd
 
 
@@ -227,6 +227,7 @@ def process_device_add(device, pname, padd):
                 ET.SubElement(ab, ab_key).text = str(ab_value)
         else:
             ET.SubElement(pnew, key).text = str(value)
+    pnew.tail = "\n    "
 
 
 def process_peripheral_add_reg(ptag, rname, radd):
@@ -241,6 +242,7 @@ def process_peripheral_add_reg(ptag, rname, radd):
                 process_register_add(rnew, fname, value[fname])
         else:
             ET.SubElement(rnew, key).text = str(value)
+    rnew.tail = "\n        "
 
 
 def process_peripheral_add_int(ptag, iname, iadd):
@@ -249,6 +251,7 @@ def process_peripheral_add_int(ptag, iname, iadd):
     ET.SubElement(inew, 'name').text = iname
     for key, val in iadd.items():
         ET.SubElement(inew, key).text = str(val)
+    inew.tail = "\n    "
 
 
 def process_register_add(rtag, fname, fadd):
@@ -258,6 +261,7 @@ def process_register_add(rtag, fname, fadd):
     ET.SubElement(fnew, 'name').text = fname
     for (key, value) in fadd.items():
         ET.SubElement(fnew, key).text = str(value)
+    fnew.tail = "\n            "
 
 
 class SvdPatchError(ValueError):
