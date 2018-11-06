@@ -1,0 +1,57 @@
+Ethernet_MAC:
+  MACMIIDR:
+    _modify:
+      TD:
+        name: MD
+  MACDBGR:
+    _delete:
+      - "*"
+    _add:
+      TFF:
+        description: Tx FIFO full
+        bitOffset: 25
+        bitWidth: 1
+      TFNE:
+        description: Tx FIFO not empty
+        bitOffset: 24
+        bitWidth: 1
+      TFWA:
+        description: Tx FIFO write active
+        bitOffset: 22
+        bitWidth: 1
+      TFRS:
+        description: Tx FIFO read status
+        bitOffset: 20
+        bitWidth: 2
+      MTP:
+        description: MAC transmitter in pause
+        bitOffset: 19
+        bitWidth: 1
+      MTFCS:
+        description: MAC transmit frame controller status
+        bitOffset: 17
+        bitWidth: 2
+      MMTEA:
+        description: MAC MII transmit engine active
+        bitOffset: 16
+        bitWidth: 1
+      RFFL:
+        description: Rx FIFO fill level
+        bitOffset: 8
+        bitWidth: 2
+      RFRCS:
+        description: Rx FIFO read controller status
+        bitOffset: 5
+        bitWidth: 2
+      RFWRA:
+        description: Rx FIFO write controller active
+        bitOffset: 4
+        bitWidth: 1
+      MSFRWCS:
+        description: MAC small FIFO read/write controllers status
+        bitOffset: 1
+        bitWidth: 2
+      MMRPEA:
+        description: MAC MII receive protocol engine active
+        bitOffset: 0
+        bitWidth: 1
