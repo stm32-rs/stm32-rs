@@ -36,16 +36,16 @@ $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -i ../../../$$<
 	rustfmt $$(@D)/lib.rs
-	export DEVICE=$$$$(basename $$< .svd.patched); \
-        sed "1,6d;10d;s/crate::Interrupt/crate::$$$${DEVICE}::Interrupt/" $$(@D)/lib.rs > $$(@D)/mod.rs
+	sed "1,6d;10d;s/crate::Interrupt/crate::$$(<F:.svd.patched=)::Interrupt/" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
-	form -i $$< -o $$$$(dirname $$<)
+	form -i $$< -o $$(@D)
 	rm $$<
-	mv $$$$(dirname $$<)/lib.rs $$<
-	find $$$$(dirname $$<) -name "*.rs" -exec rustfmt {} +
-	touch $$$$(dirname $$<)/.form
+	mv $$(@D)/lib.rs $$<
+	find $$(@D) -name "*.rs" -exec rustfmt {} +
+	touch $$@
+
 endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
