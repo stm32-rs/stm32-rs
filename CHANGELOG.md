@@ -1,5 +1,13 @@
 # Changelog
 
+## v 0.4.0 2018-11-13
+* F7: Ethernet peripheral updates
+* F0: ADC CFGR2 JITOFF_D* renamed CKMODE (#77)
+* F4: Missing RCC enable/reset bits for various peripherals (#80)
+* USART updated for most families (#75)
+* F4: Ethernet peripheral updates (#81, #87)
+* F4: RCC updates (#83)
+
 ## v 0.3.2 2018-10-07
 * F4: Update ethernet peripheral across entire family (#71, #73)
 

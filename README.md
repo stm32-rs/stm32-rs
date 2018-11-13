@@ -314,6 +314,21 @@ You must quote the name if using any special characters in YAML.
   etc).
 * Descriptions should start with capital letters but do not end with a period
 
+## Releasing
+
+```
+$ make -j16 form
+$ make -j16 check
+$ vi scripts/makecrates.py # update version number
+$ python3 scripts/makecrates.py devices/
+$ vi CHANGELOG.md # add changelog entry
+$ git commit -am "vX.X.X"
+$ git tag -a 'vX.X.X' -m 'vX.X.X'
+$ git push origin vX.X.X
+$ git push origin master
+$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4; cd $f; pwd; carg o publish --allow-dirty; cd ..; end
+```
+
 ## License
 
 Licensed under either of
