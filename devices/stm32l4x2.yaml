@@ -1,12 +1,16 @@
 _svd: ../svd/stm32l4x2.svd
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
+# SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
 RCC:
   APB1ENR1:
     _modify:
       USART1EN:
         name: USART3EN
         description: USART3 clock enable
+      USBF:
+        name: USBFSEN
+        description: USB FS clock enable
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
