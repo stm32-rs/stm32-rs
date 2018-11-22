@@ -1,0 +1,7 @@
+# Applicable at least to some STM32F4 and STM32F7.
+
+RCC:
+  CFGR:
+    I2SSRC:
+      PLLI2S: [0, "PLLI2S clock used as I2S clock source"]
+      CKIN: [1, "External clock mapped on the I2S_CKIN pin used as I2S clock source"]
