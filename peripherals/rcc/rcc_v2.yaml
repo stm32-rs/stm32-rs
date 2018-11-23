@@ -15,7 +15,6 @@ RCC:
     PLLN: [50, 432]
     PLLM: [2, 63]
   CFGR:
-    _merge: ["SW[01]", "SWS[01]"]
     MCO2:
       SYSCLK: [0, "System clock (SYSCLK) selected"]
       PLLI2S: [1, "PLLI2S clock selected"]
