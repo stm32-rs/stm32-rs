@@ -3,6 +3,9 @@
 
 "TIM*":
   CR1:
+    _modify:
+      OMP:
+        name: OPM
     ARPE:
       Disabled: [0, "TIMx_APRR register is not buffered"]
       Enabled: [1, "TIMx_APRR register is buffered"]
