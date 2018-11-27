@@ -15,7 +15,6 @@ RCC:
     PLLN: [50, 432]
     PLLM: [2, 63]
   CFGR:
-    _merge: ["SW[01]", "SWS[01]"]
     MCO2:
       SYSCLK: [0, "System clock (SYSCLK) selected"]
       PLLI2S: [1, "PLLI2S clock selected"]
@@ -27,9 +26,6 @@ RCC:
       DIV3: [5, "Division by 3"]
       DIV4: [6, "Division by 4"]
       DIV5: [7, "Division by 5"]
-    I2SSRC:
-      PLLI2S: [0, "PLLI2S clock used as I2S clock source"]
-      CKIN: [1, "External clock mapped on the I2S_CKIN pin used as I2S clock source"]
     MCO1:
       HSI: [0, "HSI clock selected"]
       LSE: [1, "LSE oscillator selected"]
