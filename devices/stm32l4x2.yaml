@@ -12,6 +12,27 @@ RCC:
         name: USBFSEN
         description: USB FS clock enable
 
+# cf. <https://github.com/adamgreig/stm32-rs/issues/37>
+# we call the resulting peripheral `USB` instead of `USB-FS`
+# to be aligned with `mvirkkunen/stm32f103-usb`
+
+_modify:
+  USB_SRAM:
+     name: USB
+     # without quotes, get less readable value 1073768448
+     baseAddress: "0x40006800"
+
+USB:
+  _add:
+    _interrupts:
+      # the interrupt is listed under USB_FS, which we delete
+      USB:
+        description: USB event interrupt through EXTI
+        value: 67
+
+_delete:
+  - USB_FS
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
