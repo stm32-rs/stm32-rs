@@ -189,3 +189,68 @@ RCC:
       _read:
         NotInterrupted: [0, "No clock ready interrupt caused by the LSI oscillator"]
         Interrupted: [1, "Clock ready interrupt caused by the LSI oscillator"]
+  APB2ENR:
+    DBGMCUEN:
+      Disabled: [0, "MCU debug module clock disabled"]
+      Enabled: [1, "MCU debug module enabled"]
+    TIM17EN:
+      Disabled: [0, "TIM17 timer clock disabled"]
+      Enabled: [1, "TIM17 timer clock enabled"]
+    TIM16EN:
+      Disabled: [0, "TIM16 timer clock disabled"]
+      Enabled: [1, "TIM16 timer clock enabled"]
+    TIM15EN:
+      Disabled: [0, "TIM15 timer clock disabled"]
+      Enabled: [1, "TIM15 timer clock enabled"]
+    USART1EN:
+      Disabled: [0, "USART1 clock disabled"]
+      Enabled: [1, "USART1 clock enabled"]
+    SPI1EN:
+      Disabled: [0, "SPI1 clock disabled"]
+      Enabled: [1, "SPI1 clock enabled"]
+    TIM1EN:
+      Disabled: [0, "TIM1 timer clock disabled"]
+      Enabled: [1, "TIM1 timer clock enabled"]
+    ADCEN:
+      Disabled: [0, "ADC interface disabled"]
+      Enabled: [1, "ADC interface enabled"]
+    SYSCFGEN:
+      Disabled: [0, "SYSCFG clock disabled"]
+      Enabled: [1, "SYSCFG clock enabled"]
+  APB1ENR:
+    PWREN:
+      Disabled: [0, "Power interface clock disabled"]
+      Enabled: [1, "Power interface clock enabled"]
+    I2C2EN:
+      Disabled: [0, "I2C2 clock disabled"]
+      Enabled: [1, "I2C2 clock enabled"]
+    I2C1EN:
+      Disabled: [0, "I2C1 clock disabled"]
+      Enabled: [1, "I2C1 clock enabled"]
+    USART4EN:
+      Disabled: [0, "USART4 clock disabled"]
+      Enabled: [1, "USART4 clock enabled"]
+    USART3EN:
+      Disabled: [0, "USART3 clock disabled"]
+      Enabled: [1, "USART3 clock enabled"]
+    USART2EN:
+      Disabled: [0, "USART2 clock disabled"]
+      Enabled: [1, "USART2 clock enabled"]
+    SPI2EN:
+      Disabled: [0, "SPI2 clock disabled"]
+      Enabled: [1, "SPI2 clock enabled"]
+    WWDGEN:
+      Disabled: [0, "Window watchdog clock disabled"]
+      Enabled: [1, "Window watchdog clock enabled"]
+    TIM14EN:
+      Disabled: [0, "TIM14EN clock disabled"]
+      Enabled: [1, "TIM14EN clock enabled"]
+    TIM7EN:
+      Disabled: [0, "TIM7EN clock disabled"]
+      Enabled: [1, "TIM7EN clock enabled"]
+    TIM6EN:
+      Disabled: [0, "TIM6EN clock disabled"]
+      Enabled: [1, "TIM6EN clock enabled"]
+    TIM3EN:
+      Disabled: [0, "TIM3EN clock disabled"]
+      Enabled: [1, "TIM3EN clock enabled"]
