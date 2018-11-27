@@ -3,6 +3,9 @@
 
 "TIM*":
   CR1:
+    _modify:
+      OMP:
+        name: OPM
     ARPE:
       Disabled: [0, "TIMx_APRR register is not buffered"]
       Enabled: [1, "TIMx_APRR register is buffered"]
@@ -36,3 +39,13 @@
     OPM:
       Disabled: [0, "Counter is not stopped at update event"]
       Enabled: [1, "Counter stops counting at the next update event (clearing the CEN bit)"]
+
+"TIM[1-58-9],TIM1?":
+  CCMR1_Input:
+    _modify:
+      ICPCS:
+        name: IC1PSC
+      IC1PCS:
+        name: IC1PSC
+      IC2PCS:
+        name: IC2PSC
