@@ -201,6 +201,13 @@ _add:
                 description: ADC global interrupt
                 value: 18
 
+# Reorder the heirarchy of peripherals with 'deriveFrom'.
+_rebase:
+    # The KEY peripheral steals everything but 'interrupt', 'name',
+    # and 'baseAddress' elements from the VALUE peripheral.
+    # Peripherals that were 'deriveFrom="VALUE"' are now 'deriveFrom="KEY"'.
+    I2C1: I2C3
+
 # An STM32 peripheral, matches an SVD <peripheral> tag.
 # Does not match any tag with derivedFrom attribute set.
 "GPIO*":
