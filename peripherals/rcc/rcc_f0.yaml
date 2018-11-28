@@ -189,6 +189,82 @@ RCC:
       _read:
         NotInterrupted: [0, "No clock ready interrupt caused by the LSI oscillator"]
         Interrupted: [1, "Clock ready interrupt caused by the LSI oscillator"]
+  APB2RSTR:
+    DBGMCURST:
+      Reset: [1, "Reset Debug MCU"]
+    TIM17RST:
+      Reset: [1, "Reset TIM17 timer"]
+    TIM16RST:
+      Reset: [1, "Reset TIM16 timer"]
+    TIM15RST:
+      Reset: [1, "Reset TIM15 timer"]
+    USART1RST:
+      Reset: [1, "Reset USART1"]
+    SPI1RST:
+      Reset: [1, "Reset SPI1"]
+    TIM1RST:
+      Reset: [1, "Reset TIM1 timer"]
+    ADCRST:
+      Reset: [1, "Reset ADC interface"]
+    SYSCFGRST:
+      Reset: [1, "Reset SYSCFG"]
+  APB1RSTR:
+    PWRRST:
+      Reset: [1, "Reset power interface"]
+    USBRST:
+      Reset: [1, "Reset USB interface"]
+    I2C2RST:
+      Reset: [1, "Reset I2C2"]
+    I2C1RST:
+      Reset: [1, "Reset I2C1"]
+    USART5RST:
+      Reset: [1, "Reset USART5"]
+    USART4RST:
+      Reset: [1, "Reset USART4"]
+    USART3RST:
+      Reset: [1, "Reset USART3"]
+    USART2RST:
+      Reset: [1, "Reset USART2"]
+    SPI2RST:
+      Reset: [1, "Reset SPI2"]
+    WWDGRST:
+      Reset: [1, "Reset window watchdog"]
+    TIM14RST:
+      Reset: [1, "Reset TIM14"]
+    TIM7RST:
+      Reset: [1, "Reset TIM7"]
+    TIM6RST:
+      Reset: [1, "Reset TIM6"]
+    TIM3RST:
+      Reset: [1, "Reset TIM3"]
+  AHBENR:
+    IOPFEN:
+      Disabled: [0, "I/O port F clock disabled"]
+      Enabled: [1, "I/O port F clock enabled"]
+    IOPDEN:
+      Disabled: [0, "I/O port D clock disabled"]
+      Enabled: [1, "I/O port D clock enabled"]
+    IOPCEN:
+      Disabled: [0, "I/O port C clock disabled"]
+      Enabled: [1, "I/O port C clock enabled"]
+    IOPBEN:
+      Disabled: [0, "I/O port B clock disabled"]
+      Enabled: [1, "I/O port B clock enabled"]
+    IOPAEN:
+      Disabled: [0, "I/O port A clock disabled"]
+      Enabled: [1, "I/O port A clock enabled"]
+    CRCEN:
+      Disabled: [0, "CRC clock disabled"]
+      Enabled: [1, "CRC clock enabled"]
+    FLITFEN:
+      Disabled: [0, "FLITF clock disabled during Sleep mode"]
+      Enabled: [1, "FLITF clock enabled during Sleep mode"]
+    SRAMEN:
+      Disabled: [0, "SRAM interface clock disabled during Sleep mode"]
+      Enabled: [1, "SRAM interface clock enabled during Sleep mode"]
+    DMAEN:
+      Disabled: [0, "DMA clock disabled"]
+      Enabled: [1, "DMA clock enabled"]
   APB2ENR:
     DBGMCUEN:
       Disabled: [0, "MCU debug module clock disabled"]
@@ -214,6 +290,9 @@ RCC:
     ADCEN:
       Disabled: [0, "ADC interface disabled"]
       Enabled: [1, "ADC interface enabled"]
+    USART6EN:
+      Disabled: [0, "USART6 clock disabled"]
+      Enabled: [1, "USART6 clock enabled"]
     SYSCFGEN:
       Disabled: [0, "SYSCFG clock disabled"]
       Enabled: [1, "SYSCFG clock enabled"]
@@ -230,6 +309,9 @@ RCC:
     I2C1EN:
       Disabled: [0, "I2C1 clock disabled"]
       Enabled: [1, "I2C1 clock enabled"]
+    USART5EN:
+      Disabled: [0, "USART5 clock disabled"]
+      Enabled: [1, "USART5 clock enabled"]
     USART4EN:
       Disabled: [0, "USART4 clock disabled"]
       Enabled: [1, "USART4 clock enabled"]
@@ -257,3 +339,14 @@ RCC:
     TIM3EN:
       Disabled: [0, "TIM3EN clock disabled"]
       Enabled: [1, "TIM3EN clock enabled"]
+  AHBRSTR:
+    IOPFRST:
+      Reset: [1, "Reset I/O port F"]
+    IOPDRST:
+      Reset: [1, "Reset I/O port D"]
+    IOPCRST:
+      Reset: [1, "Reset I/O port C"]
+    IOPBRST:
+      Reset: [1, "Reset I/O port B"]
+    IOPARST:
+      Reset: [1, "Reset I/O port A"]

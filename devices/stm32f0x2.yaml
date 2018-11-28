@@ -1,11 +1,35 @@
 _svd: ../svd/stm32f0x2.svd
 
 RCC:
+  APB2RSTR:
+    _add:
+      USART6RST:
+        description: "USART6 reset"
+        bitOffset: 5
+        bitWidth: 1
+  APB1RSTR:
+    _add:
+      USART5RST:
+        description: "USART5 reset"
+        bitOffset: 20
+        bitWidth: 1
+  AHBENR:
+    _add:
+      DMAEN:
+        description: "DMA clock enable"
+        bitOffset: 0
+        bitWidth: 1
   APB2ENR:
     _add:
       USART6EN:
         description: "USART6 clock enable"
         bitOffset: 5
+        bitWidth: 1
+  APB1ENR:
+    _add:
+      USART5EN:
+        description: "USART5 clock enable"
+        bitOffset: 20
         bitWidth: 1
 
 _include:
