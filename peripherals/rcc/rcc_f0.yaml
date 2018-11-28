@@ -218,6 +218,9 @@ RCC:
       Disabled: [0, "SYSCFG clock disabled"]
       Enabled: [1, "SYSCFG clock enabled"]
   APB1ENR:
+    _modify:
+      USBRST:
+        name: "USBEN"
     PWREN:
       Disabled: [0, "Power interface clock disabled"]
       Enabled: [1, "Power interface clock enabled"]
