@@ -249,11 +249,17 @@ def process_device_rebase(device, pnew, pold):
         raise SvdPatchError('peripheral {} not found'.format(pold))
     if new is None:
         raise SvdPatchError('peripheral {} not found'.format(pnew))
+    for value in new:
+        last = value
+    last.tail = "\n      "
     for (value) in list(old):
         if value.tag == 'name' or value.tag == 'baseAddress' or value.tag == 'interrupt':
             continue
         old.remove(value)
         new.append(value)
+    for value in old:
+        last = value
+    last.tail = "\n    "
     del new.attrib['derivedFrom']
     old.set('derivedFrom', pnew)
     for p in parent.findall('./peripheral[@derivedFrom=\'{}\']'.format(pold)):
