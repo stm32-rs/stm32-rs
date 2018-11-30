@@ -1,5 +1,9 @@
 _svd: ../svd/stm32f410.svd
 
+_rebase:
+  # Make I2C1 the base type
+  I2C1: I2C2
+
 "SPI*":
   SR:
     _modify:
