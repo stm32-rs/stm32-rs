@@ -1,5 +1,25 @@
 _svd: ../svd/stm32f0x8.svd
 
+RCC:
+  APB2RSTR:
+    _add:
+      USART6RST:
+        description: "USART6 reset"
+        bitOffset: 5
+        bitWidth: 1
+  AHBENR:
+    _add:
+      DMAEN:
+        description: "DMA clock enable"
+        bitOffset: 0
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      USART6EN:
+        description: "USART6 clock enable"
+        bitOffset: 5
+        bitWidth: 1
+
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml

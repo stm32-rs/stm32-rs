@@ -7,6 +7,14 @@ Flash:
       RAM_PARITY_CHECK:
         bitWidth: 1
 
+RCC:
+  AHBENR:
+    _add:
+      DMAEN:
+        description: "DMA clock enable"
+        bitOffset: 0
+        bitWidth: 1
+
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
