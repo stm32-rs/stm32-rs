@@ -12,6 +12,22 @@ _svd: ../svd/stm32l4x5.svd
     _merge:
       - "FB*"
 
+# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
+# SVD does not include APB1ENR1 bit 10, RTCAPBEN
+RCC:
+  APB1ENR1:
+    _modify:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+    _add:
+      RTCAPBEN:
+        description: Enables the real time clock (RTC) peripheral
+        bitOffset: 10
+        bitWidth: 1
+        access: read-write
+
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
