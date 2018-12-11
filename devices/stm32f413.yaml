@@ -30,6 +30,39 @@ CRC:
     _merge:
       - "FB*"
 
+# Add missing RCC reset/enable bits
+RCC:
+  APB2RSTR:
+    _add:
+      UART9RST:
+        description: UART9 reset
+        bitOffset: 6
+        bitWidth: 1
+      UART10RST:
+        description: UART10 reset
+        bitOffset: 7
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      UART9EN:
+        description: UART9 clock enable
+        bitOffset: 6
+        bitWidth: 1
+      UART10EN:
+        description: UART10 clock enable
+        bitOffset: 7
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      UART9LPEN:
+        description: UART9 clock enable during Sleep mode
+        bitOffset: 6
+        bitWidth: 1
+      UART10LPEN:
+        description: UART10 clock enable during Sleep mode
+        bitOffset: 7
+        bitWidth: 1
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
