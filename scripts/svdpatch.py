@@ -373,7 +373,7 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
             if 'name' in rmod:
                 name = rmod['name']
             else:
-                name = rspec[:li]+"%s"+rspec[ri:]
+                name = rspec[:li]+"%s"+rspec[len(rspec)-ri:]
             rtag.find('name').text = name
             process_peripheral_register(ptag, name, rmod)
             ET.SubElement(rtag, 'dim').text = str(dim)
