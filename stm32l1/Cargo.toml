@@ -10,13 +10,13 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "0.2.3"
+bare-metal = "0.2.4"
 vcell = "0.1.0"
-cortex-m = "0.5.7"
+cortex-m = "0.5.8"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.4"
+version = "0.6.6"
 
 [package.metadata.docs.rs]
 features = ['rt', 'stm32l100', 'stm32l151', 'stm32l162']
