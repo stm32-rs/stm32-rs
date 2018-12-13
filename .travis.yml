@@ -10,7 +10,7 @@ addons:
 
 install:
   - cargo install svd2rust
-  - rustup component add rustfmt-preview
+  - rustup component add rustfmt
 
 # disabling incremental build gives a nice speedup for check...
 script:
