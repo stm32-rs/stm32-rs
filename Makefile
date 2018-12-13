@@ -40,7 +40,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -i ../../../$$<
 	rustfmt $$(@D)/lib.rs
-	sed "1,6d;10d;s/crate::Interrupt/crate::$$(<F:.svd.patched=)::Interrupt/" $$(@D)/lib.rs > $$@
+	sed "1,10d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
@@ -51,7 +51,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/$$* --features $$*
+	cd $(1) && cargo check --target-dir ../target/check/$$* --features rt,$$*
 	touch $$@
 
 endef

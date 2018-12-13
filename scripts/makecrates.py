@@ -16,7 +16,7 @@ import os.path
 import yaml
 
 VERSION = "0.4.0"
-SVD2RUST_VERSION = "0.13.1"
+SVD2RUST_VERSION = "0.14.0"
 
 CRATE_DOC_FEATURES = {
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
@@ -45,13 +45,13 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "0.2.3"
+bare-metal = "0.2.4"
 vcell = "0.1.0"
-cortex-m = "0.5.7"
+cortex-m = "0.5.8"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.4"
+version = "0.6.6"
 
 [package.metadata.docs.rs]
 features = {docs_features}
