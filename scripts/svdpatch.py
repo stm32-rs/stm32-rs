@@ -330,6 +330,7 @@ def process_register_delete(rtag, fspec):
         rtag.find('fields').remove(ftag)
 
 def spec_ind(spec):
+    """Find left and right indexes of enumeration token in specification string"""
     li1 = spec.find("*")
     li2 = spec.find("?")
     li3 = spec.find("[")
@@ -354,38 +355,36 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
     li, ri = spec_ind(rspec)
     for rtag in list(iter_registers(ptag, rspec)):
         rname = rtag.findtext('name')
-        registers.append([rname, rtag, rname[li:len(rname)-ri], int(rtag.findtext('addressOffset'), 0)])
+        registers.append([rtag, rname[li:len(rname)-ri], int(rtag.findtext('addressOffset'), 0)])
     dim = len(registers)
-    if dim > 0:
-        registers = sorted(registers, key=lambda r: r[3])
-        regarray = registers[0]
+    if dim == 0:
+        raise SvdPatchError("{}: registers {} not found"
+                .format(ptag.findtext('name'), rspec))
+    else:
+        registers = sorted(registers, key=lambda r: r[2])
 
-        dimIndex = ",".join([r[2] for r in registers])
-        offsets = [r[3] for r in registers]
+        dimIndex = ",".join([r[1] for r in registers])
+        offsets = [r[2] for r in registers]
         dimIncrement = 0
         if dim > 1:
             dimIncrement = offsets[1]-offsets[0]
 
-        if check_offsets(offsets, dimIncrement):
-            for _, rtag, _, _ in registers[1:]:
+        if not check_offsets(offsets, dimIncrement):
+            raise SvdPatchError("{}: registers cannot be collected into {} array"
+                    .format(ptag.findtext('name'), rspec))
+        else:
+            for rtag, _, _ in registers[1:]:
                 ptag.find('registers').remove(rtag)
-            rtag = registers[0][1]
+            rtag = registers[0][0]
             if 'name' in rmod:
                 name = rmod['name']
             else:
-                name = rspec[:li]+"%s"+rspec[ri:]
+                name = rspec[:li]+"%s"+rspec[len(rspec)-ri:]
             rtag.find('name').text = name
             process_peripheral_register(ptag, name, rmod)
             ET.SubElement(rtag, 'dim').text = str(dim)
             ET.SubElement(rtag, 'dimIndex').text = dimIndex
             ET.SubElement(rtag, 'dimIncrement').text = str(dimIncrement)
-        else:
-            raise SvdPatchError("{}: registers cannot be collected into {} array"
-                    .format(ptag.findtext('name'), rspec))
-    else:
-        raise SvdPatchError("{}: registers {} not found"
-                .format(ptag.findtext('name'), rspec))
-
 
 class SvdPatchError(ValueError):
     pass
@@ -543,10 +542,6 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
     pcount = 0
     for ptag in iter_peripherals(svd, pspec):
         pcount += 1
-        # Handle register arrays
-        for rspec in peripheral.get("_array", {}):
-            rmod = peripheral["_array"][rspec]
-            process_peripheral_regs_array(ptag, rspec, rmod)
         # Handle deletions
         for rspec in peripheral.get("_delete", []):
             process_peripheral_delete(ptag, rspec)
@@ -571,6 +566,10 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
                 register = peripheral[rspec]
                 process_peripheral_register(ptag, rspec, register,
                                             update_fields)
+        # Handle register arrays
+        for rspec in peripheral.get("_array", {}):
+            rmod = peripheral["_array"][rspec]
+            process_peripheral_regs_array(ptag, rspec, rmod)
     if pcount == 0:
         raise MissingPeripheralError("Could not find {}".format(pspec))
 
