@@ -261,6 +261,23 @@ _rebase:
     _delete:
         - GPIO*_EXTRAR
 
+    # You can collect several same registers into one register array
+    # that will be represented with svd2rust as array or elements
+    # with one type
+    # Minimal version:
+    _array:
+        ARRAY*: {}
+
+    # You can also use the modifiers shown below:
+    _array:
+        ARRAY*:
+            name: NEW_NAME%s
+            _modify:
+                FIELD: [MINIMUM, MAXIMUM]
+                FIELD:
+                  description: NEWDESC
+        OTHER_ARRAY*: {}
+
     # A register on this peripheral, matches an SVD <register> tag
     MODER:
         # As in the peripheral scope, rename or redescribe a field.
