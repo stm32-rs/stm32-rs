@@ -1,0 +1,11 @@
+BKP:
+  _array:
+    "DR[1-9],DR1[0]":
+      _modify:
+        D1:
+          name: D
+    "DR[1][1-9],DR[234][0-9]":
+      name: BKP_DR%s
+      _modify:
+        DR11:
+          name: D

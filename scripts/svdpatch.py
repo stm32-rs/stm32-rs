@@ -360,31 +360,29 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
     if dim == 0:
         raise SvdPatchError("{}: registers {} not found"
                 .format(ptag.findtext('name'), rspec))
+    registers = sorted(registers, key=lambda r: r[2])
+
+    dimIndex = ",".join([r[1] for r in registers])
+    offsets = [r[2] for r in registers]
+    dimIncrement = 0
+    if dim > 1:
+        dimIncrement = offsets[1]-offsets[0]
+
+    if not check_offsets(offsets, dimIncrement):
+        raise SvdPatchError("{}: registers cannot be collected into {} array"
+                .format(ptag.findtext('name'), rspec))
+    for rtag, _, _ in registers[1:]:
+        ptag.find('registers').remove(rtag)
+    rtag = registers[0][0]
+    if 'name' in rmod:
+        name = rmod['name']
     else:
-        registers = sorted(registers, key=lambda r: r[2])
-
-        dimIndex = ",".join([r[1] for r in registers])
-        offsets = [r[2] for r in registers]
-        dimIncrement = 0
-        if dim > 1:
-            dimIncrement = offsets[1]-offsets[0]
-
-        if not check_offsets(offsets, dimIncrement):
-            raise SvdPatchError("{}: registers cannot be collected into {} array"
-                    .format(ptag.findtext('name'), rspec))
-        else:
-            for rtag, _, _ in registers[1:]:
-                ptag.find('registers').remove(rtag)
-            rtag = registers[0][0]
-            if 'name' in rmod:
-                name = rmod['name']
-            else:
-                name = rspec[:li]+"%s"+rspec[len(rspec)-ri:]
-            rtag.find('name').text = name
-            process_peripheral_register(ptag, name, rmod)
-            ET.SubElement(rtag, 'dim').text = str(dim)
-            ET.SubElement(rtag, 'dimIndex').text = dimIndex
-            ET.SubElement(rtag, 'dimIncrement').text = str(dimIncrement)
+        name = rspec[:li]+"%s"+rspec[len(rspec)-ri:]
+    rtag.find('name').text = name
+    process_peripheral_register(ptag, name, rmod)
+    ET.SubElement(rtag, 'dim').text = str(dim)
+    ET.SubElement(rtag, 'dimIndex').text = dimIndex
+    ET.SubElement(rtag, 'dimIncrement').text = str(dimIncrement)
 
 class SvdPatchError(ValueError):
     pass
