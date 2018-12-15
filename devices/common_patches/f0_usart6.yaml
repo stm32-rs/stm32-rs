@@ -1,0 +1,13 @@
+RCC:
+  APB2RSTR:
+    _add:
+      USART6RST:
+        description: "USART6 reset"
+        bitOffset: 5
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      USART6EN:
+        description: "USART6 clock enable"
+        bitOffset: 5
+        bitWidth: 1
