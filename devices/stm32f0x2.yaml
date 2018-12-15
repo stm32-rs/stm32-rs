@@ -13,12 +13,6 @@ RCC:
         description: "USART5 reset"
         bitOffset: 20
         bitWidth: 1
-  AHBENR:
-    _add:
-      DMAEN:
-        description: "DMA clock enable"
-        bitOffset: 0
-        bitWidth: 1
   APB2ENR:
     _add:
       USART6EN:
