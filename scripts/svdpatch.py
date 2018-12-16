@@ -382,7 +382,78 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
     process_peripheral_register(ptag, name, rmod)
     ET.SubElement(rtag, 'dim').text = str(dim)
     ET.SubElement(rtag, 'dimIndex').text = dimIndex
-    ET.SubElement(rtag, 'dimIncrement').text = str(dimIncrement)
+    ET.SubElement(rtag, 'dimIncrement').text = hex(dimIncrement)
+
+
+def process_peripheral_cluster(ptag, cname, cmod):
+    import copy
+    """Collect registers in peripheral into cluster."""
+    rdict = {}
+    first = True
+    check = True
+    rspecs = [r for r in cmod if r not in ['description']]
+    for rspec in rspecs:
+        registers = []
+        li, ri = spec_ind(rspec)
+        for rtag in list(iter_registers(ptag, rspec)):
+            rname = rtag.findtext('name')
+            registers.append([rtag, rname[li:len(rname)-ri], int(rtag.findtext('addressOffset'), 0)])
+        registers = sorted(registers, key=lambda r: r[2])
+        rdict[rspec] = registers
+        if first:
+            dim = len(registers)
+            if dim == 0:
+                check = False
+                break
+            dimIndex = ",".join([r[1] for r in registers])
+            offsets = [r[2] for r in registers]
+            dimIncrement = 0
+            if dim > 1:
+                dimIncrement = offsets[1]-offsets[0]
+            if not check_offsets(offsets, dimIncrement):
+                check = False
+                break
+        else:
+            if ((dim != len(registers)) or
+                (dimIndex != ",".join([r[1] for r in registers])) or
+                (not check_offsets(offsets, dimIncrement))
+            ):
+                check = False
+                break
+        first = False
+    if not check:
+        raise SvdPatchError("{}: registers cannot be collected into {} cluster"
+                .format(ptag.findtext('name'), cname))
+    ctag = ET.SubElement(ptag.find('registers'), 'cluster')
+    addressOffset = min([registers[0][2] for _, registers in  rdict.items()])
+    ET.SubElement(ctag, 'name').text = cname
+    if 'description' in cmod:
+        description = cmod['description']
+    else:
+        description = "Cluster {}, that contains {} registers".format(cname, ", ".join(rspecs))
+    ET.SubElement(ctag, 'description').text = description
+    ET.SubElement(ctag, 'addressOffset').text = hex(addressOffset)
+    for rspec, registers in rdict.items():
+        for rtag, _, _ in registers[1:]:
+            ptag.find('registers').remove(rtag)
+        rtag = registers[0][0]
+        rmod = cmod[rspec]
+        process_peripheral_register(ptag, rspec, rmod)
+        new_rtag = copy.deepcopy(rtag)
+        ptag.find('registers').remove(rtag)
+        if 'name' in rmod:
+            name = rmod['name']
+        else:
+            li, ri = spec_ind(rspec)
+            name = rspec[:li]+rspec[len(rspec)-ri:]
+        new_rtag.find('name').text = name
+        offset = new_rtag.find('addressOffset')
+        offset.text = hex(int(offset.text, 0)-addressOffset)
+        ctag.append(new_rtag)
+    ET.SubElement(ctag, 'dim').text = str(dim)
+    ET.SubElement(ctag, 'dimIndex').text = dimIndex
+    ET.SubElement(ctag, 'dimIncrement').text = hex(dimIncrement)
+
 
 class SvdPatchError(ValueError):
     pass
@@ -568,6 +639,9 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
         for rspec in peripheral.get("_array", {}):
             rmod = peripheral["_array"][rspec]
             process_peripheral_regs_array(ptag, rspec, rmod)
+        for cname in peripheral.get("_cluster", {}):
+            cmod = peripheral["_cluster"][cname]
+            process_peripheral_cluster(ptag, cname, cmod)
     if pcount == 0:
         raise MissingPeripheralError("Could not find {}".format(pspec))
 

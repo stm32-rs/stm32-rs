@@ -278,6 +278,13 @@ _rebase:
                   description: NEWDESC
         OTHER_ARRAY*: {}
 
+    # If you have registers that make up a group and can be repeated,
+    # you can collect them into cluster like this:
+    _cluster:
+        CLUSTER%s:
+            FIRST_REG: {}
+            SECOND_REG: {}
+
     # A register on this peripheral, matches an SVD <register> tag
     MODER:
         # As in the peripheral scope, rename or redescribe a field.
