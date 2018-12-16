@@ -5,6 +5,7 @@ Copyright 2017 Adam Greig.
 Licensed under the MIT and Apache 2.0 licenses. See LICENSE files for details.
 """
 
+import copy
 import yaml
 import os.path
 import argparse
@@ -241,7 +242,10 @@ def process_device_add(device, pname, padd):
 
 
 def process_device_rebase(device, pnew, pold):
-    """Move registers from pold to pnew. Update all derivedFrom referencing pold"""
+    """
+    Move registers from pold to pnew.
+    Update all derivedFrom referencing pold.
+    """
     parent = device.find('peripherals')
     old = parent.find('./peripheral[name=\'{}\']'.format(pold))
     new = parent.find('./peripheral[name=\'{}\']'.format(pnew))
@@ -253,7 +257,7 @@ def process_device_rebase(device, pnew, pold):
         last = value
     last.tail = "\n      "
     for (value) in list(old):
-        if value.tag == 'name' or value.tag == 'baseAddress' or value.tag == 'interrupt':
+        if value.tag in ('name', 'baseAddress', 'interrupt'):
             continue
         old.remove(value)
         new.append(value)
@@ -329,25 +333,30 @@ def process_register_delete(rtag, fspec):
     for ftag in list(iter_fields(rtag, fspec)):
         rtag.find('fields').remove(ftag)
 
+
 def spec_ind(spec):
-    """Find left and right indexes of enumeration token in specification string"""
+    """
+    Find left and right indices of enumeration token in specification string.
+    """
     li1 = spec.find("*")
     li2 = spec.find("?")
     li3 = spec.find("[")
-    li = li1 if li1>-1 else (li2 if li2>-1 else (li3 if li3>-1 else None))
+    li = li1 if li1 > -1 else li2 if li2 > -1 else li3 if li3 > -1 else None
     ri1 = spec[::-1].find("*")
     ri2 = spec[::-1].find("?")
     ri3 = spec[::-1].find("]")
-    ri = ri1 if ri1>-1 else (ri2 if ri2>-1 else (ri3 if ri3>-1 else None))
+    ri = ri1 if ri1 > -1 else ri2 if ri2 > -1 else ri3 if ri3 > -1 else None
     return li, ri
+
 
 def check_offsets(offsets, dimIncrement):
     res = True
-    for o1, o2 in zip(offsets[:-1],offsets[1:]):
+    for o1, o2 in zip(offsets[:-1], offsets[1:]):
         if o2-o1 != dimIncrement:
             res = False
-            break;
+            break
     return res
+
 
 def process_peripheral_regs_array(ptag, rspec, rmod):
     """Collect same registers in peripheral into register array."""
@@ -355,11 +364,12 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
     li, ri = spec_ind(rspec)
     for rtag in list(iter_registers(ptag, rspec)):
         rname = rtag.findtext('name')
-        registers.append([rtag, rname[li:len(rname)-ri], int(rtag.findtext('addressOffset'), 0)])
+        registers.append([rtag, rname[li:len(rname)-ri],
+                          int(rtag.findtext('addressOffset'), 0)])
     dim = len(registers)
     if dim == 0:
         raise SvdPatchError("{}: registers {} not found"
-                .format(ptag.findtext('name'), rspec))
+                            .format(ptag.findtext('name'), rspec))
     registers = sorted(registers, key=lambda r: r[2])
 
     dimIndex = ",".join([r[1] for r in registers])
@@ -370,7 +380,7 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
 
     if not check_offsets(offsets, dimIncrement):
         raise SvdPatchError("{}: registers cannot be collected into {} array"
-                .format(ptag.findtext('name'), rspec))
+                            .format(ptag.findtext('name'), rspec))
     for rtag, _, _ in registers[1:]:
         ptag.find('registers').remove(rtag)
     rtag = registers[0][0]
@@ -386,18 +396,18 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
 
 
 def process_peripheral_cluster(ptag, cname, cmod):
-    import copy
-    """Collect registers in peripheral into cluster."""
+    """Collect registers in peripheral into clusters."""
     rdict = {}
     first = True
     check = True
-    rspecs = [r for r in cmod if r not in ['description']]
+    rspecs = [r for r in cmod if r != "description"]
     for rspec in rspecs:
         registers = []
         li, ri = spec_ind(rspec)
         for rtag in list(iter_registers(ptag, rspec)):
             rname = rtag.findtext('name')
-            registers.append([rtag, rname[li:len(rname)-ri], int(rtag.findtext('addressOffset'), 0)])
+            registers.append([rtag, rname[li:len(rname)-ri],
+                              int(rtag.findtext('addressOffset'), 0)])
         registers = sorted(registers, key=lambda r: r[2])
         rdict[rspec] = registers
         if first:
@@ -414,23 +424,25 @@ def process_peripheral_cluster(ptag, cname, cmod):
                 check = False
                 break
         else:
-            if ((dim != len(registers)) or
-                (dimIndex != ",".join([r[1] for r in registers])) or
-                (not check_offsets(offsets, dimIncrement))
-            ):
+            if (
+                    (dim != len(registers)) or
+                    (dimIndex != ",".join([r[1] for r in registers])) or
+                    (not check_offsets(offsets, dimIncrement))
+               ):
                 check = False
                 break
         first = False
     if not check:
         raise SvdPatchError("{}: registers cannot be collected into {} cluster"
-                .format(ptag.findtext('name'), cname))
+                            .format(ptag.findtext('name'), cname))
     ctag = ET.SubElement(ptag.find('registers'), 'cluster')
-    addressOffset = min([registers[0][2] for _, registers in  rdict.items()])
+    addressOffset = min([registers[0][2] for _, registers in rdict.items()])
     ET.SubElement(ctag, 'name').text = cname
     if 'description' in cmod:
         description = cmod['description']
     else:
-        description = "Cluster {}, that contains {} registers".format(cname, ", ".join(rspecs))
+        description = ("Cluster {}, containing {}"
+                       .format(cname, ", ".join(rspecs)))
     ET.SubElement(ctag, 'description').text = description
     ET.SubElement(ctag, 'addressOffset').text = hex(addressOffset)
     for rspec, registers in rdict.items():
