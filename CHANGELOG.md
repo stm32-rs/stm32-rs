@@ -1,5 +1,22 @@
 # Changelog
 
+## v 0.5.0 2018-12-16
+* Now built on stable Rust
+* Updated to svd2rust 0.14.0 (#108)
+* Added patch support for rebasing peripherals (#98)
+* Added patch support for arrays (#107)
+* Added patch support for clusters (#112)
+
+### Breaking Changes
+* F0: Various fixes to RCC (#99, #114)
+* F103: A few USB updates (#111)
+* F103: Define a number of arrays and clusters (#112)
+* F4: Various fixes to RCC (#95, #102)
+* F4: Corrected UART Stop2 value (#103)
+* L4: Various fixes to RCC (#101)
+* L4: Fix USBFSEN (#92), other USB changes (#94)
+* TIM: Various fixes (#96)
+
 ## v 0.4.0 2018-11-13
 * F7: Ethernet peripheral updates
 * F0: ADC CFGR2 JITOFF_D* renamed CKMODE (#77)

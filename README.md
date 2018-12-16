@@ -351,7 +351,7 @@ You must quote the name if using any special characters in YAML.
 
 ```
 $ make -j16 form
-$ make -j16 check
+$ env CARGO_INCREMENTAL=0 make -j12 check
 $ vi scripts/makecrates.py # update version number
 $ python3 scripts/makecrates.py devices/
 $ vi CHANGELOG.md # add changelog entry
@@ -361,7 +361,7 @@ $ git push origin master
 $ git tag -a 'vX.X.X' -m 'vX.X.X'
 $ git push origin vX.X.X
 $ git push origin master
-$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4; cd $f; pwd; carg o publish --allow-dirty; cd ..; end
+$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
 ```
 
 ## License

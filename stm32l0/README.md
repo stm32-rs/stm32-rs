@@ -12,7 +12,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 
 ```toml
 [dependencies.stm32l0]
-version = "0.4.0"
+version = "0.5.0"
 features = ["stm32l0x1", "rt"]
 ```
 
