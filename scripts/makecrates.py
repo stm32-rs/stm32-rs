@@ -51,7 +51,7 @@ cortex-m = "0.5.8"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.6"
+version = "0.6.7"
 
 [package.metadata.docs.rs]
 features = {docs_features}
