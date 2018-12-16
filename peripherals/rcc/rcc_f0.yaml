@@ -238,11 +238,6 @@ RCC:
     TIM3RST:
       Reset: [1, "Reset TIM3"]
   AHBENR:
-    _add:
-      DMAEN:
-        description: "DMA clock enable"
-        bitOffset: 0
-        bitWidth: 1
     IOPFEN:
       Disabled: [0, "I/O port F clock disabled"]
       Enabled: [1, "I/O port F clock enabled"]
