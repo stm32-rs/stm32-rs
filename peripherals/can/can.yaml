@@ -1,0 +1,35 @@
+CAN1:
+  _cluster:
+    "TX%s":
+      "CAN_TI?R":
+        name: TIR
+      "CAN_TDT?R":
+        name: TDTR
+      "CAN_TDL?R":
+        name: TDLR
+      "CAN_TDH?R":
+        name: TDHR
+    "RX%s":
+      "CAN_RI?R":
+        name: TIR
+      "CAN_RDT?R":
+        name: TDTR
+      "CAN_RDL?R":
+        name: TDLR
+      "CAN_RDH?R":
+        name: TDHR
+    "FILTER%s":
+      "F*R1": {}
+      "F*R2": {}
+  _array:
+    "CAN_RF?R":
+      name: RF%sR
+      _modify:
+        RFOM0:
+          name: RFOM
+        FOVR0:
+          name: FOVR
+        FULL0:
+          name: FULL
+        FMP0:
+          name: FMP

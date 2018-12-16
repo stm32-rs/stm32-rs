@@ -1,5 +1,8 @@
 # ADC as used on F4 and F7
 
+_include:
+  - "adc_array.yaml"
+
 "ADC?":
   SR:
     OVR:
@@ -129,8 +132,6 @@
       Cycles112: [5, "112 cycles"]
       Cycles144: [6, "144 cycles"]
       Cycles480: [7, "480 cycles"]
-  "JOFR?":
-    "JOFFSET?": [0, 4095]
   HTR:
     HT: [0, 4095]
   LTR:
