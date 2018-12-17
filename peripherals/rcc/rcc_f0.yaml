@@ -403,6 +403,21 @@ RCC:
       Div_14: [13, "PREDIV input clock divided by 14"]
       Div_15: [14, "PREDIV input clock divided by 15"]
       Div_16: [15, "PREDIV input clock divided by 16"]
+  CFGR3:
+    "USART*SW":
+      PCLK: [0, "PCLK selected as USART clock source"]
+      SYSCLK: [1, "SYSCLK selected as USART clock source"]
+      LSE: [2, "LSE selected as USART clock source"]
+      HSI: [3, "HSI selected as USART clock source"]
+    USBSW:
+      HSI48: [0, "HSI48 selected as USB clock source"]
+      PLLCLK: [1, "PLL clock selected as USB clock source"]
+    CECSW:
+      HSI_Div_244: [0, "HSI clock divided by 244 selected as CEC clock source"]
+      LSE: [1, "LSE clock selected as CEC clock source"]
+    I2C1SW:
+      HSI: [0, "HSI clock selected as I2C1 clock source"]
+      SYSCLK: [1, "SYSCLK clock selected as I2C1 clock source"]
   CR2:
     HSI48CAL: [0, 255]
     HSI48RDY:
