@@ -106,3 +106,16 @@
       Half: [1, "1/2 full FIFO"]
       ThreeQuarters: [2, "3/4 full FIFO"]
       Full: [3, "Full FIFO"]
+  _cluster:
+    "ST%s":
+      description: "Stream cluster: S?CR, S?NDTR, S?M0AR, S?M1AR and S?FCR registers"
+      "S?CR":
+        name: CR
+      "S?NDTR":
+        name: NDTR
+      "S?M0AR":
+        name: M0AR
+      "S?M1AR":
+        name: M1AR
+      "S?FCR":
+        name: FCR
