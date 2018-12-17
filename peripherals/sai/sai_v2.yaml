@@ -1,0 +1,37 @@
+SAI1:
+  _modify:
+    SAI_ACR1:
+      name: ACR1
+    SAI_ACR2:
+      name: ACR2
+    SAI_AFRCR:
+      name: AFRCR
+    SAI_ASLOTR:
+      name: ASLOTR
+    SAI_AIM:
+      name: AIM
+    SAI_ASR:
+      name: ASR
+    SAI_ACLRFR:
+      name: ACLRFR
+    SAI_ADR:
+      name: ADR
+    SAI_BCR1:
+      name: BCR1
+    SAI_BCR2:
+      name: BCR2
+    SAI_BFRCR:
+      name: BFRCR
+    SAI_BSLOTR:
+      name: BSLOTR
+    SAI_BIM:
+      name: BIM
+    SAI_BSR:
+      name: BSR
+    SAI_BCLRFR:
+      name: BCLRFR
+    SAI_BDR:
+      name: BDR
+
+_include:
+  - ./sai_v1.yaml
