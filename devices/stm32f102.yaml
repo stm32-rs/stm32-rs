@@ -20,6 +20,9 @@ WWDG:
         name: EWIF
 _include:
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - ../peripherals/can/can_remove_prefix.yaml
+ - ../peripherals/can/can.yaml
+ - ../peripherals/can/can_filter_bank.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml

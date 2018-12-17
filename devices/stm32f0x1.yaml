@@ -16,6 +16,9 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR1_M0_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ../peripherals/can/can_remove_prefix.yaml
+ - ../peripherals/can/can.yaml
+ - ../peripherals/can/can_filter_bank.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml

@@ -12,6 +12,13 @@ _svd: ../svd/stm32f217.svd
     _merge:
       - "FB*"
 
+"CAN2":
+  _cluster:
+    "FB%s":
+      description: "CAN Filter Bank cluster"
+      "F*R1": {}
+      "F*R2": {}
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -25,6 +32,7 @@ CRYP:
 _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - ../peripherals/can/can.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
