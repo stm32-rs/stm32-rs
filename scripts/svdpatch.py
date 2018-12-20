@@ -361,7 +361,7 @@ def get_bitmask(rtag):
     for ftag in iter_fields(rtag, "*"):
         foffset = int(ftag.findtext("bitOffset"), 0)
         fwidth = int(ftag.findtext("bitWidth"), 0)
-        mask |= (0xffff_ffff >> (32-fwidth)) << foffset
+        mask |= (0xffffffff >> (32-fwidth)) << foffset
     return mask
 
 def check_bitmasks(masks, mask):
