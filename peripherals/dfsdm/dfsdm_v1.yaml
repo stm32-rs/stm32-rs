@@ -1,4 +1,18 @@
 "DFSDM,DFSDM[12]":
+  CH[1234567]CFGR1:
+    _add:
+      DFSDMEN:
+        description: DFSDMEN
+        bitOffset: 31
+        bitWidth: 1
+      CKOUTSRC:
+        description: CKOUTSRC
+        bitOffset: 30
+        bitWidth: 1
+      CKOUTDIV:
+        description: CKOUTDIV
+        bitOffset: 16
+        bitWidth: 8
   _cluster:
     "CH%s":
       description: "DFSDM Channel cluster: contains CH?CFGR1, CH?CFGR2, CH?AWSCDR, CH?WDATR and CH?DATINR registers"
