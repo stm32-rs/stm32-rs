@@ -47,7 +47,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
 	rm $$<
 	mv $$(@D)/lib.rs $$<
-	find $$(@D) -name "*.rs" -exec rustfmt {} +
+	rustfmt $$<
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
