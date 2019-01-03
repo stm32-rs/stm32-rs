@@ -1,5 +1,8 @@
 # Applicable at least to STM32F4 and STM32F7.
 
+_include:
+  - ./rcc_common.yaml
+
 RCC:
   PLLCFGR:
     _merge: ["PLLM*", "PLLN*", "PLLP*", "PLLQ*"]
@@ -32,60 +35,7 @@ RCC:
       HSE: [2, "HSE oscillator clock selected"]
       PLL: [3, "PLL clock selected"]
     RTCPRE: [0, 31]
-    "PPRE[12]":
-      DIV1: [0, "AHB clock not divided"]
-      DIV2: [4, "AHB clock divided by 2"]
-      DIV4: [5, "AHB clock divided by 4"]
-      DIV8: [6, "AHB clock divided by 8"]
-      DIV16: [7, "AHB clock divided by 16"]
-    HPRE:
-      DIV1: [0, "system clock not divided"]
-      DIV2: [8, "system clock divided by 2"]
-      DIV4: [9, "system clock divided by 4"]
-      DIV8: [10, "system clock divided by 8"]
-      DIV16: [11, "system clock divided by 16"]
-      DIV64: [12, "system clock divided by 64"]
-      DIV128: [13, "system clock divided by 128"]
-      DIV256: [14, "system clock divided by 256"]
-      DIV512: [15, "system clock divided by 512"]
-    SWS:
-      _read:
-        HSI: [0, "HSI oscillator used as the system clock"]
-        HSE: [1, "HSE oscillator used as the system clock"]
-        PLL: [2, "PLL used as the system clock"]
-    SW:
-      HSI: [0, "HSI oscillator selected as system clock"]
-      HSE: [1, "HSE oscillator selected as system clock"]
-      PLL: [2, "PLL selected as system clock"]
-  "A?B?RSTR":
-    "*RST":
-      Reset: [1, "Reset the selected module"]
-  "A?B?ENR":
-    "*EN":
-      Disabled: [0, "The selected clock is disabled"]
-      Enabled: [1, "The selected clock is enabled"]
   "A?B?LPENR":
     "*LPEN":
       DisabledInSleep: [0, "Selected module is disabled during Sleep mode"]
       EnabledInSleep: [1, "Selected module is enabled during Sleep mode"]
-  BDCR:
-    BDRST:
-      Reset: [1, "Resets the entire Backup domain"]
-    RTCEN:
-      Disabled: [0, "RTC clock disabled"]
-      Enabled: [1, "RTC clock enabled"]
-    RTCSEL:
-      NoClock: [0, "No clock"]
-      LSE: [1, "LSE oscillator clock used as the RTC clock"]
-      LSI: [2, "LSI oscillator clock used as the RTC clock"]
-      HSE: [3, "HSE oscillator clock divided by a programmable prescaler used as the RTC clock"]
-    LSEBYP:
-      NotBypassed: [0, "LSE oscillator not bypassed"]
-      Bypassed: [1, "LSE oscillator bypassed"]
-    LSERDY:
-      _read:
-        NotReady: [0, "LSE clock not ready"]
-        Ready: [1, "LSE clock ready"]
-    LSEON:
-      Disabled: [0, "LSE clock OFF"]
-      Enabled: [1, "LSE clock ON"]
