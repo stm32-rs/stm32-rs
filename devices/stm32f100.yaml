@@ -7,6 +7,7 @@ WWDG:
       EWI:
         name: EWIF
 _include:
+ - ./common_patches/f1_uart45.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
