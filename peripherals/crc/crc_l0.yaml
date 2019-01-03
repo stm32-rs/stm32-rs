@@ -1,0 +1,27 @@
+# CRC for L0
+
+_include:
+  - "crc_basic.yaml"
+
+CRC:
+  CR:
+    REV_OUT:
+      Forward: [0, "Bit order not affected"]
+      Reverse: [1, "Bit-reversed output format"]
+    REV_IN:
+      Forward: [0, "Bit order not affected"]
+      ReverseByte: [1, "Bit reversal done by byte"]
+      ReverseHalfWord: [2, "Bit reversal done by half-word"]
+      ReverseWord: [3, "Bit reversal done by word"]
+    POLYSIZE:
+      Polysize32: [0, "32 bit polynomial"]
+      Polysize16: [1, "16 bit polynomial"]
+      Polysize8: [2, "8 bit polynomial"]
+      Polysize7: [3, "7 bit polynomial"]
+    RESET:
+      NoReset: [0, "No Reset"]
+      Reset: [1, "Reset CRC calculation"]
+  INIT:
+    CRC_INIT: [0, 0xFFFFFFFF]
+  POL:
+    POL: [0, 0xFFFFFFFF]
