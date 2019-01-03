@@ -1,5 +1,116 @@
 _svd: ../svd/stm32l0x1.svd
 
+ADC:
+  CFGR1:
+    _modify:
+      AUTDLY:
+        name: WAIT
+  SMPR:
+    _modify:
+      SMPR:
+        name: SMP
+
+AES:
+  DINR:
+    _modify:
+      AES_DINR:
+        name: DIN
+  DOUTR:
+    _modify:
+      AES_DOUTR:
+        name: DOUT
+  "KEYR[0123]":
+    _modify:
+      "AES_KEYR[0123]":
+        name: "KEY[0123]"
+  "IVR[0123]":
+    _modify:
+      "AES_IVR[0123]":
+        name: "IV[0123]"
+
+CRC:
+  POL:
+    _modify:
+      Polynomialcoefficients:
+        name: POL
+        
+_modify:
+    Flash:
+      name: FLASH
+FLASH:
+  _modify:
+    OBR:
+      name: OPTR
+    WRPR:
+      name: WRPROT1
+  ACR:
+    _modify:
+      DESAB_BUF:
+        name: DISAB_BUF
+  PECR:
+    _modify:
+      FTDW:
+        name: FIX
+  OPTR:
+    _modify:
+      SPRMOD:
+        name: WPRMOD
+      RDPRT:
+        name: RDPROT
+  WRPROT1:
+    _modify:
+      WRP:
+        name: WRPROT1
+
+"SPI*,I2S*":
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+  RXCRCR:
+    _modify:
+      RxCRC:
+        name: RXCRC
+  TXCRCR:
+    _modify:
+      TxCRC:
+        name: TXCRC
+
+RCC:
+  CR:
+    _modify:
+      CSSLSEON:
+        name: CSSHSEON
+  AHBRSTR:
+    _modify:
+      CRYPRST:
+        name: CRYPTRST
+  APB1RSTR:
+    _modify:
+      I2C3:
+        name: I2C3RST
+  CCIPR:
+    _merge: 
+      - "LPTIM1SEL*"
+      - "I2C3SEL*"
+      - "I2C1SEL*"
+      - "LPUART1SEL*"
+      - "USART2SEL*"
+      - "USART1SEL*"
+  CSR:
+    _modify:
+      LPWRSTF:
+        name: LPWRRSTF
+
+WWDG:
+  _modify:
+    WWDG_CR:
+      name: CR
+    WWDG_CFR:
+      name: CFR
+    WWDG_SR:
+      name: SR
+
 _include:
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
@@ -12,14 +123,21 @@ _include:
  - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
- - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/adc/adc_l0.yaml
+ - ../peripherals/aes/aes_l0.yaml
+ - ../peripherals/crc/crc_l0.yaml
+ - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - ../peripherals/exti/exti_l0.yaml
+ - ../peripherals/flash/flash_l0.yaml
+ - ../peripherals/gpio/gpio_l0.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
- - ../peripherals/dma/dma_v1_with_remapping.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/rcc/rcc_l0.yaml
+ - ../peripherals/spi/spi_l0.yaml
+ - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
