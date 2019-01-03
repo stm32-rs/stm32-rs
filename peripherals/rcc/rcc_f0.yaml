@@ -339,6 +339,41 @@ RCC:
     TIM3EN:
       Disabled: [0, "TIM3EN clock disabled"]
       Enabled: [1, "TIM3EN clock enabled"]
+  BDCR:
+    BDRST:
+      Disabled: [0, "Reset not activated"]
+      Enabled: [1, "Reset the entire RTC domain"]
+    RTCEN:
+      Disabled: [0, "RTC clock disabled"]
+      Enabled: [1, "RTC clock enabled"]
+    RTCSEL:
+      NoClock: [0, "No clock"]
+      LSE: [1, "LSE oscillator clock used as RTC clock"]
+      LSI: [2, "LSI oscillator clock used as RTC clock"]
+      HSE_Div_32: [3, "HSE oscillator clock divided by 32 used as RTC clock"]
+    LSEDRV:
+      Low: [0, "Low drive capacity"]
+      MediumHigh: [1, "Medium-high drive capacity"]
+      MediumLow: [2, "Medium-low drive capacity"]
+      High: [3, "High drive capacity"]
+    LSEBYP:
+      NotBypassed: [0, "LSE crystal oscillator not bypassed"]
+      Bypassed: [1, "LSE crystal oscillator bypassed with external clock"]
+    LSERDY:
+      _read:
+        NotReady: [0, "LSE oscillator not ready"]
+        Ready: [1, "LSE oscillator ready"]
+    LSEON:
+      "Off": [0, "LSE oscillator Off"]
+      "On": [1, "LSE oscillator On"]
+  CSR:
+    LSIRDY:
+      _read:
+        NotReady: [0, "LSI oscillator not ready"]
+        Ready: [1, "LSI oscillator ready"]
+    LSION:
+      "Off": [0, "LSI oscillator Off"]
+      "On": [1, "LSI oscillator On"]
   AHBRSTR:
     IOPFRST:
       Reset: [1, "Reset I/O port F"]
@@ -350,3 +385,57 @@ RCC:
       Reset: [1, "Reset I/O port B"]
     IOPARST:
       Reset: [1, "Reset I/O port A"]
+  CFGR2:
+    PREDIV:
+      NotDivided: [0, "PREDIV input clock not divided"]
+      Div_2: [1, "PREDIV input clock divided by 2"]
+      Div_3: [2, "PREDIV input clock divided by 3"]
+      Div_4: [3, "PREDIV input clock divided by 4"]
+      Div_5: [4, "PREDIV input clock divided by 5"]
+      Div_6: [5, "PREDIV input clock divided by 6"]
+      Div_7: [6, "PREDIV input clock divided by 7"]
+      Div_8: [7, "PREDIV input clock divided by 8"]
+      Div_9: [8, "PREDIV input clock divided by 9"]
+      Div_10: [9, "PREDIV input clock divided by 10"]
+      Div_11: [10, "PREDIV input clock divided by 11"]
+      Div_12: [11, "PREDIV input clock divided by 12"]
+      Div_13: [12, "PREDIV input clock divided by 13"]
+      Div_14: [13, "PREDIV input clock divided by 14"]
+      Div_15: [14, "PREDIV input clock divided by 15"]
+      Div_16: [15, "PREDIV input clock divided by 16"]
+  CFGR3:
+    "USART*SW":
+      PCLK: [0, "PCLK selected as USART clock source"]
+      SYSCLK: [1, "SYSCLK selected as USART clock source"]
+      LSE: [2, "LSE selected as USART clock source"]
+      HSI: [3, "HSI selected as USART clock source"]
+    USBSW:
+      HSI48: [0, "HSI48 selected as USB clock source"]
+      PLLCLK: [1, "PLL clock selected as USB clock source"]
+    CECSW:
+      HSI_Div_244: [0, "HSI clock divided by 244 selected as CEC clock source"]
+      LSE: [1, "LSE clock selected as CEC clock source"]
+    I2C1SW:
+      HSI: [0, "HSI clock selected as I2C1 clock source"]
+      SYSCLK: [1, "SYSCLK clock selected as I2C1 clock source"]
+  CR2:
+    HSI48CAL: [0, 255]
+    HSI48RDY:
+      _read:
+        NotReady: [0, "HSI48 oscillator ready"]
+        Ready: [1, "HSI48 oscillator ready"]
+    HSI48ON:
+      "Off": [0, "HSI48 oscillator off"]
+      "On": [1, "HSI48 oscillator on"]
+    HSI14CAL: [0, 255]
+    HSI14TRIM: [0, 31]
+    HSI14DIS:
+      Allow: [0, "ADC can turn on the HSI14 oscillator"]
+      Disallow: [1, "ADC can not turn on the HSI14 oscillator"]
+    HSI14RDY:
+      _read:
+        NotReady: [0, "HSI14 oscillator not ready"]
+        Ready: [1, "HSI14 oscillator ready"]
+    HSI14ON:
+      "Off": [0, "HSI14 oscillator off"]
+      "On": [1, "HSI14 oscillator on"]
