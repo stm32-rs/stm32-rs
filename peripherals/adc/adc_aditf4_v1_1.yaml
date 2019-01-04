@@ -8,6 +8,9 @@ ADC:
     OVR:
       NoOverrun: [0, "No overrun occurred"]
       Overrun: [1, "Overrun occurred"]
+    EOS:
+      NotComplete: [0, "Conversion sequence is not complete"]
+      Complete: [1, "Conversion sequence complete"]
     EOC:
       NotComplete: [0, "Channel conversion is not complete"]
       Complete: [1, "Channel conversion complete"]
@@ -24,7 +27,7 @@ ADC:
     OVRIE:
       Disabled: [0, "Overrun interrupt disabled"]
       Enabled: [1, "Overrun interrupt enabled"]
-    EOSEQIE:
+    EOSIE:
       Disabled: [0, "End of conversion sequence interrupt disabled"]
       Enabled: [1, "End of conversion sequence interrupt enabled"]
     EOCIE:
@@ -62,7 +65,6 @@ detected"]
       RisingEdge: [1, "Trigger detection on the rising edge"]
       FallingEdge: [2, "Trigger detection on the falling edge"]
       BothEdges: [3, "Trigger detection on both the rising and falling edges"]
-    CFGR1:
     EXTSEL:
       TIM1TRGO: [0, "Timer 1 TRGO Event"]
       TIM1CC4: [1, "Timer 1 CC4 event"]
@@ -92,7 +94,7 @@ detected"]
       PCLK2: [1, "Synchronous clock mode (PCLK/2)"]
       PCLK4: [2, "Sychronous clock mode (PCLK/4)"]
   SMPR:
-    SMP:
+    SMPR:
       Cycles1_5: [0, "1.5 cycles"]
       Cycles7_5: [1, "7.5 cycles"]
       Cycles13_5: [2, "13.5 cycles"]
