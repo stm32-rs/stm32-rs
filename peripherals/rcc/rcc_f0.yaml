@@ -40,10 +40,6 @@ RCC:
         HSI48: [3, "HSI48 used as system clock (when avaiable)"]
     SW:
       HSI48: [3, "HSI48 selected as system clock (when available)"]
-  APB1ENR:
-    _modify:
-      USBRST:
-        name: "USBEN"
   BDCR:
     LSEDRV:
       Low: [0, "Low drive capacity"]
