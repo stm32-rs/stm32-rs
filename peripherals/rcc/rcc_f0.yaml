@@ -399,6 +399,10 @@ RCC:
       Div_15: [14, "PREDIV input clock divided by 15"]
       Div_16: [15, "PREDIV input clock divided by 16"]
   CFGR3:
+    _modify:
+      ADCSW:
+        description: "ADCSW is deprecated. See ADC field in CFGR2 register."
+
     "USART*SW":
       PCLK: [0, "PCLK selected as USART clock source"]
       SYSCLK: [1, "SYSCLK selected as USART clock source"]
