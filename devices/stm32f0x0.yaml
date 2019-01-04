@@ -7,6 +7,11 @@ RCC:
         description: "I/O port D clock enable"
         bitOffset: 20
         bitWidth: 1
+  CFGR:
+    _modify:
+      PLLSRC:
+        bitOffset: 16
+        bitWidth: 1
 
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
