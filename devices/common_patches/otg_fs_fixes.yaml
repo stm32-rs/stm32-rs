@@ -63,6 +63,22 @@ OTG_FS_DEVICE:
       name: DIEPCTL0
       displayName: DIEPCTL0
 
+    FS_DAINT:
+      name: DAINT
+      displayName: DAINT
+
+    FS_DAINTMSK:
+      name: DAINTMSK
+      displayName: DAINTMSK
+
+    FS_DIEPMSK:
+      name: DIEPMSK
+      displayName: DIEPMSK
+
+    FS_DOEPMSK:
+      name: DOEPMSK
+      displayName: DOEPMSK
+
   DIEPCTL0:
     _modify:
       EPENA:
@@ -72,3 +88,9 @@ OTG_FS_DEVICE:
     _modify:
       EPENA:
         access: read-only
+
+  DAINTMSK:
+    _modify:
+      OEPINT:
+        name: OEPM
+        description: OUT EP interrupt mask bits
