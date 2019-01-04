@@ -8,9 +8,6 @@ ADC:
     OVR:
       NoOverrun: [0, "No overrun occurred"]
       Overrun: [1, "Overrun occurred"]
-    EQSEQ:
-      NotComplete: [0, "Conversion sequence not complete"]
-      Complete: [1, "Conversion sequence complete"]
     EOC:
       NotComplete: [0, "Channel conversion is not complete"]
       Complete: [1, "Channel conversion complete"]
@@ -53,9 +50,6 @@ ADC:
     AUTOFF:
       Disabled: [0, "Auto-off mode disabled"]
       Enabled: [1, "Auto-off mode enabled"]
-    WAIT:
-      Disabled: [0, "Wait conversion mode disabled"]
-      Enabled: [1, "Wait conversion mode enabled"]
     CONT:
       Single: [0, "Single conversion mode"]
       Continuous: [1, "Continuous conversion mode"]
