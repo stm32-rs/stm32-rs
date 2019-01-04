@@ -1,0 +1,8 @@
+RCC:
+  CSR:
+    _add:
+      V18PWRRSTF:
+        description: "1.8 V domain reset flag"
+        bitOffset: 23
+        bitWidth: 1
+        access: read-write
