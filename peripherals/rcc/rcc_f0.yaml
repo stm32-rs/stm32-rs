@@ -405,11 +405,7 @@ RCC:
       LSE: [2, "LSE selected as USART clock source"]
       HSI: [3, "HSI selected as USART clock source"]
     USBSW:
-      HSI48: [0, "HSI48 selected as USB clock source"]
       PLLCLK: [1, "PLL clock selected as USB clock source"]
-    CECSW:
-      HSI_Div_244: [0, "HSI clock divided by 244 selected as CEC clock source"]
-      LSE: [1, "LSE clock selected as CEC clock source"]
     I2C1SW:
       HSI: [0, "HSI clock selected as I2C1 clock source"]
       SYSCLK: [1, "SYSCLK clock selected as I2C1 clock source"]

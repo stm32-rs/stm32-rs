@@ -5,3 +5,6 @@ RCC:
     PLLSRC:
       HSI_Div_2: [0, "HSI divided by 2 selected as PLL input clock"]
       HSE_Div_PREDIV: [1, "HSE divided by PREDIV selected as PLL input clock"]
+  CFGR3:
+    USBSW:
+      Disabled: [0, "USB clock disabled"]
