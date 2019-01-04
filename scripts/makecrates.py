@@ -75,7 +75,7 @@ SRC_LIB_RS_TPL = """\
 //!
 //! This crate supports all {family} devices; for the complete list please
 //! see:
-//! https://github.com/adamgreig/stm32-rs/tree/master/{family}
+//! https://github.com/adamgreig/stm32-rs/tree/master/{crate}
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
@@ -222,7 +222,7 @@ def main():
             family=ufamily, crate=crate, device=devices[family][0],
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
             devices=make_device_rows(table, family))
-        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods,
+        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods, crate=crate,
                                        svd2rust_version=SVD2RUST_VERSION)
         build_rs = BUILD_TPL.format(device_clauses=clauses)
 
