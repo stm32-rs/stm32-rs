@@ -1,0 +1,9 @@
+_include:
+  - rcc_f0.yaml
+RCC:
+  CFGR:
+    PLLSRC:
+      HSI_Div_2: [0, "HSI divided by 2 selected as PLL input clock"]
+      HSI_Div_PREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
+      HSE_Div_PREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
+      HSI48_Div_PREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
