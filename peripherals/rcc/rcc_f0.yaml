@@ -362,6 +362,13 @@ RCC:
       "Off": [0, "LSE oscillator Off"]
       "On": [1, "LSE oscillator On"]
   CSR:
+    "*RSTF":
+      _read:
+        NoReset: [0, "No reset has occured"]
+        Reset: [1, "A reset has occured"]
+    RMVF:
+      _write:
+        Clear: [1, "Clears the reset flag"]
     LSIRDY:
       _read:
         NotReady: [0, "LSI oscillator not ready"]
