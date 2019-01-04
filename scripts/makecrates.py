@@ -38,7 +38,7 @@ name = "{crate}"
 version = "{version}"
 authors = ["Adam Greig <adam@adamgreig.com>"]
 description = "Device support crates for {family} devices"
-repository = "https://github.com/adamgreig/stm32-rs"
+repository = "https://github.com/stm32-rs/stm32-rs"
 readme = "README.md"
 keywords = ["stm32", "svd2rust", "no_std", "embedded"]
 categories = ["embedded", "no-std"]
@@ -71,11 +71,11 @@ SRC_LIB_RS_TPL = """\
 //! https://docs.rs/svd2rust/{svd2rust_version}/svd2rust/#peripheral-api
 //!
 //! For more details see the README here:
-//! https://github.com/adamgreig/stm32-rs
+//! https://github.com/stm32-rs/stm32-rs
 //!
 //! This crate supports all {family} devices; for the complete list please
 //! see:
-//! https://github.com/adamgreig/stm32-rs/tree/master/{crate}
+//! https://github.com/stm32-rs/stm32-rs/tree/master/{crate}
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
@@ -101,7 +101,7 @@ The API is generated using [svd2rust] with patched svd files containing
 extensive type-safe support. For more information please see the [main repo].
 
 [svd2rust]: https://github.com/japaric/svd2rust
-[main repo]: https://github.com/adamgreig/stm32-rs
+[main repo]: https://github.com/stm32-rs/stm32-rs
 
 ## Usage
 Each device supported by this crate is behind a feature gate so that you only
