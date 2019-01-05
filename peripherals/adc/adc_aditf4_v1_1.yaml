@@ -60,25 +60,25 @@ ADC:
   CR:
     ADCAL:
       _read:
-        Complete: [0, "ADC calibration complete"]
+        NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
         Calibrating: [1, "ADC calibration in progress"]
       _write:
         StartCalibration: [1, "Start the ADC calibration sequence"]
     ADSTP:
       _read:
-        NoStop: [0, "No stop command active"]
+        NotStopping: [0, "No stop command active"]
         Stopping: [1, "ADC stopping conversion"]
       _write:
-        Stop: [1, "Stop the active conversion"]
+        StopConversion: [1, "Stop the active conversion"]
     ADSTART:
       _read:
-        Inactive: [0, "No conversion ongoing"]
+        NotActive: [0, "No conversion ongoing"]
         Active: [1, "ADC operating and may be converting"]
       _write:
-        Start: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
     ADDIS:
       _read:
-        NoDis: [0, "No disable command active"]
+        NotDisabling: [0, "No disable command active"]
         Disabling: [1, "ADC disabling"]
       _write:
         Disable: [1, "Disable the ADC"]
@@ -87,7 +87,7 @@ ADC:
         Disabled: [0, "ADC disabled"]
         Enabled: [1, "ADC enabled"]
       _write:
-        Enable: [1, "Enable the ADC"]
+        Enabled: [1, "Enable the ADC"]
   CFGR1:
     AWDCH: [0, 18]
     AWDEN:
