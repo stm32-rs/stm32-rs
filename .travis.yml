@@ -11,17 +11,19 @@ addons:
       - python3-yaml
 
 env:
-  - SVD2RUST=0.14.0
-  - CRATES=stm32f0
-  - CRATES=stm32f1
-  - CRATES=stm32f2
-  - CRATES=stm32f3
-  - CRATES=stm32f4
-  - CRATES=stm32f7
-  - CRATES=stm32h7
-  - CRATES=stm32l0
-  - CRATES=stm32l1
-  - CRATES=stm32l4
+  global:
+    - SVD2RUST=0.14.0
+  matrix:
+    - CRATES=stm32f0
+    - CRATES=stm32f1
+    - CRATES=stm32f2
+    - CRATES=stm32f3
+    - CRATES=stm32f4
+    - CRATES=stm32f7
+    - CRATES=stm32h7
+    - CRATES=stm32l0
+    - CRATES=stm32l1
+    - CRATES=stm32l4
 
 install:
   - scripts/svd2rust_install.sh $SVD2RUST
