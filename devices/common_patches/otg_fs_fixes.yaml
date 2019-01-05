@@ -84,11 +84,6 @@ OTG_FS_DEVICE:
       EPENA:
         access: read-write
 
-  DOEPCTL0:
-    _modify:
-      EPENA:
-        access: read-only
-
   DAINTMSK:
     _modify:
       OEPINT:
