@@ -3,23 +3,41 @@
 ADC:
   ISR:
     AWD:
-      NoEvent: [0, "No analog watchdog event occurred"]
-      Event: [1, "Analog watchdog event occurred"]
+      _read:
+        NoEvent: [0, "No analog watchdog event occurred"]
+        Event: [1, "Analog watchdog event occurred"]
+      _write:
+        Clear: [1, "Clear the analog watchdog event flag"]
     OVR:
-      NoOverrun: [0, "No overrun occurred"]
-      Overrun: [1, "Overrun occurred"]
+      _read:
+        NoOverrun: [0, "No overrun occurred"]
+        Overrun: [1, "Overrun occurred"]
+      _write:
+        Clear: [1, "Clear the overrun flag"]
     EOSEQ:
-      NotComplete: [0, "Conversion sequence is not complete"]
-      Complete: [1, "Conversion sequence complete"]
+      _read:
+        NotComplete: [0, "Conversion sequence is not complete"]
+        Complete: [1, "Conversion sequence complete"]
+      _write:
+        Clear: [1, "Clear the conversion sequence flag"]
     EOC:
-      NotComplete: [0, "Channel conversion is not complete"]
-      Complete: [1, "Channel conversion complete"]
+      _read:
+        NotComplete: [0, "Channel conversion is not complete"]
+        Complete: [1, "Channel conversion complete"]
+      _write:
+        Clear: [1, "Clear the channel conversion flag"]
     EOSMP:
-      NotAtEnd: [0, "Not at the end of the samplings phase"]
-      AtEnd: [1, "End of sampling phase reached"]
+      _read:
+        NotAtEnd: [0, "Not at the end of the samplings phase"]
+        AtEnd: [1, "End of sampling phase reached"]
+      _write:
+        Clear: [1, "Clear the sampling phase flag"]
     ADRDY:
-      NotReady: [0, "ADC not yet ready to start conversion"]
-      Ready: [1, "ADC ready to start conversion"]
+      _read:
+        NotReady: [0, "ADC not yet ready to start conversion"]
+        Ready: [1, "ADC ready to start conversion"]
+      _write:
+        Clear: [1, "Clear the ADC ready flag"]
   IER:
     AWDIE:
       Disabled: [0, "Analog watchdog interrupt disabled"]
