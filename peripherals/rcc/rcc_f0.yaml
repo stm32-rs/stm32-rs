@@ -79,11 +79,6 @@ RCC:
       Mul_15: [13, "PLL input clock x15"]
       Mul_16: [14, "PLL input clock x16"]
       Mul_16: [15, "PLL input clock x16"]
-    PLLSRC:
-      HSI_Div_2: [0, "HSI divided by 2 selected as PLL input clock"]
-      HSI_Div_PREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
-      HSE_Div_PREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
-      HSI48_Div_PREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
     PPRE:
       NotDivided: [0, "HCLK not divided"] # Same for [0, 8]
       Div_2: [4, "HCLK divided by 2"]
