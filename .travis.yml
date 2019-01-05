@@ -16,4 +16,4 @@ install:
 script:
   - cd svd && ./extract.sh && cd ..
   - make -j$(nproc) all
-  - CARGO_INCREMENTAL=0 make -j$(nproc) check
+  - CARGO_INCREMENTAL=0 make check

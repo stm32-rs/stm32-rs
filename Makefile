@@ -51,7 +51,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/$$* --features rt,$$*
+	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
 	touch $$@
 
 endef
