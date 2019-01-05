@@ -57,6 +57,37 @@ ADC:
     ADRDYIE:
       Disabled: [0, "ADC ready interrupt disabled"]
       Enabled: [1, "ADC ready interrupt enabled"]
+  CR:
+    ADCAL:
+      _read:
+        Complete: [0, "ADC calibration complete"]
+        Calibrating: [1, "ADC calibration in progress"]
+      _write:
+        StartCalibration: [1, "Start the ADC calibration sequence"]
+    ADSTP:
+      _read:
+        NoStop: [0, "No stop command active"]
+        Stopping: [1, "ADC stopping conversion"]
+      _write:
+        Stop: [1, "Stop the active conversion"]
+    ADSTART:
+      _read:
+        Inactive: [0, "No conversion ongoing"]
+        Active: [1, "ADC operating and may be converting"]
+      _write:
+        Start: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+    ADDIS:
+      _read:
+        NoDis: [0, "No disable command active"]
+        Disabling: [1, "ADC disabling"]
+      _write:
+        Disable: [1, "Disable the ADC"]
+    ADEN:
+      _read:
+        Disabled: [0, "ADC disabled"]
+        Enabled: [1, "ADC enabled"]
+      _write:
+        Enable: [1, "Enable the ADC"]
   CFGR1:
     AWDCH: [0, 18]
     AWDEN:
@@ -122,6 +153,9 @@ ADC:
       Cycles55_5: [5, "55.5 cycles"]
       Cycles71_5: [6, "71.5 cycles"]
       Cycles239_5: [7, "239.5 cycles"]
+  TR:
+    HT: [0, 4095]
+    LT: [0, 4095]
   CCR:
     TSEN:
       Disabled: [0, "Temperature sensor disabled"]
