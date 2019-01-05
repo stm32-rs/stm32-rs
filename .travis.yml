@@ -28,5 +28,5 @@ install:
 
 # disabling incremental build gives a nice speedup for check...
 script:
-  - make -j$(nproc) all
+  - make all
   - CARGO_INCREMENTAL=0 make check
