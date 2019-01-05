@@ -8,7 +8,7 @@ ADC:
     OVR:
       NoOverrun: [0, "No overrun occurred"]
       Overrun: [1, "Overrun occurred"]
-    EOS:
+    EOSEQ:
       NotComplete: [0, "Conversion sequence is not complete"]
       Complete: [1, "Conversion sequence complete"]
     EOC:
@@ -27,7 +27,7 @@ ADC:
     OVRIE:
       Disabled: [0, "Overrun interrupt disabled"]
       Enabled: [1, "Overrun interrupt enabled"]
-    EOSIE:
+    EOSEQIE:
       Disabled: [0, "End of conversion sequence interrupt disabled"]
       Enabled: [1, "End of conversion sequence interrupt enabled"]
     EOCIE:
@@ -53,13 +53,15 @@ ADC:
     AUTOFF:
       Disabled: [0, "Auto-off mode disabled"]
       Enabled: [1, "Auto-off mode enabled"]
+    WAIT:
+      Disabled: [0, "Wait conversion mode off"]
+      Enabled: [1, "Wait conversion mode on"]
     CONT:
       Single: [0, "Single conversion mode"]
       Continuous: [1, "Continuous conversion mode"]
     OVRMOD:
       Preserved: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
-      Overwritten: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is
-detected"]
+      Overwritten: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is detected"]
     EXTEN:
       Disabled: [0, "Trigger detection disabled"]
       RisingEdge: [1, "Trigger detection on the rising edge"]
@@ -93,7 +95,7 @@ detected"]
       PCLK_Div_2: [1, "Synchronous clock mode (PCLK/2)"]
       PCLK_Div_4: [2, "Sychronous clock mode (PCLK/4)"]
   SMPR:
-    SMPR:
+    SMP:
       Cycles1_5: [0, "1.5 cycles"]
       Cycles7_5: [1, "7.5 cycles"]
       Cycles13_5: [2, "13.5 cycles"]

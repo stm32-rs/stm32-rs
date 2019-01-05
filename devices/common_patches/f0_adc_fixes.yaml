@@ -1,0 +1,21 @@
+# Renames a few fields in the F0 ADC and adds the WAIT file which was missed
+
+ADC:
+  ISR:
+    _modify:
+      EOS:
+        name: "EOSEQ"
+  IER:
+    _modify:
+      EOSIE:
+        name: "EOSEQIE"
+  CFGR1:
+    _add:
+      WAIT:
+        bitOffset: 14
+        bitWidth: 1
+        description: "Wait conversion mode"
+  SMPR:
+    _modify:
+      SMPR:
+        name: "SMP"
