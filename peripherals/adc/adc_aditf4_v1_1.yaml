@@ -57,8 +57,8 @@ ADC:
       Single: [0, "Single conversion mode"]
       Continuous: [1, "Continuous conversion mode"]
     OVRMOD:
-      Preserve: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
-      Overwrite: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is
+      Preserved: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
+      Overwritten: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is
 detected"]
     EXTEN:
       Disabled: [0, "Trigger detection disabled"]
@@ -66,11 +66,10 @@ detected"]
       FallingEdge: [2, "Trigger detection on the falling edge"]
       BothEdges: [3, "Trigger detection on both the rising and falling edges"]
     EXTSEL:
-      TIM1TRGO: [0, "Timer 1 TRGO Event"]
-      TIM1CC4: [1, "Timer 1 CC4 event"]
-      
-      TIM3TRGO: [3, "Timer 3 TRGO event"]
-      TIM15TRGO: [4, "Timer 15 TRGO event"]
+      TIM1_TRGO: [0, "Timer 1 TRGO Event"]
+      TIM1_CC4: [1, "Timer 1 CC4 event"]
+      TIM3_TRGO: [3, "Timer 3 TRGO event"]
+      TIM15_TRGO: [4, "Timer 15 TRGO event"]
     ALIGN:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
@@ -90,9 +89,9 @@ detected"]
       Enabled: [1, "DMA mode enabled"]
   CFGR2:
     CKMODE:
-      ADDCLK: [0, "Asynchronous clock mode"]
-      PCLK2: [1, "Synchronous clock mode (PCLK/2)"]
-      PCLK4: [2, "Sychronous clock mode (PCLK/4)"]
+      ADCCLK: [0, "Asynchronous clock mode"]
+      PCLK_Div_2: [1, "Synchronous clock mode (PCLK/2)"]
+      PCLK_Div_4: [2, "Sychronous clock mode (PCLK/4)"]
   SMPR:
     SMPR:
       Cycles1_5: [0, "1.5 cycles"]
