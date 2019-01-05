@@ -1,0 +1,91 @@
+OTG_FS_GLOBAL:
+  _add:
+    GRXSTSP_Device:
+      description: OTG status read and pop (device mode)
+      addressOffset: 0x20
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      fields:
+        FRMNUM:
+          description: Frame number
+          bitOffset: 21
+          bitWidth: 4
+        PKTSTS:
+          description: Packet status
+          bitOffset: 17
+          bitWidth: 4
+        DPID:
+          description: Data PID
+          bitOffset: 15
+          bitWidth: 2
+        BCNT:
+          description: Byte count
+          bitOffset: 4
+          bitWidth: 11
+        EPNUM:
+          description: Endpoint number
+          bitOffset: 0
+          bitWidth: 4
+
+    GRXSTSP_Host:
+      description: OTG status read and pop (host mode)
+      addressOffset: 0x20
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      alternateRegister: GRXSTSP_Device
+      fields:
+        PKTSTS:
+          description: Packet status
+          bitOffset: 17
+          bitWidth: 4
+        DPID:
+          description: Data PID
+          bitOffset: 15
+          bitWidth: 2
+        BCNT:
+          description: Byte count
+          bitOffset: 4
+          bitWidth: 11
+        CHNUM:
+          description: Channel number
+          bitOffset: 0
+          bitWidth: 4
+
+OTG_FS_DEVICE:
+  _array:
+    DIEPCTL[123]: {}
+    DOEPCTL[123]: {}
+
+  _modify:
+    FS_DIEPCTL0:
+      name: DIEPCTL0
+      displayName: DIEPCTL0
+
+    FS_DAINT:
+      name: DAINT
+      displayName: DAINT
+
+    FS_DAINTMSK:
+      name: DAINTMSK
+      displayName: DAINTMSK
+
+    FS_DIEPMSK:
+      name: DIEPMSK
+      displayName: DIEPMSK
+
+    FS_DOEPMSK:
+      name: DOEPMSK
+      displayName: DOEPMSK
+
+  DIEPCTL0:
+    _modify:
+      EPENA:
+        access: read-write
+
+  DAINTMSK:
+    _modify:
+      OEPINT:
+        name: OEPM
+        description: OUT EP interrupt mask bits
