@@ -8,12 +8,23 @@ addons:
     packages:
       - python3-yaml
 
+env:
+  - CRATES=stm32f0
+  - CRATES=stm32f1
+  - CRATES=stm32f2
+  - CRATES=stm32f3
+  - CRATES=stm32f4
+  - CRATES=stm32f7
+  - CRATES=stm32h7
+  - CRATES=stm32l0
+  - CRATES=stm32l1
+  - CRATES=stm32l4
+
 install:
   - cargo install svd2rust
   - rustup component add rustfmt
 
 # disabling incremental build gives a nice speedup for check...
 script:
-  - cd svd && ./extract.sh && cd ..
   - make -j$(nproc) all
   - CARGO_INCREMENTAL=0 make check
