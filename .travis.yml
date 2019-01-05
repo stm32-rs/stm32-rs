@@ -11,6 +11,7 @@ addons:
       - python3-yaml
 
 env:
+  - SVD2RUST=0.14.0
   - CRATES=stm32f0
   - CRATES=stm32f1
   - CRATES=stm32f2
@@ -23,7 +24,7 @@ env:
   - CRATES=stm32l4
 
 install:
-  - cargo install svd2rust
+  - scripts/svd2rust_install.sh $SVD2RUST
   - rustup component add rustfmt
 
 # disabling incremental build gives a nice speedup for check...
