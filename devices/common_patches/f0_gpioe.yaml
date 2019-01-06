@@ -1,0 +1,13 @@
+RCC:
+  AHBENR:
+    _add:
+      IOPEEN:
+        description: "I/O port E clock enable"
+        bitOffset: 21
+        bitWidth: 1
+  AHBRSTR:
+    _add:
+      IOPERST:
+        description: "I/O port E reset"
+        bitOffset: 21
+        bitWidth: 1
