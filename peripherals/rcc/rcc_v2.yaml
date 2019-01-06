@@ -11,10 +11,10 @@ RCC:
       HSE: [1, "HSE oscillator clock selected as PLL and PLLI2S clock entry"]
     PLLQ: [2, 15]
     PLLP:
-      DIV2: [0, "PLLP=2"]
-      DIV4: [1, "PLLP=4"]
-      DIV6: [2, "PLLP=6"]
-      DIV8: [3, "PLLP=8"]
+      Div2: [0, "PLLP=2"]
+      Div4: [1, "PLLP=4"]
+      Div6: [2, "PLLP=6"]
+      Div8: [3, "PLLP=8"]
     PLLN: [50, 432]
     PLLM: [2, 63]
   CFGR:
@@ -24,11 +24,11 @@ RCC:
       HSE: [2, "HSE oscillator clock selected"]
       PLL: [3, "PLL clock selected"]
     "MCO*PRE":
-      DIV1: [0, "No division"]
-      DIV2: [4, "Division by 2"]
-      DIV3: [5, "Division by 3"]
-      DIV4: [6, "Division by 4"]
-      DIV5: [7, "Division by 5"]
+      Div1: [0, "No division"]
+      Div2: [4, "Division by 2"]
+      Div3: [5, "Division by 3"]
+      Div4: [6, "Division by 4"]
+      Div5: [7, "Division by 5"]
     MCO1:
       HSI: [0, "HSI clock selected"]
       LSE: [1, "LSE oscillator selected"]
