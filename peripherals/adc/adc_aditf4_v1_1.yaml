@@ -141,8 +141,8 @@ ADC:
   CFGR2:
     CKMODE:
       ADCCLK: [0, "Asynchronous clock mode"]
-      PCLK_Div_2: [1, "Synchronous clock mode (PCLK/2)"]
-      PCLK_Div_4: [2, "Sychronous clock mode (PCLK/4)"]
+      PCLK_Div2: [1, "Synchronous clock mode (PCLK/2)"]
+      PCLK_Div4: [2, "Sychronous clock mode (PCLK/4)"]
   SMPR:
     SMP:
       Cycles1_5: [0, "1.5 cycles"]

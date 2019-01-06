@@ -3,7 +3,7 @@ _include:
 RCC:
   CFGR:
     PLLSRC:
-      HSI_Div_2: [0, "HSI divided by 2 selected as PLL input clock"]
+      HSI_Div2: [0, "HSI divided by 2 selected as PLL input clock"]
       HSI_Div_PREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
       HSE_Div_PREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
       HSI48_Div_PREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
@@ -11,5 +11,5 @@ RCC:
     USBSW:
       HSI48: [0, "HSI48 selected as USB clock source"]
     CECSW:
-      HSI_Div_244: [0, "HSI clock divided by 244 selected as CEC clock source"]
+      HSI_Div244: [0, "HSI clock divided by 244 selected as CEC clock source"]
       LSE: [1, "LSE clock selected as CEC clock source"]
