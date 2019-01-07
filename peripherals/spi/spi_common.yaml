@@ -88,13 +88,6 @@
     CRCERR:
       Match: [0, "CRC value received matches the SPIx_RXCRCR value"]
       NoMatch: [1, "CRC value received does not match the SPIx_RXCRCR value"]
-    UDR:
-      _read:
-        NoUnderrun: [0, "No underrun occurred"]
-        Underrun: [1, "Underrun occurred"]
-    CHSIDE:
-      Left: [0, "Channel left has to be transmitted or has been received"]
-      Right: [1, "Channel right has to be transmitted or has been received"]
     TXE:
       NotEmpty: [0, "Tx buffer not empty"]
       Empty: [1, "Tx buffer empty"]
