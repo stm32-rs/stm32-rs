@@ -1,0 +1,24 @@
+RCC:
+  APB2RSTR:
+    _add:
+      USART8RST:
+        description: "USART8 reset"
+        bitOffset: 7
+        bitWidth: 1
+      USART7RST:
+        description: "USART7 reset"
+        bitOffset: 6
+        bitWidth: 1
+  APB2ENR:
+    _delete:
+      - USART8EN
+      - USART7EN
+    _add:
+      USART8EN:
+        description: "USART8 clock enable"
+        bitOffset: 7
+        bitWidth: 1
+      USART7EN:
+        description: "USART7 clock enable"
+        bitOffset: 6
+        bitWidth: 1

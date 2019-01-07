@@ -23,6 +23,11 @@ _modify:
   ETHERNET_PTP:
     name: Ethernet_PTP
 
+RCC:
+  APB2RSTR:
+    _delete:
+      - ADC2RST
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -39,5 +44,6 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/rcc/rcc_f1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml

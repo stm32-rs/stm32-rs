@@ -1,0 +1,18 @@
+# Fix wakeup bits in PWR_CSR, and rename one more flag
+PWR:
+  CSR:
+    _modify:
+      EWUP:
+        name: EWUP1
+        description: Enable WKUP pin 1
+      BRE:
+        name: EWUP2
+        description: Enable WKUP pin 2
+      BRR:
+        name: VREFINTRDYF
+        description: Internal voltage reference ready flag
+    _add:
+      EWUP3:
+        description: Enable WKUP pin 3
+        bitOffset: 10
+        bitWidth: 1

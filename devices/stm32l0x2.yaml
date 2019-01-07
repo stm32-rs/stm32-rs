@@ -6,6 +6,7 @@ _modify:
     name: LPUART1
 
 _include:
+ - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml

@@ -1,0 +1,16 @@
+SYSCFG:
+  CFGR1:
+    _delete:
+      - I2C2_FM_plus
+      - SPI2_DMA_RMP
+      - USART2_DMA_RMP
+      - I2C1_DMA_RMP
+      - TIM1_DMA_RMP
+      - TIM2_DMA_RMP
+      - TIM3_DMA_RMP
+  CFGR2:
+    _delete:
+      - PVD_LOCK
+
+_include:
+ - ./f0_syscfg_common.yaml

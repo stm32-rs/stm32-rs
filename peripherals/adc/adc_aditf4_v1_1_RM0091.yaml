@@ -1,0 +1,13 @@
+# ADC as used on F0x1, F0x2 and F0x8
+
+_include:
+  - "adc_aditf4_v1_1.yaml"
+
+ADC:
+  CFGR1:
+    EXTSEL:
+      TIM2_TRGO: [2, "Timer 2 TRGO event"]
+  CCR:
+    VBATEN:
+      Disabled: [0, "V_BAT channel disabled"]
+      Enabled: [1, "V_BAT channel enabled"]

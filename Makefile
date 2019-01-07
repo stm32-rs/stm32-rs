@@ -4,11 +4,12 @@ all: patch svd2rust
 
 SHELL := /bin/bash
 
-CRATES := stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
+CRATES ?= stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
           stm32l0 stm32l1 stm32l4 stm32g0
 
 # All yaml files in devices/ will be used to patch an SVD
-YAMLS := $(wildcard devices/*.yaml)
+YAMLS := $(foreach crate, $(CRATES), \
+	       $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
@@ -47,11 +48,11 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
 	rm $$<
 	mv $$(@D)/lib.rs $$<
-	find $$(@D) -name "*.rs" -exec rustfmt {} +
+	rustfmt $$<
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/$$* --features rt,$$*
+	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
 	touch $$@
 
 endef
