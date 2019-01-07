@@ -13,8 +13,15 @@ RCC:
         bitOffset: 16
         bitWidth: 1
 
+SPI1:
+  SR:
+    _delete:
+      - CHSIDE
+      - UDR
+
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
+ - ./common_patches/rename_f0_SPI_registers.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/f0_no_hdmi_cec.yaml
@@ -47,3 +54,4 @@ _include:
  - ../peripherals/usart/usart_v2B1.yaml
  - ../peripherals/syscfg/syscfg_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1.yaml
+ - ../peripherals/spi/spi_f0x0.yaml
