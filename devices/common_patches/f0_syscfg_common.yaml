@@ -1,0 +1,30 @@
+SYSCFG:
+  CFGR1:
+    _add:
+      PA11_PA12_RMP:
+        description: "PA11 and PA12 remapping bit for small packages (28 and 20 pins)"
+        bitOffset: 4
+        bitWidth: 1
+      I2C_PA9_FMP:
+        description: "Fast Mode Plus (FM+) driving capability activation bits"
+        bitOffset: 22
+        bitWidth: 1
+      I2C_PA10_FMP:
+        description: "Fast Mode Plus (FM+) driving capability activation bits"
+        bitOffset: 23
+        bitWidth: 1
+    _modify:
+      I2C_PB6_FM:
+        name: I2C_PB6_FMP
+      I2C_PB7_FM:
+        name: I2C_PB7_FMP
+      I2C_PB8_FM:
+        name: I2C_PB8_FMP
+      I2C_PB9_FM:
+        name: I2C_PB9_FMP
+      I2C1_FM_plus:
+        name: I2C1_FMP
+  CFGR2:
+    _modify:
+      LOCUP_LOCK:
+        name: LOCKUP_LOCK

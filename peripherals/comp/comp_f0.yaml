@@ -1,0 +1,86 @@
+COMP:
+  CSR:
+    COMP1EN:
+      Disabled: [0, "Comparator 1 disabled"]
+      Enabled: [1, "Comparator 1 enabled"]
+    COMP1SW1:
+      Open: [0, "Switch open"]
+      Closed: [1, "Switch closed"]
+    COMP1MODE:
+      HighSpeed: [0, "High speed / full power"]
+      MediumSpeed: [1, "Medium speed / medium power"]
+      LowSpeed: [2, "Low speed / low power"]
+      VeryLowSpeed: [3, "Very-low speed / ultra-low power"]
+    COMP1INSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      Comp1_INM4: [4, "COMP1_INM4 (PA4 with DAC_OUT1 if enabled)"]
+      Comp1_INM5: [5, "COMP1_INM5 (PA5 with DAC_OUT2 if present and enabled)"]
+      Comp1_INM6: [6, "COMP1_INM6 (PA0)"]
+    COMP1OUTSEL:
+      NoSelection: [0, "No selection"]
+      Timer1BreakInput: [1, "Timer 1 break input"]
+      Timer1InputCapture1: [2, "Timer 1 Input capture 1"]
+      Timer1OCRefClearInput: [3, "Timer 1 OCrefclear input"]
+      Timer2InputCapture4: [4, "Timer 2 input capture 4"]
+      Timer2OCRefClearInput: [5, "Timer 2 OCrefclear input"]
+      Timer3InputCapture1: [6, "Timer 3 input capture 1"]
+      Timer3OCRefClearInput: [7, "Timer 3 OCrefclear input"]
+    COMP1POL:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    COMP1HYST:
+      NoHysteresis: [0, "No hysteresis"]
+      LowHysteresis: [1, "Low hysteresis"]
+      MediumHysteresis: [2, "Medium hysteresis"]
+      HighHysteresis: [3, "High hysteresis"]
+    COMP1OUT:
+      Low: [0, "Non-inverting input below inverting input"]
+      High: [1, "Non-inverting input above inverting input"]
+    COMP1LOCK:
+      Unlocked: [0, "Comparator 1 CSR bits (CSR[15:0]) are read-write"]
+      Locked: [1, "Comparator 1 CSR bits (CSR[15:0]) are read-only"]
+    COMP2EN:
+      Disabled: [0, "Comparator 2 disabled"]
+      Enabled: [1, "Comparator 2 enabled"]
+    COMP2MODE:
+      HighSpeed: [0, "High speed / full power"]
+      MediumSpeed: [1, "Medium speed / medium power"]
+      LowSpeed: [2, "Low speed / low power"]
+      VeryLowSpeed: [3, "Very-low speed / ultra-low power"]
+    COMP2INSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      Comp2_INM4: [4, "COMP1_INM4 (PA4 with DAC_OUT1 if enabled)"]
+      Comp2_INM5: [5, "COMP1_INM5 (PA5 with DAC_OUT2 if present and enabled)"]
+      Comp2_INM6: [6, "COMP1_INM6 (PA2)"]
+    WNDWEN:
+      Disabled: [0, "Window mode disabled"]
+      Enabled: [1, "Window mode enabled"]
+    COMP2OUTSEL:
+      NoSelection: [0, "No selection"]
+      Timer1BreakInput: [1, "Timer 1 break input"]
+      Timer1InputCapture1: [2, "Timer 1 Input capture 1"]
+      Timer1OCRefClearInput: [3, "Timer 1 OCrefclear input"]
+      Timer2InputCapture4: [4, "Timer 2 input capture 4"]
+      Timer2OCRefClearInput: [5, "Timer 2 OCrefclear input"]
+      Timer3InputCapture1: [6, "Timer 3 input capture 1"]
+      Timer3OCRefClearInput: [7, "Timer 3 OCrefclear input"]
+    COMP2POL:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    COMP2HYST:
+      NoHysteresis: [0, "No hysteresis"]
+      LowHysteresis: [1, "Low hysteresis"]
+      MediumHysteresis: [2, "Medium hysteresis"]
+      HighHysteresis: [3, "High hysteresis"]
+    COMP2OUT:
+      Low: [0, "Non-inverting input below inverting input"]
+      High: [1, "Non-inverting input above inverting input"]
+    COMP2LOCK:
+      Unlocked: [0, "Comparator 2 CSR bits (CSR[31:16]) are read-write"]
+      Locked: [1, "Comparator 2 CSR bits (CSR[31:16]) are read-only"]

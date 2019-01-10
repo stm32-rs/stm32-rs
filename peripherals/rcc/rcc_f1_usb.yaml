@@ -1,0 +1,8 @@
+# RCC peripheral
+# Applicable to STM32F103 and STMF107
+
+RCC:
+  CFGR:
+    USBPRE,OTGFSPRE:
+      DIV1_5: [0, "PLL clock is divided by 1.5"]
+      DIV1: [1, "PLL clock is not divided"]

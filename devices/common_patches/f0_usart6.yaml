@@ -6,6 +6,8 @@ RCC:
         bitOffset: 5
         bitWidth: 1
   APB2ENR:
+    _delete:
+      - USART6EN
     _add:
       USART6EN:
         description: "USART6 clock enable"

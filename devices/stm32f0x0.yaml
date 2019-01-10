@@ -7,14 +7,26 @@ RCC:
         description: "I/O port D clock enable"
         bitOffset: 20
         bitWidth: 1
+  CFGR:
+    _modify:
+      PLLSRC:
+        bitOffset: 16
+        bitWidth: 1
 
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
+ - ./common_patches/f0_no_hdmi_cec.yaml
+ - ./common_patches/f0_v18pwrrstf.yaml
  - ./common_patches/f0_adc_cfgr2_ckmode.yaml
+ - ./common_patches/f0_adc_fixes.yaml
+ - ./common_patches/f0_usart3.yaml
  - ./common_patches/f0_usart6.yaml
  - ./common_patches/f0_dmaen.yaml
+ - ./common_patches/f0_usben.yaml
+ - ./common_patches/f0_hsi48cal.yaml
+ - ./common_patches/f0_syscfg.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR1_M0_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
@@ -29,7 +41,9 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/rcc/rcc_f0.yaml
+ - ../peripherals/rcc/rcc_f0x0.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - ../peripherals/syscfg/syscfg_f0.yaml
+ - ../peripherals/adc/adc_aditf4_v1_1.yaml
