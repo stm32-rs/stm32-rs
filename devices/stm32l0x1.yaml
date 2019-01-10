@@ -1,5 +1,11 @@
 _svd: ../svd/stm32l0x1.svd
 
+_modify:
+  Flash:
+    name: FLASH
+  Firewall:
+    name: FW
+
 ADC:
   CFGR1:
     _modify:
@@ -33,10 +39,7 @@ CRC:
     _modify:
       Polynomialcoefficients:
         name: POL
-        
-_modify:
-    Flash:
-      name: FLASH
+
 FLASH:
   _modify:
     OBR:
@@ -61,6 +64,17 @@ FLASH:
     _modify:
       WRP:
         name: WRPROT1
+
+FW:
+  _modify:
+    FIREWALL_CSSA:
+      name: CSSA
+    FIREWALL_CSL:
+      name: CSL
+    FIREWALL_NVDSSA:
+      name: FW_NVDSSA
+    FIREWALL_NVDSL:
+      name: FW_NVDSL
 
 "SPI*,I2S*":
   SR:
@@ -129,6 +143,7 @@ _include:
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/exti/exti_l0.yaml
  - ../peripherals/flash/flash_l0.yaml
+ - ../peripherals/fw/fw_l0.yaml
  - ../peripherals/gpio/gpio_l0.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
