@@ -1,10 +1,13 @@
 # This FW is used on the STM32L0 families.
 
 "FW":
-  "CSSA":
+  CSSA:
     ADD: [0, 0xFFFF]
-  "CSL":
+  CSL:
     LENG: [0, 0x3FFF]
-  "FW_NVDSSA":
+  FW_NVDSSA:
     ADD: [0, 0xFFFF]
-  
+  FW_NVDSL:
+    LENG: [0, 0x3FFF]
+  FW_VDSSA:
+    ADD: [0, 0x3FF]
