@@ -168,212 +168,35 @@ RCC:
     CSSLSEF:
       NoFailure: [0, "No failure detected on LSE clock failure"]
       Failure: [1, "Failure detected on LSE clock failure"]
-    MSIRDYF:
-      NoClock: [0, "No clock ready interrupt caused by MSI clock failure"]
-      Clock: [1, "Clock ready interrupt caused by MSI clock failure"]
-    PLLRDYF:
-      NoClock: [0, "No clock ready interrupt caused by PLL clock failure"]
-      Clock: [1, "Clock ready interrupt caused by PLL clock failure"]
-    HSERDYF:
-      NoClock: [0, "No clock ready interrupt caused by HSE clock failure"]
-      Clock: [1, "Clock ready interrupt caused by HSE clock failure"]
-    HSI16RDYF:
-      NoClock: [0, "No clock ready interrupt caused by HSI16 clock failure"]
-      Clock: [1, "Clock ready interrupt caused by HSI16 clock failure"]
-    LSERDYF:
-      NoClock: [0, "No clock ready interrupt caused by LSE clock failure"]
-      Clock: [1, "Clock ready interrupt caused by LSE clock failure"]
-    LSIRDYF:
-      NoClock: [0, "No clock ready interrupt caused by LSI clock failure"]
-      Clock: [1, "Clock ready interrupt caused by LSI clock failure"]
+    "*RDYF":
+      _read:
+        NotInterrupted: [0, "No clock ready interrupt"]
+        Interrupted: [1, "Clock ready interrupt"]
   CICR:
-    CSSHSEC:
-      Clear: [1, "CSSHSEF flag cleared"]
-    CSSLSEC:
-      Clear: [1, "CSSLSEF flag cleared"]
-    MSIRDYC:
-      Clear: [1, "MSIRDYF flag cleared"]
-    PLLRDYC:
-      Clear: [1, "PLLRDYF flag cleared"]
-    HSERDYC:
-      Clear: [1, "HSERDYF flag cleared"]
-    HSI16RDYC:
-      Clear: [1, "HSI16RDYF flag cleared"]
-    LSERDYC:
-      Clear: [1, "LSERDYF flag cleared"]
-    LSIRDYC:
-      Clear: [1, "LSIRDYF flag cleared"]
+    "*SEC,*RDYC":
+      _write:
+        Clear: [1, "Clear interrupt flag"]
   IOPRSTR:
-    IOPHRST:
-      Reset: [1, "Resets I/O port H"]
-    IOPERST:
-      Reset: [1, "Resets I/O port E"]
-    IOPDRST:
-      Reset: [1, "Resets I/O port D"]
-    IOPCRST:
-      Reset: [1, "Resets I/O port C"]
-    IOPBRST:
-      Reset: [1, "Resets I/O port B"]
-    IOPARST:
-      Reset: [1, "Resets I/O port A"]
+    "IOP*RST":
+      Reset: [1, "Reset I/O port"]
   AHBRSTR:
-    CRYPTRST:
-      Reset: [1, "Resets CRYPTO module"]
-    CRCRST:
-      Reset: [1, "Resets test integration module"]
-    MIFRST:
-      Reset: [1, "Resets memory interface"]
-    DMARST:
-      Reset: [1, "Resets DMA"]
-  APB2RSTR:
-    DBGRST:
-      Reset: [1, "Resets DBG"]
-    USART1RST:
-      Reset: [1, "Reset USART1"]
-    SPI1RST:
-      Reset: [1, "Reset SPI 1"]
-    ADCRST:
-      Reset: [1, "Reset ADC interface"]
-    TIM22RST:
-      Reset: [1, "Reset TIM22 timer"]
-    TIM21RST:
-      Reset: [1, "Reset TIM21 timer"]
-    SYSCFGRST:
-      Reset: [1, "Reset System configuration controller"]
-  APB1RSTR:
-    LPTIM1RST:
-      Reset: [1, "Resets low-power timer"]
-    I2C3RST:
-      Reset: [1, "Resets I2C3"]
-    PWRRST:
-      Reset: [1, "Reset power interface"]
-    I2C2RST:
-      Reset: [1, "Resets I2C2"]
-    I2C1RST:
-      Reset: [1, "Resets I2C1"]
-    USART5RST:
-      Reset: [1, "Resets USART5"]
-    USART4RST:
-      Reset: [1, "Resets USART4"]
-    LPUART1RST:
-      Reset: [1, "Resets LPUART1"]
-    USART2RST:
-      Reset: [1, "Resets USART2"]
-    SPI2RST:
-      Reset: [1, "Resets SPI2"]
-    WWDGRST:
-      Reset: [1, "Resets window watchdog"]
-    TIM7RST:
-      Reset: [1, "Resets timer7"]
-    TIM6RST:
-      Reset: [1, "Resets timer6"]
-    TIM3RST:
-      Reset: [1, "Resets timer3"]
-    TIM2RST:
-      Reset: [1, "Resets timer2"]
+    "*RST":
+      Reset: [1, "Reset the selected module"]
+  "APB?RSTR":
+    "*RST":
+      Reset: [1, "Reset the selected module"]
   IOPENR:
-    IOPHEN:
-      Disabled: [0, "Port H clock disabled"]
-      Enabled: [1, "Port H clock enabled"]
-    IOPEEN:
-      Disabled: [0, "Port E clock disabled"]
-      Enabled: [1, "Port E clock enabled"]
-    IOPDEN:
-      Disabled: [0, "Port D clock disabled"]
-      Enabled: [1, "Port D clock enabled"]
-    IOPCEN:
-      Disabled: [0, "Port C clock disabled"]
-      Enabled: [1, "Port C clock enabled"]
-    IOPBEN:
-      Disabled: [0, "Port B clock disabled"]
-      Enabled: [1, "Port B clock enabled"]
-    IOPAEN:
-      Disabled: [0, "Port A clock disabled"]
-      Enabled: [1, "Port A clock enabled"]
+    "IOP*EN":
+      Disabled: [0, "Port clock disabled"]
+      Enabled: [1, "Port clock enabled"]
   AHBENR:
-    CRYPEN:
-      Disabled: [0, "Crypto clock disabled"]
-      Enabled: [1, "Crypto clock enabled"]
-    CRCEN:
-      Disabled: [0, "Test integration module clock disabled"]
-      Enabled: [1, "Test integration module clock enabled"]
-    MIFEN:
-      Disabled: [0, "NVM interface clock disabled"]
-      Enabled: [1, "NVM interface clock enabled"]
-    DMAEN:
-      Disabled: [0, "DMA clock disabled"]
-      Enabled: [1, "DMA clock enabled"]
-  APB2ENR:
-    DBGEN:
-      Disabled: [0, "DBG clock disabled"]
-      Enabled: [1, "DBG clock enabled"]
-    USART1EN:
-      Disabled: [0, "USART1 clock disabled"]
-      Enabled: [1, "USART1 clock enabled"]
-    SPI1EN:
-      Disabled: [0, "SPI1 clock disabled"]
-      Enabled: [1, "SPI1 clock enabled"]
-    ADCEN:
-      Disabled: [0, "ADC clock disabled"]
-      Enabled: [1, "ADC clock enabled"]
-    FWEN:
-      Disabled: [0, "Firewall disabled"]
-      Enabled: [1, "Firewall clock enabled"]
-    TIM22EN:
-      Disabled: [0, "TIM22 clock disabled"]
-      Enabled: [1, "TIM22 clock enabled"]
-    TIM21EN:
-      Disabled: [0, "TIM21 clock disabled"]
-      Enabled: [1, "TIM21 clock enabled"]
-    SYSCFGEN:
-      Disabled: [0, "System configuration controller clock disabled"]
-      Enabled: [1, "System configuration controller clock enabled"]
-  APB1ENR:
-    LPTIM1EN:
-      Disabled: [0, "Low-power timer clock disabled"]
-      Enabled: [1, "Low-power timer clock enabled"]
-    I2C3EN:
-      Disabled: [0, "I2C3 clock disabled"]
-      Enabled: [1, "I2C3 clock enabled"]
-    PWREN:
-      Disabled: [0, "Power interface clock disabled"]
-      Enabled: [1, "Power interface clock enabled"]
-    I2C2EN:
-      Disabled: [0, "I2C2 clock disabled"]
-      Enabled: [1, "I2C2 clock enabled"]
-    I2C1EN:
-      Disabled: [0, "I2C1 clock disabled"]
-      Enabled: [1, "I2C1 clock enabled"]
-    USART5EN:
-      Disabled: [0, "USART5 clock disabled"]
-      Enabled: [1, "USART5 clock enabled"]
-    USART4EN:
-      Disabled: [0, "USART4 clock disabled"]
-      Enabled: [1, "USART4 clock enabled"]
-    LPUART1EN:
-      Disabled: [0, "LPUART1 clock disabled"]
-      Enabled: [1, "LPUART1 clock enabled"]
-    USART2EN:
-      Disabled: [0, "USART2 clock disabled"]
-      Enabled: [1, "USART2 clock enabled"]
-    SPI2EN:
-      Disabled: [0, "SPI2 clock disabled"]
-      Enabled: [1, "SPI2 clock enabled"]
-    WWDGEN:
-      Disabled: [0, "Window watchdog clock disabled"]
-      Enabled: [1, "Window watchdog clock enabled"]
-    TIM7EN:
-      Disabled: [0, "Timer 7 clock disabled"]
-      Enabled: [1, "Timer 7 clock enabled"]
-    TIM6EN:
-      Disabled: [0, "Timer 6 clock disabled"]
-      Enabled: [1, "Timer 6 clock enabled"]
-    TIM3EN:
-      Disabled: [0, "Timer3 clock disabled"]
-      Enabled: [1, "Timer3 clock enabled"]
-    TIM2EN:
-      Disabled: [0, "Timer2 clock disabled"]
-      Enabled: [1, "Timer2 clock enabled"]
+    "*EN":
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
+  "APB?ENR":
+    "*EN":
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
   CCIPR:
     LPTIM1SEL:
       APB: [0, "APB clock selected as LP Timer clock"]
@@ -404,30 +227,10 @@ RCC:
       HSI16: [2, "HSI16 clock selected as USART1 clock"]
       LSE: [3, "LSE clock selected as USART1 clock"]
   CSR:
-    LPWRRSTF:
-      NoReset: [0, "No Low-power management reset occurred"]
-      Reset: [1, "Low-power management reset occurred"]
-    WWDGRSTF:
-      NoReset: [0, "No window watchdog reset occurred"]
-      Reset: [1, "Window watchdog reset occurred"]
-    IWDGRSTF:
-      NoReset: [0, "No watchdog reset occurred"]
-      Reset: [1, "Watchdog reset occurred"]
-    SFTRSTF:
-      NoReset: [0, "No software reset occurred"]
-      Reset: [1, "Software reset occurred"]
-    PORRSTF:
-      NoReset: [0, "No POR/PDR reset occurred"]
-      Reset: [1, "POR/PDR reset occurred"]
-    PINRSTF:
-      NoReset: [0, "No reset from NRST pin occurred"]
-      Reset: [1, "Reset from NRST pin occurred"]
-    OBLRSTF:
-      NoReset: [0, "No OBL reset occurred"]
-      Reset: [1, "OBL reset occurred"]
-    FWRSTF:
-      NoReset: [0, "No firewall reset occurred"]
-      Reset: [1, "Firewall reset occurred"]
+    "*RSTF":
+      _read:
+        NoReset: [0, "No reset has occured"]
+        Reset: [1, "A reset has occured"]
     RMVF:
       Clear: [0, "Clear the reset flags"]
     RTCRST:
