@@ -1,50 +1,6 @@
-# SPI for F0, F3, F7
+# SPI for F0x1, F0x2, F0x8, F3, F7
+# it includes all that the F0x0 has plus SR has UDR and CHSIDE
 
 _include:
-  - "spi_common.yaml"
-
-"SPI*":
-  CR1:
-    CRCL:
-      EightBit: [0, "8-bit CRC length"]
-      SixteenBit: [1, "16-bit CRC length"]
-  CR2:
-    LDMA_TX:
-      Even: [0, "Number of data to transfer for transmit is even"]
-      Odd: [1, "Number of data to transfer for transmit is odd"]
-    LDMA_RX:
-      Even: [0, "Number of data to transfer for receive is even"]
-      Odd: [1, "Number of data to transfer for receive is odd"]
-    FRXTH:
-      Half: [0, "RXNE event is generated if the FIFO level is greater than or equal to 1/2 (16-bit)"]
-      Quarter: [1, "RXNE event is generated if the FIFO level is greater than or equal to 1/4 (8-bit)"]
-    DS:
-      FourBit: [3, "4-bit"]
-      FiveBit: [4, "5-bit"]
-      SixBit: [5, "6-bit"]
-      SevenBit: [6, "7-bit"]
-      EightBit: [7, "8-bit"]
-      NineBit: [8, "9-bit"]
-      TenBit: [9, "10-bit"]
-      ElevenBit: [10, "11-bit"]
-      TwelveBit: [11, "12-bit"]
-      ThirteenBit: [12, "13-bit"]
-      FourteenBit: [13, "14-bit"]
-      FifteenBit: [14, "15-bit"]
-      SixteenBit: [15, "16-bit"]
-    NSSP:
-      NoPulse: [0, "No NSS pulse"]
-      PulseGenerated: [1, "NSS pulse generated"]
-  SR:
-    FTLVL:
-      _read:
-        Empty: [0, "Tx FIFO Empty"]
-        Quarter: [1, "Tx 1/4 FIFO"]
-        Half: [2, "Tx 1/2 FIFO"]
-        Full: [3, "Tx FIFO full"]
-    FRLVL:
-      _read:
-        Empty: [0, "Rx FIFO Empty"]
-        Quarter: [1, "Rx 1/4 FIFO"]
-        Half: [2, "Rx 1/2 FIFO"]
-        Full: [3, "Rx FIFO full"]
+  - "spi_v2_without_UDR_CHSIDE.yaml"
+  - "spi_SR_UDR_CHSIDE.yaml"
