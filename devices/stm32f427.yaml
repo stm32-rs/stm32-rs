@@ -72,6 +72,26 @@ RCC:
         name: SPI5EN
       SPI6ENR:
         name: SPI6EN
+  _add:
+    PLLSAICFGR:
+      description: RCC PLL configuration register
+      addressOffset: 0x88
+      size: 0x20
+      access: read-write
+      resetValue: 0x24003000
+      fields:
+        PLLSAIR:
+          description: PLLSAI division factor for LCD clock
+          bitOffset: 28
+          bitWidth: 3
+        PLLSAIQ:
+          description: PLLSAI division factor for SAI1 clock
+          bitOffset: 24
+          bitWidth: 4
+        PLLSAIN:
+          description: PLLSAI division factor for VCO
+          bitOffset: 6
+          bitWidth: 9
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
