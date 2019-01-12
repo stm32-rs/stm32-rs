@@ -43,6 +43,12 @@ RCC:
         description: SPI4 reset
         bitOffset: 13
         bitWidth: 1
+  PLLI2SCFGR:
+    _add:
+      PLLI2SSRC:
+        description: "PLLI2S entry clock source"
+        bitOffset: 22
+        bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
