@@ -62,6 +62,14 @@ RCC:
         name: SPI5EN
       SPI6ENR:
         name: SPI6EN
+  DCKCFGR:
+    _modify:
+      PLLIS2DIVQ:
+        name: PLLI2SDIVQ
+      MSEL:
+        name: 48MSEL
+      SDMMCSEL:
+        name: SDIOSEL
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

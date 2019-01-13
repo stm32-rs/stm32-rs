@@ -49,6 +49,53 @@ RCC:
         description: "PLLI2S entry clock source"
         bitOffset: 22
         bitWidth: 1
+  _add:
+    DCKCFGR:
+      description: Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CKDFSDM1ASEL:
+          description: DFSDM1 audio clock selection
+          bitOffset: 15
+          bitWidth: 5
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1
+        I2S1SRC:
+          description: I2S APB1 clocks source selection (I2S2/3)
+          bitOffset: 25
+          bitWidth: 2
+        I2S2SRC:
+          description: I2S APB2 clocks source selection (I2S1/4/5)
+          bitOffset: 27
+          bitWidth: 2
+        CKDFSDM1SEL:
+          description: DFSDM1 Kernel clock selection
+          bitOffset: 31
+          bitWidth: 1
+    DCKCFGR2:
+      description: Dedicated Clock Configuration Register
+      addressOffset: 0x94
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        I2CFMP1SEL:
+          description: I2CFMP1 kernel clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        CK48MSEL:
+          description: SDIO/USBFS clock selection
+          bitOffset: 27
+          bitWidth: 1
+        SDIOSEL:
+          description: SDIO clock selection
+          bitOffset: 28
+          bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

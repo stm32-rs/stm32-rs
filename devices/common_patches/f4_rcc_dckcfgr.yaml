@@ -1,0 +1,13 @@
+RCC:
+  _add:
+    DCKCFGR:
+      description: RCC Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1

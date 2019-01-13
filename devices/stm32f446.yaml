@@ -57,6 +57,12 @@ RCC:
     _modify:
       SPI4ENR:
         name: SPI4EN
+  DCKCFGR2:
+    _modify:
+      FMPI2C1SEL:
+        name: I2CFMP1SEL
+      SPDIFSEL:
+        name: SPDIFRXSEL
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

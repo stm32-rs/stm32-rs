@@ -92,6 +92,37 @@ RCC:
           description: PLLSAI division factor for VCO
           bitOffset: 6
           bitWidth: 9
+    DCKCFGR:
+      description: RCC Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PLLI2SDIVQ:
+          description: PLLI2S division factor for SAI1 clock
+          bitOffset: 0
+          bitWidth: 5
+        PLLSAIDIVQ:
+          description: PLLSAI division factor for SAI1 clock
+          bitOffset: 8
+          bitWidth: 5
+        PLLSAIDIVR:
+          description: division factor for LCD_CLK
+          bitOffset: 16
+          bitWidth: 2
+        SAI1ASRC:
+          description: SAI1-A clock source selection
+          bitOffset: 20
+          bitWidth: 2
+        SAI1BSRC:
+          description: SAI1-B clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
