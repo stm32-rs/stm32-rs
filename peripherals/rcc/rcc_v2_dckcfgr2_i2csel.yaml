@@ -1,0 +1,6 @@
+RCC:
+  DCKCFGR2:
+    I2C?SEL:
+      APB1: [0, "APB1 clock (PCLK1) is selected as I2C clock"]
+      SYSCLK: [1, "System clock is selected as I2C clock"]
+      HSI: [2, "HSI clock is selected as I2C clock"]
