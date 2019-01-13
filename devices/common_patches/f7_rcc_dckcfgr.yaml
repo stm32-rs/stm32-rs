@@ -1,0 +1,104 @@
+RCC:
+  _add:
+    DCKCFGR1:
+      description: RCC Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PLLI2SDIVQ:
+          description: PLLI2S division factor for SAI1 clock
+          bitOffset: 0
+          bitWidth: 5
+        PLLSAIDIVQ:
+          description: PLLSAI division factor for SAI1 clock
+          bitOffset: 8
+          bitWidth: 5
+        PLLSAIDIVR:
+          description: division factor for LCD_CLK
+          bitOffset: 16
+          bitWidth: 2
+        SAI1SEL:
+          description: SAI1 clock source selection
+          bitOffset: 20
+          bitWidth: 2
+        SAI2SEL:
+          description: SAI2 clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1
+    DCKCFGR2:
+      description: dedicated clocks configuration register
+      addressOffset: 0x90
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        USART1SEL:
+          description: USART 1 clock source selection
+          bitOffset: 0
+          bitWidth: 2
+        USART2SEL:
+          description: USART 2 clock source selection
+          bitOffset: 2
+          bitWidth: 2
+        USART3SEL:
+          description: USART 3 clock source selection
+          bitOffset: 4
+          bitWidth: 2
+        UART4SEL:
+          description: UART 4 clock source selection
+          bitOffset: 6
+          bitWidth: 2
+        UART5SEL:
+          description: UART 5 clock source selection
+          bitOffset: 8
+          bitWidth: 2
+        USART6SEL:
+          description: USART 6 clock source selection
+          bitOffset: 10
+          bitWidth: 2
+        UART7SEL:
+          description: UART 7 clock source selection
+          bitOffset: 12
+          bitWidth: 2
+        UART8SEL:
+          description: UART 8 clock source selection
+          bitOffset: 14
+          bitWidth: 2
+        I2C1SEL:
+          description: I2C1 clock source selection
+          bitOffset: 16
+          bitWidth: 2
+        I2C2SEL:
+          description: I2C2 clock source selection
+          bitOffset: 18
+          bitWidth: 2
+        I2C3SEL:
+          description: I2C3 clock source selection
+          bitOffset: 20
+          bitWidth: 2
+        I2C4SEL:
+          description: I2C4 clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        LPTIM1SEL:
+          description: Low power timer 1 clock source selection
+          bitOffset: 24
+          bitWidth: 2
+        CECSEL:
+          description: HDMI-CEC clock source selection
+          bitOffset: 26
+          bitWidth: 1
+        CK48MSEL:
+          description: 48MHz clock source selection
+          bitOffset: 27
+          bitWidth: 1
+        SDMMC1SEL:
+          description: SDMMC1 clock source selection
+          bitOffset: 28
+          bitWidth: 1
