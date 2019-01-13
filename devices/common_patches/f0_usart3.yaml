@@ -1,0 +1,7 @@
+RCC:
+  CFGR3:
+    _add:
+      USART3SW:
+        description: "USART3 clock source"
+        bitOffset: 18
+        bitWidth: 2

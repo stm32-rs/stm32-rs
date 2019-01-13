@@ -2,8 +2,8 @@
 
 CR1:
   OVER8:
-    Oversampling_16: [0, "Oversampling by 16"]
-    Oversampling_8: [1, "Oversampling by 8"]
+    Oversampling16: [0, "Oversampling by 16"]
+    Oversampling8: [1, "Oversampling by 8"]
   EOBIE:
     Disabled: [0, "Interrupt is inhibited"]
     Enabled: [1, "A USART interrupt is generated when the EOBF flag is set in the ISR register"]
@@ -17,8 +17,8 @@ CR2:
   ABRMOD:
     Start: [0, "Measurement of the start bit is used to detect the baud rate"]
     Edge: [1, "Falling edge to falling edge measurement"]
-    Frame_7F: [2, "0x7F frame detection"]
-    Frame_55: [3, "0x55 frame detection"]
+    Frame7F: [2, "0x7F frame detection"]
+    Frame55: [3, "0x55 frame detection"]
   ABREN:
     Disabled: [0, "Auto baud rate detection is disabled"]
     Enabled: [1, "Auto baud rate detection is enabled"]
@@ -38,13 +38,13 @@ CR2:
     Disabled: [0, "Interrupt is inhibited"]
     Enabled: [1, "An interrupt is generated whenever LBDF=1 in the ISR register"]
   LBDL:
-    Bit_10: [0, "10-bit break detection"]
-    Bit_11: [1, "11-bit break detection"]
+    Bit10: [0, "10-bit break detection"]
+    Bit11: [1, "11-bit break detection"]
 CR3:
   SCARCNT: [0, 7]
   ONEBIT:
-    Sample_3: [0, "Three sample bit method"]
-    Sample_1: [1, "One sample bit method"]
+    Sample3: [0, "Three sample bit method"]
+    Sample1: [1, "One sample bit method"]
   SCEN:
     Disabled: [0, "Smartcard Mode disabled"]
     Enabled: [1, "Smartcard Mode enabled"]

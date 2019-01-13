@@ -1,0 +1,165 @@
+# ADC common as used on F0x0, F0x1, F0x2 and F0x8
+
+ADC:
+  ISR:
+    AWD:
+      _read:
+        NoEvent: [0, "No analog watchdog event occurred"]
+        Event: [1, "Analog watchdog event occurred"]
+      _write:
+        Clear: [1, "Clear the analog watchdog event flag"]
+    OVR:
+      _read:
+        NoOverrun: [0, "No overrun occurred"]
+        Overrun: [1, "Overrun occurred"]
+      _write:
+        Clear: [1, "Clear the overrun flag"]
+    EOSEQ:
+      _read:
+        NotComplete: [0, "Conversion sequence is not complete"]
+        Complete: [1, "Conversion sequence complete"]
+      _write:
+        Clear: [1, "Clear the conversion sequence flag"]
+    EOC:
+      _read:
+        NotComplete: [0, "Channel conversion is not complete"]
+        Complete: [1, "Channel conversion complete"]
+      _write:
+        Clear: [1, "Clear the channel conversion flag"]
+    EOSMP:
+      _read:
+        NotAtEnd: [0, "Not at the end of the samplings phase"]
+        AtEnd: [1, "End of sampling phase reached"]
+      _write:
+        Clear: [1, "Clear the sampling phase flag"]
+    ADRDY:
+      _read:
+        NotReady: [0, "ADC not yet ready to start conversion"]
+        Ready: [1, "ADC ready to start conversion"]
+      _write:
+        Clear: [1, "Clear the ADC ready flag"]
+  IER:
+    AWDIE:
+      Disabled: [0, "Analog watchdog interrupt disabled"]
+      Enabled: [1, "Analog watchdog interrupt enabled"]
+    OVRIE:
+      Disabled: [0, "Overrun interrupt disabled"]
+      Enabled: [1, "Overrun interrupt enabled"]
+    EOSEQIE:
+      Disabled: [0, "End of conversion sequence interrupt disabled"]
+      Enabled: [1, "End of conversion sequence interrupt enabled"]
+    EOCIE:
+      Disabled: [0, "End of conversion interrupt disabled"]
+      Enabled: [1, "End of conversion interrupt enabled"]
+    EOSMPIE:
+      Disabled: [0, "End of sampling interrupt disabled"]
+      Enabled: [1, "End of sampling interrupt enabled"]
+    ADRDYIE:
+      Disabled: [0, "ADC ready interrupt disabled"]
+      Enabled: [1, "ADC ready interrupt enabled"]
+  CR:
+    ADCAL:
+      _read:
+        NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
+        Calibrating: [1, "ADC calibration in progress"]
+      _write:
+        StartCalibration: [1, "Start the ADC calibration sequence"]
+    ADSTP:
+      _read:
+        NotStopping: [0, "No stop command active"]
+        Stopping: [1, "ADC stopping conversion"]
+      _write:
+        StopConversion: [1, "Stop the active conversion"]
+    ADSTART:
+      _read:
+        NotActive: [0, "No conversion ongoing"]
+        Active: [1, "ADC operating and may be converting"]
+      _write:
+        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+    ADDIS:
+      _read:
+        NotDisabling: [0, "No disable command active"]
+        Disabling: [1, "ADC disabling"]
+      _write:
+        Disable: [1, "Disable the ADC"]
+    ADEN:
+      _read:
+        Disabled: [0, "ADC disabled"]
+        Enabled: [1, "ADC enabled"]
+      _write:
+        Enabled: [1, "Enable the ADC"]
+  CFGR1:
+    AWDCH: [0, 18]
+    AWDEN:
+      Disabled: [0, "Analog watchdog disabled on regular channels"]
+      Enabled: [1, "Analog watchdog enabled on regular channels"]
+    AWDSGL:
+      AllChannels: [0, "Analog watchdog enabled on all channels"]
+      SingleChannel: [1, "Analog watchdog enabled on a single channel"]
+    DISCEN:
+      Disabled: [0, "Discontinuous mode on regular channels disabled"]
+      Enabled: [1, "Discontinuous mode on regular channels enabled"]
+    AUTOFF:
+      Disabled: [0, "Auto-off mode disabled"]
+      Enabled: [1, "Auto-off mode enabled"]
+    WAIT:
+      Disabled: [0, "Wait conversion mode off"]
+      Enabled: [1, "Wait conversion mode on"]
+    CONT:
+      Single: [0, "Single conversion mode"]
+      Continuous: [1, "Continuous conversion mode"]
+    OVRMOD:
+      Preserved: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
+      Overwritten: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is detected"]
+    EXTEN:
+      Disabled: [0, "Trigger detection disabled"]
+      RisingEdge: [1, "Trigger detection on the rising edge"]
+      FallingEdge: [2, "Trigger detection on the falling edge"]
+      BothEdges: [3, "Trigger detection on both the rising and falling edges"]
+    EXTSEL:
+      TIM1_TRGO: [0, "Timer 1 TRGO Event"]
+      TIM1_CC4: [1, "Timer 1 CC4 event"]
+      TIM3_TRGO: [3, "Timer 3 TRGO event"]
+      TIM15_TRGO: [4, "Timer 15 TRGO event"]
+    ALIGN:
+      Right: [0, "Right alignment"]
+      Left: [1, "Left alignment"]
+    RES:
+      TwelveBit: [0, "12-bit (14 ADCCLK cycles)"]
+      TenBit: [1, "10-bit (13 ADCCLK cycles)"]
+      EightBit: [2, "8-bit (11 ADCCLK cycles)"]
+      SixBit: [3, "6-bit (9 ADCCLK cycles)"]
+    SCANDIR:
+      Upward: [0, "Upward scan (from CHSEL0 to CHSEL18)"]
+      Backward: [1, "Backward scan (from CHSEL18 to CHSEL0)"]
+    DMACFG:
+      OneShot: [0, "DMA one shot mode"]
+      Circular: [1, "DMA circular mode"]
+    DMAEN:
+      Disabled: [0, "DMA mode disabled"]
+      Enabled: [1, "DMA mode enabled"]
+  CFGR2:
+    CKMODE:
+      ADCCLK: [0, "Asynchronous clock mode"]
+      PCLK_Div2: [1, "Synchronous clock mode (PCLK/2)"]
+      PCLK_Div4: [2, "Sychronous clock mode (PCLK/4)"]
+  SMPR:
+    SMP:
+      Cycles1_5: [0, "1.5 cycles"]
+      Cycles7_5: [1, "7.5 cycles"]
+      Cycles13_5: [2, "13.5 cycles"]
+      Cycles28_5: [3, "28.5 cycles"]
+      Cycles41_5: [4, "41.5 cycles"]
+      Cycles55_5: [5, "55.5 cycles"]
+      Cycles71_5: [6, "71.5 cycles"]
+      Cycles239_5: [7, "239.5 cycles"]
+  TR:
+    HT: [0, 4095]
+    LT: [0, 4095]
+  CCR:
+    TSEN:
+      Disabled: [0, "Temperature sensor disabled"]
+      Enabled: [1, "Temperature sensor enabled"]
+    VREFEN:
+      Disabled: [0, "V_REFINT channel disabled"]
+      Enabled: [1, "V_REFINT channel enabled"]

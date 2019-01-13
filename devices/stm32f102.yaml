@@ -12,6 +12,44 @@ _svd: ../svd/stm32f102.svd
     _merge:
       - "FB*"
 
+RCC:
+  APB1RSTR:
+    _add:
+      USBRST:
+        description: "USB reset"
+        bitOffset: 23
+        bitWidth: 1
+      I2C2RST:
+        description: "I2C2 reset"
+        bitOffset: 22
+        bitWidth: 1
+      USART3RST:
+        description: "USART3 reset"
+        bitOffset: 18
+        bitWidth: 1
+      SPI2RST:
+        description: "SPI2 reset"
+        bitOffset: 14
+        bitWidth: 1
+  APB1ENR:
+    _add:
+      USBEN:
+        description: "USB clock enable"
+        bitOffset: 23
+        bitWidth: 1
+      I2C2EN:
+        description: "I2C2 clock enable"
+        bitOffset: 22
+        bitWidth: 1
+      USART3EN:
+        description: "USART3 clock enable"
+        bitOffset: 18
+        bitWidth: 1
+      SPI2EN:
+        description: "SPI2 clock enable"
+        bitOffset: 14
+        bitWidth: 1
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -33,5 +71,6 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/rcc/rcc_f1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml

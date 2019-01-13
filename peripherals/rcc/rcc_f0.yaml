@@ -2,37 +2,10 @@
 # Applicable to STM32F0
 # PLLSRC[0] available only on STM32F04x, STM32F07x and STM32F09x
 
+_include:
+  - ./rcc_f0_f1_common.yaml
+
 RCC:
-  CR:
-    PLLRDY:
-      _read:
-        Unlocked: [0, "PLL unlocked"]
-        Locked: [1, "PLL locked"]
-    PLLON:
-      "Off": [0, "PLL off"]
-      "On":  [1, "PLL on" ]
-    CSSON:
-      "Off": [0, "Clock security system disabled (clock detector OFF)"]
-      "On": [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
-    HSEBYP:
-      NotBypassed: [0, "HSE crystal oscillator not bypassed"]
-      Bypassed: [1, "HSE crystal oscillator bypassed with external clock"]
-    HSERDY:
-      _write:
-        NotReady: [0, "HSE oscillator not ready"]
-        Ready: [1, "HSE oscillator ready"]
-    HSEON:
-      "Off": [0, "HSE oscillator OFF"]
-      "On": [1, "HSE oscillator ON"]
-    HSICAL: [0, 255]
-    HSITRIM: [0, 31]
-    HSIRDY:
-      _read:
-        NotReady: [0, "HSI oscillator not ready"]
-        Ready: [1, "HSI oscillator ready"]
-    HSION:
-      "Off": [0, "HSI oscillator Off"]
-      "On": [1, "HSI oscillator On"]
   CFGR:
     _modify:
       PLLXTPRE:
@@ -41,17 +14,17 @@ RCC:
         description: "APCPRE is deprecated. See ADC field in CFGR2 register."
 
     PLLNODIV: # Not available on stm32f05x
-      Div_2: [0, "PLL is divided by 2 for MCO"]
-      NotDivided: [1, "PLL is not divided for MCO"]
+      Div2: [0, "PLL is divided by 2 for MCO"]
+      Div1: [1, "PLL is not divided for MCO"]
     MCOPRE: # Not available on stm32f05x
-      Div_1: [0, "MCO is divided by 1"]
-      Div_2: [1, "MCO is divided by 2"]
-      Div_4: [2, "MCO is divided by 4"]
-      Div_8: [3, "MCO is divided by 8"]
-      Div_16: [4, "MCO is divided by 16"]
-      Div_32: [5, "MCO is divided by 32"]
-      Div_64: [6, "MCO is divided by 64"]
-      Div_128: [7, "MCO is divided by 128"]
+      Div1: [0, "MCO is divided by 1"]
+      Div2: [1, "MCO is divided by 2"]
+      Div4: [2, "MCO is divided by 4"]
+      Div8: [3, "MCO is divided by 8"]
+      Div16: [4, "MCO is divided by 16"]
+      Div32: [5, "MCO is divided by 32"]
+      Div64: [6, "MCO is divided by 64"]
+      Div128: [7, "MCO is divided by 128"]
     MCO:
       NoMCO: [0, "MCO output disabled, no clock on MCO"]
       HSI14: [1, "Internal RC 14 MHz (HSI14) oscillator clock selected"]
@@ -62,291 +35,68 @@ RCC:
       HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
       PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
       HSI48: [8, "Internal RC 48 MHz (HSI48) oscillator clock selected"]
-    PLLMUL:
-      Mul_2: [0, "PLL input clock x2"]
-      Mul_3: [1, "PLL input clock x3"]
-      Mul_4: [2, "PLL input clock x4"]
-      Mul_5: [3, "PLL input clock x5"]
-      Mul_6: [4, "PLL input clock x6"]
-      Mul_7: [5, "PLL input clock x7"]
-      Mul_8: [6, "PLL input clock x8"]
-      Mul_9: [7, "PLL input clock x9"]
-      Mul_10: [8, "PLL input clock x10"]
-      Mul_11: [9, "PLL input clock x11"]
-      Mul_12: [10, "PLL input clock x12"]
-      Mul_13: [11, "PLL input clock x13"]
-      Mul_14: [12, "PLL input clock x14"]
-      Mul_15: [13, "PLL input clock x15"]
-      Mul_16: [14, "PLL input clock x16"]
-      Mul_16: [15, "PLL input clock x16"]
-    PLLSRC:
-      HSI_Div_2: [0, "HSI divided by 2 selected as PLL input clock"]
-      HSI_Div_PREDIV: [1, "HSI divided by PREDIV selected as PLL input clock"]
-      HSE_Div_PREDIV: [2, "HSE divided by PREDIV selected as PLL input clock"]
-      HSI48_Div_PREDIV: [3, "HSI48 divided by PREDIV selected as PLL input clock"]
-    PPRE:
-      NotDivided: [0, "HCLK not divided"] # Same for [0, 8]
-      Div_2: [4, "HCLK divided by 2"]
-      Div_4: [5, "HCLK divided by 4"]
-      Div_8: [6, "HCLK divided by 8"]
-      Div_16: [7, "HCLK divided by 16"]
-    HPRE:
-      NotDivided: [0, "SYSCLK not divided"] # Same for [0, 7]
-      Div_2: [8, "SYSCLK divided by 2"]
-      Div_4: [9, "SYSCLK divided by 4"]
-      Div_8: [10, "SYSCLK divided by 8"]
-      Div_16: [11, "SYSCLK divided by 16"]
-      Div_64: [12, "SYSCLK divided by 64"]
-      Div_128: [13, "SYSCLK divided by 128"]
-      Div_256: [14, "SYSCLK divided by 256"]
-      Div_512: [15, "SYSCLK divided by 512"]
     SWS:
       _read:
-        HSI: [0, "HSE oscillator used as system clock"]
-        HSE: [1, "HSI oscillator used as system clock"]
-        PLL: [2, "PLL used as system clock"]
         HSI48: [3, "HSI48 used as system clock (when avaiable)"]
     SW:
-      HSI: [0, "HSI selected as system clock"]
-      HSE: [1, "HSE selected as system clock"]
-      PLL: [2, "PLL selected as system clock"]
       HSI48: [3, "HSI48 selected as system clock (when available)"]
-  CIR:
-    CSSC:
-      _write:
-        Clear: [1, "Clear CSSF flag"]
-    HSI48RDYC:
-      _write:
-        Clear: [1, "Clear HSI48RDYE flag"]
-    HSI14RDYC:
-      _write:
-        Clear: [1, "Clear HSI14RDYF flag"]
-    PLLRDYC:
-      _write:
-        Clear: [1, "Clear PLLRDYF flag"]
-    HSERDYC:
-      _write:
-        Clear: [1, "Clear HSIRDYF flag"]
-    HSIRDYC:
-      _write:
-        Clear: [1, "Clear HSIRDYF flag"]
-    LSERDYC:
-      _write:
-        Clear: [1, "Clear LSERDYF flag"]
-    LSIRDYC:
-      _write:
-        Clear: [1, "Clear LSIRDYF flag"]
-    HSI48RDYIE:
-      Disabled: [0, "HSI48 ready interrupt disabled"]
-      Enabled: [1, "HSI48 ready interrupt enabled"]
-    HSI14RDYIE:
-      Disabled: [0, "HSI14 ready interrupt disabled"]
-      Enabled: [1, "HSI14 ready interrupt enabled"]
-    PLLRDYIE:
-      Disabled: [0, "PLL ready  interrupt disabled"]
-      Enabled: [1, "PLL ready interrupt enabled"]
-    HSERDYIE:
-      Disabled: [0, "HSE ready interrupt disabled"]
-      Enabled: [1, "HSE ready interrupt enabled"]
-    HSIRDYIE:
-      Disabled: [0, "HSI ready interrupt disabled"]
-      Enabled: [1, "HSI ready interrupt enabled"]
-    LSERDYIE:
-      Disabled: [0, "LSE ready interrupt disabled"]
-      Enabled: [1, "LSE ready interrupt enabled"]
-    LSIRDYIE:
-      Disabled: [0, "LSI ready interrupt disabled"]
-      Enabled: [1, "LSI ready interrupt enabled"]
-    CSSF:
-      _read:
-        NotInterrupted: [0, "No clock security interrupt caused by HSE clock failure"]
-        Interrupted: [1, "Clock security interrupt caused by HSE clock failure"]
-    HSI48RDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the HSI48 oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the HSI48 oscillator"]
-    HSI14RDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the HSI14 oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the HSI14 oscillator"]
-    PLLRDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the PLL lock"]
-        Interrupted: [1, "Clock ready interrupt caused by the PLL lock"]
-    HSERDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the HSE oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the HSE oscillator"]
-    HSIRDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the HSI oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the HSI oscillator"]
-    LSERDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the LSE oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the LSE oscillator"]
-    LSIRDYF:
-      _read:
-        NotInterrupted: [0, "No clock ready interrupt caused by the LSI oscillator"]
-        Interrupted: [1, "Clock ready interrupt caused by the LSI oscillator"]
-  APB2RSTR:
-    DBGMCURST:
-      Reset: [1, "Reset Debug MCU"]
-    TIM17RST:
-      Reset: [1, "Reset TIM17 timer"]
-    TIM16RST:
-      Reset: [1, "Reset TIM16 timer"]
-    TIM15RST:
-      Reset: [1, "Reset TIM15 timer"]
-    USART1RST:
-      Reset: [1, "Reset USART1"]
-    SPI1RST:
-      Reset: [1, "Reset SPI1"]
-    TIM1RST:
-      Reset: [1, "Reset TIM1 timer"]
-    ADCRST:
-      Reset: [1, "Reset ADC interface"]
-    SYSCFGRST:
-      Reset: [1, "Reset SYSCFG"]
-  APB1RSTR:
-    PWRRST:
-      Reset: [1, "Reset power interface"]
-    USBRST:
-      Reset: [1, "Reset USB interface"]
-    I2C2RST:
-      Reset: [1, "Reset I2C2"]
-    I2C1RST:
-      Reset: [1, "Reset I2C1"]
-    USART5RST:
-      Reset: [1, "Reset USART5"]
-    USART4RST:
-      Reset: [1, "Reset USART4"]
-    USART3RST:
-      Reset: [1, "Reset USART3"]
-    USART2RST:
-      Reset: [1, "Reset USART2"]
-    SPI2RST:
-      Reset: [1, "Reset SPI2"]
-    WWDGRST:
-      Reset: [1, "Reset window watchdog"]
-    TIM14RST:
-      Reset: [1, "Reset TIM14"]
-    TIM7RST:
-      Reset: [1, "Reset TIM7"]
-    TIM6RST:
-      Reset: [1, "Reset TIM6"]
-    TIM3RST:
-      Reset: [1, "Reset TIM3"]
-  AHBENR:
-    IOPFEN:
-      Disabled: [0, "I/O port F clock disabled"]
-      Enabled: [1, "I/O port F clock enabled"]
-    IOPDEN:
-      Disabled: [0, "I/O port D clock disabled"]
-      Enabled: [1, "I/O port D clock enabled"]
-    IOPCEN:
-      Disabled: [0, "I/O port C clock disabled"]
-      Enabled: [1, "I/O port C clock enabled"]
-    IOPBEN:
-      Disabled: [0, "I/O port B clock disabled"]
-      Enabled: [1, "I/O port B clock enabled"]
-    IOPAEN:
-      Disabled: [0, "I/O port A clock disabled"]
-      Enabled: [1, "I/O port A clock enabled"]
-    CRCEN:
-      Disabled: [0, "CRC clock disabled"]
-      Enabled: [1, "CRC clock enabled"]
-    FLITFEN:
-      Disabled: [0, "FLITF clock disabled during Sleep mode"]
-      Enabled: [1, "FLITF clock enabled during Sleep mode"]
-    SRAMEN:
-      Disabled: [0, "SRAM interface clock disabled during Sleep mode"]
-      Enabled: [1, "SRAM interface clock enabled during Sleep mode"]
-    DMAEN:
-      Disabled: [0, "DMA clock disabled"]
-      Enabled: [1, "DMA clock enabled"]
-  APB2ENR:
-    DBGMCUEN:
-      Disabled: [0, "MCU debug module clock disabled"]
-      Enabled: [1, "MCU debug module enabled"]
-    TIM17EN:
-      Disabled: [0, "TIM17 timer clock disabled"]
-      Enabled: [1, "TIM17 timer clock enabled"]
-    TIM16EN:
-      Disabled: [0, "TIM16 timer clock disabled"]
-      Enabled: [1, "TIM16 timer clock enabled"]
-    TIM15EN:
-      Disabled: [0, "TIM15 timer clock disabled"]
-      Enabled: [1, "TIM15 timer clock enabled"]
-    USART1EN:
-      Disabled: [0, "USART1 clock disabled"]
-      Enabled: [1, "USART1 clock enabled"]
-    SPI1EN:
-      Disabled: [0, "SPI1 clock disabled"]
-      Enabled: [1, "SPI1 clock enabled"]
-    TIM1EN:
-      Disabled: [0, "TIM1 timer clock disabled"]
-      Enabled: [1, "TIM1 timer clock enabled"]
-    ADCEN:
-      Disabled: [0, "ADC interface disabled"]
-      Enabled: [1, "ADC interface enabled"]
-    USART6EN:
-      Disabled: [0, "USART6 clock disabled"]
-      Enabled: [1, "USART6 clock enabled"]
-    SYSCFGEN:
-      Disabled: [0, "SYSCFG clock disabled"]
-      Enabled: [1, "SYSCFG clock enabled"]
-  APB1ENR:
+  BDCR:
+    LSEDRV:
+      Low: [0, "Low drive capacity"]
+      MediumHigh: [1, "Medium-high drive capacity"]
+      MediumLow: [2, "Medium-low drive capacity"]
+      High: [3, "High drive capacity"]
+  CFGR2:
+    PREDIV:
+      Div1: [0, "PREDIV input clock not divided"]
+      Div2: [1, "PREDIV input clock divided by 2"]
+      Div3: [2, "PREDIV input clock divided by 3"]
+      Div4: [3, "PREDIV input clock divided by 4"]
+      Div5: [4, "PREDIV input clock divided by 5"]
+      Div6: [5, "PREDIV input clock divided by 6"]
+      Div7: [6, "PREDIV input clock divided by 7"]
+      Div8: [7, "PREDIV input clock divided by 8"]
+      Div9: [8, "PREDIV input clock divided by 9"]
+      Div10: [9, "PREDIV input clock divided by 10"]
+      Div11: [10, "PREDIV input clock divided by 11"]
+      Div12: [11, "PREDIV input clock divided by 12"]
+      Div13: [12, "PREDIV input clock divided by 13"]
+      Div14: [13, "PREDIV input clock divided by 14"]
+      Div15: [14, "PREDIV input clock divided by 15"]
+      Div16: [15, "PREDIV input clock divided by 16"]
+  CFGR3:
     _modify:
-      USBRST:
-        name: "USBEN"
-    PWREN:
-      Disabled: [0, "Power interface clock disabled"]
-      Enabled: [1, "Power interface clock enabled"]
-    I2C2EN:
-      Disabled: [0, "I2C2 clock disabled"]
-      Enabled: [1, "I2C2 clock enabled"]
-    I2C1EN:
-      Disabled: [0, "I2C1 clock disabled"]
-      Enabled: [1, "I2C1 clock enabled"]
-    USART5EN:
-      Disabled: [0, "USART5 clock disabled"]
-      Enabled: [1, "USART5 clock enabled"]
-    USART4EN:
-      Disabled: [0, "USART4 clock disabled"]
-      Enabled: [1, "USART4 clock enabled"]
-    USART3EN:
-      Disabled: [0, "USART3 clock disabled"]
-      Enabled: [1, "USART3 clock enabled"]
-    USART2EN:
-      Disabled: [0, "USART2 clock disabled"]
-      Enabled: [1, "USART2 clock enabled"]
-    SPI2EN:
-      Disabled: [0, "SPI2 clock disabled"]
-      Enabled: [1, "SPI2 clock enabled"]
-    WWDGEN:
-      Disabled: [0, "Window watchdog clock disabled"]
-      Enabled: [1, "Window watchdog clock enabled"]
-    TIM14EN:
-      Disabled: [0, "TIM14EN clock disabled"]
-      Enabled: [1, "TIM14EN clock enabled"]
-    TIM7EN:
-      Disabled: [0, "TIM7EN clock disabled"]
-      Enabled: [1, "TIM7EN clock enabled"]
-    TIM6EN:
-      Disabled: [0, "TIM6EN clock disabled"]
-      Enabled: [1, "TIM6EN clock enabled"]
-    TIM3EN:
-      Disabled: [0, "TIM3EN clock disabled"]
-      Enabled: [1, "TIM3EN clock enabled"]
-  AHBRSTR:
-    IOPFRST:
-      Reset: [1, "Reset I/O port F"]
-    IOPDRST:
-      Reset: [1, "Reset I/O port D"]
-    IOPCRST:
-      Reset: [1, "Reset I/O port C"]
-    IOPBRST:
-      Reset: [1, "Reset I/O port B"]
-    IOPARST:
-      Reset: [1, "Reset I/O port A"]
+      ADCSW:
+        description: "ADCSW is deprecated. See ADC field in CFGR2 register."
+
+    "USART*SW":
+      PCLK: [0, "PCLK selected as USART clock source"]
+      SYSCLK: [1, "SYSCLK selected as USART clock source"]
+      LSE: [2, "LSE selected as USART clock source"]
+      HSI: [3, "HSI selected as USART clock source"]
+    USBSW:
+      PLLCLK: [1, "PLL clock selected as USB clock source"]
+    I2C1SW:
+      HSI: [0, "HSI clock selected as I2C1 clock source"]
+      SYSCLK: [1, "SYSCLK clock selected as I2C1 clock source"]
+  CR2:
+    HSI48CAL: [0, 255]
+    HSI48RDY:
+      _read:
+        NotReady: [0, "HSI48 oscillator ready"]
+        Ready: [1, "HSI48 oscillator ready"]
+    HSI48ON:
+      "Off": [0, "HSI48 oscillator off"]
+      "On": [1, "HSI48 oscillator on"]
+    HSI14CAL: [0, 255]
+    HSI14TRIM: [0, 31]
+    HSI14DIS:
+      Allow: [0, "ADC can turn on the HSI14 oscillator"]
+      Disallow: [1, "ADC can not turn on the HSI14 oscillator"]
+    HSI14RDY:
+      _read:
+        NotReady: [0, "HSI14 oscillator not ready"]
+        Ready: [1, "HSI14 oscillator ready"]
+    HSI14ON:
+      "Off": [0, "HSI14 oscillator off"]
+      "On": [1, "HSI14 oscillator on"]

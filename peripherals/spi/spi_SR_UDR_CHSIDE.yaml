@@ -1,0 +1,9 @@
+"SPI*,I2S*":
+  SR:
+    UDR:
+      _read:
+        NoUnderrun: [0, "No underrun occurred"]
+        Underrun: [1, "Underrun occurred"]
+    CHSIDE:
+      Left: [0, "Channel left has to be transmitted or has been received"]
+      Right: [1, "Channel right has to be transmitted or has been received"]

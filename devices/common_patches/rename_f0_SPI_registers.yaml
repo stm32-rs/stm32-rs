@@ -1,0 +1,13 @@
+#RM0360 & RM0091 for STM32f0x0, stm32f0x1, stm32f0x2, stm32f0x8 indicate these register names
+
+"SPI*":
+  CR1:
+    _modify:
+      DFF:
+        name: CRCL
+        description: "CRC length"
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: "Frame format error"
