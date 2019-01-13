@@ -1,4 +1,4 @@
-//! Peripheral access API for STM32F3 microcontrollers
+//! Peripheral access API for STM32G0 microcontrollers
 //! (generated using [svd2rust](https://github.com/rust-embedded/svd2rust)
 //! 0.14.0)
 //!
@@ -8,9 +8,9 @@
 //! For more details see the README here:
 //! https://github.com/stm32-rs/stm32-rs
 //!
-//! This crate supports all STM32F3 devices; for the complete list please
+//! This crate supports all STM32G0 devices; for the complete list please
 //! see:
-//! https://github.com/stm32-rs/stm32-rs/tree/master/STM32F3
+//! https://github.com/stm32-rs/stm32-rs/tree/master/STM32G0
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
@@ -26,21 +26,9 @@ extern crate cortex_m;
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
 
-#[cfg(feature = "stm32f301")]
-pub mod stm32f301;
+#[cfg(feature = "stm32g0x0")]
+pub mod stm32g0x0;
 
-#[cfg(feature = "stm32f302")]
-pub mod stm32f302;
-
-#[cfg(feature = "stm32f303")]
-pub mod stm32f303;
-
-#[cfg(feature = "stm32f373")]
-pub mod stm32f373;
-
-#[cfg(feature = "stm32f3x4")]
-pub mod stm32f3x4;
-
-#[cfg(feature = "stm32f3x8")]
-pub mod stm32f3x8;
+#[cfg(feature = "stm32g0x1")]
+pub mod stm32g0x1;
 

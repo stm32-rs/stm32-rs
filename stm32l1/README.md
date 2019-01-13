@@ -4,7 +4,7 @@ The API is generated using [svd2rust] with patched svd files containing
 extensive type-safe support. For more information please see the [main repo].
 
 [svd2rust]: https://github.com/japaric/svd2rust
-[main repo]: https://github.com/adamgreig/stm32-rs
+[main repo]: https://github.com/stm32-rs/stm32-rs
 
 ## Usage
 Each device supported by this crate is behind a feature gate so that you only
