@@ -1,13 +1,8 @@
+_include:
+  - ./fsmc_base.yaml
+
 FSMC:
-  BCR1:
-    _add:
-      WRAPMOD:
-        description: WRAPMOD
-        bitOffset: 10
-        bitWidth: 1
   _array:
-    "BCR?": {}
-    "BTR?": {}
     "PCR?": {}
     "SR?": {}
     "PMEM?":
@@ -34,5 +29,4 @@ FSMC:
       _modify:
         ECCx:
           name: ECC
-    "BWTR?": {}
 

@@ -9,6 +9,8 @@ _modify:
   # we'll prefer the more sensible (and better for sorting) ADC_Common
   C_ADC:
     name: ADC_Common
+  FMC:
+    name: FSMC
 
 "SPI*":
   SR:
@@ -47,7 +49,7 @@ CRYP:
       - "IV*"
 
 # Offset of BWTR3 and BWTR4 is incorrect
-FMC:
+FSMC:
   _modify:
     BWTR3:
       addressOffset: "0x114"
@@ -55,6 +57,11 @@ FMC:
     BWTR4:
       addressOffset: "0x11C"
       alternateRegister: ""
+  BCR2,BCR3,BCR4:
+    _add:
+      CCLKEN:
+          bitOffset: 20
+          bitWidth: 1
 
 # Fix RCC enable bits naming
 RCC:
@@ -132,13 +139,14 @@ _include:
  - common_patches/f4_ethernet.yaml
  - common_patches/rcc_sai.yaml
  - common_patches/rcc_dma2d_ltdc.yaml
- - ../peripherals/can/can.yaml
- - ../peripherals/can/can_filter_bank.yaml
- - ../peripherals/cryp/cryp_v2.yaml
- - ../peripherals/ltdc/ltdc.yaml
- - ../peripherals/sai/sai_v1.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/cryp/cryp_v2.yaml
+ - common_patches/ltdc/ltdc.yaml
+ - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sq_sai.yaml
+ - common_patches/fsmc/fsmc.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
@@ -155,6 +163,7 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -170,6 +179,6 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
- - ../peripherals/hash/hash.yaml
- - ../peripherals/rtc/rtc_bkpr.yaml
+ - common_patches/hash/hash.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/otg_fs_fixes.yaml

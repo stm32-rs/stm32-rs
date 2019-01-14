@@ -123,11 +123,11 @@ _include:
  - common_patches/rcc_dma2d_ltdc.yaml
  - common_patches/rcc_spi4.yaml
  - common_patches/rcc_spi5.yaml
- - ../peripherals/can/can.yaml
- - ../peripherals/can/can_filter_bank.yaml
- - ../peripherals/cryp/cryp_v2.yaml
- - ../peripherals/ltdc/ltdc.yaml
- - ../peripherals/sai/sai_v1.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/cryp/cryp_v2.yaml
+ - common_patches/ltdc/ltdc.yaml
+ - common_patches/sai/sai_v1.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
@@ -144,6 +144,7 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -159,6 +160,6 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
- - ../peripherals/hash/hash.yaml
- - ../peripherals/rtc/rtc_bkpr.yaml
+ - common_patches/hash/hash.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/otg_fs_fixes.yaml

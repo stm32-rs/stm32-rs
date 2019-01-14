@@ -77,6 +77,7 @@ _include:
  - ./common_patches/rcc_LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio_with_OSPEEDER.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/fsmc/fsmc_base.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -91,4 +92,4 @@ _include:
  - ../peripherals/exti/exti_v1.yaml
  - ../peripherals/rcc/rcc_l1.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/rtc/rtc_bkpr.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

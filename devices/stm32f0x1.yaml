@@ -26,9 +26,9 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR1_M0_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
- - ../peripherals/can/can_remove_prefix.yaml
- - ../peripherals/can/can.yaml
- - ../peripherals/can/can_filter_bank.yaml
+ - common_patches/can/can_remove_prefix.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
@@ -43,11 +43,12 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/rcc/rcc_f0x128.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - ../peripherals/rtc/rtc_bkpr.yaml
- - ../peripherals/tsc/tsc.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tsc/tsc.yaml
  - ../peripherals/syscfg/syscfg_f0x128.yaml
  - ../peripherals/comp/comp_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1_RM0091.yaml

@@ -32,9 +32,10 @@ CRYP:
 _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - ../peripherals/can/can.yaml
- - ../peripherals/cryp/cryp_v1.yaml
+ - common_patches/can/can.yaml
+ - common_patches/cryp/cryp_v1.yaml
  - common_patches/f2_rcc.yaml
+ - common_patches/fsmc/fsmc_wrapmod.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
@@ -51,5 +52,5 @@ _include:
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/hash/hash_v1.yaml
- - ../peripherals/rtc/rtc_bkpr.yaml
+ - common_patches/hash/hash_v1.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
