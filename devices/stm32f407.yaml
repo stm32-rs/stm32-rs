@@ -62,11 +62,13 @@ _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
  - common_patches/f4_ethernet.yaml
+ - common_patches/rcc_rename_plli2scfgr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

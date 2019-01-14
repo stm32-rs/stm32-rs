@@ -1,0 +1,19 @@
+_include:
+  - ./rcc_v2.yaml
+  - ./rcc_v2_i2s.yaml
+  - ./rcc_v2_i2s_pll.yaml
+  - ./rcc_v2_i2s_pllq.yaml
+  - ./rcc_v2_dckcfgr_timpre.yaml
+  - ./rcc_v2_dckcfgr_i2s_sai_f7.yaml
+  - ./rcc_v2_dckcfgr2_48m_sd.yaml
+  - ./rcc_v2_dckcfgr2_lptimsel.yaml
+  - ./rcc_v2_dckcfgr2_i2csel.yaml
+  - ./rcc_v2_dckcfgr2_usartsel.yaml
+
+RCC:
+  PLLSAICFGR:
+    "PLL*P":
+      Div2: [0, "PLL*P=2"]
+      Div4: [1, "PLL*P=4"]
+      Div6: [2, "PLL*P=6"]
+      Div8: [3, "PLL*P=8"]

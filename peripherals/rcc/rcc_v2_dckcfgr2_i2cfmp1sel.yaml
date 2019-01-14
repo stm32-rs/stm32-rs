@@ -1,0 +1,6 @@
+RCC:
+  DCKCFGR2:
+    I2CFMP1SEL:
+      APB: [0, "APB clock selected as FMPI2C1 clock"]
+      SYSCLK: [1, "System clock selected as FMPI2C1 clock"]
+      HSI: [2, "HSI clock selected as FMPI2C1 clock"]

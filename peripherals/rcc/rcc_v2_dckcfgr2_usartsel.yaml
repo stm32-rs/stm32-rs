@@ -1,0 +1,12 @@
+RCC:
+  DCKCFGR2:
+    USART2SEL,USART3SEL,UART4SEL,UART5SEL,UART7SEL,UART8SEL:
+      APB1: [0, "APB1 clock (PCLK1) is selected as USART clock"]
+      SYSCLK: [1, "System clock is selected as USART clock"]
+      HSI: [2, "HSI clock is selected as USART clock"]
+      LSE: [3, "LSE clock is selected as USART clock"]
+    USART1SEL,USART6SEL:
+      APB2: [0, "APB2 clock (PCLK2) is selected as USART clock"]
+      SYSCLK: [1, "System clock is selected as USART clock"]
+      HSI: [2, "HSI clock is selected as USART clock"]
+      LSE: [3, "LSE clock is selected as USART clock"]

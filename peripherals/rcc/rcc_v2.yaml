@@ -39,3 +39,12 @@ RCC:
     "*LPEN":
       DisabledInSleep: [0, "Selected module is disabled during Sleep mode"]
       EnabledInSleep: [1, "Selected module is enabled during Sleep mode"]
+  SSCGR:
+    SSCGEN:
+      Disabled: [0, "Spread spectrum modulation disabled"]
+      Enabled: [1, "Spread spectrum modulation enabled"]
+    SPREADSEL:
+      Center: [0, "Center spread"]
+      Down: [1, "Down spread"]
+    INCSTEP: [0, 32767]
+    MODPER: [0, 8191]

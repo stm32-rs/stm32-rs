@@ -1,0 +1,8 @@
+RCC:
+  DCKCFGR:
+    CKDFSDM?ASEL:
+      I2S1: [0, "CK_I2S_APB1 selected as audio clock"]
+      I2S2: [1, "CK_I2S_APB2 selected as audio clock"]
+    CKDFSDM1SEL:
+      APB2: [0, "APB2 clock used as Kernel clock"]
+      SYSCLK: [1, "System clock used as Kernel clock"]

@@ -1,0 +1,5 @@
+# Applicable at least to some STM32F4 and STM32F7.
+
+RCC:
+  PLLI2SCFGR,PLLSAICFGR:
+    "PLL*Q": [2, 15]
