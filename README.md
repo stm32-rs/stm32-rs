@@ -103,6 +103,7 @@ This project is still young and there's a lot to do!
 * [STM32L1](stm32l1/) [![crates.io](https://img.shields.io/crates/v/stm32l1.svg)](https://crates.io/crates/stm32l1)
 * [STM32L4](stm32l4/) [![crates.io](https://img.shields.io/crates/v/stm32l4.svg)](https://crates.io/crates/stm32l4)
 * [STM32H7](stm32h7/) [![crates.io](https://img.shields.io/crates/v/stm32h7.svg)](https://crates.io/crates/stm32h7)
+* [STM32G0](stm32g0/) [![crates.io](https://img.shields.io/crates/v/stm32g0.svg)](https://crates.io/crates/stm32g0)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
