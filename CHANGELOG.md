@@ -18,6 +18,10 @@ Common:
 * Travis builds now much faster (#134)
 * Documentation links updated (#128)
 
+Thanks to:
+
+@octronics @birkenfeld @dotcypress @aurelj @albru123 @x37v @HarkonenBade
+
 ## v 0.5.0 2018-12-16
 * Now built on stable Rust
 * Updated to svd2rust 0.14.0 (#108)
