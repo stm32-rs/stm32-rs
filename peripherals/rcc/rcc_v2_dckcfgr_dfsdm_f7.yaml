@@ -1,0 +1,8 @@
+RCC:
+  DCKCFGR1:
+    DFSDM1SEL:
+      APB2: [0, "APB2 clock (PCLK2) selected as DFSDM1 Kernel clock source"]
+      SYSCLK: [1, "System clock (SYSCLK) clock selected as DFSDM1 Kernel clock source"]
+    ADFSDM1SEL:
+      SAI1: [0, "SAI1 clock selected as DFSDM1 Audio clock source"]
+      SAI2: [1, "SAI2 clock selected as DFSDM1 Audio clock source"]

@@ -72,6 +72,57 @@ RCC:
         name: SPI5EN
       SPI6ENR:
         name: SPI6EN
+  _add:
+    PLLSAICFGR:
+      description: RCC PLL configuration register
+      addressOffset: 0x88
+      size: 0x20
+      access: read-write
+      resetValue: 0x24003000
+      fields:
+        PLLSAIR:
+          description: PLLSAI division factor for LCD clock
+          bitOffset: 28
+          bitWidth: 3
+        PLLSAIQ:
+          description: PLLSAI division factor for SAI1 clock
+          bitOffset: 24
+          bitWidth: 4
+        PLLSAIN:
+          description: PLLSAI division factor for VCO
+          bitOffset: 6
+          bitWidth: 9
+    DCKCFGR:
+      description: RCC Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PLLI2SDIVQ:
+          description: PLLI2S division factor for SAI1 clock
+          bitOffset: 0
+          bitWidth: 5
+        PLLSAIDIVQ:
+          description: PLLSAI division factor for SAI1 clock
+          bitOffset: 8
+          bitWidth: 5
+        PLLSAIDIVR:
+          description: division factor for LCD_CLK
+          bitOffset: 16
+          bitWidth: 2
+        SAI1ASRC:
+          description: SAI1-A clock source selection
+          bitOffset: 20
+          bitWidth: 2
+        SAI1BSRC:
+          description: SAI1-B clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -86,11 +137,19 @@ _include:
  - ../peripherals/cryp/cryp_v2.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/sai/sai_v1.yaml
+ - common_patches/rcc_rename_plli2scfgr.yaml
+ - common_patches/rcc_add_plli2sq_sai.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+ - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

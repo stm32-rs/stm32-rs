@@ -1,0 +1,15 @@
+RCC:
+  CFGR:
+    _merge:
+      - "MCO1[01]"
+      - "MCO1PRE[012]"
+      - "MCO2PRE[012]"
+      - "MCO2[01]"
+      - "RTCPRE[01234]"
+      - "PPRE2[012]"
+      - "PPRE1[0123]"
+      - "HPRE[0123]"
+  PLLI2SCFGR:
+    _merge:
+      - "PLLI2SR[012]"
+      - "PLLI2SN[012345678]"

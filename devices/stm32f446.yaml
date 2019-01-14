@@ -57,6 +57,12 @@ RCC:
     _modify:
       SPI4ENR:
         name: SPI4EN
+  DCKCFGR2:
+    _modify:
+      FMPI2C1SEL:
+        name: I2CFMP1SEL
+      SPDIFSEL:
+        name: SPDIFRXSEL
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -71,6 +77,17 @@ _include:
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f446.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_spdifrxsel.yaml
+ - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml

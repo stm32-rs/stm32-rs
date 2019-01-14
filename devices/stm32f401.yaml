@@ -22,9 +22,13 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/rcc_spi4.yaml
+ - common_patches/rcc_rename_plli2scfgr.yaml
+ - common_patches/f4_rcc_dckcfgr.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

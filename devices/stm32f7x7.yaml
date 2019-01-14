@@ -274,7 +274,7 @@ _include:
  - common_patches/rename_ltcd.yaml
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_interrupts_extra.yaml
- - common_patches/f7_pllsai.yaml
+ - common_patches/pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
  - common_patches/merge_USART_CR1_DEATx_fields.yaml
@@ -288,11 +288,18 @@ _include:
  - ../peripherals/cryp/cryp_v2.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/sai/sai_v1.yaml
+ - common_patches/rcc_add_plli2sp.yaml
+ - common_patches/f7_rcc_dckcfgr_RM0410.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
- - ../peripherals/rcc/rcc_v2.yaml
- - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
+ - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dsisel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

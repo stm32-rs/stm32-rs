@@ -1,0 +1,5 @@
+RCC:
+  DCKCFGR,DCKCFGR2:
+    DSISEL:
+      DSI_PHY: [0, "DSI-PHY used as DSI byte lane clock source (usual case)"]
+      PLLR: [1, "PLLR used as DSI byte lane clock source, used in case DSI PLL and DSI-PHY are off (low power mode)"]

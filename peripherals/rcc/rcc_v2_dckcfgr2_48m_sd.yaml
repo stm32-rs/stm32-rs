@@ -1,0 +1,8 @@
+RCC:
+  DCKCFGR2:
+    CK48MSEL:
+      PLL: [0, "48MHz clock from PLL is selected"]
+      PLLSAI: [1, "48MHz clock from PLLSAI is selected"]
+    SDMMC?SEL,SDIOSEL:
+      CK48M: [0, "48 MHz clock is selected as SD clock"]
+      SYSCLK: [1, "System clock is selected as SD clock"]

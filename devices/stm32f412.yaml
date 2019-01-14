@@ -43,6 +43,98 @@ RCC:
         description: SPI4 reset
         bitOffset: 13
         bitWidth: 1
+  PLLI2SCFGR:
+    _add:
+      PLLI2SSRC:
+        description: "PLLI2S entry clock source"
+        bitOffset: 22
+        bitWidth: 1
+  _add:
+    DCKCFGR:
+      description: Dedicated Clock Configuration Register
+      addressOffset: 0x8C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CKDFSDM1ASEL:
+          description: DFSDM1 audio clock selection
+          bitOffset: 15
+          bitWidth: 5
+        TIMPRE:
+          description: Timers clocks prescalers selection
+          bitOffset: 24
+          bitWidth: 1
+        I2S1SRC:
+          description: I2S APB1 clocks source selection (I2S2/3)
+          bitOffset: 25
+          bitWidth: 2
+        I2S2SRC:
+          description: I2S APB2 clocks source selection (I2S1/4/5)
+          bitOffset: 27
+          bitWidth: 2
+        CKDFSDM1SEL:
+          description: DFSDM1 Kernel clock selection
+          bitOffset: 31
+          bitWidth: 1
+    DCKCFGR2:
+      description: Dedicated Clock Configuration Register
+      addressOffset: 0x94
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        I2CFMP1SEL:
+          description: I2CFMP1 kernel clock source selection
+          bitOffset: 22
+          bitWidth: 2
+        CK48MSEL:
+          description: SDIO/USBFS clock selection
+          bitOffset: 27
+          bitWidth: 1
+        SDIOSEL:
+          description: SDIO clock selection
+          bitOffset: 28
+          bitWidth: 1
+    CKGATENR:
+      description: Clocks gated enable register
+      addressOffset: 0x90
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        AHB2APB1_CKEN:
+          description: AHB to APB1 Bridge clock enable
+          bitOffset: 0
+          bitWidth: 1
+        AHB2APB2_CKEN:
+          description: AHB to APB2 Bridge clock enable
+          bitOffset: 1
+          bitWidth: 1
+        CM4DBG_CKEN:
+          description: Cortex M4 ETM clock enable
+          bitOffset: 2
+          bitWidth: 1
+        SPARE_CKEN:
+          description: Spare clock enable
+          bitOffset: 3
+          bitWidth: 1
+        SRAM_CKEN:
+          description: SRAM controller clock enable
+          bitOffset: 4
+          bitWidth: 1
+        FLITF_CKEN:
+          description: Flash interface clock enable
+          bitOffset: 5
+          bitWidth: 1
+        RCC_CKEN:
+          description: RCC clock enable
+          bitOffset: 6
+          bitWidth: 1
+        EVTCL_CKEN:
+          description: EVTCL clock enable
+          bitOffset: 7
+          bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -51,9 +143,22 @@ _include:
  - ../peripherals/can/can.yaml
  - ../peripherals/can/can_filter_bank.yaml
  - ../peripherals/dfsdm/dfsdm_v2.yaml
+ - common_patches/rcc_rename_plli2scfgr.yaml
+ - common_patches/rcc_add_plli2sq_usb.yaml
+ - common_patches/rcc_add_plli2sm.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

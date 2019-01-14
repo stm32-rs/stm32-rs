@@ -22,6 +22,9 @@
     SSM:
       Disabled: [0, "Software slave management disabled"]
       Enabled: [1, "Software slave management enabled"]
+    SSI:
+      SlaveSelected: [0, "0 is forced onto the NSS pin and the I/O value of the NSS pin is ignored"]
+      SlaveNotSelected: [1, "1 is forced onto the NSS pin and the I/O value of the NSS pin is ignored"]
     LSBFIRST:
       MSBFirst: [0, "Data is transmitted/received with the MSB first"]
       LSBFirst: [1, "Data is transmitted/received with the LSB first"]
@@ -98,6 +101,10 @@
     DR: [0, 65535]
   CRCPR:
     CRCPOLY: [0, 65535]
+  RXCRCR:
+    RxCRC: [0, 65535]
+  TXCRCR:
+    TxCRC: [0, 65535]
   I2SCFGR:
     I2SMOD:
       SPIMode: [0, "SPI mode is selected"]

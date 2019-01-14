@@ -67,11 +67,13 @@ _include:
  - ../peripherals/cryp/cryp_v2.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/sai/sai_v2.yaml
+ - common_patches/rcc_rename_plli2scfgr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml

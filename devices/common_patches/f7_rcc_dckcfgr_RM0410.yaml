@@ -1,0 +1,24 @@
+_include:
+ - ./f7_rcc_dckcfgr.yaml
+
+RCC:
+  DCKCFGR1:
+    _add:
+      DFSDM1SEL:
+        description: DFSDM1 clock source selection
+        bitOffset: 25
+        bitWidth: 1
+      ADFSDM1SEL:
+        description: DFSDM1 AUDIO clock source selection
+        bitOffset: 26
+        bitWidth: 1
+  DCKCFGR2:
+    _add:
+      SDMMC2SEL:
+        description: SDMMC2 clock source selection
+        bitOffset: 29
+        bitWidth: 1
+      DSISEL:
+        description: DSI clock source selection
+        bitOffset: 30
+        bitWidth: 1

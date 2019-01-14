@@ -1,0 +1,15 @@
+_include:
+  - ./rcc_v2_dckcfgr_i2s_sai_common.yaml
+
+RCC:
+  DCKCFGR1:
+    SAI1SEL:
+      PLLSAI: [0, "SAI1 clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ"]
+      PLLI2S: [1, "SAI1 clock frequency = f(PLLI2S_Q) / PLLI2SDIVQ"]
+      AFIF: [2, "SAI1 clock frequency = Alternate function input frequency"]
+      HSI_HSE: [3, "SAI1 clock frequency = HSI or HSE"]
+    SAI2SEL:
+      PLLSAI: [0, "SAI2 clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ"]
+      PLLI2S: [1, "SAI2 clock frequency = f(PLLI2S_Q) / PLLI2SDIVQ"]
+      AFIF: [2, "SAI2 clock frequency = Alternate function input frequency"]
+      HSI_HSE: [3, "SAI2 clock frequency = HSI or HSE"]

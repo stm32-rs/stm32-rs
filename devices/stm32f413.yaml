@@ -62,6 +62,45 @@ RCC:
         description: UART10 clock enable during Sleep mode
         bitOffset: 7
         bitWidth: 1
+  DCKCFGR:
+    _delete:
+      - LPTIMER1SEL
+    _add:
+      PLLI2SDIVR:
+        description: PLLI2S division factor for SAI1 A/B clock
+        bitOffset: 0
+        bitWidth: 5
+      PLLDIVR:
+        description: PLL division factor for SAI1 A/B clock
+        bitOffset: 8
+        bitWidth: 5
+      CKDFSDM2ASEL:
+        description: DFSDM2 audio clock selection
+        bitOffset: 14
+        bitWidth: 1
+      SAI1ASRC:
+        description: SAI1-A clock source selection
+        bitOffset: 20
+        bitWidth: 2
+      SAI1BSRC:
+        description: SAI1-B clock source selection
+        bitOffset: 22
+        bitWidth: 2
+      CKDFSDM1SEL:
+        description: DFSDM1 Kernel clock selection
+        bitOffset: 31
+        bitWidth: 1
+  DCKCFGR2:
+    _add:
+      LPTIM1SEL:
+        description: LPTIM1 kernel clock source selection
+        bitOffset: 30
+        bitWidth: 2
+    _modify:
+      I2CFMP1SEL:
+        bitWidth: 2
+      CKSDIOSEL:
+        name: SDIOSEL
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -74,6 +113,18 @@ _include:
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
