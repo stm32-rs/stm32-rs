@@ -1,5 +1,23 @@
 # Changelog
 
+## v 0.6.0 2019-01-14
+
+Family-specific:
+
+* F0: Extensively updated, RCC (#118, #130, #131), SYSCFG/COMP (#124), ADC (#129), SPI (#135)
+* F1: Update RCC (#130)
+* F2: RCC (#139)
+* F4: USB OTG updated (#127), RCC (#130, #137)
+* F7: RCC (#130, #137)
+* L0: Fix wakeup pin bits in PWR_CSR (#120)
+* G0: Introduced with basic support (#123)
+
+Common:
+* SPI: Added SSI, RXCRC, TXCRC (#138)
+* We standardised on `Div8` style dividers, instead of `DIV8` or `DIV_8`.
+* Travis builds now much faster (#134)
+* Documentation links updated (#128)
+
 ## v 0.5.0 2018-12-16
 * Now built on stable Rust
 * Updated to svd2rust 0.14.0 (#108)

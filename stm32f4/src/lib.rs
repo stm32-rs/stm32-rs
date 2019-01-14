@@ -3,18 +3,18 @@
 //! 0.14.0)
 //!
 //! You can find an overview of the API here:
-//! https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
+//! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api)
 //!
 //! For more details see the README here:
-//! https://github.com/stm32-rs/stm32-rs
+//! [stm32-rs](https://github.com/stm32-rs/stm32-rs)
 //!
 //! This crate supports all STM32F4 devices; for the complete list please
 //! see:
-//! https://github.com/stm32-rs/stm32-rs/tree/master/STM32F4
+//! [stm32f4](https://github.com/stm32-rs/stm32-rs/tree/master/stm32f4)
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
-//! available registers and fields see: https://stm32.agg.io/rs
+//! available registers and fields see: [stm32-rs Device Coverage](https://stm32.agg.io/rs)
 
 #![allow(non_camel_case_types)]
 #![no_std]
