@@ -25,6 +25,7 @@ CRYP:
 _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/f2_rcc.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
