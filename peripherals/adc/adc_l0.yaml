@@ -3,26 +3,47 @@
 ADC:
   ISR:
     EOCAL:
-      NotComplete: [0, "Calibration is not complete"]
-      Complete: [1, "Calibration is complete"]
+      _read:
+        NotComplete: [0, "Calibration is not complete"]
+        Complete: [1, "Calibration complete"]
+      _write:
+        Clear: [1, "Clear the calibration flag"]
     AWD:
-      NoEvent: [0, "No analog watchdog event occurred"]
-      Event: [1, "Analog watchdog event occurred"]
+      _read:
+        NoEvent: [0, "No analog watchdog event occurred"]
+        Event: [1, "Analog watchdog event occurred"]
+      _write:
+        Clear: [1, "Clear the analog watchdog event flag"]
     OVR:
-      NoOverrun: [0, "No overrun occurred"]
-      Overrun: [1, "Overrun occurred"]
+      _read:
+        NoOverrun: [0, "No overrun occurred"]
+        Overrun: [1, "Overrun occurred"]
+      _write:
+        Clear: [1, "Clear the overrun flag"]
     EOS:
-      NotComplete: [0, "Conversion sequence not complete"]
-      Complete: [1, "Conversion sequence complete"]
+      _read:
+        NotComplete: [0, "Conversion sequence is not complete"]
+        Complete: [1, "Conversion sequence complete"]
+      _write:
+        Clear: [1, "Clear the conversion sequence flag"]
     EOC:
-      NotComplete: [0, "Channel conversion not complete"]
-      Complete: [1, "Channel conversion complete"]
+      _read:
+        NotComplete: [0, "Channel conversion is not complete"]
+        Complete: [1, "Channel conversion complete"]
+      _write:
+        Clear: [1, "Clear the channel conversion flag"]
     EOSMP:
-      NotAtEnd: [0, "Not at the end of the sampling phase"]
-      AtEnd: [1, "End of sampling phase reached"]
+      _read:
+        NotAtEnd: [0, "Not at the end of the samplings phase"]
+        AtEnd: [1, "End of sampling phase reached"]
+      _write:
+        Clear: [1, "Clear the sampling phase flag"]
     ADRDY:
-      NotReady: [0, "ADC not yet ready to start conversion"]
-      Ready: [1, "ADC is ready to start conversion"]
+      _read:
+        NotReady: [0, "ADC not yet ready to start conversion"]
+        Ready: [1, "ADC ready to start conversion"]
+      _write:
+        Clear: [1, "Clear the ADC ready flag"]
   IER:
     EOCALIE:
       Disabled: [0, "End of calibration interrupt disabled"]
@@ -47,23 +68,38 @@ ADC:
       Enabled: [1, "ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set."]
   CR:
     ADCAL:
-      Complete: [0, "Calibration complete"]
-      Calibrate: [1, "Write 1 to calibrate the ADC. Read at 1 means that a calibration is in progress."]
+      _read:
+        NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
+        Calibrating: [1, "ADC calibration in progress"]
+      _write:
+        StartCalibration: [1, "Start the ADC calibration sequence"]
     ADVREGEN:
       Disabled: [0, "ADC voltage regulator disabled"]
       Enabled: [1, "ADC voltage regulator enabled"]
     ADSTP:
-      Idle: [0, "No ADC stop conversion command ongoing"]
-      Stop: [1, "Write 1 to stop the ADC. Read 1 means that an ADSTP command is in progress."]
+      _read:
+        NotStopping: [0, "No stop command active"]
+        Stopping: [1, "ADC stopping conversion"]
+      _write:
+        StopConversion: [1, "Stop the active conversion"]
     ADSTART:
-      Idle: [0, "No ADC conversion is ongoing"]
-      Start: [1, "Write 1 to start the ADC"]
+      _read:
+        NotActive: [0, "No conversion ongoing"]
+        Active: [1, "ADC operating and may be converting"]
+      _write:
+        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
     ADDIS:
-      Idle: [0, "No ADDIS command ongoing"]
-      Disabled: [1, "Write 1 to disable the ADC"]
+      _read:
+        NotDisabling: [0, "No disable command active"]
+        Disabling: [1, "ADC disabling"]
+      _write:
+        Disable: [1, "Disable the ADC"]
     ADEN:
-      Disabled: [0, "ADC is disabled (OFF state)"]
-      Enabled: [1, "Write 1 to enable the ADC"]
+      _read:
+        Disabled: [0, "ADC disabled"]
+        Enabled: [1, "ADC enabled"]
+      _write:
+        Enabled: [1, "Enable the ADC"]
   CFGR1:
     AWDCH: [0, 18]
     AWDEN:
@@ -71,7 +107,7 @@ ADC:
       Enabled: [1, "Analog watchdog enabled"]
     AWDSGL:
       AllChannels: [0, "Analog watchdog enabled on all channels"]
-      SingleChannels: [1, "Analog watchdog enabled on a single channel"]
+      SingleChannel: [1, "Analog watchdog enabled on a single channel"]
     DISCEN:
       Disabled: [0, "Discontinuous mode disabled"]
       Enabled: [1, "Discontinuous mode enabled"]
@@ -93,14 +129,14 @@ ADC:
       FallingEdge: [2, "Hardware trigger detection on the falling edge"]
       BothEdges: [3, "Hardware trigger detection on both the rising and falling edges"]
     EXTSEL:
-      Trg0: [0, "TRG0"]
-      Trg1: [1, "TRG1"]
-      Trg2: [2, "TRG2"]
-      Trg3: [3, "TRG3"]
-      Trg4: [4, "TRG4"]
-      Trg5: [5, "TRG5"]
-      Trg6: [6, "TRG6"]
-      Trg7: [7, "TRG7"]
+      TIM6_TRGO: [0, "Timer 6 TRGO event"]
+      TIM21_CH2: [1, "Timer 21 CH2 event"]
+      TIM2_TRGO: [2, "Timer 2 TRGO event"]
+      TIM2_CH4: [3, "Timer 2 CH4 event"]
+      TIM22_TRGO: [4, "Timer 22 TRGO, Timer 21 TRGO event"]
+      TIM2_CH3: [5, "Timer 2 CH3 event"]
+      TIM3_TRGO: [6, "Timer 3 TRGO event"]
+      EXTI_LINE11: [7, "EXTI line 11 event"]
     ALIGN:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
@@ -121,8 +157,8 @@ ADC:
   CFGR2:
     CKMODE:
       ADCLK: [0, "ADCCLK (Asynchronous clock mode)"]
-      PCLK_DIV2: [1, "PCLK/2 (Synchronous clock mode)"]
-      PCLK_DIV4: [2, "PCLK/4 (Synchronous clock mode)"]
+      PCLK_Div2: [1, "PCLK/2 (Synchronous clock mode)"]
+      PCLK_Div4: [2, "PCLK/4 (Synchronous clock mode)"]
       PCLK: [3, "PCLK (Synchronous clock mode)"]
     TOVS:
       TriggerAll: [0, "All oversampled conversions for a channel are done consecutively after a trigger"]
@@ -142,14 +178,14 @@ ADC:
       Enabled: [1, "Oversampler enabled"]
   SMPR:
     SMP:
-      OneFive: [0, "1.5 ADC clock cycles"]
-      ThreeFive: [1, "3.5 ADC clock cycles"]
-      SevenFive: [2, "7.5 ADC clock cycles"]
-      TwelveFive: [3, "12.5 ADC clock cycles"]
-      NineteenFive: [4, "19.5 ADC clock cycles"]
-      ThirtynineFive: [5, "39.5 ADC clock cycles"]
-      SeventynineFive: [6, "79.5 ADC clock cycles"]
-      OnehundredsixtyFive: [7, "160.5 ADC clock cycles"]
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles3_5: [1, "3.5 ADC clock cycles"]
+      Cycles7_5: [2, "7.5 ADC clock cycles"]
+      Cycles12_5: [3, "12.5 ADC clock cycles"]
+      Cycles19_5: [4, "19.5 ADC clock cycles"]
+      Cycles39_5: [5, "39.5 ADC clock cycles"]
+      Cycles79_5: [6, "79.5 ADC clock cycles"]
+      Cycles160_5: [7, "160.5 ADC clock cycles"]
   TR:
     HT: [0, 2047]
     LT: [0, 2047]
@@ -160,7 +196,7 @@ ADC:
   DR:
     DATA: [0, 65535]
   CALFACT:
-    CALFACT: [0, 63]
+    CALFACT: [0, 127]
   CCR:
     LFMEN:
       Disabled: [0, "Low Frequency Mode disabled"]
@@ -175,7 +211,7 @@ ADC:
       Disabled: [0, "VREFINT disabled"]
       Enabled: [1, "VREFINT enabled"]
     PRESC:
-      NODIV: [0, "Input ADC clock not divided"]
+      Div1: [0, "Input ADC clock not divided"]
       Div2: [1, "Input ADC clock divided by 2"]
       Div4: [2, "Input ADC clock divided by 4"]
       Div6: [3, "Input ADC clock divided by 6"]

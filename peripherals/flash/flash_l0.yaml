@@ -22,8 +22,11 @@
       WS1: [1, "One wait state is used to read a word in the NVM"]
   PECR:
     OBL_LAUNCH:
-      Complete: [0, "Option byte loading completed"]
-      NotComplete: [1, "Option byte loading to be done"]
+      _read:
+        Complete: [0, "Option byte loaded"]
+        NotComplete: [1, "Option byte loading to be done"]
+      _write:
+        Reload: [1, "Reload option byte"]
     ERRIE:
       Disabled: [0, "Error interrupt disable"]
       Enabled: [1, "Error interrupt enable"]
@@ -49,11 +52,11 @@
       NotSelected: [0, "The Flash program memory is not selected"]
       Selected: [1, "The Flash program memory is selected"]
     OPTLOCK:
-      Disabled: [0, "The write and erase operations in the Option bytes area are disabled"]
-      Enabled: [1, "The write and erase operations in the Option bytes area are enabled"]
+      Unlocked: [0, "The write and erase operations in the Option bytes area are disabled"]
+      Locked: [1, "The write and erase operations in the Option bytes area are enabled"]
     PRGLOCK:
-      Disabled: [0, "The write and erase operations in the Flash program memory are disabled"]
-      Enabled: [1, "The write and erase operations in the Flash program memory are enabled"]
+      Unlocked: [0, "The write and erase operations in the Flash program memory are disabled"]
+      Locked: [1, "The write and erase operations in the Flash program memory are enabled"]
     PELOCK:
       Unlocked: [0, "The FLASH_PECR register is unlocked"]
       Locked: [1, "The FLASH_PECR register is locked and no write/erase operation can start"]
@@ -67,26 +70,47 @@
     OPTKEYR: [0, 0xFFFFFFFF]
   SR:
     FWWERR:
-      NoAbort: [0, "No write/erase operation aborted to perform a fetch"]
-      Abort: [1, "A write/erase operation aborted to perform a fetch"]
+      _read:
+        NoError: [0, "No write/erase operation aborted to perform a fetch"]
+        Error: [1, "A write/erase operation aborted to perform a fetch"]
+      _write:
+        Clear: [1, "Clear the flag"]
     NOTZEROERR:
-      NoEvent: [0, "The write operation is done in an erased region or the memory interface can apply an erase before a write"]
-      Event: [1, "The write operation is attempting to write to a not-erased region and the memory interface cannot apply an erase before a write"]
+      _read:
+        NoEvent: [0, "The write operation is done in an erased region or the memory interface can apply an erase before a write"]
+        Event: [1, "The write operation is attempting to write to a not-erased region and the memory interface cannot apply an erase before a write"]
+      _write:
+        Clear: [1, "Clear the flag"]
     RDERR:
-      NoError: [0, "No read protection error happened."]
-      Error: [1, "One read protection error happened"]
+      _read:
+        NoError: [0, "No read protection error happened."]
+        Error: [1, "One read protection error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
     OPTVERR:
-      NoError: [0, "No error happened during the Option bytes loading"]
-      Error: [1, "One or more errors happened during the Option bytes loading"]
+      _read:
+        NoError: [0, "No error happened during the Option bytes loading"]
+        Error: [1, "One or more errors happened during the Option bytes loading"]
+      _write:
+        Clear: [1, "Clear the flag"]
     SIZERR:
-      NoError: [0, "No size error happened"]
-      Error: [1, "One size error happened"]
+      _read:
+        NoError: [0, "No size error happened"]
+        Error: [1, "One size error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
     PGAERR:
-      NoError: [0, "No alignment error happened"]
-      Error: [1, "One alignment error happened"]
+      _read:
+        NoError: [0, "No alignment error happened"]
+        Error: [1, "One alignment error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
     WRPERR:
-      NoError: [0, "No protection error happened"]
-      Error: [1, "One protection error happened"]
+      _read:
+        NoError: [0, "No protection error happened"]
+        Error: [1, "One protection error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
     READY:
       NotReady: [0, "The NVM is not ready"]
       Ready: [1, "The NVM is ready"]
@@ -101,18 +125,18 @@
       Active: [1, "No write/erase operation is in progress"]
   "OPTR":
     BOR_LEV:
-      BOROFF: [0, "This is the reset threshold level for the 1.45 V - 1.55 V voltage range (power-down only)"]
-      BORLEVEL1: [1, "Reset threshold level for VBOR0 (around 1.8 V)"]
-      BORLEVEL2: [2, "Reset threshold level for VBOR1 (around 2.0 V)"]
-      BORLEVEL3: [3, "Reset threshold level for VBOR2 (around 2.5 V)"]
-      BORLEVEL4: [4, "Reset threshold level for VBOR3 (around 2.7 V)"]
-      BORLEVEL5: [5, "Reset threshold level for VBOR4 (around 3.0 V)"]
+      BOR_Off: [0, "This is the reset threshold level for the 1.45 V - 1.55 V voltage range (power-down only)"]
+      BOR_Level1: [1, "Reset threshold level for VBOR0 (around 1.8 V)"]
+      BOR_Level2: [2, "Reset threshold level for VBOR1 (around 2.0 V)"]
+      BOR_Level3: [3, "Reset threshold level for VBOR2 (around 2.5 V)"]
+      BOR_Level4: [4, "Reset threshold level for VBOR3 (around 2.7 V)"]
+      BOR_Level5: [5, "Reset threshold level for VBOR4 (around 3.0 V)"]
     WPRMOD:
       Disabled: [0, "PCROP disabled. The WRPROT bits are used as a write protection on a sector."]
       Enabled: [1, "PCROP enabled. The WRPROT bits are used as a read protection on a sector."]
     RDPROT:
-      LEVEL0: [170, "Level 0"]
-      LEVEL1: [0, "Level 1"]
-      LEVEL2: [204, "Level 2"]
+      Level0: [0xAA, "Level 0"]
+      Level1: [0, "Level 1"]
+      Level2: [0xCC, "Level 2"]
   "WRPROT1":
-    WRPROT1: [0, 0xFFFF]
+    WRPROT1: [0, 0xFFFFFFFF]

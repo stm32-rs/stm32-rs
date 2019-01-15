@@ -13,23 +13,22 @@ AES:
       Disabled: [0, "Disable (mask) CCF interrupt"]
       Enabled: [1, "Enable CCF interrupt"]
     ERRC:
-      Disabled: [0, "No effect"]
-      Enabled: [1, "Clear RDERR and WRERR flags"]
+      _write:
+          Clear: [1, "Clear RDERR and WRERR flags"]
     CCFC:
-      Disabled: [0, "No effect"]
-      Enabled: [1, "Clear computation complete flag"]
+      _write:
+        Clear: [1, "Clear computation complete flag"]
     CHMOD:
       ECB: [0, "Electronic codebook (ECB)"]
       CBC: [1, "Cipher-Block Chaining (CBC)"]
       CTR: [2, "Counter Mode (CTR)"]
-      Reserved: [3, "Reserved"]
     MODE:
       Mode1: [0, "Mode 1: encryption"]
       Mode2: [1, "Mode 2: key derivation (or key preparation for ECB/CBC decryption)"]
       Mode3: [2, "Mode 3: decryption"]
       Mode4: [3, "Mode 4: key derivation then single decryption"]
     DATATYPE:
-      None: [0, "None"]
+      None: [0, "Word"]
       HalfWord: [1, "Half-word (16-bit)"]
       Byte: [2, "Byte (8-bit)"]
       Bit: [3, "Bit"]
@@ -44,8 +43,8 @@ AES:
       NoError: [0, "Read error not detected"]
       Error: [1, "Read error detected"]
     CCF:
-      NotComplete: [0, "Computation not complete"]
-      Complete: [1, "Computation complete"]
+      Complete: [0, "Computation complete"]
+      NotComplete: [1, "Computation not complete"]
   DINR: 
     DIN: [0, 0xFFFFFFFF]
   DOUTR: 

@@ -7,10 +7,7 @@ _include:
   CR1:
     DFF:
       EightBit: [0, "8-bit data frame format is selected for transmission/reception"]
-      SixtennBit: [1, "16-bit data frame format is selected for transmission/reception"]
-    SSI:
-      Low: [0, "Low - The value of this bit is forced onto the NSS pin and the IO value of the NSS pin is ignored"]
-      High: [1, "High - The value of this bit is forced onto the NSS pin and the IO value of the NSS pin is ignored"]
+      SixteenBit: [1, "16-bit data frame format is selected for transmission/reception"]
   RXCRCR:
     RXCRC: [0, 65535]
   TXCRCR:
