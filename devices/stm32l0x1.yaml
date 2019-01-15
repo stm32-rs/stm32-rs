@@ -25,15 +25,38 @@ AES:
     _modify:
       AES_DOUTR:
         name: DOUT
-  "KEYR[0123]":
+  KEYR0:
     _modify:
-      "AES_KEYR[0123]":
-        name: "KEY[0123]"
-  "IVR[0123]":
+      AES_KEYR0:
+        name: KEY0
+  KEYR1:
     _modify:
-      "AES_IVR[0123]":
-        name: "IV[0123]"
-
+      AES_KEYR1:
+        name: KEY1
+  KEYR2:
+    _modify:
+      AES_KEYR2:
+        name: KEY2
+  KEYR3:
+    _modify:
+      AES_KEYR3:
+        name: KEY3
+  IVR0:
+    _modify:
+      AES_IVR0:
+        name: IV0
+  IVR1:
+    _modify:
+      AES_IVR1:
+        name: IV1
+  IVR2:
+    _modify:
+      AES_IVR2:
+        name: IV2
+  IVR3:
+    _modify:
+      AES_IVR3:
+        name: IV3
 CRC:
   POL:
     _modify:
@@ -72,11 +95,11 @@ FW:
     FIREWALL_CSL:
       name: CSL
     FIREWALL_NVDSSA:
-      name: FW_NVDSSA
+      name: NVDSSA
     FIREWALL_NVDSL:
-      name: FW_NVDSL
+      name: NVDSL
     FIREWALL_VDSSA:
-      name: FW_VDSSA
+      name: VDSSA
 
 "SPI*,I2S*":
   SR:
@@ -153,6 +176,7 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/wwdg/wwdg.yaml

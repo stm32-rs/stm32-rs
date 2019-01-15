@@ -1,43 +1,11 @@
 # RCC peripheral
-# Applicable to STM32L0x1
+# Applicable to STM32L0xx
 
 RCC:
   CR:
-    PLLRDY:
-      _read:
-        Unlocked: [0, "PLL unlocked"]
-        Locked: [1, "PLL locked"]
-    PLLON:
-      "Off": [0, "PLL off"]
-      "On":  [1, "PLL on" ]
-    RTCPRE:
-      Div2: [0, "HSE is divided by 2 for RTC clock"]
-      Div4: [1, "HSE is divided by 4 for RTC clock"]
-      Div8: [2, "HSE is divided by 8 for RTC clock"]
-      Div16: [3, "HSE is divided by 16 for RTC clock"]
-    CSSHSEON:
-      "Off": [0, "Clock security system OFF (clock detector OFF)"]
-      "On": [1, "Clock security system ON (clock detector ON if HSE oscillator is stable, OFF otherwise)"]
-    HSEBYP:
-      NotBypassed: [0, "HSE oscillator not bypassed"]
-      Bypassed: [1, "HSE oscillator bypassed with an external clock"]
-    HSERDY:
-      _read:
-        NotReady: [0, "HSE oscillator not ready"]
-        Ready: [1, "HSE oscillator ready"]
-    HSEON:
-      "Off": [0, "HSE oscillator OFF"]
-      "On": [1, "HSE oscillator ON"]
-    MSIRDY:
-      _read:
-        NotRead: [0, "MSI oscillator not ready"]
-        Read: [1, "MSI oscillator ready"]
-    MSION:
-      "Off": [0, "MSI oscillator OFF"]
-      "On": [1, "MSI oscillator ON"]
     HSI16OUTEN:
-      Disabled: [0, "HSI16 output clock disabled"]
-      Enabled: [1, "HSI16 output clock enabled"]
+      Disabled: [0, "HSI output clock disabled"]
+      Enabled: [1, "HSI output clock enabled"]
     HSI16DIVF:
       _read:
         NotDivided: [0, "16 MHz HSI clock not divided"]
@@ -49,12 +17,6 @@ RCC:
       _read:
         NotReady: [0, "HSI 16 MHz oscillator not ready"]
         Ready: [1, "HSI 16 MHz oscillator ready"]
-    HSI16KERON:
-      NotForcedOn: [0, "HSI 16 MHz oscillator not forced ON"]
-      ForcedOn: [1, "HSI 16 MHz oscillator forced ON even in Stop mode"]
-    HSI16ON:
-      "Off": [0, "HSI16 oscillator OFF"]
-      "On": [1, "HSI16 oscillator ON"]
   ICSCR:
     MSITRIM: [0, 255]
     MSICAL: [0, 255]
@@ -70,97 +32,38 @@ RCC:
     HSI16TRIM: [0, 31]
     HSI16CAL: [0, 255]
   CFGR:
-    MCOPRE:
-      Div1: [0, "MCO is divided by 1"]
-      Div2: [1, "MCO is divided by 2"]
-      Div4: [2, "MCO is divided by 4"]
-      Div8: [3, "MCO is divided by 8"]
-      Div16: [4, "MCO is divided by 16"]
     MCOSEL:
-      NoClock: [0, "MCO output disabled, no clock on MCO"]
+      NoClock: [0, "No clock"]
       SYSCLK: [1, "SYSCLK clock selected"]
-      HSI16: [2, "HSI16 oscillator clock selected"]
+      HSI16: [2, "HSI oscillator clock selected"]
       MSI: [3, "MSI oscillator clock selected"]
       HSE: [4, "HSE oscillator clock selected"]
       PLL: [5, "PLL clock selected"]
       LSI: [6, "LSI oscillator clock selected"]
       LSE: [7, "LSE oscillator clock selected"]
-      Reserved: [8, "Reserved"]
-    PLLDIV:
-      NotAllowed: [0, "not allowed"]
-      Div2: [1, "PLL clock output = PLLVCO / 2"]
-      Div3: [2, "PLL clock output = PLLVCO / 3"]
-      Div4: [3, "PLL clock output = PLLVCO / 4"]
-    PLLMUL:
-      Mul3: [0, "PLL clock entry x 3"]
-      Mul4: [1, "PLL clock entry x 4"]
-      Mul6: [2, "PLL clock entry x 6"]
-      Mul8: [3, "PLL clock entry x 8"]
-      Mul12: [4, "PLL clock entry x 12"]
-      Mul16: [5, "PLL clock entry x 16"]
-      Mul24: [6, "PLL clock entry x 24"]
-      Mul32: [7, "PLL clock entry x 32"]
-      Mul48: [8, "PLL clock entry x 48"]
     PLLSRC:
-      HSI16: [0, "HSI16 oscillator clock selected as PLL input clock"]
-      HSE: [1, "HSE oscillator clock selected as PLL input clock"]
+      HSI16: [0, "HSI selected as PLL input clock"]
+      HSE: [1, "HSE selected as PLL input clock"]
     STOPWUCK:
       MSI: [0, "Internal 64 KHz to 4 MHz (MSI) oscillator selected as wake-up from Stop clock"]
-      HSI16: [1, "Internal 16 MHz (HSI16) oscillator selected as wake-up from Stop clock (or HSI16/4 if HSI16DIVEN=1)"]
-    PPRE2:
-      NotDivided: [0, "HCLK not divided"]
-      Div2: [1, "HCLK divided by 2"]
-      Div4: [2, "HCLK divided by 4"]
-      Div8: [3, "HCLK divided by 8"]
-      Div16: [4, "HCLK divided by 16"]
-    PPRE1:
-      NotDivided: [0, "HCLK not divided"]
-      Div2: [1, "HCLK divided by 2"]
-      Div4: [2, "HCLK divided by 4"]
-      Div8: [3, "HCLK divided by 8"]
-      Div16: [4, "HCLK divided by 16"]
-    HPRE:
-      NotDivided: [0, "SYSCLK not divided"]
-      Div2: [1, "SYSCLK divided by 2"]
-      Div4: [2, "SYSCLK divided by 4"]
-      Div8: [3, "SYSCLK divided by 8"]
-      Div16: [4, "SYSCLK divided by 16"]
-      Div64: [5, "SYSCLK divided by 64"]
-      Div128: [6, "SYSCLK divided by 128"]
-      Div256: [7, "SYSCLK divided by 256"]
-      Div512: [8, "SYSCLK divided by 512"]
+      HSI16: [1, "Internal 16 MHz (HSI) oscillator selected as wake-up from Stop clock (or HSI16/4 if HSI16DIVEN=1)"]
     SWS:
       MSI: [0, "MSI oscillator used as system clock"]
-      HSI16: [1, "HSI16 oscillator used as system clock"]
+      HSI16: [1, "HSI oscillator used as system clock"]
       HSE: [2, "HSE oscillator used as system clock"]
       PLL: [3, "PLL used as system clock"]
     SW:
       MSI: [0, "MSI oscillator used as system clock"]
-      HSI16: [1, "HSI16 oscillator used as system clock"]
+      HSI16: [1, "HSI oscillator used as system clock"]
       HSE: [2, "HSE oscillator used as system clock"]
       PLL: [3, "PLL used as system clock"]
   CIER:
     CSSLSE:
       Disabled: [0, "LSE CSS interrupt disabled"]
       Enabled: [1, "LSE CSS interrupt enabled"]
-    MSIRDYIE:
-      Disabled: [0, "MSI ready interrupt disabled"]
-      Enabled: [1, "MSI ready interrupt enabled"]
-    PLLRDYIE:
-      Disabled: [0, "PLL lock interrupt disabled"]
-      Enabled: [1, "PLL lock interrupt enabled"]
-    HSERDYIE:
-      Disabled: [0, "HSE ready interrupt disabled"]
-      Enabled: [1, "HSE ready interrupt enabled"]
-    HSI16RDYIE:
-      Disabled: [0, "HSI16 ready interrupt disabled"]
-      Enabled: [1, "HSI16 ready interrupt enabled"]
-    LSERDYIE:
-      Disabled: [0, "LSE ready interrupt disabled"]
-      Enabled: [1, "LSE ready interrupt enabled"]
-    LSIRDYIE:
-      Disabled: [0, "LSI ready interrupt disabled"]
-      Enabled: [1, "LSI ready interrupt enabled"]
+    "*RDYIE":
+      Disabled: [0, "Ready interrupt disabled"]
+      Enabled: [1, "Ready interrupt enabled"]
   CIFR:
     CSSHSEF:
       NoClock: [0, "No clock security interrupt caused by HSE clock failure"]
@@ -179,63 +82,17 @@ RCC:
   IOPRSTR:
     "IOP*RST":
       Reset: [1, "Reset I/O port"]
-  AHBRSTR:
-    "*RST":
-      Reset: [1, "Reset the selected module"]
-  "APB?RSTR":
-    "*RST":
-      Reset: [1, "Reset the selected module"]
   IOPENR:
     "IOP*EN":
       Disabled: [0, "Port clock disabled"]
       Enabled: [1, "Port clock enabled"]
-  AHBENR:
-    "*EN":
-      Disabled: [0, "The selected clock is disabled"]
-      Enabled: [1, "The selected clock is enabled"]
-  "APB?ENR":
-    "*EN":
-      Disabled: [0, "The selected clock is disabled"]
-      Enabled: [1, "The selected clock is enabled"]
   CCIPR:
-    LPTIM1SEL:
-      APB: [0, "APB clock selected as LP Timer clock"]
-      LSI: [1, "LSI clock selected as LP Timer clock"]
-      HSI16: [2, "HSI16 clock selected as LP Timer clock"]
-      LSE: [3, "LSE clock selected as LP Timer clock"]
-    I2C3SEL:
-      APB: [0, "APB clock selected as I2C3 clock"]
-      SYSCLK: [1, "System clock selected as I2C3 clock"]
-      HSI16: [2, "HSI16 clock selected as I2C3 clock"]
-    I2C1SEL:
-      APB: [0, "APB clock selected as I2C1 clock"]
-      SYSCLK: [1, "System clock selected as I2C1 clock"]
-      HSI16: [2, "HSI16 clock selected as I2C1 clock"]
-    LPUART1SEL:
-      APB: [0, "APB clock selected as LPUART1 clock"]
-      SYSCLK: [1, "System clock selected as LPUART1 clock"]
-      HSI16: [2, "HSI16 clock selected as LPUART1 clock"]
-      LSE: [3, "LSE clock selected as LPUART1 clock"]
-    USART2SEL:
-      APB: [0, "APB clock selected as USART2 clock"]
-      SYSCLK: [1, "System clock selected as USART2 clock"]
-      HSI16: [2, "HSI16 clock selected as USART2 clock"]
-      LSE: [3, "LSE clock selected as USART2 clock"]
-    USART1SEL:
-      APB: [0, "APB clock selected as USART1 clock"]
-      SYSCLK: [1, "System clock selected as USART1 clock"]
-      HSI16: [2, "HSI16 clock selected as USART1 clock"]
-      LSE: [3, "LSE clock selected as USART1 clock"]
+    "*SEL":
+      APB: [0, "APB clock selected as Timer clock"]
+      LSI: [1, "LSI clock selected as Timer clock"]
+      HSI16: [2, "HSI16 clock selected as Timer clock"]
+      LSE: [3, "LSE clock selected as Timer clock"]
   CSR:
-    "*RSTF":
-      _read:
-        NoReset: [0, "No reset has occured"]
-        Reset: [1, "A reset has occured"]
-    RMVF:
-      Clear: [0, "Clear the reset flags"]
-    RTCRST:
-      NoReset: [0, "Reset not activated"]
-      Reset: [1, "Resets the RTC peripheral, its clock source selection and the backup registers."]
     RTCEN:
       Disabled: [0, "RTC clock disabled"]
       Enabled: [1, "RTC clock enabled"]
@@ -247,9 +104,6 @@ RCC:
     CSSLSED:
       NoFailure: [0, "No failure detected on LSE (32 kHz oscillator)"]
       Failure: [1, "Failure detected on LSE (32 kHz oscillator)"]
-    CSSLSEON:
-      "Off": [0, "CSS on LSE (32 kHz oscillator) OFF"]
-      "On": [1, "CSS on LSE (32 kHz oscillator) ON"]
     LSEDRV:
       Low: [0, "Lowest drive"]
       MediumLow: [1, "Medium low drive"]
@@ -258,15 +112,9 @@ RCC:
     LSEBYP:
       NotBypassed: [0, "LSE oscillator not bypassed"]
       Bypassed: [1, "LSE oscillator bypassed"]
-    LSERDY:
-      NotReady: [0, "External 32 kHz oscillator not ready"]
-      Ready: [1, "External 32 kHz oscillator ready"]
-    LSEON:
-      "Off": [0, "LSE oscillator OFF"]
-      "On": [1, "LSE oscillator ON"]
-    LSIRDY:
-      NotReady: [0, "LSI oscillator not ready"]
-      Ready: [1, "LSI oscillator ready"]
-    LSION:
-      "Off": [0, "LSI oscillator OFF"]
-      "On": [1, "LSI oscillator ON"]
+    "*ON":
+      "Off": [0, "Oscillator OFF"]
+      "On": [1, "Oscillator ON"]
+    "*RDY":
+      NotReady: [0, "Oscillator not ready"]
+      Ready: [1, "Oscillator ready"]
