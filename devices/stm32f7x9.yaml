@@ -174,7 +174,6 @@ RCC:
         bitOffset: 28
         bitWidth: 3
         access: read-write
-    PLLR: [2, 7]
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
@@ -283,6 +282,7 @@ _include:
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
