@@ -25,6 +25,12 @@ CRC:
 
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
+  PLLCFGR:
+    _merge:
+      - "PLLR*"
+    _modify:
+      "PLLR*":
+        description: PLL division factor for I2S and System clocks
   APB2RSTR:
     _add:
       SPI5RST:
