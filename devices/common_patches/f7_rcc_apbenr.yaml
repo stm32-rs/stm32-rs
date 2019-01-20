@@ -1,0 +1,15 @@
+RCC:
+  APB1ENR:
+    _modify:
+      UART7ENR:
+        name: UART7EN
+      UART8ENR:
+        name: UART8EN
+  APB2ENR:
+    _modify:
+      SPI4ENR:
+        name: SPI4EN
+      SPI5ENR:
+        name: SPI5EN
+      SPI6ENR:
+        name: SPI6EN
