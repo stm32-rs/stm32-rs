@@ -24,16 +24,6 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
-RCC:
-  # Add the LSEDRV that's not in the SVD but is in RM0410
-  BDCR:
-    _add:
-      LSEDRV:
-        description: LSE oscillator drive capability
-        bitOffset: 3
-        bitWidth: 2
-        access: read-write
-
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
   CR:
@@ -129,6 +119,7 @@ _include:
  - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_add_plli2sp.yaml
  - common_patches/f7_rcc_apbenr.yaml
+ - common_patches/f7_rcc_lsedrv.yaml
  - common_patches/f7_rcc_rename_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr_sdmmc1.yaml
