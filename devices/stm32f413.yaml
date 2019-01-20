@@ -44,6 +44,10 @@ RCC:
         description: UART10 reset
         bitOffset: 7
         bitWidth: 1
+  APB1ENR:
+    _modify:
+      RTCAPB:
+        name: RTCAPBEN
   APB2ENR:
     _add:
       UART9EN:
@@ -54,7 +58,14 @@ RCC:
         description: UART10 clock enable
         bitOffset: 7
         bitWidth: 1
+  APB1LPENR:
+    _modify:
+      RTCAPBEN:
+        name: RTCAPBLPEN
   APB2LPENR:
+    _modify:
+      EXTITEN:
+        name: EXTITLPEN
     _add:
       UART9LPEN:
         description: UART9 clock enable during Sleep mode

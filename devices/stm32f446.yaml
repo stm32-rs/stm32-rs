@@ -54,6 +54,10 @@ RCC:
         bitOffset: 28
         bitWidth: 1
         access: read-write
+  APB1ENR:
+    _modify:
+      CEC:
+        name: CECEN
   APB2ENR:
     _modify:
       SPI4ENR:
