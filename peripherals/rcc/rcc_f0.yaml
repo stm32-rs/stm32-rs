@@ -5,6 +5,7 @@
 _include:
   - ./rcc_f0_f1_common.yaml
   - ./rcc_v2_bdcr_lsedrv.yaml
+  - ./rcc_cfgr2_prediv.yaml
 
 RCC:
   CFGR:
@@ -41,24 +42,6 @@ RCC:
         HSI48: [3, "HSI48 used as system clock (when avaiable)"]
     SW:
       HSI48: [3, "HSI48 selected as system clock (when available)"]
-  CFGR2:
-    PREDIV:
-      Div1: [0, "PREDIV input clock not divided"]
-      Div2: [1, "PREDIV input clock divided by 2"]
-      Div3: [2, "PREDIV input clock divided by 3"]
-      Div4: [3, "PREDIV input clock divided by 4"]
-      Div5: [4, "PREDIV input clock divided by 5"]
-      Div6: [5, "PREDIV input clock divided by 6"]
-      Div7: [6, "PREDIV input clock divided by 7"]
-      Div8: [7, "PREDIV input clock divided by 8"]
-      Div9: [8, "PREDIV input clock divided by 9"]
-      Div10: [9, "PREDIV input clock divided by 10"]
-      Div11: [10, "PREDIV input clock divided by 11"]
-      Div12: [11, "PREDIV input clock divided by 12"]
-      Div13: [12, "PREDIV input clock divided by 13"]
-      Div14: [13, "PREDIV input clock divided by 14"]
-      Div15: [14, "PREDIV input clock divided by 15"]
-      Div16: [15, "PREDIV input clock divided by 16"]
   CFGR3:
     _modify:
       ADCSW:
