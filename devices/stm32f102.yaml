@@ -34,6 +34,10 @@ RCC:
         description: "SPI2 reset"
         bitOffset: 14
         bitWidth: 1
+      TIM4RST:
+        description: "TIM4 timer reset"
+        bitOffset: 2
+        bitWidth: 1
   APB1ENR:
     _add:
       USBEN:
@@ -51,6 +55,10 @@ RCC:
       SPI2EN:
         description: "SPI2 clock enable"
         bitOffset: 14
+        bitWidth: 1
+      TIM4EN:
+        description: "TIM4 Timer clock enable"
+        bitOffset: 2
         bitWidth: 1
 
 _add:
