@@ -8,6 +8,7 @@ Licensed under the MIT and Apache 2.0 licenses. See LICENSE files for details.
 import copy
 import yaml
 import os.path
+import sys
 import argparse
 import xml.etree.ElementTree as ET
 from fnmatch import fnmatch
@@ -705,10 +706,8 @@ def main():
         root["_path"] = args.yaml
 
     # Load the specified SVD file
-    if "_svd" not in root:
-        raise RuntimeError("You must have an svd key in the root YAML file")
-    svdpath = abspath(args.yaml, root["_svd"])
-    svdpath_out = svdpath + ".patched"
+    svdpath = sys.stdin
+    svdpath_out = sys.stdout.buffer
     svd = ET.parse(svdpath)
 
     # Load all included YAML files
