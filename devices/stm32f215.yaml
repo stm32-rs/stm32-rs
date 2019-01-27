@@ -1,5 +1,9 @@
 _svd: ../svd/stm32f215.svd
 
+_rebase:
+  # Make I2C1 the base type
+  I2C1: I2C3
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
