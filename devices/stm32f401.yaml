@@ -43,3 +43,17 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+
+USART1:
+  # Add the missing USART interrupts
+  _add:
+    _interrupts:
+      USART1:
+        description: USART1 global interrupt
+        value: 37
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+      USART6:
+        description: USART6 global interrupt
+        value: 71
