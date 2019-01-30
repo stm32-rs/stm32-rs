@@ -1,0 +1,31 @@
+RCC:
+  AHB1RSTR:
+    _add:
+      GPIOJRST:
+        description: IO port J reset
+        bitOffset: 9
+        bitWidth: 1
+      GPIOKRST:
+        description: IO port K reset
+        bitOffset: 10
+        bitWidth: 1
+  AHB1ENR:
+    _add:
+      GPIOJEN:
+        description: IO port J clock enable
+        bitOffset: 9
+        bitWidth: 1
+      GPIOKEN:
+        description: IO port K clock enable
+        bitOffset: 10
+        bitWidth: 1
+  AHB1LPENR:
+    _add:
+      GPIOJLPEN:
+        description: IO port J clock enable during Sleep mode
+        bitOffset: 9
+        bitWidth: 1
+      GPIOKLPEN:
+        description: IO port K clock enable during Sleep mode
+        bitOffset: 10
+        bitWidth: 1
