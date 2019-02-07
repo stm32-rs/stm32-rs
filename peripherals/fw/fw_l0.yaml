@@ -1,0 +1,32 @@
+# This FW is used on the STM32L0 families.
+
+"FW":
+  CSSA:
+    ADD: [0, 0xFFFF]
+  CSL:
+    LENG: [0, 0x3FFF]
+  NVDSSA:
+    ADD: [0, 0xFFFF]
+  NVDSL:
+    LENG: [0, 0x3FFF]
+  VDSSA:
+    ADD: [0, 0x3FF]
+  VDSL:
+    LENG: [0, 0x3FF]
+  CR:
+    VDE:
+      _write:
+        Reset: [0, "Resets volatile data execution bit"]
+      _read:
+        NotExecutable: [0, "Volatile data segment cannot be executed if VDS = 0"]
+        Executable: [1, "Volatile data segment is declared executable whatever VDS bit value"]
+    VDS:
+      _write:
+        Reset: [0, "Resets volatile data shared bit"]
+      _read:
+        NotShared: [0, "Volatile data segment is not shared and cannot be hit by a non protected executable code when the Firewall is closed"]
+        Shared: [1, "Volatile data segment is shared with non protected application code"]
+    FPA:
+      _write:
+        PreArmReset: [0, "Any code executed outside the protected segment when the Firewall is opened will generate a system reset"]
+        PreArmSet: [1, "Any code executed outside the protected segment will close the Firewall"]

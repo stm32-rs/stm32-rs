@@ -1,0 +1,28 @@
+# Fix RTC bits for L0
+
+RTC:
+  TAMPCR:
+    _modify:
+      TAMP2_TRG:
+        name: TAMP2TRG
+    _add:
+      TAMP3MF:
+        description: Tamper 3 mask flag
+        bitWidth: 1
+        bitOffset: 24
+      TAMP3NOERASE:
+        description: Tamper 3 no erase
+        bitWidth: 1
+        bitOffset: 23
+      TAMP3IE:
+        description: Tamper 3 interrupt enable
+        bitWidth: 1
+        bitOffset: 22
+      TAMP3TRG:
+        description: Active level for RTC_TAMP3 input
+        bitWidth: 1
+        bitOffset: 6
+      TAMP3E:
+        description: RTC_TAMP3 detection enable
+        bitWidth: 1
+        bitOffset: 5

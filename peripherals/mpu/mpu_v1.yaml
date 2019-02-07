@@ -1,0 +1,46 @@
+# Memory Protection Unit - Programming Manual PM0214
+
+MPU:
+  TYPER:
+    _read:
+      IREGION: [0, 0xFF]
+      DREGION: [0, 0xFF]
+    SEPARATE: 
+      _read:
+        Unified: [0, "Unified"]
+        Separate: [1, "Separate"]
+  CTRL:
+    PRIVDEFENA:
+      Disabled: [0, "Disables use of the default memory map"]
+      Enabled: [1, "Enables use of the default memory map as a background region for privileged software accesses"]
+    HFNMIENA:
+      Disabled: [0, "Disabled during hard fault, NMI, and FAULTMASK handlers"]
+      Enabled: [1, "Enabled during hard fault, NMI, and FAULTMASK handlers"]
+    ENABLE:
+      Disabled: [0, "MPU disabled"]
+      Enabled: [1, "MPU enabled"]
+  RNR:
+    REGION: [0, 0xFF]
+  RBAR:
+    ADDR: [0x7FFFFFF]
+    VALID:
+      _write:
+        Update: [1, "Updates the base address for the region specified in the REGION field"]
+    REGION: [0, 0xF]
+  RASR:
+    XN:
+      Enabled: [0, "Instruction fetches enabled"]
+      Disabled: [1, "Instruction fetches disabled"]
+    AP: [0, 0x7]
+    TEX: [0, 0x7]
+    S: [0, 1]
+    C: [0, 1]
+    B: [0, 1]
+    SRD:
+      Enabled: [0, "Corresponding sub-region is enabled"]
+      Disabled: [1, "corresponding sub-region is disabled"]
+    SIZE: [0, 0x1F]
+    ENABLE:
+      Disabled: [0, "Disable region"]
+      Enabled: [1, "Enable region"]
+

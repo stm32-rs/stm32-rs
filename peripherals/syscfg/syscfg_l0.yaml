@@ -1,0 +1,235 @@
+# System configuration controller and COMP registers for L0 family
+SYSCFG:
+  CFGR1:
+    BOOT_MODE:
+      MainFlash: [0, "Main Flash memory boot mode"]
+      SystemFlash: [1, "System Flash memory boot mode"]
+      SRAM: [3, "Embedded SRAM boot mode"]
+    UFB:
+      Bank1: [0, "Flash Program memory Bank 1 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 1 at 0x0808 0000 (aliased at 0x0008 0000 if MEM_MODE=00)"]
+      Bank2: [1, "Flash Program memory Bank 2 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 2 at 0x0808 0000 (and aliased at 0x0008 0000 if MEM_MODE=00)"]
+    MEM_MODE:
+      MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
+      SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
+      SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
+  CFGR2:
+    I2C3_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
+    I2C2_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
+    I2C1_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
+    I2C_PB9_FMP:
+      Standard: [0, "PB9 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+    I2C_PB8_FMP:
+      Standard: [0, "PB8 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+    I2C_PB7_FMP:
+      Standard: [0, "PB7 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+    I2C_PB6_FMP:
+      Standard: [0, "PB6 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+    FWDIS:
+      Enabled: [0, "Firewall access enabled"]
+      Disabled: [1, "Firewall access disabled"]
+  CFGR3:
+    REF_LOCK:
+      ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
+      ReadOnly: [1, "SYSCFG_CFGR3[31:0] bits are read-only"]
+    VREFINT_RDYF:
+      NotReady: [0, "VREFINT OFF"]
+      Ready: [1, "VREFINT ready"]
+    ENBUF_VREFINT_COMP2:
+      Disabled: [0, "Disables the buffer used to generate VREFINT references for COMP2"]
+      Enabled: [1, "Enables the buffer used to generate VREFINT references for COMP2"]
+    ENBUF_SENSOR_ADC:
+      Disabled: [0, "Disables the buffer used to generate VREFINT reference for the temperature sensor"]
+      Enabled: [1, "Enables the buffer used to generate VREFINT reference for the temperature sensor"]
+    ENBUF_VREFINT_ADC:
+      Disabled: [0, "Disables the buffer used to generate VREFINT reference for the ADC"]
+      Enabled: [1, "Enables the buffer used to generate VREFINT reference for the ADC"]
+    SEL_VREF_OUT:
+      NoConnection: [0, "no pad connected"]
+      PB0: [1, "PB0 connected"]
+      PB1: [2, "PB1 connected"]
+      Both: [3, "PB0 and PB1 connected"]
+    EN_VREFINT:
+      Disabled: [0, "VREFINT voltage disabled in low-power mode (if ULP=1) and scaler for COMP2 disabled"]
+      Enabled: [1, "VREFINT voltage enabled in low-power mode and scaler for COMP2 enabled"]
+  EXTICR1:
+    EXTI0:
+      PA0: [0, "Select PA0 as the source input for the EXTI0 external interrupt"]
+      PB0: [1, "Select PB0 as the source input for the EXTI0 external interrupt"]
+      PC0: [2, "Select PC0 as the source input for the EXTI0 external interrupt"]
+      PD0: [3, "Select PD0 as the source input for the EXTI0 external interrupt"]
+      PE0: [4, "Select PE0 as the source input for the EXTI0 external interrupt"]
+      PH0: [5, "Select PH0 as the source input for the EXTI0 external interrupt"]
+    EXTI1:
+      PA1: [0, "Select PA1 as the source input for the EXTI1 external interrupt"]
+      PB1: [1, "Select PB1 as the source input for the EXTI1 external interrupt"]
+      PC1: [2, "Select PC1 as the source input for the EXTI1 external interrupt"]
+      PD1: [3, "Select PD1 as the source input for the EXTI1 external interrupt"]
+      PE1: [4, "Select PE1 as the source input for the EXTI1 external interrupt"]
+      PH1: [5, "Select PH1 as the source input for the EXTI1 external interrupt"]
+    EXTI2:
+      PA2: [0, "Select PA2 as the source input for the EXTI2 external interrupt"]
+      PB2: [1, "Select PB2 as the source input for the EXTI2 external interrupt"]
+      PC2: [2, "Select PC2 as the source input for the EXTI2 external interrupt"]
+      PD2: [3, "Select PD2 as the source input for the EXTI2 external interrupt"]
+      PE2: [4, "Select PE2 as the source input for the EXTI2 external interrupt"]
+      PH2: [5, "Select PH2 as the source input for the EXTI2 external interrupt"]
+    EXTI3:
+      PA3: [0, "Select PA3 as the source input for the EXTI3 external interrupt"]
+      PB3: [1, "Select PB3 as the source input for the EXTI3 external interrupt"]
+      PC3: [2, "Select PC3 as the source input for the EXTI3 external interrupt"]
+      PD3: [3, "Select PD3 as the source input for the EXTI3 external interrupt"]
+      PE3: [4, "Select PE3 as the source input for the EXTI3 external interrupt"]
+      PH3: [5, "Select PH3 as the source input for the EXTI3 external interrupt"]
+  EXTICR2:
+    EXTI4:
+      PA4: [0, "Select PA4 as the source input for the EXTI4 external interrupt"]
+      PB4: [1, "Select PB4 as the source input for the EXTI4 external interrupt"]
+      PC4: [2, "Select PC4 as the source input for the EXTI4 external interrupt"]
+      PD4: [3, "Select PD4 as the source input for the EXTI4 external interrupt"]
+      PE4: [4, "Select PE4 as the source input for the EXTI4 external interrupt"]
+    EXTI5:
+      PA5: [0, "Select PA5 as the source input for the EXTI5 external interrupt"]
+      PB5: [1, "Select PB5 as the source input for the EXTI5 external interrupt"]
+      PC5: [2, "Select PC5 as the source input for the EXTI5 external interrupt"]
+      PD5: [3, "Select PD5 as the source input for the EXTI5 external interrupt"]
+      PE5: [4, "Select PE5 as the source input for the EXTI5 external interrupt"]
+    EXTI6:
+      PA6: [0, "Select PA6 as the source input for the EXTI6 external interrupt"]
+      PB6: [1, "Select PB6 as the source input for the EXTI6 external interrupt"]
+      PC6: [2, "Select PC6 as the source input for the EXTI6 external interrupt"]
+      PD6: [3, "Select PD6 as the source input for the EXTI6 external interrupt"]
+      PE6: [4, "Select PE6 as the source input for the EXTI6 external interrupt"]
+    EXTI7:
+      PA7: [0, "Select PA7 as the source input for the EXTI7 external interrupt"]
+      PB7: [1, "Select PB7 as the source input for the EXTI7 external interrupt"]
+      PC7: [2, "Select PC7 as the source input for the EXTI7 external interrupt"]
+      PD7: [3, "Select PD7 as the source input for the EXTI7 external interrupt"]
+      PE7: [4, "Select PE7 as the source input for the EXTI7 external interrupt"]
+  EXTICR3:
+    EXTI8:
+      PA8: [0, "Select PA8 as the source input for the EXTI8 external interrupt"]
+      PB8: [1, "Select PB8 as the source input for the EXTI8 external interrupt"]
+      PC8: [2, "Select PC8 as the source input for the EXTI8 external interrupt"]
+      PD8: [3, "Select PD8 as the source input for the EXTI8 external interrupt"]
+      PE8: [4, "Select PE8 as the source input for the EXTI8 external interrupt"]
+      PH8: [5, "Select PH8 as the source input for the EXTI8 external interrupt"]
+    EXTI9:
+      PA9: [0, "Select PA9 as the source input for the EXTI9 external interrupt"]
+      PB9: [1, "Select PB9 as the source input for the EXTI9 external interrupt"]
+      PC9: [2, "Select PC9 as the source input for the EXTI9 external interrupt"]
+      PD9: [3, "Select PD9 as the source input for the EXTI9 external interrupt"]
+      PE9: [4, "Select PE9 as the source input for the EXTI9 external interrupt"]
+      PH9: [5, "Select PH9 as the source input for the EXTI9 external interrupt"]
+    EXTI10:
+      PA10: [0, "Select PA10 as the source input for the EXTI10 external interrupt"]
+      PB10: [1, "Select PB10 as the source input for the EXTI10 external interrupt"]
+      PC10: [2, "Select PC10 as the source input for the EXTI10 external interrupt"]
+      PD10: [3, "Select PD10 as the source input for the EXTI10 external interrupt"]
+      PE10: [4, "Select PE10 as the source input for the EXTI10 external interrupt"]
+      PH10: [5, "Select PH10 as the source input for the EXTI10 external interrupt"]
+    EXTI11:
+      PA11: [0, "Select PA11 as the source input for the EXTI11 external interrupt"]
+      PB11: [1, "Select PB11 as the source input for the EXTI11 external interrupt"]
+      PC11: [2, "Select PC11 as the source input for the EXTI11 external interrupt"]
+      PD11: [3, "Select PD11 as the source input for the EXTI11 external interrupt"]
+      PE11: [4, "Select PE11 as the source input for the EXTI11 external interrupt"]
+      PH11: [5, "Select PH11 as the source input for the EXTI11 external interrupt"]
+  EXTICR4:
+    EXTI12:
+      PA12: [0, "Select PA12 as the source input for the EXTI12 external interrupt"]
+      PB12: [1, "Select PB12 as the source input for the EXTI12 external interrupt"]
+      PC12: [2, "Select PC12 as the source input for the EXTI12 external interrupt"]
+      PD12: [3, "Select PD12 as the source input for the EXTI12 external interrupt"]
+      PE12: [4, "Select PE12 as the source input for the EXTI12 external interrupt"]
+    EXTI13:
+      PA13: [0, "Select PA13 as the source input for the EXTI13 external interrupt"]
+      PB13: [1, "Select PB13 as the source input for the EXTI13 external interrupt"]
+      PC13: [2, "Select PC13 as the source input for the EXTI13 external interrupt"]
+      PD13: [3, "Select PD13 as the source input for the EXTI13 external interrupt"]
+      PE13: [4, "Select PE13 as the source input for the EXTI13 external interrupt"]
+    EXTI14:
+      PA14: [0, "Select PA14 as the source input for the EXTI14 external interrupt"]
+      PB14: [1, "Select PB14 as the source input for the EXTI14 external interrupt"]
+      PC14: [2, "Select PC14 as the source input for the EXTI14 external interrupt"]
+      PD14: [3, "Select PD14 as the source input for the EXTI14 external interrupt"]
+      PE14: [4, "Select PE14 as the source input for the EXTI14 external interrupt"]
+    EXTI15:
+      PA15: [0, "Select PA15 as the source input for the EXTI15 external interrupt"]
+      PB15: [1, "Select PB15 as the source input for the EXTI15 external interrupt"]
+      PC15: [2, "Select PC15 as the source input for the EXTI15 external interrupt"]
+      PD15: [3, "Select PD15 as the source input for the EXTI15 external interrupt"]
+      PE15: [4, "Select PE15 as the source input for the EXTI15 external interrupt"]
+  COMP1_CSR:
+    COMP1LOCK:
+      ReadWrite: [0, "COMP1_CSR[31:0] for comparator 1 are read/write"]
+      ReadOnly: [1, "COMP1_CSR[31:0] for comparator 1 are read-only"]
+    COMP1VALUE:
+      _read:
+        NotEqual: [0, "Comparator values are not equal"]
+        Equal: [1, "Comparator values are equal"]
+    COMP1POLARITY:
+      NotInverted: [0, "Comparator 1 output value not inverted"]
+      Inverted: [1, "Comparator 1 output value inverted"]
+    COMP1LPTIMIN1:
+      Gated: [0, "Comparator 1 output gated"]
+      NotGated: [1, "Comparator 1 output sent to LPTIM input 1"]
+    COMP1WM:
+      PA1: [0, "Plus input of comparator 1 connected to PA1"]
+      Comp2Plus: [1, "Plus input of comparator 1 shorted with Plus input of comparator 2 (see COMP1_CSR)"]
+    COMP1INNSEL:
+      VREFINT: [0, "VREFINT"]
+      PA0: [1, "PA0"]
+      PA4: [2, "PA4"]
+      PA5: [3, "PA5"]
+    COMP1EN:
+      Disabled: [0, "Comparator 1 switched OFF"]
+      Enabled: [1, "Comparator 1 switched ON"]
+  COMP2_CSR:
+    COMP2LOCK:
+      ReadWrite: [0, "COMP2_CSR[31:0] for comparator 2 are read/write"]
+      ReadOnly: [1, "COMP2_CSR[31:0] for comparator 2 are read-only"]
+    COMP2VALUE:
+      _read:
+        NotEqual: [0, "Comparator values are not equal"]
+        Equal: [1, "Comparator values are equal"]
+    COMP2POLARITY:
+      NotInverted: [0, "Comparator 2 output value not inverted"]
+      Inverted: [1, "Comparator 2 output value inverted"]
+    COMP2LPTIMIN1:
+      Gated: [0, "Comparator 2 output gated"]
+      NotGated: [1, "Comparator 2 output sent to LPTIM input 1"]
+    COMP2LPTIMIN2:
+      Gated: [0, "Comparator 2 output gated"]
+      NotGated: [1, "Comparator 2 output sent to LPTIM input 2"]
+    COMP2INPSEL:
+      PA3: [0, "PA3"]
+      PB4: [1, "PB4"]
+      PB5: [2, "PB5"]
+      PB6: [3, "PB6"]
+      PB7: [4, "PB7"]
+      PA7: [5, "PA7"]
+    COMP2INNSEL:
+      VREFINT: [0, "VREFINT"]
+      PA2: [1, "PA2"]
+      PA4: [2, "PA4"]
+      PA5: [3, "PA5"]
+      VREFINT_Div4: [4, "1/4 VREFINT"]
+      VREFINT_Div2: [5, "1/2 VREFINT"]
+      VREFINT_Div3_4: [6, "3/4 VREFINT"]
+      PB3: [7, "PB3"]
+    COMP2SPEED:
+      Slow: [0, "Slow speed"]
+      Fast: [1, "Fast speed"]
+    COMP2EN:
+      Disabled: [0, "Comparator 2 switched OFF"]
+      Enabled: [1, "Comparator 2 switched ON"]

@@ -1,0 +1,85 @@
+RCC:
+  CR:
+    RTCPRE:
+      Div2: [0, "HSE divided by 2"]
+      Div4: [1, "HSE divided by 4"]
+      Div8: [2, "HSE divided by 8"]
+      Div16: [3, "HSE divided by 16"]
+    "*ON":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+    PLLRDY:
+      _read:
+        Unlocked: [0, "PLL unlocked"]
+        Locked: [1, "PLL locked"]
+    HSEBYP:
+      NotBypassed: [0, "HSE oscillator not bypassed"]
+      Bypassed: [1, "HSE oscillator bypassed"]
+    "HSERDY,HSIRDY,MSIRDY":
+      _read:
+        NotReady: [0, "Oscillator is not stable"]
+        Ready: [1, "Oscillator is stable"]
+  CFGR:
+    MCOPRE:
+      Div1: [0, "No division"]
+      Div2: [1, "Division by 2"]
+      Div4: [2, "Division by 4"]
+      Div8: [3, "Division by 8"]
+      Div16: [4, "Division by 16"]
+    PLLDIV:
+      Div2: [1, "PLLVCO / 2"]
+      Div3: [2, "PLLVCO / 3"]
+      Div4: [3, "PLLVCO / 4"]
+    PLLMUL:
+      Mul3: [0, "PLL clock entry x 3"]
+      Mul4: [1, "PLL clock entry x 4"]
+      Mul6: [2, "PLL clock entry x 6"]
+      Mul8: [3, "PLL clock entry x 8"]
+      Mul12: [4, "PLL clock entry x 12"]
+      Mul16: [5, "PLL clock entry x 16"]
+      Mul24: [6, "PLL clock entry x 24"]
+      Mul32: [7, "PLL clock entry x 32"]
+      Mul48: [8, "PLL clock entry x 48"]
+    "PPRE[12]":
+      Div1: [0, "HCLK not divided"]
+      Div2: [4, "HCLK divided by 2"]
+      Div4: [5, "HCLK divided by 4"]
+      Div8: [6, "HCLK divided by 8"]
+      Div16: [7, "HCLK divided by 16"]
+    HPRE:
+      Div1: [0, "system clock not divided"]
+      Div2: [8, "system clock divided by 2"]
+      Div4: [9, "system clock divided by 4"]
+      Div8: [10, "system clock divided by 8"]
+      Div16: [11, "system clock divided by 16"]
+      Div64: [12, "system clock divided by 64"]
+      Div128: [13, "system clock divided by 128"]
+      Div256: [14, "system clock divided by 256"]
+      Div512: [15, "system clock divided by 512"]
+  AHBRSTR:
+    "*RST":
+      _write:
+        Reset: [1, "Reset the module"]
+  "APB[12]RSTR":
+    "*RST":
+      _write:
+        Reset: [1, "Reset the module"]
+  AHBENR:
+    "*EN":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+  "APB*ENR":
+    "*EN":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+  CSR:
+    "*RSTF":
+      _read:
+        NoReset: [0, "No reset has occured"]
+        Reset: [1, "A reset has occured"]
+    RMVF:
+      _write:
+        Clear: [1, "Clears the reset flag"]
+    RTCRST:
+      _write:
+        Reset: [1, "Resets the RTC peripheral"]

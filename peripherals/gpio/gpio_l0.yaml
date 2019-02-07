@@ -1,8 +1,8 @@
-# This GPIO is used on the STM32F0, F3, F4, and F7 families.
+# This GPIO is used on the STM32L0 families.
 
 "GPIO*":
   MODER:
-    "MODER*":
+    "MODE*":
       Input: [0, "Input mode (reset state)"]
       Output: [1, "General purpose output mode"]
       Alternate: [2, "Alternate function mode"]
@@ -12,22 +12,22 @@
       PushPull: [0, "Output push-pull (reset state)"]
       OpenDrain: [1, "Output open-drain"]
   OSPEEDR:
-    "OSPEEDR*":
+    "OSPEED*":
       LowSpeed: [0, "Low speed"]
       MediumSpeed: [1, "Medium speed"]
       HighSpeed: [2, "High speed"]
       VeryHighSpeed: [3, "Very high speed"]
   PUPDR:
-    "PUPDR*":
+    "PUPD*":
       Floating: [0, "No pull-up, pull-down"]
       PullUp: [1, "Pull-up"]
       PullDown: [2, "Pull-down"]
   IDR:
-    "IDR*":
+    "ID*":
       High: [1, "Input is logic high"]
       Low: [0, "Input is logic low"]
   ODR:
-    "ODR*":
+    "OD*":
       High: [1, "Set output to logic high"]
       Low: [0, "Set output to logic low"]
   BSRR:
@@ -47,9 +47,8 @@
     "LCKK":
       NotActive: [0, "Port configuration lock key not active"]
       Active: [1, "Port configuration lock key active"]
-
   "AFR[LH]":
-    "AFR*":
+    "AFSEL*":
       AF0:  [0,  "AF0"]
       AF1:  [1,  "AF1"]
       AF2:  [2,  "AF2"]
