@@ -72,7 +72,7 @@
       Disabled: [0, "Rx buffer DMA disabled"]
       Enabled: [1, "Rx buffer DMA enabled"]
   SR:
-    FRE:
+    FRE,TIFRFE:
       _read:
         NoError: [0, "No frame format error"]
         Error: [1, "A frame format error occurred"]
