@@ -204,6 +204,16 @@ _add:
                 description: ADC global interrupt
                 value: 18
 
+# A whole new peripheral can also be created as derivedFrom another peripheral.
+_add:
+    USART3:
+        derivedFrom: USART1
+        baseAddress: "0x40004800"
+        interrupts:
+            USART3:
+                description: USART3 global interrupt
+                value: 39
+
 # Reorder the hierarchy of peripherals with 'deriveFrom'.
 _rebase:
     # The KEY peripheral steals everything but 'interrupt', 'name',

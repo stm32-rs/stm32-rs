@@ -222,11 +222,15 @@ def process_device_add(device, pname, padd):
         if ptag.find('name').text == pname:
             raise SvdPatchError('device already has a peripheral {}'
                                 .format(pname))
-    pnew = ET.SubElement(parent, 'peripheral')
+    if "derivedFrom" in padd:
+        derived = padd["derivedFrom"]
+        pnew = ET.SubElement(parent, 'peripheral', {"derivedFrom": derived})
+    else:
+        pnew = ET.SubElement(parent, 'peripheral')
     ET.SubElement(pnew, 'name').text = pname
-    ET.SubElement(pnew, 'registers')
     for (key, value) in padd.items():
         if key == "registers":
+            ET.SubElement(pnew, 'registers')
             for rname in value:
                 process_peripheral_add_reg(pnew, rname, value[rname])
         elif key == "interrupts":
@@ -236,7 +240,7 @@ def process_device_add(device, pname, padd):
             ab = ET.SubElement(pnew, 'addressBlock')
             for (ab_key, ab_value) in value.items():
                 ET.SubElement(ab, ab_key).text = str(ab_value)
-        else:
+        elif key != "derivedFrom":
             ET.SubElement(pnew, key).text = str(value)
     pnew.tail = "\n    "
 
