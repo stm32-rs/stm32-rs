@@ -8,9 +8,6 @@
     DIV_Fraction: [0, 0xF]
 
   CR1:
-    OVER8:
-      Oversample16: [0, "Oversampling by 16"]
-      Oversample8: [1, "Oversampling by 8"]
     UE:
       Disabled: [0, "USART prescaler and outputs disabled"]
       Enabled: [1, "USART enabled"]
@@ -67,9 +64,6 @@
     ADD: [0, 0xF]
 
   CR3:
-    ONEBIT:
-      Sample3: [0, "Three sample bit method"]
-      Sample1: [1, "One sample bit method"]
     DMAT:
       Disabled: [0, "DMA mode is disabled for transmission"]
       Enabled: [1, "DMA mode is enabled for transmission"]

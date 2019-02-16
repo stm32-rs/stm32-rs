@@ -1,0 +1,9 @@
+"UART*,USART*":
+  CR1:
+    OVER8:
+      Oversample16: [0, "Oversampling by 16"]
+      Oversample8: [1, "Oversampling by 8"]
+  CR3:
+    ONEBIT:
+      Sample3: [0, "Three sample bit method"]
+      Sample1: [1, "One sample bit method"]
