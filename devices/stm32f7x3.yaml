@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f7x3.svd
 
+_derive:
+  USART3: USART1
+
 _rebase:
   SPI1: SPI5
 
@@ -27,7 +30,6 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
- - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
