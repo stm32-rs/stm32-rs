@@ -245,6 +245,30 @@ def process_device_add(device, pname, padd):
     pnew.tail = "\n    "
 
 
+def process_device_derive(device, pname, pderive):
+    """
+    Remove registers from pname and mark it as derivedFrom pderive.
+    Update all derivedFrom referencing pname.
+    """
+    parent = device.find('peripherals')
+    ptag = parent.find('./peripheral[name=\'{}\']'.format(pname))
+    derived = parent.find('./peripheral[name=\'{}\']'.format(pderive))
+    if ptag is None:
+        raise SvdPatchError('peripheral {} not found'.format(pname))
+    if derived is None:
+        raise SvdPatchError('peripheral {} not found'.format(pderive))
+    for (value) in list(ptag):
+        if value.tag in ('name', 'baseAddress', 'interrupt'):
+            continue
+        ptag.remove(value)
+    for value in ptag:
+        last = value
+    last.tail = "\n    "
+    ptag.set('derivedFrom', pderive)
+    for p in parent.findall('./peripheral[@derivedFrom=\'{}\']'.format(pname)):
+        p.set('derivedFrom', pderive)
+
+
 def process_device_rebase(device, pnew, pold):
     """
     Move registers from pold to pnew.
@@ -702,6 +726,11 @@ def process_device(svd, device, update_fields=True):
     for pname in device.get("_add", []):
         padd = device["_add"][pname]
         process_device_add(svd, pname, padd)
+
+    # Handle any derived peripherals
+    for pname in device.get("_derive", []):
+        pderive = device["_derive"][pname]
+        process_device_derive(svd, pname, pderive)
 
     # Handle any rebased peripherals
     for pname in device.get("_rebase", []):

@@ -214,6 +214,13 @@ _add:
                 description: USART3 global interrupt
                 value: 39
 
+# Replace peripheral registers by a 'deriveFrom'.
+_derive:
+    # The KEY peripheral looses all its elements but 'interrupt', 'name',
+    # and 'baseAddress', and it is derivedFrom the VALUE peripheral.
+    # Peripherals that were 'deriveFrom="KEY"' are now 'deriveFrom="VALUE"'.
+    UART5: UART4
+
 # Reorder the hierarchy of peripherals with 'deriveFrom'.
 _rebase:
     # The KEY peripheral steals everything but 'interrupt', 'name',
