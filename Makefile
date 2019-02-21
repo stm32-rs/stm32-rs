@@ -2,7 +2,7 @@ all: patch svd2rust
 
 .PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
 
-SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 CRATES ?= stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
           stm32l0 stm32l1 stm32l4 stm32g0
