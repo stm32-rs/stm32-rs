@@ -1,0 +1,19 @@
+RCC:
+  APB2RSTR:
+    _add:
+      TIM20RST:
+        description: TIM20 timer reset
+        bitOffset: 20
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      TIM20EN:
+        description: TIM20 timer clock enable
+        bitOffset: 20
+        bitWidth: 1
+  CFGR3:
+    _add:
+      TIM20SW:
+        description: Timer20 clock source selection
+        bitOffset: 15
+        bitWidth: 1

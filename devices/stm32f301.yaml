@@ -32,6 +32,12 @@ _add:
       TIFRFE:
         name: "FRE"
 
+RCC:
+  CFGR3:
+    _modify:
+      TIM17SW:
+        bitWidth: 1
+
 SYSCFG:
   _delete:
     - SYSCFG_RCR
@@ -55,6 +61,9 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_i2c3.yaml
+ - ./common_patches/f3_rcc_delete_cec.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
  - ./common_patches/f3_opamp2.yaml

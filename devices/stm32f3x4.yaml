@@ -3,6 +3,74 @@ _svd: ../svd/stm32f3x4.svd
 _rebase:
   SPI1: SPI3
 
+RCC:
+  CFGR:
+    _delete:
+      - USBPRES
+      - I2SSRC
+  APB2RSTR:
+    _add:
+      HRTIM1RST:
+        description: High Resolution Timer1 reset
+        bitOffset: 29
+        bitWidth: 1
+  APB1RSTR:
+    _delete:
+      - SPI2RST
+      - SPI3RST
+      - UART4RST
+      - UART5RST
+      - I2C2RST
+      - USBRST
+      - TIM4RST
+    _add:
+      DAC2RST:
+        description: DAC2 interface reset
+        bitOffset: 26
+        bitWidth: 1
+  AHBENR:
+    _delete:
+      - DMA2EN
+      - IOPEEN
+  APB2ENR:
+    _add:
+      HRTIM1EN:
+        description: High Resolution Timer 1 clock enable
+        bitOffset: 29
+        bitWidth: 1
+  APB1ENR:
+    _delete:
+      - SPI2EN
+      - SPI3EN
+      - UART4EN
+      - UART5EN
+      - I2C2EN
+      - USBEN
+      - TIM4EN
+    _add:
+      USART3EN:
+        description: USART3 clock enable
+        bitOffset: 18
+        bitWidth: 1
+      DAC2EN:
+        description: DAC2 interface clock enable
+        bitOffset: 26
+        bitWidth: 1
+  AHBRSTR:
+    _delete:
+      - ADC34RST
+      - IOPERST
+  CFGR2:
+    _delete:
+      - ADC34PRES
+  CFGR3:
+    _delete:
+      - I2C2SW
+      - USART2SW
+      - USART3SW
+      - UART4SW
+      - UART5SW
+
 SYSCFG:
   _strip:
     - SYSCFG_
@@ -35,6 +103,9 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/rename_f0_SPI_registers.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_mco.yaml
+ - ./common_patches/f3_rcc_delete_tim8.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml

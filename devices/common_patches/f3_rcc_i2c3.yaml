@@ -1,0 +1,20 @@
+# Add missing reset/enable bits for I2C 3
+RCC:
+  APB1RSTR:
+    _add:
+      I2C3RST:
+        description: I2C3 reset
+        bitOffset: 30
+        bitWidth: 1
+  APB1ENR:
+    _add:
+      I2C3EN:
+        description: I2C3 clock enable
+        bitOffset: 30
+        bitWidth: 1
+  CFGR3:
+    _add:
+      I2C3SW:
+        description: I2C3 clock source selection
+        bitOffset: 6
+        bitWidth: 1

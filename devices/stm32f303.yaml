@@ -7,6 +7,20 @@ _svd: ../svd/stm32f303.svd
       TIFRFE:
         name: "FRE"
 
+RCC:
+  APB1RSTR:
+    _add:
+      DAC2RST:
+        description: DAC2 interface reset
+        bitOffset: 26
+        bitWidth: 1
+  APB1ENR:
+    _modify:
+      USART4EN:
+        name: UART4EN
+      USART5EN:
+        name: UART5EN
+
 SYSCFG:
   _strip:
     - SYSCFG_
@@ -45,6 +59,12 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_mco.yaml
+ - ./common_patches/f3_rcc_usb.yaml
+ - ./common_patches/f3_rcc_spi4.yaml
+ - ./common_patches/f3_rcc_tim20.yaml
+ - ./common_patches/f3_rcc_cfgr3_tim.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
