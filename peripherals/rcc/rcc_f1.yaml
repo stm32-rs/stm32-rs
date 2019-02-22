@@ -3,6 +3,7 @@
 
 _include:
   - ./rcc_f0_f1_common.yaml
+  - ./rcc_pllsrc_1bit.yaml
 
 RCC:
   CFGR:
@@ -12,9 +13,6 @@ RCC:
       HSI: [5, "HSI oscillator clock selected"]
       HSE: [6, "HSE oscillator clock selected"]
       PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
-    PLLSRC:
-      HSI_Div2: [0, "HSI divided by 2 selected as PLL input clock"]
-      HSE_Div_PREDIV: [1, "HSE divided by PREDIV selected as PLL input clock"]
     ADCPRE:
       Div2: [0, "PCLK2 divided by 2"]
       Div4: [1, "PCLK2 divided by 4"]
