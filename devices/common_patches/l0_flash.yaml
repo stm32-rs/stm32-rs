@@ -1,0 +1,27 @@
+# Fix Write Protection for L0 Flash
+"FLASH":
+  _delete:
+    - WRPR
+  _add:
+    WRPROT1:
+      description: Write Protection Register 1
+      addressOffset: 0x20
+      size: 32
+      access: read-only
+      resetValue: 0x00000000
+      fields:
+        WRPROT1:
+          description: Write Protection
+          bitOffset: 0
+          bitWidth: 16
+    WRPROT2:
+      description: Write Protection Register 2
+      addressOffset: 0x80
+      size: 32
+      access: read-only
+      resetValue: 0x00000000
+      fields:
+        WRPROT2:
+          description: Write Protection
+          bitOffset: 16
+          bitWidth: 16

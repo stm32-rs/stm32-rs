@@ -1,0 +1,55 @@
+AES:
+  CR:
+    DMAOUTEN:
+      Disabled: [0, "Disable DMA Output"]
+      Enabled: [1, "Enabled DMA Output"]
+    DMAINEN:
+      Disabled: [0, "Disable DMA Input"]
+      Enabled: [1, "Enable DMA Input"]
+    ERRIE:
+      Disabled: [0, "Disable (mask) error interrupt"]
+      Enabled: [1, "Enable error interrupt"]
+    CCFIE:
+      Disabled: [0, "Disable (mask) CCF interrupt"]
+      Enabled: [1, "Enable CCF interrupt"]
+    ERRC:
+      _write:
+          Clear: [1, "Clear RDERR and WRERR flags"]
+    CCFC:
+      _write:
+        Clear: [1, "Clear computation complete flag"]
+    CHMOD:
+      ECB: [0, "Electronic codebook (ECB)"]
+      CBC: [1, "Cipher-Block Chaining (CBC)"]
+      CTR: [2, "Counter Mode (CTR)"]
+    MODE:
+      Mode1: [0, "Mode 1: encryption"]
+      Mode2: [1, "Mode 2: key derivation (or key preparation for ECB/CBC decryption)"]
+      Mode3: [2, "Mode 3: decryption"]
+      Mode4: [3, "Mode 4: key derivation then single decryption"]
+    DATATYPE:
+      None: [0, "Word"]
+      HalfWord: [1, "Half-word (16-bit)"]
+      Byte: [2, "Byte (8-bit)"]
+      Bit: [3, "Bit"]
+    EN:
+      Disabled: [0, "Disable AES"]
+      Enabled: [1, "Enable AES"]
+  SR:
+    WRERR:
+      NoError: [0, "Write error not detected"]
+      Error: [1, "Write error detected"]
+    RDERR:
+      NoError: [0, "Read error not detected"]
+      Error: [1, "Read error detected"]
+    CCF:
+      Complete: [0, "Computation complete"]
+      NotComplete: [1, "Computation not complete"]
+  DINR: 
+    DIN: [0, 0xFFFFFFFF]
+  DOUTR: 
+    DOUT: [0, 0xFFFFFFFF]
+  "KEYR[0123]": 
+    "KEY*": [0, 0xFFFFFFFF]
+  "IVR[0123]": 
+    "IV*": [0, 0xFFFFFFFF]

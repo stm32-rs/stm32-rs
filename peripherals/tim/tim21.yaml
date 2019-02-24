@@ -1,36 +1,39 @@
-# Common base for 16bit and 32bit TIM2 peripheral
+# TIM21 and TIM22 peripherals
 
-"TIM[23]":
+"TIM2?":
   CR1:
     CKD:
-      NotDivided: [0, "CK_INT not divided"]
-      DividedBy2: [1, "CK_INT divided by 2"]
-      DividedBy4: [2, "CK_INT divided by 4"]
+      NoMul: [0, "tDTS = tCK_INT"]
+      Mul2: [1, "tDTS = 2 × tCK_INT"]
+      Mul4: [2, "tDTS = 4 × tCK_INT"]
+    CMS:
+      Edge_Aligned: [0, "Edge-aligned mode"]
+      Center_Mode1: [1, "Center-aligned mode 1"]
+      Center_Mode2: [2, "Center-aligned mode 2"]
+      Center_Mode3: [3, "Center-aligned mode 3"]
+    DIR:
+      Upcounter: [0, "Counter used as upcounter"]
+      Downcounter: [1, "Counter used as downcounter"]
+    OPM:
+      NotStopped: [0, "Counter is not stopped on the update event"]
+      Stopped: [1, "Counter stops counting on the next update event (clearing the CEN bit)"]
   CR2:
-    TI1S:
-      Normal: [0, "The TIMx_CH1 pin is connected to TI1 input"]
-      XOR: [1, "The TIMx_CH1, CH2, CH3 pins are connected to TI1 input"]
     MMS:
-      Reset: [0, "The UG bit from the TIMx_EGR register is used as trigger output"]
-      Enable: [1, "The counter enable signal, CNT_EN, is used as trigger output"]
-      Update: [2, "The update event is selected as trigger output"]
-      ComparePulse: [3, "The trigger output send a positive pulse when the CC1IF flag it to be set, as soon as a capture or a compare match occurred"]
-      CompareOC1: [4, "OC1REF signal is used as trigger output"]
-      CompareOC2: [5, "OC2REF signal is used as trigger output"] 
-      CompareOC3: [6, "OC3REF signal is used as trigger output"]
-      CompareOC4: [7, "OC4REF signal is used as trigger output"]
-    CCDS:
-      OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
-      OnUpdate: [1, "CCx DMA request sent when update event occurs"]
+      Reset: [0, "Reset - the UG bit from the TIMx_EGR register is used as trigger output (TRGO)"]
+      Enable: [1, "Enable - the Counter enable signal, CNT_EN, is used as trigger output (TRGO)"]
+      Update: [2, "Update - The update event is selected as trigger output (TRGO)"]
+      ComparePulse: [3, "Compare Pulse - The trigger output send a positive pulse when the CC1IF flag is to be set (even if it was already high), as soon as a capture or a compare match occurred"]
+      OC1REF: [4, "OC1REF signal is used as trigger output (TRGO)"]
+      OC2REF: [5, "OC2REF signal is used as trigger output (TRGO)"]
   SMCR:
     ETP:
-      NotInverted: [0, "ETR is noninverted, active at high level or rising edge"]
-      Inverted: [1, "ETR is inverted, active at low level or falling edge"]
+      RisingEdge: [0, "ETR is non-inverted, active at high level or rising edge"]
+      FallingEdge: [1, "ETR is inverted, active at low level or falling edge"]
     ECE:
       Disabled: [0, "External clock mode 2 disabled"]
-      Enabled: [1, "External clock mode 2 enabled. The counter is clocked by any active edge on the ETRF signal."]
+      Enabled: [1, "External clock mode 2 enabled"]
     ETPS:
-      NoDiv: [0, "Prescaler OFF"]
+      NoPrescaler: [0, "Prescaler OFF"]
       Div2: [1, "ETRP frequency divided by 2"]
       Div4: [2, "ETRP frequency divided by 4"]
       Div8: [3, "ETRP frequency divided by 8"]
@@ -72,15 +75,6 @@
       Trigger_Mode: [6, "Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled."]
       Ext_Clock_Mode: [7, "External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter."]
   DIER:
-    TDE:
-      Disabled: [0, "Trigger DMA request disabled"]
-      Enabled: [1, "Trigger DMA request enabled"]
-    "CC?DE":
-      Disabled: [0, "CCx DMA request disabled"]
-      Enabled: [1, "CCx DMA request enabled"]
-    UDE:
-      Disabled: [0, "Update DMA request disabled"]
-      Enabled: [1, "Update DMA request enabled"]
     TIE:
       Disabled: [0, "Trigger interrupt disabled"]
       Enabled: [1, "Trigger interrupt enabled"]
@@ -113,6 +107,7 @@
         Trigger: [1, "If CC1 is an output: CC1IF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CC1 is an input: The current value of the counter is captured in TIMx_CCR1 register."]
   CCMR1_Input:
     IC2F: [0, 15]
+    IC2PSC: [0, 3]
     CC2S:
       Output: [0, "CC2 channel is configured as output"]
       TI2: [1, "CC2 channel is configured as input, IC2 is mapped on TI2"]
@@ -135,27 +130,36 @@
       FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
       FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
       FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
+    IC1PSC: [0, 3]
     CC1S:
       Output: [0, "CC1 channel is configured as output"]
       TI1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1"]
       TI2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2"]
       TRC: [3, "CC1 channel is configured as input, IC1 is mapped on TRC"]
-  CCMR2_Input:
-    IC4F: [0, 15]
-    IC4PSC: [0, 3]
-    CC4S:
-      Output: [0, "CC4 channel is configured as output"]
-      TI4: [1, "CC4 channel is configured as input, IC4 is mapped on TI4"]
-      TI3: [2, "CC4 channel is configured as input, IC4 is mapped on TI3"]
-      TRC: [3, "CC4 channel is configured as input, IC4 is mapped on TRC"]
-    IC3F: [0, 15]
-    IC3PSC: [0, 3]
-    CC3S: 
-      Output: [0, "CC3 channel is configured as output"]
-      TI3: [1, "CC3 channel is configured as input, IC3 is mapped on TI3"]
-      TI4: [2, "CC3 channel is configured as input, IC3 is mapped on TI4"]
-      TRC: [3, "CC3 channel is configured as input, IC3 is mapped on TRC"]
-  DCR:
-    DBL: [0, 18]
-    DBA: [0, 31]
+  CCER:
+    "CC?NP":
+      Negative: [0, "Negative polarity"]
+      Positive: [1, "Positive polarity"]
+    "CC?P":
+      RisingEdge: [0, "Noninverted/rising edge"]
+      FallingEdge: [1, "Inverted/falling edge"]
+    "CC?E":
+      Disabled: [0, "Capture disabled"]
+      Enabled: [1, "Capture enabled"]
+  CNT:
+    CNT: [0, 65536]
+  ARR:
+    ARR: [0, 65536]
+  "CCR?":
+    "CCR?": [0, 65536]
+  OR:
+    TI1_RMP:
+      GPIO: [0, "TIM22 TI1 input connected to GPIO"]
+      COMP2_OUT: [1, "TIM22 TI1 input connected to COMP2_OUT"]
+      COMP1_OUT: [2, "TIM22 TI1 input connected to COMP1_OUT"]
+    ETR_RMP:
+      GPIO: [0, "TIM22 ETR input connected to GPIO"]
+      COMP2_OUT: [1, "TIM22 ETR input connected to COMP2_OUT"]
+      COMP1_OUT: [2, "TIM22 ETR input connected to COMP1_OUT"]
+      LSE: [3, "TIM22 ETR input connected to LSE clock"]
 
