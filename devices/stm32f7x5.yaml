@@ -2,6 +2,9 @@
 
 _svd: ../svd/stm32f7x5.svd
 
+_rebase:
+  USART1: USART6
+
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common

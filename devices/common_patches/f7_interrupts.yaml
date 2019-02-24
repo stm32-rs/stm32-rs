@@ -26,30 +26,31 @@ I2C1:
       I2C2_ER:
         description: I2C2 error interrupt
         value: 34
-
-USART6:
-  _add:
-    _interrupts:
-      UART4:
-        description: UART4 global interrupt
-        value: 52
-
-USART6:
-  _add:
-    _interrupts:
-      USART6:
-        description: USART6 global interrupt
-        value: 71
-
-I2C1:
-  _add:
-    _interrupts:
       I2C3_EV:
         description: I2C3 event interrupt
         value: 72
       I2C3_ER:
         description: I2C3 error interrupt
         value: 73
+      I2C4_EV:
+        description: I2C4 event interrupt
+        value: 95
+      I2C4_ER:
+        description: I2C4 error interrupt
+        value: 96
+
+USART1:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
+      UART4:
+        description: UART4 global interrupt
+        value: 52
+      UART7:
+        description: UART7 global interrupt
+        value: 82
 
 CRYP:
   _add:
@@ -57,13 +58,6 @@ CRYP:
       CRYP:
         description: CRYP crypto global interrupt
         value: 79
-
-USART6:
-  _add:
-    _interrupts:
-      UART7:
-        description: UART7 global interrupt
-        value: 82
 
 SAI1:
   _add:
@@ -92,16 +86,6 @@ CRC:
       HDMI_CEC:
         description: HDMI-CEC global interrupt
         value: 94
-
-I2C1:
-  _add:
-    _interrupts:
-      I2C4_EV:
-        description: I2C4 event interrupt
-        value: 95
-      I2C4_ER:
-        description: I2C4 error interrupt
-        value: 96
 
 SPDIFRX:
   _add:

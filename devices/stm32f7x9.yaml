@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f7x9.svd
 
+_rebase:
+  USART1: USART6
+
 _add:
   # This SVD is missing the ADC_Common peripheral that most other parts with
   # this ADC contain; consequently it's missing the CSR and CCR and CDR regs

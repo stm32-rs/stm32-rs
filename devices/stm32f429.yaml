@@ -3,6 +3,7 @@ _svd: ../svd/stm32f429.svd
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C3
+  USART1: USART6
 
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,

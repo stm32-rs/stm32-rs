@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f3x4.svd
 
+_rebase:
+  SPI1: SPI3
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
