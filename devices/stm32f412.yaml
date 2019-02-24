@@ -140,9 +140,13 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/rcc_spi5.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/dfsdm/dfsdm_v2.yaml
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sq_usb.yaml
  - common_patches/rcc_add_plli2sm.yaml
+ - common_patches/fsmc/fsmc_wrapmod.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
@@ -160,6 +164,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -171,3 +176,4 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

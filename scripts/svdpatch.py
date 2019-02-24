@@ -350,13 +350,25 @@ def spec_ind(spec):
 
 
 def check_offsets(offsets, dimIncrement):
-    res = True
     for o1, o2 in zip(offsets[:-1], offsets[1:]):
         if o2-o1 != dimIncrement:
-            res = False
-            break
-    return res
+            return False
+    return True
 
+def get_bitmask(rtag):
+    """Calculate filling of register"""
+    mask = 0x0
+    for ftag in iter_fields(rtag, "*"):
+        foffset = int(ftag.findtext("bitOffset"), 0)
+        fwidth = int(ftag.findtext("bitWidth"), 0)
+        mask |= (0xffffffff >> (32-fwidth)) << foffset
+    return mask
+
+def check_bitmasks(masks, mask):
+    for m in masks:
+        if m != mask:
+            return False
+    return True
 
 def process_peripheral_regs_array(ptag, rspec, rmod):
     """Collect same registers in peripheral into register array."""
@@ -374,11 +386,12 @@ def process_peripheral_regs_array(ptag, rspec, rmod):
 
     dimIndex = ",".join([r[1] for r in registers])
     offsets = [r[2] for r in registers]
+    bitmasks = [get_bitmask(r[0]) for r in registers]
     dimIncrement = 0
     if dim > 1:
         dimIncrement = offsets[1]-offsets[0]
 
-    if not check_offsets(offsets, dimIncrement):
+    if not (check_offsets(offsets, dimIncrement) and check_bitmasks(bitmasks, bitmasks[0])):
         raise SvdPatchError("{}: registers cannot be collected into {} array"
                             .format(ptag.findtext('name'), rspec))
     for rtag, _, _ in registers[1:]:
@@ -410,6 +423,7 @@ def process_peripheral_cluster(ptag, cname, cmod):
                               int(rtag.findtext('addressOffset'), 0)])
         registers = sorted(registers, key=lambda r: r[2])
         rdict[rspec] = registers
+        bitmasks = [get_bitmask(r[0]) for r in registers]
         if first:
             dim = len(registers)
             if dim == 0:
@@ -420,14 +434,15 @@ def process_peripheral_cluster(ptag, cname, cmod):
             dimIncrement = 0
             if dim > 1:
                 dimIncrement = offsets[1]-offsets[0]
-            if not check_offsets(offsets, dimIncrement):
+            if not (check_offsets(offsets, dimIncrement) and check_bitmasks(bitmasks, bitmasks[0])):
                 check = False
                 break
         else:
             if (
                     (dim != len(registers)) or
                     (dimIndex != ",".join([r[1] for r in registers])) or
-                    (not check_offsets(offsets, dimIncrement))
+                    (not check_offsets(offsets, dimIncrement)) or
+                    (not check_bitmasks(bitmasks, bitmasks[0]))
                ):
                 check = False
                 break

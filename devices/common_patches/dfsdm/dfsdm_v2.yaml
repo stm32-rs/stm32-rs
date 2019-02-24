@@ -1,0 +1,58 @@
+"DFSDM,DFSDM1":
+  CHCFG[1234567]R1:
+    _add:
+      DFSDMEN:
+        description: DFSDMEN
+        bitOffset: 31
+        bitWidth: 1
+      CKOUTSRC:
+        description: CKOUTSRC
+        bitOffset: 30
+        bitWidth: 1
+      CKOUTDIV:
+        description: CKOUTDIV
+        bitOffset: 16
+        bitWidth: 8
+  _cluster:
+    "CH%s":
+      description: "DFSDM Channel cluster: contains CHCFG?R1, CHCFG?R2, CHAWSCD?R, CHWDAT?R and CHDATIN?R registers"
+      "CHCFG?R1":
+        name: CFGR1
+      "CHCFG?R2":
+        name: CFGR2
+      "AWSCD?R": {}
+      "CHWDAT?R":
+        name: WDATR
+      "CHDATIN?R":
+        name: DATINR
+    "FLT%s":
+      "DFSDM?_CR1":
+        name: CR1
+      "DFSDM?_CR1":
+        name: CR2
+      "DFSDM?_ISR":
+        name: ISR
+      "DFSDM?_ICR":
+        name: ICR
+      "DFSDM?_JCHGR":
+        name: JCHGR
+      "DFSDM?_FCR":
+        name: FCR
+      "DFSDM?_JDATAR":
+        name: JDATAR
+      "DFSDM?_RDATAR":
+        name: RDATAR
+      "DFSDM?_AWHTR":
+        name: AWHTR
+      "DFSDM?_AWLTR":
+        name: AWLTR
+      "DFSDM?_AWSR":
+        name: AWSR
+      "DFSDM?_AWCFR":
+        name: AWCFR
+      "DFSDM?_EXMAX":
+        name: EXMAX
+      "DFSDM?_EXMIN":
+        name: EXMIN
+      "DFSDM?_CNVTIMR":
+        name: CNVTIMR

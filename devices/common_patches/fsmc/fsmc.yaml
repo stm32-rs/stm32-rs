@@ -1,7 +1,8 @@
+_include:
+  - ./fsmc_base.yaml
+
 FSMC:
   _array:
-    "BCR?": {}
-    "BTR?": {}
     "PCR?": {}
     "SR?": {}
     "PMEM?":
@@ -28,5 +29,4 @@ FSMC:
       _modify:
         ECCx:
           name: ECC
-    "BWTR?": {}
 

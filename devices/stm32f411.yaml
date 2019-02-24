@@ -44,6 +44,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -54,3 +55,4 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

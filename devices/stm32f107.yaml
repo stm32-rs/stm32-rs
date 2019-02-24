@@ -32,6 +32,9 @@ WWDG:
 _include:
  - ./common_patches/f1_uart45.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/can/can_remove_prefix.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -42,5 +45,6 @@ _include:
  - ../peripherals/tim/tim2_16bit.yaml
  - ../peripherals/rcc/rcc_f1.yaml
  - ../peripherals/rcc/rcc_f1_usb.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml

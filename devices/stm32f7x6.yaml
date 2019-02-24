@@ -119,6 +119,11 @@ _include:
  - common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/cryp/cryp_v2.yaml
+ - common_patches/ltdc/ltdc.yaml
+ - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_add_plli2sp.yaml
  - common_patches/f7_rcc_dckcfgr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
@@ -134,6 +139,7 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/eth/eth_dma.yaml
  - ../peripherals/eth/eth_mmc.yaml
@@ -148,3 +154,5 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/hash/hash.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

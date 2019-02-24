@@ -1,0 +1,10 @@
+_include:
+  - ./fsmc.yaml
+
+FSMC:
+  BCR1:
+    _add:
+      WRAPMOD:
+        description: WRAPMOD
+        bitOffset: 10
+        bitWidth: 1

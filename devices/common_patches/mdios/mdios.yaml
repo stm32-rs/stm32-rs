@@ -1,0 +1,28 @@
+MDIOS:
+  _modify:
+    MDIOS_CR:
+      name: CR
+    MDIOS_WRFR:
+      name: WRFR
+    MDIOS_CWRFR:
+      name: CWRFR
+    MDIOS_RDFR:
+      name: RDFR
+    MDIOS_CRDFR:
+      name: CRDFR
+    MDIOS_SR:
+      name: SR
+    MDIOS_CLRFR:
+      name: CLRFR
+  _array:
+    MDIOS_DINR*:
+      name: DINR%s
+      _modify:
+        DIN0:
+          name: DIN
+    MDIOS_DOUTR*:
+      name: DOUTR%s
+      _modify:
+        DOUT0:
+          name: DOUT
+    
