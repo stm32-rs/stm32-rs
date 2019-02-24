@@ -1,0 +1,21 @@
+RCC:
+  _add:
+    CRRCR:
+      description: Clock recovery RC register
+      addressOffset: 0x98
+      fields:
+        HSI48CAL:
+          description: These bits are initialized at startup with the factory-programmed HSI48 calibration trim value.
+          access: read-only
+          bitOffset: 7
+          bitWidth: 9
+        HSI48RDY:
+          description: Set by hardware to indicate that HSI48 oscillator is stable. This bit is set only when HSI48 is enabled by software by setting HSI48ON.
+          access: read-only
+          bitOffset: 1
+          bitWidth: 1
+        HSI48ON:
+          description: Set and cleared by software. Cleared by hardware to stop the HSI48 when entering in Stop, Standby or Shutdown modes.
+          access: read-write
+          bitOffset: 0
+          bitWidth: 1
