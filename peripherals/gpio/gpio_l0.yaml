@@ -33,10 +33,10 @@
   BSRR:
     "BR*":
       _write:
-        Reset: [1, "Resets the corresponding ODRx bit"]
+        Reset: [1, "Resets the corresponding ODx bit"]
     "BS*":
       _write:
-        Set: [1, "Sets the corresponding ODRx bit"]
+        Set: [1, "Sets the corresponding ODx bit"]
   LCKR:
     "LCK[0123456789]":
       Unlocked: [0, "Port configuration not locked"]
@@ -65,3 +65,7 @@
       AF13: [13, "AF13"]
       AF14: [14, "AF14"]
       AF15: [15, "AF15"]
+  BSRR:
+    "BR*":
+      _write:
+        Reset: [1, "Resets the corresponding ODx bit"]

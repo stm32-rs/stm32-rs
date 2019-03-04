@@ -65,6 +65,11 @@ CRC:
       Polynomialcoefficients:
         name: POL
 
+DBG:
+  _modify:
+    DBG_APB2_FZ:
+      name: APB2_FZ
+
 FLASH:
   _modify:
     OBR:
@@ -132,6 +137,12 @@ RCC:
     _modify:
       LPWRSTF:
         name: LPWRRSTF
+    _delete:
+      - LSIIWDGLP
+  AHBSMENR:
+    _modify:
+      CRYPTSMEN:
+        name: CRYPSMEN
 
 WWDG:
   _modify:
@@ -165,6 +176,7 @@ _include:
  - ../peripherals/adc/adc_l0.yaml
  - ../peripherals/aes/aes_l0.yaml
  - ../peripherals/crc/crc_l0.yaml
+ - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/exti/exti_l0.yaml
  - ../peripherals/flash/flash_l0.yaml
