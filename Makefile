@@ -15,6 +15,10 @@ YAMLS := $(foreach crate, $(CRATES), \
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
+NODESC_SVDS := $(foreach crate, $(CRATES), \
+               $(patsubst devices/$(crate)%.yaml, \
+                          svd/$(crate)%.svd.nodesc, \
+                          $(wildcard devices/$(crate)*.yaml)))
 RUST_SRCS := $(foreach crate, $(CRATES), \
                $(patsubst devices/$(crate)%.yaml, \
                           $(crate)/src/$(crate)%/mod.rs, \
@@ -35,6 +39,11 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
 	python3 scripts/svdpatch.py $<
+	xmllint $@ --format -o $@
+
+svd/%.svd.nodesc: svd/%.svd.patched
+	python3 scripts/nodesc.py $< $@
+	xmllint $@ --format -o $@
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
@@ -64,6 +73,8 @@ svd/%.svd:
 
 patch: $(PATCHED_SVDS)
 
+nodesc: $(NODESC_SVDS)
+
 svd2rust: $(RUST_SRCS)
 
 form: $(FORM_SRCS)
@@ -80,7 +91,7 @@ clean-rs:
 	rm -rf $(RUST_DIRS)
 
 clean-patch:
-	rm -f $(PATCHED_SVDS)
+	rm -f $(PATCHED_SVDS) $(NODESC_SVDS)
 
 clean-html:
 	rm -rf html
