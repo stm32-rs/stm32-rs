@@ -35,6 +35,7 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
 	python3 scripts/svdpatch.py $<
+	xmllint $@ --format -o $@
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
