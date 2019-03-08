@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+* svdpatch.py - added functionality to delete all interrupts from a device level delete
+  ```
+  _delete:
+    - _interrupts
+  ```
+* svdpatch.py - changed behaviour to allow adding interrupts to perpherals that are derivedFrom another peripheral
+* F411 - deleted all interrupts and added a complete list of correct interrupts
+
 ## v 0.6.0 2019-01-14
 
 Family-specific:

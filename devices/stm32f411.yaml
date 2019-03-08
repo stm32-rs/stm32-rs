@@ -5,6 +5,10 @@ _rebase:
   I2C1: I2C3
   SPI1: I2S2ext
 
+_delete:
+  # Nuke the interrupts because they are a mess and a complete list is added below
+  - _interrupts
+
 "SPI*":
   SR:
     _modify:
@@ -27,6 +31,278 @@ RCC:
         description: SPI4 reset
         bitOffset: 13
         bitWidth: 1
+
+#Add in a complete list of interrupts
+ADC1:
+  _add:
+    _interrupts:
+      ADC:
+        description: "ADC1 global interrupt"
+        value: 18
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_Stream0:
+        description: "DMA1 stream0 global interrupt"
+        value: 11
+      DMA1_Stream1:
+        description: "DMA1 stream1 global interrupt"
+        value: 12
+      DMA1_Stream2:
+        description: "DMA1 stream2 global interrupt"
+        value: 13
+      DMA1_Stream3:
+        description: "DMA1 stream3 global interrupt"
+        value: 14
+      DMA1_Stream4:
+        description: "DMA1 stream4 global interrupt"
+        value: 15
+      DMA1_Stream5:
+        description: "DMA1 stream5 global interrupt"
+        value: 16
+      DMA1_Stream6:
+        description: "DMA1 stream6 global interrupt"
+        value: 17
+      DMA1_Stream7:
+        description: "DMA1 stream7 global interrupt"
+        value: 47
+DMA2:
+  _add:
+    _interrupts:
+      DMA2_Stream0:
+        description: "DMA2 stream0 global interrupt"
+        value: 56
+      DMA2_Stream1:
+        description: "DMA2 stream1 global interrupt"
+        value: 57
+      DMA2_Stream2:
+        description: "DMA2 stream2 global interrupt"
+        value: 58
+      DMA2_Stream3:
+        description: "DMA2 stream3 global interrupt"
+        value: 59
+      DMA2_Stream4:
+        description: "DMA2 stream4 global interrupt"
+        value: 60
+      DMA2_Stream5:
+        description: "DMA2 stream5 global interrupt"
+        value: 68
+      DMA2_Stream6:
+        description: "DMA2 stream6 global interrupt"
+        value: 69
+      DMA2_Stream7:
+        description: "DMA2 stream7 global interrupt"
+        value: 70
+EXTI:
+  _add:
+    _interrupts:
+      PVD:
+        description: "PVD interrupt through EXTI line 16"
+        value: 1
+      EXTI0:
+        description: "EXTI line0 interrupt"
+        value: 6
+      EXTI1:
+        description: "EXTI line1 interrupt"
+        value: 7
+      EXTI2:
+        description: "EXTI line2 interrupt"
+        value: 8
+      EXTI3:
+        description: "EXTI line3 interrupt"
+        value: 9
+      EXTI4:
+        description: "EXTI line4 interrupt"
+        value: 10
+      EXTI9_5:
+        description: "EXTI line[9:5] interrupts"
+        value: 23
+      EXTI15_10:
+        description: "EXTI line[15:10] interrupts"
+        value: 40
+FLASH:
+  _add:
+    _interrupts:
+      FLASH:
+        description: "Flash global interrupt"
+        value: 4
+FPU:
+  _add:
+    _interrupts:
+      FPU:
+        description: "FPU global interrupt"
+        value: 81
+I2C1:
+  _add:
+    _interrupts:
+      I2C1_EV:
+        description: "I2C1 event interrupt"
+        value: 31
+      I2C1_ER:
+        description: "I2C1 error interrupt"
+        value: 32
+I2C2:
+  _add:
+    _interrupts:
+      I2C2_EV:
+        description: "I2C2 event interrupt"
+        value: 33
+      I2C2_ER:
+        description: "I2C2 error interrupt"
+        value: 34
+I2C3:
+  _add:
+    _interrupts:
+      I2C3_EV:
+        description: "I2C3 event interrupt"
+        value: 72
+      I2C3_ER:
+        description: "I2C3 error interrupt"
+        value: 73
+OTG_FS_DEVICE:
+  _add:
+    _interrupts:
+      OTG_FS_WKUP:
+        description: "USB On The Go FS wake-up interrupt through EXTI line 18"
+        value: 42
+      OTG_FS:
+        description: "USB On The Go FS global interrupt"
+        value: 67
+RCC:
+  _add:
+    _interrupts:
+      RCC:
+        description: "RCC global interrupt"
+        value: 5
+RTC:
+  _add:
+    _interrupts:
+      TAMP_STAMP:
+        description: "RTC tamper and timestamp interrupts through EXTI line 21"
+        value: 2
+      RTC_WKUP:
+        description: "RTC wake-up interrupt through EXTI line 22"
+        value: 3
+      RTC_Alarm:
+        description: "RTC alarms A and B interrupt through EXTI line 17"
+        value: 41
+SDIO:
+  _add:
+    _interrupts:
+      SDIO:
+        description: "SDIO global interrupt"
+        value: 49
+SPI1:
+  _add:
+    _interrupts:
+      SPI1:
+        description: "SPI1 global interrupt"
+        value: 35
+SPI2:
+  _add:
+    _interrupts:
+      SPI2:
+        description: "SPI2 global interrupt"
+        value: 36
+SPI3:
+  _add:
+    _interrupts:
+      SPI3:
+        description: "SPI3 global interrupt"
+        value: 51
+SPI4:
+  _add:
+    _interrupts:
+      SPI4:
+        description: "SPI4 global interrupt"
+        value: 84
+SPI5:
+  _add:
+    _interrupts:
+      SPI5:
+        description: "SPI5 global interrupt"
+        value: 85
+TIM1:
+  _add:
+    _interrupts:
+      TIM1_BRK_TIM9:
+        description: "TIM1 break interrupt and TIM9 global interrupt"
+        value: 24
+      TIM1_UP_TIM10:
+        description: "TIM1 update interrupt and TIM10 global interrupt"
+        value: 25
+      TIM1_TRG_COM_TIM11:
+        description: "TIM1 trigger and commutation interrupts and TIM11 global interrupt"
+        value: 26
+      TIM1_CC:
+        description: "TIM1 capture compare interrupt"
+        value: 27
+TIM10:
+  _add:
+    _interrupts:
+      TIM1_UP_TIM10:
+        description: "TIM1 update interrupt and TIM10 global interrupt"
+        value: 25
+TIM11:
+  _add:
+    _interrupts:
+      TIM1_TRG_COM_TIM11:
+        description: "TIM1 trigger and commutation interrupts and TIM11 global interrupt"
+        value: 26
+TIM2:
+  _add:
+    _interrupts:
+      TIM2:
+        description: "TIM2 global interrupt"
+        value: 28
+TIM3:
+  _add:
+    _interrupts:
+      TIM3:
+        description: "TIM3 global interrupt"
+        value: 29
+TIM4:
+  _add:
+    _interrupts:
+      TIM4:
+        description: "TIM4 global interrupt"
+        value: 30
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: "TIM5 global interrupt"
+        value: 50
+TIM9:
+  _add:
+    _interrupts:
+      TIM1_BRK_TIM9:
+        description: "TIM1 break interrupt and TIM9 global interrupt"
+        value: 24
+USART1:
+  _add:
+    _interrupts:
+      USART1:
+        description: "USART1 global interrupt"
+        value: 37
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: "USART2 global interrupt"
+        value: 38
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: "USART6 global interrupt"
+        value: 71
+WWDG:
+  _add:
+    _interrupts:
+      WWDG:
+        description: "Window watchdog interrupt"
+        value: 0
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

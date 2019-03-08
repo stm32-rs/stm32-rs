@@ -315,11 +315,15 @@ def process_register_add(rtag, fname, fadd):
         ET.SubElement(fnew, key).text = str(value)
     fnew.tail = "\n            "
 
-
 def process_device_delete(device, pspec):
-    """Delete registers matched by rspec inside ptag."""
-    for ptag in list(iter_peripherals(device, pspec, check_derived=False)):
-        device.find('peripherals').remove(ptag)
+    if pspec == "_interrupts":
+        for ptag in list(iter_peripherals(device, "*", check_derived=False)):
+            for itag in list(ptag.iter('interrupt')):
+                ptag.remove(itag)
+    else:
+        """Delete registers matched by rspec inside ptag."""
+        for ptag in list(iter_peripherals(device, pspec, check_derived=False)):
+            device.find('peripherals').remove(ptag)
 
 
 def process_peripheral_delete(ptag, rspec):
@@ -632,42 +636,58 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
                                    .format(pname, rspec))
 
 
-def process_peripheral(svd, pspec, peripheral, update_fields=True):
+def process_peripheral(svd, pspec, changes, update_fields=True):
     """Work through a peripheral, handling all registers."""
     # Find all peripherals that match the spec
     pcount = 0
+
+    # Special case for interrupts, it's possible to add interrupts to derived peripherals
+    more_changes = False
+    for rname in changes.get("_add", {}):
+        radd = changes["_add"][rname]
+        if rname == "_interrupts":
+            for ptag in iter_peripherals(svd, pspec, check_derived=False):
+                pcount += 1
+                for iname in radd:
+                    process_peripheral_add_int(ptag, iname, radd[iname])
+            if pcount == 0:
+                raise MissingPeripheralError("Could not find {} to add interrupt to".format(pspec))
+        else:
+            more_changes = True
+
+    if more_changes:
+        #We need to make sure matching adding an interrupt doesn't skip the rest of the missing peripheral logic
+        pcount = 0
+
     for ptag in iter_peripherals(svd, pspec):
         pcount += 1
         # Handle deletions
-        for rspec in peripheral.get("_delete", []):
+        for rspec in changes.get("_delete", []):
             process_peripheral_delete(ptag, rspec)
         # Handle modifications
-        for rspec in peripheral.get("_modify", {}):
-            rmod = peripheral["_modify"][rspec]
+        for rspec in changes.get("_modify", {}):
+            rmod = changes["_modify"][rspec]
             process_peripheral_modify(ptag, rspec, rmod)
         # Handle additions
-        for rname in peripheral.get("_add", {}):
-            radd = peripheral["_add"][rname]
+        for rname in changes.get("_add", {}):
+            radd = changes["_add"][rname]
             if rname == "_registers":
                 for rname in radd:
                     process_peripheral_add_reg(ptag, rname, radd[rname])
-            elif rname == "_interrupts":
-                for iname in radd:
-                    process_peripheral_add_int(ptag, iname, radd[iname])
-            else:
+            elif rname != "_interrupts":
                 process_peripheral_add_reg(ptag, rname, radd)
         # Handle registers
-        for rspec in peripheral:
+        for rspec in changes:
             if not rspec.startswith("_"):
-                register = peripheral[rspec]
+                register = changes[rspec]
                 process_peripheral_register(ptag, rspec, register,
                                             update_fields)
         # Handle register arrays
-        for rspec in peripheral.get("_array", {}):
-            rmod = peripheral["_array"][rspec]
+        for rspec in changes.get("_array", {}):
+            rmod = changes["_array"][rspec]
             process_peripheral_regs_array(ptag, rspec, rmod)
-        for cname in peripheral.get("_cluster", {}):
-            cmod = peripheral["_cluster"][cname]
+        for cname in changes.get("_cluster", {}):
+            cmod = changes["_cluster"][cname]
             process_peripheral_cluster(ptag, cname, cmod)
     if pcount == 0:
         raise MissingPeripheralError("Could not find {}".format(pspec))
