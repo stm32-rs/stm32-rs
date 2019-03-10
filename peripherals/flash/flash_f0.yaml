@@ -1,3 +1,7 @@
+# Flash peripheral
+# Applicable to STM32F0
+# OBR->BOOT_SEL and OBR->nBOOT0 available only on STM32F04x and STM32F09x
+
 "Flash":
   ACR:
     PRFTBS:
@@ -63,6 +67,34 @@
 
   AR:
     FAR: [0, 0xFFFFFFFF]
+
+  OBR:
+    Data1: [0, 0xFFFF]
+    Data0: [0, 0xFFFF]
+    RAM_PARITY_CHECK:
+      Disabled: [1, "RAM parity check disabled"]
+      Enabled: [0, "RAM parity check enabled"]
+    VDDA_MONITOR:
+      Disabled: [0, "VDDA power supply supervisor disabled"]
+      Enabled: [1, "VDDA power supply supervisor enabled"]
+    nBOOT1:
+      Disabled: [0, "Together with BOOT0, select the device boot mode"]
+      Enabled: [1, "Together with BOOT0, select the device boot mode"]
+    nRST_STDBY:
+      Reset: [0, "Reset generated when entering Standby mode"]
+      NoReset: [1, "No reset generated"]
+    nRST_STOP:
+      Reset: [0, "Reset generated when entering Stop mode"]
+      NoReset: [1, "No reset generated"]
+    WDG_SW:
+      Hardware: [0, "Hardware watchdog"]
+      Software: [1, "Software watchdog"]
+    RDPRT:
+      Level0: [0, "Level 0"]
+      Level1: [1, "Level 1"]
+      Level2: [3, "Level 2"]
+    OPTERR:
+      OptionByteError: [1, "The loaded option byte and its complement do not match"]
 
   WRPR:
     WRP: [0, 0xFFFFFFFF]
