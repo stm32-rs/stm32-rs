@@ -1,0 +1,8 @@
+COMP:
+  COMP2_CSR:
+    _add:
+      COMP2_INP_DAC:
+        description: Comparator 2 non inverting input connection to DAC output
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write

@@ -21,6 +21,15 @@ SYSCFG:
     _delete:
       - BYP_ADD_PAR
 
+COMP:
+  CSR:
+    _add:
+      COMP1_INP_DAC:
+        description: Comparator 1 non inverting input connection to DAC output
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -29,6 +38,7 @@ _include:
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
+ - ./common_patches/f0_comp_common.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/crc/crc_basic.yaml
