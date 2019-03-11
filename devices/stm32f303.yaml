@@ -7,12 +7,53 @@ _svd: ../svd/stm32f303.svd
       TIFRFE:
         name: "FRE"
 
+SYSCFG:
+  _modify:
+    SYSCFG_RCR:
+      name: RCR
+      displayName: RCR
+  _add:
+    CFGR3:
+      description: configuration register 3
+      addressOffset: 0x50
+      size: 0x20
+      resetValue: 0x00000200
+      access: read-write
+      fields:
+        SPI1_RX_DMA_RMP:
+          description: SPI1_RX DMA remapping bit
+          bitOffset: 0
+          bitWidth: 2
+        SPI1_TX_DMA_RMP:
+          description: SPI1_TX DMA remapping bit
+          bitOffset: 2
+          bitWidth: 2
+        I2C1_RX_DMA_RMP:
+          description: I2C1_RX DMA remapping bit
+          bitOffset: 4
+          bitWidth: 2
+        I2C1_TX_DMA_RMP:
+          description: I2C1_TX DMA remapping bit
+          bitOffset: 6
+          bitWidth: 2
+        ADC2_DMA_RMP:
+          description: ADC2 DMA remapping bit
+          bitOffset: 8
+          bitWidth: 2
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_syscfg.yaml
+ - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
+ - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
+ - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/f3_syscfg_cfgr2.yaml
+ - ./common_patches/f3_syscfg_cfgr4.yaml
+ - ./common_patches/f3_syscfg_rcr_page8-15.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/dac/dac_wavegen.yaml

@@ -1,0 +1,65 @@
+SYSCFG:
+  _add:
+    CFGR4:
+      description: configuration register 4
+      addressOffset: 0x48
+      size: 0x20
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        ADC12_EXT2_RMP:
+          description: Controls the Input trigger of ADC12 regular channel EXT2
+          bitOffset: 0
+          bitWidth: 1
+        ADC12_EXT3_RMP:
+          description: Controls the Input trigger of ADC12 regular channel EXT3
+          bitOffset: 1
+          bitWidth: 1
+        ADC12_EXT5_RMP:
+          description: Controls the Input trigger of ADC12 regular channel EXT5
+          bitOffset: 2
+          bitWidth: 1
+        ADC12_EXT13_RMP:
+          description: Controls the Input trigger of ADC12 regular channel EXT13
+          bitOffset: 3
+          bitWidth: 1
+        ADC12_EXT15_RMP:
+          description: Controls the Input trigger of ADC12 regular channel EXT15
+          bitOffset: 4
+          bitWidth: 1
+        ADC12_JEXT3_RMP:
+          description: Controls the Input trigger of ADC12 injected channel JEXT3
+          bitOffset: 5
+          bitWidth: 1
+        ADC12_JEXT6_RMP:
+          description: Controls the Input trigger of ADC12 injected channel JEXT6
+          bitOffset: 6
+          bitWidth: 1
+        ADC12_JEXT13_RMP:
+          description: Controls the Input trigger of ADC12 injected channel JEXT13
+          bitOffset: 7
+          bitWidth: 1
+        ADC34_EXT5_RMP:
+          description: Controls the Input trigger of ADC34 regular channel EXT5
+          bitOffset: 8
+          bitWidth: 1
+        ADC34_EXT6_RMP:
+          description: Controls the Input trigger of ADC34 regular channel EXT6
+          bitOffset: 9
+          bitWidth: 1
+        ADC34_EXT15_RMP:
+          description: Controls the Input trigger of ADC34 regular channel EXT15
+          bitOffset: 10
+          bitWidth: 1
+        ADC34_JEXT5_RMP:
+          description: Controls the Input trigger of ADC34 injected channel JEXT5
+          bitOffset: 11
+          bitWidth: 1
+        ADC34_JEXT11_RMP:
+          description: Controls the Input trigger of ADC34 injected channel JEXT11
+          bitOffset: 12
+          bitWidth: 1
+        ADC34_JEXT14_RMP:
+          description: Controls the Input trigger of ADC34 injected channel JEXT14
+          bitOffset: 13
+          bitWidth: 1
