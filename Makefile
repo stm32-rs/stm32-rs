@@ -27,6 +27,10 @@ FORM_SRCS := $(foreach crate, $(CRATES), \
                $(patsubst devices/$(crate)%.yaml, \
                           $(crate)/src/$(crate)%/.form, \
                           $(wildcard devices/$(crate)*.yaml)))
+SVDFORMAT_SRCS := $(foreach crate, $(CRATES), \
+               $(patsubst devices/$(crate)%.yaml, \
+                          svd/.format/$(crate)%.svd.formatted, \
+                          $(wildcard devices/$(crate)*.yaml)))
 CHECK_SRCS := $(foreach crate, $(CRATES), \
                $(patsubst devices/$(crate)%.yaml, \
                           $(crate)/src/$(crate)%/.check, \
@@ -35,7 +39,11 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
 	python3 scripts/svdpatch.py $<
-	xmllint $@ --format -o $@
+
+svd/.format/%.svd.formatted: svd/%.svd.patched
+	mkdir -p $(@D)
+	xmllint $< --format -o $<
+	touch $@
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
@@ -69,6 +77,8 @@ svd2rust: $(RUST_SRCS)
 
 form: $(FORM_SRCS)
 
+svdformat: $(SVDFORMAT_SRCS)
+
 check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
@@ -82,6 +92,7 @@ clean-rs:
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)
+	rm -rf svd/.format
 
 clean-html:
 	rm -rf html
