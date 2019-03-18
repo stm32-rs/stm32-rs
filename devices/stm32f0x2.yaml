@@ -14,6 +14,17 @@ RCC:
         bitOffset: 20
         bitWidth: 1
 
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_CH2_3:
+        description: "DMA channel 2 and 3 interrupts"
+        value: 10
+
+      DMA1_CH4_5_6_7:
+        description: "DMA channel 4, 5, 6 and 7 interrupts"
+        value: 11
+
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/rename_f0_SPI_registers.yaml
