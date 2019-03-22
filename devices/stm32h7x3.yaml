@@ -324,6 +324,12 @@ PWR:
     PWR_WKUPEPR:
       name: WKUPEPR
 
+"SPI*":
+  CR1:
+    _modify:
+      CSTART:
+        access: read-write
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
