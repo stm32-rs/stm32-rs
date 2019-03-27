@@ -356,6 +356,16 @@ DMA1:
         description: DMA1 Stream6
       # DMA1_STR7 is correct
 
+"DMAMUX*":
+  _strip:
+    - DMAMUX1_
+    - DMAMUX2_
+  _array:
+    "C*CR":
+      name: "CCR%s"
+    "RG*CR":
+      name: "RGCR%s"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
