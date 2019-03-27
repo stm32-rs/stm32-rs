@@ -48,7 +48,7 @@ license = "MIT/Apache-2.0"
 [dependencies]
 bare-metal = "0.2.4"
 vcell = "0.1.0"
-cortex-m = "0.5.8"
+cortex-m = ">=0.5.8,<0.7"
 
 [dependencies.cortex-m-rt]
 optional = true
