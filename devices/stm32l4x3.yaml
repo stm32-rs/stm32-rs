@@ -4,6 +4,10 @@ _svd: ../svd/stm32l4x3.svd
 RCC:
   APB1ENR1:
     _modify:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+    _modify:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
