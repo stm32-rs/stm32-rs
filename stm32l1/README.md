@@ -24,7 +24,6 @@ The `rt` feature is optional and brings in support for `cortex-m-rt`.
 In your code:
 
 ```rust
-extern crate stm32l1;
 use stm32l1::stm32l100;
 
 let mut peripherals = stm32l100::Peripherals::take().unwrap();

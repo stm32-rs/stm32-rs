@@ -35,6 +35,7 @@ CRATE_DOC_FEATURES = {
 
 CARGO_TOML_TPL = """\
 [package]
+edition = "2018"
 name = "{crate}"
 version = "{version}"
 authors = ["Adam Greig <adam@adamgreig.com>"]
@@ -85,13 +86,6 @@ SRC_LIB_RS_TPL = """\
 #![allow(non_camel_case_types)]
 #![no_std]
 
-extern crate vcell;
-extern crate bare_metal;
-extern crate cortex_m;
-
-#[cfg(feature = "rt")]
-extern crate cortex_m_rt;
-
 {mods}
 """
 
@@ -122,7 +116,6 @@ The `rt` feature is optional and brings in support for `cortex-m-rt`.
 In your code:
 
 ```rust
-extern crate {crate};
 use {crate}::{device};
 
 let mut peripherals = {device}::Peripherals::take().unwrap();
