@@ -333,6 +333,17 @@ def process_register_delete(rtag, fspec):
     for ftag in list(iter_fields(rtag, fspec)):
         rtag.find('fields').remove(ftag)
 
+def process_peripheral_strip(ptag, prefix):
+    """Delete prefix in register names inside ptag."""
+    for rtag in ptag.iter('register'):
+        nametag = rtag.find('name')
+        name = nametag.text
+        if name.startswith(prefix):
+            nametag.text = name[len(prefix):]
+            dnametag = rtag.find('displayName')
+            dname = dnametag.text
+            if dname.startswith(prefix):
+                dnametag.text = dname[len(prefix):]
 
 def spec_ind(spec):
     """
@@ -645,6 +656,9 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
         for rspec in peripheral.get("_modify", {}):
             rmod = peripheral["_modify"][rspec]
             process_peripheral_modify(ptag, rspec, rmod)
+        # Handle strips
+        for rspec in peripheral.get("_strip", []):
+            process_peripheral_strip(ptag, rspec)
         # Handle additions
         for rname in peripheral.get("_add", {}):
             radd = peripheral["_add"][rname]
@@ -666,6 +680,7 @@ def process_peripheral(svd, pspec, peripheral, update_fields=True):
         for rspec in peripheral.get("_array", {}):
             rmod = peripheral["_array"][rspec]
             process_peripheral_regs_array(ptag, rspec, rmod)
+        # Handle clusters
         for cname in peripheral.get("_cluster", {}):
             cmod = peripheral["_cluster"][cname]
             process_peripheral_cluster(ptag, cname, cmod)

@@ -261,6 +261,11 @@ _rebase:
     _delete:
         - GPIO*_EXTRAR
 
+    # If registers have unnecessary common prefix,
+    # you can clean it in all registers in peripheral by:
+    _strip:
+        - PREFIX_
+
     # You can collect several same registers into one register array
     # that will be represented with svd2rust as array or elements
     # with one type
