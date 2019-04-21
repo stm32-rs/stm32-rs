@@ -27,107 +27,13 @@ SYSCFG:
 
 _include:
  - ./f0_syscfg_common.yaml
+ - ./f0_comp_common.yaml
 
-_add:
-  COMP:
-    description: "General purpose comparators"
-    baseAddress: 0x40010000
-    addressBlock:
-      offset: 0
-    registers:
-      CSR:
-        description: control and status register
-        addressOffset: 0x1C
-        size: 0x20
-        resetValue: 0x00000000
-        fields:
-          COMP1EN:
-            description: Comparator 1 enable
-            bitOffset: 0
-            bitWidth: 1
-            access: read-write
-          COMP1SW1:
-            description: Comparator 1 non inverting input DAC switch
-            bitOffset: 1
-            bitWidth: 1
-            access: read-write
-          COMP1MODE:
-            description: Comparator 1 mode
-            bitOffset: 2
-            bitWidth: 2
-            access: read-write
-          COMP1INSEL:
-            description: Comparator 1 inverting input selection
-            bitOffset: 4
-            bitWidth: 3
-            access: read-write
-          COMP1OUTSEL:
-            description: Comparator 1 output selection
-            bitOffset: 8
-            bitWidth: 3
-            access: read-write
-          COMP1POL:
-            description: Comparator 1 output polarity
-            bitOffset: 11
-            bitWidth: 1
-            access: read-write
-          COMP1HYST:
-            description: Comparator 1 hysteresis
-            bitOffset: 12
-            bitWidth: 2
-            access: read-write
-          COMP1OUT:
-            description: Comparator 1 output
-            bitOffset: 14
-            bitWidth: 1
-            access: read-only
-          COMP1LOCK:
-            description: Comparator 1 lock
-            bitOffset: 15
-            bitWidth: 1
-            access: read-write
-          COMP2EN:
-            description: Comparator 2 enable
-            bitOffset: 16
-            bitWidth: 1
-            access: read-write
-          COMP2MODE:
-            description: Comparator 2 mode
-            bitOffset: 18
-            bitWidth: 2
-            access: read-write
-          COMP2INSEL:
-            description: Comparator 2 inverting input selection
-            bitOffset: 20
-            bitWidth: 3
-            access: read-write
-          WNDWEN:
-            description: Window mode enable
-            bitOffset: 23
-            bitWidth: 1
-            access: read-write
-          COMP2OUTSEL:
-            description: Comparator 2 output selection
-            bitOffset: 24
-            bitWidth: 3
-            access: read-write
-          COMP2POL:
-            description: Comparator 2 output polarity
-            bitOffset: 27
-            bitWidth: 1
-            access: read-write
-          COMP2HYST:
-            description: Comparator 2 hysteresis
-            bitOffset: 28
-            bitWidth: 2
-            access: read-write
-          COMP2OUT:
-            description: Comparator 2 output
-            bitOffset: 30
-            bitWidth: 1
-            access: read-only
-          COMP2LOCK:
-            description: Comparator 2 lock
-            bitOffset: 31
-            bitWidth: 1
-            access: read-write
+COMP:
+  CSR:
+    _add:
+      COMP1SW1:
+        description: Comparator 1 non inverting input DAC switch
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write

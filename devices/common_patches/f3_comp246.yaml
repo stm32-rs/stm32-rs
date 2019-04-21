@@ -1,0 +1,130 @@
+_add:
+  COMP:
+    description: General purpose comparators
+    baseAddress: 0x40010000
+    addressBlock:
+      offset: 0
+    registers:
+      COMP2_CSR:
+        description: control and status register
+        addressOffset: 0x20
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          COMP2EN:
+            description: Comparator 2 enable
+            bitOffset: 0
+            bitWidth: 1
+            access: read-write
+          COMP2INMSEL:
+            description: Comparator 2 inverting input selection
+            bitOffset: 4
+            bitWidth: 3
+            access: read-write
+          COMP2OUTSEL:
+            description: Comparator 2 output selection
+            bitOffset: 10
+            bitWidth: 4
+            access: read-write
+          COMP2POL:
+            description: Comparator 2 output polarity
+            bitOffset: 15
+            bitWidth: 1
+            access: read-write
+          COMP2_BLANKING:
+            description: Comparator 2 blanking source
+            bitOffset: 18
+            bitWidth: 3
+            access: read-write
+          COMP2OUT:
+            description: Comparator 2 output
+            bitOffset: 30
+            bitWidth: 1
+            access: read-only
+          COMP2LOCK:
+            description: Comparator 2 lock
+            bitOffset: 31
+            bitWidth: 1
+            access: read-write
+      COMP4_CSR:
+        description: control and status register
+        addressOffset: 0x28
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          COMP4EN:
+            description: Comparator 4 enable
+            bitOffset: 0
+            bitWidth: 1
+            access: read-write
+          COMP4INMSEL:
+            description: Comparator 4 inverting input selection
+            bitOffset: 4
+            bitWidth: 3
+            access: read-write
+          COMP4OUTSEL:
+            description: Comparator 4 output selection
+            bitOffset: 10
+            bitWidth: 4
+            access: read-write
+          COMP4POL:
+            description: Comparator 4 output polarity
+            bitOffset: 15
+            bitWidth: 1
+            access: read-write
+          COMP4_BLANKING:
+            description: Comparator 4 blanking source
+            bitOffset: 18
+            bitWidth: 3
+            access: read-write
+          COMP4OUT:
+            description: Comparator 4 output
+            bitOffset: 30
+            bitWidth: 1
+            access: read-only
+          COMP4LOCK:
+            description: Comparator 4 lock
+            bitOffset: 31
+            bitWidth: 1
+            access: read-write
+      COMP6_CSR:
+        description: control and status register
+        addressOffset: 0x30
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          COMP6EN:
+            description: Comparator 6 enable
+            bitOffset: 0
+            bitWidth: 1
+            access: read-write
+          COMP6INMSEL:
+            description: Comparator 6 inverting input selection
+            bitOffset: 4
+            bitWidth: 3
+            access: read-write
+          COMP6OUTSEL:
+            description: Comparator 6 output selection
+            bitOffset: 10
+            bitWidth: 4
+            access: read-write
+          COMP6POL:
+            description: Comparator 6 output polarity
+            bitOffset: 15
+            bitWidth: 1
+            access: read-write
+          COMP6_BLANKING:
+            description: Comparator 6 blanking source
+            bitOffset: 18
+            bitWidth: 3
+            access: read-write
+          COMP6OUT:
+            description: Comparator 6 output
+            bitOffset: 30
+            bitWidth: 1
+            access: read-only
+          COMP6LOCK:
+            description: Comparator 6 lock
+            bitOffset: 31
+            bitWidth: 1
+            access: read-write

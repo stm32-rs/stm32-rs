@@ -1,0 +1,8 @@
+SYSCFG:
+  CFGR1:
+    _add:
+      DAC2_CH1_DMA_RMP:
+        description: DAC2 channel1 DMA remap
+        bitOffset: 15
+        bitWidth: 1
+        access: read-write

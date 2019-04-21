@@ -1,0 +1,22 @@
+COMP:
+  COMP2_CSR:
+    _add:
+      COMP2INMSEL3:
+        description: Comparator 2 inverting input selection
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+  COMP4_CSR:
+    _add:
+      COMP4INMSEL3:
+        description: Comparator 4 inverting input selection
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+  COMP6_CSR:
+    _add:
+      COMP6INMSEL3:
+        description: Comparator 6 inverting input selection
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
