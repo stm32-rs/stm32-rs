@@ -61,6 +61,7 @@ _include:
  - common_patches/can/can_remove_prefix.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -77,3 +78,4 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/usb/usb.yaml

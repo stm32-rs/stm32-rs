@@ -13,6 +13,7 @@ YAMLS := $(foreach crate, $(CRATES), \
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
+FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
 RUST_SRCS := $(foreach crate, $(CRATES), \
@@ -35,6 +36,9 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd
 	python3 scripts/svdpatch.py $<
+
+svd/%.svd.formatted: svd/%.svd.patched
+	xmllint $< --format -o $@
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
@@ -68,6 +72,8 @@ svd2rust: $(RUST_SRCS)
 
 form: $(FORM_SRCS)
 
+svdformat: $(FORMATTED_SVDS)
+
 check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
@@ -81,6 +87,7 @@ clean-rs:
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)
+	rm -f $(FORMATTED_SVDS)
 
 clean-html:
 	rm -rf html

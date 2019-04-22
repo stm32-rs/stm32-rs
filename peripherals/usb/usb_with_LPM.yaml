@@ -1,0 +1,52 @@
+# Extends USB peripheral with Low-Power Mode
+
+_include:
+ - usb.yaml
+
+USB:
+  CNTR:
+    L1REQM:
+      Disabled: [0, "L1REQ Interrupt disabled"]
+      Enabled: [1, "L1REQ Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    L1RESUME:
+      Requested: [1, "LPM L1 request requested"]
+  ISTR:
+    L1REQ:
+      Received: [1, "LPM command to enter the L1 state is successfully received and acknowledged"] 
+  LPMCSR:
+    BESL: [0, 0b1111]
+    REMWAKE:
+    LPMACK:
+      Nyet: [0, "the valid LPM Token will be NYET"]
+      Ack: [1, "the valid LPM Token will be ACK"]
+    LPMEN:
+      Disabled: [0, "enable the LPM support within the USB device"]
+      Enabled: [1, "no LPM transactions are handled"]
+  BCDR:
+    DPPU:
+      Disabled: [0, "signalize disconnect to the host when needed by the user software"]
+      Enabled: [1, "enable the embedded pull-up on the DP line"]
+    PS2DET:
+      Normal: [0, "Normal port detected"]
+      PS2: [1, "PS2 port or proprietary charger detected"]
+    SDET:
+      CDP: [0, "CDP detected"]
+      DCP: [1, "DCP detected"]
+    PDET:
+      NoBCD: [0, "no BCD support detected"]
+      BCD: [1, "BCD support detected"]
+    DCDET:
+      NotDetected: [0, "data lines contact not detected"]
+      Detected: [1, "data lines contact detected"]
+    SDEN:
+      Disabled: [0, "Secondary detection (SD) mode disabled"]
+      Enabled: [1, "Secondary detection (SD) mode enabled"]
+    PDEN:
+      Disabled: [0, "Primary detection (PD) mode disabled"]
+      Enabled: [1, "Primary detection (PD) mode enabled"]
+    DCDEN:
+      Disabled: [0, "Data contact detection (DCD) mode disabled"]
+      Enabled: [1, "Data contact detection (DCD) mode enabled"]
+    BCDEN:
+      Disabled: [0, "disable the BCD support"]
+      Enabled: [1, "enable the BCD support within the USB device"]
