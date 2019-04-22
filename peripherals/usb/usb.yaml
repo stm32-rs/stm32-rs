@@ -1,0 +1,104 @@
+# USB peripheral and associated SRAM
+
+USB:
+  CNTR:
+    CTRM:
+      Disabled: [0, "Correct Transfer (CTR) Interrupt disabled"]
+      Enabled: [1, "CTR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    PMAOVRM:
+      Disabled: [0, "PMAOVR Interrupt disabled"]
+      Enabled: [1, "PMAOVR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    ERRM:
+      Disabled: [0, "ERR Interrupt disabled"]
+      Enabled: [1, "ERR Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    WKUPM:
+      Disabled: [0, "WKUP Interrupt disabled"]
+      Enabled: [1, "WKUP Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    SUSPM:
+      Disabled: [0, "Suspend Mode Request SUSP Interrupt disabled"]
+      Enabled: [1, "SUSP Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    RESETM:
+      Disabled: [0, "RESET Interrupt disabled"]
+      Enabled: [1, "RESET Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    SOFM:
+      Disabled: [0, "SOF Interrupt disabled"]
+      Enabled: [1, "SOF Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    ESOFM:
+      Disabled: [0, "ESOF Interrupt disabled"]
+      Enabled: [1, "ESOF Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    RESUME:
+      Requested: [1, "Resume requested"]
+    FSUSP:
+      NoEffect: [0, "No effect"]
+      Suspend: [1, "Enter suspend mode. Clocks and static power dissipation in the analog transceiver are left unaffected"]
+    LPMODE:
+      Disabled: [0, "No low-power mode"]
+      Enabled: [1, "Enter low-power mode"]
+    PDWN:
+      Disabled: [0, "No power down"]
+      Enabled: [1, "Enter power down mode"]
+    FRES:
+      NoReset: [0, "Clear USB reset"]
+      Reset: [1, "Force a reset of the USB peripheral, exactly like a RESET signaling on the USB"]
+  ISTR:
+    CTR:
+      Completed: [1, "endpoint has successfully completed a transaction"]
+    PMAOVR:
+      Overrun: [1, "microcontroller has not been able to respond in time to an USB memory request"]
+    ERR:
+      Error: [1, "One of No ANSwer, Cyclic Redundancy Check, Bit Stuffing or Framing format Violation error occurred"]
+    WKUP:
+      Wakeup: [1, "activity is detected that wakes up the USB peripheral"]
+    SUSP:
+      Suspend: [1, "no traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
+    RESET:
+      Reset: [1, "peripheral detects an active USB RESET signal at its inputs"]
+    SOF:
+      StartOfFrame: [1, "beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus"]
+    ESOF:
+      ExpectedStartOfFrame: [1, "an SOF packet is expected but not received"]
+    DIR:
+      To: [0, "data transmitted by the USB peripheral to the host PC"]
+      From: [1, "data received by the USB peripheral from the host PC"]
+    EP_ID: [0, 0b1111]
+  FNR:
+    RXDP:
+      Received: [1, "received data plus upstream port data line"]
+    RXDM:
+      Received: [1, "received data minus upstream port data line"]
+    LCK:
+      Locked: [1, "the frame timer remains in this state until an USB reset or USB suspend event occurs"]
+    LSOF: [0, 0b11]
+    FN: [0, 0b11111111111]
+  DADDR:
+    EF:
+      Disabled: [0, "USB device disabled"]
+      Enabled: [1, "USB device enabled"]
+    ADD: [0, 0b1111111]
+  BTABLE:
+    BTABLE: [0, 0b1111111111111]
+  "EP*R":
+    CTR_RX:
+    DTOG_RX:
+    STAT_RX:
+      Disabled: [0, "all reception requests addressed to this endpoint are ignored"]
+      Stall: [1, "the endpoint is stalled and all reception requests result in a STALL handshake"]
+      Nak: [2, "the endpoint is naked and all reception requests result in a NAK handshake"]
+      Valid: [3, "this endpoint is enabled for reception"]
+    SETUP:
+      #"the last completed transaction is a SETUP"]
+    EP_TYPE:
+      Bulk: [0, "Bulk endpoint"]
+      Control: [1, "Control endpoint"]
+      Iso: [2, "Iso endpoint"]
+      Interrupt: [3, "Interrupt endpoint"]
+    EP_KIND: 
+      #"DBL_BUF if EP_TYPE=Bulk or STATUS_OUT if EP_TYPE=Control"]
+    CTR_TX:
+    DTOG_TX:
+    STAT_TX:
+      Disabled: [0, "all transmission requests addressed to this endpoint are ignored"]
+      Stall: [1, "the endpoint is stalled and all transmission requests result in a STALL handshake"]
+      Nak: [2, "the endpoint is naked and all transmission requests result in a NAK handshake"]
+      Valid: [3, "this endpoint is enabled for transmission"]
+    EA: [0, 0b1111]

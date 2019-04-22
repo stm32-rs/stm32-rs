@@ -39,6 +39,7 @@ _include:
  - ./common_patches/f3_comp1234567.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
+ - ./common_patches/unprefix_USB_registers.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
@@ -56,4 +57,4 @@ _include:
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
-
+ - ../peripherals/usb/usb.yaml

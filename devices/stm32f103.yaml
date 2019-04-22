@@ -31,17 +31,6 @@ RCC:
         name: USBPRE
         description: USB prescaler
 
-USB:
-  # This register is later transformed into EP%sR for the array
-  EP0R:
-    EA: [0, 15]
-    EP_TYPE:
-      BULK: [0, "This endpoint is a bulk endpoint"]
-      CONTROL: [1, "This endpoint is a control endpoint"]
-      ISO: [2, "This endpoint is an isochronous endpoint"]
-      INTERRUPT: [3, "This endpoint is an interrupt endpoint"]
-
-
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -75,3 +64,4 @@ _include:
  - common_patches/fsmc/fsmc_wrapmod.yaml
  - ../peripherals/sdio/sdio.yaml
  - ../peripherals/adc/adc_array.yaml
+ - ../peripherals/usb/usb.yaml

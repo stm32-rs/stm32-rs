@@ -1,0 +1,22 @@
+# Remove USB_ prefix on some USB registers
+
+USB:
+  _modify:
+    USB_EP0R:
+      name: EP0R
+    USB_EP1R:
+      name: EP1R
+    USB_EP2R:
+      name: EP2R
+    USB_EP3R:
+      name: EP3R
+    USB_EP4R:
+      name: EP4R
+    USB_EP5R:
+      name: EP5R
+    USB_EP6R:
+      name: EP6R
+    USB_EP7R:
+      name: EP7R
+    USB_CNTR:
+      name: CNTR
