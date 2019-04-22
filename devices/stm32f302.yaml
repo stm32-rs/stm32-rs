@@ -7,12 +7,27 @@ _svd: ../svd/stm32f302.svd
       TIFRFE:
         name: "FRE"
 
+SYSCFG:
+  _delete:
+    - SYSCFG_RCR
+    - SYSCFG_CFGR3
+  CFGR1:
+    _delete:
+      - TIM7_DAC2_DMA_RMP
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_syscfg.yaml
+ - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
+ - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/f3_syscfg_cfgr2.yaml
+ - ./common_patches/f3_opamp12.yaml
+ - ./common_patches/f3_comp1246.yaml
+ - ./common_patches/f3_comp2_inp_dac.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/dac/dac_wavegen.yaml

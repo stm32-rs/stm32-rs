@@ -1,0 +1,47 @@
+_modify:
+  SYSCFG_COMP_OPAMP:
+    name: SYSCFG
+    groupName: SYSCFG
+    description: System configuration controller
+
+SYSCFG:
+  _modify:
+    SYSCFG_CFGR1:
+      name: CFGR1
+      displayName: CFGR1
+    SYSCFG_CFGR2:
+      name: CFGR2
+      displayName: CFGR2
+    SYSCFG_EXTICR1:
+      name: EXTICR1
+      displayName: EXTICR1
+    SYSCFG_EXTICR2:
+      name: EXTICR2
+      displayName: EXTICR2
+    SYSCFG_EXTICR3:
+      name: EXTICR3
+      displayName: EXTICR3
+    SYSCFG_EXTICR4:
+      name: EXTICR4
+      displayName: EXTICR4
+  _delete:
+    - OPAMP*
+    - COMP*
+  CFGR1:
+    _modify:
+      TIM1_ITR_RMP:
+        name: TIM1_ITR3_RMP
+      I2C_PB6_FM:
+        name: I2C_PB6_FMP
+      I2C_PB7_FM:
+        name: I2C_PB7_FMP
+      I2C_PB8_FM:
+        name: I2C_PB8_FMP
+      I2C_PB9_FM:
+        name: I2C_PB9_FMP
+      I2C1_FM:
+        name: I2C1_FMP
+      I2C2_FM:
+        name: I2C2_FMP
+      FPU_IT:
+        name: FPU_IE
