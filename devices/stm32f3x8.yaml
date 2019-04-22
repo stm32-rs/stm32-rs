@@ -1,13 +1,8 @@
 _svd: ../svd/stm32f3x8.svd
 
 SYSCFG:
-  _modify:
-    SYSCFG_RCR:
-      name: RCR
-      displayName: RCR
-    SYSCFG_CFGR3:
-      name: CFGR3
-      displayName: CFGR3
+  _strip:
+    - SYSCFG_
   CFGR3:
     _delete:
       - ADC2_DMA_RMP*

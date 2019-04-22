@@ -5,25 +5,8 @@ _modify:
     description: System configuration controller
 
 SYSCFG:
-  _modify:
-    SYSCFG_CFGR1:
-      name: CFGR1
-      displayName: CFGR1
-    SYSCFG_CFGR2:
-      name: CFGR2
-      displayName: CFGR2
-    SYSCFG_EXTICR1:
-      name: EXTICR1
-      displayName: EXTICR1
-    SYSCFG_EXTICR2:
-      name: EXTICR2
-      displayName: EXTICR2
-    SYSCFG_EXTICR3:
-      name: EXTICR3
-      displayName: EXTICR3
-    SYSCFG_EXTICR4:
-      name: EXTICR4
-      displayName: EXTICR4
+  _strip:
+    - SYSCFG_
   _delete:
     - OPAMP*
     - COMP*

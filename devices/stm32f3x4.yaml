@@ -4,13 +4,8 @@ _rebase:
   SPI1: SPI3
 
 SYSCFG:
-  _modify:
-    SYSCFG_RCR:
-      name: RCR
-      displayName: RCR
-    SYSCFG_CFGR3:
-      name: CFGR3
-      displayName: CFGR3
+  _strip:
+    - SYSCFG_
   CFGR1:
     _delete:
       - USB_IT_RMP

@@ -8,10 +8,8 @@ _svd: ../svd/stm32f303.svd
         name: "FRE"
 
 SYSCFG:
-  _modify:
-    SYSCFG_RCR:
-      name: RCR
-      displayName: RCR
+  _strip:
+    - SYSCFG_
   _add:
     CFGR3:
       description: configuration register 3
