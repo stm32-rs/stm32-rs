@@ -329,6 +329,17 @@ PWR:
     _modify:
       CSTART:
         access: read-write
+      TCRCI:
+        name: TCRCINI
+      RCRCI:
+        name: RCRCINI
+  IER:
+    _modify:
+      DPXPIE:
+        name: DXPIE
+  _modify:
+    CGFR:
+      name: I2SCFGR
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
