@@ -44,6 +44,10 @@ RCC:
         description: UART10 reset
         bitOffset: 7
         bitWidth: 1
+  APB1ENR:
+    _modify:
+      RTCAPB:
+        name: RTCAPBEN
   APB2ENR:
     _add:
       UART9EN:
@@ -54,7 +58,14 @@ RCC:
         description: UART10 clock enable
         bitOffset: 7
         bitWidth: 1
+  APB1LPENR:
+    _modify:
+      RTCAPBEN:
+        name: RTCAPBLPEN
   APB2LPENR:
+    _modify:
+      EXTITEN:
+        name: EXTITLPEN
     _add:
       UART9LPEN:
         description: UART9 clock enable during Sleep mode
@@ -116,10 +127,12 @@ _include:
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+ - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml

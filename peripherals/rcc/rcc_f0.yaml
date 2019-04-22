@@ -3,7 +3,12 @@
 # PLLSRC[0] available only on STM32F04x, STM32F07x and STM32F09x
 
 _include:
-  - ./rcc_f0_f1_common.yaml
+  - ./rcc_f0_f1_f3_common.yaml
+  - ./rcc_f0_f3_common.yaml
+  - ./rcc_cfgr_mcopre.yaml
+  - ./rcc_cfgr_pllnodiv.yaml
+  - ./rcc_v2_bdcr_lsedrv.yaml
+  - ./rcc_cfgr2_prediv.yaml
 
 RCC:
   CFGR:
@@ -13,72 +18,21 @@ RCC:
       ADCPRE:
         description: "APCPRE is deprecated. See ADC field in CFGR2 register."
 
-    PLLNODIV: # Not available on stm32f05x
-      Div2: [0, "PLL is divided by 2 for MCO"]
-      Div1: [1, "PLL is not divided for MCO"]
-    MCOPRE: # Not available on stm32f05x
-      Div1: [0, "MCO is divided by 1"]
-      Div2: [1, "MCO is divided by 2"]
-      Div4: [2, "MCO is divided by 4"]
-      Div8: [3, "MCO is divided by 8"]
-      Div16: [4, "MCO is divided by 16"]
-      Div32: [5, "MCO is divided by 32"]
-      Div64: [6, "MCO is divided by 64"]
-      Div128: [7, "MCO is divided by 128"]
     MCO:
-      NoMCO: [0, "MCO output disabled, no clock on MCO"]
       HSI14: [1, "Internal RC 14 MHz (HSI14) oscillator clock selected"]
-      LSI: [2, "Internal low speed (LSI) oscillator clock selected"]
-      LSE: [3, "External low speed (LSE) oscillator clock selected"]
-      SYSCLK: [4, "System clock selected"]
-      HSI: [5, "Internal RC 8 MHz (HSI) oscillator clock selected"]
-      HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
-      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
       HSI48: [8, "Internal RC 48 MHz (HSI48) oscillator clock selected"]
     SWS:
       _read:
         HSI48: [3, "HSI48 used as system clock (when avaiable)"]
     SW:
       HSI48: [3, "HSI48 selected as system clock (when available)"]
-  BDCR:
-    LSEDRV:
-      Low: [0, "Low drive capacity"]
-      MediumHigh: [1, "Medium-high drive capacity"]
-      MediumLow: [2, "Medium-low drive capacity"]
-      High: [3, "High drive capacity"]
-  CFGR2:
-    PREDIV:
-      Div1: [0, "PREDIV input clock not divided"]
-      Div2: [1, "PREDIV input clock divided by 2"]
-      Div3: [2, "PREDIV input clock divided by 3"]
-      Div4: [3, "PREDIV input clock divided by 4"]
-      Div5: [4, "PREDIV input clock divided by 5"]
-      Div6: [5, "PREDIV input clock divided by 6"]
-      Div7: [6, "PREDIV input clock divided by 7"]
-      Div8: [7, "PREDIV input clock divided by 8"]
-      Div9: [8, "PREDIV input clock divided by 9"]
-      Div10: [9, "PREDIV input clock divided by 10"]
-      Div11: [10, "PREDIV input clock divided by 11"]
-      Div12: [11, "PREDIV input clock divided by 12"]
-      Div13: [12, "PREDIV input clock divided by 13"]
-      Div14: [13, "PREDIV input clock divided by 14"]
-      Div15: [14, "PREDIV input clock divided by 15"]
-      Div16: [15, "PREDIV input clock divided by 16"]
   CFGR3:
     _modify:
       ADCSW:
         description: "ADCSW is deprecated. See ADC field in CFGR2 register."
 
-    "USART*SW":
-      PCLK: [0, "PCLK selected as USART clock source"]
-      SYSCLK: [1, "SYSCLK selected as USART clock source"]
-      LSE: [2, "LSE selected as USART clock source"]
-      HSI: [3, "HSI selected as USART clock source"]
     USBSW:
       PLLCLK: [1, "PLL clock selected as USB clock source"]
-    I2C1SW:
-      HSI: [0, "HSI clock selected as I2C1 clock source"]
-      SYSCLK: [1, "SYSCLK clock selected as I2C1 clock source"]
   CR2:
     HSI48CAL: [0, 255]
     HSI48RDY:

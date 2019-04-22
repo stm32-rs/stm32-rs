@@ -1,0 +1,34 @@
+# RCC peripheral
+# Applicable to STM32F373
+
+_include:
+  - rcc_f0_f1_f3_common.yaml
+  - rcc_f0_f3_common.yaml
+  - rcc_v2_bdcr_lsedrv.yaml
+  - rcc_cfgr2_prediv.yaml
+  - rcc_cfgr3_cecsw.yaml
+
+RCC:
+  CFGR:
+    ADCPRE:
+      Div2: [0, "PCLK divided by 2"]
+      Div4: [1, "PCLK divided by 4"]
+      Div6: [2, "PCLK divided by 6"]
+      Div8: [3, "PCLK divided by 8"]
+    SDPRE:
+      Div2: [0, "SYSCLK divided by 2"] # Same for [0, 16]
+      Div4: [17, "SYSCLK divided by 4"]
+      Div6: [18, "SYSCLK divided by 6"]
+      Div8: [19, "SYSCLK divided by 8"]
+      Div10: [20, "SYSCLK divided by 10"]
+      Div12: [21, "SYSCLK divided by 12"]
+      Div14: [22, "SYSCLK divided by 14"]
+      Div16: [23, "SYSCLK divided by 16"]
+      Div20: [24, "SYSCLK divided by 20"]
+      Div24: [25, "SYSCLK divided by 24"]
+      Div28: [26, "SYSCLK divided by 28"]
+      Div32: [27, "SYSCLK divided by 32"]
+      Div36: [28, "SYSCLK divided by 36"]
+      Div40: [29, "SYSCLK divided by 40"]
+      Div44: [30, "SYSCLK divided by 44"]
+      Div48: [31, "SYSCLK divided by 48"]

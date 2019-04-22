@@ -1,0 +1,31 @@
+# RCC peripheral
+# Applicable to STM32F3
+
+_include:
+  - rcc_f0_f1_f3_common.yaml
+  - rcc_f0_f3_common.yaml
+  - rcc_cfgr_mcopre.yaml
+  - rcc_cfgr_pllnodiv.yaml
+  - rcc_v2_bdcr_lsedrv.yaml
+  - rcc_cfgr2_prediv.yaml
+
+RCC:
+  CFGR2:
+    "ADC*PRES":
+      NoClock: [0, "No clock"] # Same for [0, 15]
+      Div1: [16, "PLL clock not divided"]
+      Div2: [17, "PLL clock divided by 2"]
+      Div4: [18, "PLL clock divided by 4"]
+      Div6: [19, "PLL clock divided by 6"]
+      Div8: [20, "PLL clock divided by 8"]
+      Div10: [21, "PLL clock divided by 10"]
+      Div12: [22, "PLL clock divided by 12"]
+      Div16: [23, "PLL clock divided by 16"]
+      Div32: [24, "PLL clock divided by 32"]
+      Div64: [25, "PLL clock divided by 64"]
+      Div128: [26, "PLL clock divided by 128"]
+      Div256: [27, "PLL clock divided by 256"] # Same for [27, 31]
+  CFGR3:
+    "TIM*SW,HRTIM*SW":
+      PCLK2: [0, "PCLK2 clock (doubled frequency when prescaled)"]
+      PLL: [1, "PLL vco output (running up to 144 MHz)"]

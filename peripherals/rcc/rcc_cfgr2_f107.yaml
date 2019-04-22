@@ -1,0 +1,21 @@
+_include:
+  - ./rcc_cfgr2_prediv.yaml
+
+RCC:
+  CFGR2:
+    PLL?MUL:
+      Mul8: [6, "PLL clock entry x8"]
+      Mul9: [7, "PLL clock entry x9"]
+      Mul10: [8, "PLL clock entry x10"]
+      Mul11: [9, "PLL clock entry x11"]
+      Mul12: [10, "PLL clock entry x12"]
+      Mul13: [11, "PLL clock entry x13"]
+      Mul14: [12, "PLL clock entry x14"]
+      Mul16: [14, "PLL clock entry x16"]
+      Mul20: [15, "PLL clock entry x20"]
+    PREDIV1SRC:
+      HSE: [0, "HSE oscillator clock selected as PREDIV1 clock entry"]
+      PLL2: [1, "PLL2 selected as PREDIV1 clock entry"]
+    I2S?SRC:
+      SYSCLK: [0, "System clock (SYSCLK) selected as I2S clock entry"]
+      PLL3: [1, "PLL3 VCO clock selected as I2S clock entry"]

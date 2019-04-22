@@ -1,0 +1,13 @@
+RCC:
+  CFGR:
+    _delete:
+      - MCOF
+    _add:
+      MCOPRE:
+        description: Microcontroller Clock Output Prescaler
+        bitOffset: 28
+        bitWidth: 3
+      PLLNODIV:
+        description: Do not divide PLL to MCO
+        bitOffset: 31
+        bitWidth: 1

@@ -7,6 +7,62 @@ _svd: ../svd/stm32f302.svd
       TIFRFE:
         name: "FRE"
 
+RCC:
+  APB1RSTR:
+    _delete:
+      - TIM7RST
+  AHBENR:
+    _delete:
+      - ADC34EN
+    _add:
+      FMCEN:
+        description: FMC clock enable
+        bitOffset: 5
+        bitWidth: 1
+      IOPHEN:
+        description: IO port H clock enable
+        bitOffset: 16
+        bitWidth: 1
+      IOPGEN:
+        description: IO port G clock enable
+        bitOffset: 23
+        bitWidth: 1
+  APB1ENR:
+    _delete:
+      - TIM7EN
+    _add:
+      USART3EN:
+        description: USART3 clock enable
+        bitOffset: 18
+        bitWidth: 1
+      UART4EN:
+        description: UART4 clock enable
+        bitOffset: 19
+        bitWidth: 1
+      UART5EN:
+        description: UART5 clock enable
+        bitOffset: 20
+        bitWidth: 1
+  AHBRSTR:
+    _delete:
+      - ADC34RST
+    _add:
+      FMCRST:
+        description: FMC reset
+        bitOffset: 5
+        bitWidth: 1
+      IOPHRST:
+        description: IO port H reset
+        bitOffset: 16
+        bitWidth: 1
+      IOPGRST:
+        description: IO port G reset
+        bitOffset: 23
+        bitWidth: 1
+  CFGR2:
+    _delete:
+      - ADC34PRES
+
 SYSCFG:
   _delete:
     - SYSCFG_RCR
@@ -21,6 +77,13 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_mco.yaml
+ - ./common_patches/f3_rcc_usb.yaml
+ - ./common_patches/f3_rcc_i2c3.yaml
+ - ./common_patches/f3_rcc_spi4.yaml
+ - ./common_patches/f3_rcc_delete_tim8.yaml
+ - ./common_patches/f3_rcc_cfgr3_tim.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
  - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
@@ -44,6 +107,10 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/rcc/rcc_f3.yaml
+ - ../peripherals/rcc/rcc_f3_i2s.yaml
+ - ../peripherals/rcc/rcc_pllsrc_2bit.yaml
+ - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml

@@ -1,0 +1,19 @@
+RCC:
+  APB1RSTR:
+    _modify:
+      DACRST:
+        name: DAC1RST
+  AHBENR:
+    _modify:
+      DMAEN:
+        name: DMA1EN
+  APB1ENR:
+    _modify:
+      DACEN:
+        name: DAC1EN
+  CSR:
+    _add:
+      V18PWRRSTF:
+        description: Reset flag of the 1.8 V domain
+        bitOffset: 23
+        bitWidth: 1

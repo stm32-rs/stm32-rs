@@ -1,5 +1,25 @@
 _svd: ../svd/stm32f373.svd
 
+RCC:
+  APB2RSTR:
+    _modify:
+      SDAD1RST:
+        name: SDADC1RST
+      SDAD2RST:
+        name: SDADC2RST
+      SDAD3RST:
+        name: SDADC3RST
+  APB2ENR:
+    _delete:
+      - TIM1EN
+    _modify:
+      SDAD1EN:
+        name: SDADC1EN
+      SDAD2EN:
+        name: SDADC2EN
+      SDAD3EN:
+        name: SDADC3EN
+
 SYSCFG:
   _delete:
     - SYSCFG_RCR
@@ -36,6 +56,9 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_usb.yaml
+ - ./common_patches/f3_rcc_dac3_dac2.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
  - ./common_patches/f0_comp_common.yaml
@@ -51,6 +74,9 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/rcc/rcc_f373.yaml
+ - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
+ - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml

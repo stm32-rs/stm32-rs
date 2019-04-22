@@ -54,6 +54,10 @@ RCC:
         bitOffset: 28
         bitWidth: 1
         access: read-write
+  APB1ENR:
+    _modify:
+      CEC:
+        name: CECEN
   APB2ENR:
     _modify:
       SPI4ENR:
@@ -80,8 +84,11 @@ _include:
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+ - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+ - ../peripherals/rcc/rcc_v2_sai_pllp.yaml
+ - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f446.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml

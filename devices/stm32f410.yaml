@@ -25,6 +25,12 @@ CRC:
 
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
+  PLLCFGR:
+    _merge:
+      - "PLLR*"
+    _modify:
+      "PLLR*":
+        description: PLL division factor for I2S and System clocks
   APB2RSTR:
     _add:
       SPI5RST:
@@ -46,6 +52,8 @@ _include:
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
+ - ../peripherals/rcc/rcc_v2_cfgr_mcoen.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml

@@ -167,14 +167,6 @@ FLASH:
         name: OPTKEYR
 
 RCC:
-  # Add the LSEDRV that's not in the SVD but is in RM0410
-  BDCR:
-    _add:
-      LSEDRV:
-        description: LSE oscillator drive capability
-        bitOffset: 3
-        bitWidth: 2
-        access: read-write
   AHB1ENR:
     _add:
       DTCMRAMEN:
@@ -194,7 +186,6 @@ RCC:
         bitOffset: 28
         bitWidth: 3
         access: read-write
-    PLLR: [2, 7]
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
@@ -292,12 +283,18 @@ _include:
  - common_patches/ltdc/ltdc.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_add_plli2sp.yaml
+ - common_patches/f7_rcc_apbenr.yaml
+ - common_patches/f7_rcc_lsedrv.yaml
+ - common_patches/f7_rcc_rename_dckcfgr.yaml
+ - common_patches/f7_rcc_dckcfgr.yaml
+ - common_patches/f7_rcc_dckcfgr_sdmmc1.yaml
  - common_patches/f7_rcc_dckcfgr_RM0410.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml

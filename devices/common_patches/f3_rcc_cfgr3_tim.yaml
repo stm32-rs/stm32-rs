@@ -1,0 +1,23 @@
+RCC:
+  CFGR3:
+    _add:
+      TIM15SW:
+        description: Timer15 clock source selection
+        bitOffset: 10
+        bitWidth: 1
+      TIM16SW:
+        description: Timer16 clock source selection
+        bitOffset: 11
+        bitWidth: 1
+      TIM17SW:
+        description: Timer17 clock source selection
+        bitOffset: 13
+        bitWidth: 1
+      TIM2SW:
+        description: Timer2 clock source selection
+        bitOffset: 24
+        bitWidth: 1
+      TIM34SW:
+        description: Timer34 clock source selection
+        bitOffset: 25
+        bitWidth: 1

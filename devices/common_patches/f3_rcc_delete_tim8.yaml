@@ -1,0 +1,10 @@
+RCC:
+  APB2RSTR:
+    _delete:
+      - TIM8RST
+  APB2ENR:
+    _delete:
+      - TIM8EN
+  CFGR3:
+    _delete:
+      - TIM8SW

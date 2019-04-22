@@ -1,5 +1,125 @@
 _svd: ../svd/stm32f3x8.svd
 
+RCC:
+  CFGR:
+    _delete:
+      - ADCPRE
+      - SDPRE
+    _add:
+      I2SSRC:
+        description: I2S external clock source selection
+        bitOffset: 23
+        bitWidth: 1
+    _modify:
+      PLLSRC:
+        bitOffset: 15
+        bitWidth: 2
+  APB2RSTR:
+    _delete:
+      - ADCRST
+      - TIM19RST
+      - SDAD?RST
+    _add:
+      TIM1RST:
+        description: TIM1 timer reset
+        bitOffset: 11
+        bitWidth: 1
+      TIM8RST:
+        description: TIM8 timer reset
+        bitOffset: 13
+        bitWidth: 1
+  APB1RSTR:
+    _delete:
+      - TIM5RST
+      - TIM12RST
+      - TIM13RST
+      - TIM14RST
+      - TIM18RST
+    _add:
+      UART4RST:
+        description: UART4 reset
+        bitOffset: 19
+        bitWidth: 1
+      UART5RST:
+        description: UART5 reset
+        bitOffset: 20
+        bitWidth: 1
+  AHBENR:
+    _add:
+      ADC12EN:
+        description: ADC1 and ADC2 enable
+        bitOffset: 28
+        bitWidth: 1
+      ADC34EN:
+        description: ADC3 and ADC4 enable
+        bitOffset: 29
+        bitWidth: 1
+  APB2ENR:
+    _delete:
+      - ADCEN
+      - TIM19EN
+      - DBGMCUEN
+      - SDAD?EN
+    _add:
+      TIM8EN:
+        description: TIM8 timer clock enable
+        bitOffset: 13
+        bitWidth: 1
+  APB1ENR:
+    _delete:
+      - TIM5EN
+      - TIM12EN
+      - TIM13EN
+      - TIM14EN
+      - TIM18EN
+    _add:
+      UART4EN:
+        description: UART4 clock enable
+        bitOffset: 19
+        bitWidth: 1
+      UART5EN:
+        description: UART5 clock enable
+        bitOffset: 20
+        bitWidth: 1
+  AHBRSTR:
+    _add:
+      ADC12RST:
+        description: ADC1 and ADC2 reset
+        bitOffset: 28
+        bitWidth: 1
+      ADC34RST:
+        description: ADC3 and ADC4 reset
+        bitOffset: 29
+        bitWidth: 1
+  CFGR2:
+    _add:
+      ADC12PRES:
+        description: ADC1 and ADC2 reset
+        bitOffset: 4
+        bitWidth: 5
+      ADC34PRES:
+        description: ADC3 and ADC4 reset
+        bitOffset: 9
+        bitWidth: 5
+  CFGR3:
+    _add:
+      TIM1SW:
+        description: Timer1 clock source selection
+        bitOffset: 8
+        bitWidth: 1
+      TIM8SW:
+        description: Timer8 clock source selection
+        bitOffset: 9
+        bitWidth: 1
+      UART4SW:
+        description: UART4 clock source selection
+        bitOffset: 20
+        bitWidth: 2
+      UART5SW:
+        description: UART5 clock source selection
+        bitOffset: 22
+        bitWidth: 2
+
 SYSCFG:
   _strip:
     - SYSCFG_
@@ -23,6 +143,15 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_rcc.yaml
+ - ./common_patches/f3_rcc_mco.yaml
+ - ./common_patches/f3_rcc_usb.yaml
+ - ./common_patches/f3_rcc_i2c3.yaml
+ - ./common_patches/f3_rcc_spi4.yaml
+ - ./common_patches/f3_rcc_tim20.yaml
+ - ./common_patches/f3_rcc_dac3_dac2.yaml
+ - ./common_patches/f3_rcc_delete_cec.yaml
+ - ./common_patches/f3_rcc_cfgr3_tim.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
@@ -45,6 +174,10 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/rcc/rcc_f3.yaml
+ - ../peripherals/rcc/rcc_f3_i2s.yaml
+ - ../peripherals/rcc/rcc_pllsrc_2bit.yaml
+ - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml

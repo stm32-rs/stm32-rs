@@ -1,0 +1,14 @@
+# Add missing reset/enable bits for SPI 4
+RCC:
+  APB2RSTR:
+    _add:
+      SPI4RST:
+        description: SPI4 reset
+        bitOffset: 15
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      SPI4EN:
+        description: SPI4 clock enable
+        bitOffset: 15
+        bitWidth: 1

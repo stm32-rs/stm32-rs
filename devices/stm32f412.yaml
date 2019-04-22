@@ -38,6 +38,12 @@ CRC:
 
 # Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: Main PLL division factor for I2S, DFSDM clocks
+        bitOffset: 28
+        bitWidth: 3
   APB2RSTR:
     _add:
       SPI4RST:
@@ -151,6 +157,7 @@ _include:
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml

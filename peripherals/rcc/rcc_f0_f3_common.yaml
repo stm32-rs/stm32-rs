@@ -1,0 +1,19 @@
+RCC:
+  CFGR:
+    MCO:
+      NoMCO: [0, "MCO output disabled, no clock on MCO"]
+      LSI: [2, "Internal low speed (LSI) oscillator clock selected"]
+      LSE: [3, "External low speed (LSE) oscillator clock selected"]
+      SYSCLK: [4, "System clock selected"]
+      HSI: [5, "Internal RC 8 MHz (HSI) oscillator clock selected"]
+      HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
+      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+  CFGR3:
+    "U*ART*SW":
+      PCLK: [0, "PCLK selected as USART clock source"]
+      SYSCLK: [1, "SYSCLK selected as USART clock source"]
+      LSE: [2, "LSE selected as USART clock source"]
+      HSI: [3, "HSI selected as USART clock source"]
+    "I2C*SW":
+      HSI: [0, "HSI clock selected as I2C clock source"]
+      SYSCLK: [1, "SYSCLK clock selected as I2C clock source"]
