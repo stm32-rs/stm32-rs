@@ -214,6 +214,8 @@ _add:
                 value: 39
 
 # Replace peripheral registers by a 'deriveFrom'.
+# This is used when e.g. UART4 and UART5 are both independently defined,
+# but you'd like to make UART5 be defined as derivedFrom UART4 instead.
 _derive:
     # The KEY peripheral looses all its elements but 'interrupt', 'name',
     # and 'baseAddress', and it is derivedFrom the VALUE peripheral.
@@ -221,10 +223,13 @@ _derive:
     UART5: UART4
 
 # Reorder the hierarchy of peripherals with 'deriveFrom'.
+# This is used when e.g. I2C1 is marked as derivedFrom I2C3,
+# but you'd like to swap that so that I2C3 becomes derivedFrom I2C1.
 _rebase:
     # The KEY peripheral steals everything but 'interrupt', 'name',
     # and 'baseAddress' elements from the VALUE peripheral.
     # Peripherals that were 'deriveFrom="VALUE"' are now 'deriveFrom="KEY"'.
+    # The VALUE peripheral is marked as derivedFrom the updated KEY.
     I2C1: I2C3
 
 # An STM32 peripheral, matches an SVD <peripheral> tag.
