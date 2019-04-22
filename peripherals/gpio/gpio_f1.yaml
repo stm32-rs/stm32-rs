@@ -31,3 +31,26 @@
     "LCKK":
       NotActive: [0, "Port configuration lock key not active"]
       Active: [1, "Port configuration lock key active"]
+  CRH:
+    CNF*:
+      PushPull: [0, "Analog mode / Push-Pull mode"]
+      OpenDrain: [1, "Floating input (reset state) / Open Drain-Mode"]
+      AltPushPull: [2, "Input with pull-up/pull-down / Alternate Function Push-Pull Mode"]
+      AltOpenDrain: [3, "Alternate Function Open-Drain Mode"]
+    MODE*:
+      Input: [0, "Input mode (reset state)"]
+      Output: [1, "Output mode 10 MHz"]
+      Output2: [2, "Output mode 2 MHz"]
+      Output50: [3, "Output mode 50 MHz"]
+  CRL:
+    CNF*:
+      PushPull: [0, "Analog mode / Push-Pull mode"]
+      OpenDrain: [1, "Floating input (reset state) / Open Drain-Mode"]
+      AltPushPull: [2, "Input with pull-up/pull-down / Alternate Function Push-Pull Mode"]
+      AltOpenDrain: [3, "Alternate Function Open-Drain Mode"]
+    MODE*:
+      Input: [0, "Input mode (reset state)"]
+      Output: [1, "Output mode 10 MHz"]
+      Output2: [2, "Output mode 2 MHz"]
+      Output50: [3, "Output mode 50 MHz"]
+
