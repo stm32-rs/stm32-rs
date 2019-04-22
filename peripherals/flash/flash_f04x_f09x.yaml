@@ -1,0 +1,11 @@
+_include:
+  - ./flash_f0.yaml
+
+"Flash":
+  OBR:
+    BOOT_SEL:
+      nBOOT0: [0, "BOOT0 signal is defined by nBOOT0 option bit"]
+      BOOT0: [1, "BOOT0 signal is defined by BOOT0 pin value (legacy mode)"]
+    nBOOT0:
+      Disabled: [0, "When BOOT_SEL is cleared, select the device boot mode"]
+      Enabled: [1, "When BOOT_SEL is cleared, select the device boot mode"]
