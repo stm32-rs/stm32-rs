@@ -1,0 +1,10 @@
+"SPI*,I2S*":
+  CR2:
+    FRF:
+      Motorola: [0, "SPI Motorola mode"]
+      TI: [1, "SPI TI mode"]
+  SR:
+    FRE,TIFRFE:
+      _read:
+        NoError: [0, "No frame format error"]
+        Error: [1, "A frame format error occurred"]

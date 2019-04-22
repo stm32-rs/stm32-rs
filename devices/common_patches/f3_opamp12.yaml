@@ -1,0 +1,16 @@
+_include:
+ - f3_opamp2.yaml
+
+OPAMP:
+  _add:
+    OPAMP1_CSR:
+      description: OPAMP1 control register
+      addressOffset: 0x38
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        OPAMP1EN:
+          description: OPAMP1 enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write

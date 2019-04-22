@@ -19,13 +19,6 @@
 #![allow(non_camel_case_types)]
 #![no_std]
 
-extern crate vcell;
-extern crate bare_metal;
-extern crate cortex_m;
-
-#[cfg(feature = "rt")]
-extern crate cortex_m_rt;
-
 #[cfg(feature = "stm32l4x1")]
 pub mod stm32l4x1;
 

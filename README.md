@@ -34,7 +34,6 @@ details.
 Then, in your code:
 
 ```rust
-extern crate stm32f4;
 use stm32f4::stm32f405;
 
 let mut peripherals = stm32f405::Peripherals::take().unwrap();
@@ -261,6 +260,11 @@ _rebase:
     # not a mapping like for most other keys.
     _delete:
         - GPIO*_EXTRAR
+
+    # If registers have unnecessary common prefix,
+    # you can clean it in all registers in peripheral by:
+    _strip:
+        - PREFIX_
 
     # You can collect several same registers into one register array
     # that will be represented with svd2rust as array or elements
