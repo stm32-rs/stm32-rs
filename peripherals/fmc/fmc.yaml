@@ -1,5 +1,6 @@
+# FMC as used in STM32F7
 
-"FMC":
+FMC:
   BCR1:
     WFDIS:
       Enabled: [0, "Write FIFO enabled"]
@@ -7,53 +8,54 @@
     CCLKEN:
       Enabled: [1, "FMC_CLK clock output to external memory devices enabled"]
       Disabled: [0, "FMC_CLK clock output to external memory devices disabled"]
+  BCR?:
     CBURSTRW:
       Enabled: [1, "Write operations are performed in synchronous mode"]
       Disabled: [0, "Write operations are always performed in asynchronous mode"]
     CPSIZE:
       NoBurstSplit: [0, "No burst split when crossing page boundary"]
-      CPSize128Bytes: [1, "128 bytes CRAM page size"]
-      CPSize256Bytes: [2, "256 bytes CRAM page size"]
-      CPSize512Bytes: [3, "512 bytes CRAM page size"]
-      CPSize1024Bytes: [4, "1024 bytes CRAM page size"]
+      Bytes128: [1, "128 bytes CRAM page size"]
+      Bytes256: [2, "256 bytes CRAM page size"]
+      Bytes512: [3, "512 bytes CRAM page size"]
+      Bytes1024: [4, "1024 bytes CRAM page size"]
     ASYNCWAIT:
+      Disabled: [0, "Wait signal not used in asynchronous mode"]
       Enabled: [1, "Wait signal used even in asynchronous mode"]
-      Disabled: [1, "Wait signal not used in asynchronous mode"]
     EXTMOD:
-      Enabled: [0, "Values inside the FMC_BWTR are not taken into account"]
-      Disabled: [1, "Values inside the FMC_BWTR are taken into account"]
+      Disabled: [0, "Values inside the FMC_BWTR are not taken into account"]
+      Enabled: [1, "Values inside the FMC_BWTR are taken into account"]
     WAITEN:
-      Enabled: [1, "NWAIT signal enabled"]
       Disabled: [0, "Values inside the FMC_BWTR are taken into account"]
+      Enabled: [1, "NWAIT signal enabled"]
     WREN:
-      Enabled: [1, "Write operations enabled for the bank by the FMC"]
       Disabled: [0, "Write operations disabled for the bank by the FMC"]
+      Enabled: [1, "Write operations enabled for the bank by the FMC"]
     WAITCFG:
-      ActiveDuringWaitState: [1, "NWAIT signal is active during wait state"]
-      ActiveOneCycleBeforeWaitState: [1, "NWAIT signal is active one data cycle before wait state"]
+      BeforeWaitState: [0, "NWAIT signal is active one data cycle before wait state"]
+      DuringWaitState: [1, "NWAIT signal is active during wait state"]
     WAITPOL:
       ActiveLow: [0, "NWAIT active low"]
       ActiveHigh: [1, "NWAIT active high"]
     BURSTEN:
-      Enabled: [1, "Burst mode enabled"]
       Disabled: [0, "Burst mode disabled"]
+      Enabled: [1, "Burst mode enabled"]
     FACCEN:
-      Enabled: [1, "Corresponding NOR Flash memory access is enabled"]
       Disabled: [0, "Corresponding NOR Flash memory access is disabled"]
+      Enabled: [1, "Corresponding NOR Flash memory access is enabled"]
     MWID:
-      MWID8Bits: [0, "Memory data bus width 8 bits"]
-      MWID16Bits: [1, "Memory data bus width 16 bits"]
-      MWID32Bits: [2, "Memory data bus width 32 bits"]
+      Bits8: [0, "Memory data bus width 8 bits"]
+      Bits16: [1, "Memory data bus width 16 bits"]
+      Bits32: [2, "Memory data bus width 32 bits"]
     MTYP:
       SRAM: [0, "SRAM memory type"]
       PSRAM: [1, "PSRAM (CRAM) memory type"]
-      NORFlashOneNANDFlash: [2, "NOR Flash/OneNAND Flash"]
+      Flash: [2, "NOR Flash/OneNAND Flash"]
     MUXEN:
-      Enabled: [1, "Address/Data multiplexed on databus"]
       Disabled: [0, "Address/Data non-multiplexed"]
+      Enabled: [1, "Address/Data multiplexed on databus"]
     MBKEN:
-      Enabled: [1, "Corresponding memory bank is enabled"]
       Disabled: [0, "Corresponding memory bank is disabled"]
+      Enabled: [1, "Corresponding memory bank is enabled"]
 
   BTR?:
     ACCMOD:
@@ -64,106 +66,57 @@
     DATLAT: [0, 15]
     CLKDIV: [1, 15]
     BUSTURN: [0, 15]
-    DATAST: [0, 255]
+    DATAST: [1, 255]
     ADDHLD: [1, 15]
     ADDSET: [0, 15]
 
-  BCR[234]:
-    CBURSTRW:
-      Enabled: [1, "Write operations are performed in synchronous mode"]
-      Disabled: [0, "Write operations are always performed in asynchronous mode"]
-    CPSIZE:
-      NoBurstSplit: [0, "No burst split when crossing page boundary"]
-      CPSize128Bytes: [1, "128 bytes CRAM page size"]
-      CPSize256Bytes: [2, "256 bytes CRAM page size"]
-      CPSize512Bytes: [3, "512 bytes CRAM page size"]
-      CPSize1024Bytes: [4, "1024 bytes CRAM page size"]
-    ASYNCWAIT:
-      Enabled: [1, "Wait signal used even in asynchronous mode"]
-      Disabled: [1, "Wait signal not used in asynchronous mode"]
-    EXTMOD:
-      Enabled: [0, "Values inside the FMC_BWTR are not taken into account"]
-      Disabled: [1, "Values inside the FMC_BWTR are taken into account"]
-    WAITEN:
-      Enabled: [1, "NWAIT signal enabled"]
-      Disabled: [0, "Values inside the FMC_BWTR are taken into account"]
-    WREN:
-      Enabled: [1, "Write operations enabled for the bank by the FMC"]
-      Disabled: [0, "Write operations disabled for the bank by the FMC"]
-    WAITCFG:
-      ActiveDuringWaitState: [1, "NWAIT signal is active during wait state"]
-      ActiveOneCycleBeforeWaitState: [1, "NWAIT signal is active one data cycle before wait state"]
-    WAITPOL:
-      ActiveLow: [0, "NWAIT active low"]
-      ActiveHigh: [1, "NWAIT active high"]
-    BURSTEN:
-      Enabled: [1, "Burst mode enabled"]
-      Disabled: [0, "Burst mode disabled"]
-    FACCEN:
-      Enabled: [1, "Corresponding NOR Flash memory access is enabled"]
-      Disabled: [0, "Corresponding NOR Flash memory access is disabled"]
-    MWID:
-      MWID8Bits: [0, "Memory data bus width 8 bits"]
-      MWID16Bits: [1, "Memory data bus width 16 bits"]
-      MWID32Bits: [2, "Memory data bus width 32 bits"]
-    MTYP:
-      SRAM: [0, "SRAM memory type"]
-      PSRAM: [1, "PSRAM (CRAM) memory type"]
-      NORFlashOneNANDFlash: [2, "NOR Flash/OneNAND Flash"]
-    MUXEN:
-      Enabled: [1, "Address/Data multiplexed on databus"]
-      Disabled: [0, "Address/Data non-multiplexed"]
-    MBKEN:
-      Enabled: [1, "Corresponding memory bank is enabled"]
-      Disabled: [0, "Corresponding memory bank is disabled"]
-
   PCR:
     ECCPS:
-      PageSize256Bytes: [0, "ECC page size 256 bytes"]
-      PageSize512Bytes: [1, "ECC page size 512 bytes"]
-      PageSize1024Bytes: [2, "ECC page size 1024 bytes"]
-      PageSize2048Bytes: [3, "ECC page size 2048 bytes"]
-      PageSize4096Bytes: [4, "ECC page size 4096 bytes"]
-      PageSize8192Bytes: [5, "ECC page size 8192 bytes"]
+      Bytes256: [0, "ECC page size 256 bytes"]
+      Bytes512: [1, "ECC page size 512 bytes"]
+      Bytes1024: [2, "ECC page size 1024 bytes"]
+      Bytes2048: [3, "ECC page size 2048 bytes"]
+      Bytes4096: [4, "ECC page size 4096 bytes"]
+      Bytes8192: [5, "ECC page size 8192 bytes"]
     TAR: [0, 15]
     TCLR: [0, 15]
     ECCEN:
-      Enabled: [1, "ECC logic is enabled"]
       Disabled: [0, "ECC logic is disabled and reset"]
+      Enabled: [1, "ECC logic is enabled"]
     PWID:
-      Width8Bits: [0, "External memory device width 8 bits"]
-      Width16Bits: [1, "External memory device width 16 bits"]
+      Bits8: [0, "External memory device width 8 bits"]
+      Bits16: [1, "External memory device width 16 bits"]
     PTYP:
       NANDFlash: [1, "NAND Flash"]
     PBKEN:
-      Enabled: [1, "Corresponding memory bank is enabled"]
       Disabled: [0, "Corresponding memory bank is disabled"]
+      Enabled: [1, "Corresponding memory bank is enabled"]
     PWAITEN:
-      Enabled: [1, "Wait feature enabled"]
       Disabled: [0, "Wait feature disabled"]
+      Enabled: [1, "Wait feature enabled"]
 
   SR:
     FEMPT:
       NotEmpty: [0, "FIFO not empty"]
       Empty: [1, "FIFO empty"]
     IFEN:
-      Enabled: [1, "Interrupt falling edge detection request enabled"]
       Disabled: [0, "Interrupt falling edge detection request disabled"]
+      Enabled: [1, "Interrupt falling edge detection request enabled"]
     ILEN:
-      Enabled: [1, "Interrupt high-level detection request enabled"]
       Disabled: [0, "Interrupt high-level detection request disabled"]
+      Enabled: [1, "Interrupt high-level detection request enabled"]
     IREN:
-      Enabled: [1, "Interrupt rising edge detection request enabled"]
       Disabled: [0, "Interrupt rising edge detection request disabled"]
+      Enabled: [1, "Interrupt rising edge detection request enabled"]
     IFS:
-      Occurred: [1, "Interrupt falling edge occurred"]
       DidNotOccur: [0, "Interrupt falling edge did not occur"]
+      Occurred: [1, "Interrupt falling edge occurred"]
     ILS:
-      Occurred: [1, "Interrupt high-level occurred"]
       DidNotOccur: [0, "Interrupt high-level did not occur"]
+      Occurred: [1, "Interrupt high-level occurred"]
     IRS:
-      Occurred: [1, "Interrupt rising edge occurred"]
       DidNotOccur: [0, "Interrupt rising edge did not occur"]
+      Occurred: [1, "Interrupt rising edge occurred"]
 
   PMEM:
     MEMHIZx: [0, 254]
@@ -178,7 +131,7 @@
     ATTSETx: [0, 254]
 
   ECCR:
-    ECCx: [0, 4294967295]
+    ECCx: [0, 0xFFFFFFFF]
 
   BWTR?:
     ACCMOD:
@@ -192,34 +145,40 @@
     ADDSET: [0, 15]
 
   SDCR?:
-    RPIPE: [0, 2]
+    RPIPE:
+      NoDelay: [0, "No clock cycle delay"]
+      Clocks1: [1, "One clock cycle delay"]
+      Clocks2: [2, "Two clock cycles delay"]
     RBURST:
-      Enabled: [1, "Single read requests are always managed as bursts"]
       Disabled: [0, "Single read requests are not managed as bursts"]
+      Enabled: [1, "Single read requests are always managed as bursts"]
     SDCLK:
       Disabled: [0, "SDCLK clock disabled"]
-      Period2: [2, "SDCLK period = 2 x HCLK period"]
-      Period3: [3, "SDCLK period = 3 x HCLK period"]
+      Mul2: [2, "SDCLK period = 2 x HCLK period"]
+      Mul3: [3, "SDCLK period = 3 x HCLK period"]
     WP:
-      Allowed: [0, "Write accesses allowed"]
-      Ignored: [1, "Write accesses ignored"]
-    CAS: [1, 3]
+      Disabled: [0, "Write accesses allowed"]
+      Enabled: [1, "Write accesses ignored"]
+    CAS:
+      Clocks1: [1, "1 cycle"]
+      Clocks2: [2, "2 cycles"]
+      Clocks3: [3, "3 cycles"]
     NB:
       NB2: [0, "Two internal Banks"]
       NB4: [1, "Four internal Banks"]
     MWID:
-      MWID8Bits: [0, "Memory data bus width 8 bits"]
-      MWID16Bits: [1, "Memory data bus width 16 bits"]
-      MWID32Bits: [2, "Memory data bus width 32 bits"]
+      Bits8: [0, "Memory data bus width 8 bits"]
+      Bits16: [1, "Memory data bus width 16 bits"]
+      Bits32: [2, "Memory data bus width 32 bits"]
     NR:
-      NR11Bits: [0, "11 bits"]
-      NR12Bits: [1, "12 bits"]
-      NR13Bits: [2, "13 bits"]
+      Bits11: [0, "11 bits"]
+      Bits12: [1, "12 bits"]
+      Bits13: [2, "13 bits"]
     NC:
-      NC8Bits: [0, "8 bits"]
-      NC9Bits: [1, "9 bits"]
-      NC10Bits: [2, "10 bits"]
-      NC11Bits: [3, "11 bits"]
+      Bits8: [0, "8 bits"]
+      Bits9: [1, "9 bits"]
+      Bits10: [2, "10 bits"]
+      Bits11: [3, "11 bits"]
 
   SDTR?:
     TRCD: [0, 15]
@@ -234,11 +193,11 @@
     MRD: [0, 8191]
     NRFS: [0, 15]
     CTB1:
-      Enabled: [1, "Command issued to SDRAM Bank 1"]
-      Disabled: [0, "Command not issued to SDRAM Bank 1"]
+      NotIssued: [0, "Command not issued to SDRAM Bank 1"]
+      Issued: [1, "Command issued to SDRAM Bank 1"]
     CTB2:
-      Enabled: [1, "Command issued to SDRAM Bank 2"]
-      Disabled: [0, "Command not issued to SDRAM Bank 2"]
+      NotIssued: [0, "Command not issued to SDRAM Bank 2"]
+      Issued: [1, "Command issued to SDRAM Bank 2"]
     MODE:
       Normal: [0, "Normal Mode"]
       ClockConfigurationEnable: [1, "Clock Configuration Enable"]
@@ -254,16 +213,16 @@
       Enabled: [1, "Interrupt is generated if RE = 1"]
     COUNT: [0, 8191]
     CRE:
-      Cleared: [1, "Refresh Error Flag is cleared"]
+      Clear: [1, "Refresh Error Flag is cleared"]
 
   SDSR:
     BUSY:
-      Busy: [1, "SDRAM Controller is not ready to accept a new request"]
       NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
+      Busy: [1, "SDRAM Controller is not ready to accept a new request"]
     MODES2:
-      NormalMode: [0, "Normal Mode"]
-      SelfRefreshMode: [1, "Self-refresh mode"]
-      PowerDownMode: [2, "Power-down mode"]
+      Normal: [0, "Normal Mode"]
+      SelfRefresh: [1, "Self-refresh mode"]
+      PowerDown: [2, "Power-down mode"]
     RE:
-      Detected: [1, "A refresh error has been detected"]
-      NotDetected: [0, "No refresh error has been detected"]
+      NoError: [0, "No refresh error has been detected"]
+      Error: [1, "A refresh error has been detected"]
