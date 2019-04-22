@@ -6,28 +6,9 @@ _modify:
     name: FLASH
 
 "GPIOA":
-  _modify:
+  _strip:
     # The SVD incorrectly names all the GPIO registers compared to RM0433.
-    GPIOA_MODER:
-        name: MODER
-    GPIOA_OTYPER:
-        name: OTYPER
-    GPIOA_OSPEEDR:
-        name: OSPEEDR
-    GPIOA_PUPDR:
-        name: PUPDR
-    GPIOA_IDR:
-        name: IDR
-    GPIOA_ODR:
-        name: ODR
-    GPIOA_BSRR:
-        name: BSRR
-    GPIOA_LCKR:
-        name: LCKR
-    GPIOA_AFRL:
-        name: AFRL
-    GPIOA_AFRH:
-        name: AFRH
+    - GPIOA_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -241,44 +222,12 @@ _modify:
 
 # Make IWDG register consitant
 IWDG:
-  _modify:
-    IWDG_KR:
-      name: KR
-    IWDG_PR:
-      name: PR
-    IWDG_RLR:
-      name: RLR
-    IWDG_SR:
-      name: SR
-    IWDG_WINR:
-      name: WINR
+  _strip:
+    - IWDG_
 
 "I2C*":
-  _modify:
-    I2C_CR1:
-      name: CR1
-    I2C_CR2:
-      name: CR2
-    I2C_OAR1:
-      name: OAR1
-    I2C_OAR2:
-      name: OAR2
-    I2C_TIMINGR:
-      name: TIMINGR
-    I2C_TIMEOUTR:
-      name: TIMEOUTR
-    I2C_ISR:
-      name: ISR
-    I2C_ICR:
-      name: ICR
-    I2C_PECR:
-      name: PECR
-    I2C_PXDR:
-      name: PXDR
-    I2C_TXDR:
-      name: TXDR
-    I2C_RXDR:
-      name: RXDR
+  _strip:
+    - I2C_
 
 WWDG:
   _modify:
@@ -306,23 +255,8 @@ FLASH:
       alternateRegister: ""
 
 PWR:
-  _modify:
-    PWR_CR1:
-      name: CR1
-    PWR_CSR1:
-      name: CSR1
-    PWR_CR2:
-      name: CR2
-    PWR_CR3:
-      name: CR3
-    PWR_CPUCR:
-      name: CPUCR
-    PWR_D3CR:
-      name: D3CR
-    PWR_WKUPCR:
-      name: WKUPCR
-    PWR_WKUPEPR:
-      name: WKUPEPR
+  _strip:
+    - PWR_
 
 "SPI*":
   CR1:
@@ -376,6 +310,86 @@ DMA1:
       name: "CCR%s"
     "RG*CR":
       name: "RGCR%s"
+
+COMP1:
+  _strip:
+    - COMP1_
+
+CRS:
+  _strip:
+    - CRS_
+
+DAC:
+  _strip:
+    - DAC_
+
+BDMA:
+  _strip:
+    - BDMA_
+
+DMA2D:
+  _strip:
+    - DMA2D_
+
+FMC:
+  _strip:
+    - FMC_
+
+CEC:
+  _strip:
+    - CEC_
+
+HSEM:
+  _strip:
+    - HSEM_
+
+JPEG:
+  _strip:
+    - JPEG_
+
+MDMA:
+  _strip:
+    - MDMA_
+
+QUADSPI:
+  _strip:
+    - QUADSPI_
+
+RNG:
+  _strip:
+    - RNG_
+
+RTC:
+  _strip:
+    - RTC_
+
+SAI4:
+  _strip:
+    - SAI_
+
+SDMMC1:
+  _strip:
+    - SDMMC_
+
+VREFBUF:
+  _strip:
+    - VREFBUF_
+
+AXI:
+  _strip:
+    - AXI_
+
+"OTG1_HS_*":
+  _strip:
+    - OTG_HS_
+
+FDCAN1:
+  _strip:
+    - FDCAN_
+
+MDIOS:
+  _strip:
+    - MDIOS_
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
