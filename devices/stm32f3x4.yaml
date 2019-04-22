@@ -39,6 +39,7 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/rename_f0_SPI_registers.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
@@ -50,6 +51,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/tim/tim_basic.yaml

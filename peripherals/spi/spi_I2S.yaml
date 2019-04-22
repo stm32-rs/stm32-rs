@@ -1,0 +1,39 @@
+"SPI*,I2S*":
+  I2SCFGR:
+    I2SMOD:
+      SPIMode: [0, "SPI mode is selected"]
+      I2SMode: [1, "I2S mode is selected"]
+    I2SE:
+      Disabled: [0, "I2S peripheral is disabled"]
+      Enabled: [1, "I2S peripheral is enabled"]
+    I2SCFG:
+      SlaveTx: [0, "Slave - transmit"]
+      SlaveRx: [1, "Slave - receive"]
+      MasterTx: [2, "Master - transmit"]
+      MasterRx: [3, "Master - receive"]
+    PCMSYNC:
+      Short: [0, "Short frame synchronisation"]
+      Long: [1, "Long frame synchronisation"]
+    I2SSTD:
+      Philips: [0, "I2S Philips standard"]
+      MSB: [1, "MSB justified standard"]
+      LSB: [2, "LSB justified standard"]
+      PCM: [3, "PCM standard"]
+    CKPOL:
+      IdleLow: [0, "I2S clock inactive state is low level"]
+      IdleHigh: [1, "I2S clock inactive state is high level"]
+    DATLEN:
+      SixteenBit: [0, "16-bit data length"]
+      TwentyFourBit: [1, "24-bit data length"]
+      ThirtyTwoBit: [2, "32-bit data length"]
+    CHLEN:
+      SixteenBit: [0, "16-bit wide"]
+      ThirtyTwoBit: [1, "32-bit wide"]
+  I2SPR:
+    MCKOE:
+      Disabled: [0, "Master clock output is disabled"]
+      Enabled: [1, "Master clock output is enabled"]
+    ODD:
+      Even: [0, "Real divider value is I2SDIV * 2"]
+      Odd: [1, "Real divider value is (I2SDIV * 2) + 1"]
+    I2SDIV: [2, 255]
