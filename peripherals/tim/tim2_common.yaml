@@ -22,3 +22,140 @@
     CCDS:
       OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
       OnUpdate: [1, "CCx DMA request sent when update event occurs"]
+  SMCR:
+    ETP:
+      NotInverted: [0, "ETR is noninverted, active at high level or rising edge"]
+      Inverted: [1, "ETR is inverted, active at low level or falling edge"]
+    ECE:
+      Disabled: [0, "External clock mode 2 disabled"]
+      Enabled: [1, "External clock mode 2 enabled. The counter is clocked by any active edge on the ETRF signal."]
+    ETPS:
+      NoDiv: [0, "Prescaler OFF"]
+      Div2: [1, "ETRP frequency divided by 2"]
+      Div4: [2, "ETRP frequency divided by 4"]
+      Div8: [3, "ETRP frequency divided by 8"]
+    ETF:
+      NoFilter: [0, "No filter, sampling is done at fDTS"]
+      FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
+      FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
+      FCK_INT_N8: [3, "fSAMPLING=fCK_INT, N=8"]
+      FDTS_Div2_N6: [4, "fSAMPLING=fDTS/2, N=6"]
+      FDTS_Div2_N8: [5, "fSAMPLING=fDTS/2, N=8"]
+      FDTS_Div4_N6: [6, "fSAMPLING=fDTS/4, N=6"]
+      FDTS_Div4_N8: [7, "fSAMPLING=fDTS/4, N=8"]
+      FDTS_Div8_N6: [8, "fSAMPLING=fDTS/8, N=6"]
+      FDTS_Div8_N8: [9, "fSAMPLING=fDTS/8, N=8"]
+      FDTS_Div16_N5: [10, "fSAMPLING=fDTS/16, N=5"]
+      FDTS_Div16_N6: [11, "fSAMPLING=fDTS/16, N=6"]
+      FDTS_Div16_N8: [12, "fSAMPLING=fDTS/16, N=8"]
+      FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
+      FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
+      FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
+    MSM:
+      NoSync: [0, "No action"]
+      Sync: [1, "The effect of an event on the trigger input (TRGI) is delayed to allow a perfect synchronization between the current timer and its slaves (through TRGO). It is useful if we want to synchronize several timers on a single external event."]
+    TS:
+      ITR0: [0, "Internal Trigger 0 (ITR0)"]
+      ITR1: [1, "Internal Trigger 1 (ITR1)"]
+      ITR2: [2, "Internal Trigger 2 (ITR2)"]
+      TI1F_ED: [4, "TI1 Edge Detector (TI1F_ED)"]
+      TI1FP1: [5, "Filtered Timer Input 1 (TI1FP1)"]
+      TI2FP2: [6, "Filtered Timer Input 2 (TI2FP2)"]
+      ETRF: [7, "External Trigger input (ETRF)"]
+    SMS:
+      Disabled: [0, "Slave mode disabled - if CEN = ‘1 then the prescaler is clocked directly by the internal clock."]
+      Encoder_Mode_1: [1, "Encoder mode 1 - Counter counts up/down on TI2FP1 edge depending on TI1FP2 level."]
+      Encoder_Mode_2: [2, "Encoder mode 2 - Counter counts up/down on TI1FP2 edge depending on TI2FP1 level."]
+      Encoder_Mode_3: [3, "Encoder mode 3 - Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input."]
+      Reset_Mode: [4, "Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers."]
+      Gated_Mode: [5, "Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled."]
+      Trigger_Mode: [6, "Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled."]
+      Ext_Clock_Mode: [7, "External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter."]
+  DIER:
+    TDE:
+      Disabled: [0, "Trigger DMA request disabled"]
+      Enabled: [1, "Trigger DMA request enabled"]
+    "CC?DE":
+      Disabled: [0, "CCx DMA request disabled"]
+      Enabled: [1, "CCx DMA request enabled"]
+    UDE:
+      Disabled: [0, "Update DMA request disabled"]
+      Enabled: [1, "Update DMA request enabled"]
+    TIE:
+      Disabled: [0, "Trigger interrupt disabled"]
+      Enabled: [1, "Trigger interrupt enabled"]
+    "CC?IE":
+      Disabled: [0, "CCx interrupt disabled"]
+      Enabled: [1, "CCx interrupt enabled"]
+  SR:
+    "CC?OF":
+      _read:
+        Overcapture: [1, "The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set"]
+      _write:
+        Clear: [0, "Clear flag"]
+    TIF:
+      _read:
+        NoTrigger: [0, "No trigger event occurred"]
+        Trigger: [1, "Trigger interrupt pending"]
+      _write:
+        Clear: [0, "Clear flag"]
+    "CC?IF":
+      _read:
+        Match: [1, "If CC1 is an output: The content of the counter TIMx_CNT matches the content of the TIMx_CCR1 register. If CC1 is an input: The counter value has been captured in TIMx_CCR1 register."]
+      _write:
+        Clear: [0, "Clear flag"]
+  EGR:
+    TG:
+      _write:
+        Trigger: [1, "The TIF flag is set in TIMx_SR register. Related interrupt or DMA transfer can occur if enabled."]
+    "CC?G":
+      _write:
+        Trigger: [1, "If CC1 is an output: CC1IF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CC1 is an input: The current value of the counter is captured in TIMx_CCR1 register."]
+  CCMR1_Input:
+    IC2F: [0, 15]
+    CC2S:
+      Output: [0, "CC2 channel is configured as output"]
+      TI2: [1, "CC2 channel is configured as input, IC2 is mapped on TI2"]
+      TI1: [2, "CC2 channel is configured as input, IC2 is mapped on TI1"]
+      TRC: [3, "CC2 channel is configured as input, IC2 is mapped on TRC"]
+    IC1F:
+      NoFilter: [0, "No filter, sampling is done at fDTS"]
+      FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
+      FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
+      FCK_INT_N8: [3, "fSAMPLING=fCK_INT, N=8"]
+      FDTS_Div2_N6: [4, "fSAMPLING=fDTS/2, N=6"]
+      FDTS_Div2_N8: [5, "fSAMPLING=fDTS/2, N=8"]
+      FDTS_Div4_N6: [6, "fSAMPLING=fDTS/4, N=6"]
+      FDTS_Div4_N8: [7, "fSAMPLING=fDTS/4, N=8"]
+      FDTS_Div8_N6: [8, "fSAMPLING=fDTS/8, N=6"]
+      FDTS_Div8_N8: [9, "fSAMPLING=fDTS/8, N=8"]
+      FDTS_Div16_N5: [10, "fSAMPLING=fDTS/16, N=5"]
+      FDTS_Div16_N6: [11, "fSAMPLING=fDTS/16, N=6"]
+      FDTS_Div16_N8: [12, "fSAMPLING=fDTS/16, N=8"]
+      FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
+      FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
+      FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
+    CC1S:
+      Output: [0, "CC1 channel is configured as output"]
+      TI1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1"]
+      TI2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2"]
+      TRC: [3, "CC1 channel is configured as input, IC1 is mapped on TRC"]
+  CCMR2_Input:
+    IC4F: [0, 15]
+    IC4PSC: [0, 3]
+    CC4S:
+      Output: [0, "CC4 channel is configured as output"]
+      TI4: [1, "CC4 channel is configured as input, IC4 is mapped on TI4"]
+      TI3: [2, "CC4 channel is configured as input, IC4 is mapped on TI3"]
+      TRC: [3, "CC4 channel is configured as input, IC4 is mapped on TRC"]
+    IC3F: [0, 15]
+    IC3PSC: [0, 3]
+    CC3S: 
+      Output: [0, "CC3 channel is configured as output"]
+      TI3: [1, "CC3 channel is configured as input, IC3 is mapped on TI3"]
+      TI4: [2, "CC3 channel is configured as input, IC3 is mapped on TI4"]
+      TRC: [3, "CC3 channel is configured as input, IC3 is mapped on TRC"]
+  DCR:
+    DBL: [0, 18]
+    DBA: [0, 31]
+

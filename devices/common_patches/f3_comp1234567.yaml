@@ -1,0 +1,188 @@
+_include:
+ - f3_comp1246.yaml
+ - f3_comp246_inmsel3.yaml
+
+COMP:
+  _add:
+    COMP3_CSR:
+      description: control and status register
+      addressOffset: 0x24
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        COMP3EN:
+          description: Comparator 3 enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        COMP3MODE:
+          description: Comparator 3 mode
+          bitOffset: 2
+          bitWidth: 2
+          access: read-write
+        COMP3INMSEL:
+          description: Comparator 3 inverting input selection
+          bitOffset: 4
+          bitWidth: 3
+          access: read-write
+        COMP3INPSEL:
+          description: Comparator 3 non inverted input
+          bitOffset: 7
+          bitWidth: 1
+          access: read-write
+        COMP3OUTSEL:
+          description: Comparator 3 output selection
+          bitOffset: 10
+          bitWidth: 4
+          access: read-write
+        COMP3POL:
+          description: Comparator 3 output polarity
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        COMP3HYST:
+          description: Comparator 3 hysteresis
+          bitOffset: 16
+          bitWidth: 2
+          access: read-write
+        COMP3_BLANKING:
+          description: Comparator 3 blanking source
+          bitOffset: 18
+          bitWidth: 3
+          access: read-write
+        COMP3OUT:
+          description: Comparator 3 output
+          bitOffset: 30
+          bitWidth: 1
+          access: read-only
+        COMP3LOCK:
+          description: Comparator 3 lock
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+    COMP5_CSR:
+      description: control and status register
+      addressOffset: 0x2C
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        COMP5EN:
+          description: Comparator 5 enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        COMP5MODE:
+          description: Comparator 5 mode
+          bitOffset: 2
+          bitWidth: 2
+          access: read-write
+        COMP5INMSEL:
+          description: Comparator 5 inverting input selection
+          bitOffset: 4
+          bitWidth: 3
+          access: read-write
+        COMP5INPSEL:
+          description: Comparator 5 non inverted input
+          bitOffset: 7
+          bitWidth: 1
+          access: read-write
+        COMP5OUTSEL:
+          description: Comparator 5 output selection
+          bitOffset: 10
+          bitWidth: 4
+          access: read-write
+        COMP5POL:
+          description: Comparator 5 output polarity
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        COMP5HYST:
+          description: Comparator 5 hysteresis
+          bitOffset: 16
+          bitWidth: 2
+          access: read-write
+        COMP5_BLANKING:
+          description: Comparator 5 blanking source
+          bitOffset: 18
+          bitWidth: 3
+          access: read-write
+        COMP5OUT:
+          description: Comparator 5 output
+          bitOffset: 30
+          bitWidth: 1
+          access: read-only
+        COMP5LOCK:
+          description: Comparator 5 lock
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+    COMP7_CSR:
+      description: control and status register
+      addressOffset: 0x34
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        COMP7EN:
+          description: Comparator 7 enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        COMP7MODE:
+          description: Comparator 7 mode
+          bitOffset: 2
+          bitWidth: 2
+          access: read-write
+        COMP7INMSEL:
+          description: Comparator 7 inverting input selection
+          bitOffset: 4
+          bitWidth: 3
+          access: read-write
+        COMP7INPSEL:
+          description: Comparator 7 non inverted input
+          bitOffset: 7
+          bitWidth: 1
+          access: read-write
+        COMP7OUTSEL:
+          description: Comparator 7 output selection
+          bitOffset: 10
+          bitWidth: 4
+          access: read-write
+        COMP7POL:
+          description: Comparator 7 output polarity
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        COMP7HYST:
+          description: Comparator 7 hysteresis
+          bitOffset: 16
+          bitWidth: 2
+          access: read-write
+        COMP7_BLANKING:
+          description: Comparator 7 blanking source
+          bitOffset: 18
+          bitWidth: 3
+          access: read-write
+        COMP7OUT:
+          description: Comparator 7 output
+          bitOffset: 30
+          bitWidth: 1
+          access: read-only
+        COMP7LOCK:
+          description: Comparator 7 lock
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+  COMP4_CSR:
+    _add:
+      COMP4WINMODE:
+        description: Comparator 4 window mode
+        bitOffset: 9
+        bitWidth: 1
+        access: read-write
+  COMP6_CSR:
+    _add:
+      COMP6WINMODE:
+        description: Comparator 6 window mode
+        bitOffset: 9
+        bitWidth: 1
+        access: read-write

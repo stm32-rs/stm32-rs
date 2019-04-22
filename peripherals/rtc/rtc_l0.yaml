@@ -1,0 +1,274 @@
+# Real Time Clock for L0 Family
+
+RTC:
+  TR:
+    PM:
+      AM: [0, "AM or 24-hour format"]
+      PM: [1, "PM"]
+    HT: [0, 3]
+    HU: [0, 15]
+    MNT: [0, 7]
+    MNU: [0, 15]
+    ST: [0, 7]
+    SU: [0, 15]
+  DR:
+    YT: [0, 15]
+    YU: [0, 15]
+    WDU: [1, 7]
+    MT: [0, 1]
+    MU: [0, 15]
+    DT: [0, 3]
+    DU: [0, 15]
+  CR:
+    COE:
+      Disabled: [0, "Calibration output disabled"]
+      Enabled: [1, "Calibration output enabled"]
+    OSEL:
+      Disabled: [0, "Output disabled"]
+      AlarmA: [1, "Alarm A output enabled"]
+      AlarmB: [2, "Alarm B output enabled"]
+      Wakeup: [3, "Wakeup output enabled"]
+    POL:
+      High: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
+      Low: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
+    COSEL:
+      CalFreq_512Hz: [0, "Calibration output is 512 Hz (with default prescaler setting)"]
+      CalFreq_1Hz: [1, "Calibration output is 1 Hz (with default prescaler setting)"]
+    BKP:
+      DST_Not_Changed: [0, "Daylight Saving Time change has not been performed"]
+      DST_Changed: [1, "Daylight Saving Time change has been performed"]
+    SUB1H:
+      _write:
+        Sub1: [1, "Subtracts 1 hour to the current time. This can be used for winter time change outside initialization mode"]
+    ADD1H:
+      _write:
+        Add1: [1, "Adds 1 hour to the current time. This can be used for summer time change outside initialization mode"]
+    TSIE:
+      Disabled: [0, "Time-stamp Interrupt disabled"]
+      Enabled: [1, "Time-stamp Interrupt enabled"]
+    WUTIE:
+      Disabled: [0, "Wakeup timer interrupt disabled"]
+      Enabled: [1, "Wakeup timer interrupt enabled"]
+    ALRBIE:
+      Disabled: [0, "Alarm B Interrupt disabled"]
+      Enabled: [1, "Alarm B Interrupt enabled"]
+    ALRAIE:
+      Disabled: [0, "Alarm A interrupt disabled"]
+      Enabled: [1, "Alarm A interrupt enabled"]
+    TSE:
+      Disabled: [0, "Timestamp disabled"]
+      Enabled: [1, "Timestamp enabled"]
+    WUTE:
+      Disabled: [0, "Wakeup timer disabled"]
+      Enabled: [1, "Wakeup timer enabled"]
+    ALRBE:
+      Disabled: [0, "Alarm B disabled"]
+      Enabled: [1, "Alarm B enabled"]
+    ALRAE:
+      Disabled: [0, "Alarm A disabled"]
+      Enabled: [1, "Alarm A enabled"]
+    FMT:
+      Twenty_Four_Hour: [0, "24 hour/day format"]
+      AM_PM: [1, "AM/PM hour format"]
+    BYPSHAD:
+      ShadowReg: [0, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken from the shadow registers, which are updated once every two RTCCLK cycles"]
+      BypassShadowReg: [1, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken directly from the calendar counters"]
+    REFCKON:
+      Disabled: [0, "RTC_REFIN detection disabled"]
+      Enabled: [1, "RTC_REFIN detection enabled"]
+    TSEDGE:
+      RisingEdge: [0, "RTC_TS input rising edge generates a time-stamp event"]
+      FallingEdge: [1, "RTC_TS input falling edge generates a time-stamp event"]
+    WUCKSEL:
+      Div16: [0, "RTC/16 clock is selected"]
+      Div8: [1, "RTC/8 clock is selected"]
+      Div4: [2, "RTC/4 clock is selected"]
+      Div2: [3, "RTC/2 clock is selected"]
+      ClockSpare: [4, "ck_spre (usually 1 Hz) clock is selected"]
+      ClockSpareWithOffset: [6, "ck_spre (usually 1 Hz) clock is selected and 216 is added to the WUT counter value"]
+  ISR:
+    _add:
+      RECALPF:
+        description: Recalibration pending flag
+        bitWidth: 1
+        bitOffset: 16
+      TAMP3F:
+        description: RTC_TAMP3 detection flag
+        bitWidth: 1
+        bitOffset: 15
+    RECALPF:
+      _read:
+        Pending: [1, "The RECALPF status flag is automatically set to 1 when software writes to the RTC_CALR register, indicating that the RTC_CALR register is blocked. When the new calibration settings are taken into account, this bit returns to 0"]
+    "TAMP*F":
+      _read:
+        Tampered: [1, "This flag is set by hardware when a tamper detection event is detected on the RTC_TAMPx input"]
+      _write:
+        Clear: [0, "Flag cleared by software writing 0"]
+    TSOVF:
+      _read:
+        Overflow: [1, "This flag is set by hardware when a time-stamp event occurs while TSF is already set"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]
+    TSF:
+      _read:
+        TimestampEvent: [1, "This flag is set by hardware when a time-stamp event occurs"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]
+    WUTF:
+      _read:
+        Zero: [1, "This flag is set by hardware when the wakeup auto-reload counter reaches 0"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]
+    ALRBF:
+      _read:
+        Match: [1, "This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm B register (RTC_ALRMBR)"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]
+    ALRAF:
+      _read:
+        Match: [1, "This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm A register (RTC_ALRMAR)"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]        
+    INIT:
+      FreeRunningMode: [0, "Free running mode"]
+      InitMode: [1, "Initialization mode used to program time and date register (RTC_TR and RTC_DR), and prescaler register (RTC_PRER). Counters are stopped and start counting from the new value when INIT is reset."]
+    INITF:
+      _read:
+        NotAllowed: [0, "Calendar registers update is not allowed"]
+        Allowed: [1, "Calendar registers update is allowed"]
+    RSF:
+      _read:
+        NotSynced: [0, "Calendar shadow registers not yet synchronized"]
+        Synced: [1, "Calendar shadow registers synchronized"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0"]
+    INITS:
+      _read:
+        NotInitalized: [0, "Calendar has not been initialized"]
+        Initalized: [1, "Calendar has been initialized"]
+    SHPF:
+      _read:
+        NoShiftPending: [0, "No shift operation is pending"]
+        ShiftPending: [1, "A shift operation is pending"]
+    WUTWF:
+      _read:
+        UpdateNotAllowed: [0, "Wakeup timer configuration update not allowed"]
+        UpdateAllowed: [1, "Wakeup timer configuration update allowed"]
+    "ALR?WF":
+      _read:
+        UpdateNotAllowed: [0, "Alarm update not allowed"]
+        UpdateAllowed: [1, "Alarm update allowed"]
+  PRER:
+    PREDIV_A: [0, 0x7F]
+    PREDIV_S: [0, 0x7FFF]
+  WUTR:
+    WUT: [0, 0xFFFF]
+  "ALRM?R":
+    "MSK*":
+      Mask: [0, "Alarm set if the date/day match"]
+      NotMask: [1, "Date/day don’t care in Alarm comparison"]
+    WDSEL:
+      DateUnits: [0, "DU[3:0] represents the date units"]
+      WeekDay: [1, "DU[3:0] represents the week day. DT[1:0] is don’t care."]
+    DT: [0, 3]
+    DU: [0, 15]
+    PM:
+      AM: [0, "AM or 24-hour format"]
+      PM: [1, "PM"]
+    HT: [0, 3]
+    HU: [0, 15]
+    MNT: [0, 7]
+    MNU: [0, 15]
+    ST: [0, 7]
+    SU: [0, 15]
+  WPR:
+    KEY: [0, 255]
+  SSR:
+    SS: [0, 65535]
+  SHIFTR:
+    ADD1S:
+      _write:
+        Add1: [1, "Add one second to the clock/calendar"]
+    SUBFS: [0, 32767]
+  TSTR:
+    _read:
+      PM:
+        AM: [0, "AM or 24-hour format"]
+        PM: [1, "PM"]
+      HT: [0, 3]
+      HU: [0, 15]
+      MNT: [0, 7]
+      MNU: [0, 15]
+      ST: [0, 7]
+      SU: [0, 15]
+  TSDR:
+    _read:
+      WDU: [0, 3]
+      MT: [0, 1]
+      MU: [0, 7]
+      DT: [0, 3]
+      DU: [0, 15]
+  TSSSR:
+    _read:
+      SS: [0, 65535]
+  CALR:
+    CALP:
+      NoChange: [0, "No RTCCLK pulses are added"]
+      IncreaseFreq: [1, "One RTCCLK pulse is effectively inserted every 2^11 pulses (frequency increased by 488.5 ppm)"]
+    CALW8:
+      Eight_Second: [1, "When CALW8 is set to ‘1’, the 8-second calibration cycle period is selected"]
+    CALW16:
+      Sixteen_Second: [1, "When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected.This bit must not be set to ‘1’ if CALW8=1"]
+    CALM: [0, 511]
+  TAMPCR:
+    "TAMP*MF":
+      NotMasked: [0, "Tamper x event generates a trigger event and TAMPxF must be cleared by software to allow next tamper event detection"]
+      Masked: [1, "Tamper x event generates a trigger event. TAMPxF is masked and internally cleared by hardware. The backup registers are not erased."]
+    "TAMP*NOERASE":
+      Erase: [0, "Tamper x event erases the backup registers"]
+      NoErase: [1, "Tamper x event does not erase the backup registers"]
+    "TAMP[123]IE":
+      Disabled: [0, "Tamper x interrupt is disabled if TAMPIE = 0"]
+      Enabled: [1, "Tamper x interrupt enabled"]
+    TAMPPUDIS:
+      Enabled: [0, "Precharge RTC_TAMPx pins before sampling (enable internal pull-up)"]
+      Disabled: [1, "Disable precharge of RTC_TAMPx pins"]
+    TAMPPRCH:
+      RTCCLK_1_cycle: [0, "1 RTCCLK cycle"]
+      RTCCLK_2_cycle: [1, "2 RTCCLK cycles"]
+      RTCCLK_4_cycle: [2, "4 RTCCLK cycles"]
+      RTCCLK_8_cycle: [3, "8 RTCCLK cycles"]
+    TAMPFLT:
+      Immediate: [0, "Tamper event is activated on edge of RTC_TAMPx input transitions to the active level (no internal pull-up on RTC_TAMPx input)"]
+      Two_Samples: [1, "Tamper event is activated after 2 consecutive samples at the active level"]
+      Four_Samples: [2, "Tamper event is activated after 4 consecutive samples at the active level"]
+      Eight_Samples: [3, "Tamper event is activated after 8 consecutive samples at the active level"]
+    TAMPFREQ:
+      Div32768: [0, "RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)"]
+      Div16384: [1, "RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)"]
+      Div8192: [2, "RTCCLK / 8192 (4 Hz when RTCCLK = 32768 Hz)"]
+      Div4096: [3, "RTCCLK / 4096 (8 Hz when RTCCLK = 32768 Hz)"]
+      Div2048: [4, "RTCCLK / 2048 (16 Hz when RTCCLK = 32768 Hz)"]
+      Div1024: [5, "RTCCLK / 1024 (32 Hz when RTCCLK = 32768 Hz)"]
+      Div512: [6, "RTCCLK / 512 (64 Hz when RTCCLK = 32768 Hz)"]
+      Div256: [7, "RTCCLK / 256 (128 Hz when RTCCLK = 32768 Hz)"]
+    TAMPTS:
+      NoSave: [0, "Tamper detection event does not cause a timestamp to be saved"]
+      Save: [1, "Save timestamp on tamper detection event"]
+    "TAMP*TRG":
+      RisingEdge: [0, "If TAMPFLT = 00: RTC_TAMPx input rising edge triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input staying low triggers a tamper detection event."]
+      FallingEdge: [1, "If TAMPFLT = 00: RTC_TAMPx input staying high triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input falling edge triggers a tamper detection event"]
+    "TAMP[123]E":
+      Disabled: [0, "RTC_TAMPx input detection disabled"]
+      Enabled: [1, "RTC_TAMPx input detection enabled"]
+    TAMPIE:
+      Disabled: [0, "Tamper interrupt disabled"]
+      Enabled: [1, "Tamper interrupt enabled"]
+  "ALRM?SSR":
+    MASKSS: [0, 15]
+    SS: [0, 32767]
+  OR:
+    RTC_OUT_RMP: [0, 1]
+    RTC_ALARM_TYPE: [0, 1]
+  "BKP?R":
+    BKP: [0, 0xFFFFFFFF]

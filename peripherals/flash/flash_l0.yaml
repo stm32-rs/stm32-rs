@@ -1,0 +1,144 @@
+# This FLASH is used on the STM32L0 families.
+
+"FLASH":
+  ACR:
+    PRE_READ:
+      Disabled: [0, "The pre-read is disabled"]
+      Enabled: [1, "The pre-read is enabled"]
+    DISAB_BUF:
+      Enabled: [0, "The buffers are enabled"]
+      Disabled: [1, "The buffers are disabled"]
+    RUN_PD:
+      NVMIdleMode: [0, "When the device is in Run mode, the NVM is in Idle mode"]
+      NVMPwrDownMode: [1, "When the device is in Run mode, the NVM is in power-down mode"]
+    SLEEP_PD:
+      NVMIdleMode: [0, "When the device is in Sleep mode, the NVM is in Idle mode"]
+      NVMPwrDownMode: [1, "When the device is in Sleep mode, the NVM is in power-down mode"]
+    PRFTEN:
+      Disabled: [0, "Prefetch is disabled"]
+      Enabled: [1, "Prefetch is enabled"]
+    LATENCY: 
+      WS0: [0, "Zero wait state is used to read a word in the NVM"]
+      WS1: [1, "One wait state is used to read a word in the NVM"]
+  PECR:
+    OBL_LAUNCH:
+      _read:
+        Complete: [0, "Option byte loaded"]
+        NotComplete: [1, "Option byte loading to be done"]
+      _write:
+        Reload: [1, "Reload option byte"]
+    ERRIE:
+      Disabled: [0, "Error interrupt disable"]
+      Enabled: [1, "Error interrupt enable"]
+    EOPIE:
+      Disabled: [0, "End of program interrupt disable"]
+      Enabled: [1, "End of program interrupt enable"]
+    PARALLELBANK:
+      Disabled: [0, "Parallel bank mode disabled"]
+      Enabled: [1, "Parallel bank mode enabled"]
+    FPRG:
+      Disabled: [0, "Half Page programming disabled"]
+      Enabled: [1, "Half Page programming enabled"]
+    ERASE:
+      NoErase: [0, "No erase operation requested"]
+      Erase: [1, "Erase operation requested"]
+    FIX:
+      AutoErase: [0, "An erase phase is automatically performed"]
+      PrelimErase: [1, "The program operation is always performed with a preliminary erase"]
+    DATA:
+      NotSelected: [0, "Data EEPROM not selected"]
+      Selected: [1, "Data memory selected"]
+    PROG:
+      NotSelected: [0, "The Flash program memory is not selected"]
+      Selected: [1, "The Flash program memory is selected"]
+    OPTLOCK:
+      Unlocked: [0, "The write and erase operations in the Option bytes area are disabled"]
+      Locked: [1, "The write and erase operations in the Option bytes area are enabled"]
+    PRGLOCK:
+      Unlocked: [0, "The write and erase operations in the Flash program memory are disabled"]
+      Locked: [1, "The write and erase operations in the Flash program memory are enabled"]
+    PELOCK:
+      Unlocked: [0, "The FLASH_PECR register is unlocked"]
+      Locked: [1, "The FLASH_PECR register is locked and no write/erase operation can start"]
+  PDKEYR:
+    PDKEYR: [0, 0xFFFFFFFF]
+  PEKEYR:
+    PEKEYR: [0, 0xFFFFFFFF]
+  PRGKEYR:
+    PRGKEYR: [0, 0xFFFFFFFF]
+  OPTKEYR:
+    OPTKEYR: [0, 0xFFFFFFFF]
+  SR:
+    FWWERR:
+      _read:
+        NoError: [0, "No write/erase operation aborted to perform a fetch"]
+        Error: [1, "A write/erase operation aborted to perform a fetch"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    NOTZEROERR:
+      _read:
+        NoEvent: [0, "The write operation is done in an erased region or the memory interface can apply an erase before a write"]
+        Event: [1, "The write operation is attempting to write to a not-erased region and the memory interface cannot apply an erase before a write"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    RDERR:
+      _read:
+        NoError: [0, "No read protection error happened."]
+        Error: [1, "One read protection error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    OPTVERR:
+      _read:
+        NoError: [0, "No error happened during the Option bytes loading"]
+        Error: [1, "One or more errors happened during the Option bytes loading"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    SIZERR:
+      _read:
+        NoError: [0, "No size error happened"]
+        Error: [1, "One size error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    PGAERR:
+      _read:
+        NoError: [0, "No alignment error happened"]
+        Error: [1, "One alignment error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    WRPERR:
+      _read:
+        NoError: [0, "No protection error happened"]
+        Error: [1, "One protection error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    READY:
+      NotReady: [0, "The NVM is not ready"]
+      Ready: [1, "The NVM is ready"]
+    ENDHV:
+      Active: [0, "High voltage is executing a write/erase operation in the NVM"]
+      Inactive: [1, "High voltage is off, no write/erase operation is ongoing"]
+    EOP:
+      NoEvent: [0, "No EOP operation occurred"]
+      Event: [1, "An EOP event occurred"]
+    BSY:
+      Inactive: [0, "No write/erase operation is in progress"]
+      Active: [1, "No write/erase operation is in progress"]
+  "OPTR":
+    BOR_LEV:
+      BOR_Off: [0, "This is the reset threshold level for the 1.45 V - 1.55 V voltage range (power-down only)"]
+      BOR_Level1: [1, "Reset threshold level for VBOR0 (around 1.8 V)"]
+      BOR_Level2: [2, "Reset threshold level for VBOR1 (around 2.0 V)"]
+      BOR_Level3: [3, "Reset threshold level for VBOR2 (around 2.5 V)"]
+      BOR_Level4: [4, "Reset threshold level for VBOR3 (around 2.7 V)"]
+      BOR_Level5: [5, "Reset threshold level for VBOR4 (around 3.0 V)"]
+    WPRMOD:
+      Disabled: [0, "PCROP disabled. The WRPROT bits are used as a write protection on a sector."]
+      Enabled: [1, "PCROP enabled. The WRPROT bits are used as a read protection on a sector."]
+    RDPROT:
+      Level0: [0xAA, "Level 0"]
+      Level1: [0, "Level 1"]
+      Level2: [0xCC, "Level 2"]
+  WRPROT1:
+    WRPROT1: [0, 0xFFFFFFFF]
+  WRPROT2:
+    WRPROT2: [0, 0xFFFF]

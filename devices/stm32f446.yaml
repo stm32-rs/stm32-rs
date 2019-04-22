@@ -3,6 +3,7 @@ _svd: ../svd/stm32f446.svd
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C3
+  USART1: USART6
 
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
@@ -68,6 +69,10 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/dma_fcr_wo.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/sai/sai_v1.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -88,6 +93,7 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -100,3 +106,4 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

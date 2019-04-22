@@ -14,6 +14,17 @@ RCC:
         bitOffset: 20
         bitWidth: 1
 
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_CH2_3:
+        description: "DMA channel 2 and 3 interrupts"
+        value: 10
+
+      DMA1_CH4_5_6_7:
+        description: "DMA channel 4, 5, 6 and 7 interrupts"
+        value: 11
+
 _include:
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/rename_f0_SPI_registers.yaml
@@ -32,6 +43,9 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR1_M0_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/can/can_remove_prefix.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
@@ -46,10 +60,15 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/rcc/rcc_f0x128.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tsc/tsc.yaml
  - ../peripherals/syscfg/syscfg_f0x128.yaml
  - ../peripherals/comp/comp_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1_RM0091.yaml
  - ../peripherals/spi/spi_v2.yaml
+ - common_patches/f0_ram_parity_check.yaml
+ - ../peripherals/flash/flash_f04x_f09x.yaml

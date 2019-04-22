@@ -125,6 +125,7 @@ stm32f3:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00094350.pdf
     members:
       - STM32F301
+      - STM32F318
 
   stm32f302:
     url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f302.html
@@ -143,12 +144,13 @@ stm32f3:
       - STM32F303
 
   stm32f373:
-    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f3x8.html
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f373.html
     rm: RM0313
     rm_title: STM32F37xxx
     rm_url: https://www.st.com/resource/en/reference_manual/dm00041563.pdf
     members:
       - STM32F373
+      - STM32F378
 
   stm32f3x4:
     url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f334.html
@@ -159,15 +161,13 @@ stm32f3:
       - STM32F334
 
   stm32f3x8:
-    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f373.html
+    url: https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f3x8.html
     rm: RM0316
     rm_title: STM32F303xB/C/D/E, STM32F303x6/8, STM32F328x8, STM32F358xC, STM32F398xE
     rm_url: https://www.st.com/resource/en/reference_manual/dm00043574.pdf
     members:
-      - STM32F318
       - STM32F328
       - STM32F358
-      - STM32F378
       - STM32F398
 
 

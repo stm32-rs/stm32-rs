@@ -48,9 +48,15 @@ _include:
  - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
  - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/sai/sai_v1.yaml
+ - common_patches/dfsdm/dfsdm_v2.yaml
+ - ./common_patches/l4_crrcr.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/rcc/rcc_l4.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
@@ -60,3 +66,6 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tsc/tsc.yaml
+

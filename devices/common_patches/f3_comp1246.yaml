@@ -1,0 +1,117 @@
+_include:
+ - f3_comp246.yaml
+
+COMP:
+  _add:
+    COMP1_CSR:
+      description: control and status register
+      addressOffset: 0x1C
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        COMP1EN:
+          description: Comparator 1 enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        COMP1_INP_DAC:
+          description: Comparator 1 non inverting input connection to DAC output
+          bitOffset: 1
+          bitWidth: 1
+          access: read-write
+        COMP1MODE:
+          description: Comparator 1 mode
+          bitOffset: 2
+          bitWidth: 2
+          access: read-write
+        COMP1INMSEL:
+          description: Comparator 1 inverting input selection
+          bitOffset: 4
+          bitWidth: 3
+          access: read-write
+        COMP1OUTSEL:
+          description: Comparator 1 output selection
+          bitOffset: 10
+          bitWidth: 4
+          access: read-write
+        COMP1POL:
+          description: Comparator 1 output polarity
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        COMP1HYST:
+          description: Comparator 1 hysteresis
+          bitOffset: 16
+          bitWidth: 2
+          access: read-write
+        COMP1_BLANKING:
+          description: Comparator 1 blanking source
+          bitOffset: 18
+          bitWidth: 3
+          access: read-write
+        COMP1OUT:
+          description: Comparator 1 output
+          bitOffset: 30
+          bitWidth: 1
+          access: read-only
+        COMP1LOCK:
+          description: Comparator 1 lock
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+  COMP2_CSR:
+    _add:
+      COMP2MODE:
+        description: Comparator 2 mode
+        bitOffset: 2
+        bitWidth: 2
+        access: read-write
+      COMP2INPSEL:
+        description: Comparator 2 non inverted input
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      COMP2WINMODE:
+        description: Comparator 2 window mode
+        bitOffset: 9
+        bitWidth: 1
+        access: read-write
+      COMP2HYST:
+        description: Comparator 2 hysteresis
+        bitOffset: 16
+        bitWidth: 2
+        access: read-write
+  COMP4_CSR:
+    _add:
+      COMP4MODE:
+        description: Comparator 4 mode
+        bitOffset: 2
+        bitWidth: 2
+        access: read-write
+      COMP4INPSEL:
+        description: Comparator 4 non inverted input
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      COMP4HYST:
+        description: Comparator 4 hysteresis
+        bitOffset: 16
+        bitWidth: 2
+        access: read-write
+  COMP6_CSR:
+    _add:
+      COMP6MODE:
+        description: Comparator 6 mode
+        bitOffset: 2
+        bitWidth: 2
+        access: read-write
+      COMP6INPSEL:
+        description: Comparator 6 non inverted input
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      COMP6HYST:
+        description: Comparator 6 hysteresis
+        bitOffset: 16
+        bitWidth: 2
+        access: read-write

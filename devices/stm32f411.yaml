@@ -3,8 +3,9 @@ _svd: ../svd/stm32f411.svd
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C3
+  SPI1: I2S2ext
 
-"I2S*":
+"SPI*":
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0383
@@ -34,6 +35,7 @@ _include:
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sm.yaml
  - common_patches/f4_rcc_dckcfgr.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
@@ -44,6 +46,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/adc/adc_v2.yaml
+ - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -54,3 +57,4 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

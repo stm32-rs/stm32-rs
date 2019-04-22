@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f7x2.svd
 
+_rebase:
+  SPI1: SPI5
+
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
@@ -16,7 +19,11 @@ _include:
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/sai/sai_v1.yaml
  - common_patches/f7x23_rcc_dckcfgr.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
@@ -35,3 +42,4 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2_without_wakeup.yaml
  - ../peripherals/usart/usart_v2C.yaml
+ - common_patches/rtc/rtc_bkpr.yaml

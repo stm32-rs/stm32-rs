@@ -1,0 +1,226 @@
+# ADC as used on L0
+
+ADC:
+  ISR:
+    EOCAL:
+      _read:
+        NotComplete: [0, "Calibration is not complete"]
+        Complete: [1, "Calibration complete"]
+      _write:
+        Clear: [1, "Clear the calibration flag"]
+    AWD:
+      _read:
+        NoEvent: [0, "No analog watchdog event occurred"]
+        Event: [1, "Analog watchdog event occurred"]
+      _write:
+        Clear: [1, "Clear the analog watchdog event flag"]
+    OVR:
+      _read:
+        NoOverrun: [0, "No overrun occurred"]
+        Overrun: [1, "Overrun occurred"]
+      _write:
+        Clear: [1, "Clear the overrun flag"]
+    EOS:
+      _read:
+        NotComplete: [0, "Conversion sequence is not complete"]
+        Complete: [1, "Conversion sequence complete"]
+      _write:
+        Clear: [1, "Clear the conversion sequence flag"]
+    EOC:
+      _read:
+        NotComplete: [0, "Channel conversion is not complete"]
+        Complete: [1, "Channel conversion complete"]
+      _write:
+        Clear: [1, "Clear the channel conversion flag"]
+    EOSMP:
+      _read:
+        NotAtEnd: [0, "Not at the end of the samplings phase"]
+        AtEnd: [1, "End of sampling phase reached"]
+      _write:
+        Clear: [1, "Clear the sampling phase flag"]
+    ADRDY:
+      _read:
+        NotReady: [0, "ADC not yet ready to start conversion"]
+        Ready: [1, "ADC ready to start conversion"]
+      _write:
+        Clear: [1, "Clear the ADC ready flag"]
+  IER:
+    EOCALIE:
+      Disabled: [0, "End of calibration interrupt disabled"]
+      Enabled: [1, "End of calibration interrupt enabled"]
+    AWDIE:
+      Disabled: [0, "Analog watchdog interrupt disabled"]
+      Enabled: [1, "Analog watchdog interrupt enabled"]
+    OVRIE:
+      Disabled: [0, "Overrun interrupt disabled"]
+      Enabled: [1, "Overrun interrupt enabled. An interrupt is generated when the OVR bit is set."]
+    EOSIE:
+      Disabled: [0, "EOS interrupt disabled"]
+      Enabled: [1, "EOS interrupt enabled. An interrupt is generated when the EOS bit is set."]
+    EOCIE:
+      Disabled: [0, "EOC interrupt disabled"]
+      Enabled: [1, "EOC interrupt enabled. An interrupt is generated when the EOC bit is set."]
+    EOSMPIE:
+      Disabled: [0, "EOSMP interrupt disabled"]
+      Enabled: [1, "EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set."]
+    ADRDYIE:
+      Disabled: [0, "ADRDY interrupt disabled"]
+      Enabled: [1, "ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set."]
+  CR:
+    ADCAL:
+      _read:
+        NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
+        Calibrating: [1, "ADC calibration in progress"]
+      _write:
+        StartCalibration: [1, "Start the ADC calibration sequence"]
+    ADVREGEN:
+      Disabled: [0, "ADC voltage regulator disabled"]
+      Enabled: [1, "ADC voltage regulator enabled"]
+    ADSTP:
+      _read:
+        NotStopping: [0, "No stop command active"]
+        Stopping: [1, "ADC stopping conversion"]
+      _write:
+        StopConversion: [1, "Stop the active conversion"]
+    ADSTART:
+      _read:
+        NotActive: [0, "No conversion ongoing"]
+        Active: [1, "ADC operating and may be converting"]
+      _write:
+        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+    ADDIS:
+      _read:
+        NotDisabling: [0, "No disable command active"]
+        Disabling: [1, "ADC disabling"]
+      _write:
+        Disable: [1, "Disable the ADC"]
+    ADEN:
+      _read:
+        Disabled: [0, "ADC disabled"]
+        Enabled: [1, "ADC enabled"]
+      _write:
+        Enabled: [1, "Enable the ADC"]
+  CFGR1:
+    AWDCH: [0, 18]
+    AWDEN:
+      Disabled: [0, "Analog watchdog disabled"]
+      Enabled: [1, "Analog watchdog enabled"]
+    AWDSGL:
+      AllChannels: [0, "Analog watchdog enabled on all channels"]
+      SingleChannel: [1, "Analog watchdog enabled on a single channel"]
+    DISCEN:
+      Disabled: [0, "Discontinuous mode disabled"]
+      Enabled: [1, "Discontinuous mode enabled"]
+    AUTOFF:
+      Disabled: [0, "Auto-off mode disabled"]
+      Enabled: [1, "Auto-off mode enabled"]
+    WAIT:
+      Disabled: [0, "Wait conversion mode off"]
+      Enabled: [1, "Wait conversion mode on"]
+    CONT:
+      Single: [0, "Single conversion mode"]
+      Continuous: [1, "Continuous conversion mode"]
+    OVRMOD:
+      Preserve: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
+      Overwrite: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is detected"]
+    EXTEN:
+      Disabled: [0, "Hardware trigger detection disabled"]
+      RisingEdge: [1, "Hardware trigger detection on the rising edge"]
+      FallingEdge: [2, "Hardware trigger detection on the falling edge"]
+      BothEdges: [3, "Hardware trigger detection on both the rising and falling edges"]
+    EXTSEL:
+      TIM6_TRGO: [0, "Timer 6 TRGO event"]
+      TIM21_CH2: [1, "Timer 21 CH2 event"]
+      TIM2_TRGO: [2, "Timer 2 TRGO event"]
+      TIM2_CH4: [3, "Timer 2 CH4 event"]
+      TIM22_TRGO: [4, "Timer 22 TRGO, Timer 21 TRGO event"]
+      TIM2_CH3: [5, "Timer 2 CH3 event"]
+      TIM3_TRGO: [6, "Timer 3 TRGO event"]
+      EXTI_LINE11: [7, "EXTI line 11 event"]
+    ALIGN:
+      Right: [0, "Right alignment"]
+      Left: [1, "Left alignment"]
+    RES:
+      TwelveBit: [0, "12 bits"]
+      TenBit: [1, "10 bits"]
+      EightBit: [2, "8 bits"]
+      SixBit: [3, "6 bits"]
+    SCANDIR:
+      Upward: [0, "Upward scan (from CHSEL0 to CHSEL18)"]
+      Backward: [1, "Backward scan (from CHSEL18 to CHSEL0)"]
+    DMACFG:
+      OneShot: [0, "DMA one shot mode selected"]
+      Circular: [1, "DMA circular mode selected"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
+  CFGR2:
+    CKMODE:
+      ADCLK: [0, "ADCCLK (Asynchronous clock mode)"]
+      PCLK_Div2: [1, "PCLK/2 (Synchronous clock mode)"]
+      PCLK_Div4: [2, "PCLK/4 (Synchronous clock mode)"]
+      PCLK: [3, "PCLK (Synchronous clock mode)"]
+    TOVS:
+      TriggerAll: [0, "All oversampled conversions for a channel are done consecutively after a trigger"]
+      TriggerEach: [1, "Each oversampled conversion for a channel needs a trigger"]
+    OVSS: [0, 8]
+    OVSR:
+      Mul2: [0, "2x"]
+      Mul4: [1, "4x"]
+      Mul8: [2, "8x"]
+      Mul16: [3, "16x"]
+      Mul32: [4, "32x"]
+      Mul64: [5, "64x"]
+      Mul128: [6, "128x"]
+      Mul256: [7, "256x"]
+    OVSE:
+      Disabled: [0, "Oversampler disabled"]
+      Enabled: [1, "Oversampler enabled"]
+  SMPR:
+    SMP:
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles3_5: [1, "3.5 ADC clock cycles"]
+      Cycles7_5: [2, "7.5 ADC clock cycles"]
+      Cycles12_5: [3, "12.5 ADC clock cycles"]
+      Cycles19_5: [4, "19.5 ADC clock cycles"]
+      Cycles39_5: [5, "39.5 ADC clock cycles"]
+      Cycles79_5: [6, "79.5 ADC clock cycles"]
+      Cycles160_5: [7, "160.5 ADC clock cycles"]
+  TR:
+    HT: [0, 2047]
+    LT: [0, 2047]
+  CHSELR:
+    "CHSEL*":
+      NotSelected: [0, "Input Channel is not selected for conversion"]
+      Selected: [1, "Input Channel is selected for conversion"]
+  DR:
+    DATA: [0, 65535]
+  CALFACT:
+    CALFACT: [0, 127]
+  CCR:
+    LFMEN:
+      Disabled: [0, "Low Frequency Mode disabled"]
+      Enabled: [1, "Low Frequency Mode enabled"]
+    VLCDEN:
+      Disabled: [0, "VLCD reading circuitry disabled"]
+      Enabled: [1, "VLCD reading circuitry enabled"]
+    TSEN:
+      Disabled: [0, "Temperature sensor disabled"]
+      Enabled: [1, "Temperature sensor enabled"]
+    VREFEN:
+      Disabled: [0, "VREFINT disabled"]
+      Enabled: [1, "VREFINT enabled"]
+    PRESC:
+      Div1: [0, "Input ADC clock not divided"]
+      Div2: [1, "Input ADC clock divided by 2"]
+      Div4: [2, "Input ADC clock divided by 4"]
+      Div6: [3, "Input ADC clock divided by 6"]
+      Div8: [4, "Input ADC clock divided by 8"]
+      Div10: [5, "Input ADC clock divided by 10"]
+      Div12: [6, "Input ADC clock divided by 12"]
+      Div16: [7, "Input ADC clock divided by 16"]
+      Div32: [8, "Input ADC clock divided by 32"]
+      Div64: [9, "Input ADC clock divided by 64"]
+      Div128: [10, "Input ADC clock divided by 128"]
+      Div256: [11, "Input ADC clock divided by 256"]
+

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 which svd2rust >/dev/null
 if [ $? -ne 0 ]

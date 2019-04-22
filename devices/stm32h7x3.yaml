@@ -305,6 +305,31 @@ FLASH:
       addressOffset: "0x12C"
       alternateRegister: ""
 
+PWR:
+  _modify:
+    PWR_CR1:
+      name: CR1
+    PWR_CSR1:
+      name: CSR1
+    PWR_CR2:
+      name: CR2
+    PWR_CR3:
+      name: CR3
+    PWR_CPUCR:
+      name: CPUCR
+    PWR_D3CR:
+      name: D3CR
+    PWR_WKUPCR:
+      name: WKUPCR
+    PWR_WKUPEPR:
+      name: WKUPEPR
+
+"SPI*":
+  CR1:
+    _modify:
+      CSTART:
+        access: read-write
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
@@ -316,6 +341,7 @@ _include:
  - common_patches/merge_USART_CR2_ADDx_fields.yaml
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim_basic.yaml

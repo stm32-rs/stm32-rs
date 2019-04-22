@@ -34,7 +34,6 @@ details.
 Then, in your code:
 
 ```rust
-extern crate stm32f4;
 use stm32f4::stm32f405;
 
 let mut peripherals = stm32f405::Peripherals::take().unwrap();
@@ -69,7 +68,7 @@ This project serves two purposes:
   the SVD files.
 
 At present many individual crates exist for specific STM32 devices, typically
-maintained by many seprate users with hand-edited updates to the SVD files.
+maintained by many separate users with hand-edited updates to the SVD files.
 This means that support for less-common STM32s is completely missing, and
 the hand-edited SVDs may be inconsistent with other crates. Plus, it's a huge
 duplication of work, since so many peripherals are the same between devices.
@@ -152,7 +151,7 @@ fields with names ending in 'E' or 'D' it additionally generates sample
 The patch specifications are in YAML and have the following general format:
 
 ```yaml
-# Path to the SVD file we're targetting. Relative to this file.
+# Path to the SVD file we're targeting. Relative to this file.
 # This must be included only in the device YAML file.
 _svd: "../svd/STM32F0x0.svd"
 
@@ -204,7 +203,7 @@ _add:
                 description: ADC global interrupt
                 value: 18
 
-# Reorder the heirarchy of peripherals with 'deriveFrom'.
+# Reorder the hierarchy of peripherals with 'deriveFrom'.
 _rebase:
     # The KEY peripheral steals everything but 'interrupt', 'name',
     # and 'baseAddress' elements from the VALUE peripheral.
@@ -262,6 +261,11 @@ _rebase:
     _delete:
         - GPIO*_EXTRAR
 
+    # If registers have unnecessary common prefix,
+    # you can clean it in all registers in peripheral by:
+    _strip:
+        - PREFIX_
+
     # You can collect several same registers into one register array
     # that will be represented with svd2rust as array or elements
     # with one type
@@ -318,7 +322,7 @@ _rebase:
         # Another field. A list of two numbers gives a range writeConstraint.
         FIELD: [MINIMUM, MAXIMUM]
 
-        # Another field with separate enumuerated values for read and write
+        # Another field with separate enumerated values for read and write
         FIELD:
             _read:
                 VARIANT: [VALUE, DESCRIPTION]

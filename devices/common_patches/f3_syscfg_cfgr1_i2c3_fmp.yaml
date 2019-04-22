@@ -1,0 +1,8 @@
+SYSCFG:
+  CFGR1:
+    _add:
+      I2C3_FMP:
+        description: I2C3 Fast Mode Plus
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write

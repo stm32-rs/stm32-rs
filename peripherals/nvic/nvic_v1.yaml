@@ -1,0 +1,51 @@
+# Nested Vectored Interrupt Controller - Programming Manual PM0215
+
+NVIC:
+  ISER:
+    SETENA: [0, 0xFFFFFFFF]
+  ICER:
+    CLRENA: [0, 0xFFFFFFFF]
+  ISPR:
+    SETPEND: [0, 0xFFFFFFFF]
+  ICPR:
+    CLRPEND: [0, 0xFFFFFFFF]
+  IPR0:
+    PRI_3: [0, 0xFF]
+    PRI_2: [0, 0xFF]
+    PRI_1: [0, 0xFF]
+    PRI_0: [0, 0xFF]
+  IPR1:
+    PRI_7: [0, 0xFF]
+    PRI_6: [0, 0xFF]
+    PRI_5: [0, 0xFF]
+    PRI_4: [0, 0xFF]
+  IPR2:
+    PRI_11: [0, 0xFF]
+    PRI_10: [0, 0xFF]
+    PRI_9: [0, 0xFF]
+    PRI_8: [0, 0xFF]
+  IPR3:
+    PRI_15: [0, 0xFF]
+    PRI_14: [0, 0xFF]
+    PRI_13: [0, 0xFF]
+    PRI_12: [0, 0xFF]
+  IPR4:
+    PRI_19: [0, 0xFF]
+    PRI_18: [0, 0xFF]
+    PRI_17: [0, 0xFF]
+    PRI_16: [0, 0xFF]
+  IPR5:
+    PRI_23: [0, 0xFF]
+    PRI_22: [0, 0xFF]
+    PRI_21: [0, 0xFF]
+    PRI_20: [0, 0xFF]
+  IPR6:
+    PRI_27: [0, 0xFF]
+    PRI_26: [0, 0xFF]
+    PRI_25: [0, 0xFF]
+    PRI_24: [0, 0xFF]
+  IPR7:
+    PRI_31: [0, 0xFF]
+    PRI_30: [0, 0xFF]
+    PRI_29: [0, 0xFF]
+    PRI_28: [0, 0xFF]

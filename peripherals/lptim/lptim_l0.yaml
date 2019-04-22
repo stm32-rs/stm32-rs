@@ -1,0 +1,146 @@
+# Low Power Timers for L0 Family
+
+LPTIM:
+  ISR:
+    DOWN:
+      _read:
+        Set: [1, "Counter direction change up to down"]
+    UP:
+      _read:
+        Set: [1, "Counter direction change down to up"]
+    ARROK:
+      _read:
+        Set: [1, "Autoreload register update OK"]
+    CMPOK:
+      _read:
+        Set: [1, "Compare register update OK"]
+    EXTTRIG:
+      _read:
+        Set: [1, "External trigger edge event"]
+    ARRM:
+      _read:
+        Set: [1, "Autoreload match"]
+    CMPM:
+      _read:
+        Set: [1, "Compare match"]
+  ICR:
+    DOWNCF:
+      _write:
+        Clear: [1, "Direction change to down Clear Flag"]
+    UPCF:
+      _write:
+        Clear: [1, "Direction change to up Clear Flag"]
+    ARROKCF:
+      _write:
+        Clear: [1, "Autoreload register update OK Clear Flag"]
+    CMPOKCF:
+      _write:
+        Clear: [1, "Compare register update OK Clear Flag"]
+    EXTTRIGCF:
+      _write:
+        Clear: [1, "External trigger valid edge Clear Flag"]
+    ARRMCF:
+      _write:
+        Clear: [1, "Autoreload match Clear Flag"]
+    CMPMCF:
+      _write:
+        Clear: [1, "Compare match Clear Flag"]
+  IER:
+    DOWNIE:
+      Disabled: [0, "DOWN interrupt disabled"]
+      Enabled: [1, "DOWN interrupt enabled"]
+    UPIE:
+      Disabled: [0, "UP interrupt disabled"]
+      Enabled: [1, "UP interrupt enabled"]
+    ARROKIE:
+      Disabled: [0, "ARROK interrupt disabled"]
+      Enabled: [1, "ARROK interrupt enabled"]
+    CMPOKIE:
+      Disabled: [0, "CMPOK interrupt disabled"]
+      Enabled: [1, "CMPOK interrupt enabled"]
+    EXTTRIGIE:
+      Disabled: [0, "EXTTRIG interrupt disabled"]
+      Enabled: [1, "EXTTRIG interrupt enabled"]
+    ARRMIE:
+      Disabled: [0, "ARRM interrupt disabled"]
+      Enabled: [1, "ARRM interrupt enabled"]
+    CMPMIE:
+      Disabled: [0, "CMPM interrupt disabled"]
+      Enabled: [1, "CMPM interrupt enabled"]
+  CFGR:
+    ENC:
+      Disabled: [0, "Encoder mode disabled"]
+      Enabled: [1, "Encoder mode enabled"]
+    COUNTMODE:
+      Internal: [0, "The counter is incremented following each internal clock pulse"]
+      External: [1, "The counter is incremented following each valid clock pulse on the LPTIM external Input1"]
+    PRELOAD:
+      Immediate:  [0, "Registers are updated after each APB bus write access"]
+      EndOfPeriod: [1, "Registers are updated at the end of the current LPTIM period"]
+    WAVPOL:
+      Positive: [0, "The LPTIM output reflects the compare results between LPTIM_ARR and LPTIM_CMP registers"]
+      Negative: [1, "The LPTIM output reflects the inverse of the compare results between LPTIM_ARR and LPTIM_CMP registers"]
+    WAVE:
+      Inactive: [0, "Deactivate Set-once mode, PWM / One Pulse waveform (depending on OPMODE bit)"]
+      Active: [1, "Activate the Set-once mode"]
+    TIMOUT:
+      Disabled: [0, "A trigger event arriving when the timer is already started will be ignored"]
+      Enabled: [1, "A trigger event arriving when the timer is already started will reset and restart the counter"]
+    TRIGEN:
+      SW: [0, "Software trigger (counting start is initiated by software)"]
+      RisingEdge: [1, "Rising edge is the active edge"]
+      FallingEdge: [2, "Falling edge is the active edge"]
+      BothEdges: [3, "Both edges are active edges"]
+    TRIGSEL:
+      Trig0: [0, "lptim_ext_trig0"]
+      Trig1: [1, "lptim_ext_trig1"]
+      Trig2: [2, "lptim_ext_trig2"]
+      Trig3: [3, "lptim_ext_trig3"]
+      Trig4: [4, "lptim_ext_trig4"]
+      Trig5: [5, "lptim_ext_trig5"]
+      Trig6: [6, "lptim_ext_trig6"]
+      Trig7: [7, "lptim_ext_trig7"]
+    PRESC:
+      Div1: [0, "/1"]
+      Div2: [1, "/2"]
+      Div4: [2, "/4"]
+      Div8: [3, "/8"]
+      Div16: [4, "/16"]
+      Div32: [5, "/32"]
+      Div64: [6, "/64"]
+      Div128: [7, "/128"]
+    TRGFLT:
+      Immediate: [0, "Any trigger active level change is considered as a valid trigger"]
+      TwoClocks: [1, "Trigger active level change must be stable for at least 2 clock periods before it is considered as valid trigger"]
+      FourClocks: [2, "Trigger active level change must be stable for at least 4 clock periods before it is considered as valid trigger"]
+      EightClocks: [3, "Trigger active level change must be stable for at least 8 clock periods before it is considered as valid trigger"]
+    CKFLT:
+      Immediate: [0, "Any external clock signal level change is considered as a valid transition"]
+      TwoClocks: [1, "External clock signal level change must be stable for at least 2 clock periods before it is considered as valid transition"]
+      FourClocks: [2, "External clock signal level change must be stable for at least 4 clock periods before it is considered as valid transition"]
+      EightClocks: [3, "External clock signal level change must be stable for at least 8 clock periods before it is considered as valid transition"]
+    CKPOL:
+      RisingEdge: [0, "The rising edge is the active edge used for counting. If LPTIM is in encoder mode: Encoder sub-mode 1 is active."]
+      FallingEdge: [1, "The falling edge is the active edge used for counting. If LPTIM is in encoder mode: Encoder sub-mode 2 is active."]
+      BothEdges: [2, "Both edges are active edge. If LPTIM is in encoder mode: Encoder sub-mode 3 is active."]
+    CKSEL:
+      Internal: [0, "LPTIM is clocked by internal clock source (APB clock or any of the embedded oscillators)"]
+      External: [1, "LPTIM is clocked by an external clock source through the LPTIM external Input1"]
+  CR:
+    CNTSTRT:
+      _write:
+        Start: [1, "Timer start in Continuous mode"]
+    SNGSTRT:
+      _write:
+        Start: [1, "LPTIM start in Single mode"]
+    ENABLE:
+        Disabled: [0, "LPTIM is disabled"]
+        Enabled: [1, "LPTIM is enabled"]
+  CMP: 
+    CMP: [0, 0xFFFF]
+  ARR:
+    ARR: [0, 0xFFFF]
+  CNT:
+    _read:
+      CNT: [0, 0xFFFF]
+  

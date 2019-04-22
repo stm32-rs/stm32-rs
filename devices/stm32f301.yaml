@@ -20,15 +20,39 @@ _svd: ../svd/stm32f301.svd
       TIFRFE:
         name: "FRE"
 
+SYSCFG:
+  _delete:
+    - SYSCFG_RCR
+    - SYSCFG_CFGR3
+  CFGR1:
+    _delete:
+      - USB_IT_RMP
+      - DAC_TRIG_RMP
+      - ADC24_DMA_RMP
+      - TIM7_DAC2_DMA_RMP
+  CFGR2:
+    _delete:
+      - LOCUP_LOCK
+      - SRAM_PARITY_LOCK
+      - BYP_ADD_PAR
+      - SRAM_PEF
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_syscfg.yaml
+ - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/f3_opamp2.yaml
+ - ./common_patches/f3_comp246.yaml
+ - ./common_patches/f3_comp2_inp_dac.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/spi/spi_common.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -36,7 +60,11 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tsc/tsc.yaml
+
