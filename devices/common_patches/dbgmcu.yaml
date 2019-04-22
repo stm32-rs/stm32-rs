@@ -1,0 +1,10 @@
+_include:
+ - dbgmcu_rename.yaml
+
+DBGMCU:
+  _strip:
+    - DBGMCU_
+  APB1_FZ:
+    _modify:
+      DBG_IWDEG_STOP:
+        name: DBG_IWDG_STOP

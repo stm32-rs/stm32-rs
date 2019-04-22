@@ -1,0 +1,163 @@
+_add:
+  DBGMCU:
+    description: Debug support
+    baseAddress: 0xE0042000
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+    registers:
+      IDCODE:
+        description: IDCODE
+        addressOffset: 0x0
+        size: 0x20
+        access: read-only
+        fields:
+          DEV_ID:
+            description: DEV_ID
+            bitOffset: 0
+            bitWidth: 12
+          REV_ID:
+            description: REV_ID
+            bitOffset: 16
+            bitWidth: 16
+      CR:
+        description: Control Register
+        addressOffset: 0x4
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          DBG_SLEEP:
+            description: DBG_SLEEP
+            bitOffset: 0
+            bitWidth: 1
+          DBG_STOP:
+            description: DBG_STOP
+            bitOffset: 1
+            bitWidth: 1
+          DBG_STANDBY:
+            description: DBG_STANDBY
+            bitOffset: 2
+            bitWidth: 1
+          TRACE_IOEN:
+            description: TRACE_IOEN
+            bitOffset: 5
+            bitWidth: 1
+          TRACE_MODE:
+            description: TRACE_MODE
+            bitOffset: 6
+            bitWidth: 2
+      APB1_FZ:
+        description: Debug MCU APB1 Freeze register
+        addressOffset: 0x8
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          DBG_TIM2_STOP:
+            description: DBG_TIM2_STOP
+            bitOffset: 0
+            bitWidth: 1
+          DBG_TIM3_STOP:
+            description: DBG_TIM3_STOP
+            bitOffset: 1
+            bitWidth: 1
+          DBG_TIM4_STOP:
+            description: DBG_TIM4_STOP
+            bitOffset: 2
+            bitWidth: 1
+          DBG_TIM5_STOP:
+            description: DBG_TIM5_STOP
+            bitOffset: 3
+            bitWidth: 1
+          DBG_TIM6_STOP:
+            description: DBG_TIM6_STOP
+            bitOffset: 4
+            bitWidth: 1
+          DBG_TIM7_STOP:
+            description: DBG_TIM7_STOP
+            bitOffset: 5
+            bitWidth: 1
+          DBG_TIM12_STOP:
+            description: DBG_TIM12_STOP
+            bitOffset: 6
+            bitWidth: 1
+          DBG_TIM13_STOP:
+            description: DBG_TIM13_STOP
+            bitOffset: 7
+            bitWidth: 1
+          DBG_TIM14_STOP:
+            description: DBG_TIM14_STOP
+            bitOffset: 8
+            bitWidth: 1
+          DBG_LPTIM1_STOP:
+            description: DBG_LPTIM1_STOP
+            bitOffset: 9
+            bitWidth: 1
+          DBG_RTC_STOP:
+            description: DBG_RTC_STOP
+            bitOffset: 10
+            bitWidth: 1
+          DBG_WWDG_STOP:
+            description: DBG_WWDG_STOP
+            bitOffset: 11
+            bitWidth: 1
+          DBG_IWDG_STOP:
+            description: DBG_IWDG_STOP
+            bitOffset: 12
+            bitWidth: 1
+          DBG_CAN3_STOP:
+            description: DBG_CAN3_STOP
+            bitOffset: 13
+            bitWidth: 1
+          DBG_I2C1_SMBUS_TIMEOUT:
+            description: DBG_I2C1_SMBUS_TIMEOUT
+            bitOffset: 21
+            bitWidth: 1
+          DBG_I2C2_SMBUS_TIMEOUT:
+            description: DBG_I2C2_SMBUS_TIMEOUT
+            bitOffset: 22
+            bitWidth: 1
+          DBG_I2C3_SMBUS_TIMEOUT:
+            description: DBG_I2C3_SMBUS_TIMEOUT
+            bitOffset: 23
+            bitWidth: 1
+          DBG_I2C4_SMBUS_TIMEOUT:
+            description: DBG_I2C4SMBUS_TIMEOUT
+            bitOffset: 24
+            bitWidth: 1
+          DBG_CAN1_STOP:
+            description: DBG_CAN1_STOP
+            bitOffset: 25
+            bitWidth: 1
+          DBG_CAN2_STOP:
+            description: DBG_CAN2_STOP
+            bitOffset: 26
+            bitWidth: 1
+      APB2_FZ:
+        description: Debug MCU APB2 Freeze register
+        addressOffset: 0xC
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          DBG_TIM1_STOP:
+            description: TIM1 counter stopped when core is halted
+            bitOffset: 0
+            bitWidth: 1
+          DBG_TIM8_STOP:
+            description: TIM8 counter stopped when core is halted
+            bitOffset: 1
+            bitWidth: 1
+          DBG_TIM9_STOP:
+            description: TIM9 counter stopped when core is halted
+            bitOffset: 16
+            bitWidth: 1
+          DBG_TIM10_STOP:
+            description: TIM10 counter stopped when core is halted
+            bitOffset: 17
+            bitWidth: 1
+          DBG_TIM11_STOP:
+            description: TIM11 counter stopped when core is halted
+            bitOffset: 18
+            bitWidth: 1
