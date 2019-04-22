@@ -330,6 +330,42 @@ PWR:
       CSTART:
         access: read-write
 
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_STR0:
+        value: 11
+        description: DMA1 Stream0
+      DMA1_STR1:
+        value: 12
+        description: DMA1 Stream1
+      DMA1_STR2:
+        value: 13
+        description: DMA1 Stream2
+      DMA1_STR3:
+        value: 14
+        description: DMA1 Stream3
+      DMA1_STR4:
+        value: 15
+        description: DMA1 Stream4
+      DMA1_STR5:
+        value: 16
+        description: DMA1 Stream5
+      DMA1_STR6:
+        value: 17
+        description: DMA1 Stream6
+      # DMA1_STR7 is correct
+
+"DMAMUX*":
+  _strip:
+    - DMAMUX1_
+    - DMAMUX2_
+  _array:
+    "C*CR":
+      name: "CCR%s"
+    "RG*CR":
+      name: "RGCR%s"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
