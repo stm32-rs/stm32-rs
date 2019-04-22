@@ -118,3 +118,23 @@ RCC:
     "*RDY":
       NotReady: [0, "Oscillator not ready"]
       Ready: [1, "Oscillator ready"]
+  IOPSMEN:
+    "IOP?SMEN":
+      Disabled: [0, "Port x clock is disabled in Sleep mode"]
+      Enabled: [1, "Port x clock is enabled in Sleep mode (if enabled by IOPHEN)"]
+  AHBSMENR:
+    CRYPSMEN:
+      Disabled: [0, "Crypto clock disabled in Sleep mode"]
+      Enabled: [1, "Crypto clock enabled in Sleep mode"]
+    CRCSMEN:
+      Disabled: [0, "Test integration module clock disabled in Sleep mode"]
+      Enabled: [1, "Test integration module clock enabled in Sleep mode (if enabled by CRCEN)"]
+    SRAMSMEN:
+      Disabled: [0, "NVM interface clock disabled in Sleep mode"]
+      Enabled: [1, "NVM interface clock enabled in Sleep mode"]
+    MIFSMEN:
+      Disabled: [0, "NVM interface clock disabled in Sleep mode"]
+      Enabled: [1, "NVM interface clock enabled in Sleep mode"]
+    DMASMEN:
+      Disabled: [0, "DMA clock disabled in Sleep mode"]
+      Enabled: [1, "DMA clock enabled in Sleep mode"]

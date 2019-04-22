@@ -1,0 +1,70 @@
+# Fix Timers for L0 Flash
+"TIM[23]":
+  _delete:
+    - CNT
+    - ARR
+    - CCR1
+    - CCR2
+    - CCR3
+    - CCR4
+  _add:
+    CNT:
+      description: TIMx counter
+      addressOffset: 0x24
+      size: 16
+      resetValue: 0x0000
+      fields:
+        CNT:
+          description: Low counter value
+          bitOffset: 0
+          bitWidth: 16      
+    ARR:
+      description: TIMx auto-reload register
+      addressOffset: 0x2C
+      size: 16
+      resetValue: 0xFFFF
+      fields:
+        ARR:
+          description: Low Auto-reload value
+          bitOffset: 0
+          bitWidth: 16
+    CCR1:
+      description: TIMx capture/compare register 1
+      addressOffset: 0x34
+      size: 16
+      resetValue: 0x0000
+      fields:
+        CCR1:
+          description: Low Capture/Compare 1 value
+          bitOffset: 0
+          bitWidth: 16
+    CCR2:
+      description: TIMx capture/compare register 2
+      addressOffset: 0x38
+      size: 16
+      resetValue: 0x00000000
+      fields:
+        CCR2:
+          description: Low Capture/Compare 2 value
+          bitOffset: 0
+          bitWidth: 16
+    CCR3:
+      description: TIMx capture/compare register 3
+      addressOffset: 0x3C
+      size: 16
+      resetValue: 0x00000000
+      fields:
+        CCR3:
+          description: Low Capture/Compare 3 value
+          bitOffset: 0
+          bitWidth: 16
+    CCR4:
+      description: TIMx capture/compare register 4
+      addressOffset: 0x40
+      size: 16
+      resetValue: 0x00000000
+      fields:
+        CCR4:
+          description: Low Capture/Compare 4 value
+          bitOffset: 0
+          bitWidth: 16

@@ -65,6 +65,11 @@ CRC:
       Polynomialcoefficients:
         name: POL
 
+DBG:
+  _modify:
+    DBG_APB2_FZ:
+      name: APB2_FZ
+
 FLASH:
   _modify:
     OBR:
@@ -132,6 +137,12 @@ RCC:
     _modify:
       LPWRSTF:
         name: LPWRRSTF
+    _delete:
+      - LSIIWDGLP
+  AHBSMENR:
+    _modify:
+      CRYPTSMEN:
+        name: CRYPSMEN
 
 WWDG:
   _modify:
@@ -147,6 +158,7 @@ _include:
  - ./common_patches/l0_pwr_mode.yaml
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_rtc.yaml
+ - ./common_patches/l0_tim.yaml
  - ./common_patches/l0_syscfg_cfgr.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
@@ -164,6 +176,7 @@ _include:
  - ../peripherals/adc/adc_l0.yaml
  - ../peripherals/aes/aes_l0.yaml
  - ../peripherals/crc/crc_l0.yaml
+ - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/exti/exti_l0.yaml
  - ../peripherals/flash/flash_l0.yaml
@@ -178,7 +191,7 @@ _include:
  - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim21.yaml
- - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/tim/tim2_16bit.yaml
  - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml

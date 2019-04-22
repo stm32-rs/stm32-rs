@@ -1,8 +1,7 @@
-# TIM2 and TIM3 registers specific to the L0 Family (and possibly others)
+# TIM2, TIM3, TIM21 registers specific to the L0 Family (and possibly others)
 
 "TIM[23]":
   CCMR1_Input:
-    IC2F: [0, 15]
     IC2PSC: [0, 3]
     IC1PSC:
       NoPrescaler: [0, "no prescaler, capture is done each time an edge is detected on the capture input"]
@@ -31,3 +30,8 @@
       LSE: [5, "TIM2 ETR input is connected to LSE"]
       HSI: [3, "TIM2 ETR input is connected to HSI16 when HSI16OUTEN bit is set"]
 
+"TIM21":
+  OR:
+    TI2_RMP:
+      GPIO: [0, "TIM2x TI2 input connected to GPIO"]
+      COMP2_OUT: [1, "TIM2x TI2 input connected to COMP2_OUT"] 
