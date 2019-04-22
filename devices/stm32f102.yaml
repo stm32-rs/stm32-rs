@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f102.svd
 
+_rebase:
+  UART4: UART5
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -50,6 +53,15 @@ RCC:
         bitOffset: 14
         bitWidth: 1
 
+_add:
+  USART3:
+    derivedFrom: USART1
+    baseAddress: "0x40004800"
+    interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -73,6 +85,9 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/usart/uart_common.yaml
+ - ../peripherals/usart/uart_uart.yaml
+ - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/rcc/rcc_f1.yaml
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml

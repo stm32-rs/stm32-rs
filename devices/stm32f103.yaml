@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f103.svd
 
+_derive:
+  UART5: UART4
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -55,6 +58,9 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/usart/uart_common.yaml
+ - ../peripherals/usart/uart_uart.yaml
+ - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/rcc/rcc_f1.yaml
  - ../peripherals/rcc/rcc_f1_usb.yaml
  - common_patches/dma/dma_v1.yaml

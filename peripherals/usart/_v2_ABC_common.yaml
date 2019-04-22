@@ -60,10 +60,10 @@ CR2:
     Standard: [0, "TX/RX pins are used as defined in standard pinout"]
     Swapped: [1, "The TX and RX pins functions are swapped"]
   STOP:
-    Bit1: [0, "1 stop bit"]
-    Bit0_5: [1, "0.5 stop bit"]
-    Bit2: [2, "2 stop bit"]
-    Bit1_5: [3, "1.5 stop bit"]
+    Stop1: [0, "1 stop bit"]
+    Stop0p5: [1, "0.5 stop bit"]
+    Stop2: [2, "2 stop bit"]
+    Stop1p5: [3, "1.5 stop bit"]
   CLKEN:
     Disabled: [0, "CK pin disabled"]
     Enabled: [1, "CK pin enabled"]
