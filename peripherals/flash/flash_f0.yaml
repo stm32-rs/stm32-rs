@@ -69,8 +69,8 @@
     FAR: [0, 0xFFFFFFFF]
 
   OBR:
-    Data1: [0, 0xFFFF]
-    Data0: [0, 0xFFFF]
+    Data1: [0, 0xFF]
+    Data0: [0, 0xFF]
     RAM_PARITY_CHECK:
       Disabled: [1, "RAM parity check disabled"]
       Enabled: [0, "RAM parity check enabled"]
