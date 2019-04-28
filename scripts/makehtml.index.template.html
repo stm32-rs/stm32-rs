@@ -30,7 +30,8 @@
   <div class=row>
     <div class=col-sm-4>
       <div>
-        <a href="{{ device.name }}.html"><strong>{{ device.name }}</strong></a>:
+        <a href="{{ device.name }}.html"><strong>{{ device.name }}</strong></a>
+        <a href="{{ device.name|lower }}.svd.patched">(svd)</a>:
         {{ device.fields_documented }}/{{ device.fields_total }} fields
         documented
       </div>
