@@ -1,7 +1,7 @@
 """
 svdpatch.py
 
-Copyright 2017 Adam Greig.
+Copyright 2017-2019 Adam Greig.
 Licensed under the MIT and Apache 2.0 licenses. See LICENSE files for details.
 """
 
@@ -28,7 +28,7 @@ def dict_constructor(loader, node):
 
 
 _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
-yaml.add_constructor(_mapping_tag, dict_constructor)
+yaml.add_constructor(_mapping_tag, dict_constructor, yaml.SafeLoader)
 
 
 def parseargs():
@@ -77,7 +77,7 @@ def yaml_includes(parent):
         if path in included:
             continue
         with open(path) as f:
-            child = yaml.load(f)
+            child = yaml.safe_load(f)
         child["_path"] = path
         included.append(path)
         # Process any peripheral-level includes in child
@@ -764,7 +764,7 @@ def main():
     # Load the specified YAML root file
     args = parseargs()
     with open(args.yaml) as f:
-        root = yaml.load(f)
+        root = yaml.safe_load(f)
         root["_path"] = args.yaml
 
     # Load the specified SVD file
