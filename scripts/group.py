@@ -22,7 +22,7 @@ def main(devices, output):
     for device_path in tqdm(glob.glob(os.path.join(devices, "*.yaml"))):
         device_name = os.path.splitext(os.path.basename(device_path))[0]
         with open(device_path) as f:
-            device = yaml.load(f)
+            device = yaml.safe_load(f)
             device["_path"] = device_path
         if "_svd" not in device:
             raise RuntimeError("You must have an _svd key in the YAML file")
