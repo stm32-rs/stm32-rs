@@ -5,6 +5,11 @@ rust:
 
 cache: cargo
 
+addons:
+  apt:
+    packages:
+      - python3-pip
+
 env:
   global:
     - SVD2RUST=0.14.0
