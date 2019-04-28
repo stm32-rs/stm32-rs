@@ -7,6 +7,7 @@ Generates a webpage for a given SVD file containing details on every
 peripheral and register and their level of coverage.
 """
 
+import shutil
 import os.path
 import argparse
 import multiprocessing
@@ -26,8 +27,12 @@ def generate_device_page(device):
     template = env.get_template('makehtml.template.html')
     return template.render(device=device)
 
+
 def short_access(accs):
-    return {"read-write": "rw", "read-only" : "r", "write-only" :"w"}.get(accs, "N/A")
+    return {
+        "read-write": "rw", "read-only": "r", "write-only": "w"
+    }.get(accs, "N/A")
+
 
 def parse_device(svdfile):
     tree = ET.parse(svdfile)
@@ -127,7 +132,8 @@ def parse_device(svdfile):
             # Bodge to prevent /0 when there are no fields in a register
             if register_fields_total == 0:
                 register_fields_total = 1
-            registers[roffset] = {"name": rname, "offset": "0x{:X}".format(roffset),
+            registers[roffset] = {"name": rname,
+                                  "offset": "0x{:X}".format(roffset),
                                   "description": rdesc, "resetValue": rrstv,
                                   "access": raccs, "fields": fields,
                                   "table": table,
@@ -146,7 +152,7 @@ def parse_device(svdfile):
     return {"name": dname, "peripherals": peripherals,
             "fields_total": device_fields_total,
             "fields_documented": device_fields_documented,
-            "last-modified": temp}
+            "last-modified": temp, "svdfile": svdfile}
 
 
 def process_svd(svdfile):
@@ -164,6 +170,7 @@ def generate_if_newer(device):
         print("Generating", pagename)
         with open(filename, "w") as f:
             f.write(page)
+        shutil.copy(device["svdfile"], args.htmldir)
 
 
 if __name__ == "__main__":
@@ -173,8 +180,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     devices = {}
     with multiprocessing.Pool() as p:
-         devices = p.map(process_svd, args.svdfiles)
-         p.map(generate_if_newer, devices)
+        devices = p.map(process_svd, args.svdfiles)
+        p.map(generate_if_newer, devices)
     devices = {d['name']: d for d in devices}
     index_page = generate_index_page(devices)
     with open(os.path.join(args.htmldir, "index.html"), "w") as f:
