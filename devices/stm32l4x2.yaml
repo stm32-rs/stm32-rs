@@ -30,6 +30,17 @@ USB:
         description: USB event interrupt through EXTI
         value: 67
 
+USB:
+  # This register is later transformed into EP%sR for the array
+  EP0R:
+    EA: [0, 15]
+    EP_TYPE:
+      BULK: [0, "This endpoint is a bulk endpoint"]
+      CONTROL: [1, "This endpoint is a control endpoint"]
+      ISO: [2, "This endpoint is an isochronous endpoint"]
+      INTERRUPT: [3, "This endpoint is an interrupt endpoint"]
+
+
 _delete:
   - USB_FS
 
@@ -77,4 +88,4 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
  - common_patches/tim/tim_ccr.yaml
-
+ - ../peripherals/usb/usb_array.yaml
