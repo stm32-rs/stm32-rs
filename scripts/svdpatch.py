@@ -28,7 +28,7 @@ def dict_constructor(loader, node):
 
 
 _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
-yaml.add_constructor(_mapping_tag, dict_constructor)
+yaml.add_constructor(_mapping_tag, dict_constructor, yaml.SafeLoader)
 
 
 def parseargs():
