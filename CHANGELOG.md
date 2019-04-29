@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+Family-specific:
+* F469: Renamed 48MSEL to CK48MSEL to avoid leading numerals
+* L0: Renamed 1_8V constants to V1_8 (etc) to avoid leading numerals
+
+Common:
+* Updated svdpatch.py to prohibit enumerated values with leading numerals
+
 ## [v0.7.0] 2019-04-22
 
 Family-specific:
