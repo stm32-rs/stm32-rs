@@ -8,6 +8,7 @@ cache: cargo
 addons:
   apt:
     packages:
+      - python3-setuptools
       - python3-pip
 
 env:
