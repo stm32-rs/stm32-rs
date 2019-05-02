@@ -8,7 +8,6 @@ cache: cargo
 addons:
   apt:
     packages:
-      - python3-setuptools
       - python3-pip
       - python3-dev
 
@@ -29,6 +28,7 @@ env:
     - CRATES=stm32g0
 
 install:
+  - pip3 install --user setuptools wheel
   - pip3 install --user pyyaml
   - scripts/svd2rust_install.sh $SVD2RUST
   - rustup component add rustfmt
