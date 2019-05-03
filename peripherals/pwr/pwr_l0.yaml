@@ -14,9 +14,9 @@ PWR:
       NVMWakeUp: [0, "NVM woken up when exiting from Deepsleep mode even if the bit RUN_PD is set"]
       NVMSleep: [1, "NVM not woken up when exiting from low-power mode (if the bit RUN_PD is set)"]
     VOS:
-      1_8V: [1, "1.8 V (range 1)"]
-      1_5V: [2, "1.5 V (range 2)"]
-      1_2V: [3, "1.2 V (range 3)"]
+      V1_8: [1, "1.8 V (range 1)"]
+      V1_5: [2, "1.5 V (range 2)"]
+      V1_2: [3, "1.2 V (range 3)"]
     FWU:
       Disabled: [0, "Low-power modes exit occurs only when VREFINT is ready"]
       Enabled: [1, "VREFINT start up time is ignored when exiting low-power modes"]
@@ -27,13 +27,13 @@ PWR:
       Disabled: [0, "Access to RTC, RTC Backup and RCC CSR registers disabled"]
       Enabled: [1, "Access to RTC, RTC Backup and RCC CSR registers enabled"]
     PLS:
-      1_9V: [0, "1.9 V"]
-      2_1V: [1, "2.1 V"]
-      2_3V: [2, "2.3 V"]
-      2_5V: [3, "2.5 V"]
-      2_7V: [4, "2.7 V"]
-      2_9V: [5, "2.9 V"]
-      3_1V: [6, "3.1 V"]
+      V1_9: [0, "1.9 V"]
+      V2_1: [1, "2.1 V"]
+      V2_3: [2, "2.3 V"]
+      V2_5: [3, "2.5 V"]
+      V2_7: [4, "2.7 V"]
+      V2_9: [5, "2.9 V"]
+      V3_1: [6, "3.1 V"]
       External: [7, "External input analog voltage (Compare internally to VREFINT)"]
     PVDE:
       Disabled: [0, "PVD Disabled"]
