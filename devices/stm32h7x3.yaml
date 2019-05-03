@@ -311,6 +311,12 @@ DMA1:
     "RG*CR":
       name: "RGCR%s"
 
+Ethernet_DMA:
+  DMAMR:
+    _modify:
+      INTM:
+        bitWidth: 2
+
 COMP1:
   _strip:
     - COMP1_
