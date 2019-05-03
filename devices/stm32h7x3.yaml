@@ -274,6 +274,10 @@ PWR:
   _modify:
     CGFR:
       name: I2SCFGR
+  CFG1:
+    _modify:
+      FTHVL:
+        name: FTHLV
 
 DMA1:
   _add:
