@@ -321,6 +321,97 @@ Ethernet_DMA:
       INTM:
         bitWidth: 2
 
+RCC:
+  _modify:
+    CIFR:
+      access: read-only
+  CR:
+    _modify:
+      RC48ON:
+        name: HSI48ON
+      RC48RDY:
+        name: HSI48RDY
+  CRRCR:
+    _modify:
+      RC48CAL:
+        name: HSI48CAL
+  CFGR:
+    _modify:
+      MCO1SEL:
+        name: MCO1
+      MCO2SEL:
+        name: MCO2
+  CIER:
+    _modify:
+      RC48RDYIE:
+        name: HSI48RDYIE
+  CIFR:
+    _modify:
+      RC48RDYF:
+        name: HSI48RDYF
+  CICR:
+    _modify:
+      RC48RDYC:
+        name: HSI48RDYC
+  BDCR:
+    _modify:
+      VSWRST:
+        name: BDRST
+      RTCSRC:
+        name: RTCSEL
+  APB1LRSTR:
+    _modify:
+      HDMICECRST:
+        name: CECRST
+  D3AMR:
+    _modify:
+      BKPSRAMAMEN:
+        name: BKPRAMAMEN
+  APB1LENR,C1_APB1LENR:
+    _modify:
+      HDMICECEN:
+        name: CECEN
+  AHB1ENR,C1_AHB1ENR:
+    _modify:
+      USB1OTGEN:
+        name: USB1OTGHSEN
+      USB2OTGEN:
+        name: USB2OTGHSEN
+      USB1ULPIEN:
+        name: USB1OTGHSULPIEN
+      USB2ULPIEN:
+        name: USB2OTGHSULPIEN
+        bitOffset: 18
+  AHB2ENR,C1_AHB2ENR:
+    _modify:
+      CAMITFEN:
+        name: DCMIEN
+        description: "DCMI peripheral clock"
+  APB1LLPENR,C1_APB1LLPENR:
+    _modify:
+      HDMICECLPEN:
+        name: CECLPEN
+  AHB1LPENR,C1_AHB1LPENR:
+    _modify:
+      USB1OTGLPEN:
+        name: USB1OTGHSLPEN
+      USB2OTGLPEN:
+        name: USB2OTGHSLPEN
+      USB1ULPILPEN:
+        name: USB1OTGHSULPILPEN
+      USB2ULPILPEN:
+        name: USB2OTGHSULPILPEN
+  AHB2LPENR,C1_AHB2LPENR:
+    _modify:
+      CAMITFLPEN:
+        name: DCMILPEN
+        description: "DCMI peripheral clock enable during csleep mode"
+  AHB3LPENR,C1_AHB3LPENR:
+    _modify:
+      FLITFLPEN:
+        name: FLASHPREN
+        description: "Flash interface clock enable during csleep mode"
+
 COMP1:
   _strip:
     - COMP1_
@@ -406,6 +497,7 @@ _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/h7_ethernet.yaml
+ - common_patches/h7_rcc_src_sel.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - common_patches/merge_USART_CR1_DEATx_fields.yaml
  - common_patches/merge_USART_CR1_DEDTx_fields.yaml
@@ -416,6 +508,8 @@ _include:
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/gpio/gpio_v2.yaml
+ - ../peripherals/rcc/rcc_h7.yaml
+ - ../peripherals/rcc/rcc_h7_revision_y.yaml
  - ../peripherals/spi/spi_v3.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml

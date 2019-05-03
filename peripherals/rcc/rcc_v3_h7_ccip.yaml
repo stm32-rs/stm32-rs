@@ -1,0 +1,150 @@
+# Applicable at least to H7
+
+# Domain kernel clock configuration registers (DxCCIPR) and Domain
+# clock configuration registers (DxCFGR)
+
+RCC:
+  D1CFGR:
+    "D?CPRE,HPRE":
+      Div1: [0, "sys_ck not divided"]
+      Div2: [8, "sys_ck divided by 2"]
+      Div4: [9, "sys_ck divided by 4"]
+      Div8: [10, "sys_ck divided by 8"]
+      Div16: [11, "sys_ck divided by 16"]
+      Div64: [12, "sys_ck divided by 64"]
+      Div128: [13, "sys_ck divided by 128"]
+      Div256: [14, "sys_ck divided by 256"]
+      Div512: [15, "sys_ck divided by 512"]
+  D?CFGR:
+    D?PPR*:
+      Div1: [0, "rcc_hclk not divided"]
+      Div2: [4, "rcc_hclk divided by 2"]
+      Div4: [5, "rcc_hclk divided by 4"]
+      Div8: [6, "rcc_hclk divided by 8"]
+      Div16: [7, "rcc_hclk divided by 16"]
+  D1CCIPR:
+    CKPERSEL:
+      HSI: [0, "HSI selected as peripheral clock"]
+      CSI: [1, "CSI selected as peripheral clock"]
+      HSE: [2, "HSE selected as peripheral clock"]
+    SDMMCSEL:
+      PLL1_Q: [0, "pll1_q selected as peripheral clock"]
+      PLL2_R: [1, "pll2_r selected as peripheral clock"]
+    QSPISEL,FMCSEL:
+      RCC_HCLK3: [0, "rcc_hclk3 selected as peripheral clock"]
+      PLL1_Q: [1, "pll1_q selected as peripheral clock"]
+      PLL2_R: [2, "pll2_r selected as peripheral clock"]
+      PER: [3, "PER selected as peripheral clock"]
+  D2CCIP1R:
+    SWPSEL:
+      PCLK: [0, "pclk selected as peripheral clock"]
+      HSI_KER: [1, "hsi_ker selected as peripheral clock"]
+    FDCANSEL:
+      HSE: [0, "HSE selected as peripheral clock"]
+      PLL1_Q: [1, "pll1_q selected as peripheral clock"]
+      PLL2_Q: [2, "pll2_q selected as peripheral clock"]
+    DFSDM1SEL:
+      RCC_PCLK2: [0, "rcc_pclk2 selected as peripheral clock"]
+      SYS: [1, "System clock selected as peripheral clock"]
+    SPDIFSEL:
+      PLL1_Q: [0, "pll1_q selected as peripheral clock"]
+      PLL2_R: [1, "pll2_r selected as peripheral clock"]
+      PLL3_R: [2, "pll3_r selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+    SPI45SEL:
+      APB: [0, "APB clock selected as peripheral clock"]
+      PLL2_Q: [1, "pll2_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [4, "csi_ker selected as peripheral clock"]
+      HSE: [5, "HSE selected as peripheral clock"]
+    SPI123SEL,SAI23SEL,SAI1SEL:
+      PLL1_Q: [0, "pll1_q selected as peripheral clock"]
+      PLL2_P: [1, "pll2_p selected as peripheral clock"]
+      PLL3_P: [2, "pll3_p selected as peripheral clock"]
+      I2S_CKIN: [3, "I2S_CKIN selected as peripheral clock"]
+      PER: [4, "PER selected as peripheral clock"]
+  D2CCIP2R:
+    LPTIM1SEL:
+      RCC_PCLK1: [0, "rcc_pclk1 selected as peripheral clock"]
+      PLL2_P: [1, "pll2_p selected as peripheral clock"]
+      PLL3_R: [2, "pll3_r selected as peripheral clock"]
+      LSE: [3, "LSE selected as peripheral clock"]
+      LSI: [4, "LSI selected as peripheral clock"]
+      PER: [5, "PER selected as peripheral clock"]
+    CECSEL:
+      LSE: [0, "LSE selected as peripheral clock"]
+      LSI: [1, "LSI selected as peripheral clock"]
+      CSI_KER: [2, "csi_ker selected as peripheral clock"]
+    USBSEL:
+      DISABLE: [0, "Disable the kernel clock"]
+      PLL1_Q: [1, "pll1_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI48: [3, "HSI48 selected as peripheral clock"]
+    I2C123SEL:
+      RCC_PCLK1: [0, "rcc_pclk1 selected as peripheral clock"]
+      PLL3_R: [1, "pll3_r selected as peripheral clock"]
+      HSI_KER: [2, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [3, "csi_ker selected as peripheral clock"]
+    RNGSEL:
+      HSI8: [0, "hsi8 selected as peripheral clock"]
+      PLL1_Q: [1, "pll1_q selected as peripheral clock"]
+      LSE: [2, "LSE selected as peripheral clock"]
+      LSI: [3, "LSI selected as peripheral clock"]
+    USART16SEL:
+      RCC_PCLK2: [0, "rcc_pclk2 selected as peripheral clock"]
+      PLL2_Q: [1, "pll2_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [4, "csi_ker selected as peripheral clock"]
+      LSE: [5, "LSE selected as peripheral clock"]
+    USART234578SEL:
+      RCC_PCLK1: [0, "rcc_pclk1 selected as peripheral clock"]
+      PLL2_Q: [1, "pll2_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [4, "csi_ker selected as peripheral clock"]
+      LSE: [5, "LSE selected as peripheral clock"]
+  D3CCIPR:
+    SPI6SEL:
+      RCC_PCLK4: [0, "rcc_pclk4 selected as peripheral clock"]
+      PLL2_Q: [1, "pll2_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [4, "csi_ker selected as peripheral clock"]
+      HSE: [5, "HSE selected as peripheral clock"]
+    SAI4BSEL:
+      PLL1_Q: [0, "pll1_q selected as peripheral clock"]
+      PLL2_P: [1, "pll2_p selected as peripheral clock"]
+      PLL3_P: [2, "pll3_p selected as peripheral clock"]
+      I2S_CKIN: [3, "i2s_ckin selected as peripheral clock"]
+      PER: [4, "PER selected as peripheral clock"]
+    SAI4ASEL:
+      PLL1_Q: [0, "pll1_q selected as peripheral clock"]
+      PLL2_P: [1, "pll2_p selected as peripheral clock"]
+      PLL3_P: [2, "pll3_p selected as peripheral clock"]
+      I2S_CKIN: [3, "i2s_ckin selected as peripheral clock"]
+      PER: [4, "PER selected as peripheral clock"]
+    ADCSEL:
+      PLL2_P: [0, "pll2_p selected as peripheral clock"]
+      PLL3_R: [1, "pll3_r selected as peripheral clock"]
+      PER: [2, "PER selected as peripheral clock"]
+    LPTIM345SEL,LPTIM2SEL:
+      RCC_PCLK4: [0, "rcc_pclk4 selected as peripheral clock"]
+      PLL2_P: [1, "pll2_p selected as peripheral clock"]
+      PLL3_R: [2, "pll3_r selected as peripheral clock"]
+      LSE: [3, "LSE selected as peripheral clock"]
+      LSI: [4, "LSI selected as peripheral clock"]
+      PER: [5, "PER selected as peripheral clock"]
+    I2C4SEL:
+      RCC_PCLK4: [0, "rcc_pclk4 selected as peripheral clock"]
+      PLL3_R: [1, "pll3_r selected as peripheral clock"]
+      HSI_KER: [2, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [3, "csi_ker selected as peripheral clock"]
+    LPUART1SEL:
+      RCC_PCLK_D3: [0, "rcc_pclk_d3 selected as peripheral clock"]
+      PLL2_Q: [1, "pll2_q selected as peripheral clock"]
+      PLL3_Q: [2, "pll3_q selected as peripheral clock"]
+      HSI_KER: [3, "hsi_ker selected as peripheral clock"]
+      CSI_KER: [4, "csi_ker selected as peripheral clock"]
+      LSE: [5, "LSE selected as peripheral clock"]
