@@ -220,30 +220,12 @@ _modify:
       AFSEL15:
         name: AFR15
 
-# Make IWDG register consitant
-IWDG:
-  _strip:
-    - IWDG_
-
-"I2C*":
-  _strip:
-    - I2C_
-
-WWDG:
-  _modify:
-    WWDG_CR:
-      name: CR
-    WWDG_CFR:
-      name: CFR
-    WWDG_SR:
-      name: SR
-
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
   "K[0123][LR]R":
     _merge:
-      - "b*"
+      - "K*"
   "IV[01][LR]R":
     _merge:
       - "IV*"
@@ -253,10 +235,6 @@ FLASH:
     PRAR_PRG2:
       addressOffset: "0x12C"
       alternateRegister: ""
-
-PWR:
-  _strip:
-    - PWR_
 
 "SPI*":
   CR1:
@@ -306,9 +284,6 @@ DMA1:
       # DMA1_STR7 is correct
 
 "DMAMUX*":
-  _strip:
-    - DMAMUX1_
-    - DMAMUX2_
   _array:
     "C*CR":
       name: "CCR%s"
@@ -321,53 +296,13 @@ Ethernet_DMA:
       INTM:
         bitWidth: 2
 
-COMP1:
-  _strip:
-    - COMP1_
-
-CRS:
-  _strip:
-    - CRS_
-
-DAC:
-  _strip:
-    - DAC_
-
-BDMA:
-  _strip:
-    - BDMA_
-
-DMA2D:
-  _strip:
-    - DMA2D_
-
-FMC:
-  _strip:
-    - FMC_
-
-CEC:
-  _strip:
-    - CEC_
-
 HSEM:
   _strip:
     - HSEM_
 
-JPEG:
-  _strip:
-    - JPEG_
-
 MDMA:
   _strip:
     - MDMA_
-
-QUADSPI:
-  _strip:
-    - QUADSPI_
-
-RNG:
-  _strip:
-    - RNG_
 
 RTC:
   _strip:
@@ -376,14 +311,6 @@ RTC:
 SAI4:
   _strip:
     - SAI_
-
-SDMMC1:
-  _strip:
-    - SDMMC_
-
-VREFBUF:
-  _strip:
-    - VREFBUF_
 
 AXI:
   _strip:
@@ -396,10 +323,6 @@ AXI:
 FDCAN1:
   _strip:
     - FDCAN_
-
-MDIOS:
-  _strip:
-    - MDIOS_
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

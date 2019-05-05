@@ -1,8 +1,8 @@
-_modify:
-  Ethernet_MAC:
-    name: Ethernet_DMA
-    baseAddress: 0x40029000
-    description: "Ethernet: DMA controller operation"
+# start from scratch
+_delete:
+  - Ethernet_MAC
+  - Ethernet_MTL
+
 _add:
   Ethernet_MTL:
     description: "Ethernet: MAC Transaction Layer"
