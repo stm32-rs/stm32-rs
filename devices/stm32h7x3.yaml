@@ -257,7 +257,18 @@ FLASH:
       FTHVL:
         name: FTHLV
 
+DMA2:
+  _delete:
+    - DMA_STR2
+    - DMA_STR3
+    - DMA_STR4
+    - DMA_STR5
+    - DMA_STR6
+
 DMA1:
+  _delete:
+    - DMA_STR0
+    - DMA_STR1
   _add:
     _interrupts:
       DMA1_STR0:
