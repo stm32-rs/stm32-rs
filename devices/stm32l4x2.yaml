@@ -33,6 +33,17 @@ USB:
 _delete:
   - USB_FS
 
+USB:
+  CNTR:
+    L1REQM:
+      Disabled: [0, "LPM L1 state request interrupt disabled"]
+      Enabled: [1, "L1REQ Interrupt enabled, an interrupt request is generated when the corresponding bit in the USB_ISTR register is set"]
+    L1RESUME:
+      Requested: [1, "LPM L1 Resume requested"]
+  ISTR:
+    L1REQ:
+      L1StateRequest: [1, "LPM command successfully received"]
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
