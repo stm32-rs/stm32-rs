@@ -176,6 +176,16 @@ def iter_fields(rtag, fspec):
             yield ftag
 
 
+def iter_interrupts(ptag, rspec):
+    """
+    Iterates over all interrupts that match rspec and live inside ptag.
+    """
+    for rtag in ptag.iter('interrupt'):
+        name = rtag.find('name').text
+        if matchname(name, rspec):
+            yield rtag
+
+
 def process_device_peripheral_modify(device, pspec, pmod):
     """Modify pspec inside device according to pmod."""
     for ptag in iter_peripherals(device, pspec):
@@ -360,7 +370,8 @@ def process_peripheral_delete(ptag, rspec):
     """Delete registers matched by rspec inside ptag."""
     for rtag in list(iter_registers(ptag, rspec)):
         ptag.find('registers').remove(rtag)
-
+    for rtag in list(iter_interrupts(ptag, rspec)):
+        ptag.remove(rtag)
 
 def process_register_delete(rtag, fspec):
     """Delete fields matched by fspec inside rtag."""
