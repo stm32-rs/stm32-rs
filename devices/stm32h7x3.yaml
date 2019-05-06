@@ -345,6 +345,12 @@ Ethernet_DMA:
       MB:
         access: read-write
 
+Ethernet_MAC:
+  MACLETR:
+    _modify:
+      LPIET:
+        bitOffset: 3
+
 HSEM:
   _strip:
     - HSEM_
