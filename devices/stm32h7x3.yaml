@@ -383,15 +383,7 @@ RCC:
         name: BDRST
       RTCSRC:
         name: RTCSEL
-  APB1LRSTR:
-    _modify:
-      HDMICECRST:
-        name: CECRST
-  D3AMR:
-    _modify:
-      BKPSRAMAMEN:
-        name: BKPRAMAMEN
-  APB1LENR,C1_APB1LENR:
+  C1_APB1LENR:
     _modify:
       HDMICECEN:
         name: CECEN
@@ -414,7 +406,7 @@ RCC:
     _modify:
       HDMICECLPEN:
         name: CECLPEN
-  AHB1LPENR,C1_AHB1LPENR:
+  C1_AHB1LPENR:
     _modify:
       USB1OTGLPEN:
         name: USB1OTGHSLPEN
@@ -429,39 +421,11 @@ RCC:
       CAMITFLPEN:
         name: DCMILPEN
         description: "DCMI peripheral clock enable during csleep mode"
-  AHB3LPENR,C1_AHB3LPENR:
+  C1_AHB3LPENR:
     _modify:
       FLITFLPEN:
         name: FLASHPREN
         description: "Flash interface clock enable during csleep mode"
-
-COMP1:
-  _strip:
-    - COMP1_
-
-CRS:
-  _strip:
-    - CRS_
-
-DAC:
-  _strip:
-    - DAC_
-
-BDMA:
-  _strip:
-    - BDMA_
-
-DMA2D:
-  _strip:
-    - DMA2D_
-
-FMC:
-  _strip:
-    - FMC_
-
-CEC:
-  _strip:
-    - CEC_
 
 Ethernet_MAC:
   MACLETR:

@@ -28,7 +28,7 @@ RCC:
       HSI48CAL: [0, 0x3FF]
   CFGR:
     MCO2:
-      SYS: [0, "System clock selected for micro-controller clock output"]
+      SYSCLK: [0, "System clock selected for micro-controller clock output"]
       PLL2: [1, "PLL2 selected for micro-controller clock output"]
       HSE: [2, "HSE selected for micro-controller clock output"]
       PLL1: [3, "PLL1 selected for micro-controller clock output"]
@@ -43,9 +43,9 @@ RCC:
     MCO?PRE: [0, 15]
     SWS:
       _read:
-        HSI: [0, "HSE oscillator used as system clock"]
+        HSI: [0, "HSI oscillator used as system clock"]
         CSI: [1, "CSI oscillator used as system clock"]
-        HSE: [2, "HSI oscillator used as system clock"]
+        HSE: [2, "HSE oscillator used as system clock"]
         PLL1: [3, "PLL1 used as system clock"]
     SW:
       HSI: [0, "HSI selected as system clock"]
