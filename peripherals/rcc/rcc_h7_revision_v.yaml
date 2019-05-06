@@ -1,0 +1,13 @@
+# Revision V of H7 has HSICFGR / CSICFGR instead of ICSCR.
+
+# Does not apply to Revsion Y of H7
+
+RCC:
+  HSICFGR:
+    HSITRIM: [0, 0x7F]
+    _read:
+      HSICAL: [0, 0xFFF]
+  CSICFGR:
+    CSITRIM: [0, 0x3F]
+    _read:
+      CSICAL: [0, 0x3FF]

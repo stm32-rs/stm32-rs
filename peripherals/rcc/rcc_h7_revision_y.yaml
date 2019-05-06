@@ -1,0 +1,11 @@
+# Revision Y of H7 has ICSCR.
+
+# Does not apply to Revsion V of H7
+
+RCC:
+  ICSCR:
+    CSITRIM: [0, 0x1F]
+    HSITRIM: [0, 0x3F]
+    _read:
+      CSICAL: [0, 0xFF]
+      HSICAL: [0, 0xFFF]
