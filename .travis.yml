@@ -3,6 +3,12 @@ language: rust
 rust:
   - stable
 
+branches:
+  only:
+    - staging
+    - trying
+    - master
+
 cache: cargo
 
 addons:
