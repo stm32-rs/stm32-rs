@@ -257,18 +257,44 @@ FLASH:
       FTHVL:
         name: FTHLV
 
-DMA2:
-  _delete:
-    - DMA_STR2
-    - DMA_STR3
-    - DMA_STR4
-    - DMA_STR5
-    - DMA_STR6
+# Work around the DMA_STR? interrupt mess in the SVD.
+# Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
+# the numeral.
+
+_delete:
+  - DMA2
+
+_add:
+  DMA2:
+    baseAddress: 0x40020400
+    derivedFrom: DMA1
+    interrupts:
+      DMA2_STR0:
+        value: 56
+        description: DMA2 Stream0
+      DMA2_STR1:
+        value: 57
+        description: DMA2 Stream1
+      DMA2_STR2:
+        value: 58
+        description: DMA2 Stream2
+      DMA2_STR3:
+        value: 59
+        description: DMA2 Stream3
+      DMA2_STR4:
+        value: 60
+        description: DMA2 Stream4
+      DMA2_STR5:
+        value: 68
+        description: DMA2 Stream5
+      DMA2_STR6:
+        value: 69
+        description: DMA2 Stream6
+      DMA2_STR7:
+        value: 70
+        description: DMA2 Stream7
 
 DMA1:
-  _delete:
-    - DMA_STR0
-    - DMA_STR1
   _add:
     _interrupts:
       DMA1_STR0:
