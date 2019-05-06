@@ -167,8 +167,8 @@ _add:
         access: read-write
         resetValue: 0x00000000
         fields:
-          WDGLSD1:
-            description: LS watchdog for D1 stop in debug mode
+          IWDG1:
+            description: Independent watchdog for D1 stop in debug mode
             bitOffset: 18
             bitWidth: 1
           RTC:
