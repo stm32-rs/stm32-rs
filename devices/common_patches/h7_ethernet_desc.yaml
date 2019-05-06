@@ -7,6 +7,10 @@ Ethernet_MTL:
         description: Counters Preset
       DTXSTS:
         description: Drop Transmit Status
+  MTLTxQUR:
+    _modify:
+      UFCNTOVF:
+        description: Overflow Bit for Underflow Packet Counter
   MTLTxQDR:
     _modify:
       STXSTSF:
@@ -780,7 +784,7 @@ Ethernet_MAC:
         description: Target Time Register Mode for PPS Output
       PPSEN0:
         description: Flexible PPS Output Mode Enable
-      PPSCMD:
+      PPSCTRL:
         description: Flexible PPS Output (ptp_pps_o[0]) Control or PPSCTRL PPS Output Frequency Control if PPSEN0 is cleared
   MACPPSTTSR:
     _modify:
