@@ -41,6 +41,7 @@ DMAMUX1:
       extit0: [6, "Signal `extit0` selected as synchronization input"]
       tim12_trgo: [7, "Signal `tim12_trgo` selected as synchronization input"]
     DMAREQ_ID:
+      none: [0, "No signal selected as request input"]
       dmamux1_req_gen0: [1, "Signal `dmamux1_req_gen0` selected as request input"]
       dmamux1_req_gen1: [2, "Signal `dmamux1_req_gen1` selected as request input"]
       dmamux1_req_gen2: [3, "Signal `dmamux1_req_gen2` selected as request input"]
@@ -186,6 +187,7 @@ DMAMUX2:
       syscfg_exti0_mux: [14, "Signal `syscfg_exti0_mux` selected as synchronization input"]
       syscfg_exti2_mux: [15, "Signal `syscfg_exti2_mux` selected as synchronization input"]
     DMAREQ_ID:
+      none: [0, "No signal selected as request input"]
       dmamux2_req_gen0: [1, "Signal `dmamux2_req_gen0` selected as request input"]
       dmamux2_req_gen1: [2, "Signal `dmamux2_req_gen1` selected as request input"]
       dmamux2_req_gen2: [3, "Signal `dmamux2_req_gen2` selected as request input"]
