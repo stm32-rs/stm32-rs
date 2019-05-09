@@ -15,7 +15,7 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.7.0"
+VERSION = "0.7.1"
 SVD2RUST_VERSION = "0.14.0"
 
 CRATE_DOC_FEATURES = {

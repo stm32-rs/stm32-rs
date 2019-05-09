@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [v0.7.1] 2019-05-09
+
+Common:
+
+* Fixed DMAv2 cluster to include PAR register, used by F4 and F7 devices
+
 ## [v0.7.0] 2019-04-22
 
 Family-specific:
@@ -155,6 +161,7 @@ work in this release!
 * Add support for specifying interrupts and modifying CPU node
 
 [Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...HEAD
+[v0.7.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.4.0...v0.5.0
