@@ -249,6 +249,9 @@ FLASH:
     _modify:
       DPXPIE:
         name: DXPIE
+        access: read-write
+      TXPIE:
+        access: read-write
   _modify:
     CGFR:
       name: I2SCFGR
