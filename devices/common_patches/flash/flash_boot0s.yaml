@@ -1,0 +1,12 @@
+FLASH:
+  OPTR:
+    _add:
+      nSWBOOT0:
+        description: Software BOOT0
+        bitOffset: 26
+        bitWidth: 1
+      nBOOT0:
+        description: nBOOT0 option bit
+        bitOffset: 27
+        bitWidth: 1
+
