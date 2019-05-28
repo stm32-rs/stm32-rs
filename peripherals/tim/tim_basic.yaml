@@ -1,6 +1,10 @@
 # The most common features, found on Basic timers TIM6 and TIM7,
 # and found on all more advanced timers.
 
+
+_include:
+ - tim_gp1.yaml
+
 "TIM*":
   CR1:
     _modify:
@@ -49,3 +53,8 @@
         name: IC1PSC
       IC2PCS:
         name: IC2PSC
+  CR1:
+    CKD:
+      Div1: [0, "t_DTS = t_CK_INT"]
+      Div2: [1, "t_DTS = 2 × t_CK_INT"]
+      Div4: [2, "t_DTS = 4 × t_CK_INT"]

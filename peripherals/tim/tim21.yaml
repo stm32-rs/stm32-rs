@@ -3,17 +3,17 @@
 "TIM2?":
   CR1:
     CKD:
-      NoMul: [0, "tDTS = tCK_INT"]
-      Mul2: [1, "tDTS = 2 × tCK_INT"]
-      Mul4: [2, "tDTS = 4 × tCK_INT"]
+      Div1: [0, "t_DTS = t_CK_INT"]
+      Div2: [1, "t_DTS = 2 × t_CK_INT"]
+      Div4: [2, "t_DTS = 4 × t_CK_INT"]
     CMS:
-      Edge_Aligned: [0, "Edge-aligned mode"]
-      Center_Mode1: [1, "Center-aligned mode 1"]
-      Center_Mode2: [2, "Center-aligned mode 2"]
-      Center_Mode3: [3, "Center-aligned mode 3"]
+      EdgeAligned: [0, "The counter counts up or down depending on the direction bit"]
+      CenterAligned1: [1, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting down."]
+      CenterAligned2: [2, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting up."]
+      CenterAligned3: [3, "The counter counts up and down alternatively. Output compare interrupt flags are set both when the counter is counting up or down."]
     DIR:
-      Upcounter: [0, "Counter used as upcounter"]
-      Downcounter: [1, "Counter used as downcounter"]
+      Up: [0, "Counter used as upcounter"]
+      Down: [1, "Counter used as downcounter"]
     OPM:
       NotStopped: [0, "Counter is not stopped on the update event"]
       Stopped: [1, "Counter stops counting on the next update event (clearing the CEN bit)"]
@@ -33,7 +33,7 @@
       Disabled: [0, "External clock mode 2 disabled"]
       Enabled: [1, "External clock mode 2 enabled"]
     ETPS:
-      NoPrescaler: [0, "Prescaler OFF"]
+      Div1: [0, "Prescaler OFF"]
       Div2: [1, "ETRP frequency divided by 2"]
       Div4: [2, "ETRP frequency divided by 4"]
       Div8: [3, "ETRP frequency divided by 8"]
