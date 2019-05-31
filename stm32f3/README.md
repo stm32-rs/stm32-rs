@@ -36,9 +36,9 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32f301 | STM32F301 | [RM0366](https://www.st.com/resource/en/reference_manual/dm00094350.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f301.html) |
-| stm32f302 | STM32F302 | [RM0365](https://www.st.com/resource/en/reference_manual/dm00094349.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f302.html) |
-| stm32f303 | STM32F303 | [RM0316](https://www.st.com/resource/en/reference_manual/dm00043574.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f303.html) |
-| stm32f373 | STM32F373 | [RM0313](https://www.st.com/resource/en/reference_manual/dm00041563.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f3x8.html) |
-| stm32f3x4 | STM32F334 | [RM0364](https://www.st.com/resource/en/reference_manual/dm00093941.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f334.html) |
-| stm32f3x8 | STM32F318, STM32F328, STM32F358, STM32F378, STM32F398 | [RM0316](https://www.st.com/resource/en/reference_manual/dm00043574.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f3-series/stm32f373.html) |
+| stm32f301 | STM32F301 | [RM0366](https://www.st.com/resource/en/reference_manual/dm00094350.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f301.html) |
+| stm32f302 | STM32F302 | [RM0365](https://www.st.com/resource/en/reference_manual/dm00094349.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f302.html) |
+| stm32f303 | STM32F303 | [RM0316](https://www.st.com/resource/en/reference_manual/dm00043574.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f303.html) |
+| stm32f373 | STM32F373 | [RM0313](https://www.st.com/resource/en/reference_manual/dm00041563.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f3x8.html) |
+| stm32f3x4 | STM32F334 | [RM0364](https://www.st.com/resource/en/reference_manual/dm00093941.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f334.html) |
+| stm32f3x8 | STM32F318, STM32F328, STM32F358, STM32F378, STM32F398 | [RM0316](https://www.st.com/resource/en/reference_manual/dm00043574.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f373.html) |

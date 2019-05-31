@@ -36,5 +36,5 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32g0x0 | STM32G070 | [RM0454](https://www.st.com/resource/en/reference_manual/dm00463896.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32g0-series/stm32g0x0-value-line.html) |
-| stm32g0x1 | STM32G071, STM32G081 | [RM0444](https://www.st.com/resource/en/reference_manual/dm00371828.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32g0-series/stm32g0x1.html) |
+| stm32g0x0 | STM32G070 | [RM0454](https://www.st.com/resource/en/reference_manual/dm00463896.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x0-value-line.html) |
+| stm32g0x1 | STM32G071, STM32G081 | [RM0444](https://www.st.com/resource/en/reference_manual/dm00371828.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x1.html) |

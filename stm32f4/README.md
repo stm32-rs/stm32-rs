@@ -36,14 +36,14 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32f401 | STM32F401 | [RM0368](https://www.st.com/resource/en/reference_manual/dm00096844.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f401.html) |
-| stm32f405 | STM32F405, STM32F415 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f405-415.html) |
-| stm32f407 | STM32F407, STM32F417 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f407-417.html) |
-| stm32f410 | STM32F410 | [RM0401](https://www.st.com/resource/en/reference_manual/dm00180366.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f410.html) |
-| stm32f411 | STM32F411 | [RM0383](https://www.st.com/resource/en/reference_manual/dm00119316.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f411.html) |
-| stm32f412 | STM32F412 | [RM0402](https://www.st.com/resource/en/reference_manual/dm00180369.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f412.html) |
-| stm32f413 | STM32F413, STM32F423 | [RM0430](https://www.st.com/resource/en/reference_manual/dm00305666.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f413-423.html) |
-| stm32f427 | STM32F427, STM32F437 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f427-437.html) |
-| stm32f429 | STM32F429, STM32F439 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f429-439.html) |
-| stm32f446 | STM32F446 | [RM0390](https://www.st.com/resource/en/reference_manual/dm00135183.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f446.html) |
-| stm32f469 | STM32F469, STM32F479 | [RM0386](https://www.st.com/resource/en/reference_manual/dm00127514.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f469-479.html) |
+| stm32f401 | STM32F401 | [RM0368](https://www.st.com/resource/en/reference_manual/dm00096844.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f401.html) |
+| stm32f405 | STM32F405, STM32F415 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f405-microprocessors-415.html) |
+| stm32f407 | STM32F407, STM32F417 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f407-microprocessors-417.html) |
+| stm32f410 | STM32F410 | [RM0401](https://www.st.com/resource/en/reference_manual/dm00180366.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f410.html) |
+| stm32f411 | STM32F411 | [RM0383](https://www.st.com/resource/en/reference_manual/dm00119316.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f411.html) |
+| stm32f412 | STM32F412 | [RM0402](https://www.st.com/resource/en/reference_manual/dm00180369.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f412.html) |
+| stm32f413 | STM32F413, STM32F423 | [RM0430](https://www.st.com/resource/en/reference_manual/dm00305666.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f413-microprocessors-423.html) |
+| stm32f427 | STM32F427, STM32F437 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f427-microprocessors-437.html) |
+| stm32f429 | STM32F429, STM32F439 | [RM0090](https://www.st.com/resource/en/reference_manual/dm00031020.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f429-microprocessors-439.html) |
+| stm32f446 | STM32F446 | [RM0390](https://www.st.com/resource/en/reference_manual/dm00135183.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f446.html) |
+| stm32f469 | STM32F469, STM32F479 | [RM0386](https://www.st.com/resource/en/reference_manual/dm00127514.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32f469-microprocessors-479.html) |

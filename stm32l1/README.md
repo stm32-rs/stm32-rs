@@ -36,6 +36,6 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32l100 | STM32L100 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l100-value-line.html) |
-| stm32l151 | STM32L151, STM32L152 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l151-152.html) |
-| stm32l162 | STM32L162 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l1-series/stm32l162.html) |
+| stm32l100 | STM32L100 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l100-value-line.html) |
+| stm32l151 | STM32L151, STM32L152 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l151-152.html) |
+| stm32l162 | STM32L162 | [RM0038](https://www.st.com/resource/en/reference_manual/cd00240193.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l162.html) |

@@ -36,5 +36,5 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32f215 | STM32F205, STM32F215 | [RM0033](https://www.st.com/resource/en/reference_manual/cd00225773.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f2-series/stm32f2x5.html) |
-| stm32f217 | STM32F207, STM32F217 | [RM0033](https://www.st.com/resource/en/reference_manual/cd00225773.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f2-series/stm32f2x7.html) |
+| stm32f215 | STM32F205, STM32F215 | [RM0033](https://www.st.com/resource/en/reference_manual/cd00225773.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f2x5.html) |
+| stm32f217 | STM32F207, STM32F217 | [RM0033](https://www.st.com/resource/en/reference_manual/cd00225773.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f2x7.html) |
