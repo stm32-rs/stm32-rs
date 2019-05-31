@@ -38,6 +38,6 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32l0x1 | STM32L011, STM32L021, STM32L031, STM32L041, STM32L051, STM32L071, STM32L081 | [RM0377](https://www.st.com/resource/en/reference_manual/dm00108282.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x1.html) |
-| stm32l0x2 | STM32L052, STM32L062, STM32L072, STM32L082 | [RM0376](https://www.st.com/resource/en/reference_manual/dm00108281.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x2.html) |
-| stm32l0x3 | STM32L053, STM32L063, STM32L073, STM32L083 | [RM0367](https://www.st.com/resource/en/reference_manual/dm00095744.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x3.html) |
+| stm32l0x1 | STM32L011, STM32L021, STM32L031, STM32L041, STM32L051, STM32L071, STM32L081 | [RM0377](https://www.st.com/resource/en/reference_manual/dm00108282.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l0x1.html) |
+| stm32l0x2 | STM32L052, STM32L062, STM32L072, STM32L082 | [RM0376](https://www.st.com/resource/en/reference_manual/dm00108281.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l0x2.html) |
+| stm32l0x3 | STM32L053, STM32L063, STM32L073, STM32L083 | [RM0367](https://www.st.com/resource/en/reference_manual/dm00095744.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l0x3.html) |

@@ -38,7 +38,7 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32f0x0 | STM32F030, STM32F070 | [RM0360](https://www.st.com/resource/en/reference_manual/dm00091010.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x0-value-line.html) |
-| stm32f0x1 | STM32F031, STM32F051, STM32F071, STM32F091 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x1.html) |
-| stm32f0x2 | STM32F042, STM32F072 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x2.html) |
-| stm32f0x8 | STM32F038, STM32F048, STM32F058, STM32F078, STM32F098 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x8.html) |
+| stm32f0x0 | STM32F030, STM32F070 | [RM0360](https://www.st.com/resource/en/reference_manual/dm00091010.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f0x0-value-line.html) |
+| stm32f0x1 | STM32F031, STM32F051, STM32F071, STM32F091 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f0x1.html) |
+| stm32f0x2 | STM32F042, STM32F072 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f0x2.html) |
+| stm32f0x8 | STM32F038, STM32F048, STM32F058, STM32F078, STM32F098 | [RM0091](https://www.st.com/resource/en/reference_manual/dm00031936.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f0x8.html) |
