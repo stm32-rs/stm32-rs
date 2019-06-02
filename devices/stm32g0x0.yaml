@@ -2,3 +2,8 @@ _svd: ../svd/stm32g0x0.svd
 
 _modify:
   name: STM32G0x0
+
+DMA:
+  _modify:
+    IFCR:
+      access: write-only
