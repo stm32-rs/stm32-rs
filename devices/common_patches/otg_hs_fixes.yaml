@@ -5,9 +5,10 @@ OTG_HS_PWRCLK:
       name: OTG_HS_PCGCCTL
       displayName: OTG_HS_PCGCCTL
 
-# Add missing device OUT EP control registers
+
 OTG_HS_DEVICE:
   _add:
+    # Add missing device OUT EP control registers
     OTG_HS_DOEPCTL4:
       description: device endpoint-4 control register
       addressOffset: 0x380
@@ -243,3 +244,26 @@ OTG_HS_DEVICE:
           bitOffset: 0
           bitWidth: 11
           access: read-write
+
+    # Add missing device OUT EP 5 transfer size register
+    OTG_HS_DOEPTSIZ5:
+      description: OTG_HS device endpoint-5 transfer size register
+      addressOffset: 0x3B0
+      size: 0x20
+      access: read-write
+      resetValue: 0x0
+      fields:
+        XFRSIZ:
+          description: Transfer size
+          bitOffset: 0
+          bitWidth: 19
+        PKTCNT:
+          description: Packet count
+          bitOffset: 19
+          bitWidth: 10
+        RXDPID_STUPCNT:
+          description: Received data PID/SETUP packet count
+          bitOffset: 29
+          bitWidth: 2
+
+    
