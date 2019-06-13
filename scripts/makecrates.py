@@ -31,6 +31,8 @@ CRATE_DOC_FEATURES = {
     "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
     "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
     "stm32g0": ["rt", "stm32g0x0", "stm32g0x1"],
+    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g471", "stm32g473", 
+                "stm32g474", "stm32g483", "stm32g484"]
 }
 
 CARGO_TOML_TPL = """\
