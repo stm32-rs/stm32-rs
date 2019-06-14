@@ -1,6 +1,6 @@
 # Common base for 16bit and 32bit TIM2 peripheral
 
-"TIM[23]":
+"TIM[1-58]":
   CR2:
     TI1S:
       Normal: [0, "The TIMx_CH1 pin is connected to TI1 input"]
@@ -109,7 +109,6 @@
   CCMR1_Input:
     IC2F: [0, 15]
     CC2S:
-      Output: [0, "CC2 channel is configured as output"]
       TI2: [1, "CC2 channel is configured as input, IC2 is mapped on TI2"]
       TI1: [2, "CC2 channel is configured as input, IC2 is mapped on TI1"]
       TRC: [3, "CC2 channel is configured as input, IC2 is mapped on TRC"]
@@ -131,7 +130,6 @@
       FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
       FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
     CC1S:
-      Output: [0, "CC1 channel is configured as output"]
       TI1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1"]
       TI2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2"]
       TRC: [3, "CC1 channel is configured as input, IC1 is mapped on TRC"]
@@ -139,18 +137,26 @@
     IC4F: [0, 15]
     IC4PSC: [0, 3]
     CC4S:
-      Output: [0, "CC4 channel is configured as output"]
       TI4: [1, "CC4 channel is configured as input, IC4 is mapped on TI4"]
       TI3: [2, "CC4 channel is configured as input, IC4 is mapped on TI3"]
       TRC: [3, "CC4 channel is configured as input, IC4 is mapped on TRC"]
     IC3F: [0, 15]
     IC3PSC: [0, 3]
-    CC3S: 
-      Output: [0, "CC3 channel is configured as output"]
+    CC3S:
       TI3: [1, "CC3 channel is configured as input, IC3 is mapped on TI3"]
       TI4: [2, "CC3 channel is configured as input, IC3 is mapped on TI4"]
       TRC: [3, "CC3 channel is configured as input, IC3 is mapped on TRC"]
   DCR:
     DBL: [0, 18]
     DBA: [0, 31]
+  CCMR1_Output:
+    CC2S:
+      Output: [0, "CC2 channel is configured as output"]
+    CC1S:
+      Output: [0, "CC1 channel is configured as output"]
+  CCMR2_Output:
+    CC4S:
+      Output: [0, "CC4 channel is configured as output"]
+    CC3S:
+      Output: [0, "CC3 channel is configured as output"]
 
