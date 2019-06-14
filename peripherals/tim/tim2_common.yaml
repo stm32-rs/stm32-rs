@@ -1,11 +1,6 @@
 # Common base for 16bit and 32bit TIM2 peripheral
 
 "TIM[1-58]":
-  CR1:
-    CKD:
-      NotDivided: [0, "CK_INT not divided"]
-      DividedBy2: [1, "CK_INT divided by 2"]
-      DividedBy4: [2, "CK_INT divided by 4"]
   CR2:
     TI1S:
       Normal: [0, "The TIMx_CH1 pin is connected to TI1 input"]
@@ -30,7 +25,7 @@
       Disabled: [0, "External clock mode 2 disabled"]
       Enabled: [1, "External clock mode 2 enabled. The counter is clocked by any active edge on the ETRF signal."]
     ETPS:
-      NoDiv: [0, "Prescaler OFF"]
+      Div1: [0, "Prescaler OFF"]
       Div2: [1, "ETRP frequency divided by 2"]
       Div4: [2, "ETRP frequency divided by 4"]
       Div8: [3, "ETRP frequency divided by 8"]
