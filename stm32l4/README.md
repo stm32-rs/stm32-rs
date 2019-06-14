@@ -38,8 +38,8 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32l4x1 | STM32L431, STM32L451, STM32L471 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32l4x1.html?) |
-| stm32l4x2 | STM32L432, STM32L442, STM32L452, STM32L462 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32l4x2.html) |
-| stm32l4x3 | STM32L433, STM32L443 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32l4x3.html) |
-| stm32l4x5 | STM32L475 | [RM0351](https://www.st.com/resource/en/reference_manual/dm00083560.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32l4x5.html) |
-| stm32l4x6 | STM32L476, STM32L486, STM32L496, STM32L4A6 | [RM0351](https://www.st.com/resource/en/reference_manual/dm00083560.pdf), [st.com](https://www.st.com/en/microcontrollers/stm32l4x6.html) |
+| stm32l4x1 | STM32L431, STM32L451, STM32L471 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l4x1.html) |
+| stm32l4x2 | STM32L432, STM32L442, STM32L452, STM32L462 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l4x2.html) |
+| stm32l4x3 | STM32L433, STM32L443 | [RM0394](https://www.st.com/resource/en/reference_manual/dm00151940.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l4x3.html) |
+| stm32l4x5 | STM32L475 | [RM0351](https://www.st.com/resource/en/reference_manual/dm00083560.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l4x5.html) |
+| stm32l4x6 | STM32L476, STM32L486, STM32L496, STM32L4A6 | [RM0351](https://www.st.com/resource/en/reference_manual/dm00083560.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32l4x6.html) |

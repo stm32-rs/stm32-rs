@@ -38,8 +38,8 @@ https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32f100 | STM32F100 | [RM0041](https://www.st.com/resource/en/reference_manual/cd00246267.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f100-value-line.html) |
-| stm32f101 | STM32F101 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f101.html) |
-| stm32f102 | STM32F102 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f102.html) |
-| stm32f103 | STM32F103 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f103.html) |
-| stm32f107 | STM32F105, STM32F107 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f105-107.html) |
+| stm32f100 | STM32F100 | [RM0041](https://www.st.com/resource/en/reference_manual/cd00246267.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f100-value-line.html) |
+| stm32f101 | STM32F101 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f101.html) |
+| stm32f102 | STM32F102 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f102.html) |
+| stm32f103 | STM32F103 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html) |
+| stm32f107 | STM32F105, STM32F107 | [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f105-107.html) |
