@@ -1,0 +1,11 @@
+"TIM[1-58]":
+  CCMR[12]_Output:
+    OC[1234]M:
+      Frozen: [0, "The comparison between the output compare register TIMx_CCRy and the counter TIMx_CNT has no effect on the outputs"]
+      ActiveOnMatch: [1, "Set channel to active level on match. OCyREF signal is forced high when the counter matches the capture/compare register"]
+      InactiveOnMatch: [2, "Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register"]
+      Toggle: [3, "OCyREF toggles when TIMx_CNT=TIMx_CCRy"]
+      ForceInactive: [4, "OCyREF is forced low"]
+      ForceActive: [5, "OCyREF is forced high"]
+      PwmMode1: [6, "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active"]
+      PwmMode2: [7, "Inversely to PwmMode1"]
