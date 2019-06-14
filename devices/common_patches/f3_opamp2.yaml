@@ -3,7 +3,9 @@ _add:
     description: Operational Amplifier
     baseAddress: 0x40010000
     addressBlock:
-        offset: 0
+      offset: 0
+      size: 0x400
+      usage: registers
     registers:
       OPAMP2_CSR:
         description: OPAMP2 control register

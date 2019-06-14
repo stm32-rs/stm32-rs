@@ -4,6 +4,8 @@ _add:
     baseAddress: 0x40010000
     addressBlock:
       offset: 0
+      size: 0x400
+      usage: registers
     registers:
       CSR:
         description: control and status register

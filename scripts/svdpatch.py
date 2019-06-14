@@ -205,7 +205,11 @@ def process_peripheral_modify(ptag, rspec, rmod):
     """Modify rspec inside ptag according to rmod."""
     for rtag in iter_registers(ptag, rspec):
         for (key, value) in rmod.items():
-            rtag.find(key).text = value
+            tag = rtag.find(key)
+            if value == "":
+                rtag.remove(tag)
+            else:
+                tag.text = value
 
 
 def process_register_modify(rtag, fspec, fmod):
