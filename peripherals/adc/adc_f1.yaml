@@ -104,10 +104,10 @@
         Start: [1, "Enable calibration"]
     CONT:
       Single: [0, "Single conversion mode"]
-      Continious: [1, "Continuous conversion mode"]
+      Continuous: [1, "Continuous conversion mode"]
     ADON:
-      Disable: [0, "Disable ADC conversion/calibration and go to power down mode"]
-      Enable: [1, "Enable ADC and to start conversion"]
+      Disabled: [0, "Disable ADC conversion/calibration and go to power down mode"]
+      Enabled: [1, "Enable ADC and to start conversion"]
 
   "SMPR?":
     "SMP*":
@@ -121,6 +121,8 @@
       Cycles239_5: [7, "239.5 ADC clock cycles"]
   "SQR?":
     "SQ*": [0, 17]
+  SQR1:
+    L: [0, 15]
 
 ADC1:
   CR1:
