@@ -1,0 +1,14 @@
+# ADC features specific to H742/743/753/750 Rev Y
+
+"ADC?":
+  CFGR:
+    RES:
+      SixteenBit: [0, "16-bit resolution"]
+      FourteenBit: [1, "14-bit resolution"]
+      TwelveBit: [2, "12-bit resolution"]
+      TenBit: [3, "10-bit resolution"]
+      EightBit: [4, "8-bit resolution"]
+  CR:
+    BOOST:
+      "Off": [0, "Boost mode off. Used when ADC clock < 20MHz"]
+      "On": [1, "Boost mode on. Used when ADC clock > 20MHz"]

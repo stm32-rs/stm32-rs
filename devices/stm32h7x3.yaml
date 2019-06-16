@@ -220,6 +220,33 @@ _modify:
       AFSEL15:
         name: AFR15
 
+"ADC*_Common":
+  CCR:
+    _modify:
+      TSEN:
+        name: VSENSEEN
+
+"ADC?":
+  CFGR2:
+    _modify:
+      OSR:
+        name: OSVR
+  SQR1:
+    _modify:
+      L3:
+        name: L
+  SMPR1:
+    _add:
+      SMP0:
+        description: ADC channel 0 sampling time
+        bitOffset: 0
+        bitWidth: 3
+        access: read-write
+  SMPR2:
+    _modify:
+      SMP19:
+        description: ADC channel 19 sampling time
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -515,6 +542,8 @@ _include:
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - ../peripherals/adc/adc_v3_multi.yaml
+ - ../peripherals/adc/adc_h7_revision_y.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/gpio/gpio_v2.yaml

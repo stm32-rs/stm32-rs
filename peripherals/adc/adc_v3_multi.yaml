@@ -1,0 +1,76 @@
+# ADC_Common as used on H7
+
+_include:
+  - "adc_v3.yaml"
+
+"ADC*_Common":
+  CSR:
+    JQOVF_MST,JQOVF_SLV:
+      NoOverflow: [0, "No injected context queue overflow has occurred"]
+      Overflow: [1, "Injected context queue overflow has occurred"]
+    "AWD?_MST,AWD?_SLV":
+      NoEvent: [0, "No analog watchdog event occurred"]
+      Event: [1, "Analog watchdog event occurred"]
+    OVR_MST,OVR_SLV:
+      NoOverrun: [0, "No overrun occurred"]
+      Overrun: [1, "Overrun occurred"]
+    JEOS_MST,JEOS_SLV:
+      NotComplete: [0, "Injected sequence is not complete"]
+      Complete: [1, "Injected sequence complete"]
+    EOS_MST,EOS_SLV:
+      NotComplete: [0, "Regular sequence is not complete"]
+      Complete: [1, "Regular sequence complete"]
+    JEOC_MST,JEOC_SLV:
+      NotComplete: [0, "Injected conversion is not complete"]
+      Complete: [1, "Injected conversion complete"]
+    EOC_MST,EOC_SLV:
+      NotComplete: [0, "Regular conversion is not complete"]
+      Complete: [1, "Regular conversion complete"]
+    EOSMP_MST,EOSMP_SLV:
+      NotEnded: [0, "End of sampling phase no yet reached"]
+      Ended: [1, "End of sampling phase reached"]
+    ADRDY_MST,ADRDY_SLV:
+      NotReady: [0, "ADC is not ready to start conversion"]
+      Ready: [1, "ADC is ready to start conversion"]
+  CCR:
+    VBATEN:
+      Disabed: [0, "V_BAT channel disabled"]
+      Enabled: [1, "V_BAT channel enabled"]
+    VSENSEEN:
+      Disabed: [0, "Temperature sensor channel disabled"]
+      Enabled: [1, "Temperature sensor channel enabled"]
+    VREFEN:
+      Disabed: [0, "V_REFINT channel disabled"]
+      Enabled: [1, "V_REFINT channel enabled"]
+    PRESC:
+      Div1: [0, "adc_ker_ck_input not divided"]
+      Div2: [1, "adc_ker_ck_input divided by 2"]
+      Div4: [2, "adc_ker_ck_input divided by 4"]
+      Div6: [3, "adc_ker_ck_input divided by 6"]
+      Div8: [4, "adc_ker_ck_input divided by 8"]
+      Div10: [5, "adc_ker_ck_input divided by 10"]
+      Div12: [6, "adc_ker_ck_input divided by 12"]
+      Div16: [7, "adc_ker_ck_input divided by 16"]
+      Div32: [8, "adc_ker_ck_input divided by 32"]
+      Div64: [9, "adc_ker_ck_input divided by 64"]
+      Div128: [10, "adc_ker_ck_input divided by 128"]
+      Div256: [11, "adc_ker_ck_input divided by 256"]
+    CKMODE:
+      Async: [0, "Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock"]
+      SyncDiv1: [1, "Use AHB clock rcc_hclk3. In this case rcc_hclk must equal sys_d1cpre_ck"]
+      SyncDiv2: [2, "Use AHB clock rcc_hclk3 divided by 2"]
+      SyncDiv4: [3, "Use AHB clock rcc_hclk3 divided by 4"]
+    DAMDF:
+      NoPack: [0, "Without data packing, CDR/CDR2 not used"]
+      Format32to10: [2, "CDR formatted for 32-bit down to 10-bit resolution"]
+      Format8: [3, "CDR formatted for 8-bit resolution"]
+    DELAY: [0, 15]
+    DUAL:
+      Independent: [0, "Independent mode"]
+      DualRJ: [1, "Dual, combined regular simultaneous + injected simultaneous mode"]
+      DualRA: [2, "Dual, combined regular simultaneous + alternate trigger mode"]
+      DualIJ: [3, "Dual, combined interleaved mode + injected simultaneous mode"]
+      DualJ: [5, "Dual, injected simultaneous mode only"]
+      DualR: [6, "Dual, regular simultaneous mode only"]
+      DualI: [7, "Dual, interleaved mode only"]
+      DualA: [9, "Dual, alternate trigger mode only"]
