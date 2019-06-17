@@ -3,8 +3,9 @@ _svd: ../svd/stm32f102.svd
 _rebase:
   UART4: UART5
 
-_derive:
-  ADC3: ADC2
+_copy:
+  ADC3:
+    from: ADC2
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves

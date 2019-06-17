@@ -278,6 +278,30 @@ def process_device_derive(device, pname, pderive):
     for p in parent.findall('./peripheral[@derivedFrom=\'{}\']'.format(pname)):
         p.set('derivedFrom', pderive)
 
+def process_device_copy(device, pname, pmod):
+    """
+    Create copy of peripheral
+    """
+    parent = device.find('peripherals')
+    ptag = parent.find('./peripheral[name=\'{}\']'.format(pname))
+    pcopyname = pmod['from']
+    pcopy = copy.deepcopy(parent.find('./peripheral[name=\'{}\']'.format(pcopyname)))
+    if pcopy is None:
+        raise SvdPatchError('peripheral {} not found'.format(pcopy))
+    if ptag is None:
+        pcopy.find("name").text = pname
+        raise SvdPatchError('unimplemented')
+    else:
+        for value in list(ptag):
+            if value.tag in ('name', 'baseAddress', 'interrupt'):
+                tag = pcopy.find(value.tag)
+                if tag is not None:
+                    pcopy.remove(tag)
+                pcopy.append(value)
+    parent.remove(ptag)
+    parent.append(pcopy)
+
+
 
 def process_device_rebase(device, pnew, pold):
     """
@@ -732,6 +756,11 @@ def process_device(svd, device, update_fields=True):
     # Handle any deletions
     for pspec in device.get("_delete", []):
         process_device_delete(svd, pspec)
+
+    # Handle any copied peripherals
+    for pname in device.get("_copy", {}):
+        val = device["_copy"][pname]
+        process_device_copy(svd, pname, val)
 
     # Handle any modifications
     for key in device.get("_modify", {}):
