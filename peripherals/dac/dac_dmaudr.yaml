@@ -1,0 +1,10 @@
+
+DAC:
+  CR:
+    DMAUDRIE?:
+      Disabled: [0, "DAC channel X DMA Underrun Interrupt disabled"]
+      Enabled: [1, "DAC channel X DMA Underrun Interrupt enabled"]
+  SR:
+    DMAUDR?:
+      NoUnderrun: [0, "No DMA underrun error condition occurred for DAC channel X"]
+      Underrun: [1, "DMA underrun error condition occurred for DAC channel X"]
