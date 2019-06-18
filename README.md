@@ -214,6 +214,14 @@ _add:
                 description: USART3 global interrupt
                 value: 39
 
+# A new peripheral can have all its registers copied from another, in case
+# it cannot quite be derivedFrom (e.g. some fields need different enumerated
+# values) but it's otherwise almost exactly the same.
+# The registers are copied but not name or address or interrupts.
+_copy:
+    ADC3:
+        from: ADC2
+
 # Replace peripheral registers by a 'deriveFrom'.
 # This is used when e.g. UART4 and UART5 are both independently defined,
 # but you'd like to make UART5 be defined as derivedFrom UART4 instead.
