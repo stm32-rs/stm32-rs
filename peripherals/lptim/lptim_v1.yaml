@@ -1,6 +1,6 @@
-# Low Power Timers for L0 Family
+# Low Power Timers used on at least L0, H7
 
-LPTIM:
+LPTIM,LPTIM?:
   ISR:
     DOWN:
       _read:
@@ -136,11 +136,10 @@ LPTIM:
     ENABLE:
         Disabled: [0, "LPTIM is disabled"]
         Enabled: [1, "LPTIM is enabled"]
-  CMP: 
+  CMP:
     CMP: [0, 0xFFFF]
   ARR:
     ARR: [0, 0xFFFF]
   CNT:
     _read:
       CNT: [0, 0xFFFF]
-  
