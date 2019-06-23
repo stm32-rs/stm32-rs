@@ -1,0 +1,9 @@
+# General-purpose timers on F1, L0 (at least)
+# TIM2/TIM3/TIM4/TIM5 are 16 bit
+
+_include:
+  - ./tim2_common.yaml
+
+"TIM[2345]":
+  _include:
+    - ./tim2_common_16bit.yaml
