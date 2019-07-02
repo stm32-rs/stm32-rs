@@ -29,18 +29,28 @@ RCC:
   CFGR:
     MCO2:
       SYSCLK: [0, "System clock selected for micro-controller clock output"]
-      PLL2: [1, "PLL2 selected for micro-controller clock output"]
+      PLL2_P: [1, "pll2_p selected for micro-controller clock output"]
       HSE: [2, "HSE selected for micro-controller clock output"]
-      PLL1: [3, "PLL1 selected for micro-controller clock output"]
+      PLL1_P: [3, "pll1_p selected for micro-controller clock output"]
       CSI: [4, "CSI selected for micro-controller clock output"]
       LSI: [5, "LSI selected for micro-controller clock output"]
     MCO1:
       HSI: [0, "HSI selected for micro-controller clock output"]
       LSE: [1, "LSE selected for micro-controller clock output"]
       HSE: [2, "HSE selected for micro-controller clock output"]
-      PLL1: [3, "PLL1 selected for micro-controller clock output"]
+      PLL1_Q: [3, "pll1_q selected for micro-controller clock output"]
       HSI48: [4, "HSI48 selected for micro-controller clock output"]
     MCO?PRE: [0, 15]
+    TIMPRE:
+      DefaultX2: [0, "Timer kernel clock equal to 2x pclk by default"]
+      DefaultX4: [1, "Timer kernel clock equal to 4x pclk by default"]
+    HRTIMSEL:
+      TIMY_KER: [0, "The HRTIM prescaler clock source is the same as other timers (rcc_timy_ker_ck)"]
+      C_CK: [1, "The HRTIM prescaler clock source is the CPU clock (c_ck)"]
+    RTCPRE: [0, 63]
+    STOPWUCK,STOPKERWUCK:
+      HSI: [0, "HSI selected as wake up clock from system Stop"]
+      CSI: [1, "CSI selected as wake up clock from system Stop"]
     SWS:
       _read:
         HSI: [0, "HSI oscillator used as system clock"]
@@ -77,6 +87,11 @@ RCC:
     LSECSSON:
       SecurityOff: [0, "Clock security system on 32 kHz oscillator off"]
       SecurityOn: [1, "Clock security system on 32 kHz oscillator on"]
+    LSEDRV:
+      Lowest: [0, "Lowest LSE oscillator driving capability"]
+      MediumLow: [1, "Medium low LSE oscillator driving capability"]
+      MediumHigh: [2, "Medium high LSE oscillator driving capability"]
+      Highest: [3, "Highest LSE oscillator driving capability"]
     LSEBYP:
       NotBypassed: [0, "LSE crystal oscillator not bypassed"]
       Bypassed: [1, "LSE crystal oscillator bypassed with external clock"]
