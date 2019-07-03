@@ -1,18 +1,18 @@
 RTC:
   CRH:
     OWIE:
-      Unlisten: [0, "Overflow interrupt is masked"]
-      Listen: [1, "Overflow interrupt is enabled"]
+      Disabled: [0, "Overflow interrupt is masked"]
+      Enabled: [1, "Overflow interrupt is enabled"]
     ALRIE:
-      Unlisten: [0, "Alarm interrupt is masked"]
-      Listen: [1, "Alarm interrupt is enabled"]
+      Disabled: [0, "Alarm interrupt is masked"]
+      Enabled: [1, "Alarm interrupt is enabled"]
     SECIE:
-      Unlisten: [0, "Second interrupt is masked"]
-      Listen: [1, "Second interrupt is enabled"]
+      Disabled: [0, "Second interrupt is masked"]
+      Enabled: [1, "Second interrupt is enabled"]
   CRL:
     RTOFF:
-      "On": [0, "Last write operation on RTC registers is still ongoing"]
-      "Off": [1, "Last write operation on RTC registers terminated"]
+      Enabled: [0, "Last write operation on RTC registers is still ongoing"]
+      Disabled: [1, "Last write operation on RTC registers terminated"]
     CNF:
       Exit: [0, "Exit configuration mode (start update of RTC registers)"]
       Enter: [1, "Enter configuration mode"]
