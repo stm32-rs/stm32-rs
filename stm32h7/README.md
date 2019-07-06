@@ -16,7 +16,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.stm32h7]
 version = "0.7.0"
-features = ["stm32h7x3", "rt"]
+features = ["stm32h743", "rt"]
 ```
 
 The `rt` feature is optional and brings in support for `cortex-m-rt`.
@@ -24,9 +24,9 @@ The `rt` feature is optional and brings in support for `cortex-m-rt`.
 In your code:
 
 ```rust
-use stm32h7::stm32h7x3;
+use stm32h7::stm32h743;
 
-let mut peripherals = stm32h7x3::Peripherals::take().unwrap();
+let mut peripherals = stm32h743::Peripherals::take().unwrap();
 let gpioa = &peripherals.GPIOA;
 gpioa.odr.modify(|_, w| w.odr0().set_bit());
 ```

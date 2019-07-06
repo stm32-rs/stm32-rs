@@ -19,6 +19,15 @@
 #![allow(non_camel_case_types)]
 #![no_std]
 
-#[cfg(feature = "stm32h7x3")]
-pub mod stm32h7x3;
+#[cfg(feature = "stm32h743")]
+pub mod stm32h743;
+
+#[cfg(feature = "stm32h743v")]
+pub mod stm32h743v;
+
+#[cfg(feature = "stm32h753")]
+pub mod stm32h753;
+
+#[cfg(feature = "stm32h753v")]
+pub mod stm32h753v;
 
