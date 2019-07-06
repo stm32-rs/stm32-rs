@@ -1,0 +1,42 @@
+_svd: ../svd/stm32h743.svd
+
+_include:
+ - common_patches/h7_common_singlecore.yaml
+ - common_patches/4_nvic_prio_bits.yaml
+ - common_patches/dma_fcr_wo.yaml
+ - common_patches/dma/dma_v3.yaml
+ - common_patches/h7_rcc_src_sel.yaml
+ - common_patches/h7_ethernet_desc.yaml
+ - common_patches/h7_dbgmcu.yaml
+ - common_patches/h7_dmamux.yaml
+ - common_patches/merge_I2C_CR2_SADDx_fields.yaml
+ - common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - ../peripherals/adc/adc_v3_multi.yaml
+ - ../peripherals/adc/adc_h7_revision_y.yaml
+ - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/dma/dmamux_v1.yaml
+ - ../peripherals/gpio/gpio_v2.yaml
+ - ../peripherals/lptim/lptim_v1.yaml
+ - ../peripherals/rcc/rcc_h7.yaml
+ - ../peripherals/rcc/rcc_h7_revision_y.yaml
+ - ../peripherals/rng/rng_v1.yaml
+ - ../peripherals/spi/spi_v3.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_gp1.yaml
+ - ../peripherals/tim/tim16.yaml
+ - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim2345_mixed_l.yaml
+ - ../peripherals/tim/tim_advanced.yaml
+ - ../peripherals/tim/tim_h7.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/tim_ccm_v2.yaml

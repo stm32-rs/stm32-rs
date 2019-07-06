@@ -1,0 +1,12 @@
+"DMAMUX*":
+  _array:
+    "C*CR":
+      name: "CCR%s"
+    "RG*CR":
+      name: "RGCR%s"
+  CFR:
+    _split: [CSOF]
+  RGSR:
+    _split: [OF]
+  RGCFR:
+    _split: [COF]
