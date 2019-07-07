@@ -402,6 +402,16 @@ RCC:
         name: BDRST
       RTCSRC:
         name: RTCSEL
+  PLL2DIVR:
+    _modify:
+      DIVP1:
+        name: DIVP2
+      DIVQ1:
+        name: DIVQ2
+      DIVR1:
+        name: DIVR2
+      DIVN1:
+        name: DIVN2
   APB1LRSTR:
     _modify:
       USART7RST:
