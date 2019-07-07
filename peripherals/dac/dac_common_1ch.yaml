@@ -3,15 +3,15 @@
 
 DAC:
   CR:
-    EN1:
-      Disabled: [0, "DAC channel1 disabled"]
-      Enabled: [1, "DAC channel1 enabled"]
-    BOFF1:
-      Enabled: [0, "DAC channel1 output buffer enabled"]
-      Disabled: [1, "DAC channel1 output buffer disabled"]
-    TEN1:
-      Disabled: [0, "DAC channel1 trigger disabled"]
-      Enabled: [1, "DAC channel1 trigger enabled"]
+    EN?:
+      Disabled: [0, "DAC channel X disabled"]
+      Enabled: [1, "DAC channel X enabled"]
+    BOFF?:
+      Enabled: [0, "DAC channel X output buffer enabled"]
+      Disabled: [1, "DAC channel X output buffer disabled"]
+    TEN?:
+      Disabled: [0, "DAC channel X trigger disabled"]
+      Enabled: [1, "DAC channel X trigger enabled"]
     TSEL1:
       TIM6_TRGO: [0, "Timer 6 TRGO event"]
       TIM3_TRGO: [1, "Timer 3 TRGO event"]
@@ -20,23 +20,16 @@ DAC:
       TIM2_TRGO: [4, "Timer 2 TRGO event"]
       EXTI9: [6, "EXTI line9"]
       SOFTWARE: [7, "Software trigger"]
-    DMAEN1:
-      Disabled: [0, "DAC channel1 DMA mode disabled"]
-      Enabled: [1, "DAC channel1 DMA mode enabled"]
-    DMAUDRIE1:
-      Disabled: [0, "DAC channel1 DMA Underrun Interrupt disabled"]
-      Enabled: [1, "DAC channel1 DMA Underrun Interrupt enabled"]
+    DMAEN?:
+      Disabled: [0, "DAC channel X DMA mode disabled"]
+      Enabled: [1, "DAC channel X DMA mode enabled"]
   SWTRIGR:
-    SWTRIG1:
-      Disabled: [0, "DAC channel1 software trigger disabled"]
-      Enabled: [1, "DAC channel1 software trigger enabled"]
-  DHR12R1:
-    DACC1DHR: [0, 4096]
-  DHR12L1:
-    DACC1DHR: [0, 4096]
-  DHR8R1:
-    DACC1DHR: [0, 255]
-  SR:
-    DMAUDR1:
-      NoUnderrun: [0, "No DMA underrun error condition occurred for DAC channel1"]
-      Underrun: [1, "DMA underrun error condition occurred for DAC channel1"]
+    SWTRIG?:
+      Disabled: [0, "DAC channel X software trigger disabled"]
+      Enabled: [1, "DAC channel X software trigger enabled"]
+  DHR12R?:
+    DACC?DHR: [0, 4096]
+  DHR12L?:
+    DACC?DHR: [0, 4096]
+  DHR8R?:
+    DACC?DHR: [0, 255]

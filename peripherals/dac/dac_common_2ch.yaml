@@ -5,15 +5,6 @@ _include:
 
 DAC:
   CR:
-    EN2:
-      Disabled: [0, "DAC channel2 disabled"]
-      Enabled: [1, "DAC channel2 enabled"]
-    BOFF2:
-      Enabled: [0, "DAC channel2 output buffer enabled"]
-      Disabled: [1, "DAC channel2 output buffer disabled"]
-    TEN2:
-      Disabled: [0, "DAC channel2 trigger disabled"]
-      Enabled: [1, "DAC channel2 trigger enabled"]
     TSEL2:
       TIM6_TRGO: [0, "Timer 6 TRGO event"]
       TIM8_TRGO: [1, "Timer 8 TRGO event"]
@@ -23,22 +14,6 @@ DAC:
       TIM4_TRGO: [5, "Timer 4 TRGO event"]
       EXTI9: [6, "EXTI line9"]
       SOFTWARE: [7, "Software trigger"]
-    DMAEN2:
-      Disabled: [0, "DAC channel2 DMA mode disabled"]
-      Enabled: [1, "DAC channel2 DMA mode enabled"]
-    DMAUDRIE2:
-      Disabled: [0, "DAC channel2 DMA Underrun Interrupt disabled"]
-      Enabled: [1, "DAC channel2 DMA Underrun Interrupt enabled"]
-  SWTRIGR:
-    SWTRIG2:
-      Disabled: [0, "DAC channel2 software trigger disabled"]
-      Enabled: [1, "DAC channel2 software trigger enabled"]
-  DHR12R2:
-    DACC2DHR: [0, 4096]
-  DHR12L2:
-    DACC2DHR: [0, 4096]
-  DHR8R2:
-    DACC2DHR: [0, 255]
   DHR12RD:
     DACC1DHR: [0, 4096]
     DACC2DHR: [0, 4096]
@@ -48,7 +23,3 @@ DAC:
   DHR8RD:
     DACC1DHR: [0, 255]
     DACC2DHR: [0, 255]
-  SR:
-    DMAUDR2:
-      NoUnderrun: [0, "No DMA underrun error condition occurred for DAC channel2"]
-      Underrun: [1, "DMA underrun error condition occurred for DAC channel2"]
