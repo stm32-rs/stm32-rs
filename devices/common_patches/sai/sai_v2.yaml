@@ -1,6 +1,19 @@
-SAI1:
+"SAI?":
   _strip:
     - SAI_
-
-_include:
-  - ./sai_v1.yaml
+  _cluster:
+    "CH%s":
+      "?CR1":
+        _modify:
+          SAIAEN:
+            name: SAIEN
+      "?CR2": {}
+      "?FRCR": {}
+      "?SLOTR": {}
+      "?IM": {}
+      "?SR":
+        _modify:
+          FLTH:
+            name: FLVL
+      "?CLRFR": {}
+      "?DR": {}
