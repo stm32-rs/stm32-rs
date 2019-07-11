@@ -1,0 +1,34 @@
+# 16bit TIM2 peripheral
+# For 16bit timers where the SVD names fields ending "L" or "_L"
+# Applies to Advanced-control (ac) and General-purpose (gp) timers
+
+CNT:
+  _modify:
+    "CNT_L,CNTL":
+      name: CNT
+      description: Counter value
+ARR:
+  _modify:
+    "ARR_L,ARRL":
+      name: ARR
+      description: "Auto-reload value"
+CCR1:
+  _modify:
+    "CCR1_L,CCR1L":
+      name: CCR1
+      description: "Capture/Compare 1 value"
+CCR2:
+  _modify:
+    "CCR2_L,CCR2L":
+      name: CCR2
+      description: "Capture/Compare 2 value"
+CCR3:
+  _modify:
+    "CCR3_L,CCR3L":
+      name: CCR3
+      description: "Capture/Compare 3 value"
+CCR4:
+  _modify:
+    "CCR4_L,CCR4L":
+      name: CCR4
+      description: "Capture/Compare 4 value"

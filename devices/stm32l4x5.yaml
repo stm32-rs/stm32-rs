@@ -35,6 +35,12 @@ RCC:
         bitWidth: 1
         access: read-write
 
+# TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -60,7 +66,8 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
