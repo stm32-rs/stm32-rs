@@ -1,0 +1,18 @@
+# Advanced-control timers TIM1,TIM8.
+
+
+"TIM[18]":
+  # Common features with 16-bit General-purpose timers
+  _include:
+    - ./tim2_common_16bit.yaml
+  # Various features not present in other timers
+  BDTR:
+    MOE:
+      DisabledIdle: [0, "OC/OCN are disabled or forced idle depending on OSSI"]
+      Enabled: [1, "OC/OCN are enabled if CCxE/CCxNE are set"]
+    OSSR:
+      Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
+      IdleLevel: [1, "When inactive, OC/OCN outputs are enabled with their inactive level"]
+    OSSI:
+      Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
+      IdleLevel: [1, "When inactive, OC/OCN outputs are forced to idle level"]

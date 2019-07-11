@@ -47,6 +47,8 @@ _include:
  - common_patches/can/can_filter_bank.yaml
  - common_patches/fsmc/fsmc_wrapmod.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - ../peripherals/dac/dac_wavegen.yaml
+ - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -55,11 +57,12 @@ _include:
  - ../peripherals/spi/spi_v1_without_FRF_FRE.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/rcc/rcc_f1.yaml
+ - ../peripherals/rtc/rtc_f1.yaml
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml

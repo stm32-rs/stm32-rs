@@ -1,0 +1,173 @@
+"SAI,SAI?":
+  "*CR1":
+    #MCKDIV:
+    NODIV:
+      MasterClock: [0, "Master clock generator is enabled"]
+      NoDiv: [1, "No divider used in the clock generator (in this case Master Clock Divider bit has no effect)"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
+    SAIEN:
+      Disabled: [0, "SAI audio block disabled"]
+      Enabled: [1, "SAI audio block enabled"]
+    OUTDRIV:
+      OnStart: [0, "Audio block output driven when SAIEN is set"]
+      Immediately: [1, "Audio block output driven immediately after the setting of this bit"]
+    MONO:
+      Stereo: [0, "Stereo mode"]
+      Mono: [1, "Mono mode"]
+    SYNCEN:
+      Asynchronous: [0, "audio sub-block in asynchronous mode"]
+      Internal: [1, "audio sub-block is synchronous with the other internal audio sub-block. In this case, the audio sub-block must be configured in slave mode"]
+      External: [2, "audio sub-block is synchronous with an external SAI embedded peripheral. In this case the audio sub-block should be configured in Slave mode"]
+    CKSTR:
+      FallingEdge: [0, "Data strobing edge is falling edge of SCK"]
+      RisingEdge: [1, "Data strobing edge is rising edge of SCK"]
+    LSBFIRST:
+      MsbFirst: [0, "Data are transferred with MSB first"]
+      LsbFirst: [1, "Data are transferred with LSB first"]
+    DS:
+      Bit8: [2, "8 bits"]
+      Bit10: [3, "10 bits"]
+      Bit16: [4, "16 bits"]
+      Bit20: [5, "20 bits"]
+      Bit24: [6, "24 bits"]
+      Bit32: [7, "32 bits"]
+    PRTCFG:
+      Free: [0, "Free protocol. Free protocol allows to use the powerful configuration of the audio block to address a specific audio protocol"]
+      Spdif: [1, "SPDIF protocol"]
+      Ac97: [2, "AC’97 protocol"]
+    MODE:
+      MasterTx: [0, "Master transmitter"]
+      MasterRx: [1, "Master receiver"]
+      SlaveTx: [2, "Slave transmitter"]
+      SlaveRx: [3, "Slave receiver"]
+
+  "*CR2":
+    COMP:
+      NoCompanding: [0, "No companding algorithm"]
+      MuLaw: [2, "μ-Law algorithm"]
+      ALaw: [3, "A-Law algorithm"]
+    CPL:
+      OnesComplement: [0, "1’s complement representation"]
+      TwosComplement: [1, "2’s complement representation"]
+    #MUTECNT:
+    MUTEVAL:
+      SendZero: [0, "Bit value 0 is sent during the mute mode"]
+      SendLast: [1, "Last values are sent during the mute mode"]
+    MUTE:
+      Disabled: [0, "No mute mode"]
+      Enabled: [1, "Mute mode enabled"]
+    #TRIS:
+    FFLUSH:
+      NoFlush: [0, "No FIFO flush"]
+      Flush: [1, "FIFO flush. Programming this bit to 1 triggers the FIFO Flush. All the internal FIFO pointers (read and write) are cleared"]
+    FTH:
+      Empty: [0, "FIFO empty"]
+      Quarter1: [1, "1⁄4 FIFO"]
+      Quarter2: [2, "1⁄2 FIFO"]
+      Quarter3: [3, "3⁄4 FIFO"]
+      Full: [4, "FIFO full"]
+
+  "*FRCR":
+    FSOFF:
+      OnFirst: [0, "FS is asserted on the first bit of the slot 0"]
+      BeforeFirst: [1, "FS is asserted one bit before the first bit of the slot 0"]
+    FSPOL:
+      FallingEdge: [0, "FS is active low (falling edge)"]
+      RisingEdge: [1, "FS is active high (rising edge)"]
+    #FSDEF:
+    #FSALL:
+    #FRL:
+
+  "*SLOTR":
+    SLOTEN:
+      Inactive: [0, "Inactive slot"]
+      Active: [1, "Active slot"]
+    #NBSLOT:
+    SLOTSZ:
+      DataSize: [0, "The slot size is equivalent to the data size (specified in DS[3:0] in the SAI_xCR1 register)"]
+      Bit16: [1, "16-bit"]
+      Bit32: [2, "32-bit"]
+    #FBOFF:
+  
+  "*IM":
+    LFSDETIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    AFSDETIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    CNRDYIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    FREQIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    WCKCFGIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    MUTEDETIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+    OVRUDRIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is enabled"]
+
+  "*SR":
+    FLVL:
+      _read:
+        Empty: [0, "FIFO empty"]
+        Quarter1: [1, "FIFO <= 1⁄4 but not empty"]
+        Quarter2: [2, "1⁄4 < FIFO <= 1⁄2"]
+        Quarter3: [3, "1⁄2 < FIFO <= 3⁄4"]
+        Quarter4: [4, "3⁄4 < FIFO but not full"]
+        Full: [5, "FIFO full"]
+    LFSDET:
+      _read:
+        NoError: [0, "No error"]
+        NoSync: [1, "Frame synchronization signal is not present at the right time"]
+    AFSDET:
+      _read:
+        NoError: [0, "No error"]
+        EarlySync: [1, "Frame synchronization signal is detected earlier than expected"]
+    CNRDY:
+      _read:
+        Ready: [0, "External AC’97 Codec is ready"]
+        NotReady: [1, "External AC’97 Codec is not ready"]
+    FREQ:
+      _read:
+        NoRequest: [0, "No FIFO request"]
+        Request: [1, "FIFO request to read or to write the SAI_xDR"]
+    WCKCFG:
+      _read:
+        Correct: [0, "Clock configuration is correct"]
+        Wrong: [1, "Clock configuration does not respect the rule concerning the frame length specification"]
+    MUTEDET:
+      _read:
+        NoMute: [0, "No MUTE detection on the SD input line"]
+        Mute: [1, "MUTE value detected on the SD input line (0 value) for a specified number of consecutive audio frame"]
+    OVRUDR:
+      _read:
+        NoError: [0, "No overrun/underrun error"]
+        Overrun: [1, "Overrun/underrun error detection"]
+
+  "*CLRFR":
+    CLFSDET:
+      _write:
+        Clear: [1, "Clears the LFSDET flag"]
+    CAFSDET:
+      _write:
+        Clear: [1, "Clears the AFSDET flag"]
+    CCNRDY:
+      _write:
+        Clear: [1, "Clears the CNRDY flag"]
+    CWCKCFG:
+      _write:
+        Clear: [1, "Clears the WCKCFG flag"]
+    CMUTEDET:
+      _write:
+        Clear: [1, "Clears the MUTEDET flag"]
+    COVRUDR:
+      _write:
+        Clear: [1, "Clears the OVRUDR flag"]

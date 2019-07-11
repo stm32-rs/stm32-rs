@@ -46,6 +46,7 @@ _include:
  - common_patches/fsmc/fsmc_wrapmod.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
@@ -58,7 +59,8 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml

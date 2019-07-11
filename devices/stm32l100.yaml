@@ -81,6 +81,7 @@ _include:
  - ./common_patches/unprefix_USB_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -88,7 +89,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_16bit.yaml
+ - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti_v1.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml

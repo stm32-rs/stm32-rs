@@ -281,6 +281,7 @@ _include:
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_f7.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
@@ -306,7 +307,8 @@ _include:
  - ../peripherals/flash/flash_v2.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
@@ -316,3 +318,4 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/f7_dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/sai/sai.yaml

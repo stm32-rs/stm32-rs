@@ -1,0 +1,269 @@
+# Fix power and clock gating control register name
+OTG_HS_PWRCLK:
+  _modify:
+    OTG_HS_PCGCR:
+      name: OTG_HS_PCGCCTL
+      displayName: OTG_HS_PCGCCTL
+
+
+OTG_HS_DEVICE:
+  _add:
+    # Add missing device OUT EP control registers
+    OTG_HS_DOEPCTL4:
+      description: device endpoint-4 control register
+      addressOffset: 0x380
+      size: 0x20
+      resetValue: 0x0
+      fields:
+        EPENA:
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+        EPDIS:
+          bitOffset: 30
+          bitWidth: 1
+          access: read-write
+        SODDFRM:
+          bitOffset: 29
+          bitWidth: 1
+          access: write-only
+        SD0PID_SEVNFRM:
+          bitOffset: 28
+          bitWidth: 1
+          access: write-only
+        SNAK:
+          bitOffset: 27
+          bitWidth: 1
+          access: write-only
+        CNAK:
+          bitOffset: 26
+          bitWidth: 1
+          access: write-only
+        Stall:
+          bitOffset: 21
+          bitWidth: 1
+          access: read-write
+        SNPM:
+          bitOffset: 20
+          bitWidth: 1
+          access: read-write
+        EPTYP:
+          bitOffset: 18
+          bitWidth: 2
+          access: read-write
+        NAKSTS:
+          bitOffset: 17
+          bitWidth: 1
+          access: read-only
+        EONUM_DPID:
+          bitOffset: 16
+          bitWidth: 1
+          access: read-only
+        USBAEP:
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        MPSIZ:
+          bitOffset: 0
+          bitWidth: 11
+          access: read-write
+
+    OTG_HS_DOEPCTL5:
+      description: device endpoint-5 control register
+      addressOffset: 0x3A0
+      size: 0x20
+      resetValue: 0x0
+      fields:
+        EPENA:
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+        EPDIS:
+          bitOffset: 30
+          bitWidth: 1
+          access: read-write
+        SODDFRM:
+          bitOffset: 29
+          bitWidth: 1
+          access: write-only
+        SD0PID_SEVNFRM:
+          bitOffset: 28
+          bitWidth: 1
+          access: write-only
+        SNAK:
+          bitOffset: 27
+          bitWidth: 1
+          access: write-only
+        CNAK:
+          bitOffset: 26
+          bitWidth: 1
+          access: write-only
+        Stall:
+          bitOffset: 21
+          bitWidth: 1
+          access: read-write
+        SNPM:
+          bitOffset: 20
+          bitWidth: 1
+          access: read-write
+        EPTYP:
+          bitOffset: 18
+          bitWidth: 2
+          access: read-write
+        NAKSTS:
+          bitOffset: 17
+          bitWidth: 1
+          access: read-only
+        EONUM_DPID:
+          bitOffset: 16
+          bitWidth: 1
+          access: read-only
+        USBAEP:
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        MPSIZ:
+          bitOffset: 0
+          bitWidth: 11
+          access: read-write
+
+    OTG_HS_DOEPCTL6:
+      description: device endpoint-6 control register
+      addressOffset: 0x3C0
+      size: 0x20
+      resetValue: 0x0
+      fields:
+        EPENA:
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+        EPDIS:
+          bitOffset: 30
+          bitWidth: 1
+          access: read-write
+        SODDFRM:
+          bitOffset: 29
+          bitWidth: 1
+          access: write-only
+        SD0PID_SEVNFRM:
+          bitOffset: 28
+          bitWidth: 1
+          access: write-only
+        SNAK:
+          bitOffset: 27
+          bitWidth: 1
+          access: write-only
+        CNAK:
+          bitOffset: 26
+          bitWidth: 1
+          access: write-only
+        Stall:
+          bitOffset: 21
+          bitWidth: 1
+          access: read-write
+        SNPM:
+          bitOffset: 20
+          bitWidth: 1
+          access: read-write
+        EPTYP:
+          bitOffset: 18
+          bitWidth: 2
+          access: read-write
+        NAKSTS:
+          bitOffset: 17
+          bitWidth: 1
+          access: read-only
+        EONUM_DPID:
+          bitOffset: 16
+          bitWidth: 1
+          access: read-only
+        USBAEP:
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        MPSIZ:
+          bitOffset: 0
+          bitWidth: 11
+          access: read-write
+
+    OTG_HS_DOEPCTL7:
+      description: device endpoint-7 control register
+      addressOffset: 0x3E0
+      size: 0x20
+      resetValue: 0x0
+      fields:
+        EPENA:
+          bitOffset: 31
+          bitWidth: 1
+          access: read-write
+        EPDIS:
+          bitOffset: 30
+          bitWidth: 1
+          access: read-write
+        SODDFRM:
+          bitOffset: 29
+          bitWidth: 1
+          access: write-only
+        SD0PID_SEVNFRM:
+          bitOffset: 28
+          bitWidth: 1
+          access: write-only
+        SNAK:
+          bitOffset: 27
+          bitWidth: 1
+          access: write-only
+        CNAK:
+          bitOffset: 26
+          bitWidth: 1
+          access: write-only
+        Stall:
+          bitOffset: 21
+          bitWidth: 1
+          access: read-write
+        SNPM:
+          bitOffset: 20
+          bitWidth: 1
+          access: read-write
+        EPTYP:
+          bitOffset: 18
+          bitWidth: 2
+          access: read-write
+        NAKSTS:
+          bitOffset: 17
+          bitWidth: 1
+          access: read-only
+        EONUM_DPID:
+          bitOffset: 16
+          bitWidth: 1
+          access: read-only
+        USBAEP:
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
+        MPSIZ:
+          bitOffset: 0
+          bitWidth: 11
+          access: read-write
+
+    # Add missing device OUT EP 5 transfer size register
+    OTG_HS_DOEPTSIZ5:
+      description: OTG_HS device endpoint-5 transfer size register
+      addressOffset: 0x3B0
+      size: 0x20
+      access: read-write
+      resetValue: 0x0
+      fields:
+        XFRSIZ:
+          description: Transfer size
+          bitOffset: 0
+          bitWidth: 19
+        PKTCNT:
+          description: Packet count
+          bitOffset: 19
+          bitWidth: 10
+        RXDPID_STUPCNT:
+          description: Received data PID/SETUP packet count
+          bitOffset: 29
+          bitWidth: 2
+
+    

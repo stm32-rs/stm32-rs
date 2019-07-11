@@ -503,3 +503,16 @@ AXI:
 FDCAN1:
   _strip:
     - FDCAN_
+
+# TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
+  TIM12:
+    from: TIM2
+  TIM13:
+    from: TIM2
+  TIM14:
+    from: TIM2

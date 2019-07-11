@@ -1,0 +1,31 @@
+# Additonal general-purpose timers on H7 (at least)
+# TIM12/TIM13/TIM14/TIM15/TIM16/TIM17 are 16 bit
+
+# These have fewer capture/compare registers
+
+# TIM12-14
+# For 16bit timers where the SVD names fields ending "L" or "_L"
+"TIM1[2-4]":
+  CNT:
+    CNT: [0, 65535]
+  ARR:
+    ARR: [0, 65535]
+  CCR1:
+    CCR1: [0, 65535]
+
+TIM12:
+  CCR2:
+    CCR2: [0, 65535]
+
+# TIM15-17
+"TIM1[5-7]":
+  CNT:
+    CNT: [0, 65535]
+  ARR:
+    ARR: [0, 65535]
+  CCR1:
+    CCR1: [0, 65535]
+
+TIM15:
+  CCR2:
+    CCR2: [0, 65535]
