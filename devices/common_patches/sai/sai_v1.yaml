@@ -1,4 +1,4 @@
-"SAI,SAI1":
+"SAI,SAI?":
   _cluster:
     "CH%s":
       "?CR1": {}
@@ -9,3 +9,33 @@
       "?SR": {}
       "?CLRFR": {}
       "?DR": {}
+  "?CR1":
+    _modify:
+      OutDri:
+        name: OUTDRIV
+      SAI?EN:
+        name: SAIEN
+  "?CR2":
+    _modify:
+      FFLUS:
+        name: FFLUSH
+  "?IM":
+    _modify:
+      WCKCFG:
+        name: WCKCFGIE
+      MUTEDET:
+        name: MUTEDETIE
+      LFSDET:
+        name: LFSDETIE
+  "?CLRFR":
+    _modify:
+      LFSDET:
+        name: CLFSDET
+      CNRDY:
+        name: CCNRDY
+      WCKCFG:
+        name: CWCKCFG
+      MUTEDET:
+        name: CMUTEDET
+      OVRUDR:
+        name: COVRUDR
