@@ -34,13 +34,13 @@ _include:
       Ready: [1, "ADC is ready to start conversion"]
   CCR:
     VBATEN:
-      Disabed: [0, "V_BAT channel disabled"]
+      Disabled: [0, "V_BAT channel disabled"]
       Enabled: [1, "V_BAT channel enabled"]
     VSENSEEN:
-      Disabed: [0, "Temperature sensor channel disabled"]
+      Disabled: [0, "Temperature sensor channel disabled"]
       Enabled: [1, "Temperature sensor channel enabled"]
     VREFEN:
-      Disabed: [0, "V_REFINT channel disabled"]
+      Disabled: [0, "V_REFINT channel disabled"]
       Enabled: [1, "V_REFINT channel enabled"]
     PRESC:
       Div1: [0, "adc_ker_ck_input not divided"]

@@ -1,7 +1,6 @@
 # The most common features, found on Basic timers TIM6 and TIM7,
 # and found on all more advanced timers.
 
-
 _include:
  - tim_gp1.yaml
 
@@ -34,7 +33,7 @@ _include:
     UG:
       Update: [1, "Re-initializes the timer counter and generates an update of the reigsters."]
   PSC:
-    PSC: [0, 65536]
+    PSC: [0, 65535]
 
 # OPM is often missing on TIM10, TIM11, TIM13, TIM14.
 # Annoyingly it is not always missing - include tim_opm.yaml for those devices.

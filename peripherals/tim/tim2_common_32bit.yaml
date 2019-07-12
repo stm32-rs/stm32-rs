@@ -1,0 +1,20 @@
+# 32bit TIM2 peripheral
+# Applies to Advanced-control (ac) and General-purpose (gp) timers
+
+# TIM2 is present on all devices except stm32f410 and stm32f0x0.
+# TIM2 is 16bit on STM32F1 family.
+# TIM3 is present on all devices with TIM2 except STML4x3 family.
+# TIM3 is present on stm32f0x0.
+
+CNT:
+  CNT: [0, 4294967295]
+ARR:
+  ARR: [0, 4294967295]
+CCR1:
+  CCR1: [0, 4294967295]
+CCR2:
+  CCR2: [0, 4294967295]
+CCR3:
+  CCR3: [0, 4294967295]
+CCR4:
+  CCR4: [0, 4294967295]
