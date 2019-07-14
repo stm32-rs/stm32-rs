@@ -10,18 +10,12 @@ WWDG:
       EWI:
         name: EWIF
 
-FSMC:
-  BCR1:
-    _add:
-      WRAPMOD:
-        description: WRAPMOD
-        bitOffset: 10
-        bitWidth: 1
-
 _include:
  - ./common_patches/f1_uart45.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - common_patches/fsmc/fsmc_base.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sramfix_v3.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml

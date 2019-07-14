@@ -1,0 +1,29 @@
+"FMC,FSMC":
+  _array:
+    "PCR?": {}
+    "SR?": {}
+  "PMEM?":
+    _modify:
+      MEMHIZx:
+        name: MEMHIZ
+      MEMHOLDx:
+        name: MEMHOLD
+      MEMWAITx:
+        name: MEMWAIT
+      MEMSETx:
+        name: MEMSET
+  "PATT?":
+    _modify:
+      ATTHIZx:
+        name: ATTHIZ
+      ATTHOLDx:
+        name: ATTHOLD
+      ATTWAITx:
+        name: ATTWAIT
+      ATTSETx:
+        name: ATTSET
+  "ECCR?":
+    _modify:
+      ECCx:
+        name: ECC
+

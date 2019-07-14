@@ -1,0 +1,63 @@
+"FMC,FSMC":
+  "PCR,PCR?":
+    ECCPS:
+      Bytes256: [0, "ECC page size 256 bytes"]
+      Bytes512: [1, "ECC page size 512 bytes"]
+      Bytes1024: [2, "ECC page size 1024 bytes"]
+      Bytes2048: [3, "ECC page size 2048 bytes"]
+      Bytes4096: [4, "ECC page size 4096 bytes"]
+      Bytes8192: [5, "ECC page size 8192 bytes"]
+    TAR: [0, 15]
+    TCLR: [0, 15]
+    ECCEN:
+      Disabled: [0, "ECC logic is disabled and reset"]
+      Enabled: [1, "ECC logic is enabled"]
+    PWID:
+      Bits8: [0, "External memory device width 8 bits"]
+      Bits16: [1, "External memory device width 16 bits"]
+    PTYP:
+      NANDFlash: [1, "NAND Flash"]
+    PBKEN:
+      Disabled: [0, "Corresponding memory bank is disabled"]
+      Enabled: [1, "Corresponding memory bank is enabled"]
+    PWAITEN:
+      Disabled: [0, "Wait feature disabled"]
+      Enabled: [1, "Wait feature enabled"]
+
+  "SR,SR?":
+    FEMPT:
+      NotEmpty: [0, "FIFO not empty"]
+      Empty: [1, "FIFO empty"]
+    IFEN:
+      Disabled: [0, "Interrupt falling edge detection request disabled"]
+      Enabled: [1, "Interrupt falling edge detection request enabled"]
+    ILEN:
+      Disabled: [0, "Interrupt high-level detection request disabled"]
+      Enabled: [1, "Interrupt high-level detection request enabled"]
+    IREN:
+      Disabled: [0, "Interrupt rising edge detection request disabled"]
+      Enabled: [1, "Interrupt rising edge detection request enabled"]
+    IFS:
+      DidNotOccur: [0, "Interrupt falling edge did not occur"]
+      Occurred: [1, "Interrupt falling edge occurred"]
+    ILS:
+      DidNotOccur: [0, "Interrupt high-level did not occur"]
+      Occurred: [1, "Interrupt high-level occurred"]
+    IRS:
+      DidNotOccur: [0, "Interrupt rising edge did not occur"]
+      Occurred: [1, "Interrupt rising edge occurred"]
+
+  "PMEM,PMEM?":
+    MEMHIZ: [0, 254]
+    MEMHOLD: [1, 254]
+    MEMWAIT: [1, 254]
+    MEMSET: [0, 254]
+
+  "PATT,PATT?":
+    ATTHIZ: [0, 254]
+    ATTHOLD: [1, 254]
+    ATTWAIT: [1, 254]
+    ATTSET: [0, 254]
+
+  "ECCR,ECCR?":
+    ECC: [0, 0xFFFFFFFF]

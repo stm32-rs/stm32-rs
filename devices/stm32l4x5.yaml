@@ -42,6 +42,39 @@ _copy:
   TIM4:
     from: TIM2
 
+"FMC,FSMC":
+  BCR1:
+    _add:
+      WRAPMOD:
+        description: WRAPMOD
+        bitOffset: 10
+        bitWidth: 1
+  "BCR[2-4]":
+    _add:
+      WFDIS:
+        description: Write FIFO disable
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+      CCLKEN:
+        description: CCLKEN
+        bitOffset: 20
+        bitWidth: 1
+  BCR?:
+    _add:
+      CPSIZE:
+        description: CRAM page size
+        bitOffset: 16
+        bitWidth: 3
+        access: read-write
+  BWTR?:
+    _add:
+      BUSTURN:
+        description: Bus turnaround phase duration
+        bitOffset: 16
+        bitWidth: 4
+        access: read-write
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
@@ -59,6 +92,11 @@ _include:
  - common_patches/sai/sai_v1.yaml
  - common_patches/dfsdm/dfsdm_v2.yaml
  - ./common_patches/l4_crrcr.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_nand_v2.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_wfdis.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml

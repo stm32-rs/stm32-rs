@@ -44,7 +44,11 @@ _include:
  - common_patches/can/can.yaml
  - common_patches/cryp/cryp_v1.yaml
  - common_patches/f2_rcc.yaml
- - common_patches/fsmc/fsmc_wrapmod.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sramfix_v3.yaml
+ - common_patches/fsmc/fsmc_nand_v1.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
