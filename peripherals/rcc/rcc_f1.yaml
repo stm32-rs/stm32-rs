@@ -2,7 +2,7 @@
 # Applicable to STM32F1
 
 _include:
-  - ./rcc_f0_f1_f3_common.yaml
+  - ./rcc_common.yaml
   - ./rcc_pllsrc_1bit.yaml
 
 RCC:
@@ -18,3 +18,14 @@ RCC:
       Div4: [1, "PCLK2 divided by 4"]
       Div6: [2, "PCLK2 divided by 8"]
       Div8: [3, "PCLK2 divided by 16"]
+    PLLMUL:
+      Mul4: [2, "PLL input clock x4"]
+      Mul5: [3, "PLL input clock x5"]
+      Mul6: [4, "PLL input clock x6"]
+      Mul7: [5, "PLL input clock x7"]
+      Mul8: [6, "PLL input clock x8"]
+      Mul9: [7, "PLL input clock x9"]
+      Mul6_5: [13, "PLL input clock x6.5"]
+    PLLXTPRE:
+      Div1: [0, "HSE clock not divided"]
+      Div2: [1, "HSE clock divided by 2"]

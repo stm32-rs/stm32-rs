@@ -1,3 +1,6 @@
+_include:
+  - ./rcc_common.yaml
+
 RCC:
   CFGR:
     MCO:
@@ -8,6 +11,26 @@ RCC:
       HSI: [5, "Internal RC 8 MHz (HSI) oscillator clock selected"]
       HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
       PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+    PLLMUL:
+      Mul2: [0, "PLL input clock x2"]
+      Mul3: [1, "PLL input clock x3"]
+      Mul4: [2, "PLL input clock x4"]
+      Mul5: [3, "PLL input clock x5"]
+      Mul6: [4, "PLL input clock x6"]
+      Mul7: [5, "PLL input clock x7"]
+      Mul8: [6, "PLL input clock x8"]
+      Mul9: [7, "PLL input clock x9"]
+      Mul10: [8, "PLL input clock x10"]
+      Mul11: [9, "PLL input clock x11"]
+      Mul12: [10, "PLL input clock x12"]
+      Mul13: [11, "PLL input clock x13"]
+      Mul14: [12, "PLL input clock x14"]
+      Mul15: [13, "PLL input clock x15"]
+      Mul16: [14, "PLL input clock x16"]
+      Mul16: [15, "PLL input clock x16"]
+    PLLXTPRE:
+      Div1: [0, "HSE clock not divided"]
+      Div2: [1, "HSE clock divided by 2"]
   CFGR3:
     "U*ART*SW":
       PCLK: [0, "PCLK selected as USART clock source"]
