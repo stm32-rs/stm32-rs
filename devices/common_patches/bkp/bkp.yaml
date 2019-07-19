@@ -1,0 +1,19 @@
+_modify:
+  BKP:
+    baseAddress: "0x40006C04"
+
+BKP:
+  _array:
+    "DR[1-9],DR1[0]":
+      _start_from_zero: True
+      _modify:
+        D1:
+          name: D
+      D: [0, 0xFFFF]
+    "DR[1][1-9],DR[234][0-9]":
+      name: BKP_DR%s
+      _start_from_zero: True
+      _modify:
+        DR11:
+          name: D
+      D: [0, 0xFFFF]
