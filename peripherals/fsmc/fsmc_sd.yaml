@@ -11,8 +11,8 @@
       Enabled: [1, "Single read requests are always managed as bursts"]
     SDCLK:
       Disabled: [0, "SDCLK clock disabled"]
-      Mul2: [2, "SDCLK period = 2 x HCLK period"]
-      Mul3: [3, "SDCLK period = 3 x HCLK period"]
+      Div2: [2, "SDCLK period = 2 x HCLK period"]
+      Div3: [3, "SDCLK period = 3 x HCLK period"]
     WP:
       Disabled: [0, "Write accesses allowed"]
       Enabled: [1, "Write accesses ignored"]
@@ -49,12 +49,9 @@
   SDCMR:
     MRD: [0, 8191]
     NRFS: [0, 15]
-    CTB1:
+    CTB?:
       NotIssued: [0, "Command not issued to SDRAM Bank 1"]
       Issued: [1, "Command issued to SDRAM Bank 1"]
-    CTB2:
-      NotIssued: [0, "Command not issued to SDRAM Bank 2"]
-      Issued: [1, "Command issued to SDRAM Bank 2"]
     MODE:
       Normal: [0, "Normal Mode"]
       ClockConfigurationEnable: [1, "Clock Configuration Enable"]
@@ -76,7 +73,7 @@
     BUSY:
       NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
       Busy: [1, "SDRAM Controller is not ready to accept a new request"]
-    MODES2:
+    "MODES?":
       Normal: [0, "Normal Mode"]
       SelfRefresh: [1, "Self-refresh mode"]
       PowerDown: [2, "Power-down mode"]
