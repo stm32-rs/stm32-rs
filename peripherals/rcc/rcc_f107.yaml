@@ -23,9 +23,14 @@ RCC:
       SYSCLK: [4, "System clock selected"]
       HSI: [5, "HSI oscillator clock selected"]
       HSE: [6, "HSE oscillator clock selected"]
-      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+      PLL: [7, "PLL clock divided by 2 selected"]
+      PLL2: [8, "PLL2 clock selected"]
+      PLL3: [9, "PLL3 clock divided by 2 selected"]
+      XT1: [10, "XT1 external 3-25 MHz oscillator clock selected (for Ethernet)"]
+      PLL3Ethernet: [11, "PLL3 clock selected (for Ethernet)"]
     ADCPRE:
       Div2: [0, "PCLK2 divided by 2"]
       Div4: [1, "PCLK2 divided by 4"]
       Div6: [2, "PCLK2 divided by 8"]
       Div8: [3, "PCLK2 divided by 16"]
+
