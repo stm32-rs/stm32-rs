@@ -1,0 +1,30 @@
+# Additonal general-purpose timers on H7 (at least)
+# TIM12/TIM13/TIM14/TIM15/TIM16/TIM17 are 16 bit
+
+# These have fewer capture/compare registers
+
+# TIM12-14
+# For 16bit timers where the SVD names fields ending "L" or "_L"
+"TIM1[2-4]":
+  CNT:
+    _modify:
+      "CNT_L,CNTL":
+        name: CNT
+        description: Counter value
+  ARR:
+    _modify:
+      "ARR_L,ARRL":
+        name: ARR
+        description: "Auto-reload value"
+  CCR1:
+    _modify:
+      "CCR1_L,CCR1L":
+        name: CCR1
+        description: "Capture/Compare 1 value"
+
+TIM12:
+  CCR2:
+    _modify:
+      "CCR2_L,CCR2L":
+        name: CCR2
+        description: "Capture/Compare 2 value"

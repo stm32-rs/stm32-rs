@@ -466,7 +466,10 @@ class Peripheral:
                                 .format(self.ptag.findtext('name'), rspec))
         registers = sorted(registers, key=lambda r: r[2])
 
-        dimIndex = "{0}-{0}".format(registers[0][1]) if dim == 1 else ",".join([r[1] for r in registers])
+        if rmod.get('_start_from_zero', ""):
+            dimIndex = ",".join([str(i) for i in range(dim)])
+        else:
+            dimIndex = "{0}-{0}".format(registers[0][1]) if dim == 1 else ",".join([r[1] for r in registers])
         offsets = [r[2] for r in registers]
         bitmasks = [Register(r[0]).get_bitmask() for r in registers]
         dimIncrement = 0

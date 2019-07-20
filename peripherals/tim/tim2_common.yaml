@@ -11,7 +11,7 @@
       Update: [2, "The update event is selected as trigger output"]
       ComparePulse: [3, "The trigger output send a positive pulse when the CC1IF flag it to be set, as soon as a capture or a compare match occurred"]
       CompareOC1: [4, "OC1REF signal is used as trigger output"]
-      CompareOC2: [5, "OC2REF signal is used as trigger output"] 
+      CompareOC2: [5, "OC2REF signal is used as trigger output"]
       CompareOC3: [6, "OC3REF signal is used as trigger output"]
       CompareOC4: [7, "OC4REF signal is used as trigger output"]
     CCDS:
@@ -150,13 +150,24 @@
     DBL: [0, 18]
     DBA: [0, 31]
   CCMR1_Output:
+    OC2PE:
+      Disabled: [0, "Preload register on CCR2 disabled. New values written to CCR2 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR2 enabled. Preload value is loaded into active register on each update event"]
     CC2S:
       Output: [0, "CC2 channel is configured as output"]
+    OC1PE:
+      Disabled: [0, "Preload register on CCR1 disabled. New values written to CCR1 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR1 enabled. Preload value is loaded into active register on each update event"]
     CC1S:
       Output: [0, "CC1 channel is configured as output"]
   CCMR2_Output:
+    OC4PE:
+      Disabled: [0, "Preload register on CCR4 disabled. New values written to CCR4 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR4 enabled. Preload value is loaded into active register on each update event"]
     CC4S:
       Output: [0, "CC4 channel is configured as output"]
+    OC3PE:
+      Disabled: [0, "Preload register on CCR3 disabled. New values written to CCR3 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR3 enabled. Preload value is loaded into active register on each update event"]
     CC3S:
       Output: [0, "CC3 channel is configured as output"]
-

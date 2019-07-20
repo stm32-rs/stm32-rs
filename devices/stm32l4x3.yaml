@@ -48,6 +48,7 @@ _include:
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
+ - common_patches/tim/tim2_32bit.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
@@ -58,4 +59,5 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/sai/sai.yaml
 

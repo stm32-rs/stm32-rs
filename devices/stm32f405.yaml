@@ -93,7 +93,8 @@ _include:
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2_32bit.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - common_patches/hash/hash.yaml
  - common_patches/rtc/rtc_bkpr.yaml
@@ -102,3 +103,4 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/sai/sai.yaml
