@@ -172,5 +172,12 @@ _include:
  - common_patches/otg_hs_fixes.yaml
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sramfix_v3.yaml
+ - common_patches/fsmc/fsmc_nand_v1.yaml
+ - common_patches/fsmc/fsmc_sd.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sd.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/sai/sai.yaml

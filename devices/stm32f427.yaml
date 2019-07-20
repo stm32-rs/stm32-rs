@@ -50,7 +50,7 @@ CRYP:
       - "IV*"
 
 # Offset of BWTR3 and BWTR4 is incorrect
-FSMC:
+"FMC,FSMC":
   _modify:
     BWTR3:
       addressOffset: "0x114"
@@ -58,11 +58,34 @@ FSMC:
     BWTR4:
       addressOffset: "0x11C"
       alternateRegister: ""
-  BCR2,BCR3,BCR4:
+  "BCR[2-4]":
     _add:
       CCLKEN:
-          bitOffset: 20
-          bitWidth: 1
+        description: CCLKEN
+        bitOffset: 20
+        bitWidth: 1
+  "BWTR?":
+    _add:
+      CLKDIV:
+        description: CLKDIV
+        bitOffset: 20
+        bitWidth: 4
+      DATAST:
+        description: DATAST
+        bitOffset: 8
+        bitWidth: 8
+  SDCR2:
+    _add:
+      RPIPE:
+        description: "Read pipe"
+        bitOffset: 13
+        bitWidth: 2
+      RBURST:
+        description: "Burst read"
+        bitOffset: 12
+        bitWidth: 1
+
+
 
 # Fix RCC enable bits naming
 RCC:
@@ -149,7 +172,12 @@ _include:
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sq_sai.yaml
  - common_patches/rcc_add_gpiojk.yaml
- - common_patches/fsmc/fsmc.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_nand_v1.yaml
+ - common_patches/fsmc/fsmc_sd.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sd.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml

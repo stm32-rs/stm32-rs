@@ -1,0 +1,82 @@
+# FMC as used in STM32F7
+
+"FMC,FSMC":
+  "SDCR?":
+    RPIPE:
+      NoDelay: [0, "No clock cycle delay"]
+      Clocks1: [1, "One clock cycle delay"]
+      Clocks2: [2, "Two clock cycles delay"]
+    RBURST:
+      Disabled: [0, "Single read requests are not managed as bursts"]
+      Enabled: [1, "Single read requests are always managed as bursts"]
+    SDCLK:
+      Disabled: [0, "SDCLK clock disabled"]
+      Div2: [2, "SDCLK period = 2 x HCLK period"]
+      Div3: [3, "SDCLK period = 3 x HCLK period"]
+    WP:
+      Disabled: [0, "Write accesses allowed"]
+      Enabled: [1, "Write accesses ignored"]
+    CAS:
+      Clocks1: [1, "1 cycle"]
+      Clocks2: [2, "2 cycles"]
+      Clocks3: [3, "3 cycles"]
+    NB:
+      NB2: [0, "Two internal Banks"]
+      NB4: [1, "Four internal Banks"]
+    MWID:
+      Bits8: [0, "Memory data bus width 8 bits"]
+      Bits16: [1, "Memory data bus width 16 bits"]
+      Bits32: [2, "Memory data bus width 32 bits"]
+    NR:
+      Bits11: [0, "11 bits"]
+      Bits12: [1, "12 bits"]
+      Bits13: [2, "13 bits"]
+    NC:
+      Bits8: [0, "8 bits"]
+      Bits9: [1, "9 bits"]
+      Bits10: [2, "10 bits"]
+      Bits11: [3, "11 bits"]
+
+  "SDTR?":
+    TRCD: [0, 15]
+    TRP: [0, 15]
+    TWR: [0, 15]
+    TRC: [0, 15]
+    TRAS: [0, 15]
+    TXSR: [0, 15]
+    TMRD: [0, 15]
+
+  SDCMR:
+    MRD: [0, 8191]
+    NRFS: [0, 15]
+    CTB?:
+      NotIssued: [0, "Command not issued to SDRAM Bank 1"]
+      Issued: [1, "Command issued to SDRAM Bank 1"]
+    MODE:
+      Normal: [0, "Normal Mode"]
+      ClockConfigurationEnable: [1, "Clock Configuration Enable"]
+      PALL: [2, "PALL (All Bank Precharge) command"]
+      AutoRefreshCommand: [3, "Auto-refresh command"]
+      LoadModeRegister: [4, "Load Mode Resgier"]
+      SelfRefreshCommand: [5, "Self-refresh command"]
+      PowerDownCommand: [6, "Power-down command"]
+
+  SDRTR:
+    REIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated if RE = 1"]
+    COUNT: [0, 8191]
+    CRE:
+      Clear: [1, "Refresh Error Flag is cleared"]
+
+  SDSR:
+    BUSY:
+      NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
+      Busy: [1, "SDRAM Controller is not ready to accept a new request"]
+    "MODES?":
+      Normal: [0, "Normal Mode"]
+      SelfRefresh: [1, "Self-refresh mode"]
+      PowerDown: [2, "Power-down mode"]
+    RE:
+      NoError: [0, "No refresh error has been detected"]
+      Error: [1, "A refresh error has been detected"]

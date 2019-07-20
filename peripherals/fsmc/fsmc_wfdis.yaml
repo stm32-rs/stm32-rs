@@ -1,0 +1,8 @@
+"FMC,FSMC":
+  "BCR1":
+    WFDIS:
+      Enabled: [0, "Write FIFO enabled"]
+      Disabled: [1, "Write FIFO disabled"]
+    CCLKEN:
+      Enabled: [1, "The FMC_CLK is only generated during the synchronous memory access (read/write transaction)"]
+      Disabled: [0, "The FMC_CLK is generated continuously during asynchronous and synchronous access. The FMC_CLK clock is activated when the CCLKEN is set"]

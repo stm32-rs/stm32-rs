@@ -159,5 +159,13 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sramfix.yaml
+ - common_patches/fsmc/fsmc_nand_v2.yaml
+ - common_patches/fsmc/fsmc_sd.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_wfdis.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sd.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml

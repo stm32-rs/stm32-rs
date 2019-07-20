@@ -1,7 +1,7 @@
 _include:
-  - ./fsmc.yaml
+ - ./fsmc_sramfix_common.yaml
 
-FSMC:
+"FMC,FSMC":
   BCR1:
     _add:
       WRAPMOD:

@@ -1,0 +1,15 @@
+"FMC,FSMC":
+  BCR?:
+    _add:
+      CPSIZE:
+        description: CRAM page size
+        bitOffset: 16
+        bitWidth: 3
+        access: read-write
+  BWTR?:
+    _add:
+      BUSTURN:
+        description: Bus turnaround phase duration
+        bitOffset: 16
+        bitWidth: 4
+        access: read-write

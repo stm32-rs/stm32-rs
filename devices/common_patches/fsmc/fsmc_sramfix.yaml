@@ -1,0 +1,15 @@
+_include:
+ - ./fsmc_sramfix_common.yaml
+
+"FMC,FSMC":
+  BCR1:
+    _add:
+      WRAPMOD:
+        description: WRAPMOD
+        bitOffset: 10
+        bitWidth: 1
+      WFDIS:
+        description: Write FIFO disable
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
