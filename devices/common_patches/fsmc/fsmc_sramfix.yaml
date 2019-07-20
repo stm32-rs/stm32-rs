@@ -1,3 +1,6 @@
+_include:
+ - ./fsmc_sramfix_common.yaml
+
 "FMC,FSMC":
   BCR1:
     _add:
@@ -5,29 +8,8 @@
         description: WRAPMOD
         bitOffset: 10
         bitWidth: 1
-  "BCR[2-4]":
-    _add:
-      CCLKEN:
-        description: CCLKEN
-        bitOffset: 20
-        bitWidth: 1
-  BCR?:
-    _add:
       WFDIS:
         description: Write FIFO disable
         bitOffset: 21
         bitWidth: 1
         access: read-write
-      CPSIZE:
-        description: CRAM page size
-        bitOffset: 16
-        bitWidth: 3
-        access: read-write
-  BWTR?:
-    _add:
-      BUSTURN:
-        description: Bus turnaround phase duration
-        bitOffset: 16
-        bitWidth: 4
-        access: read-write
-
