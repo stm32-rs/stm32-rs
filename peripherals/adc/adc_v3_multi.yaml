@@ -56,7 +56,7 @@ _include:
       Div128: [10, "adc_ker_ck_input divided by 128"]
       Div256: [11, "adc_ker_ck_input divided by 256"]
     CKMODE:
-      Async: [0, "Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock"]
+      Asynchronous: [0, "Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock"]
       SyncDiv1: [1, "Use AHB clock rcc_hclk3. In this case rcc_hclk must equal sys_d1cpre_ck"]
       SyncDiv2: [2, "Use AHB clock rcc_hclk3 divided by 2"]
       SyncDiv4: [3, "Use AHB clock rcc_hclk3 divided by 4"]
