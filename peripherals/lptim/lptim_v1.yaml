@@ -111,14 +111,14 @@ LPTIM,LPTIM?:
       Div128: [7, "/128"]
     TRGFLT:
       Immediate: [0, "Any trigger active level change is considered as a valid trigger"]
-      TwoClocks: [1, "Trigger active level change must be stable for at least 2 clock periods before it is considered as valid trigger"]
-      FourClocks: [2, "Trigger active level change must be stable for at least 4 clock periods before it is considered as valid trigger"]
-      EightClocks: [3, "Trigger active level change must be stable for at least 8 clock periods before it is considered as valid trigger"]
+      Clocks2: [1, "Trigger active level change must be stable for at least 2 clock periods before it is considered as valid trigger"]
+      Clocks4: [2, "Trigger active level change must be stable for at least 4 clock periods before it is considered as valid trigger"]
+      Clocks8: [3, "Trigger active level change must be stable for at least 8 clock periods before it is considered as valid trigger"]
     CKFLT:
       Immediate: [0, "Any external clock signal level change is considered as a valid transition"]
-      TwoClocks: [1, "External clock signal level change must be stable for at least 2 clock periods before it is considered as valid transition"]
-      FourClocks: [2, "External clock signal level change must be stable for at least 4 clock periods before it is considered as valid transition"]
-      EightClocks: [3, "External clock signal level change must be stable for at least 8 clock periods before it is considered as valid transition"]
+      Clocks2: [1, "External clock signal level change must be stable for at least 2 clock periods before it is considered as valid transition"]
+      Clocks4: [2, "External clock signal level change must be stable for at least 4 clock periods before it is considered as valid transition"]
+      Clocks8: [3, "External clock signal level change must be stable for at least 8 clock periods before it is considered as valid transition"]
     CKPOL:
       RisingEdge: [0, "The rising edge is the active edge used for counting. If LPTIM is in encoder mode: Encoder sub-mode 1 is active."]
       FallingEdge: [1, "The falling edge is the active edge used for counting. If LPTIM is in encoder mode: Encoder sub-mode 2 is active."]

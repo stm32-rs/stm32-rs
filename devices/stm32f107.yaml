@@ -44,6 +44,7 @@ _include:
  - common_patches/can/can_remove_prefix.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
+ - ../peripherals/can/can.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -58,7 +59,7 @@ _include:
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
- - ../peripherals/rcc/rcc_f1.yaml
+ - ../peripherals/rcc/rcc_f107.yaml
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - ../peripherals/rcc/rcc_cfgr2_f107.yaml
  - ../peripherals/rtc/rtc_f1.yaml

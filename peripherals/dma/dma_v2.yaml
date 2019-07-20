@@ -50,9 +50,9 @@
       PSIZE: [0, "The offset size for the peripheral address calculation is linked to the PSIZE"]
       Fixed4: [1, "The offset size for the peripheral address calculation is fixed to 4 (32-bit alignment)"]
     "[MP]SIZE":
-      Byte: [0, "Byte (8-bit)"]
-      HalfWord: [1, "Half-word (16-bit)"]
-      Word: [2, "Word (32-bit)"]
+      Bits8: [0, "Byte (8-bit)"]
+      Bits16: [1, "Half-word (16-bit)"]
+      Bits32: [2, "Word (32-bit)"]
     "[MP]INC":
       Fixed: [0, "Address pointer is fixed"]
       Incremented: [1, "Address pointer is incremented after each data transfer"]
@@ -92,10 +92,10 @@
       Disabled: [0, "FE interrupt disabled"]
       Enabled: [1, "FE interrupt enabled"]
     FS:
-      FirstQuarter: [0, "0 < fifo_level < 1/4"]
-      SecondQuarter: [1, "1/4 <= fifo_level < 1/2"]
-      ThirdQuarter: [2, "1/2 <= fifo_level < 3/4"]
-      FourthQuarter: [3, "3/4 <= fifo_level < full"]
+      Quarter1: [0, "0 < fifo_level < 1/4"]
+      Quarter2: [1, "1/4 <= fifo_level < 1/2"]
+      Quarter3: [2, "1/2 <= fifo_level < 3/4"]
+      Quarter4: [3, "3/4 <= fifo_level < full"]
       Empty: [4, "FIFO is empty"]
       Full: [5, "FIFO is full"]
     DMDIS:

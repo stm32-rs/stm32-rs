@@ -1,0 +1,136 @@
+"CAN,CAN?":
+  #MCR:
+
+  #MSR:
+
+  #TSR:
+
+  RF?R:
+    RFOM?:
+      _write:
+        Release: [1, "Set by software to release the output mailbox of the FIFO"]
+    FOVR?:
+      _read:
+        NoOverrun: [0, "No FIFO x overrun"]
+        Overrun: [1, "FIFO x overrun"]
+      _write:
+        Clear: [1, "Clear flag"]
+    FULL?:
+      _read:
+        NotFull: [0, "FIFO x is not full"]
+        Full: [1, "FIFO x is full"]
+      _write:
+        Clear: [1, "Clear flag"]
+    #FMP?:
+
+  IER:
+    SLKIE:
+      Disabled: [0, "No interrupt when SLAKI bit is set"]
+      Enabled: [1, "Interrupt generated when SLAKI bit is set"]
+    WKUIE:
+      Disabled: [0, "No interrupt when WKUI is set"]
+      Enabled: [1, "Interrupt generated when WKUI bit is set"]
+    ERRIE:
+      Disabled: [0, "No interrupt will be generated when an error condition is pending in the CAN_ESR"]
+      Enabled: [1, "An interrupt will be generation when an error condition is pending in the CAN_ESR"]
+    LECIE:
+      Disabled: [0, "ERRI bit will not be set when the error code in LEC[2:0] is set by hardware on error detection"]
+      Enabled: [1, "ERRI bit will be set when the error code in LEC[2:0] is set by hardware on error detection"]
+    BOFIE:
+      Disabled: [0, "ERRI bit will not be set when BOFF is set"]
+      Enabled: [1, "ERRI bit will be set when BOFF is set"]
+    EPVIE:
+      Disabled: [0, "ERRI bit will not be set when EPVF is set"]
+      Enabled: [1, "ERRI bit will be set when EPVF is set"]
+    EWGIE:
+      Disabled: [0, "ERRI bit will not be set when EWGF is set"]
+      Enabled: [1, "ERRI bit will be set when EWGF is set"]
+    FOVIE1:
+      Disabled: [0, "No interrupt when FOVR is set"]
+      Enabled: [1, "Interrupt generation when FOVR is set"]
+    FFIE1:
+      Disabled: [0, "No interrupt when FULL bit is set"]
+      Enabled: [1, "Interrupt generated when FULL bit is set"]
+    FMPIE1:
+      Disabled: [0, "No interrupt generated when state of FMP[1:0] bits are not 00b"]
+      Enabled: [1, "Interrupt generated when state of FMP[1:0] bits are not 00b"]
+    FOVIE0:
+      Disabled: [0, "No interrupt when FOVR bit is set"]
+      Enabled: [1, "Interrupt generated when FOVR bit is set"]
+    FFIE0:
+      Disabled: [0, "No interrupt when FULL bit is set"]
+      Enabled: [1, "Interrupt generated when FULL bit is set"]
+    FMPIE0:
+      Disabled: [0, "No interrupt generated when state of FMP[1:0] bits are not 00"]
+      Enabled: [1, "Interrupt generated when state of FMP[1:0] bits are not 00b"]
+    TMEIE:
+      Disabled: [0, "No interrupt when RQCPx bit is set"]
+      Enabled: [1, "Interrupt generated when RQCPx bit is set"]
+
+  ESR:
+    #REC:
+    #TEC:
+    LEC:
+      NoError: [0, "No Error"]
+      Stuff: [1, "Stuff Error"]
+      Form: [2, "Form Error"]
+      Ack: [3, "Acknowledgment Error"]
+      BitRecessive: [4, "Bit recessive Error"]
+      BitDominant: [5, "Bit dominant Error"]
+      Crc: [6, "CRC Error"]
+      Custom: [7, "Set by software"]
+    #BOFF:
+    #EPVF:
+    #EWGF:
+
+  BTR:
+    SILM:
+      Normal: [0, "Normal operation"]
+      Silent: [1, "Silent Mode"]
+    LBKM:
+      Disabled: [0, "Loop Back Mode disabled"]
+      Enabled: [1, "Loop Back Mode enabled"]
+    #SJW:
+    #TS2:
+    #TS1:
+    #BRP:
+
+  TI?R:
+    #STID:
+    #EXID:
+    IDE:
+      Standard: [0, "Standard identifier"]
+      Extended: [1, "Extended identifier"]
+    RTR:
+      Data: [0, "Data frame"]
+      Remote: [1, "Remote frame"]
+    #TXRQ:
+
+  TDT?R:
+    #TIME:
+    #TGT:
+    DLC: [0, 8]
+
+  #TDL?R:
+
+  #TDH?R:
+
+  RI?R:
+    #STID:
+    #EXID:
+    IDE:
+      Standard: [0, "Standard identifier"]
+      Extended: [1, "Extended identifier"]
+    RTR:
+      Data: [0, "Data frame"]
+      Remote: [1, "Remote frame"]
+    
+  RDT?R:
+    #TIME:
+    #FMI:
+    DLC: [0, 8]
+
+  #RDL?R:
+
+  #RDH?R:
+

@@ -1,0 +1,36 @@
+# RCC peripheral
+# Applicable to STM32F107
+
+_include:
+  - ./rcc_common.yaml
+  - ./rcc_pllsrc_1bit.yaml
+
+RCC:
+  CFGR:
+    PLLMUL:
+      Mul4: [2, "PLL input clock x4"]
+      Mul5: [3, "PLL input clock x5"]
+      Mul6: [4, "PLL input clock x6"]
+      Mul7: [5, "PLL input clock x7"]
+      Mul8: [6, "PLL input clock x8"]
+      Mul9: [7, "PLL input clock x9"]
+      Mul6_5: [13, "PLL input clock x6.5"]
+    PLLXTPRE:
+      Div1: [0, "HSE clock not divided"]
+      Div2: [1, "HSE clock divided by 2"]
+    MCO:
+      NoMCO: [0, "MCO output disabled, no clock on MCO"]
+      SYSCLK: [4, "System clock selected"]
+      HSI: [5, "HSI oscillator clock selected"]
+      HSE: [6, "HSE oscillator clock selected"]
+      PLL: [7, "PLL clock divided by 2 selected"]
+      PLL2: [8, "PLL2 clock selected"]
+      PLL3: [9, "PLL3 clock divided by 2 selected"]
+      XT1: [10, "XT1 external 3-25 MHz oscillator clock selected (for Ethernet)"]
+      PLL3Ethernet: [11, "PLL3 clock selected (for Ethernet)"]
+    ADCPRE:
+      Div2: [0, "PCLK2 divided by 2"]
+      Div4: [1, "PCLK2 divided by 4"]
+      Div6: [2, "PCLK2 divided by 8"]
+      Div8: [3, "PCLK2 divided by 16"]
+
