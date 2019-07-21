@@ -20,9 +20,12 @@ optional = true
 version = "0.6.8"
 
 [package.metadata.docs.rs]
-features = ['rt', 'stm32h7x3']
+features = ['rt', 'stm32h743', 'stm32h743v']
 
 [features]
 default = []
 rt = ["cortex-m-rt/device"]
-stm32h7x3 = []
+stm32h743 = []
+stm32h743v = []
+stm32h753 = []
+stm32h753v = []

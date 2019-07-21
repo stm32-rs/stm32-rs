@@ -1,0 +1,16 @@
+# ADC features specific to H7 Rev V
+
+"ADC?":
+  CFGR:
+    RES:
+      SixteenBit: [0, "16-bit resolution"]
+      FourteenBit: [1, "14-bit resolution"]
+      TwelveBit: [2, "12-bit resolution"]
+      TenBit: [3, "10-bit resolution"]
+      EightBit: [7, "8-bit resolution"]
+  CR:
+    BOOST:
+      LT6_25: [0, "Boost mode used when ADC clock ≤ 6.25 MHz"]
+      LT12_5: [1, "Boost mode used when 6.25 MHz < ADC clock ≤ 12.5 MHz"]
+      LT25: [2, "Boost mode used when 12.5 MHz < ADC clock ≤ 25.0 MHz"]
+      LT50: [3, "Boost mode used when 25.0 MHz < ADC clock ≤ 50.0 MHz"]

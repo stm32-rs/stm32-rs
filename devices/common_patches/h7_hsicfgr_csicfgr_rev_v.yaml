@@ -1,0 +1,30 @@
+RCC:
+  _delete:
+    ICSCR
+  _add:
+    HSICFGR:
+      description: RCC HSI configuration register
+      addressOffset: 0x0004
+      access: read-write
+      fields:
+        HSITRIM:
+          description: HSI clock trimming
+          bitOffset: 24
+          bitWidth: 7
+        HSICAL:
+          description: HSI clock calibration
+          bitOffset: 0
+          bitWidth: 12
+    CSICFGR:
+      description: RCC CSI configuration register
+      addressOffset: 0x000C
+      access: read-write
+      fields:
+        CSITRIM:
+          description: CSI clock trimming
+          bitOffset: 24
+          bitWidth: 6
+        CSICAL:
+          description: CSI clock calibration
+          bitOffset: 0
+          bitWidth: 9
