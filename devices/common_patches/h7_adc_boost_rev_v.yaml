@@ -1,0 +1,9 @@
+# ADC fields different on H7 Rev V
+
+"ADC?":
+  CR:
+    _modify:
+      # See RM0433 Section 24.6.3
+      BOOST:
+        bitOffset: 8
+        bitWidth: 2
