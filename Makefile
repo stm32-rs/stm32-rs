@@ -45,7 +45,7 @@ define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -g -i ../../../$$<
-	rustfmt $$(@D)/lib.rs
+	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
 	sed "1,10d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
 	mv -f -t $$(@D)/.. $$(@D)/generic.rs
@@ -54,7 +54,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
 	rm $$<
 	mv $$(@D)/lib.rs $$<
-	rustfmt $$<
+	rustfmt --config-path="rustfmt.toml" $$<
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
