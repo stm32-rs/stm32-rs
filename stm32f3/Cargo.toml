@@ -1,8 +1,8 @@
 [package]
 edition = "2018"
 name = "stm32f3"
-version = "0.7.0"
-authors = ["Adam Greig <adam@adamgreig.com>"]
+version = "0.8.0"
+authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
 description = "Device support crates for STM32F3 devices"
 repository = "https://github.com/stm32-rs/stm32-rs"
 readme = "README.md"
@@ -17,7 +17,7 @@ cortex-m = ">=0.5.8,<0.7"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.8"
+version = "0.6.10"
 
 [package.metadata.docs.rs]
 features = ['rt', 'stm32f303', 'stm32f373', 'stm32f3x8']
