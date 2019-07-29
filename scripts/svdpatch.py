@@ -369,10 +369,10 @@ class Device:
                 rmod = peripheral["_modify"][rspec]
                 if rspec == "_registers":
                     for rspec in rmod:
-                        p.modify_register(rspec, rmod)
+                        p.modify_register(rspec, rmod[rspec])
                 elif rspec == "_interrupts":
                     for ispec in rmod:
-                        p.modify_interrupt(ispec, rmod)
+                        p.modify_interrupt(ispec, rmod[ispec])
                 else:
                     p.modify_register(rspec, rmod)
             # Handle strips
@@ -448,7 +448,7 @@ class Peripheral:
                 if value == "":
                     itag.remove(tag)
                 else:
-                    tag.text = value
+                    tag.text = str(value)
 
     def delete_interrupt(self, ispec):
         """Delete interrupts matched by ispec"""
