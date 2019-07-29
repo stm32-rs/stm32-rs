@@ -350,12 +350,31 @@ class Device:
             pcount += 1
             # Handle deletions
             p = Peripheral(ptag)
-            for rspec in peripheral.get("_delete", []):
-                p.delete_register(rspec)
+            deletions = peripheral.get("_delete", [])
+            if isinstance(deletions, list):
+                for rspec in deletions:
+                    p.delete_register(rspec)
+            elif isinstance(deletions, dict):
+                for rspec in deletions:
+                    if rspec == "_registers":
+                        for rspec in deletions[rspec]:
+                            p.delete_register(rspec)
+                    elif rspec == "_interrupts":
+                        for ispec in deletions[rspec]:
+                            p.delete_interrupt(ispec)
+                    else:
+                        p.delete_register(rspec)
             # Handle modifications
             for rspec in peripheral.get("_modify", {}):
                 rmod = peripheral["_modify"][rspec]
-                p.modify_register(rspec, rmod)
+                if rspec == "_registers":
+                    for rspec in rmod:
+                        p.modify_register(rspec, rmod)
+                elif rspec == "_interrupts":
+                    for ispec in rmod:
+                        p.modify_interrupt(ispec, rmod)
+                else:
+                    p.modify_register(rspec, rmod)
             # Handle strips
             for prefix in peripheral.get("_strip", []):
                 p.strip_prefix(prefix)
@@ -401,6 +420,13 @@ class Peripheral:
             if matchname(name, rspec):
                 yield rtag
 
+    def iter_interrupts(self, ispec):
+        """Iterates over all interrupts matching ispec"""
+        for itag in self.ptag.iter('interrupt'):
+            name = itag.find('name').text
+            if matchname(name, ispec):
+                yield itag
+
     def add_interrupt(self, iname, iadd):
         """Add iname given by iadd to ptag."""
         for itag in self.ptag.iter('interrupt'):
@@ -413,6 +439,21 @@ class Peripheral:
         for key, val in iadd.items():
             ET.SubElement(inew, key).text = str(val)
         inew.tail = "\n    "
+
+    def modify_interrupt(self, ispec, imod):
+        """Modify ispec according to imod"""
+        for itag in self.iter_interrupts(ispec):
+            for (key, value) in imod.items():
+                tag = itag.find(key)
+                if value == "":
+                    itag.remove(tag)
+                else:
+                    tag.text = value
+
+    def delete_interrupt(self, ispec):
+        """Delete interrupts matched by ispec"""
+        for itag in list(self.iter_interrupts(ispec)):
+            self.ptag.remove(itag)
 
     def modify_register(self, rspec, rmod):
         """Modify rspec inside ptag according to rmod."""

@@ -287,10 +287,15 @@ _rebase:
                 value: 100
 
     # Anywhere you can '_add' something, you can also '_delete' it.
-    # Wildcards are supported. Note that the value here is a YAML list,
-    # not a mapping like for most other keys.
+    # Wildcards are supported. The value here can be a YAML list of registers
+    # to delete (supported for backwards compatibility), or a YAML mapping
+    # of lists of registers or interrupts.
     _delete:
-        - GPIO*_EXTRAR
+        GPIO*_EXTRAR:
+        _registers:
+            - GPIO*_EXAMPLER
+        _interrupts:
+            - USART1
 
     # If registers have unnecessary common prefix,
     # you can clean it in all registers in peripheral by:
