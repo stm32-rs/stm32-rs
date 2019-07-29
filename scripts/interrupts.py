@@ -7,10 +7,12 @@ def parse_device(svdfile):
     interrupts = {}
     tree = ET.parse(svdfile)
     dname = tree.find("name").text
-    for itag in tree.iter('interrupt'):
-        name = itag.find('name').text
-        value = itag.find('value').text
-        interrupts[int(value)] = name
+    for ptag in tree.iter('peripheral'):
+        pname = ptag.find('name').text
+        for itag in ptag.iter('interrupt'):
+            name = itag.find('name').text
+            value = itag.find('value').text
+            interrupts[int(value)] = {"name": name, "pname": pname}
     return dname, interrupts
 
 
@@ -25,7 +27,9 @@ def main():
         devices[name] = interrupts
         with open(os.path.join(args.outdir, name), "w") as f:
             for val in sorted(interrupts.keys()):
-                f.write("{} {}\n".format(val, interrupts[val]))
+                f.write("{} {} (in {})\n".format(
+                    val, interrupts[val]["name"], interrupts[val]["pname"]))
+
 
 if __name__ == "__main__":
     main()
