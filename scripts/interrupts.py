@@ -12,7 +12,10 @@ def parse_device(svdfile):
         for itag in ptag.iter('interrupt'):
             name = itag.find('name').text
             value = itag.find('value').text
-            interrupts[int(value)] = {"name": name, "pname": pname}
+            desc = itag.find('description').text.replace("\n", " ")
+            interrupts[int(value)] = {"name": name,
+                                      "desc": desc,
+                                      "pname": pname}
     return dname, interrupts
 
 
@@ -25,10 +28,18 @@ def main():
     for f in args.svdfiles:
         name, interrupts = parse_device(f)
         devices[name] = interrupts
+        missing = set()
         with open(os.path.join(args.outdir, name), "w") as f:
+            lastint = -1
             for val in sorted(interrupts.keys()):
-                f.write("{} {} (in {})\n".format(
-                    val, interrupts[val]["name"], interrupts[val]["pname"]))
+                for v in range(lastint+1, val):
+                    missing.add(v)
+                lastint = val
+                i = interrupts[val]
+                f.write("{} {}: {} (in {})\n".format(
+                    val, i["name"], i["desc"], i["pname"]))
+            f.write("\nGaps: {}\n"
+                    .format(", ".join(str(x) for x in sorted(missing))))
 
 
 if __name__ == "__main__":
