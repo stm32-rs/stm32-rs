@@ -75,6 +75,22 @@ _copy:
         bitWidth: 4
         access: read-write
 
+# RNG interrupt is incorrectly listed as 79 instead of 80
+RNG:
+  _modify:
+    _interrupts:
+      RNG:
+        value: 80
+
+# Add correct AES interrupt at 79
+AES:
+  _add:
+    _interrupts:
+      AES:
+        description: AES global interrupt
+        value: 79
+
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml

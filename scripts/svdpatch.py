@@ -41,8 +41,8 @@ def parseargs():
 def matchname(name, spec):
     """Check if name matches against a specification."""
     return (
-        (not spec.startswith("_"))
-        and any(fnmatch(name, subspec) for subspec in spec.split(",")))
+        (not spec.startswith("_")) and
+        any(fnmatch(name, subspec) for subspec in spec.split(",")))
 
 
 def abspath(frompath, relpath):
@@ -166,6 +166,7 @@ def check_offsets(offsets, dimIncrement):
             return False
     return True
 
+
 def check_bitmasks(masks, mask):
     for m in masks:
         if m != mask:
@@ -192,8 +193,9 @@ class MissingRegisterError(SvdPatchError):
 class MissingPeripheralError(SvdPatchError):
     pass
 
-"""Class collecting methods for processing device contents"""
+
 class Device:
+    """Class collecting methods for processing device contents"""
     def __init__(self, device):
         self.device = device
 
@@ -237,7 +239,8 @@ class Device:
                                     .format(pname))
         if "derivedFrom" in padd:
             derived = padd["derivedFrom"]
-            pnew = ET.SubElement(parent, 'peripheral', {"derivedFrom": derived})
+            pnew = ET.SubElement(parent, 'peripheral',
+                                 {"derivedFrom": derived})
         else:
             pnew = ET.SubElement(parent, 'peripheral')
         ET.SubElement(pnew, 'name').text = pname
@@ -282,7 +285,8 @@ class Device:
             last = value
         last.tail = "\n    "
         ptag.set('derivedFrom', pderive)
-        for p in parent.findall('./peripheral[@derivedFrom=\'{}\']'.format(pname)):
+        for p in parent.findall(
+                './peripheral[@derivedFrom=\'{}\']'.format(pname)):
             p.set('derivedFrom', pderive)
 
     def copy_peripheral(self, pname, pmod):
@@ -292,7 +296,8 @@ class Device:
         parent = self.device.find('peripherals')
         ptag = parent.find('./peripheral[name=\'{}\']'.format(pname))
         pcopyname = pmod['from']
-        pcopy = copy.deepcopy(parent.find('./peripheral[name=\'{}\']'.format(pcopyname)))
+        pcopy = copy.deepcopy(
+            parent.find('./peripheral[name=\'{}\']'.format(pcopyname)))
         if pcopy is None:
             raise SvdPatchError('peripheral {} not found'.format(pcopy))
         if ptag is None:
@@ -333,7 +338,8 @@ class Device:
         last.tail = "\n    "
         del new.attrib['derivedFrom']
         old.set('derivedFrom', pnew)
-        for p in parent.findall('./peripheral[@derivedFrom=\'{}\']'.format(pold)):
+        for p in parent.findall(
+                './peripheral[@derivedFrom=\'{}\']'.format(pold)):
             p.set('derivedFrom', pnew)
 
     def process_peripheral(self, pspec, peripheral, update_fields=True):
@@ -344,12 +350,31 @@ class Device:
             pcount += 1
             # Handle deletions
             p = Peripheral(ptag)
-            for rspec in peripheral.get("_delete", []):
-                p.delete_register(rspec)
+            deletions = peripheral.get("_delete", [])
+            if isinstance(deletions, list):
+                for rspec in deletions:
+                    p.delete_register(rspec)
+            elif isinstance(deletions, dict):
+                for rspec in deletions:
+                    if rspec == "_registers":
+                        for rspec in deletions[rspec]:
+                            p.delete_register(rspec)
+                    elif rspec == "_interrupts":
+                        for ispec in deletions[rspec]:
+                            p.delete_interrupt(ispec)
+                    else:
+                        p.delete_register(rspec)
             # Handle modifications
             for rspec in peripheral.get("_modify", {}):
                 rmod = peripheral["_modify"][rspec]
-                p.modify_register(rspec, rmod)
+                if rspec == "_registers":
+                    for rspec in rmod:
+                        p.modify_register(rspec, rmod[rspec])
+                elif rspec == "_interrupts":
+                    for ispec in rmod:
+                        p.modify_interrupt(ispec, rmod[ispec])
+                else:
+                    p.modify_register(rspec, rmod)
             # Handle strips
             for prefix in peripheral.get("_strip", []):
                 p.strip_prefix(prefix)
@@ -381,8 +406,8 @@ class Device:
             raise MissingPeripheralError("Could not find {}".format(pspec))
 
 
-"""Class collecting methods for processing peripheral contents"""
 class Peripheral:
+    """Class collecting methods for processing peripheral contents"""
     def __init__(self, ptag):
         self.ptag = ptag
 
@@ -395,17 +420,40 @@ class Peripheral:
             if matchname(name, rspec):
                 yield rtag
 
+    def iter_interrupts(self, ispec):
+        """Iterates over all interrupts matching ispec"""
+        for itag in self.ptag.iter('interrupt'):
+            name = itag.find('name').text
+            if matchname(name, ispec):
+                yield itag
+
     def add_interrupt(self, iname, iadd):
         """Add iname given by iadd to ptag."""
         for itag in self.ptag.iter('interrupt'):
             if itag.find('name').text == iname:
-                raise SvdPatchError('peripheral {} already has an interrupt {}'
-                                    .format(self.ptag.find('name').text, iname))
+                raise SvdPatchError(
+                    'peripheral {} already has an interrupt {}'
+                    .format(self.ptag.find('name').text, iname))
         inew = ET.SubElement(self.ptag, 'interrupt')
         ET.SubElement(inew, 'name').text = iname
         for key, val in iadd.items():
             ET.SubElement(inew, key).text = str(val)
         inew.tail = "\n    "
+
+    def modify_interrupt(self, ispec, imod):
+        """Modify ispec according to imod"""
+        for itag in self.iter_interrupts(ispec):
+            for (key, value) in imod.items():
+                tag = itag.find(key)
+                if value == "":
+                    itag.remove(tag)
+                else:
+                    tag.text = str(value)
+
+    def delete_interrupt(self, ispec):
+        """Delete interrupts matched by ispec"""
+        for itag in list(self.iter_interrupts(ispec)):
+            self.ptag.remove(itag)
 
     def modify_register(self, rspec, rmod):
         """Modify rspec inside ptag according to rmod."""
@@ -422,8 +470,9 @@ class Peripheral:
         parent = self.ptag.find('registers')
         for rtag in parent.iter('register'):
             if rtag.find('name').text == rname:
-                raise SvdPatchError('peripheral {} already has a register {}'
-                                    .format(self.ptag.find('name').text, rname))
+                raise SvdPatchError(
+                    'peripheral {} already has a register {}'
+                    .format(self.ptag.find('name').text, rname))
         rnew = ET.SubElement(parent, 'register')
         ET.SubElement(rnew, 'name').text = rname
         ET.SubElement(rnew, 'fields')
@@ -469,16 +518,22 @@ class Peripheral:
         if rmod.get('_start_from_zero', ""):
             dimIndex = ",".join([str(i) for i in range(dim)])
         else:
-            dimIndex = "{0}-{0}".format(registers[0][1]) if dim == 1 else ",".join([r[1] for r in registers])
+            if dim == 1:
+                dimIndex = "{0}-{0}".format(registers[0][1])
+            else:
+                dimIndex = ",".join(r[1] for r in registers)
         offsets = [r[2] for r in registers]
         bitmasks = [Register(r[0]).get_bitmask() for r in registers]
         dimIncrement = 0
         if dim > 1:
             dimIncrement = offsets[1]-offsets[0]
 
-        if not (check_offsets(offsets, dimIncrement) and check_bitmasks(bitmasks, bitmasks[0])):
-            raise SvdPatchError("{}: registers cannot be collected into {} array"
-                                .format(self.ptag.findtext('name'), rspec))
+        if not (
+                check_offsets(offsets, dimIncrement) and
+                check_bitmasks(bitmasks, bitmasks[0])):
+            raise SvdPatchError(
+                "{}: registers cannot be collected into {} array"
+                .format(self.ptag.findtext('name'), rspec))
         for rtag, _, _ in registers[1:]:
             self.ptag.find('registers').remove(rtag)
         rtag = registers[0][0]
@@ -518,7 +573,9 @@ class Peripheral:
                 dimIncrement = 0
                 if dim > 1:
                     dimIncrement = offsets[1]-offsets[0]
-                if not (check_offsets(offsets, dimIncrement) and check_bitmasks(bitmasks, bitmasks[0])):
+                if not (
+                        check_offsets(offsets, dimIncrement) and
+                        check_bitmasks(bitmasks, bitmasks[0])):
                     check = False
                     break
             else:
@@ -532,10 +589,12 @@ class Peripheral:
                     break
             first = False
         if not check:
-            raise SvdPatchError("{}: registers cannot be collected into {} cluster"
-                                .format(self.ptag.findtext('name'), cname))
+            raise SvdPatchError(
+                "{}: registers cannot be collected into {} cluster"
+                .format(self.ptag.findtext('name'), cname))
         ctag = ET.SubElement(self.ptag.find('registers'), 'cluster')
-        addressOffset = min([registers[0][2] for _, registers in rdict.items()])
+        addressOffset = min(
+            [registers[0][2] for _, registers in rdict.items()])
         ET.SubElement(ctag, 'name').text = cname
         if 'description' in cmod:
             description = cmod['description']
@@ -601,8 +660,8 @@ class Peripheral:
                                        .format(pname, rspec))
 
 
-"""Class collecting methods for processing register contents"""
 class Register:
+    """Class collecting methods for processing register contents"""
     def __init__(self, rtag):
         self.rtag = rtag
 
@@ -622,18 +681,19 @@ class Register:
                 try:
                     ftag.find(key).text = str(value)
                 except AttributeError:
-                    raise SvdPatchError('invalid attribute {!r} for '
-                                        'register {}, field {}'
-                                        .format(key, self.rtag.find('name').text,
-                                                ftag.find('name').text))
+                    raise SvdPatchError(
+                        'invalid attribute {!r} for register {}, field {}'
+                        .format(key, self.rtag.find('name').text,
+                                ftag.find('name').text))
 
     def add_field(self, fname, fadd):
         """Add fname given by fadd to rtag."""
         parent = self.rtag.find('fields')
         for ftag in parent.iter('field'):
             if ftag.find('name').text == fname:
-                raise SvdPatchError('register {} already has a field {}'
-                                    .format(self.rtag.find('name').text, fname))
+                raise SvdPatchError(
+                    'register {} already has a field {}'
+                    .format(self.rtag.find('name').text, fname))
         fnew = ET.SubElement(parent, 'field')
         ET.SubElement(fnew, 'name').text = fname
         for (key, value) in fadd.items():
@@ -694,11 +754,10 @@ class Register:
 
             for usage in (u for u in usages if u in field):
                 self.process_field_enum(pname, fspec, field[usage],
-                                   usage=usage.replace("_", ""))
+                                        usage=usage.replace("_", ""))
 
         elif isinstance(field, list) and len(field) == 2:
             self.process_field_range(pname, fspec, field)
-
 
     def process_field_enum(self, pname, fspec, field, usage="read-write"):
         """Add an enumeratedValues given by field to all fspec in rtag."""
@@ -793,7 +852,7 @@ def process_device(svd, device, update_fields=True):
         if not periphspec.startswith("_"):
             device[periphspec]["_path"] = device["_path"]
             d.process_peripheral(periphspec, device[periphspec],
-                               update_fields)
+                                 update_fields)
 
 
 def main():
