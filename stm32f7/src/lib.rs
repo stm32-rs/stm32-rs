@@ -1,9 +1,9 @@
 //! Peripheral access API for STM32F7 microcontrollers
 //! (generated using [svd2rust](https://github.com/rust-embedded/svd2rust)
-//! 0.14.0)
+//! 0.15.0)
 //!
 //! You can find an overview of the API here:
-//! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api)
+//! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/0.15.0/svd2rust/#peripheral-api)
 //!
 //! For more details see the README here:
 //! [stm32-rs](https://github.com/stm32-rs/stm32-rs)

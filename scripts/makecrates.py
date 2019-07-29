@@ -1,6 +1,6 @@
 """
 makecrates.py
-Copyright 2017 Adam Greig
+Copyright 2017-2019 Adam Greig
 Licensed under the MIT and Apache 2.0 licenses.
 
 Autogenerate the crate Cargo.toml and src/lib.rs file based on available
@@ -15,8 +15,8 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.7.0"
-SVD2RUST_VERSION = "0.14.0"
+VERSION = "0.8.0"
+SVD2RUST_VERSION = "0.15.0"
 
 CRATE_DOC_FEATURES = {
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
@@ -31,8 +31,7 @@ CRATE_DOC_FEATURES = {
     "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
     "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
     "stm32g0": ["rt", "stm32g0x0", "stm32g0x1"],
-    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g471", "stm32g473", 
-                "stm32g474", "stm32g483", "stm32g484"]
+    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"]
 }
 
 CARGO_TOML_TPL = """\
@@ -40,7 +39,7 @@ CARGO_TOML_TPL = """\
 edition = "2018"
 name = "{crate}"
 version = "{version}"
-authors = ["Adam Greig <adam@adamgreig.com>"]
+authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
 description = "Device support crates for {family} devices"
 repository = "https://github.com/stm32-rs/stm32-rs"
 readme = "README.md"
@@ -55,7 +54,7 @@ cortex-m = ">=0.5.8,<0.7"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.8"
+version = "0.6.10"
 
 [package.metadata.docs.rs]
 features = {docs_features}

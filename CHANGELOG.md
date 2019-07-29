@@ -2,12 +2,69 @@
 
 ## [Unreleased]
 
+## [v0.8.0] 2019-07-28
+
 Family-specific:
-* F469: Renamed 48MSEL to CK48MSEL to avoid leading numerals
-* L0: Renamed 1_8V constants to V1_8 (etc) to avoid leading numerals
+* F1:
+    * FLASH ACR LATENCY field (#221)
+    * ADC definitions (#233)
+    * BKP definitions (#235, #256)
+    * RTC definitions (#237)
+    * Fix PLLMUL confusion (#259)
+* F2:
+    * ETH definitions (#252)
+* F4:
+    * F469: Renamed 48MSEL to CK48MSEL to avoid leading numerals (#199)
+    * F411: Fixed missing interrupts (#268)
+    * OTG HS peripheral fixes (#230)
+* L0: Renamed 1_8V constants to V1_8 (etc) to avoid leading numerals (#199)
+* L4:
+    * Add nBOOT0 and nSWBOOT0 to FLASH OPTR (#217);w
+    * L4x2: Document USB registers (#195)
+    * L4x3: Add missing CRCCR register (#219)
+    * L4x5: Fix wrong RNG interrupt value (#268)
+* G0:
+    * Renamed devices to STM32G0x0 and STM32G0x1 (#200)
+    * DMA patch (#228)
+* G4:
+    * Initial support (#229)
+* H7:
+    * Fix width of ETHERNET_DMA.DMAMR.INTM (#201)
+    * Fix DMA SC?R and cluster streams (#202)
+    * Document DMAMUX{1,2} and split flag fields (#203)
+    * Add missing DBGMCU (#204)
+    * Fix CFG.FTHV/L spelling (#205)
+    * RCC definitions and patches (#206, #242)
+    * Update SVD file to ST version 1.4 (#208)
+    * Fix MTLTxQUR and PPSCTRL (#211)
+    * SPI DXPIE/TXPIE set to read-write (#215)
+    * Fix Flash register access and RCC USART/UART field names (#218)
+    * ADC definitions and fixes (#231, #244, #264)
+    * LPTIM definitions (#240)
+    * RNG definitions (#246)
+    * Split into four devices: H743/H743v/H753/H753v (#247)
 
 Common:
 * Updated svdpatch.py to prohibit enumerated values with leading numerals
+  (#199)
+* PAR register added to DMA cluster on many families (#214)
+* NotHalt renamed to NotHalf for DMA HTIF fields (#216)
+* Timers:
+    * TIM1 and CKD descriptions (#220)
+    * TIM CCMR (#223)
+    * TIM3/4 16-bit and definitions (#241)
+    * Advanced timer definitions (#267)
+* DAC refactor (#234)
+* SAI definitions (#249)
+* FMC/FSMC definitions (#253, #265)
+* CAN definitoins (#254)
+* DMA and LPTIM enums updated to new numeric format (#262)
+* `async` in ADC renamed `asynchronous` since it's a keyword now (#263)
+
+Thanks to:
+
+[@nickray] [@jordens] [@richardeoin] [@mabezdev] [@burrbull] [@dotcypress]
+[@albru123]
 
 ## [v0.7.0] 2019-04-22
 
@@ -161,7 +218,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.4.0...v0.5.0
@@ -195,3 +253,6 @@ work in this release!
 [@astro]: https://github.com/astro
 [@jkristell]: https://github.com/jkristell
 [@solderjs]: https://github.com/solderjs
+[@nickray]: https://github.com/nickray
+[@richardeoin]: https://github.com/richardeoin
+[@mabezdev]: https://github.com/mabezdev
