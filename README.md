@@ -24,7 +24,7 @@ to drill down into each field on each register on each peripheral.
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.stm32f4]
-version = "0.7.0"
+version = "0.8.0"
 features = ["stm32f405", "rt"]
 ```
 The `rt` feature is optional but helpful. See
@@ -396,13 +396,14 @@ $ env CARGO_INCREMENTAL=0 make -j12 check
 $ vi scripts/makecrates.py # update version number
 $ python3 scripts/makecrates.py devices/
 $ vi CHANGELOG.md # add changelog entry
+$ vi README.md # update version number
+$ git checkout -b vX.X.X
 $ git commit -am "vX.X.X"
-$ git push origin master
+$ git push origin vX.X.X
 # wait for travis build to succeed
 $ git tag -a 'vX.X.X' -m 'vX.X.X'
 $ git push origin vX.X.X
-$ git push origin master
-$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32g0; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
+$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32g0 stm32g4; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
 ```
 
 ## License
