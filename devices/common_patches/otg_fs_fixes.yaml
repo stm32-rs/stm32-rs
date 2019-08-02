@@ -53,8 +53,6 @@ OTG_FS_GLOBAL:
           bitOffset: 0
           bitWidth: 4
 
-  _strip: FS_
-
   _array:
     DIEPTXF[123]: {}
 
@@ -63,8 +61,6 @@ OTG_FS_DEVICE:
   _array:
     DIEPCTL[123]: {}
     DOEPCTL[123]: {}
-
-  _strip: FS_
 
   DIEPCTL0:
     _modify:
