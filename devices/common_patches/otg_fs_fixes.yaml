@@ -53,31 +53,14 @@ OTG_FS_GLOBAL:
           bitOffset: 0
           bitWidth: 4
 
+  _strip: FS_
+
 OTG_FS_DEVICE:
   _array:
     DIEPCTL[123]: {}
     DOEPCTL[123]: {}
 
-  _modify:
-    FS_DIEPCTL0:
-      name: DIEPCTL0
-      displayName: DIEPCTL0
-
-    FS_DAINT:
-      name: DAINT
-      displayName: DAINT
-
-    FS_DAINTMSK:
-      name: DAINTMSK
-      displayName: DAINTMSK
-
-    FS_DIEPMSK:
-      name: DIEPMSK
-      displayName: DIEPMSK
-
-    FS_DOEPMSK:
-      name: DOEPMSK
-      displayName: DOEPMSK
+  _strip: FS_
 
   DIEPCTL0:
     _modify:
