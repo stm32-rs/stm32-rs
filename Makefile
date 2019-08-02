@@ -43,10 +43,11 @@ svd/%.svd.formatted: svd/%.svd.patched
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -i ../../../$$<
+	cd $$(@D); svd2rust -g -i ../../../$$<
 	rustfmt $$(@D)/lib.rs
 	sed "1,10d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
+	mv -f -t $$(@D)/.. $$(@D)/generic.rs
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
@@ -84,6 +85,7 @@ html: html/index.html
 
 clean-rs:
 	rm -rf $(RUST_DIRS)
+	rm -f */src/generic.rs
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)

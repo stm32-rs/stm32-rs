@@ -19,6 +19,9 @@
 #![allow(non_camel_case_types)]
 #![no_std]
 
+mod generic;
+pub use self::generic::*;
+
 #[cfg(feature = "stm32f0x0")]
 pub mod stm32f0x0;
 

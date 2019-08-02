@@ -88,6 +88,9 @@ SRC_LIB_RS_TPL = """\
 #![allow(non_camel_case_types)]
 #![no_std]
 
+mod generic;
+pub use self::generic::*;
+
 {mods}
 """
 
