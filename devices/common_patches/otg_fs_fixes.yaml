@@ -71,6 +71,18 @@ OTG_FS_DEVICE:
       EPENA:
         access: read-write
 
+  DIEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL
+
+  DOEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL
+
   DAINTMSK:
     _modify:
       OEPINT:
