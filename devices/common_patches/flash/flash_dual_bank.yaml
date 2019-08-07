@@ -1,0 +1,33 @@
+# Cluster bank-specific registers
+
+"FLASH":
+  _cluster:
+    "BANK%s":
+      "KEYR?":
+        name: KEYR
+      "CR?":
+        name: CR
+      "SR?":
+        name: SR
+      "CCR?":
+        name: CCR
+      "PRAR_CUR?":
+        name: PRAR_CUR
+      "PRAR_PRG?":
+        name: PRAR_PRG
+      "SCAR_CUR?":
+        name: SCAR_CUR
+      "SCAR_PRG?":
+        name: SCAR_PRG
+      "WPSN_CUR?R":
+        name: WPSN_CURR
+      "WPSN_PRG?R":
+        name: WPSN_PRGR
+      "CRCCR?":
+        name: CRCCR
+      "CRCSADD?R":
+        name: CRCSADDR
+      "CRCEADD?R":
+        name: CRCEADDR
+      "ECC_FA?R":
+        name: FAR

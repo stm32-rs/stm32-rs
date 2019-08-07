@@ -1,0 +1,613 @@
+# Common SVD errors for dual core stm32h7x5/7x7
+
+# Rename in accordance with other devices and reference manual.
+_modify:
+  Flash:
+    name: FLASH
+
+"GPIO?":
+  _strip:
+    # The SVD incorrectly names all the GPIO registers compared to RM0433.
+    - GPIO_
+
+# The SVD is just quite different to the RM for all these registers.
+# We'll go with the RM convention even though it is inconsistent too.
+"GPIO*":
+  MODER:
+    _modify:
+      MODE0:
+        name: MODER0
+      MODE1:
+        name: MODER1
+      MODE2:
+        name: MODER2
+      MODE3:
+        name: MODER3
+      MODE4:
+        name: MODER4
+      MODE5:
+        name: MODER5
+      MODE6:
+        name: MODER6
+      MODE7:
+        name: MODER7
+      MODE8:
+        name: MODER8
+      MODE9:
+        name: MODER9
+      MODE10:
+        name: MODER10
+      MODE11:
+        name: MODER11
+      MODE12:
+        name: MODER12
+      MODE13:
+        name: MODER13
+      MODE14:
+        name: MODER14
+      MODE15:
+        name: MODER15
+  OSPEEDR:
+    _modify:
+      OSPEED0:
+        name: OSPEEDR0
+      OSPEED1:
+        name: OSPEEDR1
+      OSPEED2:
+        name: OSPEEDR2
+      OSPEED3:
+        name: OSPEEDR3
+      OSPEED4:
+        name: OSPEEDR4
+      OSPEED5:
+        name: OSPEEDR5
+      OSPEED6:
+        name: OSPEEDR6
+      OSPEED7:
+        name: OSPEEDR7
+      OSPEED8:
+        name: OSPEEDR8
+      OSPEED9:
+        name: OSPEEDR9
+      OSPEED10:
+        name: OSPEEDR10
+      OSPEED11:
+        name: OSPEEDR11
+      OSPEED12:
+        name: OSPEEDR12
+      OSPEED13:
+        name: OSPEEDR13
+      OSPEED14:
+        name: OSPEEDR14
+      OSPEED15:
+        name: OSPEEDR15
+  PUPDR:
+    _modify:
+      PUPD0:
+        name: PUPDR0
+      PUPD1:
+        name: PUPDR1
+      PUPD2:
+        name: PUPDR2
+      PUPD3:
+        name: PUPDR3
+      PUPD4:
+        name: PUPDR4
+      PUPD5:
+        name: PUPDR5
+      PUPD6:
+        name: PUPDR6
+      PUPD7:
+        name: PUPDR7
+      PUPD8:
+        name: PUPDR8
+      PUPD9:
+        name: PUPDR9
+      PUPD10:
+        name: PUPDR10
+      PUPD11:
+        name: PUPDR11
+      PUPD12:
+        name: PUPDR12
+      PUPD13:
+        name: PUPDR13
+      PUPD14:
+        name: PUPDR14
+      PUPD15:
+        name: PUPDR15
+  IDR:
+    _modify:
+      ID0:
+        name: IDR0
+      ID1:
+        name: IDR1
+      ID2:
+        name: IDR2
+      ID3:
+        name: IDR3
+      ID4:
+        name: IDR4
+      ID5:
+        name: IDR5
+      ID6:
+        name: IDR6
+      ID7:
+        name: IDR7
+      ID8:
+        name: IDR8
+      ID9:
+        name: IDR9
+      ID10:
+        name: IDR10
+      ID11:
+        name: IDR11
+      ID12:
+        name: IDR12
+      ID13:
+        name: IDR13
+      ID14:
+        name: IDR14
+      ID15:
+        name: IDR15
+  ODR:
+    _modify:
+      OD0:
+        name: ODR0
+      OD1:
+        name: ODR1
+      OD2:
+        name: ODR2
+      OD3:
+        name: ODR3
+      OD4:
+        name: ODR4
+      OD5:
+        name: ODR5
+      OD6:
+        name: ODR6
+      OD7:
+        name: ODR7
+      OD8:
+        name: ODR8
+      OD9:
+        name: ODR9
+      OD10:
+        name: ODR10
+      OD11:
+        name: ODR11
+      OD12:
+        name: ODR12
+      OD13:
+        name: ODR13
+      OD14:
+        name: ODR14
+      OD15:
+        name: ODR15
+  AFRL:
+    _modify:
+      AFSEL0:
+        name: AFR0
+      AFSEL1:
+        name: AFR1
+      AFSEL2:
+        name: AFR2
+      AFSEL3:
+        name: AFR3
+      AFSEL4:
+        name: AFR4
+      AFSEL5:
+        name: AFR5
+      AFSEL6:
+        name: AFR6
+      AFSEL7:
+        name: AFR7
+  AFRH:
+    _modify:
+      AFSEL8:
+        name: AFR8
+      AFSEL9:
+        name: AFR9
+      AFSEL10:
+        name: AFR10
+      AFSEL11:
+        name: AFR11
+      AFSEL12:
+        name: AFR12
+      AFSEL13:
+        name: AFR13
+      AFSEL14:
+        name: AFR14
+      AFSEL15:
+        name: AFR15
+
+"ADC?":
+  CFGR2:
+    _modify:
+      OSR:
+        name: OSVR
+  SQR1:
+    _modify:
+      L3:
+        name: L
+  SMPR2:
+    _modify:
+      SMP19:
+        description: ADC channel 19 sampling time
+
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+# CRYP:
+#   "K[0123][LR]R":
+#     _merge:
+#       - "K*"
+#   "IV[01][LR]R":
+#     _merge:
+#       - "IV*"
+
+# FLASH:
+#   _modify:
+#     PRAR_PRG2:
+#       addressOffset: "0x12C"
+#       alternateRegister: ""
+#     KEYR[12]:
+#       access: write-only
+#     OPTKEYR_?:
+#       access: write-only
+#     BOOT_PRGR:
+#       access: read-write
+
+"SPI*":
+  CR1:
+    _modify:
+      CSTART:
+        access: read-write
+      TCRCI:
+        name: TCRCINI
+      RCRCI:
+        name: RCRCINI
+  IER:
+    _modify:
+      DPXPIE:
+        name: DXPIE
+  _modify:
+    CGFR:
+      name: I2SCFGR
+  CFG1:
+    _modify:
+      FTHVL:
+        name: FTHLV
+
+# Work around the DMA_STR? interrupt mess in the SVD.
+# Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
+# the numeral.
+
+_delete:
+  - DMA2
+
+_add:
+  DMA2:
+    baseAddress: 0x40020400
+    derivedFrom: DMA1
+    interrupts:
+      DMA2_STR0:
+        value: 56
+        description: DMA2 Stream0
+      DMA2_STR1:
+        value: 57
+        description: DMA2 Stream1
+      DMA2_STR2:
+        value: 58
+        description: DMA2 Stream2
+      DMA2_STR3:
+        value: 59
+        description: DMA2 Stream3
+      DMA2_STR4:
+        value: 60
+        description: DMA2 Stream4
+      DMA2_STR5:
+        value: 68
+        description: DMA2 Stream5
+      DMA2_STR6:
+        value: 69
+        description: DMA2 Stream6
+      DMA2_STR7:
+        value: 70
+        description: DMA2 Stream7
+
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_STR0:
+        value: 11
+        description: DMA1 Stream0
+      DMA1_STR1:
+        value: 12
+        description: DMA1 Stream1
+      DMA1_STR2:
+        value: 13
+        description: DMA1 Stream2
+      DMA1_STR3:
+        value: 14
+        description: DMA1 Stream3
+      DMA1_STR4:
+        value: 15
+        description: DMA1 Stream4
+      DMA1_STR5:
+        value: 16
+        description: DMA1 Stream5
+      DMA1_STR6:
+        value: 17
+        description: DMA1 Stream6
+      # DMA1_STR7 is correct
+
+Ethernet_MAC:
+  DMAMR:
+    _modify:
+      INTM:
+        bitWidth: 2
+      PR:
+        access: read-write
+      TXPR:
+        access: read-write
+      DA:
+        access: read-write
+  DMASBMR:
+    _modify:
+      RB:
+        access: read-write
+      MB:
+        access: read-write
+
+RCC:
+  D3CFGR:
+    _delete: "*"
+    _add:
+      D3PPRE:
+        description: D3 domain APB4 prescaler
+        bitOffset: 4
+        bitWidth: 3
+
+  _modify:
+    CIFR:
+      access: read-only
+  CR:
+    _modify:
+      RC48ON:
+        name: HSI48ON
+      RC48RDY:
+        name: HSI48RDY
+  CRRCR:
+    _modify:
+      RC48CAL:
+        name: HSI48CAL
+  CFGR:
+    _modify:
+      MCO1SEL:
+        name: MCO1
+      MCO2SEL:
+        name: MCO2
+  CIER:
+    _modify:
+      RC48RDYIE:
+        name: HSI48RDYIE
+  CIFR:
+    _modify:
+      RC48RDYF:
+        name: HSI48RDYF
+  CICR:
+    _modify:
+      RC48RDYC:
+        name: HSI48RDYC
+  BDCR:
+    _modify:
+      VSWRST:
+        name: BDRST
+      RTCSRC:
+        name: RTCSEL
+  PLL2DIVR:
+    _modify:
+      DIVR1:
+        name: DIVR2
+      DIVQ1:
+        name: DIVQ2
+      DIVP1:
+        name: DIVP2
+      DIVN1:
+        name: DIVN2
+  APB1LRSTR:
+    _modify:
+      USART7RST:
+        name: UART7RST
+        description: UART7 block reset
+      USART8RST:
+        name: UART8RST
+        description: UART8 block reset
+  APB1LENR,C1_APB1LENR:
+    _modify:
+      USART7EN:
+        name: UART7EN
+        description: UART7 Peripheral Clocks Enable
+      USART8EN:
+        name: UART8EN
+        description: UART8 Peripheral Clocks Enable
+  APB1LLPENR,C1_APB1LLPENR:
+    _modify:
+      USART7LPEN:
+        name: UART7LPEN
+        description: UART7 Peripheral Clocks Enable During CSleep Mode
+      USART8LPEN:
+        name: UART8LPEN
+        description: UART8 Peripheral Clocks Enable During CSleep Mode
+  C1_APB1LENR:
+    _modify:
+      HDMICECEN:
+        name: CECEN
+  AHB1ENR,C1_AHB1ENR:
+    _modify:
+      USB1OTGEN:
+        name: USB1OTGHSEN
+      USB2OTGEN:
+        name: USB2OTGHSEN
+      USB1ULPIEN:
+        name: USB1OTGHSULPIEN
+    _delete:
+      - USB2ULPIEN
+  AHB2ENR,C1_AHB2ENR:
+    _modify:
+      CAMITFEN:
+        name: DCMIEN
+        description: "DCMI peripheral clock"
+  APB1LLPENR,C1_APB1LLPENR:
+    _modify:
+      HDMICECLPEN:
+        name: CECLPEN
+  C1_AHB1LPENR:
+    _modify:
+      USB1OTGLPEN:
+        name: USB1OTGHSLPEN
+      USB2OTGLPEN:
+        name: USB2OTGHSLPEN
+      USB1ULPILPEN:
+        name: USB1OTGHSULPILPEN
+      USB2ULPILPEN:
+        name: USB2OTGHSULPILPEN
+  AHB2LPENR,C1_AHB2LPENR:
+    _modify:
+      CAMITFLPEN:
+        name: DCMILPEN
+        description: "DCMI peripheral clock enable during csleep mode"
+  C1_AHB3LPENR:
+    _modify:
+      FLITFLPEN:
+        name: FLASHPREN
+        description: "Flash interface clock enable during csleep mode"
+
+Ethernet_MAC:
+  MACLETR:
+    _modify:
+      LPIET:
+        bitOffset: 3
+
+CEC:
+  _strip:
+    - CEC_
+
+CRS:
+  _strip:
+    - CRS_
+
+DAC:
+  _strip:
+    - DAC_
+
+DMA2D:
+  _strip:
+    - DMA2D_
+
+DMAMUX1:
+  _strip:
+    - DMAMUX1_
+
+DMAMUX2:
+  _strip:
+    - DMAMUX2_
+
+FMC:
+  _strip:
+    - FMC_
+
+JPEG:
+  _strip:
+    - JPEG_
+
+HSEM:
+  _strip:
+    - HSEM_
+
+MDMA:
+  _strip:
+    - MDMA_
+
+LPTIM?:
+  _strip:
+    - LPTIM_
+
+MDIOS:
+  _strip:
+    - MDIOS_
+
+PWR:
+  _strip:
+    - PWR_
+
+RTC:
+  _strip:
+    - RTC_
+
+RNG:
+  _strip:
+    - RNG_
+
+QUADSPI:
+  _strip:
+    - QUADSPI_
+
+I2C1:
+  _strip:
+    - I2C_
+
+SAI4:
+  _strip:
+    - SAI_
+
+SDMMC1:
+  _strip:
+    - SDMMC_
+SDMMC2:
+  _strip:
+    - SDMMC_
+
+"OTG_HS_*":
+  _strip:
+    - OTG_HS_
+
+# The OTG_FS_WKUP interrupt occurs multiple times in the
+# SVD(!). Rename instance for interupt 42 to something more specific.
+OTG_HS_PWRCLK:
+  _modify:
+    _interrupts:
+      OTG_FS_WKUP:
+        name: OTG_FS_WKUP_EXTI
+
+FDCAN1:
+  _strip:
+    - FDCAN_
+
+WWDG1,WWDG2:
+  _strip:
+    - WWDG_
+IWDG1,IWDG2:
+  _strip:
+    - IWDG_
+
+"UART*":
+  BRR:
+    _modify:
+      BRR_4_15:
+        name: BRR4
+      BRR_0_3:
+        name: BRR0
+    _merge: ["BRR*"]
+
+# TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
+  TIM12:
+    from: TIM2
+  TIM13:
+    from: TIM2
+  TIM14:
+    from: TIM2
