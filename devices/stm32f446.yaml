@@ -118,6 +118,7 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/otg_hs_remove_prefix.yaml
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
  - common_patches/fsmc/fsmc_sram.yaml
@@ -130,4 +131,3 @@ _include:
  - ../peripherals/fsmc/fsmc_sd.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/sai/sai.yaml
- - common_patches/otg_hs_remove_prefix.yaml
