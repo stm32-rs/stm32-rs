@@ -101,4 +101,6 @@ clean: clean-rs clean-patch clean-html
 	@mkdir -p .deps
 	python3 scripts/makedeps.py $< > $@
 
--include $(patsubst devices/%.yaml, .deps/%.d, $(YAMLS))
+$(PATCHED_SVDS): $(patsubst devices/%.yaml, .deps/%.d, $(YAMLS))
+
+-include .deps/*
