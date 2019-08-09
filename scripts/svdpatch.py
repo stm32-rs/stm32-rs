@@ -75,7 +75,7 @@ def yaml_includes(parent):
         path = abspath(parent["_path"], relpath)
         if path in included:
             continue
-        with open(path) as f:
+        with open(path, encoding='utf-8') as f:
             child = yaml.safe_load(f)
         child["_path"] = path
         included.append(path)
@@ -858,7 +858,7 @@ def process_device(svd, device, update_fields=True):
 def main():
     # Load the specified YAML root file
     args = parseargs()
-    with open(args.yaml) as f:
+    with open(args.yaml, encoding='utf-8') as f:
         root = yaml.safe_load(f)
         root["_path"] = args.yaml
 

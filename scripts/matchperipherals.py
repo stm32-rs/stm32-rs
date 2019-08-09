@@ -19,7 +19,7 @@ import svdpatch
 
 
 def process_yamlfile(svd, yamlpath, quiet):
-    with open(yamlpath) as f:
+    with open(yamlpath, encoding='utf-8') as f:
         peripheral = yaml.safe_load(f)
     peripheral["_path"] = yamlpath
     svdpatch.yaml_includes(peripheral)
@@ -72,7 +72,7 @@ def process_device(device, ppath, quiet):
 
 
 def main(dpath, ppath, update, quiet):
-    with open(dpath) as f:
+    with open(dpath, encoding='utf-8') as f:
         device = yaml.safe_load(f)
     if "_svd" not in device:
         print("Could not find _svd in device YAML, cannot proceed.")
