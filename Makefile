@@ -1,6 +1,7 @@
 all: patch svd2rust
 
 .PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
+.PRECIOUS: svd/%.svd
 
 SHELL := /usr/bin/env bash
 
