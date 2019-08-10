@@ -234,28 +234,6 @@ _modify:
       SMP19:
         description: ADC channel 19 sampling time
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
-# CRYP:
-#   "K[0123][LR]R":
-#     _merge:
-#       - "K*"
-#   "IV[01][LR]R":
-#     _merge:
-#       - "IV*"
-
-# FLASH:
-#   _modify:
-#     PRAR_PRG2:
-#       addressOffset: "0x12C"
-#       alternateRegister: ""
-#     KEYR[12]:
-#       access: write-only
-#     OPTKEYR_?:
-#       access: write-only
-#     BOOT_PRGR:
-#       access: read-write
-
 "SPI*":
   CR1:
     _modify:

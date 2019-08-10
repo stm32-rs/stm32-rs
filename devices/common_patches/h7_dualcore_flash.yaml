@@ -27,6 +27,7 @@ _add:
         description: FLASH key register for bank 1
         addressOffset: 0x004
         resetValue: 0x00000000
+        access: write-only
         fields:
           KEYR:
             description: Bank access configuration unlock key
@@ -36,6 +37,7 @@ _add:
         description: FLASH option key register
         addressOffset: 0x008
         resetValue: 0x00000000
+        access: write-only
         fields:
           OPTKEYR:
             description: FLASH option bytes control access unlock key
@@ -647,6 +649,7 @@ _add:
         description: FLASH key register for bank 2
         addressOffset: 0x104
         resetValue: 0x00000000
+        access: write-only
         fields:
           KEYR:
             description: Bank access configuration unlock key
