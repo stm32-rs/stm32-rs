@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 for f in vendor/*.zip; do
-    unzip -juLL $f '*.svd'
+    unzip -juLL $f '**.svd'
 done
 
 ln -s stm32h743x.svd stm32h743.svd || true
