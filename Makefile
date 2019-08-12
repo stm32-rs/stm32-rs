@@ -1,7 +1,7 @@
 all: patch svd2rust
 
 .PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
-.PRECIOUS: svd/%.svd
+.PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
 
@@ -35,7 +35,7 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
                           $(wildcard devices/$(crate)*.yaml)))
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
-svd/%.svd.patched: devices/%.yaml svd/%.svd
+svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 	python3 scripts/svdpatch.py $<
 
 svd/%.svd.formatted: svd/%.svd.patched
@@ -101,4 +101,4 @@ clean: clean-rs clean-patch clean-html
 	@mkdir -p .deps
 	python3 scripts/makedeps.py $< > $@
 
--include $(patsubst devices/%.yaml, .deps/%.d, $(YAMLS))
+-include .deps/*
