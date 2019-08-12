@@ -156,7 +156,7 @@ def read_device_table():
     path = os.path.join(
         os.path.abspath(os.path.split(__file__)[0]), os.pardir,
         "stm32_part_table.yaml")
-    with open(path) as f:
+    with open(path, encoding='utf-8') as f:
         table = yaml.safe_load(f)
     return table
 

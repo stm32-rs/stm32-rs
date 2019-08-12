@@ -21,7 +21,7 @@ def main(devices, output):
     peripherals = {}
     for device_path in tqdm(glob.glob(os.path.join(devices, "*.yaml"))):
         device_name = os.path.splitext(os.path.basename(device_path))[0]
-        with open(device_path) as f:
+        with open(device_path, encoding='utf-8') as f:
             device = yaml.safe_load(f)
             device["_path"] = device_path
         if "_svd" not in device:
