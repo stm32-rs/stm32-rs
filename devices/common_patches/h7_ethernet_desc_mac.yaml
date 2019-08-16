@@ -1,0 +1,828 @@
+# Descriptions of H7 Media Access Control module (MAC) registers
+
+MACCR:
+  _modify:
+    RE:
+      description: Receiver Enable
+    TE:
+      description: Transmitter Enable
+    PRELEN:
+      description: Preamble Length for Transmit Packets
+    DC:
+      description: Deferral Check
+    BL:
+      description: Back-Off Limit
+    DR:
+      description: Disable Retry
+    DCRS:
+      description: Disable Carrier Sense During Transmission
+    DO:
+      description: Disable Receive Own
+    ECRSFD:
+      description: Enable Carrier Sense Before Transmission in Full-Duplex Mode
+    LM:
+      description: Loopback Mode
+    DM:
+      description: Duplex Mode
+    FES:
+      description: MAC Speed
+    JE:
+      description: Jumbo Packet Enable
+    JD:
+      description: Jabber Disable
+    WD:
+      description: Watchdog Disable
+    ACS:
+      description: Automatic Pad or CRC Stripping
+    CST:
+      description: CRC stripping for Type packets
+    S2KP:
+      description: IEEE 802.3as Support for 2K Packets
+    GPSLCE:
+      description: Giant Packet Size Limit Control Enable
+    IPG:
+      description: Inter-Packet Gap
+    IPC:
+      description: Checksum Offload
+    SARC:
+      description: Source Address Insertion or Replacement Control
+    ARPEN:
+      description: ARP Offload Enable
+MACECR:
+  _modify:
+    GPSL:
+      description: Giant Packet Size Limit
+    DCRCC:
+      description: Disable CRC Checking for Received Packets
+    SPEN:
+      description: Slow Protocol Detection Enable
+    USP:
+      description: Unicast Slow Protocol Packet Detect
+    EIPGEN:
+      description: Extended Inter-Packet Gap Enable
+    EIPG:
+      description: Extended Inter-Packet Gap
+MACPFR:
+  _modify:
+    RA:
+      description: Receive All
+    DNTU:
+      description: Drop Non-TCP/UDP over IP Packets
+    IPFE:
+      description: Layer 3 and Layer 4 Filter Enable
+    VTFE:
+      description: VLAN Tag Filter Enable
+    HPF:
+      description: Hash or Perfect Filter
+    SAF:
+      description: Source Address Filter Enable
+    SAIF:
+      description: SA Inverse Filtering
+    PCF:
+      description: Pass Control Packets
+    DBF:
+      description: Disable Broadcast Packets
+    PM:
+      description: Pass All Multicast
+    DAIF:
+      description: DA Inverse Filtering
+    HMC:
+      description: Hash Multicast
+    HUC:
+      description: Hash Unicast
+    PR:
+      description: Promiscuous Mode
+MACWTR:
+  _modify:
+    WTO:
+      description: Watchdog Timeout
+    PWE:
+      description: Programmable Watchdog Enable
+MACHT0R:
+  _modify:
+    HT31T0:
+      description: MAC Hash Table First 32 Bits
+MACHT1R:
+  _modify:
+    HT63T32:
+      description: MAC Hash Table Second 32 Bits
+MACVTR:
+  _modify:
+    EIVLRXS:
+      description: Enable Inner VLAN Tag in Rx Status
+    EIVLS:
+      description: Enable Inner VLAN Tag Stripping on Receive
+    ERIVLT:
+      description: Enable Inner VLAN Tag
+    EDVLP:
+      description: Enable Double VLAN Processing
+    VTHM:
+      description: VLAN Tag Hash Table Match Enable
+    EVLRXS:
+      description: Enable VLAN Tag in Rx status
+    EVLS:
+      description: Enable VLAN Tag Stripping on Receive
+    DOVLTC:
+      description: Disable VLAN Type Check
+    ERSVLM:
+      description: Enable Receive S-VLAN Match
+    ESVL:
+      description: Enable S-VLAN
+    VTIM:
+      description: VLAN Tag Inverse Match Enable
+    ETV:
+      description: Enable 12-Bit VLAN Tag Comparison
+    VL:
+      description: VLAN Tag Identifier for Receive Packets
+MACVHTR:
+  _modify:
+    VLHT:
+      description: VLAN Hash Table
+MACVIR:
+  _modify:
+    VLTI:
+      description: VLAN Tag Input
+    CSVL:
+      description: C-VLAN or S-VLAN
+    VLP:
+      description: VLAN Priority Control
+    VLC:
+      description: VLAN Tag Control in Transmit Packets
+    VLT:
+      description: VLAN Tag for Transmit Packets
+MACIVIR:
+  _modify:
+    VLTI:
+      description: VLAN Tag Input
+    CSVL:
+      description: C-VLAN or S-VLAN
+    VLP:
+      description: VLAN Priority Control
+    VLC:
+      description: VLAN Tag Control in Transmit Packets
+    VLT:
+      description: VLAN Tag for Transmit Packets
+MACQTxFCR:
+  _modify:
+    PT:
+      description: Pause Time
+    DZPQ:
+      description: Disable Zero-Quanta Pause
+    PLT:
+      description: Pause Low Threshold
+    TFE:
+      description: Transmit Flow Control Enable
+    FCB_BPA:
+      description: Flow Control Busy or Backpressure Activate
+MACRxFCR:
+  _modify:
+    UP:
+      description: Unicast Pause Packet Detect
+    RFE:
+      description: Receive Flow Control Enable
+MACISR:
+  _modify:
+    RXSTSIS:
+      description: Receive Status Interrupt
+    TXSTSIS:
+      description: Transmit Status Interrupt
+    TSIS:
+      description: Timestamp Interrupt Status
+    MMCTXIS:
+      description: MMC Transmit Interrupt Status
+    MMCRXIS:
+      description: MMC Receive Interrupt Status
+    MMCIS:
+      description: MMC Interrupt Status
+    LPIIS:
+      description: LPI Interrupt Status
+    PMTIS:
+      description: PMT Interrupt Status
+    PHYIS:
+      description: PHY Interrupt
+MACIER:
+  _modify:
+    RXSTSIE:
+      description: Receive Status Interrupt Enable
+    TXSTSIE:
+      description: Transmit Status Interrupt Enable
+    TSIE:
+      description: Timestamp Interrupt Enable
+    LPIIE:
+      description: LPI Interrupt Enable
+    PMTIE:
+      description: PMT Interrupt Enable
+    PHYIE:
+      description: PHY Interrupt Enable
+MACRxTxSR:
+  _modify:
+    RWT:
+      description: Receive Watchdog Timeout
+    EXCOL:
+      description: Excessive Collisions
+    LCOL:
+      description: Late Collision
+    EXDEF:
+      description: Excessive Deferral
+    LCARR:
+      description: Loss of Carrier
+    NCARR:
+      description: No Carrier
+    TJT:
+      description: Transmit Jabber Timeout
+MACPCSR:
+  _modify:
+    RWKFILTRST:
+      description: Remote wakeup Packet Filter Register Pointer Reset
+    RWKPTR:
+      description: Remote wakeup FIFO Pointer
+    RWKPFE:
+      description: Remote wakeup Packet Forwarding Enable
+    GLBLUCAST:
+      description: Global Unicast
+    RWKPRCVD:
+      description: Remote wakeup Packet Received
+    MGKPRCVD:
+      description: Magic Packet Received
+    RWKPKTEN:
+      description: Remote wakeup Packet Enable
+    MGKPKTEN:
+      description: Magic Packet Enable
+    PWRDWN:
+      description: Power Down
+MACRWKPFR:
+  _modify:
+    MACRWKPFR:
+      description: Remote wakeup packet filter
+MACLCSR:
+  _modify:
+    LPITE:
+      description: LPI Timer Enable
+    LPITXA:
+      description: LPI Tx Automate
+    PLSEN:
+      description: PHY Link Status Enable
+    PLS:
+      description: PHY Link Status
+    LPIEN:
+      description: LPI Enable
+    RLPIST:
+      description: Receive LPI State
+    TLPIST:
+      description: Transmit LPI State
+    RLPIEX:
+      description: Receive LPI Exit
+    RLPIEN:
+      description: Receive LPI Entry
+    TLPIEX:
+      description: Transmit LPI Exit
+    TLPIEN:
+      description: Transmit LPI Entry
+MACLTCR:
+  _modify:
+    LST:
+      description: LPI LS Timer
+    TWT:
+      description: LPI TW Timer
+MACLETR:
+  _modify:
+    LPIET:
+      description: LPI Entry Timer
+MAC1USTCR:
+  _modify:
+    TIC_1US_CNTR:
+      description: 1 µs tick Counter
+MACVR:
+  _modify:
+    USERVER:
+      description: ST-defined version
+    SNPSVER:
+      description: IP version
+MACDR:
+  _modify:
+    TFCSTS:
+      description: MAC Transmit Packet Controller Status
+    TPESTS:
+      description: MAC MII Transmit Protocol Engine Status
+    RFCFCSTS:
+      description: MAC Receive Packet Controller FIFO Status
+    RPESTS:
+      description: MAC MII Receive Protocol Engine Status
+MACHWF1R:
+  _modify:
+    L3L4FNUM:
+      description: Total number of L3 or L4 Filters
+    HASHTBLSZ:
+      description: Hash Table Size
+    AVSEL:
+      description: AV Feature Enable
+    DBGMEMA:
+      description: DMA Debug Registers Enable
+    TSOEN:
+      description: TCP Segmentation Offload Enable
+    SPHEN:
+      description: Split Header Feature Enable
+    DCBEN:
+      description: DCB Feature Enable
+    ADDR64:
+      description: Address width
+    ADVTHWORD:
+      description: IEEE 1588 High Word Register Enable
+    PTOEN:
+      description: PTP Offload Enable
+    OSTEN:
+      description: One-Step Timestamping Enable
+    TXFIFOSIZE:
+      description: MTL Transmit FIFO Size
+    RXFIFOSIZE:
+      description: MTL Receive FIFO Size
+MACHWF2R:
+  _modify:
+    AUXSNAPNUM:
+      description: Number of Auxiliary Snapshot Inputs
+    PPSOUTNUM:
+      description: Number of PPS Outputs
+    TXCHCNT:
+      description: Number of DMA Transmit Channels
+    RXCHCNT:
+      description: Number of DMA Receive Channels
+    TXQCNT:
+      description: Number of MTL Transmit Queues
+    RXQCNT:
+      description: Number of MTL Receive Queues
+MACMDIOAR:
+  _modify:
+    PSE:
+      description: Preamble Suppression Enable
+    BTB:
+      description: Back to Back transactions
+    PA:
+      description: Physical Layer Address
+    RDA:
+      description: Register/Device Address
+    NTC:
+      description: Number of Training Clocks
+    CR:
+      description: CSR Clock Range
+    SKAP:
+      description: Skip Address Packet
+    GOC:
+      description: MII Operation Command
+    C45E:
+      description: Clause 45 PHY Enable
+    MB:
+      description: MII Busy
+MACMDIODR:
+  _modify:
+    RA:
+      description: Register Address
+    MD:
+      description: MII Data
+MACARPAR:
+  _modify:
+  # TODO - this might actually be at 0xAE0 - the reference manual says it
+  # is, but ST's own HAL and where they locate it in the map disagree.
+    ARPPA:
+      description: ARP Protocol Address
+MACA0HR:
+  _modify:
+    AE:
+      description: Address Enable
+    ADDRHI:
+      description: MAC Address0[47:32]
+MACA0LR:
+  _modify:
+    ADDRLO:
+      description: MAC Address 0 [31:0]
+MACA1LR:
+  _modify:
+    ADDRLO:
+      description: MAC Address 1 [31:0]
+MACA2LR:
+  _modify:
+    ADDRLO:
+      description: MAC Address 2 [31:0]
+MACA3LR:
+  _modify:
+    ADDRLO:
+      description: MAC Address 3 [31:0]
+MACA1HR:
+  _modify:
+    AE:
+      description: Address Enable
+    SA:
+      description: Source Address
+    MBC:
+      description: Mask Byte Control
+    ADDRHI:
+      description: MAC Address1 [47:32]
+MACA2HR:
+  _modify:
+    AE:
+      description: Address Enable
+    SA:
+      description: Source Address
+    MBC:
+      description: Mask Byte Control
+    ADDRHI:
+      description: MAC Address2 [47:32]
+MACA3HR:
+  _modify:
+    AE:
+      description: Address Enable
+    SA:
+      description: Source Address
+    MBC:
+      description: Mask Byte Control
+    ADDRHI:
+      description: MAC Address3 [47:32]
+TX_SINGLE_COLLISION_GOOD_PACKETS:
+  _modify:
+    TXSNGLCOLG:
+      description: Tx Single Collision Good Packets
+TX_MULTIPLE_COLLISION_GOOD_PACKETS:
+  _modify:
+    TXMULTCOLG:
+      description: Tx Multiple Collision Good Packets
+TX_PACKET_COUNT_GOOD:
+  _modify:
+    TXPKTG:
+      description: Tx Packet Count Good
+RX_CRC_ERROR_PACKETS:
+  _modify:
+    RXCRCERR:
+      description: Rx CRC Error Packets
+RX_ALIGNMENT_ERROR_PACKETS:
+  _modify:
+    RXALGNERR:
+      description: Rx Alignment Error Packets
+RX_UNICAST_PACKETS_GOOD:
+  _modify:
+    RXUCASTG:
+      description: Rx Unicast Packets Good
+TX_LPI_USEC_CNTR:
+  _modify:
+    TXLPIUSC:
+      description: Tx LPI Microseconds Counter
+TX_LPI_TRAN_CNTR:
+  _modify:
+    TXLPITRC:
+      description: Tx LPI Transition counter
+RX_LPI_USEC_CNTR:
+  _modify:
+    RXLPIUSC:
+      description: Rx LPI Microseconds Counter
+RX_LPI_TRAN_CNTR:
+  _modify:
+    RXLPITRC:
+      description: Rx LPI Transition counter
+MACL3L4C0R:
+  _modify:
+    L4DPIM0:
+      description: Layer 4 Destination Port Inverse Match Enable
+    L4DPM0:
+      description: Layer 4 Destination Port Match Enable
+    L4SPIM0:
+      description: Layer 4 Source Port Inverse Match Enable
+    L4SPM0:
+      description: Layer 4 Source Port Match Enable
+    L4PEN0:
+      description: Layer 4 Protocol Enable
+    L3HDBM0:
+      description: Layer 3 IP DA Higher Bits Match
+    L3HSBM0:
+      description: Layer 3 IP SA Higher Bits Match
+    L3DAIM0:
+      description: Layer 3 IP DA Inverse Match Enable
+    L3DAM0:
+      description: Layer 3 IP DA Match Enable
+    L3SAIM0:
+      description: Layer 3 IP SA Inverse Match Enable
+    L3SAM0:
+      description: Layer 3 IP SA Match Enable
+    L3PEN0:
+      description: Layer 3 Protocol Enable
+MACL4A0R:
+  _modify:
+    L4DP0:
+      description: Layer 4 Destination Port Number Field
+    L4SP0:
+      description: Layer 4 Source Port Number Field
+MACL3A00R:
+  _modify:
+    L3A00:
+      description: Layer 3 Address 0 Field
+MACL3A10R:
+  _modify:
+    L3A10:
+      description: Layer 3 Address 1 Field
+MACL3A20:
+  _modify:
+    L3A20:
+      description: Layer 3 Address 2 Field
+MACL3A30:
+  _modify:
+    L3A30:
+      description: Layer 3 Address 3 Field
+MACL3L4C1R:
+  _modify:
+    L4DPIM1:
+      description: Layer 4 Destination Port Inverse Match Enable
+    L4DPM1:
+      description: Layer 4 Destination Port Match Enable
+    L4SPIM1:
+      description: Layer 4 Source Port Inverse Match Enable
+    L4SPM1:
+      description: Layer 4 Source Port Match Enable
+    L4PEN1:
+      description: Layer 4 Protocol Enable
+    L3HDBM1:
+      description: Layer 3 IP DA Higher Bits Match
+    L3HSBM1:
+      description: Layer 3 IP SA Higher Bits Match
+    L3DAIM1:
+      description: Layer 3 IP DA Inverse Match Enable
+    L3DAM1:
+      description: Layer 3 IP DA Match Enable
+    L3SAIM1:
+      description: Layer 3 IP SA Inverse Match Enable
+    L3SAM1:
+      description: Layer 3 IP SA Match Enable
+    L3PEN1:
+      description: Layer 3 Protocol Enable
+MACL4A1R:
+  _modify:
+    L4DP1:
+      description: Layer 4 Destination Port Number Field
+    L4SP1:
+      description: Layer 4 Source Port Number Field
+MACL3A01R:
+  _modify:
+    L3A01:
+      description: Layer 3 Address 0 Field
+MACL3A11R:
+  _modify:
+    L3A11:
+      description: Layer 3 Address 1 Field
+MACL3A21R:
+  _modify:
+    L3A21:
+      description: Layer 3 Address 2 Field
+MACL3A31R:
+  _modify:
+    L3A31:
+      description: Layer 3 Address 3 Field
+MACTSCR:
+  _modify:
+    TXTSSTSM:
+      description: Transmit Timestamp Status Mode
+    CSC:
+      description: Enable checksum correction during OST for PTP over UDP/IPv4 packets
+    TSENMACADDR:
+      description: Enable MAC Address for PTP Packet Filtering
+    SNAPTYPSEL:
+      description: Select PTP packets for Taking Snapshots
+    TSMSTRENA:
+      description: Enable Snapshot for Messages Relevant to Master
+    TSEVNTENA:
+      description: Enable Timestamp Snapshot for Event Messages
+    TSIPV4ENA:
+      description: Enable Processing of PTP Packets Sent over IPv4-UDP
+    TSIPV6ENA:
+      description: Enable Processing of PTP Packets Sent over IPv6-UDP
+    TSIPENA:
+      description: Enable Processing of PTP over Ethernet Packets
+    TSVER2ENA:
+      description: Enable PTP Packet Processing for Version 2 Format
+    TSCTRLSSR:
+      description: Timestamp Digital or Binary Rollover Control
+    TSENALL:
+      description: Enable Timestamp for All Packets
+    TSADDREG:
+      description: Update Addend Register
+    TSUPDT:
+      description: Update Timestamp
+    TSINIT:
+      description: Initialize Timestamp
+    TSCFUPDT:
+      description: Fine or Coarse Timestamp Update
+    TSENA:
+      description: Enable Timestamp
+MACSSIR:
+  _modify:
+    SSINC:
+      description: Sub-second Increment Value
+    SNSINC:
+      description: Sub-nanosecond Increment Value
+MACSTSR:
+  _modify:
+    TSS:
+      description: Timestamp Second
+MACSTNR:
+  _modify:
+    TSSS:
+      description: Timestamp Sub-seconds
+MACSTSUR:
+  _modify:
+    TSS:
+      description: Timestamp Seconds
+MACSTNUR:
+  _modify:
+    ADDSUB:
+      description: Add or Subtract Time
+    TSSS:
+      description: Timestamp Sub-seconds
+MACTSAR:
+  _modify:
+    TSAR:
+      description: Timestamp Addend Register
+MACTSSR:
+  _modify:
+    ATSNS:
+      description: Number of Auxiliary Timestamp Snapshots
+    ATSSTM:
+      description: Auxiliary Timestamp Snapshot Trigger Missed
+    ATSSTN:
+      description: Auxiliary Timestamp Snapshot Trigger Identifier
+    TXTSSIS:
+      description: Tx Timestamp Status Interrupt Status
+    TSTRGTERR0:
+      description: Timestamp Target Time Error
+    AUXTSTRIG:
+      description: Auxiliary Timestamp Trigger Snapshot
+    TSTARGT0:
+      description: Timestamp Target Time Reached
+    TSSOVF:
+      description: Timestamp Seconds Overflow
+MACTxTSSNR:
+  _modify:
+    TXTSSMIS:
+      description: Transmit Timestamp Status Missed
+    TXTSSLO:
+      description: Transmit Timestamp Status Low
+MACTxTSSSR:
+  _modify:
+    TXTSSHI:
+      description: Transmit Timestamp Status High
+MACACR:
+  _modify:
+    ATSEN3:
+      description: Auxiliary Snapshot 3 Enable
+    ATSEN2:
+      description: Auxiliary Snapshot 2 Enable
+    ATSEN1:
+      description: Auxiliary Snapshot 1 Enable
+    ATSEN0:
+      description: Auxiliary Snapshot 0 Enable
+    ATSFC:
+      description: Auxiliary Snapshot FIFO Clear
+MACATSNR:
+  _modify:
+    AUXTSLO:
+      description: Auxiliary Timestamp
+MACATSSR:
+  _modify:
+    AUXTSHI:
+      description: Auxiliary Timestamp
+MACTSIACR:
+  _modify:
+    OSTIAC:
+      description: One-Step Timestamp Ingress Asymmetry Correction
+MACTSEACR:
+  _modify:
+    OSTEAC:
+      description: One-Step Timestamp Egress Asymmetry Correction
+MACTSICNR:
+  _modify:
+    TSIC:
+      description: Timestamp Ingress Correction
+MACTSECNR:
+  _modify:
+    TSEC:
+      description: Timestamp Egress Correction
+MACPPSCR:
+  _modify:
+    TRGTMODSEL0:
+      description: Target Time Register Mode for PPS Output
+    PPSEN0:
+      description: Flexible PPS Output Mode Enable
+    PPSCTRL:
+      description: Flexible PPS Output (ptp_pps_o[0]) Control or PPSCTRL PPS Output Frequency Control if PPSEN0 is cleared
+MACPPSTTSR:
+  _modify:
+    TSTRH0:
+      description: PPS Target Time Seconds Register
+MACPPSTTNR:
+  _modify:
+    TRGTBUSY0:
+      description: PPS Target Time Register Busy
+    TTSL0:
+      description: Target Time Low for PPS Register
+MACPPSIR:
+  _modify:
+    PPSINT0:
+      description: PPS Output Signal Interval
+MACPPSWR:
+  _modify:
+    PPSWIDTH0:
+      description: PPS Output Signal Width
+MACPOCR:
+  _modify:
+    DN:
+      description: Domain Number
+    DRRDIS:
+      description: Disable PTO Delay Request/Response response generation
+    APDREQTRIG:
+      description: Automatic PTP Pdelay_Req message Trigger
+    ASYNCTRIG:
+      description: Automatic PTP SYNC message Trigger
+    APDREQEN:
+      description: Automatic PTP Pdelay_Req message Enable
+    ASYNCEN:
+      description: Automatic PTP SYNC message Enable
+    PTOEN:
+      description: PTP Offload Enable
+MACSPI0R:
+  _modify:
+    SPI0:
+      description: Source Port Identity 0
+MACSPI1R:
+  _modify:
+    SPI1:
+      description: Source Port Identity 1
+MACSPI2R:
+  _modify:
+    SPI2:
+      description: Source Port Identity 2
+MACLMIR:
+  _modify:
+    LMPDRI:
+      description: Log Min Pdelay_Req Interval
+    DRSYNCR:
+      description: Delay_Req to SYNC Ratio
+    LSI:
+      description: Log Sync Interval
+MMC_CONTROL:
+  _modify:
+    UCDBC:
+      description: Update MMC Counters for Dropped Broadcast Packets
+    CNTPRSTLVL:
+      description: Full-Half Preset
+    CNTPRST:
+      description: Counters Preset
+    CNTFREEZ:
+      description: MMC Counter Freeze
+    RSTONRD:
+      description: Reset on Read
+    CNTSTOPRO:
+      description: Counter Stop Rollover
+    CNTRST:
+      description: Counters Reset
+MMC_RX_INTERRUPT:
+  _modify:
+    RXLPITRCIS:
+      description: MMC Receive LPI transition counter interrupt status
+    RXLPIUSCIS:
+      description: MMC Receive LPI microsecond counter interrupt status
+    RXUCGPIS:
+      description: MMC Receive Unicast Good Packet Counter Interrupt Status
+    RXALGNERPIS:
+      description: MMC Receive Alignment Error Packet Counter Interrupt Status
+    RXCRCERPIS:
+      description: MMC Receive CRC Error Packet Counter Interrupt Status
+MMC_TX_INTERRUPT:
+  _modify:
+    TXLPITRCIS:
+      description: MMC Transmit LPI transition counter interrupt status
+    TXLPIUSCIS:
+      description: MMC Transmit LPI microsecond counter interrupt status
+    TXGPKTIS:
+      description: MMC Transmit Good Packet Counter Interrupt Status
+    TXMCOLGPIS:
+      description: MMC Transmit Multiple Collision Good Packet Counter Interrupt Status
+    TXSCOLGPIS:
+      description: MMC Transmit Single Collision Good Packet Counter Interrupt Status
+MMC_RX_INTERRUPT_MASK:
+  _modify:
+    RXLPITRCIM:
+      description: MMC Receive LPI transition counter interrupt Mask
+    RXLPIUSCIM:
+      description: MMC Receive LPI microsecond counter interrupt Mask
+    RXUCGPIM:
+      description: MMC Receive Unicast Good Packet Counter Interrupt Mask
+    RXALGNERPIM:
+      description: MMC Receive Alignment Error Packet Counter Interrupt Mask
+    RXCRCERPIM:
+      description: MMC Receive CRC Error Packet Counter Interrupt Mask
+MMC_TX_INTERRUPT_MASK:
+  _modify:
+    TXLPITRCIM:
+      description: MMC Transmit LPI transition counter interrupt Mask
+    TXLPIUSCIM:
+      description: MMC Transmit LPI microsecond counter interrupt Mask
+    TXGPKTIM:
+      description: MMC Transmit Good Packet Counter Interrupt Mask
+    TXMCOLGPIM:
+      description: MMC Transmit Multiple Collision Good Packet Counter Interrupt Mask
+    TXSCOLGPIM:
+      description: MMC Transmit Single Collision Good Packet Counter Interrupt Mask

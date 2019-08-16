@@ -1,8 +1,8 @@
 # Window watchdog
 
-WWDG:
+"WWDG,WWDG?":
   CR:
-    WDGA: 
+    WDGA:
       Disabled: [0, "Watchdog disabled"]
       Enabled: [1, "Watchdog enabled"]
     T: [0, 127]
@@ -21,7 +21,7 @@ WWDG:
   SR:
     EWIF:
       _read:
-        Pending: [1, "The EWI Interrupt Service Routine has been triggered"] 
+        Pending: [1, "The EWI Interrupt Service Routine has been triggered"]
         Finished: [0, "The EWI Interrupt Service Routine has been serviced"]
       _write:
         Finished: [0, "The EWI Interrupt Service Routine has been serviced"]

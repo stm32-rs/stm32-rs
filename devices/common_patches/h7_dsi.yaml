@@ -1,0 +1,1582 @@
+# H7 MIPI DSI Host Peripheral
+
+_add:
+  DSIHOST:
+    description: MIPI DSI Host
+    groupName: DSIHOST
+    baseAddress: 0x50000000
+    addressBlock:
+      offset: 0x000
+      size: 0x500
+      usage: registers
+    registers:
+      VR:
+        description: DSI Host version register
+        addressOffset: 0x0000
+        resetValue: 0x3133302A
+        access: read-only
+        fields:
+          VERSION:
+            description: Version of the DSI Host
+            bitOffset: 0
+            bitWidth: 32
+      CR:
+        description: DSI Host control register
+        addressOffset: 0x0004
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Enable
+            bitOffset: 0
+            bitWidth: 1
+      CCR:
+        description: DSI Host clock control register
+        addressOffset: 0x0008
+        resetValue: 0x00000000
+        fields:
+          TOCKDIV:
+            description: Timeout clock division
+            bitOffset: 8
+            bitWidth: 8
+          TXECKDIV:
+            description: TX escape clock division
+            bitOffset: 0
+            bitWidth: 8
+      LVCIDR:
+        description: DSI Host LTDC VCID register
+        addressOffset: 0x000C
+        resetValue: 0x00000000
+        fields:
+          VCID:
+            description: Virtual channel ID
+            bitOffset: 0
+            bitWidth: 2
+      LCOLCR:
+        description: DSI Host LTDC color coding register
+        addressOffset: 0x0010
+        resetValue: 0x00000000
+        fields:
+          LPE:
+            description: Loosely packet enable
+            bitOffset: 8
+            bitWidth: 1
+          COLC:
+            description: Color coding
+            bitOffset: 0
+            bitWidth: 4
+      LPCR:
+        description: DSI Host LTDC polarity configuration register
+        addressOffset: 0x0014
+        resetValue: 0x00000000
+        fields:
+          HSP:
+            description: HSYNC polarity
+            bitOffset: 2
+            bitWidth: 1
+          VSP:
+            description: VSYNC polarity
+            bitOffset: 1
+            bitWidth: 1
+          DEP:
+            description: Data enable polarity
+            bitOffset: 0
+            bitWidth: 1
+      LPMCR:
+        description: DSI Host low-power mode configuration register
+        addressOffset: 0x0018
+        resetValue: 0x00000000
+        fields:
+          LPSIZE:
+            description: Largest packet size
+            bitOffset: 16
+            bitWidth: 8
+          VLPSIZE:
+            description: VACT largest packet size
+            bitOffset: 0
+            bitWidth: 8
+      PCR:
+        description: DSI Host protocol configuration register
+        addressOffset: 0x002C
+        resetValue: 0x00000000
+        fields:
+          CRCRXE:
+            description: CRC reception enable
+            bitOffset: 4
+            bitWidth: 1
+          ECCRXE:
+            description: ECC reception enable
+            bitOffset: 3
+            bitWidth: 1
+          BTAE:
+            description: Bus
+            bitOffset: 2
+            bitWidth: 1
+          ETRXE:
+            description: EoTp reception enable
+            bitOffset: 1
+            bitWidth: 1
+          ETTXE:
+            description: EoTp transmission enable
+            bitOffset: 0
+            bitWidth: 1
+      GVCIDR:
+        description: DSI Host generic VCID register
+        addressOffset: 0x0030
+        resetValue: 0x00000000
+        fields:
+          VCID:
+            description: Virtual channel ID
+            bitOffset: 0
+            bitWidth: 2
+      MCR:
+        description: DSI Host mode configuration register
+        addressOffset: 0x0034
+        resetValue: 0x00000001
+        fields:
+          CMDM:
+            description: Command mode
+            bitOffset: 0
+            bitWidth: 1
+      VMCR:
+        description: DSI Host video mode configuration register
+        addressOffset: 0x0038
+        resetValue: 0x00000000
+        fields:
+          PGO:
+            description: Pattern generator orientation
+            bitOffset: 24
+            bitWidth: 1
+          PGM:
+            description: Pattern generator mode
+            bitOffset: 20
+            bitWidth: 1
+          PGE:
+            description: Pattern generator enable
+            bitOffset: 16
+            bitWidth: 1
+          LPCE:
+            description: Low-power command enable
+            bitOffset: 15
+            bitWidth: 1
+          FBTAAE:
+            description: Frame bus-turn-around acknowledge enable
+            bitOffset: 14
+            bitWidth: 1
+          LPHFPE:
+            description: Low-power horizontal front-porch enable
+            bitOffset: 13
+            bitWidth: 1
+          LPHBPE:
+            description: Low-power horizontal back-porch enable
+            bitOffset: 12
+            bitWidth: 1
+          LPVAE:
+            description: Low-power vertical active enable
+            bitOffset: 11
+            bitWidth: 1
+          LPVFPE:
+            description: Low-power vertical front-porch enable
+            bitOffset: 10
+            bitWidth: 1
+          LPVBPE:
+            description: Low-power vertical back-porch enable
+            bitOffset: 9
+            bitWidth: 1
+          LPVSAE:
+            description: Low-power vertical sync active enable
+            bitOffset: 8
+            bitWidth: 1
+          VMT:
+            description: Video mode type
+            bitOffset: 0
+            bitWidth: 2
+      VPCR:
+        description: DSI Host video packet configuration register
+        addressOffset: 0x003C
+        resetValue: 0x00000000
+        fields:
+          VPSIZE:
+            description: Video packet size
+            bitOffset: 0
+            bitWidth: 14
+      VCCR:
+        description: DSI Host video chunks configuration register
+        addressOffset: 0x0040
+        resetValue: 0x00000000
+        fields:
+          NUMC:
+            description: Number of chunks
+            bitOffset: 0
+            bitWidth: 13
+      VNPCR:
+        description: DSI Host video null packet configuration register
+        addressOffset: 0x0044
+        resetValue: 0x00000000
+        fields:
+          NPSIZE:
+            description: Null packet size
+            bitOffset: 0
+            bitWidth: 13
+      VHSACR:
+        description: DSI Host video HSA configuration register
+        addressOffset: 0x0048
+        resetValue: 0x00000000
+        fields:
+          HSA:
+            description: Horizontal synchronism active duration
+            bitOffset: 0
+            bitWidth: 12
+      VHBPCR:
+        description: DSI Host video HBP configuration register
+        addressOffset: 0x004C
+        resetValue: 0x00000000
+        fields:
+          HBP:
+            description: Horizontal back-porch duration
+            bitOffset: 0
+            bitWidth: 12
+      VLCR:
+        description: DSI Host video line configuration register
+        addressOffset: 0x0050
+        resetValue: 0x00000000
+        fields:
+          HLINE:
+            description: Horizontal line duration
+            bitOffset: 0
+            bitWidth: 15
+      VVSACR:
+        description: DSI Host video VSA configuration register
+        addressOffset: 0x0054
+        resetValue: 0x00000000
+        fields:
+          VSA:
+            description: Vertical synchronism active duration
+            bitOffset: 0
+            bitWidth: 10
+      VVBPCR:
+        description: DSI Host video VBP configuration register
+        addressOffset: 0x0058
+        resetValue: 0x00000000
+        fields:
+          VBP:
+            description: Vertical back-porch duration
+            bitOffset: 0
+            bitWidth: 10
+      VVFPCR:
+        description: DSI Host video VFP configuration register
+        addressOffset: 0x005C
+        resetValue: 0x00000000
+        fields:
+          VFP:
+            description: Vertical front-porch duration
+            bitOffset: 0
+            bitWidth: 10
+      VVACR:
+        description: DSI Host video VA configuration register
+        addressOffset: 0x0060
+        resetValue: 0x00000000
+        fields:
+          VA:
+            description: Vertical active duration
+            bitOffset: 0
+            bitWidth: 14
+      LCCR:
+        description: DSI Host LTDC command configuration register
+        addressOffset: 0x0064
+        resetValue: 0x00000000
+        fields:
+          CMDSIZE:
+            description: Command size
+            bitOffset: 0
+            bitWidth: 16
+      CMCR:
+        description: DSI Host command mode configuration register
+        addressOffset: 0x0068
+        resetValue: 0x00000000
+        fields:
+          MRDPS:
+            description: Maximum read packet size
+            bitOffset: 24
+            bitWidth: 1
+          DLWTX:
+            description: DCS long write transmission
+            bitOffset: 19
+            bitWidth: 1
+          DSR0TX:
+            description: DCS short read zero parameter transmission
+            bitOffset: 18
+            bitWidth: 1
+          DSW1TX:
+            description: DCS short read one parameter transmission
+            bitOffset: 17
+            bitWidth: 1
+          DSW0TX:
+            description: DCS short write zero parameter transmission
+            bitOffset: 16
+            bitWidth: 1
+          GLWTX:
+            description: Generic long write transmission
+            bitOffset: 14
+            bitWidth: 1
+          GSR2TX:
+            description: Generic short read two parameters transmission
+            bitOffset: 13
+            bitWidth: 1
+          GSR1TX:
+            description: Generic short read one parameters transmission
+            bitOffset: 12
+            bitWidth: 1
+          GSR0TX:
+            description: Generic short read zero parameters transmission
+            bitOffset: 11
+            bitWidth: 1
+          GSW2TX:
+            description: Generic short write two parameters transmission
+            bitOffset: 10
+            bitWidth: 1
+          GSW1TX:
+            description: Generic short write one parameters transmission
+            bitOffset: 9
+            bitWidth: 1
+          GSW0TX:
+            description: Generic short write zero parameters transmission
+            bitOffset: 8
+            bitWidth: 1
+          ARE:
+            description: Acknowledge request enable
+            bitOffset: 1
+            bitWidth: 1
+          TEARE:
+            description: Tearing effect acknowledge request enable
+            bitOffset: 0
+            bitWidth: 1
+      GHCR:
+        description: DSI Host generic header configuration register
+        addressOffset: 0x006C
+        resetValue: 0x00000000
+        fields:
+          WCMSB:
+            description: WordCount MSB
+            bitOffset: 16
+            bitWidth: 8
+          WCLSB:
+            description: WordCount LSB
+            bitOffset: 8
+            bitWidth: 8
+          VCID:
+            description: Channel
+            bitOffset: 6
+            bitWidth: 2
+          DT:
+            description: Type
+            bitOffset: 0
+            bitWidth: 6
+      GPDR:
+        description: DSI Host generic payload data register
+        addressOffset: 0x0070
+        resetValue: 0x00000000
+        fields:
+          DATA4:
+            description: Payload byte 4
+            bitOffset: 24
+            bitWidth: 8
+          DATA3:
+            description: Payload byte 3
+            bitOffset: 16
+            bitWidth: 8
+          DATA2:
+            description: Payload byte 2
+            bitOffset: 8
+            bitWidth: 8
+          DATA1:
+            description: Payload byte 1
+            bitOffset: 0
+            bitWidth: 8
+      GPSR:
+        description: DSI Host generic packet status register
+        addressOffset: 0x0074
+        resetValue: 0x00000015
+        fields:
+          RCB:
+            description: Read command busy
+            bitOffset: 6
+            bitWidth: 1
+          PRDFF:
+            description: Payload read FIFO full
+            bitOffset: 5
+            bitWidth: 1
+          PRDFE:
+            description: Payload read FIFO empty
+            bitOffset: 4
+            bitWidth: 1
+          PWRFF:
+            description: Payload write FIFO full
+            bitOffset: 3
+            bitWidth: 1
+          PWRFE:
+            description: Payload write FIFO empty
+            bitOffset: 2
+            bitWidth: 1
+          CMDFF:
+            description: Command FIFO full
+            bitOffset: 1
+            bitWidth: 1
+          CMDFE:
+            description: Command FIFO empty
+            bitOffset: 0
+            bitWidth: 1
+      TCCR0:
+        description: DSI Host timeout counter configuration register 0
+        addressOffset: 0x0078
+        resetValue: 0x00000000
+        fields:
+          HSTX_TOCNT:
+            description: High-speed transmission timeout counter
+            bitOffset: 16
+            bitWidth: 16
+          LPRX_TOCNT:
+            description: Low-power reception timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      TCCR1:
+        description: DSI Host timeout counter configuration register 1
+        addressOffset: 0x007C
+        resetValue: 0x00000000
+        fields:
+          HSRD_TOCNT:
+            description: High-speed read timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      TCCR2:
+        description: DSI Host timeout counter configuration register 2
+        addressOffset: 0x0080
+        resetValue: 0x00000000
+        fields:
+          LPRD_TOCNT:
+            description: Low-power read timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      TCCR3:
+        description: DSI Host timeout counter configuration register 3
+        addressOffset: 0x0084
+        resetValue: 0x00000000
+        fields:
+          PM:
+            description: Presp mode
+            bitOffset: 24
+            bitWidth: 1
+          HSWR_TOCNT:
+            description: High-speed write timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      TCCR4:
+        description: DSI Host timeout counter configuration register 4
+        addressOffset: 0x0088
+        resetValue: 0x00000000
+        fields:
+          LPWR_TOCNT:
+            description: Low-power write timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      TCCR5:
+        description: DSI Host timeout counter configuration register 5
+        addressOffset: 0x008C
+        resetValue: 0x00000000
+        fields:
+          BTA_TOCNT:
+            description: Bus-turn-around timeout counter
+            bitOffset: 0
+            bitWidth: 16
+      CLCR:
+        description: DSI Host clock lane configuration register
+        addressOffset: 0x0094
+        resetValue: 0x00000000
+        fields:
+          ACR:
+            description: Automatic clock lane control
+            bitOffset: 1
+            bitWidth: 1
+          DPCC:
+            description: D-PHY clock control
+            bitOffset: 0
+            bitWidth: 1
+      CLTCR:
+        description: DSI Host clock lane timer configuration register
+        addressOffset: 0x0098
+        resetValue: 0x00000000
+        fields:
+          HS2LP_TIME:
+            description: High-speed to low-power time
+            bitOffset: 16
+            bitWidth: 10
+          LP2HS_TIME:
+            description: Low-power to high-speed time
+            bitOffset: 0
+            bitWidth: 10
+      DLTCR:
+        description: DSI Host data lane timer configuration register
+        addressOffset: 0x009C
+        resetValue: 0x00000000
+        fields:
+          HS2LP_TIME:
+            description: High-speed to low-power time
+            bitOffset: 24
+            bitWidth: 8
+          LP2HS_TIME:
+            description: Low-power to high-speed time
+            bitOffset: 16
+            bitWidth: 8
+          MRD_TIME:
+            description: Maximum read time
+            bitOffset: 0
+            bitWidth: 15
+      PCTLR:
+        description: DSI Host PHY control register
+        addressOffset: 0x00A0
+        resetValue: 0x00000000
+        fields:
+          CKE:
+            description: Clock enable
+            bitOffset: 2
+            bitWidth: 1
+          DEN:
+            description: Digital enable
+            bitOffset: 1
+            bitWidth: 1
+      PCONFR:
+        description: DSI Host PHY configuration register
+        addressOffset: 0x00A4
+        resetValue: 0x00000001
+        fields:
+          SW_TIME:
+            description: Stop wait time
+            bitOffset: 8
+            bitWidth: 8
+          NL:
+            description: Number of lanes
+            bitOffset: 0
+            bitWidth: 2
+      PUCR:
+        description: DSI Host PHY ULPS control register
+        addressOffset: 0x00A8
+        resetValue: 0x00000000
+        fields:
+          UEDL:
+            description: ULPS exit on data lane
+            bitOffset: 3
+            bitWidth: 1
+          URDL:
+            description: ULPS request on data lane
+            bitOffset: 2
+            bitWidth: 1
+          UECL:
+            description: ULPS exit on clock lane
+            bitOffset: 1
+            bitWidth: 1
+          URCL:
+            description: ULPS request on clock lane
+            bitOffset: 0
+            bitWidth: 1
+      PTTCR:
+        description: DSI Host PHY TX triggers configuration register
+        addressOffset: 0x00AC
+        resetValue: 0x00000000
+        fields:
+          TX_TRIG:
+            description: Transmission trigger
+            bitOffset: 0
+            bitWidth: 4
+      PSR:
+        description: DSI Host PHY status register
+        addressOffset: 0x00B0
+        resetValue: 0x00001528
+        fields:
+          UAN1:
+            description: ULPS active not lane 1
+            bitOffset: 8
+            bitWidth: 1
+          PSS1:
+            description: PHY stop state lane 1
+            bitOffset: 7
+            bitWidth: 1
+          RUE0:
+            description: RX ULPS escape lane 0
+            bitOffset: 6
+            bitWidth: 1
+          UAN0:
+            description: ULPS active not lane 1
+            bitOffset: 5
+            bitWidth: 1
+          PSS0:
+            description: PHY stop state lane 0
+            bitOffset: 4
+            bitWidth: 1
+          UANC:
+            description: ULPS active not clock lane
+            bitOffset: 3
+            bitWidth: 1
+          PSSC:
+            description: PHY stop state clock lane
+            bitOffset: 2
+            bitWidth: 1
+          PD:
+            description: PHY direction
+            bitOffset: 1
+            bitWidth: 1
+        description: DSI Host interrupt and status register 0
+        addressOffset: 0x00BC
+        resetValue: 0x00000000
+        fields:
+          PE4:
+            description: PHY error 4
+            bitOffset: 20
+            bitWidth: 1
+          PE3:
+            description: PHY error 3
+            bitOffset: 19
+            bitWidth: 1
+          PE2:
+            description: PHY error 2
+            bitOffset: 18
+            bitWidth: 1
+          PE1:
+            description: PHY error 1
+            bitOffset: 17
+            bitWidth: 1
+          PE0:
+            description: PHY error 0
+            bitOffset: 16
+            bitWidth: 1
+          AE15:
+            description: Acknowledge error 15
+            bitOffset: 15
+            bitWidth: 1
+          AE14:
+            description: Acknowledge error 14
+            bitOffset: 14
+            bitWidth: 1
+          AE13:
+            description: Acknowledge error 13
+            bitOffset: 13
+            bitWidth: 1
+          AE12:
+            description: Acknowledge error 12
+            bitOffset: 12
+            bitWidth: 1
+          AE11:
+            description: Acknowledge error 11
+            bitOffset: 11
+            bitWidth: 1
+          AE10:
+            description: Acknowledge error 10
+            bitOffset: 10
+            bitWidth: 1
+          AE9:
+            description: Acknowledge error 9
+            bitOffset: 9
+            bitWidth: 1
+          AE8:
+            description: Acknowledge error 8
+            bitOffset: 8
+            bitWidth: 1
+          AE7:
+            description: Acknowledge error 7
+            bitOffset: 7
+            bitWidth: 1
+          AE6:
+            description: Acknowledge error 6
+            bitOffset: 6
+            bitWidth: 1
+          AE5:
+            description: Acknowledge error 5
+            bitOffset: 5
+            bitWidth: 1
+          AE4:
+            description: Acknowledge error 4
+            bitOffset: 4
+            bitWidth: 1
+          AE3:
+            description: Acknowledge error 3
+            bitOffset: 3
+            bitWidth: 1
+          AE2:
+            description: Acknowledge error 2
+            bitOffset: 2
+            bitWidth: 1
+          AE1:
+            description: Acknowledge error 1
+            bitOffset: 1
+            bitWidth: 1
+          AE0:
+            description: Acknowledge error 0
+            bitOffset: 0
+            bitWidth: 1
+      ISR1:
+        description: DSI Host interrupt and status register 1
+        addressOffset: 0x00C0
+        resetValue: 0x00000000
+        fields:
+          GPRXE:
+            description: Generic payload receive error
+            bitOffset: 12
+            bitWidth: 1
+          GPRDE:
+            description: Generic payload read error
+            bitOffset: 11
+            bitWidth: 1
+          GPTXE:
+            description: Generic payload transmit error
+            bitOffset: 10
+            bitWidth: 1
+          GPWRE:
+            description: Generic payload write error
+            bitOffset: 9
+            bitWidth: 1
+          GCWRE:
+            description: Generic command write error
+            bitOffset: 8
+            bitWidth: 1
+          LPWRE:
+            description: LTDC payload write error
+            bitOffset: 7
+            bitWidth: 1
+          EOTPE:
+            description: EoTp error
+            bitOffset: 6
+            bitWidth: 1
+          PSE:
+            description: Packet size error
+            bitOffset: 5
+            bitWidth: 1
+          CRCE:
+            description: CRC error
+            bitOffset: 4
+            bitWidth: 1
+          ECCME:
+            description: ECC multi
+            bitOffset: 3
+            bitWidth: 1
+          ECCSE:
+            description: ECC single
+            bitOffset: 2
+            bitWidth: 1
+          TOLPRX:
+            description: Timeout low
+            bitOffset: 1
+            bitWidth: 1
+          TOHSTX:
+            description: Timeout high
+            bitOffset: 0
+            bitWidth: 1
+      IER0:
+        description: DSI Host interrupt enable register 0
+        addressOffset: 0x00C4
+        resetValue: 0x00000000
+        fields:
+          PE4IE:
+            description: PHY error 4 interrupt enable
+            bitOffset: 20
+            bitWidth: 1
+          PE3IE:
+            description: PHY error 3 interrupt enable
+            bitOffset: 19
+            bitWidth: 1
+          PE2IE:
+            description: PHY error 2 interrupt enable
+            bitOffset: 18
+            bitWidth: 1
+          PE1IE:
+            description: PHY error 1 interrupt enable
+            bitOffset: 17
+            bitWidth: 1
+          PE0IE:
+            description: PHY error 0 interrupt enable
+            bitOffset: 16
+            bitWidth: 1
+          AE15IE:
+            description: Acknowledge error 15 interrupt enable
+            bitOffset: 15
+            bitWidth: 1
+          AE14IE:
+            description: Acknowledge error 14 interrupt enable
+            bitOffset: 14
+            bitWidth: 1
+          AE13IE:
+            description: Acknowledge error 13 interrupt enable
+            bitOffset: 13
+            bitWidth: 1
+          AE12IE:
+            description: Acknowledge error 12 interrupt enable
+            bitOffset: 12
+            bitWidth: 1
+          AE11IE:
+            description: Acknowledge error 11 interrupt enable
+            bitOffset: 11
+            bitWidth: 1
+          AE10IE:
+            description: Acknowledge error 10 interrupt enable
+            bitOffset: 10
+            bitWidth: 1
+          AE9IE:
+            description: Acknowledge error 9 interrupt enable
+            bitOffset: 9
+            bitWidth: 1
+          AE8IE:
+            description: Acknowledge error 8 interrupt enable
+            bitOffset: 8
+            bitWidth: 1
+          AE7IE:
+            description: Acknowledge error 7 interrupt enable
+            bitOffset: 7
+            bitWidth: 1
+          AE6IE:
+            description: Acknowledge error 6 interrupt enable
+            bitOffset: 6
+            bitWidth: 1
+          AE5IE:
+            description: Acknowledge error 5 interrupt enable
+            bitOffset: 5
+            bitWidth: 1
+          AE4IE:
+            description: Acknowledge error 4 interrupt enable
+            bitOffset: 4
+            bitWidth: 1
+          AE3IE:
+            description: Acknowledge error 3 interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          AE2IE:
+            description: Acknowledge error 2 interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          AE1IE:
+            description: Acknowledge error 1 interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          AE0IE:
+            description: Acknowledge error 0 interrupt enable
+            bitOffset: 0
+            bitWidth: 1
+      IER1:
+        description: DSI Host interrupt enable register 1
+        addressOffset: 0x00C8
+        resetValue: 0x00000000
+        fields:
+          GPRXEIE:
+            description: Generic payload receive error interrupt enable
+            bitOffset: 12
+            bitWidth: 1
+          GPRDEIE:
+            description: Generic payload read error interrupt enable
+            bitOffset: 11
+            bitWidth: 1
+          GPTXEIE:
+            description: Generic payload transmit error interrupt enable
+            bitOffset: 10
+            bitWidth: 1
+          GPWREIE:
+            description: Generic payload write error interrupt enable
+            bitOffset: 9
+            bitWidth: 1
+          GCWREIE:
+            description: Generic command write error interrupt enable
+            bitOffset: 8
+            bitWidth: 1
+          LPWREIE:
+            description: LTDC payload write error interrupt enable
+            bitOffset: 7
+            bitWidth: 1
+          EOTPEIE:
+            description: EoTp error interrupt enable
+            bitOffset: 6
+            bitWidth: 1
+          PSEIE:
+            description: Packet size error interrupt enable
+            bitOffset: 5
+            bitWidth: 1
+          CRCEIE:
+            description: CRC error interrupt enable
+            bitOffset: 4
+            bitWidth: 1
+          ECCMEIE:
+            description: ECC multi
+            bitOffset: 3
+            bitWidth: 1
+          ECCSEIE:
+            description: ECC single
+            bitOffset: 2
+            bitWidth: 1
+          TOLPRXIE:
+            description: Timeout low
+            bitOffset: 1
+            bitWidth: 1
+          TOHSTXIE:
+            description: Timeout high
+            bitOffset: 0
+            bitWidth: 1
+      FIR0:
+        description: DSI Host force interrupt register 0
+        addressOffset: 0x00D8
+        resetValue: 0x00000000
+        fields:
+          FPE4:
+            description: Force PHY error 4
+            bitOffset: 20
+            bitWidth: 1
+          FPE3:
+            description: Force PHY error 3
+            bitOffset: 19
+            bitWidth: 1
+          FPE2:
+            description: Force PHY error 2
+            bitOffset: 18
+            bitWidth: 1
+          FPE1:
+            description: Force PHY error 1
+            bitOffset: 17
+            bitWidth: 1
+          FPE0:
+            description: Force PHY error 0
+            bitOffset: 16
+            bitWidth: 1
+          FAE15:
+            description: Force acknowledge error 15
+            bitOffset: 15
+            bitWidth: 1
+          FAE14:
+            description: Force acknowledge error 14
+            bitOffset: 14
+            bitWidth: 1
+          FAE13:
+            description: Force acknowledge error 13
+            bitOffset: 13
+            bitWidth: 1
+          FAE12:
+            description: Force acknowledge error 12
+            bitOffset: 12
+            bitWidth: 1
+          FAE11:
+            description: Force acknowledge error 11
+            bitOffset: 11
+            bitWidth: 1
+          FAE10:
+            description: Force acknowledge error 10
+            bitOffset: 10
+            bitWidth: 1
+          FAE9:
+            description: Force acknowledge error 9
+            bitOffset: 9
+            bitWidth: 1
+          FAE8:
+            description: Force acknowledge error 8
+            bitOffset: 8
+            bitWidth: 1
+          FAE7:
+            description: Force acknowledge error 7
+            bitOffset: 7
+            bitWidth: 1
+          FAE6:
+            description: Force acknowledge error 6
+            bitOffset: 6
+            bitWidth: 1
+          FAE5:
+            description: Force acknowledge error 5
+            bitOffset: 5
+            bitWidth: 1
+          FAE4:
+            description: Force acknowledge error 4
+            bitOffset: 4
+            bitWidth: 1
+          FAE3:
+            description: Force acknowledge error 3
+            bitOffset: 3
+            bitWidth: 1
+          FAE2:
+            description: Force acknowledge error 2
+            bitOffset: 2
+            bitWidth: 1
+          FAE1:
+            description: Force acknowledge error 1
+            bitOffset: 1
+            bitWidth: 1
+          FAE0:
+            description: Force acknowledge error 0
+            bitOffset: 0
+            bitWidth: 1
+      FIR1:
+        description: DSI Host force interrupt register 1
+        addressOffset: 0x00DC
+        resetValue: 0x00000000
+        fields:
+          FGPRXE:
+            description: Force generic payload receive error
+            bitOffset: 12
+            bitWidth: 1
+          FGPRDE:
+            description: Force generic payload read error
+            bitOffset: 11
+            bitWidth: 1
+          FGPTXE:
+            description: Force generic payload transmit error
+            bitOffset: 10
+            bitWidth: 1
+          FGPWRE:
+            description: Force generic payload write error
+            bitOffset: 9
+            bitWidth: 1
+          FGCWRE:
+            description: Force generic command write error
+            bitOffset: 8
+            bitWidth: 1
+          FLPWRE:
+            description: Force LTDC payload write error
+            bitOffset: 7
+            bitWidth: 1
+          FEOTPE:
+            description: Force EoTp error
+            bitOffset: 6
+            bitWidth: 1
+          FPSE:
+            description: Force packet size error
+            bitOffset: 5
+            bitWidth: 1
+          FCRCE:
+            description: Force CRC error
+            bitOffset: 4
+            bitWidth: 1
+          FECCME:
+            description: Force ECC multi
+            bitOffset: 3
+            bitWidth: 1
+          FECCSE:
+            description: Force ECC single
+            bitOffset: 2
+            bitWidth: 1
+          FTOLPRX:
+            description: Force timeout low
+            bitOffset: 1
+            bitWidth: 1
+          FTOHSTX:
+            description: Force timeout high
+            bitOffset: 0
+            bitWidth: 1
+      VSCR:
+        description: DSI Host video shadow control register
+        addressOffset: 0x0100
+        resetValue: 0x00000000
+        fields:
+          UR:
+            description: Update register
+            bitOffset: 8
+            bitWidth: 1
+          EN:
+            description: Enable
+            bitOffset: 0
+            bitWidth: 1
+      LCVCIDR:
+        description: DSI Host LTDC current VCID register
+        addressOffset: 0x010C
+        resetValue: 0x00000000
+        fields:
+          VCID:
+            description: Virtual channel ID
+            bitOffset: 0
+            bitWidth: 2
+      LCCCR:
+        description: DSI Host LTDC current color coding register
+        addressOffset: 0x0110
+        resetValue: 0x00000000
+        fields:
+          LPE:
+            description: Loosely packed enable
+            bitOffset: 8
+            bitWidth: 1
+          COLC:
+            description: Color coding
+            bitOffset: 0
+            bitWidth: 4
+      LPMCCR:
+        description: DSI Host low-power mode current configuration register
+        addressOffset: 0x0118
+        resetValue: 0x00000000
+        fields:
+          LPSIZE:
+            description: Largest packet size
+            bitOffset: 16
+            bitWidth: 8
+          VLPSIZE:
+            description: VACT largest packet size
+            bitOffset: 0
+            bitWidth: 8
+      VMCCR:
+        description: DSI Host video mode current configuration register
+        addressOffset: 0x0138
+        resetValue: 0x00000000
+        fields:
+          LPCE:
+            description: Low-power command enable
+            bitOffset: 9
+            bitWidth: 1
+          FBTAAE:
+            description: Frame BTA acknowledge enable
+            bitOffset: 8
+            bitWidth: 1
+          LPHFE:
+            description: Low-power horizontal front-porch enable
+            bitOffset: 7
+            bitWidth: 1
+          LPHBPE:
+            description: Low-power horizontal back-porch enable
+            bitOffset: 6
+            bitWidth: 1
+          LPVAE:
+            description: Low-power vertical active enable
+            bitOffset: 5
+            bitWidth: 1
+          LPVFPE:
+            description: Low-power vertical front-porch enable
+            bitOffset: 4
+            bitWidth: 1
+          LPVBPE:
+            description: Low-power vertical back-porch enable
+            bitOffset: 3
+            bitWidth: 1
+          LPVSAE:
+            description: Low-power vertical sync time enable
+            bitOffset: 2
+            bitWidth: 1
+          VMT:
+            description: Video mode type
+            bitOffset: 0
+            bitWidth: 2
+      VPCCR:
+        description: DSI Host video packet current configuration register
+        addressOffset: 0x013C
+        resetValue: 0x00000000
+        fields:
+          VPSIZE:
+            description: Video packet size
+            bitOffset: 0
+            bitWidth: 14
+      VCCCR:
+        description: DSI Host video chunks current configuration register
+        addressOffset: 0x0140
+        resetValue: 0x00000000
+        fields:
+          NUMC:
+            description: Number of chunks
+            bitOffset: 0
+            bitWidth: 13
+      VNPCCR:
+        description: DSI Host video null packet current configuration register
+        addressOffset: 0x0144
+        resetValue: 0x00000000
+        fields:
+          NPSIZE:
+            description: Null packet size
+            bitOffset: 0
+            bitWidth: 13
+      VHSACCR:
+        description: DSI Host video HSA current configuration register
+        addressOffset: 0x0148
+        resetValue: 0x00000000
+        fields:
+          HSA:
+            description: Horizontal synchronism active duration
+            bitOffset: 0
+            bitWidth: 12
+      VHBPCCR:
+        description: DSI Host video HBP current configuration register
+        addressOffset: 0x014C
+        resetValue: 0x00000000
+        fields:
+          HBP:
+            description: Horizontal back
+            bitOffset: 0
+            bitWidth: 12
+      VLCCR:
+        description: DSI Host video line current configuration register
+        addressOffset: 0x0150
+        resetValue: 0x00000000
+        fields:
+          HLINE:
+            description: Horizontal line duration
+            bitOffset: 0
+            bitWidth: 15
+      VVSACCR:
+        description: DSI Host video VSA current configuration register
+        addressOffset: 0x0154
+        resetValue: 0x00000000
+        fields:
+          VSA:
+            description: Vertical synchronism active duration
+            bitOffset: 0
+            bitWidth: 10
+      VVPBCCR:
+        description: DSI Host video VBP current configuration register
+        addressOffset: 0x0158
+        resetValue: 0x00000000
+        fields:
+          VBP:
+            description: Vertical back
+            bitOffset: 0
+            bitWidth: 10
+      VVFPCCR:
+        description: DSI Host video VFP current configuration register
+        addressOffset: 0x015C
+        resetValue: 0x00000000
+        fields:
+          VFP:
+            description: Vertical front
+            bitOffset: 0
+            bitWidth: 10
+      VVACCR:
+        description: DSI Host video VA current configuration register
+        addressOffset: 0x0160
+        resetValue: 0x00000000
+        fields:
+          VA:
+            description: Vertical active duration
+            bitOffset: 0
+            bitWidth: 14
+      WCFGR:
+        description: DSI wrapper configuration register
+        addressOffset: 0x0400
+        resetValue: 0x00000000
+        fields:
+          VSPOL:
+            description: VSync polarity
+            bitOffset: 7
+            bitWidth: 1
+          AR:
+            description: Automatic refresh
+            bitOffset: 6
+            bitWidth: 1
+          TEPOL:
+            description: TE polarity
+            bitOffset: 5
+            bitWidth: 1
+          TESRC:
+            description: TE source
+            bitOffset: 4
+            bitWidth: 1
+          COLMUX:
+            description: Color multiplexing
+            bitOffset: 1
+            bitWidth: 3
+          DSIM:
+            description: DSI mode
+            bitOffset: 0
+            bitWidth: 1
+      WCR:
+        description: DSI wrapper control register
+        addressOffset: 0x0404
+        resetValue: 0x00000000
+        fields:
+          DSIEN:
+            description: DSI enable
+            bitOffset: 3
+            bitWidth: 1
+          LTDCEN:
+            description: LTDC enable
+            bitOffset: 2
+            bitWidth: 1
+          SHTDN:
+            description: Shutdown
+            bitOffset: 1
+            bitWidth: 1
+          COLM:
+            description: Color mode
+            bitOffset: 0
+            bitWidth: 1
+      WIER:
+        description: DSI wrapper interrupt enable register
+        addressOffset: 0x0408
+        resetValue: 0x00000000
+        fields:
+          RRIE:
+            description: Regulator ready interrupt enable
+            bitOffset: 13
+            bitWidth: 1
+          PLLUIE:
+            description: PLL unlock interrupt enable
+            bitOffset: 10
+            bitWidth: 1
+          PLLLIE:
+            description: PLL lock interrupt enable
+            bitOffset: 9
+            bitWidth: 1
+          ERIE:
+            description: End of refresh interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          TEIE:
+            description: Tearing effect interrupt enable
+            bitOffset: 0
+            bitWidth: 1
+      WISR:
+        description: DSI wrapper interrupt and status register
+        addressOffset: 0x040C
+        resetValue: 0x00000000
+        fields:
+          RRIF:
+            description: Regulator ready interrupt flag
+            bitOffset: 13
+            bitWidth: 1
+          RRS:
+            description: Regulator ready status
+            bitOffset: 12
+            bitWidth: 1
+          PLLUIF:
+            description: PLL unlock interrupt flag
+            bitOffset: 10
+            bitWidth: 1
+          PLLLIF:
+            description: PLL lock interrupt flag
+            bitOffset: 9
+            bitWidth: 1
+          PLLLS:
+            description: PLL lock status
+            bitOffset: 8
+            bitWidth: 1
+          BUSY:
+            description: Busy flag
+            bitOffset: 2
+            bitWidth: 1
+          ERIF:
+            description: End of refresh interrupt flag
+            bitOffset: 1
+            bitWidth: 1
+          TEIF:
+            description: Tearing effect interrupt flag
+            bitOffset: 0
+            bitWidth: 1
+      WIFCR:
+        description: DSI wrapper interrupt flag clear register
+        addressOffset: 0x0410
+        resetValue: 0x00000000
+        fields:
+          CRRIF:
+            description: Clear regulator ready interrupt flag
+            bitOffset: 13
+            bitWidth: 1
+          CPLLUIF:
+            description: Clear PLL unlock interrupt flag
+            bitOffset: 10
+            bitWidth: 1
+          CPLLLIF:
+            description: Clear PLL lock interrupt flag
+            bitOffset: 9
+            bitWidth: 1
+          CERIF:
+            description: Clear end of refresh interrupt flag
+            bitOffset: 1
+            bitWidth: 1
+          CTEIF:
+            description: Clear tearing effect interrupt flag
+            bitOffset: 0
+            bitWidth: 1
+      WPCR0:
+        description: DSI wrapper PHY configuration register 0
+        addressOffset: 0x0418
+        resetValue: 0x00000000
+        fields:
+          TCLKPOSTEN:
+            description: Custom time for tCLK
+            bitOffset: 27
+            bitWidth: 1
+          TLPXCEN:
+            description: Custom time for tLPX for clock lane enable
+            bitOffset: 26
+            bitWidth: 1
+          THSEXITEN:
+            description: Custom time for tHS
+            bitOffset: 25
+            bitWidth: 1
+          TLPXDEN:
+            description: Custom time for tLPX for data lanes enable
+            bitOffset: 24
+            bitWidth: 1
+          THSZEROEN:
+            description: Custom time for tHS
+            bitOffset: 23
+            bitWidth: 1
+          THSTRAILEN:
+            description: Custom time for tHS
+            bitOffset: 22
+            bitWidth: 1
+          THSPREPEN:
+            description: Custom time for tHS
+            bitOffset: 21
+            bitWidth: 1
+          TCLKZEROEN:
+            description: Custom time for tCLK
+            bitOffset: 20
+            bitWidth: 1
+          TCLKPREPEN:
+            description: Custom time for tCLK
+            bitOffset: 19
+            bitWidth: 1
+          PDEN:
+            description: Pull-down enable
+            bitOffset: 18
+            bitWidth: 1
+          TDDL:
+            description: Turn disable data lanes
+            bitOffset: 16
+            bitWidth: 1
+          CDOFFDL:
+            description: Contention detection OFF on data lanes
+            bitOffset: 14
+            bitWidth: 1
+          FTXSMDL:
+            description: Force in TX Stop mode the data lanes
+            bitOffset: 13
+            bitWidth: 1
+          FTXSMCL:
+            description: Force in TX Stop mode the clock lane
+            bitOffset: 12
+            bitWidth: 1
+          HSIDL1:
+            description: Invert the high-speed data signal on data lane 1
+            bitOffset: 11
+            bitWidth: 1
+          HSIDL0:
+            description: Invert the high-speed data signal on data lane 0
+            bitOffset: 10
+            bitWidth: 1
+          HSICL:
+            description: Invert high
+            bitOffset: 9
+            bitWidth: 1
+          SWDL1:
+            description: Swap data lane 1 pins
+            bitOffset: 8
+            bitWidth: 1
+          SWDL0:
+            description: Swap data lane 0 pins
+            bitOffset: 7
+            bitWidth: 1
+          SWCL:
+            description: Swap clock lane pins
+            bitOffset: 6
+            bitWidth: 1
+          UIX4:
+            description: Unit interval multiplied by 4
+            bitOffset: 0
+            bitWidth: 6
+      WPCR1:
+        description: DSI wrapper PHY configuration register 1
+        addressOffset: 0x041C
+        resetValue: 0x00000000
+        fields:
+          LPRXFT:
+            description: Low-power RX low-pass filtering tuning
+            bitOffset: 25
+            bitWidth: 2
+          FLPRXLPM:
+            description: Forces LP receiver in low-power mode
+            bitOffset: 22
+            bitWidth: 1
+          HSTXSRCDL:
+            description: High-speed transmission slew-rate control on data lanes
+            bitOffset: 18
+            bitWidth: 2
+          HSTXSRCCL:
+            description: High-speed transmission slew-rate control on clock lane
+            bitOffset: 16
+            bitWidth: 2
+          SDDC:
+            description: SDD control
+            bitOffset: 12
+            bitWidth: 1
+          LPSRCDL:
+            description: Low-power transmission slew-rate compensation on data lanes
+            bitOffset: 8
+            bitWidth: 2
+          LPSRCCL:
+            description: Low-power transmission slew-rate compensation on clock lane
+            bitOffset: 6
+            bitWidth: 2
+          HSTXDDL:
+            description: High-speed transmission delay on data lanes
+            bitOffset: 2
+            bitWidth: 2
+          HSTXDCL:
+            description: High-speed transmission delay on clock lane
+            bitOffset: 0
+            bitWidth: 2
+      WPCR2:
+        description: DSI wrapper PHY configuration register 2
+        addressOffset: 0x0420
+        resetValue: 0x00000000
+        fields:
+          THSTRAIL:
+            description: tHSTRAIL
+            bitOffset: 24
+            bitWidth: 8
+          THSPREP:
+            description: tHS-PREPARE
+            bitOffset: 16
+            bitWidth: 8
+          TCLKZERO:
+            description: tCLK-ZERO
+            bitOffset: 8
+            bitWidth: 8
+          TCLKPREP:
+            description: tCLK-PREPARE
+            bitOffset: 0
+            bitWidth: 8
+        description: DSI wrapper PHY configuration register 3
+        addressOffset: 0x0424
+        resetValue: 0x00000000
+        fields:
+          TLPXC:
+            description: tLPXC for clock lane
+            bitOffset: 24
+            bitWidth: 8
+          THSEXIT:
+            description: tHSEXIT
+            bitOffset: 16
+            bitWidth: 8
+          TLPXD:
+            description: tLPX for data lanes
+            bitOffset: 8
+            bitWidth: 8
+          THSZERO:
+            description: tHS-ZERO
+            bitOffset: 0
+            bitWidth: 8
+        description: DSI wrapper PHY configuration register 4
+        addressOffset: 0x0428
+        resetValue: 0x00000000
+        fields:
+          TCLKPOST:
+            description: tCLK-POST
+            bitOffset: 0
+            bitWidth: 8
+      WRPCR:
+        description: DSI wrapper regulator and PLL control register
+        addressOffset: 0x0430
+        resetValue: 0x00000000
+        fields:
+          REGEN:
+            description: Regulator enable
+            bitOffset: 24
+            bitWidth: 1
+          ODF:
+            description: PLL output division factor
+            bitOffset: 16
+            bitWidth: 2
+          IDF:
+            description: PLL input division factor
+            bitOffset: 11
+            bitWidth: 4
+          NDIV:
+            description: PLL loop division factor
+            bitOffset: 2
+            bitWidth: 7
+          PLLEN:
+            description: PLL enable
+            bitOffset: 0
+            bitWidth: 1
