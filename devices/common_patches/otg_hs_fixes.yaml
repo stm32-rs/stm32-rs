@@ -12,12 +12,21 @@ OTG_HS_GLOBAL:
         name: WKUPINT
         description: Resume/remote wakeup detected interrupt
 
-    _delete:
-      _registers:
-        - DIEPTXF6
-        - DIEPTXF7
+  _delete:
+    _registers:
+      - DIEPTXF6
+      - DIEPTXF7
 
   _modify:
+    GNPTXFSIZ_Host:
+      name: GNPTXFSIZ
+      displayName: GNPTXFSIZ
+
+    TX0FSIZ_Peripheral:
+      name: TX0FSIZ
+      displayName: TX0FSIZ
+      alternateRegister: GNPTXFSIZ
+
     DIEPTXF3:
       addressOffset: '0x10C'
     DIEPTXF4:
