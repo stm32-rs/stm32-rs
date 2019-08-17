@@ -8,9 +8,13 @@ peripheral and register and their level of coverage.
 """
 
 import shutil
+import sys
 import os.path
 import argparse
-import multiprocessing
+if sys.platform == 'win32':
+    import multiprocessing.pool
+else:
+    import multiprocessing
 import xml.etree.ElementTree as ET
 from jinja2 import Environment, PackageLoader
 
@@ -70,8 +74,18 @@ def parse_device(svdfile):
                 register_fields_total += 1
                 fname = ftag.findtext('name')
                 fdesc = ftag.findtext('description')
-                foffset = int(ftag.findtext('bitOffset'))
-                fwidth = int(ftag.findtext('bitWidth'))
+                # Some svd files will specify a bitRange rather than
+                # bitOffset and bitWidth
+                frange = ftag.findtext('bitRange')
+                if frange:
+                    parts = frange[1:-1].split(':')
+                    end = int(parts[0])
+                    start = int(parts[1])
+                    foffset = start
+                    fwidth = end - start + 1
+                else:
+                    foffset = int(ftag.findtext('bitOffset'))
+                    fwidth = int(ftag.findtext('bitWidth'))
                 faccs = ftag.findtext('access') or raccs
                 enum = ftag.find('enumeratedValues')
                 wc = ftag.find('writeConstraint')
@@ -179,7 +193,8 @@ if __name__ == "__main__":
     parser.add_argument("svdfiles", help="Path to patched SVD files", nargs="*")
     args = parser.parse_args()
     devices = {}
-    with multiprocessing.Pool() as p:
+
+    with multiprocessing.pool.ThreadPool() if sys.platform == 'win32' else multiprocessing.Pool() as p:
         devices = p.map(process_svd, args.svdfiles)
         p.map(generate_if_newer, devices)
     devices = {d['name']: d for d in devices}
