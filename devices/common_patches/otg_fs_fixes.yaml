@@ -53,6 +53,16 @@ OTG_FS_GLOBAL:
           bitOffset: 0
           bitWidth: 4
 
+  _modify:
+    GNPTXFSIZ_Device:
+      name: DIEPTXF0
+      displayName: DIEPTXF0
+
+    GNPTXFSIZ_Host:
+      name: HNPTXFSIZ
+      displayName: HNPTXFSIZ
+      alternateRegister: DIEPTXF0
+
   _array:
     DIEPTXF[123]: {}
 
