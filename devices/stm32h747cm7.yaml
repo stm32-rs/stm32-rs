@@ -1,17 +1,19 @@
-_svd: ../svd/stm32h743v.svd
+_svd: ../svd/stm32h747cm7.svd
 
 _include:
- - common_patches/h7_common_singlecore.yaml
+ - common_patches/h7_common_dualcore.yaml
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
- - common_patches/h7_ethernet_desc.yaml
+ - common_patches/h7_ethernet_desc_combined.yaml
  - common_patches/h7_dbgmcu.yaml
  - common_patches/h7_dmamux.yaml
+ - common_patches/h7_dsi.yaml
  - common_patches/h7_adc_boost_rev_v.yaml
- - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
+ - common_patches/h7_dualcore_flash.yaml
+ - common_patches/flash/flash_dual_bank.yaml
  - common_patches/ltdc/ltdc.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - common_patches/merge_USART_CR1_DEATx_fields.yaml
@@ -21,10 +23,16 @@ _include:
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
  - common_patches/tim/tim_o24ce.yaml
- - ../peripherals/adc/adc_v3_multi.yaml
+ # ADC Common registers are mixed in with ADC registers in the
+ # SVD. TODO: Resolve manually.
+ #- ../peripherals/adc/adc_v3_multi.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
  - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/dma/dmamux_v1.yaml
+ # This peripheral cannot be processed due to the behaviour of
+ # svdpatch.py. There are _strip and _array operations on DMAMUX prior
+ # to this, but they are not applied to DMAMUX1 prior to processing
+ # the peripheral.
+ #- ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/rcc/rcc_h7.yaml
@@ -38,8 +46,8 @@ _include:
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - ../peripherals/tim/tim_h7.yaml
  - common_patches/tim/tim_h7.yaml
+ - ../peripherals/tim/tim_h7.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml

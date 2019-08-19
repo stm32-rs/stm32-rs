@@ -1,10 +1,10 @@
 # IWDG peripheral with window register
-# Present on F0, F3, F7, L0 and L4 families.
+# Present on F0, F3, F7, H7, L0 and L4 families.
 # Extend `iwdg.yaml`.
 
 _include:
   - ./iwdg.yaml
 
-IWDG:
+"IWDG,IWDG?":
   WINR:
     WIN: [0, 4095]

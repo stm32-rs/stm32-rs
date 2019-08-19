@@ -1,6 +1,7 @@
 all: patch svd2rust
 
 .PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
+.PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
 
@@ -34,7 +35,7 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
                           $(wildcard devices/$(crate)*.yaml)))
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
-svd/%.svd.patched: devices/%.yaml svd/%.svd
+svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 	python3 scripts/svdpatch.py $<
 
 svd/%.svd.formatted: svd/%.svd.patched
@@ -43,16 +44,17 @@ svd/%.svd.formatted: svd/%.svd.patched
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -i ../../../$$<
-	rustfmt $$(@D)/lib.rs
+	cd $$(@D); svd2rust -g -i ../../../$$<
+	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
 	sed "1,10d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
+	mv -f -t $$(@D)/.. $$(@D)/generic.rs
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
 	rm $$<
 	mv $$(@D)/lib.rs $$<
-	rustfmt $$<
+	rustfmt --config-path="rustfmt.toml" $$<
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
@@ -84,6 +86,7 @@ html: html/index.html
 
 clean-rs:
 	rm -rf $(RUST_DIRS)
+	rm -f */src/generic.rs
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)
@@ -100,4 +103,4 @@ clean: clean-rs clean-patch clean-html
 	@mkdir -p .deps
 	python3 scripts/makedeps.py $< > $@
 
--include $(patsubst devices/%.yaml, .deps/%.d, $(YAMLS))
+-include .deps/*

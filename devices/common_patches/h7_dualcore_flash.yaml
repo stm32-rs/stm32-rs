@@ -1,0 +1,1018 @@
+# Dual Core H7 Flash Peripheral
+
+_add:
+  FLASH:
+    description: Embedded Flash Memory
+    groupName: FLASH
+    baseAddress: 0x52002000
+    addressBlock:
+      offset: 0x000
+      size: 0x200
+      usage: registers
+    registers:
+      ACR:
+        description: FLASH access control register
+        addressOffset: 0x000
+        resetValue: 0x00000037
+        fields:
+          WRHIGHFREQ:
+            description: Flash signal delay
+            bitOffset: 4
+            bitWidth: 2
+          LATENCY:
+            description: Read latency
+            bitOffset: 0
+            bitWidth: 4
+      KEYR1:
+        description: FLASH key register for bank 1
+        addressOffset: 0x004
+        resetValue: 0x00000000
+        access: write-only
+        fields:
+          KEYR:
+            description: Bank access configuration unlock key
+            bitOffset: 0
+            bitWidth: 32
+      OPTKEYR:
+        description: FLASH option key register
+        addressOffset: 0x008
+        resetValue: 0x00000000
+        access: write-only
+        fields:
+          OPTKEYR:
+            description: FLASH option bytes control access unlock key
+            bitOffset: 0
+            bitWidth: 32
+      CR1:
+        description: FLASH control register for bank 1
+        addressOffset: 0x00C
+        resetValue: 0x00000031
+        fields:
+          CRCRDERRIE:
+            description: Bank 1 CRC read error interrupt enable bit
+            bitOffset: 28
+            bitWidth: 1
+          CRCENDIE:
+            description: Bank 1 CRC end of calculation interrupt enable bit
+            bitOffset: 27
+            bitWidth: 1
+          DBECCERRIE:
+            description: Bank 1 ECC double detection error interrupt enable bit
+            bitOffset: 26
+            bitWidth: 1
+          SNECCERRIE:
+            description: Bank 1 ECC single correction error interrupt enable bit
+            bitOffset: 25
+            bitWidth: 1
+          RDSERRIE:
+            description: Bank 1 secure error interrupt enable bit
+            bitOffset: 24
+            bitWidth: 1
+          RDPERRIE:
+            description: Bank 1 read protection error interrupt enable bit
+            bitOffset: 23
+            bitWidth: 1
+          OPERRIE:
+            description: Bank 1 write
+            bitOffset: 22
+            bitWidth: 1
+          INCERRIE:
+            description: Bank 1 inconsistency error interrupt enable bit
+            bitOffset: 21
+            bitWidth: 1
+          STRBERRIE:
+            description: Bank 1 strobe error interrupt enable bit
+            bitOffset: 19
+            bitWidth: 1
+          PGSERRIE:
+            description: Bank 1 programming sequence error interrupt enable bit
+            bitOffset: 18
+            bitWidth: 1
+          WRPERRIE:
+            description: Bank 1 write protection error interrupt enable bit
+            bitOffset: 17
+            bitWidth: 1
+          EOPIE:
+            description: Bank 1 end-of-program interrupt control bit
+            bitOffset: 16
+            bitWidth: 1
+          CRC_EN:
+            description: Bank 1 CRC control bit
+            bitOffset: 15
+            bitWidth: 1
+          SNB:
+            description: Bank 1 sector erase selection number
+            bitOffset: 8
+            bitWidth: 3
+          START:
+            description: Bank 1 erase start control bit
+            bitOffset: 7
+            bitWidth: 1
+          FW:
+            description: Bank 1 write forcing control bit
+            bitOffset: 6
+            bitWidth: 1
+          PSIZE:
+            description: Bank 1 program size
+            bitOffset: 4
+            bitWidth: 2
+          BER:
+            description: Bank 1 erase request
+            bitOffset: 3
+            bitWidth: 1
+          SER:
+            description: Bank 1 sector erase request
+            bitOffset: 2
+            bitWidth: 1
+          PG:
+            description: Bank 1 internal buffer control bit
+            bitOffset: 1
+            bitWidth: 1
+          LOCK:
+            description: Bank 1 configuration lock bit
+            bitOffset: 0
+            bitWidth: 1
+      SR1:
+        description: FLASH status register for bank 1
+        addressOffset: 0x010
+        resetValue: 0x00000000
+        fields:
+          CRCRDERR1:
+            description: Bank 1 CRC read error flag
+            bitOffset: 28
+            bitWidth: 1
+          CRCEND1:
+            description: Bank 1 CRC end of calculation flag
+            bitOffset: 27
+            bitWidth: 1
+          DBECCERR1:
+            description: Bank 1 ECC double detection error flag
+            bitOffset: 26
+            bitWidth: 1
+          SNECCERR1:
+            description: Bank 1 single correction error flag
+            bitOffset: 25
+            bitWidth: 1
+          RDSERR1:
+            description: Bank 1 secure error flag
+            bitOffset: 24
+            bitWidth: 1
+          RDPERR1:
+            description: Bank 1 read protection error flag
+            bitOffset: 23
+            bitWidth: 1
+          OPERR1:
+            description: Bank 1 write
+            bitOffset: 22
+            bitWidth: 1
+          INCERR1:
+            description: Bank 1 inconsistency error flag
+            bitOffset: 21
+            bitWidth: 1
+          STRBERR1:
+            description: Bank 1 strobe error flag
+            bitOffset: 19
+            bitWidth: 1
+          PGSERR1:
+            description: Bank 1 programming sequence error flag
+            bitOffset: 18
+            bitWidth: 1
+          WRPERR1:
+            description: Bank 1 write protection error flag
+            bitOffset: 17
+            bitWidth: 1
+          EOP1:
+            description: Bank 1 end-of-program flag
+            bitOffset: 16
+            bitWidth: 1
+          CRC_BUSY1:
+            description: Bank 1 CRC busy flag
+            bitOffset: 3
+            bitWidth: 1
+          QW1:
+            description: Bank 1 wait queue flag
+            bitOffset: 2
+            bitWidth: 1
+          WBNE1:
+            description: Bank 1 write buffer not empty flag
+            bitOffset: 1
+            bitWidth: 1
+          BSY1:
+            description: Bank 1 busy flag
+            bitOffset: 0
+            bitWidth: 1
+      CCR1:
+        description: FLASH clear control register for bank 1
+        addressOffset: 0x014
+        resetValue: 0x00000000
+        fields:
+          CLR_CRCRDERR1:
+            description: Bank 1 CRCRDERR1 flag clear bit
+            bitOffset: 28
+            bitWidth: 1
+          CLR_CRCEND1:
+            description: Bank 1 CRCEND1 flag clear bit
+            bitOffset: 27
+            bitWidth: 1
+          CLR_DBECCERR1:
+            description: Bank 1 DBECCERR1 flag clear bit
+            bitOffset: 26
+            bitWidth: 1
+          CLR_SNECCERR1:
+            description: Bank 1 SNECCERR1 flag clear bit
+            bitOffset: 25
+            bitWidth: 1
+          CLR_RDSERR1:
+            description: Bank 1 RDSERR1 flag clear bit
+            bitOffset: 24
+            bitWidth: 1
+          CLR_RDPERR1:
+            description: Bank 1 RDPERR1 flag clear bit
+            bitOffset: 23
+            bitWidth: 1
+          CLR_OPERR1:
+            description: Bank 1 OPERR1 flag clear bit
+            bitOffset: 22
+            bitWidth: 1
+          CLR_INCERR1:
+            description: Bank 1 INCERR1 flag clear bit
+            bitOffset: 21
+            bitWidth: 1
+          CLR_STRBERR1:
+            description: Bank 1 STRBERR1 flag clear bit
+            bitOffset: 19
+            bitWidth: 1
+          CLR_PGSERR1:
+            description: Bank 1 PGSERR1 flag clear bit
+            bitOffset: 18
+            bitWidth: 1
+          CLR_WRPERR1:
+            description: Bank 1 WRPERR1 flag clear bit
+            bitOffset: 17
+            bitWidth: 1
+          CLR_EOP1:
+            description: Bank 1 EOP1 flag clear bit
+            bitOffset: 16
+            bitWidth: 1
+      OPTCR:
+        description: FLASH option control register
+        addressOffset: 0x018
+        resetValue: 0x00000001
+        fields:
+          SWAP_BANK:
+            description: Bank swapping option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          OPTCHANGEERRIE:
+            description: Option byte change error interrupt enable bit
+            bitOffset: 30
+            bitWidth: 1
+          MER:
+            description: mass erase request
+            bitOffset: 4
+            bitWidth: 1
+          OPTSTART:
+            description: Option byte start change option configuration bit
+            bitOffset: 1
+            bitWidth: 1
+          OPTLOCK:
+            description: FLASH
+            bitOffset: 0
+            bitWidth: 1
+      OPTSR_CUR:
+        description: FLASH option status register
+        addressOffset: 0x01C
+        resetValue: 0x00000000
+        fields:
+          SWAP_BANK_OPT:
+            description: Bank swapping option status bit
+            bitOffset: 31
+            bitWidth: 1
+          OPTCHANGEERR:
+            description: Option byte change error flag
+            bitOffset: 30
+            bitWidth: 1
+          IO_HSLV:
+            description: I
+            bitOffset: 29
+            bitWidth: 1
+          NRST_STBY_D2:
+            description: D2 domain DStandby entry reset option status bit
+            bitOffset: 25
+            bitWidth: 1
+          NRST_STOP_D2:
+            description: D2 domain DStop entry reset option status bit
+            bitOffset: 24
+            bitWidth: 1
+          BOOT_CM7:
+            description: Arm Cortex
+            bitOffset: 23
+            bitWidth: 1
+          BOOT_CM4:
+            description: Arm Cortex
+            bitOffset: 22
+            bitWidth: 1
+          SECURITY:
+            description: Security enable option status bit
+            bitOffset: 21
+            bitWidth: 1
+          ST_RAM_SIZE:
+            description: ST RAM size option status
+            bitOffset: 19
+            bitWidth: 2
+          IWDG_FZ_SDBY:
+            description: IWDG Standby mode freeze option status bit
+            bitOffset: 18
+            bitWidth: 1
+          IWDG_FZ_STOP:
+            description: IWDG Stop mode freeze option status bit
+            bitOffset: 17
+            bitWidth: 1
+          RDP:
+            description: Readout protection level option status byte
+            bitOffset: 8
+            bitWidth: 8
+          RST_STDY_D1:
+            description: D1 domain DStandby entry reset option status bit
+            bitOffset: 7
+            bitWidth: 1
+          NRST_STOP_D1:
+            description: D1 domain DStop entry reset option status bit
+            bitOffset: 6
+            bitWidth: 1
+          IWDG2_SW:
+            description: IWDG2 control mode option status bit
+            bitOffset: 5
+            bitWidth: 1
+          IWDG_SW:
+            description: IWDG control mode option status bit
+            bitOffset: 4
+            bitWidth: 1
+          BOR_LEV:
+            description: Brownout level option status bit
+            bitOffset: 2
+            bitWidth: 2
+          OPT_BUSY:
+            description: Option byte change ongoing flag
+            bitOffset: 0
+            bitWidth: 1
+      OPTSR_PRG:
+        description: FLASH option status register
+        addressOffset: 0x020
+        resetValue: 0x00000000
+        fields:
+          SWAP_BANK_OPT:
+            description: Bank swapping option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          IO_HSLV:
+            description: I
+            bitOffset: 29
+            bitWidth: 1
+          NRST_STBY_D2:
+            description: D2 domain DStandby entry reset option configuration bit
+            bitOffset: 25
+            bitWidth: 1
+          NRST_STOP_D2:
+            description: D2 domain DStop entry reset option configuration bit
+            bitOffset: 24
+            bitWidth: 1
+          BOOT_CM7:
+            description: Arm Cortex
+            bitOffset: 23
+            bitWidth: 1
+          BOOT_CM4:
+            description: Arm Cortex
+            bitOffset: 22
+            bitWidth: 1
+          SECURITY:
+            description: Security enable option configuration bit
+            bitOffset: 21
+            bitWidth: 1
+          ST_RAM_SIZE:
+            description: ST RAM size option configuration bits
+            bitOffset: 19
+            bitWidth: 2
+          IWDG_FZ_SDBY:
+            description: IWDG Standby mode freeze option configuration bit
+            bitOffset: 18
+            bitWidth: 1
+          IWDG_FZ_STOP:
+            description: IWDG Stop mode freeze option configuration bit
+            bitOffset: 17
+            bitWidth: 1
+          RDP:
+            description: Readout protection level option configuration bits
+            bitOffset: 8
+            bitWidth: 8
+          NRST_STDY_D1:
+            description: D1 domain DStandby entry reset option configuration bit
+            bitOffset: 7
+            bitWidth: 1
+          NRST_STOP_D1:
+            description: D1 domain DStop entry reset option configuration bit
+            bitOffset: 6
+            bitWidth: 1
+          IWDG2_SW:
+            description: IWDG2 control mode option configuration bit
+            bitOffset: 5
+            bitWidth: 1
+          IWDG_SW:
+            description: IWDG control mode option configuration bit
+            bitOffset: 4
+            bitWidth: 1
+          BOR_LEV:
+            description: Brownout level option configuration bit
+            bitOffset: 2
+            bitWidth: 2
+      OPTCCR:
+        description: FLASH option clear control register
+        addressOffset: 0x024
+        resetValue: 0x00000000
+        fields:
+          CLR_OPTCHANGEERR:
+            description: OPTCHANGEERR reset bit
+            bitOffset: 30
+            bitWidth: 1
+      PRAR_CUR1:
+        description: FLASH protection address for bank 1
+        addressOffset: 0x028
+        resetValue: 0x00000000
+        fields:
+          DMEP1:
+            description: Bank 1 PCROP protected erase enable option status bit
+            bitOffset: 31
+            bitWidth: 1
+          PROT_AREA_END1:
+            description: Bank 1 PCROP area end status bits
+            bitOffset: 16
+            bitWidth: 12
+          PROT_AREA_START1:
+            description: Bank 1 PCROP area start status bits
+            bitOffset: 0
+            bitWidth: 12
+      PRAR_PRG1:
+        description: FLASH protection address for bank 1
+        addressOffset: 0x02C
+        resetValue: 0x00000000
+        fields:
+          DMEP1:
+            description: Bank 1 PCROP protected erase enable option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          PROT_AREA_END1:
+            description: Bank 1 PCROP area end configuration bits
+            bitOffset: 16
+            bitWidth: 12
+          PROT_AREA_START1:
+            description: Bank 1 PCROP area start configuration bits
+            bitOffset: 0
+            bitWidth: 12
+      SCAR_CUR1:
+        description: FLASH secure address for bank 1
+        addressOffset: 0x030
+        resetValue: 0x00000000
+        fields:
+          DMES1:
+            description: Bank 1 secure access protected erase enable option status bit
+            bitOffset: 31
+            bitWidth: 1
+          SEC_AREA_END1:
+            description: Bank 1 secure-only area end status bits
+            bitOffset: 16
+            bitWidth: 12
+          SEC_AREA_START1:
+            description: Bank 1 secure-only area start status bits
+            bitOffset: 0
+            bitWidth: 12
+      SCAR_PRG1:
+        description: FLASH secure address for bank 1
+        addressOffset: 0x034
+        resetValue: 0x00000000
+        fields:
+          DMES1:
+            description: Bank 1 secure access protected erase enable option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          SEC_AREA_END1:
+            description: Bank 1 secure-only area end configuration bits
+            bitOffset: 16
+            bitWidth: 12
+          SEC_AREA_START1:
+            description: Bank 1 secure-only area start configuration bits
+            bitOffset: 0
+            bitWidth: 12
+      WPSN_CUR1R:
+        description: FLASH write sector protection for bank 1
+        addressOffset: 0x038
+        resetValue: 0x00000000
+        fields:
+          WRPSn1:
+            description: Bank 1 sector write protection option status byte
+            bitOffset: 0
+            bitWidth: 8
+      WPSN_PRG1R:
+        description: FLASH write sector protection for bank 1
+        addressOffset: 0x03C
+        resetValue: 0x00000000
+        fields:
+          WRPSn1:
+            description: Bank 1 sector write protection option status byte
+            bitOffset: 0
+            bitWidth: 8
+      BOOT7_CURR:
+        description: FLASH register boot address for Arm Cortex-M7 core
+        addressOffset: 0x040
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM7_ADD1:
+            description: Arm Cortex-M7 boot address 1
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM7_ADD0:
+            description: Arm Cortex-M7 boot address 0
+            bitOffset: 0
+            bitWidth: 16
+      BOOT7_PRGR:
+        description: FLASH register boot address for Arm Cortex-M7 core
+        addressOffset: 0x044
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM7_ADD1:
+            description: Arm Cortex-M7 boot address 1 configuration
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM7_ADD0:
+            description: Arm Cortex-M7 boot address 0 configuration
+            bitOffset: 0
+            bitWidth: 16
+      BOOT4_CURR:
+        description: FLASH register boot address for Arm Cortex-M4 core
+        addressOffset: 0x048
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM4_ADD1:
+            description: Arm Cortex-M4 boot address 1
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM4_ADD0:
+            description: Arm Cortex-M4 boot address 0
+            bitOffset: 0
+            bitWidth: 16
+      BOOT4_PRGR:
+        description: FLASH register boot address for Arm Cortex-M4 core
+        addressOffset: 0x04C
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM4_ADD1:
+            description: Arm Cortex-M4 boot address 1 configuration
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM4_ADD0:
+            description: Arm Cortex-M4 boot address 0 configuration
+            bitOffset: 0
+            bitWidth: 16
+      CRCCR1:
+        description: FLASH CRC control register for bank 1
+        addressOffset: 0x050
+        resetValue: 0x001C0000
+        fields:
+          ALL_BANK:
+            description: Bank 1 CRC select bit
+            bitOffset: 22
+            bitWidth: 1
+          CRC_BURST:
+            description: Bank 1 CRC burst size
+            bitOffset: 20
+            bitWidth: 2
+          CLEAN_CRC:
+            description: Bank 1 CRC clear bit
+            bitOffset: 17
+            bitWidth: 1
+          START_CRC:
+            description: Bank 1 CRC start bit
+            bitOffset: 16
+            bitWidth: 1
+          CLEAN_SECT:
+            description: Bank 1 CRC sector list clear bit
+            bitOffset: 10
+            bitWidth: 1
+          ADD_SECT:
+            description: Bank 1 CRC sector select bit
+            bitOffset: 9
+            bitWidth: 1
+          CRC_BY_SECT:
+            description: Bank 1 CRC sector mode select bit
+            bitOffset: 8
+            bitWidth: 1
+          CRC_SECT:
+            description: Bank 1 CRC sector number
+            bitOffset: 0
+            bitWidth: 3
+      CRCSADD1R:
+        description: FLASH CRC start address register for bank 1
+        addressOffset: 0x054
+        resetValue: 0x00000000
+        fields:
+          CRC_START_ADDR:
+            description: CRC start address on bank 1
+            bitOffset: 2
+            bitWidth: 18
+      CRCEADD1R:
+        description: FLASH CRC end address register for bank 1
+        addressOffset: 0x058
+        resetValue: 0x00000000
+        fields:
+          CRC_END_ADDR:
+            description: CRC end address on bank 1
+            bitOffset: 2
+            bitWidth: 18
+      CRCDATAR:
+        description: FLASH CRC data register
+        addressOffset: 0x05C
+        resetValue: 0x00000000
+        fields:
+          CRC_DATA:
+            description: CRC result
+            bitOffset: 0
+            bitWidth: 32
+      ECC_FA1R:
+        description: FLASH ECC fail address for bank 1
+        addressOffset: 0x060
+        resetValue: 0x00000000
+        fields:
+          FAIL_ECC_ADDR1:
+            description: Bank 1 ECC error address
+            bitOffset: 0
+            bitWidth: 15
+      KEYR2:
+        description: FLASH key register for bank 2
+        addressOffset: 0x104
+        resetValue: 0x00000000
+        access: write-only
+        fields:
+          KEYR:
+            description: Bank access configuration unlock key
+            bitOffset: 0
+            bitWidth: 32
+      CR2:
+        description: FLASH control register for bank 2
+        addressOffset: 0x10C
+        resetValue: 0x00000031
+        fields:
+          CRCRDERRIE:
+            description: Bank 2 CRC read error interrupt enable bit
+            bitOffset: 28
+            bitWidth: 1
+          CRCENDIE:
+            description: Bank 2 CRC end of calculation interrupt enable bit
+            bitOffset: 27
+            bitWidth: 1
+          DBECCERRIE:
+            description: Bank 2 ECC double detection error interrupt enable bit
+            bitOffset: 26
+            bitWidth: 1
+          SNECCERRIE:
+            description: Bank 2 ECC single correction error interrupt enable bit
+            bitOffset: 25
+            bitWidth: 1
+          RDSERRIE:
+            description: Bank 2 secure error interrupt enable bit
+            bitOffset: 24
+            bitWidth: 1
+          RDPERRIE:
+            description: Bank 2 read protection error interrupt enable bit
+            bitOffset: 23
+            bitWidth: 1
+          OPERRIE:
+            description: Bank 2 write
+            bitOffset: 22
+            bitWidth: 1
+          INCERRIE:
+            description: Bank 2 inconsistency error interrupt enable bit
+            bitOffset: 21
+            bitWidth: 1
+          STRBERRIE:
+            description: Bank 2 strobe error interrupt enable bit
+            bitOffset: 19
+            bitWidth: 1
+          PGSERRIE:
+            description: Bank 2 programming sequence error interrupt enable bit
+            bitOffset: 18
+            bitWidth: 1
+          WRPERRIE:
+            description: Bank 2 write protection error interrupt enable bit
+            bitOffset: 17
+            bitWidth: 1
+          EOPIE:
+            description: Bank 2 end-of-program interrupt control bit
+            bitOffset: 16
+            bitWidth: 1
+          CRC_EN:
+            description: Bank 2 CRC control bit
+            bitOffset: 15
+            bitWidth: 1
+          SNB:
+            description: Bank 2 sector erase selection number
+            bitOffset: 8
+            bitWidth: 3
+          START:
+            description: Bank 2 erase start control bit
+            bitOffset: 7
+            bitWidth: 1
+          FW:
+            description: Bank 2 write forcing control bit
+            bitOffset: 6
+            bitWidth: 1
+          PSIZE:
+            description: Bank 2 program size
+            bitOffset: 4
+            bitWidth: 2
+          BER:
+            description: Bank 2 erase request
+            bitOffset: 3
+            bitWidth: 1
+          SER:
+            description: Bank 2 sector erase request
+            bitOffset: 2
+            bitWidth: 1
+          PG:
+            description: Bank 2 internal buffer control bit
+            bitOffset: 1
+            bitWidth: 1
+          LOCK:
+            description: Bank 2 configuration lock bit
+            bitOffset: 0
+            bitWidth: 1
+      SR2:
+        description: FLASH status register for bank 2
+        addressOffset: 0x110
+        resetValue: 0x00000000
+        fields:
+          CRCRDERR2:
+            description: Bank 2 CRC read error flag
+            bitOffset: 28
+            bitWidth: 1
+          CRCEND2:
+            description: Bank 2 CRC end of calculation flag
+            bitOffset: 27
+            bitWidth: 1
+          DBECCERR2:
+            description: Bank 2 ECC double detection error flag
+            bitOffset: 26
+            bitWidth: 1
+          SNECCERR2:
+            description: Bank 2 single correction error flag
+            bitOffset: 25
+            bitWidth: 1
+          RDSERR2:
+            description: Bank 2 secure error flag
+            bitOffset: 24
+            bitWidth: 1
+          RDPERR2:
+            description: Bank 2 read protection error flag
+            bitOffset: 23
+            bitWidth: 1
+          OPERR2:
+            description: Bank 2 write
+            bitOffset: 22
+            bitWidth: 1
+          INCERR2:
+            description: Bank 2 inconsistency error flag
+            bitOffset: 21
+            bitWidth: 1
+          STRBERR2:
+            description: Bank 2 strobe error flag
+            bitOffset: 19
+            bitWidth: 1
+          PGSERR2:
+            description: Bank 2 programming sequence error flag
+            bitOffset: 18
+            bitWidth: 1
+          WRPERR2:
+            description: Bank 2 write protection error flag
+            bitOffset: 17
+            bitWidth: 1
+          EOP2:
+            description: Bank 2 end-of-program flag
+            bitOffset: 16
+            bitWidth: 1
+          CRC_BUSY2:
+            description: Bank 2 CRC busy flag
+            bitOffset: 3
+            bitWidth: 1
+          QW2:
+            description: Bank 2 wait queue flag
+            bitOffset: 2
+            bitWidth: 1
+          WBNE2:
+            description: Bank 2 write buffer not empty flag
+            bitOffset: 1
+            bitWidth: 1
+          BSY2:
+            description: Bank 2 busy flag
+            bitOffset: 0
+            bitWidth: 1
+      CCR2:
+        description: FLASH clear control register for bank 2
+        addressOffset: 0x114
+        resetValue: 0x00000000
+        fields:
+          CLR_CRCRDERR2:
+            description: Bank 2 CRCRDERR2 flag clear bit
+            bitOffset: 28
+            bitWidth: 1
+          CLR_CRCEND2:
+            description: Bank 2 CRCEND2 flag clear bit
+            bitOffset: 27
+            bitWidth: 1
+          CLR_DBECCERR2:
+            description: Bank 2 DBECCERR2 flag clear bit
+            bitOffset: 26
+            bitWidth: 1
+          CLR_SNECCERR2:
+            description: Bank 2 SNECCERR2 flag clear bit
+            bitOffset: 25
+            bitWidth: 1
+          CLR_RDSERR2:
+            description: Bank 2 RDSERR2 flag clear bit
+            bitOffset: 24
+            bitWidth: 1
+          CLR_RDPERR2:
+            description: Bank 2 RDPERR2 flag clear bit
+            bitOffset: 23
+            bitWidth: 1
+          CLR_OPERR2:
+            description: Bank 2 OPERR2 flag clear bit
+            bitOffset: 22
+            bitWidth: 1
+          CLR_INCERR2:
+            description: Bank 2 INCERR2 flag clear bit
+            bitOffset: 21
+            bitWidth: 1
+          CLR_STRBERR2:
+            description: Bank 2 STRBERR2 flag clear bit
+            bitOffset: 19
+            bitWidth: 1
+          CLR_PGSERR2:
+            description: Bank 2 PGSERR2 flag clear bit
+            bitOffset: 18
+            bitWidth: 1
+          CLR_WRPERR2:
+            description: Bank 2 WRPERR2 flag clear bit
+            bitOffset: 17
+            bitWidth: 1
+          CLR_EOP2:
+            description: Bank 2 EOP2 flag clear bit
+            bitOffset: 16
+            bitWidth: 1
+      PRAR_CUR2:
+        description: FLASH protection address for bank 2
+        addressOffset: 0x128
+        resetValue: 0x00000000
+        fields:
+          DMEP2:
+            description: Bank 2 PCROP protected erase enable option status bit
+            bitOffset: 31
+            bitWidth: 1
+          PROT_AREA_END2:
+            description: Bank 2 PCROP area end status bits
+            bitOffset: 16
+            bitWidth: 12
+          PROT_AREA_START2:
+            description: Bank 2 PCROP area start status bits
+            bitOffset: 0
+            bitWidth: 12
+      PRAR_PRG2:
+        description: FLASH protection address for bank 2
+        addressOffset: 0x12C
+        resetValue: 0x00000000
+        fields:
+          DMEP2:
+            description: Bank 2 PCROP protected erase enable option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          PROT_AREA_END2:
+            description: Bank 2 PCROP area end configuration bits
+            bitOffset: 16
+            bitWidth: 12
+          PROT_AREA_START2:
+            description: Bank 2 PCROP area start configuration bits
+            bitOffset: 0
+            bitWidth: 12
+      SCAR_CUR2:
+        description: FLASH secure address for bank 2
+        addressOffset: 0x130
+        resetValue: 0x00000000
+        fields:
+          DMES2:
+            description: Bank 2 secure protected erase enable option status bit
+            bitOffset: 31
+            bitWidth: 1
+          SEC_AREA_END2:
+            description: Bank 2 secure-only area end status bits
+            bitOffset: 16
+            bitWidth: 12
+          SEC_AREA_START2:
+            description: Bank 2 secure-only area start status bits
+            bitOffset: 0
+            bitWidth: 12
+      SCAR_PRG2:
+        description: FLASH secure address for bank 2
+        addressOffset: 0x134
+        resetValue: 0x00000000
+        fields:
+          DMES2:
+            description: Bank 2 secure access protected erase enable option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          SEC_AREA_END2:
+            description: Bank 2 secure-only area end configuration bits
+            bitOffset: 16
+            bitWidth: 12
+          SEC_AREA_START2:
+            description: Bank 2 secure-only area start configuration bits
+            bitOffset: 0
+            bitWidth: 12
+      WPSN_CUR2R:
+        description: FLASH write sector protection for bank 2
+        addressOffset: 0x138
+        resetValue: 0x00000000
+        fields:
+          WRPSN2:
+            description: Bank 2 sector write protection option status byte
+            bitOffset: 0
+            bitWidth: 8
+      WPSN_PRG2R:
+        description: FLASH write sector protection for bank 2
+        addressOffset: 0x13C
+        resetValue: 0x00000000
+        fields:
+          WRPSN2:
+            description: Bank 2 sector write protection option status byte
+            bitOffset: 0
+            bitWidth: 8
+      CRCCR2:
+        description: FLASH CRC control register for bank 2
+        addressOffset: 0x150
+        resetValue: 0x001C0000
+        fields:
+          ALL_BANK:
+            description: Bank 2 CRC select bit
+            bitOffset: 22
+            bitWidth: 1
+          CRC_BURST:
+            description: Bank 2 CRC burst size
+            bitOffset: 20
+            bitWidth: 2
+          CLEAN_CRC:
+            description: Bank 2 CRC clear bit
+            bitOffset: 17
+            bitWidth: 1
+          START_CRC:
+            description: Bank 2 CRC start bit
+            bitOffset: 16
+            bitWidth: 1
+          CLEAN_SECT:
+            description: Bank 2 CRC sector list clear bit
+            bitOffset: 10
+            bitWidth: 1
+          ADD_SECT:
+            description: Bank 2 CRC sector select bit
+            bitOffset: 9
+            bitWidth: 1
+          CRC_BY_SECT:
+            description: Bank 2 CRC sector mode select bit
+            bitOffset: 8
+            bitWidth: 1
+          CRC_SECT:
+            description: Bank 2 CRC sector number
+            bitOffset: 0
+            bitWidth: 3
+      CRCSADD2R:
+        description: FLASH CRC start address register for bank 2
+        addressOffset: 0x154
+        resetValue: 0x00000000
+        fields:
+          CRC_START_ADDR:
+            description: CRC start address on bank 2
+            bitOffset: 2
+            bitWidth: 18
+      CRCEADD2R:
+        description: FLASH CRC end address register for bank 2
+        addressOffset: 0x158
+        resetValue: 0x00000000
+        fields:
+          CRC_END_ADDR:
+            description: CRC end address on bank 2
+            bitOffset: 2
+            bitWidth: 18
+      ECC_FA2R:
+        description: FLASH ECC fail address for bank 2
+        addressOffset: 0x160
+        resetValue: 0x00000000
+        fields:
+          FAIL_ECC_ADDR:
+            description: Bank 2 ECC error address
+            bitOffset: 0
+            bitWidth: 15

@@ -1,14 +1,14 @@
-# Common SVD errors for single core stm32h742/742/753/750
+# Common SVD errors for dual core stm32h7x5/7x7
 
 # Rename in accordance with other devices and reference manual.
 _modify:
   Flash:
     name: FLASH
 
-"GPIOA":
+"GPIO?":
   _strip:
     # The SVD incorrectly names all the GPIO registers compared to RM0433.
-    - GPIOA_
+    - GPIO_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -220,12 +220,6 @@ _modify:
       AFSEL15:
         name: AFR15
 
-"ADC*_Common":
-  CCR:
-    _modify:
-      TSEN:
-        name: VSENSEEN
-
 "ADC?":
   CFGR2:
     _modify:
@@ -235,29 +229,10 @@ _modify:
     _modify:
       L3:
         name: L
-  SMPR1:
-    _add:
-      SMP0:
-        description: ADC channel 0 sampling time
-        bitOffset: 0
-        bitWidth: 3
-        access: read-write
   SMPR2:
     _modify:
       SMP19:
         description: ADC channel 19 sampling time
-
-FLASH:
-  _modify:
-    PRAR_PRG2:
-      addressOffset: "0x12C"
-      alternateRegister: ""
-    KEYR[12]:
-      access: write-only
-    OPTKEYR_?:
-      access: write-only
-    BOOT_PRGR:
-      access: read-write
 
 "SPI*":
   CR1:
@@ -272,9 +247,6 @@ FLASH:
     _modify:
       DPXPIE:
         name: DXPIE
-        access: read-write
-      TXPIE:
-        access: read-write
   _modify:
     CGFR:
       name: I2SCFGR
@@ -346,7 +318,7 @@ DMA1:
         description: DMA1 Stream6
       # DMA1_STR7 is correct
 
-Ethernet_DMA:
+Ethernet_MAC:
   DMAMR:
     _modify:
       INTM:
@@ -365,6 +337,14 @@ Ethernet_DMA:
         access: read-write
 
 RCC:
+  D3CFGR:
+    _delete: "*"
+    _add:
+      D3PPRE:
+        description: D3 domain APB4 prescaler
+        bitOffset: 4
+        bitWidth: 3
+
   _modify:
     CIFR:
       access: read-only
@@ -404,12 +384,12 @@ RCC:
         name: RTCSEL
   PLL2DIVR:
     _modify:
-      DIVP1:
-        name: DIVP2
-      DIVQ1:
-        name: DIVQ2
       DIVR1:
         name: DIVR2
+      DIVQ1:
+        name: DIVQ2
+      DIVP1:
+        name: DIVP2
       DIVN1:
         name: DIVN2
   APB1LRSTR:
@@ -486,6 +466,38 @@ Ethernet_MAC:
       LPIET:
         bitOffset: 3
 
+CEC:
+  _strip:
+    - CEC_
+
+CRS:
+  _strip:
+    - CRS_
+
+DAC:
+  _strip:
+    - DAC_
+
+DMA2D:
+  _strip:
+    - DMA2D_
+
+DMAMUX1:
+  _strip:
+    - DMAMUX1_
+
+DMAMUX2:
+  _strip:
+    - DMAMUX2_
+
+FMC:
+  _strip:
+    - FMC_
+
+JPEG:
+  _strip:
+    - JPEG_
+
 HSEM:
   _strip:
     - HSEM_
@@ -494,25 +506,76 @@ MDMA:
   _strip:
     - MDMA_
 
+LPTIM?:
+  _strip:
+    - LPTIM_
+
+MDIOS:
+  _strip:
+    - MDIOS_
+
+PWR:
+  _strip:
+    - PWR_
+
 RTC:
   _strip:
     - RTC_
+
+RNG:
+  _strip:
+    - RNG_
+
+QUADSPI:
+  _strip:
+    - QUADSPI_
+
+I2C1:
+  _strip:
+    - I2C_
 
 SAI4:
   _strip:
     - SAI_
 
-AXI:
+SDMMC1:
   _strip:
-    - AXI_
+    - SDMMC_
+SDMMC2:
+  _strip:
+    - SDMMC_
 
-"OTG1_HS_*":
+"OTG_HS_*":
   _strip:
     - OTG_HS_
+
+# The OTG_FS_WKUP interrupt occurs multiple times in the
+# SVD(!). Rename instance for interupt 42 to something more specific.
+OTG_HS_PWRCLK:
+  _modify:
+    _interrupts:
+      OTG_FS_WKUP:
+        name: OTG_FS_WKUP_EXTI
 
 FDCAN1:
   _strip:
     - FDCAN_
+
+WWDG1,WWDG2:
+  _strip:
+    - WWDG_
+IWDG1,IWDG2:
+  _strip:
+    - IWDG_
+
+"UART*":
+  BRR:
+    _modify:
+      BRR_4_15:
+        name: BRR4
+      BRR_0_3:
+        name: BRR0
+    _merge: ["BRR*"]
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:

@@ -1,0 +1,80 @@
+# Descriptions of H7 MAC Transfer Layer (MTL) registers
+
+MTLOMR:
+  _modify:
+    CNTCLR:
+      description: Counters Reset
+    CNTPRST:
+      description: Counters Preset
+    DTXSTS:
+      description: Drop Transmit Status
+MTLTxQUR:
+  _modify:
+    UFCNTOVF:
+      description: Overflow Bit for Underflow Packet Counter
+MTLTxQDR:
+  _modify:
+    STXSTSF:
+      description: Number of Status Words in Tx Status FIFO of Queue
+    PTXQ:
+      description: Number of Packets in the Transmit Queue
+    TXSTSFSTS:
+      description: MTL Tx Status FIFO Full Status
+    TXQSTS:
+      description: MTL Tx Queue Not Empty Status
+    TWCSTS:
+      description: MTL Tx Queue Write Controller Status
+    TRCSTS:
+      description: MTL Tx Queue Read Controller Status
+    TXQPAUSED:
+      description: Transmit Queue in Pause
+MTLQICSR:
+  _modify:
+    RXOIE:
+      description: Receive Queue Overflow Interrupt Enable
+    RXOVFIS:
+      description: Receive Queue Overflow Interrupt Status
+    TXUIE:
+      description: Transmit Queue Underflow Interrupt Enable
+    TXUNFIS:
+      description: Transmit Queue Underflow Interrupt Status
+MTLRxQOMR:
+  _modify:
+    RQS:
+      description: Receive Queue Size
+    RFD:
+      description: Threshold for Deactivating Flow Control (in half-duplex and full-duplex modes)
+    RFA:
+      description: Threshold for Activating Flow Control (in half-duplex and full-duplex modes)
+    EHFC:
+      description: Enable Hardware Flow Control
+    DIS_TCP_EF:
+      description: Disable Dropping of TCP/IP Checksum Error Packets
+    RSF:
+      description: Receive Queue Store and Forward
+    FEP:
+      description: Forward Error Packets
+    FUP:
+      description: Forward Undersized Good Packets
+    RTC:
+      description: Receive Queue Threshold Control
+MTLRxQMPOCR:
+  _modify:
+    MISCNTOVF:
+      description: Missed Packet Counter Overflow Bit
+    MISPKTCNT:
+      description: Missed Packet Counter
+    OVFCNTOVF:
+      description: Overflow Counter Overflow Bit
+    OVFPKTCNT:
+      description: Overflow Packet Counter
+MTLRxQDR:
+  _modify:
+    PRXQ:
+      description: Number of Packets in Receive Queue
+    RXQSTS:
+      description: MTL Rx Queue Fill-Level Status
+    RRCSTS:
+      description: MTL Rx Queue Read Controller State
+    RWCSTS:
+      description: MTL Rx Queue Write Controller Active Status

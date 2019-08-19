@@ -19,11 +19,17 @@
 #![allow(non_camel_case_types)]
 #![no_std]
 
+mod generic;
+pub use self::generic::*;
+
 #[cfg(feature = "stm32h743")]
 pub mod stm32h743;
 
 #[cfg(feature = "stm32h743v")]
 pub mod stm32h743v;
+
+#[cfg(feature = "stm32h747cm7")]
+pub mod stm32h747cm7;
 
 #[cfg(feature = "stm32h753")]
 pub mod stm32h753;

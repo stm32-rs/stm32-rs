@@ -26,7 +26,7 @@ CRATE_DOC_FEATURES = {
     "stm32f3": ["rt", "stm32f303", "stm32f373", "stm32f3x8"],
     "stm32f4": ["rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
     "stm32f7": ["rt", "stm32f7x3", "stm32f7x9"],
-    "stm32h7": ["rt", "stm32h743", "stm32h743v"],
+    "stm32h7": ["rt", "stm32h743", "stm32h743v", "stm32h747cm7"],
     "stm32l0": ["rt", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
     "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
     "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
@@ -86,6 +86,9 @@ SRC_LIB_RS_TPL = """\
 
 #![allow(non_camel_case_types)]
 #![no_std]
+
+mod generic;
+pub use self::generic::*;
 
 {mods}
 """
@@ -156,7 +159,7 @@ def read_device_table():
     path = os.path.join(
         os.path.abspath(os.path.split(__file__)[0]), os.pardir,
         "stm32_part_table.yaml")
-    with open(path) as f:
+    with open(path, encoding='utf-8') as f:
         table = yaml.safe_load(f)
     return table
 

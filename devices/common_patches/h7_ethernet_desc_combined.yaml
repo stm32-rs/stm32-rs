@@ -1,0 +1,7 @@
+# Applies to H7 where MAC and MTL registers are combined under
+# the Ethernet_MAC peripheral
+
+Ethernet_MAC:
+  _include:
+    - ./h7_ethernet_desc_mac.yaml
+    - ./h7_ethernet_desc_mtl.yaml
