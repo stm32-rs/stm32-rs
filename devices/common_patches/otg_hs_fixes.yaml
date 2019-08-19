@@ -1,15 +1,69 @@
 # Fix power and clock gating control register name
 OTG_HS_PWRCLK:
   _modify:
-    OTG_HS_PCGCR:
-      name: OTG_HS_PCGCCTL
-      displayName: OTG_HS_PCGCCTL
+    PCGCR:
+      name: PCGCCTL
+      displayName: PCGCCTL
 
+OTG_HS_GLOBAL:
+  GINTSTS:
+    _modify:
+      WKUINT:
+        name: WKUPINT
+        description: Resume/remote wakeup detected interrupt
+
+  _delete:
+    _registers:
+      - DIEPTXF6
+      - DIEPTXF7
+
+  _modify:
+    GNPTXFSIZ_Host:
+      name: GNPTXFSIZ
+      displayName: GNPTXFSIZ
+
+    TX0FSIZ_Peripheral:
+      name: TX0FSIZ
+      displayName: TX0FSIZ
+      alternateRegister: GNPTXFSIZ
+
+    DIEPTXF3:
+      addressOffset: '0x10C'
+    DIEPTXF4:
+      addressOffset: '0x110'
+    DIEPTXF5:
+      addressOffset: '0x114'
+    
+  
+  _array:
+    DIEPTXF[12345]: {}
 
 OTG_HS_DEVICE:
+  _delete:
+    _registers:
+      - DIEPCTL6
+      - DIEPCTL7
+      - DIEPINT6
+      - DIEPINT7
+      - DOEPINT6
+      - DOEPINT7
+
+  # Rename Stall to uppercase
+  DIEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL handshake
+
+  DOEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL handshake
+
   _add:
     # Add missing device OUT EP control registers
-    OTG_HS_DOEPCTL4:
+    DOEPCTL4:
       description: device endpoint-4 control register
       addressOffset: 0x380
       size: 0x20
@@ -39,7 +93,7 @@ OTG_HS_DEVICE:
           bitOffset: 26
           bitWidth: 1
           access: write-only
-        Stall:
+        STALL:
           bitOffset: 21
           bitWidth: 1
           access: read-write
@@ -68,7 +122,7 @@ OTG_HS_DEVICE:
           bitWidth: 11
           access: read-write
 
-    OTG_HS_DOEPCTL5:
+    DOEPCTL5:
       description: device endpoint-5 control register
       addressOffset: 0x3A0
       size: 0x20
@@ -98,125 +152,7 @@ OTG_HS_DEVICE:
           bitOffset: 26
           bitWidth: 1
           access: write-only
-        Stall:
-          bitOffset: 21
-          bitWidth: 1
-          access: read-write
-        SNPM:
-          bitOffset: 20
-          bitWidth: 1
-          access: read-write
-        EPTYP:
-          bitOffset: 18
-          bitWidth: 2
-          access: read-write
-        NAKSTS:
-          bitOffset: 17
-          bitWidth: 1
-          access: read-only
-        EONUM_DPID:
-          bitOffset: 16
-          bitWidth: 1
-          access: read-only
-        USBAEP:
-          bitOffset: 15
-          bitWidth: 1
-          access: read-write
-        MPSIZ:
-          bitOffset: 0
-          bitWidth: 11
-          access: read-write
-
-    OTG_HS_DOEPCTL6:
-      description: device endpoint-6 control register
-      addressOffset: 0x3C0
-      size: 0x20
-      resetValue: 0x0
-      fields:
-        EPENA:
-          bitOffset: 31
-          bitWidth: 1
-          access: read-write
-        EPDIS:
-          bitOffset: 30
-          bitWidth: 1
-          access: read-write
-        SODDFRM:
-          bitOffset: 29
-          bitWidth: 1
-          access: write-only
-        SD0PID_SEVNFRM:
-          bitOffset: 28
-          bitWidth: 1
-          access: write-only
-        SNAK:
-          bitOffset: 27
-          bitWidth: 1
-          access: write-only
-        CNAK:
-          bitOffset: 26
-          bitWidth: 1
-          access: write-only
-        Stall:
-          bitOffset: 21
-          bitWidth: 1
-          access: read-write
-        SNPM:
-          bitOffset: 20
-          bitWidth: 1
-          access: read-write
-        EPTYP:
-          bitOffset: 18
-          bitWidth: 2
-          access: read-write
-        NAKSTS:
-          bitOffset: 17
-          bitWidth: 1
-          access: read-only
-        EONUM_DPID:
-          bitOffset: 16
-          bitWidth: 1
-          access: read-only
-        USBAEP:
-          bitOffset: 15
-          bitWidth: 1
-          access: read-write
-        MPSIZ:
-          bitOffset: 0
-          bitWidth: 11
-          access: read-write
-
-    OTG_HS_DOEPCTL7:
-      description: device endpoint-7 control register
-      addressOffset: 0x3E0
-      size: 0x20
-      resetValue: 0x0
-      fields:
-        EPENA:
-          bitOffset: 31
-          bitWidth: 1
-          access: read-write
-        EPDIS:
-          bitOffset: 30
-          bitWidth: 1
-          access: read-write
-        SODDFRM:
-          bitOffset: 29
-          bitWidth: 1
-          access: write-only
-        SD0PID_SEVNFRM:
-          bitOffset: 28
-          bitWidth: 1
-          access: write-only
-        SNAK:
-          bitOffset: 27
-          bitWidth: 1
-          access: write-only
-        CNAK:
-          bitOffset: 26
-          bitWidth: 1
-          access: write-only
-        Stall:
+        STALL:
           bitOffset: 21
           bitWidth: 1
           access: read-write
@@ -246,7 +182,7 @@ OTG_HS_DEVICE:
           access: read-write
 
     # Add missing device OUT EP 5 transfer size register
-    OTG_HS_DOEPTSIZ5:
+    DOEPTSIZ5:
       description: OTG_HS device endpoint-5 transfer size register
       addressOffset: 0x3B0
       size: 0x20
@@ -265,5 +201,13 @@ OTG_HS_DEVICE:
           description: Received data PID/SETUP packet count
           bitOffset: 29
           bitWidth: 2
-
+  
+  _array:
+    DIEPCTL[12345]: {}
+    DOEPCTL[12345]: {}
+    DIEPTSIZ[12345]: {}
+    DOEPTSIZ[12345]: {}
+    DIEPINT[012345]: {}
+    DOEPINT[012345]: {}
+    DTXFSTS[012345]: {}
     
