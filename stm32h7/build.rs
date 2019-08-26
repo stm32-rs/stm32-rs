@@ -15,6 +15,8 @@ fn main() {
             "src/stm32h753/device.x"
         } else if env::var_os("CARGO_FEATURE_STM32H753V").is_some() {
             "src/stm32h753v/device.x"
+        } else if env::var_os("CARGO_FEATURE_STM32H757CM7").is_some() {
+            "src/stm32h757cm7/device.x"
         } else { panic!("No device features selected"); };
         fs::copy(device_file, out.join("device.x")).unwrap();
         println!("cargo:rerun-if-changed={}", device_file);
