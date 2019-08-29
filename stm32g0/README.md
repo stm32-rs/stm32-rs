@@ -16,7 +16,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.stm32g0]
 version = "0.8.0"
-features = ["stm32g0x0", "rt"]
+features = ["stm32g030", "rt"]
 ```
 
 The `rt` feature is optional and brings in support for `cortex-m-rt`.
@@ -24,9 +24,9 @@ The `rt` feature is optional and brings in support for `cortex-m-rt`.
 In your code:
 
 ```rust
-use stm32g0::stm32g0x0;
+use stm32g0::stm32g030;
 
-let mut peripherals = stm32g0x0::Peripherals::take().unwrap();
+let mut peripherals = stm32g030::Peripherals::take().unwrap();
 let gpioa = &peripherals.GPIOA;
 gpioa.odr.modify(|_, w| w.odr0().set_bit());
 ```
@@ -38,5 +38,5 @@ https://docs.rs/svd2rust/0.15.0/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
-| stm32g0x0 | STM32G070 | [RM0454](https://www.st.com/resource/en/reference_manual/dm00463896.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x0-value-line.html) |
-| stm32g0x1 | STM32G071, STM32G081 | [RM0444](https://www.st.com/resource/en/reference_manual/dm00371828.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x1.html) |
+| stm32g0x0 | STM32G070, STM32G030 | [RM0454](https://www.st.com/resource/en/reference_manual/dm00463896.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x0-value-line.html) |
+| stm32g0x1 | STM32G031, STM32G041, STM32G071, STM32G081 | [RM0444](https://www.st.com/resource/en/reference_manual/dm00371828.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32g0x1.html) |
