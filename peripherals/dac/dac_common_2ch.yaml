@@ -3,7 +3,7 @@
 _include:
   - "dac_common_1ch.yaml"
 
-DAC:
+DAC,DAC?:
   CR:
     TSEL2:
       TIM6_TRGO: [0, "Timer 6 TRGO event"]

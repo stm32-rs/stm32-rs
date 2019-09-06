@@ -1,7 +1,7 @@
 # The DAC is widely used. This is the common subset on all devices,
 # for just a single channel.
 
-DAC:
+DAC,DAC?:
   CR:
     EN?:
       Disabled: [0, "DAC channel X disabled"]
