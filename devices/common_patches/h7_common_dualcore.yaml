@@ -220,33 +220,88 @@ _modify:
       AFSEL15:
         name: AFR15
 
+"ADC*_Common":
+  CCR:
+    _modify:
+      TSEN:
+        name: VSENSEEN
+
 "ADC?":
+  AWD2CR:
+    _merge:
+      - "AWD2CH*"
+  AWD3CR:
+    _merge:
+      - "AWD3CH*"
+  DIFSEL:
+    _merge:
+      - "DIFSEL*"
   CFGR2:
     _modify:
       OSR:
         name: OSVR
+  DR:
+    _modify:
+      RDATA:
+        bitWidth: 32
   SQR1:
     _modify:
       L3:
         name: L
+  SMPR1:
+    _add:
+      SMP0:
+        description: ADC channel 0 sampling time selection
+        bitWidth: 3
+        bitOffset: 0
   SMPR2:
     _modify:
       SMP19:
-        description: ADC channel 19 sampling time
+        description: ADC channel 19 sampling time selection
+
+EXTI:
+  _modify:
+    CPUIMR1:
+      name: C1IMR1
+    CPUEMR1:
+      name: C1EMR1
+    CPUPR1:
+      name: C1PR1
+    CPUIMR2:
+      name: C1IMR2
+    CPUEMR2:
+      name: C1EMR2
+    CPUPR2:
+      name: C1PR2
+    CPUIMR3:
+      name: C1IMR3
+    CPUEMR3:
+      name: C1EMR3
+    CPUPR3:
+      name: C1PR3
 
 "SPI*":
   CR1:
     _modify:
+      IOLOCK:
+        access: read-write
       CSTART:
         access: read-write
       TCRCI:
         name: TCRCINI
       RCRCI:
         name: RCRCINI
+  CR2:
+    _modify:
+      TSER:
+        access: read-write
   IER:
     _modify:
       DPXPIE:
         name: DXPIE
+        access: read-write
+      TXPIE:
+        access: read-write
   _modify:
     CGFR:
       name: I2SCFGR
@@ -337,6 +392,12 @@ Ethernet_MAC:
         access: read-write
 
 RCC:
+  _delete:
+    - ICSCR
+  _modify:
+    CIFR:
+      access: read-only
+
   D3CFGR:
     _delete: "*"
     _add:
@@ -344,10 +405,17 @@ RCC:
         description: D3 domain APB4 prescaler
         bitOffset: 4
         bitWidth: 3
+  D1CCIPR:
+    _add:
+      DSISEL:
+        description: kernel clock source selection
+        bitOffset: 8
+        bitWidth: 1
 
-  _modify:
-    CIFR:
-      access: read-only
+  CSICFGR:
+    _modify:
+      CSICAL:
+        bitWidth: 10
   CR:
     _modify:
       RC48ON:
@@ -382,6 +450,20 @@ RCC:
         name: BDRST
       RTCSRC:
         name: RTCSEL
+  GCR:
+    _add:
+      WW2RSC:
+        description: WWDG2 reset scope control
+        bitOffset: 1
+        bitWidth: 1
+      BOOT_C1:
+        description: Force allow CPU1 to boot
+        bitOffset: 2
+        bitWidth: 1
+      BOOT_C2:
+        description: Force allow CPU2 to boot
+        bitOffset: 2
+        bitWidth: 1
   PLL2DIVR:
     _modify:
       DIVR1:
@@ -401,6 +483,11 @@ RCC:
         name: UART8RST
         description: UART8 block reset
   APB1LENR,C1_APB1LENR:
+    _add:
+      WWDG2EN:
+        description: WWDG2 peripheral clock enable
+        bitOffset: 11
+        bitWidth: 1
     _modify:
       USART7EN:
         name: UART7EN
@@ -409,6 +496,11 @@ RCC:
         name: UART8EN
         description: UART8 Peripheral Clocks Enable
   APB1LLPENR,C1_APB1LLPENR:
+    _add:
+      WWDG2LPEN:
+        description: WWDG2 peripheral Clocks Enable During CSleep Mode
+        bitOffset: 11
+        bitWidth: 1
     _modify:
       USART7LPEN:
         name: UART7LPEN
@@ -416,11 +508,42 @@ RCC:
       USART8LPEN:
         name: UART8LPEN
         description: UART8 Peripheral Clocks Enable During CSleep Mode
+      HDMICECLPEN:
+        name: CECLPEN
   C1_APB1LENR:
     _modify:
       HDMICECEN:
         name: CECEN
+  APB3ENR,C1_APB3ENR:
+    _add:
+      DSIEN:
+        description: DSI Peripheral clocks enable
+        bitOffset: 4
+        bitWidth: 1
+  APB3LPENR,C1_APB3LPENR:
+    _add:
+      DSILPEN:
+        description: DSI Peripheral Clock Enable During CSleep Mode
+        bitOffset: 4
+        bitWidth: 1
+  APB3RSTR:
+    _add:
+      DSIRST:
+        description: DSI block reset
+        bitOffset: 4
+        bitWidth: 1
+  AHB1RSTR:
+    _add:
+      ARTRST:
+        description: ART block reset
+        bitOffset: 14
+        bitWidth: 1
   AHB1ENR,C1_AHB1ENR:
+    _add:
+      ARTEN:
+        description: ART Clock Enable
+        bitOffset: 14
+        bitWidth: 1
     _modify:
       USB1OTGEN:
         name: USB1OTGHSEN
@@ -435,11 +558,18 @@ RCC:
       CAMITFEN:
         name: DCMIEN
         description: "DCMI peripheral clock"
-  APB1LLPENR,C1_APB1LLPENR:
-    _modify:
-      HDMICECLPEN:
-        name: CECLPEN
+  AHB1LPENR:
+    _add:
+      ARTLPEN:
+        description: ART Clock Enable During CSleep Mode
+        bitOffset: 14
+        bitWidth: 1
   C1_AHB1LPENR:
+    _add:
+      ARTLPEN:
+        description: ART Clock Enable During CSleep Mode
+        bitOffset: 14
+        bitWidth: 1
     _modify:
       USB1OTGLPEN:
         name: USB1OTGHSLPEN
@@ -454,11 +584,53 @@ RCC:
       CAMITFLPEN:
         name: DCMILPEN
         description: "DCMI peripheral clock enable during csleep mode"
+  AHB3ENR:
+    _add:
+      DTCM1EN:
+        description: D1 DTCM1 block enable
+        bitOffset: 28
+        bitWidth: 1
+      DTCM2EN:
+        description: D1 DTCM2 block enable
+        bitOffset: 29
+        bitWidth: 1
+      ITCM1EN:
+        description: D1 ITCM block enable
+        bitOffset: 30
+        bitWidth: 1
+      AXISRAMEN:
+        description: AXISRAM block enable
+        bitOffset: 31
+        bitWidth: 1
   C1_AHB3LPENR:
     _modify:
       FLITFLPEN:
         name: FLASHPREN
         description: "Flash interface clock enable during csleep mode"
+
+TIM1,TIM8:
+  DMAR:
+    _modify:
+      # Amazingly RM0399 Rev 2 is self-inconsistent here, but use the
+      # register definition in 40.4.22 rather than table 350.
+      DMAB:
+        bitWidth: 32
+
+HRTIM_Common:
+  _delete:
+    _registers:
+      - BDMADR
+  _add:
+    BDMADR:
+      description: Burst DMA Data register
+      addressOffset: 0x0070
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        BDMADR:
+          description: Burst DMA Data register
+          bitOffset: 0
+          bitWidth: 32
 
 Ethernet_MAC:
   MACLETR:
@@ -481,14 +653,6 @@ DAC:
 DMA2D:
   _strip:
     - DMA2D_
-
-DMAMUX1:
-  _strip:
-    - DMAMUX1_
-
-DMAMUX2:
-  _strip:
-    - DMAMUX2_
 
 FMC:
   _strip:
@@ -517,6 +681,20 @@ MDIOS:
 PWR:
   _strip:
     - PWR_
+  CR3:
+    _add:
+      SDEXTRDY:
+        description: SMPS step-down converter external supply ready
+        bitOffset: 16
+        bitWidth: 1
+      SDLEVEL:
+        description: Step-down converter voltage output level selection
+        bitOffset: 4
+        bitWidth: 2
+      SDEXTHP:
+        description: Step-down converter forced ON and in High Power MR mode
+        bitOffset: 3
+        bitWidth: 1
 
 RTC:
   _strip:
@@ -538,24 +716,9 @@ SAI4:
   _strip:
     - SAI_
 
-SDMMC1:
-  _strip:
-    - SDMMC_
-SDMMC2:
-  _strip:
-    - SDMMC_
-
-"OTG_HS_*":
+"OTG?_HS_*":
   _strip:
     - OTG_HS_
-
-# The OTG_FS_WKUP interrupt occurs multiple times in the
-# SVD(!). Rename instance for interupt 42 to something more specific.
-OTG_HS_PWRCLK:
-  _modify:
-    _interrupts:
-      OTG_FS_WKUP:
-        name: OTG_FS_WKUP_EXTI
 
 FDCAN1:
   _strip:
@@ -568,7 +731,7 @@ IWDG1,IWDG2:
   _strip:
     - IWDG_
 
-"UART*":
+"USART*":
   BRR:
     _modify:
       BRR_4_15:

@@ -40,6 +40,7 @@ https://docs.rs/svd2rust/0.15.0/svd2rust/#peripheral-api
 |:------:|:-------:|:-----:|
 | stm32h743 | STM32H743 | [RM0433](https://www.st.com/resource/en/reference_manual/dm00314099.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h743-753.html) |
 | stm32h743v | STM32H743V | [RM0433](https://www.st.com/resource/en/reference_manual/dm00314099.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h743-753.html) |
-| stm32h747cm7 | STM32H747 (CM7) | [RM0399](https://www.st.com/resource/en/reference_manual/dm00176879.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h747-757.html) |
+| stm32h747cm7 | STM32H745 (CM7), STM32H747 (CM7) | [RM0399](https://www.st.com/resource/en/reference_manual/dm00176879.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h747-757.html) |
 | stm32h753 | STM32H753 | [RM0433](https://www.st.com/resource/en/reference_manual/dm00314099.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h743-753.html) |
 | stm32h753v | STM32H753V | [RM0433](https://www.st.com/resource/en/reference_manual/dm00314099.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h743-753.html) |
+| stm32h757cm7 | STM32H755 (CM7), STM32H757 (CM7) | [RM0399](https://www.st.com/resource/en/reference_manual/dm00176879.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32h747-757.html) |
