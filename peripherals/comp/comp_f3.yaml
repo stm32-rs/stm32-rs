@@ -1,0 +1,83 @@
+COMP:
+  COMP[246]_CSR:
+    COMP[246]EN:
+      Disabled: [0, "Comparator disabled"]
+      Enabled: [1, "Comparator enabled"]
+    COMP[246]POL:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    COMP[246]OUT:
+      Low: [0, "Non-inverting input below inverting input"]
+      High: [1, "Non-inverting input above inverting input"]
+    COMP[246]LOCK:
+      Unlocked: [0, "Comparator CSR bits are read-write"]
+      Locked: [1, "Comparator CSR bits are read-only"]
+
+  COMP2_CSR:
+    COMP2INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      PA4_DAC1_CH1: [4, "PA4 or DAC1_CH1 output if enabled"]
+      DAC1_CH2: [5, "DAC1_CH2"]
+      PA2: [6, "PA2"]
+    COMP2OUTSEL:
+      NoSelection: [0, "No selection"]
+      Timer1BreakInput: [1, "Timer 1 break input"]
+      Timer1BreakInput2: [2, "Timer 1 break input 2"]
+      Timer1OCRefClearInput: [6, "Timer 1 OCREF_CLR input"]
+      Timer1InputCapture1: [7, "Timer 1 input capture 1"]
+      Timer2InputCapture4: [8, "Timer 2 input capture 4"]
+      Timer2OCRefClearInput: [9, "Timer 2 OCREF_CLR input"]
+      Timer3InputCapture1: [10, "Timer 3 input capture 1"]
+      Timer3OCRefClearInput: [11, "Timer 3 OCREF_CLR input"]
+    COMP2_BLANKING:
+      NoBlanking: [0, "No blanking"]
+      TIM1OC5: [1, "TIM1 OC5 selected as blanking source"]
+      TIM2OC3: [2, "TIM2 OC3 selected as blanking source"]
+      TIM3OC3: [3, "TIM3 OC3 selected as blanking source"]
+
+  COMP4_CSR:
+    COMP4INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      PA4_DAC1_CH1: [4, "PA4 or DAC1_CH1 output if enabled"]
+      DAC1_CH2: [5, "DAC1_CH2"]
+      PB2: [7, "PB2"]
+    COMP4OUTSEL:
+      NoSelection: [0, "No selection"]
+      Timer1BreakInput: [1, "Timer 1 break input"]
+      Timer1BreakInput2: [2, "Timer 1 break input 2"]
+      Timer3InputCapture3: [6, "Timer 3 input capture 3"]
+      Timer15InputCapture2: [8, "Timer 15 input capture 2"]
+      Timer15OCRefClearInput: [10, "Timer 15 OCREF_CLR input"]
+      Timer3OCRefClearInput: [11, "Timer 3 OCREF_CLR input"]
+    COMP4_BLANKING:
+      NoBlanking: [0, "No blanking"]
+      TIM3OC4: [1, "TIM3 OC4 selected as blanking source"]
+      TIM15OC1: [3, "TIM15 OC1 selected as blanking source"]
+
+  COMP6_CSR:
+    COMP6INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      PA4_DAC1_CH1: [4, "PA4 or DAC1_CH1 output if enabled"]
+      DAC1_CH2: [5, "DAC1_CH2"]
+      PB15: [7, "PB15"]
+    COMP6OUTSEL:
+      NoSelection: [0, "No selection"]
+      Timer1BreakInput: [1, "Timer 1 break input"]
+      Timer1BreakInput2: [2, "Timer 1 break input 2"]
+      Timer2InputCapture2: [6, "Timer 2 input capture 2"]
+      Timer2OCRefClearInput: [8, "Timer 2 OCREF_CLR input"]
+      Timer16OCRefClearInput: [9, "Timer 16 OCREF_CLR input"]
+      Timer16InputCapture1: [10, "Timer 16 input capture 1"]
+    COMP6_BLANKING:
+      NoBlanking: [0, "No blanking"]
+      TIM2OC4: [3, "TIM2 OC4 selected as blanking source"]
+      TIM15OC2: [4, "TIM15 OC2 selected as blanking source"]
