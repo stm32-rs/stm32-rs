@@ -1,0 +1,62 @@
+OPAMP:
+  OPAMP2_CSR:
+    OPAMP2EN:
+      Disabled: [0, "OPAMP2 is disabled"]
+      Enabled: [1, "OPAMP2 is enabled"]
+    FORCE_VP:
+      Normal: [0, "Normal operating mode"]
+      Calibration: [1, "Calibration mode. Non-inverting input connected to calibration reference"]
+    VP_SEL:
+      PB14: [1, "PB14 used as OPAMP2 non-inverting input"]
+      PB0: [2, "PB0 used as OPAMP2 non-inverting input"]
+      PA7: [3, "PA7 used as OPAMP2 non-invertign input"]
+    VM_SEL:
+      PC5: [0, "PC5 (VM0) used as OPAMP2 inverting input"]
+      PA5: [1, "PA5 (VM1) used as OPAMP2 inverting input"]
+      PGA: [2, "Resistor feedback output (PGA mode)"]
+      Follower: [3, "Follower mode"]
+    TCM_EN:
+      Disabled: [0, "Timer controlled mux disabled"]
+      Enabled: [1, "Timer controlled mux enabled"]
+    VMS_SEL:
+      PC5: [0, "PC5 (VM0) used as OPAMP2 inverting input when TCM_EN=1"]
+      PA5: [1, "PA5 (VM1) used as OPAMP2 inverting input when TCM_EN=1"]
+    VPS_SEL:
+      PB14: [1, "PB14 used as OPAMP2 non-inverting input when TCM_EN=1"]
+      PB0: [2, "PB0 used as OPAMP2 non-inverting input when TCM_EN=1"]
+      PA7: [3, "PA7 used as OPAMP2 non-invertign input when TCM_EN=1"]
+    CALON:
+      Disabled: [0, "Calibration mode disabled"]
+      Enabled: [1, "Calibration mode enabled"]
+    CALSEL:
+      Percent3_3: [0, "VREFOPAMP=3.3% VDDA"]
+      Percent10: [1, "VREFOPAMP=10% VDDA"]
+      Percent50: [2, "VREFOPAMP=50% VDDA"]
+      Percent90: [3, "VREFOPAMP=90% VDDA"]
+    PGA_GAIN:
+      Gain2: [0, "Gain 2"]
+      Gain4: [1, "Gain 4"]
+      Gain8: [2, "Gain 8"]
+      Gain16: [4, "Gain 16"]
+      Gain2_VM0: [8, "Gain 2, feedback connected to VM0"]
+      Gain4_VM0: [9, "Gain 4, feedback connected to VM0"]
+      Gain8_VM0: [10, "Gain 8, feedback connected to VM0"]
+      Gain16_VM0: [11, "Gain 16, feedback connected to VM0"]
+      Gain2_VM1: [12, "Gain 2, feedback connected to VM1"]
+      Gain4_VM1: [13, "Gain 4, feedback connected to VM1"]
+      Gain8_VM1: [14, "Gain 8, feedback connected to VM1"]
+      Gain16_VM1: [15, "Gain 16, feedback connected to VM1"]
+    USER_TRIM:
+      Disabled: [0, "User trimming disabled"]
+      Enabled: [1, "User trimming enabled"]
+    TRIMOFFSETP: [0, 31]
+    TRIMOFFSETN: [0, 31]
+    TSTREF:
+      Output: [0, "VREFOPAMP2 is output"]
+      NotOutput: [1, "VREFOPAMP2 is not output"]
+    OUTCAL:
+      Low: [0, "Non-inverting < inverting"]
+      High: [1, "Non-inverting > inverting"]
+    LOCK:
+      Unlocked: [0, "Comparator CSR bits are read-write"]
+      Locked: [1, "Comparator CSR bits are read-only"]
