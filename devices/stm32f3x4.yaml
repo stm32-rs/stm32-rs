@@ -100,6 +100,33 @@ ADC_Common:
   _strip:
     - ADC1_
 
+HRTIM_Common:
+  _modify:
+    BDMUPDR:
+      name: BDMUPR
+
+HRTIM_Master:
+  _modify:
+    MDIER4:
+      name: MDIER
+  MCR:
+    _modify:
+      SYNC_SRC:
+        name: SYNCSRC
+      SYNC_OUT:
+        name: SYNCOUT
+      SYNC_IN:
+        name: SYNCIN
+      CK_PSC:
+        name: CKPSC
+
+"HRTIM_TIM[ABCDE]":
+  "TIM[ABCDE]CR":
+    _modify:
+      CK_PSCx:
+        name: CKPSCx
+
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
