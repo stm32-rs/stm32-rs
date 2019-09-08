@@ -28,8 +28,8 @@ def process_yamlfile(svd, yamlpath, quiet):
         if not pspec.startswith("_"):
             peripheral[pspec]["_path"] = peripheral["_path"]
             try:
-                svdpatch.process_peripheral(
-                    svd, pspec, peripheral[pspec], True)
+                device = svdpatch.Device(svd)
+                device.process_peripheral(pspec, peripheral[pspec], True)
             except svdpatch.SvdPatchError as e:
                 if not quiet:
                     print("Couldn't match {}: {}".format(yamlpath, e))

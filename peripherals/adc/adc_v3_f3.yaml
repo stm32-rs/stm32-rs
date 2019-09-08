@@ -1,0 +1,53 @@
+# ADC v3 with F3 specific fields
+_include:
+  - "adc_v3.yaml"
+
+"ADC,ADC?":
+  CR:
+    ADVREGEN:
+      Intermediate: [0, "Intermediate state required when moving the ADC voltage regulator between states"]
+      Enabled: [1, "ADC voltage regulator enabled"]
+      Disabled: [2, "ADC voltage regulator disabled"]
+  CFGR:
+    EXTSEL:
+      HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]
+      HRTIM_ADCTRG3: [8, "HRTIM_ADCTRG3 event"]
+    ALIGN:
+      Right: [0, "Right alignment"]
+      Left: [1, "Left alignment"]
+    RES:
+      Bits12: [0, "12-bit"]
+      Bits10: [1, "10-bit"]
+      Bits8: [2, "8-bit"]
+      Bits6: [3, "6-bit"]
+    DMACFG:
+      OneShot: [0, "DMA One Shot Mode selected"]
+      Circular: [1, "DMA circular mode selected"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
+  JSQR:
+    JEXTSEL:
+      HRTIM_ADCTRG2: [9, "HRTIM_ADCTRG2 event"]
+      HRTIM_ADCTRG4: [10, "HRTIM_ADCTRG4 event"]
+  "SMPR?":
+    "SMP*":
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles2_5: [1, "2.5 ADC clock cycles"]
+      Cycles4_5: [2, "4.5 ADC clock cycles"]
+      Cycles7_5: [3, "7.5 ADC clock cycles"]
+      Cycles19_5: [4, "19.5 ADC clock cycles"]
+      Cycles61_5: [5, "61.5 ADC clock cycles"]
+      Cycles181_5: [6, "181.5 ADC clock cycles"]
+      Cycles601_5: [7, "601.5 ADC clock cycles"]
+  "TR?":
+    "HT?": [0, 0xFFF]
+    "LT?": [0, 0xFFF]
+  "OFR?":
+    "OFFSET?_EN":
+      Disabled: [0, "Offset disabled"]
+      Enabled: [1, "Offset enabled"]
+    "OFFSET?_CH": [0, 31]
+    "OFFSET?": [0, 0xFFF]
+  CALFACT:
+    "CALFACT_?": [0, 0x7F]

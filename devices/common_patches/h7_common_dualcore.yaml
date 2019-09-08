@@ -259,6 +259,11 @@ _modify:
       SMP19:
         description: ADC channel 19 sampling time selection
 
+  CFGR:
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+
 EXTI:
   _modify:
     CPUIMR1:

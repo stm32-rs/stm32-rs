@@ -1,7 +1,4 @@
-# ADC_Common as used on H7
-
-_include:
-  - "adc_v3.yaml"
+# ADC_Common as used on H7 and F3
 
 "ADC*_Common":
   CSR:
@@ -36,34 +33,14 @@ _include:
     VBATEN:
       Disabled: [0, "V_BAT channel disabled"]
       Enabled: [1, "V_BAT channel enabled"]
-    VSENSEEN:
-      Disabled: [0, "Temperature sensor channel disabled"]
-      Enabled: [1, "Temperature sensor channel enabled"]
     VREFEN:
       Disabled: [0, "V_REFINT channel disabled"]
       Enabled: [1, "V_REFINT channel enabled"]
-    PRESC:
-      Div1: [0, "adc_ker_ck_input not divided"]
-      Div2: [1, "adc_ker_ck_input divided by 2"]
-      Div4: [2, "adc_ker_ck_input divided by 4"]
-      Div6: [3, "adc_ker_ck_input divided by 6"]
-      Div8: [4, "adc_ker_ck_input divided by 8"]
-      Div10: [5, "adc_ker_ck_input divided by 10"]
-      Div12: [6, "adc_ker_ck_input divided by 12"]
-      Div16: [7, "adc_ker_ck_input divided by 16"]
-      Div32: [8, "adc_ker_ck_input divided by 32"]
-      Div64: [9, "adc_ker_ck_input divided by 64"]
-      Div128: [10, "adc_ker_ck_input divided by 128"]
-      Div256: [11, "adc_ker_ck_input divided by 256"]
     CKMODE:
       Asynchronous: [0, "Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock"]
       SyncDiv1: [1, "Use AHB clock rcc_hclk3. In this case rcc_hclk must equal sys_d1cpre_ck"]
       SyncDiv2: [2, "Use AHB clock rcc_hclk3 divided by 2"]
       SyncDiv4: [3, "Use AHB clock rcc_hclk3 divided by 4"]
-    DAMDF:
-      NoPack: [0, "Without data packing, CDR/CDR2 not used"]
-      Format32to10: [2, "CDR formatted for 32-bit down to 10-bit resolution"]
-      Format8: [3, "CDR formatted for 8-bit resolution"]
     DELAY: [0, 15]
     DUAL:
       Independent: [0, "Independent mode"]

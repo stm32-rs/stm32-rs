@@ -1,0 +1,86 @@
+# ADC v3 with H7 specific fields
+
+_include:
+  - "adc_v3.yaml"
+
+"ADC,ADC?":
+  CR:
+    ADVREGEN:
+      Disabled: [0, "ADC voltage regulator disabled"]
+      Enabled: [1, "ADC voltage regulator enabled"]
+    DEEPPWD:
+      PowerUp: [0, "ADC not in deep power down"]
+      PowerDown: [1, "ADC in deep power down"]
+    "LINCALRDYW?":
+      Reset: [0, "LINCALFACT Word Read"]
+      Set: [1, "LINCALFACT Word Write"]
+    ADCALLIN:
+      NoLinearity: [0, "ADC calibration without linearaity calibration"]
+      Linearity: [1, "ADC calibration with linearaity calibration"]
+  CFGR:
+    EXTSEL:
+      TIM4_CC4: [5, "Timer 4 CC4 event"]
+      TIM8_TRGO: [7, "Timer 8 TRGO event"]
+      TIM8_TRGO2: [8, "Timer 8 TRGO2 event"]
+      TIM4_TRGO: [12, "Timer 4 TRGO event"]
+      HRTIM1_ADCTRG1: [16, "HRTIM1_ADCTRG1 event"]
+      HRTIM1_ADCTRG3: [17, "HRTIM1_ADCTRG3 event"]
+      LPTIM1_OUT: [18, "LPTIM1_OUT event"]
+      LPTIM2_OUT: [19, "LPTIM2_OUT event"]
+      LPTIM3_OUT: [20, "LPTIM3_OUT event"]
+    JQDIS:
+      Enabled: [0, "Injected Queue enabled"]
+      Disabled: [1, "Injected Queue disabled"]
+    DMNGT:
+      DR: [0, "Store output data in DR only"]
+      DMA_OneShot: [1, "DMA One Shot Mode selected"]
+      DFSDM: [2, "DFSDM mode selected"]
+      DMA_Circular: [3, "DMA Circular Mode selected"]
+  CFGR2:
+    LSHIFT: [0, 15]
+    OSVR: [0, 1023]
+    "RSHIFT?":
+      Disabled: [0, "Right-shifting disabled"]
+      Enabled: [1, "Data is right-shifted 1-bit"]
+    ROVSM:
+      Continued: [0, "Oversampling is temporary stopped and continued after injection sequence"]
+      Resumed: [1, "Oversampling is aborted and resumed from start after injection sequence"]
+    TROVS:
+      Automatic: [0, "All oversampled conversions for a channel are run following a trigger"]
+      Triggered: [1, "Each oversampled conversion for a channel needs a new trigger"]
+    OVSS: [0, 11]
+    JOVSE:
+      Disabled: [0, "Injected oversampling disabled"]
+      Enabled: [1, "Injected oversampling enabled"]
+    ROVSE:
+      Disabled: [0, "Regular oversampling disabled"]
+      Enabled: [1, "Regular oversampling enabled"]
+  "SMPR?":
+    "SMP*":
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles2_5: [1, "2.5 ADC clock cycles"]
+      Cycles8_5: [2, "8.5 ADC clock cycles"]
+      Cycles16_5: [3, "16.5 ADC clock cycles"]
+      Cycles32_5: [4, "32.5 ADC clock cycles"]
+      Cycles64_5: [5, "64.5 ADC clock cycles"]
+      Cycles387_5: [6, "387.5 ADC clock cycles"]
+      Cycles810_5: [7, "810.5 ADC clock cycles"]
+  "HTR?":
+    "HTR?": [0, 0x03FF_FFFF]
+  "LTR?":
+    "LTR?": [0, 0x03FF_FFFF]
+  JSQR:
+    JEXTSEL:
+      TIM4_TRGO: [5, "Timer 4 TRGO event"]
+      TIM8_CC4: [7, "Timer 8 CC4 event"]
+      TIM8_TRGO: [9, "Timer 8 TRGO event"]
+      TIM8_TRGO2: [10, "Timer 8 TRGO2 event"]
+      HRTIM1_ADCTRG2: [16, "HRTIM1_ADCTRG2 event"]
+      HRTIM1_ADCTRG4: [17, "HRTIM1_ADCTRG4 event"]
+      LPTIM1_OUT: [18, "LPTIM1_OUT event"]
+      LPTIM2_OUT: [19, "LPTIM2_OUT event"]
+      LPTIM3_OUT: [20, "LPTIM3_OUT event"]
+  PCSEL:
+    "PCSEL*":
+      NotPreselected: [0, "Input channel x is not pre-selected"]
+      Preselected: [1, "Pre-select input channel x"]

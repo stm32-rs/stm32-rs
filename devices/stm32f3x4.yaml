@@ -96,6 +96,74 @@ SYSCFG:
       - PAGE6_WP
       - PAGE7_WP
 
+ADC_Common:
+  _strip:
+    - ADC1_
+
+HRTIM_Common:
+  _modify:
+    BDMUPDR:
+      name: BDMUPR
+  IER:
+    _modify:
+      SYSFLTE:
+        name: SYSFLTIE
+  ICR:
+    _modify:
+      SYSFLTC:
+        access: write-only
+
+HRTIM_Master:
+  _modify:
+    MDIER4:
+      name: MDIER
+  MCR:
+    _modify:
+      SYNC_SRC:
+        name: SYNCSRC
+      SYNC_OUT:
+        name: SYNCOUT
+      SYNC_IN:
+        name: SYNCIN
+      CK_PSC:
+        name: CKPSC
+
+"HRTIM_TIM[ABCDE]":
+  _modify:
+    TIMADIER5:
+      name: TIMADIER
+    TIMBDIER5:
+      name: TIMBDIER
+    TIMCDIER5:
+      name: TIMCDIER
+    TIMDDIER5:
+      name: TIMDDIER
+    TIMEDIER5:
+      name: TIMEDIER
+    CNTR:
+      name: CNTBR
+  "TIM[ABCDE]CR":
+    _modify:
+      CK_PSCx:
+        name: CKPSCx
+  "TIM[ABCDE]DIER":
+    _modify:
+      SET1xDE:
+        name: SETx1DE
+      SET1xIE:
+        name: SETx1IE
+  "CHP[ABCDE]R":
+    _modify:
+      CHPDTY:
+        name: CARDTY
+      CHPFRQ:
+        name: CARFRQ
+  "CPT[12][ABCDE]CR":
+    _modify:
+      UDPCPT:
+        name: UPDCPT
+
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -103,6 +171,7 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/rename_f0_SPI_registers.yaml
+ - ./common_patches/f3_adc.yaml
  - ./common_patches/f3_rcc.yaml
  - ./common_patches/f3_rcc_mco.yaml
  - ./common_patches/f3_rcc_delete_tim8.yaml
@@ -139,3 +208,11 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/f3_dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/comp/comp_f3.yaml
+ - ../peripherals/opamp/opamp_f3.yaml
+ - ../peripherals/dac/dac_wavegen.yaml
+ - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
+ - ../peripherals/adc/adc_v3_f3.yaml
+ - ../peripherals/adc/adc_v3_common_f3.yaml
+ - ../peripherals/hrtim/hrtim.yaml

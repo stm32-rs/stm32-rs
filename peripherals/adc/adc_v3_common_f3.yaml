@@ -1,0 +1,17 @@
+# ADC_Common with F3 specific fields
+
+_include:
+  - "adc_v3_common.yaml"
+
+"ADC*_Common":
+  CCR:
+    TSEN:
+      Disabled: [0, "Temperature sensor channel disabled"]
+      Enabled: [1, "Temperature sensor channel enabled"]
+    MDMA:
+      Disabled: [0, "MDMA mode disabled"]
+      Bits12_10: [2, "MDMA mode enabled for 12 and 10-bit resolution"]
+      Bits8_6: [3, "MDMA mode enabled for 8 and 6-bit resolution"]
+    DMACFG:
+      OneShot: [0, "DMA one shot mode selected"]
+      Circulator: [1, "DMA circular mode selected"]
