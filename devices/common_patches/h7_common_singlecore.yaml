@@ -247,6 +247,11 @@ _modify:
       SMP19:
         description: ADC channel 19 sampling time
 
+  CFGR:
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+
 FLASH:
   _modify:
     PRAR_PRG2:

@@ -104,6 +104,10 @@ HRTIM_Common:
   _modify:
     BDMUPDR:
       name: BDMUPR
+  IER:
+    _modify:
+      SYSFLTE:
+        name: SYSFLTIE
 
 HRTIM_Master:
   _modify:
@@ -121,10 +125,39 @@ HRTIM_Master:
         name: CKPSC
 
 "HRTIM_TIM[ABCDE]":
+  _modify:
+    TIMADIER5:
+      name: TIMADIER
+    TIMBDIER5:
+      name: TIMBDIER
+    TIMCDIER5:
+      name: TIMCDIER
+    TIMDDIER5:
+      name: TIMDDIER
+    TIMEDIER5:
+      name: TIMEDIER
+    CNTR:
+      name: CNTBR
   "TIM[ABCDE]CR":
     _modify:
       CK_PSCx:
         name: CKPSCx
+  "TIM[ABCDE]DIER":
+    _modify:
+      SET1xDE:
+        name: SETx1DE
+      SET1xIE:
+        name: SETx1IE
+  "CHP[ABCDE]R":
+    _modify:
+      CHPDTY:
+        name: CARDTY
+      CHPFRQ:
+        name: CARFRQ
+  "CPT[12][ABCDE]CR":
+    _modify:
+      UDPCPT:
+        name: UPDCPT
 
 
 _include:
@@ -176,4 +209,6 @@ _include:
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
- - ../peripherals/adc/adc_v3_multi_f3.yaml
+ - ../peripherals/adc/adc_v3_f3.yaml
+ - ../peripherals/adc/adc_v3_common_f3.yaml
+ - ../peripherals/hrtim/hrtim.yaml

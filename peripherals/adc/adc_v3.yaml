@@ -91,9 +91,6 @@
     ADCALDIF:
       SingleEnded: [0, "Calibration for single-ended mode"]
       Differential: [1, "Calibration for differential mode"]
-    ADVREGEN:
-      Disabled: [0, "ADC voltage regulator disabled"]
-      Enabled: [1, "ADC voltage regulator enabled"]
     JADSTP,ADSTP:
       Stop: [1, "Stop conversion of channel"]
     JADSTART,ADSTART:
@@ -129,21 +126,14 @@
       Disabled: [0, "Discontinuous mode on regular channels disabled"]
       Enabled: [1, "Discontinuous mode on regular channels enabled"]
     AUTDLY:
-      Off: [0, "Auto delayed conversion mode off"]
-      On: [1, "Auto delayed conversion mode on"]
+      "Off": [0, "Auto delayed conversion mode off"]
+      "On": [1, "Auto delayed conversion mode on"]
     CONT:
       Single: [0, "Single conversion mode"]
       Continuous: [1, "Continuous conversion mode"]
     OVRMOD:
       Preserve: [0, "Preserve DR register when an overrun is detected"]
       Overwrite: [1, "Overwrite DR register when an overrun is detected"]
-  CFGR,JSQR:
-    EXTEN,JEXTEN:
-      Disabled: [0, "Trigger detection disabled"]
-      RisingEdge: [1, "Trigger detection on the rising edge"]
-      FallingEdge: [2, "Trigger detection on the falling edge"]
-      BothEdges: [3, "Trigger detection on both the rising and falling edges"]
-  CFGR:
     EXTSEL:
       TIM1_CC1: [0, "Timer 1 CC1 event"]
       TIM1_CC2: [1, "Timer 1 CC2 event"]
@@ -157,6 +147,12 @@
       TIM6_TRGO: [13, "Timer 6 TRGO event"]
       TIM15_TRGO: [14, "Timer 15 TRGO event"]
       TIM3_CC4: [15, "Timer 3 CC4 event"]
+  CFGR,JSQR:
+    EXTEN,JEXTEN:
+      Disabled: [0, "Trigger detection disabled"]
+      RisingEdge: [1, "Trigger detection on the rising edge"]
+      FallingEdge: [2, "Trigger detection on the falling edge"]
+      BothEdges: [3, "Trigger detection on both the rising and falling edges"]
   JSQR:
     JEXTSEL:
       TIM1_TRGO: [0, "Timer 1 TRGO event"]

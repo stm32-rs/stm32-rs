@@ -3,6 +3,11 @@ _include:
   - "adc_v3.yaml"
 
 "ADC,ADC?":
+  CR:
+    ADVREGEN:
+      Intermediate: [0, "Intermediate state required when moving the ADC voltage regulator between states"]
+      Enabled: [1, "ADC voltage regulator enabled"]
+      Disabled: [2, "ADC voltage regulator disabled"]
   CFGR:
     EXTSEL:
       HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]

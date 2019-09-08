@@ -6,3 +6,19 @@
   DIFSEL:
     _merge:
       - "DIFSEL*"
+  CFGR:
+    _delete:
+      - AUTOFF
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+  CR:
+    _delete:
+      - DEEPPWD
+    _modify:
+      ADVREGEN:
+        bitWidth: 2
+  DR:
+    _modify:
+      regularDATA:
+        name: RDATA

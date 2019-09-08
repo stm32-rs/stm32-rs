@@ -5,6 +5,9 @@ _include:
 
 "ADC,ADC?":
   CR:
+    ADVREGEN:
+      Disabled: [0, "ADC voltage regulator disabled"]
+      Enabled: [1, "ADC voltage regulator enabled"]
     DEEPPWD:
       PowerUp: [0, "ADC not in deep power down"]
       PowerDown: [1, "ADC in deep power down"]
