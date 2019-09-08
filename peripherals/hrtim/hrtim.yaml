@@ -41,8 +41,10 @@ HRTIM_Common:
       Clear: [1, "Clears BMPER flag"]
     DLLRDYC:
       Clear: [1, "Clears DLL ready flag"]
-    "SYSFLTC,FLT?C":
-      Clear: [1, "Clears fault flag"]
+    "FLT?C":
+      Clear: [1, "Clears FLTx flag"]
+    SYSFLTC:
+      Clear: [1, "Clears SYSFLT flag"]
   IER:
     BMPERIE:
       Disabled: [0, "Burst mode period interrupt disabled"]

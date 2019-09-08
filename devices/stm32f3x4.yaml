@@ -108,6 +108,10 @@ HRTIM_Common:
     _modify:
       SYSFLTE:
         name: SYSFLTIE
+  ICR:
+    _modify:
+      SYSFLTC:
+        access: write-only
 
 HRTIM_Master:
   _modify:
