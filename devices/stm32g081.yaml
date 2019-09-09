@@ -1,0 +1,9 @@
+_svd: ../svd/stm32g081.svd
+
+_modify:
+  name: STM32G081
+
+DMA:
+  _modify:
+    IFCR:
+      access: write-only

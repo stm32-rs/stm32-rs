@@ -1,0 +1,9 @@
+_svd: ../svd/stm32g030.svd
+
+_modify:
+  name: STM32G030
+
+DMA:
+  _modify:
+    IFCR:
+      access: write-only

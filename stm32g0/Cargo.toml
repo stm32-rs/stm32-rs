@@ -20,10 +20,13 @@ optional = true
 version = "0.6.10"
 
 [package.metadata.docs.rs]
-features = ['rt', 'stm32g0x0', 'stm32g0x1']
+features = ['rt', 'stm32g07x', 'stm32g030', 'stm32g031', 'stm32g041', 'stm32g081']
 
 [features]
 default = []
 rt = ["cortex-m-rt/device"]
-stm32g0x0 = []
-stm32g0x1 = []
+stm32g030 = []
+stm32g031 = []
+stm32g041 = []
+stm32g07x = []
+stm32g081 = []
