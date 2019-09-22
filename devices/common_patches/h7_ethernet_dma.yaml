@@ -1,0 +1,380 @@
+# Add H7 Ethernet DMA peripheral
+
+_add:
+    Ethernet_DMA:
+        description: Ethernet DMA
+        baseAddress: 0x40029000
+        registers:
+          DMAMR:
+            description: DMA mode register
+            addressOffset: 0x0000
+            resetValue: 0x00000000
+            fields:
+              INTM:
+                description: Interrupt Mode
+                bitOffset: 16
+                bitWidth: 2
+              PR:
+                description: Priority ratio
+                bitOffset: 12
+                bitWidth: 3
+              TXPR:
+                description: Transmit priority
+                bitOffset: 11
+                bitWidth: 1
+              DA:
+                description: DMA Tx or Rx Arbitration Scheme
+                bitOffset: 1
+                bitWidth: 1
+              SWR:
+                description: Software Reset
+                bitOffset: 0
+                bitWidth: 1
+          DMASBMR:
+            description: System bus mode register
+            addressOffset: 0x0004
+            resetValue: 0x01010000
+            fields:
+              RB:
+                description: Rebuild INCRx Burst
+                bitOffset: 15
+                bitWidth: 1
+              MB:
+                description: Mixed Burst
+                bitOffset: 14
+                bitWidth: 1
+              AAL:
+                description: Address-Aligned Beats
+                bitOffset: 12
+                bitWidth: 1
+              FB:
+                description: Fixed Burst Length
+                bitOffset: 0
+                bitWidth: 1
+          DMAISR:
+            description: Interrupt status register
+            addressOffset: 0x0008
+            resetValue: 0x00000000
+            fields:
+              MACIS:
+                description: MAC Interrupt Status
+                bitOffset: 17
+                bitWidth: 1
+              MTLIS:
+                description: MTL Interrupt Status
+                bitOffset: 16
+                bitWidth: 1
+              DC0IS:
+                description: DMA Channel Interrupt Status
+                bitOffset: 0
+                bitWidth: 1
+          DMADSR:
+            description: Debug status register
+            addressOffset: 0x000C
+            resetValue: 0x00000000
+            fields:
+              TPS0:
+                description: DMA Channel Transmit Process State
+                bitOffset: 12
+                bitWidth: 4
+              RPS0:
+                description: DMA Channel Receive Process State
+                bitOffset: 8
+                bitWidth: 4
+              AXWHSTS:
+                description: AHB Master Write Channel
+                bitOffset: 0
+                bitWidth: 1
+          DMACCR:
+            description: Channel control register
+            addressOffset: 0x0100
+            resetValue: 0x00000000
+            fields:
+              DSL:
+                description: Descriptor Skip Length
+                bitOffset: 18
+                bitWidth: 3
+              PBLX8:
+                description: 8xPBL mode
+                bitOffset: 16
+                bitWidth: 1
+              MSS:
+                description: Maximum Segment Size
+                bitOffset: 0
+                bitWidth: 14
+          DMACTxCR:
+            description: Channel transmit control register
+            addressOffset: 0x0104
+            resetValue: 0x00000000
+            fields:
+              TXPBL:
+                description: Transmit Programmable Burst Length
+                bitOffset: 16
+                bitWidth: 6
+              TSE:
+                description: TCP Segmentation Enabled
+                bitOffset: 12
+                bitWidth: 1
+              OSF:
+                description: Operate on Second Packet
+                bitOffset: 4
+                bitWidth: 1
+              ST:
+                description: Start or Stop Transmission Command
+                bitOffset: 0
+                bitWidth: 1
+          DMACRxCR:
+            description: Channel receive control register
+            addressOffset: 0x0108
+            resetValue: 0x00000000
+            fields:
+              RPF:
+                description: DMA Rx Channel Packet Flush
+                bitOffset: 31
+                bitWidth: 1
+              RXPBL:
+                description: Receive Programmable Burst Length
+                bitOffset: 16
+                bitWidth: 6
+              RBSZ:
+                description: Receive Buffer size
+                bitOffset: 1
+                bitWidth: 14
+              SR:
+                description: Start or Stop Receive
+                bitOffset: 0
+                bitWidth: 1
+          DMACTxDLAR:
+            description: Channel Tx descriptor list address register
+            addressOffset: 0x0114
+            resetValue: 0x00000000
+            fields:
+              TDESLA:
+                description: Start of Transmit List
+                bitOffset: 2
+                bitWidth: 30
+          DMACRxDLAR:
+            description: Channel Rx descriptor list address register
+            addressOffset: 0x011C
+            resetValue: 0x00000000
+            fields:
+              RDESLA:
+                description: Start of Receive List
+                bitOffset: 2
+                bitWidth: 30
+          DMACTxDTPR:
+            description: Channel Tx descriptor tail pointer register
+            addressOffset: 0x0120
+            resetValue: 0x00000000
+            fields:
+              TDT:
+                description: Transmit Descriptor Tail Pointer
+                bitOffset: 2
+                bitWidth: 30
+          DMACRxDTPR:
+            description: Channel Rx descriptor tail pointer register
+            addressOffset: 0x0128
+            resetValue: 0x00000000
+            fields:
+              RDT:
+                description: Receive Descriptor Tail Pointer
+                bitOffset: 2
+                bitWidth: 30
+          DMACTxRLR:
+            description: Channel Tx descriptor ring length register
+            addressOffset: 0x012C
+            resetValue: 0x00000000
+            fields:
+              TDRL:
+                description: Transmit Descriptor Ring Length
+                bitOffset: 0
+                bitWidth: 10
+          DMACRxRLR:
+            description: Channel Rx descriptor ring length register
+            addressOffset: 0x0130
+            resetValue: 0x00000000
+            fields:
+              RDRL:
+                description: Receive Descriptor Ring Length
+                bitOffset: 0
+                bitWidth: 10
+          DMACIER:
+            description: Channel interrupt enable register
+            addressOffset: 0x0134
+            resetValue: 0x00000000
+            fields:
+              NIE:
+                description: Normal Interrupt Summary Enable
+                bitOffset: 15
+                bitWidth: 1
+              AIE:
+                description: Abnormal Interrupt Summary Enable
+                bitOffset: 14
+                bitWidth: 1
+              CDEE:
+                description: Context Descriptor Error Enable
+                bitOffset: 13
+                bitWidth: 1
+              FBEE:
+                description: Fatal Bus Error Enable
+                bitOffset: 12
+                bitWidth: 1
+              ERIE:
+                description: Early Receive Interrupt Enable
+                bitOffset: 11
+                bitWidth: 1
+              ETIE:
+                description: Early Transmit Interrupt Enable
+                bitOffset: 10
+                bitWidth: 1
+              RWTE:
+                description: Receive Watchdog Timeout Enable
+                bitOffset: 9
+                bitWidth: 1
+              RSE:
+                description: Receive Stopped Enable
+                bitOffset: 8
+                bitWidth: 1
+              RBUE:
+                description: Receive Buffer Unavailable Enable
+                bitOffset: 7
+                bitWidth: 1
+              RIE:
+                description: Receive Interrupt Enable
+                bitOffset: 6
+                bitWidth: 1
+              TBUE:
+                description: Transmit Buffer Unavailable Enable
+                bitOffset: 2
+                bitWidth: 1
+              TXSE:
+                description: Transmit Stopped Enable
+                bitOffset: 1
+                bitWidth: 1
+              TIE:
+                description: Transmit Interrupt Enable
+                bitOffset: 0
+                bitWidth: 1
+          DMACRxIWTR:
+            description: Channel Rx interrupt watchdog timer register
+            addressOffset: 0x0138
+            resetValue: 0x00000000
+            fields:
+              RWT:
+                description: Receive Interrupt Watchdog Timer Count
+                bitOffset: 0
+                bitWidth: 8
+          DMACCATxDR:
+            description: Channel current application transmit descriptor register
+            addressOffset: 0x0144
+            resetValue: 0x00000000
+            fields:
+              CURTDESAPTR:
+                description: Application Transmit Descriptor Address Pointer
+                bitOffset: 0
+                bitWidth: 32
+          DMACCARxDR:
+            description: Channel current application receive descriptor register
+            addressOffset: 0x014C
+            resetValue: 0x00000000
+            fields:
+              CURRDESAPTR:
+                description: Application Receive Descriptor Address Pointer
+                bitOffset: 0
+                bitWidth: 32
+          DMACCATxBR:
+            description: Channel current application transmit buffer register
+            addressOffset: 0x0154
+            resetValue: 0x00000000
+            fields:
+              CURTBUFAPTR:
+                description: Application Transmit Buffer Address Pointer
+                bitOffset: 0
+                bitWidth: 32
+          DMACCARxBR:
+            description: Channel current application receive buffer register
+            addressOffset: 0x015C
+            resetValue: 0x00000000
+            fields:
+              CURRBUFAPTR:
+                description: Application Receive Buffer Address Pointer
+                bitOffset: 0
+                bitWidth: 32
+          DMACSR:
+            description: Channel status register
+            addressOffset: 0x0160
+            resetValue: 0x00000000
+            fields:
+              REB:
+                description: Rx DMA Error Bits
+                bitOffset: 19
+                bitWidth: 3
+              TEB:
+                description: Tx DMA Error Bits
+                bitOffset: 16
+                bitWidth: 3
+              NIS:
+                description: Normal Interrupt Summary
+                bitOffset: 15
+                bitWidth: 1
+              AIS:
+                description: Abnormal Interrupt Summary
+                bitOffset: 14
+                bitWidth: 1
+              CDE:
+                description: Context Descriptor Error
+                bitOffset: 13
+                bitWidth: 1
+              FBE:
+                description: Fatal Bus Error
+                bitOffset: 12
+                bitWidth: 1
+              ERI:
+                description: Early Receive Interrupt
+                bitOffset: 11
+                bitWidth: 1
+              ETI:
+                description: Early Transmit Interrupt
+                bitOffset: 10
+                bitWidth: 1
+              RWT:
+                description: Receive Watchdog Timeout
+                bitOffset: 9
+                bitWidth: 1
+              RPS:
+                description: Receive Process Stopped
+                bitOffset: 8
+                bitWidth: 1
+              RBU:
+                description: Receive Buffer Unavailable
+                bitOffset: 7
+                bitWidth: 1
+              RI:
+                description: Receive Interrupt
+                bitOffset: 6
+                bitWidth: 1
+              TBU:
+                description: Transmit Buffer Unavailable
+                bitOffset: 2
+                bitWidth: 1
+              TPS:
+                description: Transmit Process Stopped
+                bitOffset: 1
+                bitWidth: 1
+              TI:
+                description: Transmit Interrupt
+                bitOffset: 0
+                bitWidth: 1
+          DMACMFCR:
+            description: Channel missed frame count register
+            addressOffset: 0x016C
+            resetValue: 0x00000000
+            fields:
+              MFCO:
+                description: Overflow status of the MFC Counter
+                bitOffset: 15
+                bitWidth: 1
+              MFC:
+                description: Dropped Packet Counters
+                bitOffset: 0
+                bitWidth: 11
