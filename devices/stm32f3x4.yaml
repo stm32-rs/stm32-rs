@@ -104,6 +104,9 @@ HRTIM_Common:
   _modify:
     BDMUPDR:
       name: BDMUPR
+    _interrupts:
+      HRTIM1_FLT:
+        value: 73
   IER:
     _modify:
       SYSFLTE:
@@ -117,6 +120,9 @@ HRTIM_Master:
   _modify:
     MDIER4:
       name: MDIER
+    _interrupts:
+      HRTIM1_MST:
+        value: 67
   MCR:
     _modify:
       SYNC_SRC:
@@ -127,6 +133,32 @@ HRTIM_Master:
         name: SYNCIN
       CK_PSC:
         name: CKPSC
+
+HRTIM_TIMA:
+  _modify:
+    _interrupts:
+      HRTIM1_TIMA:
+        value: 68
+HRTIM_TIMB:
+  _modify:
+    _interrupts:
+      HRTIM_TIMB:
+        value: 69
+HRTIM_TIMC:
+  _modify:
+    _interrupts:
+      HRTIM1_TIMC:
+        value: 70
+HRTIM_TIMD:
+  _modify:
+    _interrupts:
+      HRTIM1_TIMD:
+        value: 71
+HRTIM_TIME:
+  _modify:
+    _interrupts:
+      HRTIM_TIME:
+        value: 72
 
 "HRTIM_TIM[ABCDE]":
   _modify:
