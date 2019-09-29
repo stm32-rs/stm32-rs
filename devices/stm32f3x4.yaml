@@ -106,6 +106,7 @@ HRTIM_Common:
       name: BDMUPR
     _interrupts:
       HRTIM1_FLT:
+        name: HRTIM_FLT
         value: 73
   IER:
     _modify:
@@ -122,6 +123,7 @@ HRTIM_Master:
       name: MDIER
     _interrupts:
       HRTIM1_MST:
+        name: HRTIM_MST
         value: 67
   MCR:
     _modify:
@@ -139,6 +141,7 @@ HRTIM_TIMA:
     _interrupts:
       HRTIM1_TIMA:
         value: 68
+        name: HRTIM_TIMA
 HRTIM_TIMB:
   _modify:
     _interrupts:
@@ -148,11 +151,13 @@ HRTIM_TIMC:
   _modify:
     _interrupts:
       HRTIM1_TIMC:
+        name: HRTIM_TIMC
         value: 70
 HRTIM_TIMD:
   _modify:
     _interrupts:
       HRTIM1_TIMD:
+        name: HRTIM_TIMD
         value: 71
 HRTIM_TIME:
   _modify:
