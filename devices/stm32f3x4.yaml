@@ -200,6 +200,25 @@ HRTIM_TIME:
       UDPCPT:
         name: UPDCPT
 
+CAN:
+  _delete:
+    _interrupts:
+      - CAN_SCE
+  _add:
+    _interrupts:
+      CAN_SCE:
+        description: CAN_SCE interrupt
+        value: 22
+
+FPU:
+  _delete:
+    _interrupts:
+      - FPU
+  _add:
+    _interrupts:
+      FPU:
+        description: Floating point unit
+        value: 81
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
