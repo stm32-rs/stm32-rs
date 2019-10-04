@@ -66,6 +66,10 @@ RCC:
       - "LPUART1SEL*"
       - "USART2SEL*"
       - "USART1SEL*"
+  CSR:
+    _modify:
+      LPWRSTF:
+        name: LPWRRSTF
   APB2RSTR:
     _modify:
       TM12RST:
