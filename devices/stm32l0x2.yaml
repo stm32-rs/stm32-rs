@@ -6,6 +6,8 @@ _modify:
     name: LPUART1
   DBGMCU:
     name: DBG
+  Flash:
+    name: FLASH
   Firewall:
     name: FW
   SYSCFG_COMP:
@@ -26,6 +28,25 @@ CRC:
     _modify:
       Polynomialcoefficients:
         name: POL
+
+FLASH:
+  _modify:
+    OBR:
+      name: OPTR
+  ACR:
+    _modify:
+      DESAB_BUF:
+        name: DISAB_BUF
+  PECR:
+    _modify:
+      FTDW:
+        name: FIX
+  OPTR:
+    _modify:
+      SPRMOD:
+        name: WPRMOD
+      RDPRT:
+        name: RDPROT
 
 RCC:
   CR:
