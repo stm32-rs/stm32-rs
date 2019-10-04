@@ -5,6 +5,23 @@ _modify:
   LPUSART1:
     name: LPUART1
 
+RCC:
+  CR:
+    _modify:
+      CSSLSEON:
+        name: CSSHSEON
+  CCIPR:
+    _merge: 
+      - "LPTIM1SEL*"
+      - "I2C1SEL*"
+      - "LPUART1SEL*"
+      - "USART2SEL*"
+      - "USART1SEL*"
+  APB2RSTR:
+    _modify:
+      TM12RST:
+        name: TIM22RST
+
 _include:
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_nvic_prio_bits.yaml
