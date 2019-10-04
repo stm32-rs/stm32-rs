@@ -5,6 +5,16 @@ _modify:
   LPUSART1:
     name: LPUART1
 
+ADC:
+  CFGR1:
+    _modify:
+      AUTDLY:
+        name: WAIT
+  SMPR:
+    _modify:
+      SMPR:
+        name: SMP
+
 RCC:
   CR:
     _modify:
