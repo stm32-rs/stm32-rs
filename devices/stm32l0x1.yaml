@@ -3,8 +3,6 @@ _svd: ../svd/stm32l0x1.svd
 _modify:
   Flash:
     name: FLASH
-  Firewall:
-    name: FW
   SYSCFG_COMP:
     name: SYSCFG
 
@@ -47,23 +45,6 @@ FLASH:
         name: WPRMOD
       RDPRT:
         name: RDPROT
-
-FW:
-  _modify:
-    FIREWALL_CSSA:
-      name: CSSA
-    FIREWALL_CSL:
-      name: CSL
-    FIREWALL_NVDSSA:
-      name: NVDSSA
-    FIREWALL_NVDSL:
-      name: NVDSL
-    FIREWALL_VDSSA:
-      name: VDSSA
-    FIREWALL_VDSL:
-      name: VDSL
-    FIREWALL_CR:
-      name: CR
 
 "SPI*,I2S*":
   SR:
@@ -111,6 +92,7 @@ WWDG:
 _include:
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/l0_flash.yaml
+ - ./common_patches/l0_firewall.yaml
  - ./common_patches/l0_pwr_mode.yaml
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_rtc.yaml
