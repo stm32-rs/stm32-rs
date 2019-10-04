@@ -1,9 +1,13 @@
 _svd: ../svd/stm32l0x3.svd
 
-# Use LPUART1 cannonical name
 _modify:
+  # Use LPUART1 cannonical name
   LPUSART1:
     name: LPUART1
+  Firewall:
+    name: FW
+  SYSCFG_COMP:
+    name: SYSCFG
 
 ADC:
   CFGR1:
