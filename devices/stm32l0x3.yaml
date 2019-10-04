@@ -48,6 +48,12 @@ FLASH:
       RDPRT:
         name: RDPROT
 
+"SPI*,I2S*":
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+
 RCC:
   CR:
     _modify:
