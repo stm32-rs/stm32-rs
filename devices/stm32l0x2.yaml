@@ -5,6 +5,12 @@ _modify:
   LPUSART1:
     name: LPUART1
 
+RCC:
+  APB2RSTR:
+    _modify:
+      TM12RST:
+        name: TIM22RST
+
 _include:
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_nvic_prio_bits.yaml
