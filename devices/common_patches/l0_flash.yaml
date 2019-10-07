@@ -13,7 +13,7 @@
         WRPROT1:
           description: Write Protection
           bitOffset: 0
-          bitWidth: 16
+          bitWidth: 32
     WRPROT2:
       description: Write Protection Register 2
       addressOffset: 0x80
@@ -23,5 +23,5 @@
       fields:
         WRPROT2:
           description: Write Protection
-          bitOffset: 16
+          bitOffset: 0
           bitWidth: 16
