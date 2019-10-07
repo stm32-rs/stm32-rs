@@ -22,6 +22,16 @@ ADC:
     _modify:
       SMPR:
         name: SMP
+  CCR:
+    # VLCDEN is only available on l0x1 and l0x3
+    # It's also missing in the l0x3 SVD
+    _add:
+      VLCDEN:
+        bitOffset: 24
+        bitWidth: 1
+        description: "VLCD reading circuitry enable"
+        Disabled: [0, "VLCD reading circuitry disabled"]
+        Enabled: [1, "VLCD reading circuitry enabled"]
 
 CRC:
   POL:
@@ -96,6 +106,7 @@ _include:
  - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/unprefix_USB_registers.yaml
  - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
+ - ../peripherals/adc/adc_l0.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
