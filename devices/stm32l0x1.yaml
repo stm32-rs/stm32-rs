@@ -138,20 +138,20 @@ _include:
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/nvic/nvic_v1.yaml
  - ../peripherals/pwr/pwr_l0.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim21.yaml
- - ../peripherals/tim/tim2345_16bit.yaml
- - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml
  - ../peripherals/rtc/rtc_l0.yaml
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/tim/tim_l0.yaml
+ - ../peripherals/tim/tim21.yaml
+ - ../peripherals/tim/tim2345_16bit.yaml
+ - ../peripherals/tim/tim6.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - ../peripherals/wwdg/wwdg.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tim/tim_ccr.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - common_patches/dma/dma_v1.yaml

@@ -94,6 +94,7 @@ _include:
  - ./common_patches/l0_rtc.yaml
  - ./common_patches/l0_tim.yaml
  - ./common_patches/l0_nvic_prio_bits.yaml
+ - ./common_patches/tsc/tsc.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
@@ -108,26 +109,25 @@ _include:
  - ./common_patches/unprefix_USB_registers.yaml
  - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
  - ../peripherals/adc/adc_l0.yaml
+ - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
- - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/pwr/pwr_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml
  - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
- - common_patches/tim/tim2345_16bit_l.yaml
- - ../peripherals/dma/dma_v1_with_remapping.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/lptim/lptim_v1.yaml
- - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/tim/tim6.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/tim/tim2345_16bit_l.yaml
  - common_patches/dma/dma_v1.yaml
