@@ -78,6 +78,14 @@ RCC:
       TM12RST:
         name: TIM22RST
 
+PWR:
+  CR:
+    _add:
+      LPSDSR:
+        description: Low-power deepsleep/Sleep/Low-power run
+        bitOffset: 0
+        bitWidth: 1
+
 _include:
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/l0_flash.yaml
@@ -104,7 +112,7 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/pwr/pwr_v1.yaml
+ - ../peripherals/pwr/pwr_l0.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml

@@ -94,6 +94,13 @@ WWDG:
     WWDG_SR:
       name: SR
 
+PWR:
+  CR:
+    # LPDS only exists in the L0x1 family
+    LPDS:
+      MAIN_MODE: [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
+      LOW_POWER_MODE: [1, "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)"]
+
 _include:
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/l0_flash.yaml
