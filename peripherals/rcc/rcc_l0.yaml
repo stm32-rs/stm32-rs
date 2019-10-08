@@ -87,11 +87,20 @@ RCC:
       Disabled: [0, "Port clock disabled"]
       Enabled: [1, "Port clock enabled"]
   CCIPR:
-    "*SEL":
+    "LPTIM1SEL":
       APB: [0, "APB clock selected as Timer clock"]
       LSI: [1, "LSI clock selected as Timer clock"]
       HSI16: [2, "HSI16 clock selected as Timer clock"]
       LSE: [3, "LSE clock selected as Timer clock"]
+    "I2C?SEL":
+      APB: [0, "APB clock selected as peripheral clock"]
+      SYSTEM: [1, "System clock selected as peripheral clock"]
+      HSI16: [2, "HSI16 clock selected as peripheral clock"]
+    "LPUART1SEL,USART?SEL":
+      APB: [0, "APB clock selected as peripheral clock"]
+      SYSTEM: [1, "System clock selected as peripheral clock"]
+      HSI16: [2, "HSI16 clock selected as peripheral clock"]
+      LSE: [3, "LSE clock selected as peripheral clock"]
   CSR:
     RTCEN:
       Disabled: [0, "RTC clock disabled"]
