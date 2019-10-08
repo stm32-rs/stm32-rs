@@ -13,6 +13,9 @@ _modify:
   SYSCFG_COMP:
     name: SYSCFG
 
+_delete:
+  - USB_SRAM
+
 ADC:
   CFGR1:
     _modify:
