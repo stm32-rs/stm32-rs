@@ -93,6 +93,7 @@ _include:
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_rtc.yaml
  - ./common_patches/l0_tim.yaml
+ - ./common_patches/l0_syscfg_cfgr.yaml
  - ./common_patches/l0_nvic_prio_bits.yaml
  - ./common_patches/tsc/tsc.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
@@ -109,18 +110,29 @@ _include:
  - ./common_patches/unprefix_USB_registers.yaml
  - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
  - ../peripherals/adc/adc_l0.yaml
- - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/aes/aes_l0.yaml
+ - ../peripherals/crc/crc_l0.yaml
+ - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - ../peripherals/exti/exti_l0.yaml
+ - ../peripherals/flash/flash_l0.yaml
+ - ../peripherals/fw/fw_l0.yaml
+ - ../peripherals/gpio/gpio_l0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/pwr/pwr_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml
+ - ../peripherals/rtc/rtc_l0.yaml
+ - ../peripherals/spi/spi_l0.yaml
+ - ../peripherals/syscfg/syscfg_l0.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/tim/tim_l0.yaml
+ - ../peripherals/tim/tim21.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
