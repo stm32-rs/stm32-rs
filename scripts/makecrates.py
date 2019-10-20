@@ -3,8 +3,8 @@ makecrates.py
 Copyright 2017-2019 Adam Greig
 Licensed under the MIT and Apache 2.0 licenses.
 
-Autogenerate the crate Cargo.toml and src/lib.rs file based on available
-YAML files for each STM32 family.
+Autogenerate the crate Cargo.toml, build.rs, README.md and src/lib.rs files
+based on available YAML files for each STM32 family.
 
 Usage: python3 scripts/makecrates.py devices/
 """
