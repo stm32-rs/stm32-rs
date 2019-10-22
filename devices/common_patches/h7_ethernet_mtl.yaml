@@ -1,0 +1,208 @@
+# Add H7 Ethernet DMA peripheral
+
+_add:
+    Ethernet_MTL:
+        description: Ethernet MTL
+        baseAddress: 0x40028C00
+        registers:
+          MTLOMR:
+            description: Operating mode Register
+            addressOffset: 0x0000
+            resetValue: 0x00000000
+            fields:
+              CNTCLR:
+                description: Counters Reset
+                bitOffset: 9
+                bitWidth: 1
+              CNTPRST:
+                description: Counters Preset
+                bitOffset: 8
+                bitWidth: 1
+              DTXSTS:
+                description: Drop Transmit Status
+                bitOffset: 1
+                bitWidth: 1
+          MTLISR:
+            description: Interrupt status Register
+            addressOffset: 0x0020
+            resetValue: 0x00000000
+            fields:
+              Q0IS:
+                description: Queue interrupt status
+                bitOffset: 0
+                bitWidth: 1
+          MTLTxQOMR:
+            description: Tx queue operating mode Register
+            addressOffset: 0x0100
+            resetValue: 0x00070008
+            fields:
+              TQS:
+                description: Transmit Queue Size
+                bitOffset: 16
+                bitWidth: 9
+              TTC:
+                description: Transmit Threshold Control
+                bitOffset: 4
+                bitWidth: 3
+              TXQEN:
+                description: Transmit Queue Enable
+                bitOffset: 2
+                bitWidth: 2
+              TSF:
+                description: Transmit Store and Forward
+                bitOffset: 1
+                bitWidth: 1
+              FTQ:
+                description: Flush Transmit Queue
+                bitOffset: 0
+                bitWidth: 1
+          MTLTxQUR:
+            description: Tx queue underflow register
+            addressOffset: 0x0104
+            resetValue: 0x00000000
+            fields:
+              UFCNTOVF:
+                description: Overflow Bit for Underflow Packet Counter
+                bitOffset: 11
+                bitWidth: 1
+              UFFRMCNT:
+                description: Underflow Packet Counter
+                bitOffset: 0
+                bitWidth: 11
+          MTLTxQDR:
+            description: Tx queue debug Register
+            addressOffset: 0x0108
+            resetValue: 0x00000000
+            fields:
+              STXSTSF:
+                description: Number of Status Words in Tx Status FIFO of Queue
+                bitOffset: 20
+                bitWidth: 3
+              PTXQ:
+                description: Number of Packets in the Transmit Queue
+                bitOffset: 16
+                bitWidth: 3
+              TXSTSFSTS:
+                description: MTL Tx Status FIFO Full Status
+                bitOffset: 5
+                bitWidth: 1
+              TXQSTS:
+                description: MTL Tx Queue Not Empty Status
+                bitOffset: 4
+                bitWidth: 1
+              TWCSTS:
+                description: MTL Tx Queue Write Controller Status
+                bitOffset: 3
+                bitWidth: 1
+              TRCSTS:
+                description: MTL Tx Queue Read Controller Status
+                bitOffset: 1
+                bitWidth: 2
+              TXQPAUSED:
+                description: Transmit Queue in Pause
+                bitOffset: 0
+                bitWidth: 1
+          MTLQICSR:
+            description: Queue interrupt control status Register
+            addressOffset: 0x012C
+            resetValue: 0x00000000
+            fields:
+              RXOIE:
+                description: Receive Queue Overflow Interrupt Enable
+                bitOffset: 24
+                bitWidth: 1
+              RXOVFIS:
+                description: Receive Queue Overflow Interrupt Status
+                bitOffset: 16
+                bitWidth: 1
+              TXUIE:
+                description: Transmit Queue Underflow Interrupt Enable
+                bitOffset: 8
+                bitWidth: 1
+              TXUNFIS:
+                description: Transmit Queue Underflow Interrupt Status
+                bitOffset: 0
+                bitWidth: 1
+          MTLRxQOMR:
+            description: Rx queue operating mode register
+            addressOffset: 0x0130
+            resetValue: 0x00700000
+            fields:
+              RQS:
+                description: Receive Queue Size
+                bitOffset: 20
+                bitWidth: 3
+              RFD:
+                description: Threshold for Deactivating Flow Control
+                bitOffset: 14
+                bitWidth: 3
+              RFA:
+                description: Threshold for Activating Flow Control
+                bitOffset: 8
+                bitWidth: 3
+              EHFC:
+                description: Enable Hardware Flow Control
+                bitOffset: 7
+                bitWidth: 1
+              DIS_TCP_EF:
+                description: Disable Dropping of TCP
+                bitOffset: 6
+                bitWidth: 1
+              RSF:
+                description: Receive Queue Store and Forward
+                bitOffset: 5
+                bitWidth: 1
+              FEP:
+                description: Forward Error Packets
+                bitOffset: 4
+                bitWidth: 1
+              FUP:
+                description: Forward Undersized Good Packets
+                bitOffset: 3
+                bitWidth: 1
+              RTC:
+                description: Receive Queue Threshold Control
+                bitOffset: 0
+                bitWidth: 2
+          MTLRxQMPOCR:
+            description: Rx queue missed packet and overflow counter register
+            addressOffset: 0x0134
+            resetValue: 0x00000000
+            fields:
+              MISCNTOVF:
+                description: Missed Packet Counter Overflow Bit
+                bitOffset: 27
+                bitWidth: 1
+              MISPKTCNT:
+                description: Missed Packet Counter
+                bitOffset: 16
+                bitWidth: 11
+              OVFCNTOVF:
+                description: Overflow Counter Overflow Bit
+                bitOffset: 11
+                bitWidth: 1
+              OVFPKTCNT:
+                description: Overflow Packet Counter
+                bitOffset: 0
+                bitWidth: 11
+          MTLRxQDR:
+            description: Rx queue debug register
+            addressOffset: 0x0138
+            resetValue: 0x00000000
+            fields:
+              PRXQ:
+                description: Number of Packets in Receive Queue
+                bitOffset: 16
+                bitWidth: 14
+              RXQSTS:
+                description: MTL Rx Queue Fill-Level Status
+                bitOffset: 4
+                bitWidth: 2
+              RRCSTS:
+                description: MTL Rx Queue Read Controller State
+                bitOffset: 1
+                bitWidth: 2
+              RWCSTS:
+                description: MTL Rx Queue Write Controller Active Status
+                bitOffset: 0
+                bitWidth: 1
