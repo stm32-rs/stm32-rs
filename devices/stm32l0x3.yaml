@@ -33,8 +33,9 @@ ADC:
         bitOffset: 24
         bitWidth: 1
         description: "VLCD reading circuitry enable"
-        Disabled: [0, "VLCD reading circuitry disabled"]
-        Enabled: [1, "VLCD reading circuitry enabled"]
+    VLCDEN:
+      Disabled: [0, "VLCD reading circuitry disabled"]
+      Enabled: [1, "VLCD reading circuitry enabled"]
 
 CRC:
   POL:
@@ -73,7 +74,7 @@ RCC:
       CSSLSEON:
         name: CSSHSEON
   CCIPR:
-    _merge: 
+    _merge:
       - "LPTIM1SEL*"
       - "I2C1SEL*"
       - "LPUART1SEL*"
