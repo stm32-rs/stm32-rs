@@ -1,0 +1,237 @@
+# Edits required to match RM0440.
+RCC:
+  _modify:
+    PLLSYSCFGR:
+      name: PLLCFGR
+    CCIPR1:
+      name: CCIPR
+
+  CR:
+    _modify:
+      PLLSYSRDY:
+        name: PLLRDY
+      PLLSYSON:
+        name: PLLON
+      HSECSSON:
+        name: CSSON
+
+  PLLCFGR:
+    _modify:
+      PLLSYSPDIV:
+        name: PLLPDIV
+      PLLSYSR:
+        name: PLLR
+      PLLSYSREN:
+        name: PLLREN
+      PLLSYSQ:
+        name: PLLQ
+      PLLSYSQEN:
+        name: PLLQEN
+      PLLSYSP:
+        name: PLLP
+      PLLSYSN:
+        name: PLLN
+      PLLSYSM:
+        name: PLLM
+
+  CIER:
+    _modify:
+      PLLSYSRDYIE:
+        name: PLLRDYIE
+      RC48RDYIE:
+        name: HSI48RDYIE
+
+  CIFR:
+    _modify:
+      PLLSYSRDYF:
+        name: PLLRDYF
+      HSECSSF:
+        name: CSSF
+      RC48RDYF:
+        name: HSI48RDYF
+
+  CICR:
+    _modify:
+      PLLSYSRDYC:
+        name: PLLRDYC
+      HSECSSC:
+        name: CSSC
+      RC48RDYC:
+        name: HSI48RDYC
+
+  AHB1RSTR:
+    _modify:
+      MATRIXRST:
+        name: FMACRST
+        description: FMAC reset
+      FLITFRST_:
+        name: FLASHRST
+        description: Flash memory interface reset
+
+  AHB2RSTR:
+    _modify:
+      ADC345RST_:
+        name: ADC345RST
+      DAC1RST_:
+        name: DAC1RST
+      CRYPTRST:
+        name: AESRST
+
+  AHB3RSTR:
+    _modify:
+      QUADSPI1RST:
+        name: QSPIRST
+
+  APB1RSTR1:
+    _modify:
+      I2C3:
+        name: I2C3RST
+      USBDRST:
+        name: USBRST
+
+  APB1RSTR2:
+    _modify:
+      USBPDRST:
+        name: UCPD1RST
+        description: UCPD1 reset
+
+  AHB1ENR:
+    _modify:
+      FLITFEN:
+        name: FLASHEN
+        description: Flash memory interface clock enable
+
+  AHB2ENR:
+    _modify:
+      DAC1:
+        name: DAC1EN
+      DAC2:
+        name: DAC2EN
+      DAC3:
+        name: DAC3EN
+      DAC4:
+        name: DAC4EN
+      CRYPTEN:
+        name: AESEN
+        description: AES clock enable
+
+  AHB3ENR:
+    _modify:
+      QUADSPI1EN:
+        name: QSPIEN
+        description: QUADSPI memory interface clock enable
+
+  APB1ENR1:
+    _modify:
+      USBDEN:
+        name: USBEN
+        description: USB device clock enable
+      I2C3:
+        name: I2C3EN
+        description: I2C3 clock enable
+
+  APB1ENR2:
+    _modify:
+      USBPDEN:
+        name: UCPD1EN
+        description: UCPD1 clock enable
+
+  APB2ENR:
+    _modify:
+      HRTIMEREN:
+        name: HRTIM1EN
+
+  AHB2SMENR:
+    # The SRAM fields are mislabeled, we'll delete/re-create here in case
+    # they fix the SVD in the future.
+    _delete:
+      - SRAM2SMEN # Actually points to CCMSRAMSEN.
+      - SRAM3SMEN # This is the real SRAM2SMEN.
+    _add:
+      CCMSRAMSMEN:
+        description: CCM SRAM interface clocks enable during Sleep and Stop modes
+        bitOffset: 9
+        bitWidth: 1
+      SRAM2SMEN:
+        description: SRAM2 interface clocks enable during Sleep and Stop modes
+        bitOffset: 10
+        bitWidth: 1
+
+    _modify:
+      AD12CSMEN:
+        name: ADC12SMEN
+      CRYPTSMEN:
+        name: AESMEN # sic, from RM0440 but likely should be AESSMEN
+      RNGSMEN:
+        name: RNGEN # sic, from RM0440 but RNGSMEN seems more correct
+
+  AHB3SMENR:
+    _modify:
+      QUADSPI1SMEN:
+        name: QSPISMEN
+        description: QUADSPI memory interface clock enable during Sleep and Stop modes
+
+  APB1SMENR1:
+    # The USBSMEN and I2C3SMEN fields are mislabeled, we'll delete/re-create
+    # here in case they fix the SVD in the future.
+    _delete:
+      - I2C3SMEN # Actually points to USBSMEN.
+      - I2C3SMEN_3 # Correct, except for name.
+    _add:
+      USBSMEN:
+        description: USB device clocks enable during Sleep and Stop modes
+        bitOffset: 23
+        bitWidth: 1
+      I2C3SMEN:
+        description: I2C3 clocks enable during Sleep and Stop modes
+        bitOffset: 30
+        bitWidth: 1
+
+  APB1SMENR2:
+    _modify:
+      USBPDSMEN:
+        name: UCPD1SMEN
+        description: UCPD1 clocks enable during Sleep and Stop modes
+
+  APB2SMENR:
+    _modify:
+      HRTIMERSMEN:
+        name: HRTIM1SMEN
+
+  CCIPR:
+    _modify:
+      ADCSEL:
+        name: ADC12SEL
+      SPISEL_:
+        name: I2S23SEL
+      SAISEL:
+        name: SAI1SEL
+
+  BDCR:
+    _modify:
+      LSCCOEN:
+        name: LSCOEN
+      VSWRST:
+        name: BDRST
+        description: RTC domain software reset
+
+  CSR:
+    _modify:
+      WDGRSTF:
+        name: IWDGRSTF
+      PADRSTF:
+        name: PINRSTF
+
+  CRRCR:
+    _modify:
+      RC48ON:
+        name: HSI48ON
+      RC48RDY:
+        name: HSI48RDY
+      RC48CAL:
+        name: HSI48CAL
+
+  CCIPR2:
+    _modify:
+      QUADSPISEL:
+        name: QSPISEL
