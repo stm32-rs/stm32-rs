@@ -3,8 +3,6 @@ _svd: ../svd/stm32l0x1.svd
 _modify:
   Flash:
     name: FLASH
-  Firewall:
-    name: FW
   SYSCFG_COMP:
     name: SYSCFG
 
@@ -17,48 +15,12 @@ ADC:
     _modify:
       SMPR:
         name: SMP
+  CCR:
+    # VLCDEN is only available on l0x1 and l0x3
+    VLCDEN:
+      Disabled: [0, "VLCD reading circuitry disabled"]
+      Enabled: [1, "VLCD reading circuitry enabled"]
 
-AES:
-  DINR:
-    _modify:
-      AES_DINR:
-        name: DIN
-  DOUTR:
-    _modify:
-      AES_DOUTR:
-        name: DOUT
-  KEYR0:
-    _modify:
-      AES_KEYR0:
-        name: KEY0
-  KEYR1:
-    _modify:
-      AES_KEYR1:
-        name: KEY1
-  KEYR2:
-    _modify:
-      AES_KEYR2:
-        name: KEY2
-  KEYR3:
-    _modify:
-      AES_KEYR3:
-        name: KEY3
-  IVR0:
-    _modify:
-      AES_IVR0:
-        name: IV0
-  IVR1:
-    _modify:
-      AES_IVR1:
-        name: IV1
-  IVR2:
-    _modify:
-      AES_IVR2:
-        name: IV2
-  IVR3:
-    _modify:
-      AES_IVR3:
-        name: IV3
 CRC:
   POL:
     _modify:
@@ -89,23 +51,6 @@ FLASH:
       RDPRT:
         name: RDPROT
 
-FW:
-  _modify:
-    FIREWALL_CSSA:
-      name: CSSA
-    FIREWALL_CSL:
-      name: CSL
-    FIREWALL_NVDSSA:
-      name: NVDSSA
-    FIREWALL_NVDSL:
-      name: NVDSL
-    FIREWALL_VDSSA:
-      name: VDSSA
-    FIREWALL_VDSL:
-      name: VDSL
-    FIREWALL_CR:
-      name: CR
-
 "SPI*,I2S*":
   SR:
     _modify:
@@ -117,10 +62,6 @@ RCC:
     _modify:
       CSSLSEON:
         name: CSSHSEON
-  AHBRSTR:
-    _modify:
-      CRYPRST:
-        name: CRYPTRST
   APB1RSTR:
     _modify:
       I2C3:
@@ -153,8 +94,17 @@ WWDG:
     WWDG_SR:
       name: SR
 
+PWR:
+  CR:
+    # LPDS only exists in the L0x1 family
+    LPDS:
+      MAIN_MODE: [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
+      LOW_POWER_MODE: [1, "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)"]
+
 _include:
+ - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/l0_flash.yaml
+ - ./common_patches/l0_firewall.yaml
  - ./common_patches/l0_pwr_mode.yaml
  - ./common_patches/l0_pwr_wakeup.yaml
  - ./common_patches/l0_rtc.yaml
@@ -188,19 +138,20 @@ _include:
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/nvic/nvic_v1.yaml
  - ../peripherals/pwr/pwr_l0.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim21.yaml
- - ../peripherals/tim/tim2345_16bit.yaml
- - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l0.yaml
  - ../peripherals/rtc/rtc_l0.yaml
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/tim/tim_l0.yaml
+ - ../peripherals/tim/tim21.yaml
+ - ../peripherals/tim/tim2345_16bit.yaml
+ - ../peripherals/tim/tim6.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - ../peripherals/wwdg/wwdg.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tim/tim_ccr.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
+ - common_patches/dma/dma_v1.yaml

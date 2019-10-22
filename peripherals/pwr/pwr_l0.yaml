@@ -4,9 +4,6 @@ _include:
 
 PWR:
   CR:
-    LPDS:
-      MAIN_MODE: [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
-      LOW_POWER_MODE: [1, "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)"]
     LPRUN:
       MAIN_MODE: [0, "Voltage regulator in Main mode in Low-power run mode"]
       LOW_POWER_MODE: [1, "Voltage regulator in low-power mode in Low-power run mode"]

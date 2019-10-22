@@ -1,13 +1,101 @@
 _svd: ../svd/stm32l0x2.svd
 
-# Use LPUART1 cannonical name
 _modify:
+  # Use LPUART1 cannonical name
   LPUSART1:
     name: LPUART1
+  DBGMCU:
+    name: DBG
+  Flash:
+    name: FLASH
+  Firewall:
+    name: FW
+  SYSCFG_COMP:
+    name: SYSCFG
+
+_delete:
+  - USB_SRAM
+
+ADC:
+  CFGR1:
+    _modify:
+      AUTDLY:
+        name: WAIT
+  SMPR:
+    _modify:
+      SMPR:
+        name: SMP
+
+CRC:
+  POL:
+    _modify:
+      Polynomialcoefficients:
+        name: POL
+
+FLASH:
+  _modify:
+    OBR:
+      name: OPTR
+  ACR:
+    _modify:
+      DESAB_BUF:
+        name: DISAB_BUF
+  PECR:
+    _modify:
+      FTDW:
+        name: FIX
+  OPTR:
+    _modify:
+      SPRMOD:
+        name: WPRMOD
+      RDPRT:
+        name: RDPROT
+
+"SPI*,I2S*":
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+
+RCC:
+  CR:
+    _modify:
+      CSSLSEON:
+        name: CSSHSEON
+  CCIPR:
+    _merge: 
+      - "LPTIM1SEL*"
+      - "I2C1SEL*"
+      - "LPUART1SEL*"
+      - "USART2SEL*"
+      - "USART1SEL*"
+  CSR:
+    _modify:
+      LPWRSTF:
+        name: LPWRRSTF
+  APB2RSTR:
+    _modify:
+      TM12RST:
+        name: TIM22RST
+
+PWR:
+  CR:
+    _add:
+      LPSDSR:
+        description: Low-power deepsleep/Sleep/Low-power run
+        bitOffset: 0
+        bitWidth: 1
 
 _include:
+ - ./common_patches/cryp/l0_aes.yaml
+ - ./common_patches/l0_flash.yaml
+ - ./common_patches/l0_firewall.yaml
  - ./common_patches/l0_pwr_wakeup.yaml
+ - ./common_patches/l0_rtc.yaml
+ - ./common_patches/l0_tim.yaml
+ - ./common_patches/l0_syscfg_cfgr.yaml
  - ./common_patches/l0_nvic_prio_bits.yaml
+ - ./common_patches/tsc/tsc.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
@@ -21,22 +109,37 @@ _include:
  - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/unprefix_USB_registers.yaml
  - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
+ - ../peripherals/adc/adc_l0.yaml
+ - ../peripherals/aes/aes_l0.yaml
+ - ../peripherals/crc/crc_l0.yaml
+ - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
- - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/pwr/pwr_v1.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2345_16bit.yaml
- - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/exti/exti_l0.yaml
+ - ../peripherals/flash/flash_l0.yaml
+ - ../peripherals/fw/fw_l0.yaml
+ - ../peripherals/gpio/gpio_l0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/lptim/lptim_v1.yaml
+ - ../peripherals/pwr/pwr_l0.yaml
+ - ../peripherals/rcc/rcc_l0_l1_common.yaml
+ - ../peripherals/rcc/rcc_l0.yaml
+ - ../peripherals/rtc/rtc_l0.yaml
+ - ../peripherals/spi/spi_l0.yaml
+ - ../peripherals/syscfg/syscfg_l0.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/tim/tim_l0.yaml
+ - ../peripherals/tim/tim21.yaml
+ - ../peripherals/tim/tim2345_16bit.yaml
+ - ../peripherals/tim/tim6.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/tim/tim2345_16bit_l.yaml
+ - common_patches/dma/dma_v1.yaml
