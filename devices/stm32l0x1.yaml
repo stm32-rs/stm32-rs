@@ -84,6 +84,10 @@ RCC:
     _modify:
       CRYPTSMEN:
         name: CRYPSMEN
+  APB1ENR:
+    _modify:
+      TIM3EN:
+        bitOffset: 1
 
 WWDG:
   _modify:
