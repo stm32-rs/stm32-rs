@@ -222,6 +222,13 @@ _copy:
     ADC3:
         from: ADC2
 
+# The new peripheral can also be copied from another svd file for a different
+# device. This is useful when a peripheral is missing in a device but the exact
+# same peripheral already exist in another device.
+_copy:
+    TIM1:
+        from: ../svd/stm32f302.svd:TIM1
+
 # Replace peripheral registers by a 'deriveFrom'.
 # This is used when e.g. UART4 and UART5 are both independently defined,
 # but you'd like to make UART5 be defined as derivedFrom UART4 instead.
