@@ -1,4 +1,6 @@
-_svd: ../svd/stm32f7x6.svd
+# STM32F745 devices as per reference manual RM0410.
+
+_svd: ../svd/stm32f745.svd
 
 _rebase:
   USART1: USART6
@@ -11,6 +13,13 @@ _modify:
   # Remove underscore to be consistent with other parts and RM
   SPDIF_RX:
     name: SPDIFRX
+
+"SPI3":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0410
+      "[_]FRE":
+        name: "FRE"
 
 "GPIO*":
   _modify:
@@ -125,6 +134,7 @@ _include:
  - common_patches/f7_rcc_rename_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr_sdmmc1.yaml
+ - common_patches/f7_rcc_dckcfgr_RM0410.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
@@ -134,14 +144,16 @@ _include:
  - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dsisel.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/eth/eth_dma.yaml
  - ../peripherals/eth/eth_mmc.yaml
  - ../peripherals/eth/eth_mac.yaml

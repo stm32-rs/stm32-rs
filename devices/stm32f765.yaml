@@ -1,6 +1,6 @@
-# STM32F7x5 devices as per reference manual RM0410.
+# STM32F765 devices as per reference manual RM0410.
 
-_svd: ../svd/stm32f7x5.svd
+_svd: ../svd/stm32f765.svd
 
 _rebase:
   USART1: USART6
@@ -121,6 +121,7 @@ CRYP:
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/f7_interrupts.yaml
+ - common_patches/f7_lptim_interrupt.yaml
  - common_patches/pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
@@ -169,7 +170,7 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
- - ../peripherals/flash/flash_v2.yaml
+ - ../peripherals/flash/flash_v2_dual_bank.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml

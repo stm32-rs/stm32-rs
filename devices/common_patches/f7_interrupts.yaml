@@ -7,16 +7,6 @@ PWR:
         description: PVD through EXTI line detection interrupt
         value: 1
 
-TIM1:
-  _add:
-    _interrupts:
-      TIM1_UP_TIM10:
-        description: TIM1 Update interrupt and TIM10 global interrupt
-        value: 25
-      TIM1_CC:
-        description: TIM1 Capture Compare interrupt
-        value: 27
-
 I2C1:
   _add:
     _interrupts:
@@ -52,13 +42,6 @@ USART1:
         description: UART7 global interrupt
         value: 82
 
-CRYP:
-  _add:
-    _interrupts:
-      CRYP:
-        description: CRYP crypto global interrupt
-        value: 79
-
 SAI1:
   _add:
     _interrupts:
@@ -66,30 +49,9 @@ SAI1:
         description: SAI2 global interrupt
         value: 91
 
-QUADSPI:
-  _add:
-    _interrupts:
-      QuadSPI:
-        description: QuadSPI global interrupt
-        value: 92
-
-LPTIM1:
-  _add:
-    _interrupts:
-      LP_Timer1:
-        description: LP Timer1 global interrupt
-        value: 93
-
 CRC:
   _add:
     _interrupts:
       HDMI_CEC:
         description: HDMI-CEC global interrupt
         value: 94
-
-SPDIFRX:
-  _add:
-    _interrupts:
-      SPDIFRX:
-        description: SPDIFRX global interrupt
-        value: 97
