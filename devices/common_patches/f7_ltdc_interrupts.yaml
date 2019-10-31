@@ -1,0 +1,15 @@
+# The LTDC interrupts are both named "LCD-TFT" in the SVD files and the reference manuals.
+
+LTDC:
+  _delete:
+    _interrupts:
+     - "*"
+
+  _add:
+    _interrupts:
+      LTDC:
+        description: LTDC global interrupt
+        value: 88
+      LTDC_ER:
+        description: LTDC global error interrupt
+        value: 89
