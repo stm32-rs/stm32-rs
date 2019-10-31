@@ -40,7 +40,8 @@ https://docs.rs/svd2rust/0.15.0/svd2rust/#peripheral-api
 |:------:|:-------:|:-----:|
 | stm32f7x2 | STM32F722, STM32F732 | [RM0431](https://www.st.com/resource/en/reference_manual/dm00305990.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x2.html) |
 | stm32f7x3 | STM32F723, STM32F733 | [RM0431](https://www.st.com/resource/en/reference_manual/dm00305990.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x3.html) |
-| stm32f7x5 | STM32F745, STM32F765 | [RM0410](https://www.st.com/resource/en/reference_manual/dm00224583.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x5.html) |
+| stm32f745 | STM32F745 | [RM0385](https://www.st.com/resource/en/reference_manual/dm00124865.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x5.html) |
 | stm32f7x6 | STM32F746, STM32F756 | [RM0385](https://www.st.com/resource/en/reference_manual/dm00124865.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x6.html) |
+| stm32f765 | STM32F765 | [RM0410](https://www.st.com/resource/en/reference_manual/dm00224583.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x5.html) |
 | stm32f7x7 | STM32F767, STM32F777 | [RM0410](https://www.st.com/resource/en/reference_manual/dm00224583.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x7.html) |
 | stm32f7x9 | STM32F769, STM32F778, STM32F779 | [RM0410](https://www.st.com/resource/en/reference_manual/dm00224583.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x9.html) |

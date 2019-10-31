@@ -9,8 +9,10 @@ fn main() {
             "src/stm32f7x2/device.x"
         } else if env::var_os("CARGO_FEATURE_STM32F7X3").is_some() {
             "src/stm32f7x3/device.x"
-        } else if env::var_os("CARGO_FEATURE_STM32F7X5").is_some() {
-            "src/stm32f7x5/device.x"
+        } else if env::var_os("CARGO_FEATURE_STM32F745").is_some() {
+            "src/stm32f745/device.x"
+        } else if env::var_os("CARGO_FEATURE_STM32F765").is_some() {
+            "src/stm32f765/device.x"
         } else if env::var_os("CARGO_FEATURE_STM32F7X6").is_some() {
             "src/stm32f7x6/device.x"
         } else if env::var_os("CARGO_FEATURE_STM32F7X7").is_some() {
