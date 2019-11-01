@@ -89,6 +89,14 @@ RCC:
       TM12RST:
         name: TIM22RST
 
+SYSCFG:
+  CFGR3:
+    _add:
+      ENREF_HSI48:
+        description: VREFINT reference for HSI48 oscillator enable bit
+        bitOffset: 13
+        bitWidth: 1
+
 PWR:
   CR:
     _add:
