@@ -22,17 +22,17 @@
 mod generic;
 pub use self::generic::*;
 
-#[cfg(feature = "stm32f7x2")]
-pub mod stm32f7x2;
-
-#[cfg(feature = "stm32f7x3")]
-pub mod stm32f7x3;
-
 #[cfg(feature = "stm32f745")]
 pub mod stm32f745;
 
 #[cfg(feature = "stm32f765")]
 pub mod stm32f765;
+
+#[cfg(feature = "stm32f7x2")]
+pub mod stm32f7x2;
+
+#[cfg(feature = "stm32f7x3")]
+pub mod stm32f7x3;
 
 #[cfg(feature = "stm32f7x6")]
 pub mod stm32f7x6;
