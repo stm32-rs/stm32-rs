@@ -36,12 +36,12 @@ SYSCFG:
       - ENBUF_BGAP_ADC
       - EN_BGAP
     _add:
-      # REF_LOCK is wrongly marked as writeable
+      # REF_LOCK is wrongly marked as write-only, but it's "rs" - read/set
       REF_LOCK:
         description: SYSCFG_CFGR3 lock bit
         bitOffset: 31
         bitWidth: 1
-        access: read-only
+        access: read-write
       ENBUF_VREFINT_COMP2:
         description: VREFINT reference for COMP2 scaler enable bit
         bitOffset: 12
