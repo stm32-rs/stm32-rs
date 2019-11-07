@@ -67,7 +67,7 @@ RCC:
       I2C3:
         name: I2C3RST
   CCIPR:
-    _merge: 
+    _merge:
       - "LPTIM1SEL*"
       - "I2C3SEL*"
       - "I2C1SEL*"
