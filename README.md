@@ -1,7 +1,5 @@
 # STM32 Crates
 
-_formerly [adamgreig/stm32-rs](https://github.com/adamgreig/stm32-rs)_
-
 This repository contains device support for all STM32 microcontrollers,
 providing a safe API to that device using [svd2rust] and an extensive hierarchy
 of SVD patches. Each supported device is a feature-gated module in a crate for
@@ -24,7 +22,7 @@ to drill down into each field on each register on each peripheral.
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.stm32f4]
-version = "0.8.0"
+version = "0.9.0"
 features = ["stm32f405", "rt"]
 ```
 The `rt` feature is optional but helpful. See

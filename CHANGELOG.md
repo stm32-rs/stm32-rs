@@ -2,6 +2,47 @@
 
 ## [Unreleased]
 
+## [v0.9.0] 2019-11-10
+
+Family-specific:
+
+* F1:
+    * F100 ADC (#270)
+* F3:
+    * ADC, COMP, DAC, HRTIM, OPAMP (#287)
+    * HRTIM interrupt numbers (#289)
+    * Update README concerning parts in each module (#295)
+* F4:
+    * F401 and F411 USB OTG FS patch (#272)
+* F7:
+    * Update SVD files to latest from vendor (#299)
+* L0:
+    * L0xx: NVIC priority bits (#275)
+    * L0xx: fixes (#291, #292, #293)
+    * L0x1: RCC APB1ENR TIM3 fix (#297)
+    * L0xx: SYSCFG CFGR3 fixes (#300)
+* H7:
+    * Add dual core parts (#276, #285)
+    * Correct PLL2DIVR names (#281)
+    * Split ethernet peripheral in dual core parts (#288)
+* G0:
+    * Update G0 SVD files (#286)
+* G4:
+    * RCC fixes (#294)
+
+Common:
+
+* OTG HS patches (#272, #274)
+* Updated to svd2rust 0.16.1 (#271, #283)
+* Explicitly open YAML files in UTF-8 (#277)
+* Makefile improvements (#278, #279, #280)
+* svdpatch supports copying peripherals from another SVD (#298)
+
+Thanks to:
+
+[@burrbull] [@disasm] [@albru123] [@kitzin] [@richardeoin] [@dotcypress]
+[@richard7770] [@jonas-schievink] [@ajfrantz] [@aurelj] [@osannolik] [@rfuest]
+
 ## [v0.8.0] 2019-07-28
 
 Family-specific:
@@ -218,7 +259,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...HEAD
+[v0.9.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.5.0...v0.6.0
@@ -232,27 +274,34 @@ work in this release!
 [v0.2.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/stm32-rs/stm32-rs/compare/7b47b4...v0.2.0
 
-[@ehntoo]: https://github.com/ehntoo
-[@octronics]: https://github.com/octronics
-[@burrbull]: https://github.com/burrbull
-[@MattCatz]: https://github.com/MattCatz
-[@birkenfeld]: https://github.com/birkenfeld
-[@dotcypress]: https://github.com/dotcypress
-[@aurelj]: https://github.com/aurelj
+[@ajfrantz]: https://github.com/ajfrantz
 [@albru123]: https://github.com/albru123
-[@x37v]: https://github.com/x37v
-[@HarkonenBade]: https://github.com/HarkonenBade
-[@lochsh]: https://github.com/lochsh
-[@jordens]: https://github.com/jordens
-[@jessebraham]: https://github.com/jessebraham
-[@therealprof]: https://github.com/therealprof
-[@mathk]: https://github.com/mathk
-[@hnez]: https://github.com/hnez
-[@lichtfeind]: https://github.com/lichtfeind
 [@arkorobotics]: https://github.com/arkorobotics
 [@astro]: https://github.com/astro
+[@aurelj]: https://github.com/aurelj
+[@birkenfeld]: https://github.com/birkenfeld
+[@burrbull]: https://github.com/burrbull
+[@disasm]: https://github.com/disasm
+[@dotcypress]: https://github.com/dotcypress
+[@ehntoo]: https://github.com/ehntoo
+[@HarkonenBade]: https://github.com/HarkonenBade
+[@hnez]: https://github.com/hnez
+[@jessebraham]: https://github.com/jessebraham
 [@jkristell]: https://github.com/jkristell
-[@solderjs]: https://github.com/solderjs
-[@nickray]: https://github.com/nickray
-[@richardeoin]: https://github.com/richardeoin
+[@jonas-schievink]: https://github.com/jonas-schievink
+[@jordens]: https://github.com/jordens
+[@kitzin]: https://github.com/kitzin
+[@lichtfeind]: https://github.com/lichtfeind
+[@lochsh]: https://github.com/lochsh
 [@mabezdev]: https://github.com/mabezdev
+[@mathk]: https://github.com/mathk
+[@MattCatz]: https://github.com/MattCatz
+[@nickray]: https://github.com/nickray
+[@octronics]: https://github.com/octronics
+[@osannolik]: https://github.com/osannolik
+[@rfuest]: https://github.com/rfuest
+[@richard7770]: https://github.com/richard7770
+[@richardeoin]: https://github.com/richardeoin
+[@solderjs]: https://github.com/solderjs
+[@therealprof]: https://github.com/therealprof
+[@x37v]: https://github.com/x37v
