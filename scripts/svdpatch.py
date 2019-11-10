@@ -289,20 +289,30 @@ class Device:
                 './peripheral[@derivedFrom=\'{}\']'.format(pname)):
             p.set('derivedFrom', pderive)
 
-    def copy_peripheral(self, pname, pmod):
+    def copy_peripheral(self, pname, pmod, path):
         """
         Create copy of peripheral
         """
         parent = self.device.find('peripherals')
         ptag = parent.find('./peripheral[name=\'{}\']'.format(pname))
-        pcopyname = pmod['from']
+        pcopysrc = pmod['from'].split(':')
+        pcopyname = pcopysrc[-1]
+        if len(pcopysrc) == 2:
+            pcopyfile = abspath(path, pcopysrc[0])
+            filedev = Device(ET.parse(pcopyfile))
+            source = filedev.device.find('peripherals')
+        else:
+            source = parent
         pcopy = copy.deepcopy(
-            parent.find('./peripheral[name=\'{}\']'.format(pcopyname)))
+            source.find('./peripheral[name=\'{}\']'.format(pcopyname)))
         if pcopy is None:
             raise SvdPatchError('peripheral {} not found'.format(pcopy))
         if ptag is None:
             pcopy.find("name").text = pname
-            raise SvdPatchError('unimplemented')
+            if source is parent:
+                for value in list(pcopy):
+                    if value.tag in ('baseAddress', 'interrupt'):
+                        pcopy.remove(value)
         else:
             for value in list(ptag):
                 if value.tag in ('name', 'baseAddress', 'interrupt'):
@@ -310,7 +320,7 @@ class Device:
                     if tag is not None:
                         pcopy.remove(tag)
                     pcopy.append(value)
-        parent.remove(ptag)
+            parent.remove(ptag)
         parent.append(pcopy)
 
     def rebase_peripheral(self, pnew, pold):
@@ -816,7 +826,7 @@ def process_device(svd, device, update_fields=True):
     # Handle any copied peripherals
     for pname in device.get("_copy", {}):
         val = device["_copy"][pname]
-        d.copy_peripheral(pname, val)
+        d.copy_peripheral(pname, val, device["_path"])
 
     # Handle any modifications
     for key in device.get("_modify", {}):

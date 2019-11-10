@@ -1,5 +1,9 @@
 _svd: ../svd/stm32f301.svd
 
+_copy:
+  TIM1:
+    from: ../svd/stm32f302.svd:TIM1
+
 _add:
   I2C3:
     derivedFrom: I2C1
@@ -84,6 +88,7 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed.yaml
+ - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/rcc/rcc_f3.yaml
  - ../peripherals/rcc/rcc_f3_i2s.yaml
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
