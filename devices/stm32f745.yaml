@@ -1,6 +1,6 @@
-# STM32F7x5 devices as per reference manual RM0410.
+# STM32F745 devices as per reference manual RM0410.
 
-_svd: ../svd/stm32f7x5.svd
+_svd: ../svd/stm32f745.svd
 
 _rebase:
   USART1: USART6
@@ -32,15 +32,6 @@ FLASH:
     _modify:
       OPTKEY:
         name: OPTKEYR
-
-RCC:
-  PLLCFGR:
-    _add:
-      PLLR:
-        description: PLL division factor for DSI clock
-        bitOffset: 28
-        bitWidth: 3
-        access: read-write
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
@@ -121,6 +112,8 @@ CRYP:
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/f7_interrupts.yaml
+ - common_patches/f7_lptim_interrupt.yaml
+ - common_patches/f7_ltdc_interrupts.yaml
  - common_patches/pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
@@ -149,7 +142,6 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_f7.yaml
- - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml

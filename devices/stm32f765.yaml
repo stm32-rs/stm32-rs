@@ -1,4 +1,6 @@
-_svd: ../svd/stm32f7x6.svd
+# STM32F765 devices as per reference manual RM0410.
+
+_svd: ../svd/stm32f765.svd
 
 _rebase:
   USART1: USART6
@@ -12,6 +14,13 @@ _modify:
   SPDIF_RX:
     name: SPDIFRX
 
+"SPI3":
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0410
+      "[_]FRE":
+        name: "FRE"
+
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
@@ -23,6 +32,15 @@ FLASH:
     _modify:
       OPTKEY:
         name: OPTKEYR
+
+RCC:
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: PLL division factor for DSI clock
+        bitOffset: 28
+        bitWidth: 3
+        access: read-write
 
 CRC:
   # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
@@ -126,30 +144,34 @@ _include:
  - common_patches/f7_rcc_rename_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr.yaml
  - common_patches/f7_rcc_dckcfgr_sdmmc1.yaml
+ - common_patches/f7_rcc_dckcfgr_RM0410.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllp.yaml
  - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_dsisel.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/eth/eth_dma.yaml
  - ../peripherals/eth/eth_mmc.yaml
  - ../peripherals/eth/eth_mac.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
- - ../peripherals/flash/flash_v2.yaml
+ - ../peripherals/flash/flash_v2_dual_bank.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml

@@ -1,0 +1,8 @@
+# Add missing LP_Timer1 interrupt for some STM32F7 devices.
+
+LPTIM1:
+  _add:
+    _interrupts:
+      LP_Timer1:
+        description: LP Timer1 global interrupt
+        value: 93
