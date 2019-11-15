@@ -7,3 +7,6 @@ DMA:
   _modify:
     IFCR:
       access: write-only
+
+_include:
+ - ./common_patches/3_nvic_prio_bits.yaml
