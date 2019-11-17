@@ -119,10 +119,16 @@
       Cycles55_5: [5, "55.5 ADC clock cycles"]
       Cycles71_5: [6, "71.5 ADC clock cycles"]
       Cycles239_5: [7, "239.5 ADC clock cycles"]
-  "SQR?":
-    "SQ*": [0, 17]
+  HTR:
+    HT: [0, 4095]
+  LTR:
+    LT: [0, 4095]
+  "*SQR*":
+    "*SQ*": [0, 17]
   SQR1:
     L: [0, 15]
+  JSQR:
+    JL: [0, 3]
 
 "ADC[13]":
   CR2:
