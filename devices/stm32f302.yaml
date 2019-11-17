@@ -71,6 +71,11 @@ SYSCFG:
     _delete:
       - TIM7_DAC2_DMA_RMP
 
+_delete:
+  - ADC3
+  - ADC4
+  - ADC3_4
+
 # TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:
