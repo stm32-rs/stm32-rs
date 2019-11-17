@@ -3,6 +3,8 @@ _svd: ../svd/stm32f301.svd
 _copy:
   TIM1:
     from: ../svd/stm32f302.svd:TIM1
+  ADC1_2:
+    from: ADC
 
 _add:
   I2C3:
@@ -16,17 +18,41 @@ _add:
         description: I2C3 error interrupt
         value: 73
 
-# The SVD puts CSR and CCR at 0x0 and 0x8 offset, which is their offset
-# for a common ADC peripheral which is 0x300 above ADC, but this peripheral
-# isn't defined in the SVD and instead the fields are described as aliasing
-# onto the main ADC1 ISR and CR, which isn't the case.
-"ADC":
+_modify:
+  ADC:
+    name: ADC1
+  ADC1_2:
+    description: ADC Common registers
+    baseAddress: "0x50000300"
+
+ADC1:
+  _delete:
+    - CSR
+    - CRR
+  CR:
+    _modify:
+      '*':
+        access: read-write
+
+ADC1_2:
+  _delete:
+    - I?R
+    - CR
+    - CFGR
+    - SMPR*
+    - TR*
+    - '*SQR*'
+    - '*DR*'
+    - OFR*
+    - AWD*CR
+    - DIFSEL
+    - CALFACT
   _modify:
     CSR:
-      addressOffset: "0x300"
       alternateRegister: ""
-    CCR:
-      addressOffset: "0x308"
+    CRR:
+      name: CCR
+      displayName: CCR
       alternateRegister: ""
 
 "SPI*":
@@ -65,6 +91,7 @@ _include:
  - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/f3_adc.yaml
  - ./common_patches/f3_rcc.yaml
  - ./common_patches/f3_rcc_i2c3.yaml
  - ./common_patches/f3_rcc_delete_cec.yaml
@@ -105,5 +132,6 @@ _include:
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
+ - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
