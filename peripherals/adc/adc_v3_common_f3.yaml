@@ -3,7 +3,7 @@
 _include:
   - "adc_v3_common.yaml"
 
-"ADC*_Common":
+"ADC*_*":
   CCR:
     TSEN:
       Disabled: [0, "Temperature sensor channel disabled"]
