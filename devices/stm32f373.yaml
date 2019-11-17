@@ -1,5 +1,9 @@
 _svd: ../svd/stm32f373.svd
 
+_modify:
+  ADC:
+    name: ADC1
+
 RCC:
   APB2RSTR:
     _modify:
@@ -86,7 +90,9 @@ _include:
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
+ - ../peripherals/adc/adc_array.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/f3_dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
+ - ../peripherals/adc/adc_f37x.yaml
