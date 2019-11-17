@@ -1,8 +1,22 @@
 _svd: ../svd/stm32f3x8.svd
 
+_delete:
+  - ADC1
+  - ADC2
+
 _copy:
   ADC1:
     from: ../svd/stm32f303.svd:ADC1
+  ADC2:
+    from: ../svd/stm32f303.svd:ADC2
+  ADC3:
+    from: ../svd/stm32f303.svd:ADC3
+  ADC4:
+    from: ../svd/stm32f303.svd:ADC4
+  ADC1_2:
+    from: ../svd/stm32f303.svd:ADC1_2
+  ADC3_4:
+    from: ../svd/stm32f303.svd:ADC3_4
 
 RCC:
   CFGR:
