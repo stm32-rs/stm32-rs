@@ -1,5 +1,10 @@
 _svd: ../svd/stm32f0x0.svd
 
+ADC:
+  CCR:
+    _delete:
+      - VBATEN
+
 RCC:
   AHBENR:
     _add:
