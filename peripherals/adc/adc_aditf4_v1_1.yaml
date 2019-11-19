@@ -156,6 +156,10 @@ ADC:
   TR:
     HT: [0, 4095]
     LT: [0, 4095]
+  CHSELR:
+    "CHSEL*":
+      NotSelected: [0, "Input Channel is not selected for conversion"]
+      Selected: [1, "Input Channel is selected for conversion"]
   CCR:
     TSEN:
       Disabled: [0, "Temperature sensor disabled"]
