@@ -80,7 +80,17 @@ _include:
       LPTIM1_OUT: [18, "LPTIM1_OUT event"]
       LPTIM2_OUT: [19, "LPTIM2_OUT event"]
       LPTIM3_OUT: [20, "LPTIM3_OUT event"]
+  "OFR?":
+    SSATE:
+      Disabled: [0, "Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)"]
+      Enabled: [1, "Offset is subtracted and result is saturated to maintain result size"]
+    "OFFSET?_CH": [0, 31]
+    "OFFSET?": [0, 0x3FFFFFF]
   PCSEL:
     "PCSEL*":
       NotPreselected: [0, "Input channel x is not pre-selected"]
       Preselected: [1, "Pre-select input channel x"]
+  CALFACT:
+    CALFACT_?: [0, 2047]
+  CALFACT2:
+    LINCALFACT: [0, 0x3FFFFFFF]
