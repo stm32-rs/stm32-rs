@@ -12,20 +12,6 @@ CRC:
       Independent_data_register:
         name: IDR
 
-EXTI:
-  IMR:
-    _split: [MR]
-  EMR:
-    _split: [MR]
-  RTSR:
-    _split: [TR]
-  FTSR:
-    _split: [TR]
-  SWIER:
-    _split: [SWIER]
-  PR:
-    _split: [PR]
-
 RCC:
   CR:
     _merge: ["RTCPRE*"]
@@ -77,6 +63,7 @@ _include:
  - ./common_patches/rcc_LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio_with_OSPEEDER.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/split_exti.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
