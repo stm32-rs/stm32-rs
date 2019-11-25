@@ -1,26 +1,26 @@
 EXTI:
-  IMR:
-    "MR*":
+  IMR,IMR?:
+    "MR*,IM*":
       Masked: [0, "Interrupt request line is masked"]
       Unmasked: [1, "Interrupt request line is unmasked"]
-  EMR:
-    "MR*":
+  EMR,EMR?:
+    "MR*,EM*":
       Masked: [0, "Interrupt request line is masked"]
       Unmasked: [1, "Interrupt request line is unmasked"]
-  RTSR:
-    "TR*":
+  RTSR,RTSR?:
+    "TR*,RT*":
       Disabled: [0, "Rising edge trigger is disabled"]
       Enabled: [1, "Rising edge trigger is enabled"]
-  FTSR:
-    "TR*":
+  FTSR,FTSR?:
+    "TR*,FT*":
       Disabled: [0, "Falling edge trigger is disabled"]
       Enabled: [1, "Falling edge trigger is enabled"]
-  SWIER:
-    "SWIER*":
+  SWIER,SWIER?:
+    "SWIER*,SWI*":
       _write:
         Pend: [1, "Generates an interrupt request"]
-  PR:
-    "PR*":
+  PR,PR?:
+    "PR*,PIF*":
       _write:
         Clear: [1, "Clears pending bit"]
       _read:
