@@ -1,9 +1,9 @@
 EXTI:
-  IMR,IMR?:
+  IMR,IMR?,CPUIMR?,C?IMR?,D3PMR?:
     "MR*,IM*":
       Masked: [0, "Interrupt request line is masked"]
       Unmasked: [1, "Interrupt request line is unmasked"]
-  EMR,EMR?:
+  EMR,EMR?,CPUEMR?,C?EMR?:
     "MR*,EM*":
       Masked: [0, "Interrupt request line is masked"]
       Unmasked: [1, "Interrupt request line is unmasked"]
@@ -19,7 +19,7 @@ EXTI:
     "SWIER*,SWI*":
       _write:
         Pend: [1, "Generates an interrupt request"]
-  PR,PR?:
+  PR,PR?,CPUPR?,C?PR?:
     "PR*,PIF*":
       _write:
         Clear: [1, "Clears pending bit"]
