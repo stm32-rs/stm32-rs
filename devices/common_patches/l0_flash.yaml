@@ -1,5 +1,5 @@
-# Fix Write Protection for L0 Flash
 "FLASH":
+  # Fix Write Protection for L0 Flash
   _delete:
     - WRPR
   _add:
@@ -25,3 +25,8 @@
           description: Write Protection
           bitOffset: 0
           bitWidth: 16
+  # Fix write permissions of EOP field
+  SR:
+    _modify:
+      EOP:
+        access: read-write

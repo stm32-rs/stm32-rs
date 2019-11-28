@@ -142,6 +142,37 @@ RCC:
           description: EVTCL clock enable
           bitOffset: 7
           bitWidth: 1
+    # Add missing reset and enable registers for AHB3
+    AHB3RSTR:
+      description: RCC AHB3 peripheral reset register
+      addressOffset: 0x18
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        FSMCRST:
+          description: Flexible static memory controller module reset
+          bitOffset: 0
+          bitWidth: 1
+        QSPIRST:
+          description: QUADSPI module reset
+          bitOffset: 1
+          bitWidth: 1
+    AHB3ENR:
+      description: RCC AHB3 peripheral clock enable register
+      addressOffset: 0x38
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        FSMCEN:
+          description: Flexible static memory controller module clock enable
+          bitOffset: 0
+          bitWidth: 1
+        QSPIEN:
+          description: QUADSPI memory controller module clock enable
+          bitOffset: 1
+          bitWidth: 1
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
