@@ -48,6 +48,8 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/f4_adc_single_csr.yaml
+ - common_patches/f4_adc_single_ccr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -62,7 +64,7 @@ _include:
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/adc/adc_v2.yaml
+ - ../peripherals/adc/adc_v2_single.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
