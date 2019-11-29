@@ -19,8 +19,8 @@ EXTI:
     "SWIER*,SWI*":
       _write:
         Pend: [1, "Generates an interrupt request"]
-  PR,PR?,CPUPR?,C?PR?:
-    "PR*,PIF*":
+  PR,PR?,?PR?,CPUPR?,C?PR?:
+    "PR*,PIF*,?PIF*":
       _write:
         Clear: [1, "Clears pending bit"]
       _read:
