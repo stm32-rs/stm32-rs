@@ -16,7 +16,7 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.stm32f7]
 version = "0.9.0"
-features = ["stm32f745", "rt"]
+features = ["stm32f730", "rt"]
 ```
 
 The `rt` feature is optional and brings in support for `cortex-m-rt`.
@@ -24,9 +24,9 @@ The `rt` feature is optional and brings in support for `cortex-m-rt`.
 In your code:
 
 ```rust
-use stm32f7::stm32f745;
+use stm32f7::stm32f730;
 
-let mut peripherals = stm32f745::Peripherals::take().unwrap();
+let mut peripherals = stm32f730::Peripherals::take().unwrap();
 let gpioa = &peripherals.GPIOA;
 gpioa.odr.modify(|_, w| w.odr0().set_bit());
 ```
@@ -38,6 +38,7 @@ https://docs.rs/svd2rust/0.16.1/svd2rust/#peripheral-api
 
 | Module | Devices | Links |
 |:------:|:-------:|:-----:|
+| stm32f730 | STM32F730 | [RM0431](https://www.st.com/resource/en/reference_manual/dm00305990.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x0-value-line.html) |
 | stm32f745 | STM32F745 | [RM0385](https://www.st.com/resource/en/reference_manual/dm00124865.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x5.html) |
 | stm32f765 | STM32F765 | [RM0410](https://www.st.com/resource/en/reference_manual/dm00224583.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x5.html) |
 | stm32f7x2 | STM32F722, STM32F732 | [RM0431](https://www.st.com/resource/en/reference_manual/dm00305990.pdf), [st.com](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x2.html) |
