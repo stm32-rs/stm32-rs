@@ -1,0 +1,853 @@
+# H7 EXTI module, for dual core parts
+
+EXTI:
+  _modify:
+    C1PR2,C1IMR3,C1EMR3,C1PR3:
+      access: read-write
+
+  _add:
+    C2IMR1:
+      description: CPU2 EXTI interrupt mask register
+      addressOffset: 0x00C0
+      resetValue: 0xFFC00000
+      fields:
+        MR0:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 0
+          bitWidth: 1
+        MR1:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 1
+          bitWidth: 1
+        MR2:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 2
+          bitWidth: 1
+        MR3:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 3
+          bitWidth: 1
+        MR4:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 4
+          bitWidth: 1
+        MR5:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 5
+          bitWidth: 1
+        MR6:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 6
+          bitWidth: 1
+        MR7:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 7
+          bitWidth: 1
+        MR8:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 8
+          bitWidth: 1
+        MR9:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 9
+          bitWidth: 1
+        MR10:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 10
+          bitWidth: 1
+        MR11:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 11
+          bitWidth: 1
+        MR12:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 12
+          bitWidth: 1
+        MR13:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 13
+          bitWidth: 1
+        MR14:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 14
+          bitWidth: 1
+        MR15:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 15
+          bitWidth: 1
+        MR16:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 16
+          bitWidth: 1
+        MR17:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 17
+          bitWidth: 1
+        MR18:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 18
+          bitWidth: 1
+        MR19:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 19
+          bitWidth: 1
+        MR20:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 20
+          bitWidth: 1
+        MR21:
+          description: CPU2 interrupt mask on Configurable Event input
+          bitOffset: 21
+          bitWidth: 1
+        MR22:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 22
+          bitWidth: 1
+        MR23:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 23
+          bitWidth: 1
+        MR24:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 24
+          bitWidth: 1
+        MR25:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 25
+          bitWidth: 1
+        MR26:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 26
+          bitWidth: 1
+        MR27:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 27
+          bitWidth: 1
+        MR28:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 28
+          bitWidth: 1
+        MR29:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 29
+          bitWidth: 1
+        MR30:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 30
+          bitWidth: 1
+        MR31:
+          description: CPU2 interrupt mask on Direct Event input
+          bitOffset: 31
+          bitWidth: 1
+    C2EMR1:
+      description: CPU2 EXTI event mask register
+      addressOffset: 0x00C4
+      resetValue: 0x00000000
+      fields:
+        MR0:
+          description: CPU2 event mask on Event input x
+          bitOffset: 0
+          bitWidth: 1
+        MR1:
+          description: CPU2 event mask on Event input x
+          bitOffset: 1
+          bitWidth: 1
+        MR2:
+          description: CPU2 event mask on Event input x
+          bitOffset: 2
+          bitWidth: 1
+        MR3:
+          description: CPU2 event mask on Event input x
+          bitOffset: 3
+          bitWidth: 1
+        MR4:
+          description: CPU2 event mask on Event input x
+          bitOffset: 4
+          bitWidth: 1
+        MR5:
+          description: CPU2 event mask on Event input x
+          bitOffset: 5
+          bitWidth: 1
+        MR6:
+          description: CPU2 event mask on Event input x
+          bitOffset: 6
+          bitWidth: 1
+        MR7:
+          description: CPU2 event mask on Event input x
+          bitOffset: 7
+          bitWidth: 1
+        MR8:
+          description: CPU2 event mask on Event input x
+          bitOffset: 8
+          bitWidth: 1
+        MR9:
+          description: CPU2 event mask on Event input x
+          bitOffset: 9
+          bitWidth: 1
+        MR10:
+          description: CPU2 event mask on Event input x
+          bitOffset: 10
+          bitWidth: 1
+        MR11:
+          description: CPU2 event mask on Event input x
+          bitOffset: 11
+          bitWidth: 1
+        MR12:
+          description: CPU2 event mask on Event input x
+          bitOffset: 12
+          bitWidth: 1
+        MR13:
+          description: CPU2 event mask on Event input x
+          bitOffset: 13
+          bitWidth: 1
+        MR14:
+          description: CPU2 event mask on Event input x
+          bitOffset: 14
+          bitWidth: 1
+        MR15:
+          description: CPU2 event mask on Event input x
+          bitOffset: 15
+          bitWidth: 1
+        MR16:
+          description: CPU2 event mask on Event input x
+          bitOffset: 16
+          bitWidth: 1
+        MR17:
+          description: CPU2 event mask on Event input x
+          bitOffset: 17
+          bitWidth: 1
+        MR18:
+          description: CPU2 event mask on Event input x
+          bitOffset: 18
+          bitWidth: 1
+        MR19:
+          description: CPU2 event mask on Event input x
+          bitOffset: 19
+          bitWidth: 1
+        MR20:
+          description: CPU2 event mask on Event input x
+          bitOffset: 20
+          bitWidth: 1
+        MR21:
+          description: CPU2 event mask on Event input x
+          bitOffset: 21
+          bitWidth: 1
+        MR22:
+          description: CPU2 event mask on Event input x
+          bitOffset: 22
+          bitWidth: 1
+        MR23:
+          description: CPU2 event mask on Event input x
+          bitOffset: 23
+          bitWidth: 1
+        MR24:
+          description: CPU2 event mask on Event input x
+          bitOffset: 24
+          bitWidth: 1
+        MR25:
+          description: CPU2 event mask on Event input x
+          bitOffset: 25
+          bitWidth: 1
+        MR26:
+          description: CPU2 event mask on Event input x
+          bitOffset: 26
+          bitWidth: 1
+        MR27:
+          description: CPU2 event mask on Event input x
+          bitOffset: 27
+          bitWidth: 1
+        MR28:
+          description: CPU2 event mask on Event input x
+          bitOffset: 28
+          bitWidth: 1
+        MR29:
+          description: CPU2 event mask on Event input x
+          bitOffset: 29
+          bitWidth: 1
+        MR30:
+          description: CPU2 event mask on Event input x
+          bitOffset: 30
+          bitWidth: 1
+        MR31:
+          description: CPU2 event mask on Event input x
+          bitOffset: 31
+          bitWidth: 1
+    C2PR1:
+      description: CPU2 EXTI pending register
+      addressOffset: 0x00C8
+      resetValue: 0x00000000
+      fields:
+        PR0:
+          description: Configurable event input pending
+          bitOffset: 0
+          bitWidth: 1
+        PR1:
+          description: Configurable event input pending
+          bitOffset: 1
+          bitWidth: 1
+        PR2:
+          description: Configurable event input pending
+          bitOffset: 2
+          bitWidth: 1
+        PR3:
+          description: Configurable event input pending
+          bitOffset: 3
+          bitWidth: 1
+        PR4:
+          description: Configurable event input pending
+          bitOffset: 4
+          bitWidth: 1
+        PR5:
+          description: Configurable event input pending
+          bitOffset: 5
+          bitWidth: 1
+        PR6:
+          description: Configurable event input pending
+          bitOffset: 6
+          bitWidth: 1
+        PR7:
+          description: Configurable event input pending
+          bitOffset: 7
+          bitWidth: 1
+        PR8:
+          description: Configurable event input pending
+          bitOffset: 8
+          bitWidth: 1
+        PR9:
+          description: Configurable event input pending
+          bitOffset: 9
+          bitWidth: 1
+        PR10:
+          description: Configurable event input pending
+          bitOffset: 10
+          bitWidth: 1
+        PR11:
+          description: Configurable event input pending
+          bitOffset: 11
+          bitWidth: 1
+        PR12:
+          description: Configurable event input pending
+          bitOffset: 12
+          bitWidth: 1
+        PR13:
+          description: Configurable event input pending
+          bitOffset: 13
+          bitWidth: 1
+        PR14:
+          description: Configurable event input pending
+          bitOffset: 14
+          bitWidth: 1
+        PR15:
+          description: Configurable event input pending
+          bitOffset: 15
+          bitWidth: 1
+        PR16:
+          description: Configurable event input pending
+          bitOffset: 16
+          bitWidth: 1
+        PR17:
+          description: Configurable event input pending
+          bitOffset: 17
+          bitWidth: 1
+        PR18:
+          description: Configurable event input pending
+          bitOffset: 18
+          bitWidth: 1
+        PR19:
+          description: Configurable event input pending
+          bitOffset: 19
+          bitWidth: 1
+        PR20:
+          description: Configurable event input pending
+          bitOffset: 20
+          bitWidth: 1
+        PR21:
+          description: Configurable event input pending
+          bitOffset: 21
+          bitWidth: 1
+    C2IMR2:
+      description: CPU2 EXTI interrupt mask register
+      addressOffset: 0x00D0
+      resetValue: 0xFFF5FFFF
+      fields:
+        MR32:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 0
+          bitWidth: 1
+        MR33:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 1
+          bitWidth: 1
+        MR34:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 2
+          bitWidth: 1
+        MR35:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 3
+          bitWidth: 1
+        MR36:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 4
+          bitWidth: 1
+        MR37:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 5
+          bitWidth: 1
+        MR38:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 6
+          bitWidth: 1
+        MR39:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 7
+          bitWidth: 1
+        MR40:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 8
+          bitWidth: 1
+        MR41:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 9
+          bitWidth: 1
+        MR42:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 10
+          bitWidth: 1
+        MR43:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 11
+          bitWidth: 1
+        MR44:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 12
+          bitWidth: 1
+        MR46:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 14
+          bitWidth: 1
+        MR47:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 15
+          bitWidth: 1
+        MR48:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 16
+          bitWidth: 1
+        MR49:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 17
+          bitWidth: 1
+        MR50:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 18
+          bitWidth: 1
+        MR51:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 19
+          bitWidth: 1
+        MR52:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 20
+          bitWidth: 1
+        MR53:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 21
+          bitWidth: 1
+        MR54:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 22
+          bitWidth: 1
+        MR55:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 23
+          bitWidth: 1
+        MR56:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 24
+          bitWidth: 1
+        MR57:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 25
+          bitWidth: 1
+        MR58:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 26
+          bitWidth: 1
+        MR59:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 27
+          bitWidth: 1
+        MR60:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 28
+          bitWidth: 1
+        MR61:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 29
+          bitWidth: 1
+        MR62:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 30
+          bitWidth: 1
+        MR63:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 31
+          bitWidth: 1
+    C2EMR2:
+      description:  CPU2 EXTI event mask register
+      addressOffset: 0x00D4
+      resetValue: 0x00000000
+      fields:
+        MR32:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 0
+          bitWidth: 1
+        MR33:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 1
+          bitWidth: 1
+        MR34:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 2
+          bitWidth: 1
+        MR35:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 3
+          bitWidth: 1
+        MR36:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 4
+          bitWidth: 1
+        MR37:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 5
+          bitWidth: 1
+        MR38:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 6
+          bitWidth: 1
+        MR39:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 7
+          bitWidth: 1
+        MR40:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 8
+          bitWidth: 1
+        MR41:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 9
+          bitWidth: 1
+        MR42:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 10
+          bitWidth: 1
+        MR43:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 11
+          bitWidth: 1
+        MR44:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 12
+          bitWidth: 1
+        MR46:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 14
+          bitWidth: 1
+        MR47:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 15
+          bitWidth: 1
+        MR48:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 16
+          bitWidth: 1
+        MR49:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 17
+          bitWidth: 1
+        MR50:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 18
+          bitWidth: 1
+        MR51:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 19
+          bitWidth: 1
+        MR52:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 20
+          bitWidth: 1
+        MR53:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 21
+          bitWidth: 1
+        MR54:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 22
+          bitWidth: 1
+        MR55:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 23
+          bitWidth: 1
+        MR56:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 24
+          bitWidth: 1
+        MR57:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 25
+          bitWidth: 1
+        MR58:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 26
+          bitWidth: 1
+        MR59:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 27
+          bitWidth: 1
+        MR60:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 28
+          bitWidth: 1
+        MR61:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 29
+          bitWidth: 1
+        MR62:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 30
+          bitWidth: 1
+        MR63:
+          description: CPU2 interrupt Mask on Direct Event input x+32
+          bitOffset: 31
+          bitWidth: 1
+    C2PR2:
+      description: CPU2 EXTI pending register
+      addressOffset: 0x00D8
+      resetValue: 0x00000000
+      fields:
+        PR49:
+          description: CPU2 configurable event inputs x+32 Pending bit
+          bitOffset: 17
+          bitWidth: 1
+        PR51:
+          description: CPU2 configurable event inputs x+32 Pending bit
+          bitOffset: 19
+          bitWidth: 1
+    C2IMR3:
+      description: CPU2 EXTI interrupt mask register
+      addressOffset: 0x00E0
+      resetValue: 0x018BFFFF
+      fields:
+        MR64:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 0
+          bitWidth: 1
+        MR65:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 1
+          bitWidth: 1
+        MR66:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 2
+          bitWidth: 1
+        MR67:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 3
+          bitWidth: 1
+        MR68:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 4
+          bitWidth: 1
+        MR69:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 5
+          bitWidth: 1
+        MR70:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 6
+          bitWidth: 1
+        MR71:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 7
+          bitWidth: 1
+        MR72:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 8
+          bitWidth: 1
+        MR73:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 9
+          bitWidth: 1
+        MR74:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 10
+          bitWidth: 1
+        MR75:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 11
+          bitWidth: 1
+        MR76:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 12
+          bitWidth: 1
+        MR77:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 13
+          bitWidth: 1
+        MR78:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 14
+          bitWidth: 1
+        MR79:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 15
+          bitWidth: 1
+        MR80:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 16
+          bitWidth: 1
+        MR82:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 18
+          bitWidth: 1
+        MR84:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 20
+          bitWidth: 1
+        MR85:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 21
+          bitWidth: 1
+        MR86:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 22
+          bitWidth: 1
+        MR87:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 23
+          bitWidth: 1
+        MR88:
+          description: CPU2 interrupt Mask on Direct Event input x+64
+          bitOffset: 24
+          bitWidth: 1
+    C2EMR3:
+      description: CPU2 EXTI event mask register
+      addressOffset: 0x00E4
+      resetValue: 0x00000000
+      fields:
+        MR64:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 0
+          bitWidth: 1
+        MR65:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 1
+          bitWidth: 1
+        MR66:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 2
+          bitWidth: 1
+        MR67:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 3
+          bitWidth: 1
+        MR68:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 4
+          bitWidth: 1
+        MR69:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 5
+          bitWidth: 1
+        MR70:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 6
+          bitWidth: 1
+        MR71:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 7
+          bitWidth: 1
+        MR72:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 8
+          bitWidth: 1
+        MR73:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 9
+          bitWidth: 1
+        MR74:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 10
+          bitWidth: 1
+        MR75:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 11
+          bitWidth: 1
+        MR76:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 12
+          bitWidth: 1
+        MR77:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 13
+          bitWidth: 1
+        MR78:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 14
+          bitWidth: 1
+        MR79:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 15
+          bitWidth: 1
+        MR80:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 16
+          bitWidth: 1
+        MR82:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 18
+          bitWidth: 1
+        MR84:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 20
+          bitWidth: 1
+        MR85:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 21
+          bitWidth: 1
+        MR86:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 22
+          bitWidth: 1
+        MR87:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 23
+          bitWidth: 1
+        MR88:
+          description: CPU2 event mask on Event input x+64
+          bitOffset: 24
+          bitWidth: 1
+    C2PR3:
+      description: CPU2 EXTI pending register
+      addressOffset: 0x00E8
+      resetValue: 0x00000000
+      fields:
+        PR82:
+          description: CPU2 configurable event inputs x+64 Pending bit
+          bitOffset: 18
+          bitWidth: 1
+        PR84:
+          description: CPU2 configurable event inputs x+64 Pending bit
+          bitOffset: 20
+          bitWidth: 1
+        PR85:
+          description: CPU2 configurable event inputs x+64 Pending bit
+          bitOffset: 21
+          bitWidth: 1
+        PR86:
+          description: CPU2 configurable event inputs x+64 Pending bit
+          bitOffset: 22
+          bitWidth: 1
