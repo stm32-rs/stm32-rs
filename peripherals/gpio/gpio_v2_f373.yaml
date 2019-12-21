@@ -1,6 +1,6 @@
-# This GPIO is used on the STM32F0, F3, F4, and F7 families.
+# This GPIO is used on the STM32F373 and STM32F3x8 families.
 
-"GPIO*":
+"GPIO[ABD]":
   LCKR:
     "LCK[0123456789]":
       Unlocked: [0, "Port configuration not locked"]
