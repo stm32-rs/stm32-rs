@@ -4,6 +4,83 @@ _copy:
   ADC1:
     from: ../svd/stm32f303.svd:ADC1
 
+GPIOC:
+  _add:
+    LCKR:
+      description: GPIO port configuration lock register
+      addressOffset: 0x1C
+      access: read-write
+      fields:
+        LCKK:
+          description: Lok Key
+          bitOffset: 16
+          bitWidth: 1
+        LCK15:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 15
+          bitWidth: 1
+        LCK14:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 14
+          bitWidth: 1
+        LCK13:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 13
+          bitWidth: 1
+        LCK12:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 12
+          bitWidth: 1
+        LCK11:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 11
+          bitWidth: 1
+        LCK10:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 10
+          bitWidth: 1
+        LCK9:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 9
+          bitWidth: 1
+        LCK8:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 8
+          bitWidth: 1
+        LCK7:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 7
+          bitWidth: 1
+        LCK6:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 6
+          bitWidth: 1
+        LCK5:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 5
+          bitWidth: 1
+        LCK4:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 4
+          bitWidth: 1
+        LCK3:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 3
+          bitWidth: 1
+        LCK2:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 2
+          bitWidth: 1
+        LCK1:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 1
+          bitWidth: 1
+        LCK0:
+          description: Port x lock bit y (y=0..15)
+          bitOffset: 0
+          bitWidth: 1
+
+
 RCC:
   CFGR:
     _delete:
