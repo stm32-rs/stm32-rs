@@ -1,5 +1,8 @@
 # This GPIO is used on the STM32F373 and STM32F3x8 families.
 
+_include:
+  - gpio_v2_common.yaml
+
 "GPIO[ABD]":
   LCKR:
     "LCK[0123456789]":
@@ -11,6 +14,3 @@
     "LCKK":
       NotActive: [0, "Port configuration lock key not active"]
       Active: [1, "Port configuration lock key active"]
-
-_include:
-  - gpio_v2_common.yaml
