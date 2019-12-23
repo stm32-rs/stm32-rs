@@ -12,7 +12,7 @@ _include:
 RCC:
   CFGR2:
     "ADC*PRES":
-      NoClock: [0, "No clock"] # Same for [0, 15]
+      NoClock: [15, "No clock"] # Same for [0, 15]
       Div1: [16, "PLL clock not divided"]
       Div2: [17, "PLL clock divided by 2"]
       Div4: [18, "PLL clock divided by 4"]

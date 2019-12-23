@@ -6,7 +6,7 @@
 RCC:
   D1CFGR:
     "D?CPRE,HPRE":
-      Div1: [0, "sys_ck not divided"]
+      Div1: [7, "sys_ck not divided"] # Same for [0, 7]
       Div2: [8, "sys_ck divided by 2"]
       Div4: [9, "sys_ck divided by 4"]
       Div8: [10, "sys_ck divided by 8"]
