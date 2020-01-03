@@ -90,15 +90,19 @@ OTG_FS_DEVICE:
     DIEPCTL4:
       _from: DIEPCTL1
       addressOffset: 0x180
+      description: OTG device endpoint-4 control register
     DIEPCTL5:
       _from: DIEPCTL1
       addressOffset: 0x200
+      description: OTG device endpoint-5 control register
     DIEPINT4:
       _from: DIEPINT1
       addressOffset: 0x988
+      description: device endpoint-4 interrupt register
     DIEPINT5:
       _from: DIEPINT1
       addressOffset: 0x9A8
+      description: device endpoint-5 interrupt register
 
   # TODO: DTXFSTS{4,5}
   # TODO: DIEPTSIZ{4,5}

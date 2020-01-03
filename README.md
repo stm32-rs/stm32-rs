@@ -268,6 +268,12 @@ _rebase:
         _interrupts:
             EXTI0:
                 value: 101
+    
+    # Derive new registers from existing registers of this peripheral
+    _derive:
+        EXAMPLER5:
+            _from: EXAMPLER1
+            addressOffset: 0x1337
 
 
     # Add new registers and interrupts to this peripheral.
