@@ -1,0 +1,138 @@
+# For F446, F469, F479
+
+OTG_FS_GLOBAL:
+  _add:
+    GRXSTSP_Device:
+      description: OTG status read and pop (device mode)
+      addressOffset: 0x20
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      fields:
+        STSPHST:
+          description: Status phase start
+          bitOffset: 27
+          bitWidth: 1
+        FRMNUM:
+          description: Frame number
+          bitOffset: 21
+          bitWidth: 4
+        PKTSTS:
+          description: Packet status
+          bitOffset: 17
+          bitWidth: 4
+        DPID:
+          description: Data PID
+          bitOffset: 15
+          bitWidth: 2
+        BCNT:
+          description: Byte count
+          bitOffset: 4
+          bitWidth: 11
+        EPNUM:
+          description: Endpoint number
+          bitOffset: 0
+          bitWidth: 4
+
+    GRXSTSP_Host:
+      description: OTG status read and pop (host mode)
+      addressOffset: 0x20
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      alternateRegister: GRXSTSP_Device
+      fields:
+        PKTSTS:
+          description: Packet status
+          bitOffset: 17
+          bitWidth: 4
+        DPID:
+          description: Data PID
+          bitOffset: 15
+          bitWidth: 2
+        BCNT:
+          description: Byte count
+          bitOffset: 4
+          bitWidth: 11
+        CHNUM:
+          description: Channel number
+          bitOffset: 0
+          bitWidth: 4
+
+  _modify:
+    GNPTXFSIZ_Device:
+      name: DIEPTXF0
+      displayName: DIEPTXF0
+
+    GNPTXFSIZ_Host:
+      name: HNPTXFSIZ
+      displayName: HNPTXFSIZ
+      alternateRegister: DIEPTXF0
+
+  _array:
+    DIEPTXF[12345]:
+      displayName: DIEPTXF%s
+      description: OTF_FS device IN endpoint transmit FIFO size register
+
+
+OTG_FS_DEVICE:
+  _modify:
+    DIEPINT0:
+      addressOffset: 0x908
+    DIEPINT1:
+      addressOffset: 0x928
+    DIEPINT2:
+      addressOffset: 0x948
+    DIEPINT3:
+      addressOffset: 0x968
+
+  _derive:
+    DIEPCTL4:
+      _from: DIEPCTL1
+      addressOffset: 0x180
+    DIEPCTL5:
+      _from: DIEPCTL1
+      addressOffset: 0x200
+    DIEPINT4:
+      _from: DIEPINT1
+      addressOffset: 0x988
+    DIEPINT5:
+      _from: DIEPINT1
+      addressOffset: 0x9A8
+
+  # TODO: DTXFSTS{4,5}
+  # TODO: DIEPTSIZ{4,5}
+  # TODO: DOEPCTL{4,5}
+  # TODO: DOEPINT{4,5}
+  # TODO: DOEPTSIZ{4,5}
+
+  # _array:
+  #   DIEPCTL*:
+  #     displayName: DIEPCTL%s
+  #     description: OTG_FS device endpoint %s IN control register
+  #   DOEPCTL*:
+  #     displayName: DOEPCTL%s
+  #     description: OTG_FS device endpoint %s OUT control register
+
+  DIEPCTL0:
+    _modify:
+      EPENA:
+        access: read-write
+
+  DIEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL
+
+  DOEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL
+
+  DAINTMSK:
+    _modify:
+      OEPINT:
+        name: OEPM
+        description: OUT EP interrupt mask bits
