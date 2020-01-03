@@ -399,6 +399,16 @@ class Device:
                         p.add_interrupt(iname, radd[iname])
                 else:
                     p.add_register(rname, radd)
+            for rname in peripheral.get("_derive", {}):
+                rderive = peripheral["_derive"][rname]
+                if rname == "_registers":
+                    for rname in rderive:
+                        p.derive_register(rname, rderive[rname])
+                elif rname == "_interrupts":
+                    raise NotImplementedError(
+                        'deriving interrupts not implemented yet: {}'.format(rname))
+                else:
+                    p.derive_register(rname, rderive)
             # Handle registers
             for rspec in peripheral:
                 if not rspec.startswith("_"):
@@ -473,7 +483,7 @@ class Peripheral:
                 if value == "":
                     rtag.remove(tag)
                 else:
-                    tag.text = value
+                    tag.text = str(value)
 
     def add_register(self, rname, radd):
         """Add rname given by radd to ptag."""
@@ -493,6 +503,39 @@ class Peripheral:
             else:
                 ET.SubElement(rnew, key).text = str(value)
         rnew.tail = "\n        "
+    
+    def derive_register(self, rname, rderive):
+        """Add rname given by deriving from rsource to ptag"""
+        parent = self.ptag.find('registers')
+        if not '_from' in  rderive:
+            raise SvdPatchError(
+                'derive: source register not given, please add a _from field to {}'
+                .format(rname))
+        srcname = rderive['_from']
+        source = None
+        for rtag in parent.iter('register'):
+            if rtag.find('name').text == rname:
+                raise SvdPatchError(
+                    'peripheral {} already has a register {}'
+                    .format(self.ptag.find('name').text, rname))
+            if rtag.find('name').text == srcname:
+                source = rtag
+        if source == None:
+            raise SvdPatchError(
+                'peripheral {} does not have register {}'
+                .format(self.ptag.find('name').text, srcname))
+        rcopy = copy.deepcopy(source)
+        rcopy.find('name').text = rname
+        rcopy.find('displayName').text = rname
+        for (key, value) in rderive.items():
+            if key == '_from':
+                continue
+            elif key == 'fields':
+                raise NotImplementedError(
+                    'Modifying fields in derived register not implemented')
+            else:
+                rcopy.find(key).text = str(value)
+        parent.append(rcopy)
 
     def delete_register(self, rspec):
         """Delete registers matched by rspec inside ptag."""
