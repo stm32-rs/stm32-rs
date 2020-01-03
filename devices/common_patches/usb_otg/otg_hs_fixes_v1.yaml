@@ -1,3 +1,9 @@
+# For F405, F407, F427, F429, F446, F469
+
+# TODO: Support devices with different number of endpoints
+# eg. 405, 407, 427, 429 -> 6 endpoints total
+# eg. 446, 469, 479 -> 9 endpoints total
+
 # Fix power and clock gating control register name
 OTG_HS_PWRCLK:
   _modify:

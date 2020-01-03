@@ -1,3 +1,5 @@
+# For F401, F411
+
 OTG_FS_GLOBAL:
   _add:
     GRXSTSP_Device:
@@ -7,6 +9,10 @@ OTG_FS_GLOBAL:
       resetValue: 0x00000000
       access: read-only
       fields:
+        STSPHST:
+          description: Status phase start
+          bitOffset: 27
+          bitWidth: 1
         FRMNUM:
           description: Frame number
           bitOffset: 21
@@ -64,13 +70,19 @@ OTG_FS_GLOBAL:
       alternateRegister: DIEPTXF0
 
   _array:
-    DIEPTXF[123]: {}
+    DIEPTXF[123]:
+      displayName: DIEPTXF%s
+      description: OTF_FS device IN endpoint transmit FIFO size register
 
 
 OTG_FS_DEVICE:
   _array:
-    DIEPCTL[123]: {}
-    DOEPCTL[123]: {}
+    DIEPCTL[123]:
+      displayName: DIEPCTL%s
+      description: OTG_FS device endpoint %s IN control register
+    DOEPCTL[123]:
+      displayName: DOEPCTL%s
+      description: OTG_FS device endpoint %s OUT control register
 
   DIEPCTL0:
     _modify:
