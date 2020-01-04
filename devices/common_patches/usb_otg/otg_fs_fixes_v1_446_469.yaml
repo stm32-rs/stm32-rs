@@ -1,6 +1,14 @@
 # For F446, F469, F479
 
 OTG_FS_GLOBAL:
+  _derive:
+    DIEPTXF4:
+      _from: DIEPTXF1
+      addressOffset: 0x110
+    DIEPTXF5:
+      _from: DIEPTXF1
+      addressOffset: 0x114
+
   _add:
     GRXSTSP_Device:
       description: OTG status read and pop (device mode)
@@ -58,8 +66,16 @@ OTG_FS_GLOBAL:
           description: Channel number
           bitOffset: 0
           bitWidth: 4
+    
+      GLPMCFG:
+        addressOffset: 0x54
+        # TODO
 
   _modify:
+    CID:
+      name: OTG_CID
+      resetValue: 0x00002000
+
     GNPTXFSIZ_Device:
       name: DIEPTXF0
       displayName: DIEPTXF0
@@ -76,16 +92,6 @@ OTG_FS_GLOBAL:
 
 
 OTG_FS_DEVICE:
-  _modify:
-    DIEPINT0:
-      addressOffset: 0x908
-    DIEPINT1:
-      addressOffset: 0x928
-    DIEPINT2:
-      addressOffset: 0x948
-    DIEPINT3:
-      addressOffset: 0x968
-
   _derive:
     DIEPCTL4:
       _from: DIEPCTL1
@@ -93,30 +99,46 @@ OTG_FS_DEVICE:
       description: OTG device endpoint-4 control register
     DIEPCTL5:
       _from: DIEPCTL1
-      addressOffset: 0x200
+      addressOffset: 0x1A0
       description: OTG device endpoint-5 control register
     DIEPINT4:
       _from: DIEPINT1
-      addressOffset: 0x988
+      addressOffset: 0x188
       description: device endpoint-4 interrupt register
     DIEPINT5:
       _from: DIEPINT1
-      addressOffset: 0x9A8
+      addressOffset: 0x1A8
       description: device endpoint-5 interrupt register
-
-  # TODO: DTXFSTS{4,5}
-  # TODO: DIEPTSIZ{4,5}
-  # TODO: DOEPCTL{4,5}
-  # TODO: DOEPINT{4,5}
-  # TODO: DOEPTSIZ{4,5}
-
-  # _array:
-  #   DIEPCTL*:
-  #     displayName: DIEPCTL%s
-  #     description: OTG_FS device endpoint %s IN control register
-  #   DOEPCTL*:
-  #     displayName: DOEPCTL%s
-  #     description: OTG_FS device endpoint %s OUT control register
+    DTXFSTS4:
+      _from: DTXFSTS1
+      addressOffset: 0x198
+    DTXFSTS5:
+      _from: DTXFSTS1
+      addressOffset: 0x1B8
+    DIEPTSIZ4:
+      _from: DIEPTSIZ1
+      addressOffset: 0x190
+    DIEPTSIZ5:
+      _from: DIEPTSIZ1
+      addressOffset: 0x1b0
+    DOEPCTL4:
+      _from: DOEPCTL1
+      addressOffset: 0x380
+    DOEPCTL5:
+      _from: DOEPCTL1
+      addressOffset: 0x3a0
+    DOEPINT4:
+      _from: DOEPINT1
+      addressOffset: 0x388
+    DOEPINT5:
+      _from: DOEPINT1
+      addressOffset: 0x3a8
+    DOEPTSIZ4:
+      _from: DOEPTSIZ1
+      addressOffset: 0x390
+    DOEPTSIZ5:
+      _from: DOEPTSIZ1
+      addressOffset: 0x3b0
 
   DIEPCTL0:
     _modify:
@@ -140,3 +162,12 @@ OTG_FS_DEVICE:
       OEPINT:
         name: OEPM
         description: OUT EP interrupt mask bits
+  
+  _array:
+    DIEPCTL[12345]: {}
+    DIEPINT[12345]: {}
+    DIEPTSIZ[12345]: {}
+    DOEPCTL[12345]: {}
+    DOEPINT[12345]: {}
+    DOEPTSIZ[12345]: {}
+    DTXFSTS[12345]: {}
