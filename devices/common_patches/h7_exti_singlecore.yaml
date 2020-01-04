@@ -1,0 +1,6 @@
+# H7 EXTI module, for single core parts
+
+EXTI:
+  _modify:
+    CPUPR2,CPUIMR3,CPUEMR3,CPUPR3:
+      access: read-write

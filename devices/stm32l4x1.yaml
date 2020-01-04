@@ -1,12 +1,17 @@
 _svd: ../svd/stm32l4x1.svd
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
+# SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
 RCC:
   APB1ENR1:
     _modify:
       USART1EN:
         name: USART3EN
         description: USART3 clock enable
+    _modify:
+      SPI1EN:
+        name: SPI2EN
+        description: SPI peripheral 2 clock enable
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
