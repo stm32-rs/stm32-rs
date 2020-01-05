@@ -1,0 +1,65 @@
+_svd: ../svd/stm32f730.svd
+
+_derive:
+  USART3: USART1
+
+_rebase:
+  SPI1: SPI5
+
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+
+_include:
+ - common_patches/f7x23_pllsai.yaml
+ - common_patches/dma_fcr_wo.yaml
+ - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - ../peripherals/can/can.yaml
+ - common_patches/sai/sai_v1.yaml
+ - common_patches/f7_rcc_lsedrv.yaml
+ - common_patches/f7_rcc_dckcfgr.yaml
+ - common_patches/f7x23_rcc_dckcfgr.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - ../peripherals/dac/dac_wavegen.yaml
+ - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
+ - ../peripherals/rcc/rcc_merge_sw_sws.yaml
+ - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_merge_rtcsel.yaml
+ - ../peripherals/gpio/gpio_v2.yaml
+ - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/spi/spi_v2.yaml
+ - ../peripherals/adc/adc_v2_smpr.yaml
+ - ../peripherals/adc/adc_v2_multi.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/pwr/pwr_f7.yaml
+ - ../peripherals/pwr/pwr_v2.yaml
+ - ../peripherals/flash/flash_v2.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
+ - ../peripherals/tim/tim_advanced.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/i2c/i2c_v2_without_wakeup.yaml
+ - ../peripherals/usart/usart_v2C.yaml
+ - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sdfix.yaml
+ - common_patches/fsmc/fsmc_nand_v2.yaml
+ - common_patches/fsmc/fsmc_sd.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_wfdis.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sd.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/dbgmcu.yaml
+ - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/sai/sai.yaml
