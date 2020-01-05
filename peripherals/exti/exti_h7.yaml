@@ -1,0 +1,10 @@
+_include:
+  - exti.yaml
+
+EXTI:
+  D3PCR??:
+    "PCS*":
+      DMA_CH6: [0, "DMA ch6 event selected as D3 domain pendclear source"]
+      DMA_CH7: [1, "DMA ch7 event selected as D3 domain pendclear source"]
+      LPTIM4: [2, "LPTIM4 out selected as D3 domain pendclear source"]
+      LPTIM5: [3, "LPTIM5 out selected as D3 domain pendclear source"]

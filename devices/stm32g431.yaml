@@ -2,3 +2,5 @@ _svd: ../svd/stm32g431.svd
 
 _include:
  - ./common_patches/g4_rcc.yaml
+ - ./common_patches/g4_exti.yaml
+ - ../peripherals/exti/exti.yaml

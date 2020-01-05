@@ -1,0 +1,11 @@
+_include:
+  - exti.yaml
+
+EXTI:
+  EXTICR?:
+    "EXTI*":
+      PA: [0, "GPIO port A selected"]
+      PB: [1, "GPIO port B selected"]
+      PC: [2, "GPIO port C selected"]
+      PD: [3, "GPIO port D selected"]
+      PF: [5, "GPIO port F selected"]

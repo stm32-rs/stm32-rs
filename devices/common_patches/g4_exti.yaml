@@ -1,0 +1,153 @@
+EXTI:
+  RTSR1:
+    _delete:
+      - RT18
+    _modify:
+      RT:
+        name: RT29
+        description: Rising trigger event configuration of line 29
+        bitOffset: 29
+        bitWidth: 1
+    _add:
+      RT17:
+        description: Rising trigger event configuration of line 17
+        bitOffset: 17
+        bitWidth: 1
+      RT30:
+        description: Rising trigger event configuration of line 30
+        bitOffset: 30
+        bitWidth: 1
+      RT31:
+        description: Rising trigger event configuration of line 31
+        bitOffset: 31
+        bitWidth: 1
+  FTSR1:
+    _delete:
+      - FT18
+    _add:
+      FT17:
+        description: Falling trigger event configuration of line 17
+        bitOffset: 17
+        bitWidth: 1
+      FT29:
+        description: Falling trigger event configuration of line 29
+        bitOffset: 29
+        bitWidth: 1
+      FT30:
+        description: Falling trigger event configuration of line 30
+        bitOffset: 30
+        bitWidth: 1
+      FT31:
+        description: Falling trigger event configuration of line 31
+        bitOffset: 31
+        bitWidth: 1
+  SWIER1:
+    _delete:
+      - SWI18
+    _add:
+      SWI17:
+        description: Software Interrupt on line 17
+        bitOffset: 17
+        bitWidth: 1
+  PR1:
+    _delete:
+      - PIF18
+    _add:
+      PIF17:
+        description: Pending bit 17
+        bitOffset: 17
+        bitWidth: 1
+  IMR2:
+    _delete:
+      - IM38
+      - IM39
+  EMR2:
+    _delete:
+      - EM38
+      - EM39
+    _add:
+      EM41:
+        description: Event mask on external/internal line 41
+        bitOffset: 9
+        bitWidth: 1
+      EM42:
+        description: Event mask on external/internal line 42
+        bitOffset: 10
+        bitWidth: 1
+      EM43:
+        description: Event mask on external/internal line 43
+        bitOffset: 11
+        bitWidth: 1
+  RTSR2:
+    _delete:
+      - RT38
+      - RT39
+  FTSR2:
+    _delete:
+      - FT35
+      - FT36
+      - FT37
+      - FT38
+    _add:
+      FT32:
+        description: Falling trigger event configuration of line 32
+        bitOffset: 0
+        bitWidth: 1
+      FT33:
+        description: Falling trigger event configuration of line 33
+        bitOffset: 1
+        bitWidth: 1
+      FT40:
+        description: Falling trigger event configuration of line 40
+        bitOffset: 8
+        bitWidth: 1
+      FT41:
+        description: Falling trigger event configuration of line 41
+        bitOffset: 9
+        bitWidth: 1
+  SWIER2:
+    _delete:
+      - SWI35
+      - SWI36
+      - SWI37
+      - SWI38
+    _add:
+      SWI32:
+        description: Software interrupt on line 32
+        bitOffset: 0
+        bitWidth: 1
+      SWI33:
+        description: Software interrupt on line 33
+        bitOffset: 1
+        bitWidth: 1
+      SWI40:
+        description: Software interrupt on line 40
+        bitOffset: 8
+        bitWidth: 1
+      SWI41:
+        description: Software interrupt on line 41
+        bitOffset: 9
+        bitWidth: 1
+  PR2:
+    _delete:
+      - PIF35
+      - PIF36
+      - PIF37
+      - PIF38
+    _add:
+      PIF32:
+        description: Pending bit 32
+        bitOffset: 0
+        bitWidth: 1
+      PIF33:
+        description: Pending bit 33
+        bitOffset: 1
+        bitWidth: 1
+      PIF40:
+        description: Pending bit 40
+        bitOffset: 8
+        bitWidth: 1
+      PIF41:
+        description: Pending bit 41
+        bitOffset: 9
+        bitWidth: 1
