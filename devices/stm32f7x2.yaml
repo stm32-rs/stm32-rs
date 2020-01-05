@@ -13,7 +13,6 @@ _modify:
     name: ADC_Common
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
  - common_patches/f7x23_pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
