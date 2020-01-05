@@ -1,8 +1,22 @@
 _svd: ../svd/stm32f3x8.svd
 
+_delete:
+  - ADC1
+  - ADC2
+
 _copy:
   ADC1:
     from: ../svd/stm32f303.svd:ADC1
+  ADC2:
+    from: ../svd/stm32f303.svd:ADC2
+  ADC3:
+    from: ../svd/stm32f303.svd:ADC3
+  ADC4:
+    from: ../svd/stm32f303.svd:ADC4
+  ADC1_2:
+    from: ../svd/stm32f303.svd:ADC1_2
+  ADC3_4:
+    from: ../svd/stm32f303.svd:ADC3_4
 
 GPIOC:
   _add:
@@ -225,6 +239,7 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/f3_adc.yaml
+ - ./common_patches/f3_adc_multi_dual.yaml
  - ./common_patches/f3_rcc.yaml
  - ./common_patches/f3_rcc_mco.yaml
  - ./common_patches/f3_rcc_usb.yaml
@@ -278,3 +293,4 @@ _include:
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
+ - ../peripherals/adc/adc_v3_common_f3.yaml

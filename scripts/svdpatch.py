@@ -311,7 +311,7 @@ class Device:
             pcopy.find("name").text = pname
             if source is parent:
                 for value in list(pcopy):
-                    if value.tag in ('baseAddress', 'interrupt'):
+                    if value.tag in ('interrupt'):
                         pcopy.remove(value)
         else:
             for value in list(ptag):

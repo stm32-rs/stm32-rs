@@ -1,0 +1,137 @@
+"ADC?":
+  SR:
+    STRT:
+      _read:
+        NotStarted: [0, "No regular channel conversion started"]
+        Started: [1, "Regular channel conversion has started"]
+      _write:
+        Clear: [0, "Clear the Regular channel Start flag"]
+    JSTRT:
+      _read:
+        NotStarted: [0, "No injected group conversion started"]
+        Started: [1, "Injected group conversion has started"]
+      _write:
+        Clear: [0, "Clear Injected channel Start flag"]
+    JEOC:
+      _read:
+        NotComplete: [0, "Conversion is not complete"]
+        Complete: [1, "Conversion complete"]
+      _write:
+        Clear: [0, "Clear Injected channel end of conversion flag"]
+    EOC:
+      _read:
+        NotComplete: [0, "Conversion is not complete"]
+        Complete: [1, "Conversion complete"]
+      _write:
+        Clear: [0, "Clear End of conversion flag"]
+    AWD:
+      _read:
+        NoEvent: [0, "No analog watchdog event occurred"]
+        Event: [1, "Analog watchdog event occurred"]
+      _write:
+        Clear: [0, "Clear the analog watchdog event flag"]
+
+  CR1:
+    AWDEN:
+      Disabled: [0, "Analog watchdog disabled on regular channels"]
+      Enabled: [1, "Analog watchdog enabled on regular channels"]
+    JAWDEN:
+      Disabled: [0, "Analog watchdog disabled on injected channels"]
+      Enabled: [1, "Analog watchdog enabled on injected channels"]
+    DISCNUM: [0, 7]
+    JDISCEN:
+      Disabled: [0, "Discontinuous mode on injected channels disabled"]
+      Enabled: [1, "Discontinuous mode on injected channels enabled"]
+    DISCEN:
+      Disabled: [0, "Discontinuous mode on regular channels disabled"]
+      Enabled: [1, "Discontinuous mode on regular channels enabled"]
+    JAUTO:
+      Disabled: [0, "Automatic injected group conversion disabled"]
+      Enabled: [1, "Automatic injected group conversion enabled"]
+    AWDSGL:
+      All: [0, "Analog watchdog enabled on all channels"]
+      Single: [1, "Analog watchdog enabled on a single channel"]
+    SCAN:
+      Disabled: [0, "Scan mode disabled"]
+      Enabled: [1, "Scan mode enabled"]
+    JEOCIE:
+      Disabled: [0, "JEOC interrupt disabled"]
+      Enabled: [1, "JEOC interrupt enabled. An interrupt is generated when the JEOC bit is set"]
+    AWDIE:
+      Disabled: [0, "Analog watchdog interrupt disabled"]
+      Enabled: [1, "Analog watchdog interrupt enabled"]
+    EOCIE:
+      Disabled: [0, "EOC interrupt disabled"]
+      Enabled: [1, "EOC interrupt enabled. An interrupt is generated when the EOC bit is set"]
+    AWDCH: [0, 17]
+
+  CR2:
+    TSVREFE:
+      Disabled: [0, "Temperature sensor and V_REFINT channel disabled"]
+      Enabled: [1, "Temperature sensor and V_REFINT channel enabled"]
+    SWSTART:
+      _read:
+        Started: [0, "Reset state"]
+        NotStarted: [1, "Starting conversion of regular channels"]
+      _write:
+        Start: [1, "Start conversion of regular channels"]
+    JSWSTART:
+      _read:
+        Started: [0, "Reset state"]
+        NotStarted: [1, "Starting conversion of injected channels"]
+      _write:
+        Start: [1, "Start conversion of injected channels"]
+    EXTTRIG:
+      Disabled: [0, "Conversion on external event disabled"]
+      Enabled: [1, "Conversion on external event enabled"]
+    JEXTTRIG:
+      Disabled: [0, "Conversion on external event disabled"]
+      Enabled: [1, "Conversion on external event enabled"]
+    ALIGN:
+      Right: [0, "Right Alignment"]
+      Left: [1, "Left Alignment"]
+    RSTCAL:
+      _read:
+        Initialized: [0, "Calibration register initialized"]
+        NotInitialized: [1, "Initializing calibration register"]
+      _write:
+        Initialize: [1, "Initialize calibration register"]
+    CAL:
+      _read:
+        Complete: [0, "Calibration completed"]
+        NotComplete: [1, "Calibrating"]
+      _write:
+        Start: [1, "Enable calibration"]
+    CONT:
+      Single: [0, "Single conversion mode"]
+      Continuous: [1, "Continuous conversion mode"]
+    ADON:
+      Disabled: [0, "Disable ADC conversion/calibration and go to power down mode"]
+      Enabled: [1, "Enable ADC and to start conversion"]
+
+  "SMPR?":
+    "SMP*":
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles7_5: [1, "7.5 ADC clock cycles"]
+      Cycles13_5: [2, "13.5 ADC clock cycles"]
+      Cycles28_5: [3, "28.5 ADC clock cycles"]
+      Cycles41_5: [4, "41.5 ADC clock cycles"]
+      Cycles55_5: [5, "55.5 ADC clock cycles"]
+      Cycles71_5: [6, "71.5 ADC clock cycles"]
+      Cycles239_5: [7, "239.5 ADC clock cycles"]
+  HTR:
+    HT: [0, 4095]
+  LTR:
+    LT: [0, 4095]
+  "*SQR*":
+    "*SQ*": [0, 17]
+  SQR1:
+    L: [0, 15]
+  JSQR:
+    JL: [0, 3]
+
+"ADC[13]":
+  CR2:
+    DMA:
+      Disabled: [0, "DMA mode disabled"]
+      Enabled: [1, "DMA mode enabled"]

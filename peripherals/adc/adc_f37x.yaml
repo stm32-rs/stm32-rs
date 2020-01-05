@@ -1,0 +1,23 @@
+_include:
+ - ./adc_f1_f37x.yaml
+
+ADC1:
+  CR2:
+    EXTSEL:
+      Tim19Trgo: [0, "Timer 19 TRGO event"]
+      Tim19Cc3: [1, "Timer 19 CC3 event"]
+      Tim19Cc4: [2, "Timer 19 CC4 event"]
+      Tim2Cc2: [3, "Timer 2 CC2 event"]
+      Tim3Trgo: [4, "Timer 3 TRGO event"]
+      Tim4Cc4: [5, "Timer 4 CC4 event"]
+      Exti11: [6, "EXTI line 11"]
+      Swstart: [7, "SWSTART"]
+    JEXTSEL:
+      Tim19Cc1: [0, "Timer 19 CC1 event"]
+      Tim19Cc2: [1, "Timer 19 CC2 event"]
+      Tim2Trgo: [2, "Timer 2 TRGO event"]
+      Tim2Cc1: [3, "Timer 2 CC1 event"]
+      Tim3Cc4: [4, "Timer 3 CC4 event"]
+      Tim4Trgo: [5, "Timer 4 TRGO event"]
+      Exti15: [6, "EXTI line15"]
+      Jswstart: [7, "JSWSTART"]
