@@ -4,6 +4,10 @@ _include:
 
 COMP:
   _add:
+    _interrupts:
+      COMP7:
+        description: COMP7 interrupt combined with EXTI line 33
+        value: 66
     COMP3_CSR:
       description: control and status register
       addressOffset: 0x24

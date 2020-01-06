@@ -6,6 +6,13 @@ _add:
       offset: 0
       size: 0x400
       usage: registers
+    interrupts:
+      COMP1_2_3:
+        description: COMP1_2_3 interrupt combined with EXTI lines 21, 22, 29
+        value: 64
+      COMP4_5_6:
+        description: COMP4_5_6 interrupt combined with EXTI lines 30, 31, 32
+        value: 65
     registers:
       COMP2_CSR:
         description: control and status register

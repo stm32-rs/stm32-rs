@@ -46,6 +46,11 @@ SYSCFG:
       - BYP_ADD_PAR
 
 COMP:
+  _add:
+    _interrupts:
+      COMP1_2_3:
+        description: COMP1_2_3 interrupt combined with EXTI lines 21, 22
+        value: 64
   CSR:
     _add:
       COMP1_INP_DAC:
@@ -53,6 +58,11 @@ COMP:
         bitOffset: 1
         bitWidth: 1
         access: read-write
+
+CAN:
+  _delete:
+    _interrupts:
+      - COMP1_2
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

@@ -22,6 +22,11 @@ RCC:
         name: UART5EN
 
 SYSCFG:
+  _delete:
+    _interrupts:
+      - "COMP*"
+
+SYSCFG:
   _strip:
     - SYSCFG_
   _add:
