@@ -232,6 +232,11 @@ SYSCFG:
         bitOffset: 8
         bitWidth: 2
 
+EXTI:
+  _delete:
+    _interrupts:
+      - COMP7
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
