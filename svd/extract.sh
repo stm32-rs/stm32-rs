@@ -8,6 +8,4 @@ cp stm32h743x.svd stm32h743v.svd
 cp stm32h753x.svd stm32h753.svd
 cp stm32h753x.svd stm32h753v.svd
 cp stm32h7x5_cm4.svd stm32h747cm4.svd
-cp stm32h7x5_cm4.svd stm32h757cm4.svd
 cp stm32h7x5_cm7.svd stm32h747cm7.svd
-cp stm32h7x5_cm7.svd stm32h757cm7.svd
