@@ -48,7 +48,7 @@ devices should be supported to some level.
 * Install `svd2rust`: `cargo install svd2rust`
 * Install `form`: `cargo install form`
 * Install rustfmt: `rustup component add rustfmt`
-* Install PyYAML: `pip install --user pyyaml`
+* Install svdtools: `pip install --user svdtools`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh`
 * Generate patched SVD files: `cd ..; make patch`
 * Generate svd2rust device crates: `make svd2rust` (you probably want `-j` for this)
@@ -133,7 +133,7 @@ Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 
 * You'll need to run `svd/extract.sh` at least once to pull the SVDs out.
 * Edit the device or peripheral YAML (see below for format).
-* Run `make` to rebuild all the crates using `svdpatch.py` and `svd2rust`.
+* Run `make` to rebuild all the crates using `svd patch` and `svd2rust`.
 * Test your new stuff compiles: `cd stm32f4; cargo build --features stm32f405`
 
 If you've added a new peripheral, consider using the `matchperipherals.py`

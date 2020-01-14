@@ -4,23 +4,23 @@ import pprint
 
 from collections import defaultdict
 
-import svdpatch
+import from svdtools import patch
 
 
 def main(svdfile):
     tree = ET.parse(svdfile)
     field_tims = defaultdict(set)
-    for ptag in svdpatch.iter_peripherals(tree, "TIM*"):
+    for ptag in patch.iter_peripherals(tree, "TIM*"):
         pname = ptag.find('name').text
-        for rtag in svdpatch.iter_registers(ptag, "*"):
+        for rtag in patch.iter_registers(ptag, "*"):
             rname = rtag.find('name').text
-            for ftag in svdpatch.iter_fields(rtag, "*"):
+            for ftag in patch.iter_fields(rtag, "*"):
                 fname = ftag.find('name').text
                 rfname = "{}.{}".format(rname, fname)
                 field_tims[rfname].add(pname)
     for ptag in tree.iter('peripheral'):
         pname = ptag.find('name').text
-        if svdpatch.matchname(pname, "TIM*"):
+        if patch.matchname(pname, "TIM*"):
             if "derivedFrom" in ptag.attrib:
                 derives = ptag.attrib["derivedFrom"]
                 for _, tims in field_tims.items():

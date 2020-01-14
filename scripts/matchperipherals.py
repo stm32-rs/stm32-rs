@@ -15,22 +15,22 @@ import os.path
 import argparse
 import xml.etree.ElementTree as ET
 
-import svdpatch
+from svdtools import patch
 
 
 def process_yamlfile(svd, yamlpath, quiet):
     with open(yamlpath, encoding='utf-8') as f:
         peripheral = yaml.safe_load(f)
     peripheral["_path"] = yamlpath
-    svdpatch.yaml_includes(peripheral)
+    patch.yaml_includes(peripheral)
     matched = True
     for pspec in peripheral:
         if not pspec.startswith("_"):
             peripheral[pspec]["_path"] = peripheral["_path"]
             try:
-                device = svdpatch.Device(svd)
+                device = patch.Device(svd)
                 device.process_peripheral(pspec, peripheral[pspec], True)
-            except svdpatch.SvdPatchError as e:
+            except patch.SvdPatchError as e:
                 if not quiet:
                     print("Couldn't match {}: {}".format(yamlpath, e))
                 matched = False
@@ -41,14 +41,14 @@ def process_yamlfile(svd, yamlpath, quiet):
 def process_device(device, ppath, quiet):
     # Load the SVD and process all modifications from the yaml
     # (but don't bother actually applying the enums/ranges).
-    svdpath = svdpatch.abspath(device["_path"], device["_svd"])
+    svdpath = patch.abspath(device["_path"], device["_svd"])
     if not quiet:
         print("Loading SVD {} for {}".format(svdpath, device["_path"]))
     tree = ET.parse(svdpath)
     if not quiet:
         print("Processing existing device peripherals")
-    already_included = svdpatch.yaml_includes(device)
-    svdpatch.process_device(tree, device, False)
+    already_included = patch.yaml_includes(device)
+    patch.process_device(tree, device, False)
 
     # Now go through every YAML file we can find and see if they could be
     # matched against the device
@@ -80,9 +80,9 @@ def main(dpath, ppath, update, quiet):
     device["_path"] = dpath
     matches = process_device(device, ppath, quiet)
     if matches:
-        absdpath = svdpatch.abspath(sys.argv[0], dpath)
+        absdpath = patch.abspath(sys.argv[0], dpath)
         common = os.path.commonprefix([absdpath] + matches)
-        matches = [" - ../" + match[len(common):] for match in matches]
+        matches = [" - ../" + match[len(common) :] for match in matches]
         if not quiet:
             print("\nMatched these new peripherals:")
             print("\n".join(matches))
@@ -98,6 +98,7 @@ def main(dpath, ppath, update, quiet):
     else:
         if not quiet:
             print("No new peripherals matched.\n")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

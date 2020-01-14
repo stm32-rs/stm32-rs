@@ -9,7 +9,7 @@ Generate make dependency file for each device.
 import yaml
 import os.path
 import argparse
-import svdpatch
+from svdtools import patch
 
 
 def main():
@@ -20,12 +20,13 @@ def main():
         with open(dpath, encoding='utf-8') as f:
             device = yaml.safe_load(f)
         device["_path"] = dpath
-        deps = svdpatch.yaml_includes(device)
-        depname = ".deps/{}.d".format(
-            os.path.splitext(os.path.basename(dpath))[0])
+        deps = patch.yaml_includes(device)
+        depname = ".deps/{}.d".format(os.path.splitext(os.path.basename(dpath))[0])
         svdname = "svd/{}.svd.patched".format(
-            os.path.splitext(os.path.basename(dpath))[0])
+            os.path.splitext(os.path.basename(dpath))[0]
+        )
         print("{} {}: {}".format(svdname, depname, " ".join(deps)))
+
 
 if __name__ == "__main__":
     main()

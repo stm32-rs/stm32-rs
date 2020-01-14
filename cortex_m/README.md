@@ -5,6 +5,6 @@ the peripherals common to all Cortex-M devices.
 
 The base SVD files are `armv6m.svd`, `armv7m.svd`, and `armv7em.svd`, which do
 not contain any peripherals. They are patched to create `armv6m.svd.patched`
-and `armv7m.patched` using `svdpatch.py` and the `armv6m.yaml` and
+and `armv7m.patched` using `svd patch` and the `armv6m.yaml` and
 `armv7m.yaml` device files. The peripheral definitions all come from
 the `peripherals/` directory.

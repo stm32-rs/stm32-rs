@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Remove `scripts/svdpatch.py` and use `svdtools`
+
 ## [v0.9.0] 2019-11-10
 
 Family-specific:
