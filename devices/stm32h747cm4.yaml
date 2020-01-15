@@ -1,6 +1,7 @@
-_svd: ../svd/stm32h757cm7.svd
+_svd: ../svd/stm32h747cm4.svd
 
-# Applies to the H755/H757 (with cryp)
+# Applies to the H745/H747/H755/H757
+# CRYP and HASH are unavailable on the H745/H747
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -14,18 +15,21 @@ CRYP:
 
 _include:
  - common_patches/h7_common_dualcore.yaml
+ - common_patches/4_nvic_prio_bits.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
  - common_patches/h7_ethernet_combined_desc.yaml
+ - common_patches/h7_exti_dualcore.yaml
  - common_patches/h7_dbgmcu.yaml
+ - common_patches/h7_dbgmcu_dualcore.yaml
  - common_patches/h7_dmamux.yaml
- - common_patches/h7_dsi.yaml
  - common_patches/h7_adc.yaml
+ - common_patches/h7_dsi.yaml
  - common_patches/h7_adc_boost_rev_v.yaml
- - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
  - common_patches/h7_dualcore_flash.yaml
+ - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
  - common_patches/h7_sai.yaml
  - common_patches/flash/flash_dual_bank.yaml
  - common_patches/ltdc/ltdc.yaml
@@ -41,7 +45,6 @@ _include:
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
  - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
@@ -59,7 +62,6 @@ _include:
  - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/usart/usart_v2B1.yaml

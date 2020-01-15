@@ -1,9 +1,17 @@
 _svd: ../svd/stm32h747cm7.svd
 
-# Applies to the H745/H747 (no cryp)
+# Applies to the H745/H747/H755/H757
+# CRYP and HASH are unavailable on the H745/H747
 
-_delete:
-  - CRYP  # Not present on H745/H747
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - "b*"
+  "IV[01][LR]R":
+    _merge:
+      - "IV*"
 
 _include:
  - common_patches/h7_common_dualcore.yaml
@@ -12,7 +20,9 @@ _include:
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
  - common_patches/h7_ethernet_combined_desc.yaml
+ - common_patches/h7_exti_dualcore.yaml
  - common_patches/h7_dbgmcu.yaml
+ - common_patches/h7_dbgmcu_dualcore.yaml
  - common_patches/h7_dmamux.yaml
  - common_patches/h7_adc.yaml
  - common_patches/h7_dsi.yaml

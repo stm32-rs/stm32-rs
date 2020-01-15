@@ -28,6 +28,9 @@ pub mod stm32h743;
 #[cfg(feature = "stm32h743v")]
 pub mod stm32h743v;
 
+#[cfg(feature = "stm32h747cm4")]
+pub mod stm32h747cm4;
+
 #[cfg(feature = "stm32h747cm7")]
 pub mod stm32h747cm7;
 
@@ -36,7 +39,4 @@ pub mod stm32h753;
 
 #[cfg(feature = "stm32h753v")]
 pub mod stm32h753v;
-
-#[cfg(feature = "stm32h757cm7")]
-pub mod stm32h757cm7;
 
