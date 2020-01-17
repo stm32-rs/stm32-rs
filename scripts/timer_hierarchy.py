@@ -4,7 +4,7 @@ import pprint
 
 from collections import defaultdict
 
-import from svdtools import patch
+from svdtools import patch
 
 
 def main(svdfile):
@@ -35,9 +35,9 @@ def main(svdfile):
     tf = list(tims_field.items())
     tf.sort(key=lambda x: len(x[0]))
     for tims, regs in tf:
-        print("\n"+", ".join(tims)+":")
+        print("\n" + ", ".join(tims) + ":")
         for reg in sorted(list(regs.keys())):
-            print("   ", reg+":", " ".join(sorted(regs[reg])))
+            print("   ", reg + ":", " ".join(sorted(regs[reg])))
 
 
 if __name__ == "__main__":
