@@ -1,0 +1,67 @@
+name: build nightlies
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          path: stm32-rs
+      - name: Install Python dependencies
+        run: |
+          pip3 install --user setuptools wheel
+          pip3 install --user svdtools
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          components: rustfmt
+          override: true
+      - name: Cache Cargo installed binaries
+        uses: actions/cache@v1
+        id: cache-cargo
+        with:
+          path: ~/.cargo/bin
+          key: ${{ runner.os }}-cargo-binaries-0.16.1
+      - name: Install svd2rust
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: svd2rust --version 0.16.1
+      - name: Install form
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: form --version 0.7.0
+      - name: Deploy SSH key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.NIGHTLIES_KEY }}" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -t rsa github.com
+      - name: Build and publish
+        run: |
+          mkdir nightly
+          cd stm32-rs
+          COMMIT=$(git rev-parse HEAD)
+          make -j2 form
+          mv stm32{f,g,h,l}* ../nightly
+          cp .github/workflows/README-nightlies.md ../nightly/README.md
+          cd ../nightly
+          git init
+          git add .
+          git config user.name "stm32-rs builder"
+          git config user.email "action@github.com"
+          git commit -m "stm32-rs master $COMMIT"
+          git remote add origin git@github.com:stm32-rs/stm32-rs-nightlies
+          git push --force origin master
