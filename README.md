@@ -1,15 +1,29 @@
-# STM32 Crates
+# STM32 Peripheral Access Crates
 
-This repository contains device support for all STM32 microcontrollers,
-providing a safe API to that device using [svd2rust] and an extensive hierarchy
-of SVD patches. Each supported device is a feature-gated module in a crate for
-that device family.
+[![Build Status](https://travis-ci.org/stm32-rs/stm32-rs.svg?branch=master)](https://travis-ci.org/stm32-rs/stm32-rs)
+[![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
+[![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
+[![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
+[![crates.io](https://img.shields.io/crates/v/stm32f3.svg?label=stm32f3)](https://crates.io/crates/stm32f3)
+[![crates.io](https://img.shields.io/crates/v/stm32f4.svg?label=stm32f4)](https://crates.io/crates/stm32f4)
+[![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
+[![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
+[![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
+[![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
+[![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
+[![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
+[![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
+
+This repository contains Rust device support for all STM32 microcontrollers,
+providing a safe API to that device's peripherals using [svd2rust] and an
+extensive collection of SVD patches. There is one crate per device family, and
+each supported device is a feature-gated module in that crate.
 
 [svd2rust]: https://github.com/rust-embedded/svd2rust
 
-**Please note many parts of most libraries will not have been tested on every
-possible chip yet! While they're all generated from ST-provided SVD files,
-we can't make any guarantee of correctness. Please report any bugs you find!**
+While these crates are widely used, not every register of every device will
+have been tested on hardware, and so errors or omissions may remain. We can't
+make any guarantee of correctness. Please report any bugs you find!
 
 You can see current coverage status for each chip
 [here](https://stm32.agg.io/rs). Coverage means that individual fields are
@@ -25,8 +39,9 @@ In your own project's `Cargo.toml`:
 version = "0.9.0"
 features = ["stm32f405", "rt"]
 ```
+
 The `rt` feature is optional but helpful. See
-[svd2rust](https://docs.rs/svd2rust/0.12.0/svd2rust/#the-rt-feature) for
+[svd2rust](https://docs.rs/svd2rust/latest/svd2rust/#the-rt-feature) for
 details.
 
 Then, in your code:
@@ -42,6 +57,23 @@ Refer to `svd2rust` [documentation](https://docs.rs/svd2rust) for further usage.
 Replace `stm32f4` and `stm32f405` with your own device; see the individual
 crate READMEs for the complete list of supported devices. All current STM32
 devices should be supported to some level.
+
+## Using Latest "Nightly" Builds
+
+Whenever the master branch of this repository is updated, all device crates are
+built and deployed to the
+[stm32-rs-nightlies](https://github.com/stm32-rs/stm32-rs-nightlies)
+repository. You can use this in your `Cargo.toml`:
+
+```toml
+[dependencies.stm32f4]
+git = "https://github.com/stm32-rs/stm32-rs-nightlies"
+features = ["stm32f405", "rt"]
+```
+
+The nightlies should always build and be as stable as the latest release, but
+typically with the latest patches and updates.
+
 
 ## Generating Device Crates / Building Locally
 
@@ -65,15 +97,10 @@ This project serves two purposes:
 * Create and publish svd2rust-generated crates covering all STM32s, using
   the SVD files.
 
-At present many individual crates exist for specific STM32 devices, typically
-maintained by many separate users with hand-edited updates to the SVD files.
-This means that support for less-common STM32s is completely missing, and
-the hand-edited SVDs may be inconsistent with other crates. Plus, it's a huge
-duplication of work, since so many peripherals are the same between devices.
-
-This project hopes to reduce the duplication of effort, and hopefully in the
-future enable further automation / code generation based on automatically
-identifying similarities between different devices.
+When this project began, many individual crates existed for specific STM32
+devices, typically maintained separately with hand-edited updates to the SVD
+files. This project hopes to reduce that duplication of effort and centralise
+the community's STM32 device support in one place.
 
 ## Helping
 
@@ -83,25 +110,21 @@ This project is still young and there's a lot to do!
   in `peripherals/` and grab a reference manual!
 * Also everything needs testing, and you can't so easily automate finding bugs
   in the SVD files...
-* Is this really the best way to support a lot of devices? We end up with a
-  handful of crates, each with a lot of features, and each feature enables a
-  gigantic module, but they all share a lot of code. Can we automatically
-  factor out the shared structures?
 
 ## Supported Device Families
 
-* [STM32F0](stm32f0/) [![crates.io](https://img.shields.io/crates/v/stm32f0.svg)](https://crates.io/crates/stm32f0)
-* [STM32F1](stm32f1/) [![crates.io](https://img.shields.io/crates/v/stm32f1.svg)](https://crates.io/crates/stm32f1)
-* [STM32F2](stm32f2/) [![crates.io](https://img.shields.io/crates/v/stm32f2.svg)](https://crates.io/crates/stm32f2)
-* [STM32F3](stm32f3/) [![crates.io](https://img.shields.io/crates/v/stm32f3.svg)](https://crates.io/crates/stm32f3)
-* [STM32F4](stm32f4/) [![crates.io](https://img.shields.io/crates/v/stm32f4.svg)](https://crates.io/crates/stm32f4)
-* [STM32F7](stm32f7/) [![crates.io](https://img.shields.io/crates/v/stm32f7.svg)](https://crates.io/crates/stm32f7)
-* [STM32L0](stm32l0/) [![crates.io](https://img.shields.io/crates/v/stm32l0.svg)](https://crates.io/crates/stm32l0)
-* [STM32L1](stm32l1/) [![crates.io](https://img.shields.io/crates/v/stm32l1.svg)](https://crates.io/crates/stm32l1)
-* [STM32L4](stm32l4/) [![crates.io](https://img.shields.io/crates/v/stm32l4.svg)](https://crates.io/crates/stm32l4)
-* [STM32H7](stm32h7/) [![crates.io](https://img.shields.io/crates/v/stm32h7.svg)](https://crates.io/crates/stm32h7)
-* [STM32G0](stm32g0/) [![crates.io](https://img.shields.io/crates/v/stm32g0.svg)](https://crates.io/crates/stm32g0)
-* [STM32G4](stm32g4/) [![crates.io](https://img.shields.io/crates/v/stm32g4.svg)](https://crates.io/crates/stm32g4)
+[![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
+[![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
+[![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
+[![crates.io](https://img.shields.io/crates/v/stm32f3.svg?label=stm32f3)](https://crates.io/crates/stm32f3)
+[![crates.io](https://img.shields.io/crates/v/stm32f4.svg?label=stm32f4)](https://crates.io/crates/stm32f4)
+[![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
+[![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
+[![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
+[![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
+[![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
+[![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
+[![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
@@ -109,7 +132,7 @@ your device is supported to some extent!
 
 **Devices that are nearly identical, like the STM32F405/F415, are supported by
 ST under a single SVD file STM32F405, so if you can't find your exact device
-check if its sibling is supported instead.**
+check if its sibling is supported instead. The crate READMEs make this clear.**
 
 Many peripherals are not yet patched to provide the type-safe friendly-name
 interface; please consider helping out with this!
@@ -147,245 +170,9 @@ fields with names ending in 'E' or 'D' it additionally generates sample
 
 ## Device and Peripheral YAML Format
 
-The patch specifications are in YAML and have the following general format:
+Please see the [svdtools](https://github.com/stm32-rs/svdtools) documentation
+for full details of the patch file format.
 
-```yaml
-# Path to the SVD file we're targeting. Relative to this file.
-# This must be included only in the device YAML file.
-_svd: "../svd/STM32F0x0.svd"
-
-# Include other YAML files. Path relative to this file.
-_include:
-    - "../peripherals/gpio_v2.yaml"
-
-# Alter top-level information and peripherals for this device
-_modify:
-    version: 1.1
-    description: bla bla
-    addressUnitBits: 8
-    width: 32
-    cpu:
-        revision: r1p2
-        mpuPresent: true
-    # Peripherals can either live directly at this level (but other top-level
-    # fields will name match first)
-    C_ADC:
-        name: ADC_Common
-    # Or they can be inside a _peripherals block, to avoid name conflicts.
-    _peripherals:
-        FSMC:
-            description: Flexible static memory controller
-
-# Add whole new peripherals to this device.
-# Incredibly this feature is required.
-_add:
-    ADC_Common:
-        description: ADC Common registers
-        groupName: ADC
-        baseAddress: 0x40012300
-        addressBlock:
-            offset: 0x0
-            size: 0x400
-        registers:
-            CSR:
-                description: ADC Common status register
-                addressOffset: 0x0
-                access: read-only
-                resetValue: 0x00000000
-                fields:
-                    OVR3:
-                        description: Overrun flag of ADC3
-                        bitOffset: 21
-                        bitWidth: 1
-        interrupts:
-            ADC1_2:
-                description: ADC global interrupt
-                value: 18
-
-# A whole new peripheral can also be created as derivedFrom another peripheral.
-_add:
-    USART3:
-        derivedFrom: USART1
-        baseAddress: "0x40004800"
-        interrupts:
-            USART3:
-                description: USART3 global interrupt
-                value: 39
-
-# A new peripheral can have all its registers copied from another, in case
-# it cannot quite be derivedFrom (e.g. some fields need different enumerated
-# values) but it's otherwise almost exactly the same.
-# The registers are copied but not name or address or interrupts.
-_copy:
-    ADC3:
-        from: ADC2
-
-# The new peripheral can also be copied from another svd file for a different
-# device. This is useful when a peripheral is missing in a device but the exact
-# same peripheral already exist in another device.
-_copy:
-    TIM1:
-        from: ../svd/stm32f302.svd:TIM1
-
-# Replace peripheral registers by a 'deriveFrom'.
-# This is used when e.g. UART4 and UART5 are both independently defined,
-# but you'd like to make UART5 be defined as derivedFrom UART4 instead.
-_derive:
-    # The KEY peripheral looses all its elements but 'interrupt', 'name',
-    # and 'baseAddress', and it is derivedFrom the VALUE peripheral.
-    # Peripherals that were 'deriveFrom="KEY"' are now 'deriveFrom="VALUE"'.
-    UART5: UART4
-
-# Reorder the hierarchy of peripherals with 'deriveFrom'.
-# This is used when e.g. I2C1 is marked as derivedFrom I2C3,
-# but you'd like to swap that so that I2C3 becomes derivedFrom I2C1.
-_rebase:
-    # The KEY peripheral steals everything but 'interrupt', 'name',
-    # and 'baseAddress' elements from the VALUE peripheral.
-    # Peripherals that were 'deriveFrom="VALUE"' are now 'deriveFrom="KEY"'.
-    # The VALUE peripheral is marked as derivedFrom the updated KEY.
-    I2C1: I2C3
-
-# An STM32 peripheral, matches an SVD <peripheral> tag.
-# Does not match any tag with derivedFrom attribute set.
-"GPIO*":
-    # We can include other YAML files inside this peripheral
-    _include:
-        - "path/to/file.yaml"
-
-    # Alter fields on existing registers inside this peripheral
-    _modify:
-        # Rename this badly named register. Takes effect before anything else.
-        # Don't use wildcard matches if you are changing the name!
-        # We could have specified name or description or other tags to update.
-        GPIOB_OSPEEDR:
-          name: OSPEEDR
-        # Equivalently the register could go in a '_registers' block
-        _registers:
-            GPIOB_OSPEEDR:
-                name: OSPEEDR
-        # Change the value of an interrupt in this peripheral
-        _interrupts:
-            EXTI0:
-                value: 101
-
-
-    # Add new registers and interrupts to this peripheral.
-    # Entries are registers by default, which can also go inside a '_registers'
-    # block, or interrupts go in an '_interrupts' block.
-    _add:
-        EXAMPLER:
-            description: An example register
-            addressOffset: 0x04
-            access: read-write
-            fields:
-                EXR1:
-                    description: Example field
-                    bitOffset: 16
-                    bitWidth: 4
-        _registers:
-            EXAMPLR2:
-                description: Another example register
-        _interrupts:
-            EXAMPLEI:
-                description: An example interrupt
-                value: 100
-
-    # Anywhere you can '_add' something, you can also '_delete' it.
-    # Wildcards are supported. The value here can be a YAML list of registers
-    # to delete (supported for backwards compatibility), or a YAML mapping
-    # of lists of registers or interrupts.
-    _delete:
-        GPIO*_EXTRAR:
-        _registers:
-            - GPIO*_EXAMPLER
-        _interrupts:
-            - USART1
-
-    # If registers have unnecessary common prefix,
-    # you can clean it in all registers in peripheral by:
-    _strip:
-        - PREFIX_
-
-    # You can collect several same registers into one register array
-    # that will be represented with svd2rust as array or elements
-    # with one type
-    # Minimal version:
-    _array:
-        ARRAY*: {}
-
-    # You can also use the modifiers shown below:
-    _array:
-        ARRAY*:
-            name: NEW_NAME%s
-            _modify:
-                FIELD: [MINIMUM, MAXIMUM]
-                FIELD:
-                  description: NEWDESC
-        OTHER_ARRAY*: {}
-
-    # If you have registers that make up a group and can be repeated,
-    # you can collect them into cluster like this:
-    _cluster:
-        CLUSTER%s:
-            FIRST_REG: {}
-            SECOND_REG: {}
-
-    # A register on this peripheral, matches an SVD <register> tag
-    MODER:
-        # As in the peripheral scope, rename or redescribe a field.
-        # Don't use wildcard matches if you are changing the name!
-        _modify:
-            FIELD:
-              description: NEWDESC
-
-        # Add new fields to this register
-        _add:
-            NEWFIELD:
-              description: DESCRIPTION
-              bitOffset: 12
-              bitWidth: 4
-              access: read-write
-
-        # Often fields that should be one contiguous integer are specified
-        # as a number of individual bits instead. This merges any matching
-        # registers into a single field with the combined bitwidth and lowest
-        # bit offset, and the shared description and access.
-        _merge:
-            - "FIELD*"
-
-        # A field in this register, matches an SVD <field> tag
-        FIELD:
-            # By giving the field a dictionary we construct an enumerateValues
-            VARIANT: [VALUE, DESCRIPTION]
-            VARIANT: [VALUE, DESCRIPTION]
-
-        # Another field. A list of two numbers gives a range writeConstraint.
-        FIELD: [MINIMUM, MAXIMUM]
-
-        # Another field with separate enumerated values for read and write
-        FIELD:
-            _read:
-                VARIANT: [VALUE, DESCRIPTION]
-                VARIANT: [VALUE, DESCRIPTION]
-            _write:
-                VARIANT: [VALUE, DESCRIPTION]
-                VARIANT: [VALUE, DESCRIPTION]
-        # Sometimes fields are to big so we need to split them into smaller fields
-        EXTI:
-          IMR:
-            # This would split MR into MRi where i = 0 ... bitlength
-            _split: [MR]
-```
-
-### Name Matching
-Peripheral, register, and field names can be specified:
-* Directly
-* Using `?` and `*` for single- and multi- character wildcards
-* Using `[ABC]` to give a list of possible matching characters
-* Using commas to separate a list of possible matches
-
-You must quote the name if using any special characters in YAML.
 
 ### Style Guide
 
@@ -394,6 +181,8 @@ You must quote the name if using any special characters in YAML.
 * Descriptions should start with capital letters but do not end with a period
 
 ## Releasing
+
+Notes for maintainers:
 
 ```
 $ make -j16 form
