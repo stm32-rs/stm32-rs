@@ -24,6 +24,9 @@ jobs:
           profile: minimal
           components: rustfmt
           override: true
+      - name: Remove Cargo binary directory to allow cache restore
+        run: |
+          rm -rf ~/.cargo/bin
       - name: Cache Cargo installed binaries
         uses: actions/cache@v1
         id: cache-cargo
