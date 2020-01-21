@@ -31,7 +31,7 @@ jobs:
         uses: actions/cache@v1
         id: cache-cargo
         with:
-          path: ~/.cargo/bin
+          path: ~/cargo-bin
           key: ${{ runner.os }}-cargo-binaries-0.16.1
       - name: Install svd2rust
         if: steps.cache-cargo.outputs.cache-hit != 'true'
@@ -45,6 +45,14 @@ jobs:
         with:
           command: install
           args: form --version 0.7.0
+      - name: Copy svd2rust and form to cache directory
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        run: |
+          mkdir ~/cargo-bin
+          cp ~/.cargo/bin/{svd2rust,form} ~/cargo-bin
+      - name: Put cargo binary directory into path
+        run: |
+          echo "::add-path::~/cargo-bin"
       - name: Deploy SSH key
         run: |
           mkdir ~/.ssh
