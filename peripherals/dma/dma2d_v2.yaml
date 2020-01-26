@@ -1,0 +1,47 @@
+# "Chrom-Art Accelerator" 2D DMA engine
+# Version 2 found on H7
+
+_include:
+  - dma2d_common.yaml
+
+"DMA2D*":
+  "[FB]GPFCCR,OPFCCR":
+    RBS:
+      Regular: [0, "No Red Blue Swap (RGB or ARGB)"]
+      Swap: [1, "Red Blue Swap (BGR or ABGR)"]
+    AI:
+      RegularAlpha: [0, "Regular alpha"]
+      InvertedAlpha: [1, "Inverted alpha"]
+  FGPFCCR:
+    CM:
+      ARGB8888: [0, "Color mode ARGB8888"]
+      RGB888: [1, "Color mode RGB888"]
+      RGB565: [2, "Color mode RGB565"]
+      ARGB1555: [3, "Color mode ARGB1555"]
+      ARGB4444: [4, "Color mode ARGB4444"]
+      L8: [5, "Color mode L8"]
+      AL44: [6, "Color mode AL44"]
+      AL88: [7, "Color mode AL88"]
+      L4: [8, "Color mode L4"]
+      A8: [9, "Color mode A8"]
+      A4: [10, "Color mode A4"]
+      YCbCr: [11, "Color mode YCbCr"]
+  BGPFCCR:
+    CM:
+      ARGB8888: [0, "Color mode ARGB8888"]
+      RGB888: [1, "Color mode RGB888"]
+      RGB565: [2, "Color mode RGB565"]
+      ARGB1555: [3, "Color mode ARGB1555"]
+      ARGB4444: [4, "Color mode ARGB4444"]
+      L8: [5, "Color mode L8"]
+      AL44: [6, "Color mode AL44"]
+      AL88: [7, "Color mode AL88"]
+      L4: [8, "Color mode L4"]
+      A8: [9, "Color mode A8"]
+      A4: [10, "Color mode A4"]
+  OPFCCR:
+    SB:
+      Regular: [0, "Regular byte order"]
+      SwapBytes: [1, "Bytes are swapped two by two"]
+  "[FB]GOR,OOR":
+    LO: [0, 65535]
