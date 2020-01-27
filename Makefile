@@ -36,7 +36,7 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
-	python3 scripts/svdpatch.py $<
+	svd patch $<
 
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
@@ -97,6 +97,15 @@ clean-html:
 
 clean: clean-rs clean-patch clean-html
 	rm -rf .deps
+
+# As alternative to `pip install --user svdtools`:
+# run `make venv update-venv` and `source venv/bin/activate'
+venv:
+	python3 -m venv venv
+
+update-venv:
+	venv/bin/pip install -U pip
+	venv/bin/pip install -U -r requirements.txt
 
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml

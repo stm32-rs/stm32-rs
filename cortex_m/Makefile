@@ -4,7 +4,7 @@ YAMLS := $(wildcard *.yaml)
 PATCHED_SVDS := $(patsubst %.yaml, %.svd.patched, $(YAMLS))
 
 %.svd.patched: %.yaml %.svd
-	python3 ../scripts/svdpatch.py $<
+	svd patch $<
 
 patch: $(PATCHED_SVDS)
 

@@ -8,12 +8,13 @@ import yaml
 import json
 import argparse
 import xml.etree.ElementTree as ET
+
 try:
     from tqdm import tqdm
 except ImportError:
     tqdm = lambda x: x
 
-import svdpatch
+from svdtools import patch
 
 
 def main(devices, output):
@@ -26,9 +27,9 @@ def main(devices, output):
             device["_path"] = device_path
         if "_svd" not in device:
             raise RuntimeError("You must have an _svd key in the YAML file")
-        svdpath = svdpatch.abspath(device_path, device["_svd"])
+        svdpath = patch.abspath(device_path, device["_svd"])
         svd = ET.parse(svdpath)
-        svdpatch.process_device(svd, device)
+        patch.process_device(svd, device)
         for ptag in svd.iter('peripheral'):
             if "derivedFrom" in ptag.attrib:
                 continue
@@ -42,8 +43,11 @@ def main(devices, output):
                     fname = ftag.find('name').text
                     foffset = ftag.find('bitOffset').text
                     fwidth = ftag.find('bitWidth').text
-                    device_members.append("{}__{}_{}__{}_{}_{}".format(
-                        pname, roffset, rname, foffset, fwidth, fname))
+                    device_members.append(
+                        "{}__{}_{}__{}_{}_{}".format(
+                            pname, roffset, rname, foffset, fwidth, fname
+                        )
+                    )
 
             if pname not in peripherals:
                 peripherals[pname] = {}
@@ -102,8 +106,7 @@ def main(devices, output):
                 if fieldset2 in moved_children:
                     continue
                 devices2, children2 = children[fieldset2]
-                moved_children += treeify(
-                    fieldset2, devices2, children2, children)
+                moved_children += treeify(fieldset2, devices2, children2, children)
 
             return moved_siblings
 
@@ -114,8 +117,7 @@ def main(devices, output):
             if fieldset in moved_fieldsets:
                 continue
             devices, children = field_tree[pname][fieldset]
-            moved_fieldsets += treeify(
-                fieldset, devices, children, field_tree[pname])
+            moved_fieldsets += treeify(fieldset, devices, children, field_tree[pname])
 
         # Now strip the device names from all but the leaves
         def strip_devices(siblings):
@@ -127,6 +129,7 @@ def main(devices, output):
                     siblings[fieldset] = children
                 else:
                     siblings[fieldset] = list(devices)
+
         strip_devices(field_tree[pname])
 
     print("Stage 4: Writing results JSON")

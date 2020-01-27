@@ -1,3 +1,4 @@
+dist: bionic
 language: rust
 
 rust:
@@ -36,7 +37,7 @@ env:
 
 install:
   - pip3 install --user setuptools wheel
-  - pip3 install --user pyyaml
+  - pip3 install --user svdtools
   - scripts/svd2rust_install.sh $SVD2RUST
   - rustup component add rustfmt
 
