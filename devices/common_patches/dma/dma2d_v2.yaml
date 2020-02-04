@@ -1,0 +1,14 @@
+# "Chrom-Art Accelerator" 2D DMA engine
+# Version 2
+
+"DMA2D*":
+  "[FB]GOR,OOR":
+    _modify:
+      LO:
+        bitWidth: 16
+  OPFCCR:
+    _add:
+      SB:
+        description: Swap Bytes
+        bitOffset: 8
+        bitWidth: 1

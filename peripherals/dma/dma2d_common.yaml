@@ -1,0 +1,79 @@
+# "Chrom-Art Accelerator" 2D DMA engine
+# Common fields
+
+"DMA2D*":
+  CR:
+    MODE:
+      MemoryToMemory: [0, "Memory-to-memor (FG fetch only)"]
+      MemoryToMemoryPFC: [1, "Memory-to-memory with PFC (FG fetch only with FG PFC active)"]
+      MemoryToMemoryPFCBlending: [2, "Memory-to-memory with blending (FG and BG fetch with PFC and blending)"]
+      RegisterToMemory: [3, "Register-to-memory"]
+    CEIE:
+      Disabled: [0, "CE interrupt disabled"]
+      Enabled: [1, "CE interrupt enabled"]
+    CTCIE:
+      Disabled: [0, "CTC interrupt disabled"]
+      Enabled: [1, "CTC interrupt enabled"]
+    CAEIE:
+      Disabled: [0, "CAE interrupt disabled"]
+      Enabled: [1, "CAE interrupt enabled"]
+    TWIE:
+      Disabled: [0, "TW interrupt disabled"]
+      Enabled: [1, "TW interrupt enabled"]
+    TCIE:
+      Disabled: [0, "TC interrupt disabled"]
+      Enabled: [1, "TC interrupt enabled"]
+    TEIE:
+      Disabled: [0, "TE interrupt disabled"]
+      Enabled: [1, "TE interrupt enabled"]
+    ABORT:
+      AbortRequest: [1, "Transfer abort requested"]
+    SUSP:
+      NotSuspended: [0, "Transfer not suspended"]
+      Suspended: [1, "Transfer suspended"]
+    START:
+      Start: [1, "Launch the DMA2D"]
+  IFCR:
+    CCEIF:
+      Clear: [1, "Clear the CEIF flag in the ISR register"]
+    CCTCIF:
+      Clear: [1, "Clear the CTCIF flag in the ISR register"]
+    CAECIF:
+      Clear: [1, "Clear the CAEIF flag in the ISR register"]
+    CTWIF:
+      Clear: [1, "Clear the TWIF flag in the ISR register"]
+    CTCIF:
+      Clear: [1, "Clear the TCIF flag in the ISR register"]
+    CTEIF:
+      Clear: [1, "Clear the TEIF flag in the ISR register"]
+  "[FB]GPFCCR":
+    ALPHA: [0, 255]
+    AM:
+      NoModify: [0, "No modification of alpha channel"]
+      Replace: [1, "Replace with value in ALPHA[7:0]"]
+      Multiply: [2, "Multiply with value in ALPHA[7:0]"]
+    CS: [0, 255]
+    START:
+      Start: [1, "Start the automatic loading of the CLUT"]
+    CCM:
+      ARGB8888: [0, "CLUT color format ARGB8888"]
+      RGB888: [1, "CLUT color format RGB888"]
+  "[FB]GCOLR":
+    RED: [0, 255]
+    GREEN: [0, 255]
+    BLUE: [0, 255]
+  OPFCCR:
+    CM:
+      ARGB8888: [0, "ARGB8888"]
+      RGB888: [1, "RGB888"]
+      RGB565: [2, "RGB565"]
+      ARGB1555: [3, "ARGB1555"]
+      ARGB4444: [4, "ARGB4444"]
+  NLR:
+    PL: [0, 16383]
+    NL: [0, 65535]
+  AMTCR:
+    DT: [0, 255]
+    EN:
+      Disabled: [0, "Disabled AHB/AXI dead-time functionality"]
+      Enabled: [1, "Enabled AHB/AXI dead-time functionality"]

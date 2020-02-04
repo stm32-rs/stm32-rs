@@ -10,6 +10,7 @@ _include:
  - common_patches/h7_exti_singlecore.yaml
  - common_patches/h7_dbgmcu.yaml
  - common_patches/h7_dmamux.yaml
+ - common_patches/dma/dma2d_v2.yaml
  - common_patches/h7_adc.yaml
  - common_patches/ltdc/ltdc.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -26,6 +27,7 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
+ - ../peripherals/dma/dma2d_v2.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/rcc/rcc_h7.yaml
