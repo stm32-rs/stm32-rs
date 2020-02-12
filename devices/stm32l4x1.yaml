@@ -12,6 +12,11 @@ RCC:
       SPI1EN:
         name: SPI2EN
         description: SPI peripheral 2 clock enable
+  APB1RSTR1:
+    _modify:
+      USART1RST:
+        name: USART3RST
+        description: USART3 reset
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves

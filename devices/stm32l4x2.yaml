@@ -11,6 +11,11 @@ RCC:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
+  APB1RSTR1:
+    _modify:
+      USART1RST:
+        name: USART3RST
+        description: USART3 reset
 
 # cf. <https://github.com/adamgreig/stm32-rs/issues/37>
 # we call the resulting peripheral `USB` instead of `USB-FS`
