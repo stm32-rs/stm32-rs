@@ -15,8 +15,8 @@ import glob
 import os.path
 import yaml
 
-VERSION = "0.9.0"
-SVD2RUST_VERSION = "0.16.1"
+VERSION = "0.10.0"
+SVD2RUST_VERSION = "0.17.0"
 
 CRATE_DOC_FEATURES = {
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],

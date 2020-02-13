@@ -2,7 +2,68 @@
 
 ## [Unreleased]
 
-* Remove `scripts/svdpatch.py` and use `svdtools`
+## [v0.10.0] 2020-02-13
+
+Family-specific:
+
+* F0:
+    * ADC documentation (#307)
+    * EXTI documentation (#314)
+    * Fix number of interrupt priority bits (#325)
+* F1:
+    * EXTI documentation (#314)
+* F2:
+    * ADC documentation (#306)
+    * DMA documentation (#322)
+    * EXTI documentation (#314)
+* F3:
+    * ADC documentation (#305)
+    * GPIO documentation for F373 and F3x8 (#321)
+    * EXTI documentation (#314)
+    * Add COMP interrupts (#302)
+* F4:
+    * ADC documentation (#313)
+    * Add missing reset and enable registers in AHB3 (#311)
+    * EXTI documentation (#314)
+    * DMA2D documentation (#333)
+* F7:
+    * ADC documentation (#310)
+    * DMA documentation (#322, #329)
+    * Add STM32F730 (#316)
+    * EXTI documentation (#314)
+    * DMA2D documentation (#333)
+* H7:
+    * ADC documentation (#312)
+    * Fix EXTI access in single-core parts (#318)
+    * DMA documentation (#322)
+    * EXTI documentation (#314)
+    * Further dual core support (#319)
+    * DMA2D documentation (#333)
+    * Split SOF field in DMAMUX.CSR (#336)
+* L0:
+    * Fix FLASH_SR.EOP access (#309)
+    * EXTI documentation (#314)
+* L4:
+    * Fix USART3RST in RCC (#243)
+    * Fix APB1ENR1 SPI2EN name (#315)
+    * EXTI documentation (#314)
+* G0:
+    * Fix number of interrupt priority bits (#304)
+    * EXTI documentation (#314)
+* G4:
+    * EXTI documentation (#314)
+    * Fix comparator register offsets (#335)
+
+Common:
+
+* Remove `scripts/svdpatch.py` and use `svdtools` (#331)
+* Added new nightlies repository which can be directly used in Cargo: [nightlies]
+
+Thanks to:
+[@aurelj] [@dotcypress] [@hannobraun] [@samcrow] [@korken89] [@richardeoin]
+[@rfuest] [@Sh3Rm4n] [@nickray] [@thinxer] [@lynaghk]
+
+[nightlies]: https://github.com/stm32-rs/stm32-rs-nightlies
 
 ## [v0.9.0] 2019-11-10
 
@@ -261,7 +322,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.6.0...v0.7.0
@@ -293,8 +355,10 @@ work in this release!
 [@jonas-schievink]: https://github.com/jonas-schievink
 [@jordens]: https://github.com/jordens
 [@kitzin]: https://github.com/kitzin
+[@korken89]: https://github.com/korken89
 [@lichtfeind]: https://github.com/lichtfeind
 [@lochsh]: https://github.com/lochsh
+[@lynaghk]: https://github.com/lynaghk
 [@mabezdev]: https://github.com/mabezdev
 [@mathk]: https://github.com/mathk
 [@MattCatz]: https://github.com/MattCatz
@@ -304,6 +368,9 @@ work in this release!
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
+[@samcrow]: https://github.com/samcrow
+[@Sh3Rm4n]: https://github.com/Sh3Rm4n
 [@solderjs]: https://github.com/solderjs
 [@therealprof]: https://github.com/therealprof
+[@thinxer]: https://github.com/thinxer
 [@x37v]: https://github.com/x37v
