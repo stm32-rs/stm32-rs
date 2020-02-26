@@ -33,6 +33,71 @@ USART1:
         description: USART6 global interrupt
         value: 71
 
+
+TIM3:
+  # Add the missing TIM4 and TIM5 interrupts
+  _add:
+    _interrupts:
+      TIM4:
+        description: TIM4 global interrupt
+        value: 30
+      TIM5:
+        description: TIM5 global interrupt
+        value: 50
+
+DMA2:
+  # Add the missing DMA1_STREAM0..7 and DMA2_STREAM0..7 interruptsinterrupts
+  _add:
+    _interrupts:
+      DMA1_STREAM0:
+        description: DMA1_STREAM0 global interrupt
+        value: 11
+      DMA1_STREAM1:
+        description: DMA1_STREAM1 global interrupt
+        value: 12
+      DMA1_STREAM2:
+        description: DMA1_STREAM2 global interrupt
+        value: 13
+      DMA1_STREAM3:
+        description: DMA1_STREAM3 global interrupt
+        value: 14
+      DMA1_STREAM4:
+        description: DMA1_STREAM4 global interrupt
+        value: 15
+      DMA1_STREAM5:
+        description: DMA1_STREAM5 global interrupt
+        value: 16
+      DMA1_STREAM6:
+        description: DMA1_STREAM6 global interrupt
+        value: 17
+      DMA1_STREAM7:
+        description: DMA1_STREAM7 global interrupt
+        value: 47
+      DMA2_STREAM0:
+        description: DMA2_STREAM0 global interrupt
+        value: 56
+      DMA2_STREAM1:
+        description: DMA2_STREAM1 global interrupt
+        value: 57
+      DMA2_STREAM2:
+        description: DMA2_STREAM2 global interrupt
+        value: 58
+      DMA2_STREAM3:
+        description: DMA2_STREAM3 global interrupt
+        value: 59
+      DMA2_STREAM4:
+        description: DMA2_STREAM4 global interrupt
+        value: 60
+      DMA2_STREAM5:
+        description: DMA2_STREAM5 global interrupt
+        value: 68
+      DMA2_STREAM6:
+        description: DMA2_STREAM6 global interrupt
+        value: 69
+      DMA2_STREAM7:
+        description: DMA2_STREAM7 global interrupt
+        value: 70
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
