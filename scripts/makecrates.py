@@ -10,9 +10,9 @@ Usage: python3 scripts/makecrates.py devices/
 """
 
 import os
-import sys
 import glob
 import os.path
+import argparse
 import yaml
 
 VERSION = "0.10.0"
@@ -191,10 +191,10 @@ def make_device_clauses(devices):
             " else { panic!(\"No device features selected\"); }"
 
 
-def main():
+def main(devices_path, yes):
     devices = {}
 
-    for path in glob.glob(os.path.join(sys.argv[1], "*.yaml")):
+    for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
         family = yamlfile[:7]
         device = os.path.splitext(yamlfile)[0].lower()
@@ -207,7 +207,8 @@ def main():
     dirs = ", ".join(x.lower()+"/" for x in devices)
     print("Going to create/update the following directories:")
     print(dirs)
-    input("Enter to continue, ctrl-C to cancel")
+    if not yes:
+        input("Enter to continue, ctrl-C to cancel")
 
     for family in devices:
         devices[family] = sorted(devices[family])
@@ -239,8 +240,9 @@ def main():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: {} <yaml directory>".format(sys.argv[0]))
-        sys.exit(1)
-    else:
-        main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-y", help="Assume 'yes' to prompt",
+                        action="store_true")
+    parser.add_argument("devices", help="Path to device YAML files")
+    args = parser.parse_args()
+    main(args.devices, args.y)
