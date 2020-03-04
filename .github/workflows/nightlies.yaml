@@ -65,6 +65,7 @@ jobs:
           mkdir nightly
           cd stm32-rs
           COMMIT=$(git rev-parse HEAD)
+          python3 scripts/makecrates.py devices/ -y
           make -j2 form
           mv stm32{f,g,h,l}* ../nightly
           cp .github/workflows/README-nightlies.md ../nightly/README.md
