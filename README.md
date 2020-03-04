@@ -14,12 +14,20 @@
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 
-This repository contains Rust device support for all STM32 microcontrollers,
-providing a safe API to that device's peripherals using [svd2rust] and an
-extensive collection of SVD patches. There is one crate per device family, and
-each supported device is a feature-gated module in that crate.
+This repository provides Rust device support crates for all STM32
+microcontrollers, providing a safe API to that device's peripherals using
+[svd2rust] and a community-built collection of patches to the basic SVD files.
+There is one crate per device family, and each supported device is a
+feature-gated module in that crate. These crates are commonly known as
+peripheral access crates or "PACs".
 
 [svd2rust]: https://github.com/rust-embedded/svd2rust
+
+To view the generated code that makes up each crate, visit the
+[stm32-rs-nightlies](https://github.com/stm32-rs/stm32-rs-nightlies)
+repository, which is automatically rebuilt on every commit to stm32-rs master.
+The stm32-rs repository contains the patches to the underlying SVD files and
+the tooling to generate the crates.
 
 While these crates are widely used, not every register of every device will
 have been tested on hardware, and so errors or omissions may remain. We can't
@@ -72,7 +80,7 @@ features = ["stm32f405", "rt"]
 ```
 
 The nightlies should always build and be as stable as the latest release, but
-typically with the latest patches and updates.
+contain the latest patches and updates.
 
 
 ## Generating Device Crates / Building Locally
@@ -81,10 +89,10 @@ typically with the latest patches and updates.
 * Install `form`: `cargo install form`
 * Install rustfmt: `rustup component add rustfmt`
 * Install svdtools: `pip install --user svdtools`
-* Unzip bundled SVD zip files: `cd svd; ./extract.sh`
-* Generate patched SVD files: `cd ..; make patch`
-* Generate svd2rust device crates: `make svd2rust` (you probably want `-j` for this)
-* Optional: Format device crates: `make form` (you probably want `-j` for this)
+* Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
+* Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
+* Generate svd2rust device crates: `make svd2rust`
+* Optional: Format device crates: `make form`
 
 ## Motivation and Objectives
 
@@ -135,7 +143,7 @@ ST under a single SVD file STM32F405, so if you can't find your exact device
 check if its sibling is supported instead. The crate READMEs make this clear.**
 
 Many peripherals are not yet patched to provide the type-safe friendly-name
-interface; please consider helping out with this!
+interface (enumerated values); please consider helping out with this!
 
 Check out the full list of supported devices [here](https://stm32.agg.io/rs).
 
