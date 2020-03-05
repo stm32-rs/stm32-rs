@@ -41,8 +41,12 @@ svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
 
+# Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
+crates:
+	python3 scripts/makecrates.py devices/ -y
+
 define crate_template
-$(1)/src/%/mod.rs: svd/%.svd.patched
+$(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -g -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
@@ -61,6 +65,8 @@ $(1)/src/%/.check: $(1)/src/%/mod.rs
 	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
 	touch $$@
 
+$(1)/Cargo.toml: crates
+
 endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
@@ -68,14 +74,11 @@ $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
 svd/%.svd:
 	cd svd && ./extract.sh
 
-crates:
-	python3 scripts/makecrates.py devices/ -y
-
 patch: $(PATCHED_SVDS)
 
 svd2rust: $(RUST_SRCS) crates
 
-form: $(FORM_SRCS)
+form: $(FORM_SRCS) crates
 
 svdformat: $(FORMATTED_SVDS)
 
@@ -97,6 +100,9 @@ clean-patch:
 
 clean-html:
 	rm -rf html
+
+clean-crates:
+	rm -rf $(CRATES)
 
 clean: clean-rs clean-patch clean-html
 	rm -rf .deps
