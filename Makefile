@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch svd2rust form check clean-rs clean-patch clean-html clean
+.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -68,9 +68,12 @@ $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
 svd/%.svd:
 	cd svd && ./extract.sh
 
+crates:
+	python3 scripts/makecrates.py devices/ -y
+
 patch: $(PATCHED_SVDS)
 
-svd2rust: $(RUST_SRCS)
+svd2rust: $(RUST_SRCS) crates
 
 form: $(FORM_SRCS)
 

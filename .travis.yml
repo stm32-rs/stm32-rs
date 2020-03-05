@@ -43,6 +43,5 @@ install:
 
 # disabling incremental build gives a nice speedup for check...
 script:
-  - python3 scripts/makecrates.py devices/ -y
   - make all
   - CARGO_INCREMENTAL=0 make check
