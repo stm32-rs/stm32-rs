@@ -2,6 +2,9 @@ _svd: ../svd/stm32l4x2.svd
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
+# SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
+# SVD incorrectly omits APB1ENR1 bit 1 (TIM3RST), which is present for
+# STM32L45xx and STM32L46xx devices.
 RCC:
   APB1ENR1:
     _modify:
@@ -11,11 +14,20 @@ RCC:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
+      SPI1EN:
+        name: SPI3EN
+        description: SPI3 clock enable
   APB1RSTR1:
     _modify:
       USART1RST:
         name: USART3RST
         description: USART3 reset
+    _add:
+      TIM3RST:
+        description: TIM3 timer reset
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
 
 # cf. <https://github.com/adamgreig/stm32-rs/issues/37>
 # we call the resulting peripheral `USB` instead of `USB-FS`
