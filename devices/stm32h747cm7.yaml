@@ -40,6 +40,7 @@ _include:
  - common_patches/merge_USART_CR2_ADDx_fields.yaml
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/sai/sai_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
@@ -70,3 +71,4 @@ _include:
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/sai/sai.yaml
