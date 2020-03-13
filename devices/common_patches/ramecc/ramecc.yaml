@@ -1,0 +1,83 @@
+# RAMECC
+# Strip all monitor registers of their fields, then add the correct fields
+
+"RAMECC,RAMECC?":
+  "M?CR":
+    _delete:
+      ?*:
+    _add:
+      ECCELEN:
+        description: ECC error context latching enable
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
+      ECCDEBWIE:
+        description: ECC double error on byte write interrupt enable
+        bitOffset: 4
+        bitWidth: 1
+        access: read-write
+      ECCDEIE:
+        description: ECC double error interrupt enable
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+      ECCSEIE:
+        description: ECC single error interrupt enable
+        bitOffset: 2
+        bitWidth: 1
+        access: read-write
+  "M?SR":
+    _delete:
+      ?*:
+    _add:
+      DEBWDF:
+        description: ECC double error on byte write flag
+        bitOffset: 2
+        bitWidth: 1
+        access: read-write
+      DEDF:
+        description: ECC double error detected flag
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+      SEDCF:
+        description: ECC single error detected flag
+        bitOffset: 0
+        bitWidth: 1
+        access: read-write
+  "M?FAR":
+    _delete:
+      ?*:
+    _add:
+      FADD:
+        description: ECC failing address
+        bitOffset: 0
+        bitWidth: 32
+        access: read-only
+  "M?FDRL":
+    _delete:
+      ?*:
+    _add:
+      FDATAL:
+        description: ECC failing data low
+        bitOffset: 0
+        bitWidth: 32
+        access: read-only
+  "M?FDRH":
+    _delete:
+      ?*:
+    _add:
+      FDATAH:
+        description: ECC failing data high
+        bitOffset: 0
+        bitWidth: 32
+        access: read-only
+  "M?FECR":
+    _delete:
+      ?*:
+    _add:
+      FEC:
+        description: ECC failing code
+        bitOffset: 0
+        bitWidth: 32
+        access: read-only
