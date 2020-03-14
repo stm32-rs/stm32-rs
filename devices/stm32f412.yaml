@@ -17,6 +17,10 @@ _modify:
   I2C4:
     name: FMPI2C4
 
+  FSMC:
+     # ST got the base address of the FSMC peripheral wrong
+     baseAddress: "0xA0000000"
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0402
   CR:
