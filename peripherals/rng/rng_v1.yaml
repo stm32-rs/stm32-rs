@@ -2,12 +2,9 @@
 
 RNG:
   CR:
-    CED:
-      Enabled: [0, "Clock error detection is enabled"]
-      Disabled: [1, "Clock error detection is disabled"]
+    RNGEN:
+      Disabled: [0, "Random number generator is disabled"]
+      Enabled: [1, "Random number generator is enabled"]
     IE:
       Disabled: [0, "RNG interrupt is disabled"]
       Enabled: [1, "RNG interrupt is enabled"]
-    RNGEN:
-      Disabled: [0, "True random number generator is disabled"]
-      Enabled: [1, "True random number generator is enabled"]
