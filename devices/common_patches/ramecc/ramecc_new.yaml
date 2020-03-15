@@ -194,5 +194,93 @@ _add:
     derivedFrom: RAMECC1
     baseAddress: 0x48023000
   RAMECC3:
-    derivedFrom: RAMECC1
+    description: RAM ECC monitoring
+    groupName: RAMECC
     baseAddress: 0x58027000
+    registers:
+      IER:
+        description: RAMECC interrupt enable register
+        addressOffset: 0x0
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          GECCDEBWIE:
+            description: Global ECC double error on byte write interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+            access: read-write
+          GECCDEIE:
+            description: Global ECC double error interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+            access: read-write
+          GECCSEIE:
+            description: Global ECC single error interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+            access: read-write
+          GIE:
+            description: Global interrupt enable
+            bitOffset: 0
+            bitWidth: 1
+            access: read-write
+      M1CR:
+        description: RAMECC monitor 1 configuration register
+        addressOffset: 0x20
+        access: read-write
+        resetValue: 0x00000000
+      M1SR:
+        description: RAMECC monitor 1 status register
+        addressOffset: 0x24
+        access: read-write
+        resetValue: 0x00000000
+      M1FAR:
+        description: RAMECC monitor 1 failing address register
+        addressOffset: 0x28
+        access: read-write
+        resetValue: 0x00000000
+      M1FDRL:
+        description: RAMECC monitor 1 failing data low register
+        addressOffset: 0x2C
+        access: read-write
+        resetValue: 0x00000000
+      M1FDRH:
+        description: RAMECC monitor 1 failing data high register
+        addressOffset: 0x30
+        access: read-write
+        resetValue: 0x00000000
+      M1FECR:
+        description: RAMECC monitor 1 failing error code register
+        addressOffset: 0x34
+        access: read-write
+        resetValue: 0x00000000
+      M2CR:
+        description: RAMECC monitor 2 configuration register
+        addressOffset: 0x40
+        access: read-write
+        resetValue: 0x00000000
+      M2SR:
+        description: RAMECC monitor 2 status register
+        addressOffset: 0x44
+        access: read-write
+        resetValue: 0x00000000
+      M2FAR:
+        description: RAMECC monitor 2 failing address register
+        addressOffset: 0x48
+        access: read-write
+        resetValue: 0x00000000
+      M2FDRL:
+        description: RAMECC monitor 2 failing data low register
+        addressOffset: 0x4C
+        access: read-write
+        resetValue: 0x00000000
+      M2FDRH:
+        description: RAMECC monitor 2 failing data high register
+        addressOffset: 0x50
+        access: read-write
+        resetValue: 0x00000000
+      M2FECR:
+        description: RAMECC monitor 2 failing error code register
+        addressOffset: 0x54
+        access: read-write
+        resetValue: 0x00000000
