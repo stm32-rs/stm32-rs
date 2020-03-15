@@ -58,6 +58,7 @@ version = "0.6.10"
 
 [package.metadata.docs.rs]
 features = {docs_features}
+targets = []
 
 [features]
 default = []
