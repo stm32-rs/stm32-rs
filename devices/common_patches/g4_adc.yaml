@@ -1,0 +1,383 @@
+ADC?:
+  ISR:
+    _modify:
+      JQOVF:
+        description: Injected context queue overflow
+      AWD3:
+        description: Analog watchdog 3 flag
+      AWD2:
+        description: Analog watchdog 2 flag
+      AWD1:
+        description: Analog watchdog 1 flag
+      JEOS:
+        description: Injected channel end of sequence flag
+      JEOC: 
+        description: Injected channel end of conversion flag
+      OVR:
+        description: ADC overrun
+      EOS:
+        description: End of regular sequence flag
+      EOC:
+        description: End of conversion flag
+      EOSMP:
+        description: End of sampling flag
+      ADRDY:
+        description: ADC ready
+  
+  IER:
+    _modify:
+      JQOVFIE:
+        description: Injected context queue overflow interrupt enable
+      AWD3IE:
+        description: Analog watchdog 3 interrupt enable
+      AWD2IE:
+        description: Analog watchdog 2 interrupt enable
+      AWD1IE:
+        description: Analog watchdog 1 interrupt enable
+      JEOSIE:
+        description: End of injected sequence of conversions interrupt enable
+      JEOCIE: 
+        description: End of injected conversion interrupt enable
+      OVRIE:
+        description: Overrun interrupt enable
+      EOSIE:
+        description: End of regular sequence of conversions interrupt enable
+      EOCIE:
+        description: End of regular conversion interrupt enable
+      EOSMPIE:
+        description: End of sampling flag interrupt enable for regular conversions
+      ADRDYIE:
+        description: ADC ready interrupt enable
+  
+  CR:
+    _modify:
+      ADCAL:
+        description: ADC calibration
+      ADCALDIF:
+        description: Differential mode for calibration
+      DEEPPWD:
+        description: Deep-power-down enable
+      ADVREGEN:
+        description: ADC voltage regulator enable
+      JADSTP:
+        description: ADC stop of injected conversion command
+      ADSTP:
+        description: ADC stop of regular conversion command
+      JADSTART:
+        description: ADC start of injected conversion
+      ADSTART:
+        description: ADC start of regular conversion
+      ADDIS:
+        description: ADC disable command
+      ADEN:
+        description: ADC enable control
+
+  CFGR:
+    _delete:
+      - ALIGN_5
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+        description: Analog watchdog 1 channel selection
+      JAUTO:
+        description: Automatic injected group conversion
+      JAWD1EN:
+        description: Analog watchdog 1 enable on injected channels
+      AWD1EN:
+        description: Analog watchdog 1 enable on regular channels
+      AWD1SGL:
+        description: Enable the watchdog 1 on a single channel or on all channels
+      JQM:
+        description: JSQR queue mode
+      JDISCEN:
+        description: Discontinuous mode on injected channels
+      DISCNUM:
+        description: Discontinuous mode channel count
+      DISCEN:
+        description: Discontinuous mode for regular channels
+      ALIGN:
+        description: Data alignment
+      AUTDLY:
+        description: Delayed conversion mode
+      CONT:
+        description: Single / continuous conversion mode for regular conversions
+      OVRMOD:
+        description: Overrun mode
+      EXTEN:
+        description: External trigger enable and polarity selection for regular channels
+      EXTSEL:
+        description: External trigger selection for regular group
+        bitOffset: 5
+        bitWidth: 5
+      RES:
+        description: Data resolution
+      DMACFG:
+        description: Direct memory access configuration
+      DMAEN:
+        description: Direct memory access enable
+  
+  CFGR2:
+    _modify:
+      SMPTRIG:
+        description: Sampling time control trigger mode
+      BULB:
+        description: Bulb sampling mode
+      SWTRIG:
+        description: Software trigger bit for sampling time control trigger mode
+      GCOMP:
+        description: Gain compensation mode
+      ROVSM:
+        description: Regular Oversampling mode
+      TROVS:
+        description: Triggered Regular Oversampling
+      OVSS:
+        description: Oversampling shift
+      OVSR:
+        description: Oversampling ratio
+      JOVSE:
+        description: Injected Oversampling Enable
+      ROVSE:
+        description: Regular Oversampling Enable
+
+  SMPR1:
+    _modify:
+      SMPPLUS:
+        description: Addition of one clock cycle to the sampling time
+      SMP9:
+        description: Channel 9 sampling time selection
+      SMP8:
+        description: Channel 8 sampling time selection
+      SMP7:
+        description: Channel 7 sampling time selection
+      SMP6:
+        description: Channel 6 sampling time selection
+      SMP5:
+        description: Channel 5 sampling time selection
+      SMP4:
+        description: Channel 4 sampling time selection
+      SMP3:
+        description: Channel 3 sampling time selection
+      SMP2:
+        description: Channel 2 sampling time selection
+      SMP1:
+        description: Channel 1 sampling time selection
+      SMP0:
+        description: Channel 0 sampling time selection
+
+  SMPR2:
+    _modify:
+      SMP18:
+        description: Channel 18 sampling time selection
+      SMP17:
+        description: Channel 17 sampling time selection
+      SMP16:
+        description: Channel 16 sampling time selection
+      SMP15:
+        description: Channel 15 sampling time selection
+      SMP14:
+        description: Channel 14 sampling time selection
+      SMP13:
+        description: Channel 13 sampling time selection
+      SMP11:
+        description: Channel 12 sampling time selection
+      SMP12:
+        description: Channel 11 sampling time selection
+      SMP10:
+        description: Channel 10 sampling time selection
+  
+  TR1:
+    _modify:
+      HT1:
+        description: Analog watchdog 1 higher threshold
+      AWDFILT:
+        description: Analog watchdog filtering parameter
+      LT1:
+        description: Analog watchdog 1 lower threshold
+  
+  TR2:
+    _modify:
+      HT2:
+        description: Analog watchdog 2 higher threshold
+      LT2:
+        description: Analog watchdog 2 lower threshold
+
+  TR3:
+    _modify:
+      HT3:
+        description: Analog watchdog 3 higher threshold
+      LT3:
+        description: Analog watchdog 3 lower threshold
+
+  SQR1:
+    _modify:
+      SQ4:
+        description: 4th conversion in regular sequence
+      SQ3:
+        description: 3rd conversion in regular sequence
+      SQ2:
+        description: 2nd conversion in regular sequence
+      SQ1:
+        description: 1st conversion in regular sequence
+      L:
+        description: Regular channel sequence length
+  
+  SQR2:
+    _modify:
+      SQ9:
+        description: 9th conversion in regular sequence
+      SQ8:
+        description: 8th conversion in regular sequence
+      SQ7:
+        description: 7th conversion in regular sequence
+      SQ6:
+        description: 6th conversion in regular sequence
+      SQ5:
+        description: 5th conversion in regular sequence
+
+  SQR3:
+    _modify:
+      SQ14:
+        description: 14th conversion in regular sequence
+      SQ13:
+        description: 13th conversion in regular sequence
+      SQ12:
+        description: 12th conversion in regular sequence
+      SQ11:
+        description: 11th conversion in regular sequence
+      SQ10:
+        description: 10th conversion in regular sequence
+
+  SQR4:
+    _modify:
+      SQ16:
+        description: 16th conversion in regular sequence
+      SQ15:
+        description: 15th conversion in regular sequence
+
+  JSQR:
+    _modify:
+      SQ4:
+        description: 4th conversion in the injected sequence
+      JSQ3:
+        description: 3rd conversion in the injected sequence
+      JSQ2:
+        description: 2nd conversion in the injected sequence
+      JSQ1:
+        description: 1st conversion in the injected sequence
+      JEXTEN:
+        description: External Trigger Enable and Polarity Selection for injected channels
+      JEXTSEL:
+        description: External Trigger Selection for injected group
+      JL:
+        description: Injected channel sequence length
+
+  OFR1:
+    _modify:
+      OFFSET1_EN:
+        description: Offset 1 Enable
+      OFFSET1_CH:
+        description: Channel selection for the data offset 1
+      SATEN:
+        description: Saturation enable
+      OFFSETPOS:
+        description: Positive offset
+      OFFSET1:
+        description: Data offset 1 for the channel programmed into bits OFFSET1_CH
+  
+  OFR2:
+    _modify:
+      OFFSET1_EN:
+        name: OFFSET2_EN
+        description: Offset 2 Enable
+      OFFSET1_CH:
+        name: OFFSET2_CH
+        description: Channel selection for the data offset 2
+      SATEN:
+        description: Saturation enable
+      OFFSETPOS:
+        description: Positive offset
+      OFFSET1:
+        name: OFFSET2
+        description: Data offset 2 for the channel programmed into bits OFFSET2_CH
+  
+  OFR3:
+    _modify:
+      OFFSET1_EN:
+        name: OFFSET3_EN
+        description: Offset 3 Enable
+      OFFSET1_CH:
+        name: OFFSET3_CH
+        description: Channel selection for the data offset 3
+      SATEN:
+        description: Saturation enable
+      OFFSETPOS:
+        description: Positive offset
+      OFFSET1:
+        name: OFFSET3
+        description: Data offset 3 for the channel programmed into bits OFFSET3_CH
+
+  OFR4:
+    _modify:
+      OFFSET1_EN:
+        name: OFFSET4_EN
+        description: Offset 4 Enable
+      OFFSET1_CH:
+        name: OFFSET4_CH
+        description: Channel selection for the data offset 4
+      SATEN:
+        description: Saturation enable
+      OFFSETPOS:
+        description: Positive offset
+      OFFSET1:
+        name: OFFSET4
+        description: Data offset 4 for the channel programmed into bits OFFSET4_CH
+
+  JDR1:
+    _modify:
+      JDATA1:
+        name: JDATA
+        description: Injected data
+  JDR2:
+    _modify:
+      JDATA2:
+        name: JDATA
+        description: Injected data
+  
+  JDR3:
+    _modify:
+      JDATA3:
+        name: JDATA
+        description: Injected data
+
+  JDR4:
+    _modify:
+      JDATA4:
+        name: JDATA
+        description: Injected data
+  
+  AWD2CR:
+    _modify:
+      AWD2CH:
+        description: Analog watchdog 2 channel selection
+
+  AWD3CR:
+    _modify:
+      AWD3CH:
+        description: Analog watchdog 3 channel selection
+
+  DIFSEL:
+    _modify:
+      DIFSEL:
+        description: Differential mode for channels 18 to 0
+  
+  CALFACT:
+    _modify:
+      CALFACT_D:
+        description: Calibration Factors in differential mode
+      CALFACT_S:
+        description: Calibration Factors In single-ended mode
+
+  GCOMP:
+    _modify:
+      GCOMPCOEFF:
+        description: Gain compensation coefficient

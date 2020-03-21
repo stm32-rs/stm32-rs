@@ -1,0 +1,95 @@
+# ADC v3 with G4 specific fields
+
+_include:
+  - "adc_v3.yaml"
+
+"ADC,ADC?":
+  DIFSEL:
+    _merge:
+      - "DIFSEL*"
+  CR:
+    ADVREGEN:
+      Intermediate: [0, "Intermediate state required when moving the ADC voltage regulator between states"]
+      Enabled: [1, "ADC voltage regulator enabled"]
+      Disabled: [2, "ADC voltage regulator disabled"]
+    DEEPPWD:
+      Disabled: [0, ADC not in Deep-power down]
+      Enabled: [1, ADC in Deep-power-down (default reset state)]
+
+  CFGR:
+    JQDIS:
+      Enabled: [0, Injected Queue enabled]
+      Disabled: [1, Injected Queue disabled]
+    AWD1CH: [0, 18]
+    EXTSEL:
+      HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]
+      HRTIM_ADCTRG3: [8, "HRTIM_ADCTRG3 event"]
+    ALIGN:
+      Right: [0, "Right alignment"]
+      Left: [1, "Left alignment"]
+    RES:
+      Bits12: [0, "12-bit"]
+      Bits10: [1, "10-bit"]
+      Bits8: [2, "8-bit"]
+      Bits6: [3, "6-bit"]
+    DMACFG:
+      OneShot: [0, "DMA One Shot Mode selected"]
+      Circular: [1, "DMA circular mode selected"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
+  "CFGR2":
+    SMPTRIG:
+      Disabled: [0, Sampling time not controlled by trigger]
+      Enabled: [1, Sampling time controlled by hardware or software trigger]
+    BULB:
+      Disabled: [0, Bulb sampling mode disabled]
+      Enabled: [1, "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes."]
+    SWTRIG:
+      Disabled: [0, End sampling period and start conversion]
+      Enabled: [1, Start sampling period]
+    SMPTRIG:
+      Disabled: [0, Sampling time not controlled by HW or SW trigger]
+      Enabled: [1, Sampling time controlled by HW or SW trigger]
+    GCOMP:
+      Disabled: [0, Regular ADC operating mode]
+      Enabled: [1, Gain compensation enabled and applies to all channels]
+    ROVSM:
+      Continued: [0, "Oversampling is temporary stopped and continued after injection sequence"]
+      Resumed: [1, "Oversampling is aborted and resumed from start after injection sequence"]
+    TROVS:
+      Automatic: [0, "All oversampled conversions for a channel are run following a trigger"]
+      Triggered: [1, "Each oversampled conversion for a channel needs a new trigger"]
+    OVSS: [0, 11]
+    OVSR: [0, 7]
+    JOVSE:
+      Disabled: [0, "Injected oversampling disabled"]
+      Enabled: [1, "Injected oversampling enabled"]
+    ROVSE:
+      Disabled: [0, "Regular oversampling disabled"]
+      Enabled: [1, "Regular oversampling enabled"]
+  "SMPR1":
+    "SMPPLUS":
+      Cycles2_5: [0, "2.5 ADC clock cycles"]
+      Cycles3_5: [1, "3.5 ADC clock cycles"]
+  "SMPR?":
+    "SMP*":
+      Cycles1_5: [0, "1.5 ADC clock cycles"]
+      Cycles2_5: [1, "2.5 ADC clock cycles"]
+      Cycles4_5: [2, "4.5 ADC clock cycles"]
+      Cycles7_5: [3, "7.5 ADC clock cycles"]
+      Cycles19_5: [4, "19.5 ADC clock cycles"]
+      Cycles61_5: [5, "61.5 ADC clock cycles"]
+      Cycles181_5: [6, "181.5 ADC clock cycles"]
+      Cycles601_5: [7, "601.5 ADC clock cycles"]
+  "TR?":
+    "HT?": [0, 0xFFF]
+    "LT?": [0, 0xFFF]
+  "OFR?":
+    "OFFSET?_EN":
+      Disabled: [0, "Offset disabled"]
+      Enabled: [1, "Offset enabled"]
+    "OFFSET?_CH": [0, 31]
+    "OFFSET?": [0, 0xFFF]
+  CALFACT:
+    "CALFACT_?": [0, 0x7F]
