@@ -264,6 +264,10 @@ _modify:
       AWDCH1CH:
         name: AWD1CH
 
+AXI:
+  _strip:
+    - AXI_
+
 EXTI:
   _modify:
     CPUIMR1:
