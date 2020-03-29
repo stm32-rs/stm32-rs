@@ -44,6 +44,17 @@ RCC:
         bitOffset: 20
         bitWidth: 1
 
+USART1:
+# Add missing USART interrupts
+  _add:
+    _interrupts:
+      USART1:
+        description: USART1 global interrupt
+        value: 37
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
