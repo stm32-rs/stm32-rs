@@ -1,0 +1,11 @@
+# different microcontrollers have duplicated FPU interrupt
+
+FPU:
+  _delete:
+    _interrupts:
+      - FPU
+  _add:
+    _interrupts:
+      FPU:
+        description: Floating point unit
+        value: 81

@@ -1,0 +1,14 @@
+# Advanced eXtensible Interface (AXI) management on H7
+
+AXI:
+  INI?_FN_MOD:
+    WRITE_ISS_OVERRIDE:
+      Normal: [0, "Normal ASIB write issuing capability"]
+      Force1: [1, "Force ASIB write issuing capability to 1"]
+    READ_ISS_OVERRIDE:
+      Normal: [0, "Normal ASIB read issuing capability"]
+      Force1: [1, "Force ASIB read issuing capability to 1"]
+  INI?_READ_QOS:
+    AR_QOS: [0, 0xF]
+  INI?_WRITE_QOS:
+    AW_QOS: [0, 0xF]
