@@ -38,17 +38,17 @@ RCC:
       - "PLLR*"
     _modify:
       "PLLR*":
-        description: PLL division factor for I2S and System clocks
+        description: "PLL division factor for I2S and System clocks"
   APB2RSTR:
     _add:
       SPI5RST:
-        description: SPI5 reset
+        description: "SPI5 reset"
         bitOffset: 20
         bitWidth: 1
   APB2LPENR:
     _add:
       SPI5LPEN:
-        description: SPI5 clock enable during Sleep mode
+        description: "SPI5 clock enable during Sleep mode"
         bitOffset: 20
         bitWidth: 1
 
@@ -57,13 +57,13 @@ USART1:
   _add:
     _interrupts:
       USART1:
-        description: USART1 global interrupt
+        description: "USART1 global interrupt"
         value: 37
       USART2:
-        description: USART2 global interrupt
+        description: "USART2 global interrupt"
         value: 38
       USART6:
-        description: USART6 global interrupt
+        description: "USART6 global interrupt"
         value: 71
 
 DMA1:
