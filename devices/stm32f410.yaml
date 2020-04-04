@@ -3,6 +3,8 @@ _svd: ../svd/stm32f410.svd
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C2
+  # Make DMA1 the base type
+  DMA1: DMA2
 
 "SPI*":
   SR:
@@ -10,6 +12,12 @@ _rebase:
       # This field has the wrong name in the SVD compared to RM0401
       TIFRFE:
         name: "FRE"
+  _add:
+    _interrupts:
+      SPI5:
+        description: "SPI 5 global interrupt"
+        value: 85
+
 
 # Rename I2C4 to FMPI2C4 to match RM0401 and disambiguate from non-FMP I2C
 _modify:
@@ -30,17 +38,17 @@ RCC:
       - "PLLR*"
     _modify:
       "PLLR*":
-        description: PLL division factor for I2S and System clocks
+        description: "PLL division factor for I2S and System clocks"
   APB2RSTR:
     _add:
       SPI5RST:
-        description: SPI5 reset
+        description: "SPI5 reset"
         bitOffset: 20
         bitWidth: 1
   APB2LPENR:
     _add:
       SPI5LPEN:
-        description: SPI5 clock enable during Sleep mode
+        description: "SPI5 clock enable during Sleep mode"
         bitOffset: 20
         bitWidth: 1
 
@@ -49,11 +57,90 @@ USART1:
   _add:
     _interrupts:
       USART1:
-        description: USART1 global interrupt
+        description: "USART1 global interrupt"
         value: 37
       USART2:
-        description: USART2 global interrupt
+        description: "USART2 global interrupt"
         value: 38
+      USART6:
+        description: "USART6 global interrupt"
+        value: 71
+
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_Stream0:
+        description: "DMA1 stream0 global interrupt"
+        value: 11
+      DMA1_Stream1:
+        description: "DMA1 stream1 global interrupt"
+        value: 12
+      DMA1_Stream2:
+        description: "DMA1 stream2 global interrupt"
+        value: 13
+      DMA1_Stream3:
+        description: "DMA1 stream3 global interrupt"
+        value: 14
+      DMA1_Stream4:
+        description: "DMA1 stream4 global interrupt"
+        value: 15
+      DMA1_Stream5:
+        description: "DMA1 stream5 global interrupt"
+        value: 16
+      DMA1_Stream6:
+        description: "DMA1 stream6 global interrupt"
+        value: 17
+      DMA1_Stream7:
+        description: "DMA1 stream7 global interrupt"
+        value: 47
+      DMA2_Stream0:
+        description: "DMA2 stream0 global interrupt"
+        value: 56
+      DMA2_Stream1:
+        description: "DMA2 stream1 global interrupt"
+        value: 57
+      DMA2_Stream2:
+        description: "DMA2 stream2 global interrupt"
+        value: 58
+      DMA2_Stream3:
+        description: "DMA2 stream3 global interrupt"
+        value: 59
+      DMA2_Stream4:
+        description: "DMA2 stream4 global interrupt"
+        value: 60
+      DMA2_Stream5:
+        description: "DMA2 stream5 global interrupt"
+        value: 68
+      DMA2_Stream6:
+        description: "DMA2 stream6 global interrupt"
+        value: 69
+      DMA2_Stream7:
+        description: "DMA2 stream7 global interrupt"
+        value: 70
+
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: "TIM5 global interrupt"
+        value: 50
+
+EXTI:
+  _add:
+    _interrupts:
+      EXTI19:
+        description: "EXTI Line 19 interrupt"
+        value: 62
+      EXTI20:
+        description: "EXTI Line 20 interrupt"
+        value: 76
+
+WWDG:
+  _add:
+    _interrupts:
+      WWDG:
+        description: "Window watchdog interrupt"
+        value: 0
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
