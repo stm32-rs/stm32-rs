@@ -1,0 +1,8 @@
+# TIM14 is 16 bit
+# tim2_common_16bit assumes four channels; TIM14 only has one
+
+# For devices where the SVD names 16bit timer fields ending "L" or "_L"
+
+TIM14:
+  _include:
+    - ./tim_1ch_16bit_l.yaml

@@ -1,0 +1,19 @@
+# 16bit timer peripheral with one channel
+# For 16bit timers where the SVD names fields ending "L" or "_L"
+# Applies to Advanced-control (ac) and General-purpose (gp) timers
+
+CNT:
+  _modify:
+    "CNT_L,CNTL":
+      name: CNT
+      description: Counter value
+ARR:
+  _modify:
+    "ARR_L,ARRL":
+      name: ARR
+      description: "Auto-reload value"
+CCR1:
+  _modify:
+    "CCR1_L,CCR1L":
+      name: CCR1
+      description: "Capture/Compare 1 value"
