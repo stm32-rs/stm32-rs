@@ -1,0 +1,5 @@
+SYSCFG:
+  PWRCR:
+    ODEN:
+      Disabled: [0, "Overdrive mode disabled"]
+      Enabled: [1, "Overdrive mode enabled (the LDO generates VOS0 for VCORE)"]
