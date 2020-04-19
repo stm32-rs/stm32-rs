@@ -85,6 +85,22 @@ SYSCFG:
       - BYP_ADD_PAR
       - SRAM_PEF
 
+Flash:
+  SR:
+    _modify:
+      WRPRT:
+        name: "WRPRTERR"
+  # Creates error
+  # CR:
+    # FORCE_OPTLOAD:
+    #   _modify:
+    #     name: "OBL_LAUNCH"
+  OBR:
+    _modify:
+      resetValue: 0xFFFFFF0F
+      BOOT1:
+        name: "nBOOT1"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -138,3 +154,4 @@ _include:
  - ../peripherals/adc/adc_v3_common_f3_single.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
+ - ../peripherals/flash/flash_f3.yaml
