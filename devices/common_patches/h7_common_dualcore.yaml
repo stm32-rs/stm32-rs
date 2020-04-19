@@ -492,6 +492,8 @@ RCC:
       USART8RST:
         name: UART8RST
         description: UART8 block reset
+      HDMICECRST:
+        name: CECRST
   APB1LENR,C1_APB1LENR:
     _add:
       WWDG2EN:
@@ -505,6 +507,8 @@ RCC:
       USART8EN:
         name: UART8EN
         description: UART8 Peripheral Clocks Enable
+      HDMICECEN:
+        name: CECEN
   APB1LLPENR,C1_APB1LLPENR:
     _add:
       WWDG2LPEN:
