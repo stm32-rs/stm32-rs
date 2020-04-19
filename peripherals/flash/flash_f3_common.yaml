@@ -9,6 +9,9 @@ Flash:
     PRFTBE:
       Disabled: [0, "Prefetch is disabled"]
       Enabled: [1, "Prefetch is enabled"]
+    HLFCYA:
+      Disabled: [0, "Half cycle is disabled"]
+      Enabled: [1, "Half cycle is enabled"]
     LATENCY:
       WS0: [0, "0 wait states, if 0 < HCLK <= 24 MHz"]
       WS1: [1, "1 wait state, if 24 < HCLK <= 48 MHz"]

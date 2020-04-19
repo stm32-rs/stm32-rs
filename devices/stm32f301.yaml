@@ -86,6 +86,13 @@ SYSCFG:
       - SRAM_PEF
 
 Flash:
+  ACR:
+    _add:
+      HLFCYA:
+        description: Flash half cycle access enable
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
   SR:
     _modify:
       WRPRT:
