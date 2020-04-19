@@ -1,0 +1,8 @@
+# Flash peripheral
+# Applicable to STM32F3
+
+Flash:
+  OBR:
+    SRAM_PARITY_CHECK:
+      Disabled: [0, "RAM parity check disabled"]
+      Enabled: [1, "RAM parity check enabled"]
