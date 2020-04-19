@@ -58,6 +58,36 @@ SYSCFG:
           bitOffset: 8
           bitWidth: 2
 
+# # Rename in accordance with other devices and reference manual.
+# _modify:
+#   Flash:
+#     name: FLASH
+
+Flash:
+  SR:
+    _modify:
+      WRPRT:
+        name: "WRPRTERR"
+  # Creates error
+  # CR:
+    # FORCE_OPTLOAD:
+    #   _modify:
+    #     name: "OBL_LAUNCH"
+  OBR:
+    _modify:
+      resetValue: 0xFFFFFF0F
+      BOOT1:
+        name: "nBOOT1"
+    _delete:
+      - LEVEL1_PROT
+      - LEVEL2_PROT
+    _add:
+      RDPRT:
+        description: Read protection Level status
+        bitOffset: 1
+        bitWidth: 2
+
+
 # TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:
@@ -129,3 +159,4 @@ _include:
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/adc/adc_v3_common_f3.yaml
+ - ../peripherals/flash/flash_f3.yaml
