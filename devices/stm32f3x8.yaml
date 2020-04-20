@@ -1,5 +1,10 @@
 _svd: ../svd/stm32f3x8.svd
 
+_modify:
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
+
 _delete:
   - ADC1
   - ADC2

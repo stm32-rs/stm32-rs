@@ -24,6 +24,9 @@ _modify:
   ADC1_2:
     description: ADC Common registers
     baseAddress: "0x50000300"
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
 
 ADC1:
   _delete:

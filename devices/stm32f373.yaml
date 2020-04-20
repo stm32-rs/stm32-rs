@@ -3,6 +3,9 @@ _svd: ../svd/stm32f373.svd
 _modify:
   ADC:
     name: ADC1
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
 
 RCC:
   APB2RSTR:
@@ -64,7 +67,7 @@ CAN:
     _interrupts:
       - COMP1_2
 
-Flash:
+FLASH:
   SR:
     _modify:
       WRPRT:

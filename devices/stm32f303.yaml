@@ -1,5 +1,10 @@
 _svd: ../svd/stm32f303.svd
 
+_modify:
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
+
 "SPI*":
   SR:
     _modify:
