@@ -85,29 +85,6 @@ SYSCFG:
       - BYP_ADD_PAR
       - SRAM_PEF
 
-Flash:
-  ACR:
-    _add:
-      HLFCYA:
-        description: Flash half cycle access enable
-        bitOffset: 3
-        bitWidth: 1
-        access: read-write
-  SR:
-    _modify:
-      WRPRT:
-        name: "WRPRTERR"
-  # Creates error
-  # CR:
-    # FORCE_OPTLOAD:
-    #   _modify:
-    #     name: "OBL_LAUNCH"
-  OBR:
-    _modify:
-      resetValue: 0xFFFFFF0F
-      BOOT1:
-        name: "nBOOT1"
-
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -161,5 +138,6 @@ _include:
  - ../peripherals/adc/adc_v3_common_f3_single.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
+ - common_patches/f3_flash.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml

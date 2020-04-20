@@ -79,16 +79,6 @@ Flash:
       resetValue: 0xFFFFFF0F
       BOOT1:
         name: "nBOOT1"
-    _delete:
-      - LEVEL1_PROT
-      - LEVEL2_PROT
-    _add:
-      RDPRT:
-        description: Read protection Level status
-        bitOffset: 1
-        bitWidth: 2
-
-
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -134,5 +124,6 @@ _include:
  - common_patches/f3_dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f37x.yaml
+ - common_patches/f3_flash_obr_rdptr.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_37x.yaml
