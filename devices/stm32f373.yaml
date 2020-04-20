@@ -69,11 +69,10 @@ Flash:
     _modify:
       WRPRT:
         name: "WRPRTERR"
-  # Creates error
-  # CR:
-    # FORCE_OPTLOAD:
-    #   _modify:
-    #     name: "OBL_LAUNCH"
+  CR:
+    _modify:
+      FORCE_OPTLOAD:
+        name: "OBL_LAUNCH"
   OBR:
     _modify:
       resetValue: 0xFFFFFF0F
