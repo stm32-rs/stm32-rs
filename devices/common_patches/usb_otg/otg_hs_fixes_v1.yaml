@@ -103,6 +103,7 @@ OTG_HS_DEVICE:
           bitOffset: 21
           bitWidth: 1
           access: read-write
+          description: STALL handshake
         SNPM:
           bitOffset: 20
           bitWidth: 1
@@ -162,6 +163,7 @@ OTG_HS_DEVICE:
           bitOffset: 21
           bitWidth: 1
           access: read-write
+          description: STALL handshake
         SNPM:
           bitOffset: 20
           bitWidth: 1
