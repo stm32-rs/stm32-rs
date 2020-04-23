@@ -1,0 +1,22 @@
+Ethernet_MAC:
+  MACMIIDR:
+    _modify:
+      TD:
+        name: MD
+  MACFCR:
+    _modify:
+      FCB_BPA:
+        name: FCB
+  MACA3LR:
+    _modify:
+      MBCA3L:
+        name: MACA3L
+  MACA2HR:
+    _modify:
+      ETH_MACA2HR:
+        name: MACA2H
+Ethernet_DMA:
+  DMABMR:
+    _modify:
+      RTPR:
+        name: PM
