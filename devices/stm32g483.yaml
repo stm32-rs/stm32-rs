@@ -3,5 +3,10 @@ _svd: ../svd/stm32g483.svd
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml
+ - ./common_patches/g4_adc_common.yaml
  - ../peripherals/exti/exti.yaml
+ - ../peripherals/adc/adc_v3_g4.yaml
+ - ../peripherals/adc/adc_v3_common_g4.yaml
  - ./common_patches/g4_comp.yaml
+ - ./common_patches/g4_adc.yaml
+ 

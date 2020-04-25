@@ -1,0 +1,9 @@
+ADC*_*:
+  CCR:
+    _modify:
+      CH17SEL:
+        name: VSENSESEL
+        description: V_TS temperature sensor channel selection
+      CH18SEL:
+        name: VBATSEL
+        description: V_BAT battery voltage channel selection
