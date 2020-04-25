@@ -1,5 +1,10 @@
 _svd: ../svd/stm32f303.svd
 
+_modify:
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
+
 "SPI*":
   SR:
     _modify:
@@ -129,3 +134,8 @@ _include:
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/adc/adc_v3_common_f3.yaml
+ - common_patches/f3_flash.yaml
+ - common_patches/f3_flash_obr_rdptr.yaml
+ - ../peripherals/flash/flash_f3_common.yaml
+ - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
+ - ../peripherals/flash/flash_f3_acr_hlfcya.yaml

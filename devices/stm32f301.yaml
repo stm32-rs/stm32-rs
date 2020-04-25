@@ -24,6 +24,9 @@ _modify:
   ADC1_2:
     description: ADC Common registers
     baseAddress: "0x50000300"
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
 
 ADC1:
   _delete:
@@ -138,3 +141,6 @@ _include:
  - ../peripherals/adc/adc_v3_common_f3_single.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
+ - common_patches/f3_flash.yaml
+ - ../peripherals/flash/flash_f3_common.yaml
+ - ../peripherals/flash/flash_f3_acr_hlfcya.yaml

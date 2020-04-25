@@ -1,0 +1,10 @@
+FLASH:
+  OBR:
+    _delete:
+      - LEVEL1_PROT
+      - LEVEL2_PROT
+    _add:
+      RDPRT:
+        description: Read protection Level status
+        bitOffset: 1
+        bitWidth: 2

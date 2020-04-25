@@ -1,0 +1,6 @@
+FLASH:
+  OBR:
+    # Only avaliable for f302, f303 and f37x
+    SRAM_PARITY_CHECK:
+      Disabled: [0, "RAM parity check disabled"]
+      Enabled: [1, "RAM parity check enabled"]

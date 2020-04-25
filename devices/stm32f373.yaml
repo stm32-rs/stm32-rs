@@ -3,6 +3,9 @@ _svd: ../svd/stm32f373.svd
 _modify:
   ADC:
     name: ADC1
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
 
 RCC:
   APB2RSTR:
@@ -64,6 +67,21 @@ CAN:
     _interrupts:
       - COMP1_2
 
+FLASH:
+  SR:
+    _modify:
+      WRPRT:
+        name: "WRPRTERR"
+  CR:
+    _modify:
+      FORCE_OPTLOAD:
+        name: "OBL_LAUNCH"
+  OBR:
+    _modify:
+      resetValue: 0xFFFFFF0F
+      BOOT1:
+        name: "nBOOT1"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -108,3 +126,7 @@ _include:
  - common_patches/f3_dbgmcu.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f37x.yaml
+ - common_patches/f3_flash_obr_rdptr.yaml
+ - ../peripherals/flash/flash_f3_common.yaml
+ - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
+ - ../peripherals/flash/flash_f3_obr_vdd_monitor.yaml

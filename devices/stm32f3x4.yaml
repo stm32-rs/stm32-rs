@@ -1,5 +1,10 @@
 _svd: ../svd/stm32f3x4.svd
 
+_modify:
+  # Rename in accordance with other devices and reference manual.
+  Flash:
+    name: FLASH
+
 _rebase:
   SPI1: SPI3
 
@@ -264,3 +269,7 @@ _include:
  - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/adc/adc_v3_common_f3.yaml
  - ../peripherals/hrtim/hrtim.yaml
+ - common_patches/f3_flash.yaml
+ - common_patches/f3_flash_obr_rdptr.yaml
+ - ../peripherals/flash/flash_f3_common.yaml
+ - ../peripherals/flash/flash_f3_acr_hlfcya.yaml

@@ -1,0 +1,6 @@
+FLASH:
+  OBR:
+    # This flag does only exist for stm32f37x devices
+    SDADC12_VDD_MONITOR:
+      Disabled: [0, "VDDSD12 monitoring disabled"]
+      Enabled: [1, "VDDSD12 monitoring enabled"]
