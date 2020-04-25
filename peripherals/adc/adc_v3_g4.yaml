@@ -9,9 +9,8 @@ _include:
       - "DIFSEL*"
   CR:
     ADVREGEN:
-      Intermediate: [0, "Intermediate state required when moving the ADC voltage regulator between states"]
+      Disabled: [0, "ADC voltage regulator disabled"]
       Enabled: [1, "ADC voltage regulator enabled"]
-      Disabled: [2, "ADC voltage regulator disabled"]
     DEEPPWD:
       Disabled: [0, ADC not in Deep-power down]
       Enabled: [1, ADC in Deep-power-down (default reset state)]
@@ -40,17 +39,14 @@ _include:
       Enabled: [1, "DMA enabled"]
   "CFGR2":
     SMPTRIG:
-      Disabled: [0, Sampling time not controlled by trigger]
-      Enabled: [1, Sampling time controlled by hardware or software trigger]
+      Disabled: [0, Sampling time control trigger mode disabled]
+      Enabled: [1, Sampling time control trigger mode enabled]
     BULB:
       Disabled: [0, Bulb sampling mode disabled]
       Enabled: [1, "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes."]
     SWTRIG:
       Disabled: [0, End sampling period and start conversion]
       Enabled: [1, Start sampling period]
-    SMPTRIG:
-      Disabled: [0, Sampling time not controlled by HW or SW trigger]
-      Enabled: [1, Sampling time controlled by HW or SW trigger]
     GCOMP:
       Disabled: [0, Regular ADC operating mode]
       Enabled: [1, Gain compensation enabled and applies to all channels]
@@ -60,8 +56,25 @@ _include:
     TROVS:
       Automatic: [0, "All oversampled conversions for a channel are run following a trigger"]
       Triggered: [1, "Each oversampled conversion for a channel needs a new trigger"]
-    OVSS: [0, 11]
-    OVSR: [0, 7]
+    OVSS:
+      NoShift: [0, "No right shift applied to oversampling result"]
+      Shift1: [1, "Shift oversampling result right by 1 bit"]
+      Shift2: [2, "Shift oversampling result right by 2 bits"]
+      Shift3: [3, "Shift oversampling result right by 3 bits"]
+      Shift4: [4, "Shift oversampling result right by 4 bits"]
+      Shift5: [5, "Shift oversampling result right by 5 bits"]
+      Shift6: [6, "Shift oversampling result right by 6 bits"]
+      Shift7: [7, "Shift oversampling result right by 7 bits"]
+      Shift8: [8, "Shift oversampling result right by 8 bits"]
+    OVSR:
+      OS2: [0, "Oversampling ratio of 2"]
+      OS4: [1, "Oversampling ratio of 4"]
+      OS8: [2, "Oversampling ratio of 8"]
+      OS16: [3, "Oversampling ratio of 16"]
+      OS32: [4, "Oversampling ratio of 32"]
+      OS64: [5, "Oversampling ratio of 64"]
+      OS128: [6, "Oversampling ratio of 128"]
+      OS256: [7, "Oversampling ratio of 256"]
     JOVSE:
       Disabled: [0, "Injected oversampling disabled"]
       Enabled: [1, "Injected oversampling enabled"]
@@ -70,18 +83,18 @@ _include:
       Enabled: [1, "Regular oversampling enabled"]
   "SMPR1":
     "SMPPLUS":
-      Cycles2_5: [0, "2.5 ADC clock cycles"]
-      Cycles3_5: [1, "3.5 ADC clock cycles"]
+      Normal: [0, "2.5 in SMPR remains 2.5 cycles"]
+      Plus1: [1, "2.5 in SMPR becomes 3.5 cycles"]
   "SMPR?":
     "SMP*":
-      Cycles1_5: [0, "1.5 ADC clock cycles"]
-      Cycles2_5: [1, "2.5 ADC clock cycles"]
-      Cycles4_5: [2, "4.5 ADC clock cycles"]
-      Cycles7_5: [3, "7.5 ADC clock cycles"]
-      Cycles19_5: [4, "19.5 ADC clock cycles"]
-      Cycles61_5: [5, "61.5 ADC clock cycles"]
-      Cycles181_5: [6, "181.5 ADC clock cycles"]
-      Cycles601_5: [7, "601.5 ADC clock cycles"]
+      Cycles2_5: [0, "2.5 ADC clock cycles"]
+      Cycles6_5: [1, "6.5 ADC clock cycles"]
+      Cycles12_5: [2, "12.5 ADC clock cycles"]
+      Cycles24_5: [3, "24.5 ADC clock cycles"]
+      Cycles47_5: [4, "47.5 ADC clock cycles"]
+      Cycles92_5: [5, "92.5 ADC clock cycles"]
+      Cycles247_5: [6, "247.5 ADC clock cycles"]
+      Cycles640_5: [7, "640.5 ADC clock cycles"]
   "TR?":
     "HT?": [0, 0xFFF]
     "LT?": [0, 0xFFF]

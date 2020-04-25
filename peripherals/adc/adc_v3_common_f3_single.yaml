@@ -3,6 +3,9 @@
 
 "ADC*_*":
   CCR:
+    VBATEN:
+      Disabled: [0, "V_BAT channel disabled"]
+      Enabled: [1, "V_BAT channel enabled"]
     TSEN:
       Disabled: [0, "Temperature sensor channel disabled"]
       Enabled: [1, "Temperature sensor channel enabled"]
