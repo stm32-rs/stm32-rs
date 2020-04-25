@@ -12,7 +12,7 @@ FLASH:
     LATENCY:
       WS0: [0, "0 wait states, if 0 < HCLK <= 24 MHz"]
       WS1: [1, "1 wait state, if 24 < HCLK <= 48 MHz"]
-      WS1: [2, "1 wait states, if 48 < HCLK <= 72 MHz"]
+      WS2: [2, "2 wait states, if 48 < HCLK <= 72 MHz"]
 
   KEYR:
     FKEYR: [0, 0xFFFFFFFF]
