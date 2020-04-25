@@ -2,6 +2,49 @@
 
 ## [Unreleased]
 
+## [v0.11.0] 2020-04-25
+
+Family-specific:
+
+* F0:
+    * Fix width of TIM1 and TIM14-17 registers (now 16 bit) (#363)
+* F3:
+    * Flash documentation (#368)
+    * Fix duplicate FPU interrupts (#357)
+* F4:
+    * Add missing interrupts (#360, #362, #341)
+    * Fix duplicate FPU interrupts (#357)
+    * Fix FSMC peripheral base address (#354)
+    * RNG documentation (#348)
+    * Links fixed in device table (#343)
+    * Fix DMA CR.CHSEL width (#339)
+    * Fix build error on Windows (#369)
+* F7:
+    * Fix DMA CR.CHSEL width (#339)
+* H7:
+    * HDMICRC renamed to CRC (#367)
+    * Add SYSCFG_PWRCR register (#366)
+    * Apply flash bank grouping to all parts (#364)
+    * AXI documentation (#359)
+    * RAMECC registers and documentation (#353)
+    * SAI documentation and fixes (#347)
+* L4:
+    * Fix duplicate FPU interrupts (#357)
+    * RCC field name fixes (#350)
+* G4:
+    * ADC documentation (#338)
+
+Common:
+    * Fixed typo in I2C `OA1EN` `Disabled` variant name for many devices (#365)
+    * Hopefully fixed docs.rs building (#355)
+    * Generated crate directories no longer stored in git (#346)
+
+Thanks to:
+
+[@Sh3Rm4n] [@richardeoin] [@hoachin] [@BryanKadzban] [@richardeoin]
+[@aurabindo] [@MarcoIeni] [@therealprof] [@ryan-summers] [@dirk-dms]
+[@aurelj] [@tachiniererin] [@torkeldanielsson]
+
 ## [v0.10.0] 2020-02-13
 
 Family-specific:
@@ -322,7 +365,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.11.0...HEAD
+[v0.11.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.7.0...v0.8.0
@@ -342,14 +386,18 @@ work in this release!
 [@albru123]: https://github.com/albru123
 [@arkorobotics]: https://github.com/arkorobotics
 [@astro]: https://github.com/astro
+[@aurabindo]: https://github.com/aurabindo
 [@aurelj]: https://github.com/aurelj
 [@birkenfeld]: https://github.com/birkenfeld
+[@BryanKadzban]: https://github.com/BryanKadzban
 [@burrbull]: https://github.com/burrbull
+[@dirk-dms]: https://github.com/dirk-dms
 [@disasm]: https://github.com/disasm
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@hnez]: https://github.com/hnez
+[@hoachin]: https://github.com/hoachin
 [@jessebraham]: https://github.com/jessebraham
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
@@ -360,6 +408,7 @@ work in this release!
 [@lochsh]: https://github.com/lochsh
 [@lynaghk]: https://github.com/lynaghk
 [@mabezdev]: https://github.com/mabezdev
+[@MarcoIeni]: https://github.com/MarcoIeni
 [@mathk]: https://github.com/mathk
 [@MattCatz]: https://github.com/MattCatz
 [@nickray]: https://github.com/nickray
@@ -368,9 +417,12 @@ work in this release!
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
+[@ryan-summers]: https://github.com/ryan-summers
 [@samcrow]: https://github.com/samcrow
 [@Sh3Rm4n]: https://github.com/Sh3Rm4n
 [@solderjs]: https://github.com/solderjs
+[@tachiniererin]: https://github.com/tachiniererin
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
+[@torkeldanielsson]: https://github.com/torkeldanielsson
 [@x37v]: https://github.com/x37v
