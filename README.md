@@ -13,6 +13,7 @@
 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
+[![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
 
 This repository provides Rust device support crates for all STM32
 microcontrollers, providing a safe API to that device's peripherals using
@@ -133,6 +134,7 @@ This project is still young and there's a lot to do!
 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
+[![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
@@ -205,7 +207,7 @@ $ git push origin vX.X.X
 # wait for travis build to succeed
 $ git tag -a 'vX.X.X' -m 'vX.X.X'
 $ git push origin vX.X.X
-$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32g0 stm32g4; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
+$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
 ```
 
 ## License
