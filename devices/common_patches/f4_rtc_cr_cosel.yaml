@@ -1,0 +1,8 @@
+RTC:
+  CR:
+    _add:
+      COSEL:
+        description: Calibration output selection
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
