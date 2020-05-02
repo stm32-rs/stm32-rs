@@ -44,6 +44,11 @@ SYSCFG:
         bitOffset: 24
         bitWidth: 1
         access: read-write
+    _modify:
+      TIM7_DAC2_DMA_RMP:
+        name: TIM7_DAC1_OUT2_DMA_RMP
+      TIM6_DAC1_DMA_RMP:
+        name: TIM6_DAC1_OUT1_DMA_RMP
   CFGR2:
     _delete:
       - BYP_ADD_PAR
