@@ -15,15 +15,15 @@ RTC:
       Enabled: [0, "Precharge RTC_TAMPx pins before sampling (enable internal pull-up)"]
       Disabled: [1, "Disable precharge of RTC_TAMPx pins"]
     TAMPPRCH:
-      RTCCLK_1_cycle: [0, "1 RTCCLK cycle"]
-      RTCCLK_2_cycle: [1, "2 RTCCLK cycles"]
-      RTCCLK_4_cycle: [2, "4 RTCCLK cycles"]
-      RTCCLK_8_cycle: [3, "8 RTCCLK cycles"]
+      Cycles1: [0, "1 RTCCLK cycle"]
+      Cycles2: [1, "2 RTCCLK cycles"]
+      Cycles4: [2, "4 RTCCLK cycles"]
+      Cycles8: [3, "8 RTCCLK cycles"]
     TAMPFLT:
       Immediate: [0, "Tamper event is activated on edge of RTC_TAMPx input transitions to the active level (no internal pull-up on RTC_TAMPx input)"]
-      Two_Samples: [1, "Tamper event is activated after 2 consecutive samples at the active level"]
-      Four_Samples: [2, "Tamper event is activated after 4 consecutive samples at the active level"]
-      Eight_Samples: [3, "Tamper event is activated after 8 consecutive samples at the active level"]
+      Samples2: [1, "Tamper event is activated after 2 consecutive samples at the active level"]
+      Samples4: [2, "Tamper event is activated after 4 consecutive samples at the active level"]
+      Samples8: [3, "Tamper event is activated after 8 consecutive samples at the active level"]
     TAMPFREQ:
       Div32768: [0, "RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)"]
       Div16384: [1, "RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)"]
