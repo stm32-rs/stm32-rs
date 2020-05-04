@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [ staging, trying, master ]
+  pull_request:
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        crate:
+          - stm32f0
+          - stm32f1
+          - stm32f2
+          - stm32f3
+          - stm32f4
+          - stm32f7
+          - stm32h7
+          - stm32l0
+          - stm32l1
+          - stm32l4
+          - stm32l5
+          - stm32g0
+          - stm32g4
+    env:
+      CRATES: ${{ matrix.crate }}
+      CARGO_INCREMENTAL: 0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+          components: rustfmt
+      - name: Install Python dependencies
+        run: |
+          pip3 install --user setuptools wheel
+          pip3 install --user svdtools
+      - name: Put pip binary directory into path
+        run: |
+          echo "::add-path::~/.local/bin"
+      - name: Cache Cargo installed binaries
+        uses: actions/cache@v1
+        id: cache-cargo
+        with:
+          path: ~/cargo-bin
+          key: ${{ runner.os }}-svd2rust-0.17.0
+      - name: Install svd2rust
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        uses: actions-rs/install@v0.1
+        with:
+          crate: svd2rust
+          version: 0.17.0
+      - name: Copy svd2rust to cache directory
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        run: |
+          mkdir ~/cargo-bin
+          cp ~/.cargo/bin/svd2rust ~/cargo-bin
+      - name: Put new cargo binary directory into path
+        run: |
+          echo "::add-path::~/cargo-bin"
+      - name: Patch SVDs
+        run: make -j2 patch
+      - name: Build PACs
+        run: make -j2 svd2rust
+      - name: Check PACs
+        run: make -j2 check

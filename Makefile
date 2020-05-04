@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean
+.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -50,7 +50,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -g -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
-	sed "1,10d" $$(@D)/lib.rs > $$@
+	sed "1,20d;23,28d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
 	mv -f -t $$(@D)/.. $$(@D)/generic.rs
 
@@ -71,8 +71,10 @@ endef
 
 $(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
 
-svd/%.svd:
-	cd svd && ./extract.sh
+svd/%.svd: svd/.extracted ;
+
+svd/.extracted:
+	cd svd && ./extract.sh && touch .extracted
 
 patch: $(PATCHED_SVDS)
 
@@ -104,7 +106,11 @@ clean-html:
 clean-crates:
 	rm -rf $(CRATES)
 
-clean: clean-rs clean-patch clean-html
+clean-svd:
+	rm -f svd/*.svd
+	rm -f svd/.extracted
+
+clean: clean-rs clean-patch clean-html clean-svd
 	rm -rf .deps
 
 # As alternative to `pip install --user svdtools`:

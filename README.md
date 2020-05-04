@@ -1,6 +1,6 @@
 # STM32 Peripheral Access Crates
 
-[![Build Status](https://travis-ci.org/stm32-rs/stm32-rs.svg?branch=master)](https://travis-ci.org/stm32-rs/stm32-rs)
+![CI](https://github.com/stm32-rs/stm32-rs/workflows/CI/badge.svg?branch=master)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
@@ -204,7 +204,7 @@ $ vi README.md # update version number
 $ git checkout -b vX.X.X
 $ git commit -am "vX.X.X"
 $ git push origin vX.X.X
-# wait for travis build to succeed
+# wait for CI build to succeed
 $ git tag -a 'vX.X.X' -m 'vX.X.X'
 $ git push origin vX.X.X
 $ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
