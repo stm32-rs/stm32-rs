@@ -35,19 +35,36 @@ jobs:
           profile: minimal
           override: true
           components: rustfmt
-      - name: Install svdtools
+      - name: Install Python dependencies
         run: |
           pip3 install --user setuptools wheel
           pip3 install --user svdtools
+      - name: Put pip binary directory into path
+        run: |
+          echo "::add-path::~/.local/bin"
+      - name: Cache Cargo installed binaries
+        uses: actions/cache@v1
+        id: cache-cargo
+        with:
+          path: ~/cargo-bin
+          key: ${{ runner.os }}-svd2rust-0.17.0
       - name: Install svd2rust
         uses: actions-rs/install@v0.1
         with:
           crate: svd2rust
           version: 0.17.0
+      - name: Copy svd2rust to cache directory
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
+        run: |
+          mkdir ~/cargo-bin
+          cp ~/.cargo/bin/svd2rust ~/cargo-bin
+      - name: Put cargo binary directory into path
+        run: |
+          echo "::add-path::~/cargo-bin"
       - name: Build PACs
         env:
           CRATES: ${{ matrix.crate }}
           CARGO_INCREMENTAL: 0
         run: |
-          make all
-          make check
+          make -j2 all
+          make -j2 check
