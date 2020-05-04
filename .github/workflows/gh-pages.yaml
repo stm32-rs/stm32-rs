@@ -1,0 +1,31 @@
+name: build gh-pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_html:
+    name: Build HTML
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install Python dependencies
+        run: |
+          pip3 install --user setuptools wheel
+          pip3 install --user svdtools
+      - name: Put pip binary directory into path
+        run: |
+          echo "::add-path::~/.local/bin"
+      - name: Build HTML
+        run: |
+          make -j2 html
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: html
+          force_orphan: true
