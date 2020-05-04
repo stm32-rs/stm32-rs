@@ -1,6 +1,6 @@
 # STM32 Peripheral Access Crates
 
-![CI](https://github.com/stm32-rs/stm32-rs/workflows/CI/badge.svg?branch=master)
+[![CI](https://github.com/stm32-rs/stm32-rs/workflows/CI/badge.svg?branch=master)](https://github.com/stm32-rs/stm32-rs)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
@@ -35,7 +35,7 @@ have been tested on hardware, and so errors or omissions may remain. We can't
 make any guarantee of correctness. Please report any bugs you find!
 
 You can see current coverage status for each chip
-[here](https://stm32.agg.io/rs). Coverage means that individual fields are
+[here](https://stm32-rs.github.io/stm32-rs/). Coverage means that individual fields are
 documented with possible values, but even devices with low coverage should
 have every register and field available in the API. That page also allows you
 to drill down into each field on each register on each peripheral.
@@ -147,7 +147,7 @@ check if its sibling is supported instead. The crate READMEs make this clear.**
 Many peripherals are not yet patched to provide the type-safe friendly-name
 interface (enumerated values); please consider helping out with this!
 
-Check out the full list of supported devices [here](https://stm32.agg.io/rs).
+Check out the full list of supported devices [here](https://stm32-rs.github.io/stm32-rs/).
 
 ## Adding New Devices
 
