@@ -50,7 +50,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -g -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
-	sed "1,10d" $$(@D)/lib.rs > $$@
+	sed "1,20d;23,28d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
 	mv -f -t $$(@D)/.. $$(@D)/generic.rs
 
