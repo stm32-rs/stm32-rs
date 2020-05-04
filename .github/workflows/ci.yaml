@@ -37,8 +37,8 @@ jobs:
           components: rustfmt
       - name: Install svdtools
         run: |
-          sudo pip3 install --user setuptools wheel
-          sudo pip3 install --user svdtools
+          pip3 install --user setuptools wheel
+          pip3 install --user svdtools
       - name: Install svd2rust
         uses: actions-rs/install@v0.1
         with:
