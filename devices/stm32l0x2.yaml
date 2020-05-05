@@ -119,7 +119,10 @@ _include:
  - ./common_patches/rename_USB_EPxR_EPTYPE_field.yaml
  - ../peripherals/adc/adc_l0.yaml
  - ../peripherals/aes/aes_l0.yaml
- - ../peripherals/crc/crc_l0.yaml
+ - common_patches/crc/crc_rename_init.yaml
+ - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_with_polysize.yaml
+ - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
