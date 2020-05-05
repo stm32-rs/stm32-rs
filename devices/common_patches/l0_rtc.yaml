@@ -1,6 +1,16 @@
 # Fix RTC bits for L0
 
 RTC:
+  ISR:
+    _add:
+      RECALPF:
+        description: Recalibration pending flag
+        bitWidth: 1
+        bitOffset: 16
+      TAMP3F:
+        description: RTC_TAMP3 detection flag
+        bitWidth: 1
+        bitOffset: 15
   TAMPCR:
     _modify:
       TAMP2_TRG:

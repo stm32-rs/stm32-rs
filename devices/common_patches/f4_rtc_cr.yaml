@@ -1,0 +1,13 @@
+RTC:
+  CR:
+    _add:
+      BYPSHAD:
+        description: Bypass the shadow registers
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
+      COSEL:
+        description: Calibration output selection
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
