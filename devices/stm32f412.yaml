@@ -21,6 +21,55 @@ _modify:
      # ST got the base address of the FSMC peripheral wrong
      baseAddress: "0xA0000000"
 
+# FSMC register fixes
+FSMC:
+  # Fix reset values
+  _modify:
+    BCR1:
+      resetValue: "0x000030DB"
+    BCR2:
+      resetValue: "0x000030D2"
+    BCR3:
+      resetValue: "0x000030D2"
+    BCR4:
+      resetValue: "0x000030D2"
+    "BTR?":
+      resetValue: "0x0fffffff"
+  # Delete registers not present on the STM32F412
+  _delete:
+    - "PCR?"
+    - "SR?"
+    - "PMEM?"
+    - "PATT?"
+    - "ECCR?"
+    - PIO4
+  BCR1:
+    # Extra fields in BCR1
+    _add:
+      WFDIS:
+        description: "Write FIFO disable"
+        bitOffset: 21
+        bitWidth: 1
+      CCLKEN:
+        description: "Continuous clock enable"
+        bitOffset: 20
+        bitWidth: 1
+    WFDIS:
+      Enabled: [0, "Write FIFO enabled"]
+      Disabled: [1, "Write FIFO disabled"]
+    CCLKEN:
+      Enabled: [1, "FSMC_CLK is generated continuously during asynchronous and synchronous access"]
+      Disabled: [0, "FSMC_CLK is only generated during the synchronous memory access"]
+  # Delete WRAPMOD field from BCR1, BCR2, BCR3, BCR4
+  "BCR?":
+    _delete:
+      - WRAPMOD
+  # Delete DATLAT and CLKDIV fields from BWTR1, BWTR2, BWTR3, BWTR4
+  "BWTR?":
+    _delete:
+      - DATLAT
+      - CLKDIV
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0402
   CR:
@@ -192,10 +241,8 @@ _include:
  - common_patches/f4_adc_single_csr.yaml
  - common_patches/f4_adc_single_ccr.yaml
  - common_patches/fsmc/fsmc_sram.yaml
- - common_patches/fsmc/fsmc_sramfix_v3.yaml
- - common_patches/fsmc/fsmc_nand_v1.yaml
+ - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
- - ../peripherals/fsmc/fsmc_nand.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
