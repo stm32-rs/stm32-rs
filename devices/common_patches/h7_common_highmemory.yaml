@@ -1,0 +1,702 @@
+# Common SVD errors for high memory density parts h7a3/h7b3/h7b0
+#
+# See RM0455
+
+# Rename in accordance with other devices and reference manual.
+_modify:
+  Flash:
+    name: FLASH
+  TT_FDCAN:
+    name: FDCAN1
+  FDCAN:
+    name: FDCAN2
+
+# The SVD is just quite different to the RM for all these registers.
+# We'll go with the RM convention even though it is inconsistent too.
+"GPIO*":
+  MODER:
+    _modify:
+      MODE0:
+        name: MODER0
+      MODE1:
+        name: MODER1
+      MODE2:
+        name: MODER2
+      MODE3:
+        name: MODER3
+      MODE4:
+        name: MODER4
+      MODE5:
+        name: MODER5
+      MODE6:
+        name: MODER6
+      MODE7:
+        name: MODER7
+      MODE8:
+        name: MODER8
+      MODE9:
+        name: MODER9
+      MODE10:
+        name: MODER10
+      MODE11:
+        name: MODER11
+      MODE12:
+        name: MODER12
+      MODE13:
+        name: MODER13
+      MODE14:
+        name: MODER14
+      MODE15:
+        name: MODER15
+  OSPEEDR:
+    _modify:
+      OSPEED0:
+        name: OSPEEDR0
+      OSPEED1:
+        name: OSPEEDR1
+      OSPEED2:
+        name: OSPEEDR2
+      OSPEED3:
+        name: OSPEEDR3
+      OSPEED4:
+        name: OSPEEDR4
+      OSPEED5:
+        name: OSPEEDR5
+      OSPEED6:
+        name: OSPEEDR6
+      OSPEED7:
+        name: OSPEEDR7
+      OSPEED8:
+        name: OSPEEDR8
+      OSPEED9:
+        name: OSPEEDR9
+      OSPEED10:
+        name: OSPEEDR10
+      OSPEED11:
+        name: OSPEEDR11
+      OSPEED12:
+        name: OSPEEDR12
+      OSPEED13:
+        name: OSPEEDR13
+      OSPEED14:
+        name: OSPEEDR14
+      OSPEED15:
+        name: OSPEEDR15
+  PUPDR:
+    _modify:
+      PUPD0:
+        name: PUPDR0
+      PUPD1:
+        name: PUPDR1
+      PUPD2:
+        name: PUPDR2
+      PUPD3:
+        name: PUPDR3
+      PUPD4:
+        name: PUPDR4
+      PUPD5:
+        name: PUPDR5
+      PUPD6:
+        name: PUPDR6
+      PUPD7:
+        name: PUPDR7
+      PUPD8:
+        name: PUPDR8
+      PUPD9:
+        name: PUPDR9
+      PUPD10:
+        name: PUPDR10
+      PUPD11:
+        name: PUPDR11
+      PUPD12:
+        name: PUPDR12
+      PUPD13:
+        name: PUPDR13
+      PUPD14:
+        name: PUPDR14
+      PUPD15:
+        name: PUPDR15
+  IDR:
+    _modify:
+      ID0:
+        name: IDR0
+      ID1:
+        name: IDR1
+      ID2:
+        name: IDR2
+      ID3:
+        name: IDR3
+      ID4:
+        name: IDR4
+      ID5:
+        name: IDR5
+      ID6:
+        name: IDR6
+      ID7:
+        name: IDR7
+      ID8:
+        name: IDR8
+      ID9:
+        name: IDR9
+      ID10:
+        name: IDR10
+      ID11:
+        name: IDR11
+      ID12:
+        name: IDR12
+      ID13:
+        name: IDR13
+      ID14:
+        name: IDR14
+      ID15:
+        name: IDR15
+  ODR:
+    _modify:
+      OD0:
+        name: ODR0
+      OD1:
+        name: ODR1
+      OD2:
+        name: ODR2
+      OD3:
+        name: ODR3
+      OD4:
+        name: ODR4
+      OD5:
+        name: ODR5
+      OD6:
+        name: ODR6
+      OD7:
+        name: ODR7
+      OD8:
+        name: ODR8
+      OD9:
+        name: ODR9
+      OD10:
+        name: ODR10
+      OD11:
+        name: ODR11
+      OD12:
+        name: ODR12
+      OD13:
+        name: ODR13
+      OD14:
+        name: ODR14
+      OD15:
+        name: ODR15
+  AFRL:
+    _modify:
+      AFSEL0:
+        name: AFR0
+      AFSEL1:
+        name: AFR1
+      AFSEL2:
+        name: AFR2
+      AFSEL3:
+        name: AFR3
+      AFSEL4:
+        name: AFR4
+      AFSEL5:
+        name: AFR5
+      AFSEL6:
+        name: AFR6
+      AFSEL7:
+        name: AFR7
+  AFRH:
+    _modify:
+      AFSEL8:
+        name: AFR8
+      AFSEL9:
+        name: AFR9
+      AFSEL10:
+        name: AFR10
+      AFSEL11:
+        name: AFR11
+      AFSEL12:
+        name: AFR12
+      AFSEL13:
+        name: AFR13
+      AFSEL14:
+        name: AFR14
+      AFSEL15:
+        name: AFR15
+
+"ADC*_Common":
+  CCR:
+    _modify:
+      TSEN:
+        name: VSENSEEN
+
+"ADC?":
+  AWD2CR:
+    _merge:
+      - "AWD2CH*"
+  AWD3CR:
+    _merge:
+      - "AWD3CH*"
+  DIFSEL:
+    _merge:
+      - "DIFSEL*"
+  CFGR2:
+    _modify:
+      OSR:
+        name: OSVR
+  DR:
+    _modify:
+      RDATA:
+        bitWidth: 32
+  SQR1:
+    _modify:
+      L3:
+        name: L
+  SMPR1:
+    _add:
+      SMP0:
+        description: ADC channel 0 sampling time selection
+        bitWidth: 3
+        bitOffset: 0
+  SMPR2:
+    _modify:
+      SMP19:
+        description: ADC channel 19 sampling time selection
+
+  CFGR:
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+
+AXI:
+  _strip:
+    - AXI_
+
+"SPI*":
+  CR1:
+    _modify:
+      IOLOCK:
+        access: read-write
+      CSTART:
+        access: read-write
+      TCRCI:
+        name: TCRCINI
+      RCRCI:
+        name: RCRCINI
+  CR2:
+    _modify:
+      TSER:
+        access: read-write
+  IER:
+    _modify:
+      DPXPIE:
+        name: DXPIE
+        access: read-write
+      TXPIE:
+        access: read-write
+  _modify:
+    CGFR:
+      name: I2SCFGR
+  CFG1:
+    _modify:
+      FTHVL:
+        name: FTHLV
+
+# Work around the DMA_STR? interrupt mess in the SVD.
+# Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
+# the numeral.
+
+_delete:
+  - DMA2
+
+_add:
+  DMA2:
+    baseAddress: 0x40020400
+    derivedFrom: DMA1
+    interrupts:
+      DMA2_STR0:
+        value: 56
+        description: DMA2 Stream0
+      DMA2_STR1:
+        value: 57
+        description: DMA2 Stream1
+      DMA2_STR2:
+        value: 58
+        description: DMA2 Stream2
+      DMA2_STR3:
+        value: 59
+        description: DMA2 Stream3
+      DMA2_STR4:
+        value: 60
+        description: DMA2 Stream4
+      DMA2_STR5:
+        value: 68
+        description: DMA2 Stream5
+      DMA2_STR6:
+        value: 69
+        description: DMA2 Stream6
+      DMA2_STR7:
+        value: 70
+        description: DMA2 Stream7
+
+DMA1:
+  _add:
+    _interrupts:
+      DMA1_STR0:
+        value: 11
+        description: DMA1 Stream0
+      DMA1_STR1:
+        value: 12
+        description: DMA1 Stream1
+      DMA1_STR2:
+        value: 13
+        description: DMA1 Stream2
+      DMA1_STR3:
+        value: 14
+        description: DMA1 Stream3
+      DMA1_STR4:
+        value: 15
+        description: DMA1 Stream4
+      DMA1_STR5:
+        value: 16
+        description: DMA1 Stream5
+      DMA1_STR6:
+        value: 17
+        description: DMA1 Stream6
+      # DMA1_STR7 is correct
+
+RCC:
+  _delete:
+    - ICSCR
+  _modify:
+    CIFR:
+      access: read-only
+    C1_APB1LENR:
+      name: APB1LENR
+    C1_APB1LLPENR:
+      name: APB1LLPENR
+    C1_APB1HENR:
+      name: APB1HENR
+    C1_APB1HLPENR:
+      name: APB1HLPENR
+    C1_APB2ENR:
+      name: APB2ENR
+    C1_APB2LPENR:
+      name: APB2LPENR
+    C1_APB3ENR:
+      name: APB3ENR
+    C1_APB3LPENR:
+      name: APB3LPENR
+    C1_APB4ENR:
+      name: APB4ENR
+    C1_APB4LPENR:
+      name: APB4LPENR
+    C1_AHB1ENR:
+      name: AHB1ENR
+    C1_AHB2ENR:
+      name: AHB2ENR
+    C1_AHB1LPENR:
+      name: AHB1LPENR
+    C1_AHB2LPENR:
+      name: AHB2LPENR
+    C1_AHB3ENR:
+      name: AHB3ENR
+    C1_AHB3LPENR:
+      name: AHB3LPENR
+    C1_AHB4ENR:
+      name: AHB4ENR
+    C1_AHB4LPENR:
+      name: AHB4LPENR
+
+  _add:
+    # This doesn't exist in RM0455 Rev 3, but the WW1RSC field is
+    # referenced in Section 8.7.42. So we assume it does exist in the same
+    # place as the other parts in the family.
+    GCR:
+      description: Global Control Register
+      addressOffset: 0x00A0
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        WW1RSC:
+          description: WWDG1 reset scope control
+          bitOffset: 0
+          bitWidth: 1
+
+  D3CFGR:
+    _delete: "*"
+    _add:
+      D3PPRE:
+        description: D3 domain APB4 prescaler
+        bitOffset: 4
+        bitWidth: 3
+
+  CR:
+    _modify:
+      RC48ON:
+        name: HSI48ON
+      RC48RDY:
+        name: HSI48RDY
+  CRRCR:
+    _modify:
+      RC48CAL:
+        name: HSI48CAL
+  CFGR:
+    _modify:
+      MCO1SEL:
+        name: MCO1
+      MCO2SEL:
+        name: MCO2
+  CIER:
+    _modify:
+      RC48RDYIE:
+        name: HSI48RDYIE
+  CIFR:
+    _modify:
+      RC48RDYF:
+        name: HSI48RDYF
+  CICR:
+    _modify:
+      RC48RDYC:
+        name: HSI48RDYC
+  BDCR:
+    _modify:
+      VSWRST:
+        name: BDRST
+      RTCSRC:
+        name: RTCSEL
+  PLL2DIVR:
+    _modify:
+      DIVR1:
+        name: DIVR2
+      DIVQ1:
+        name: DIVQ2
+      DIVP1:
+        name: DIVP2
+      DIVN1:
+        name: DIVN2
+  APB1LRSTR:
+    _modify:
+      USART7RST:
+        name: UART7RST
+        description: UART7 block reset
+      USART8RST:
+        name: UART8RST
+        description: UART8 block reset
+      HDMICECRST:
+        name: CECRST
+  APB1LENR:
+    _modify:
+      USART7EN:
+        name: UART7EN
+        description: UART7 Peripheral Clocks Enable
+      USART8EN:
+        name: UART8EN
+        description: UART8 Peripheral Clocks Enable
+      HDMICECEN:
+        name: CECEN
+  APB1LLPENR:
+    _modify:
+      USART7LPEN:
+        name: UART7LPEN
+        description: UART7 Peripheral Clocks Enable During CSleep Mode
+      USART8LPEN:
+        name: UART8LPEN
+        description: UART8 Peripheral Clocks Enable During CSleep Mode
+      HDMICECLPEN:
+        name: CECLPEN
+  AHB1ENR:
+    _modify:
+      USB1OTGEN:
+        name: USB1OTGHSEN
+      USB2OTGEN:
+        name: USB2OTGHSEN
+      USB1ULPIEN:
+        name: USB1OTGHSULPIEN
+    _delete:
+      - USB2ULPIEN
+  AHB2ENR:
+    _modify:
+      CAMITFEN:
+        name: DCMIEN
+        description: "DCMI peripheral clock"
+  AHB1LPENR:
+    _modify:
+      USB1OTGLPEN:
+        name: USB1OTGHSLPEN
+      USB2OTGLPEN:
+        name: USB2OTGHSLPEN
+      USB1ULPILPEN:
+        name: USB1OTGHSULPILPEN
+      USB2ULPILPEN:
+        name: USB2OTGHSULPILPEN
+  AHB2LPENR:
+    _modify:
+      CAMITFLPEN:
+        name: DCMILPEN
+        description: "DCMI peripheral clock enable during csleep mode"
+  AHB3ENR:
+    _add:
+      DTCM1EN:
+        description: D1 DTCM1 block enable
+        bitOffset: 28
+        bitWidth: 1
+      DTCM2EN:
+        description: D1 DTCM2 block enable
+        bitOffset: 29
+        bitWidth: 1
+      ITCM1EN:
+        description: D1 ITCM block enable
+        bitOffset: 30
+        bitWidth: 1
+      AXISRAMEN:
+        description: AXISRAM block enable
+        bitOffset: 31
+        bitWidth: 1
+  AHB3LPENR:
+    _modify:
+      FLITFLPEN:
+        name: FLASHPREN
+        description: "Flash interface clock enable during csleep mode"
+
+TIM1,TIM8:
+  DMAR:
+    _modify:
+      # Amazingly RM0399 Rev 2 is self-inconsistent here, but use the
+      # register definition in 40.4.22 rather than table 350.
+      DMAB:
+        bitWidth: 32
+
+HRTIM_Common:
+  _delete:
+    _registers:
+      - BDMADR
+  _add:
+    BDMADR:
+      description: Burst DMA Data register
+      addressOffset: 0x0070
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        BDMADR:
+          description: Burst DMA Data register
+          bitOffset: 0
+          bitWidth: 32
+
+CEC:
+  _strip:
+    - CEC_
+
+CRS:
+  _strip:
+    - CRS_
+
+DAC:
+  _strip:
+    - DAC_
+
+DMA2D:
+  _strip:
+    - DMA2D_
+
+DMAMUX1:
+  _strip:
+    - DMAMUX1_
+
+DMAMUX2:
+  _strip:
+    - DMAMUX2_
+
+FMC:
+  _strip:
+    - FMC_
+
+JPEG:
+  _strip:
+    - JPEG_
+
+HSEM:
+  _strip:
+    - HSEM_
+
+MDMA:
+  _strip:
+    - MDMA_
+
+LPTIM?:
+  _strip:
+    - LPTIM_
+
+MDIOS:
+  _strip:
+    - MDIOS_
+
+PWR:
+  _strip:
+    - PWR_
+  CR3:
+    # Annoyingly RM0455 names these fields differently to RM0399 whilst
+    # they have the same function
+    _add:
+      SMPSEXTRDY:
+        description: SMPS step-down converter external supply ready
+        bitOffset: 16
+        bitWidth: 1
+      SMPSLEVEL:
+        description: Step-down converter voltage output level selection
+        bitOffset: 4
+        bitWidth: 2
+      SMPSEXTHP:
+        description: Step-down converter forced ON and in High Power MR mode
+        bitOffset: 3
+        bitWidth: 1
+
+RTC:
+  _strip:
+    - RTC_
+
+RNG:
+  _strip:
+    - RNG_
+
+I2C3:
+  _strip:
+    - I2C_
+
+SAI1:
+  _strip:
+    - SAI_
+
+VREFBUF:
+  _strip:
+    - VREFBUF_
+
+"OTG?_HS_*":
+  _strip:
+    - OTG_HS_
+
+WWDG:
+  _strip:
+    - WWDG_
+IWDG:
+  _strip:
+    - IWDG_
+
+"USART*":
+  BRR:
+    _modify:
+      BRR_4_15:
+        name: BRR4
+      BRR_0_3:
+        name: BRR0
+    _merge: ["BRR*"]
+
+# TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
+  TIM12:
+    from: TIM2
+  TIM13:
+    from: TIM2
+  TIM14:
+    from: TIM2
