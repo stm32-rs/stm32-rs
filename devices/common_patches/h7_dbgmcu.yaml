@@ -1,4 +1,4 @@
-# Add H7 DBGMCU peripheral. From RM0433 rev 6
+# Add H7 DBGMCU peripheral. From RM0433 rev 7
 
 _add:
   DBGMCU:
@@ -45,14 +45,6 @@ _add:
           TRACECLKEN:
             description: Trace clock enable enable
             bitOffset: 20
-            bitWidth: 1
-          DBGSTBY_D3:
-            description: Allow debug in D3 Standby mode
-            bitOffset: 8
-            bitWidth: 1
-          DBGSTOP_D3:
-            description: Allow debug in D3 Stop mode
-            bitOffset: 7
             bitWidth: 1
           DBGSTBY_D1:
             description: Allow debug in D1 Standby mode
