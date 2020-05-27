@@ -1,0 +1,14 @@
+"Ethernet_DMA":
+  DMABMR:
+    MB:
+      Normal: [0, "Fixed burst transfers (INCRx and SINGLE) for burst lengths of 16 and below"]
+      Mixed: [1, "If FB is low, start all bursts greater than 16 with INCR (undefined burst)"]
+    EDFE:
+      Disabled: [0, "Normal descriptor format"]
+      Enabled: [1, "Enhanced 32-byte descriptor format, required for timestamping and IPv4 checksum offload"]
+
+  DMARSWTR:
+    RSWTC: [0, 0xFF]
+    _modify:
+      RSWTC:
+        description: Receive status watchdog timer count

@@ -76,6 +76,6 @@ _include:
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f1.yaml
  - common_patches/f1_ethernet.yaml
- - ../peripherals/eth/eth_mac_stm32f107.yaml
- - ../peripherals/eth/eth_mmc_stm32f107.yaml
- - ../peripherals/eth/eth_dma_stm32f107.yaml
+ - ../peripherals/eth/eth_dma_common.yaml
+ - ../peripherals/eth/eth_mac_common.yaml
+ - ../peripherals/eth/eth_mmc_common.yaml

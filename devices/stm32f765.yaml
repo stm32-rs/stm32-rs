@@ -167,9 +167,12 @@ _include:
  - common_patches/dma/dma_v21.yaml
  - ../peripherals/dma/dma_v21.yaml
  - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/eth/eth_dma.yaml
- - ../peripherals/eth/eth_mmc.yaml
- - ../peripherals/eth/eth_mac.yaml
+ - ../peripherals/eth/eth_dma_common.yaml
+ - ../peripherals/eth/eth_dma_mb_edfe_dmarswtr.yaml
+ - ../peripherals/eth/eth_mac_common.yaml
+ - ../peripherals/eth/eth_mac_cstf.yaml
+ - ../peripherals/eth/eth_mmc_common.yaml
+ - ../peripherals/eth/eth_mmc_mcfhp_mcp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml

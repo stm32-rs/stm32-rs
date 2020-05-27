@@ -1,0 +1,7 @@
+"Ethernet_MMC":
+  MMCCR:
+    MCFHP:
+      AlmostHalf: [0, "When MCP is set, MMC counters are preset to almost-half value 0x7FFF_FFF0"]
+      AlmostFull: [1, "When MCP is set, MMC counters are preset to almost-full value 0xFFFF_FFF0"]
+    MCP:
+      Preset: [1, "MMC counters will be preset to almost full or almost half. Cleared automatically"]

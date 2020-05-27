@@ -200,9 +200,12 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/eth/eth_mac.yaml
- - ../peripherals/eth/eth_mmc.yaml
- - ../peripherals/eth/eth_dma.yaml
+ - ../peripherals/eth/eth_dma_common.yaml
+ - ../peripherals/eth/eth_dma_mb_edfe_dmarswtr.yaml
+ - ../peripherals/eth/eth_mac_common.yaml
+ - ../peripherals/eth/eth_mac_cstf.yaml
+ - ../peripherals/eth/eth_mmc_common.yaml
+ - ../peripherals/eth/eth_mmc_mcfhp_mcp.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
