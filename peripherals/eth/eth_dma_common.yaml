@@ -1,9 +1,5 @@
-
 "Ethernet_DMA":
   DMABMR:
-    MB:
-      Normal: [0, "Fixed burst transfers (INCRx and SINGLE) for burst lengths of 16 and below"]
-      Mixed: [1, "If FB is low, start all bursts greater than 16 with INCR (undefined burst)"]
     AAB:
       Unaligned: [0, "Bursts are not aligned"]
       Aligned: [1, "Align bursts to start address LS bits. First burst alignment depends on FB bit"]
@@ -35,9 +31,6 @@
       PBL8: [8, "Maximum of 8 beats per DMA transaction"]
       PBL16: [16, "Maximum of 16 beats per DMA transaction"]
       PBL32: [32, "Maximum of 32 beats per DMA transaction"]
-    EDFE:
-      Disabled: [0, "Normal descriptor format"]
-      Enabled: [1, "Enhanced 32-byte descriptor format, required for timestamping and IPv4 checksum offload"]
     DSL: [0, 0x1F]
     DA:
       RoundRobin: [0, "Round-robin with Rx:Tx priority given by PM"]
@@ -263,12 +256,6 @@
         description: Overflow bit for missed frame counter
       MFC:
         description: Missed frames by the controller
-
-  DMARSWTR:
-    RSWTC: [0, 0xFF]
-    _modify:
-      RSWTC:
-        description: Receive status watchdog timer count
 
   DMACHTDR:
     _modify:

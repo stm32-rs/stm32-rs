@@ -1,9 +1,5 @@
-
 "Ethernet_MAC":
   MACCR:
-    CSTF:
-      Disabled: [0, "CRC not stripped"]
-      Enabled: [1, "CRC stripped"]
     WD:
       Enabled: [0, "Watchdog enabled, receive frames limited to 2048 bytes"]
       Disabled: [1, "Watchdog disabled, receive frames may be up to to 16384 bytes"]
