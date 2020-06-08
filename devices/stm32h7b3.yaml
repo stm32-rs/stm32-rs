@@ -13,6 +13,11 @@ CRYP:
     _merge:
       - "IV*"
 
+# Fix invalid groupName
+_modify:
+  OctoSPII_O_Manager:
+    groupName: OctoSPII_O_Manager
+
 _include:
  - common_patches/h7_common_highmemory.yaml
  - common_patches/dma_fcr_wo.yaml
@@ -29,6 +34,8 @@ _include:
  - common_patches/h7_adc_boost_rev_v.yaml
  - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
  - common_patches/h7_sai.yaml
+ - common_patches/h7_spdifrx.yaml
+ - common_patches/h7_otg.yaml
  - common_patches/flash/flash_dual_bank.yaml
  - common_patches/ltdc/ltdc.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml

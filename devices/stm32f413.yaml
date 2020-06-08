@@ -125,6 +125,12 @@ RCC:
       CKSDIOSEL:
         name: SDIOSEL
 
+# Fix invalid formatting on this alternateRegister field
+OTG_FS_GLOBAL:
+  _modify:
+    FS_GNPTXFSIZ_Host:
+      alternateRegister: GNPTXFSIZ_Device
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
