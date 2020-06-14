@@ -64,8 +64,6 @@ RCC:
         name: SPI4EN
   DCKCFGR2:
     _modify:
-      FMPI2C1SEL:
-        name: I2CFMP1SEL
       SPDIFSEL:
         name: SPDIFRXSEL
 
@@ -78,6 +76,7 @@ _include:
  - ../peripherals/can/can.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/f4_rcc_fmpi2c.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -96,7 +95,7 @@ _include:
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_spdifrxsel.yaml
  - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/crc/crc_basic.yaml

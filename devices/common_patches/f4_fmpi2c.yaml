@@ -1,0 +1,35 @@
+# Fix incorrect fields names in FMPI2C
+FMPI2C*:
+  CR1:
+    _modify:
+      TCDMAEN:
+        name: TXDMAEN
+      ADDRE:
+        name: ADDRIE
+  CR2:
+    _merge:
+      - "SADD*"
+  OAR2:
+    _modify:
+      OA21_7:
+        name: OA2
+  ICR:
+    _modify:
+      ALERTC:
+        name: ALERTCF
+
+# Rename I2C_BUFOUT to CFGR and I2C4 to FMPI2C1
+SYSCFG:
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+      displayName: CFGR
+      description: Configuration register
+  CFGR:
+    _modify:
+      I2C4SCL:
+        name: FMPI2C1_SCL
+        description: Forces FM+ drive capability on I2CFMP1_SCL pin
+      I2C4SDA:
+        name: FMPI2C1_SDA
+        description: Forces FM+ drive capability on I2CFMP1_SCL pin

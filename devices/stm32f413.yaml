@@ -7,6 +7,10 @@ _rebase:
   USART1: USART3
 
 _modify:
+  FMPI2C:
+    # Rename FMPI2C to FMPI2C1
+    name: FMPI2C1
+
   FSMC:
      # ST got the base address of the FSMC peripheral wrong
      baseAddress: "0xA0000000"
@@ -116,6 +120,7 @@ RCC:
         bitWidth: 2
     _modify:
       I2CFMP1SEL:
+        name: FMPI2C1SEL
         bitWidth: 2
       CKSDIOSEL:
         name: SDIOSEL
@@ -129,6 +134,8 @@ _include:
  - common_patches/sai/sai_v1.yaml
  - common_patches/dfsdm/dfsdm_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/f4_rcc_fmpi2c.yaml
+ - common_patches/f4_fmpi2c.yaml
  - common_patches/f4_adc_single_csr.yaml
  - common_patches/f4_adc_single_ccr.yaml
  - common_patches/fsmc/fsmc_sram.yaml
@@ -150,7 +157,7 @@ _include:
  - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
  - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
