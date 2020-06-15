@@ -108,7 +108,7 @@ SDIO:
 
   STA:
     CEATAEND:
-      NotReceiver: [0, "Completion signal not received"]
+      NotReceived: [0, "Completion signal not received"]
       Received: [1, "CE-ATA command completion signal received for CMD61"]
     SDIOIT:
       NotReceived: [0, "SDIO interrupt not receieved"]
@@ -135,8 +135,8 @@ SDIO:
       NotHalfFull: [0, "Receive FIFO not half full"]
       HalfFull: [1, "Receive FIFO half full. At least 8 words in the FIFO"]
     TXFIFOHE:
-      NotHalfFull: [0, "Transmit FIFO not half full"]
-      HalfFull: [1, "Transmit FIFO half empty. At least 8 words can be written into the FIFO"]
+      NotHalfEmpty: [0, "Transmit FIFO not half empty"]
+      HalfEmpty: [1, "Transmit FIFO half empty. At least 8 words can be written into the FIFO"]
     RXACT:
       NotInProgress: [0, "Data receive not in progress"]
       InProgress: [1, "Data receive in progress"]
@@ -147,8 +147,8 @@ SDIO:
       NotInProgress: [0, "Command transfer not in progress"]
       InProgress: [1, "Command tranfer in progress"]
     DBCKEND:
-      NotTransfered: [0, "Data block not sent/received (CRC check failed)"]
-      Transfered: [1, "Data block sent/received (CRC check passed)"]
+      NotTransferred: [0, "Data block not sent/received (CRC check failed)"]
+      Transferred: [1, "Data block sent/received (CRC check passed)"]
     STBITERR:
       Detected: [0, "No start bit detected error"]
       NotDetected: [1, "Start bit not detected error"]
