@@ -9,7 +9,7 @@
   ARR:
     ARR: [0, 65535]
   CCR1:
-    CCR1: [0, 65535]
+    CCR: [0, 65535]
 
 "TIM1[5-7]":
   CNT:
@@ -17,12 +17,12 @@
   ARR:
     ARR: [0, 65535]
   CCR1:
-    CCR1: [0, 65535]
+    CCR: [0, 65535]
 
 # Dual channel timers
 "TIM1[25]":
   CCR2:
-    CCR2: [0, 65535]
+    CCR: [0, 65535]
   CCMR1_Input:
     IC2F: [0, 15]
     CC2S:
