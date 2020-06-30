@@ -1,0 +1,258 @@
+_modify:
+  SDMMC:   # renaming block to be RM0390-compliant
+    name: SDIO
+    description: 'Secure digital input/output SD/SDIO MMC card host interface'
+    groupName: SDIO
+    addressBlock:
+      size: "0x400"     
+
+SDIO:
+  _strip: SDMMC_
+  _delete:
+    - '*ACKTIMER'
+    - '*IDMA*'
+    - '*VER'
+    - '*ID'
+  _modify:
+    SDMMC_POWER:
+      description: 'SDIO power control register'
+    SDMMC_CLKCR:
+      description: 'CLKCR register controls the SDIO_CK output clock.'
+    SDMMC_CMDR:
+      name: "SDMMC_CMD"  # NOTE: something weird happens on leaving just 'CMD' -- 'MD' -- ?
+    SDMMC_RESP4R:
+      addressOffset: "0x20"
+      name: RESP4
+    SDMMC_RESP3R:
+      addressOffset: "0x1C"
+      name: RESP3
+    SDMMC_RESP2R:
+      addressOffset: "0x18"
+      name: RESP2
+    SDMMC_RESP1R:
+      addressOffset: "0x14"
+      name: RESP1
+    SDMMC_RESPCMD:
+      addressOffset: "0x10"
+    SDMMC_ARGR:
+      name: ARG
+    SDMMC_RESPCMDR:
+      name: RESPCMD
+    SDMMC_DLENR:
+      name: "SDMMC_DLEN"
+    SDMMC_DCNTR:
+      name: 'SDMMC_DCOUNT'
+    SDMMC_STAR:
+      name: SDMMC_STA
+    SDMMC_MASKR:
+      name: SDMMC_MASK
+    SDMMC_FIFOR:
+      addressOffset: "0x80" # acc. to CMSIS headers (??)
+      name: SDMMC_FIFO
+  # What is the exact logic of [svdpatch.py]? Why is stripping AFTER delete & modify?
+  _add:
+    _interrupts:
+      SDIO:
+        description: SDIO global interrupt
+        value: 49
+    FIFOCNT:
+      description: 'The SDIO_FIFOCNT register contains the remaining number of words to be written to or read from the FIFO. The FIFO counter loads the value from the data length register (see SDIO_DLEN) when the data transfer enable bit, DTEN, is set in the data control register (SDIO_DCTRL register) and the DPSM is at the Idle state. If the data length is not word-aligned (multiple of 4), the remaining 1 to 3 bytes are regarded as a word.'
+      addressOffset: "0x48"
+      size: "0x20"
+      resetValue: "0x00000000"
+      access: read-only
+      fields:
+        FIFOCOUNT:
+          description: 'Remaining number of words to be written to or read from the FIFO'
+          bitOffset: 0
+          bitWidth: 24
+          access: read-only
+#    FIFOARR01R:
+#      description: 'fifo arr'
+#      addressOffset: "0x84", ..., "0x88"
+#      size: "0x20"
+#      resetValue: "0x00000000"
+#      access: read-write
+#      fields:
+#        FIFODATA:
+#          bitOffset: 0
+#          bitWidth: 32
+#          access: read-write
+#  _array:
+#    FIFOARR*: {}
+#    "RESP?R":
+#      name: "RESP%s"
+#      _modify:
+#        CARDSTATUS1:
+#          name: CARDSTATUS
+
+  POWER:
+    description: 'SDIO power control register'
+    _delete:
+      - VSWITCH
+      - VSWITCHEN
+      - DIRPOL
+    _modify:
+      PWRCTRL:
+        description: 'Power supply control bits. These bits are used to define the current functional state of the card clock'
+
+  CLKCR:
+    _modify:
+      CLKDIV:
+        bitWidth: 8
+        description: 'Clock divide factor. This field defines the divide factor between the input clock (SDIOCLK) and the output clock (SDIO_CK): SDIO_CK frequency = SDIOCLK / [CLKDIV + 2]. While the SD/SDIO card or MultiMediaCard is in identification mode, the SDIO_CK frequency must be less than 400 kHz. The clock frequency can be changed to the maximum card bus frequency when relative card addresses are assigned to all cards'
+      PWRSAV:
+        bitOffset: 9
+        description: 'Power saving configuration bit. For power saving, the SDIO_CK clock output can be disabled when the bus is idle by setting PWRSAV'
+      WIDBUS:
+        bitOffset: 11
+      NEGEDGE:
+        bitOffset: 13
+        description: 'SDIO_CK dephasing selection bit. When BYPASS is active, the data and the command change on SDIOCLK falling edge whatever NEGEDGE value'
+      HWFC_EN:
+        bitOffset: 14
+        description: 'HW Flow Control enable. When HW Flow Control is enabled, the meaning of the TXFIFOE and RXFIFOF interrupt signals, see SDIO Status register definition in Section 29.8.11'
+    _delete:
+      - SELCLKRX
+      - BUSSPEED
+      - DDR
+    _add:
+      CLKEN:
+        bitWidth: 1
+        bitOffset: 8
+        description: 'Clock enable bit'
+        access: read-write
+      BYPASS:
+        bitWidth: 1
+        bitOffset: 10
+        description: 'Clock divider bypass enable bit'
+        access: read-write
+   
+  CMD:
+    _delete:
+      - CMDTRANS
+      - CMDSTOP
+      - DTHOLD
+      - BOOTMODE
+      - BOOTEN
+    _modify:
+      WAITRESP:
+        bitOffset: 6
+      WAITINT:
+        bitOffset: 8
+      WAITPEND:
+        bitOffset: 9
+        description: 'PSM Waits for ends of data transfer (CmdPend internal signal). If this bit is set, the CPSM waits for the end of data transfer before it starts sending a command. This feature is available only with Stream data transfer mode SDIO_DCTRL[2] = 1.'
+      CPSMEN:
+        bitOffset: 10
+      CMDSUSPEND:
+        name: SDIOSuspend
+        bitOffset: 11
+        description: 'SD I/O suspend command. If this bit is set, the command to be sent is a suspend command (to be used only with SDIO card)'
+
+  DCTRL:
+    _delete:
+      - FIFORST
+      - BOOTACKEN
+    _modify:
+      DTMODE:
+        bitWidth: 1
+      DBLOCKSIZE:
+        description: 'Data block size. Define the data block length when the block data transfer mode is selected, block length = 2^(DBLOCKSIZE) bytes'
+    _add:
+      DMAEN:
+        bitWidth: 1
+        bitOffset: 3
+        description: 'DMA enable'
+        access: read-write
+    DBLOCKSIZE: [0, 14]
+
+  DCOUNT:
+    _modify:
+      DATACOUNT:
+        bitWidth: 24
+
+  STA:
+    # Note: RM0390 has a little erroneous description [bit 23 is none]
+    # Later: descriptions 4 all
+    _delete:
+      - IDMABTC
+      - IDMATE
+      - CKSTOP
+      - VSWEND
+      - ACKTIMEOUT
+      - ACKFAIL
+      - DHOLD
+    _modify:
+      BUSYD0END:
+        name: RXDAVL
+      BUSYD0:
+        name: TXDAVL
+      CPSMACT:
+        name: RXACT
+      DPSMACT:
+        name: TXACT
+      DABORT:
+        name: CMDACT
+
+  ICR:
+    _delete:
+      - IDMABTCC
+      - IDMATECC
+      - CKSTOPC
+      - VSWENDC
+      - ACKTIMEOUTC
+      - ACKFAILC
+      - BUSYD0ENDC
+      - DABORTC
+      - DHOLDC
+
+  FIFO:
+    _modify:
+      FIFODATA:
+        name: FIFOData
+
+  MASK:
+    _delete:
+      - IDMABTCIE
+      - CKSTOPIE
+      - VSWENDIE
+      - ACKTIMEOUTIE
+      - ACKFAILIE
+      - DHOLDIE
+    _modify:
+      BUSYD0ENDIE:
+        name: RXDAVLIE
+      DABORTIE:
+        name: CMDACTIE
+    _add:
+      TXDAVLIE:
+        bitOffset: 20
+        bitWidth: 1
+        access: read-write
+        description: 'Data available in Tx FIFO interrupt enable. Set and cleared by software to enable/disable the interrupt generated by the presence of data available in Tx FIFO'
+      RXFIFOEIE:
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
+        description: 'Rx FIFO empty interrupt enable. Set and cleared by software to enable/disable interrupt caused by Rx FIFO empty'
+      TXFIFOFIE:
+        bitOffset: 16
+        bitWidth: 1
+        access: read-write
+        description: 'Tx FIFO full interrupt enable. Set and cleared by software to enable/disable interrupt caused by Tx FIFO full'
+      RXACTIE:
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+        description: 'Data receive acting interrupt enable. Set and cleared by software to enable/disable interrupt caused by data being received (data receive acting)'
+      TXACTIE:
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+        description: 'Data transmit acting interrupt enable. Set and cleared by software to enable/disable interrupt caused by data being transferred (data transmit acting)'
+
+   
+_include:
+ - sdio_f4_common.yaml
+ - sdio.yaml
