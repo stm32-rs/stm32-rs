@@ -1,7 +1,7 @@
-_svd: ../svd/stm32g07x.svd
+_svd: ../svd/stm32g071.svd
 
 _modify:
-  name: STM32G07X
+  name: STM32G071
 
 DMA:
   _modify:
@@ -11,3 +11,4 @@ DMA:
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
+ - ./common_patches/g0_adc_typo.yaml
