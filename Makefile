@@ -52,7 +52,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
 	sed "1,20d;23,28d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
-	mv -f -t $$(@D)/.. $$(@D)/generic.rs
+	mv -f $$(@D)/generic.rs $$(@D)/../
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
