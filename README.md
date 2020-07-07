@@ -14,6 +14,7 @@
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 [![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
+[![Matrix](https://img.shields.io/matrix/stm32-rs:matrix.org)](https://matrix.to/#/#stm32-rs:matrix.org)
 
 This repository provides Rust device support crates for all STM32
 microcontrollers, providing a safe API to that device's peripherals using
