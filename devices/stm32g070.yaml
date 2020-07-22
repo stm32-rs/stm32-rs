@@ -3,11 +3,6 @@ _svd: ../svd/stm32g070.svd
 _modify:
   name: STM32G070
 
-DMA:
-  _modify:
-    IFCR:
-      access: write-only
-
 _delete:
   - TIM3
   - LPTIM1
@@ -140,8 +135,11 @@ _add:
     baseAddress: "0x40004800"
 
 
+
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/g0_dma_7ch.yaml
 

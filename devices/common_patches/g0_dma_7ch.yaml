@@ -1,0 +1,121 @@
+# Fixes for STM32G0 devices with 7 DMA channels
+DMA:
+  _modify:
+    IFCR:
+      access: write-only
+  IFCR:
+    _modify:
+      CGIF0:
+        name: CGIF1
+      CTCIF1:
+        name: CTCIF1
+      CHTIF2:
+        name: CHTIF1
+      CTEIF3:
+        name: CTEIF1
+      CGIF4:
+        name: CGIF2
+      CTCIF5:
+        name: CTCIF2
+      CHTIF6:
+        name: CHTIF2
+      CTEIF7:
+        name: CTEIF2
+      CGIF8:
+        name: CGIF3
+      CTCIF9:
+        name: CTCIF3
+      CHTIF10:
+        name: CHTIF3
+      CTEIF11:
+        name: CTEIF3
+      CGIF12:
+        name: CGIF4
+      CTCIF13:
+        name: CTCIF4
+      CHTIF14:
+        name: CHTIF4
+      CTEIF15:
+        name: CTEIF4
+      CGIF16:
+        name: CGIF5
+      CTCIF17:
+        name: CTCIF5
+      CHTIF18:
+        name: CHTIF5
+      CTEIF19:
+        name: CTEIF5
+      CGIF20:
+        name: CGIF6
+      CTCIF21:
+        name: CTCIF6
+      CHTIF22:
+        name: CHTIF6
+      CTEIF23:
+        name: CTEIF6
+      CGIF24:
+        name: CGIF7
+      CTCIF25:
+        name: CTCIF7
+      CHTIF26:
+        name: CHTIF7
+      CTEIF27:
+        name: CTEIF7
+  ISR:
+    _modify:
+      GIF0:
+        name: GIF1
+      TCIF1:
+        name: TCIF1
+      HTIF2:
+        name: HTIF1
+      TEIF3:
+        name: TEIF1
+      GIF4:
+        name: GIF2
+      TCIF5:
+        name: TCIF2
+      HTIF6:
+        name: HTIF2
+      TEIF7:
+        name: TEIF2
+      GIF8:
+        name: GIF3
+      TCIF9:
+        name: TCIF3
+      HTIF10:
+        name: HTIF3
+      TEIF11:
+        name: TEIF3
+      GIF12:
+        name: GIF4
+      TCIF13:
+        name: TCIF4
+      HTIF14:
+        name: HTIF4
+      TEIF15:
+        name: TEIF4
+      GIF16:
+        name: GIF5
+      TCIF17:
+        name: TCIF5
+      HTIF18:
+        name: HTIF5
+      TEIF19:
+        name: TEIF5
+      GIF20:
+        name: GIF6
+      TCIF21:
+        name: TCIF6
+      HTIF22:
+        name: HTIF6
+      TEIF23:
+        name: TEIF6
+      GIF24:
+        name: GIF7
+      TCIF25:
+        name: TCIF7
+      HTIF26:
+        name: HTIF7
+      TEIF27:
+        name: TEIF7

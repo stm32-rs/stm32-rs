@@ -3,11 +3,6 @@ _svd: ../svd/stm32g081.svd
 _modify:
   name: STM32G081
 
-DMA:
-  _modify:
-    IFCR:
-      access: write-only
-
 TIM1:
   _modify:
     _interrupts:
@@ -19,3 +14,4 @@ _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/g0_dma_7ch.yaml

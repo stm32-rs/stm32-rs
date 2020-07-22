@@ -3,11 +3,6 @@ _svd: ../svd/stm32g071.svd
 _modify:
   name: STM32G071
 
-DMA:
-  _modify:
-    IFCR:
-      access: write-only
-
 _delete:
   - RNG
 
@@ -46,3 +41,4 @@ _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/g0_dma_7ch.yaml

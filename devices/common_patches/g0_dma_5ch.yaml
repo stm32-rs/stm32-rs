@@ -1,0 +1,108 @@
+# Fixes for STM32G0 devices with 5 DMA channels
+# This patch removes register fields for channels 6 and 7
+DMA:
+  _modify:
+    IFCR:
+      access: write-only
+  IFCR:
+    _modify:
+      CGIF0:
+        name: CGIF1
+      CTCIF1:
+        name: CTCIF1
+      CHTIF2:
+        name: CHTIF1
+      CTEIF3:
+        name: CTEIF1
+      CGIF4:
+        name: CGIF2
+      CTCIF5:
+        name: CTCIF2
+      CHTIF6:
+        name: CHTIF2
+      CTEIF7:
+        name: CTEIF2
+      CGIF8:
+        name: CGIF3
+      CTCIF9:
+        name: CTCIF3
+      CHTIF10:
+        name: CHTIF3
+      CTEIF11:
+        name: CTEIF3
+      CGIF12:
+        name: CGIF4
+      CTCIF13:
+        name: CTCIF4
+      CHTIF14:
+        name: CHTIF4
+      CTEIF15:
+        name: CTEIF4
+      CGIF16:
+        name: CGIF5
+      CTCIF17:
+        name: CTCIF5
+      CHTIF18:
+        name: CHTIF5
+      CTEIF19:
+        name: CTEIF5
+    _delete:
+      - CGIF20
+      - CTCIF21
+      - CHTIF22
+      - CTEIF23
+      - CGIF24
+      - CTCIF25
+      - CHTIF26
+      - CTEIF27
+  ISR:
+    _modify:
+      GIF0:
+        name: GIF1
+      TCIF1:
+        name: TCIF1
+      HTIF2:
+        name: HTIF1
+      TEIF3:
+        name: TEIF1
+      GIF4:
+        name: GIF2
+      TCIF5:
+        name: TCIF2
+      HTIF6:
+        name: HTIF2
+      TEIF7:
+        name: TEIF2
+      GIF8:
+        name: GIF3
+      TCIF9:
+        name: TCIF3
+      HTIF10:
+        name: HTIF3
+      TEIF11:
+        name: TEIF3
+      GIF12:
+        name: GIF4
+      TCIF13:
+        name: TCIF4
+      HTIF14:
+        name: HTIF4
+      TEIF15:
+        name: TEIF4
+      GIF16:
+        name: GIF5
+      TCIF17:
+        name: TCIF5
+      HTIF18:
+        name: HTIF5
+      TEIF19:
+        name: TEIF5
+    _delete:
+      - GIF20
+      - TCIF21
+      - HTIF22
+      - TEIF23
+      - GIF24
+      - TCIF25
+      - HTIF26
+      - TEIF27

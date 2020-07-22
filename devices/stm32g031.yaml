@@ -3,11 +3,7 @@ _svd: ../svd/stm32g031.svd
 _modify:
   name: STM32G031
 
-DMA:
-  _modify:
-    IFCR:
-      access: write-only
-
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
+ - ./common_patches/g0_dma_5ch.yaml
