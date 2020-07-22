@@ -20,8 +20,11 @@ _delete:
   - SYSCFG_VREFBUF
   - RNG
   - HDMI_CEC
+# deleted so we can re-add them without interrupts
+  - TIM7
+  - USART3
 
-# Remove timer 3 (above) and rename TIM2 to TIM3. Because TIM3 was derive from TIM2
+# Remove TIM3 (above) and rename TIM2 to TIM3. Because TIM3 was derive from TIM2
 _modify:
   TIM2:
     name: TIM3
@@ -106,29 +109,39 @@ TIM1:
         name: TIM1_BRK_UP_TRG_COM
         description: IM1 break, update, trigger and commutation interrupts
 
-# TIM 6 and 7 interrupts
-TIM*:
+TIM6:
   _modify:
     _interrupts:
       TIM6_DAC_LPTIM1:
         name: TIM6
         description: TIM6 global interrupt
-      TIM7_LPTIM2: #TODO: does not have any effect (in TIM7) see bug below
-        name: TIM7
+  _add:
+    _interrupts:
+      TIM7:
         description: TIM7 global interrupt
+        value: 18
 
-# TODO: crashes svdtools.patch.MissingPeripheralError: Could not find USART3.
-# maybe bug in svdtools v1.6
-# USART3:
-#   _modify:
-#     _interrupts:
-#       USART3_USART4_LPUART1:
-#         name: USART3_USART4
-#         description: USART3 + USART4 interrupt
+USART1:
+  _add:
+    _interrupts:
+      USART3_USART4:
+        description: USART3 + USART4 interrupt
+        value: 29
 
+# Remove interrupts from derived Peripherals (after we renamed and moved them to the base peripherals)
+# Since it is not possible to modify a derivedFrom peripheral, we delete it first
+# and then add it again without the interrupts.
+_add:
+  TIM7:
+    derivedFrom: TIM6
+    baseAddress: "0x40001400"
+  USART3:
+    derivedFrom: USART1
+    baseAddress: "0x40004800"
 
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+
