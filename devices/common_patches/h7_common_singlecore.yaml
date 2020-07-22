@@ -447,14 +447,14 @@ RCC:
         name: CECEN
   AHB1ENR,C1_AHB1ENR:
     _modify:
-      USB1OTGEN:
-        name: USB1OTGHSEN
-      USB2OTGEN:
-        name: USB2OTGHSEN
-      USB1ULPIEN:
-        name: USB1OTGHSULPIEN
-    _delete:
-      - USB2ULPIEN
+      USB1OTGHSEN:
+        name: USB1OTGEN
+      USB2OTGHSEN:
+        name: USB2OTGEN
+      USB1ULPIHSEN:
+        name: USB1ULPIEN
+      USB2ULPIHSEN:
+        name: USB2ULPIEN
   AHB2ENR,C1_AHB2ENR:
     _modify:
       CAMITFEN:
@@ -464,16 +464,16 @@ RCC:
     _modify:
       HDMICECLPEN:
         name: CECLPEN
-  C1_AHB1LPENR:
+  AHB1LPENR,C1_AHB1LPENR:
     _modify:
-      USB1OTGLPEN:
-        name: USB1OTGHSLPEN
-      USB2OTGLPEN:
-        name: USB2OTGHSLPEN
-      USB1ULPILPEN:
-        name: USB1OTGHSULPILPEN
-      USB2ULPILPEN:
-        name: USB2OTGHSULPILPEN
+      USB1OTGHSLPEN:
+        name: USB1OTGLPEN
+      USB2OTGHSLPEN:
+        name: USB2OTGLPEN
+      USB1ULPIHSLPEN:
+        name: USB1ULPILPEN
+      USB2ULPIHSLPEN:
+        name: USB2ULPILPEN
   AHB2LPENR,C1_AHB2LPENR:
     _modify:
       CAMITFLPEN:
