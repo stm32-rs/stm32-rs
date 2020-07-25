@@ -1,0 +1,177 @@
+# Fixes for STM32G0 devices with 7 DMA channels
+DMA:
+  _modify:
+    IFCR:
+      access: write-only
+  IFCR:
+    _modify:
+      CGIF0:
+        name: CGIF1
+        description: Clear channel 1 global interrupt flag
+      CTCIF1:
+        name: CTCIF1
+        description: Clear channel 1 transfer complete flag
+      CHTIF2:
+        name: CHTIF1
+        description: Clear channel 1 half transfer flag
+      CTEIF3:
+        name: CTEIF1
+        description: Clear channel 1 transfer error flag
+      CGIF4:
+        name: CGIF2
+        description: Clear channel 2 global interrupt flag
+      CTCIF5:
+        name: CTCIF2
+        description: Clear channel 2 transfer complete flag
+      CHTIF6:
+        name: CHTIF2
+        description: Clear channel 2 half transfer flag
+      CTEIF7:
+        name: CTEIF2
+        description: Clear channel 2 transfer error flag
+      CGIF8:
+        name: CGIF3
+        description: Clear channel 3 global interrupt flag
+      CTCIF9:
+        name: CTCIF3
+        description: Clear channel 3 transfer complete flag
+      CHTIF10:
+        name: CHTIF3
+        description: Clear channel 3 half transfer flag
+      CTEIF11:
+        name: CTEIF3
+        description: Clear channel 3 transfer error flag
+      CGIF12:
+        name: CGIF4
+        description: Clear channel 4 global interrupt flag
+      CTCIF13:
+        name: CTCIF4
+        description: Clear channel 4 transfer complete flag
+      CHTIF14:
+        name: CHTIF4
+        description: Clear channel 4 half transfer flag
+      CTEIF15:
+        name: CTEIF4
+        description: Clear channel 4 transfer error flag
+      CGIF16:
+        name: CGIF5
+        description: Clear channel 5 global interrupt flag
+      CTCIF17:
+        name: CTCIF5
+        description: Clear channel 5 transfer complete flag
+      CHTIF18:
+        name: CHTIF5
+        description: Clear channel 5 half transfer flag
+      CTEIF19:
+        name: CTEIF5
+        description: Clear channel 5 transfer error flag
+      CGIF20:
+        name: CGIF6
+        description: Clear channel 6 global interrupt flag
+      CTCIF21:
+        name: CTCIF6
+        description: Clear channel 6 transfer complete flag
+      CHTIF22:
+        name: CHTIF6
+        description: Clear channel 6 half transfer flag
+      CTEIF23:
+        name: CTEIF6
+        description: Clear channel 6 transfer error flag
+      CGIF24:
+        name: CGIF7
+        description: Clear channel 7 global interrupt flag
+      CTCIF25:
+        name: CTCIF7
+        description: Clear channel 7 transfer complete flag
+      CHTIF26:
+        name: CHTIF7
+        description: Clear channel 7 half transfer flag
+      CTEIF27:
+        name: CTEIF7
+        description: Clear channel 7 transfer error flag
+  ISR:
+    _modify:
+      GIF0:
+        name: GIF1
+        description: Channel 1 global interrupt flag
+      TCIF1:
+        name: TCIF1
+        description: Channel 1 transfer complete flag
+      HTIF2:
+        name: HTIF1
+        description: Channel 1 half transfer flag
+      TEIF3:
+        name: TEIF1
+        description: Channel 1 transfer error flag
+      GIF4:
+        name: GIF2
+        description: Channel 2 global interrupt flag
+      TCIF5:
+        name: TCIF2
+        description: Channel 2 transfer complete flag
+      HTIF6:
+        name: HTIF2
+        description: Channel 2 half transfer flag
+      TEIF7:
+        name: TEIF2
+        description: Channel 2 transfer error flag
+      GIF8:
+        name: GIF3
+        description: Channel 3 global interrupt flag
+      TCIF9:
+        name: TCIF3
+        description: Channel 3 transfer complete flag
+      HTIF10:
+        name: HTIF3
+        description: Channel 3 half transfer flag
+      TEIF11:
+        name: TEIF3
+        description: Channel 3 transfer error flag
+      GIF12:
+        name: GIF4
+        description: Channel 4 global interrupt flag
+      TCIF13:
+        name: TCIF4
+        description: Channel 4 transfer complete flag
+      HTIF14:
+        name: HTIF4
+        description: Channel 4 half transfer flag
+      TEIF15:
+        name: TEIF4
+        description: Channel 4 transfer error flag
+      GIF16:
+        name: GIF5
+        description: Channel 5 global interrupt flag
+      TCIF17:
+        name: TCIF5
+        description: Channel 5 transfer complete flag
+      HTIF18:
+        name: HTIF5
+        description: Channel 5 half transfer flag
+      TEIF19:
+        name: TEIF5
+        description: Channel 5 transfer error flag
+      GIF20:
+        name: GIF6
+        description: Channel 6 global interrupt flag
+      TCIF21:
+        name: TCIF6
+        description: Channel 6 transfer complete flag
+      HTIF22:
+        name: HTIF6
+        description: Channel 6 half transfer flag
+      TEIF23:
+        name: TEIF6
+        description: Channel 6 transfer error flag
+      GIF24:
+        name: GIF7
+        description: Channel 7 global interrupt flag
+      TCIF25:
+        name: TCIF7
+        description: Channel 7 transfer complete flag
+      HTIF26:
+        name: HTIF7
+        description: Channel 7 half transfer flag
+      TEIF27:
+        name: TEIF7
+        description: Channel 7 transfer error flag

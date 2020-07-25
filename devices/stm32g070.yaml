@@ -3,12 +3,143 @@ _svd: ../svd/stm32g070.svd
 _modify:
   name: STM32G070
 
-DMA:
+_delete:
+  - TIM3
+  - LPTIM1
+  - LPTIM2
+  - COMP
+  - DAC
+  - LPUART
+  - UCPD1
+  - UCPD2
+  - SYSCFG_VREFBUF
+  - RNG
+  - HDMI_CEC
+# deleted so we can re-add them without interrupts
+  - TIM7
+  - USART3
+
+# Remove TIM3 (above) and rename TIM2 to TIM3. Because TIM3 was derive from TIM2
+_modify:
+  TIM2:
+    name: TIM3
+    baseAddress: "0x40000400"
+# After changing the name, remove TIM2 interrupt from TIM3 block (it already has the TIM3 interrupt)
+TIM3:
+  _delete:
+    _interrupts:
+      - TIM2
+
+RCC:
+  AHBRSTR:
+    _delete:
+      - AESRST
+      - RNGRST
+  APBRSTR1:
+    _delete:
+      - TIM2RST
+      - LPUART1RST
+      - CECRST
+      - UCPD1RST
+      - UCPD2RST
+      - DAC1RST
+      - LPTIM2RST
+      - LPTIM1RST
+  AHBENR:
+    _delete:
+      - AESEN
+      - RNGEN
+  APBENR1:
+    _delete:
+      - TIM2EN
+      - LPUART1EN
+      - CECEN
+      - UCPD1EN
+      - UCPD2EN
+      - DAC1EN
+      - LPTIM2EN
+      - LPTIM1EN
+  AHBSMENR:
+    _delete:
+      - AESSMEN
+      - RNGSMEN
+  APBSMENR1:
+    _delete:
+      - TIM2SMEN
+      - LPUART1SMEN
+      - CECSMEN
+      - UCPD1SMEN
+      - UCPD2SMEN
+      - DAC1SMEN
+      - LPTIM2SMEN
+      - LPTIM1SMEN
+  CCIPR:
+    _delete:
+      - CECSEL
+      - LPUART1SEL
+      - LPTIM2SEL
+      - RNGSEL
+      - RNGDIV
+      - LPTIM1SEL
+
+EXTI:
+  _delete:
+    - VERR
+    - IPIDR
+    - SIDR
+
+# Fix interrupts, see RM454 Rev3 11.3 Table 42
+
+ADC:
   _modify:
-    IFCR:
-      access: write-only
+    _interrupts:
+      ADC_COMP:
+        name: ADC
+        description: ADC Interrupt
+
+TIM1:
+  _modify:
+    _interrupts:
+      TIM1_BRK_UP_TRG_COMP:
+        name: TIM1_BRK_UP_TRG_COM
+        description: IM1 break, update, trigger and commutation interrupts
+
+TIM6:
+  _modify:
+    _interrupts:
+      TIM6_DAC_LPTIM1:
+        name: TIM6
+        description: TIM6 global interrupt
+  _add:
+    _interrupts:
+      TIM7:
+        description: TIM7 global interrupt
+        value: 18
+
+USART1:
+  _add:
+    _interrupts:
+      USART3_USART4:
+        description: USART3 + USART4 interrupt
+        value: 29
+
+# Remove interrupts from derived Peripherals (after we renamed and moved them to the base peripherals)
+# Since it is not possible to modify a derivedFrom peripheral, we delete it first
+# and then add it again without the interrupts.
+_add:
+  TIM7:
+    derivedFrom: TIM6
+    baseAddress: "0x40001400"
+  USART3:
+    derivedFrom: USART1
+    baseAddress: "0x40004800"
+
+
+
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/g0_dma_7ch.yaml
+

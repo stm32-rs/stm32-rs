@@ -3,12 +3,42 @@ _svd: ../svd/stm32g071.svd
 _modify:
   name: STM32G071
 
-DMA:
+_delete:
+  - RNG
+
+RCC:
+  AHBRSTR:
+    _delete:
+      - AESRST
+      - RNGRST
+  AHBENR:
+    _delete:
+      - AESEN
+      - RNGEN
+  AHBSMENR:
+    _delete:
+      - AESSMEN
+      - RNGSMEN
+  CCIPR:
+    _delete:
+      - RNGSEL
+      - RNGDIV
+
+EXTI:
+  _delete:
+    - VERR
+    - IPIDR
+    - SIDR
+
+TIM1:
   _modify:
-    IFCR:
-      access: write-only
+    _interrupts:
+      TIM1_BRK_UP_TRG_COMP:
+        name: TIM1_BRK_UP_TRG_COM
+        description: IM1 break, update, trigger and commutation interrupts
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/g0_dma_7ch.yaml
