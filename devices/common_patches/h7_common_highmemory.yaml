@@ -503,14 +503,8 @@ RCC:
       HDMICECLPEN:
         name: CECLPEN
   AHB1ENR:
-    _modify:
-      USB1OTGEN:
-        name: USB1OTGHSEN
-      USB2OTGEN:
-        name: USB2OTGHSEN
-      USB1ULPIEN:
-        name: USB1OTGHSULPIEN
-    _delete:
+    _delete:                    # highmemory only has one USB HS
+      - USB2OTGEN
       - USB2ULPIEN
   AHB2ENR:
     _modify:
@@ -518,15 +512,9 @@ RCC:
         name: DCMIEN
         description: "DCMI peripheral clock"
   AHB1LPENR:
-    _modify:
-      USB1OTGLPEN:
-        name: USB1OTGHSLPEN
-      USB2OTGLPEN:
-        name: USB2OTGHSLPEN
-      USB1ULPILPEN:
-        name: USB1OTGHSULPILPEN
-      USB2ULPILPEN:
-        name: USB2OTGHSULPILPEN
+    _delete:                    # highmemory only has one USB HS
+      - USB2OTGLPEN
+      - USB2ULPILPEN
   AHB2LPENR:
     _modify:
       CAMITFLPEN:
