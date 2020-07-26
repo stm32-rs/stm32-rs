@@ -18,11 +18,11 @@ SYSCFG:
       NotRemapped: [0, "TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3 in STM32F303xB/C and STM32F358xC"]
       Remapped: [1, "TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3"]
     # TODO: Is named ADC2_... in register description (RM0316 p.247) but ADC24_... in register map (RM0316 p.261)
-    ADC24_DMA_RMP:
+    ADC2_DMA_RMP:
       NotRemapped: [0, "ADC24 DMA requests mapped on DMA2 channels 1 and 2"]
       Remapped: [1, "ADC24 DMA requests mapped on DMA2 channels 3 and 4"]
     # TODO: Is named DAC1_... in register description (RM0316 p.247) but DAC_... in register map (RM0316 p.261)
-    DAC_TRIG_RMP:
+    DAC1_TRIG_RMP:
       NotRemapped: [0, "DAC trigger is TIM8_TRGO in STM32F303xB/C and STM32F358xC devices"]
       Remapped: [1, "DAC trigger is TIM3_TRGO"]
     TIM1_ITR3_RMP:
