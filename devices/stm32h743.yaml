@@ -3,6 +3,7 @@ _svd: ../svd/stm32h743.svd
 _include:
  - common_patches/h7_common_singlecore.yaml
  - common_patches/dma_fcr_wo.yaml
+ - common_patches/dma/bdma.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
@@ -33,6 +34,7 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - ../peripherals/dma/bdma.yaml
  - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/dma/dma2d_v2.yaml

@@ -1,0 +1,67 @@
+# Basic DMA as found on H7, ..
+
+"BDMA*":
+  "ISR":
+    "TCIF?":
+      NotComplete: [0, "No transfer complete event on channel x"]
+      Complete: [1, "A transfer complete event occurred on channel x"]
+    "HTIF?":
+      NotHalf: [0, "No half transfer event on channel x"]
+      Half: [1, "A half transfer event occurred on channel x"]
+    "TEIF?":
+      NoError: [0, "No transfer error on channel x"]
+      Error: [1, "A transfer error occurred on channel x"]
+    "GIF?":
+      NoEvent: [0, "No TE, HT or TC event on channel x"]
+      Event: [1, "A TE, HT or TC event occurred on channel x"]
+  "IFCR":
+    "CTCIF?":
+      Clear: [1, "Clear the corresponding TCIFx flag"]
+    "CHTIF?":
+      Clear: [1, "Clear the corresponding HTIFx flag"]
+    "CTEIF?":
+      Clear: [1, "Clear the corresponding TEIFx flag"]
+    "CGIF?":
+      Clear: [1, "Clear the corresponding CGIFx flag"]
+  "CCR?":
+    CT:
+      Memory0: [0, "The current target memory is Memory 0"]
+      Memory1: [1, "The current target memory is Memory 1"]
+    DBM:
+      Disabled: [0, "No buffer switching at the end of transfer"]
+      Enabled: [1, "Memory target switched at the end of the DMA transfer"]
+    MEM2MEM:
+      Disabled: [0, "Memory-to-memory mode disabled"]
+      Enabled: [1, "Memory-to-memory mode enabled"]
+    PL:
+      Low: [0, "Low"]
+      Medium: [1, "Medium"]
+      High: [2, "High"]
+      VeryHigh: [3, "Very high"]
+    "[MP]SIZE":
+      Bits8: [0, "Byte (8-bit)"]
+      Bits16: [1, "Half-word (16-bit)"]
+      Bits32: [2, "Word (32-bit)"]
+    "[MP]INC":
+      Fixed: [0, "Address pointer is fixed"]
+      Incremented: [1, "Address pointer is incremented after each data transfer"]
+    CIRC:
+      Disabled: [0, "Circular mode disabled"]
+      Enabled: [1, "Circular mode enabled"]
+    DIR:
+      PeripheralToMemory: [0, "Peripheral-to-memory"]
+      MemoryToPeripheral: [1, "Memory-to-peripheral"]
+    TCIE:
+      Disabled: [0, "TC interrupt disabled"]
+      Enabled: [1, "TC interrupt enabled"]
+    HTIE:
+      Disabled: [0, "HT interrupt disabled"]
+      Enabled: [1, "HT interrupt enabled"]
+    TEIE:
+      Disabled: [0, "TE interrupt disabled"]
+      Enabled: [1, "TE interrupt enabled"]
+    EN:
+      Disabled: [0, "Channel disabled"]
+      Enabled: [1, "Channel enabled"]
+  "CNDTR?":
+    NDT: [0, 65535]

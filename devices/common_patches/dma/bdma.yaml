@@ -1,0 +1,170 @@
+"BDMA*":
+  _add:
+    CM1AR0:
+      description: Channel x memory 1 address register
+      addressOffset: 0x18
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR1:
+      description: Channel x memory 1 address register
+      addressOffset: 0x2C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR2:
+      description: Channel x memory 1 address register
+      addressOffset: 0x40
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR3:
+      description: Channel x memory 1 address register
+      addressOffset: 0x54
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR4:
+      description: Channel x memory 1 address register
+      addressOffset: 0x68
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR5:
+      description: Channel x memory 1 address register
+      addressOffset: 0x7C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR6:
+      description: Channel x memory 1 address register
+      addressOffset: 0x90
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR7:
+      description: Channel x memory 1 address register
+      addressOffset: 0xA4
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+  _modify:
+    CMAR1:
+      name: CM0AR0
+    CMAR2:
+      name: CM0AR1
+    CMAR3:
+      name: CM0AR2
+    CMAR4:
+      name: CM0AR3
+    CMAR5:
+      name: CM0AR4
+    CMAR6:
+      name: CM0AR5
+    CMAR7:
+      name: CM0AR6
+    CMAR8:
+      name: CM0AR7
+    CCR1:
+      name: CCR0
+    CCR2:
+      name: CCR1
+    CCR3:
+      name: CCR2
+    CCR4:
+      name: CCR3
+    CCR5:
+      name: CCR4
+    CCR6:
+      name: CCR5
+    CCR7:
+      name: CCR6
+    CCR8:
+      name: CCR7
+    CNDTR1:
+      name: CNDTR0
+    CNDTR2:
+      name: CNDTR1
+    CNDTR3:
+      name: CNDTR2
+    CNDTR4:
+      name: CNDTR3
+    CNDTR5:
+      name: CNDTR4
+    CNDTR6:
+      name: CNDTR5
+    CNDTR7:
+      name: CNDTR6
+    CNDTR8:
+      name: CNDTR7
+    CPAR1:
+      name: CPAR0
+    CPAR2:
+      name: CPAR1
+    CPAR3:
+      name: CPAR2
+    CPAR4:
+      name: CPAR3
+    CPAR5:
+      name: CPAR4
+    CPAR6:
+      name: CPAR5
+    CPAR7:
+      name: CPAR6
+    CPAR8:
+      name: CPAR7
+  "CCR?":
+    _add:
+      CT:
+        description: Current target memory in double-buffer mode
+        bitOffset: 16
+        bitWidth: 1
+      DBM:
+        description: Double-buffer mode
+        bitOffset: 15
+        bitWidth: 1
+  _cluster:
+    "CH%s":
+      description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR? and CM1AR? registers"
+      "CCR?":
+        name: CR
+      "CNDTR?":
+        name: NDTR
+      "CPAR?":
+        name: PAR
+      "CM0AR?":
+        name: M0AR
+      "CM1AR?":
+        name: M1AR
