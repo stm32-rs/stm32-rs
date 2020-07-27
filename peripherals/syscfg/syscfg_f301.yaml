@@ -1,0 +1,90 @@
+SYSCFG:
+  CFGR1:
+    I2C3_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection trhough IOPORT control registers AF selection bits"]
+    ENCODER_MODE:
+      NoRedirection: [0, "No redirection"]
+      MapTim2Tim15: [1, "TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively"]
+    TIM6_DAC1_DMA_RMP:
+      NotRemapped: [0, "TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3"]
+      Remapped: [1, "TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3"]
+    TIM1_ITR3_RMP:
+      NotRemapped: [0, "Not remapped"]
+      Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
+    MEM_MODE:
+      MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
+      SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
+      MainFlash2: [2, "Main Flash memory mapped at 0x0000_0000"]
+      SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
+  EXTICR1:
+    EXTI0:
+      PA0: [0, "Select PA0 as the source input for the EXTI0 external interrupt"]
+      PB0: [1, "Select PB0 as the source input for the EXTI0 external interrupt"]
+      PC0: [2, "Select PC0 as the source input for the EXTI0 external interrupt"]
+      PF0: [5, "Select PF0 as the source input for the EXTI0 external interrupt"]
+    EXTI1:
+      PA1: [0, "Select PA1 as the source input for the EXTI1 external interrupt"]
+      PB1: [1, "Select PB1 as the source input for the EXTI1 external interrupt"]
+      PC1: [2, "Select PC1 as the source input for the EXTI1 external interrupt"]
+      PF1: [5, "Select PF1 as the source input for the EXTI1 external interrupt"]
+    EXTI2:
+      PA2: [0, "Select PA2 as the source input for the EXTI2 external interrupt"]
+      PB2: [1, "Select PB2 as the source input for the EXTI2 external interrupt"]
+      PC2: [2, "Select PC2 as the source input for the EXTI2 external interrupt"]
+      PD2: [3, "Select PD2 as the source input for the EXTI2 external interrupt"]
+    EXTI3:
+      PA3: [0, "Select PA3 as the source input for the EXTI3 external interrupt"]
+      PB3: [1, "Select PB3 as the source input for the EXTI3 external interrupt"]
+      PC3: [2, "Select PC3 as the source input for the EXTI3 external interrupt"]
+  EXTICR2:
+    EXTI4:
+      PA4: [0, "Select PA4 as the source input for the EXTI4 external interrupt"]
+      PB4: [1, "Select PB4 as the source input for the EXTI4 external interrupt"]
+      PC4: [2, "Select PC4 as the source input for the EXTI4 external interrupt"]
+    EXTI5:
+      PA5: [0, "Select PA5 as the source input for the EXTI5 external interrupt"]
+      PB5: [1, "Select PB5 as the source input for the EXTI5 external interrupt"]
+      PC5: [2, "Select PC5 as the source input for the EXTI5 external interrupt"]
+    EXTI6:
+      PA6: [0, "Select PA6 as the source input for the EXTI6 external interrupt"]
+      PB6: [1, "Select PB6 as the source input for the EXTI6 external interrupt"]
+      PC6: [2, "Select PC6 as the source input for the EXTI6 external interrupt"]
+    EXTI7:
+      PA7: [0, "Select PA7 as the source input for the EXTI7 external interrupt"]
+      PB7: [1, "Select PB7 as the source input for the EXTI7 external interrupt"]
+      PC7: [2, "Select PC7 as the source input for the EXTI7 external interrupt"]
+  EXTICR3:
+    EXTI8:
+      PA8: [0, "Select PA8 as the source input for the EXTI8 external interrupt"]
+      PB8: [1, "Select PB8 as the source input for the EXTI8 external interrupt"]
+      PC8: [2, "Select PC8 as the source input for the EXTI8 external interrupt"]
+    EXTI9:
+      PA9: [0, "Select PA9 as the source input for the EXTI9 external interrupt"]
+      PB9: [1, "Select PB9 as the source input for the EXTI9 external interrupt"]
+      PC9: [2, "Select PC9 as the source input for the EXTI9 external interrupt"]
+    EXTI10:
+      PA10: [0, "Select PA10 as the source input for the EXTI10 external interrupt"]
+      PB10: [1, "Select PB10 as the source input for the EXTI10 external interrupt"]
+      PC10: [2, "Select PC10 as the source input for the EXTI10 external interrupt"]
+    EXTI11:
+      PA11: [0, "Select PA11 as the source input for the EXTI11 external interrupt"]
+      PB11: [1, "Select PB11 as the source input for the EXTI11 external interrupt"]
+      PC11: [2, "Select PC11 as the source input for the EXTI11 external interrupt"]
+  EXTICR4:
+    EXTI12:
+      PA12: [0, "Select PA12 as the source input for the EXTI12 external interrupt"]
+      PB12: [1, "Select PB12 as the source input for the EXTI12 external interrupt"]
+      PC12: [2, "Select PC12 as the source input for the EXTI12 external interrupt"]
+    EXTI13:
+      PA13: [0, "Select PA13 as the source input for the EXTI13 external interrupt"]
+      PB13: [1, "Select PB13 as the source input for the EXTI13 external interrupt"]
+      PC13: [2, "Select PC13 as the source input for the EXTI13 external interrupt"]
+    EXTI14:
+      PA14: [0, "Select PA14 as the source input for the EXTI14 external interrupt"]
+      PB14: [1, "Select PB14 as the source input for the EXTI14 external interrupt"]
+      PC14: [2, "Select PC14 as the source input for the EXTI14 external interrupt"]
+    EXTI15:
+      PA15: [0, "Select PA15 as the source input for the EXTI15 external interrupt"]
+      PB15: [1, "Select PB15 as the source input for the EXTI15 external interrupt"]
+      PC15: [2, "Select PC15 as the source input for the EXTI15 external interrupt"]

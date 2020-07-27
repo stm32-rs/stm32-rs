@@ -1,0 +1,9 @@
+# Modify names to fit the name in the register documentation
+# instead of the register map name.
+SYSCFG:
+  CFGR1:
+    _modify:
+      TIM7_DAC2_DMA_RMP:
+        name: TIM7_DAC1_CH2_DMA_RMP
+      TIM6_DAC1_DMA_RMP:
+        name: TIM6_DAC1_CH1_DMA_RMP

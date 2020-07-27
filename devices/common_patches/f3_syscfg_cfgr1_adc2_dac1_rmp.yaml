@@ -1,0 +1,9 @@
+# Modify names to fit the name in the register documentation
+# instead of the register map name.
+SYSCFG:
+  CFGR1:
+    _modify:
+      ADC24_DMA_RMP:
+        name: ADC2_DMA_RMP
+      DAC_TRIG_RMP:
+        name: DAC1_TRIG_RMP

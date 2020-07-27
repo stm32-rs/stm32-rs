@@ -1,0 +1,44 @@
+SYSCFG:
+  CFGR1:
+    FPU_IE5:
+      Disabled: [0, "Inexact interrupt disable"]
+      Enabled: [1, "Inexact interrupt enable"]
+    FPU_IE4:
+      Disabled: [0, "Input denormal interrupt disable"]
+      Enabled: [1, "Input denormal interrupt enable"]
+    FPU_IE3:
+      Disabled: [0, "Overflow interrupt disable"]
+      Enabled: [1, "Overflow interrupt enable"]
+    FPU_IE2:
+      Disabled: [0, "Underflow interrupt disable"]
+      Enabled: [1, "Underflow interrupt enable"]
+    FPU_IE1:
+      Disabled: [0, "Devide-by-zero interrupt disable"]
+      Enabled: [1, "Devide-by-zero interrupt enable"]
+    FPU_IE0:
+      Disabled: [0, "Invalid operation interrupt disable"]
+      Enabled: [1, "Invalid operation interrupt enable"]
+    I2C2_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection through IOPORT control registers AF selection bits"]
+    I2C1_FMP:
+      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection through IOPORT control registers AF selection bits"]
+    I2C_PB9_FMP:
+      Standard: [0, "PB9 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+    I2C_PB8_FMP:
+      Standard: [0, "PB8 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+    I2C_PB7_FMP:
+      Standard: [0, "PB7 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+    I2C_PB6_FMP:
+      Standard: [0, "PB6 pin operate in standard mode"]
+      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+    TIM17_DMA_RMP:
+      NotRemapped: [0, "TIM17_CH1 and TIM17_UP DMA requests mapped on DMA channel 1"]
+      Remapped: [1, "TIM17_CH1 and TIM17_UP DMA requests mapped on DMA channel 2"]
+    TIM16_DMA_RMP:
+      NotRemapped: [0, "TIM16_CH1 and TIM16_UP DMA requests mapped on DMA channel 3"]
+      Remapped: [1, "TIM16_CH1 and TIM16_UP DMA requests mapped on DMA channel 4"]

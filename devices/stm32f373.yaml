@@ -44,6 +44,16 @@ SYSCFG:
         bitOffset: 24
         bitWidth: 1
         access: read-write
+      TIM18_DAC2_OUT1_DMA_RMP:
+        description: TIM18 and DAC2_OUT1 DMA request remapping bit
+        bitOffset: 15
+        bitWidth: 1
+        access: read-write
+    _modify:
+      TIM7_DAC2_DMA_RMP:
+        name: TIM7_DAC1_OUT2_DMA_RMP
+      TIM6_DAC1_DMA_RMP:
+        name: TIM6_DAC1_OUT1_DMA_RMP
   CFGR2:
     _delete:
       - BYP_ADD_PAR
@@ -93,6 +103,9 @@ _include:
  - ./common_patches/f3_rcc_dac3_dac2.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
+ - ../peripherals/syscfg/syscfg_f3.yaml
+ - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+ - ../peripherals/syscfg/syscfg_f37x.yaml
  - ./common_patches/f0_comp_common.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
