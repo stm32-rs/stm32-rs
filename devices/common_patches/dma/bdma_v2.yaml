@@ -1,0 +1,30 @@
+"BDMA*":
+  "CCR?":
+    _add:
+      CT:
+        description: Current target memory in double-buffer mode
+        bitOffset: 16
+        bitWidth: 1
+      DBM:
+        description: Double-buffer mode
+        bitOffset: 15
+        bitWidth: 1
+  "CM1AR?":
+    _add:
+      MA:
+        description: Memory address
+        bitOffset: 0
+        bitWidth: 32
+  _cluster:
+    "CH%s":
+      description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR? and CM1AR registers?"
+      "CCR?":
+        name: CR
+      "CNDTR?":
+        name: NDTR
+      "CPAR?":
+        name: PAR
+      "CM0AR?":
+        name: M0AR
+      "CM1AR?":
+        name: M1AR

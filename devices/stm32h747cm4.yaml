@@ -15,8 +15,9 @@ CRYP:
 
 _include:
  - common_patches/h7_common_dualcore.yaml
- - common_patches/4_nvic_prio_bits.yaml
+ - common_patches/4_nvic_prio_bits.yaml  # Specifically for CM4 core
  - common_patches/dma_fcr_wo.yaml
+ - common_patches/dma/bdma.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
@@ -51,6 +52,8 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - ../peripherals/dma/bdma.yaml
+ - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -71,6 +74,7 @@ _include:
  - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/usart/usart_v2B1.yaml
