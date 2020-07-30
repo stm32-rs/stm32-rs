@@ -433,7 +433,15 @@ RCC:
       USART8EN:
         name: UART8EN
         description: UART8 Peripheral Clocks Enable
-  APB1LLPENR,C1_APB1LLPENR:
+  APB1LLPENR:
+    _modify:
+      USART7LPEN:
+        name: UART7LPEN
+        description: UART7 Peripheral Clocks Enable During CSleep Mode
+      USART8LPEN:
+        name: UART8LPEN
+        description: UART8 Peripheral Clocks Enable During CSleep Mode
+  C1_APB1LLPENR:
     _modify:
       USART7LPEN:
         name: UART7LPEN
