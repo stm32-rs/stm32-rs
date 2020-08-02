@@ -1,0 +1,63 @@
+# Some F3 SVDs (stm32f302, stm32f303, stm32f373, stm32f3x8) have wrong reset
+# values for some of the GPIO registers.
+#
+# We want the following reset values (omitted values are 0x0000_0000):
+#
+#   GPIOA:
+#     MODER:   0xA800_0000
+#     OSPEEDR: 0x0C00_0000
+#     PUPDR:   0x6400_0000
+#
+#   GPIOB:
+#     MODER:   0x0000_0280
+#     OSPEEDR: 0x0000_00C0
+#     PUPDR:   0x0000_0100
+#
+# To this end, this patch ensures there are three different GPIO peripherals,
+# GPIOA, GPIOB, and GPIOC. GPIOC has all-zero reset values and all other GPIO
+# peripherals derive from that.
+
+# In some SVDs GPIOC is derived from GPIOB, so we need to delete and re-add
+# to be able to modify its reset values.
+_delete:
+  - GPIOC
+_copy:
+  GPIOC:
+    from: GPIOA
+_modify:
+  GPIOC:
+    baseAddress: "0x48000800"
+
+_derive:
+  GPIOD: GPIOC
+  GPIOE: GPIOC
+  GPIOF: GPIOC
+  GPIOG: GPIOC
+  GPIOH: GPIOC
+
+GPIOA:
+  _modify:
+    MODER:
+      resetValue: "0xa8000000"
+    OSPEEDR:
+      resetValue: "0x0C000000"
+    PUPDR:
+      resetValue: "0x64000000"
+
+GPIOB:
+ _modify:
+   MODER:
+     resetValue: "0x00000280"
+   OSPEEDR:
+     resetValue: "0x000000C0"
+   PUPDR:
+     resetValue: "0x00000100"
+
+GPIOC:
+ _modify:
+   MODER:
+     resetValue: "0x00000000"
+   OSPEEDR:
+     resetValue: "0x00000000"
+   PUPDR:
+     resetValue: "0x00000000"
