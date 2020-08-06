@@ -1,11 +1,20 @@
 _svd: ../svd/stm32f373.svd
 
+_delete:
+  - GPIOD
+
+_copy:
+  GPIOD:
+    from: GPIOB
+
 _modify:
   ADC:
     name: ADC1
   # Rename in accordance with other devices and reference manual.
   Flash:
     name: FLASH
+  GPIOD:
+    baseAddress: 0x48000C00
 
 RCC:
   APB2RSTR:
@@ -91,6 +100,33 @@ FLASH:
       resetValue: 0xFFFFFF0F
       BOOT1:
         name: "nBOOT1"
+
+GPIOA:
+  _modify:
+    MODER:
+      resetValue: "0xa8000000"
+    OSPEEDR:
+      resetValue: "0x0C000000"
+    PUPDR:
+      resetValue: "0x64000000"
+
+GPIOB:
+ _modify:
+   MODER:
+     resetValue: "0x00000280"
+   OSPEEDR:
+     resetValue: "0x000000C0"
+   PUPDR:
+     resetValue: "0x00000100"
+
+GPIOD:
+ _modify:
+   MODER:
+     resetValue: "0x00000000"
+   OSPEEDR:
+     resetValue: "0x00000000"
+   PUPDR:
+     resetValue: "0x00000000"
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
