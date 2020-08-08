@@ -69,6 +69,14 @@ RCC:
         bitWidth: 1
   AHBENR:
     _add:
+      IOPHEN:
+        description: I/O port H clock enable
+        bitOffset: 16
+        bitWidth: 1
+      IOPGEN:
+        description: I/O port G clock enable
+        bitOffset: 23
+        bitWidth: 1
       ADC12EN:
         description: ADC1 and ADC2 enable
         bitOffset: 28
@@ -106,6 +114,14 @@ RCC:
         bitWidth: 1
   AHBRSTR:
     _add:
+      IOPHRST:
+        description: I/O port H reset
+        bitOffset: 16
+        bitWidth: 1
+      IOPGRST:
+        description: I/O port G reset
+        bitOffset: 23
+        bitWidth: 1
       ADC12RST:
         description: ADC1 and ADC2 reset
         bitOffset: 28
