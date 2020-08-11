@@ -326,17 +326,6 @@ _add:
         description: DMA2 Stream7
 
 DMA1:
-  "*CR":
-    _add:
-      TRBUFF:
-        description: Enable the DMA to handle bufferable transfers
-        bitOffset: 20
-        bitWidth: 1
-        access: read-write
-    TRBUFF:
-      Disabled: [0, "Bufferable transfers not enabled"]
-      Enabled: [1, "bufferable transfers enabled"]
-
   _add:
     _interrupts:
       DMA1_STR0:
