@@ -13,6 +13,7 @@ import os
 import glob
 import os.path
 import argparse
+import re
 import yaml
 
 VERSION = "0.11.0"
@@ -198,7 +199,7 @@ def main(devices_path, yes):
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
-        family = yamlfile[:7]
+        family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
         device = os.path.splitext(yamlfile)[0].lower()
         if family not in devices:
             devices[family] = []
