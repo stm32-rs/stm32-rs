@@ -36,6 +36,22 @@ CRATE_DOC_FEATURES = {
     "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"]
 }
 
+CRATE_DOC_TARGETS = {
+    "stm32f0": "thumbv6m-none-eabi",
+    "stm32f1": "thumbv7m-none-eabi",
+    "stm32f2": "thumbv7m-none-eabi",
+    "stm32f3": "thumbv7em-none-eabihf",
+    "stm32f4": "thumbv7em-none-eabihf",
+    "stm32f7": "thumbv7em-none-eabihf",
+    "stm32h7": "thumbv7em-none-eabihf",
+    "stm32l0": "thumbv6m-none-eabi",
+    "stm32l1": "thumbv7m-none-eabi",
+    "stm32l4": "thumbv7em-none-eabihf",
+    "stm32l5": "thumbv8m.main-none-eabi",
+    "stm32g0": "thumbv6m-none-eabi",
+    "stm32g4": "thumbv7em-none-eabihf",
+}
+
 CARGO_TOML_TPL = """\
 [package]
 edition = "2018"
@@ -60,6 +76,7 @@ version = "0.6.10"
 
 [package.metadata.docs.rs]
 features = {docs_features}
+default-target = "{doc_target}"
 targets = []
 
 [features]
@@ -222,7 +239,8 @@ def main(devices_path, yes):
         ufamily = family.upper()
         cargo_toml = CARGO_TOML_TPL.format(
             family=ufamily, crate=crate, version=VERSION, features=features,
-            docs_features=str(CRATE_DOC_FEATURES[crate]))
+            docs_features=str(CRATE_DOC_FEATURES[crate]),
+            doc_target=CRATE_DOC_TARGETS[crate])
         readme = README_TPL.format(
             family=ufamily, crate=crate, device=devices[family][0],
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
