@@ -12,6 +12,7 @@ CRC:
       size: 0x8
       access: read-write
       resetValue: 0xFF
+      alternateRegister: DR
       fields:
         DR8:
           description: Data register bits
