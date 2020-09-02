@@ -5,6 +5,36 @@ _include:
  - ./crc_basic.yaml
 
 CRC:
+  _add:
+    DR8:
+      description: Data register - byte sized
+      addressOffset: 0x0
+      size: 0x8
+      access: read-write
+      resetValue: 0xFF
+      alternateRegister: DR
+      fields:
+        DR8:
+          description: Data register bits
+          bitOffset: 0
+          bitWidth: 8
+    DR16:
+      description: Data register - half-word sized
+      addressOffset: 0x0
+      size: 0x10
+      access: read-write
+      resetValue: 0xFFFF
+      alternateRegister: DR
+      fields:
+        DR16:
+          description: Data register bits
+          bitOffset: 0
+          bitWidth: 16
+
+  DR8:
+    DR8: [0, 255]
+  DR16:
+    DR16: [0, 65535]
   CR:
     REV_IN:
       Normal: [0, "Bit order not affected"]
