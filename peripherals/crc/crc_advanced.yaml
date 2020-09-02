@@ -24,6 +24,7 @@ CRC:
       size: 0x10
       access: read-write
       resetValue: 0xFFFF
+      alternateRegister: DR
       fields:
         DR16:
           description: Data register bits
