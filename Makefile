@@ -43,7 +43,7 @@ svd/%.svd.formatted: svd/%.svd.patched
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
-	python3 scripts/makecrates.py devices/ -y
+	python3 scripts/makecrates.py devices/ -y --families $(CRATES)
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
