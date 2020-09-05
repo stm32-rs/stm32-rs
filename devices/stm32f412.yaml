@@ -77,7 +77,7 @@ CRC:
       CR:
         name: RESET
 
-# Merge the thousands of individal bit fields into a single field for each
+# Merge the thousands of individual bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
 # fields in many devices are just these CAN filter bank fields.
