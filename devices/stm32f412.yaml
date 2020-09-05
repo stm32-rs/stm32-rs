@@ -69,6 +69,12 @@ FSMC:
     _delete:
       - DATLAT
       - CLKDIV
+  # Add the missing interrupt
+  _add:
+    _interrupts:
+      FSMC:
+        description: FSMC global interrupt
+        value: 48
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0402
@@ -226,6 +232,147 @@ RCC:
           description: QUADSPI memory controller module clock enable
           bitOffset: 1
           bitWidth: 1
+
+# Add missing interrupts defined in RM0402
+WWDG:
+  _add:
+    _interrupts:
+      WWDG:
+        description: Window Watchdog interrupt
+        value: 0
+TIM2:
+  _add:
+    _interrupts:
+      TIM4:
+        description: TIM4 global interrupt
+        value: 30
+USART1:
+  _add:
+    _interrupts:
+      USART1:
+        description: USART1 global interrupt
+        value: 37
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+      USART6:
+        description: USART6 global interrupt
+        value: 71
+TIM1:
+  _add:
+    _interrupts:
+      TIM8_CC:
+        description: TIM8 Cap/Com interrupt
+        value: 46
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: TIM5 global interrupt
+        value: 50
+SPI1:
+  _add:
+    _interrupts:
+      SPI3:
+        description: SPI3 global interrupt
+        value: 51
+      SPI5:
+        description: SPI5 global interrupt
+        value: 85
+DMA2:
+  _add:
+    _interrupts:
+      # The DMA1 interrupts should really be under the DMA1 peripheral, but that currently does not exist.
+      DMA1_Stream0:
+        description: DMA1 Stream0 global interrupt
+        value: 11
+      DMA1_Stream1:
+        description: DMA1 Stream1 global interrupt
+        value: 12
+      DMA1_Stream2:
+        description: DMA1 Stream2 global interrupt
+        value: 13
+      DMA1_Stream3:
+        description: DMA1 Stream3 global interrupt
+        value: 14
+      DMA1_Stream4:
+        description: DMA1 Stream4 global interrupt
+        value: 15
+      DMA1_Stream5:
+        description: DMA1 Stream5 global interrupt
+        value: 16
+      DMA1_Stream6:
+        description: DMA1 Stream6 global interrupt
+        value: 17
+      DMA1_Stream7:
+        description: DMA1 global interrupt Channel 7
+        value: 47
+      DMA2_Stream0:
+        description: DMA2 Stream0 global interrupt
+        value: 56
+      DMA2_Stream1:
+        description: DMA2 Stream1 global interrupt
+        value: 57
+      DMA2_Stream2:
+        description: DMA2 Stream2 global interrupt
+        value: 58
+      DMA2_Stream3:
+        description: DMA2 Stream3 global interrupt
+        value: 59
+      DMA2_Stream4:
+        description: DMA2 Stream4 global interrupt
+        value: 60
+      DMA2_Stream5:
+        description: DMA2 Stream5 global interrupt
+        value: 68
+      DMA2_Stream6:
+        description: DMA2 Stream6 global interrupt
+        value: 59
+      DMA2_Stream7:
+        description: DMA2 Stream7 global interrupt
+        value: 70
+DFSDM:
+  _add:
+    _interrupts:
+      DFSDM1_FLT0:
+        description: SD filter0 global interrupt
+        value: 61
+      DFSDM1_FLT1:
+        description: SD filter1 global interrupt
+        value: 62
+CAN1:
+  _add:
+    _interrupts:
+      CAN2_TX:
+        description: CAN2 TX interrupt
+        value: 63
+      CAN2_RX0:
+        description: BXCAN2 RX0 interrupt
+        value: 64
+      CAN2_RX1:
+        description: BXCAN2 RX1 interrupt
+        value: 65
+      CAN2_SCE:
+        description: CAN2 SCE interrupt
+        value: 66
+QUADSPI:
+  _add:
+    _interrupts:
+      Quad_SPI:
+        description: Quad-SPI global interrupt
+        value: 92
+FMPI2C4:
+  _add:
+    _interrupts:
+      I2CFMP1_event:
+        description: I2CFMP1 event interrupt
+        value: 95
+      I2CFMP1_error:
+        description: I2CFMP1 error interrupt
+        value: 96
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
