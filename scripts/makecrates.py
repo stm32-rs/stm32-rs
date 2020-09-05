@@ -194,14 +194,13 @@ def make_device_clauses(devices):
 
 
 def main(devices_path, yes, families):
-    families = families.split(',') if len(families) > 0 else None
     devices = {}
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
         family = yamlfile[:7]
         device = os.path.splitext(yamlfile)[0].lower()
-        if families is None or family in families:
+        if len(families) == 0 or family in families:
             if family not in devices:
                 devices[family] = []
             devices[family].append(device)
@@ -251,9 +250,11 @@ if __name__ == "__main__":
     parser.add_argument("devices",
                         help="Path to device YAML files")
     parser.add_argument('--families',
-                        help="Families of components to generate crates for, separated by commas",
+                        help="Families of components to generate crates for",
+                        nargs='+',
                         required=False,
-                        default='',
+                        metavar='FAMILY',
+                        default=[],
                         type=str)
     args = parser.parse_args()
     main(args.devices, args.y, args.families)
