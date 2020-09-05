@@ -285,7 +285,6 @@ SPI1:
 DMA2:
   _add:
     _interrupts:
-      # The DMA1 interrupts should really be under the DMA1 peripheral, but that currently does not exist.
       DMA1_Stream0:
         description: DMA1 Stream0 global interrupt
         value: 11
