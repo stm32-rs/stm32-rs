@@ -25,6 +25,7 @@ jobs:
           - stm32l5
           - stm32g0
           - stm32g4
+          - stm32mp1
     env:
       CRATES: ${{ matrix.crate }}
       CARGO_INCREMENTAL: 0
