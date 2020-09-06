@@ -51,6 +51,7 @@ CRATE_DOC_TARGETS = {
     "stm32l5": "thumbv8m.main-none-eabi",
     "stm32g0": "thumbv6m-none-eabi",
     "stm32g4": "thumbv7em-none-eabihf",
+    "stm32mp1": "thumbv7em-none-eabihf",
 }
 
 CARGO_TOML_TPL = """\
