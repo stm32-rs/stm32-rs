@@ -1,5 +1,5 @@
 _modify:
-  SDMMC:   # renaming block to be RM0390-compliant
+  SDMMC:
     name: SDIO
     description: 'Secure digital input/output SD/SDIO MMC card host interface'
     groupName: SDIO
@@ -19,7 +19,7 @@ SDIO:
     SDMMC_CLKCR:
       description: 'CLKCR register controls the SDIO_CK output clock.'
     SDMMC_CMDR:
-      name: "SDMMC_CMD"  # NOTE: something weird happens on leaving just 'CMD' -- 'MD' -- ?
+      name: "SDMMC_CMD"
     SDMMC_RESP4R:
       addressOffset: "0x20"
       name: RESP4
@@ -32,12 +32,11 @@ SDIO:
     SDMMC_RESP1R:
       addressOffset: "0x14"
       name: RESP1
-    SDMMC_RESPCMD:
-      addressOffset: "0x10"
     SDMMC_ARGR:
       name: ARG
     SDMMC_RESPCMDR:
       name: RESPCMD
+      addressOffset: "0x10"
     SDMMC_DLENR:
       name: "SDMMC_DLEN"
     SDMMC_DCNTR:
@@ -47,9 +46,9 @@ SDIO:
     SDMMC_MASKR:
       name: SDMMC_MASK
     SDMMC_FIFOR:
-      addressOffset: "0x80" # acc. to CMSIS headers (??)
+      addressOffset: "0x80"
       name: SDMMC_FIFO
-  # What is the exact logic of [svdpatch.py]? Why is stripping AFTER delete & modify?
+
   _add:
     _interrupts:
       SDIO:
@@ -67,24 +66,6 @@ SDIO:
           bitOffset: 0
           bitWidth: 24
           access: read-only
-#    FIFOARR01R:
-#      description: 'fifo arr'
-#      addressOffset: "0x84", ..., "0x88"
-#      size: "0x20"
-#      resetValue: "0x00000000"
-#      access: read-write
-#      fields:
-#        FIFODATA:
-#          bitOffset: 0
-#          bitWidth: 32
-#          access: read-write
-#  _array:
-#    FIFOARR*: {}
-#    "RESP?R":
-#      name: "RESP%s"
-#      _modify:
-#        CARDSTATUS1:
-#          name: CARDSTATUS
 
   POWER:
     description: 'SDIO power control register'
@@ -174,7 +155,6 @@ SDIO:
 
   STA:
     # Note: RM0390 has a little erroneous description [bit 23 is none]
-    # Later: descriptions 4 all
     _delete:
       - IDMABTC
       - IDMATE
