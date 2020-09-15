@@ -125,6 +125,6 @@ update-venv:
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
-	python3 scripts/makedeps.py $< > $@
+	svd makedeps $< $@
 
 -include .deps/*
