@@ -1,0 +1,220 @@
+# Base for `i2c_v2.yaml`.
+
+  CR1:
+    PECEN:
+      Disabled: [0, "PEC calculation disabled"]
+      Enabled: [1, "PEC calculation enabled"]
+    ALERTEN:
+      Disabled: [0, "In device mode (SMBHEN=Disabled) Releases SMBA pin high and Alert Response Address Header disabled (0001100x) followed by NACK. In host mode (SMBHEN=Enabled) SMBus Alert pin (SMBA) not supported"]
+      Enabled: [1, "In device mode (SMBHEN=Disabled) Drives SMBA pin low and Alert Response Address Header enabled (0001100x) followed by ACK.In host mode (SMBHEN=Enabled) SMBus Alert pin (SMBA) supported"]
+    SMBDEN:
+      Disabled: [0, "Device default address disabled. Address 0b1100001x is NACKed"]
+      Enabled: [1, "Device default address enabled. Address 0b1100001x is ACKed"]
+    SMBHEN:
+      Disabled: [0, "Host address disabled. Address 0b0001000x is NACKed"]
+      Enabled: [1, "Host address enabled. Address 0b0001000x is ACKed"]
+    GCEN:
+      Disabled: [0, "General call disabled. Address 0b00000000 is NACKed"]
+      Enabled: [1, "General call enabled. Address 0b00000000 is ACKed"]
+    NOSTRETCH:
+      Enabled: [0, "Clock stretching enabled"]
+      Disabled: [1, "Clock stretching disabled"]
+    SBC:
+      Disabled: [0, "Slave byte control disabled"]
+      Enabled: [1, "Slave byte control enabled"]
+    RXDMAEN:
+      Disabled: [0, "DMA mode disabled for reception"]
+      Enabled: [1, "DMA mode enabled for reception"]
+    TXDMAEN:
+      Disabled: [0, "DMA mode disabled for transmission"]
+      Enabled: [1, "DMA mode enabled for transmission"]
+    ANFOFF:
+      Enabled: [0, "Analog noise filter enabled"]
+      Disabled: [1, "Analog noise filter disabled"]
+    DNF:
+      NoFilter: [0, "Digital filter disabled"]
+      Filter1: [1, "Digital filter enabled and filtering capability up to 1 tI2CCLK"]
+      Filter2: [2, "Digital filter enabled and filtering capability up to 2 tI2CCLK"]
+      Filter3: [3, "Digital filter enabled and filtering capability up to 3 tI2CCLK"]
+      Filter4: [4, "Digital filter enabled and filtering capability up to 4 tI2CCLK"]
+      Filter5: [5, "Digital filter enabled and filtering capability up to 5 tI2CCLK"]
+      Filter6: [6, "Digital filter enabled and filtering capability up to 6 tI2CCLK"]
+      Filter7: [7, "Digital filter enabled and filtering capability up to 7 tI2CCLK"]
+      Filter8: [8, "Digital filter enabled and filtering capability up to 8 tI2CCLK"]
+      Filter9: [9, "Digital filter enabled and filtering capability up to 9 tI2CCLK"]
+      Filter10: [10, "Digital filter enabled and filtering capability up to 10 tI2CCLK"]
+      Filter11: [11, "Digital filter enabled and filtering capability up to 11 tI2CCLK"]
+      Filter12: [12, "Digital filter enabled and filtering capability up to 12 tI2CCLK"]
+      Filter13: [13, "Digital filter enabled and filtering capability up to 13 tI2CCLK"]
+      Filter14: [14, "Digital filter enabled and filtering capability up to 14 tI2CCLK"]
+      Filter15: [15, "Digital filter enabled and filtering capability up to 15 tI2CCLK"]
+    ERRIE:
+      Disabled: [0, "Error detection interrupts disabled"]
+      Enabled: [1, "Error detection interrupts enabled"]
+    TCIE:
+      Disabled: [0, "Transfer Complete interrupt disabled"]
+      Enabled: [1, "Transfer Complete interrupt enabled"]
+    STOPIE:
+      Disabled: [0, "Stop detection (STOPF) interrupt disabled"]
+      Enabled: [1, "Stop detection (STOPF) interrupt enabled"]
+    NACKIE:
+      Disabled: [0, "Not acknowledge (NACKF) received interrupts disabled"]
+      Enabled: [1, "Not acknowledge (NACKF) received interrupts enabled"]
+    ADDRIE:
+      Disabled: [0, "Address match (ADDR) interrupts disabled"]
+      Enabled: [1, "Address match (ADDR) interrupts enabled"]
+    RXIE:
+      Disabled: [0, "Receive (RXNE) interrupt disabled"]
+      Enabled: [1, "Receive (RXNE) interrupt enabled"]
+    TXIE:
+      Disabled: [0, "Transmit (TXIS) interrupt disabled"]
+      Enabled: [1, "Transmit (TXIS) interrupt enabled"]
+    PE:
+      Disabled: [0, "Peripheral disabled"]
+      Enabled: [1, "Peripheral enabled"]
+  CR2:
+    PECBYTE:
+      NoPec: [0, "No PEC transfer"]
+      Pec: [1, "PEC transmission/reception is requested"]
+    AUTOEND:
+      Software: [0, "Software end mode: TC flag is set when NBYTES data are transferred, stretching SCL low"]
+      Automatic: [1, "Automatic end mode: a STOP condition is automatically sent when NBYTES data are transferred"]
+    RELOAD:
+      Completed: [0, "The transfer is completed after the NBYTES data transfer (STOP or RESTART will follow)"]
+      NotCompleted: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES will be reloaded)"]
+    NACK:
+      Ack: [0, "an ACK is sent after current received byte"]
+      Nack: [1, "a NACK is sent after current received byte"]
+    STOP:
+      NoStop: [0, "No Stop generation"]
+      Stop: [1, "Stop generation after current byte transfer"]
+    START:
+      NoStart: [0, "No Start generation"]
+      Start: [1, "Restart/Start generation"]
+    HEAD10R:
+      Complete: [0, "The master sends the complete 10 bit slave address read sequence"]
+      Partial: [1, "The master only sends the 1st 7 bits of the 10 bit address, followed by Read direction"]
+    ADD10:
+      Bit7: [0, "The master operates in 7-bit addressing mode"]
+      Bit10: [1, "The master operates in 10-bit addressing mode"]
+    RD_WRN:
+      Write: [0, "Master requests a write transfer"]
+      Read: [1, "Master requests a read transfer"]
+    NBYTES: [0, 255]
+    SADD: [0, 1023]
+  OAR1:
+    OA1EN:
+      Disabled: [0, "Own address 1 disabled. The received slave address OA1 is NACKed"]
+      Enabled: [1, "Own address 1 enabled. The received slave address OA1 is ACKed"]
+    OA1MODE:
+      Bit7: [0, "Own address 1 is a 7-bit address"]
+      Bit10: [1, "Own address 1 is a 10-bit address"]
+    OA1: [0, 1023]
+  OAR2:
+    OA2EN:
+      Disabled: [0, "Own address 2 disabled. The received slave address OA2 is NACKed"]
+      Enabled: [1, "Own address 2 enabled. The received slave address OA2 is ACKed"]
+    OA2MSK:
+      NoMask: [0, "No mask"]
+      Mask1: [1, "OA2[1] is masked and don’t care. Only OA2[7:2] are compared"]
+      Mask2: [2, "OA2[2:1] are masked and don’t care. Only OA2[7:3] are compared"]
+      Mask3: [3, "OA2[3:1] are masked and don’t care. Only OA2[7:4] are compared"]
+      Mask4: [4, "OA2[4:1] are masked and don’t care. Only OA2[7:5] are compared"]
+      Mask5: [5, "OA2[5:1] are masked and don’t care. Only OA2[7:6] are compared"]
+      Mask6: [6, "OA2[6:1] are masked and don’t care. Only OA2[7] is compared."]
+      Mask7: [7, "OA2[7:1] are masked and don’t care. No comparison is done, and all (except reserved) 7-bit received addresses are acknowledged"]
+    OA2: [0, 127]
+  TIMINGR:
+    PRESC: [0, 15]
+    SCLDEL: [0, 15]
+    SDADEL: [0, 15]
+    SCLH: [0, 255]
+    SCLL: [0, 255]
+  TIMEOUTR:
+    TEXTEN:
+      Disabled: [0, "Extended clock timeout detection is disabled"]
+      Enabled: [1, "Extended clock timeout detection is enabled"]
+    TIMEOUTB: [0, 4095]
+    TIMOUTEN:
+      Disabled: [0, "SCL timeout detection is disabled"]
+      Enabled: [1, "SCL timeout detection is enabled"]
+    TIDLE:
+      Disabled: [0, "TIMEOUTA is used to detect SCL low timeout"]
+      Enabled: [1, "TIMEOUTA is used to detect both SCL and SDA high timeout (bus idle condition)"]
+    TIMEOUTA: [0, 4095]
+  ISR:
+    ADDCODE: [0, 127]
+    DIR:
+      Write: [0, "Write transfer, slave enters receiver mode"]
+      Read: [1, "Read transfer, slave enters transmitter mode"]
+    BUSY:
+      NotBusy: [0, "No communication is in progress on the bus"]
+      Busy: [1, "A communication is in progress on the bus"]
+    ALERT:
+      NoAlert: [0, "SMBA alert is not detected"]
+      Alert: [1, "SMBA alert event is detected on SMBA pin"]
+    TIMEOUT:
+      NoTimeout: [0, "No timeout occured"]
+      Timeout: [1, "Timeout occured"]
+    PECERR:
+      Match: [0, "Received PEC does match with PEC register"]
+      NoMatch: [1, "Received PEC does not match with PEC register"]
+    OVR:
+      NoOverrun: [0, "No overrun/underrun error occurs"]
+      Overrun: [1, "slave mode with NOSTRETCH=1, when an overrun/underrun error occurs"] 
+    ARLO:
+      NotLost: [0, "No arbitration lost"]
+      Lost: [1, "Arbitration lost"]
+    BERR:
+      NoError: [0, "No bus error"]
+      Error: [1, "Misplaced Start and Stop condition is detected"]
+    TCR:
+      NotComplete: [0, "Transfer is not complete"]
+      Complete: [1, "NBYTES has been transfered"]
+    TC:
+      NotComplete: [0, "Transfer is not complete"]
+      Complete: [1, "NBYTES has been transfered"]
+    STOPF:
+      NoStop: [0, "No Stop condition detected"]
+      Stop: [1, "Stop condition detected"]
+    NACKF:
+      NoNack: [0, "No NACK has been received"]
+      Nack: [1, "NACK has been received"]
+    ADDR:
+      NotMatch: [0, "Adress mismatched or not received"]
+      Match: [1, "Received slave address matched with one of the enabled slave addresses"]
+    RXNE:
+      Empty: [0, "The RXDR register is empty"]
+      NotEmpty: [1, "Received data is copied into the RXDR register, and is ready to be read"]
+    TXIS:
+      NotEmpty: [0, "The TXDR register is not empty"]
+      Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
+    TXE:
+      NotEmpty: [0, "TXDR register not empty"]
+      Empty: [1, "TXDR register empty"]
+
+  ICR:
+    ALERTCF:
+      Clear: [1, "Clears the ALERT flag in ISR register"]
+    TIMOUTCF:
+      Clear: [1, "Clears the TIMOUT flag in ISR register"]
+    PECCF:
+      Clear: [1, "Clears the PEC flag in ISR register"]
+    OVRCF:
+      Clear: [1, "Clears the OVR flag in ISR register"]
+    ARLOCF:
+      Clear: [1, "Clears the ARLO flag in ISR register"]
+    BERRCF:
+      Clear: [1, "Clears the BERR flag in ISR register"]
+    STOPCF:
+      Clear: [1, "Clears the STOP flag in ISR register"]
+    NACKCF:
+      Clear: [1, "Clears the NACK flag in ISR register"]
+    ADDRCF:
+      Clear: [1, "Clears the ADDR flag in ISR register"]
+  PECR:
+    PEC: [0, 255]
+  RXDR:
+    RXDATA: [0, 255]
+  TXDR:
+    TXDATA: [0, 255]

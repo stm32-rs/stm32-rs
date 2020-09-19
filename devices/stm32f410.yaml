@@ -19,10 +19,10 @@ _rebase:
         value: 85
 
 
-# Rename I2C4 to FMPI2C4 to match RM0401 and disambiguate from non-FMP I2C
 _modify:
   I2C4:
-    name: FMPI2C4
+    # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
+    name: FMPI2C1
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0401
@@ -51,6 +51,11 @@ RCC:
         description: "SPI5 clock enable during Sleep mode"
         bitOffset: 20
         bitWidth: 1
+  DCKCFGR2:
+    _modify:
+      I2C4SEL:
+        name: FMPI2C1SEL
+        description: "FMPI2C1 kernel clock source selection"
 
 USART1:
 # Add missing USART interrupts
@@ -146,6 +151,7 @@ _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/f4_rcc_fmpi2c.yaml
  - common_patches/f4_adc_single_csr.yaml
  - common_patches/f4_adc_single_ccr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
@@ -171,6 +177,7 @@ _include:
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/i2c/i2c_v1.yaml
+ - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/iwdg/iwdg.yaml

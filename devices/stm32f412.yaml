@@ -12,10 +12,10 @@ _rebase:
       TIFRFE:
         name: "FRE"
 
-# Rename I2C4 to FMPI2C4 to match RM0401 and disambiguate from non-FMP I2C
 _modify:
   I2C4:
-    name: FMPI2C4
+    # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
+    name: FMPI2C1
 
   FSMC:
      # ST got the base address of the FSMC peripheral wrong
@@ -150,8 +150,8 @@ RCC:
       access: read-write
       resetValue: 0x00000000
       fields:
-        I2CFMP1SEL:
-          description: I2CFMP1 kernel clock source selection
+        FMPI2C1SEL:
+          description: FMPI2C1 kernel clock source selection
           bitOffset: 22
           bitWidth: 2
         CK48MSEL:
@@ -384,6 +384,8 @@ _include:
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sq_usb.yaml
  - common_patches/rcc_add_plli2sm.yaml
+ - common_patches/f4_rcc_fmpi2c.yaml
+ - common_patches/f4_fmpi2c.yaml
  - common_patches/f4_adc_single_csr.yaml
  - common_patches/f4_adc_single_ccr.yaml
  - common_patches/fsmc/fsmc_sram.yaml
@@ -402,7 +404,7 @@ _include:
  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_i2cfmp1sel.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
  - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
@@ -416,6 +418,7 @@ _include:
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/i2c/i2c_v1.yaml
+ - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
