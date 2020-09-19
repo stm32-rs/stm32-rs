@@ -1,0 +1,181 @@
+SDIO:
+  POWER:
+    PWRCTRL:
+      PowerOff: [0, "Power off"]
+      PowerOn: [3, "Power on"]
+
+  CLKCR:
+    HWFC_EN:
+      Disabled: [0, "HW Flow Control is disabled"]
+      Enabled: [1, "HW Flow Control is enabled"]
+    NEGEDGE:
+      Rising: [0, "SDIO_CK generated on the rising edge"]
+      Falling: [1, "SDIO_CK generated on the falling edge"]
+    WIDBUS:
+      BusWidth1: [0, "1 lane wide bus"]
+      BusWidth4: [1, "4 lane wide bus"]
+      BusWidth8: [2, "8 lane wide bus"]
+    BYPASS:
+      Disabled: [0, "SDIOCLK is divided according to the CLKDIV value before driving the SDIO_CK output signal."]
+      Enabled: [1, "SDIOCLK directly drives the SDIO_CK output signal"]
+    PWRSAV:
+      Disabled: [1, "SDIO_CK is only enabled when the bus is active"]
+      Enabled: [0, "SDIO_CK clock is always enabled"]
+    CLKEN:
+      Disabled: [0, "Disable clock"]
+      Enabled: [1, "Enable clock"]
+    CLKDIV: [0, 0xFF]
+
+  ARG:
+    CMDARG: [0, 0xFFFFFFFF]
+
+  CMD:
+    SDIOSuspend:
+      Disabled: [0, "Next command is not a SDIO suspend command"]
+      Enabled: [1, "Next command send is a SDIO suspend command"]
+    CPSMEN:
+      Disabled: [0, "Command path state machine disabled"]
+      Enabled: [1, "Command path state machine enabled"]
+    WAITPEND:
+      Disabled: [0, "Don't wait for data end"]
+      Enabled: [1, "Wait for end of data transfer signal before sending command"]
+    WAITINT:
+      Disabled: [0, "Don't wait for interrupt request"]
+      Enabled: [1, "Wait for interrupt request"]
+    WAITRESP:
+      NoResponse: [0, "No response"]
+      ShortResponse: [1, "Short response"]
+      NoResponse2: [2, "No reponse"]
+      LongResponse: [3, "Long reponse"]
+    CMDINDEX: [0, 0x3F]
+
+  RESPCMD:
+    RESPCMD: [0, 0x3F]
+  
+  RESP1:
+    CARDSTATUS1: [0, 0xFFFFFFFF]
+  RESP2:
+    CARDSTATUS2: [0, 0xFFFFFFFF]
+  RESP3:
+    CARDSTATUS3: [0, 0xFFFFFFFF]
+  RESP4:
+    CARDSTATUS4: [0, 0xFFFFFFFF]
+
+  DTIMER:
+    DATATIME: [0, 0xFFFFFFFF]
+
+  DLEN:
+    DATALENGTH: [0, 0x01FFFFFF]
+
+  DCTRL:
+    SDIOEN:
+      Disabled: [0, "SDIO operations disabled"]
+      Enabled: [1, "SDIO operations enabled"]
+    RWMOD:
+      D2: [0, "Read wait control stopping using SDIO_D2"]
+      Ck: [1, "Read wait control using SDIO_CK"]
+    RWSTOP:
+      Disabled: [0, "Read wait in progress if RWSTART is enabled"]
+      Enabled: [1, "Enable for read wait stop if RWSTART is enabled"]
+    RWSTART:
+      Disabled: [0, "Don't start read wait operation"]
+      Enabled: [1, "Read wait operation starts"]
+    DMAEN:
+      Disabled: [0, "Dma disabled"]
+      Enabled: [1, "Dma enabled"]
+    DTMODE:
+      BlockMode: [0, "Bloack data transfer"]
+      StreamMode: [1, "Stream or SDIO multibyte data transfer"]
+    DTDIR:
+      ControllerToCard: [0, "From controller to card"]
+      CardToController: [1, "From card to controller"]
+    DTEN:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Start transfer"]
+
+  DCOUNT:
+    DATACOUNT: [0, 0x01FFFFFF]
+
+  STA:
+    SDIOIT:
+      NotReceived: [0, "SDIO interrupt not receieved"]
+      Received: [1, "SDIO interrupt received"]
+    RXDAVL:
+      NotAvailable: [0, "Data not available in receive FIFO"]
+      Available: [1, "Data available in receive FIFO"]
+    TXDAVL:
+      NotAvailable: [0, "Data not available in transmit FIFO"]
+      Available: [1, "Data available in transmit FIFO"]
+    RXFIFOE:
+      NotEmpty: [0, "Receive FIFO not empty"]
+      Empty: [1, "Receive FIFO empty"]
+    TXFIFOE:
+      NotEmpty: [0, "Transmit FIFO not empty"]
+      Empty: [1, "Transmit FIFO empty. When HW Flow Control is enabled, TXFIFOE signals becomes activated when the FIFO contains 2 words."]
+    RXFIFOF:
+      NotFull: [0, "Transmit FIFO not full"]
+      Full: [1, "Receive FIFO full. When HW Flow Control is enabled, RXFIFOF signals becomes activated 2 words before the FIFO is full."]
+    TXFIFOF:
+      NotFull: [0, "Transmit FIFO not full"]
+      Full: [1, "Transmit FIFO full"]
+    RXFIFOHF:
+      NotHalfFull: [0, "Receive FIFO not half full"]
+      HalfFull: [1, "Receive FIFO half full. At least 8 words in the FIFO"]
+    TXFIFOHE:
+      NotHalfEmpty: [0, "Transmit FIFO not half empty"]
+      HalfEmpty: [1, "Transmit FIFO half empty. At least 8 words can be written into the FIFO"]
+    RXACT:
+      NotInProgress: [0, "Data receive not in progress"]
+      InProgress: [1, "Data receive in progress"]
+    TXACT:
+      NotInProgress: [0, "Data transmit is not in progress"]
+      InProgress: [1, "Data transmit in progress"]
+    CMDACT:
+      NotInProgress: [0, "Command transfer not in progress"]
+      InProgress: [1, "Command tranfer in progress"]
+    DBCKEND:
+      NotTransferred: [0, "Data block not sent/received (CRC check failed)"]
+      Transferred: [1, "Data block sent/received (CRC check passed)"]
+    DATAEND:
+      Done: [1, "Data end (DCOUNT, is zero)"]
+      NotDone: [0, "Not done"]
+    CMDSENT:
+      NotSent: [0, "Command not sent"]
+      Sent: [1, "Command sent (no response required)"]
+    CMDREND:
+      NotDone: [0, "Command not done"]
+      Done: [1, "Command response received (CRC check passed)"]
+    RXOVERR:
+      NoOverrun: [0, "No FIFO overrun error"]
+      Overrun: [1, "Receive FIFO overrun error"]
+    TXUNDERR:
+      NoUnderrun: [0, "No transmit FIFO underrun error"]
+      Underrun: [1, "Transmit FIFO underrun error"]
+    DTIMEOUT:
+      NoTimeout: [0, "No data timeout"]
+      Timeout: [1, "Data timeout"]
+    CTIMEOUT:
+      NoTimeout: [0, "No Command timeout"]
+      Timeout: [1, "Command timeout"]
+    DCRCFAIL:
+      NotFailed: [0, "No Data block sent/received crc check fail"]
+      Failed: [1, "Data block sent/received crc failed"]
+    CCRCFAIL:
+      NotFailed: [0, "Command response received, crc check passed"]
+      Failed: [1, "Command response received, crc check failed"]
+
+  ICR:
+    "*C":
+      _write:
+        Clear: [1, "Clear flag"]
+
+  MASK:
+    "*IE":
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+
+  FIFOCNT:
+    FIFOCOUNT: [0, 0x00FFFFFF]
+
+  FIFO:
+    FIFOData: [0, 0xFFFFFFFF]

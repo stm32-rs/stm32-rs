@@ -182,7 +182,7 @@ def generate_if_newer(device):
     if not isfile or os.stat(filename).st_mtime < device['last-modified']:
         page = generate_device_page(device)
         print("Generating", pagename)
-        with open(filename, "w") as f:
+        with open(filename, "w", encoding='utf-8') as f:
             f.write(page)
         shutil.copy(device["svdfile"], args.htmldir)
 
@@ -199,5 +199,5 @@ if __name__ == "__main__":
         p.map(generate_if_newer, devices)
     devices = {d['name']: d for d in devices}
     index_page = generate_index_page(devices)
-    with open(os.path.join(args.htmldir, "index.html"), "w") as f:
+    with open(os.path.join(args.htmldir, "index.html"), "w", encoding='utf-8') as f:
         f.write(index_page)
