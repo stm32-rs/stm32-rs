@@ -4,7 +4,7 @@ _modify:
     description: 'Secure digital input/output SD/SDIO MMC card host interface'
     groupName: SDIO
     addressBlock:
-      size: "0x400"     
+      size: "0x400"
 
 SDIO:
   _strip: SDMMC_
@@ -108,7 +108,7 @@ SDIO:
         bitOffset: 10
         description: 'Clock divider bypass enable bit'
         access: read-write
-   
+
   CMD:
     _delete:
       - CMDTRANS
@@ -231,8 +231,3 @@ SDIO:
         bitWidth: 1
         access: read-write
         description: 'Data transmit acting interrupt enable. Set and cleared by software to enable/disable interrupt caused by data being transferred (data transmit acting)'
-
-   
-_include:
- - sdio_f4_common.yaml
- - sdio.yaml

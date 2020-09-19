@@ -9,8 +9,8 @@ SDIO:
       Disabled: [0, "HW Flow Control is disabled"]
       Enabled: [1, "HW Flow Control is enabled"]
     NEGEDGE:
-      Rising: [0, SDIO_CK generated on the rising edge]
-      Falling: [1, SDIO_CK generated on the falling edge]
+      Rising: [0, "SDIO_CK generated on the rising edge"]
+      Falling: [1, "SDIO_CK generated on the falling edge"]
     WIDBUS:
       BusWidth1: [0, "1 lane wide bus"]
       BusWidth4: [1, "4 lane wide bus"]
@@ -34,8 +34,8 @@ SDIO:
       Disabled: [0, "Next command is not a SDIO suspend command"]
       Enabled: [1, "Next command send is a SDIO suspend command"]
     CPSMEN:
-      Disabled: [0, Command path state machine disabled]
-      Enabled: [1, Command path state machine enabled]
+      Disabled: [0, "Command path state machine disabled"]
+      Enabled: [1, "Command path state machine enabled"]
     WAITPEND:
       Disabled: [0, "Don't wait for data end"]
       Enabled: [1, "Wait for end of data transfer signal before sending command"]
