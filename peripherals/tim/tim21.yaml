@@ -104,16 +104,9 @@
         Trigger: [1, "The TIF flag is set in TIMx_SR register. Related interrupt or DMA transfer can occur if enabled."]
     "CC?G":
       _write:
-        Trigger: [1, "If CC1 is an output: CC1IF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CC1 is an input: The current value of the counter is captured in TIMx_CCR1 register."]
-  CCMR1_Input:
-    IC2F: [0, 15]
-    IC2PSC: [0, 3]
-    CC2S:
-      Output: [0, "CC2 channel is configured as output"]
-      TI2: [1, "CC2 channel is configured as input, IC2 is mapped on TI2"]
-      TI1: [2, "CC2 channel is configured as input, IC2 is mapped on TI1"]
-      TRC: [3, "CC2 channel is configured as input, IC2 is mapped on TRC"]
-    IC1F:
+        Trigger: [1, "If CCx is an output: CCxIF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CCx is an input: The current value of the counter is captured in TIMx_CCR1 register."]
+  CCMR?_Input:
+    IC?F:
       NoFilter: [0, "No filter, sampling is done at fDTS"]
       FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
       FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
@@ -130,12 +123,27 @@
       FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
       FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
       FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
-    IC1PSC: [0, 3]
-    CC1S:
-      Output: [0, "CC1 channel is configured as output"]
-      TI1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1"]
-      TI2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2"]
-      TRC: [3, "CC1 channel is configured as input, IC1 is mapped on TRC"]
+    IC?PSC: [0, 3]
+    CC?S:
+      Output: [0, "CCx channel is configured as output"]
+      TI1: [1, "CCx channel is configured as input, ICx is mapped on TI1"]
+      TI2: [2, "CCx channel is configured as input, ICx is mapped on TI2"]
+      TRC: [3, "CCx channel is configured as input, ICx is mapped on TRC"]
+  CCMR?_Output:
+    OC?PE:
+      Disabled: [0, "Preload register on CCRx disabled. New values written to CCRx are taken into account immediately"]
+      Enabled: [1, "Preload register on CCRx enabled. Preload value is loaded into active register on each update event"]
+    CC?S:
+      Output: [0, "CCx channel is configured as output"]
+    OC?M:
+      Frozen: [0, "The comparison between the output compare register TIMx_CCRy and the counter TIMx_CNT has no effect on the outputs"]
+      ActiveOnMatch: [1, "Set channel to active level on match. OCyREF signal is forced high when the counter matches the capture/compare register"]
+      InactiveOnMatch: [2, "Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register"]
+      Toggle: [3, "OCyREF toggles when TIMx_CNT=TIMx_CCRy"]
+      ForceInactive: [4, "OCyREF is forced low"]
+      ForceActive: [5, "OCyREF is forced high"]
+      PwmMode1: [6, "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active"]
+      PwmMode2: [7, "Inversely to PwmMode1"]
   CCER:
     "CC?NP":
       Negative: [0, "Negative polarity"]
@@ -150,6 +158,8 @@
     CNT: [0, 65536]
   ARR:
     ARR: [0, 65536]
+  PSC:
+    PSC: [0, 65536]
   "CCR?":
     "CCR?": [0, 65536]
   OR:
