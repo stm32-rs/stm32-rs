@@ -84,7 +84,7 @@
       Automatic: [1, "Automatic end mode: a STOP condition is automatically sent when NBYTES data are transferred"]
     RELOAD:
       Completed: [0, "The transfer is completed after the NBYTES data transfer (STOP or RESTART will follow)"]
-      NotCompeted: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES will be reloaded)"]
+      NotCompleted: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES will be reloaded)"]
     NACK:
       Ack: [0, "an ACK is sent after current received byte"]
       Nack: [1, "a NACK is sent after current received byte"]
