@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean
+.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmap
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -15,6 +15,9 @@ YAMLS := $(foreach crate, $(CRATES), \
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
+
+# Each yaml file also corresponds to a mmap in mmaps/
+MMAPS := $(patsubst devices/%.yaml, mmaps/%.mmap, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
 RUST_SRCS := $(foreach crate, $(CRATES), \
@@ -40,6 +43,11 @@ svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
+
+# Generate mmap from patched SVD
+mmaps/%.mmap: svd/%.svd.patched
+	@mkdir -p mmaps
+	svd mmap $< > $@
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
@@ -94,6 +102,8 @@ html: html/index.html
 
 lint: $(PATCHED_SVDS)
 	xmllint --schema svd/cmsis-svd.xsd --noout $(PATCHED_SVDS)
+
+mmaps: $(MMAPS)
 
 clean-rs:
 	rm -rf $(RUST_DIRS)
