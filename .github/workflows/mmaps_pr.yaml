@@ -8,10 +8,14 @@ jobs:
     name: Compare mmaps
     runs-on: ubuntu-18.04
     steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          path: master
       - name: Checkout pull request
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.sha }}
+          ref: refs/pull/${{ github.event.number }}/head
           path: stm32-rs
       - name: Checkout mmaps
         uses: actions/checkout@v2
@@ -30,7 +34,9 @@ jobs:
         run: |
           cd stm32-rs
           COMMIT=$(git rev-parse --short HEAD)
-          export BRANCH=pr-${{ github.event.number }}-$COMMIT
+          BRANCH=pr-${{ github.event.number }}-$COMMIT
+          echo "::set-env name=BRANCH::$BRANCH"
+          cp ../master/Makefile .
           make -j2 mmaps
           mv mmaps/* ../stm32-rs-mmaps/
           cd ../stm32-rs-mmaps
