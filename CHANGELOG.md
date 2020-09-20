@@ -2,6 +2,72 @@
 
 ## [Unreleased]
 
+## [v0.12.0] 2020-09-20
+
+Family-specific:
+
+* F0:
+    * Fix CRC INIT address (#407)
+* F1:
+    * F107 Ethernet and USB OTG support (#380)
+* F3:
+    * Document RTC (#373)
+    * Document SYSCFG (#375)
+    * Fix typos in OPAMP (#391)
+    * Fix GPIO reset values (#406)
+    * Add missing GPIO bits to f3x8 (#411)
+* F4:
+    * Document flash on F401 (#374)
+    * F412 FSMC cleanup (#379)
+    * Update SDIO fields (#383)
+    * Rename I2C4 to FMPI2C1 and document it (#390)
+    * Fix F446 SDIO (#393)
+    * Add missing interrupts to F412 (#429)
+* F7:
+    * Fix typo in I2C enumeration variant (#433)
+* L0:
+    * Fix CCM missing bits on TIM21 (#415)
+* L4:
+    * Rename DMA interrupts for L4x3, 4x5, 552, 562 to match RM (#435)
+* L5:
+    * Add basic STM32L5 support (#371)
+* G0:
+    * Split G07x into G070 and G071 (#395)
+    * Fixes for G070, G071, G081 (#398)
+    * Group DMA registers (#408)
+* H7:
+    * Add basic H7B3 support (#378)
+    * Remove DBGSTDBY_D3 and DBGSTOP_D3 bits (#385)
+    * Document CCR and CCMR for TIM12-17 (#392)
+    * Rename USBxOTGHSEN to USBxOTGEN, USBxOTGULPIHSEN to USBxULPIEN (#401)
+    * Add Basic DMA (#403)
+    * Fix UART7LPEN fixes (#404)
+    * Add missing TRBUFF bit (#414)
+    * RCC CCIP patches, SDMMC prefix for b3 (#416)
+* MP1:
+    * Update tooling to support family names with more than one letter (#423)
+    * Add preliminary support for MP1 family (#425)
+
+Common:
+* Document CRC for F3, F7, H7, L0, L4 (#376)
+* Swap to GHA for CI (#377)
+* Fix Makefile for MacOS (#396)
+* writeConstraints removed for DMA address registers (#400)
+* Add virtual DR8 and DR16 registers to advanced CRC peripheral (#412)
+* Spelling mistake in description for timer registers (#422)
+* Support running makecrates.py for specific families (#424, #428)
+* Fix duplicated enumeratedValues on some fields (#426)
+* Add default-target per-family to docs.rs build (#427)
+* Fix incorrect writeConstraint maximum of 65536 to 65535 on some fields (#434)
+* Various fixes to ensure generated SVD files are compliant with schema
+
+Thanks to:
+
+[@Sh3Rm4n] [@yusefkarim] [@richardeoin] [@samcrow] [@torkeldanielsson]
+[@jkristell] [@aurelj] [@helgrind] [@cyberillithid] [@ijager] [@ra-kete]
+[@Pagten] [@mattico] [@almusil] [@diondokter] [@maximeborges] [@Rahix]
+[@Piroro-hs]
+
 ## [v0.11.0] 2020-04-25
 
 Family-specific:
@@ -365,7 +431,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.0...HEAD
+[v0.12.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.8.0...v0.9.0
@@ -384,6 +451,7 @@ work in this release!
 
 [@ajfrantz]: https://github.com/ajfrantz
 [@albru123]: https://github.com/albru123
+[@almusil]: https://github.com/almusil
 [@arkorobotics]: https://github.com/arkorobotics
 [@astro]: https://github.com/astro
 [@aurabindo]: https://github.com/aurabindo
@@ -391,13 +459,17 @@ work in this release!
 [@birkenfeld]: https://github.com/birkenfeld
 [@BryanKadzban]: https://github.com/BryanKadzban
 [@burrbull]: https://github.com/burrbull
+[@cyberillithid]: https://github.com/cyberillithid
+[@diondokter]: https://github.com/diondokter
 [@dirk-dms]: https://github.com/dirk-dms
 [@disasm]: https://github.com/disasm
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
 [@HarkonenBade]: https://github.com/HarkonenBade
+[@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
+[@ijager]: https://github.com/ijager
 [@jessebraham]: https://github.com/jessebraham
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
@@ -411,9 +483,15 @@ work in this release!
 [@MarcoIeni]: https://github.com/MarcoIeni
 [@mathk]: https://github.com/mathk
 [@MattCatz]: https://github.com/MattCatz
+[@mattico]: https://github.com/mattico
+[@maximeborges]: https://github.com/maximeborges
 [@nickray]: https://github.com/nickray
 [@octronics]: https://github.com/octronics
 [@osannolik]: https://github.com/osannolik
+[@Pagten]: https://github.com/Pagten
+[@Piroro-hs]: https://github.com/Piroro-hs
+[@Rahix]: https://github.com/Rahix
+[@ra-kete]: https://github.com/ra-kete
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
@@ -426,3 +504,4 @@ work in this release!
 [@thinxer]: https://github.com/thinxer
 [@torkeldanielsson]: https://github.com/torkeldanielsson
 [@x37v]: https://github.com/x37v
+[@yusefkarim]: https://github.com/yusefkarim
