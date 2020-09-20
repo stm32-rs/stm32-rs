@@ -1,0 +1,35 @@
+DMA1:
+  _modify:
+    _interrupts:
+      DMA1_Channel1:
+        name: DMA1_CH1
+      DMA1_Channel2:
+        name: DMA1_CH2
+      DMA1_Channel3:
+        name: DMA1_CH3
+      DMA1_Channel4:
+        name: DMA1_CH4
+      DMA1_Channel5:
+        name: DMA1_CH5
+      DMA1_Channel6:
+        name: DMA1_CH6
+      DMA1_Channel7:
+        name: DMA1_CH7
+
+DMA2:
+  _modify:
+    _interrupts:
+      DMA2_Channel1:
+        name: DMA2_CH1
+      DMA2_Channel2:
+        name: DMA2_CH2
+      DMA2_Channel3:
+        name: DMA2_CH3
+      DMA2_Channel4:
+        name: DMA2_CH4
+      DMA2_Channel5:
+        name: DMA2_CH5
+      DMA2_Channel6:
+        name: DMA2_CH6
+      DMA2_Channel7:
+        name: DMA2_CH7
