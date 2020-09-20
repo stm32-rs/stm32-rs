@@ -10,13 +10,6 @@ jobs:
     name: Build mmaps
     runs-on: ubuntu-18.04
     steps:
-      - name: Deploy SSH key
-        run: |
-          mkdir ~/.ssh
-          echo "${{ secrets.MMAPS_KEY }}" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -t rsa github.com
       - name: Checkout stm32-rs
         uses: actions/checkout@v2
         with:
@@ -25,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: stm32-rs/stm32-rs-mmaps
-          ssh-key: ~/.ssh/id_rsa
+          ssh-key: ${{ secrets.MMAPS_KEY }}
           path: stm32-rs-mmaps
       - name: Install Python dependencies
         run: |
