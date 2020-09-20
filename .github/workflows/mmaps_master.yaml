@@ -37,5 +37,5 @@ jobs:
           git config user.name "stm32-rs builder"
           git config user.email "action@github.com"
           git add .
-          git commit -m "stm32-rs master $COMMIT"
+          git commit --allow-empty -m "stm32-rs master $COMMIT"
           git push origin master
