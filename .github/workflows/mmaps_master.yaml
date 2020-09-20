@@ -35,10 +35,11 @@ jobs:
           ssh-keyscan -t rsa github.com
       - name: Build and publish
         run: |
-          COMMIT=${{ GITHUB_SHA }}
-          make -C stm32-rs -j2 mmaps
-          mv stm32-rs/mmaps/* stm32-rs-mmaps/
-          cd stm32-rs-mmaps
+          cd stm32-rs
+          COMMIT=$(git rev-parse HEAD)
+          make -j2 mmaps
+          mv mmaps/* ../stm32-rs-mmaps/
+          cd ../stm32-rs-mmaps
           git config user.name "stm32-rs builder"
           git config user.email "action@github.com"
           git add .
