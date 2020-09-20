@@ -1,0 +1,11 @@
+# A handful of registers have alternateRegister entries
+# with extra whitespace, which is not allowed by the SVD spec.
+
+OTG1_HS_GLOBAL:
+  _modify:
+    DIEPTXF0_Device:
+      alternateRegister: HNPTXFSIZ_Host
+    GRXSTSR_Device:
+      alternateRegister: GRXSTSR_Host
+    GRXSTSP_Device:
+      alternateRegister: GRXSTSP_Host

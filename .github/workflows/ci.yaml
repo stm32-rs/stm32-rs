@@ -39,6 +39,8 @@ jobs:
           profile: minimal
           override: true
           components: rustfmt
+      - name: Install xmllint
+        run: sudo apt-get install libxml2-utils
       - name: Install Python dependencies
         run: |
           pip3 install --user setuptools wheel
@@ -68,6 +70,8 @@ jobs:
           echo "::add-path::~/cargo-bin"
       - name: Patch SVDs
         run: make -j2 patch
+      - name: Check SVDs
+        run: make lint
       - name: Build PACs
         run: make -j2 svd2rust
       - name: Check PACs

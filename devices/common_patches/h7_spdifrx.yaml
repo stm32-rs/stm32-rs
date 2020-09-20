@@ -1,0 +1,5 @@
+# DR_10 lists two alternateRegisters, but the SVD spec only permits one.
+SPDIFRX:
+  _modify:
+    DR_10:
+      alternateRegister: ""

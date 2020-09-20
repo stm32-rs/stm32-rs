@@ -92,6 +92,9 @@ html/index.html: $(PATCHED_SVDS)
 
 html: html/index.html
 
+lint: $(PATCHED_SVDS)
+	xmllint --schema svd/cmsis-svd.xsd --noout $(PATCHED_SVDS)
+
 clean-rs:
 	rm -rf $(RUST_DIRS)
 	rm -f */src/generic.rs
