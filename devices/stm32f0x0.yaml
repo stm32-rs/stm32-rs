@@ -12,6 +12,10 @@ RCC:
         description: "I/O port D clock enable"
         bitOffset: 20
         bitWidth: 1
+      DUMMY:
+        description: Dummy field
+        bitOffset: 30
+        bitWidth: 1
   CFGR:
     _modify:
       PLLSRC:
