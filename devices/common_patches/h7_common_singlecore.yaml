@@ -539,3 +539,32 @@ _copy:
     from: TIM2
   TIM14:
     from: TIM2
+
+# Add interrupt for TIM3
+TIM3:
+  _add:
+    _interrupts:
+      TIM3:
+        description: TIM3 global interrupt
+        value: 29
+
+# Add interrupts for TIM12/TIM13/TIM14. For other SVDs these may be in TIM8, but
+# here they are in TIM12/TIM13/TIM14 and thus need to be added again
+TIM12:
+  _add:
+    _interrupts:
+      TIM8_BRK_TIM12:
+        description: TIM8 and 12 break global
+        value: 43
+TIM13:
+  _add:
+    _interrupts:
+      TIM8_UP_TIM13:
+        description: TIM8 and 13 update global
+        value: 44
+TIM14:
+  _add:
+    _interrupts:
+      TIM8_TRG_COM_TIM14:
+        description: TIM8 and 14 trigger/commutation and global
+        value: 45
