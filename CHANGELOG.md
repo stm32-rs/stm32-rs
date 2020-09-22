@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [v0.12.1] 2020-09-22
+
+* Fixes a bug introduced by a new version of svdtools which resulted in
+  missing interrupts for devices which used `_copy` in their patches (see #440)
+
 ## [v0.12.0] 2020-09-20
 
 Family-specific:
