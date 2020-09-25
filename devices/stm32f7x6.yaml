@@ -24,29 +24,6 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
-CRC:
-  # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
-  CR:
-    _modify:
-      CR:
-        name: RESET
-    _add:
-      REV_OUT:
-        description: Reverse output data
-        bitOffset: 7
-        bitWidth: 1
-        access: read-write
-      REV_IN:
-        description: Reverse input data
-        bitOffset: 5
-        bitWidth: 2
-        access: read-write
-      POLYSIZE:
-        description: Polynomial size
-        bitOffset: 3
-        bitWidth: 2
-        access: read-write
-
 Ethernet_MAC:
   MACFFR:
     _modify:
@@ -138,6 +115,7 @@ _include:
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - common_patches/crc/crc_rename_init.yaml
+ - common_patches/crc/f7_polysize_rev_in_rev_out.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
