@@ -222,7 +222,7 @@ def main(devices_path, yes, families):
         yamlfile = os.path.basename(path)
         family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
         device = os.path.splitext(yamlfile)[0].lower()
-        if family == 'stm32wle5':
+        if family.startswith('stm32wl'):
             family = 'stm32wl'
         if len(families) == 0 or family in families:
             if family not in devices:
