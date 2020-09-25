@@ -221,9 +221,9 @@ def main(devices_path, yes, families):
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
         family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
-        device = os.path.splitext(yamlfile)[0].lower()
         if family.startswith('stm32wl'):
             family = 'stm32wl'
+        device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:
             if family not in devices:
                 devices[family] = []
