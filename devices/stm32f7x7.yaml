@@ -244,7 +244,7 @@ CRYP:
 _include:
  - common_patches/rename_ltcd.yaml
  - common_patches/f7_interrupts.yaml
- - common_patches/f7_ltdc_interrupts.yaml
+ - common_patches/ltdc/f7_ltdc_interrupts.yaml
  - common_patches/pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
@@ -259,6 +259,7 @@ _include:
  - ../peripherals/can/can.yaml
  - common_patches/cryp/cryp_v2.yaml
  - common_patches/ltdc/ltdc.yaml
+ - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_add_plli2sp.yaml
  - common_patches/f7_rcc_apbenr.yaml
