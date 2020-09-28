@@ -1,0 +1,11 @@
+RTC:
+  CR:
+    ITSE:
+      Disabled: [0, "Internal event timestamp is disabled"]
+      Enabled: [1, "Internal event timestamp is enabled"]
+  ISR:
+    ITSF:
+      _read:
+        Match: [1, "This flag is set by hardware when a time-stamp on the internal event occurs"]
+      _write:
+        Clear: [0, "This flag is cleared by software by writing 0, and must be cleared together with TSF bit by writing 0 in both bits"]
