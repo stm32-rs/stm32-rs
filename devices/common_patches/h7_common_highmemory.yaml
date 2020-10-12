@@ -795,6 +795,12 @@ _add:
     derivedFrom: USART1
     baseAddress: 0x40018000
     interrupts:
+      UART7:
+        description: UART7 global interrupt
+        value: 82
+      UART8:
+        description: UART8 global interrupt
+        value: 83
       UART9:
          description: UART9 global interrupt
          value: 140
