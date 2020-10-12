@@ -346,6 +346,33 @@ _add:
       DMA2_STR7:
         value: 70
         description: DMA2 Stream7
+  UART9:
+    derivedFrom: USART1
+    baseAddress: 0x40018000
+    interrupts:
+      UART7:
+        description: UART7 global interrupt
+        value: 82
+      UART8:
+        description: UART8 global interrupt
+        value: 83
+      UART9:
+         description: UART9 global interrupt
+         value: 140
+  USART10:
+    derivedFrom: USART1
+    baseAddress: 0x4001C000
+    interrupts:
+      USART10:
+        description: USART10 global interrupt
+        value: 141
+  DAC2:
+    derivedFrom: DAC1
+    baseAddress: 0x58003400
+    interrupts:
+      DAC2:
+        description: DAC2 underrun interrupt
+        value: 127
 
 DMA1:
   _add:
@@ -684,15 +711,6 @@ DAC1:
   _strip:
     - DAC_
 
-_add:
-  DAC2:
-    derivedFrom: DAC1
-    baseAddress: 0x58003400
-    interrupts:
-      DAC2:
-        description: DAC2 underrun interrupt
-        value: 127
-
 DMA2D:
   _strip:
     - DMA2D_
@@ -789,28 +807,6 @@ SPDIFRX:
       SPDIFRX:
         description: SPDIFRX global interrupt
         value: 97
-
-_add:
-  UART9:
-    derivedFrom: USART1
-    baseAddress: 0x40018000
-    interrupts:
-      UART7:
-        description: UART7 global interrupt
-        value: 82
-      UART8:
-        description: UART8 global interrupt
-        value: 83
-      UART9:
-         description: UART9 global interrupt
-         value: 140
-  USART10:
-    derivedFrom: USART1
-    baseAddress: 0x4001C000
-    interrupts:
-      USART10:
-        description: USART10 global interrupt
-        value: 141
 
 VREFBUF:
   _strip:
