@@ -15,7 +15,7 @@
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 [![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
 [![crates.io](https://img.shields.io/crates/v/stm32mp1.svg?label=stm32mp1)](https://crates.io/crates/stm32mp1)
-[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32mp1)](https://crates.io/crates/stm32wl)
+[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32wl)](https://crates.io/crates/stm32wl)
 [![Matrix](https://img.shields.io/matrix/stm32-rs:matrix.org)](https://matrix.to/#/#stm32-rs:matrix.org)
 
 This repository provides Rust device support crates for all STM32
@@ -139,7 +139,7 @@ This project is still young and there's a lot to do!
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 [![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
 [![crates.io](https://img.shields.io/crates/v/stm32mp1.svg?label=stm32mp1)](https://crates.io/crates/stm32mp1)
-[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32mp1)](https://crates.io/crates/stm32wl)
+[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32wl)](https://crates.io/crates/stm32wl)
 
 Please see the individual crate READMEs for the full list of devices each crate
 supports. All SVDs released by ST for STM32 devices are covered, so probably
