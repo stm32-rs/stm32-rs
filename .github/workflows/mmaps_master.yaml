@@ -25,8 +25,7 @@ jobs:
           pip3 install --user setuptools wheel
           pip3 install --user svdtools
       - name: Put pip binary directory into path
-        run: |
-          echo "::add-path::~/.local/bin"
+        run: echo "~/.local/bin" >> $GITHUB_PATH
       - name: Build and publish
         run: |
           cd stm32-rs
