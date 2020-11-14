@@ -10,6 +10,8 @@ _modify:
     name: FDCAN1
   FDCAN:
     name: FDCAN2
+  DAC:
+    name: DAC1
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -265,6 +267,13 @@ _modify:
       AWDCH1CH:
         name: AWD1CH
 
+# The ADC3 interrupt doesn't exist (no ADC3 peripheral), but the slot was
+# re-used for DAC2
+ADC1:
+  _delete:
+    _interrupts:
+      - ADC3
+
 AXI:
   _strip:
     - AXI_
@@ -305,6 +314,8 @@ AXI:
 
 _delete:
   - DMA2
+  - USART9
+  - USART10
 
 _add:
   DMA2:
@@ -335,6 +346,33 @@ _add:
       DMA2_STR7:
         value: 70
         description: DMA2 Stream7
+  UART9:
+    derivedFrom: USART1
+    baseAddress: 0x40018000
+    interrupts:
+      UART7:
+        description: UART7 global interrupt
+        value: 82
+      UART8:
+        description: UART8 global interrupt
+        value: 83
+      UART9:
+         description: UART9 global interrupt
+         value: 140
+  USART10:
+    derivedFrom: USART1
+    baseAddress: 0x4001C000
+    interrupts:
+      USART10:
+        description: USART10 global interrupt
+        value: 141
+  DAC2:
+    derivedFrom: DAC1
+    baseAddress: 0x58003400
+    interrupts:
+      DAC2:
+        description: DAC2 underrun interrupt
+        value: 127
 
 DMA1:
   _add:
@@ -669,7 +707,7 @@ CRS:
   _strip:
     - CRS_
 
-DAC:
+DAC1:
   _strip:
     - DAC_
 
@@ -712,6 +750,8 @@ MDIOS:
 PWR:
   _strip:
     - PWR_
+  _delete:
+    _interrupts: WWDG1_RST      # Doesn't exist at all on these parts
   CR3:
     # Annoyingly RM0455 names these fields differently to RM0399 whilst
     # they have the same function
@@ -729,6 +769,13 @@ PWR:
         bitOffset: 3
         bitWidth: 1
 
+RAMECC:
+  _add:
+    _interrupts:
+      RAMECC:
+        description: ECC diagnostic global interrupt
+        value: 145
+
 RTC:
   _strip:
     - RTC_
@@ -744,10 +791,22 @@ I2C3:
 SAI1:
   _strip:
     - SAI_
+  _add:
+    _interrupts:
+      SAI1:
+        description: SAI1 global interrupt
+        value: 87
 
 SDMMC?:
   _strip:
     - SDMMC_
+
+SPDIFRX:
+  _add:
+    _interrupts:
+      SPDIFRX:
+        description: SPDIFRX global interrupt
+        value: 97
 
 VREFBUF:
   _strip:
