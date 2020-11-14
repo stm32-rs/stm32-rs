@@ -29,7 +29,7 @@
       Disabled: [0, "Trigger overrun interrupt disabled"]
       Enabled: [1, "Trigger overrun interrupt enabled"]
 
-DMAMUX1:
+"DMAMU?1":
   CCR%s:
     SYNC_ID:
       dmamux1_evt0: [0, "Signal `dmamux1_evt0` selected as synchronization input"]
@@ -167,7 +167,7 @@ DMAMUX1:
       extit0: [6, "Signal `extit0` selected as trigger input"]
       tim12_trgo: [7, "Signal `tim12_trgo` selected as trigger input"]
 
-DMAMUX2:
+"DMAMU?2":
   CCR%s:
     SYNC_ID:
       dmamux2_evt0: [0, "Signal `dmamux2_evt0` selected as synchronization input"]
