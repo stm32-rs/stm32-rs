@@ -1,0 +1,8 @@
+# Corrects the addresses of the INIT and POL registers of the CRC peripheral
+
+CRC:
+  _modify:
+    INIT:
+      addressOffset: "0x10"
+    POL:
+      addressOffset: "0x14"
