@@ -1,8 +1,0 @@
-# Some CRC peripherals allow all 32-bits of their independent data register to be used.
-# Whether it's safe to use all 32-bits appears independent of other CRC features.
-
-CRC:
-  IDR:
-    _modify:
-      IDR:
-        _write_constraint: [0, 0xFFFFFFFF]

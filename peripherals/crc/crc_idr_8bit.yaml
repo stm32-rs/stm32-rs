@@ -1,0 +1,9 @@
+# Independent data register allowing 8-bit usage only.
+# Most STM32 CRC units have this.
+
+CRC:
+  IDR:
+    IDR: [0, 0xFF]
+    _modify:
+      IDR:
+        bitWidth: 8

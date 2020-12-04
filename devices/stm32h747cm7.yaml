@@ -54,6 +54,7 @@ _include:
  - ../peripherals/axi/axi_v1.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_32bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/dma/bdma.yaml
@@ -91,4 +92,3 @@ _include:
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/rtc/rtc_h7.yaml
  - common_patches/h7_crc_addr_fix.yaml
- - common_patches/crc/crc_32bit_idr.yaml
