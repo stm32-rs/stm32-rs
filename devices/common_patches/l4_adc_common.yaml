@@ -1,0 +1,166 @@
+_add:
+  # This SVD is missing the ADC_Common peripheral that most other parts with
+  # this ADC contain; consequently it's missing the CSR and CCR and CDR regs
+  # from RM0394.
+  ADC_Common:
+    description: ADC common registers
+    groupName: ADC
+    baseAddress: 0x50040300
+    addressBlock:
+      offset: 0
+      size: 0x10
+      usage: registers
+    registers:
+      CSR:
+        description: ADC common status register
+        addressOffset: 0x0
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          JQOVF_SLV:
+            description: Injected Context Queue Overflow flag of the slave ADC
+            bitOffset: 26
+            bitWidth: 1
+          AWD3_SLV:
+            description: Analog watchdog 3 flag of the slave ADC
+            bitOffset: 25
+            bitWidth: 1
+          AWD2_SLV:
+            description: Analog watchdog 2 flag of the slave ADC
+            bitOffset: 24
+            bitWidth: 1
+          AWD1_SLV:
+            description: Analog watchdog 1 flag of the slave ADC
+            bitOffset: 23
+            bitWidth: 1
+          JEOS_SLV:
+            description: End of injected sequence flag of the slave ADC
+            bitOffset: 22
+            bitWidth: 1
+          JEOC_SLV:
+            description: End of injected conversion flag of the slave ADC
+            bitOffset: 21
+            bitWidth: 1
+          OVR_SLV:
+            description: Overrun flag of the slave ADC
+            bitOffset: 20
+            bitWidth: 1
+          EOS_SLV:
+            description: End of regular sequence flag of the slave ADC
+            bitOffset: 19
+            bitWidth: 1
+          EOC_SLV:
+            description: End of regular conversion flag of the slave ADC
+            bitOffset: 18
+            bitWidth: 1
+          EOSMP_SLV:
+            description: End of Sampling phase flag of the slave ADC
+            bitOffset: 17
+            bitWidth: 1
+          ADRDY_SLV:
+            description: Slave ADC ready
+            bitOffset: 16
+            bitWidth: 1
+
+          JQOVF_MST:
+            description: Injected Context Queue Overflow flag of the master ADC
+            bitOffset: 10
+            bitWidth: 1
+          AWD3_MST:
+            description: Analog watchdog 3 flag of the master ADC
+            bitOffset: 9
+            bitWidth: 1
+          AWD2_MST:
+            description: Analog watchdog 2 flag of the master ADC
+            bitOffset: 8
+            bitWidth: 1
+          AWD1_MST:
+            description: Analog watchdog 1 flag of the master ADC
+            bitOffset: 7
+            bitWidth: 1
+          JEOS_MST:
+            description: End of injected sequence flag of the master ADC
+            bitOffset: 6
+            bitWidth: 1
+          JEOC_MST:
+            description: End of injected conversion flag of the master ADC
+            bitOffset: 5
+            bitWidth: 1
+          OVR_MST:
+            description: Overrun flag of the master ADC
+            bitOffset: 4
+            bitWidth: 1
+          EOS_MST:
+            description: End of regular sequence flag of the master ADC
+            bitOffset: 3
+            bitWidth: 1
+          EOC_MST:
+            description: End of regular conversion flag of the master ADC
+            bitOffset: 2
+            bitWidth: 1
+          EOSMP_MST:
+            description: End of Sampling phase flag of the master ADC
+            bitOffset: 1
+            bitWidth: 1
+          ADRDY_MST:
+            description: master ADC ready
+            bitOffset: 0
+            bitWidth: 1
+
+      CCR:
+        description: ADC common control register
+        addressOffset: 0x08
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          CH18SEL:
+            description: CH18 selection (Vbat)
+            bitOffset: 24
+            bitWidth: 1
+          CH17SEL:
+            description: CH17 selection (temperature)
+            bitOffset: 23
+            bitWidth: 1
+          VREFEN:
+            description: Vrefint enable
+            bitOffset: 22
+            bitWidth: 1
+          PRESC:
+            description: ADC prescaler
+            bitOffset: 18
+            bitWidth: 4
+          CKMODE:
+            description: ADC clock mode
+            bitOffset: 16
+            bitWidth: 2
+          MDMA:
+            description: Direct memory access mode for dual ADC mode
+            bitOffset: 14
+            bitWidth: 2
+          DMACFG:
+            description: DMA configuration (for dual ADC mode)
+            bitOffset: 13
+            bitWidth: 1
+          DELAY:
+            description: Delay between 2 sampling phases
+            bitOffset: 8
+            bitWidth: 4
+          DUAL:
+            description: Dual ADC mode selection
+            bitOffset: 0
+            bitWidth: 5
+
+      CDR:
+        description: ADC common regular data register for dual mode
+        addressOffset: 0x0C
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          RDATA_SLV:
+            description: Regular data of the slave ADC
+            bitOffset: 16
+            bitWidth: 16
+          RDATA_MST:
+            description: Regular data of the master ADC
+            bitOffset: 0
+            bitWidth: 16
