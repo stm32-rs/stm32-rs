@@ -1,9 +1,4 @@
 LTDC:
-  AWCR:
-    _modify:
-      AAV:
-        name: AAW
-        description: Accumulated Active Width (in units of pixel clock period)
   _cluster:
     "LAYER%s":
       "L?CR":
@@ -30,3 +25,26 @@ LTDC:
         name: CFBLNR
       "L?CLUTWR":
         name: CLUTWR
+
+  SSCR:
+    _modify:
+      HSW:
+        # SVD says 10; RM says 12
+        bitWidth: 12
+  BPCR:
+    _modify:
+      AHBP:
+        # SVD says 10; RM says 12
+        bitWidth: 12
+  AWCR:
+    _modify:
+      AAV:
+        name: AAW
+        description: Accumulated Active Width (in units of pixel clock period)
+        # SVD says 10; RM says 12
+        bitWidth: 12
+  TWCR:
+    _modify:
+      TOTALW:
+        # SVD says 10; RM says 12
+        bitWidth: 12
