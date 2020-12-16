@@ -1,0 +1,106 @@
+_svd: ../svd/stm32f750.svd
+
+_rebase:
+  USART1: USART6
+
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+  # Remove underscore to be consistent with other parts and RM
+  SPDIF_RX:
+    name: SPDIFRX
+
+"GPIO*":
+  _modify:
+    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
+    GPIOB_OSPEEDR:
+      name: OSPEEDR
+
+FLASH:
+  OPTKEYR:
+    _modify:
+      OPTKEY:
+        name: OPTKEYR
+
+_include:
+ - common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - common_patches/merge_USART_CR2_ADDx_fields.yaml
+ - common_patches/rename_USART_CR2_DATAINV_field.yaml
+ - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/can/can.yaml
+ - common_patches/can/can_filter_bank.yaml
+ - ../peripherals/can/can.yaml
+ - ../peripherals/dac/dac_wavegen.yaml
+ - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_dmaudr.yaml
+ - common_patches/pllsai.yaml
+ - common_patches/rcc_add_plli2sp.yaml
+ - common_patches/f7_rcc_apbenr.yaml
+ - common_patches/f7_rcc_lsedrv.yaml
+ - common_patches/f7_rcc_rename_dckcfgr.yaml
+ - common_patches/f7_rcc_dckcfgr.yaml
+ - common_patches/f7_rcc_dckcfgr_sdmmc1.yaml
+ - ../peripherals/rcc/rcc_merge_sw_sws.yaml
+ - ../peripherals/rcc/rcc_merge_rtcsel.yaml
+ - ../peripherals/rcc/rcc_f7.yaml
+ - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr_saidivr.yaml
+ - ../peripherals/rcc/rcc_v2_dckcfgr2_cecsel.yaml
+ - ../peripherals/gpio/gpio_v2.yaml
+ - common_patches/crc/crc_rename_init.yaml
+ - common_patches/crc/f7_polysize_rev_in_rev_out.yaml
+ - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_with_polysize.yaml
+ - ../peripherals/crc/crc_pol.yaml
+ - ../peripherals/spi/spi_v2.yaml
+ - ../peripherals/adc/adc_v2_multi.yaml
+ - common_patches/dma_fcr_wo.yaml
+ - ../peripherals/dma/dma_v2.yaml
+ - ../peripherals/dma/dma2d_v1.yaml
+ - common_patches/ethernet_mac_regs.yaml
+ - common_patches/f2_f4_ethernet.yaml
+ - ../peripherals/eth/eth_dma_common.yaml
+ - ../peripherals/eth/eth_dma_mb_edfe_dmarswtr.yaml
+ - ../peripherals/eth/eth_mac_common.yaml
+ - ../peripherals/eth/eth_mac_cstf.yaml
+ - ../peripherals/eth/eth_mmc_common.yaml
+ - ../peripherals/eth/eth_mmc_mcfhp_mcp.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/pwr/pwr_f7.yaml
+ - ../peripherals/pwr/pwr_v2.yaml
+ - ../peripherals/flash/flash_v2.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/exti/exti.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/hash/hash.yaml
+ - common_patches/dbgmcu.yaml
+ - common_patches/fsmc/fsmc_sramfix.yaml
+ - common_patches/fsmc/fsmc_nand_v2.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_wfdis.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sd.yaml
+ - common_patches/cryp/cryp_v2.yaml
+ - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
+ - common_patches/rtc/rtc_bkpr.yaml
+ - common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/rtc/rtc_common.yaml
+ - common_patches/ltdc/f7_ltdc_interrupts.yaml
+ - common_patches/ltdc/ltdc.yaml
+ - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
+ - ../peripherals/ltdc/ltdc.yaml
