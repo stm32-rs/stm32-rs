@@ -18,6 +18,11 @@ RCC:
         name: USART3RST
         description: USART3 reset
 
+_modify:
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all

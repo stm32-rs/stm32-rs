@@ -29,6 +29,11 @@ RCC:
         bitWidth: 1
         access: read-write
 
+_modify:
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
 # cf. <https://github.com/adamgreig/stm32-rs/issues/37>
 # we call the resulting peripheral `USB` instead of `USB-FS`
 # to be aligned with `mvirkkunen/stm32f103-usb`
