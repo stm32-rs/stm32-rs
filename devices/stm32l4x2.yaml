@@ -42,6 +42,11 @@ _modify:
   ADC:
     name: ADC1
 
+_add:
+  ADC2:
+    derivedFrom: ADC1
+    baseAddress: "0x50040100"
+
 USB:
   _add:
     _interrupts:
