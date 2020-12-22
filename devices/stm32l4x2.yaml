@@ -38,6 +38,20 @@ _modify:
      name: USB
      # without quotes, get less readable value 1073768448
      baseAddress: "0x40006800"
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
+ADC1:
+  _modify:
+    _interrupts:
+      ADC1:
+        name: ADC1_2
+
+_add:
+  ADC2:
+    derivedFrom: ADC1
+    baseAddress: "0x50040100"
 
 USB:
   _add:
