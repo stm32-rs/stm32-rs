@@ -35,7 +35,8 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["rt", "stm32g07x", "stm32g030", "stm32g031", "stm32g041", "stm32g081"],
     "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["rt", "stm32mp157"],
-    "stm32wl": ["rt", "stm32wle5"]
+    "stm32wl": ["rt", "stm32wle5"],
+    "stm32wb": ["rt", "stm32wb55"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -53,7 +54,8 @@ CRATE_DOC_TARGETS = {
     "stm32g0": "thumbv6m-none-eabi",
     "stm32g4": "thumbv7em-none-eabihf",
     "stm32mp1": "thumbv7em-none-eabihf",
-    "stm32wl": "thumbv7em-none-eabi"
+    "stm32wl": "thumbv7em-none-eabi",
+    "stm32wb": "thumbv7em-none-eabihf"
 }
 
 CARGO_TOML_TPL = """\
@@ -223,6 +225,8 @@ def main(devices_path, yes, families):
         family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
         if family.startswith('stm32wl'):
             family = 'stm32wl'
+        if family.startswith('stm32wb'):
+            family = 'stm32wb'
         device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:
             if family not in devices:
