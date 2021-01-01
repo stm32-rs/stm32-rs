@@ -130,6 +130,11 @@ OTG_FS_GLOBAL:
   _modify:
     FS_GNPTXFSIZ_Host:
       alternateRegister: GNPTXFSIZ_Device
+  _add:
+    _interrupts:
+      OTG_FS:
+        description: USB OTG FS Interrupt
+        value: 67
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
