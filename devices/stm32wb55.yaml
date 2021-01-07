@@ -14,3 +14,9 @@ PWR:
     _modify:
       802EWKUP:
         name: _802EWKUP
+
+# Fix incorrect SYSCFG base address
+_modify:
+  SYSCFG:
+    baseAddress: "0x40010000"
+
