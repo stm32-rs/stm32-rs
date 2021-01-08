@@ -1,4 +1,13 @@
 _svd: ../svd/stm32l562.svd
 
+_modify:
+  cpu:
+    name: CM33
+    endian: little
+    mpuPresent: "true"
+    fpuPresent: "true"
+    nvicPrioBits: 3
+    vendorSystickConfig: "false"
+
 _include:
  - common_patches/dma_interrupt_names.yaml

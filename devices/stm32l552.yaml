@@ -1,7 +1,13 @@
 _svd: ../svd/stm32l552.svd
 
-_include:
- - common_patches/dma_interrupt_names.yaml
+_modify:
+  cpu:
+    name: CM33
+    endian: little
+    mpuPresent: "true"
+    fpuPresent: "true"
+    nvicPrioBits: 3
+    vendorSystickConfig: "false"
 
 # SVD has TIM3,TIM4,TIM5 interrupts under TIM2 as
 # TIM2_3, TIM2_4, TIM2_5.  This somewhat matches
@@ -50,3 +56,6 @@ TIM7:
       TIM7:
         description: TIM7 global interrupt
         value: 50
+
+_include:
+ - common_patches/dma_interrupt_names.yaml
