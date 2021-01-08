@@ -3,6 +3,7 @@ _svd: ../svd/stm32l562.svd
 _modify:
   cpu:
     name: CM33
+    revision: r0p1
     endian: little
     mpuPresent: "true"
     fpuPresent: "true"
