@@ -1,0 +1,131 @@
+_delete:
+  - WWDG
+  - IWDG
+
+_add:
+  WWDG:
+    description: System window watchdog
+    baseAddress: 0x40003000
+    addressBlock:
+      offset: 0x0
+      size: 0x4
+      usage: registers
+    registers:
+      CR:
+        description: Control register
+        addressOffset: 0x000
+        size: 0x20
+        access: read-write
+        resetValue: 0x0000007F
+        fields:
+          WDGA:
+            description: Activation bit
+            bitOffset: 7
+            bitWidth: 1
+          T:
+            description: 7-bit counter (MSB to LSB)
+            bitOffset: 0
+            bitWidth: 7
+      CFR:
+        description: Configuration register
+        addressOffset: 0x4
+        size: 0x20
+        access: read-write
+        resetValue: 0x0000007F
+        fields:
+          WDGTB:
+            description: Timer base
+            bitOffset: 11
+            bitWidth: 3
+          EWI:
+            description: Early wakeup interrupt
+            bitOffset: 9
+            bitWidth: 1
+          W:
+            description: 7-bit window value
+            bitOffset: 0
+            bitWidth: 7
+      SR:
+        description: Status register
+        addressOffset: 0x8
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EWIF:
+            description: Early wakeup interrupt
+            bitOffset: 0
+            bitWidth: 1
+
+_add:
+  IWDG:
+    description: WinWATCHDOG
+    baseAddress: 0x40002C00
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: registers
+    registers:
+      KR:
+        description: Key register
+        addressOffset: 0x0
+        size: 0x20
+        access: write-only
+        resetValue: 0x00000000
+        fields:
+          KEY:
+            description: Key value (write only, read 0x0000)
+            bitOffset: 0
+            bitWidth: 16
+      PR:
+        description: Prescaler register
+        addressOffset: 0x4
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PR:
+            description: Prescaler divider
+            bitOffset: 0
+            bitWidth: 3
+      RLR:
+        description: Reload register
+        addressOffset: 0x8
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000FFF
+        fields:
+          RL:
+            description: Watchdog counter reload value
+            bitOffset: 0
+            bitWidth: 12
+      SR:
+        description: Status register
+        addressOffset: 0xC
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          WVU:
+            description: Watchdog counter window update
+            bitOffset: 2
+            bitWidth: 1
+          RVU:
+            description: Watchdog counter reload update
+            bitOffset: 1
+            bitWidth: 1
+          PVU:
+            description: Watchdog prescaler value update
+            bitOffset: 0
+            bitWidth: 1
+      WINR:
+        description: Window register
+        addressOffset: 0x10
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000FFF
+        fields:
+          WIN:
+            description: Watchdog counter window value
+            bitOffset: 0
+            bitWidth: 12
