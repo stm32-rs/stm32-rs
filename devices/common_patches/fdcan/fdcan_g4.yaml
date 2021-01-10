@@ -1,0 +1,303 @@
+# Patches for the Flexible Data Rate CAN (FDCAN) on G4
+
+_include:
+  - ./fdcan_common.yaml
+
+"FDCAN,FDCAN?":
+  RXGFC:
+    _add:
+      LSE:
+        description: List size extended
+        bitOffset: 24
+        bitWidth: 4
+      LSS:
+        description: List size standard
+        bitOffset: 16
+        bitWidth: 5
+      F0OM:
+        description: FIFO 0 operation mode
+        bitOffset: 9
+        bitWidth: 1
+      F1OM:
+        description: FIFO 1 operation mode
+        bitOffset: 8
+        bitWidth: 1
+
+  # Interrupt registers are a disaster, start over
+  IR:
+    _delete:
+      - ?*
+    _add:
+      RF0N:
+        description: Rx FIFO 0 new message
+        bitOffset: 0
+        bitWidth: 1
+      RF0F:
+        description: Rx FIFO 0 full
+        bitOffset: 1
+        bitWidth: 1
+      RF0L:
+        description: Rx FIFO 0 message lost
+        bitOffset: 2
+        bitWidth: 1
+      RF1N:
+        description: Rx FIFO 1 new message
+        bitOffset: 3
+        bitWidth: 1
+      RF1F:
+        description: Rx FIFO 1 full
+        bitOffset: 4
+        bitWidth: 1
+      RF1L:
+        description: Rx FIFO 1 message lost
+        bitOffset: 5
+        bitWidth: 1
+      HPM:
+        description: High-priority message
+        bitOffset: 6
+        bitWidth: 1
+      TC:
+        description: Transmission completed
+        bitOffset: 7
+        bitWidth: 1
+      TCF:
+        description: Transmission cancellation finished
+        bitOffset: 8
+        bitWidth: 1
+      TFE:
+        description: Tx FIFO empty
+        bitOffset: 9
+        bitWidth: 1
+      TEFN:
+        description: Tx even FIFO new entry
+        bitOffset: 10
+        bitWidth: 1
+      TEFF:
+        description: Tx event FIFO full
+        bitOffset: 11
+        bitWidth: 1
+      TEFL:
+        description: Tx event FIFO element lost
+        bitOffset: 12
+        bitWidth: 1
+      TSW:
+        description: Timestamp wraparound
+        bitOffset: 13
+        bitWidth: 1
+      MRAF:
+        description: Message RAM access failure
+        bitOffset: 14
+        bitWidth: 1
+      TOO:
+        description: Timeout occurred
+        bitOffset: 15
+        bitWidth: 1
+      ELO:
+        description: Error logging overflow
+        bitOffset: 16
+        bitWidth: 1
+      EP:
+        description: Error passive
+        bitOffset: 17
+        bitWidth: 1
+      EW:
+        description: Warning status
+        bitOffset: 18
+        bitWidth: 1
+      BO:
+        description: Bus_off status
+        bitOffset: 19
+        bitWidth: 1
+      WDI:
+        description: Watchdog interrupt
+        bitOffset: 20
+        bitWidth: 1
+      PEA:
+        description: Protocol error in arbitration phase
+        bitOffset: 21
+        bitWidth: 1
+      PED:
+        description: Protocol error in data phase
+        bitOffset: 22
+        bitWidth: 1
+      ARA:
+        description: Access to reserved address
+        bitOffset: 23
+        bitWidth: 1
+  IE:
+    _delete:
+      - ?*
+    _add:
+      RF0NE:
+        description: Rx FIFO 0 new message enable
+        bitOffset: 0
+        bitWidth: 1
+      RF0FE:
+        description: Rx FIFO 0 full enable
+        bitOffset: 1
+        bitWidth: 1
+      RF0LE:
+        description: Rx FIFO 0 message lost enable
+        bitOffset: 2
+        bitWidth: 1
+      RF1NE:
+        description: Rx FIFO 1 new message enable
+        bitOffset: 3
+        bitWidth: 1
+      RF1FE:
+        description: Rx FIFO 1 full enable
+        bitOffset: 4
+        bitWidth: 1
+      RF1LE:
+        description: Rx FIFO 1 message lost enable
+        bitOffset: 5
+        bitWidth: 1
+      HPME:
+        description: High-priority message enable
+        bitOffset: 6
+        bitWidth: 1
+      TCE:
+        description: Transmission completed enable
+        bitOffset: 7
+        bitWidth: 1
+      TCFE:
+        description: Transmission cancellation finished enable
+        bitOffset: 8
+        bitWidth: 1
+      TFEE:
+        description: Tx FIFO empty enable
+        bitOffset: 9
+        bitWidth: 1
+      TEFNE:
+        description: Tx even FIFO new entry enable
+        bitOffset: 10
+        bitWidth: 1
+      TEFFE:
+        description: Tx event FIFO full enable
+        bitOffset: 11
+        bitWidth: 1
+      TEFLE:
+        description: Tx event FIFO element lost enable
+        bitOffset: 12
+        bitWidth: 1
+      TSWE:
+        description: Timestamp wraparound enable
+        bitOffset: 13
+        bitWidth: 1
+      MRAFE:
+        description: Message RAM access failure enable
+        bitOffset: 14
+        bitWidth: 1
+      TOOE:
+        description: Timeout occurred enable
+        bitOffset: 15
+        bitWidth: 1
+      ELOE:
+        description: Error logging overflow enable
+        bitOffset: 16
+        bitWidth: 1
+      EPE:
+        description: Error passive enable
+        bitOffset: 17
+        bitWidth: 1
+      EWE:
+        description: Warning status enable
+        bitOffset: 18
+        bitWidth: 1
+      BOE:
+        description: Bus_off status enable
+        bitOffset: 19
+        bitWidth: 1
+      WDIE:
+        description: Watchdog interrupt enable
+        bitOffset: 20
+        bitWidth: 1
+      PEAE:
+        description: Protocol error in arbitration phase enable
+        bitOffset: 21
+        bitWidth: 1
+      PEDE:
+        description: Protocol error in data phase enable
+        bitOffset: 22
+        bitWidth: 1
+      ARAE:
+        description: Access to reserved address enable
+        bitOffset: 23
+        bitWidth: 1
+  ILS:
+    _delete:
+      - ?*
+    _add:
+      RXFIFO0:
+        description: RX FIFO bit grouping the following interruption
+        bitOffset: 0
+        bitWidth: 1
+      RXFIFO1:
+        description: RX FIFO bit grouping the following interruption
+        bitOffset: 1
+        bitWidth: 1
+      SMSG:
+        description: Status message bit grouping the following interruption
+        bitOffset: 2
+        bitWidth: 1
+      TFERR:
+        description: TX FIFO error grouping the following interruption
+        bitOffset: 3
+        bitWidth: 1
+      MISC:
+        description: Interrupt regrouping the following interruption
+        bitOffset: 4
+        bitWidth: 1
+      BERR:
+        description: Bit and line error grouping the following interruption
+        bitOffset: 5
+        bitWidth: 1
+      PERR:
+        description: Protocol error grouping the following interruption
+        bitOffset: 6
+        bitWidth: 1
+
+  TXFQS:
+    _modify:
+      TFQPI:
+        bitWidth: 2
+      TFGI:
+        bitWidth: 2
+      TFFL:
+        bitWidth: 3
+  TXEFS:
+    _modify:
+      EFPI:
+        bitWidth: 2
+      EFGI:
+        bitWidth: 2
+      EFFL:
+        bitWidth: 3
+  TXBRP:
+    _modify:
+      TRP:
+        bitWidth: 3
+  TXBAR:
+    _modify:
+      AR:
+        bitWidth: 3
+  TXBCR:
+    _modify:
+      CR:
+        bitWidth: 3
+  TXBTO:
+    _modify:
+      TO:
+        bitWidth: 3
+  TXBCF:
+    _modify:
+      CF:
+        bitWidth: 3
+  TXBTIE:
+    _modify:
+      TIE:
+        bitWidth: 3
+  TXBCIE:
+    _modify:
+      CFIE:
+        bitWidth: 3
