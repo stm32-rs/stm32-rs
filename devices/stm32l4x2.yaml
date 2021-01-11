@@ -38,6 +38,20 @@ _modify:
      name: USB
      # without quotes, get less readable value 1073768448
      baseAddress: "0x40006800"
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
+ADC1:
+  _modify:
+    _interrupts:
+      ADC1:
+        name: ADC1_2
+
+_add:
+  ADC2:
+    derivedFrom: ADC1
+    baseAddress: "0x50040100"
 
 USB:
   _add:
@@ -87,6 +101,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/rcc/rcc_l4.yaml
@@ -111,3 +126,4 @@ _include:
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
+ - ./common_patches/l4_adc_common.yaml

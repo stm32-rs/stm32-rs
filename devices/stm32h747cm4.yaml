@@ -15,9 +15,11 @@ CRYP:
 
 _include:
  - common_patches/h7_common_dualcore.yaml
- - common_patches/4_nvic_prio_bits.yaml
+ - common_patches/4_nvic_prio_bits.yaml  # Specifically for CM4 core
  - common_patches/dma_fcr_wo.yaml
+ - common_patches/dma/bdma.yaml
  - common_patches/dma/dma_v3.yaml
+ - common_patches/dma/mdma.yaml
  - common_patches/fsmc/fsmc_sdram_cluster.yaml
  - common_patches/h7_rcc_src_sel.yaml
  - common_patches/h7_ethernet_combined_desc.yaml
@@ -32,6 +34,8 @@ _include:
  - common_patches/h7_dualcore_flash.yaml
  - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
  - common_patches/h7_sai.yaml
+ - common_patches/h7_spdifrx.yaml
+ - common_patches/h7_otg.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/flash/flash_dual_bank.yaml
  - common_patches/ltdc/ltdc.yaml
@@ -49,12 +53,16 @@ _include:
  - ../peripherals/adc/adc_h7_revision_v.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_32bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - ../peripherals/dma/bdma.yaml
+ - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
+ - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/rcc/rcc_h7.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
  - ../peripherals/rng/rng_v1.yaml
@@ -71,9 +79,12 @@ _include:
  - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
+ - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
+ - common_patches/h7_crc_addr_fix.yaml

@@ -1,0 +1,172 @@
+"LTDC":
+  SSCR:
+    HSW: [0, 4095]
+    VSH: [0, 2047]
+
+  BPCR:
+    AHBP: [0, 4095]
+    AVBP: [0, 2047]
+
+  AWCR:
+    AAW: [0, 4095]
+    AAH: [0, 2047]
+
+  TWCR:
+    TOTALW: [0, 4095]
+    TOTALH: [0, 2047]
+
+  GCR:
+    HSPOL:
+      ActiveLow: [0, "Horizontal synchronization polarity is active low"]
+      ActiveHigh: [1, "Horizontal synchronization polarity is active high"]
+    VSPOL:
+      ActiveLow: [0, "Vertical synchronization polarity is active low"]
+      ActiveHigh: [1, "Vertical synchronization polarity is active high"]
+    DEPOL:
+      ActiveLow: [0, "Data enable polarity is active low"]
+      ActiveHigh: [1, "Data enable polarity is active high"]
+    PCPOL:
+      RisingEdge: [0, "Pixel clock on rising edge"]
+      FallingEdge: [1, "Pixel clock on falling edge"]
+    DEN:
+      Disabled: [0, "Dither disabled"]
+      Enabled: [1, "Dither enabled"]
+    LTDCEN:
+      Disabled: [0, "LCD-TFT controller disabled"]
+      Enabled: [1, "LCD-TFT controller enabled"]
+
+  SRCR:
+    VBR:
+      Reload: [1, "The shadow registers are reloaded during the vertical blanking period (at the beginning of the first line after the active display area)."]
+      NoEffect: [0, "This bit is set by software and cleared only by hardware after reload (it cannot be cleared through register write once it is set)"]
+    IMR:
+      Reload: [1, "The shadow registers are reloaded immediately. This bit is set by software and cleared only by hardware after reload"]
+      NoEffect: [0, "This bit is set by software and cleared only by hardware after reload (it cannot be cleared through register write once it is set)"]
+
+  BCCR:
+    BCRED: [0, 255]
+    BCGREEN: [0, 255]
+    BCBLUE: [0, 255]
+
+  IER:
+    RRIE:
+      Disabled: [0, "Register reload interrupt disabled"]
+      Enabled: [1, "Register reload interrupt enabled"]
+    TERRIE:
+      Disabled: [0, "Transfer error interrupt disabled"]
+      Enabled: [1, "Transfer error interrupt enabled"]
+    FUIE:
+      Disabled: [0, "FIFO underrun interrupt disabled"]
+      Enabled: [1, "FIFO underrun interrupt enabled"]
+    LIE:
+      Disabled: [0, "Line interrupt disabled"]
+      Enabled: [1, "Line interrupt enabled"]
+
+  ISR:
+    RRIF:
+      NoReload: [0, "No register reload"]
+      Reload: [1, "Register reload interrupt generated when a vertical blanking reload occurs (and the first line after the active area is reached)"]
+    TERRIF:
+      NoError: [0, "No transfer error"]
+      Error: [1, "Transfer error interrupt generated when a bus error occurs"]
+    FUIF:
+      NoUnderrun: [0, "No FIFO underrun"]
+      Underrun: [1, "FIFO underrun interrupt generated, if one of the layer FIFOs is empty and pixel data is read from the FIFO"]
+    LIF:
+      NotReached: [0, "Programmed line not reached"]
+      Reached: [1, "Line interrupt generated when a programmed line is reached"]
+
+  ICR:
+    CRRIF:
+      Clear: [1, "Clears the RRIF flag in the ISR register"]
+    CTERRIF:
+      Clear: [1, "Clears the TERRIF flag in the ISR register"]
+    CFUIF:
+      Clear: [1, "Clears the FUIF flag in the ISR register"]
+    CLIF:
+      Clear: [1, "Clears the LIF flag in the ISR register"]
+
+  LIPCR:
+    LIPOS: [0, 2047]
+
+  CDSR:
+    HSYNCS:
+      NotActive: [0, "Currently not in HSYNC phase"]
+      Active: [1, "Currently in HSYNC phase"]
+    VSYNCS:
+      NotActive: [0, "Currently not in VSYNC phase"]
+      Active: [1, "Currently in VSYNC phase"]
+    HDES:
+      NotActive: [0, "Currently not in horizontal Data Enable phase"]
+      Active: [1, "Currently in horizontal Data Enable phase"]
+    VDES:
+      NotActive: [0, "Currently not in vertical Data Enable phase"]
+      Active: [1, "Currently in vertical Data Enable phase"]
+
+  "L[12]CR":
+    CLUTEN:
+      Disabled: [0, "Color look-up table disabled"]
+      Enabled: [1, "Color look-up table enabled"]
+    COLKEN:
+      Disabled: [0, "Color keying disabled"]
+      Enabled: [1, "Color keying enabled"]
+    LEN:
+      Disabled: [0, "Layer disabled"]
+      Enabled: [1, "Layer enabled"]
+
+  "L[12]WHPCR":
+    WHSPPOS: [0, 4095]
+    WHSTPOS: [0, 4095]
+
+  "L[12]WVPCR":
+    WVSPPOS: [0, 2047]
+    WVSTPOS: [0, 2047]
+
+  "L[12]CKCR":
+    CKRED: [0, 255]
+    CKGREEN: [0, 255]
+    CKBLUE: [0, 255]
+
+  "L[12]PFCR":
+    PF:
+      ARGB8888: [0b000, "ARGB8888"]
+      RGB888: [0b001, "RGB888"]
+      RGB565: [0b010, "RGB565"]
+      ARGB1555: [0b011, "ARGB1555"]
+      ARGB4444: [0b100, "ARGB4444"]
+      L8: [0b101, "L8 (8-bit luminance)"]
+      AL44: [0b110, "AL44 (4-bit alpha, 4-bit luminance)"]
+      AL88: [0b111, "AL88 (8-bit alpha, 8-bit luminance)"]
+
+  "L[12]CACR":
+    CONSTA: [0, 255]
+
+  "L[12]DCCR":
+    DCALPHA: [0, 255]
+    DCRED: [0, 255]
+    DCGREEN: [0, 255]
+    DCBLUE: [0, 255]
+
+  "L[12]BFCR":
+    BF1:
+      Constant: [0b100, "BF1 = constant alpha"]
+      Pixel: [0b110, "BF1 = pixel alpha * constant alpha"]
+    BF2:
+      Constant: [0b101, "BF2 = 1 - constant alpha"]
+      Pixel: [0b111, "BF2 = 1 - pixel alpha * constant alpha"]
+
+  "L[12]CFBAR":
+    CFBADD: [0, 0xFFFFFFFF]
+
+  "L[12]CFBLR":
+    CFBP: [0, 8191]
+    CFBLL: [0, 8191]
+
+  "L[12]CFBLNR":
+    CFBLNBR: [0, 2047]
+
+  "L[12]CLUTWR":
+    CLUTADD: [0, 255]
+    RED: [0, 255]
+    GREEN: [0, 255]
+    BLUE: [0, 255]

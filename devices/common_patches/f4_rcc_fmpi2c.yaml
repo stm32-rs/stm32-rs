@@ -1,0 +1,17 @@
+# Rename I2C4 to FMPI2C1
+RCC:
+  APB1RSTR:
+    _modify:
+      I2C4RST,I2CFMP1RST:
+        name: FMPI2C1RST
+        description: FMPI2C1 reset
+  APB1ENR:
+    _modify:
+      I2C4EN,I2CFMP1EN:
+        name: FMPI2C1EN
+        description: FMPI2C1 clock enable
+  APB1LPENR:
+    _modify:
+      I2C4LPEN,I2CFMP1LPEN:
+        name: FMPI2C1LPEN
+        description: FMPI2C1 clock enable during Sleep

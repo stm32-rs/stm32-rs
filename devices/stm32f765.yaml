@@ -42,29 +42,6 @@ RCC:
         bitWidth: 3
         access: read-write
 
-CRC:
-  # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
-  CR:
-    _modify:
-      CR:
-        name: RESET
-    _add:
-      REV_OUT:
-        description: Reverse output data
-        bitOffset: 7
-        bitWidth: 1
-        access: read-write
-      REV_IN:
-        description: Reverse input data
-        bitOffset: 5
-        bitWidth: 2
-        access: read-write
-      POLYSIZE:
-        description: Polynomial size
-        bitOffset: 3
-        bitWidth: 2
-        access: read-write
-
 Ethernet_MAC:
   MACFFR:
     _modify:
@@ -121,7 +98,7 @@ CRYP:
 _include:
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml
- - common_patches/f7_ltdc_interrupts.yaml
+ - common_patches/ltdc/f7_ltdc_interrupts.yaml
  - common_patches/pllsai.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/ethernet_mac_regs.yaml
@@ -136,6 +113,8 @@ _include:
  - ../peripherals/can/can.yaml
  - common_patches/cryp/cryp_v2.yaml
  - common_patches/ltdc/ltdc.yaml
+ - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
+ - ../peripherals/ltdc/ltdc.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/rcc_add_plli2sp.yaml
  - common_patches/f7_rcc_apbenr.yaml
@@ -160,7 +139,9 @@ _include:
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - common_patches/crc/crc_rename_init.yaml
+ - common_patches/crc/f7_polysize_rev_in_rev_out.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/adc/adc_v2_multi.yaml

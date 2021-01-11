@@ -1,0 +1,16 @@
+_svd: ../svd/stm32wb55.svd
+
+_modify:
+  name: STM32WB55
+
+# Rename registers starting with a number 802 (related to IEEE 802.15.4)
+# since it's not allowed to have a register/field name start with a number.
+PWR:
+  SR1:
+    _modify:
+      802WUF:
+        name: _802WUF
+  C2CR1:
+    _modify:
+      802EWKUP:
+        name: _802EWKUP

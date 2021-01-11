@@ -1,0 +1,5 @@
+# Fixes 0x1F1F1F11F => 0x1F1F1F1F
+ADC:
+  _modify:
+    HWCFGR6:
+      resetValue: "0x1F1F1F1F"

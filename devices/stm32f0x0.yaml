@@ -56,6 +56,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
@@ -78,3 +79,4 @@ _include:
  - ../peripherals/flash/flash_f0.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
  - ./common_patches/2_nvic_prio_bits.yaml
+ - ./common_patches/f0_crc_init_addr_fix.yaml

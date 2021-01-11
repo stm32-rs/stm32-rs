@@ -23,83 +23,6 @@ _copy:
   ADC3_4:
     from: ../svd/stm32f303.svd:ADC3_4
 
-GPIOC:
-  _add:
-    LCKR:
-      description: GPIO port configuration lock register
-      addressOffset: 0x1C
-      access: read-write
-      fields:
-        LCKK:
-          description: Lock Key
-          bitOffset: 16
-          bitWidth: 1
-        LCK15:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 15
-          bitWidth: 1
-        LCK14:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 14
-          bitWidth: 1
-        LCK13:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 13
-          bitWidth: 1
-        LCK12:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 12
-          bitWidth: 1
-        LCK11:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 11
-          bitWidth: 1
-        LCK10:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 10
-          bitWidth: 1
-        LCK9:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 9
-          bitWidth: 1
-        LCK8:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 8
-          bitWidth: 1
-        LCK7:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 7
-          bitWidth: 1
-        LCK6:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 6
-          bitWidth: 1
-        LCK5:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 5
-          bitWidth: 1
-        LCK4:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 4
-          bitWidth: 1
-        LCK3:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 3
-          bitWidth: 1
-        LCK2:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 2
-          bitWidth: 1
-        LCK1:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 1
-          bitWidth: 1
-        LCK0:
-          description: Port x lock bit y (y=0..15)
-          bitOffset: 0
-          bitWidth: 1
-
-
 RCC:
   CFGR:
     _delete:
@@ -146,6 +69,14 @@ RCC:
         bitWidth: 1
   AHBENR:
     _add:
+      IOPHEN:
+        description: I/O port H clock enable
+        bitOffset: 16
+        bitWidth: 1
+      IOPGEN:
+        description: I/O port G clock enable
+        bitOffset: 23
+        bitWidth: 1
       ADC12EN:
         description: ADC1 and ADC2 enable
         bitOffset: 28
@@ -183,6 +114,14 @@ RCC:
         bitWidth: 1
   AHBRSTR:
     _add:
+      IOPHRST:
+        description: I/O port H reset
+        bitOffset: 16
+        bitWidth: 1
+      IOPGRST:
+        description: I/O port G reset
+        bitOffset: 23
+        bitWidth: 1
       ADC12RST:
         description: ADC1 and ADC2 reset
         bitOffset: 28
@@ -250,6 +189,7 @@ _include:
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/f3_adc.yaml
  - ./common_patches/f3_adc_multi_dual.yaml
+ - ./common_patches/f3_gpio_reset_values.yaml
  - ./common_patches/f3_rcc.yaml
  - ./common_patches/f3_rcc_mco.yaml
  - ./common_patches/f3_rcc_usb.yaml
@@ -263,17 +203,23 @@ _include:
  - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/f3_syscfg_cfgr1_timx_dacx_chx_dma_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
  - ./common_patches/f3_syscfg_cfgr4.yaml
  - ./common_patches/f3_syscfg_rcr_page8-15.yaml
+ - ./common_patches/f3_syscfg_cfgr1_adc2_dac1_rmp.yaml
  - ./common_patches/f3_opamp1234.yaml
  - ./common_patches/f3_comp1234567.yaml
+ - ../peripherals/syscfg/syscfg_f3.yaml
+ - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+ - ../peripherals/syscfg/syscfg_f303_3x8.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
  - ./common_patches/unprefix_USB_registers.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
@@ -281,6 +227,7 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
+ - common_patches/f3_gpio_ospeedr.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml

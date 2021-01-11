@@ -78,13 +78,11 @@
         description: Receive poll demand
 
   DMARDLAR:
-    SRL: [0, 0xFFFFFFFF]
     _modify:
       SRL:
         description: Start of receive list
 
   DMATDLAR:
-    STL: [0, 0xFFFFFFFF]
     _modify:
       STL:
         description: Start of transmit list

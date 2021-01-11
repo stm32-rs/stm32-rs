@@ -1,5 +1,11 @@
 _svd: ../svd/stm32l4x5.svd
 
+_modify:
+  # The SVD calls this ADC123_Common and ADC_Common in the rest,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  ADC123_Common:
+    name: ADC_Common
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -117,6 +123,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/rcc/rcc_l4.yaml
@@ -138,4 +145,4 @@ _include:
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
-
+ - common_patches/dma_interrupt_names.yaml

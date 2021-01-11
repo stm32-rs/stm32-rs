@@ -1,0 +1,9 @@
+# Independent data register allowing 32-bit usage.
+# Some STM32 CRC units have this.
+
+CRC:
+  IDR:
+    IDR: [0, 0xFFFFFFFF]
+    _modify:
+      IDR:
+        bitWidth: 32

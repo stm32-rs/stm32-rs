@@ -13,9 +13,10 @@ import os
 import glob
 import os.path
 import argparse
+import re
 import yaml
 
-VERSION = "0.11.0"
+VERSION = "0.12.1"
 SVD2RUST_VERSION = "0.17.0"
 
 CRATE_DOC_FEATURES = {
@@ -32,7 +33,29 @@ CRATE_DOC_FEATURES = {
     "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
     "stm32l5": ["rt", "stm32l562"],
     "stm32g0": ["rt", "stm32g07x", "stm32g030", "stm32g031", "stm32g041", "stm32g081"],
-    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"]
+    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
+    "stm32mp1": ["rt", "stm32mp157"],
+    "stm32wl": ["rt", "stm32wle5"],
+    "stm32wb": ["rt", "stm32wb55"]
+}
+
+CRATE_DOC_TARGETS = {
+    "stm32f0": "thumbv6m-none-eabi",
+    "stm32f1": "thumbv7m-none-eabi",
+    "stm32f2": "thumbv7m-none-eabi",
+    "stm32f3": "thumbv7em-none-eabihf",
+    "stm32f4": "thumbv7em-none-eabihf",
+    "stm32f7": "thumbv7em-none-eabihf",
+    "stm32h7": "thumbv7em-none-eabihf",
+    "stm32l0": "thumbv6m-none-eabi",
+    "stm32l1": "thumbv7m-none-eabi",
+    "stm32l4": "thumbv7em-none-eabihf",
+    "stm32l5": "thumbv8m.main-none-eabi",
+    "stm32g0": "thumbv6m-none-eabi",
+    "stm32g4": "thumbv7em-none-eabihf",
+    "stm32mp1": "thumbv7em-none-eabihf",
+    "stm32wl": "thumbv7em-none-eabi",
+    "stm32wb": "thumbv7em-none-eabihf"
 }
 
 CARGO_TOML_TPL = """\
@@ -59,6 +82,7 @@ version = "0.6.10"
 
 [package.metadata.docs.rs]
 features = {docs_features}
+default-target = "{doc_target}"
 targets = []
 
 [features]
@@ -193,16 +217,21 @@ def make_device_clauses(devices):
             " else { panic!(\"No device features selected\"); }"
 
 
-def main(devices_path, yes):
+def main(devices_path, yes, families):
     devices = {}
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
-        family = yamlfile[:7]
+        family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
+        if family.startswith('stm32wl'):
+            family = 'stm32wl'
+        if family.startswith('stm32wb'):
+            family = 'stm32wb'
         device = os.path.splitext(yamlfile)[0].lower()
-        if family not in devices:
-            devices[family] = []
-        devices[family].append(device)
+        if len(families) == 0 or family in families:
+            if family not in devices:
+                devices[family] = []
+            devices[family].append(device)
 
     table = read_device_table()
 
@@ -221,7 +250,8 @@ def main(devices_path, yes):
         ufamily = family.upper()
         cargo_toml = CARGO_TOML_TPL.format(
             family=ufamily, crate=crate, version=VERSION, features=features,
-            docs_features=str(CRATE_DOC_FEATURES[crate]))
+            docs_features=str(CRATE_DOC_FEATURES[crate]),
+            doc_target=CRATE_DOC_TARGETS[crate])
         readme = README_TPL.format(
             family=ufamily, crate=crate, device=devices[family][0],
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
@@ -243,8 +273,17 @@ def main(devices_path, yes):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-y", help="Assume 'yes' to prompt",
+    parser.add_argument("-y",
+                        help="Assume 'yes' to prompt",
                         action="store_true")
-    parser.add_argument("devices", help="Path to device YAML files")
+    parser.add_argument("devices",
+                        help="Path to device YAML files")
+    parser.add_argument('--families',
+                        help="Families of components to generate crates for",
+                        nargs='+',
+                        required=False,
+                        metavar='FAMILY',
+                        default=[],
+                        type=str)
     args = parser.parse_args()
-    main(args.devices, args.y)
+    main(args.devices, args.y, args.families)

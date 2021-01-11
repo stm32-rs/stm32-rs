@@ -1,0 +1,23 @@
+CRC:
+  # The SVD calls the RESET field "CR", and misses some fields, fix per RM0410
+  CR:
+    _modify:
+      CR:
+        name: RESET
+        description: RESET bit
+    _add:
+      REV_OUT:
+        description: Reverse output data
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      REV_IN:
+        description: Reverse input data
+        bitOffset: 5
+        bitWidth: 2
+        access: read-write
+      POLYSIZE:
+        description: Polynomial size
+        bitOffset: 3
+        bitWidth: 2
+        access: read-write

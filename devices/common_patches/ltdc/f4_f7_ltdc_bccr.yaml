@@ -1,0 +1,19 @@
+LTDC:
+  BCCR:
+    # Some F4 and F7 SVDs have a single field BC of width 24
+    # Split this into one field per channel, according to the RM
+    _delete:
+      - BC
+    _add:
+      BCBLUE:
+        description: Background color blue value
+        bitOffset: 0
+        bitWidth: 8
+      BCGREEN:
+        description: Background color green value
+        bitOffset: 8
+        bitWidth: 8
+      BCRED:
+        description: Background color red value
+        bitOffset: 16
+        bitWidth: 8

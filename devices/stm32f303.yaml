@@ -78,6 +78,7 @@ _include:
  - ./common_patches/merge_USART_BRR_fields.yaml
  - ./common_patches/f3_adc.yaml
  - ./common_patches/f3_adc_multi_dual.yaml
+ - ./common_patches/f3_gpio_reset_values.yaml
  - ./common_patches/f3_rcc.yaml
  - ./common_patches/f3_rcc_mco.yaml
  - ./common_patches/f3_rcc_usb.yaml
@@ -88,9 +89,14 @@ _include:
  - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
  - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/f3_syscfg_cfgr1_timx_dacx_chx_dma_rmp.yaml
+ - ./common_patches/f3_syscfg_cfgr1_adc2_dac1_rmp.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
  - ./common_patches/f3_syscfg_cfgr4.yaml
  - ./common_patches/f3_syscfg_rcr_page8-15.yaml
+ - ../peripherals/syscfg/syscfg_f3.yaml
+ - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+ - ../peripherals/syscfg/syscfg_f303_3x8.yaml
  - ./common_patches/f3_opamp1234.yaml
  - ./common_patches/f3_comp1234567.yaml
  - common_patches/can/can.yaml
@@ -104,7 +110,9 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/gpio/gpio_v2_f303.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
+ - common_patches/f3_gpio_ospeedr.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml

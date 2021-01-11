@@ -1,11 +1,20 @@
 _svd: ../svd/stm32f373.svd
 
+_delete:
+  - GPIOD
+
+_copy:
+  GPIOD:
+    from: GPIOB
+
 _modify:
   ADC:
     name: ADC1
   # Rename in accordance with other devices and reference manual.
   Flash:
     name: FLASH
+  GPIOD:
+    baseAddress: 0x48000C00
 
 RCC:
   APB2RSTR:
@@ -44,6 +53,16 @@ SYSCFG:
         bitOffset: 24
         bitWidth: 1
         access: read-write
+      TIM18_DAC2_OUT1_DMA_RMP:
+        description: TIM18 and DAC2_OUT1 DMA request remapping bit
+        bitOffset: 15
+        bitWidth: 1
+        access: read-write
+    _modify:
+      TIM7_DAC2_DMA_RMP:
+        name: TIM7_DAC1_OUT2_DMA_RMP
+      TIM6_DAC1_DMA_RMP:
+        name: TIM6_DAC1_OUT1_DMA_RMP
   CFGR2:
     _delete:
       - BYP_ADD_PAR
@@ -82,6 +101,33 @@ FLASH:
       BOOT1:
         name: "nBOOT1"
 
+GPIOA:
+  _modify:
+    MODER:
+      resetValue: "0xa8000000"
+    OSPEEDR:
+      resetValue: "0x0C000000"
+    PUPDR:
+      resetValue: "0x64000000"
+
+GPIOB:
+ _modify:
+   MODER:
+     resetValue: "0x00000280"
+   OSPEEDR:
+     resetValue: "0x000000C0"
+   PUPDR:
+     resetValue: "0x00000100"
+
+GPIOD:
+ _modify:
+   MODER:
+     resetValue: "0x00000000"
+   OSPEEDR:
+     resetValue: "0x00000000"
+   PUPDR:
+     resetValue: "0x00000000"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -93,6 +139,9 @@ _include:
  - ./common_patches/f3_rcc_dac3_dac2.yaml
  - ./common_patches/f3_syscfg.yaml
  - ./common_patches/f3_syscfg_cfgr2.yaml
+ - ../peripherals/syscfg/syscfg_f3.yaml
+ - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+ - ../peripherals/syscfg/syscfg_f37x.yaml
  - ./common_patches/f0_comp_common.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
@@ -100,12 +149,14 @@ _include:
  - ./common_patches/unprefix_USB_registers.yaml
  - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/gpio/gpio_v2_f373.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
+ - common_patches/f3_gpio_ospeedr.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml

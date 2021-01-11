@@ -26,5 +26,38 @@ SYSCFG:
         name: I2C1_FMP
       I2C2_FM:
         name: I2C2_FMP
-      FPU_IT:
-        name: FPU_IE
+    _delete:
+      - FPU_IT
+    _add:
+      FPU_IE5:
+        description: Inexact interrupt enable
+        bitOffset: 31
+        bitWidth: 1
+        access: read-write
+      FPU_IE4:
+        description: Input denormal interrupt enable
+        bitOffset: 30
+        bitWidth: 1
+        access: read-write
+      FPU_IE3:
+        description: Overflow interrupt enable
+        bitOffset: 29
+        bitWidth: 1
+        access: read-write
+      FPU_IE2:
+        description: Underflow interrupt enable
+        bitOffset: 28
+        bitWidth: 1
+        access: read-write
+      FPU_IE1:
+        description: Devide-by-zero interrupt enable
+        bitOffset: 27
+        bitWidth: 1
+        access: read-write
+      FPU_IE0:
+        description: Invalid operation interrupt enable
+        bitOffset: 26
+        bitWidth: 1
+        access: read-write
+
+

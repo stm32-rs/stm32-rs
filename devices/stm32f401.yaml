@@ -115,7 +115,9 @@ _include:
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/adc/adc_v2.yaml
+ - ../peripherals/adc/adc_v2_smpr.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
@@ -140,3 +142,4 @@ _include:
  - ../peripherals/flash/flash_v1.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/sdio/sdio_f4.yaml

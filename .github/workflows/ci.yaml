@@ -25,6 +25,9 @@ jobs:
           - stm32l5
           - stm32g0
           - stm32g4
+          - stm32mp1
+          - stm32wl
+          - stm32wb
     env:
       CRATES: ${{ matrix.crate }}
       CARGO_INCREMENTAL: 0
@@ -38,13 +41,14 @@ jobs:
           profile: minimal
           override: true
           components: rustfmt
+      - name: Install xmllint
+        run: sudo apt-get install libxml2-utils
       - name: Install Python dependencies
         run: |
           pip3 install --user setuptools wheel
           pip3 install --user svdtools
       - name: Put pip binary directory into path
-        run: |
-          echo "::add-path::~/.local/bin"
+        run: echo "~/.local/bin" >> $GITHUB_PATH
       - name: Cache Cargo installed binaries
         uses: actions/cache@v1
         id: cache-cargo
@@ -63,10 +67,11 @@ jobs:
           mkdir ~/cargo-bin
           cp ~/.cargo/bin/svd2rust ~/cargo-bin
       - name: Put new cargo binary directory into path
-        run: |
-          echo "::add-path::~/cargo-bin"
+        run: echo "~/cargo-bin" >> $GITHUB_PATH
       - name: Patch SVDs
         run: make -j2 patch
+      - name: Check SVDs
+        run: make lint
       - name: Build PACs
         run: make -j2 svd2rust
       - name: Check PACs

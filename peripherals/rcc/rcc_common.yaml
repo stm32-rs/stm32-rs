@@ -14,7 +14,7 @@ RCC:
       _read:
         NotReady: [0, "Clock not ready"]
         Ready: [1, "Clock ready"]
-    "*ON":
+    HSION,HSEON,PLLON,PLLI2SON,PLLSAION:
       "Off": [0, "Clock Off"]
       "On": [1, "Clock On"]
   CFGR:

@@ -1,0 +1,25 @@
+_include:
+  - sdio_f4_common.yaml
+
+SDIO:
+  CMD:
+    CE_ATACMD:
+      Disabled: [0, "CE-ATA command disabled"]
+      Enabled: [1, "CE-ATA command enabled"]
+    nIEN:
+      Disabled: [0, "Interrupts to the CE-ATA not disabled"]
+      Enabled: [1, "Interrupt to the CE-ATA are disabled"]
+    ENCMDcompl:
+      Disabled: [0, "Command complete signal disabled"]
+      Enabled: [1, "Command complete signal enabled"]
+
+  STA:
+    CEATAEND:
+      NotReceived: [0, "Completion signal not received"]
+      Received: [1, "CE-ATA command completion signal received for CMD61"]
+    STBITERR:
+      Detected: [0, "No start bit detected error"]
+      NotDetected: [1, "Start bit not detected error"]
+
+  DCTRL:
+    DBLOCKSIZE: [0, 0xF]

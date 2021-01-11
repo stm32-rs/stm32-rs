@@ -1,12 +1,13 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean
+.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
 
 CRATES ?= stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
-          stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4
+          stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 \
+          stm32wl stm32wb55
 
 # All yaml files in devices/ will be used to patch an SVD
 YAMLS := $(foreach crate, $(CRATES), \
@@ -15,6 +16,9 @@ YAMLS := $(foreach crate, $(CRATES), \
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
+
+# Each yaml file also corresponds to a mmap in mmaps/
+MMAPS := $(patsubst devices/%.yaml, mmaps/%.mmap, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
 RUST_SRCS := $(foreach crate, $(CRATES), \
@@ -41,9 +45,14 @@ svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
 
+# Generate mmap from patched SVD
+mmaps/%.mmap: svd/%.svd.patched
+	@mkdir -p mmaps
+	svd mmap $< > $@
+
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
-	python3 scripts/makecrates.py devices/ -y
+	python3 scripts/makecrates.py devices/ -y --families $(CRATES)
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
@@ -52,7 +61,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
 	sed "1,20d;23,28d" $$(@D)/lib.rs > $$@
 	rm $$(@D)/build.rs $$(@D)/lib.rs
-	mv -f -t $$(@D)/.. $$(@D)/generic.rs
+	mv -f $$(@D)/generic.rs $$(@D)/../
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -i $$< -o $$(@D)
@@ -92,6 +101,11 @@ html/index.html: $(PATCHED_SVDS)
 
 html: html/index.html
 
+lint: $(PATCHED_SVDS)
+	xmllint --schema svd/cmsis-svd.xsd --noout $(PATCHED_SVDS)
+
+mmaps: $(MMAPS)
+
 clean-rs:
 	rm -rf $(RUST_DIRS)
 	rm -f */src/generic.rs
@@ -125,6 +139,6 @@ update-venv:
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
-	python3 scripts/makedeps.py $< > $@
+	svd makedeps $< $@
 
 -include .deps/*

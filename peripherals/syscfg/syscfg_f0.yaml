@@ -55,8 +55,11 @@ SYSCFG:
       Disconnected: [0, "SRAM parity error disconnected from TIM1/15/16/17 Break input"]
       Connected: [1, "SRAM parity error connected to TIM1/15/16/17 Break input"]
     SRAM_PEF:
-      NoParityError: [0, "No SRAM parity error detected"]
-      ParityErrorDetected: [1, "SRAM parity error detected"]
+      _read:
+        NoParityError: [0, "No SRAM parity error detected"]
+        ParityErrorDetected: [1, "SRAM parity error detected"]
+      _write:
+        Clear: [1, "Clear SRAM parity error flag"]
   EXTICR1:
     EXTI0:
       PA0: [0, "Select PA0 as the source input for the EXTI0 external interrupt"]

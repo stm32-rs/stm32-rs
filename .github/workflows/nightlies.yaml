@@ -18,8 +18,7 @@ jobs:
           pip3 install --user setuptools wheel
           pip3 install --user svdtools
       - name: Put pip binary directory into path
-        run: |
-          echo "::add-path::~/.local/bin"
+        run: echo "~/.local/bin" >> $GITHUB_PATH
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
@@ -51,8 +50,7 @@ jobs:
           mkdir ~/cargo-bin
           cp ~/.cargo/bin/{svd2rust,form} ~/cargo-bin
       - name: Put cargo binary directory into path
-        run: |
-          echo "::add-path::~/cargo-bin"
+        run: echo "~/cargo-bin" >> $GITHUB_PATH
       - name: Deploy SSH key
         run: |
           mkdir ~/.ssh
@@ -66,7 +64,7 @@ jobs:
           cd stm32-rs
           COMMIT=$(git rev-parse HEAD)
           make -j2 form
-          mv stm32{f,g,h,l}* ../nightly
+          mv stm32{f,g,h,l,mp,wl}* ../nightly
           cp .github/workflows/README-nightlies.md ../nightly/README.md
           cd ../nightly
           git init

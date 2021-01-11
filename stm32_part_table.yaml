@@ -276,6 +276,14 @@ stm32f7:
     members:
       - STM32F730
 
+  stm32f750:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32f7x0-value-line.html
+    rm: RM0385
+    rm_title: STM32F75xxx and STM32F74xxx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00124865.pdf
+    members:
+      - STM32F750
+
   stm32f7x2:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f7x2.html
     rm: RM0431
@@ -486,6 +494,8 @@ stm32l4:
     rm_title: STM32L43xxx STM32L44xxx STM32L45xxx STM32L46xxx
     rm_url: https://www.st.com/resource/en/reference_manual/dm00151940.pdf
     members:
+      - STM32L412
+      - STM32L422
       - STM32L432
       - STM32L442
       - STM32L452
@@ -583,3 +593,31 @@ stm32g4:
     members:
       - STM32G474
       - STM32G484
+
+stm32mp1:
+  stm32mp157:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32mp157.html
+    rm: RM0436
+    rm_title: STM32MP157
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00366355-stm32mp157-advanced-armbased-32bit-mpus-stmicroelectronics.pdf
+    members:
+      - STM32MP157
+
+stm32wl:
+  stm32wle5:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wlex.html
+    rm: RM0461
+    rm_title: STM32WLEx
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00530369-stm32wlex-advanced-armbased-32bit-mcus-with-subghz-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WLE5
+
+stm32wb:
+  stm32wb55:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wbx5.html
+    rm: RM0434
+    rm_title: STM32WBx5
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00318631-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WB55
+

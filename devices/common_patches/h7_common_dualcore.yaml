@@ -558,15 +558,6 @@ RCC:
         description: ART Clock Enable
         bitOffset: 14
         bitWidth: 1
-    _modify:
-      USB1OTGEN:
-        name: USB1OTGHSEN
-      USB2OTGEN:
-        name: USB2OTGHSEN
-      USB1ULPIEN:
-        name: USB1OTGHSULPIEN
-    _delete:
-      - USB2ULPIEN
   AHB2ENR,C1_AHB2ENR:
     _modify:
       CAMITFEN:
@@ -584,15 +575,6 @@ RCC:
         description: ART Clock Enable During CSleep Mode
         bitOffset: 14
         bitWidth: 1
-    _modify:
-      USB1OTGLPEN:
-        name: USB1OTGHSLPEN
-      USB2OTGLPEN:
-        name: USB2OTGHSLPEN
-      USB1ULPILPEN:
-        name: USB1OTGHSULPILPEN
-      USB2ULPILPEN:
-        name: USB2OTGHSULPILPEN
   AHB2LPENR,C1_AHB2LPENR:
     _modify:
       CAMITFLPEN:

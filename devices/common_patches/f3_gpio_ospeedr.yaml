@@ -1,0 +1,16 @@
+# F3 mcus does not support very high speed mode.
+#
+# | value | F3     | others    |
+# |-------|--------|-----------|
+# | 0b00  | Low    | Low       |
+# | 0b01  | Medium | Medium    |
+# | 0b10  | Low    | High      |
+# | 0b11  | High   | Very high |
+
+"GPIO*":
+  OSPEEDR:
+    "OSPEEDR*":
+      _replace_enum:
+        LowSpeed: [0, "Low speed"]
+        MediumSpeed: [1, "Medium speed"]
+        HighSpeed: [3, "High speed"]

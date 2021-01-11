@@ -66,6 +66,9 @@ _include:
  - ../peripherals/can/can.yaml
  - common_patches/cryp/cryp_v2.yaml
  - common_patches/ltdc/ltdc.yaml
+ - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
+ - common_patches/ltdc/f7_ltdc_interrupts.yaml
+ - ../peripherals/ltdc/ltdc.yaml
  - common_patches/sai/sai_v2.yaml
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/fsmc/fsmc_sram.yaml
@@ -84,11 +87,13 @@ _include:
  - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/crc/crc_basic.yaml
+ - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
+ - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_opm.yaml
  - ../peripherals/usart/uart_common.yaml
