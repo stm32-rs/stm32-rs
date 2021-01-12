@@ -5,7 +5,7 @@ _delete:
 _add:
   WWDG:
     description: System window watchdog
-    baseAddress: 0x40003000
+    baseAddress: 0x40002C00
     addressBlock:
       offset: 0x0
       size: 0x4
@@ -58,7 +58,7 @@ _add:
             bitWidth: 1
   IWDG:
     description: WinWATCHDOG
-    baseAddress: 0x40002C00
+    baseAddress: 0x40003000
     addressBlock:
       offset: 0x0
       size: 0x400
