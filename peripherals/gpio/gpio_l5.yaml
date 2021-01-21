@@ -3,10 +3,10 @@
 "GPIO*":
   MODER:
     "MODE*":
-      Input: [0, "Input mode (reset state)"]
+      Input: [0, "Input mode"]
       Output: [1, "General purpose output mode"]
       Alternate: [2, "Alternate function mode"]
-      Analog: [3, "Analog mode"]
+      Analog: [3, "Analog mode (reset state)"]
   OTYPER:
     "OT*":
       PushPull: [0, "Output push-pull (reset state)"]
