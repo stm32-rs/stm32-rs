@@ -1,0 +1,67 @@
+# This GPIO is used on the STM32L5 families.
+
+"GPIO*":
+  MODER:
+    "MODE*":
+      Input: [0, "Input mode"]
+      Output: [1, "General purpose output mode"]
+      Alternate: [2, "Alternate function mode"]
+      Analog: [3, "Analog mode (reset state)"]
+  OTYPER:
+    "OT*":
+      PushPull: [0, "Output push-pull (reset state)"]
+      OpenDrain: [1, "Output open-drain"]
+  OSPEEDR:
+    "OSPEED*":
+      LowSpeed: [0, "Low speed"]
+      MediumSpeed: [1, "Medium speed"]
+      HighSpeed: [2, "High speed"]
+      VeryHighSpeed: [3, "Very high speed"]
+  PUPDR:
+    "PUPD*":
+      Floating: [0, "No pull-up, pull-down"]
+      PullUp: [1, "Pull-up"]
+      PullDown: [2, "Pull-down"]
+  IDR:
+    "ID*":
+      High: [1, "Input is logic high"]
+      Low: [0, "Input is logic low"]
+  ODR:
+    "OD*":
+      High: [1, "Set output to logic high"]
+      Low: [0, "Set output to logic low"]
+  BSRR:
+    "BR*":
+      _write:
+        Reset: [1, "Resets the corresponding ODx bit"]
+    "BS*":
+      _write:
+        Set: [1, "Sets the corresponding ODx bit"]
+  LCKR:
+    "LCK[0123456789]":
+      Unlocked: [0, "Port configuration not locked"]
+      Locked: [1, "Port configuration locked"]
+    "LCK1[012345]":
+      Unlocked: [0, "Port configuration not locked"]
+      Locked: [1, "Port configuration locked"]
+    "LCKK":
+      NotActive: [0, "Port configuration lock key not active"]
+      Active: [1, "Port configuration lock key active"]
+  "AFR[LH]":
+    "AFSEL*":
+      AF0:  [0,  "AF0"]
+      AF1:  [1,  "AF1"]
+      AF2:  [2,  "AF2"]
+      AF3:  [3,  "AF3"]
+      AF4:  [4,  "AF4"]
+      AF5:  [5,  "AF5"]
+      AF6:  [6,  "AF6"]
+      AF7:  [7,  "AF7"]
+      AF8:  [8,  "AF8"]
+      AF9:  [9,  "AF9"]
+      AF10: [10, "AF10"]
+      AF11: [11, "AF11"]
+      AF12: [12, "AF12"]
+      AF13: [13, "AF13"]
+      AF14: [14, "AF14"]
+      AF15: [15, "AF15"]
