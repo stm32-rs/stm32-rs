@@ -436,7 +436,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.1...HEAD
+[v0.12.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.0...v0.12.1
 [v0.12.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.9.0...v0.10.0
