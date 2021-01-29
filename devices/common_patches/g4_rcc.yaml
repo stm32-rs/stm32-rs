@@ -129,6 +129,9 @@ RCC:
       I2C3:
         name: I2C3EN
         description: I2C3 clock enable
+      SP3EN:
+        name: SPI3EN
+        description: SPI3 clock enable
 
   APB1ENR2:
     _modify:
