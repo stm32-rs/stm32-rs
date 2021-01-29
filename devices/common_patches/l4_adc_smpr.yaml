@@ -1,0 +1,48 @@
+# Fix the poorly defined SMPR fields in STM32L4
+
+"ADC?":
+  SMPR1:
+    _add:
+      SMP0:
+        description: Channel 0 sampling time selection
+        bitWidth: 3
+        bitOffset: 0
+    _modify:
+      SMP1:
+        description: Channel 1 sampling time selection
+      SMP2:
+        description: Channel 2 sampling time selection
+      SMP3:
+        description: Channel 3 sampling time selection
+      SMP4:
+        description: Channel 4 sampling time selection
+      SMP5:
+        description: Channel 5 sampling time selection
+      SMP6:
+        description: Channel 6 sampling time selection
+      SMP7:
+        description: Channel 7 sampling time selection
+      SMP8:
+        description: Channel 8 sampling time selection
+      SMP9:
+        description: Channel 9 sampling time selection
+  SMPR2:
+    _modify:
+      SMP10:
+        description: Channel 10 sampling time selection
+      SMP11:
+        description: Channel 11 sampling time selection
+      SMP12:
+        description: Channel 12 sampling time selection
+      SMP13:
+        description: Channel 13 sampling time selection
+      SMP14:
+        description: Channel 14 sampling time selection
+      SMP15:
+        description: Channel 15 sampling time selection
+      SMP16:
+        description: Channel 16 sampling time selection
+      SMP17:
+        description: Channel 17 sampling time selection
+      SMP18:
+        description: Channel 18 sampling time selection

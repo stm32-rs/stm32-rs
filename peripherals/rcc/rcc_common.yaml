@@ -36,8 +36,8 @@ RCC:
       Div512: [15, "SYSCLK divided by 512"]
     SWS:
       _read:
-        HSI: [0, "HSE oscillator used as system clock"]
-        HSE: [1, "HSI oscillator used as system clock"]
+        HSI: [0, "HSI oscillator used as system clock"]
+        HSE: [1, "HSE oscillator used as system clock"]
         PLL: [2, "PLL used as system clock"]
     SW:
       HSI: [0, "HSI selected as system clock"]
