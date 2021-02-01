@@ -1,0 +1,48 @@
+# CORDIC coprocessor provides hardware acceleration
+# for computing math funcitons
+
+CORDIC:
+  CSR:
+    RRDY:
+      _read:
+        NotReady: [0, "Results from computation are not read"]
+        Ready: [1, "Results are ready, this flag will be automatically cleared once value is read"]
+    ARGSIZE:
+      Bits32: [0, "Use 32 bit input values"]
+      Bits16: [1, "Use 16 bit input values"]
+    RESSIZE:
+      Bits32: [0, "Use 32 bit output values"]
+      Bits16: [1, "Use 16 bit output values"]
+    NARGS:
+      Num1: [0, "Only single argument write is needed for next calculation"]
+      Num2: [1, "Two argument writes need to be performed for next calculation"]
+    NRES:
+      Num1: [0, "Only single result value will be returned. After a single read RRDY will be automatically cleared"]
+      Num2: [1, "Two return reads need to be performed. After two reads RRDY will be automatically cleared"]
+    DMAWEN:
+      Disabled: [0, "No DMA channel writes are generated"]
+      Enabled: [1, "Write requests are generated on the DMA channel when no operation is pending"]
+    DMAREN:
+      Disabled: [0, "No DMA channel reads are generated"]
+      Enabled: [1, "Read requests are generated on the DMA channel when RRDY flag is set"]
+    IEN:
+      Disabled: [0, "Disable interrupt request generation"]
+      Enabled: [1, "Enable intterrupt request generation"]
+    PRECISION: [1, 15]
+    SCALE: [0, 7]
+    FUNC:
+      Cosine: [0, "Cosine funciton"]
+      Sine: [1, "Sine function"]
+      Phase: [2, "Phase function"]
+      Modulus: [3, "Modulus function"]
+      Arctangent: [4, "Arctangent function"]
+      HyperbolicCosine: [5, "Hyperbolic Cosine function"]
+      HyperbolicSine: [6, "Hyperbolic Sine function"]
+      Arctanh: [7, "Arctanh function"]
+      NaturalLogarithm: [8, "Natural Logarithm function"]
+      SquareRoot: [9, "Square Root function"]
+  WDATA:
+    ARG: [0, 0xFFFFFFFF]
+
+  RDATA:
+    RES: [0, 0xFFFFFFFF]
