@@ -1,5 +1,16 @@
 _svd: ../svd/stm32g491.svd
 
+OPAMP:
+  _derive:
+    OPAMP6_CSR:
+      _from: OPAMP1_CSR
+      addressOffset: "0x14"
+      description: OPAMP6 control/status register
+    OPAMP6_TCMR:
+      _from: OPAMP1_TCMR
+      addressOffset: "0x2C"
+      description: OPAMP6 control/status register
+
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml
@@ -14,3 +25,5 @@ _include:
  - ./common_patches/g4_cordic.yaml
  - ../peripherals/cordic/cordic_g4.yaml
  - ./common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/opamp/opamp_g4_common.yaml 
+ - ../peripherals/opamp/opamp_g4_opamp6.yaml 
