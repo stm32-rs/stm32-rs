@@ -1,0 +1,24 @@
+# Patches for the Flexible Data Rate CAN (FDCAN) on at least H7, G4
+
+"FDCAN,FDCAN?":
+  _modify:
+    "DBTP,TDCR,TSCV,TOCV,IR,IE,ILS,NDAT1,NDAT2":
+      access: read-write
+    CAN_TTGTP:
+      name: TTGTP
+  TEST:
+    _modify:
+      "TX,LBCK":
+        access: read-write
+  RWD:
+    _modify:
+      "WDC":
+        access: read-write
+  NBTP:
+    _modify:
+      TSEG2:
+        name: NTSEG2
+  ECR:
+    _modify:
+      TREC:
+        name: REC
