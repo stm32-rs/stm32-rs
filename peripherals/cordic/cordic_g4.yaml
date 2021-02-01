@@ -7,14 +7,12 @@ CORDIC:
       _read:
         NotReady: [0, "Results from computation are not read"]
         Ready: [1, "Results are ready, this flag will be automatically cleared once value is read"]
-      _write:
-        Clear: [0, "Clear the computation results"]
     ARGSIZE:
-      Size32: [0, "Use 32 bit input values"]
-      Size16: [1, "Use 16 bit input values"]
+      Bits32: [0, "Use 32 bit input values"]
+      Bits16: [1, "Use 16 bit input values"]
     RESSIZE:
-      Size32: [0, "Use 32 bit output values"]
-      Size16: [1, "Use 16 bit output values"]
+      Bits32: [0, "Use 32 bit output values"]
+      Bits16: [1, "Use 16 bit output values"]
     NARGS:
       Num1: [0, "Only single argument write is needed for next calculation"]
       Num2: [1, "Two argument writes need to be performed for next calculation"]
@@ -31,7 +29,7 @@ CORDIC:
       Disabled: [0, "Disable interrupt request generation"]
       Enabled: [1, "Enable intterrupt request generation"]
     PRECISION: [1, 15]
-    SCALE: [0, 3]
+    SCALE: [0, 7]
     FUNC:
       Cosine: [0, "Cosine funciton"]
       Sine: [1, "Sine function"]
