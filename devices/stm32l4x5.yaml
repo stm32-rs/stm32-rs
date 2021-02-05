@@ -6,6 +6,16 @@ _modify:
   ADC123_Common:
     name: ADC_Common
 
+ADC_Common:
+  CCR:
+    _modify:
+      TSEN:
+        name: CH18SEL
+        description: CH18 selection (Vbat)
+      VBATEN:
+        name: CH17SEL
+        description: CH17 selection (temperature)
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
