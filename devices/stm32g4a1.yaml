@@ -1,4 +1,4 @@
-_svd: ../svd/stm32g474.svd
+_svd: ../svd/stm32g4a1.svd
 
 _include:
  - ./common_patches/g4_rcc.yaml
@@ -13,4 +13,4 @@ _include:
  - ../peripherals/wwdg/g4_wwdg.yaml
  - ./common_patches/g4_cordic.yaml
  - ../peripherals/cordic/cordic_g4.yaml
- 
+

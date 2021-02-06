@@ -3,14 +3,12 @@ _svd: ../svd/stm32g483.svd
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml
- - ./common_patches/g4_adc_common.yaml
  - ./common_patches/fdcan/fdcan_g4.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/adc/adc_v3_g4.yaml
  - ../peripherals/adc/adc_v3_common_g4.yaml
  - ./common_patches/g4_comp.yaml
  - ./common_patches/g4_adc.yaml
- - ./common_patches/g4_swap_IWDG_WWDG.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/g4_wwdg.yaml
  - ./common_patches/g4_cordic.yaml
