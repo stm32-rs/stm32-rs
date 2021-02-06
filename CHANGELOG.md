@@ -2,6 +2,69 @@
 
 ## [Unreleased]
 
+## [v0.13.0] 2021-02-06
+
+Family-specific:
+
+* F3:
+    * Fix GPIO OSPEEDR variants (#466)
+* F4:
+    * Fix ADC SMPR registers (#460)
+    * Fix and document LTDC peripheral (#448)
+    * Add OTG_FS interrupt to F413 (#470)
+* F7:
+    * Add missing CRC fields (#447)
+    * Fix and document LTDC peripheral (#448)
+    * Add STM32F750 device (#464)
+* L4:
+    * Add ADC common register (#463)
+    * Rename ADC to ADC1, add ADC2 (#465)
+    * Add missing SMPR fields to ADC (#484)
+    * Fix ADC CCR CH17SEL/CH18SEL field names (#491)
+* L5:
+    * Fix L552 TIMx interrupts (#468)
+    * Add missing CPU blocks to SVD file (#476)
+    * Add GPIO enum variants (#479)
+    * Add RCC enum variants (#472)
+    * Add basic FDCAN support (#478)
+* G4:
+    * Fix incorrect IWDG/WWDG addresses (#475)
+    * Fix SP3EN field name to SPI3EN (#481)
+    * Add basic FDCAN support (#478)
+    * Add CORDIC descriptions (#485)
+    * Update to newest SVD files, adding G491 and G4A1 devices (#492)
+* H7:
+    * Array RTC_BCKP registers (#445)
+    * Document RTC registers (#446)
+    * Enable broken DMAMUX patch for H7B3 (#453)
+    * Add/fix interrupts for H7B3 (#449)
+    * Add cluster for MDMA registers (#454)
+    * Fix CRC INIT and POL register addresses (#458)
+    * Add basic FDCAN support (#478)
+* WL:
+    * Family added with STM32WLE5 chpi (#444)
+* WB:
+    * Family added with STM32WB55 chip (#467)
+* MP1:
+    * Add missing CPU blocks to SVD file (#476)
+    * Add basic FDCAN support (#478)
+
+Common:
+
+* Fixed a security issue in CI scripts (b7f023c),
+  GHSL-2020-278 (thanks to [@JarLob]).
+* CRC IDR set as 8 or 32 bit as appropriate across many families (#461)
+* Fix description for RCC SWS field in many devices (#482)
+* Fix misspelled MCJDIV to MCKDIV field in SAI CR1 register across many
+  devices in f4, f7, f4, l4, l5, and wb55 families (#490)
+
+Thanks to:
+
+[@ijager] [@mattico] [@chengsun] [@richardeoin] [@maximeborges]
+[@AlyoshaVasilieva] [@YruamaLairba] [@korken89] [@Piroro-hs] [@eupn]
+[@kenbell] [@matoushybl] [@diseraluca] [@TwoHandz] [@pawelchcki]
+[@wallacejohn]
+
 ## [v0.12.1] 2020-09-22
 
 * Fixes a bug introduced by a new version of svdtools which resulted in
@@ -54,6 +117,7 @@ Family-specific:
     * Add preliminary support for MP1 family (#425)
 
 Common:
+
 * Document CRC for F3, F7, H7, L0, L4 (#376)
 * Swap to GHA for CI (#377)
 * Fix Makefile for MacOS (#396)
@@ -106,9 +170,10 @@ Family-specific:
     * ADC documentation (#338)
 
 Common:
-    * Fixed typo in I2C `OA1EN` `Disabled` variant name for many devices (#365)
-    * Hopefully fixed docs.rs building (#355)
-    * Generated crate directories no longer stored in git (#346)
+
+* Fixed typo in I2C `OA1EN` `Disabled` variant name for many devices (#365)
+* Hopefully fixed docs.rs building (#355)
+* Generated crate directories no longer stored in git (#346)
 
 Thanks to:
 
@@ -174,6 +239,7 @@ Common:
 * Added new nightlies repository which can be directly used in Cargo: [nightlies]
 
 Thanks to:
+
 [@aurelj] [@dotcypress] [@hannobraun] [@samcrow] [@korken89] [@richardeoin]
 [@rfuest] [@Sh3Rm4n] [@nickray] [@thinxer] [@lynaghk]
 
@@ -223,6 +289,7 @@ Thanks to:
 ## [v0.8.0] 2019-07-28
 
 Family-specific:
+
 * F1:
     * FLASH ACR LATENCY field (#221)
     * ADC definitions (#233)
@@ -263,6 +330,7 @@ Family-specific:
     * Split into four devices: H743/H743v/H753/H753v (#247)
 
 Common:
+
 * Updated svdpatch.py to prohibit enumerated values with leading numerals
   (#199)
 * PAR register added to DMA cluster on many families (#214)
@@ -287,6 +355,7 @@ Thanks to:
 ## [v0.7.0] 2019-04-22
 
 Family-specific:
+
 * F0: Add missing DMA interrupts (#181), flash peripheral (#172)
 * F1: Add enumerated values for GPIO (#186)
 * F3: Split up and fix `SYSCFG`, `COMP`, and `OPAMP` (#173, #189)
@@ -436,7 +505,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.1...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...HEAD
+[v0.13.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.1...v0.13.0
 [v0.12.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.0...v0.12.1
 [v0.12.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.10.0...v0.11.0
@@ -458,6 +528,7 @@ work in this release!
 [@ajfrantz]: https://github.com/ajfrantz
 [@albru123]: https://github.com/albru123
 [@almusil]: https://github.com/almusil
+[@AlyoshaVasilieva]: https://github.com/AlyoshaVasilieva
 [@arkorobotics]: https://github.com/arkorobotics
 [@astro]: https://github.com/astro
 [@aurabindo]: https://github.com/aurabindo
@@ -465,21 +536,26 @@ work in this release!
 [@birkenfeld]: https://github.com/birkenfeld
 [@BryanKadzban]: https://github.com/BryanKadzban
 [@burrbull]: https://github.com/burrbull
+[@chengsun]: https://github.com/chengsun
 [@cyberillithid]: https://github.com/cyberillithid
 [@diondokter]: https://github.com/diondokter
 [@dirk-dms]: https://github.com/dirk-dms
 [@disasm]: https://github.com/disasm
+[@diseraluca]: https://github.com/diseraluca
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
+[@eupn]: https://github.com/eupn
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
 [@ijager]: https://github.com/ijager
+[@JarLob]: https://github.com/JarLob
 [@jessebraham]: https://github.com/jessebraham
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
 [@jordens]: https://github.com/jordens
+[@kenbell]: https://github.com/kenbell
 [@kitzin]: https://github.com/kitzin
 [@korken89]: https://github.com/korken89
 [@lichtfeind]: https://github.com/lichtfeind
@@ -488,6 +564,7 @@ work in this release!
 [@mabezdev]: https://github.com/mabezdev
 [@MarcoIeni]: https://github.com/MarcoIeni
 [@mathk]: https://github.com/mathk
+[@matoushybl]: https://github.com/matoushybl]
 [@MattCatz]: https://github.com/MattCatz
 [@mattico]: https://github.com/mattico
 [@maximeborges]: https://github.com/maximeborges
@@ -495,6 +572,7 @@ work in this release!
 [@octronics]: https://github.com/octronics
 [@osannolik]: https://github.com/osannolik
 [@Pagten]: https://github.com/Pagten
+[@pawelchcki]: https://github.com/pawelchcki
 [@Piroro-hs]: https://github.com/Piroro-hs
 [@Rahix]: https://github.com/Rahix
 [@ra-kete]: https://github.com/ra-kete
@@ -509,5 +587,8 @@ work in this release!
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
 [@torkeldanielsson]: https://github.com/torkeldanielsson
+[@TwoHandz]: https://github.com/TwoHandz
+[@wallacejohn]: https://github.com/wallacejohn
 [@x37v]: https://github.com/x37v
+[@YruamaLairba]: https://github.com/YruamaLairba
 [@yusefkarim]: https://github.com/yusefkarim
