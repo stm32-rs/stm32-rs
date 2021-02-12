@@ -142,6 +142,9 @@ stm32f3:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00043574.pdf
     members:
       - STM32F303
+      - STM32F328
+      - STM32F358
+      - STM32F398
 
   stm32f373:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f373.html
@@ -159,16 +162,6 @@ stm32f3:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00093941.pdf
     members:
       - STM32F334
-
-  stm32f3x8:
-    url: https://www.st.com/en/microcontrollers-microprocessors/stm32f3x8.html
-    rm: RM0316
-    rm_title: STM32F303xB/C/D/E, STM32F303x6/8, STM32F328x8, STM32F358xC, STM32F398xE
-    rm_url: https://www.st.com/resource/en/reference_manual/dm00043574.pdf
-    members:
-      - STM32F328
-      - STM32F358
-      - STM32F398
 
 
 stm32f4:
@@ -620,4 +613,3 @@ stm32wb:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00318631-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
     members:
       - STM32WB55
-
