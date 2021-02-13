@@ -8,8 +8,9 @@ SYSCFG:
   _strip:
     - SYSCFG_
   _delete:
-    - OPAMP*
-    - COMP*
+    _registers:
+      - OPAMP*
+      - COMP*
   CFGR1:
     _modify:
       TIM1_ITR_RMP:

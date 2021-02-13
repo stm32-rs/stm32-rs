@@ -5,6 +5,10 @@ _modify:
   Flash:
     name: FLASH
 
+  # Rename DAC to DAC1 in accordance with the reference manual.
+  DAC:
+    name: DAC1
+
 PWR:
   CSR:
     _add:
@@ -26,6 +30,13 @@ PWR:
       TIFRFE:
         name: "FRE"
 
+_add:
+  # DAC2 exists on F303x6/8 and F328x8 devices, and only has one channel.
+  DAC2:
+    derivedFrom: DAC1
+    baseAddress: "0x40009800"
+
+
 RCC:
   APB1RSTR:
     _add:
@@ -44,8 +55,6 @@ SYSCFG:
   _delete:
     _interrupts:
       - "COMP*"
-
-SYSCFG:
   _strip:
     - SYSCFG_
   _add:
