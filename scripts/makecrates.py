@@ -32,7 +32,7 @@ CRATE_DOC_FEATURES = {
     "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
     "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
     "stm32l5": ["rt", "stm32l562"],
-    "stm32g0": ["rt", "stm32g07x", "stm32g030", "stm32g031", "stm32g041", "stm32g081"],
+    "stm32g0": ["rt", "stm32g030", "stm32g070", "stm32g031", "stm32g041", "stm32g071", "stm32g081"],
     "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["rt", "stm32mp157"],
     "stm32wl": ["rt", "stm32wle5"],
