@@ -72,6 +72,13 @@ RCC:
       SDMMCSEL:
         name: SDIOSEL
 
+DSIHOST:
+  _add:
+    _interrupts:
+      DSIHOST:
+        description: DSI host global interrupt
+        value: 92
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
