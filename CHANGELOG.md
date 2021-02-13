@@ -8,10 +8,14 @@ Family-specific:
 
 * F3:
     * Fix GPIO OSPEEDR variants (#466)
+    * Remove F3x8 device, which is now supported by F303 device (#495)
+    * Rename DAC to DAC1 and add DAC2 to F303 (#497)
+    * Correct EXTI IMR2/EMR2/RTSR2/FTSR2/SWIER2 addresses (#496)
 * F4:
     * Fix ADC SMPR registers (#460)
     * Fix and document LTDC peripheral (#448)
     * Add OTG_FS interrupt to F413 (#470)
+    * Add DSIHOST interrupt to F469 (#498)
 * F7:
     * Add missing CRC fields (#447)
     * Fix and document LTDC peripheral (#448)
@@ -27,12 +31,15 @@ Family-specific:
     * Add GPIO enum variants (#479)
     * Add RCC enum variants (#472)
     * Add basic FDCAN support (#478)
+* G0:
+    * Update which devices are built on docs.rs (#442)
 * G4:
     * Fix incorrect IWDG/WWDG addresses (#475)
     * Fix SP3EN field name to SPI3EN (#481)
     * Add basic FDCAN support (#478)
     * Add CORDIC descriptions (#485)
     * Update to newest SVD files, adding G491 and G4A1 devices (#492)
+    * Document OPAMP registers (#486)
 * H7:
     * Array RTC_BCKP registers (#445)
     * Document RTC registers (#446)
@@ -41,6 +48,7 @@ Family-specific:
     * Add cluster for MDMA registers (#454)
     * Fix CRC INIT and POL register addresses (#458)
     * Add basic FDCAN support (#478)
+    * H7B3: Add DAC2 fields, remove LPTIM4/5 fields from RCC (#499)
 * WL:
     * Family added with STM32WLE5 chpi (#444)
 * WB:
@@ -57,6 +65,8 @@ Common:
 * Fix description for RCC SWS field in many devices (#482)
 * Fix misspelled MCJDIV to MCKDIV field in SAI CR1 register across many
   devices in f4, f7, f4, l4, l5, and wb55 families (#490)
+* Fix misspelled WCKSEL to WUCKSEL field in RTC CR register across many
+  devices in f2, g4, l1, l4, and wb55 (#494)
 
 Thanks to:
 
