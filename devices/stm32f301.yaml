@@ -1,10 +1,15 @@
 _svd: ../svd/stm32f301.svd
 
+_delete:
+  - EXTI
+
 _copy:
-  TIM1:
-    from: ../svd/stm32f302.svd:TIM1
   ADC1_2:
     from: ADC
+  EXTI:
+    from: ../svd/stm32f302.svd:EXTI
+  TIM1:
+    from: ../svd/stm32f302.svd:TIM1
 
 _add:
   I2C3:
@@ -57,6 +62,22 @@ ADC1_2:
       name: CCR
       displayName: CCR
       alternateRegister: ""
+
+EXTI:
+  _delete:
+    _interrupts:
+      - UART4_EXTI34
+      - UART5_EXTI35
+  _modify:
+    IMR2:
+      resetValue: "0xFFFFFFFE"
+
+PWR:
+  _add:
+    _interrupts:
+      PVD:
+        description: "PVD through EXTI line detection interrupt"
+        value: 1
 
 "SPI*":
   SR:
@@ -132,6 +153,7 @@ _include:
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/f3_exti_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml

@@ -1,0 +1,14 @@
+EXTI:
+  _modify:
+    IMR2:
+      addressOffset: "0x20"
+    EMR2:
+      addressOffset: "0x24"
+    RTSR2:
+      addressOffset: "0x28"
+    FTSR2:
+      addressOffset: "0x2C"
+    SWIER2:
+      addressOffset: "0x30"
+    PR2:
+      addressOffset: "0x34"
