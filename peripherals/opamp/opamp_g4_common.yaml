@@ -44,19 +44,19 @@ OPAMP:
       OutputPin: [0, "Output is connected to the output Pin"]
       ADCChannel: [1, "Output is connected internally to ADC channel"]
     OPAHSM:
-      NormalMode: [0, "OpAmp in normal mode"]
-      HighSpeedMode: [1, "OpAmp in high speed mode"]
+      Normal: [0, "OpAmp in normal mode"]
+      HighSpeed: [1, "OpAmp in high speed mode"]
     VM_SEL:
       VINM0: [0, "VINM0 connected to VINM input"]
       VINM1: [1, "VINM1 connected to VINM input"]
       PGA: [2, "Feedback resistor connected to VINM (PGA mode)"]
       Output: [3, "OpAmp output connected to VINM (Follower mode)"]
     USERTRIM:
-      FactoryTrim: [0, "Factory trim used"]
-      UserTrim: [1, "User trim used"]
+      Factory: [0, "Factory trim used"]
+      User: [1, "User trim used"]
     FORCE_VP:
-      NormalMode: [0, "Non-inverting input connected configured inputs"]
-      CalibrationVerificationMode: [1, "Non-inverting input connected to calibration reference voltage"]
+      Normal: [0, "Non-inverting input connected configured inputs"]
+      CalibrationVerification: [1, "Non-inverting input connected to calibration reference voltage"]
     OPAEN:
       Disabled: [0, "OpAmp disabled"]
       Enabled: [1, "OpAmp enabled"]
@@ -65,14 +65,14 @@ OPAMP:
       ReadWrite: [0, "TCMR is read-write"]
       ReadOnly: [1, "TCMR is read-only, can only be cleared by system reset"]
     T20CM_EN:
-      AutoSwitchDisabled: [0, "Automatic input switch triggered by TIM20 disabled"]
-      AutoSwitchEnabled: [1, "Automatic input switch triggered by TIM20 enabled"]
+      Disabled: [0, "Automatic input switch triggered by TIM20 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM20 enabled"]
     T8CM_EN:
-      AutoSwitchDisabled: [0, "Automatic input switch triggered by TIM8 disabled"]
-      AutoSwitchEnabled: [1, "Automatic input switch triggered by TIM8 enabled"]
+      Disabled: [0, "Automatic input switch triggered by TIM8 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM8 enabled"]
     T1CM_EN:
-      AutoSwitchDisabled: [0, "Automatic input switch triggered by TIM1 disabled"]
-      AutoSwitchEnabled: [1, "Automatic input switch triggered by TIM1 enabled"]
+      Disabled: [0, "Automatic input switch triggered by TIM1 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM1 enabled"]
   
   OPAMP1_CSR:
     _replace_enum:
