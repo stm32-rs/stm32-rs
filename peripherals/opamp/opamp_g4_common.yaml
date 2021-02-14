@@ -75,59 +75,38 @@ OPAMP:
       Enabled: [1, "Automatic input switch triggered by TIM1 enabled"]
   
   OPAMP1_CSR:
-    _replace_enum:
-      VM_SEL:
-        PA3: [0, "PA3 connected to VINM input"]
-        PC5: [1, "PC5 connected to VINM input"]
     VP_SEL:
-      PA1: [0, "PA1 connected to VINP input"]
-      PA3: [1, "PA3 connected to VINP input"]
-      PA7: [2, "PA7 connected to VINP input"]
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
       DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]
   OPAMP1_TCMR:
     VPS_SEL:
-      PA1: [0, "PA1 connected to VINP input"]
-      PA3: [1, "PA3 connected to VINP input"]
-      PA7: [2, "PA7 connected to VINP input"]
-      DAC3_CH1: [3, "VINP3 connected to VINP input"]      
-    VMS_SEL:
-      PA3: [0, "PA3 connected to VINM input"]
-      PC5: [1, "PC5 connected to VINM input"]
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]   
   OPAMP2_CSR:
-    VM_SEL:
-      _replace_enum:
-        PA5: [0, "PA5 connected to VINM input"]
-        PC5: [1, "PC5 connected to VINM input"]
     VP_SEL: 
-      PA7: [0, "PA7 connected to VINP input"]
-      PB14: [1, "PB14 connected to VINP input"]
-      PB0: [2, "PB0 connected to VINP input"]
-      PD1: [3, "PD1 connected to VINP input"]
-  OPAMP2_TCMR: 
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      VINP3: [3, "VINP3 connected to VINP input"]
+  OPAMP2_TCMR:
     VPS_SEL:
-      PA7: [0, "PA7 connected to VINP input"]
-      PB14: [1, "PB14 connected to VINP input"]
-      PB0: [2, "PB0 connected to VINP input"]
-      PD13: [3, "PD13 connected to VINP input"]      
-    VMS_SEL:
-      PA5: [0, "PA5 connected to VINM input"]
-      PC5: [1, "PC5 connected to VINM input"]
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      VINP3: [3, "VINP3 connected to VINP input"]   
   OPAMP3_CSR:
-    VM_SEL:
-      _replace_enum:
-        PB2: [0, "PB2 connected to VINM input"]
-        PB10: [1, "PB10 connected to VINM input"]
     VP_SEL: 
-      PB0: [0, "PB0 connected to VINP input"]
-      PB13: [1, "PB13 connected to VINP input"]
-      PA1: [2, "PA1 connected to VINP input"]
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
       DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]
   OPAMP3_TCMR:
     VPS_SEL:
-      PB0: [0, "PB0 connected to VINP input"]
-      PB13: [1, "PB13 connected to VINP input"]
-      PA1: [2, "PA1 connected to VINP input"]
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
       DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]      
-    VMS_SEL:
-      PB2: [0, "PB2 connected to VINM input"]
-      PB10: [1, "PB10 connected to VINM input"]
