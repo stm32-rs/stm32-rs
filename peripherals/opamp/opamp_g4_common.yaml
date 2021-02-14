@@ -1,0 +1,112 @@
+
+OPAMP:
+  OPAMP?_CSR:
+    LOCK:
+      ReadWrite: [0, "CSR is read-write"]
+      ReadOnly: [1, "CSR is read-only, can only be cleared by system reset"]
+    CALOUT: [0, 1]
+    TRIMOFFSETN: [0, 31] 
+    TRIMOFFSETP: [0, 31]
+    PGA_GAIN:
+      Gain2: [0, "Gain 2"]
+      Gain4: [1, "Gain 4"]
+      Gain8: [2, "Gain 8"]
+      Gain16: [3, "Gain 16"]
+      Gain32: [4, "Gain 32"]
+      Gain64: [5, "Gain 64"]
+      Gain2_InputVINM0: [8, "Gain 2, input/bias connected to VINM0 or inverting gain"]
+      Gain4_InputVINM0: [9, "Gain 4, input/bias connected to VINM0 or inverting gain"]
+      Gain8_InputVINM0: [10, "Gain 8, input/bias connected to VINM0 or inverting gain"]
+      Gain16_InputVINM0: [11, "Gain 16, input/bias connected to VINM0 or inverting gain"]
+      Gain32_InputVINM0: [12, "Gain 32, input/bias connected to VINM0 or inverting gain"]
+      Gain64_InputVINM0: [13, "Gain 64, input/bias connected to VINM0 or inverting gain"]
+      Gain2_FilteringVINM0: [16, "Gain 2, with filtering on VINM0"]
+      Gain4_FilteringVINM0: [17, "Gain 4, with filtering on VINM0"]
+      Gain8_FilteringVINM0: [18, "Gain 8, with filtering on VINM0"]
+      Gain16_FilteringVINM0: [19, "Gain 16, with filtering on VINM0"]
+      Gain32_FilteringVINM0: [20, "Gain 32, with filtering on VINM0"]
+      Gain64_FilteringVINM0: [21, "Gain 64, with filtering on VINM0"]
+      Gain2_InputVINM0FilteringVINM1: [24, "Gain 2, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
+      Gain4_InputVINM0FilteringVINM1: [25, "Gain 4, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
+      Gain8_InputVINM0FilteringVINM1: [26, "Gain 8, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
+      Gain16_InputVINM0FilteringVINM1: [27, "Gain 16, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
+      Gain32_InputVINM0FilteringVINM1: [28, "Gain 32, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
+      Gain64_InputVINM0FilteringVINM1: [29, "Gain 64, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]   
+    CALSEL:
+      Percent3_3: [0, "0.033*VDDA applied to OPAMP inputs during calibration"]
+      Percent10: [1, "0.1*VDDA applied to OPAMP inputs during calibration"]
+      Percent50: [2, "0.5*VDDA applied to OPAMP inputs during calibration"]
+      Percent90: [3, "0.9*VDDA applied to OPAMP inputs during calibration"]
+    CALON:
+      Disabled: [0, "Calibration mode disabled"]
+      Enabled: [1, "Calibration mode enabled"]
+    OPAINTOEN:
+      OutputPin: [0, "Output is connected to the output Pin"]
+      ADCChannel: [1, "Output is connected internally to ADC channel"]
+    OPAHSM:
+      Normal: [0, "OpAmp in normal mode"]
+      HighSpeed: [1, "OpAmp in high speed mode"]
+    VM_SEL:
+      VINM0: [0, "VINM0 connected to VINM input"]
+      VINM1: [1, "VINM1 connected to VINM input"]
+      PGA: [2, "Feedback resistor connected to VINM (PGA mode)"]
+      Output: [3, "OpAmp output connected to VINM (Follower mode)"]
+    USERTRIM:
+      Factory: [0, "Factory trim used"]
+      User: [1, "User trim used"]
+    FORCE_VP:
+      Normal: [0, "Non-inverting input connected configured inputs"]
+      CalibrationVerification: [1, "Non-inverting input connected to calibration reference voltage"]
+    OPAEN:
+      Disabled: [0, "OpAmp disabled"]
+      Enabled: [1, "OpAmp enabled"]
+  OPAMP?_TCMR:
+    LOCK:
+      ReadWrite: [0, "TCMR is read-write"]
+      ReadOnly: [1, "TCMR is read-only, can only be cleared by system reset"]
+    T20CM_EN:
+      Disabled: [0, "Automatic input switch triggered by TIM20 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM20 enabled"]
+    T8CM_EN:
+      Disabled: [0, "Automatic input switch triggered by TIM8 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM8 enabled"]
+    T1CM_EN:
+      Disabled: [0, "Automatic input switch triggered by TIM1 disabled"]
+      Enabled: [1, "Automatic input switch triggered by TIM1 enabled"]
+  
+  OPAMP1_CSR:
+    VP_SEL:
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]
+  OPAMP1_TCMR:
+    VPS_SEL:
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]   
+  OPAMP2_CSR:
+    VP_SEL: 
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      VINP3: [3, "VINP3 connected to VINP input"]
+  OPAMP2_TCMR:
+    VPS_SEL:
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      VINP3: [3, "VINP3 connected to VINP input"]   
+  OPAMP3_CSR:
+    VP_SEL: 
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]
+  OPAMP3_TCMR:
+    VPS_SEL:
+      VINP0: [0, "VINP0 connected to VINP input"]
+      VINP1: [1, "VINP1 connected to VINP input"]
+      VINP2: [2, "VINP2 connected to VINP input"]
+      DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]      
