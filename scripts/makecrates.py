@@ -16,7 +16,7 @@ import argparse
 import re
 import yaml
 
-VERSION = "0.12.1"
+VERSION = "0.13.0"
 SVD2RUST_VERSION = "0.17.0"
 
 CRATE_DOC_FEATURES = {
@@ -74,7 +74,7 @@ license = "MIT/Apache-2.0"
 [dependencies]
 bare-metal = "0.2.4"
 vcell = "0.1.0"
-cortex-m = ">=0.5.8,<0.7"
+cortex-m = ">=0.5.8,<0.8"
 
 [dependencies.cortex-m-rt]
 optional = true
@@ -108,7 +108,7 @@ SRC_LIB_RS_TPL = """\
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
-//! available registers and fields see: [stm32-rs Device Coverage](https://stm32.agg.io/rs)
+//! available registers and fields see: [stm32-rs Device Coverage](https://stm32-rs.github.io/stm32-rs/)
 
 #![allow(non_camel_case_types)]
 #![no_std]
