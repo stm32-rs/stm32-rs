@@ -18,6 +18,76 @@ _modify:
   OctoSPII_O_Manager:
     groupName: OctoSPII_O_Manager
 
+# Remove LPTIM4/5 from RCC
+# Split DAC1/2 REC
+# TODO: remove LPTIM4/LPTIM5 from EXTI enumerated values
+RCC:
+  _modify:
+    # Fix reset values for these registers.
+    # Note that the rename operation to remove C1 happens alongside this
+    # modification, so we have to use the original names.
+    C1_APB1LLPENR:
+      resetValue: "0xE8FFC3FF"
+    C1_APB4ENR:
+      resetValue: "0x00010000"
+    C1_APB4LPENR:
+      resetValue: "0x0C01E6AA"
+
+  APB1LRSTR:
+    _modify:
+      DAC12RST:
+        name: DAC1RST
+        description: DAC1 (containing two converters) reset
+  APB1LENR:
+    _modify:
+      DAC12EN:
+        name: DAC1EN
+        description: DAC1 (containing two converters) peripheral clock enable
+  APB1LLPENR:
+    _modify:
+      DAC12LPEN:
+        name: DAC1LPEN
+        description: DAC1 (containing two converters) peripheral clock enable during CSleep mode
+  APB4RSTR:
+    _delete:
+      - LPTIM4RST
+      - LPTIM5RST
+    _add:
+      DAC2RST:
+        description: DAC2 (containing one converter) reset
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+  APB4ENR:
+    _delete:
+      - LPTIM4EN
+      - LPTIM5EN
+    _add:
+      DAC2EN:
+        description: DAC2 (containing one converter) peripheral clock enable
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+  APB4LPENR:
+    _delete:
+      - LPTIM4LPEN
+      - LPTIM5LPEN
+    _add:
+      DAC2LPEN:
+        description: DAC2 (containing one converter) peripheral clock enable during CSleep mode
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+  D3AMR:
+    _delete:
+      - LPTIM4AMEN
+      - LPTIM5AMEN
+DBGMCU:
+  APB4FZ1:
+    _delete:
+      - LPTIM4
+      - LPTIM5
+
 _include:
  - common_patches/h7_common_highmemory.yaml
  - common_patches/dma_fcr_wo.yaml
