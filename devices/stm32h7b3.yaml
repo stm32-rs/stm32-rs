@@ -82,6 +82,12 @@ RCC:
     _delete:
       - LPTIM4AMEN
       - LPTIM5AMEN
+    _add:
+      DAC2AMEN:
+        description: DAC2 (containing one converter) Autonomous mode enable
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
 DBGMCU:
   APB4FZ1:
     _delete:
