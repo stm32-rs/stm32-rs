@@ -76,7 +76,7 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/tim_ccm_v2.yaml
@@ -87,3 +87,4 @@ _include:
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/rtc/rtc_h7.yaml
  - common_patches/h7_crc_addr_fix.yaml
+ - common_patches/h7_wwdg.yaml
