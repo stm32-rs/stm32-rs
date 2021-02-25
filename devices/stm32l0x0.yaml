@@ -15,11 +15,6 @@ ADC:
     _modify:
       SMPR:
         name: SMP
-  CCR:
-    # VLCDEN is only available on l0x1 and l0x3
-    VLCDEN:
-      Disabled: [0, "VLCD reading circuitry disabled"]
-      Enabled: [1, "VLCD reading circuitry enabled"]
 
 CRC:
   POL:
