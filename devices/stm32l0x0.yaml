@@ -78,9 +78,8 @@ RCC:
     _delete:
       - CRYPTSMEN
   APB1ENR:
-    _modify:
-      TIM3EN:
-        bitOffset: 1
+    _delete:
+      - TIM3EN
 
 WWDG:
   _modify:
