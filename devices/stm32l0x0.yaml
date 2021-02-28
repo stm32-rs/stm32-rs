@@ -20,11 +20,6 @@ CRC:
       Polynomialcoefficients:
         name: POL
 
-FLASH:
-  _delete:
-    - WRPROT1
-    - WRPROT2
-
 "SPI*,I2S*":
   SR:
     _modify:
@@ -65,7 +60,6 @@ PWR:
       LOW_POWER_MODE: [1, "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)"]
 
 _include:
- - ./common_patches/l0_flash.yaml
  - ./common_patches/l0_firewall.yaml
  - ./common_patches/l0_pwr_mode.yaml
  - ./common_patches/l0_pwr_wakeup.yaml
