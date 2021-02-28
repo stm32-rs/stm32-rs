@@ -12,6 +12,9 @@ SYSCFG:
   CFGR2:
     _delete:
       CAPA
+    _modify:
+      FWDISEN:
+        name: FWDIS
   CFGR3:
     REF_LOCK:
       ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
