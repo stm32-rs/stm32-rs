@@ -38,16 +38,6 @@ FLASH:
     _modify:
       DESAB_BUF:
         name: DISAB_BUF
-  PECR:
-    _modify:
-      FTDW:
-        name: FIX
-  OPTR:
-    _modify:
-      SPRMOD:
-        name: WPRMOD
-      RDPRT:
-        name: RDPROT
 
 "SPI*,I2S*":
   SR:
