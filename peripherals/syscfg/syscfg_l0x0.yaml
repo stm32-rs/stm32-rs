@@ -10,24 +10,8 @@ SYSCFG:
       SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
       SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
   CFGR2:
-    I2C2_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C1_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C_PB9_FMP:
-      Standard: [0, "PB9 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
-    I2C_PB8_FMP:
-      Standard: [0, "PB8 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
-    I2C_PB7_FMP:
-      Standard: [0, "PB7 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
-    I2C_PB6_FMP:
-      Standard: [0, "PB6 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+    _delete:
+      CAPA
   CFGR3:
     REF_LOCK:
       ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
