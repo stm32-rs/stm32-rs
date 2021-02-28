@@ -24,10 +24,6 @@ FLASH:
   _delete:
     - WRPROT1
     - WRPROT2
-  ACR:
-    _modify:
-      DESAB_BUF:
-        name: DISAB_BUF
 
 "SPI*,I2S*":
   SR:
