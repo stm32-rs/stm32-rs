@@ -75,9 +75,8 @@ RCC:
     _delete:
       - LSIIWDGLP
   AHBSMENR:
-    _modify:
-      CRYPTSMEN:
-        name: CRYPSMEN
+    _delete:
+      - CRYPTSMEN
   APB1ENR:
     _modify:
       TIM3EN:
