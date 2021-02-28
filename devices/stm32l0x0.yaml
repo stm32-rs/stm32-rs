@@ -57,15 +57,6 @@ RCC:
     _delete:
       - TIM3EN
 
-WWDG:
-  _modify:
-    WWDG_CR:
-      name: CR
-    WWDG_CFR:
-      name: CFR
-    WWDG_SR:
-      name: SR
-
 PWR:
   CR:
     # LPDS only exists in the L0x0 family
