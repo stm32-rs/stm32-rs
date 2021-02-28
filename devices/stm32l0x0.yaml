@@ -21,9 +21,6 @@ CRC:
         name: POL
 
 FLASH:
-  _modify:
-    OBR:
-      name: OPTR
   _delete:
     - WRPROT1
     - WRPROT2
