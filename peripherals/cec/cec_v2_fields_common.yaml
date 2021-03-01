@@ -41,12 +41,12 @@ CFGR:
   SFT:
     WaitHist: [0, "Number of nominal data bit periods waited is determined by the transmission history"]
     Wait05: [1, "Wait 0.5 nominal data bit periods"]
-    Wait15: [1, "Wait 1.5 nominal data bit periods"]
-    Wait25: [1, "Wait 2.5 nominal data bit periods"]
-    Wait35: [1, "Wait 3.5 nominal data bit periods"]
-    Wait45: [1, "Wait 4.5 nominal data bit periods"]
-    Wait55: [1, "Wait 5.5 nominal data bit periods"]
-    Wait65: [1, "Wait 6.5 nominal data bit periods"]
+    Wait15: [2, "Wait 1.5 nominal data bit periods"]
+    Wait25: [3, "Wait 2.5 nominal data bit periods"]
+    Wait35: [4, "Wait 3.5 nominal data bit periods"]
+    Wait45: [5, "Wait 4.5 nominal data bit periods"]
+    Wait55: [6, "Wait 5.5 nominal data bit periods"]
+    Wait65: [7, "Wait 6.5 nominal data bit periods"]
 
 TXDR:
   TXD: [0, 255]

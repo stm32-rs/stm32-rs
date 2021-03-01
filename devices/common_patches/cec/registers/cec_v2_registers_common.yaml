@@ -2,6 +2,7 @@ _add:
   CR:
     description: "CEC control register"
     addressOffset: 0x00
+    access: read-write
     resetValue: 0x00000000
     fields:
       TXEOM:
@@ -20,6 +21,7 @@ _add:
   CFGR:
     description: "CEC configuration register"
     addressOffset: 0x04
+    access: read-write
     resetValue: 0x00000000
     fields:
       LSTN:
@@ -198,3 +200,6 @@ _add:
         description: "Rx byte received interrupt enable"
         bitOffset: 0
         bitWidth: 1
+
+_include:
+  - ../../../../peripherals/cec/cec_v2_fields_common.yaml
