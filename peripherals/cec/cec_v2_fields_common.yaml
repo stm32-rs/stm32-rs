@@ -1,0 +1,134 @@
+CR:
+  TXEOM:
+    _read:
+      EOM0: [0, "TXDR data byte is transmitted with EOM=0"]
+      EOM1: [1, "TXDR data byte is transmitted with EOM=1"]
+    _write:
+      EOM1: [1, "Transmit TXDR data byte with EOM=1"]
+  TXSOM:
+    _read:
+      NoTx: [0, "No CEC transmission is ongoing"]
+      Tx: [1, "CEC transmission commanded"]
+    _write:
+      Tx: [1, "Set CEC transmission command"]
+  CECEN:
+    Disabled: [0, "CEC is disabled"]
+    Enabled: [1, "CEC is enabled"]
+
+CFGR:
+  LSTN:
+    Ignore: [0, "CEC peripheral only receives messages addressed to its own address and ignores others"]
+    Listen: [1, "CEC peripheral receives all messages and acknowledges messages addressed to its own address"]
+  OAR: [0, 32767]
+  SFTOP:
+    Manual: [0, "SFT timer starts when TXSOM is set by software"]
+    Auto: [1, "SFT timer starts automatically at the end of message transmission/reception"]
+  BRDNOGEN:
+    GenErr: [0, "BRE detection or LBPE detection on a broadcast message generates an error bit on the CEC line"]
+    NoErr: [1, "Error detection on a broadcast message does not generate an error bit on the CEC line"]
+  LBPEGEN:
+    NoErr: [0, "LBPE detection does not generate an error bit on the CEC line"]
+    GenErr: [1, "LBPE detection generates an error bit on the CEC line"]
+  BREGEN:
+    NoErr: [0, "BRE detection does not generate an error bit on the CEC line"]
+    GenErr: [1, "BRE detection generates an error bit on the CEC line if BRESTP is set"]
+  BRESTP:
+    NoStop: [0, "BRE detection does not stop reception of the CEC message"]
+    ErrStop: [1, "BRE detection stops message reception"]
+  RXTOL:
+    Standard: [0, "Standard Rx tolerance margin"]
+    Extended: [1, "Extended Rx tolerance margin"]
+  SFT:
+    WaitHist: [0, "Number of nominal data bit periods waited is determined by the transmission history"]
+    Wait05: [1, "Wait 0.5 nominal data bit periods"]
+    Wait15: [1, "Wait 1.5 nominal data bit periods"]
+    Wait25: [1, "Wait 2.5 nominal data bit periods"]
+    Wait35: [1, "Wait 3.5 nominal data bit periods"]
+    Wait45: [1, "Wait 4.5 nominal data bit periods"]
+    Wait55: [1, "Wait 5.5 nominal data bit periods"]
+    Wait65: [1, "Wait 6.5 nominal data bit periods"]
+
+TXDR:
+  TXD: [0, 255]
+
+ISR:
+  TXACKE:
+    _write:
+      Clear: [1, "Clear Tx missing acknowledge error"]
+  TXERR:
+    _write:
+      Clear: [1, "Clear Tx error"]
+  TXUDR:
+    _write:
+      Clear: [1, "Clear Tx buffer underrun flag"]
+  TXEND:
+    _write:
+      Clear: [1, "Clear Tx end of transmission flag"]
+  TXBR:
+    _write:
+      Clear: [1, "Clear Tx byte request flag"]
+  ARBLST:
+    _write:
+      Clear: [1, "Clear arbitration lost flag"]
+  RXACKE:
+    _write:
+      Clear: [1, "Clear Rx missing acknowledge error"]
+  LBPE:
+    _write:
+      Clear: [1, "Clear Rx long bit period error"]
+  SBPE:
+    _write:
+      Clear: [1, "Clear Rx short bit period error"]
+  BRE:
+    _write:
+      Clear: [1, "Clear Rx bit rising error"]
+  RXOVR:
+    _write:
+      Clear: [1, "Clear Rx overrun flag"]
+  RXEND:
+    _write:
+      Clear: [1, "Clear Rx end of reception flag"]
+  RXBR:
+    _write:
+      Clear: [1, "Clear Rx byte received flag"]
+
+IER:
+  TXACKIE:
+    Disabled: [0, "Tx missing acknowledge error interrupt is disabled"]
+    Enabled: [1, "Tx missing acknowledge error interrupt is enabled"]
+  TXERRIE:
+    Disabled: [0, "Tx error interrupt is disabled"]
+    Enabled: [1, "Tx error interrupt is enabled"]
+  TXUDRIE:
+    Disabled: [0, "Tx underrun interrupt is disabled"]
+    Enabled: [1, "Tx underrun interrupt is enabled"]
+  TXENDIE:
+    Disabled: [0, "Tx end of message interrupt is disabled"]
+    Enabled: [1, "Tx end of message interrupt is enabled"]
+  TXBRIE:
+    Disabled: [0, "Tx byte request interrupt is disabled"]
+    Enabled: [1, "Tx byte request interrupt is enabled"]
+  ARBLSTIE:
+    Disabled: [0, "Arbitration lost interrupt is disabled"]
+    Enabled: [1, "Arbitration lost interrupt is enabled"]
+  RXACKIE:
+    Disabled: [0, "Rx missing acknowledge error interrupt is disabled"]
+    Enabled: [1, "Rx missing acknowledge error interrupt is enabled"]
+  LBPEIE:
+    Disabled: [0, "Long bit period error interrupt is disabled"]
+    Enabled: [1, "Long bit period error interrupt is enabled"]
+  SBPEIE:
+    Disabled: [0, "Short period error interrupt is disabled"]
+    Enabled: [1, "Short period error interrupt is enabled"]
+  BREIE:
+    Disabled: [0, "Bit rising error interrupt is disabled"]
+    Enabled: [1, "Bit rising error interrupt is enabled"]
+  RXOVRIE:
+    Disabled: [0, "Rx buffer overrun interrupt is disabled"]
+    Enabled: [1, "Rx buffer overrun interrupt is enabled"]
+  RXENDIE:
+    Disabled: [0, "Rx end of reception interrupt is disabled"]
+    Enabled: [1, "Rx end of reception interrupt is enabled"]
+  RXBRIE:
+    Disabled: [0, "Rx byte received interrupt is disabled"]
+    Enabled: [1, "Rx byte received interrupt is enabled"]
