@@ -1,0 +1,20 @@
+_delete:
+  - CEC
+
+_add:
+  CEC:
+    description: "HDMI-CEC controller"
+    baseAddress: 0x40007800
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: "registers"
+    interrupts:
+      CEC:
+        description: "HDMI-CEC global interrupt"
+        value: 42
+    registers: {}
+
+CEC:
+  _include:
+    - registers/cec_v2_registers_common.yaml
