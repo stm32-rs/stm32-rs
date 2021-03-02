@@ -8,9 +8,9 @@ CR:
   TXSOM:
     _read:
       NoTx: [0, "No CEC transmission is ongoing"]
-      Tx: [1, "CEC transmission commanded"]
+      Tx: [1, "CEC transmission requested"]
     _write:
-      Tx: [1, "Set CEC transmission command"]
+      Tx: [1, "Request CEC transmission"]
   CECEN:
     Disabled: [0, "CEC is disabled"]
     Enabled: [1, "CEC is enabled"]

@@ -1,0 +1,51 @@
+CFGR:
+  BPEM:
+    Standard: [0, "Standard mode"]
+    Flexible: [1, "Flexible bit period mode"]
+  BTEM:
+    Standard: [0, "Standard mode"]
+    ErrorFree: [1, "Bit timing error-free mode"]
+  IE:
+    Disabled: [0, "CEC interrupt is disabled"]
+    Enabled: [1, "CEC interrupt is enabled"]
+  PE:
+    Disabled: [0, "CEC is disabled"]
+    Enabled: [1, "CEC is enabled"]
+
+OAR:
+  OA: [0, 15]
+
+PRES:
+  PRESC: [0, 16383]
+
+CSR:
+  RBTF:
+    _write:
+      Clear: [0, "Clear Rx byte/block transfer finished flag"]
+  RERR:
+    _write:
+      Clear: [0, "Clear Rx error"]
+  REOM:
+    _write:
+      Clear: [0, "Clear Rx end of message flag"]
+  RSOM:
+    _write:
+      Clear: [0, "Clear Rx start of message flag"]
+  TBTRF:
+    _write:
+      Clear: [0, "Clear Tx byte transfer request or block transfer finished flag"]
+  TERR:
+    _write:
+      Clear: [0, "Clear Tx error"]
+  TEOM:
+    NoEOM: [0, "Tx data byte is transmitted without EOM bit"]
+    EOM: [1, "Tx data byte is transmitted with EOM bit"]
+  TSOM:
+    _read:
+      NoTx: [0, "No CEC transmission is ongoing"]
+      Tx: [1, "CEC transmission requested"]
+    _write:
+      Tx: [1, "Request CEC transmission"]
+
+TXD:
+  TXD: [0, 255]

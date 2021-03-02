@@ -1,0 +1,145 @@
+_add:
+  CFGR:
+    description: "CEC configuration register"
+    addressOffset: 0x00
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      BPEM:
+        description: "Bit period error mode"
+        bitOffset: 3
+        bitWidth: 1
+      BTEM:
+        description: "Bit timing error mode"
+        bitOffset: 2
+        bitWidth: 1
+      IE:
+        description: "CEC interrupt enable"
+        bitOffset: 1
+        bitWidth: 1
+      PE:
+        description: "Peripheral enable"
+        bitOffset: 0
+        bitWidth: 1
+
+  OAR:
+    description: "CEC own address register"
+    addressOffset: 0x04
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      OA:
+        description: "Own address"
+        bitOffset: 0
+        bitWidth: 4
+
+  PRES:
+    description: "CEC prescalar register"
+    addressOffset: 0x08
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      PRESC:
+        description: "Prescalar counter value"
+        bitOffset: 0
+        bitWidth: 14
+
+  ESR:
+    description: "CEC error status register"
+    addressOffset: 0x0C
+    access: read-only
+    resetValue: 0x00000000
+    fields:
+      TBTFE:
+        description: "Tx block transfer finished error"
+        bitOffset: 6
+        bitWidth: 1
+      LINE:
+        description: "Line error"
+        bitOffset: 5
+        bitWidth: 1
+      ACKE:
+        description: "Block acknowledge error"
+        bitOffset: 4
+        bitWidth: 1
+      SBE:
+        description: "Start bit error"
+        bitOffset: 3
+        bitWidth: 1
+      RBTFE:
+        description: "Rx block transfer finished error"
+        bitOffset: 2
+        bitWidth: 1
+      BPE:
+        description: "Bit period error"
+        bitOffset: 1
+        bitWidth: 1
+      BTE:
+        description: "Bit timing error"
+        bitOffset: 0
+        bitWidth: 1
+
+  CSR:
+    description: "CEC control and status register"
+    addressOffset: 0x10
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      RBTF:
+        description: "Rx byte/block transfer finished flag"
+        bitOffset: 7
+        bitWidth: 1
+      RERR:
+        description: "Rx error"
+        bitOffset: 6
+        bitWidth: 1
+      REOM:
+        description: "Rx end of message flag"
+        bitOffset: 5
+        bitWidth: 1
+      RSOM:
+        description: "Rx start of message flag"
+        bitOffset: 4
+        bitWidth: 1
+      TBTRF:
+        description: "Tx byte transfer request or block transfer finished flag"
+        bitOffset: 3
+        bitWidth: 1
+      TERR:
+        description: "Tx error"
+        bitOffset: 2
+        bitWidth: 1
+      TEOM:
+        description: "Tx end of message"
+        bitOffset: 1
+        bitWidth: 1
+      TSOM:
+        description: "Tx start of message"
+        bitOffset: 0
+        bitWidth: 1
+
+  TXD:
+    description: "CEC Tx data register"
+    addressOffset: 0x14
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      TXD:
+        description: "Tx data"
+        bitOffset: 0
+        bitWidth: 8
+
+  RXD:
+    description: "CEC Rx data register"
+    addressOffset: 0x18
+    access: read-only
+    resetValue: 0x00000000
+    fields:
+      RXD:
+        description: "Rx data"
+        bitOffset: 0
+        bitWidth: 8
+
+_include:
+  - ../../../../peripherals/cec/cec_v1_fields_common.yaml
+        
