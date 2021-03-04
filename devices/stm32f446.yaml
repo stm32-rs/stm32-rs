@@ -54,6 +54,12 @@ RCC:
         bitOffset: 28
         bitWidth: 1
         access: read-write
+  APB1RSTR:
+    _add:
+      CECRST:
+        description: CEC reset
+        bitOffset: 27
+        bitWidth: 1
   APB1ENR:
     _modify:
       CEC:

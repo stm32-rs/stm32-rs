@@ -7,8 +7,8 @@ _add:
       size: 0x400
       usage: "registers"
     interrupts:
-      CEC:
-        description: "HDMI-CEC global interrupt"
+      CEC_CAN:
+        description: "HDMI-CEC and CAN global interrupt"
         value: 30
     registers: {}
 

@@ -12,6 +12,11 @@ _modify:
   C_ADC:
     name: ADC_Common
 
+RCC:
+  APB1RSTR:
+    _delete:
+      - CECRST
+
 # Registers name are prefixed with WWDG_. Use common names.
 WWDG:
   _modify:
