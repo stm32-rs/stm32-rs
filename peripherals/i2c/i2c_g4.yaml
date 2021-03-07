@@ -1,0 +1,230 @@
+# I2C peripheral used in STM32G4 series
+# vim: set shiftwidth=2 tabstop=2 softtabstop=-1 expandtab nowrap:
+
+"I2C*":
+  CR1: 
+    PECEN:
+      disabled: [0, "PEC calculation disabled"]
+      enabled: [1, "PEC calculation enabled"]
+    ALERTEN:
+      disabled: [0, "The SMBus alert pin (SMBA) is not supported in host mode (SMBHEN=1). In device mode (SMBHEN=0), the SMBA pin is released and the Alert  Response Address header is disabled (0001100x followed by NACK)."]
+      enabled: [1, "The SMBus alert pin is supported in host mode (SMBHEN=1). In device mode (SMBHEN=0), the SMBA pin is driven low and the Alert Response Address header is enabled (0001100x followed by ACK)."]
+    SMBDEN:
+      disabled: [0, "Device default address disabled. Address 0b1100001x is NACKed."]
+      enabled: [1, "Device default address enabled. Address 0b1100001x is ACKed."]
+    SMBHEN:
+      disabled: [0, "Host address disabled. Address 0b0001000x is NACKed."]
+      enabled: [1, "Host address enabled. Address 0b0001000x is ACKed."]
+    GCEN:
+      disabled: [0, "General call disabled. Address 0b00000000 is NACKed."]
+      enabled: [1, "General call enabled. Address 0b00000000 is ACKed."]
+    WUPEN:
+      disabled: [0, "Wakeup from Stop mode disable."]
+      enabled: [1, "Wakeup from Stop mode enable."]
+    NOSTRETCH:
+      enabled: [0, "Clock stretching enabled"]
+      disabled: [1, "Clock stretching disable"]
+    SBC:
+      disabled: [0, "Slave byte control disabled"]
+      enabled: [1, "Slave byte control enabled"]
+    RXDMAEN:
+      disabled: [0, "DMA mode disabled for reception"]
+      enabled: [1, "DMA mode enabled for reception"]
+    TXDMAEN:
+      disabled: [0, "DMA mode disabled for transmission"]
+      enabled: [1, "DMA mode enabled for transmission"]
+    ANFOFF:
+      enabled: [0, "Analog noise filter enabled"]
+      disabled: [1, "Analog noise filter disabled"]
+    DNF: [0, 0xF]
+    ERRIE:
+      disabled: [0, "Error detection interrupts disabled"]
+      enabled: [1, "Error detection interrupts enabled"]
+    TCIE:
+      disabled: [0, "Transfer Complete interrupt disabled"]
+      enabled: [1, "Transfer Complete interrupt enabled"]
+    STOPIE:
+      disabled: [0, "Stop detection (STOPF) interrupt disabled"]
+      enabled: [1, "Stop detection (STOPF) interrupt enabled"]
+    NACKIE:
+      disabled: [0, "Not acknowledge (NACKF) received interrupts disabled"]
+      enabled: [1, "Not acknowledge (NACKF) received interrupts enabled"]
+    ADDRIE:
+      disabled: [0, "Address match (ADDR) interrupts disabled"]
+      enabled: [1, "Address match (ADDR) interrupts enabled"]
+    RXIE:
+      disabled: [0, "Receive (RXNE) interrupt disabled"]
+      enabled: [1, "Receive (RXNE) interrupt enabled"]
+    TXIE:
+      disabled: [0, "Transmit (TXIS) interrupt disabled"]
+      enabled: [1, "Transmit (TXIS) interrupt enabled"]
+    PE:
+      disabled: [0, "peripheral disable"]
+      enabled: [1, "peripheral enable"]
+  CR2: 
+    PECBYTE:
+      no_PEC: [0, "No PEC transfer"]
+      request_PEC: [1, "PEC transmission/reception is requested"]
+    AUTOEND:
+      software_end_mode: [0, "TC flag is set when NBYTES data are transferred, stretchin SCL low"]
+      automatic_end_mode: [1, "A STOP condition is automatically sent when NBYTES data are transferred"]
+    RELOAD:
+      completed: [0, "The transfer is completed after the NBYTES data transfer (STOP or RESTART follows)"]
+      not_completed: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES is reloade). TCR flag is set when NBYTES data are transferred, stretching SCL low."]
+    NBYTES: [0, 0xFF]
+    NACK:
+      ACK: [0, "An ACK is sent after the current received byte."]
+      NACK: [1, "A NACK is sent after the current received byte."]
+    STOP:
+      no_stop: [0, "No Stop generation"]
+      stop: [1, "Stop generation after current byte transfer"]
+    START:
+      no_start: [0, "No Start generation"]
+      start: [1, "Restart/Start generation"]
+    HEAD10R:
+      head_10_bit: [0, "The master sends the complete 10 bit slave address read sequence: Start + 2 bytes 10 bit address in write direction + Restart + 1st 7 bits of the 10 bit address in read direction"]
+      head_7_bit: [1, "The master only sends the 1st 7 bits of the 10 bit address, followed by Read direction"]
+    ADD10:
+      add_7_bit: [0, "The master operates in 7-bit mode"]
+      add_10_bit: [1, "The master operates in 10-bit addressing mode"]
+    RD_WRN:
+      write: [0, "Master requests a write transfer"]
+      read: [1, "Master requests a read transfer"]
+    SADD: [0, 0b_0011_1111_1111]
+  OAR1: 
+    OA1EN:
+      disabled: [0, "Own address 1 disabled. The received slave address OA1 is NACKed."]
+      enabled: [1, "Own address 1 enabled. The received slave address OA1 is ACKed."]
+    OA1MODE: 
+      mode_7_bit: [0, "Own address is a 7-bit address."]
+      mode 10_bit: [1, "Own address 1 is a 10-bit address."]
+    OA1: [0, 0b_0011_1111_1111]
+  OAR2:
+    OA2EN:
+      disabled: [0, "Own address 2 disabled. The received slave address OA2 is NACKed."]
+      enabled: [1, "Own address 2 enabled. The received slave address OA2 is ACKed."]
+    OA2MSK: [0, 0b_0111]
+    OA2: [0, 0b_0111_1111]
+  TIMINGR:
+    PRESC: [0, 0xF]
+    SCLDEL: [0, 0xF]
+    SDADEL: [0, 0xF]
+    SCLH: [0, 0xFF]
+    SCLL: [0, 0xFF]
+  TIMEOUTR:
+    TEXTEN:
+      disabled: [0, "Extended clock timeout detection is disabled"]
+      enabled: [1, "Extended clock timeout detection is enabled. When a cumulative SCL stretch for more than t_LOW:_EXT is done by the I2C interface, a timeout error is detected (TIMEOUT=1)."]
+    TIMEOUTB: [0, 0b_0111_1111_1111]
+    TIMOUTEN:
+      disabled: [0, "SCL timeout detection is disabled"]
+      enabled: [1, "SCL timeout detection is enabled: when SCL is low for more than t_TIMEOUT (TIDLE=0) or high for more than t_IDLE (TIDLE=1), a timeout error is detected (TIMEOUT=1)"]
+    TIDLE:
+      SCL_low: [0, "TIMEOUTA is used to detect SCL low timeout"]
+      SCL_SDA_high: [1, "TIMEOUTA is used to detect both SCL and SDA high timeout (bus idle condition)"]
+    TIMEOUTA: [0, 0b_0111_1111_1111]
+  ISR:
+    ADDCODE: [0, 0b_0011_1111]
+    DIR:
+      _read:
+        write: [0, "Write transfer, slave enters receiver mode"]
+        read: [1, "Read transfer, slave enters transmitter mode"]
+    BUSY:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    ALERT:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    TIMEOUT:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    PECERR:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    OVR:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    ARLO:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    BERR:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    TCR:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    TC:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    STOPF:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    NACKF:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    ADDR:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    RXNE:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+    TXIS:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+      _write:
+        set: [1, "This bit can be written to '1' by software when NOSTRETCH=1 only, in order to generate a TXIS event (interrupt if TXIE=1 or DMA request if TXDMAEN=1)"]
+    TXE:
+      _read:
+        not_set: [0, "Flag is not set"]
+        set: [1, "Flag is set"]
+      _write:
+        set: [1, "This bit can be written to '1' by software in order to flush the transmit data register I2C_TXDR"]
+
+  ICR:
+    ALERTCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    TIMOUTCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    PECCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    OVRCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    ARLOCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    BERRCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    STOPCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    NACKCF:
+      _write:
+        clear: [1, "Clear the flag"]
+    ADDRCF:
+      _write:
+        clear: [1, "Clear the flag"]
+  PECR:
+    PEC: [0, 0xFF]
+  RXDR:
+    RXDATA: [0, 0xFF]
+  TXDR:
+    TXDATA: [0, 0xFF]
