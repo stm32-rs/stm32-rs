@@ -1,0 +1,7 @@
+_svd: ../svd/stm32g050.svd
+
+_modify:
+  name: STM32G050
+
+_include:
+ - ./common_patches/2_nvic_prio_bits.yaml
