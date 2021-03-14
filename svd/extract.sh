@@ -27,3 +27,6 @@ mv stm32g474xx.svd stm32g474.svd
 mv stm32g483xx.svd stm32g483.svd
 mv stm32g484xx.svd stm32g484.svd
 mv stm32g491xx.svd stm32g491.svd
+
+# Rename WLE5 file to remove _cm4, since it only has one core.
+mv stm32wle5_cm4.svd stm32wle5.svd
