@@ -1,0 +1,146 @@
+# RCC peripheral
+# Applicable to STM32L0xx
+
+RCC:
+  CR:
+    HSI16OUTEN:
+      Disabled: [0, "HSI output clock disabled"]
+      Enabled: [1, "HSI output clock enabled"]
+    HSI16DIVF:
+      _read:
+        NotDivided: [0, "16 MHz HSI clock not divided"]
+        Div4: [1, "16 MHz HSI clock divided by 4"]
+    HSI16DIVEN:
+      NotDivided: [0, "no 16 MHz HSI division requested"]
+      Div4: [1, "16 MHz HSI division by 4 requested"]
+    HSI16RDYF:
+      _read:
+        NotReady: [0, "HSI 16 MHz oscillator not ready"]
+        Ready: [1, "HSI 16 MHz oscillator ready"]
+  ICSCR:
+    MSITRIM: [0, 255]
+    MSICAL: [0, 255]
+    MSIRANGE:
+      Range0: [0, "range 0 around 65.536 kHz"]
+      Range1: [1, "range 1 around 131.072 kHz"]
+      Range2: [2, "range 2 around 262.144 kHz"]
+      Range3: [3, "range 3 around 524.288 kHz"]
+      Range4: [4, "range 4 around 1.048 MHz"]
+      Range5: [5, "range 5 around 2.097 MHz (reset value)"]
+      Range6: [6, "range 6 around 4.194 MHz"]
+      Range7: [7, "not allowed"]
+    HSI16TRIM: [0, 31]
+    HSI16CAL: [0, 255]
+  CFGR:
+    MCOSEL:
+      NoClock: [0, "No clock"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI oscillator clock selected"]
+      MSI: [3, "MSI oscillator clock selected"]
+      HSE: [4, "HSE oscillator clock selected"]
+      PLL: [5, "PLL clock selected"]
+      LSI: [6, "LSI oscillator clock selected"]
+      LSE: [7, "LSE oscillator clock selected"]
+    PLLSRC:
+      HSI16: [0, "HSI selected as PLL input clock"]
+      HSE: [1, "HSE selected as PLL input clock"]
+    STOPWUCK:
+      MSI: [0, "Internal 64 KHz to 4 MHz (MSI) oscillator selected as wake-up from Stop clock"]
+      HSI16: [1, "Internal 16 MHz (HSI) oscillator selected as wake-up from Stop clock (or HSI16/4 if HSI16DIVEN=1)"]
+    SWS:
+      MSI: [0, "MSI oscillator used as system clock"]
+      HSI16: [1, "HSI oscillator used as system clock"]
+      HSE: [2, "HSE oscillator used as system clock"]
+      PLL: [3, "PLL used as system clock"]
+    SW:
+      MSI: [0, "MSI oscillator used as system clock"]
+      HSI16: [1, "HSI oscillator used as system clock"]
+      HSE: [2, "HSE oscillator used as system clock"]
+      PLL: [3, "PLL used as system clock"]
+  CIER:
+    CSSLSE:
+      Disabled: [0, "LSE CSS interrupt disabled"]
+      Enabled: [1, "LSE CSS interrupt enabled"]
+    "*RDYIE":
+      Disabled: [0, "Ready interrupt disabled"]
+      Enabled: [1, "Ready interrupt enabled"]
+  CIFR:
+    CSSHSEF:
+      NoClock: [0, "No clock security interrupt caused by HSE clock failure"]
+      Clock: [1, "Clock security interrupt caused by HSE clock failure"]
+    CSSLSEF:
+      NoFailure: [0, "No failure detected on LSE clock failure"]
+      Failure: [1, "Failure detected on LSE clock failure"]
+    "*RDYF":
+      _read:
+        NotInterrupted: [0, "No clock ready interrupt"]
+        Interrupted: [1, "Clock ready interrupt"]
+  CICR:
+    "*SEC,*RDYC":
+      _write:
+        Clear: [1, "Clear interrupt flag"]
+  IOPRSTR:
+    "IOP*RST":
+      Reset: [1, "Reset I/O port"]
+  IOPENR:
+    "IOP*EN":
+      Disabled: [0, "Port clock disabled"]
+      Enabled: [1, "Port clock enabled"]
+  CCIPR:
+    "LPTIM1SEL":
+      APB: [0, "APB clock selected as Timer clock"]
+      LSI: [1, "LSI clock selected as Timer clock"]
+      HSI16: [2, "HSI16 clock selected as Timer clock"]
+      LSE: [3, "LSE clock selected as Timer clock"]
+    "I2C?SEL":
+      APB: [0, "APB clock selected as peripheral clock"]
+      SYSTEM: [1, "System clock selected as peripheral clock"]
+      HSI16: [2, "HSI16 clock selected as peripheral clock"]
+    "LPUART1SEL,USART?SEL":
+      APB: [0, "APB clock selected as peripheral clock"]
+      SYSTEM: [1, "System clock selected as peripheral clock"]
+      HSI16: [2, "HSI16 clock selected as peripheral clock"]
+      LSE: [3, "LSE clock selected as peripheral clock"]
+  CSR:
+    RTCEN:
+      Disabled: [0, "RTC clock disabled"]
+      Enabled: [1, "RTC clock enabled"]
+    RTCSEL:
+      NoClock: [0, "No clock"]
+      LSE: [1, "LSE oscillator clock used as RTC clock"]
+      LSI: [2, "LSI oscillator clock used as RTC clock"]
+      HSE: [3, "HSE oscillator clock divided by a programmable prescaler (selection through the RTCPRE[1:0] bits in the RCC clock control register (RCC_CR)) used as the RTC clock"]
+    CSSLSED:
+      NoFailure: [0, "No failure detected on LSE (32 kHz oscillator)"]
+      Failure: [1, "Failure detected on LSE (32 kHz oscillator)"]
+    LSEDRV:
+      Low: [0, "Lowest drive"]
+      MediumLow: [1, "Medium low drive"]
+      MediumHigh: [2, "Medium high drive"]
+      High: [3, "Highest drive"]
+    LSEBYP:
+      NotBypassed: [0, "LSE oscillator not bypassed"]
+      Bypassed: [1, "LSE oscillator bypassed"]
+    "*ON":
+      "Off": [0, "Oscillator OFF"]
+      "On": [1, "Oscillator ON"]
+    "*RDY":
+      NotReady: [0, "Oscillator not ready"]
+      Ready: [1, "Oscillator ready"]
+  IOPSMEN:
+    "IOP?SMEN":
+      Disabled: [0, "Port x clock is disabled in Sleep mode"]
+      Enabled: [1, "Port x clock is enabled in Sleep mode (if enabled by IOPHEN)"]
+  AHBSMENR:
+    CRCSMEN:
+      Disabled: [0, "Test integration module clock disabled in Sleep mode"]
+      Enabled: [1, "Test integration module clock enabled in Sleep mode (if enabled by CRCEN)"]
+    SRAMSMEN:
+      Disabled: [0, "NVM interface clock disabled in Sleep mode"]
+      Enabled: [1, "NVM interface clock enabled in Sleep mode"]
+    MIFSMEN:
+      Disabled: [0, "NVM interface clock disabled in Sleep mode"]
+      Enabled: [1, "NVM interface clock enabled in Sleep mode"]
+    DMASMEN:
+      Disabled: [0, "DMA clock disabled in Sleep mode"]
+      Enabled: [1, "DMA clock enabled in Sleep mode"]

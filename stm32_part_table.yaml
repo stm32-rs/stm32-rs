@@ -406,6 +406,14 @@ stm32h7:
       - STM32H757 (CM4)
 
 stm32l0:
+  stm32l0x0:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32l0x0-value-line.html
+    rm: RM0451
+    rm_title: STM32L0x0
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00443854-ultralowpower-stm32l0x0-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32L010
+
   stm32l0x1:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32l0x1.html
     rm: RM0377
@@ -604,6 +612,22 @@ stm32wl:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00530369-stm32wlex-advanced-armbased-32bit-mcus-with-subghz-radio-solution-stmicroelectronics.pdf
     members:
       - STM32WLE5
+
+  stm32wl5x_cm4:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wl5x.html
+    rm: RM0453
+    rm_title: STM32WL5x
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00451556-stm32wl5x-advanced-armbased-32bit-mcus-with-subghz-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WL5X (CM4)
+
+  stm32wl5x_cm0p:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wl5x.html
+    rm: RM0453
+    rm_title: STM32WL5x
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00451556-stm32wl5x-advanced-armbased-32bit-mcus-with-subghz-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WL5X (CM0+)
 
 stm32wb:
   stm32wb55:
