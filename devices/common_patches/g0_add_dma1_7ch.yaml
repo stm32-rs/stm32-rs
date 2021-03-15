@@ -1,0 +1,935 @@
+_add:
+  DMA1:
+    description: DMA controller
+    groupName: DMA1
+    baseAddress: 0x40020000
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: registers
+    registers:
+      ISR:
+        displayName: ISR
+        description: low interrupt status register
+        addressOffset: 0x0
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          GIF1:
+            description: Channel 1 global interrupt flag
+            bitOffset: 0
+            bitWidth: 1
+            access: read-only
+          TCIF1:
+            description: Channel 1 transfer complete flag
+            bitOffset: 1
+            bitWidth: 1
+            access: read-only
+          HTIF1:
+            description: Channel 1 half transfer flag
+            bitOffset: 2
+            bitWidth: 1
+            access: read-only
+          TEIF1:
+            description: Channel 1 transfer error flag
+            bitOffset: 3
+            bitWidth: 1
+            access: read-only
+          GIF2:
+            description: Channel 2 global interrupt flag
+            bitOffset: 4
+            bitWidth: 1
+            access: read-only
+          TCIF2:
+            description: Channel 2 transfer complete flag
+            bitOffset: 5
+            bitWidth: 1
+            access: read-only
+          HTIF2:
+            description: Channel 2 half transfer flag
+            bitOffset: 6
+            bitWidth: 1
+            access: read-only
+          TEIF2:
+            description: Channel 2 transfer error flag
+            bitOffset: 7
+            bitWidth: 1
+            access: read-only
+          GIF3:
+            description: Channel 3 global interrupt flag
+            bitOffset: 8
+            bitWidth: 1
+            access: read-only
+          TCIF3:
+            description: Channel 3 transfer complete flag
+            bitOffset: 9
+            bitWidth: 1
+            access: read-only
+          HTIF3:
+            description: Channel 3 half transfer flag
+            bitOffset: 10
+            bitWidth: 1
+            access: read-only
+          TEIF3:
+            description: Channel 3 transfer error flag
+            bitOffset: 11
+            bitWidth: 1
+            access: read-only
+          GIF4:
+            description: Channel 4 global interrupt flag
+            bitOffset: 12
+            bitWidth: 1
+            access: read-only
+          TCIF4:
+            description: Channel 4 transfer complete flag
+            bitOffset: 13
+            bitWidth: 1
+            access: read-only
+          HTIF4:
+            description: Channel 4 half transfer flag
+            bitOffset: 14
+            bitWidth: 1
+            access: read-only
+          TEIF4:
+            description: Channel 4 transfer error flag
+            bitOffset: 15
+            bitWidth: 1
+            access: read-only
+          GIF5:
+            description: Channel 5 global interrupt flag
+            bitOffset: 16
+            bitWidth: 1
+            access: read-only
+          TCIF5:
+            description: Channel 5 transfer complete flag
+            bitOffset: 17
+            bitWidth: 1
+            access: read-only
+          HTIF5:
+            description: Channel 5 half transfer flag
+            bitOffset: 18
+            bitWidth: 1
+            access: read-only
+          TEIF5:
+            description: Channel 5 transfer error flag
+            bitOffset: 19
+            bitWidth: 1
+            access: read-only
+          GIF6:
+            description: Channel 6 global interrupt flag
+            bitOffset: 20
+            bitWidth: 1
+            access: read-only
+          TCIF6:
+            description: Channel 6 transfer complete flag
+            bitOffset: 21
+            bitWidth: 1
+            access: read-only
+          HTIF6:
+            description: Channel 6 half transfer flag
+            bitOffset: 22
+            bitWidth: 1
+            access: read-only
+          TEIF6:
+            description: Channel 6 transfer error flag
+            bitOffset: 23
+            bitWidth: 1
+            access: read-only
+          GIF7:
+            description: Channel 7 global interrupt flag
+            bitOffset: 24
+            bitWidth: 1
+            access: read-only
+          TCIF7:
+            description: Channel 7 transfer complete flag
+            bitOffset: 25
+            bitWidth: 1
+            access: read-only
+          HTIF7:
+            description: Channel 7 half transfer flag
+            bitOffset: 26
+            bitWidth: 1
+            access: read-only
+          TEIF7:
+            description: Channel 7 transfer error flag
+            bitOffset: 27
+            bitWidth: 1
+            access: read-only
+      IFCR:
+        displayName: IFCR
+        description: high interrupt status register
+        addressOffset: 0x4
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          CGIF1:
+            description: Clear channel 1 global interrupt flag
+            bitOffset: 0
+            bitWidth: 1
+          CTCIF1:
+            description: Clear channel 1 transfer complete flag
+            bitOffset: 1
+            bitWidth: 1
+          CHTIF1:
+            description: Clear channel 1 half transfer flag
+            bitOffset: 2
+            bitWidth: 1
+          CTEIF1:
+            description: Clear channel 1 transfer error flag
+            bitOffset: 3
+            bitWidth: 1
+          CGIF2:
+            description: Clear channel 2 global interrupt flag
+            bitOffset: 4
+            bitWidth: 1
+          CTCIF2:
+            description: Clear channel 2 transfer complete flag
+            bitOffset: 5
+            bitWidth: 1
+          CHTIF2:
+            description: Clear channel 2 half transfer flag
+            bitOffset: 6
+            bitWidth: 1
+          CTEIF2:
+            description: Clear channel 2 transfer error flag
+            bitOffset: 7
+            bitWidth: 1
+          CGIF3:
+            description: Clear channel 3 global interrupt flag
+            bitOffset: 8
+            bitWidth: 1
+          CTCIF3:
+            description: Clear channel 3 transfer complete flag
+            bitOffset: 9
+            bitWidth: 1
+          CHTIF3:
+            description: Clear channel 3 half transfer flag
+            bitOffset: 10
+            bitWidth: 1
+          CTEIF3:
+            description: Clear channel 3 transfer error flag
+            bitOffset: 11
+            bitWidth: 1
+          CGIF4:
+            description: Clear channel 4 global interrupt flag
+            bitOffset: 12
+            bitWidth: 1
+          CTCIF4:
+            description: Clear channel 4 transfer complete flag
+            bitOffset: 13
+            bitWidth: 1
+          CHTIF4:
+            description: Clear channel 4 half transfer flag
+            bitOffset: 14
+            bitWidth: 1
+          CTEIF15:
+            description: Clear channel 4 transfer error flag
+            bitOffset: 15
+            bitWidth: 1
+          CGIF5:
+            description: Clear channel 5 global interrupt flag
+            bitOffset: 16
+            bitWidth: 1
+          CTCIF5:
+            description: Clear channel 5 transfer complete flag
+            bitOffset: 17
+            bitWidth: 1
+          CHTIF5:
+            description: Clear channel 5 half transfer flag
+            bitOffset: 18
+            bitWidth: 1
+          CTEIF5:
+            description: Clear channel 5 transfer error flag
+            bitOffset: 19
+            bitWidth: 1
+          CGIF6:
+            description: Clear channel 6 global interrupt flag
+            bitOffset: 20
+            bitWidth: 1
+          CTCIF6:
+            description: Clear channel 6 transfer complete flag
+            bitOffset: 21
+            bitWidth: 1
+          CHTIF6:
+            description: Clear channel 6 half transfer flag
+            bitOffset: 22
+            bitWidth: 1
+          CTEIF6:
+            description: Clear channel 6 transfer error flag
+            bitOffset: 23
+            bitWidth: 1
+          CGIF7:
+            description: Clear channel 7 global interrupt flag
+            bitOffset: 24
+            bitWidth: 1
+          CTCIF7:
+            description: Clear channel 7 transfer complete flag
+            bitOffset: 25
+            bitWidth: 1
+          CHTIF7:
+            description: Clear channel 7 half transfer flag
+            bitOffset: 26
+            bitWidth: 1
+          CTEIF7:
+            description: Clear channel 7 transfer error flag
+            bitOffset: 27
+            bitWidth: 1
+      CCR1:
+        displayName: CCR1
+        description: DMA channel 1 configuration register
+        addressOffset: 0x8
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR2:
+        displayName: CCR2
+        description: DMA channel 1 configuration register
+        addressOffset: 0x1C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR3:
+        displayName: CCR3
+        description: DMA channel 1 configuration register
+        addressOffset: 0x30
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR4:
+        displayName: CCR4
+        description: DMA channel 1 configuration register
+        addressOffset: 0x44
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR5:
+        displayName: CCR5
+        description: DMA channel 1 configuration register
+        addressOffset: 0x58
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR6:
+        displayName: CCR6
+        description: DMA channel 1 configuration register
+        addressOffset: 0x6C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CCR7:
+        displayName: CCR7
+        description: DMA channel 1 configuration register
+        addressOffset: 0x80
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          EN:
+            description: Channel enable
+            bitOffset: 0
+            bitWidth: 1
+          TCIE:
+            description: Transfer complete interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+          HTIE:
+            description: Half transfer interrupt enable
+            bitOffset: 2
+            bitWidth: 1
+          TEIE:
+            description: Transfer error interrupt enable
+            bitOffset: 3
+            bitWidth: 1
+          DIR:
+            description: Data transfer direction
+            bitOffset: 4
+            bitWidth: 1
+          CIRC:
+            description: Circular mode
+            bitOffset: 5
+            bitWidth: 1
+          PINC:
+            description: Peripherarl increment mode
+            bitOffset: 6
+            bitWidth: 1
+          MINC:
+            description: Memory increment mode
+            bitOffset: 7
+            bitWidth: 1
+          PSIZE:
+            description: Peripheral size
+            bitOffset: 8
+            bitWidth: 2
+          MSIZE:
+            description: Memory size
+            bitOffset: 10
+            bitWidth: 2
+          PL:
+            description: Channel priority level
+            bitOffset: 12
+            bitWidth: 2
+          MEM2MEM:
+            description: Memory to memory mode
+            bitOffset: 14
+            bitWidth: 1
+      CNDTR1:
+        displayName: CNDTR1
+        description: DMA channel 1 number of data tegister
+        addressOffset: 0xC
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR2:
+        displayName: CNDTR2
+        description: DMA channel 2 number of data tegister
+        addressOffset: 0x20
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR3:
+        displayName: CNDTR3
+        description: DMA channel 3 number of data tegister
+        addressOffset: 0x34
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR4:
+        displayName: CNDTR4
+        description: DMA channel 4 number of data tegister
+        addressOffset: 0x48
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR5:
+        displayName: CNDTR5
+        description: DMA channel 5 number of data tegister
+        addressOffset: 0x5C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR6:
+        displayName: CNDTR6
+        description: DMA channel 6 number of data tegister
+        addressOffset: 0x70
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CNDTR7:
+        displayName: CNDTR7
+        description: DMA channel 7 number of data tegister
+        addressOffset: 0x84
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          NDT:
+            description: Number of data to transfer
+            bitOffset: 0
+            bitWidth: 16
+      CPAR1:
+        displayName: CPAR1
+        description: DMA channel 1 peripheral address
+        addressOffset: 0x10
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR2:
+        displayName: CPAR2
+        description: DMA channel 2 peripheral address
+        addressOffset: 0x24
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR3:
+        displayName: CPAR3
+        description: DMA channel 3 peripheral address
+        addressOffset: 0x38
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR4:
+        displayName: CPAR4
+        description: DMA channel 4 peripheral address
+        addressOffset: 0x4C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR5:
+        displayName: CPAR5
+        description: DMA channel 5 peripheral address
+        addressOffset: 0x60
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR6:
+        displayName: CPAR6
+        description: DMA channel 6 peripheral address
+        addressOffset: 0x74
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CPAR7:
+        displayName: CPAR7
+        description: DMA channel 7 peripheral address
+        addressOffset: 0x88
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          PA:
+            description: Peripheral address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR1:
+        displayName: CMAR1
+        description: DMA channel 1 memory address
+        addressOffset: 0x14
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR2:
+        displayName: CMAR2
+        description: DMA channel 2 memory address
+        addressOffset: 0x28
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR3:
+        displayName: CMAR3
+        description: DMA channel 3 memory address
+        addressOffset: 0x3C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR4:
+        displayName: CMAR4
+        description: DMA channel 4 memory address
+        addressOffset: 0x50
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR5:
+        displayName: CMAR5
+        description: DMA channel 5 memory address
+        addressOffset: 0x64
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR6:
+        displayName: CMAR6
+        description: DMA channel 6 memory address
+        addressOffset: 0x78
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+      CMAR7:
+        displayName: CMAR7
+        description: DMA channel 7 memory address
+        addressOffset: 0x8C
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          MA:
+            description: Memory address
+            bitOffset: 0
+            bitWidth: 32
+
+DMA1:
+  _cluster:
+    "CH%s":
+      description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
+      "CCR?":
+        name: CR
+      "CNDTR?":
+        name: NDTR
+      "CPAR?":
+        name: PAR
+      "CMAR?":
+        name: MAR
