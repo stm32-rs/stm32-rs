@@ -20,6 +20,7 @@ VERSION = "0.13.0"
 SVD2RUST_VERSION = "0.17.0"
 
 CRATE_DOC_FEATURES = {
+    "gd32f1": ["rt", "gd32f1x0"],
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
     "stm32f1": ["rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103",
                 "stm32f107"],
@@ -40,6 +41,7 @@ CRATE_DOC_FEATURES = {
 }
 
 CRATE_DOC_TARGETS = {
+    "gd32f1": "thumbv7m-none-eabi",
     "stm32f0": "thumbv6m-none-eabi",
     "stm32f1": "thumbv7m-none-eabi",
     "stm32f2": "thumbv7m-none-eabi",
@@ -222,7 +224,7 @@ def main(devices_path, yes, families):
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
-        family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
+        family = re.match(r'(gd|stm)32[a-z]+[0-9]', yamlfile)[0]
         if family.startswith('stm32wl'):
             family = 'stm32wl'
         if family.startswith('stm32wb'):

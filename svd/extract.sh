@@ -30,3 +30,6 @@ mv stm32g491xx.svd stm32g491.svd
 
 # Rename WLE5 file to remove _cm4, since it only has one core.
 mv stm32wle5_cm4.svd stm32wle5.svd
+
+# Copy GD32 SVD files and give them lower-case names.
+cp vendor_gd32/GD32F1x0.svd gd32f1x0.svd

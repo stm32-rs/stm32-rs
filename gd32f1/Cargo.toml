@@ -1,0 +1,30 @@
+[package]
+edition = "2018"
+name = "gd32f1"
+version = "0.13.0"
+authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
+description = "Device support crates for GD32F1 devices"
+repository = "https://github.com/stm32-rs/stm32-rs"
+readme = "README.md"
+keywords = ["stm32", "svd2rust", "no_std", "embedded"]
+categories = ["embedded", "no-std"]
+license = "MIT/Apache-2.0"
+
+[dependencies]
+bare-metal = "0.2.4"
+vcell = "0.1.0"
+cortex-m = ">=0.5.8,<0.8"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6.10"
+
+[package.metadata.docs.rs]
+features = ['rt', 'gd32f1x0']
+default-target = "thumbv7m-none-eabi"
+targets = []
+
+[features]
+default = []
+rt = ["cortex-m-rt/device"]
+gd32f1x0 = []
