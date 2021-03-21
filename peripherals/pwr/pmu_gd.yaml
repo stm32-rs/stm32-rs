@@ -1,0 +1,50 @@
+# Power controller for GD32F130 and GDF150 devices
+
+PMU:
+  CTL:
+    BKPWEN:
+      Disabled: [0, "Access to backup domain registers disabled"]
+      Enabled: [1, "Access to backup domain registers enabled"]
+    LVDT:
+      V2_2: [0, "2.2 V"]
+      V2_3: [1, "2.3 V"]
+      V2_4: [2, "2.4 V"]
+      V2_5: [3, "2.5 V"]
+      V2_6: [4, "2.6 V"]
+      V2_7: [5, "2.7 V"]
+      V2_8: [6, "2.8 V"]
+      V2_9: [7, "2.9 V"]
+    LVDEN:
+      Disabled: [0, "Low voltage detector disabled"]
+      Enabled: [1, "Low voltage detector enabled"]
+    STBRST:
+      _write:
+        Clear: [1, "Clear the standby flag"]
+    WURST:
+      _write:
+        Clear: [1, "Clear the wakeup flag"]
+    STBMOD:
+      DeepSleep: [0, "Enter Deep-sleep mode when the CPU enters deepsleep"]
+      Standby: [1, "Enter Standby mode when the CPU enters deepsleep"]
+    LDOLP:
+      Normal: [0, "LDO operates normally during Deepsleep mode"]
+      LowPower: [1, "LDO in low-power mode during Deepsleep mode"]
+  CS:
+    WUPEN1:
+      Disabled: [0, "WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode"]
+      Enabled: [1, "WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode)"]
+    WUPEN0:
+      Disabled: [0, "WKUP pin 0 is used for general purpose I/Os. An event on the WKUP pin 0 does not wakeup the device from Standby mode"]
+      Enabled: [1, "WKUP pin 0 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 0 wakes-up the system from Standby mode)"]
+    LVDF:
+      _read:
+        AboveThreshold: [0, "VDD is higher than the LVD threshold"]
+        BelowThreshold: [1, "VDD is lower than or equal to the LVD threshold"]
+    STBF:
+      _read:
+        NoStandbyEvent: [0, "Device has not been in Standby mode"]
+        StandbyEvent: [1, "Device has been in Standby mode"]
+    WUF:
+      _read:
+        NoWakeupEvent: [0, "No wakeup event occurred"]
+        WakeupEvent: [1, "A wakeup event was received from the WKUP pin or from the RTC wakeup event (RTC Tamper event, RTC TimeStamp event or RTC alarm)"]
