@@ -1,0 +1,70 @@
+"GPIO*":
+  CTL:
+    "CTL*":
+      Input: [0, "Input mode (reset state)"]
+      Output: [1, "General purpose output mode"]
+      Alternate: [2, "Alternate function mode"]
+      Analog: [3, "Analog mode"]
+  OMODE:
+    "OM*":
+      PushPull: [0, "Output push-pull (reset state)"]
+      OpenDrain: [1, "Output open-drain"]
+  OSPD:
+    "OSPD*":
+      Speed2M: [0, "Max output speed 2 MHz"]
+      Speed10M: [1, "Max output speed 10 MHz"]
+      Speed50M: [3, "Max output speed 50 MHz"]
+  PUD:
+    "PUD*":
+      Floating: [0, "No pull-up, pull-down (reset state)"]
+      PullUp: [1, "Pull-up"]
+      PullDown: [2, "Pull-down"]
+  ISTAT:
+    "ISTAT*":
+      Low: [0, "Input is logic low"]
+      High: [1, "Input is logic high"]
+  OCTL:
+    "OCTL*":
+      Low: [0, "Set output to logic low"]
+      High: [1, "Set output to logic high"]
+  BOP:
+    "CR*":
+      _write:
+        Reset: [1, "Resets the corresponding OCTLx bit"]
+    "BOP*":
+      _write:
+        Set: [1, "Sets the corresponding OCTLx bit"]
+  BC:
+    "CR*":
+      _write:
+        Reset: [1, "Resets the corresponding OCTLx bit"]
+  TG:
+    "TG*":
+      _write:
+        Toggle: [1, "Toggles the corresponding OCTLx bit"]
+
+"GPIO[ABC]":
+  AFSEL[01]:
+    "SEL*":
+      AF0:  [0,  "AF0"]
+      AF1:  [1,  "AF1"]
+      AF2:  [2,  "AF2"]
+      AF3:  [3,  "AF3"]
+      AF4:  [4,  "AF4"]
+      AF5:  [5,  "AF5"]
+      AF6:  [6,  "AF6"]
+      AF7:  [7,  "AF7"]
+      AF9:  [9,  "AF9"]
+      AF11: [11, "AF11"]
+
+"GPIO[AB]":
+  LOCK:
+    LKK:
+      NotActive: [0, "Port configuration lock key not active"]
+      Active: [1, "Port configuration lock key active"]
+    "LK[0-9]":
+      Unlocked: [0, "Port configuration not locked"]
+      Locked: [1, "Port configuration locked"]
+    "LK1[0-5]":
+      Unlocked: [0, "Port configuration not locked"]
+      Locked: [1, "Port configuration locked"]

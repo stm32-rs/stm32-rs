@@ -1,6 +1,7 @@
 _svd: ../svd/gd32f1x0.svd
 
 _include:
+ - ../peripherals/gpio/gpio_gd.yaml
  - ../peripherals/iwdg/fwdgt_gd.yaml
  - ../peripherals/pwr/pmu_gd.yaml
  - ../peripherals/usart/usart_gd.yaml
