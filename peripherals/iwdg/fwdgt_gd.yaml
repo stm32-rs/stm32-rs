@@ -1,0 +1,32 @@
+# Free watchdog timer
+
+FWDGT:
+  CTL:
+    CMD:
+      Enable: [0x5555, "Enable access to PR, RLR and WINR registers (0x5555)"]
+      Reset: [0xAAAA, "Reset the watchdog value (0xAAAA)"]
+      Start: [0xCCCC, "Start the watchdog (0xCCCC)"]
+  PSC:
+    PSC:
+      DivideBy4: [0, "Divider /4"]
+      DivideBy8: [1, "Divider /8"]
+      DivideBy16: [2, "Divider /16"]
+      DivideBy32: [3, "Divider /32"]
+      DivideBy64: [4, "Divider /64"]
+      DivideBy128: [5, "Divider /128"]
+      DivideBy256: [6, "Divider /256"]
+      DivideBy256bis: [7, "Divider /256"]
+  RLD:
+    RLD: [0, 4095]
+  STAT:
+    WUD:
+      Valid: [0, "The value read from the WND register is valid"]
+      Ongoing: [1, "A write operation to to the WND register is ongoing, so the value read is invalid"]
+    RUD:
+      Valid: [0, "The value read from the RLD register is valid"]
+      Ongoing: [1, "A write operation to to the RLD register is ongoing, so the value read is invalid"]
+    PUD:
+      Valid: [0, "The value read from the PSC register is valid"]
+      Ongoing: [1, "A write operation to to the PSC register is ongoing, so the value read is invalid"]
+  WND:
+    WND: [0, 4095]
