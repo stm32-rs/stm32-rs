@@ -1,0 +1,236 @@
+"USART*":
+  CTL0:
+    EBIE:
+      Disabled: [0, "End of block interrupt is disabled"]
+      Enabled: [1, "End of block interrupt is enabled"]
+    RTIE:
+      Disabled: [0, "Receiver timeout interrupt is disabled"]
+      Enabled: [1, "Receiver timeout interrupt is enabled"]
+    DEA: [0, 0b11111]
+    DED: [0, 0b11111]
+    OVSMOD:
+      Oversampling16: [0, "Oversampling by 16"]
+      Oversampling8: [1, "Oversampling by 8"]
+    AMIE:
+      Disabled: [0, "Address match interrupt is disabled"]
+      Enabled: [1, "Address match interrupt is enabled"]
+    MEN:
+      Disabled: [0, "Receiver in active mode permanently"]
+      Enabled: [1, "Receiver can switch between mute mode and active mode"]
+    WL:
+      Bit8: [0, "8 data bits"]
+      Bit9: [1, "9 data bits"]
+    WM:
+      Idle: [0, "Idle line"]
+      Address: [1, "Address mask"]
+    PCEN:
+      Disabled: [0, "Parity control disabled"]
+      Enabled: [1, "Parity control enabled"]
+    PM:
+      Even: [0, "Even parity"]
+      Odd: [1, "Odd parity"]
+    PERRIE:
+      Disabled: [0, "Parity error interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever PERR=1 in the STAT register"]
+    TBEIE:
+      Disabled: [0, "Transmission register empty interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever TBE=1 in the STAT register"]
+    TCIE:
+      Disabled: [0, "Transmission complete interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever TC=1 in the STAT register"]
+    RBNEIE:
+      Disabled: [0, "Read data buffer not empty and overrrun error interrupts are disabled"]
+      Enabled: [1, "Interrupt is generated whenever ORERR=1 or RBNE=1 in the STAT register"]
+    IDLEIE:
+      Disabled: [0, "Idle line detected interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever IDLEF=1 in the STAT register"]
+    TEN:
+      Disabled: [0, "Transmitter is disabled"]
+      Enabled: [1, "Transmitter is enabled"]
+    REN:
+      Disabled: [0, "Receiver is disabled"]
+      Enabled: [1, "Receiver is enabled"]
+    UESM:
+      Disabled: [0, "USART not able to wake the MCU from deep-sleep mode"]
+      Enabled: [1, "USART is able to wake the MCU from deep-sleep mode, as long as the clock source for the USART is IRC8M or LXTAL"]
+    UEN:
+      Disabled: [0, "USART prescaler and outputs disabled"]
+      Enabled: [1, "USART prescaler and outputs is enabled"]
+  CTL1:
+    ADDR: [0, 0xFF]
+    RTEN:
+      Disabled: [0, "Receiver timeout feature disabled"]
+      Enabled: [1, "Receiver timeout feature enabled"]
+    ABDM:
+      Start: [0, "Measurement of the start bit is used to detect the baud rate"]
+      Edge: [1, "Falling edge to falling edge measurement"]
+    ABDEN:
+      Disabled: [0, "Auto baud rate detection is disabled"]
+      Enabled: [1, "Auto baud rate detection is enabled"]
+    MSBF:
+      LSB: [0, "Data is transmitted/received with data bit 0 first, following the start bit"]
+      MSB: [1, "Data is transmitted/received with MSB (bit 7/8/9) first, following the start bit"]
+    DINV:
+      Positive: [0, "Logical data from the data register are send/received in positive/direct logic"]
+      Negative: [1, "Logical data from the data register are send/received in negative/inverse logic"]
+    TINV:
+      Standard: [0, "TX pin signal works using the standard logic levels"]
+      Inverted: [1, "TX pin signal values are inverted"]
+    RINV:
+      Standard: [0, "RX pin signal works using the standard logic levels"]
+      Inverted: [1, "RX pin signal values are inverted"]
+    STRP:
+      Standard: [0, "TX/RX pins are used as defined in standard pinout"]
+      Swapped: [1, "The TX and RX pins functions are swapped"]
+    LMEN:
+      Disabled: [0, "LIN mode disabled"]
+      Enabled: [1, "LIN mode enabled"]
+    STB:
+      Stop1: [0, "1 stop bit"]
+      Stop0p5: [1, "0.5 stop bit"]
+      Stop2: [2, "2 stop bit"]
+      Stop1p5: [3, "1.5 stop bit"]
+    CKEN:
+      Disabled: [0, "CK pin disabled"]
+      Enabled: [1, "CK pin enabled"]
+    CLEN:
+      NotOutput: [0, "The clock pulse of the last data bit is not output to the CK pin"]
+      Output: [1, "The clock pulse of the last data bit is output to the CK pin"]
+    LBDIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "An interrupt is generated whenever LBDF=1 in the STAT register"]
+    LBLEN:
+      Bit10: [0, "10-bit break detection"]
+      Bit11: [1, "11-bit break detection"]
+    ADDM:
+      Bit4: [0, "4-bit address detection"]
+      Full: [1, "Full-bit address detection"]
+  CTL2:
+    WUIE:
+      Disabled: [0, "Wake-up from deep-sleep mode interrupt is disabled"]
+      Enabled: [1, "Wake-up from deep-sleep mode interrupt is generated whenever WUF=1 in the STAT register"]
+    WUM:
+      Address: [0, "WUF active on address match"]
+      Start: [2, "WUF active on start bit detection"]
+      RXNE: [3, "WUF active on RBNE"]
+    SCRTNUM: [0, 7]
+    DEP:
+      High: [0, "DE signal is active high"]
+      Low: [1, "DE signal is active low"]
+    DEM:
+      Disabled: [0, "DE function is disabled"]
+      Enabled: [1, "The DE signal is output on the RTS pin"]
+    DDRE:
+      NotDisabled: [0, "DMA is not disabled in case of reception error"]
+      Disabled: [1, "DMA is disabled following a reception error"]
+    OVRD:
+      Enabled: [0, "Overrun Error Flag, ORE, is set when received data is not read before receiving new data"]
+      Disabled: [1, "Overrun functionality is disabled. If new data is received while the RXNE flag is still set the ORE flag is not set and the new received data overwrites the previous content of the RDATA register"]
+    OSB:
+      Sample3: [0, "Three sample bit method"]
+      Sample1: [1, "One sample bit method"]
+    CTSIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "An interrupt is generated whenever CTS=1 in the STAT register"]
+    CTSEN:
+      Disabled: [0, "CTS hardware flow control disabled"]
+      Enabled: [1, "CTS mode enabled, data is only transmitted when the CTS input is asserted"]
+    RTSEN:
+      Disabled: [0, "RTS hardware flow control disabled"]
+      Enabled: [1, "RTS output enabled, data is only requested when there is space in the receive buffer"]
+    DENT:
+      Disabled: [0, "DMA mode is disabled for transmission"]
+      Enabled: [1, "DMA mode is enabled for transmission"]
+    DENR:
+      Disabled: [0, "DMA mode is disabled for reception"]
+      Enabled: [1, "DMA mode is enabled for reception"]
+    SCEN:
+      Disabled: [0, "Smartcard Mode disabled"]
+      Enabled: [1, "Smartcard Mode enabled"]
+    NKEN:
+      Disabled: [0, "NACK transmission in case of parity error is disabled"]
+      Enabled: [1, "NACK transmission during parity error is enabled"]
+    HDEN:
+      NotSelected: [0, "Half duplex mode is not selected"]
+      Selected: [1, "Half duplex mode is selected"]
+    IRLP:
+      Normal: [0, "Normal mode"]
+      LowPower: [1, "Low-power mode"]
+    IREN:
+      Disabled: [0, "IrDA disabled"]
+      Enabled: [1, "IrDA enabled"]
+    ERRIE:
+      Disabled: [0, "Error interrupt is disabled"]
+      Enabled: [1, "An interrupt is generated when FERR=1 or ORERR=1 or NERR=1 in the STAT register"]
+  BAUD:
+    INTDIV: [0, 0xFFF]
+    FRADIV: [0, 0xF]
+  GP:
+    GUAT: [0, 0xFF]
+    PSC: [0, 0xFF]
+  RT:
+    BL: [0, 0xFF]
+    RT: [0, 0xFFFFFF]
+  CMD:
+    TXFCMD:
+      Discard: [1, "Set the TBE flag. This allows to discard the transmit data"]
+    RXFCMD:
+      Discard: [1, "Clears the RBNE flag. This allows to discard the received data without reading it, and avoid an overrun condition"]
+    MMCMD:
+      Mute: [1, "Puts the USART in mute mode and sets the RWU flag"]
+    SBKCMD:
+      Break: [1, "Sets the SBKF flag and request to send a BREAK on the line, as soon as the transmit machine is available"]
+    ABDCMD:
+      Request: [1, "Resets the ABRF flag in the USART_ISR and request an automatic baud rate measurement on the next received data frame"]
+  STAT:
+    REA:
+    TEA:
+    WUF:
+    RWU:
+    SBF:
+    AMF:
+    BSY:
+    ABDF:
+    ABDE:
+    EBF:
+    RTF:
+    CTS:
+    CTSF:
+    LBDF:
+    TBE:
+    TC:
+    RBNE:
+    IDLEF:
+    ORERR:
+    NERR:
+    FERR:
+    PERR:
+  INTC:
+    WUC:
+      Clear: [1, "Clears the WUF flag in the STAT register"]
+    AMC:
+      Clear: [1, "Clears the AMF flag in the STAT register"]
+    EBC:
+      Clear: [1, "Clears the EBF flag in the STAT register"]
+    RTC:
+      Clear: [1, "Clears the RCF flag in the STAT register"]
+    CTSC:
+      Clear: [1, "Clears the CTSF flag in the STAT register"]
+    LBDC:
+      Clear: [1, "Clears the LBDF flag in the STAT register"]
+    TCC:
+      Clear: [1, "Clears the TC bit in the STAT register"]
+    IDLEC:
+      Clear: [1, "Clears the IDLEF flag in the STAT register"]
+    OREC:
+      Clear: [1, "Clears the ORERR bit in the STAT register"]
+    NEC:
+      Clear: [1, "Clears the NERR bit in the STAT register"]
+    FEC:
+      Clear: [1, "Clears the FERR bit in the STAT register"]
+    PEC:
+      Clear: [1, "Clears the PERR bit in the STAT register"]
+  RDATA:
+    RDATA: [0, 0x1FF]
+  TDATA:
+    TDATA: [0, 0xFF]
