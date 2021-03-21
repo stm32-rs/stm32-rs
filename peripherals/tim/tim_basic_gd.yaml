@@ -32,6 +32,7 @@
   CAR:
     CARL:
 
+# TIMER13 doesn't have single pulse mode or DMA.
 "TIMER?,TIMER1[4-6]":
   CTL0:
     SPM:
@@ -42,7 +43,8 @@
       Disabled: [0, "Update DMA request disabled"]
       Enabled: [1, "Update DMA request enabled"]
 
-"TIMER?,TIMER14":
+# TIMER13, TIMER15 and TIMER16 don't have interconnection.
+"TIMER[1-9],TIMER14":
   CTL1:
     MMC:
       Reset: [0, "Use UPG bit from SWEVG register"]
