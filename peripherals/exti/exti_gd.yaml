@@ -1,0 +1,28 @@
+EXTI:
+  INTEN:
+    "INTEN*":
+      Masked: [0, "Interrupt from line is disabled"]
+      Unmasked: [1, "Interrupt from line is enabled"]
+  EVEN:
+    "EVEN*":
+      Masked: [0, "Event from line is disabled"]
+      Unmasked: [1, "Event from line is enabled"]
+  RTEN:
+    "RTEN*":
+      Disabled: [0, "Rising edge trigger is disabled"]
+      Enabled: [1, "Rising edge trigger is enabled"]
+  FTEN:
+    "FTEN*":
+      Disabled: [0, "Falling edge trigger is disabled"]
+      Enabled: [1, "Falling edge trigger is enabled"]
+  SWIEV:
+    "SWIER*,SWI*":
+      _write:
+        Pend: [1, "Generates an interrupt request"]
+  PD:
+    "PD*":
+      _write:
+        Clear: [1, "Clears pending bit"]
+      _read:
+        NotPending: [0, "No trigger request occurred"]
+        Pending: [1, "Selected trigger request occurred"]
