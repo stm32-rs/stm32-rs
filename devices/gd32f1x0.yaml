@@ -8,6 +8,7 @@ TIMER0:
         name: "SMC1"
 
 _include:
+ - ../peripherals/crc/crc_gd.yaml
  - ../peripherals/exti/exti_gd.yaml
  - ../peripherals/gpio/gpio_gd.yaml
  - ../peripherals/iwdg/fwdgt_gd.yaml

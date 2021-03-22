@@ -1,0 +1,19 @@
+CRC:
+  DATA:
+    DATA: [0, 0xFFFFFFFF]
+  FDATA:
+    FDATA: [0, 0xFF]
+  CTL:
+    REV_O:
+      Normal: [0, "Bit order not affected"]
+      Reversed: [1, "Bit reversed output"]
+    REV_I:
+      Normal: [0, "Bit order not affected"]
+      Byte: [1, "Bit reversal done by byte"]
+      HalfWord: [2, "Bit reversal done by half-word"]
+      Word: [3, "Bit reversal done by word"]
+    RST:
+      _write:
+        Reset: [1, "Resets the DATA register to IDATA, with no effect on FDATA"]
+  IDATA:
+    IDATA: [0, 0xFFFFFFFF]
