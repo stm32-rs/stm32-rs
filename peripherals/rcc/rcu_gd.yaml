@@ -1,0 +1,272 @@
+RCU:
+  CTL0:
+    PLLSTB:
+      _read:
+        NotReady: [0, "PLL is not stable"]
+        Ready: [1, "PLL is stable"]
+    PLLEN,HXTALEN,IRC8MEN:
+      "Off": [0, "Clock Off"]
+      "On": [1, "Clock On"]
+    CKMEN:
+      "Off": [0, "Clock monitor disabled"]
+      "On": [1, "Clock monitor enabled"]
+    HXTALBPS:
+      NotBypassed: [0, "HXTAL crystal oscillator not bypassed"]
+      Bypassed: [1, "HXTAL crystal oscillator bypassed with external clock"]
+    HXTALSTB:
+      _read:
+        NotReady: [0, "HXTAL is not stable"]
+        Ready: [1, "HXTAL is stable"]
+    IRC8MCALIB: [0, 255]
+    IRC8MADJ: [0, 31]
+    IRC8MSTB:
+      _read:
+        NotReady: [0, "IRC8M is not stable"]
+        Ready: [1, "IRC8M is stable"]
+  CFG0:
+    PLLDV:
+      Div2: [0, "PLL is divided by 2 for CK_OUT"]
+      Div1: [1, "PLL is not divided for CK_OUT"]
+    CKOUTDIV:
+      Div1: [0, "CK_OUT is divided by 1"]
+      Div2: [1, "CK_OUT is divided by 2"]
+      Div4: [2, "CK_OUT is divided by 4"]
+      Div8: [3, "CK_OUT is divided by 8"]
+      Div16: [4, "CK_OUT is divided by 16"]
+      Div32: [5, "CK_OUT is divided by 32"]
+      Div64: [6, "CK_OUT is divided by 64"]
+      Div128: [7, "CK_OUT is divided by 128"]
+    PLLMF_MSB:
+      None: [0, "Value of PLLMF is as set"]
+      Plus15: [1, "Add 15 to the value of PLLMF"]
+    CKOUTSEL:
+      None: [0, "No clock selected"]
+      HSI14M: [1, "Internal 14 MHz RC oscillator clock selected"]
+      LSI40K: [2, "Internal 40 kHz RC oscillator clock selected"]
+      LXTAL: [3, "External low speed oscillator clock selected"]
+      SYSCLK: [4, "System clock selected"]
+      HSI8M: [5, "Internal RC 8 MHz (HSI) oscillator clock selected"]
+      HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
+      PLL: [7, "PLL clock selected (divided by 1 or 2, depending on PLLDV)"]
+    USBDPSC:
+      DIV1_5: [0, "PLL clock is divided by 1.5"]
+      DIV1: [1, "PLL clock is not divided"]
+      DIV2_5: [2, "PLL clock is divided by 2.5"]
+      DIV2: [3, "PLL clock is divided by 2"]
+    PLLMF:
+      Mul2: [0, "PLL input clock x2"]
+      Mul3: [1, "PLL input clock x3"]
+      Mul4: [2, "PLL input clock x4"]
+      Mul5: [3, "PLL input clock x5"]
+      Mul6: [4, "PLL input clock x6"]
+      Mul7: [5, "PLL input clock x7"]
+      Mul8: [6, "PLL input clock x8"]
+      Mul9: [7, "PLL input clock x9"]
+      Mul10: [8, "PLL input clock x10"]
+      Mul11: [9, "PLL input clock x11"]
+      Mul12: [10, "PLL input clock x12"]
+      Mul13: [11, "PLL input clock x13"]
+      Mul14: [12, "PLL input clock x14"]
+      Mul15: [13, "PLL input clock x15"]
+      Mul16: [14, "PLL input clock x16"]
+      Mul16x: [15, "PLL input clock x16"]
+    PLLPREDV:
+      Div1: [0, "HXTAL clock not divided"]
+      Div2: [1, "HXTAL clock divided by 2"]
+    PLLSEL:
+      IRC8M_2: [0, "IRC8M / 2 selected as PLL source clock"]
+      HXTAL: [1, "HXTAL selected as PLL source clock"]
+    ADCPSC:
+      Div2: [0, "CK_APB2 divided by 2"]
+      Div4: [1, "CK_APB2 divided by 4"]
+      Div6: [2, "CK_APB2 divided by 6"]
+      Div8: [3, "CK_APB2 divided by 8"]
+    APB[12]PSC:
+      Div1: [0, "CK_AHB"]
+      Div2: [4, "CK_AHB divided by 2"]
+      Div4: [5, "CK_AHB divided by 4"]
+      Div6: [6, "CK_AHB divided by 8"]
+      Div8: [7, "CK_AHB divided by 16"]
+    AHBPSC:
+      Div1: [0, "CK_SYS"]
+      Div2: [8, "CK_SYS divided by 2"]
+      Div4: [9, "CK_SYS divided by 4"]
+      Div8: [10, "CK_SYS divided by 8"]
+      Div16: [11, "CK_SYS divided by 16"]
+      Div64: [12, "CK_SYS divided by 64"]
+      Div128: [13, "CK_SYS divided by 128"]
+      Div256: [14, "CK_SYS divided by 256"]
+      Div512: [15, "CK_SYS divided by 512"]
+    SCSS:
+      IRC8M: [0, "IRC8M used as system clock"]
+      HXTAL: [1, "HXTAL used as system clock"]
+      PLL: [2, "PLL used as system clock"]
+    SCS:
+      IRC8M: [0, "IRC8M used as system clock"]
+      HXTAL: [1, "HXTAL used as system clock"]
+      PLL: [2, "PLL used as system clock"]
+  INT:
+    CKMIC:
+      _write:
+        Clear: [1, "Clear CKMIF flag"]
+    IRC14MSTBIC:
+      _write:
+        Clear: [1, "Clear IRC14MSTBIF flag"]
+    PLLSTBIC:
+      _write:
+        Clear: [1, "Clear PLLSTBIF flag"]
+    HXTALSTBIC:
+      _write:
+        Clear: [1, "Clear HXTALSTBIF flag"]
+    IRC8MSTBIC:
+      _write:
+        Clear: [1, "Clear IRC8MSTBIF flag"]
+    LXTALSTBIC:
+      _write:
+        Clear: [1, "Clear LXTALSTBIF flag"]
+    IRC40KSTBIC:
+      _write:
+        Clear: [1, "Clear IRC40KSTBIF flag"]
+    IRC14MSTBIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    PLLSTBIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    HXTALSTBIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    IRC40KSTBIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    CKMIF:
+      _read:
+        NotInterrupted: [0, "Clock operating normally"]
+        Interrupted: [1, "HXTAL clock stuck"]
+    IRC14MSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "IRC14M stabilisation interrupt generated"]
+    PLLSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "PLL stabilisation interrupt generated"]
+    HXTALSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "HXTAL stabilisation interrupt generated"]
+    IRC8MSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "IRC8M stabilisation interrupt generated"]
+    LXTALSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "LXTAL stabilisation interrupt generated"]
+    IRC40KSTBIF:
+      _read:
+        NotInterrupted: [0, "No interrupt generated"]
+        Interrupted: [1, "IRC40K stabilisation interrupt generated"]
+  "APB[12]RST,AHBRST,ADDAPB1RST":
+    "*RST":
+      Reset: [1, "Reset the selected module"]
+  AHBEN,APB2EN,APB1EN,ADDAPB1EN:
+    "*EN":
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
+  BDCTL:
+    BKPRST:
+      NoReset: [0, "Reset not activated"]
+      Reset: [1, "Reset the entire RTC domain"]
+    RTCEN:
+      Disabled: [0, "RTC clock disabled"]
+      Enabled: [1, "RTC clock enabled"]
+    RTCSRC:
+      NoClock: [0, "No clock"]
+      LXTAL: [1, "LXTAL oscillator clock used as RTC clock"]
+      IRC40K: [2, "IRC40K oscillator clock used as RTC clock"]
+      HXTAL: [3, "HXTAL oscillator / 32 used as RTC clock"]
+    LXTALDRI:
+      Low: [0, "Low driving capability"]
+      MediumLow: [1, "Medium low driving capability"]
+      MediumHigh: [2, "Medium high driving capability"]
+      High: [3, "High driving capability (reset value)"]
+    LXTALBPS:
+      NotBypassed: [0, "LXTAL crystal oscillator not bypassed"]
+      Bypassed: [1, "LXTAL crystal oscillator bypassed with external clock"]
+    LXTALSTB:
+      _read:
+        NotReady: [0, "LXTAL oscillator not ready"]
+        Ready: [1, "LXTAL oscillator ready"]
+    LXTALEN:
+      "Off": [0, "LXTAL oscillator Off"]
+      "On": [1, "LXTAL oscillator On"]
+  RSTSCK:
+    LPRSTF,WWDFTRSTF,FWDFTRSTF,SWRSTF,PORRSTF,EPRSTF,OBLRSTF,V12RSTF:
+      _read:
+        NoReset: [0, "No reset has occured"]
+        Reset: [1, "A reset has occured"]
+    RSTFC:
+      _write:
+        Clear: [1, "Clears reset flags"]
+    IRC40KSTB:
+      _read:
+        NotReady: [0, "IRC40K oscillator is not stable"]
+        Ready: [1, "IRC40K oscillator is stable"]
+    IRC40KEN:
+      "Off": [0, "IRC40K oscillator disabled"]
+      "On": [1, "IRC40K oscillator enabled"]
+  CFG1:
+    HXTALPREDV:
+      Div1: [0, "HXTAL input to PLL not divided"]
+      Div2: [1, "HXTAL input to PLL divided by 2"]
+      Div3: [2, "HXTAL input to PLL divided by 3"]
+      Div4: [3, "HXTAL input to PLL divided by 4"]
+      Div5: [4, "HXTAL input to PLL divided by 5"]
+      Div6: [5, "HXTAL input to PLL divided by 6"]
+      Div7: [6, "HXTAL input to PLL divided by 7"]
+      Div8: [7, "HXTAL input to PLL divided by 8"]
+      Div9: [8, "HXTAL input to PLL divided by 9"]
+      Div10: [9, "HXTAL input to PLL divided by 10"]
+      Div11: [10, "HXTAL input to PLL divided by 11"]
+      Div12: [11, "HXTAL input to PLL divided by 12"]
+      Div13: [12, "HXTAL input to PLL divided by 13"]
+      Div14: [13, "HXTAL input to PLL divided by 14"]
+      Div15: [14, "HXTAL input to PLL divided by 15"]
+      Div16: [15, "HXTAL input to PLL divided by 16"]
+  CFG2:
+    ADCSEL:
+      IRC14M: [0, "IRC14M selected as ADC clock source"]
+      APB2: [1, "APB2 divided by prescaler selected as ADC clock source"]
+    CECSEL:
+      IRC8M_Div244: [0, "IRC8M clock divided by 244 selected as CEC clock source"]
+      LXTAL: [1, "LXTAL clock selected as CEC clock source"]
+    USART0SEL:
+      APB2: [0, "APB2 selected as USART0 clock source"]
+      SYS: [1, "SYS selected as USART0 clock source"]
+      LXTAL: [2, "LXTAL selected as USART0 clock source"]
+      IRC8M: [3, "IRC8M selected as USART0 clock source"]
+  CTL1:
+    IRC14MCALIB: [0, 255]
+    IRC14MADJ: [0, 31]
+    IRC14MSTB:
+      _read:
+        NotReady: [0, "IRC14M is not stable"]
+        Ready: [1, "IRC14M is stable"]
+    IRC14MEN:
+      "Off": [0, "Clock Off"]
+      "On": [1, "Clock On"]
+  VKEY:
+    KEY:
+      _write:
+        Enable: [0x1A2B3C4D, "Allow PDVSEL and DSV to be written"]
+  DSV:
+    DSLPVS:
+      V1_2: [0, "The core voltage is 1.2 V in deep-sleep mode"]
+      V1_1: [1, "The core voltage is 1.1 V in deep-sleep mode"]
+      V1_0: [2, "The core voltage is 1.0 V in deep-sleep mode"]
+      V0_9: [3, "The core voltage is 0.9 V in deep-sleep mode"]
+  PDVSEL:
+    PDRVS:
+      V2_6: [0, "The power down voltage is 2.6 V"]
+      V1_8: [1, "The power down voltage is 1.8 V"]
