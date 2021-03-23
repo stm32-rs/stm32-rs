@@ -1,0 +1,111 @@
+DFSDMEN:
+  name: "DFSDMEN"
+  description: "DFSDM interface global enable (only available in CH0CFGR1)"
+  bitOffset: 31
+  bitWidth: 1
+  values:
+    Disabled: [0, "DFSDM interface is disabled"]
+    Enabled: [1, "DFSDM interface is enabled"]
+
+CKOUTSRC:
+  name: "CKOUTSRC"
+  description: "Output serial clock source selection (only available in CH0CFGR1)"
+  bitOffset: 30
+  bitWidth: 1
+  values:
+    SystemClock: [0, "Source for output clock is system clock"]
+    AudioClock: [1, "Source for output clock is audio clock"]
+
+CKOUTDIV:
+  name: "CKOUTDIV"
+  description: "Output serial clock divider (only available in CH0CFGR1)"
+  bitOffset: 16
+  bitWidth: 8
+  values: [0, 255]
+
+DATPACK:
+  name: "DATPACK"
+  description: "CHyDATINR register data packing mode"
+  bitOffset: 14
+  bitWidth: 2
+  values:
+    Standard: [0, "Input data in CHyDATINR register are stored only in INDAT0[15:0]"]
+    Interleaved: [1, "Input data in CHyDATINR register are stored in INDAT0[15:0] (channel y) and INDAT1[15:0] (channel y)"]
+    Dual: [2, "Input data in CHyDATINR register are stored in INDAT0[15:0] (channel y) and INDAT1[15:0] (channel y+1)"]
+
+DATMPX_ADC:
+  name: "DATMPX"
+  description: "Channel y input data multiplexer"
+  bitOffset: 12
+  bitWidth: 2
+  values:
+    ExternalSerial: [0, "Data to channel y are taken from external serial inputs as 1-bit values"]
+    InternalADC: [1, "Data to channel y are taken from internal analog to digital converter ADC(y+1) output register update as 16-bit values"]
+    InternalData: [2, "Data to channel y are taken from internal CHyDATINR register by direct CPU/DMA write"]
+
+DATMPX_NOADC:
+  name: "DATMPX"
+  description: "Channel y input data multiplexer"
+  bitOffset: 12
+  bitWidth: 2
+  values:
+    ExternalSerial: [0, "Data to channel y are taken from external serial inputs as 1-bit values"]
+    InternalData: [2, "Data to channel y are taken from internal CHyDATINR register by direct CPU/DMA write"]
+
+CHINSEL:
+  name: "CHINSEL"
+  description: "Channel y inputs selection"
+  bitOffset: 8
+  bitWidth: 1
+  values:
+    SameChannel: [0, "Channel inputs are taken from pins of the same channel y"]
+    FollowingChannel: [1, "Channel inputs are taken from pins of the following channel (channel (y+1) mod 8)"]
+
+CHEN:
+  name: "CHEN"
+  description: "Channel y enable"
+  bitOffset: 7
+  bitWidth: 1
+  values:
+    Disabled: [0, "Channel y is disabled"]
+    Enabled: [1, "Channel y is enabled"]
+
+CKABEN:
+  name: "CKABEN"
+  description: "Channel y clock absence detector enable"
+  bitOffset: 6
+  bitWidth: 1
+  values:
+    Disabled: [0, "Clock absence detector is disabled on channel y"]
+    Enabled: [1, "Clock absence detector is enabled on channel y"]
+
+SCDEN:
+  name: "SCDEN"
+  description: "Channel y short-circuit detector enable"
+  bitOffset: 5
+  bitWidth: 1
+  values:
+    Disabled: [0, "Input channel y is not guarded by the short-circuit detector"]
+    Enabled: [1, "Input channel y is continuously guarded by the short-circuit detector"]
+
+SPICKSEL:
+  name: "SPICKSEL"
+  description: "Channel y SPI clock select"
+  bitOffset: 2
+  bitWidth: 2
+  values:
+    ExternalSerial: [0, "Clock is coming from external CKINy input; sampling point according to SITP[1:0]"]
+    InternalSerial: [1, "Clock is coming from internal CKOUT output; sampling point according to SITP[1:0]"]
+    InternalFalling: [2, "Clock is coming from internal CKOUT output; sampling point on each second CKOUT falling edge"]
+    InternalRising: [3, "Clock is coming from internal CKOUT output; sampling point on each second CKOUT rising edge"]
+
+SITP:
+  name: "SITP"
+  description: "Channel y serial interface type"
+  bitOffset: 0
+  bitWidth: 2
+  values:
+    SPIRisingEdge: [0, "Serial interface is SPI with data strobed on rising edge"]
+    SPIFallingEdge: [1, "Serial interface is SPI with data strobed on falling edge"]
+    ManchesterII: [2, "Serial interface is Manchester-coded input on DATINy pin: rising=0, falling=1"]
+    ManchesterIEEE: [3, "Serial interface is Manchester-coded input on DATINy pin: rising=1, falling=0"]

@@ -1,0 +1,36 @@
+_newperipheral:
+  name: DFSDM1
+  description: Digital filter for sigma delta modulators
+  baseAddress: 0x40017800
+  addressBlock:
+    offset: 0x0
+    size: 0x800
+    useage: registers
+  interrupts:
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT0_110
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT1_111
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT2_112
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT3_113
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT4_64
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT5_65
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT6_66
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT7_67
+  registers:
+    from: registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_8CH_ADC
+
+_newperipheral:
+  name: DFSDM2
+  description: Digital filter for sigma delta modulators
+  baseAddress: 0x58006C00
+  addressBlock:
+    offset: 0x0
+    size: 0x800
+    useage: registers
+  _newinterrupts:
+    source: dfsdm_interrupts.yaml
+    interrupts:
+      - DFSDM2_FLT0_42
+  _newregisters:
+    source: registers/dfsdm_v1_registers_CHyCFGR1.yaml
+    registers:
+      - CHyCFGR1_2CH_NOADC
