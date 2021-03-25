@@ -1,0 +1,44 @@
+# This field is a complete implementation of all of the variations for
+# the CHyCFGR1 register. The difference in number of channels per
+# device is addressed in clusters/dfsdm_v1_clusters_CHy.yaml. Given
+# that there are only two variations for this register, it might make
+# sense to change this file to dfsdm_v1_registers_CHy_common.yaml and
+# include other registers to cut down on the number of files.
+
+CHyCFGR1_ADC:
+  name: "CH%sCFGR1"
+  description: "Channel y configuration register 1"
+  addressOffset: 0x00
+  access: read-write
+  resetValue: 0x00000000
+  fields:
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DFSDMEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKOUTSRC
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKOUTDIV
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DATPACK
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DATMPX_ADC
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CHINSEL
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CHEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKABEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SCDEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SPICKSEL
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SITP
+
+CHyCFGR1_NOADC:
+  name: "CH%sCFGR1"
+  description: "Channel y configuration register 1"
+  addressOffset: 0x00
+  access: read-write
+  resetValue: 0x00000000
+  fields:
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DFSDMEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKOUTSRC
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKOUTDIV
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DATPACK
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:DATMPX_NOADC
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CHINSEL
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CHEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:CKABEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SCDEN
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SPICKSEL
+    from: ../fields/dfsdm_v1_fields_CHyCFGR1.yaml:SITP

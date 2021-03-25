@@ -1,46 +1,6 @@
-_newperipheral:
-  name: DFSDM
-  description: Digital filter for sigma delta modulators
-  baseAddress: 0x4400D000
-  addressBlock:
-    offset: 0x0
-    size: 0x800
-    useage: registers
-  interrupts:
-    from: dfsdm_interrupts.yaml:DFSDM_FLT0_110
-    from: dfsdm_interrupts.yaml:DFSDM_FLT1_111
-    from: dfsdm_interrupts.yaml:DFSDM_FLT2_112
-    from: dfsdm_interrupts.yaml:DFSDM_FLT3_113
-    from: dfsdm_interrupts.yaml:DFSDM_FLT4_115
-    from: dfsdm_interrupts.yaml:DFSDM_FLT5_126
-  registers:
-    from: registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_8CH_ADC
-  _newinterrupts:
-    source: dfsdm_interrupts.yaml
-    interrupts:
-      - DFSDM_FLT0_110
-      - DFSDM_FLT1_111
-      - DFSDM_FLT2_112
-      - DFSDM_FLT3_113
-      - DFSDM_FLT4_115
-      - DFSDM_FLT5_126
-  _newregisters:
-    source: registers/dfsdm_v1_registers_CHyCFGR1.yaml
-    registers: [CHyCFGR1_8CH_ADC]
-  registers:
-    _newregisterarray:
-      name: "CH%sCFGR1"
-      description: Channel y configuration register 1
-      addressOffset: 0x00
-      dim: 8
-      dimIncrement: 0x20
-      dimIndex: [0,1,2,3,4,5,6,7]
-      access: read-write
-      resetValue: 0x00000000
-      fieldsSource: fields/dfsdm_v1_fields_CHyCFGR1.yaml
-      fields:
-        - DFSDMEN
-        - CKOUTSRC
-        - CKOUTDIV
-        - DATPACK
-        - DATMPX_ADC
+# Not implemented yet, but this is an example where an occasionally RM
+# differentiates between two sets of chips for the given peripheral
+# (see the two tables on page 831). To deal with this, just give this
+# file a more descriptive name and treat it as a separate RM. I did
+# not make a file for L4P5xx/L4Q5xx to reduce clutter, but there
+# should be one for those chips as well.

@@ -1,100 +1,30 @@
-# DFSDM filter 0
+# This file is a complete implementation of all of the DFSDM filter
+# interrupts across all devices. Organization is by filter number,
+# with slight variations in name and value in each section. Variations
+# are reflected in a descriptive key for each interrupt, which is
+# pulled into the relevant dfsdm_RMxxxx.yaml file.
+
+# Filter 0
 DFSDM_FLT0_61:
   name: DFSDM_FLT0
-  description: DFSDM filter 0 global interrupt
+  description: Filter 0 global interrupt
   value: 61
 
 DFSDM_FLT0_99:
   name: DFSDM_FLT0
-  description: DFSDM filter 0 global interrupt
+  description: Filter 0 global interrupt
   value: 99
 
 DFSDM_FLT0_102:
   name: DFSDM_FLT0
-  description: DFSDM filter 0 global interrupt
+  description: Filter 0 global interrupt
   value: 102
   
 DFSDM_FLT0_110:
   name: DFSDM_FLT0
-  description: DFSDM filter 0 global interrupt
+  description: Filter 0 global interrupt
   value: 110
-
-# DFSDM filter 1
-DFSDM_FLT1_62:
-  name: DFSDM_FLT1
-  description: DFSDM filter 1 global interrupt
-  value: 62
-
-DFSDM_FLT1_100:
-  name: DFSDM_FLT1
-  description: DFSDM filter 1 global interrupt
-  value: 100
-
-DFSDM_FLT1_103:
-  name: DFSDM_FLT1
-  description: DFSDM filter 1 global interrupt
-  value: 103
-
-DFSDM_FLT1_111:
-  name: DFSDM_FLT1
-  description: DFSDM filter 1 global interrupt
-  value: 111
-
-# DFSDM filter 2
-DFSDM_FLT2_63:
-  name: DFSDM_FLT2
-  description: DFSDM filter 2 global interrupt
-  value: 63
-
-DFSDM_FLT2_101:
-  name: DFSDM_FLT2
-  description: DFSDM filter 2 global interrupt
-  value: 101
-
-DFSDM_FLT2_104:
-  name: DFSDM_FLT2
-  description: DFSDM filter 2 global interrupt
-  value: 104
-
-DFSDM_FLT2_112:
-  name: DFSDM_FLT2
-  description: DFSDM filter 2 global interrupt
-  value: 112
-
-# DFSDM filter 3
-DFSDM_FLT3_42:
-  name: DFSDM_FLT3
-  description: DFSDM filter 3 global interrupt
-  value: 42
-
-DFSDM_FLT3_102:
-  name: DFSDM_FLT3
-  description: DFSDM filter 3 global interrupt
-  value: 102
-
-DFSDM_FLT3_105:
-  name: DFSDM_FLT3
-  description: DFSDM filter 3 global interrupt
-  value: 105
-
-DFSDM_FLT3_113:
-  name: DFSDM_FLT3
-  description: DFSDM filter 3 global interrupt
-  value: 113
-
-# DFSDM filter 4
-DFSDM_FLT4_115:
-  name: DFSDM_FLT4
-  description: DFSDM filter 4 global interrupt
-  value: 115
-
-# DFSDM filter 5
-DFSDM_FLT5_126:
-  name: DFSDM_FLT5
-  description: DFSDM filter 5 global interrupt
-  value: 126
-
-# DFSDM1 filter 0
+  
 DFSDM1_FLT0_61:
   name: DFSDM1_FLT0
   description: DFSDM1 filter 0 global interrupt
@@ -104,55 +34,7 @@ DFSDM1_FLT0_110:
   name: DFSDM1_FLT0
   description: DFSDM1 filter 0 global interrupt
   value: 110
-  
-# DFSDM1 filter 1
-DFSDM1_FLT1_62:
-  name: DFSDM1_FLT1
-  description: DFSDM1 filter 1 global interrupt
-  value: 62
-  
-DFSDM1_FLT1_111:
-  name: DFSDM1_FLT1
-  description: DFSDM1 filter 1 global interrupt
-  value: 111
-  
-# DFSDM1 filter 2
-DFSDM1_FLT2_112:
-  name: DFSDM1_FLT2
-  description: DFSDM1 filter 2 global interrupt
-  value: 112
-  
-# DFSDM1 filter 3
-DFSDM1_FLT3_113:
-  name: DFSDM1_FLT3
-  description: DFSDM1 filter 3 global interrupt
-  value: 113
-  
-# DFSDM1 filter 4
-DFSDM1_FLT4_64:
-  name: DFSDM1_FLT4
-  description: DFSDM1 filter 4 global interrupt
-  value: 64
 
-# DFSDM1 filter 5
-DFSDM1_FLT5_65:
-  name: DFSDM1_FLT5
-  description: DFSDM1 filter 5 global interrupt
-  value: 65
-
-# DFSDM1 filter 6
-DFSDM1_FLT6_66:
-  name: DFSDM1_FLT6
-  description: DFSDM1 filter 6 global interrupt
-  value: 66
-
-# DFSDM1 filter 7
-DFSDM1_FLT7_67:
-  name: DFSDM1_FLT7
-  description: DFSDM1 filter 7 global interrupt
-  value: 67
-
-# DFSDM2 filter 0
 DFSDM2_FLT0_42:
   name: DFSDM2_FLT0
   description: DFSDM2 filter 0 global interrupt
@@ -163,20 +45,134 @@ DFSDM2_FLT0_98:
   description: DFSDM2 filter 0 global interrupt
   value: 98
 
-# DFSDM2 filter 1
+# Filter 1
+DFSDM_FLT1_62:
+  name: DFSDM_FLT1
+  description: Filter 1 global interrupt
+  value: 62
+
+DFSDM_FLT1_100:
+  name: DFSDM_FLT1
+  description: Filter 1 global interrupt
+  value: 100
+
+DFSDM_FLT1_103:
+  name: DFSDM_FLT1
+  description: Filter 1 global interrupt
+  value: 103
+
+DFSDM_FLT1_111:
+  name: DFSDM_FLT1
+  description: Filter 1 global interrupt
+  value: 111
+
+DFSDM1_FLT1_62:
+  name: DFSDM1_FLT1
+  description: DFSDM1 filter 1 global interrupt
+  value: 62
+  
+DFSDM1_FLT1_111:
+  name: DFSDM1_FLT1
+  description: DFSDM1 filter 1 global interrupt
+  value: 111
+
 DFSDM2_FLT1_99:
   name: DFSDM2_FLT1
   description: DFSDM2 filter 1 global interrupt
   value: 99
 
-# DFSDM2 filter 2
+# Filter 2
+DFSDM_FLT2_63:
+  name: DFSDM_FLT2
+  description: Filter 2 global interrupt
+  value: 63
+
+DFSDM_FLT2_101:
+  name: DFSDM_FLT2
+  description: Filter 2 global interrupt
+  value: 101
+
+DFSDM_FLT2_104:
+  name: DFSDM_FLT2
+  description: Filter 2 global interrupt
+  value: 104
+
+DFSDM_FLT2_112:
+  name: DFSDM_FLT2
+  description: Filter 2 global interrupt
+  value: 112
+
+DFSDM1_FLT2_112:
+  name: DFSDM1_FLT2
+  description: DFSDM1 filter 2 global interrupt
+  value: 112
+
 DFSDM2_FLT2_100:
   name: DFSDM2_FLT2
   description: DFSDM2 filter 2 global interrupt
   value: 100
 
-# DFSDM2 filter 3
+# Filter 3
+DFSDM_FLT3_42:
+  name: DFSDM_FLT3
+  description: Filter 3 global interrupt
+  value: 42
+
+DFSDM_FLT3_102:
+  name: DFSDM_FLT3
+  description: Filter 3 global interrupt
+  value: 102
+
+DFSDM_FLT3_105:
+  name: DFSDM_FLT3
+  description: Filter 3 global interrupt
+  value: 105
+
+DFSDM_FLT3_113:
+  name: DFSDM_FLT3
+  description: Filter 3 global interrupt
+  value: 113
+
+DFSDM1_FLT3_113:
+  name: DFSDM1_FLT3
+  description: DFSDM1 filter 3 global interrupt
+  value: 113
+
 DFSDM2_FLT3_101:
   name: DFSDM2_FLT3
   description: DFSDM2 filter 3 global interrupt
   value: 101
+
+# Filter 4
+DFSDM_FLT4_115:
+  name: DFSDM_FLT4
+  description: Filter 4 global interrupt
+  value: 115
+
+DFSDM1_FLT4_64:
+  name: DFSDM1_FLT4
+  description: DFSDM1 filter 4 global interrupt
+  value: 64
+
+# Filter 5
+DFSDM_FLT5_126:
+  name: DFSDM_FLT5
+  description: Filter 5 global interrupt
+  value: 126
+
+DFSDM1_FLT5_65:
+  name: DFSDM1_FLT5
+  description: DFSDM1 filter 5 global interrupt
+  value: 65
+
+# Filter 6
+DFSDM1_FLT6_66:
+  name: DFSDM1_FLT6
+  description: DFSDM1 filter 6 global interrupt
+  value: 66
+
+# Filter 7
+DFSDM1_FLT7_67:
+  name: DFSDM1_FLT7
+  description: DFSDM1 filter 7 global interrupt
+  value: 67

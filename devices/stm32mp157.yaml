@@ -12,3 +12,7 @@ _modify:
     fpuPresent: "true"
     nvicPrioBits: 4
     vendorSystickConfig: "false"
+
+_include:
+  - common_patches/delete_dfsdm.yaml
+  - ../independent_peripherals/dfsdm/dfsdm_RM0436.yaml

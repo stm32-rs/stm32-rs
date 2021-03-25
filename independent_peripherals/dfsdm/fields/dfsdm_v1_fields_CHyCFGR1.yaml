@@ -1,3 +1,13 @@
+# This file is a complete implementation of all of the fields and
+# variations for the CHyCFGR1 register across all devices. Note that
+# the enums/ranges are included in the field descriptions instead of
+# in peripherals/ in a separate file. Also note that DATMPX has two
+# versions with slightly different enums. The same approach would work
+# for fields with slightly different bitOffsets or bitWidths. Each
+# field variation gets a descriptive key (DATMPX_ADC vs. DATMPX_NOADC)
+# that is pulled into the relevant register variations in
+# registers/dfsdm_v1_registers_CHyCFGR1.yaml.
+
 DFSDMEN:
   name: "DFSDMEN"
   description: "DFSDM interface global enable (only available in CH0CFGR1)"

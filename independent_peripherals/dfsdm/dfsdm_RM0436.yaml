@@ -1,3 +1,15 @@
+# This file is a complete implementation of the DFSDM peripheral found
+# on RM0436 devices. This file demonstrates the _newperipheral
+# directive (kind of similar to the existing _add) and including
+# interrupts and registers defined in other files. Rather than
+# included another file in its entirety, this file selects specific
+# elements from other files. This is because the other files are
+# organized such that they include all of the variations of a given
+# cluster/register/interrupt/etc., and each dfsdm_RMxxxx.yaml file
+# only needs the variations that match the description in its RM. The
+# registers block pulls from both clusters and registers defined in
+# other files.
+
 _newperipheral:
   name: DFSDM
   description: Digital filter for sigma delta modulators
@@ -14,33 +26,9 @@ _newperipheral:
     from: dfsdm_interrupts.yaml:DFSDM_FLT4_115
     from: dfsdm_interrupts.yaml:DFSDM_FLT5_126
   registers:
-    from: registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_8CH_ADC
-  _newinterrupts:
-    source: dfsdm_interrupts.yaml
-    interrupts:
-      - DFSDM_FLT0_110
-      - DFSDM_FLT1_111
-      - DFSDM_FLT2_112
-      - DFSDM_FLT3_113
-      - DFSDM_FLT4_115
-      - DFSDM_FLT5_126
-  _newregisters:
-    source: registers/dfsdm_v1_registers_CHyCFGR1.yaml
-    registers: [CHyCFGR1_8CH_ADC]
-  registers:
-    _newregisterarray:
-      name: "CH%sCFGR1"
-      description: Channel y configuration register 1
-      addressOffset: 0x00
-      dim: 8
-      dimIncrement: 0x20
-      dimIndex: [0,1,2,3,4,5,6,7]
-      access: read-write
-      resetValue: 0x00000000
-      fieldsSource: fields/dfsdm_v1_fields_CHyCFGR1.yaml
-      fields:
-        - DFSDMEN
-        - CKOUTSRC
-        - CKOUTDIV
-        - DATPACK
-        - DATMPX_ADC
+    from: clusters/dfsdm_v1_clusters_CHy.yaml:8CH_ADC_DLY
+    from: clusters/dfsdm_v1_clusters_FLTx.yaml:FLTx_8CH_6FLT # Not implemented yet
+    from: registers/dfsdm_v1_registers_ID_common.yaml:HWCFGR
+    from: registers/dfsdm_v1_registers_ID_common.yaml:VERR
+    from: registers/dfsdm_v1_registers_ID_common.yaml:IPIDR
+    from: registers/dfsdm_v1_registers_ID_common.yaml:SIDR

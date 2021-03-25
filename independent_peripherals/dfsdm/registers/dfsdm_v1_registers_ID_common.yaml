@@ -1,0 +1,21 @@
+# This file is an (incomplete) example of having different registers
+# in one file. This makes sense when these registers always show up
+# together (RM0436, RM0441, RM0442 for these ID regs) and don't have a
+# lot of variations. Their fields can also all go in one file
+# (fields/dfsdm_v1_fields_ID_common.yaml).
+
+HWCFGR:
+  name: "HWCFGR"
+  description: "Hardware configuration register"
+  # etc...
+
+VERR:
+  name: "VERR"
+  # etc...
+
+IPIDR:
+  name: "IPIDR"
+  # etc...
+
+SIDR:
+  name: "SIDR"
