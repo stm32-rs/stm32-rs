@@ -34,7 +34,7 @@
     BSY:
       _read:
         Inactive: [0, "No write/erase operation is in progress"]
-        Active: [1, "No write/erase operation is in progress"]
+        Active: [1, "A write/erase operation is in progress"]
 
   CR:
     FORCE_OPTLOAD:
@@ -47,8 +47,8 @@
       Disabled: [0, "Error interrupt generation disabled"]
       Enabled: [1, "Error interrupt generation enabled"]
     OPTWRE:
-      Disabled: [0, "Option byte write enabled"]
-      Enabled: [1, "Option byte write disabled"]
+      Disabled: [0, "Option byte write disabled"]
+      Enabled: [1, "Option byte write enabled"]
     LOCK:
       Unlocked: [0, "FLASH_CR register is unlocked"]
       Locked: [1, "FLASH_CR register is locked"]
