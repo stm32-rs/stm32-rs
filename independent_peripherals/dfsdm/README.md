@@ -21,14 +21,14 @@ devices have one or more DFSDM peripherals:
 
 ## DFSDM registers
 The table below summarizes the DFSDM registers described in each RM:
-| RM/device | CHyCFGR1 (*) | CHyCFGR2 | CHyAWSCDR | CHyWDATR | CHyDATINR | CHyDLYR | FLTxCR1 (*) | FLTxCR2 (*) | FLTxISR (*) | FLTxICR (*) | FLTxJCHGR (*) | FLTxFCR | FLTxJDATAR (*) | FLTxRDATAR (*) | FLTxAWHTR | FLTxAWLTR | FLTxAWSR (*) | FLTxAWCFR (*) | FLTxEXMAX (*) | FLTxEXMIN (*) | FLTxCNVTIMR | HWCFGR | VERR | IPIDR | SIDR |
+| RM/device | CHyCFGR1*    | CHyCFGR2 | CHyAWSCDR | CHyWDATR | CHyDATINR | CHyDLYR | FLTxCR1*    | FLTxCR2*    | FLTxISR*    | FLTxICR*    | FLTxJCHGR*    | FLTxFCR | FLTxJDATAR*    | FLTxRDATAR*    | FLTxAWHTR | FLTxAWLTR | FLTxAWSR*    | FLTxAWCFR*    | FLTxEXMAX*    | FLTxEXMIN*    | FLTxCNVTIMR | HWCFGR | VERR | IPIDR | SIDR |
 |-----------|--------------|----------|-----------|----------|-----------|---------|-------------|-------------|-------------|-------------|---------------|---------|----------------|----------------|-----------|-----------|--------------|---------------|---------------|---------------|-------------|--------|------|-------|------|
 | RM0351    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | -       |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
 | RM0394    |         0..3 |     0..3 |      0..3 |     0..3 |      0..3 | -       |        0..1 |        0..1 |        0..1 |        0..1 |          0..1 |    0..1 |           0..1 |           0..1 |      0..1 |      0..1 |         0..1 |          0..1 |          0..1 |          0..1 |        0..1 | -      | -    | -     | -    |
 | RM0399    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | -       |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
 | RM0402    |         0..3 |     0..3 |      0..3 |     0..3 |      0..3 | -       |        0..1 |        0..1 |        0..1 |        0..1 |          0..1 |    0..1 |           0..1 |           0..1 |      0..1 |      0..1 |         0..1 |          0..1 |          0..1 |          0..1 |        0..1 | -      | -    | -     | -    |
 | RM0410    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | -       |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
-| RM0430    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | - (**)  |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
+| RM0430    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | - **    |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
 | RM0432    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | 0..7    |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
 | RM0433    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | -       |        0..3 |        0..3 |        0..3 |        0..3 |          0..3 |    0..3 |           0..3 |           0..3 |      0..3 |      0..3 |         0..3 |          0..3 |          0..3 |          0..3 |        0..3 | -      | -    | -     | -    |
 | RM0436    |         0..7 |     0..7 |      0..7 |     0..7 |      0..7 | 0..7    |        0..5 |        0..5 |        0..5 |        0..5 |          0..5 |    0..5 |           0..5 |           0..5 |      0..5 |      0..5 |         0..5 |          0..5 |          0..5 |          0..5 |        0..5 | X      | X    | X     | X    |
@@ -41,7 +41,7 @@ The table below summarizes the DFSDM registers described in each RM:
 - (*) One or more fields within this register differ between RMs
 - (**) Pulse skipper is set in SYSCFG_MCHDLYCR register for RM0430 (F413/F423)
 
-# Other stuff...
+## Other stuff...
 It would be useful to have more information about the IP variations
 and file structure should anyone need to make additions/edits in the
 future...
