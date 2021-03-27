@@ -11,6 +11,12 @@ RCC:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
+  APB1RSTR1:
+    _add:
+      USBFSRST:
+        description: USB FS reset
+        bitOffset: 26
+        bitWidth: 1
 
 _modify:
   # The SVD calls ADC1 ADC.
