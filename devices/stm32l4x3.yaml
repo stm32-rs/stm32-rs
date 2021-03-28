@@ -12,19 +12,19 @@ RCC:
         name: USBFSEN
         description: USB FS clock enable
         
-    # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
-    AHB1ENR:
-        _modify:
-            CRCEN:
-                bitOffset: 12
-    AHB1RSTR:
-        _modify:
-            CRCRST:
-                bitOffset: 12
-    AHB1SMENR:
-        _modify:
-            CRCSMEN:
-                bitOffset: 12
+  # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
+  AHB1ENR:
+    _modify:
+      CRCEN:
+        bitOffset: 12
+  AHB1RSTR:
+    _modify:
+      CRCRST:
+        bitOffset: 12
+  AHB1SMENR:
+    _modify:
+      CRCSMEN:
+        bitOffset: 12
 
 _modify:
   # The SVD calls ADC1 ADC.
