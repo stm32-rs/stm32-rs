@@ -1,0 +1,8 @@
+# Rename the L3 field to L to match RM0394
+
+"ADC?":
+  SQR1:
+    _modify:
+      L3:
+        name: L
+        description: Regular channel sequence length

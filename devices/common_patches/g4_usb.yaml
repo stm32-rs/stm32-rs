@@ -1,0 +1,46 @@
+# Battery Charging Detector register is missing so add it
+USB:
+    _add:
+      _registers:
+        BCDR:
+          description: Battery Charging Detector
+          addressOffset: 0x58
+          access: read-write
+          resetValue: 0x0000
+          fields:
+            DPPU:
+              description: DP pull-up control
+              bitOffset: 15
+              bitWidth: 1
+            PS2DET:
+              description: DM pull-up detection status
+              bitOffset: 7
+              bitWidth: 1
+            SDET:
+              description: Secondary detection status
+              bitOffset: 6
+              bitWidth: 1
+            PDET:
+              description: Primary detection status
+              bitOffset: 5
+              bitWidth: 1
+            DCDET:
+              description: Data contact detection status
+              bitOffset: 4
+              bitWidth: 1
+            SDEN:
+              description: Secondary detection mode enable
+              bitOffset: 3
+              bitWidth: 1
+            PDEN:
+              description: Primary detection mode enable
+              bitOffset: 2
+              bitWidth: 1
+            DCDEN:
+              description: Data contact detection mode enable
+              bitOffset: 1
+              bitWidth: 1
+            BCDEN:
+              description: Battery charging detector mode enable
+              bitOffset: 0
+              bitWidth: 1
