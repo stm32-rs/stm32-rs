@@ -13,7 +13,7 @@ RCC:
     HSION,HSEON,PLLON,PLLI2SON,PLLSAION:
       "Off": [0, "Clock Off"]
       "On": [1, "Clock On"]
-  
+
   CFGR:
     MCOPRE:
       Div1: [0, "MCO divided by 1"]
@@ -226,7 +226,7 @@ RCC:
       Div125: [125, "pll_n_ck = vco_ck / 125"]
       Div126: [126, "pll_n_ck = vco_ck / 126"]
       Div127: [127, "pll_n_ck = vco_ck / 127"]
-    PLLM: 
+    PLLM:
       Div1: [0, "pll_p_ck = vco_ck / 1"]
       Div2: [1, "pll_p_ck = vco_ck / 2"]
       Div3: [2, "pll_p_ck = vco_ck / 3"]
@@ -247,10 +247,10 @@ RCC:
       None: [0, "No clock sent to PLL"]
       HSI16: [2, "No clock sent to PLL"]
       HSE: [3, "No clock sent to PLL"]
-  
+
   BDCR:
     LSCOSEL:
-      LSI: [0, LSI clock selected"]
+      LSI: [0, "LSI clock selected"]
       LSE: [1, "LSE clock selected"]
     LSCOEN:
       Disabled: [0, "LSCO disabled"]
@@ -297,11 +297,6 @@ RCC:
       "On": [1, "LSE oscillator On"]
 
   CSR:
-    _modify:
-      WDGRSTF:
-        name: IWDGRSTF
-      PADRSTF:
-        name: PINRSTF
     "*RSTF":
       _read:
         NoReset: [0, "No reset has occured"]
@@ -317,18 +312,49 @@ RCC:
       "Off": [0, "LSI oscillator Off"]
       "On": [1, "LSI oscillator On"]
 
-  # CSR:
-    # "*RSTF":
-    #   _read:
-    #     NoReset: [0, "No reset has occured"]
-    #     Reset: [1, "A reset has occured"]
-    # RMVF:
-    #   _write:
-    #     Clear: [1, "Clears the reset flag"]
-    # LSIRDY:
-    #   _read:
-    #     NotReady: [0, "LSI oscillator not ready"]
-    #     Ready: [1, "LSI oscillator ready"]
-    # LSION:
-    #   "Off": [0, "LSI oscillator Off"]
-    #   "On": [1, "LSI oscillator On"]
+  CCIPR:
+    "ADC*SEL":
+      None: [0, "No clock selected for ADC"]
+      PLLP: [1, "PLL 'P' clock selected for ADC"]
+      System: [2, "System clock selected for ADC"]
+    CLK48SEL:
+      HSI48: [0, "HSI48 clock selected as 48MHz clock"]
+      PLLQ: [2, "PLL 'Q' (PLL48M1CLK) clock selected as 48MHz clock"]
+    FDCANSEL:
+      HSE: [0, "HSE clock selected as FDCAN clock"]
+      PLLQ: [1, "PLL 'Q' clock selected as FDCAN clock"]
+      PCLK: [2, "PCLK clock selected as FDCAN clock"]
+    I2S23SEL:
+      System: [0, "System clock selected as I2S23 clock"]
+      PLLQ: [1, "PLL 'Q' clock selected as I2S23 clock"]
+      I2S_CKIN: [2, "Clock provided on I2S_CKIN pin is selected as I2S23 clock"]
+      HSI16: [3, "HSI16 clock selected as I2S23 clock"]
+    SAI1SEL:
+      System: [0, "System clock selected as SAI clock"]
+      PLLQ: [1, "PLL 'Q' clock selected as SAI clock"]
+      I2S_CKIN: [2, "Clock provided on I2S_CKIN pin is selected as SAI clock"]
+      HSI16: [3, "HSI16 clock selected as SAI clock"]
+    LPTIM1SEL:
+      PCLK: [0, "PCLK clock selected as LPTIM1 clock"]
+      LSI: [1, "LSI clock selected as LPTIM1 clock"]
+      HSI16: [2, "HSI16 clock selected as LPTIM1 clock"]
+      LSE: [3, "LSE clock selected as LPTIM1 clock"]
+    "I2C*SEL":
+      PCLK: [0, "PCLK clock selected as I2C clock"]
+      System: [1, "System clock (SYSCLK) selected as I2C clock"]
+      HSI16: [2, "HSI16 clock selected as I2C clock"]
+    "*UART*SEL":
+      PCLK: [0, "PCLK clock selected as UART clock"]
+      System: [1, "System clock (SYSCLK) selected as UART clock"]
+      HSI16: [2, "HSI16 clock selected as UART clock"]
+      LSE: [3, "LSE clock selected as UART clock"]
+
+  CCIPR2:
+    QSPISEL:
+      System: [0, "System clock selected as QUADSPI kernel clock"]
+      HSI16: [1, "HSI16 clock selected as QUADSPI kernel clock"]
+      PLLQ: [2, "PLL 'Q' clock selected as QUADSPI kernel clock"]
+    I2C4SEL:
+      PCLK: [0, "PCLK clock selected as I2C clock"]
+      System: [1, "System clock (SYSCLK) selected as I2C clock"]
+      HSI16: [2, "HSI16 clock selected as I2C clock"]

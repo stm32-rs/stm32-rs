@@ -1,8 +1,5 @@
 # Edits required to match RM0440.
 
-_include:
-   - ../../peripherals/rcc/rcc_g4.yaml
-
 RCC:
   _modify:
     PLLSYSCFGR:
@@ -18,7 +15,7 @@ RCC:
         name: PLLON
       HSECSSON:
         name: CSSON
-    
+
   PLLCFGR:
     _modify:
       PLLSYSPDIV:
@@ -228,6 +225,7 @@ RCC:
         name: IWDGRSTF
       PADRSTF:
         name: PINRSTF
+
   CRRCR:
     _modify:
       RC48ON:
