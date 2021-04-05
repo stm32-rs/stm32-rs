@@ -15,6 +15,15 @@ PWR:
       802EWKUP:
         name: _802EWKUP
 
+# Rename the L3 field to L to match RM0434
+ADC:
+  SQR1:
+    _modify:
+      L3:
+        name: L
+        description: Regular channel sequence length
+
+
 _include:
  - ./common_patches/sai/sai_v1.yaml
  - ./common_patches/rtc/rtc_cr.yaml

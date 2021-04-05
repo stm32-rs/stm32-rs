@@ -12,6 +12,29 @@ RCC:
         name: USBFSEN
         description: USB FS clock enable
 
+        
+  # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
+  AHB1ENR:
+    _modify:
+      CRCEN:
+        bitOffset: 12
+  AHB1RSTR:
+    _modify:
+      CRCRST:
+        bitOffset: 12
+  AHB1SMENR:
+    _modify:
+      CRCSMEN:
+        bitOffset: 12
+
+  APB1RSTR1:
+    _add:
+      USBFSRST:
+        description: USB FS reset
+        bitOffset: 26
+        bitWidth: 1
+
+
 _modify:
   # The SVD calls ADC1 ADC.
   ADC:
@@ -75,3 +98,4 @@ _include:
  - common_patches/dma_interrupt_names.yaml
  - ./common_patches/l4_adc_common.yaml
  - ./common_patches/l4_adc_smpr.yaml
+ - ./common_patches/l4_adc_sqr1.yaml

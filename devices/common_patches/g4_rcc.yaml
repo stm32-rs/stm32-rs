@@ -238,3 +238,11 @@ RCC:
     _modify:
       QUADSPISEL:
         name: QSPISEL
+
+  "A?B?RSTR,A?BRSTR,A?B?RSTR?":
+    "*RST":
+      Reset: [1, "Reset the selected module"]
+  "A?B?ENR,A?BENR,A?B?ENR?":
+    "*EN":
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
