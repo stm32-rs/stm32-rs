@@ -66,6 +66,13 @@ RCC:
     _modify:
       SPDIFSEL:
         name: SPDIFRXSEL
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: Main PLL division factor for I2Ss, SAIs, SYSTEM and SPDIF-Rx clocks
+        bitOffset: 28
+        bitWidth: 3
+
 
 SYSCFG:
   _add:
@@ -573,3 +580,5 @@ _include:
  - common_patches/sdio_f446.yaml
  - ../peripherals/sdio/sdio.yaml
  - ../peripherals/sdio/sdio_f4_common.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
