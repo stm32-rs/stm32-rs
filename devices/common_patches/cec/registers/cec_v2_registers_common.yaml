@@ -1,0 +1,205 @@
+_add:
+  CR:
+    description: "CEC control register"
+    addressOffset: 0x00
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      TXEOM:
+        description: "Tx end of message"
+        bitOffset: 2
+        bitWidth: 1
+      TXSOM:
+        description: "Tx start of message"
+        bitOffset: 1
+        bitWidth: 1
+      CECEN:
+        description: "CEC enable"
+        bitOffset: 0
+        bitWidth: 1
+
+  CFGR:
+    description: "CEC configuration register"
+    addressOffset: 0x04
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      LSTN:
+        description: "Listen mode"
+        bitOffset: 31
+        bitWidth: 1
+      OAR:
+        description: "Own address configuration"
+        bitOffset: 16
+        bitWidth: 15
+      SFTOP:
+        description: "SFT option bit"
+        bitOffset: 8
+        bitWidth: 1
+      BRDNOGEN:
+        description: "Avoid error bit generation in broadcast"
+        bitOffset: 7
+        bitWidth: 1
+      LBPEGEN:
+        description: "Generate error bit on long bit period error"
+        bitOffset: 6
+        bitWidth: 1
+      BREGEN:
+        description: "Generate error bit on bit rising error"
+        bitOffset: 5
+        bitWidth: 1
+      BRESTP:
+        description: "Rx stop on bit rising error"
+        bitOffset: 4
+        bitWidth: 1
+      RXTOL:
+        description: "Rx tolerance"
+        bitOffset: 3
+        bitWidth: 1
+      SFT:
+        description: "Signal free time"
+        bitOffset: 0
+        bitWidth: 3
+
+  TXDR:
+    description: "CEC Tx data register"
+    addressOffset: 0x08
+    access: write-only
+    resetValue: 0x00000000
+    fields:
+      TXD:
+        description: "Tx data"
+        bitOffset: 0
+        bitWidth: 8
+
+  RXDR:
+    description: "CEC Rx data register"
+    addressOffset: 0x0C
+    access: read-only
+    resetValue: 0x00000000
+    fields:
+      RXD:
+        description: "Rx data"
+        bitOffset: 0
+        bitWidth: 8
+
+  ISR:
+    description: "CEC interrupt and status register"
+    addressOffset: 0x10
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      TXACKE:
+        description: "Tx missing acknowledge error"
+        bitOffset: 12
+        bitWidth: 1
+      TXERR:
+        description: "Tx error"
+        bitOffset: 11
+        bitWidth: 1
+      TXUDR:
+        description: "Tx buffer underrun flag"
+        bitOffset: 10
+        bitWidth: 1
+      TXEND:
+        description: "End of transmission flag"
+        bitOffset: 9
+        bitWidth: 1
+      TXBR:
+        description: "Tx byte request flag"
+        bitOffset: 8
+        bitWidth: 1
+      ARBLST:
+        description: "Arbitration lost flag"
+        bitOffset: 7
+        bitWidth: 1
+      RXACKE:
+        description: "Rx missing acknowledge error"
+        bitOffset: 6
+        bitWidth: 1
+      LBPE:
+        description: "Rx long bit period error"
+        bitOffset: 5
+        bitWidth: 1
+      SBPE:
+        description: "Rx short bit period error"
+        bitOffset: 4
+        bitWidth: 1
+      BRE:
+        description: "Rx bit rising error"
+        bitOffset: 3
+        bitWidth: 1
+      RXOVR:
+        description: "Rx overrun flag"
+        bitOffset: 2
+        bitWidth: 1
+      RXEND:
+        description: "Rx end of reception flag"
+        bitOffset: 1
+        bitWidth: 1
+      RXBR:
+        description: "Rx byte received flag"
+        bitOffset: 0
+        bitWidth: 1
+
+  IER:
+    description: "CEC interrupt enable register"
+    addressOffset: 0x14
+    access: read-write
+    resetValue: 0x00000000
+    fields:
+      TXACKIE:
+        description: "Tx missing acknowledge error interrupt enable"
+        bitOffset: 12
+        bitWidth: 1
+      TXERRIE:
+        description: "Tx error interrupt enable"
+        bitOffset: 11
+        bitWidth: 1
+      TXUDRIE:
+        description: "Tx underrun interrupt enable"
+        bitOffset: 10
+        bitWidth: 1
+      TXENDIE:
+        description: "Tx end of message interrupt enable"
+        bitOffset: 9
+        bitWidth: 1
+      TXBRIE:
+        description: "Tx byte request interrupt enable"
+        bitOffset: 8
+        bitWidth: 1
+      ARBLSTIE:
+        description: "Arbitration lost interrupt enable"
+        bitOffset: 7
+        bitWidth: 1
+      RXACKIE:
+        description: "Rx missing acknowledge error interrupt enable"
+        bitOffset: 6
+        bitWidth: 1
+      LBPEIE:
+        description: "Long bit period error interrupt enable"
+        bitOffset: 5
+        bitWidth: 1
+      SBPEIE:
+        description: "Short bit period error interrupt enable"
+        bitOffset: 4
+        bitWidth: 1
+      BREIE:
+        description: "Bit rising error interrupt enable"
+        bitOffset: 3
+        bitWidth: 1
+      RXOVRIE:
+        description: "Rx buffer overrun interrupt enable"
+        bitOffset: 2
+        bitWidth: 1
+      RXENDIE:
+        description: "Rx end of reception interrupt enable"
+        bitOffset: 1
+        bitWidth: 1
+      RXBRIE:
+        description: "Rx byte received interrupt enable"
+        bitOffset: 0
+        bitWidth: 1
+
+_include:
+  - ../../../../peripherals/cec/cec_v2_fields_common.yaml

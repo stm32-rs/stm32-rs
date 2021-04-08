@@ -12,3 +12,7 @@ _modify:
     fpuPresent: "true"
     nvicPrioBits: 4
     vendorSystickConfig: "false"
+
+_include:
+ - common_patches/cec/cec_delete.yaml
+ - common_patches/cec/cec_RM0436.yaml
