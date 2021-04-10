@@ -1,0 +1,14 @@
+# Rename SPI fields
+# CR1.CRCL field is documented, but in SVD as DFF.
+# SR.FRE field is documented, but in SVD as TIFRFE.
+"SPI*":
+  CR1:
+    _modify:
+      DFF:
+        name: CRCL
+        description: CRC length
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: Frame format error
