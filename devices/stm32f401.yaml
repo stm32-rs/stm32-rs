@@ -12,46 +12,6 @@ _rebase:
       TIFRFE:
         name: "FRE"
 
-"I2C*":
-  _add:
-    # FLTR register defined RM0368
-    FLTR:
-      description: FLTR register
-      addressOffset: 0x24
-      access: read-write
-      resetValue: 0x0000
-      fields:
-        ANFOFF:
-          description: Analog noise filter
-          bitOffset: 4
-          bitWidth: 1
-        DNF:
-          description: Digital noise filter
-          bitOffset: 4
-          bitWidth: 4
-
-  FLTR:
-    ANFOFF:
-        Enabled: [0, "Analog noise filter enabled"]
-        Disabled: [1, "Analog noise filter disabled"]
-    DNF:
-        NoFilter: [0, "Digital filter disabled"]
-        Filter1: [1, "Digital filter enabled and filtering capability up to 1 tI2CCLK"]
-        Filter2: [2, "Digital filter enabled and filtering capability up to 2 tI2CCLK"]
-        Filter3: [3, "Digital filter enabled and filtering capability up to 3 tI2CCLK"]
-        Filter4: [4, "Digital filter enabled and filtering capability up to 4 tI2CCLK"]
-        Filter5: [5, "Digital filter enabled and filtering capability up to 5 tI2CCLK"]
-        Filter6: [6, "Digital filter enabled and filtering capability up to 6 tI2CCLK"]
-        Filter7: [7, "Digital filter enabled and filtering capability up to 7 tI2CCLK"]
-        Filter8: [8, "Digital filter enabled and filtering capability up to 8 tI2CCLK"]
-        Filter9: [9, "Digital filter enabled and filtering capability up to 9 tI2CCLK"]
-        Filter10: [10, "Digital filter enabled and filtering capability up to 10 tI2CCLK"]
-        Filter11: [11, "Digital filter enabled and filtering capability up to 11 tI2CCLK"]
-        Filter12: [12, "Digital filter enabled and filtering capability up to 12 tI2CCLK"]
-        Filter13: [13, "Digital filter enabled and filtering capability up to 13 tI2CCLK"]
-        Filter14: [14, "Digital filter enabled and filtering capability up to 14 tI2CCLK"]
-        Filter15: [15, "Digital filter enabled and filtering capability up to 15 tI2CCLK"]
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0368
   CR:
@@ -183,3 +143,5 @@ _include:
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/sdio/sdio_f4.yaml
+ - common_patches/i2c_v1_fltr.yaml
+ - ../peripherals/i2c/i2c_v1_fltr.yaml
