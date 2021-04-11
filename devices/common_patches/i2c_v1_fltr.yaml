@@ -1,0 +1,17 @@
+"I2C*":
+  _add:
+    # FLTR register (defined in RM0368 for example)
+    FLTR:
+      description: FLTR register
+      addressOffset: 0x24
+      access: read-write
+      resetValue: 0x0000
+      fields:
+        ANOFF:
+          description: Analog noise filter
+          bitOffset: 4
+          bitWidth: 1
+        DNF:
+          description: Digital noise filter
+          bitOffset: 0
+          bitWidth: 4
