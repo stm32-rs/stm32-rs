@@ -1,0 +1,15 @@
+_svd: ../svd/stm32g0b0.svd
+
+_modify:
+  name: STM32G0B0
+
+TIM1:
+  _modify:
+    _interrupts:
+      TIM1_BRK_UP_TRG_COM:
+        description: IM1 break, update, trigger and commutation interrupts
+
+_include:
+ - ./common_patches/2_nvic_prio_bits.yaml
+ - ./common_patches/g0_add_dma1_7ch.yaml
+ - ./common_patches/g0_add_dma2_5ch.yaml
