@@ -1,4 +1,4 @@
-# Renames a few fields in the F0 ADC and adds the WAIT file which was missed
+# Renames a few fields in the F0 ADC and replaces AUTDLY with WAIT
 
 ADC:
   ISR:
@@ -10,10 +10,9 @@ ADC:
       EOSIE:
         name: "EOSEQIE"
   CFGR1:
-    _add:
-      WAIT:
-        bitOffset: 14
-        bitWidth: 1
+    _modify:
+      AUTDLY:
+        name: "WAIT"
         description: "Wait conversion mode"
   SMPR:
     _modify:
