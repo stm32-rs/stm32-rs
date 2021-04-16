@@ -139,9 +139,10 @@ _include:
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
+ - common_patches/gpio/f3_ospeedr.yaml
  - ../peripherals/gpio/v2/common.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
- - common_patches/gpio/f3_ospeedr.yaml
+ - collect/gpio/v2.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml

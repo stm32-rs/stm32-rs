@@ -1,0 +1,25 @@
+"GPIO*":
+  IDR:
+    _array:
+      "IDR*": {}
+  ODR:
+    _array:
+      "ODR*": {}
+  BSRR:
+    _array:
+      "BR*": {}
+      "BS*":
+        description: Set bit %s
+  BRR:
+    _array:
+      "BR*":
+        description: Reset bit %s
+  LCKR:
+    _array:
+      "LCK[0-9],LCK1[0-5]": {}
+  CR[LH]:
+    _array:
+      CNF*:
+        description: Port n.%s configuration bits
+      MODE*:
+        description: Port n.%s mode bits

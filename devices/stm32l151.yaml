@@ -31,8 +31,9 @@ _include:
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../devices/common_patches/gpio/with_OSPEEDER.yaml
+ - common_patches/gpio/with_OSPEEDER.yaml
  - ../peripherals/gpio/v2/common.yaml
+ - collect/gpio/v2.yaml
  - common_patches/tim/rename_TIM2_CCR3_CCR3.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/l1_tim9_ccer.yaml
