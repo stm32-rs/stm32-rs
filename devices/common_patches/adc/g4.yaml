@@ -332,26 +332,9 @@ ADC?:
         name: OFFSET4
         description: Data offset 4 for the channel programmed into bits OFFSET4_CH
 
-  JDR1:
+  JDR?:
     _modify:
-      JDATA1:
-        name: JDATA
-        description: Injected data
-  JDR2:
-    _modify:
-      JDATA2:
-        name: JDATA
-        description: Injected data
-
-  JDR3:
-    _modify:
-      JDATA3:
-        name: JDATA
-        description: Injected data
-
-  JDR4:
-    _modify:
-      JDATA4:
+      JDATA?:
         name: JDATA
         description: Injected data
 

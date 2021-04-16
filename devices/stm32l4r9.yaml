@@ -31,8 +31,16 @@ MPU:
   _strip:
     - "MPU_"
 
+"ADC,ADC?":
+  AWD2CR:
+    _split: ["AWD2CH"]
+  AWD3CR:
+    _split: ["AWD3CH"]
+
 _include:
+  - common_patches/adc/adc_common_group_name.yaml
   - common_patches/adc/l4_sqr1.yaml
+  - collect/adc/v3.yaml
   - common_patches/nvic/4_prio_bits.yaml
   - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
   - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
@@ -93,6 +101,5 @@ _include:
   - common_patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - common_patches/usart/l4_lpuart_presc.yaml
-  - common_patches/adc/adc_common_group_name.yaml
   - collect/dsi/isr.yaml
   - collect/gfxmmu/lut.yaml

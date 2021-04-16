@@ -194,10 +194,15 @@ FLASH:
           bitOffset: 0
           bitWidth: 1
 
-
+"ADC,ADC?":
+  AWD2CR:
+    _split: ["AWD2CH"]
+  AWD3CR:
+    _split: ["AWD3CH"]
 
 _include:
   - common_patches/adc/l4_sqr1.yaml
+  - collect/adc/v3.yaml
   - common_patches/nvic/4_prio_bits.yaml
   - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
   - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml

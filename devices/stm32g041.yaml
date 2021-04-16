@@ -25,8 +25,9 @@ _include:
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
- - ../devices/common_patches/adc/g0.yaml
+ - common_patches/adc/g0.yaml
  - ../peripherals/adc/adc_wl.yaml
+ - collect/adc/g0.yaml
  - common_patches/tim/g0_tim1_ccmr_input.yaml
  - common_patches/tim/v2/g0_1.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
