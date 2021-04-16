@@ -141,7 +141,6 @@ _include:
  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
  - ./common_patches/usart/merge_BRR_fields.yaml
- - ./common_patches/adc/f3.yaml
  - ./common_patches/rcc/f3.yaml
  - ./common_patches/rcc/f3_i2c3.yaml
  - ./common_patches/rcc/f3_delete_cec.yaml
@@ -200,9 +199,11 @@ _include:
  - common_patches/dbgmcu/f3.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
+ - common_patches/adc/f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/adc/adc_v3_common_single.yaml
  - ../peripherals/adc/adc_v3_common_f3_single.yaml
+ - collect/adc/v3.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - common_patches/flash/f3.yaml

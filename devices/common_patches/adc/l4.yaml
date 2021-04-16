@@ -1,2 +1,8 @@
-_include:
-  - dr_rdata.yaml
+"ADC,ADC?":
+  AWD2CR:
+    _split: ["AWD2CH"]
+  AWD3CR:
+    _split: ["AWD3CH"]
+
+  _include:
+    - dr_rdata.yaml

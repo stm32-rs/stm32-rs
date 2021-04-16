@@ -19,6 +19,7 @@ MPU:
 _include:
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/l1_smpr.yaml
+ - collect/adc/jofr_jdr.yaml
  - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml

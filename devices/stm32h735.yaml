@@ -953,8 +953,6 @@ _include:
  - common_patches/dma/dma2d_v2.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - collect/hsem/r.yaml
- - common_patches/adc/h7.yaml
- - common_patches/adc/h7_boost_rev_v.yaml
  - common_patches/octospi/h7.yaml
  - common_patches/sai/h7.yaml
  - common_patches/sai/h7_mcken.yaml
@@ -976,9 +974,12 @@ _include:
  - common_patches/usart/rename_CR2_DATAINV_field.yaml
  - common_patches/usart/merge_BRR_fields.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/adc/h7.yaml
+ - common_patches/adc/h7_boost_rev_v.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
+ - collect/adc/v3.yaml
  - ../peripherals/axi/axi_v1.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml

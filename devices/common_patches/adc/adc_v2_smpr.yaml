@@ -1,14 +1,13 @@
 # Fix the poorly defined SMPR fields in ADCv2
 
-"ADC?":
+"ADC,ADC?":
   SMPR1:
-    _modify:
-      SMPx_x:
-        name: SMP18
+    _delete: ["SMPx_x"]
+    _add:
+      SMP18:
         description: Channel 18 sampling time selection
         bitWidth: 3
         bitOffset: 24
-    _add:
       SMP17:
         description: Channel 17 sampling time selection
         bitWidth: 3
@@ -42,13 +41,12 @@
         bitWidth: 3
         bitOffset: 0
   SMPR2:
-    _modify:
-      SMPx_x:
-        name: SMP9
+    _delete: ["SMPx_x"]
+    _add:
+      SMP9:
         description: Channel 9 sampling time selection
         bitWidth: 3
         bitOffset: 27
-    _add:
       SMP8:
         description: Channel 8 sampling time selection
         bitWidth: 3

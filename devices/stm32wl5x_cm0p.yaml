@@ -119,6 +119,9 @@ TZSC:
 ADC:
   _strip:
     - "ADC_"
+  _modify:
+    CHSELR1:
+      alternateRegister: CHSELR0
 
 _include:
  - ../devices/common_patches/spi/l4.yaml

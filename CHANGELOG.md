@@ -4,7 +4,7 @@
 
 * H7: add bit TRBUFF of DMA_SxCR of H747 cm4
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
-* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
+* Collent in field arrays: ADC, GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR
 * modify `LP_Timer1` interrupt instead of adding new

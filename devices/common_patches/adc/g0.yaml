@@ -4,6 +4,7 @@ ADC:
       name: CHSELR0
     CHSELR_1,CHSELRMOD1:
       name: CHSELR1
+      alternateRegister: CHSELR0
   CFGR1:
     _modify:
       AWDCH1CH:
