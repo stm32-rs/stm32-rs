@@ -78,6 +78,14 @@ DSIHOST:
       DSIHOST:
         description: DSI host global interrupt
         value: 92
+  _strip:
+    - "DSI_"
+  VMCR:
+    _modify:
+      LVAE:
+        name: LPVAE
+      LPHFE:
+        name: LPHFPE
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

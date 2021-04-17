@@ -3,5 +3,23 @@ _svd: ../svd/stm32g050.svd
 _modify:
   name: STM32G050
 
+TIM1:
+  _strip:
+    - "TIM1_"
+
+"TIM1,TIM3,TIM15":
+  SMCR:
+    _clear:
+      - SMS?
+      - TS?
+
+TIM3:
+  CCMR1_Output:
+    _clear:
+      - OC1M1
+    _modify:
+      OC1M1:
+        name: OC1M
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml

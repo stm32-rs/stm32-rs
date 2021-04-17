@@ -17,7 +17,7 @@ import re
 import yaml
 
 VERSION = "0.13.0"
-SVD2RUST_VERSION = "0.17.0"
+SVD2RUST_VERSION = "0.19.0"
 
 CRATE_DOC_FEATURES = {
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
@@ -72,13 +72,13 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "0.2.4"
-vcell = "0.1.0"
-cortex-m = ">=0.5.8,<0.8"
+bare-metal = "1.0.0"
+vcell = "0.1.3"
+cortex-m = "0.7.2"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.10"
+version = "0.6.13"
 
 [package.metadata.docs.rs]
 features = {docs_features}
@@ -111,6 +111,7 @@ SRC_LIB_RS_TPL = """\
 //! available registers and fields see: [stm32-rs Device Coverage](https://stm32-rs.github.io/stm32-rs/)
 
 #![allow(non_camel_case_types)]
+#![allow(non_snake_case)]
 #![no_std]
 
 mod generic;

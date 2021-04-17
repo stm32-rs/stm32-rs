@@ -137,6 +137,12 @@ _add:
 
 
 
+"TIM1,TIM2,TIM15":
+  SMCR:
+    _clear:
+      - SMS?
+      - TS?
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml

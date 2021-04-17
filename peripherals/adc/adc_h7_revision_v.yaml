@@ -2,11 +2,16 @@
 
 "ADC?":
   CFGR:
+    _modify:
+      RES:
+        bitWidth: 3
     RES:
       SixteenBit: [0, "16-bit resolution"]
-      FourteenBit: [1, "14-bit resolution"]
-      TwelveBit: [2, "12-bit resolution"]
+      FourteenBit: [1, "14-bit resolution in legacy mode (not optimized power consumption)"]
+      TwelveBit: [2, "12-bit resolution in legacy mode (not optimized power consumption)"]
       TenBit: [3, "10-bit resolution"]
+      FourteenBitV: [5, "14-bit resolution"]
+      TwelveBitV: [6, "12-bit resolution"]
       EightBit: [7, "8-bit resolution"]
   CR:
     BOOST:
