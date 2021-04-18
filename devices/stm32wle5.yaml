@@ -11,7 +11,9 @@ ADC:
 
 _include:
  - ../devices/common_patches/l4_spi.yaml
+ - ../devices/common_patches/wl_adc.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
+ - ../devices/common_patches/wl_exti.yaml
  - ../peripherals/adc/adc_wl.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_pol.yaml
