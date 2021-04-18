@@ -12,3 +12,8 @@ _modify:
     fpuPresent: "true"
     nvicPrioBits: 4
     vendorSystickConfig: "false"
+  DSIHOST1:
+    name: DSI
+
+_include:
+ - common_patches/dsi.yaml

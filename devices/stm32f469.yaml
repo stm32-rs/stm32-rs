@@ -11,6 +11,9 @@ _modify:
   C_ADC:
     name: ADC_Common
 
+  DSIHOST:
+    name: DSI
+
 "SPI*":
   SR:
     _modify:
@@ -72,14 +75,15 @@ RCC:
       SDMMCSEL:
         name: SDIOSEL
 
-DSIHOST:
+
+DSI:
   _add:
     _interrupts:
       DSIHOST:
         description: DSI host global interrupt
         value: 92
 
-  DSI_VMCR:
+  VMCR:
     _modify:
       LVAE:
         name: LPVAE
@@ -168,3 +172,4 @@ _include:
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
+ - common_patches/dsi.yaml
