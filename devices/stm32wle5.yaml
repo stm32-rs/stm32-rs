@@ -12,6 +12,7 @@ ADC:
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
+ - ../peripherals/adc/adc_wl.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
@@ -20,5 +21,5 @@ _include:
  - ../peripherals/gpio/gpio_v2_common.yaml
  - ../peripherals/gpio/gpio_wl_with_brr.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/adc/adc_wl.yaml
