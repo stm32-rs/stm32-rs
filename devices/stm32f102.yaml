@@ -7,6 +7,12 @@ _copy:
   ADC3:
     from: ADC2
 
+_derive:
+  TIM4: TIM2
+  TIM5: TIM2
+  TIM10: TIM13
+  TIM11: TIM13
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
@@ -80,6 +86,7 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
+
 _include:
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
  - common_patches/bkp/bkp.yaml
@@ -87,7 +94,6 @@ _include:
  - common_patches/can/can_remove_prefix.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
@@ -101,10 +107,14 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/gpio_f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
@@ -114,9 +124,7 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu_rename.yaml
  - ../peripherals/flash/flash_f1.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f1.yaml

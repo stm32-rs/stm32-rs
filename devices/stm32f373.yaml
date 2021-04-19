@@ -111,22 +111,22 @@ GPIOA:
       resetValue: "0x64000000"
 
 GPIOB:
- _modify:
-   MODER:
-     resetValue: "0x00000280"
-   OSPEEDR:
-     resetValue: "0x000000C0"
-   PUPDR:
-     resetValue: "0x00000100"
+  _modify:
+    MODER:
+      resetValue: "0x00000280"
+    OSPEEDR:
+      resetValue: "0x000000C0"
+    PUPDR:
+      resetValue: "0x00000100"
 
 GPIOD:
- _modify:
-   MODER:
-     resetValue: "0x00000000"
-   OSPEEDR:
-     resetValue: "0x00000000"
-   PUPDR:
-     resetValue: "0x00000000"
+  _modify:
+    MODER:
+      resetValue: "0x00000000"
+    OSPEEDR:
+      resetValue: "0x00000000"
+    PUPDR:
+      resetValue: "0x00000000"
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -147,7 +147,6 @@ _include:
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
  - ./common_patches/unprefix_USB_registers.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
@@ -157,11 +156,15 @@ _include:
  - ../peripherals/gpio/gpio_v2_f373.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - common_patches/f3_gpio_ospeedr.yaml
+ - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed.yaml
+ - common_patches/tim/common.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/rcc/rcc_f373.yaml
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
@@ -174,10 +177,8 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
  - ../peripherals/adc/adc_array.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/f3_dbgmcu.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f37x.yaml
  - common_patches/f3_flash_obr_rdptr.yaml
  - ../peripherals/flash/flash_f3_common.yaml

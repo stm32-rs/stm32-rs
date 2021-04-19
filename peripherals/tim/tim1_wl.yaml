@@ -209,18 +209,6 @@ TIM1:
     OC?FE:
       Disabled: [0, "Fast output disabled"]
       Enabled: [1, "Fast output enabled"]
-    OC?M:
-      Frozen: [0, "The comparison between the output compare register TIMx_CCRy and the counter TIMx_CNT has no effect on the outputs. Alt (OCxM[3]): Channel active until trigger is detected on TRGI signal"]
-      ActiveOnMatch: [1, "Set channel to active level on match. OCyREF signal is forced high when the counter matches the capture/compare register. Alt (OCxM[3]): OC1REFC outputs OC1REF when the counter is counting up, OC2REF when it is counting down"]
-      InactiveOnMatch: [2, "Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register"]
-      Toggle: [3, "OCyREF toggles when TIMx_CNT=TIMx_CCRy"]
-      ForceInactive: [4, "OCyREF is forced low. Alt (OCxM[3]): OC1REFC is the logical OR between OC1REF and OC2REF"]
-      ForceActive: [5, "OCyREF is forced high. Alt (OCxM[3]): OC1REFC outputs OC1REF when the counter is counting up, OC2REF when it is counting down"]
-      PwmMode1: [6, "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active. Alt (OCxM[3]): OC1REFC outputs OC1REF when the counter is counting up, OC2REF when it is counting down"]
-      PwmMode2: [7, "Inversely to PwmMode1. Alt (OCxM[3]): Assymetric PWM Mode 2: OC1REFC outputs OC1REF when the counter is counting up, OC2REF when it is counting down"]
-    OC?M_3:
-      NormalModes: [0, "Choose low modes (0-7)"]
-      AlternateModes: [1, "Choose high modes (8-15)"]
 
   CCER:
     "CC?NE":

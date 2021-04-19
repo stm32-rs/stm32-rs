@@ -3,7 +3,16 @@ _svd: ../svd/stm32g031.svd
 _modify:
   name: STM32G031
 
+TIM1:
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+      OC6M_bit3:
+        name: OC6M_3
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/g0_dma_5ch.yaml
+ - ../peripherals/tim/v2/ccm_common.yaml

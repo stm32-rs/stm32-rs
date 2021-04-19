@@ -1,0 +1,47 @@
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
+"TIM[123]":
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+        bitWidth: 1
+      OC6M_bit3:
+        name: OC6M_3
+
+TIM2:
+  CNT:
+    _modify:
+      CNT:
+        bitWidth: 32
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 32
+  CCR?:
+    _modify:
+      CCR?:
+        name: CCR
+        bitWidth: 32
+
+"TIM[13],TIM15,TIM16":
+  CNT:
+    _modify:
+      CNT:
+        bitWidth: 16
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 20
+  CCR?:
+    _modify:
+      CCR?:
+        bitWidth: 20
+
+_include:
+ - ../tim_ccr.yaml

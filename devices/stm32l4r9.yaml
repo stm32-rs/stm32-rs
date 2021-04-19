@@ -48,12 +48,16 @@ _include:
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/rcc/rcc_l4.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/tim/v2/l4.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
@@ -63,9 +67,7 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - ./common_patches/flash/flash_boot0s.yaml
-# - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - common_patches/usb_otg/otg_fs_remove_prefix.yaml

@@ -38,3 +38,17 @@
       "CCR2,CCR2_L,CCR2L":
         name: CCR
         description: "Capture/Compare 2 value"
+
+"TIM[18]":
+  CCMR3_Output:
+    _modify:
+      OC5M3:
+        name: OC5M_3
+      OC6M3:
+        name: OC6M_3
+
+"TIM[2-5],TIM1[2-4]":
+  CCMR2_Output:
+    _modify:
+      O24CE:
+        name: OC4CE

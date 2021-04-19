@@ -52,7 +52,6 @@ _include:
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
@@ -67,10 +66,14 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/gpio_f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
@@ -84,9 +87,7 @@ _include:
  - ../peripherals/usb/usb_array.yaml
  - ../peripherals/sdio/sdio.yaml
  - ../peripherals/adc/adc_array.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu_rename.yaml
  - ../peripherals/flash/flash_f1.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f1.yaml

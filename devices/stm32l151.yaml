@@ -29,14 +29,15 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../devices/common_patches/gpio_with_OSPEEDER.yaml
  - ../peripherals/gpio/gpio_v2.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
