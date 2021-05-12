@@ -27,6 +27,20 @@ _copy:
 _derive:
   TIM4: TIM3
 
+# LCD RAM_COM registers are 64 bit wide, not 32.
+LCD:
+  _modify:
+    RAM_COM?:
+      size: 0x40
+  RAM_COM?:
+    _delete:
+      - "S??"
+    _add:
+      SEGS:
+        description: "Segment states, one bit per segment, LSB: S00, MSB: S39"
+        bitOffset: 0
+        bitWidth: 40
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
