@@ -465,95 +465,12 @@ RCC:
           description: WWDG1 reset scope control
           bitOffset: 0
           bitWidth: 1
-
-  CDCCIPR:
-    _delete:
-      - "QSPI*"
-    _add:
-      OCTOSPISEL:
-        description: "OCTOSPI kernel clock source selection"
-        bitOffset: 4
-        bitWidth: 2
+  
+  SRDCFGR:
+    name: D3CFGR
     _modify:
-      CKPERSRC:
-          name: CKPERSEL
-      SDMMCSRC:
-          name: SDMMCSEL
-      FMCSRC:
-          name: FMCSEL
-  CDCCIP1R:
-    _delete:
-      - "SAI23*"
-    _add:
-      SAI2ASEL:
-        description: "SAI2 kernel clock source A source selection"
-        bitOffset: 6
-        bitWidth: 3
-      SAI2BSEL:
-        description: "SAI2 kernel clock source B source selection"
-        bitOffset: 9
-        bitWidth: 3
-    _modify:
-      SWPSRC:
-          name: SWPSEL
-      FDCANSRC:
-          name: FDCANSEL
-      DFSDM1SRC:
-          name: DFSDM1SEL
-      SPDIFSRC:
-          name: SPDIFRXSEL
-      SPI45SRC:
-          name: SPI45SEL
-      SPI123SRC:
-          name: SPI123SEL
-      SAI1SRC:
-          name: SAI1SEL
-  CDCCIP2R:
-    _modify:
-      LPTIM1SRC:
-          name: LPTIM1SEL
-      CECSRC:
-          name: CECSEL
-      USBSRC:
-          name: USBSEL
-      I2C123SRC:
-          name: I2C123SEL
-      RNGSRC:
-          name: RNGSEL
-      USART16SRC:
-          name: USART16910SEL
-          description: "USART1, 6, 9 and 10 kernel clock source selection"
-      USART234578SRC:
-          name: USART234578SEL
-  SRDCCIPR:
-    _delete:
-      - "SAI4*"
-    _add:
-      DFSDM2SEL:
-        description: "DFSDM2 kernel clock source selection"
-        bitOffset: 27
-        bitWidth: 1
-    _modify:
-      SPI6SRC:
-          name: SPI6SEL
-      ADCSRC:
-          name: ADCSEL
-      LPTIM345SRC:
-          name: LPTIM3SEL       # LPTIM3 only
-      LPTIM2SRC:
-          name: LPTIM2SEL
-      I2C4SRC:
-          name: I2C4SEL
-      LPUART1SRC:
-          name: LPUART1SEL
-
-  D3CFGR:
-    _delete: "*"
-    _add:
-      D3PPRE:
-        description: D3 domain APB4 prescaler
-        bitOffset: 4
-        bitWidth: 3
+      SRDPPRE:
+        name: D3PPRE
 
   CR:
     _modify:
