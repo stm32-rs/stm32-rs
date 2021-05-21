@@ -9,7 +9,7 @@ done
 mv stm32h7a3x.svd stm32h7a3.svd
 mv stm32h7b0x.svd stm32h7b0.svd
 mv stm32h7b3x.svd stm32h7b3.svd
-mv stm32h73x.svd stm32h730.svd
+mv stm32h73x.svd stm32h735.svd
 mv stm32h742x.svd stm32h742.svd
 # mv stm32h745_cm4.svd stm32h745cm4.svd
 # mv stm32h745_cm7.svd stm32h745cm7.svd

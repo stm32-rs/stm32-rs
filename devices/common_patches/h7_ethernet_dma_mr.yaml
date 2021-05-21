@@ -1,0 +1,17 @@
+Ethernet_DMA:
+  DMAMR:
+    _modify:
+      INTM:
+        bitWidth: 2
+      PR:
+        access: read-write
+      TXPR:
+        access: read-write
+      DA:
+        access: read-write
+  DMASBMR:
+    _modify:
+      RB:
+        access: read-write
+      MB:
+        access: read-write
