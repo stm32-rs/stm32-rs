@@ -44,9 +44,6 @@ RCC:
     TIMPRE:
       DefaultX2: [0, "Timer kernel clock equal to 2x pclk by default"]
       DefaultX4: [1, "Timer kernel clock equal to 4x pclk by default"]
-    HRTIMSEL:
-      TIMY_KER: [0, "The HRTIM prescaler clock source is the same as other timers (rcc_timy_ker_ck)"]
-      C_CK: [1, "The HRTIM prescaler clock source is the CPU clock (c_ck)"]
     RTCPRE: [0, 63]
     STOPWUCK,STOPKERWUCK:
       HSI: [0, "HSI selected as wake up clock from system Stop"]
@@ -117,7 +114,7 @@ RCC:
     WW1RSC:
       Clear: [0, "Clear WWDG1 scope control"]
       Set: [1, "Set WWDG1 scope control"]
-  D3AMR:
+  D3AMR,SRDAMR:
     "*AMEN":
       Disabled: [0, "Clock disabled in autonomous mode"]
       Enabled: [1, "Clock enabled in autonomous mode"]

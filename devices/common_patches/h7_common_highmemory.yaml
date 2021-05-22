@@ -473,6 +473,8 @@ RCC:
         name: D3PPRE
 
   CR:
+    _clear:
+      "*"
     _modify:
       RC48ON:
         name: HSI48ON
@@ -483,12 +485,16 @@ RCC:
       RC48CAL:
         name: HSI48CAL
   CFGR:
+    _clear:
+      "*"
     _modify:
       MCO1SEL:
         name: MCO1
       MCO2SEL:
         name: MCO2
   CIER:
+    _clear:
+      "*"
     _modify:
       RC48RDYIE:
         name: HSI48RDYIE
@@ -497,16 +503,25 @@ RCC:
       RC48RDYF:
         name: HSI48RDYF
   CICR:
+    _clear:
+      "*"
     _modify:
       RC48RDYC:
         name: HSI48RDYC
   BDCR:
+    _clear:
+      "*"
     _modify:
       VSWRST:
         name: BDRST
       RTCSRC:
         name: RTCSEL
+  CSR:
+    _clear:
+      "*"
   PLL2DIVR:
+    _clear:
+      "*"
     _modify:
       DIVR1:
         name: DIVR2
@@ -516,6 +531,15 @@ RCC:
         name: DIVP2
       DIVN1:
         name: DIVN2
+  "A?B?RSTR,A?B??RSTR":
+    _clear:
+      "*RST"
+  "A?B?ENR,A?B??ENR,C1_A?B?ENR,C1_A?B??ENR":
+    _clear:
+      "*EN"
+  "A?B?LPENR,A?B??LPENR,C1_A?B?LPENR,C1_A?B??LPENR":
+    _clear:
+      "*LPEN"
   APB1LRSTR:
     _modify:
       USART7RST:
@@ -587,6 +611,16 @@ RCC:
       FLITFLPEN:
         name: FLASHPREN
         description: "Flash interface clock enable during csleep mode"
+  RSR:
+    _clear:
+      "*RSTF"
+  PLLCKSELR,PLLCFGR,PLL1DIVR,CDCFGR?,CDCCIPR,CDCCIP?R:
+    _clear:
+      "*"
+  SRDAMR,SRDCCIPR:
+    _clear:
+      "*"
+
 
 TIM1,TIM8:
   DMAR:

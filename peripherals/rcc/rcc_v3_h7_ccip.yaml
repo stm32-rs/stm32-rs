@@ -4,8 +4,8 @@
 # clock configuration registers (DxCFGR)
 
 RCC:
-  D1CFGR:
-    "D?CPRE,HPRE":
+  D1CFGR,CDCFGR1:
+    "D?CPRE,HPRE,CDCPRE":
       Div1: [0, "sys_ck not divided"]
       Div2: [8, "sys_ck divided by 2"]
       Div4: [9, "sys_ck divided by 4"]
@@ -15,8 +15,8 @@ RCC:
       Div128: [13, "sys_ck divided by 128"]
       Div256: [14, "sys_ck divided by 256"]
       Div512: [15, "sys_ck divided by 512"]
-  D?CFGR:
-    D?PPR*:
+  D?CFGR,CDCFGR?:
+    D?PPR*,CDPPRE*:
       Div1: [0, "rcc_hclk not divided"]
       Div2: [4, "rcc_hclk divided by 2"]
       Div4: [5, "rcc_hclk divided by 4"]
@@ -36,7 +36,7 @@ RCC:
       PLL2_R: [2, "pll2_r selected as peripheral clock"]
       PER: [3, "PER selected as peripheral clock"]
   D2CCIP1R,CDCCIP1R:
-    SWPSEL:
+    SWPSEL,SWPMISEL:
       PCLK: [0, "pclk selected as peripheral clock"]
       HSI_KER: [1, "hsi_ker selected as peripheral clock"]
     FDCANSEL:

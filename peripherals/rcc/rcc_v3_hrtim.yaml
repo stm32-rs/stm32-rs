@@ -1,0 +1,7 @@
+# Applicable at least to H7, except RM0455 parts with no HRTIM
+
+RCC:
+  CFGR:
+    HRTIMSEL:
+      TIMY_KER: [0, "The HRTIM prescaler clock source is the same as other timers (rcc_timy_ker_ck)"]
+      C_CK: [1, "The HRTIM prescaler clock source is the CPU clock (c_ck)"]
