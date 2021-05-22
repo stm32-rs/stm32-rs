@@ -1,0 +1,11 @@
+# Patches for H7 DBGMCU periperal
+
+# Remove registers not present in RM0433 Rev 7
+DBGMCU:
+  CR:
+    _delete:
+      - DBGSTBY_D2
+      - DBGSTOP_D2
+      - DBGSLEEP_D2
+      - DBGSTOP_D3
+      - DBGSTBY_D3
