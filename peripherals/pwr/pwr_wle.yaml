@@ -56,7 +56,7 @@ PWR:
       Enabled: [1, "PWR_PUCRx and PWR_PDCRx registers are NOT applied to the I/Os"]
     RRS:
       PowerOff: [0, "SRAM2 powered off in Standby mode (SRAM2 content lost)"]
-      On: [1, "SRAM2 powered by the low-power regulator in Standby mode (SRAM2 content kept)"]
+      OnLPR: [1, "SRAM2 powered by the low-power regulator in Standby mode (SRAM2 content kept)"]
     EWPVD:
       Disabled: [0, "PVD not enabled by the sub-GHz radio active state"]
       Enabled: [1, "PVD enabled while the sub-GHz radio is active"]
