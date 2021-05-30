@@ -13,6 +13,7 @@ _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
+ - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
  - ../devices/common_patches/wl_exti.yaml
  - ../peripherals/adc/adc_wl.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -28,5 +29,6 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/pwr/pwr_wle.yaml
  - ../peripherals/rcc/rcc_wle.yaml
+ - ../peripherals/rtc/rtc_wle.yaml
  - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
