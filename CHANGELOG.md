@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [v0.13.1] 2021-06-02
+
+* F3:
+    * Backport #558 to allow use in Discovery book
+
 ## [v0.13.0] 2021-02-06
 
 Family-specific:

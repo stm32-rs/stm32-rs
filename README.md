@@ -49,7 +49,7 @@ to drill down into each field on each register on each peripheral.
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.stm32f4]
-version = "0.13.0"
+version = "0.13.1"
 features = ["stm32f405", "rt"]
 ```
 
