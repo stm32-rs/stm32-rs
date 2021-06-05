@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [v0.13.2] 2021-06-05
+
+* F3:
+    * Fix bad crate generation from 0.13.1
+
 ## [v0.13.1] 2021-06-02
 
 * F3:
