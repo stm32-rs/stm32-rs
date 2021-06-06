@@ -21,6 +21,20 @@ _modify:
     name: DMAMUX2
     description: DMAMUX2
 
+# PWR block
+PWR:
+  CR3:
+    _add:
+      SDEXTHP:
+        description: SMPS step-down converter forced ON and in High Power MR mode
+        bitWidth: 1
+        bitOffset: 3
+      SDLEVEL:
+        description: SMPS step-down converter voltage output level selection
+        bitWidth: 2
+        bitOffset: 4
+
+# RCC block
 RCC:
   _modify:
     # Fix reset values for these registers.
@@ -32,6 +46,245 @@ RCC:
       resetValue: "0x00010000"
     C1_APB4LPENR:
       resetValue: "0x0421DEAA"
+  CSICFGR:
+    _modify:
+      CSICAL:
+        bitWidth: 10
+  D1CCIPR:
+    _modify:
+      QSPISRC:
+        name: OCTOSPISEL
+  D2CCIP1R:
+    _delete:
+      - SAI23SRC
+    _modify:
+      SWPSRC:
+        name: SWPMISEL
+  D2CCIP2R:
+    _modify:
+      USART16SRC:
+        name: USART16910SEL
+      I2C123SRC:
+        name: I2C1235SEL
+  AHB3RSTR:
+    _delete:
+      - JPGDECRST
+      - QSPIRST
+    _add:
+      OCTOSPI1RST:
+        description: OCTOSPI1 and OCTOSPI1 delay block reset
+        bitWidth: 1
+        bitOffset: 14
+      OCTOSPI2RST:
+        description: OCTOSPI2 and OCTOSPI2 delay block reset
+        bitWidth: 1
+        bitOffset: 19
+      IOMNGRRST:
+        description: OCTOSPI IO manager reset
+        bitWidth: 1
+        bitOffset: 21
+      OTFD1RST:
+        description: OTFDEC1 reset
+        bitWidth: 1
+        bitOffset: 22
+      OTFD2RST:
+        description: OTFDEC2 reset
+        bitWidth: 1
+        bitOffset: 23
+  AHB3ENR:
+    _delete:
+      - JPGDECEN
+      - QSPIEN
+    _add:
+      OCTOSPI1EN:
+        description: OCTOSPI1 and OCTOSPI1 delay block enable
+        bitWidth: 1
+        bitOffset: 14
+      OCTOSPI2EN:
+        description: OCTOSPI2 and OCTOSPI2 delay block enable
+        bitWidth: 1
+        bitOffset: 19
+      IOMNGREN:
+        description: OCTOSPI IO manager enable
+        bitWidth: 1
+        bitOffset: 21
+      OTFD1EN:
+        description: OTFDEC1 enable
+        bitWidth: 1
+        bitOffset: 22
+      OTFD2EN:
+        description: OTFDEC2 enable
+        bitWidth: 1
+        bitOffset: 23
+  AHB3LPENR,C1_AHB3LPENR:
+    _delete:
+      - JPGDECLPEN
+      - QSPILPEN
+    _add:
+      OCTOSPI1LPEN:
+        description: OCTOSPI1 and OCTOSPI1 delay block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 14
+      OCTOSPI2LPEN:
+        description: OCTOSPI2 and OCTOSPI2 delay block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 19
+      IOMNGRLPEN:
+        description: OCTOSPI IO manager enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 21
+      OTFD1LPEN:
+        description: OTFDEC1 enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 22
+      OTFD2LPEN:
+        description: OTFDEC2 enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 23
+  AHB1RSTR:
+    _delete:
+      - USB2OTGRST
+  AHB1ENR:
+    _delete:
+      - USB2OTGEN
+      - USB2ULPIEN
+  AHB1LPENR,C1_AHB1LPENR:
+    _delete:
+      - USB2OTGLPEN
+      - USB2ULPILPEN
+  AHB2RSTR:
+    _add:
+      FMACRST:
+        description: FMAC reset
+        bitWidth: 1
+        bitOffset: 16
+      CORDICRST:
+        description: CORDIC reset
+        bitWidth: 1
+        bitOffset: 17
+  AHB2ENR:
+    _delete:
+      - SRAM3EN
+    _add:
+      FMACEN:
+        description: FMAC enable
+        bitWidth: 1
+        bitOffset: 16
+      CORDICEN:
+        description: CORDIC enable
+        bitWidth: 1
+        bitOffset: 17
+  AHB2LPENR,C1_AHB2LPENR:
+    _delete:
+      - SRAM3LPEN
+    _add:
+      FMACLPEN:
+        description: FMAC enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 16
+      CORDICLPEN:
+        description: CORDIC enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 17
+  APB1LRSTR:
+    _add:
+      I2C5RST:
+        description: I2C5 block reset
+        bitWidth: 1
+        bitOffset: 25
+    _modify:
+      HDMICECRST:
+        name: CECRST
+  APB1LENR:
+    _add:
+      I2C5EN:
+        description: I2C5 block enable
+        bitWidth: 1
+        bitOffset: 25
+    _modify:
+      HDMICECEN:
+        name: CECEN
+  APB1LLPENR,C1_APB1LLPENR:
+    _add:
+      I2C5LPEN:
+        description: I2C5 block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 25
+    _modify:
+      HDMICECLPEN:
+        name: CECLPEN
+  APB1HRSTR:
+    _modify:
+      SWPRST:
+        name: SWPMIRST
+    _add:
+      TIM23RST:
+        description: TIM23 block reset
+        bitWidth: 1
+        bitOffset: 24
+      TIM24RST:
+        description: TIM24 block reset
+        bitWidth: 1
+        bitOffset: 25
+  APB1HENR:
+    _modify:
+      SWPEN:
+        name: SWPMIEN
+    _add:
+      TIM23EN:
+        description: TIM23 block enable
+        bitWidth: 1
+        bitOffset: 24
+      TIM24EN:
+        description: TIM24 block enable
+        bitWidth: 1
+        bitOffset: 25
+  APB1HLPENR,C1_APB1HLPENR:
+    _modify:
+      SWPLPEN:
+        name: SWPMILPEN
+    _add:
+      TIM23LPEN:
+        description: TIM23 block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 24
+      TIM24LPEN:
+        description: TIM24 block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 25
+  APB2RSTR:
+    _delete:
+      - HRTIMRST
+  APB2ENR:
+    _delete:
+      - HRTIMEN
+  APB2LPENR,C1_APB2LPENR:
+    _delete:
+      - HRTIMLPEN
+  APB4RSTR:
+    _add:
+      DTSRST:
+        description: Digital temperature sensor block reset
+        bitWidth: 1
+        bitOffset: 26
+  APB4ENR:
+    _add:
+      DTSEN:
+        description: Digital temperature sensor block enable
+        bitWidth: 1
+        bitOffset: 26
+  APB4LPENR,C1_APB4LPENR:
+    _add:
+      DTSLPEN:
+        description: Digital temperature sensor block enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 26
+  D3AMR:
+    _add:
+      DTSAMEN:
+        description: Digital temperature sensor Autonomous mode enable
+        bitWidth: 1
+        bitOffset: 26
 
 _delete:
   - HRTIM                       # RM0468 devices do not have an HRTIM
@@ -65,6 +318,7 @@ _include:
  - common_patches/h7_otg.yaml
  - common_patches/flash/flash_dual_bank.yaml
  - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
+ - common_patches/h7_rcc_src_sel.yaml
  - common_patches/ltdc/ltdc.yaml
  - common_patches/merge_I2C_CR2_SADDx_fields.yaml
  - common_patches/merge_USART_CR1_DEATx_fields.yaml
@@ -91,6 +345,7 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/ltdc/ltdc.yaml
+ - ../peripherals/rcc/rcc_h7.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml

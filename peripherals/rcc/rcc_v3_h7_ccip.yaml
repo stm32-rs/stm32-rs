@@ -81,7 +81,7 @@ RCC:
       PLL1_Q: [1, "pll1_q selected as peripheral clock"]
       PLL3_Q: [2, "pll3_q selected as peripheral clock"]
       HSI48: [3, "HSI48 selected as peripheral clock"]
-    I2C123SEL:
+    I2C123SEL,I2C1235SEL:
       RCC_PCLK1: [0, "rcc_pclk1 selected as peripheral clock"]
       PLL3_R: [1, "pll3_r selected as peripheral clock"]
       HSI_KER: [2, "hsi_ker selected as peripheral clock"]
