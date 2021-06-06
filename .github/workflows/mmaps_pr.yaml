@@ -38,10 +38,10 @@ jobs:
           BRANCH=pr-${{ github.event.number }}-$COMMIT
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
-          # Use the PR's YAML files to rebuild mmaps
+          # Use the PR's YAML and SVD files to rebuild mmaps
           cd ../master
-          rm -rf devices peripherals
-          mv ../pr/devices ../pr/peripherals .
+          rm -rf devices peripherals svd
+          mv ../pr/devices ../pr/peripherals ../pr/svd .
           make -j2 mmaps
 
           # Use the new mmaps to make a commit in the mmaps repo
