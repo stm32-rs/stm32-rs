@@ -762,7 +762,7 @@ IWDG:
   _strip:
     - IWDG_
 
-"USART*":
+"USART*,UART*":
   BRR:
     _modify:
       BRR_4_15:
@@ -770,6 +770,26 @@ IWDG:
       BRR_0_3:
         name: BRR0
     _merge: ["BRR*"]
+  CR1:
+    _merge:
+      - "DEAT*"
+      - "DEDT*"
+  CR2:
+    _modify:
+      TAINV:
+        name: DATAINV
+    _merge:
+      - "ABRMOD*"
+
+"UART*":
+  CR2:
+    _modify:
+      ADD0_3:
+        name: ADD0R
+      ADD4_7:
+        name: ADD4R
+    _merge:
+      - "ADD*R"
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
