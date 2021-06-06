@@ -33,13 +33,16 @@ RCC:
     C1_APB4LPENR:
       resetValue: "0x0421DEAA"
 
+_delete:
+  - HRTIM                       # RM0468 devices do not have an HRTIM
+
 FDCAN?:
   _strip:
     - FDCAN_
 
 SAI?:
   _strip:
-    - SAI_  
+    - SAI_
 
 _include:
  - common_patches/h7_common_singlecore.yaml
@@ -88,7 +91,6 @@ _include:
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/ltdc/ltdc.yaml
- - ../peripherals/rcc/rcc_v3_hrtim.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
