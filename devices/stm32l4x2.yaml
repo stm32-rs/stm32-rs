@@ -34,8 +34,8 @@ RCC:
 # to be aligned with `mvirkkunen/stm32f103-usb`
 
 _modify:
-  USB:
-     name: USB
+  USB_SRAM:
+     name: USB_SRAM
      # without quotes, get less readable value 1073768448
      baseAddress: "0x40006800"
   # The SVD calls ADC1 ADC.
