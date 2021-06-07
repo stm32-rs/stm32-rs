@@ -465,12 +465,6 @@ RCC:
           description: WWDG1 reset scope control
           bitOffset: 0
           bitWidth: 1
-  
-  SRDCFGR:
-    name: D3CFGR
-    _modify:
-      SRDPPRE:
-        name: D3PPRE
 
   CR:
     _clear:
