@@ -34,7 +34,7 @@ RCC:
 # to be aligned with `mvirkkunen/stm32f103-usb`
 
 _modify:
-  USB_SRAM:
+  USB:
      name: USB
      # without quotes, get less readable value 1073768448
      baseAddress: "0x40006800"

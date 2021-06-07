@@ -23,6 +23,139 @@ ADC:
         name: L
         description: Regular channel sequence length
 
+EXTI:
+  # note: Called c1imr1 here (and in SVD?), but RM calls it IMR1.
+  C1IMR1:
+    _add:
+      IM0:
+        description: CPU wakeup with interrupt mask on event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      IM1:
+        description: CPU wakeup with interrupt mask on event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      IM2:
+        description: CPU wakeup with interrupt mask on event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      IM3:
+        description: CPU wakeup with interrupt mask on event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      IM4:
+        description: CPU wakeup with interrupt mask on event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      IM5:
+        description: CPU wakeup with interrupt mask on event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      IM6:
+        description: CPU wakeup with interrupt mask on event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      IM7:
+        description: CPU wakeup with interrupt mask on event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      IM8:
+        description: CPU wakeup with interrupt mask on event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      IM9:
+        description: CPU wakeup with interrupt mask on event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      IM10:
+        description: CPU wakeup with interrupt mask on event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      IM11:
+        description: CPU wakeup with interrupt mask on event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      IM12:
+        description: CPU wakeup with interrupt mask on event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      IM13:
+        description: CPU wakeup with interrupt mask on event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      IM14:
+        description: CPU wakeup with interrupt mask on event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      IM15:
+        description: CPU wakeup with interrupt mask on event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      IM16:
+        description: CPU wakeup with interrupt mask on event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      IM17:
+        description: CPU wakeup with interrupt mask on event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      IM18:
+        description: CPU wakeup with interrupt mask on event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      IM19:
+        description: CPU wakeup with interrupt mask on event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      IM20:
+        description: CPU wakeup with interrupt mask on event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      IM21:
+        description: CPU wakeup with interrupt mask on event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      IM22:
+        description: CPU wakeup with interrupt mask on event input 22.
+        bitOffset: 22
+        bitWidth: 1
+      IM23:
+        description: CPU wakeup with interrupt mask on event input 23.
+        bitOffset: 23
+        bitWidth: 1
+      IM24:
+        description: CPU wakeup with interrupt mask on event input 24.
+        bitOffset: 24
+        bitWidth: 1
+      IM25:
+        description: CPU wakeup with interrupt mask on event input 25.
+        bitOffset: 25
+        bitWidth: 1
+      IM26:
+        description: CPU wakeup with interrupt mask on event input 26.
+        bitOffset: 26
+        bitWidth: 1
+      IM27:
+        description: CPU wakeup with interrupt mask on event input 27.
+        bitOffset: 27
+        bitWidth: 1
+      IM28:
+        description: CPU wakeup with interrupt mask on event input 28.
+        bitOffset: 28
+        bitWidth: 1
+      IM29:
+        description: CPU wakeup with interrupt mask on event input 29.
+        bitOffset: 29
+        bitWidth: 1
+      IM30:
+        description: CPU wakeup with interrupt mask on event input 30.
+        bitOffset: 30
+        bitWidth: 1
+      IM31:
+        description: CPU wakeup with interrupt mask on event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
 
 _include:
  - ./common_patches/sai/sai_v1.yaml

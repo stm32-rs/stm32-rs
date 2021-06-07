@@ -43,6 +43,12 @@ RCC:
         bitOffset: 10
         bitWidth: 1
         access: read-write
+    _add:
+      CRSEN:
+        description: Enables the clock recovery system (CRS) peripheral
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write  
   APB1SMENR1:
     _add:
       RTCAPBSMEN:
