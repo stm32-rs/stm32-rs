@@ -44,6 +44,7 @@ AES:
       Mode1: [0, "Mode 1: encryption"]
       Mode2: [1, "Mode 2: key derivation (or key preparation for ECB/CBC decryption)"]
       Mode3: [2, "Mode 3: decryption"]
+      Mode4: [3, "Mode 4: key derivation & decrypt (UNDOCUMENTED in ref. manual, exists in CubeMX code)"]
   SR:
     BUSY:
       Idle: [0, "Idle"]
