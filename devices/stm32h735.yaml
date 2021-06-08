@@ -286,6 +286,13 @@ RCC:
         bitWidth: 1
         bitOffset: 26
 
+# OCTOSPI blocks
+OCTOSPI?:
+  DCR1:
+    _modify:                    # Wider than in RM0455, where is it 3 bits
+      CSHT:
+        bitWidth: 6
+
 _delete:
   - HRTIM                       # RM0468 devices do not have an HRTIM
 
@@ -319,6 +326,7 @@ _include:
  - common_patches/h7_adc.yaml
  - common_patches/h7_dsi.yaml
  - common_patches/h7_adc_boost_rev_v.yaml
+ - common_patches/h7_octospi.yaml
  - common_patches/h7_sai.yaml
  - common_patches/h7_spdifrx.yaml
  - common_patches/h7_otg.yaml

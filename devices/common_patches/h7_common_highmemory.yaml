@@ -12,6 +12,8 @@ _modify:
     name: FDCAN2
   DAC:
     name: DAC1
+  OCTOSPI1_CONTROL_REGISTER:
+    name: OCTOSPI1
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
