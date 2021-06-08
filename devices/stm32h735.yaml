@@ -21,6 +21,44 @@ _modify:
     name: DMAMUX2
     description: DMAMUX2
 
+# BDMA block
+_add:
+  BDMA:
+    description: Basic Direct Memory Access
+    groupName: BDMA
+    baseAddress: 0x58025400
+    addressBlock:
+      offset: 0x000
+      size: 0x400
+      usage: registers
+    registers:
+      []
+    interrupts:
+      BDMA_CH0:
+        description: BDMA Channel 0 interrupt
+        value: 129
+      BDMA_CH1:
+        description: BDMA Channel 1 interrupt
+        value: 130
+      BDMA_CH2:
+        description: BDMA Channel 2 interrupt
+        value: 131
+      BDMA_CH3:
+        description: BDMA Channel 3 interrupt
+        value: 132
+      BDMA_CH4:
+        description: BDMA Channel 4 interrupt
+        value: 133
+      BDMA_CH5:
+        description: BDMA Channel 5 interrupt
+        value: 134
+      BDMA_CH6:
+        description: BDMA Channel 6 interrupt
+        value: 135
+      BDMA_CH7:
+        description: BDMA Channel 7 interrupt
+        value: 136
+
 # PWR block
 PWR:
   CR3:
@@ -311,8 +349,7 @@ SDMMC?:
 _include:
  - common_patches/h7_common_singlecore.yaml
  - common_patches/dma_fcr_wo.yaml
-# TODO: Add missing BDMA
-#  - common_patches/dma/bdma_v2.yaml
+ - common_patches/dma/bdma_v2_new.yaml
  - common_patches/dma/dma_v3.yaml
  - common_patches/dma/mdma.yaml
  - common_patches/fdcan/fdcan_h7.yaml
@@ -351,7 +388,7 @@ _include:
  - ../peripherals/crc/crc_idr_32bit.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/crc/crc_pol.yaml
-#  - ../peripherals/dma/bdma.yaml
+ - ../peripherals/dma/bdma.yaml
  - ../peripherals/dma/dma_v3.yaml
  - ../peripherals/dma/dmamux_v1.yaml
  - ../peripherals/dma/dma2d_v2.yaml
