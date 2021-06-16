@@ -25,10 +25,11 @@ ADC:
 
 EXTI:
   # Called c1imr1 here (and in SVD?), but RM calls it IMR1.
-  C1IMR1:
+  CIMR1:
     _modify:
       name: IMR1
 
+  IMR1:
     _add:
       IM0:
         description: CPU wakeup with interrupt mask on event input 0.
