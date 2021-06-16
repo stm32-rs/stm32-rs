@@ -350,6 +350,116 @@ EXTI:
         bitOffset: 31
         bitWidth: 1
 
+TIM16:
+  CR1:
+    _add:
+      CEN:
+        description: Counter enable.
+        bitOffset: 0
+        bitWidth: 1
+      UDIS:
+        description: Update disable.
+        bitOffset: 1
+        bitWidth: 1
+      URS:
+        description: Update request source.
+        bitOffset: 2
+        bitWidth: 1
+      OPM:
+        description: One pulse mode.
+        bitOffset: 3
+        bitWidth: 1
+      ARPE:
+        description: Auto-reload preload enable.
+        bitOffset: 7
+        bitWidth: 1
+      CKD:
+        description: Clock division.
+        bitOffset: 8
+        bitWidth: 2
+      UIFREMAP:
+        description: UIF status bit remapping.
+        bitOffset: 11
+        bitWidth: 1
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
+
+  DIER:
+    _add:
+      UIE:
+        description: Update interrupt enable.
+        bitOffset: 0
+        bitWidth: 1
+      CC1IE:
+        description: Capture/Compare 1 interrupt enable.
+        bitOffset: 1
+        bitWidth: 1
+      COMIE:
+        description: COM interrupt enable.
+        bitOffset: 5
+        bitWidth: 1
+      BIE:
+        description: Break interrupt enable.
+        bitOffset: 8
+        bitWidth: 1
+      UDE:
+        description: Update DMA request enable.
+        bitOffset: 8
+        bitWidth: 1
+      CC1DE:
+        description: Capture/Compare 1 DMA request enable.
+        bitOffset: 9
+        bitWidth: 2
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
+
+TIM17:
+  DIER:
+    _add:
+      UIE:
+        description: Update interrupt enable.
+        bitOffset: 0
+        bitWidth: 1
+      CC1IE:
+        description: Capture/Compare 1 interrupt enable.
+        bitOffset: 1
+        bitWidth: 1
+      COMIE:
+        description: COM interrupt enable.
+        bitOffset: 5
+        bitWidth: 1
+      BIE:
+        description: Break interrupt enable.
+        bitOffset: 8
+        bitWidth: 1
+      UDE:
+        description: Update DMA request enable.
+        bitOffset: 8
+        bitWidth: 1
+      CC1DE:
+        description: Capture/Compare 1 DMA request enable.
+        bitOffset: 9
+        bitWidth: 2
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
 
 _include:
  - ./common_patches/sai/sai_v1.yaml
