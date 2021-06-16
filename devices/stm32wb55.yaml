@@ -24,12 +24,13 @@ ADC:
         description: Regular channel sequence length
 
 EXTI:
-  C1IMR1:
-    _modify:
-      name: IMR1
+  # tod: Rename not working
+  # C1IMR1:
+  #   _modify:
+  #     name: IMR1
 
   # Called `c1imr1` in SVD, but RM calls it `IMR1`.
-  IMR1:
+  C1IMR1:
     _add:
       IM0:
         description: CPU wakeup with interrupt mask on event input 0.
@@ -255,7 +256,7 @@ EXTI:
         bitOffset: 31
         bitWidth: 1
 
-   FTSR1:
+  FTSR1:
     _add:
       FT0:
         description: Falling trigger event configuration bit of configurable Event input 0.

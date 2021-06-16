@@ -34,12 +34,11 @@ RCC:
         bitOffset: 26
         bitWidth: 1
 
-
 _modify:
   # The SVD calls ADC1 ADC.
   ADC:
     name: ADC1
-  USB_FS:
+  USB:
      baseAddress: "0x40006800"
 
 USB:
@@ -50,7 +49,11 @@ USB:
         value: 67
   _add:
     BCDR:
-      _add:
+      description: Battery charging detector
+      addressOffset: 0x58
+      size: 0x10  # todo: 0x20? 16-bit field though.
+      resetValue: 0x0000
+      fields:
         BCDEN:
           description: Battery charging detector (BCD) enable.
           bitOffset: 0
@@ -91,7 +94,7 @@ USB:
           description: DP pull-up control.
           bitOffset: 15
           bitWidth: 1
-          access: read-write
+
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
