@@ -24,8 +24,11 @@ ADC:
         description: Regular channel sequence length
 
 EXTI:
-  # note: Called c1imr1 here (and in SVD?), but RM calls it IMR1.
+  # Called c1imr1 here (and in SVD?), but RM calls it IMR1.
   C1IMR1:
+    _modify:
+      name: IMR1
+
     _add:
       IM0:
         description: CPU wakeup with interrupt mask on event input 0.
@@ -153,6 +156,196 @@ EXTI:
         bitWidth: 1
       IM31:
         description: CPU wakeup with interrupt mask on event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
+  RTSR1:
+    _add:
+      RT0:
+        description: Rising trigger event configuration bit of configurable Event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      RT1:
+        description: Rising trigger event configuration bit of configurable Event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      RT2:
+        description: Rising trigger event configuration bit of configurable Event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      RT3:
+        description: Rising trigger event configuration bit of configurable Event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      RT4:
+        description: Rising trigger event configuration bit of configurable Event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      RT5:
+        description: Rising trigger event configuration bit of configurable Event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      RT6:
+        description: Rising trigger event configuration bit of configurable Event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      RT7:
+        description: Rising trigger event configuration bit of configurable Event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      RT8:
+        description: Rising trigger event configuration bit of configurable Event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      RT9:
+        description: Rising trigger event configuration bit of configurable Event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      RT10:
+        description: Rising trigger event configuration bit of configurable Event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      RT11:
+        description: Rising trigger event configuration bit of configurable Event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      RT12:
+        description: Rising trigger event configuration bit of configurable Event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      RT13:
+        description: Rising trigger event configuration bit of configurable Event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      RT14:
+        description: Rising trigger event configuration bit of configurable Event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      RT15:
+        description: Rising trigger event configuration bit of configurable Event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      RT16:
+        description: Rising trigger event configuration bit of configurable Event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      RT17:
+        description: Rising trigger event configuration bit of configurable Event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      RT18:
+        description: Rising trigger event configuration bit of configurable Event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      RT19:
+        description: Rising trigger event configuration bit of configurable Event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      RT20:
+        description: Rising trigger event configuration bit of configurable Event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      RT21:
+        description: Rising trigger event configuration bit of configurable Event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      RT31:
+        description: Rising trigger event configuration bit of configurable Event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
+   FTSR1:
+    _add:
+      FT0:
+        description: Falling trigger event configuration bit of configurable Event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      FT1:
+        description: Falling trigger event configuration bit of configurable Event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      FT2:
+        description: Falling trigger event configuration bit of configurable Event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      FT3:
+        description: Falling trigger event configuration bit of configurable Event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      FT4:
+        description: Falling trigger event configuration bit of configurable Event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      FT5:
+        description: Falling trigger event configuration bit of configurable Event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      FT6:
+        description: Falling trigger event configuration bit of configurable Event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      FT7:
+        description: Falling trigger event configuration bit of configurable Event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      FT8:
+        description: Falling trigger event configuration bit of configurable Event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      FT9:
+        description: Falling trigger event configuration bit of configurable Event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      FT10:
+        description: Falling trigger event configuration bit of configurable Event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      FT11:
+        description: Falling trigger event configuration bit of configurable Event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      FT12:
+        description: Falling trigger event configuration bit of configurable Event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      FT13:
+        description: Falling trigger event configuration bit of configurable Event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      FT14:
+        description: Falling trigger event configuration bit of configurable Event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      FT15:
+        description: Falling trigger event configuration bit of configurable Event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      FT16:
+        description: Falling trigger event configuration bit of configurable Event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      FT17:
+        description: Falling trigger event configuration bit of configurable Event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      FT18:
+        description: Falling trigger event configuration bit of configurable Event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      FT19:
+        description: Falling trigger event configuration bit of configurable Event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      FT20:
+        description: Falling trigger event configuration bit of configurable Event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      FT21:
+        description: Falling trigger event configuration bit of configurable Event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      FT31:
+        description: Falling trigger event configuration bit of configurable Event input 31.
         bitOffset: 31
         bitWidth: 1
 
