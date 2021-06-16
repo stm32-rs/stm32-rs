@@ -24,11 +24,11 @@ ADC:
         description: Regular channel sequence length
 
 EXTI:
-  # Called c1imr1 here (and in SVD?), but RM calls it IMR1.
-  CIMR1:
+  C1IMR1:
     _modify:
       name: IMR1
 
+  # Called `c1imr1` in SVD, but RM calls it `IMR1`.
   IMR1:
     _add:
       IM0:
