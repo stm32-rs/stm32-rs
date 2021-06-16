@@ -42,13 +42,56 @@ _modify:
   USB_FS:
      baseAddress: "0x40006800"
 
-USB_FS:
+USB:
   _add:
     _interrupts:
       USB_FS:
         description: USB event interrupt through EXTI
         value: 67
-
+  _add:
+    BCDR:
+      _add:
+        BCDEN:
+          description: Battery charging detector (BCD) enable.
+          bitOffset: 0
+          bitWidth: 1
+        DCDEN:
+          description: Data contact detection (DCD) mode enable.
+          bitOffset: 1
+          bitWidth: 1
+        PDEN:
+          description: Primary detection (PD) mode enable.
+          bitOffset: 2
+          bitWidth: 1
+        SDEN:
+          description: Secondary detection (SD) mode enable
+          bitOffset: 3
+          bitWidth: 1
+        DCDET:
+          description: ata contact detection (DCD) status.
+          bitOffset: 4
+          bitWidth: 1
+          access: read
+        PDET:
+          description: Primary detection (PD) status.
+          bitOffset: 5
+          bitWidth: 1
+          access: read
+        SDET:
+          description: Secondary detection (SD) status.
+          bitOffset: 6
+          bitWidth: 1
+          access: read
+        PS2DET:
+          description: DM pull-up detection status.
+          bitOffset: 7
+          bitWidth: 1
+          access: read
+        DPPU:
+          description: DP pull-up control.
+          bitOffset: 15
+          bitWidth: 1
+          access: read-write
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
