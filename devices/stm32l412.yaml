@@ -6,26 +6,93 @@ _svd: ../svd/stm32l412.svd
 # RTC chapters: One that applies to L41x and L42x (Chapter 34), and one that 
 # applies to the rest. (Chapter 36). This module includes the Chapter 34 RTC setup.
 
-# TR, DR, PRER, WPR, TSSSR, SHIFTR, TSTR, TSDR registers unchanged.
+# TR, DR, PRER, WPR, TSSSR, SHIFTR, TSTR, TSDR, ALRMASSR,registers unchanged.
 # old CR at new address, and some fields added
 # WUTR has an additional WUTOCLR field.
 # CR has additional fields.
-# CALR, SSR, SHIFTR, ALRMAR and ALRMBR at a diff address.
+# CALR, SSR, SHIFTR, ALRMAR and ALRMBR, ALRMASSR, ALRMBSSR at a diff address.
 # CALR has an added field.
-# ISR and TAMPCR removed.
-# SCR, MISR, SR, ICSR, ALRMASSR, ALRMBSSR added
-
-# todo: ADD ALRMASSR, ALRMBSSR
+# ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
+# SCR, MISR, SR, ICSR added
 
 RTC:
   _delete:
     - ISR
     - TAMPCR
+    - OR
+    - BKPR
+
+  _modify:
+    SSR:
+      addressOffset: 0x08
+
+    CR:
+      addressOffset: 0x18
+
+    CALR:
+      addressOffset: 0x28
+
+    SHIFTR:
+      addressOffset: 0x2c
+
+    ALRMAR:
+      addressOffset: 0x40
+
+    ALRMBR:
+      addressOffset: 0x48
+
+    ALRMBSSR:
+      addressOffset: 0x4c
+
+
+  WUTR:
+    _add:
+        WUTOCLR:
+          description: Wakeup auto-reload output clear value
+          bitOffset: 16
+          bitWidth: 16
+          access: read-write
+
+  CALR:     
+    _add:
+      LPCAL:
+        description: Calibration low-power mode
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+
+  CR:
+    _add:
+      TAMPTS:
+        description: Activate timestamp on tamper detection event
+        bitOffset: 25
+        bitWidth: 1
+        access: read-write
+      TAMPOE:
+        description: Tamper detection output enable on TAMPALRM
+        bitOffset: 26
+        bitWidth: 1
+        access: read-write
+      TAMPALRM_PU:
+        description: TAMPALRM pull-up enable
+        bitOffset: 29
+        bitWidth: 1
+        access: read-write
+      TAMPALRM_TYPE:
+        description: TAMPALRM output type
+        bitOffset: 30
+        bitWidth: 1
+        access: read-write
+      OUT2EN:
+        description: RTC_OUT2 output enable
+        bitOffset: 31
+        bitWidth: 1
+        access: read-write
 
   _add:
     ICSR:
       description: RTC initialization control and status register
-      addressOffset: 0x0C
+      addressOffset: 0x0c
       size: 0x20
       access: read-write
       resetValue: 0x00000007
@@ -158,72 +225,7 @@ RTC:
           description: Clear internal timestamp flag
           bitOffset: 5
           bitWidth: 1
-  
-  CR:
-    _modify:
-      addressOffset: 0x18
-    _add:
-      TAMPTS:
-        description: Activate timestamp on tamper detection event
-        bitOffset: 25
-        bitWidth: 1
-        access: read-write
-      TAMPOE:
-        description: Tamper detection output enable on TAMPALRM
-        bitOffset: 26
-        bitWidth: 1
-        access: read-write
-      TAMPALRM_PU:
-        description: TAMPALRM pull-up enable
-        bitOffset: 29
-        bitWidth: 1
-        access: read-write
-      TAMPALRM_TYPE:
-        description: TAMPALRM output type
-        bitOffset: 30
-        bitWidth: 1
-        access: read-write
-      OUT2EN:
-        description: RTC_OUT2 output enable
-        bitOffset: 31
-        bitWidth: 1
-        access: read-write
-
-  WUTR:
-    _add:
-        WUTOCLR:
-          description: Wakeup auto-reload output clear value
-          bitOffset: 16
-          bitWidth: 16
-          access: read-write
-
-  CALR:
-    _modify:
-      addressOffset: 0x28
-    _add:
-        LPCAL:
-          description: Calibration low-power mode
-          bitOffset: 12
-          bitWidth: 1
-          access: read-write
-
-  ALRMAR:
-    _modify:
-        addressOffset: 0x40
-
-  ALRMBR:
-    _modify:
-        addressOffset: 0x48
-
-  SSR:
-    _modify:
-        addressOffset: 0x08
-
-  SHIFTR:
-    _modify:
-        addressOffset: 0x08
-        
- 
+      
 # Code below this line is a copy+paste from `stm32l4x2.yaml`
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
