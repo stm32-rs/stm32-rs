@@ -52,6 +52,7 @@ USB:
       description: Battery charging detector
       addressOffset: 0x58
       size: 0x10  # todo: 0x20? 16-bit field though.
+      access: read-write
       resetValue: 0x0000
       fields:
         BCDEN:
@@ -74,22 +75,22 @@ USB:
           description: ata contact detection (DCD) status
           bitOffset: 4
           bitWidth: 1
-          access: read
+          access: read-only
         PDET:
           description: Primary detection (PD) status
           bitOffset: 5
           bitWidth: 1
-          access: read
+          access: read-only
         SDET:
           description: Secondary detection (SD) status
           bitOffset: 6
           bitWidth: 1
-          access: read
+          access: read-only
         PS2DET:
           description: DM pull-up detection status
           bitOffset: 7
           bitWidth: 1
-          access: read
+          access: read-only
         DPPU:
           description: DP pull-up control
           bitOffset: 15
