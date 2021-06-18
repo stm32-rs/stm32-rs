@@ -10,15 +10,17 @@ _svd: ../svd/stm32l412.svd
 # old CR at new address, and some fields added
 # WUTR has an additional WUTOCLR field.
 # CR has additional fields.
-# SSR, SHIFTR, ALRMAR and ALRMBR at a diff address.
-# ISR removed.
-# SCR, MISR, SR, ICSR, ALRMASSR, ALRMBSSR, CALR added
+# CALR, SSR, SHIFTR, ALRMAR and ALRMBR at a diff address.
+# CALR has an added field.
+# ISR and TAMPCR removed.
+# SCR, MISR, SR, ICSR, ALRMASSR, ALRMBSSR added
 
-# todo: ADD ALRMASSR, ALRMBSSR, CALR
+# todo: ADD ALRMASSR, ALRMBSSR
 
 RTC:
   _delete:
     - ISR
+    - TAMPCR
 
   _add:
     ICSR:
@@ -193,6 +195,16 @@ RTC:
           description: Wakeup auto-reload output clear value
           bitOffset: 16
           bitWidth: 16
+          access: read-write
+
+  CALR:
+    _modify:
+      addressOffset: 0x28
+    _add:
+        LPCAL:
+          description: Calibration low-power mode
+          bitOffset: 12
+          bitWidth: 1
           access: read-write
 
   ALRMAR:
