@@ -47,7 +47,7 @@ USB:
       USB_FS:
         description: USB event interrupt through EXTI
         value: 67
-  _add:
+  # _add:
     BCDR:
       description: Battery charging detector
       addressOffset: 0x58
@@ -55,15 +55,15 @@ USB:
       resetValue: 0x0000
       fields:
         BCDEN:
-          description: Battery charging detector (BCD) enable.
+          description: Battery charging detector (BCD) enable
           bitOffset: 0
           bitWidth: 1
         DCDEN:
-          description: Data contact detection (DCD) mode enable.
+          description: Data contact detection (DCD) mode enable
           bitOffset: 1
           bitWidth: 1
         PDEN:
-          description: Primary detection (PD) mode enable.
+          description: Primary detection (PD) mode enable
           bitOffset: 2
           bitWidth: 1
         SDEN:
@@ -71,27 +71,27 @@ USB:
           bitOffset: 3
           bitWidth: 1
         DCDET:
-          description: ata contact detection (DCD) status.
+          description: ata contact detection (DCD) status
           bitOffset: 4
           bitWidth: 1
           access: read
         PDET:
-          description: Primary detection (PD) status.
+          description: Primary detection (PD) status
           bitOffset: 5
           bitWidth: 1
           access: read
         SDET:
-          description: Secondary detection (SD) status.
+          description: Secondary detection (SD) status
           bitOffset: 6
           bitWidth: 1
           access: read
         PS2DET:
-          description: DM pull-up detection status.
+          description: DM pull-up detection status
           bitOffset: 7
           bitWidth: 1
           access: read
         DPPU:
-          description: DP pull-up control.
+          description: DP pull-up control
           bitOffset: 15
           bitWidth: 1
 
