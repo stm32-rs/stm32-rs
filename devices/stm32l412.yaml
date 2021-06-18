@@ -15,6 +15,11 @@ _svd: ../svd/stm32l412.svd
 # ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
 # SCR, MISR, SR, ICSR added
 
+_modify:
+  RTC:
+    addressBlock:
+      size: 0xcc  # todo: Not working to fix last 3 regs not showing up.
+
 RTC:
   _delete:
     - ISR
@@ -23,9 +28,6 @@ RTC:
     - BKPR
 
   _modify:
-    addressBlock:
-      size: 0xcc
-
     SSR:
       addressOffset: 0x08
 
