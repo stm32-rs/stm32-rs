@@ -23,6 +23,9 @@ RTC:
     - BKPR
 
   _modify:
+    addressBlock:
+      size: 0xcc
+
     SSR:
       addressOffset: 0x08
 
@@ -43,7 +46,6 @@ RTC:
 
     ALRMBSSR:
       addressOffset: 0x4c
-
 
   WUTR:
     _add:
@@ -92,7 +94,7 @@ RTC:
   _add:
     ICSR:
       description: RTC initialization control and status register
-      addressOffset: 0x50
+      addressOffset: 0x0c
       size: 0x20
       access: read-write
       resetValue: 0x00000007
@@ -130,9 +132,10 @@ RTC:
           bitOffset: 16
           bitWidth: 1
           access: read-only
+
     SR:
       description: RTC status register
-      addressOffset: 0x0c
+      addressOffset: 0x50
       size: 0x20
       access: read-only
       resetValue: 0x00000000
