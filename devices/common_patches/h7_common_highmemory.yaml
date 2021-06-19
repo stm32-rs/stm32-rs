@@ -316,6 +316,10 @@ AXI:
 
 _delete:
   - DMA2
+  - UART4
+  - UART5
+  - UART7
+  - UART8
   - USART9
   - USART10
 
@@ -348,16 +352,38 @@ _add:
       DMA2_STR7:
         value: 70
         description: DMA2 Stream7
-  UART9:
+  UART4:
     derivedFrom: USART1
-    baseAddress: 0x40018000
+    baseAddress: 0x40004C00
+    interrupts:
+      UART4:
+        description: UART4 global interrupt
+        value: 52
+  UART5:
+    derivedFrom: USART1
+    baseAddress: 0x40005000
+    interrupts:
+      UART5:
+        description: UART5 global interrupt
+        value: 53
+  UART7:
+    derivedFrom: USART1
+    baseAddress: 0x40007800
     interrupts:
       UART7:
         description: UART7 global interrupt
         value: 82
+  UART8:
+    derivedFrom: USART1
+    baseAddress: 0x40007C00
+    interrupts:
       UART8:
         description: UART8 global interrupt
         value: 83
+  UART9:
+    derivedFrom: USART1
+    baseAddress: 0x40018000
+    interrupts:
       UART9:
          description: UART9 global interrupt
          value: 140
@@ -757,6 +783,25 @@ WWDG:
 IWDG:
   _strip:
     - IWDG_
+
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
 
 "USART*,UART*":
   BRR:
