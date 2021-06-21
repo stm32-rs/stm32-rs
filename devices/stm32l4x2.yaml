@@ -56,7 +56,6 @@ _add:
 USB:
   _add:
     _interrupts:
-      # the interrupt is listed under USB_FS, which we delete
       USB:
         description: USB event interrupt through EXTI
         value: 67
