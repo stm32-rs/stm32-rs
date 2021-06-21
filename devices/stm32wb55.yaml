@@ -426,6 +426,19 @@ TIM16:
       - BKINE
       - BKINP
 
+HSEM:
+  C1IER0:
+    _modify: # todo not working
+      name: C1ER
+  C2IER0:
+    _modify:  # todo not working
+      name: C2ER
+
+IPCC:
+  C1TO2SR:
+    _modify: # todo: Not working
+      name: C1TOC2SR
+
 TIM17:
   DIER:
     _add:
