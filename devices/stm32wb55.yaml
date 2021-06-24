@@ -23,6 +23,457 @@ ADC:
         name: L
         description: Regular channel sequence length
 
+EXTI:
+  # tod: Rename not working
+  # C1IMR1:
+  #   _modify:
+  #     name: IMR1
+
+  # Called `c1imr1` in SVD, but RM calls it `IMR1`.
+  C1IMR1:
+    _add:
+      IM0:
+        description: CPU wakeup with interrupt mask on event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      IM1:
+        description: CPU wakeup with interrupt mask on event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      IM2:
+        description: CPU wakeup with interrupt mask on event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      IM3:
+        description: CPU wakeup with interrupt mask on event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      IM4:
+        description: CPU wakeup with interrupt mask on event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      IM5:
+        description: CPU wakeup with interrupt mask on event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      IM6:
+        description: CPU wakeup with interrupt mask on event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      IM7:
+        description: CPU wakeup with interrupt mask on event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      IM8:
+        description: CPU wakeup with interrupt mask on event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      IM9:
+        description: CPU wakeup with interrupt mask on event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      IM10:
+        description: CPU wakeup with interrupt mask on event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      IM11:
+        description: CPU wakeup with interrupt mask on event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      IM12:
+        description: CPU wakeup with interrupt mask on event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      IM13:
+        description: CPU wakeup with interrupt mask on event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      IM14:
+        description: CPU wakeup with interrupt mask on event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      IM15:
+        description: CPU wakeup with interrupt mask on event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      IM16:
+        description: CPU wakeup with interrupt mask on event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      IM17:
+        description: CPU wakeup with interrupt mask on event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      IM18:
+        description: CPU wakeup with interrupt mask on event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      IM19:
+        description: CPU wakeup with interrupt mask on event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      IM20:
+        description: CPU wakeup with interrupt mask on event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      IM21:
+        description: CPU wakeup with interrupt mask on event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      IM22:
+        description: CPU wakeup with interrupt mask on event input 22.
+        bitOffset: 22
+        bitWidth: 1
+      IM23:
+        description: CPU wakeup with interrupt mask on event input 23.
+        bitOffset: 23
+        bitWidth: 1
+      IM24:
+        description: CPU wakeup with interrupt mask on event input 24.
+        bitOffset: 24
+        bitWidth: 1
+      IM25:
+        description: CPU wakeup with interrupt mask on event input 25.
+        bitOffset: 25
+        bitWidth: 1
+      IM26:
+        description: CPU wakeup with interrupt mask on event input 26.
+        bitOffset: 26
+        bitWidth: 1
+      IM27:
+        description: CPU wakeup with interrupt mask on event input 27.
+        bitOffset: 27
+        bitWidth: 1
+      IM28:
+        description: CPU wakeup with interrupt mask on event input 28.
+        bitOffset: 28
+        bitWidth: 1
+      IM29:
+        description: CPU wakeup with interrupt mask on event input 29.
+        bitOffset: 29
+        bitWidth: 1
+      IM30:
+        description: CPU wakeup with interrupt mask on event input 30.
+        bitOffset: 30
+        bitWidth: 1
+      IM31:
+        description: CPU wakeup with interrupt mask on event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
+  RTSR1:
+    _add:
+      RT0:
+        description: Rising trigger event configuration bit of configurable Event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      RT1:
+        description: Rising trigger event configuration bit of configurable Event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      RT2:
+        description: Rising trigger event configuration bit of configurable Event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      RT3:
+        description: Rising trigger event configuration bit of configurable Event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      RT4:
+        description: Rising trigger event configuration bit of configurable Event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      RT5:
+        description: Rising trigger event configuration bit of configurable Event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      RT6:
+        description: Rising trigger event configuration bit of configurable Event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      RT7:
+        description: Rising trigger event configuration bit of configurable Event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      RT8:
+        description: Rising trigger event configuration bit of configurable Event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      RT9:
+        description: Rising trigger event configuration bit of configurable Event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      RT10:
+        description: Rising trigger event configuration bit of configurable Event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      RT11:
+        description: Rising trigger event configuration bit of configurable Event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      RT12:
+        description: Rising trigger event configuration bit of configurable Event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      RT13:
+        description: Rising trigger event configuration bit of configurable Event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      RT14:
+        description: Rising trigger event configuration bit of configurable Event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      RT15:
+        description: Rising trigger event configuration bit of configurable Event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      RT16:
+        description: Rising trigger event configuration bit of configurable Event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      RT17:
+        description: Rising trigger event configuration bit of configurable Event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      RT18:
+        description: Rising trigger event configuration bit of configurable Event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      RT19:
+        description: Rising trigger event configuration bit of configurable Event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      RT20:
+        description: Rising trigger event configuration bit of configurable Event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      RT21:
+        description: Rising trigger event configuration bit of configurable Event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      RT31:
+        description: Rising trigger event configuration bit of configurable Event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
+  FTSR1:
+    _add:
+      FT0:
+        description: Falling trigger event configuration bit of configurable Event input 0.
+        bitOffset: 0
+        bitWidth: 1
+      FT1:
+        description: Falling trigger event configuration bit of configurable Event input 1.
+        bitOffset: 1
+        bitWidth: 1
+      FT2:
+        description: Falling trigger event configuration bit of configurable Event input 2.
+        bitOffset: 2
+        bitWidth: 1
+      FT3:
+        description: Falling trigger event configuration bit of configurable Event input 3.
+        bitOffset: 3
+        bitWidth: 1
+      FT4:
+        description: Falling trigger event configuration bit of configurable Event input 4.
+        bitOffset: 4
+        bitWidth: 1
+      FT5:
+        description: Falling trigger event configuration bit of configurable Event input 5.
+        bitOffset: 5
+        bitWidth: 1
+      FT6:
+        description: Falling trigger event configuration bit of configurable Event input 6.
+        bitOffset: 6
+        bitWidth: 1
+      FT7:
+        description: Falling trigger event configuration bit of configurable Event input 7.
+        bitOffset: 7
+        bitWidth: 1
+      FT8:
+        description: Falling trigger event configuration bit of configurable Event input 8.
+        bitOffset: 8
+        bitWidth: 1
+      FT9:
+        description: Falling trigger event configuration bit of configurable Event input 9.
+        bitOffset: 9
+        bitWidth: 1
+      FT10:
+        description: Falling trigger event configuration bit of configurable Event input 10.
+        bitOffset: 10
+        bitWidth: 1
+      FT11:
+        description: Falling trigger event configuration bit of configurable Event input 11.
+        bitOffset: 11
+        bitWidth: 1
+      FT12:
+        description: Falling trigger event configuration bit of configurable Event input 12.
+        bitOffset: 12
+        bitWidth: 1
+      FT13:
+        description: Falling trigger event configuration bit of configurable Event input 13.
+        bitOffset: 13
+        bitWidth: 1
+      FT14:
+        description: Falling trigger event configuration bit of configurable Event input 14.
+        bitOffset: 14
+        bitWidth: 1
+      FT15:
+        description: Falling trigger event configuration bit of configurable Event input 15.
+        bitOffset: 15
+        bitWidth: 1
+      FT16:
+        description: Falling trigger event configuration bit of configurable Event input 16.
+        bitOffset: 16
+        bitWidth: 1
+      FT17:
+        description: Falling trigger event configuration bit of configurable Event input 17.
+        bitOffset: 17
+        bitWidth: 1
+      FT18:
+        description: Falling trigger event configuration bit of configurable Event input 18.
+        bitOffset: 18
+        bitWidth: 1
+      FT19:
+        description: Falling trigger event configuration bit of configurable Event input 19.
+        bitOffset: 19
+        bitWidth: 1
+      FT20:
+        description: Falling trigger event configuration bit of configurable Event input 20.
+        bitOffset: 20
+        bitWidth: 1
+      FT21:
+        description: Falling trigger event configuration bit of configurable Event input 21.
+        bitOffset: 21
+        bitWidth: 1
+      FT31:
+        description: Falling trigger event configuration bit of configurable Event input 31.
+        bitOffset: 31
+        bitWidth: 1
+
+TIM16:
+  CR1:
+    _add:
+      CEN:
+        description: Counter enable.
+        bitOffset: 0
+        bitWidth: 1
+      UDIS:
+        description: Update disable.
+        bitOffset: 1
+        bitWidth: 1
+      URS:
+        description: Update request source.
+        bitOffset: 2
+        bitWidth: 1
+      OPM:
+        description: One pulse mode.
+        bitOffset: 3
+        bitWidth: 1
+      ARPE:
+        description: Auto-reload preload enable.
+        bitOffset: 7
+        bitWidth: 1
+      CKD:
+        description: Clock division.
+        bitOffset: 8
+        bitWidth: 2
+      UIFREMAP:
+        description: UIF status bit remapping.
+        bitOffset: 11
+        bitWidth: 1
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
+
+  DIER:
+    _add:
+      UIE:
+        description: Update interrupt enable.
+        bitOffset: 0
+        bitWidth: 1
+      CC1IE:
+        description: Capture/Compare 1 interrupt enable.
+        bitOffset: 1
+        bitWidth: 1
+      COMIE:
+        description: COM interrupt enable.
+        bitOffset: 5
+        bitWidth: 1
+      BIE:
+        description: Break interrupt enable.
+        bitOffset: 8
+        bitWidth: 1
+      UDE:
+        description: Update DMA request enable.
+        bitOffset: 8
+        bitWidth: 1
+      CC1DE:
+        description: Capture/Compare 1 DMA request enable.
+        bitOffset: 9
+        bitWidth: 2
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
+
+HSEM:
+  C1IER0:
+    _modify: # todo not working
+      name: C1ER
+  C2IER0:
+    _modify:  # todo not working
+      name: C2ER
+
+IPCC:
+  C1TO2SR:
+    _modify: # todo: Not working
+      name: C1TOC2SR
+
+TIM17:
+  DIER:
+    _add:
+      UIE:
+        description: Update interrupt enable.
+        bitOffset: 0
+        bitWidth: 1
+      CC1IE:
+        description: Capture/Compare 1 interrupt enable.
+        bitOffset: 1
+        bitWidth: 1
+      COMIE:
+        description: COM interrupt enable.
+        bitOffset: 5
+        bitWidth: 1
+      BIE:
+        description: Break interrupt enable.
+        bitOffset: 8
+        bitWidth: 1
+      UDE:
+        description: Update DMA request enable.
+        bitOffset: 8
+        bitWidth: 1
+      CC1DE:
+        description: Capture/Compare 1 DMA request enable.
+        bitOffset: 9
+        bitWidth: 2
+
+    _delete:
+      - BKCMP1E
+      - BKCMP1P
+      - BKCMP2E
+      - BKCMP2P
+      - BKINE
+      - BKINP
 
 _include:
  - ./common_patches/sai/sai_v1.yaml

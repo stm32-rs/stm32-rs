@@ -29,10 +29,6 @@ RCC:
         bitWidth: 1
         access: read-write
 
-# cf. <https://github.com/adamgreig/stm32-rs/issues/37>
-# we call the resulting peripheral `USB` instead of `USB-FS`
-# to be aligned with `mvirkkunen/stm32f103-usb`
-
 _modify:
   USB_SRAM:
      name: USB
@@ -52,17 +48,6 @@ _add:
   ADC2:
     derivedFrom: ADC1
     baseAddress: "0x50040100"
-
-USB:
-  _add:
-    _interrupts:
-      # the interrupt is listed under USB_FS, which we delete
-      USB:
-        description: USB event interrupt through EXTI
-        value: 67
-
-_delete:
-  - USB_FS
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
