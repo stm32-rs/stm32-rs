@@ -53,16 +53,6 @@ _add:
     derivedFrom: ADC1
     baseAddress: "0x50040100"
 
-USB:
-  _add:
-    _interrupts:
-      USB:
-        description: USB event interrupt through EXTI
-        value: 67
-
-_delete:
-  - USB_FS
-
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
 # a huge amount of filespace and compilation time etc -- as much as 30% of all
