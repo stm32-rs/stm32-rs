@@ -39,6 +39,14 @@ DAC:
   CR:
     _merge:
       - "TSEL1*"
+TIM1:
+  _modify:
+    CCMR3OutputComparemode:
+      name: CCMR3_Output
+
+TIM2:
+  _strip:
+    - TIM2_
 
 _include:
  - ../devices/common_patches/l4_spi.yaml
@@ -69,3 +77,8 @@ _include:
  - ../peripherals/rtc/rtc_wl.yaml
  - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_gp1.yaml
+ - ../peripherals/tim/tim12_common_wl.yaml
+ - ../peripherals/tim/tim1_wl.yaml
+ - ../peripherals/tim/tim2_wl.yaml
