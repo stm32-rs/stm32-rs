@@ -35,6 +35,11 @@ AES:
       "AES_SUSP?R":
         name: SUSP
 
+DAC:
+  CR:
+    _merge:
+      - "TSEL1*"
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml
@@ -46,6 +51,10 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/crc/crc_with_polysize.yaml
+ - ../peripherals/dac/dac_wl.yaml
+ - ../peripherals/dac/dac_wl_12bit.yaml
+ - ../peripherals/dac/dac_wl_8bit.yaml
+ - ../peripherals/dac/dac_wl_dual.yaml
  - ../peripherals/dma/dma_wl.yaml
  - ../peripherals/dma/dmamux_wl.yaml
  - ../peripherals/exti/exti.yaml
