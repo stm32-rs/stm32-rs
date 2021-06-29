@@ -58,6 +58,10 @@ TIM1?:
     _delete:
       - BKF
 
+IWDG:
+  _delete:
+    - WINR
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml
@@ -81,6 +85,8 @@ _include:
  - ../peripherals/gpio/gpio_wl_with_brr.yaml
  - ../peripherals/hsem_wl.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - ../peripherals/iwdg/iwdr_sr.yaml
  - ../peripherals/pka/pka.yaml
  - ../peripherals/pwr/pwr_wl.yaml
  - ../peripherals/rcc/rcc_wl.yaml
@@ -92,3 +98,4 @@ _include:
  - ../peripherals/tim/tim1_wl.yaml
  - ../peripherals/tim/tim2_wl.yaml
  - ../peripherals/tim/tim16_wl.yaml
+ - ../peripherals/wwdg/wwdg.yaml
