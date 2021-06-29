@@ -181,8 +181,8 @@ TIM1:
       Disabled: [0, "MOE can be set only by software"]
       Enabled: [1, "MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active)"]
     BKP:
-      Low: [0, "Break input BRK is active low"]
-      High: [1, "Break input BRK is active high"]
+      ActiveLow: [0, "Break input BRK is active low"]
+      ActiveHigh: [1, "Break input BRK is active high"]
     BKE:
       Disabled: [0, "Break function disabled"]
       Enabled: [1, "Break function enabled"]

@@ -48,6 +48,16 @@ TIM2:
   _strip:
     - TIM2_
 
+TIM1?:
+  _strip:
+    - TIM1?_
+  DIER:
+    _delete:
+      - COMDE
+  BDTR:
+    _delete:
+      - BKF
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml
@@ -78,7 +88,7 @@ _include:
  - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim12_common_wl.yaml
  - ../peripherals/tim/tim1_wl.yaml
  - ../peripherals/tim/tim2_wl.yaml
+ - ../peripherals/tim/tim16_wl.yaml

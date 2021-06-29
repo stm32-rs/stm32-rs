@@ -90,6 +90,7 @@
   SR:
     "CC?OF":
       _read:
+        NoOvercapture: [0, "No overcapture has been detected"]
         Overcapture: [1, "The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set"]
       _write:
         Clear: [0, "Clear flag"]
@@ -101,6 +102,7 @@
         Clear: [0, "Clear flag"]
     "CC?IF":
       _read:
+        NoMatch: [0, "No campture/compare has been detected"]
         Match: [1, "If CC1 is an output: The content of the counter TIMx_CNT matches the content of the TIMx_CCR1 register. If CC1 is an input: The counter value has been captured in TIMx_CCR1 register"]
       _write:
         Clear: [0, "Clear flag"]
@@ -171,8 +173,8 @@
 
   CCER:
     "CC?NP":
-      Negative: [0, "Negative polarity"]
-      Positive: [1, "Positive polarity"]
+      ActiveHigh: [0, "OCxN active high"]
+      ActiveLow: [1, "OCxN active low"]
     "CC?P":
       RisingEdge: [0, "Noninverted/rising edge"]
       FallingEdge: [1, "Inverted/falling edge"]
@@ -197,4 +199,4 @@
       COMP2: [2, 'COMP2 output']
   TISEL:
     TI?SEL:
-      Select: [0, "TIM1_CHx input selected"]
+      Selected: [0, "TIM1_CHx input selected"]
