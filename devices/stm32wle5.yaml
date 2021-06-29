@@ -58,6 +58,16 @@ TIM1?:
     _delete:
       - BKF
 
+LPTIM,LPTIM?:
+  _strip:
+    - LPTIM_
+    - LPTIM?_
+
+LPTIM[23]:
+  OR:
+    _merge:
+      - "OR*"
+
 IWDG:
   _delete:
     - WINR
@@ -86,7 +96,9 @@ _include:
  - ../peripherals/hsem_wl.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/iwdg/iwdg.yaml
- - ../peripherals/iwdg/iwdr_sr.yaml
+ - ../peripherals/iwdg/iwdg_sr.yaml
+ - ../peripherals/lptim/lptim_v1.yaml
+ - ../peripherals/lptim/lptim_wl.yaml
  - ../peripherals/pka/pka.yaml
  - ../peripherals/pwr/pwr_wl.yaml
  - ../peripherals/rcc/rcc_wl.yaml
