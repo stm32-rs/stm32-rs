@@ -36,10 +36,13 @@ AES:
       Disabled: [0, "Disable AES"]
       Enabled: [1, "Enable AES"]
     CHMOD:
-      ECB: [0, "Electronic codebook (ECB)"]
+      ECB: [0, "Electronic codebook (ECB) / Counter with CBC-MAC (CCM) if CHMOD2 is 1"]
       CBC: [1, "Cipher-block chaining (CBC)"]
       CTR: [2, "Counter mode (CTR)"]
-      GCM: [3, "Galois counter mode (GCM) and Galois message authentication code (GMAC) 100: Counter with CBC-MAC (CCM)"]
+      GCM: [3, "Galois counter mode (GCM) and Galois message authentication code (GMAC)"]
+    CHMOD2:
+      CHMOD: [0, "Mode as per CHMOD (ECB, CBC, CTR, GCM)"]
+      CCM: [1, "Counter with CBC-MAC (CCM) - CHMOD must be 0 (ECB)"]
     MODE:
       Mode1: [0, "Mode 1: encryption"]
       Mode2: [1, "Mode 2: key derivation (or key preparation for ECB/CBC decryption)"]
