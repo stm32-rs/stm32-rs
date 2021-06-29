@@ -100,7 +100,7 @@ TIM1[67]:
       PwmMode1: [6, "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active"]
       PwmMode2: [7, "Inversely to PwmMode1"]
     OC?M_3:
-      NormalModes: [0, "Choose low modes (0-7)"]
+      Normal: [0, "Normal output compare mode (modes 0-7)"]
 
   CCER:
     "CC?NP":
