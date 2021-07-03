@@ -1,0 +1,40 @@
+"USART*":
+  CR1:
+    UESM:
+      Disabled: [0, "USART not able to wake up the MCU from low-power mode"]
+      Enabled:  [1, "USART able to wake up the MCU from low-power mode"]
+  CR2:
+    DIS_NSS:
+      Disabled: [0, "SPI slave selection depends on NSS input pin"]
+      Enabled:  [1, "SPI slave is always selected and NSS input pin is ignored"]
+    SLVEN:
+      Disabled: [0, "Slave mode disabled"]
+      Enabled:  [1, "Slave mode enabled"]
+  CR3:
+    WUFIE:
+      Disabled: [0, "Interrupt inhibited"]
+      Enabled:  [1, "USART interrupt generated whenever WUF = 1 in the USART_ISR register"]
+    WUS:
+      Address: [0, "WUF active on address match (as defined by ADD[7:0] and ADDM7)"]
+      StartBit: [2, "WUF active on start bit detection"]
+      RXNE: [3, "WUF active on RXNE/RXFNE"]
+  ICR:
+    WUCF:
+      Clear: [1, "Clear the WUF flag in the ISR register"]
+    UDRCF:
+      Clear: [1, "Clear the WUF flag in the ISR register"]
+  PRESC:
+    PRESCALER:
+      Div1: [0b0000, "/1"]
+      Div2: [0b0001, "/2"]
+      Div4: [0b0010, "/4"]
+      Div6: [0b0011, "/6"]
+      Div8: [0b0100, "/8"]
+      Div10: [0b0101, "/10"]
+      Div12: [0b0110, "/12"]
+      Div16: [0b0111, "/16"]
+      Div32: [0b1000, "/32"]
+      Div64: [0b1001, "/64"]
+      Div128: [0b1010, "/128"]
+      Div256: [0b1011, "/256"]
+

@@ -72,12 +72,24 @@ IWDG:
   _delete:
     - WINR
 
+USART?:
+  ICR:
+    _modify:
+      NECF:
+        name: NCF
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
  - ../devices/common_patches/wl_exti.yaml
+ - ../devices/common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ../devices/common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ../devices/common_patches/merge_USART_CR2_ADDx_fields_inverted.yaml
+ - ../devices/common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ../devices/common_patches/rename_USART_CR1_M0_field.yaml
+ - ../devices/common_patches/rename_USART_CR3_SCARCNT_field.yaml
  - ../peripherals/adc/adc_wl.yaml
  - ../peripherals/aes/aes_wl.yaml
  - ../peripherals/comp/comp_wl.yaml
@@ -112,4 +124,7 @@ _include:
  - ../peripherals/tim/tim1_wl.yaml
  - ../peripherals/tim/tim2_wl.yaml
  - ../peripherals/tim/tim16_wl.yaml
+ - ../peripherals/usart/usart_v2C.yaml
+ - ../peripherals/usart/usart_fifoen.yaml
+ - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/wwdg/wwdg.yaml
