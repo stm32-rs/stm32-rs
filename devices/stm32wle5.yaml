@@ -97,6 +97,8 @@ LPUART:
     _modify:
       TXFNFIE:
         name: TXEIE
+_delete:
+  - SYSCFG_continue
 
 _include:
  - ../devices/common_patches/l4_spi.yaml
@@ -126,7 +128,7 @@ _include:
  - ../peripherals/flash/flash_wl.yaml
  - ../peripherals/gpio/gpio_v2_common.yaml
  - ../peripherals/gpio/gpio_wl_with_brr.yaml
- - ../peripherals/hsem_wl.yaml
+ - ../peripherals/hsem/hsem_wl.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/iwdg/iwdg_sr.yaml
