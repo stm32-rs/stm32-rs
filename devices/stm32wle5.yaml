@@ -72,11 +72,31 @@ IWDG:
   _delete:
     - WINR
 
-USART?:
+# Rename this so it has the same name as all other STM32 USARTs
+LPUART,USART?:
   ICR:
     _modify:
       NECF:
         name: NCF
+
+# CR1 and ISR have 2 versions depending on whether FIFO is enabled or not
+# The only difference is the addition of 2 bits at the top of the register
+# and some names (e.g. TXEIE - TXFNFIE), but all functionality remains the same
+# so we remove the "disabled" version and leave the "enabled" version as
+# reference
+LPUART:
+  _modify:
+    CR1_enabled:
+      name: CR1
+    ISR_enabled:
+      name: ISR
+  _delete:
+    - CR1_disabled
+    - ISR_disabled
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
 
 _include:
  - ../devices/common_patches/l4_spi.yaml
@@ -112,6 +132,7 @@ _include:
  - ../peripherals/iwdg/iwdg_sr.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/lptim/lptim_wl.yaml
+ - ../peripherals/usart/lpuart_wl.yaml
  - ../peripherals/pka/pka.yaml
  - ../peripherals/pwr/pwr_wl.yaml
  - ../peripherals/rcc/rcc_wl.yaml
@@ -125,6 +146,5 @@ _include:
  - ../peripherals/tim/tim2_wl.yaml
  - ../peripherals/tim/tim16_wl.yaml
  - ../peripherals/usart/usart_v2C.yaml
- - ../peripherals/usart/usart_fifoen.yaml
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/wwdg/wwdg.yaml

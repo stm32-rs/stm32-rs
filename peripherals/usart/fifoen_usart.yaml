@@ -1,0 +1,10 @@
+CR3:
+  TCBGTIE:
+      Disabled: [0, "Interrupt inhibited"]
+      Enabled:  [1, "USART interrupt generated whenever TCBGT=1 in the USART_ISR register"]
+ICR:
+  TCBGTCF:
+    Clear: [1, "Clear the TCBGT flag in the ISR register"]
+  TXFECF:
+    Clear: [1, "Clear the TXFE flag in the ISR register"]
+
