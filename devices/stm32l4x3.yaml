@@ -50,58 +50,54 @@ USB:
   # todo: Adding BCDR causes interrupt add to fail. Prioritizing the interrupt, since in practice
   # todo the `usbd` crate handles BCDR reads and writes with its own PAC.
 
-  # _add:
-  #   BCDR:
-  #     description: Battery charging detector
-      # addressOffset: 0x58
-      # size: 0x10  # todo: 0x20? 16-bit field though.
-      # access: read-write
-      # resetValue: 0x0000
-  #     fields:
-  #       BCDEN:
-  #         description: Battery charging detector (BCD) enable
-  #         bitOffset: 0
-  #         bitWidth: 1
-  #       DCDEN:
-  #         description: Data contact detection (DCD) mode enable
-  #         bitOffset: 1
-  #         bitWidth: 1
-  #       PDEN:
-  #         description: Primary detection (PD) mode enable
-  #         bitOffset: 2
-  #         bitWidth: 1
-  #       SDEN:
-  #         description: Secondary detection (SD) mode enable
-  #         bitOffset: 3
-  #         bitWidth: 1
-  #       DCDET:
-  #         description: Data contact detection (DCD) status
-  #         bitOffset: 4
-  #         bitWidth: 1
-  #         access: read-only
-  #       PDET:
-  #         description: Primary detection (PD) status
-  #         bitOffset: 5
-  #         bitWidth: 1
-  #         access: read-only
-  #       SDET:
-  #         description: Secondary detection (SD) status
-  #         bitOffset: 6
-  #         bitWidth: 1
-  #         access: read-only
-  #       PS2DET:
-  #         description: DM pull-up detection status
-  #         bitOffset: 7
-  #         bitWidth: 1
-  #         access: read-only
-  #       DPPU:
-  #         description: DP pull-up control
-  #         bitOffset: 15
-          # bitWidth: 1
-
-
-# _delete:
-#   - USB_FS
+  _add:
+    BCDR:
+      description: Battery charging detector
+      addressOffset: 0x58
+      size: 0x10  # todo: 0x20? 16-bit field though.
+      access: read-write
+      resetValue: 0x0000
+      fields:
+        BCDEN:
+          description: Battery charging detector (BCD) enable
+          bitOffset: 0
+          bitWidth: 1
+        DCDEN:
+          description: Data contact detection (DCD) mode enable
+          bitOffset: 1
+          bitWidth: 1
+        PDEN:
+          description: Primary detection (PD) mode enable
+          bitOffset: 2
+          bitWidth: 1
+        SDEN:
+          description: Secondary detection (SD) mode enable
+          bitOffset: 3
+          bitWidth: 1
+        DCDET:
+          description: Data contact detection (DCD) status
+          bitOffset: 4
+          bitWidth: 1
+          access: read-only
+        PDET:
+          description: Primary detection (PD) status
+          bitOffset: 5
+          bitWidth: 1
+          access: read-only
+        SDET:
+          description: Secondary detection (SD) status
+          bitOffset: 6
+          bitWidth: 1
+          access: read-only
+        PS2DET:
+          description: DM pull-up detection status
+          bitOffset: 7
+          bitWidth: 1
+          access: read-only
+        DPPU:
+          description: DP pull-up control
+          bitOffset: 15
+          bitWidth: 1
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
