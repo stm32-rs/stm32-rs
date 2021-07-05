@@ -47,9 +47,6 @@ USB:
         description: USB event interrupt through EXTI
         value: 67
 
-  # todo: Adding BCDR causes interrupt add to fail. Prioritizing the interrupt, since in practice
-  # todo the `usbd` crate handles BCDR reads and writes with its own PAC.
-
   _add:
     BCDR:
       description: Battery charging detector
