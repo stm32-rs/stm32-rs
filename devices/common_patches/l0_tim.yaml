@@ -1,3 +1,14 @@
+# Per RM0367,RM0376, RM0377 all timers have 16 bit registers for CNT,ARR,CCRx
+TIM*:
+  _modify:
+    CNT:
+      size: 16
+    ARR:
+      size: 16
+    CCR*:
+      size: 16
+
+
 # Fix Timers for L0 Flash
 "TIM[23]":
   _delete:
