@@ -274,7 +274,7 @@
       NoReset: [0, "No effect"]
       Reset: [1, "Reset peripheral"]
 
-  "AHB[123]ENR":
+  "A[PH]B[123]ENR":
     "*":
       Disabled: [0, "Clock disabled"]
       Enabled: [1, "Clock enabled"]
@@ -366,8 +366,8 @@
       NotReady: [0, "LSE oscillator not ready"]
       Ready: [1, "LSE oscillator ready"]
     LSEON:
-      Disabled: [0, "LSE oscillator off"]
-      Enabled: [1, "LSE oscillator on"]
+      "Off": [0, "LSE oscillator off"]
+      "On": [1, "LSE oscillator on"]
 
   CSR:
     LPWRRSTF:
@@ -415,8 +415,8 @@
       NotReady: [0, "LSI oscillator not ready"]
       Ready: [1, "LSI oscillator ready"]
     LSION:
-      Disabled: [0, "LSI oscillator off"]
-      Enabled: [1, "LSI oscillator on"]
+      "Off": [0, "LSI oscillator off"]
+      "On": [1, "LSI oscillator on"]
 
   EXTCFGR:
     SHDHPREF:
