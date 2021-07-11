@@ -57,9 +57,12 @@ nav.menu a {
 <nav class="navbar navbar-inverse">
   <div class=container>
     <div class=navbar-header>
-      <a class=navbar-brand href=#>{{ device.name }} Peripheral Coverage</a>
+      <a class="navbar-brand" href="index.html">stm32-rs Device Coverage</a>
     </div>
     <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">{{ device.name }} Peripheral Coverage</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href=# id=show-all-registers>Show All Registers</a></li>
         <li><a href=# id=hide-all-registers>Hide All Registers</a></li>
