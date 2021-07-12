@@ -43,30 +43,5 @@ EXTI:
       PIF21:
         bitWidth: 1
     _split: [PIF]
-  IMR1:
+  C1IMR1,IMR1:
     _split: [IM]
-  IMR2:
-    _modify:
-      IM42:
-        bitWidth: 1
-    _add:
-      IM43:
-        description: CPUm Wakeup with interrupt Mask on Event input
-        bitOffset: 11
-        bitWidth: 1
-        access: read-write
-      IM44:
-        description: CPUm Wakeup with interrupt Mask on Event input
-        bitOffset: 12
-        bitWidth: 1
-        access: read-write
-      IM45:
-        description: CPUm Wakeup with interrupt Mask on Event input
-        bitOffset: 13
-        bitWidth: 1
-        access: read-write
-      IM46:
-        description: CPUm Wakeup with interrupt Mask on Event input
-        bitOffset: 14
-        bitWidth: 1
-        access: read-write
