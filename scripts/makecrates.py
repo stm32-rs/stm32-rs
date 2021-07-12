@@ -86,7 +86,7 @@ default-target = "{doc_target}"
 targets = []
 
 [features]
-default = []
+default = ["rt"]
 rt = ["cortex-m-rt/device"]
 {features}
 """
