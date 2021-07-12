@@ -1,6 +1,5 @@
-
 "HSEM":
-  "HSEM_R[0123456789]":
+  "R[0123456789]":
     LOCK:
       _read:
         Free: [0, "Semaphore is free"]
@@ -8,9 +7,9 @@
       _write:
         Free: [0, "Free semaphore"]
         TryLock: [1, "Try to lock semaphore"]
-    MASTERID: [0, 0xF]
+    COREID: [0, 0xF]
     PROCID: [0, 0xFF]
-  "HSEM_R1[012345]":
+  "R1[012345]":
     LOCK:
       _read:
         Free: [0, "Semaphore is free"]
@@ -18,10 +17,9 @@
       _write:
         Free: [0, "Free semaphore"]
         TryLock: [1, "Try to lock semaphore"]
-    MASTERID: [0, 0xF]
+    COREID: [0, 0xF]
     PROCID: [0, 0xFF]
-
-  "HSEM_RLR[0123456789]":
+  "RLR[0123456789]":
     LOCK:
       _read:
         Free: [0, "Semaphore is free"]
@@ -29,9 +27,9 @@
       _write:
         Free: [0, "Free semaphore"]
         TryLock: [1, "Try to lock semaphore"]
-    MASTERID: [0, 0xF]
+    COREID: [0, 0xF]
     PROCID: [0, 0xFF]
-  "HSEM_RLR1[012345]":
+  "RLR1[012345]":
     LOCK:
       _read:
         Free: [0, "Semaphore is free"]
@@ -39,19 +37,16 @@
       _write:
         Free: [0, "Free semaphore"]
         TryLock: [1, "Try to lock semaphore"]
-    MASTERID: [0, 0xF]
+    COREID: [0, 0xF]
     PROCID: [0, 0xFF]
-
-
-  HSEM_IER:
+  C?IER:
     "ISE[0123456789]":
       Disabled: [0, "Interrupt generation disabled"]
       Enabled: [1, "Interrupt generation enabled"]
     "ISE1[012345]":
       Disabled: [0, "Interrupt generation disabled"]
       Enabled: [1, "Interrupt generation enabled"]
-
-  HSEM_ICR:
+  C?ICR:
     "ISC[0123456789]":
       _read:
         NoEffect: [0, "Always reads 0"]
@@ -64,26 +59,22 @@
       _write:
         NoEffect: [0, "Interrupt semaphore x status ISFx and masked status MISFx not affected"]
         Clear : [1, "Interrupt semaphore x status ISFx and masked status MISFx cleared"]
-
-  HSEM_ISR:
+  C?ISR:
     "ISF[0123456789]":
       NotPending: [0, "No interrupt pending"]
       Pending: [1, "Interrupt pending"]
     "ISF1[012345]":
       NotPending: [0, "No interrupt pending"]
       Pending: [1, "Interrupt pending"]
-
-  HSEM_MISR:
+  C?MISR:
     "MISF[0123456789]":
       NotPending: [0, "No interrupt pending after masking"]
       Pending: [1, "Interrupt pending after masking"]
     "MISF1[012345]":
       NotPending: [0, "No interrupt pending after masking"]
       Pending: [1, "Interrupt pending after masking"]
-
-  HSEM_CR:
+  CR:
     KEY: [0, 0xFFFF]
-    MASTERID: [0, 0xF]
-
-  HSEM_KEYR:
+    COREID: [0, 0xF]
+  KEYR:
     KEY: [0, 0xFFFF]

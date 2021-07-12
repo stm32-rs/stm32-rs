@@ -67,6 +67,42 @@ EXTI:
         bitWidth: 1
         access: read-write
 
+HSEM:
+  _strip:
+    - HSEM_
+  _modify:
+    HSEM_IER:
+      name:
+        C1IER
+    HSEM_ICR:
+      name:
+        C1ICR
+    HSEM_ISR:
+      name:
+        C1ISR
+    HSEM_MISR:
+      name:
+        C1MISR
+  "R[0123456789]":
+    _modify:
+      MASTERID:
+        name: COREID
+  "R1[012345]":
+    _modify:
+      MASTERID:
+        name: COREID
+  "RLR[0123456789]":
+    _modify:
+      MASTERID:
+        name: COREID
+  "RLR1[012345]":
+    _modify:
+      MASTERID:
+        name: COREID
+  CR:
+    _modify:
+      MASTERID:
+        name: COREID
 
 TIM1:
   _modify:
