@@ -3,12 +3,6 @@ _svd: ../svd/stm32wle5.svd
 _modify:
   name: STM32WLE5
 
-ADC:
-  CFGR2:
-    _merge:
-      - "OVSS*"
-      - "OVSR*"
-
 AES:
   CR:
     _modify:
