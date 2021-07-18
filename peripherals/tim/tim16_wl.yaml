@@ -163,10 +163,10 @@ TIM1[67]:
 
   OR1:
     TI1_RMP:
-      GPIO : [00, "TI1 is connected to GPIO"]
-      LSI  : [01, "TI1 is connected to LSI"]
-      LSE  : [10, "TI1 is connected to LSE"]
-      RTC  : [11, "TI1 is connected to RTC wake-up interrupt"]
+      GPIO : [0, "TI1 is connected to GPIO"]
+      LSI  : [1, "TI1 is connected to LSI"]
+      LSE  : [2, "TI1 is connected to LSE"]
+      RTC  : [3, "TI1 is connected to RTC wake-up interrupt"]
 
   AF1:
     BKCMP2P:

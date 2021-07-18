@@ -46,7 +46,7 @@ LPTIM1:
 LPTIM[23]:
   OR:
     OR_:
-      IO: [00, "Input 1 is connected to I/O"]
-      COMP1_OUT: [01, "Input 1 is connected to COMP1_OUT"]
-      COMP2_OUT: [10, "Input 1 is connected to COMP2_OUT"]
-      OR_COMP1_COMP2: [11, "Input 1 is connected to COMP1_OUT OR COMP2_OUT"]
+      IO: [0, "Input 1 is connected to I/O"]
+      COMP1_OUT: [1, "Input 1 is connected to COMP1_OUT"]
+      COMP2_OUT: [2, "Input 1 is connected to COMP2_OUT"]
+      OR_COMP1_COMP2: [3, "Input 1 is connected to COMP1_OUT OR COMP2_OUT"]
