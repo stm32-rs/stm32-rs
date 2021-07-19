@@ -2,8 +2,8 @@ AES:
   CR:
     NPBLB: [0, 15]
     KEYSIZE:
-      b128: [0, "128 bits"]
-      b256: [1, "256 bits"]
+      Bits128: [0, "128 bits"]
+      Bits256: [1, "256 bits"]
     GCMPH:
       Init: [0, "Init phase"]
       Header: [1, "Header phase"]

@@ -66,13 +66,13 @@
       CombinedResetTrigger: [1, "SMS[0:2] must be 0b000 (DisabledOrCombined). Combined reset + trigger mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter, generates an update of the registers and starts the counter"]
     SMS:
       DisabledOrCombined: [0, "Slave mode disabled - if CEN = ‘1 then the prescaler is clocked directly by the internal clock. If SMS[3]=1 then Combined reset + trigger mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter, generates an update of the registers and starts the counter"]
-      Encoder_Mode_1: [1, "Encoder mode 1 - Counter counts up/down on TI2FP1 edge depending on TI1FP2 level"]
-      Encoder_Mode_2: [2, "Encoder mode 2 - Counter counts up/down on TI1FP2 edge depending on TI2FP1 level"]
-      Encoder_Mode_3: [3, "Encoder mode 3 - Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input"]
-      Reset_Mode: [4, "Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers"]
-      Gated_Mode: [5, "Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled"]
-      Trigger_Mode: [6, "Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled"]
-      Ext_Clock_Mode: [7, "External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter"]
+      EncoderMode1: [1, "Encoder mode 1 - Counter counts up/down on TI2FP1 edge depending on TI1FP2 level"]
+      EncoderMode2: [2, "Encoder mode 2 - Counter counts up/down on TI1FP2 edge depending on TI2FP1 level"]
+      EncoderMode3: [3, "Encoder mode 3 - Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input"]
+      ResetMode: [4, "Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers"]
+      GatedMode: [5, "Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled"]
+      TriggerMode: [6, "Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled"]
+      ExtClockMode: [7, "External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter"]
   DIER:
     "CC?DE":
       Disabled: [0, "CCx DMA request disabled"]
@@ -134,9 +134,9 @@
       FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
     IC?PSC:
       Output: [0, "CCx channel is configured as output"]
-      Capture_2: [1, "Capture is done once every 2 events"]
-      Capture_4: [2, "Capture is done once every 4 events"]
-      Capture_8: [3, "Capture is done once every 8 events"]
+      Capture2: [1, "Capture is done once every 2 events"]
+      Capture4: [2, "Capture is done once every 4 events"]
+      Capture8: [3, "Capture is done once every 8 events"]
     CC?S:
       Output: [0, "CCx channel is configured as output"]
       TI1: [1, "CCx channel is configured as input, ICx is mapped on TI1"]

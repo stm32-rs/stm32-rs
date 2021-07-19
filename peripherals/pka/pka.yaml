@@ -10,24 +10,24 @@ PKA:
       Disabled: [0, 'No interrupt is generated when PROCENDF flag is set in PKA_SR']
       Enabled: [1, 'An interrupt is generated when PROCENDF flag is set in PKA_SR']
     MODE:
-      Montgomery_comp_exp: [0b000000, 'Montgomery parameter computation then modular exponentiation']
-      Montgomery_comp: [0b000001, 'Montgomery parameter computation only']
-      Montgomery_exp: [0b000010, 'Modular exponentiation only (Montgomery parameter must be loaded first)']
-      Montgomery_comp_scalar: [0b100000, 'Montgomery parameter computation then ECC scalar multiplication']
-      Montgomery_scalar: [0b100010, 'ECC scalar multiplication only (Montgomery parameter must be loaded first)']
-      ECDSA_sign: [0b100100, 'ECDSA sign']
-      ECDSA_verif: [0b100110, 'ECDSA verification']
+      MontgomeryCompExp: [0b000000, 'Montgomery parameter computation then modular exponentiation']
+      MontgomeryComp: [0b000001, 'Montgomery parameter computation only']
+      MontgomeryExp: [0b000010, 'Modular exponentiation only (Montgomery parameter must be loaded first)']
+      MontgomeryCompScalar: [0b100000, 'Montgomery parameter computation then ECC scalar multiplication']
+      MontgomeryScalar: [0b100010, 'ECC scalar multiplication only (Montgomery parameter must be loaded first)']
+      ECDSASign: [0b100100, 'ECDSA sign']
+      ECDSAVerif: [0b100110, 'ECDSA verification']
       Elliptic: [0b101000, 'Point on elliptic curve Fp check']
       RSA: [0b000111, 'RSA CRT exponentiation']
-      Modular_inv: [0b001000, 'Modular inversion']
-      Arithmetic_add: [0b001001, 'Arithmetic addition']
-      Arithmetic_sub: [0b001010, 'Arithmetic subtraction']
-      Arithmetic_mul: [0b001011, 'Arithmetic multiplication']
-      Arithmetic_comp: [0b001100, 'Arithmetic comparison']
-      Modular_red: [0b001101, 'Modular reduction']
-      Modular_add: [0b001110, 'Modular addition']
-      Modular_sub: [0b001111, 'Modular subtraction']
-      Modular_mul: [0b010000, 'Montgomery multiplication']
+      ModularInv: [0b001000, 'Modular inversion']
+      ArithmeticAdd: [0b001001, 'Arithmetic addition']
+      ArithmeticSub: [0b001010, 'Arithmetic subtraction']
+      ArithmeticMul: [0b001011, 'Arithmetic multiplication']
+      ArithmeticComp: [0b001100, 'Arithmetic comparison']
+      ModularRed: [0b001101, 'Modular reduction']
+      ModularAdd: [0b001110, 'Modular addition']
+      ModularSub: [0b001111, 'Modular subtraction']
+      ModularMul: [0b010000, 'Montgomery multiplication']
     START:
       _write:
         Start: [1, 'Writing 1 to this bit starts the operation which is selected by MODE[5:0], using the operands
@@ -38,13 +38,13 @@ and data already written to the PKA RAM - This bit is always read as 0']
 
   SR:
     ADDRERRF:
-      No_error: [0, 'No error']
+      NoError: [0, 'No error']
       Error: [1, 'Address access is out of range (unmapped address)']
     RAMERRF:
-      No_error: [0, 'No error']
+      NoError: [0, 'No error']
       Error: [1, 'An AHB access to the PKA RAM occurred while the PKA core was computing and using its internal RAM (AHB PKA_RAM access are not allowed while PKA operation is in progress)']
     PROCENDF:
-      In_Progress: [0, 'Operation in progress']
+      InProgress: [0, 'Operation in progress']
       Completed: [1, 'PKA operation is completed - set when BUSY is deasserted']
     BUSY:
       Idle: [0, 'No operation in pgoress']

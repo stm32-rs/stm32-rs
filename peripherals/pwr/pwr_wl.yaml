@@ -1,8 +1,8 @@
 PWR:
   CR1:
     LPR:
-      MAIN_MODE: [0, "Voltage regulator in Main mode in Low-power run mode"]
-      LOW_POWER_MODE: [1, "Voltage regulator in low-power mode in Low-power run mode"]
+      MainMode: [0, "Voltage regulator in Main mode in Low-power run mode"]
+      LowPowerMode: [1, "Voltage regulator in low-power mode in Low-power run mode"]
     VOS:
       V1_2: [1, "1.2 V (range 1)"]
       V1_0: [2, "1.0 V (range 2)"]
@@ -11,17 +11,17 @@ PWR:
       Enabled: [1, "Access to RTC and backup registers enabled"]
     FPDS:
       Idle: [0, "Flash memory in Idle mode when system is in LPSleep mode"]
-      Power_down: [1, "Flash memory in Power-down mode when system is in LPSleep mode"]
+      PowerDown: [1, "Flash memory in Power-down mode when system is in LPSleep mode"]
     FPDR:
       Idle: [0, "Flash memory in Idle mode when system is in LPRun mode"]
-      Power_down: [1, "Flash memory in Power-down mode when system is in LPRun mode"]
+      PowerDown: [1, "Flash memory in Power-down mode when system is in LPRun mode"]
     SUBGHZSPINSSSEL:
       SUBGHZSPICR: [0, "sub-GHz SPI NSS signal driven from PWR_SUBGHZSPICR.NSS (RFBUSYMS functionality enabled)"]
       LPTIM3: [1, "sub-GHz SPI NSS signal driven from LPTIM3_OUT (RFBUSYMS functionality disabled)"]
     LPMS:
-      Stop_0: [0, "Stop 0 mode"]
-      Stop_1: [1, "Stop 1 mode"]
-      Stop_2: [2, "Stop 2 mode"]
+      Stop0: [0, "Stop 0 mode"]
+      Stop1: [1, "Stop 1 mode"]
+      Stop2: [2, "Stop 2 mode"]
       Standby: [3, "Standby mode"]
       Shutdown: [4, "Shutdown mode"]
   CR2:
@@ -73,8 +73,8 @@ PWR:
       Enabled: [1, "WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode)"]
   CR4:
     WRFBUSYP:
-      Rising_edge: [0, "Detection on high level (rising edge)"]
-      Falling_edge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, "Detection on high level (rising edge)"]
+      FallingEdge: [1, "Detection on low level (falling edge)"]
     VBRS:
       R5k: [0, "VBAT charging through a 5 kΩ resistor"]
       R1_5k: [1, "VBAT charging through a 1.5 kΩ resistor"]
@@ -82,14 +82,14 @@ PWR:
       Disabled: [0, "VBAT battery charging disabled"]
       Enabled: [1, "VBAT battery charging enabled"]
     WP3:
-      Rising_edge: [0, "Detection on high level (rising edge)"]
-      Falling_edge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, "Detection on high level (rising edge)"]
+      FallingEdge: [1, "Detection on low level (falling edge)"]
     WP2:
-      Rising_edge: [0, "Detection on high level (rising edge)"]
-      Falling_edge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, "Detection on high level (rising edge)"]
+      FallingEdge: [1, "Detection on low level (falling edge)"]
     WP1:
-      Rising_edge: [0, "Detection on high level (rising edge)"]
-      Falling_edge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, "Detection on high level (rising edge)"]
+      FallingEdge: [1, "Detection on low level (falling edge)"]
   SR1:
     WUFI:
       Clear: [0, "All internal wakeup sources are cleared"]
@@ -121,12 +121,12 @@ PWR:
       Change: [1, "Regulator output voltage changed to the required voltage level"]
     REGLPF:
       Main: [0, "Main regulator (MR) ready and used"]
-      Low_power: [1, "Low-power regulator (LPR) used"]
+      LowPower: [1, "Low-power regulator (LPR) used"]
     REGLPS:
-      Not_ready: [0, "LPR not ready"]
+      NotReady: [0, "LPR not ready"]
       Ready: [1, "LPR ready"]
     FLASHRDY:
-      Not_ready: [0, "Flash memory not ready to be accessed"]
+      NotReady: [0, "Flash memory not ready to be accessed"]
       Ready: [1, "Flash memory ready to be accessed"]
     REGMRS:
       V_DD: [0, "Main regulator supplied directly from VDD"]
@@ -135,16 +135,16 @@ PWR:
       Above: [0, "Supply voltage above radio end-of-life operating low level"]
       Below: [1, "Supply voltage below radio end-of-life operating low level"]
     LDORDY:
-      Not_ready: [0, "LDO not ready or off"]
+      NotReady: [0, "LDO not ready or off"]
       Ready: [1, "LDO ready"]
     SMPSRDY:
-      Not_ready: [0, "SMPS step-down converter not ready or off"]
+      NotReady: [0, "SMPS step-down converter not ready or off"]
       Ready: [1, "SMPS step-down converter ready"]
     RFBUSYMS:
-      Not_busy: [0, "radio busy masked signal low (not busy)"]
+      NotBusy: [0, "radio busy masked signal low (not busy)"]
       Busy: [1, "radio busy masked signal high (busy)"]
     RFBUSYS:
-      Not_busy: [0, "radio busy signal low (not busy)"]
+      NotBusy: [0, "radio busy signal low (not busy)"]
       Busy: [1, "radio busy signal high (busy)"]
   SCR:
     CWRFBUSYF:
@@ -221,16 +221,16 @@ PWR:
       Enabled: [1, "Enable the pull-down on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   EXTSCR:
     C1DS:
-      Running_or_sleep: [0, "CPU is running or in sleep"]
-      Deep_sleep: [1, "CPU is in Deep-Sleep"]
+      RunningOrSleep: [0, "CPU is running or in sleep"]
+      DeepSleep: [1, "CPU is in Deep-Sleep"]
     C1STOPF:
-      No_Stop: [0, "System has not been in Stop 0 or 1 mode"]
+      NoStop: [0, "System has not been in Stop 0 or 1 mode"]
       Stop: [1, "System has been in Stop 0 or 1 mode"]
     C1STOP2F:
-      No_Stop: [0, "System has not been in Stop 2 mode"]
+      NoStop: [0, "System has not been in Stop 2 mode"]
       Stop: [1, "System has been in Stop 2 mode"]
     C1SBF:
-      No_Standby: [0, "System has not been in Standby mode"]
+      NoStandby: [0, "System has not been in Standby mode"]
       Standby: [1, "System has been in Standby mode"]
     C1CSSF:
       _write:
