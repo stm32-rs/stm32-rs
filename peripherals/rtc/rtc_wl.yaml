@@ -26,14 +26,14 @@ RTC:
       _read:
         Pending: [1, "The RECALPF status flag is automatically set to 1 when software writes to the RTC_CALR register, indicating that the RTC_CALR register is blocked. When the new calibration settings are taken into account, this bit returns to 0"]
     BCDU:
-      bit7: [0, "1s incremente each time SS[7:0]=0"]
-      bit8: [1, "1s incremente each time SS[8:0]=0"]
-      bit9: [2, "1s incremente each time SS[9:0]=0"]
-      bit10: [3, "1s incremente each time SS[10:0]=0"]
-      bit11: [4, "1s incremente each time SS[11:0]=0"]
-      bit12: [5, "1s incremente each time SS[12:0]=0"]
-      bit13: [6, "1s incremente each time SS[13:0]=0"]
-      bit14: [7, "1s incremente each time SS[14:0]=0"]
+      Bit7: [0, "1s increment each time SS[7:0]=0"]
+      Bit8: [1, "1s increment each time SS[8:0]=0"]
+      Bit9: [2, "1s increment each time SS[9:0]=0"]
+      Bit10: [3, "1s increment each time SS[10:0]=0"]
+      Bit11: [4, "1s increment each time SS[11:0]=0"]
+      Bit12: [5, "1s increment each time SS[12:0]=0"]
+      Bit13: [6, "1s increment each time SS[13:0]=0"]
+      Bit14: [7, "1s increment each time SS[14:0]=0"]
     BIN:
       BCD: [0, "Free running BCD calendar mode (Binary mode disabled)"]
       Binary: [1, "Free running Binary mode (BCD mode disabled)"]
@@ -107,8 +107,8 @@ RTC:
       CalFreq_512Hz: [0, "Calibration output is 512 Hz (with default prescaler setting)"]
       CalFreq_1Hz: [1, "Calibration output is 1 Hz (with default prescaler setting)"]
     BKP:
-      DST_Not_Changed: [0, "Daylight Saving Time change has not been performed"]
-      DST_Changed: [1, "Daylight Saving Time change has been performed"]
+      DSTNotChanged: [0, "Daylight Saving Time change has not been performed"]
+      DSTChanged: [1, "Daylight Saving Time change has been performed"]
     SUB1H:
       _write:
         Sub1: [1, "Subtracts 1 hour to the current time. This can be used for winter time change outside initialization mode"]
@@ -143,8 +143,8 @@ RTC:
       Disabled: [0, "SSR underflow interrupt disabled"]
       Enabled: [1, "SSR underflow interrupt enabled"]
     FMT:
-      Twenty_Four_Hour: [0, "24 hour/day format"]
-      AM_PM: [1, "AM/PM hour format"]
+      TwentyFourHour: [0, "24 hour/day format"]
+      AmPm: [1, "AM/PM hour format"]
     BYPSHAD:
       ShadowReg: [0, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken from the shadow registers, which are updated once every two RTCCLK cycles"]
       BypassShadowReg: [1, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken directly from the calendar counters"]
@@ -173,12 +173,12 @@ RTC:
       NoChange: [0, "No RTCCLK pulses are added"]
       IncreaseFreq: [1, "One RTCCLK pulse is effectively inserted every 2^11 pulses (frequency increased by 488.5 ppm)"]
     CALW8:
-      Eight_Second: [1, "When CALW8 is set to ‘1’, the 8-second calibration cycle period is selected"]
+      EightSeconds: [1, "When CALW8 is set to ‘1’, the 8-second calibration cycle period is selected"]
     CALW16:
-      Sixteen_Second: [1, "When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected.This bit must not be set to ‘1’ if CALW8=1"]
+      SixteenSeconds: [1, "When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected.This bit must not be set to ‘1’ if CALW8=1"]
     LPCAL:
       RTCCLK: [0, "Calibration window is 220 RTCCLK, which is a high-consumption mode. This mode should be set only when less than 32s calibration window is required"]
-      ck_apre: [1, "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode"]
+      CkApre: [1, "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode"]
     CALM: [0, 511]
 
   SHIFTR:

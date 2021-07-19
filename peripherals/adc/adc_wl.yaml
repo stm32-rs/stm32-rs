@@ -153,10 +153,10 @@ ADC:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
     RES:
-      TwelveBit: [0, "12 bits"]
-      TenBit: [1, "10 bits"]
-      EightBit: [2, "8 bits"]
-      SixBit: [3, "6 bits"]
+      Bits12: [0, "12 bits"]
+      Bits10: [1, "10 bits"]
+      Bits8: [2, "8 bits"]
+      Bits6: [3, "6 bits"]
     SCANDIR:
       Upward: [0, "Upward scan (from CHSEL0 to CHSEL17)"]
       Backward: [1, "Backward scan (from CHSEL17 to CHSEL0)"]
