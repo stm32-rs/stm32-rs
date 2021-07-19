@@ -12,6 +12,7 @@ CRYP:
 
 _include:
  - common_patches/h7_common_singlecore.yaml
+ - common_patches/h7_ethernet_dma_mr.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/dma/bdma.yaml
  - common_patches/dma/dma_v3.yaml
@@ -60,6 +61,7 @@ _include:
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/rcc/rcc_h7.yaml
+ - ../peripherals/rcc/rcc_v3_hrtim.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml

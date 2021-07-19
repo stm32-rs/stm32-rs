@@ -748,16 +748,3 @@ _copy:
     from: TIM2
   TIM14:
     from: TIM2
-
-SYSCFG:
-  _add:
-    PWRCR:
-      description: SYSCFG Power Control Register
-      addressOffset: 0x2C
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        ODEN:
-          description: Overdrive enable, this bit allows to activate the LDO regulator overdrive mode. This bit must be written only in VOS1 voltage scaling mode
-          bitOffset: 0
-          bitWidth: 1

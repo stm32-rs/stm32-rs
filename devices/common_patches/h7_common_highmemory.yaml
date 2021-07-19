@@ -12,6 +12,8 @@ _modify:
     name: FDCAN2
   DAC:
     name: DAC1
+  OCTOSPI1_CONTROL_REGISTER:
+    name: OCTOSPI1
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -314,6 +316,10 @@ AXI:
 
 _delete:
   - DMA2
+  - UART4
+  - UART5
+  - UART7
+  - UART8
   - USART9
   - USART10
 
@@ -346,16 +352,38 @@ _add:
       DMA2_STR7:
         value: 70
         description: DMA2 Stream7
-  UART9:
+  UART4:
     derivedFrom: USART1
-    baseAddress: 0x40018000
+    baseAddress: 0x40004C00
+    interrupts:
+      UART4:
+        description: UART4 global interrupt
+        value: 52
+  UART5:
+    derivedFrom: USART1
+    baseAddress: 0x40005000
+    interrupts:
+      UART5:
+        description: UART5 global interrupt
+        value: 53
+  UART7:
+    derivedFrom: USART1
+    baseAddress: 0x40007800
     interrupts:
       UART7:
         description: UART7 global interrupt
         value: 82
+  UART8:
+    derivedFrom: USART1
+    baseAddress: 0x40007C00
+    interrupts:
       UART8:
         description: UART8 global interrupt
         value: 83
+  UART9:
+    derivedFrom: USART1
+    baseAddress: 0x40018000
+    interrupts:
       UART9:
          description: UART9 global interrupt
          value: 140
@@ -466,96 +494,9 @@ RCC:
           bitOffset: 0
           bitWidth: 1
 
-  CDCCIPR:
-    _delete:
-      - "QSPI*"
-    _add:
-      OCTOSPISEL:
-        description: "OCTOSPI kernel clock source selection"
-        bitOffset: 4
-        bitWidth: 2
-    _modify:
-      CKPERSRC:
-          name: CKPERSEL
-      SDMMCSRC:
-          name: SDMMCSEL
-      FMCSRC:
-          name: FMCSEL
-  CDCCIP1R:
-    _delete:
-      - "SAI23*"
-    _add:
-      SAI2ASEL:
-        description: "SAI2 kernel clock source A source selection"
-        bitOffset: 6
-        bitWidth: 3
-      SAI2BSEL:
-        description: "SAI2 kernel clock source B source selection"
-        bitOffset: 9
-        bitWidth: 3
-    _modify:
-      SWPSRC:
-          name: SWPSEL
-      FDCANSRC:
-          name: FDCANSEL
-      DFSDM1SRC:
-          name: DFSDM1SEL
-      SPDIFSRC:
-          name: SPDIFRXSEL
-      SPI45SRC:
-          name: SPI45SEL
-      SPI123SRC:
-          name: SPI123SEL
-      SAI1SRC:
-          name: SAI1SEL
-  CDCCIP2R:
-    _modify:
-      LPTIM1SRC:
-          name: LPTIM1SEL
-      CECSRC:
-          name: CECSEL
-      USBSRC:
-          name: USBSEL
-      I2C123SRC:
-          name: I2C123SEL
-      RNGSRC:
-          name: RNGSEL
-      USART16SRC:
-          name: USART16910SEL
-          description: "USART1, 6, 9 and 10 kernel clock source selection"
-      USART234578SRC:
-          name: USART234578SEL
-  SRDCCIPR:
-    _delete:
-      - "SAI4*"
-    _add:
-      DFSDM2SEL:
-        description: "DFSDM2 kernel clock source selection"
-        bitOffset: 27
-        bitWidth: 1
-    _modify:
-      SPI6SRC:
-          name: SPI6SEL
-      ADCSRC:
-          name: ADCSEL
-      LPTIM345SRC:
-          name: LPTIM3SEL       # LPTIM3 only
-      LPTIM2SRC:
-          name: LPTIM2SEL
-      I2C4SRC:
-          name: I2C4SEL
-      LPUART1SRC:
-          name: LPUART1SEL
-
-  D3CFGR:
-    _delete: "*"
-    _add:
-      D3PPRE:
-        description: D3 domain APB4 prescaler
-        bitOffset: 4
-        bitWidth: 3
-
   CR:
+    _clear:
+      "*"
     _modify:
       RC48ON:
         name: HSI48ON
@@ -566,12 +507,16 @@ RCC:
       RC48CAL:
         name: HSI48CAL
   CFGR:
+    _clear:
+      "*"
     _modify:
       MCO1SEL:
         name: MCO1
       MCO2SEL:
         name: MCO2
   CIER:
+    _clear:
+      "*"
     _modify:
       RC48RDYIE:
         name: HSI48RDYIE
@@ -580,16 +525,23 @@ RCC:
       RC48RDYF:
         name: HSI48RDYF
   CICR:
+    _clear:
+      "*"
     _modify:
       RC48RDYC:
         name: HSI48RDYC
   BDCR:
+    _clear:
+      "*"
     _modify:
-      VSWRST:
-        name: BDRST
       RTCSRC:
         name: RTCSEL
+  CSR:
+    _clear:
+      "*"
   PLL2DIVR:
+    _clear:
+      "*"
     _modify:
       DIVR1:
         name: DIVR2
@@ -599,6 +551,15 @@ RCC:
         name: DIVP2
       DIVN1:
         name: DIVN2
+  "A?B?RSTR,A?B??RSTR":
+    _clear:
+      "*RST"
+  "A?B?ENR,A?B??ENR,C1_A?B?ENR,C1_A?B??ENR":
+    _clear:
+      "*EN"
+  "A?B?LPENR,A?B??LPENR,C1_A?B?LPENR,C1_A?B??LPENR":
+    _clear:
+      "*LPEN"
   APB1LRSTR:
     _modify:
       USART7RST:
@@ -670,6 +631,27 @@ RCC:
       FLITFLPEN:
         name: FLASHPREN
         description: "Flash interface clock enable during csleep mode"
+  RSR:
+    _clear:
+      "*RSTF"
+  PLLCKSELR,PLLCFGR,PLL1DIVR,CDCFGR?,CDCCIPR,CDCCIP?R:
+    _clear:
+      "*"
+  SRDAMR,SRDCCIPR:
+    _clear:
+      "*"
+
+
+SYSCFG:
+  _modify:
+    SYSCFG_BRK_LOCKUPR:
+      name: CFGR
+      addressOffset: 0x18
+  PMCR:
+    _delete:                  # Functionality not available on these parts
+      - BOOSTE
+      - EPIS
+
 
 TIM1,TIM8:
   DMAR:
@@ -752,22 +734,6 @@ PWR:
     - PWR_
   _delete:
     _interrupts: WWDG1_RST      # Doesn't exist at all on these parts
-  CR3:
-    # Annoyingly RM0455 names these fields differently to RM0399 whilst
-    # they have the same function
-    _add:
-      SMPSEXTRDY:
-        description: SMPS step-down converter external supply ready
-        bitOffset: 16
-        bitWidth: 1
-      SMPSLEVEL:
-        description: Step-down converter voltage output level selection
-        bitOffset: 4
-        bitWidth: 2
-      SMPSEXTHP:
-        description: Step-down converter forced ON and in High Power MR mode
-        bitOffset: 3
-        bitWidth: 1
 
 RAMECC:
   _add:
@@ -827,7 +793,26 @@ IWDG:
   _strip:
     - IWDG_
 
-"USART*":
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
+
+"USART*,UART*":
   BRR:
     _modify:
       BRR_4_15:
@@ -835,6 +820,26 @@ IWDG:
       BRR_0_3:
         name: BRR0
     _merge: ["BRR*"]
+  CR1:
+    _merge:
+      - "DEAT*"
+      - "DEDT*"
+  CR2:
+    _modify:
+      TAINV:
+        name: DATAINV
+    _merge:
+      - "ABRMOD*"
+
+"UART*":
+  CR2:
+    _modify:
+      ADD0_3:
+        name: ADD0R
+      ADD4_7:
+        name: ADD4R
+    _merge:
+      - "ADD*R"
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:

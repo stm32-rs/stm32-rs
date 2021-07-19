@@ -1,0 +1,1101 @@
+# Creates all the registers for a BDMA v2 peripheral from scratch
+
+"BDMA*":
+  _add:
+    ISR:
+      description: Interrupt status register
+      addressOffset: 0x00
+      access: read-only
+      resetValue: 0x00000000
+      fields:
+        TEIF7:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 31
+          bitWidth: 1
+        HTIF7:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 30
+          bitWidth: 1
+        TCIF7:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 29
+          bitWidth: 1
+        GIF7:
+          description: Global interrupt flag for channel x
+          bitOffset: 28
+          bitWidth: 1
+        TEIF6:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 27
+          bitWidth: 1
+        HTIF6:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 26
+          bitWidth: 1
+        TCIF6:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 25
+          bitWidth: 1
+        GIF6:
+          description: Global interrupt flag for channel x
+          bitOffset: 24
+          bitWidth: 1
+        TEIF5:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 23
+          bitWidth: 1
+        HTIF5:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 22
+          bitWidth: 1
+        TCIF5:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 21
+          bitWidth: 1
+        GIF5:
+          description: Global interrupt flag for channel x
+          bitOffset: 20
+          bitWidth: 1
+        TEIF4:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 19
+          bitWidth: 1
+        HTIF4:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 18
+          bitWidth: 1
+        TCIF4:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 17
+          bitWidth: 1
+        GIF4:
+          description: Global interrupt flag for channel x
+          bitOffset: 16
+          bitWidth: 1
+        TEIF3:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 15
+          bitWidth: 1
+        HTIF3:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 14
+          bitWidth: 1
+        TCIF3:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 13
+          bitWidth: 1
+        GIF3:
+          description: Global interrupt flag for channel x
+          bitOffset: 12
+          bitWidth: 1
+        TEIF2:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 11
+          bitWidth: 1
+        HTIF2:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 10
+          bitWidth: 1
+        TCIF2:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 9
+          bitWidth: 1
+        GIF2:
+          description: Global interrupt flag for channel x
+          bitOffset: 8
+          bitWidth: 1
+        TEIF1:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 7
+          bitWidth: 1
+        HTIF1:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 6
+          bitWidth: 1
+        TCIF1:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 5
+          bitWidth: 1
+        GIF1:
+          description: Global interrupt flag for channel x
+          bitOffset: 4
+          bitWidth: 1
+        TEIF0:
+          description: Transfer error (TE) flag for channel x
+          bitOffset: 3
+          bitWidth: 1
+        HTIF0:
+          description: Half transfer (HT) flag for channel x
+          bitOffset: 2
+          bitWidth: 1
+        TCIF0:
+          description: Transfer complete (TC) flag for channel x
+          bitOffset: 1
+          bitWidth: 1
+        GIF0:
+          description: Global interrupt flag for channel x
+          bitOffset: 0
+          bitWidth: 1
+    IFCR:
+      description: Interrupt flag clear register
+      addressOffset: 0x04
+      access: write-only
+      resetValue: 0x00000000
+      fields:
+        CTEIF7:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 31
+          bitWidth: 1
+        CHTIF7:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 30
+          bitWidth: 1
+        CTCIF7:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 29
+          bitWidth: 1
+        CGIF7:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 28
+          bitWidth: 1
+        CTEIF6:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 27
+          bitWidth: 1
+        CHTIF6:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 26
+          bitWidth: 1
+        CTCIF6:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 25
+          bitWidth: 1
+        CGIF6:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 24
+          bitWidth: 1
+        CTEIF5:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 23
+          bitWidth: 1
+        CHTIF5:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 22
+          bitWidth: 1
+        CTCIF5:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 21
+          bitWidth: 1
+        CGIF5:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 20
+          bitWidth: 1
+        CTEIF4:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 19
+          bitWidth: 1
+        CHTIF4:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 18
+          bitWidth: 1
+        CTCIF4:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 17
+          bitWidth: 1
+        CGIF4:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 16
+          bitWidth: 1
+        CTEIF3:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 15
+          bitWidth: 1
+        CHTIF3:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 14
+          bitWidth: 1
+        CTCIF3:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 13
+          bitWidth: 1
+        CGIF3:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 12
+          bitWidth: 1
+        CTEIF2:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 11
+          bitWidth: 1
+        CHTIF2:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 10
+          bitWidth: 1
+        CTCIF2:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 9
+          bitWidth: 1
+        CGIF2:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 8
+          bitWidth: 1
+        CTEIF1:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 7
+          bitWidth: 1
+        CHTIF1:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 6
+          bitWidth: 1
+        CTCIF1:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 5
+          bitWidth: 1
+        CGIF1:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 4
+          bitWidth: 1
+        CTEIF0:
+          description: Transfer error (TE) flag clear for channel x
+          bitOffset: 3
+          bitWidth: 1
+        CHTIF0:
+          description: Half transfer (HT) flag clear for channel x
+          bitOffset: 2
+          bitWidth: 1
+        CTCIF0:
+          description: Transfer complete (TC) flag clear for channel x
+          bitOffset: 1
+          bitWidth: 1
+        CGIF0:
+          description: Global interrupt flag clear for channel x
+          bitOffset: 0
+          bitWidth: 1
+    CCR0:
+      description: Channel x configuration register
+      addressOffset: 0x08
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR1:
+      description: Channel x configuration register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR2:
+      description: Channel x configuration register
+      addressOffset: 0x30
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR3:
+      description: Channel x configuration register
+      addressOffset: 0x44
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR4:
+      description: Channel x configuration register
+      addressOffset: 0x58
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR5:
+      description: Channel x configuration register
+      addressOffset: 0x6C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR6:
+      description: Channel x configuration register
+      addressOffset: 0x80
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CCR7:
+      description: Channel x configuration register
+      addressOffset: 0x94
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CT:
+          description: Current target memory of DMA transfer in double-buffer mode
+          bitOffset: 16
+          bitWidth: 1
+        DBM:
+          description: Double-buffer mode
+          bitOffset: 15
+          bitWidth: 1
+        MEM2MEM:
+          description: Memory-to-memory mode
+          bitOffset: 14
+          bitWidth: 1
+        PL:
+          description: Priority level
+          bitOffset: 12
+          bitWidth: 2
+        MSIZE:
+          description: Memory size
+          bitOffset: 10
+          bitWidth: 2
+        PSIZE:
+          description: Peripheral size
+          bitOffset: 8
+          bitWidth: 2
+        MINC:
+          description: Memory increment mode
+          bitOffset: 7
+          bitWidth: 1
+        PINC:
+          description: Peripheral increment mode
+          bitOffset: 6
+          bitWidth: 1
+        CIRC:
+          description: Circular mode
+          bitOffset: 5
+          bitWidth: 1
+        DIR:
+          description: Data transfer direction
+          bitOffset: 4
+          bitWidth: 1
+        TEIE:
+          description: Transfer error interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+        HTIE:
+          description: Half transfer error interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+        TCIE:
+          description: Transfer complete interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+        EN:
+          description: Channel enable
+          bitOffset: 1
+          bitWidth: 1
+    CNDTR0:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x0C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR1:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR2:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x34
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR3:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x48
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR4:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x5C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR5:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x70
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR6:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x84
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CNDTR7:
+      description: Channel x number of data to transfer register
+      addressOffset: 0x98
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        NDT:
+          description: Number of data to transfer
+          bitOffset: 0
+          bitWidth: 16
+    CPAR0:
+      description: Channel x peripheral address register
+      addressOffset: 0x10
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR1:
+      description: Channel x peripheral address register
+      addressOffset: 0x24
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR2:
+      description: Channel x peripheral address register
+      addressOffset: 0x38
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR3:
+      description: Channel x peripheral address register
+      addressOffset: 0x4C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR4:
+      description: Channel x peripheral address register
+      addressOffset: 0x60
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR5:
+      description: Channel x peripheral address register
+      addressOffset: 0x74
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR6:
+      description: Channel x peripheral address register
+      addressOffset: 0x88
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CPAR7:
+      description: Channel x peripheral address register
+      addressOffset: 0x9C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PA:
+          description: Peripheral address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR0:
+      description: Channel x memory 0 address register
+      addressOffset: 0x14
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR1:
+      description: Channel x memory 0 address register
+      addressOffset: 0x28
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR2:
+      description: Channel x memory 0 address register
+      addressOffset: 0x3C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR3:
+      description: Channel x memory 0 address register
+      addressOffset: 0x50
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR4:
+      description: Channel x memory 0 address register
+      addressOffset: 0x64
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR5:
+      description: Channel x memory 0 address register
+      addressOffset: 0x78
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR6:
+      description: Channel x memory 0 address register
+      addressOffset: 0x8C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM0AR7:
+      description: Channel x memory 0 address register
+      addressOffset: 0xA0
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR0:
+      description: Channel x memory 1 address register
+      addressOffset: 0x18
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR1:
+      description: Channel x memory 1 address register
+      addressOffset: 0x2C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR2:
+      description: Channel x memory 1 address register
+      addressOffset: 0x40
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR3:
+      description: Channel x memory 1 address register
+      addressOffset: 0x54
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR4:
+      description: Channel x memory 1 address register
+      addressOffset: 0x68
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR5:
+      description: Channel x memory 1 address register
+      addressOffset: 0x7C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR6:
+      description: Channel x memory 1 address register
+      addressOffset: 0x90
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+    CM1AR7:
+      description: Channel x memory 1 address register
+      addressOffset: 0xA4
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        MA:
+          description: Memory address
+          bitOffset: 0
+          bitWidth: 32
+  _cluster:
+    "CH%s":
+      description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR? and CM1AR registers?"
+      "CCR?":
+        name: CR
+      "CNDTR?":
+        name: NDTR
+      "CPAR?":
+        name: PAR
+      "CM0AR?":
+        name: M0AR
+      "CM1AR?":
+        name: M1AR
