@@ -1,0 +1,93 @@
+DAC:
+  "CR,CR?":
+    "CEN?":
+      Normal: [0, 'DAC Channel X Normal operating mode']
+      Calibration: [1, 'DAC Channel X calibration mode']
+    "DMAUDRIE?":
+      Disabled: [0, "DAC Channel X  DMA Underrun Interrupt disabled"]
+      Enabled: [1, "DAC Channel X DMA Underrun Interrupt enabled"]
+    "DMAEN?":
+      Disabled: [0, "DAC Channel X DMA mode disabled"]
+      Enabled: [1, "DAC Channel X DMA mode enabled"]
+    "MAMP?":
+      Amp1: [0b0000, 'Unmask bit0 of LFSR/ triangle amplitude equal to 1']
+      Amp3: [0b0001, 'Unmask bits[1:0] of LFSR/ triangle amplitude equal to 3']
+      Amp7: [0b0010, 'Unmask bits[2:0] of LFSR/ triangle amplitude equal to 7']
+      Amp15: [0b0011, 'Unmask bits[3:0] of LFSR/ triangle amplitude equal to 15']
+      Amp31: [0b0100, 'Unmask bits[4:0] of LFSR/ triangle amplitude equal to 31']
+      Amp63: [0b0101, 'Unmask bits[5:0] of LFSR/ triangle amplitude equal 63']
+      Amp127: [0b0110, 'Unmask bits[6:0] of LFSR/ triangle amplitude equal to 127']
+      Amp255: [0b0111, 'Unmask bits[7:0] of LFSR/ triangle amplitude equal to 255']
+      Amp511: [0b1000, 'Unmask bits[8:0] of LFSR/ triangle amplitude equal to 511']
+      Amp1023: [0b1001, 'Unmask bits[9:0] of LFSR/ triangle amplitude equal to 1023']
+      Amp2047: [0b1010, 'Unmask bits[10:0] of LFSR/ triangle amplitude equal to 2047']
+      Amp4095: [0b1011, 'Unmask bits[11:0] of LFSR/ triangle amplitude equal to 4095']
+    "WAVE?":
+      Disabled: [0, 'Wave generation disabled']
+      Noise: [1, 'Noise wave generation enabled']
+      Triangle: [2, 'Triangle wave generation enabled']
+    "TSEL?":
+      SWTRIG: [0, 'SWTRIG1']
+      TIM1_TRGO: [1, 'dac_chx_trg1']
+      TIM2_TRGO: [2, 'dac_chx_trg2']
+      TRG3: [3, 'dac_chx_trg3']
+      TRG4: [4, 'dac_chx_trg4']
+      TRG5: [5, 'dac_chx_trg5']
+      TRG6: [6, 'dac_chx_trg6']
+      TRG7: [7, 'dac_chx_trg7']
+      TRG8: [8, 'dac_chx_trg8']
+      TRG9: [9, 'dac_chx_trg9']
+      TRG10: [10, 'dac_chx_trg10']
+      LPTIM1_OUT: [11, 'dac_chx_trg11']
+      LPTIM2_OUT: [12, 'dac_chx_trg12']
+      LPTIM3_OUT: [13, 'dac_chx_trg13']
+      EXTI9: [14, 'dac_chx_trg14']
+      TRG15: [15, 'dac_chx_trg15']
+    "TEN?":
+      Disabled: [0, "DAC Channel X trigger disabled"]
+      Enabled: [1, "DAC Channel X trigger enabled"]
+    "EN?":
+      Disabled: [0, "DAC Channel X disabled"]
+      Enabled: [1, "DAC Channel X enabled"]
+
+  SWTRGR:
+    "SWTRIG?":
+      NoTrigger: [0, 'No trigger']
+      Trigger: [1, 'Trigger']
+
+  "DOR?":
+    "DACC?DOR": [0, 4095]
+
+  SR:
+    "BWST?":
+      Idle: [0, 'There is no write operation of DAC_SHSR1 ongoing: DAC_SHSR1 can be written']
+      Busy: [1, 'There is a write operation of DAC_SHSR1 ongoing: DAC_SHSR1 cannot be written']
+    "CAL_FLAG?":
+      Lower: [0, 'Calibration trimming value is lower than the offset correction value']
+      Equal_Higher: [1, 'Calibration trimming value is equal or greater than the offset correction value']
+    "DMAUDR?":
+      NoError: [0, 'No DMA underrun error condition occurred for DAC channel x']
+      Error: [1, 'DMA underrun error condition occurred for DAC channel x (the currently selected trigger is driving DAC channel1 conversion at a frequency higher than the DMA service capability rate)']
+
+  CCR:
+    "OTRIM?": [0, 63]
+
+  MCR:
+    "MODE?":
+      NormalPinBuffer: [0b000, 'Normal mode - DAC channelx is connected to external pin with Buffer enabled']
+      NormalPinChipBuffer: [0b001, 'Normal mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer enabled']
+      NormalPinNoBuffer: [0b010, 'Normal mode - DAC channelx is connected to external pin with Buffer disabled']
+      NormalChipNoBuffer: [0b011, 'Normal mode - DAC channelx is connected to on chip peripherals with Buffer disabled']
+      SHPinBuffer: [0b100, 'S&H mode - DAC channelx is connected to external pin with Buffer enabled']
+      SHPinChipBuffer: [0b101, 'S&H mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer enabled']
+      SHPinNoBuffer: [0b110, 'S&H mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer disabled']
+      SHChipNoBuffer: [0b111, 'S&H mode - DAC channelx is connected to on chip peripherals with Buffer disabled']
+
+  "SHSR?":
+    "TSAMPLE?": [0, 1023]
+
+  SHHR:
+    "THOLD?": [0, 1023]
+
+  SHRR:
+    "TREFRESH?": [0, 255]

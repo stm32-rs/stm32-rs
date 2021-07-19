@@ -1,0 +1,30 @@
+"USART*":
+  _include:
+    - fifoen_common.yaml
+    - fifoen_usart.yaml
+    - _v2_AB_common.yaml
+  CR2:
+    DIS_NSS:
+      Disabled: [0, "SPI slave selection depends on NSS input pin"]
+      Enabled:  [1, "SPI slave is always selected and NSS input pin is ignored"]
+    SLVEN:
+      Disabled: [0, "Slave mode disabled"]
+      Enabled:  [1, "Slave mode enabled"]
+  ICR:
+    UDRCF:
+      Clear: [1, "Clear the UDR flag in the ISR register"]
+  PRESC:
+    PRESCALER:
+      Div1: [0b0000, "/1"]
+      Div2: [0b0001, "/2"]
+      Div4: [0b0010, "/4"]
+      Div6: [0b0011, "/6"]
+      Div8: [0b0100, "/8"]
+      Div10: [0b0101, "/10"]
+      Div12: [0b0110, "/12"]
+      Div16: [0b0111, "/16"]
+      Div32: [0b1000, "/32"]
+      Div64: [0b1001, "/64"]
+      Div128: [0b1010, "/128"]
+      Div256: [0b1011, "/256"]
+

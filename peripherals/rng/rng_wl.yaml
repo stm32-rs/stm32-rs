@@ -1,0 +1,56 @@
+_include:
+ - ./rng_v1.yaml
+ - ./rng_v1_ced.yaml
+
+RNG:
+  CR:
+    CONFIGLOCK:
+      Enabled: [0, "Writes to the RNG_CR configuration bits [29:4] are allowed"]
+      Disabled: [1, "Writes to the RNG_CR configuration bits [29:4] are ignored until the next RNG reset"]
+    CONDRST:
+    RNG_CONFIG1:
+      ConfigA: [0x0F, "Recommended value for config A (NIST certifiable)"]
+      ConfigB: [0x18, "Recommended value for config B (not NIST certifiable)"]
+    RNG_CONFIG2:
+      ConfigA_B: [0x00, "Recommended value for config A and B"]
+    RNG_CONFIG3:
+      ConfigA: [0x0D, "Recommended value for config A (NIST certifiable)"]
+      ConfigB: [0x00, "Recommended value for config B (not NIST certifiable)"]
+    CLKDIV:
+      NoDiv: [0, "Internal RNG clock after divider is similar to incoming RNG clock"]
+      Div_2_1: [1, "Divide RNG clock by 2^1"]
+      Div_2_2: [2, "Divide RNG clock by 2^2"]
+      Div_2_3: [3, "Divide RNG clock by 2^3"]
+      Div_2_4: [4, "Divide RNG clock by 2^4"]
+      Div_2_5: [5, "Divide RNG clock by 2^5"]
+      Div_2_6: [6, "Divide RNG clock by 2^6"]
+      Div_2_7: [7, "Divide RNG clock by 2^7"]
+      Div_2_8: [8, "Divide RNG clock by 2^8"]
+      Div_2_9: [9, "Divide RNG clock by 2^9"]
+      Div_2_10: [10, "Divide RNG clock by 2^10"]
+      Div_2_11: [11, "Divide RNG clock by 2^11"]
+      Div_2_12: [12, "Divide RNG clock by 2^12"]
+      Div_2_13: [13, "Divide RNG clock by 2^13"]
+      Div_2_14: [14, "Divide RNG clock by 2^14"]
+      Div_2_15: [15, "Divide RNG clock by 2^15"]
+    NISTC:
+      Default: [0, "Hardware default values for NIST compliant RNG. In this configuration per 128-bit output two conditioning loops are performed and 256 bits of noise source are used"]
+      Custom: [1, "Custom values for NIST compliant RNG"]
+
+  SR:
+    SEIS:
+      NoFault: [0, "No faulty sequence detected"]
+      Fault: [1, "At least one faulty sequence has been detected"]
+    CEIS,CECS:
+      Correct: [0, "The RNG clock is correct (fRNGCLK> fHCLK/32)"]
+      Slow: [1, "The RNG clock before internal divider has been detected too slow (fRNGCLK< fHCLK/32)"]
+    SECS:
+      NoFault: [0, "No faulty sequence has currently been detected. If the SEIS bit is set, this means that a faulty sequence was detected and the situation has been recovered"]
+      Fault: [1, "At least one faulty sequence has been detected - see ref manual for details"]
+    DRDY:
+      Invalid: [0, "The RNG_DR register is not yet valid, no random data is available"]
+      Valid: [1, "The RNG_DR register contains valid random data"]
+  HTCR:
+    HTCFG:
+      Magic: [0x1759_0ABC, "Magic number to be written before any write (0x1759_0ABC)"]
+      Recommended: [0x0000_AA74, "Recommended value for RNG certification (0x0000_AA74)"]

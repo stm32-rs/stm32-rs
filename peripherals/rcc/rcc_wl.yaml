@@ -1,0 +1,439 @@
+
+"RCC":
+  CR:
+    PLLRDY:
+      Unlocked: [0, "PLL unlocked"]
+      Locked: [1, "PLL Locked"]
+    PLLON:
+      "Off": [0, "Main PLL Off"]
+      "On": [1, "Main PLL On"]
+    HSEBYPPWR:
+      PB0: [0, "PB0 selected"]
+      VDDTCXO: [1, "VDDTCXO selected"]
+    HSEPRE:
+      Div1: [0, "SYSCLK not divided (HSE32)"]
+      Div2: [1, "SYSCLK divided by two (HSE32/2)"]
+    CSSON:
+      Disabled: [0, "HSE32 CSS off"]
+      Enabled: [1, "HSE32 CSS on if the HSE32 oscillator is stable and off if not"]
+    HSERDY:
+      NotReady: [0, "HSE32 oscillator not ready"]
+      Ready: [1, "HSE32 oscillator ready"]
+    HSEON:
+      Disabled: [0, "HSE32 oscillator for CPU disabled"]
+      Enabled: [1, "HSE32 oscillator for CPU enabled"]
+    HSIKERDY:
+      NotReady: [0, "HSI16 oscillator not ready"]
+      Ready: [1, "HSI16 oscillator ready"]
+    HSIASFS:
+      Disabled: [0, "HSI16 not enabled by hardware when exiting Stop modes with MSI as wakeup clock"]
+      Enabled: [1, "HSI16 enabled by hardware when exiting Stop mode with MSI as wakeup clock"]
+    HSIRDY:
+      NotReady: [0, "HSI16 oscillator not ready"]
+      Ready: [1, "HSI16 oscillator ready"]
+    HSIKERON:
+      NotForced: [0, "No effect on HSI16 oscillator"]
+      Forced: [1, "HSI16 oscillator forced on even in Stop modes"]
+    HSION:
+      Disabled: [0, "HSI16 oscillator off"]
+      Enabled: [1, "HSI16 oscillator on"]
+    MSIRANGE:
+      Range100K: [0b0000, "range 0 around 100 kHz"]
+      Range200K: [0b0001, "range 1 around 200 kHz"]
+      Range400K: [0b0010, "range 2 around 400 kHz"]
+      Range800K: [0b0011, "range 3 around 800 kHz"]
+      Range1M: [0b0100, "range 4 around 1 MHz"]
+      Range2M: [0b0101, "range 5 around 2 MHz"]
+      Range4M: [0b0110, "range 6 around 4 MHz (reset value)"]
+      Range8M: [0b0111, "range 7 around 8 MHz"]
+      Range16M: [0b1000, "range 8 around 16 MHz"]
+      Range24M: [0b1001, "range 9 around 24 MHz"]
+      Range32M: [0b1010, "range 10 around 32 MHz"]
+      Range48M: [0b1011, "range 11 around 48 MHz"]
+    MSIRGSEL:
+      CSR: [0, "MSI frequency range defined by MSISRANGE[3:0] in the RCC_CSR register"]
+      CR: [1, "MSI frequency range defined by MSIRANGE[3:0] in the RCC_CR register"]
+    MSIPLLEN:
+      "Off": [0, "MSI PLL Off"]
+      "On": [1, "MSI PLL On"]
+    MSIRDY:
+      NotReady: [0, "MSI oscillator not ready"]
+      Ready: [1, "MSI oscillator ready"]
+    MSION:
+      Disabled: [0, "MSI oscillator off"]
+      Enabled: [1, "MSI oscillator on"]
+
+  ICSCR:
+    HSITRIM: [0, 0x3F]
+    HSICAL: [0, 0xFF]
+    MSITRIM: [0, 0xFF]
+    MSICAL: [0, 0xFF]
+
+  CFGR:
+    MCOPRE:
+      Div1: [0, "No division"]
+      Div2: [1, "Division by 2"]
+      Div4: [2, "Division by 4"]
+      Div8: [3, "Division by 8"]
+      Div16: [4, "Division by 16"]
+    MCOSEL:
+      NoClock: [0, "No clock"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      MSI: [2, "MSI oscillator clock selected"]
+      HSI16: [3, "HSI16 oscillator clock selected"]
+      HSE32: [4, "HSE32 oscillator clock selected"]
+      PLLR: [5, "Main PLLRCLK clock selected"]
+      LSI: [6, "LSI oscillator clock selected"]
+      LSE: [8, "LSE oscillator clock selected"]
+      PLLP: [13, "Main PLLPCLK clock selected"]
+      PLLQ: [14, "Main PLLQCLK clock selected"]
+    PPRE2F:
+      NotApplied: [0, "PCLK2 prescaler value not yet applied"]
+      Applied: [1, "PCLK2 prescaler value applied"]
+    PPRE1F:
+      NotApplied: [0, "PCLK1 prescaler value not yet applied"]
+      Applied: [1, "PCLK1 prescaler value applied"]
+    HPREF:
+      NotApplied: [0, "HCLK1 prescaler value not yet applied"]
+      Applied: [1, "HCLK1 prescaler value applied"]
+    STOPWUCK:
+      MSI: [0, "MSI oscillator selected as wakeup from stop clock and CSS backup clock"]
+      HSI16: [1, "HSI16 oscillator selected as wakeup from stop clock and CSS backup clock"]
+    PPRE2:
+      Div1: [0, "HCLK not divided"] # Same for [0, 8]
+      Div2: [4, "HCLK divided by 2"]
+      Div4: [5, "HCLK divided by 4"]
+      Div8: [6, "HCLK divided by 8"]
+      Div16: [7, "HCLK divided by 16"]
+    PPRE1:
+      Div1: [0, "HCLK not divided"] # Same for [0, 8]
+      Div2: [4, "HCLK divided by 2"]
+      Div4: [5, "HCLK divided by 4"]
+      Div8: [6, "HCLK divided by 8"]
+      Div16: [7, "HCLK divided by 16"]
+    HPRE:
+      Div1: [0b0000, "SYSCLK not divided"]
+      Div3: [0b0001, "SYSCLK divided by 3"]
+      Div5: [0b0010, "SYSCLK divided by 5"]
+      Div6: [0b0101, "SYSCLK divided by 6"]
+      Div10: [0b0110, "SYSCLK divided by 10"]
+      Div32: [0b0111, "SYSCLK divided by 32"]
+      Div2: [0b1000, "SYSCLK divided by 2"]
+      Div4: [0b1001, "SYSCLK divided by 4"]
+      Div8: [0b1010, "SYSCLK divided by 8"]
+      Div16: [0b1011, "SYSCLK divided by 16"]
+      Div64: [0b1100, "SYSCLK divided by 64"]
+      Div128: [0b1101, "SYSCLK divided by 128"]
+      Div256: [0b1110, "SYSCLK divided by 128"]
+      Div512: [0b1111, "SYSCLK divided by 512"]
+    SWS:
+      MSI: [0, "MSI oscillator used as system clock"]
+      HSI16: [1, "HSI16 oscillator used as system clock"]
+      HSE32: [2, "HSE32 oscillator used as system clock"]
+      PLLR: [3, "PLLRCLK used as system clock"]
+    SW:
+      MSI: [0, "MSI oscillator used as system clock"]
+      HSI16: [1, "HSI16 oscillator used as system clock"]
+      HSE32: [2, "HSE32 oscillator used as system clock"]
+      PLLR: [3, "PLLRCLK used as system clock"]
+
+  PLLCFGR:
+    "PLL[RQ]":
+      Div2: [1, "PLL = VCO/(N+1)"]
+      Div3: [2, "PLL = VCO/(N+1)"]
+      Div4: [3, "PLL = VCO/(N+1)"]
+      Div5: [4, "PLL = VCO/(N+1)"]
+      Div6: [5, "PLL = VCO/(N+1)"]
+      Div7: [6, "PLL = VCO/(N+1)"]
+      Div8: [7, "PLL = VCO/(N+1)"]
+    "PLL[PRQ]EN":
+      Disabled: [0, "PLLCLK output disabled"]
+      Enabled: [1, "PLLCLK output enabled"]
+    PLLP:
+      Div2: [1, "PLL = VCO/(N+1)"]
+      Div3: [2, "PLL = VCO/(N+1)"]
+      Div4: [3, "PLL = VCO/(N+1)"]
+      Div5: [4, "PLL = VCO/(N+1)"]
+      Div6: [5, "PLL = VCO/(N+1)"]
+      Div7: [6, "PLL = VCO/(N+1)"]
+      Div8: [7, "PLL = VCO/(N+1)"]
+      Div9: [8, "PLL = VCO/(N+1)"]
+      Div10: [9, "PLL = VCO/(N+1)"]
+      Div11: [10, "PLL = VCO/(N+1)"]
+      Div12: [11, "PLL = VCO/(N+1)"]
+      Div13: [12, "PLL = VCO/(N+1)"]
+      Div14: [13, "PLL = VCO/(N+1)"]
+      Div15: [14, "PLL = VCO/(N+1)"]
+      Div16: [15, "PLL = VCO/(N+1)"]
+      Div17: [16, "PLL = VCO/(N+1)"]
+      Div18: [17, "PLL = VCO/(N+1)"]
+      Div19: [18, "PLL = VCO/(N+1)"]
+      Div20: [19, "PLL = VCO/(N+1)"]
+      Div21: [20, "PLL = VCO/(N+1)"]
+      Div22: [21, "PLL = VCO/(N+1)"]
+      Div23: [22, "PLL = VCO/(N+1)"]
+      Div24: [23, "PLL = VCO/(N+1)"]
+      Div25: [24, "PLL = VCO/(N+1)"]
+      Div26: [25, "PLL = VCO/(N+1)"]
+      Div27: [26, "PLL = VCO/(N+1)"]
+      Div28: [27, "PLL = VCO/(N+1)"]
+      Div29: [28, "PLL = VCO/(N+1)"]
+      Div30: [29, "PLL = VCO/(N+1)"]
+      Div31: [30, "PLL = VCO/(N+1)"]
+      Div32: [31, "PLL = VCO/(N+1)"]
+    PLLN: [6, 127]
+    PLLM:
+      Div1: [0, "VCO input = PLL input / PLLM"]
+      Div2: [1, "VCO input = PLL input / PLLM"]
+      Div3: [2, "VCO input = PLL input / PLLM"]
+      Div4: [3, "VCO input = PLL input / PLLM"]
+      Div5: [4, "VCO input = PLL input / PLLM"]
+      Div6: [5, "VCO input = PLL input / PLLM"]
+      Div7: [6, "VCO input = PLL input / PLLM"]
+      Div8: [7, "VCO input = PLL input / PLLM"]
+    PLLSRC:
+      NoClock: [0, "No clock sent to PLL"]
+      MSI: [1, "MSI clock selected as PLL clock entry"]
+      HSI16: [2, "HSI16 clock selected as PLL clock entry"]
+      HSE32: [3, "HSE32 clock selected as PLL clock entry"]
+
+  CIER:
+    LSECSSIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    PLLRDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    HSERDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    HSIRDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    MSIRDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    LSERDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    LSIRDYIE:
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+
+  CIFR:
+    LSECSSF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    CSSF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    PLLRDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    HSERDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    HSIRDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    MSIRDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    LSERDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+    LSIRDYF:
+      NotInterrupted: [0, "Not interrupted"]
+      Interrupted: [1, "Interrupted"]
+
+  CICR:
+    LSECSSC:
+      Clear: [1, "Clear interrupt flag"]
+    CSSC:
+      Clear: [1, "Clear interrupt flag"]
+    PLLRDYC:
+      Clear: [1, "Clear interrupt flag"]
+    HSERDYC:
+      Clear: [1, "Clear interrupt flag"]
+    HSIRDYC:
+      Clear: [1, "Clear interrupt flag"]
+    MSIRDYC:
+      Clear: [1, "Clear interrupt flag"]
+    LSERDYC:
+      Clear: [1, "Clear interrupt flag"]
+    LSIRDYC:
+      Clear: [1, "Clear interrupt flag"]
+
+  "AHB[123]RSTR":
+    "*":
+      NoReset: [0, "No effect"]
+      Reset: [1, "Reset peripheral"]
+
+  "APB[123]RSTR?":
+    "*":
+      NoReset: [0, "No effect"]
+      Reset: [1, "Reset peripheral"]
+
+  "A[PH]B[123]ENR":
+    "*":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+
+  "APB[123]ENR?":
+    "*":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+
+  "A[PH]B[123]SMENR?":
+    "*":
+      Disabled: [0, "Clock disabled"]
+      Enabled: [1, "Clock enabled"]
+
+  CCIPR:
+    RNGSEL:
+      PLLQ: [0, "PLLQ clock selected"]
+      LSI: [1, "LSI clock selected"]
+      LSE: [2, "LSE clock selected"]
+      MSI: [3, "MSI clock selected"]
+    ADCSEL:
+      NoClock: [0, "No clock selected"]
+      HSI16: [1, "HSI16 clock selected"]
+      PLLP: [2, "PLLP clock selected"]
+      SYSCLK: [3, "SYSCLK clock selected"]
+    "LPTIM[123]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      LSI: [1, "LSI clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+    "I2C[123]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+    LPUART1SEL:
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+    SPI2S2SEL:
+      PLLQ: [1, "PLLQ clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      I2S: [3, "External input I2S_CKIN selected"]
+    "USART[12]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+
+  BDCR:
+    LSCOSEL:
+      LSI: [0, "LSI clock selected"]
+      LSE: [1, "LSE clock selected"]
+    LSCOEN:
+      Disabled: [0, "LSCO disabled"]
+      Enabled: [1, "LSCO enabled"]
+    BDRST:
+      NotActive: [0, "Reset not activated"]
+      Reset: [1, "Entire Backup domain reset"]
+    RTCEN:
+      Disabled: [0, "RTC kernel clock disabled"]
+      Enabled: [1, "RTC kernel clock enabled"]
+    LSESYSRDY:
+      NotReady: [0, "LSE system clock not ready"]
+      Ready: [1, "LSE system clock ready"]
+    RTCSEL:
+      NoClock: [0, "No clock"]
+      LSE: [1, "LSE oscillator clock selected"]
+      LSI: [2, "LSI oscillator clock selected"]
+      HSE32: [3, "HSE32 oscillator clock divided by 32 selected"]
+    LSESYSEN:
+      Disabled: [0, "LSE system clock disabled to USARTx, LPUARTx, LPTIMx, TIMx, RNG, system LSCO, MCO, MSI PLL mode"]
+      Enabled: [1, "LSE system clock enabled to USARTx, LPUARTx, LPTIMx, TIMx, RNG, system LSCO, MCO, MSI PLL mode"]
+    LSECSSD:
+      NoFailure: [0, "No failure detected on LSE"]
+      Failure: [1, "Failure detected on LSE"]
+    LSECSSON:
+      Disabled: [0, "CSS on LSE disabled"]
+      Enabled: [1, "CSS on LSE enabled"]
+    LSEDRV:
+      Low: [0, "Xtal mode lower driving capability"]
+      MedLow: [1, "Xtal mode medium-low driving capability"]
+      MedHigh: [2, "Xtal mode medium-high driving capability"]
+      High: [3, "Xtal mode higher driving capability"]
+    LSEBYP:
+      Disabled: [0, "LSE oscillator not bypassed"]
+      Enabled: [1, "LSE oscillator bypassed"]
+    LSERDY:
+      NotReady: [0, "LSE oscillator not ready"]
+      Ready: [1, "LSE oscillator ready"]
+    LSEON:
+      "Off": [0, "LSE oscillator off"]
+      "On": [1, "LSE oscillator on"]
+
+  CSR:
+    LPWRRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    WWDGRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    IWDGRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    SFTRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    BORRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    PINRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    OBLRSTF:
+      NoReset: [0, "No reset occurred"]
+      Reset: [1, "Reset occurred"]
+    RFILARSTF:
+      NoIllegalCommand: [0, "No SUBGHZ radio illegal command occurred"]
+      IllegalCommand: [1, "SUBGHZ radio illegal command occurred"]
+    RMVF:
+      NoEffect: [0, "No effect"]
+      Clear: [1, "Reset flags reset"]
+    RFRST:
+      Removed: [0, "Sub-GHz radio software reset removed"]
+      Reset: [1, "Sub-GHz radio software reset active"]
+    RFRSTF:
+      NoReset: [0, "Sub-GHz radio out of reset"]
+      Reset: [1, "Sub-GHz radio in reset"]
+    MSISRANGE:
+      f_1MHz: [0b0100, "Range 4 around 1 MHz"]
+      f_2MHz: [0b0101, "Range 5 around 2 MHz"]
+      f_4MHz: [0b0110, "Range 6 around 4 MHz (reset value)"]
+      f_8MHz: [0b0111, "Range 7 around 8 MHz"]
+    LSIPRE:
+      Div1: [0, "LSI clock not divided"]
+      Div128: [1, "LSI clock divided by 128"]
+    LSIRDY:
+      NotReady: [0, "LSI oscillator not ready"]
+      Ready: [1, "LSI oscillator ready"]
+    LSION:
+      "Off": [0, "LSI oscillator off"]
+      "On": [1, "LSI oscillator on"]
+
+  EXTCFGR:
+    SHDHPREF:
+      NotApplied: [0, "HCLK3 prescaler value not yet applied"]
+      Applied: [1, "HCLK3 prescaler value applied"]
+    SHDHPRE:
+      Div1: [0b0000, "SYSCLK not divided"]
+      Div3: [0b0001, "SYSCLK divided by 3"]
+      Div5: [0b0010, "SYSCLK divided by 5"]
+      Div6: [0b0101, "SYSCLK divided by 6"]
+      Div10: [0b0110, "SYSCLK divided by 10"]
+      Div32: [0b0111, "SYSCLK divided by 32"]
+      Div2: [0b1000, "SYSCLK divided by 2"]
+      Div4: [0b1001, "SYSCLK divided by 4"]
+      Div8: [0b1010, "SYSCLK divided by 8"]
+      Div16: [0b1011, "SYSCLK divided by 16"]
+      Div64: [0b1100, "SYSCLK divided by 64"]
+      Div128: [0b1101, "SYSCLK divided by 128"]
+      Div256: [0b1110, "SYSCLK divided by 128"]
+      Div512: [0b1111, "SYSCLK divided by 512"]

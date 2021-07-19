@@ -1,0 +1,42 @@
+RTC:
+  _modify:
+    TR:
+      description: Time register
+    DR:
+      description: Date register
+    SSR:
+      description: Sub second register
+    ICSR:
+      description: Initialization control and status register
+    PRER:
+      description: Pre-scaler register
+    WUTR:
+      description: Wakeup timer register
+    CR:
+      description: Control register
+    WPR:
+      description: Write protection register
+    CALR:
+      description: Calibration register
+    SHIFTR:
+      description: Shift control register
+    TSTR:
+      description: Timestamp time register
+    TSDR:
+      description: Timestamp date register
+    TSSSR:
+      description: Timestamp sub second register
+    ALRMAR:
+      description: Alarm A register
+    ALRMASSR:
+      description: Alarm A sub second register
+    ALRMBR:
+      description: Alarm B register
+    ALRMBSSR:
+      description: Alarm B sub second register
+    SR:
+      description: Status register (interrupts)
+    MISR:
+      description: Masked interrupt status register
+    SCR:
+      description: Status clear register (interrupts)

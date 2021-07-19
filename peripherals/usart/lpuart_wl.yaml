@@ -1,0 +1,152 @@
+# LPUART in WL family
+"LPUART,LPUART*":
+  _include:
+    - _v2_AB_common.yaml
+    - _v2_with_7bit_data.yaml
+    - fifoen_common.yaml
+  CR1:
+    DEAT: [0, 0b11111]
+    DEDT: [0, 0b11111]
+    CMIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated when the CMF bit is set in the ISR register"]
+    MME:
+      Disabled: [0, "Receiver in active mode permanently"]
+      Enabled: [1, "Receiver can switch between mute mode and active mode"]
+    WAKE:
+      Idle: [0, "Idle line"]
+      Address: [1, "Address mask"]
+    PCE:
+      Disabled: [0, "Parity control disabled"]
+      Enabled: [1, "Parity control enabled"]
+    PS:
+      Even: [0, "Even parity"]
+      Odd: [1, "Odd parity"]
+    PEIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever PE=1 in the ISR register"]
+    TXEIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever TXE=1 in the ISR register"]
+    TCIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever TC=1 in the ISR register"]
+    RXNEIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever ORE=1 or RXNE=1 in the ISR register"]
+    IDLEIE:
+      Disabled: [0, "Interrupt is disabled"]
+      Enabled: [1, "Interrupt is generated whenever IDLE=1 in the ISR register"]
+    TE:
+      Disabled: [0, "Transmitter is disabled"]
+      Enabled: [1, "Transmitter is enabled"]
+    RE:
+      Disabled: [0, "Receiver is disabled"]
+      Enabled: [1, "Receiver is enabled"]
+    UE:
+      Disabled: [0, "UART is disabled"]
+      Enabled: [1, "UART is enabled"]
+  CR2:
+    ADD: [0, 0xFF]
+    MSBFIRST:
+      LSB: [0, "data is transmitted/received with data bit 0 first, following the start bit"]
+      MSB: [1, "data is transmitted/received with MSB (bit 7/8/9) first, following the start bit"]
+    DATAINV:
+      Positive: [0, "Logical data from the data register are send/received in positive/direct logic"]
+      Negative: [1, "Logical data from the data register are send/received in negative/inverse logic"]
+    TXINV:
+      Standard: [0, "TX pin signal works using the standard logic levels"]
+      Inverted: [1, "TX pin signal values are inverted"]
+    RXINV:
+      Standard: [0, "RX pin signal works using the standard logic levels"]
+      Inverted: [1, "RX pin signal values are inverted"]
+    SWAP:
+      Standard: [0, "TX/RX pins are used as defined in standard pinout"]
+      Swapped: [1, "The TX and RX pins functions are swapped"]
+    STOP:
+      Stop1: [0, "1 stop bit"]
+      Stop2: [2, "2 stop bit"]
+    ADDM7:
+      Bit4: [0, "4-bit address detection"]
+      Bit7: [1, "7-bit address detection"]
+  CR3:
+    DEP:
+      High: [0, "DE signal is active high"]
+      Low: [1, "DE signal is active low"]
+    DEM:
+      Disabled: [0, "DE function is disabled"]
+      Enabled: [1, "The DE signal is output on the RTS pin"]
+    DDRE:
+      NotDisabled: [0, "DMA is not disabled in case of reception error"]
+      Disabled: [1, "DMA is disabled following a reception error"]
+    OVRDIS:
+      Enabled: [0, "Overrun Error Flag, ORE, is set when received data is not read before receiving new data"]
+      Disabled: [1, "Overrun functionality is disabled. If new data is received while the RXNE flag is still set the ORE flag is not set and the new received data overwrites the previous content of the RDR register"]
+    CTSIE:
+      Disabled: [0, "Interrupt is inhibited"]
+      Enabled: [1, "An interrupt is generated whenever CTSIF=1 in the ISR register"]
+    CTSE:
+      Disabled: [0, "CTS hardware flow control disabled"]
+      Enabled: [1, "CTS mode enabled, data is only transmitted when the CTS input is asserted"]
+    RTSE:
+      Disabled: [0, "RTS hardware flow control disabled"]
+      Enabled: [1, "RTS output enabled, data is only requested when there is space in the receive buffer"]
+    DMAT:
+      Disabled: [0, "DMA mode is disabled for transmission"]
+      Enabled: [1, "DMA mode is enabled for transmission"]
+    DMAR:
+      Disabled: [0, "DMA mode is disabled for reception"]
+      Enabled: [1, "DMA mode is enabled for reception"]
+    HDSEL:
+      NotSelected: [0, "Half duplex mode is not selected"]
+      Selected: [1, "Half duplex mode is selected"]
+    EIE:
+      Disabled: [0, "Interrupt is inhibited"]
+      Enabled: [1, "An interrupt is generated when FE=1 or ORE=1 or NF=1 in the ISR register"]
+  RQR:
+    TXFRQ:
+      Discard: [1, "Set the TXE flags. This allows to discard the transmit data"]
+    RXFRQ:
+      Discard: [1, "clears the RXNE flag. This allows to discard the received data without reading it, and avoid an overrun condition"]
+    MMRQ:
+      Mute: [1, "Puts the USART in mute mode and sets the RWU flag"]
+    SBKRQ:
+      Break: [1, "sets the SBKF flag and request to send a BREAK on the line, as soon as the transmit machine is available"]
+  ICR:
+    CMCF:
+      Clear: [1, "Clears the CMF flag in the ISR register"]
+    CTSCF:
+      Clear: [1, "Clears the CTSIF flag in the ISR register"]
+    TCCF:
+      Clear: [1, "Clears the TC flag in the ISR register"]
+    IDLECF:
+      Clear: [1, "Clears the IDLE flag in the ISR register"]
+    ORECF:
+      Clear: [1, "Clears the ORE flag in the ISR register"]
+    NCF:
+      Clear: [1, "Clears the NF flag in the ISR register"]
+    FECF:
+      Clear: [1, "Clears the FE flag in the ISR register"]
+    PECF:
+      Clear: [1, "Clears the PE flag in the ISR register"]
+  RDR:
+    RDR: [0, 0x1FF]
+  TDR:
+    TDR: [0, 0x1FF]
+  BRR:
+    BRR: [0, 0xFFFFFF]
+  PRESC:
+    PRESCALER:
+      Div1: [0b0000, "/1"]
+      Div2: [0b0001, "/2"]
+      Div4: [0b0010, "/4"]
+      Div6: [0b0011, "/6"]
+      Div8: [0b0100, "/8"]
+      Div10: [0b0101, "/10"]
+      Div12: [0b0110, "/12"]
+      Div16: [0b0111, "/16"]
+      Div32: [0b1000, "/32"]
+      Div64: [0b1001, "/64"]
+      Div128: [0b1010, "/128"]
+      Div256: [0b1011, "/256"]
+

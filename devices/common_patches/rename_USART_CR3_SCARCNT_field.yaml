@@ -1,0 +1,7 @@
+# Rename USART CR3 SCARNT2_0 to SCARCNT
+
+"USART*":
+  CR3:
+    _modify:
+      SCARCNT2_0:
+        name: SCARCNT

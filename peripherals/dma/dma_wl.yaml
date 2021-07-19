@@ -1,0 +1,76 @@
+"DMA[12]":
+  ISR:
+    "TCIF?":
+      NotComplete: [0, "No transfer complete event on channel x"]
+      Complete: [1, "A transfer complete event occurred on channel x"]
+    "HTIF?":
+      NotHalf: [0, "No half transfer event on channel x"]
+      Half: [1, "A half transfer event occurred on channel x"]
+    "TEIF?":
+      NoError: [0, "No transfer error on channel x"]
+      Error: [1, "A transfer error occurred on channel x"]
+    "GIF?":
+      NoEvent: [0, "No TE, HT or TC event on channel x"]
+      Event: [1, "A TE, HT or TC event occurred on channel x"]
+  IFCR:
+    "TCIF?":
+      Clear: [1, "Clear the corresponding TCIFx flag"]
+    "HTIF?":
+      Clear: [1, "Clear the corresponding HTIFx flag"]
+    "TEIF?":
+      Clear: [1, "Clear the corresponding TEIFx flag"]
+    "GIF?":
+      Clear: [1, "Clear the corresponding CGIFx flag"]
+  "CCR?":
+    PRIV:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    MEM2MEM:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    PL:
+      Low: [0, "Low"]
+      Medium: [1, "Medium"]
+      High: [2, "High"]
+      VeryHigh: [3, "Very high"]
+    MSIZE:
+      Bits8: [0, "8 bits"]
+      Bits16: [1, "16 bits"]
+      Bits32: [2, "32 bits"]
+    PSIZE:
+      Bits8: [0, "8 bits"]
+      Bits16: [1, "16 bits"]
+      Bits32: [2, "32 bits"]
+    MINC:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    PINC:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    CIRC:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    DIR:
+      Peripheral: [0, "Read from peripheral"]
+      Memory: [1, "Read from memory"]
+    TEIE:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    HTIE:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    TCIE:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    EN:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+
+  "CNDTR?":
+    NDT: [0, 0x3FFFF]
+
+  "CPAR?":
+    PA: [0, 0xFFFFFFFF]
+
+  "CMAR?":
+    MA: [0, 0xFFFFFFFF]

@@ -1,0 +1,28 @@
+# Some GPIO appear to have BRR registers
+
+"GPIO[AB]":
+  BRR:
+    "BR[0123456789]":
+      _write:
+        NoAction: [0, "No action on the corresponding ODx bit"]
+        Reset: [1, "Reset the ODx bit"]
+    "BR1[012345]":
+      _write:
+        NoAction: [0, "No action on the corresponding ODx bit"]
+        Reset: [1, "Reset the ODx bit"]
+"GPIOC":
+  BRR:
+    "BR[0123456]":
+      _write:
+        NoAction: [0, "No action on the corresponding ODx bit"]
+        Reset: [1, "Reset the ODx bit"]
+    "BR1[345]":
+      _write:
+        NoAction: [0, "No action on the corresponding ODx bit"]
+        Reset: [1, "Reset the ODx bit"]
+"GPIOH":
+  BRR:
+    "BR3":
+      _write:
+        NoAction: [0, "No action on the corresponding ODx bit"]
+        Reset: [1, "Reset the ODx bit"]

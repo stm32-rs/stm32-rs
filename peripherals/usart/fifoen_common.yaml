@@ -1,0 +1,31 @@
+CR1:
+  RXFFIE:
+    Disabled: [0, "Interrupt inhibited"]
+    Enabled:  [1, "USART interrupt generated when RXFF = 1 in the USART_ISR register"]
+  TXFEIE:
+    Disabled: [0, "Interrupt inhibited"]
+    Enabled:  [1, "USART interrupt generated when TXFE = 1 in the USART_ISR register"]
+  FIFOEN:
+    Disabled: [0, "FIFO mode is disabled"]
+    Enabled:  [1, "FIFO mode is enabled"]
+CR3:
+  TXFTCFG:
+    Depth_1_8: [0, "TXFIFO reaches 1/8 of its depth"]
+    Depth_1_4: [1, "TXFIFO reaches 1/4 of its depth"]
+    Depth_1_2: [2, "TXFIFO reaches 1/2 of its depth"]
+    Depth_3_4: [3, "TXFIFO reaches 3/4 of its depth"]
+    Depth_7_8: [4, "TXFIFO reaches 7/8 of its depth"]
+    Empty:     [5, "TXFIFO becomes empty"]
+  RXFTIE:
+    Disabled: [0, "Interrupt inhibited"]
+    Enabled:  [1, "USART interrupt generated when Receive FIFO reaches the threshold programmed in RXFTCFG"]
+  RXFTCFG:
+    Depth_1_8: [0, "RXFIFO reaches 1/8 of its depth"]
+    Depth_1_4: [1, "RXFIFO reaches 1/4 of its depth"]
+    Depth_1_2: [2, "RXFIFO reaches 1/2 of its depth"]
+    Depth_3_4: [3, "RXFIFO reaches 3/4 of its depth"]
+    Depth_7_8: [4, "RXFIFO reaches 7/8 of its depth"]
+    Full:      [5, "RXFIFO becomes full"]
+  TXFTIE:
+    Disabled: [0, "Interrupt inhibited"]
+    Enabled:  [1, "USART interrupt generated when Transmit FIFO reaches the threshold programmed in TXFTCFG"]

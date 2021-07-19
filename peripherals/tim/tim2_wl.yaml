@@ -1,0 +1,26 @@
+TIM2:
+  _include:
+    - ../../devices/common_patches/tim/tim2_common_32bit.yaml
+  OR1:
+    TI4_RMP:
+      GPIO: [0, "TIM2 TI4 is connected to GPIO: Refer to Alternate Function mapping"]
+      COMP_1: [1, "TIM2 TI4 is connected to COMP1_OUT"]
+      COMP_2: [2, "TIM2 TI4 is connected to COMP2_OUT"]
+      COMP_12: [3, "TIM2 TI4 is connected to a logical OR between COMP1_OUT and COMP2_OUT"]
+    ETR_RMP:
+      GPIO: [0, "TIM2 ETR is connected to GPIO: Refer to Alternate Function mapping"]
+      TIM2_ETR: [1, "LSE internal clock is connected to TIM2_ETR input"]
+  CNT:
+    CNT: [0, 0xFFFFFFFF]
+  ARR:
+    ARR: [0,  0xFFFFFFFF]
+  CCR1:
+    CCR1: [0, 0xFFFFFFFF]
+  CCR2:
+    CCR2: [0, 0xFFFFFFFF]
+  CCR3:
+    CCR3: [0, 0xFFFFFFFF]
+  CCR4:
+    CCR4: [0, 0xFFFFFFFF]
+  DMAR:
+    DMAB: [0, 0xFFFF]

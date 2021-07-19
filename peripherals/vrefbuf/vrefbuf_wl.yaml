@@ -1,0 +1,18 @@
+# Vrefbuf peripheral for WL family
+
+VREFBUF:
+  CSR:
+    VRR:
+      NotReady: [0, "The voltage reference buffer output is not ready"]
+      Ready:    [1, "The voltage reference buffer output reached the requested level"]
+    VRS:
+      V2_048: [0, "Voltage reference set to VREF_OUT1 (around 2.048 V)"]
+      V2_5:   [1, "Voltage reference set to VREF_OUT2 (around 2.5 V)"]
+    HIZ:
+      Connected: [0, "VREF+ pin is internally connected to the voltage reference buffer output"]
+      HighZ:     [1, "VREF+ pin is high impedance"]
+    ENVR:
+      Disabled: [0, "Internal voltage reference mode disable (external voltage reference mode)"]
+      Enabled:  [1, "Internal voltage reference mode (reference buffer enable or hold mode) enable"]
+  CCR:
+    TRIM: [0, 0b111111]
