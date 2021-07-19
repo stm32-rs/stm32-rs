@@ -642,6 +642,17 @@ RCC:
       "*"
 
 
+SYSCFG:
+  _modify:
+    SYSCFG_BRK_LOCKUPR:
+      name: CFGR
+      addressOffset: 0x18
+  PMCR:
+    _delete:                  # Functionality not available on these parts
+      - BOOSTE
+      - EPIS
+
+
 TIM1,TIM8:
   DMAR:
     _modify:
