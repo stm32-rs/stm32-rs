@@ -67,7 +67,7 @@ RCC:
     "*C":
       Clear: [1, "Clear interrupt flag"]
   BDCR:
-    BDRST:
+    BDRST,VSWRST:
       Reset: [1, "Resets the entire VSW domain"]
     RTCEN:
       Disabled: [0, "RTC clock disabled"]
