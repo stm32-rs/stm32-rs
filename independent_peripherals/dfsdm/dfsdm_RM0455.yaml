@@ -1,0 +1,39 @@
+# This file is a partial implementation of the DFSDM peripheral found
+# on RM0455 devices. This file just demonstrates a variation with two
+# peripherals (thus two _newperipheral blocks). See RM0436 for a more
+# detailed description.
+
+_newperipheral:
+  name: DFSDM1
+  description: Digital filter for sigma delta modulators
+  baseAddress: 0x40017800
+  addressBlock:
+    offset: 0x0
+    size: 0x800
+    useage: registers
+  interrupts:
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT0_110
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT1_111
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT2_112
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT3_113
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT4_64
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT5_65
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT6_66
+    from: dfsdm_interrupts.yaml:DFSDM1_FLT7_67
+  registers:
+    from: clusters/dfsdm_v1_clusters_CHy.yaml:CHy_8CH_ADC_DLY
+    from: clusters/dfsdm_v1_clusters_FLTx.yaml:FLTx_8CH_8FLT # Not implemented yet
+
+_newperipheral:
+  name: DFSDM2
+  description: Digital filter for sigma delta modulators
+  baseAddress: 0x58006C00
+  addressBlock:
+    offset: 0x0
+    size: 0x800
+    useage: registers
+  interrupts:
+    from: dfsdm_interrupts.yaml:DFSDM2_FLT0_42
+  registers:
+    from: clusters/dfsdm_v1_clusters_CHy.yaml:CHy_8CH_NOADC_NODLY
+    from: clusters/dfsdm_v1_clusters_FLTx.yaml:FLTx_2CH_1FLT # Not implemented yet

@@ -1,0 +1,104 @@
+# This file is a partial implementation of all of the cluster
+# variations for the CHy registers across all devices. Note that the
+# array lengths are included and differ between variations based on
+# the number of channels in a device. The registers included vary
+# slightly as well; Some CFGR1 registers have an ADC input option
+# while others don't, and some clusters have a DLYR register while
+# others don't. All of these differences are reflected in the
+# descriptive key that gets included in the dfsdm_RMxxxx.yaml.
+
+# 8-channel cluster with an ADC option in the CHyCFGR1.DATMPX field
+# and a CHyDLYR register
+CHy_8CH_ADC_DLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 8
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_ADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+    from: ../registers/dfsdm_v1_registers_CHyDLYR.yaml:CHyDLYR
+    
+# 8-channel cluster with an ADC option in the CHyCFGR1.DATMPX field
+# and no CHyDLYR register
+CHy_8CH_ADC_NODLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 8
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_ADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+
+# 8-channel cluster with no ADC option in the CHyCFGR1.DATMPX field
+# and no CHyDLYR register
+CHy_8CH_NOADC_NODLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 8
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_NOADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+
+# 4-channel cluster with an ADC option in the CHyCFGR1.DATMPX field
+# and a CHyDLYR register
+CHy_8CH_ADC_DLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 4
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_ADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+    from: ../registers/dfsdm_v1_registers_CHyDLYR.yaml:CHyDLYR
+    
+# 4-channel cluster with an ADC option in the CHyCFGR1.DATMPX field
+# and no CHyDLYR register
+CHy_8CH_ADC_NODLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 4
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_ADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+
+# 4-channel cluster with no ADC option in the CHyCFGR1.DATMPX field
+# and no CHyDLYR register
+CHy_8CH_NOADC_NODLY:
+  name: "CH%s"
+  description: "Channel y registers"
+  addressOffset: 0x00
+  dim: 4
+  dimIncrement: 0x20
+  registers:
+    from: ../registers/dfsdm_v1_registers_CHyCFGR1.yaml:CHyCFGR1_NOADC
+    from: ../registers/dfsdm_v1_registers_CHyCFGR2.yaml:CHyCFGR2
+    from: ../registers/dfsdm_v1_registers_CHyAWSCDR.yaml:CHyAWSCDR
+    from: ../registers/dfsdm_v1_registers_CHyWDATR.yaml:CHyWDATR
+    from: ../registers/dfsdm_v1_registers_CHyDATINR.yaml:CHyDATINR
+
+
+# Missing a 2-channel version and possibly some other minor
+# variations...
