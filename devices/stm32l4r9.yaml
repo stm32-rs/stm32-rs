@@ -12,6 +12,10 @@ _svd: ../svd/stm32l4r9.svd
     _merge:
       - "FB*"
 
+DSI:
+  _strip:
+    - "DSI_"
+
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
   APB1ENR1:
