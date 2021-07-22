@@ -19,6 +19,12 @@ CRC:
       CR:
         name: RESET
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 USART1:
   # Add the missing USART interrupts
   _add:
@@ -132,6 +138,8 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/usb_otg/otg_fs_remove_prefix.yaml
  - common_patches/usb_otg/otg_fs_fixes_v1.yaml
@@ -139,8 +147,6 @@ _include:
  - common_patches/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - ../peripherals/tim/tim_ccm_v1.yaml
- - ../peripherals/flash/flash_v1.yaml
- - ../peripherals/flash/flash_latency8.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/sdio/sdio_f4.yaml

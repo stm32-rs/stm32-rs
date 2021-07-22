@@ -85,7 +85,11 @@ CRYP:
         bitOffset: 12
         bitWidth: 1
 
-
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
 
 # Fix RCC enable bits naming
 RCC:
@@ -234,6 +238,8 @@ _include:
  - ../peripherals/sai/sai.yaml
  - ../peripherals/rng/rng_v1.yaml
  - common_patches/f4_rtc_cr.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/sdio/sdio_f4.yaml
