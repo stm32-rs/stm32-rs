@@ -17,6 +17,8 @@ RCC:
         description: "HSE divider for PLL entry. Same bit as PREDIC[0] from CFGR2 register. Refer to it for its meaning"
       ADCPRE:
         description: "APCPRE is deprecated. See ADC field in CFGR2 register."
+      MCO:
+        bitWidth: 4
 
     MCO:
       HSI14: [1, "Internal RC 14 MHz (HSI14) oscillator clock selected"]

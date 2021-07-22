@@ -57,6 +57,12 @@ FMC:
       addressOffset: "0x11C"
       alternateRegister: ""
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 # Add missing RCC reset/enable bits
 RCC:
   AHB1LPENR:
@@ -196,5 +202,7 @@ _include:
  - common_patches/f4_rtc_cr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml

@@ -2,6 +2,7 @@ _svd: ../svd/stm32f7x2.svd
 
 _derive:
   USART3: USART1
+  TIM5: TIM2
 
 _rebase:
   SPI1: SPI5
@@ -11,6 +12,14 @@ _modify:
   # we'll prefer the more sensible (and better for sorting) ADC_Common
   C_ADC:
     name: ADC_Common
+
+TIM1:
+  CCMR3_Output:
+    _modify:
+      OC5M3:
+        name: OC5M_3
+      OC6M3:
+        name: OC6M_3
 
 _include:
  - common_patches/f7x23_pllsai.yaml
@@ -69,7 +78,7 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
+# - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml

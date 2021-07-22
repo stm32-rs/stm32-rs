@@ -130,7 +130,7 @@ _add:
           MULTI:
             description: Multi ADC mode selection
             bitOffset: 0
-            bitWidth: 4
+            bitWidth: 5
 
       CDR:
         description: ADC common regular data register for dual and triple modes
@@ -322,7 +322,7 @@ _include:
  - ../peripherals/fsmc/fsmc_wfdis.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
+# - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - common_patches/rtc/rtc_cr.yaml

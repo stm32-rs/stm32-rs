@@ -9,5 +9,26 @@ TIM1:
       TIM1_BRK_UP_TRG_COM:
         description: IM1 break, update, trigger and commutation interrupts
 
+TIM1:
+  _strip:
+    - "TIM1_"
+
+"TIM1,TIM2,TIM3,TIM15":
+  SMCR:
+    _clear:
+      - SMS?
+      - TS?
+
+TIM2:
+  CCMR1_Output:
+    _clear:
+      - OC1M?
+    _modify:
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
+ - common_patches/tim/v2/g0_1.yaml

@@ -47,6 +47,12 @@ CRYP:
     _merge:
       - "IV*"
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 # Fix misnamed RCC enable bits
 RCC:
   APB1ENR:
@@ -78,6 +84,14 @@ DSIHOST:
       DSIHOST:
         description: DSI host global interrupt
         value: 92
+  _strip:
+    - "DSI_"
+  VMCR:
+    _modify:
+      LVAE:
+        name: LPVAE
+      LPHFE:
+        name: LPHFPE
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -147,6 +161,8 @@ _include:
  - ../peripherals/fsmc/fsmc_wfdis.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - common_patches/hash/hash.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/usb_otg/otg_hs_remove_prefix.yaml

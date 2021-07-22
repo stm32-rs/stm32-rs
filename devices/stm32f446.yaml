@@ -40,6 +40,12 @@ CRC:
     _merge:
       - "FB*"
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 # Fix misnamed RCC enable bits, add PLLSAI clock
 RCC:
   CR:
@@ -581,5 +587,6 @@ _include:
  - ../peripherals/sdio/sdio.yaml
  - ../peripherals/sdio/sdio_f4_common.yaml
  - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
