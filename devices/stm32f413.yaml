@@ -49,16 +49,22 @@ CRC:
 
 # Add missing RCC reset/enable bits
 RCC:
+  APB1RSTR:
+    _modify:
+      USART4RST:
+        name: UART4RST
+        description: UART4 reset
+      USART5RST:
+        name: UART5RST
+        description: UART5 reset
   APB2RSTR:
-    _add:
-      UART9RST:
+    _modify:
+      USART9RST:
+        name: UART9RST
         description: UART9 reset
-        bitOffset: 6
-        bitWidth: 1
-      UART10RST:
+      SART10RST:
+        name: UART10RST
         description: UART10 reset
-        bitOffset: 7
-        bitWidth: 1
   APB1ENR:
     _modify:
       RTCAPB:
@@ -77,19 +83,22 @@ RCC:
     _modify:
       RTCAPBEN:
         name: RTCAPBLPEN
+      USART4LPEN:
+        name: UART4LPEN
+        description: UART4 clock enable during Sleep mode
+      USART5LPEN:
+        name: UART5LPEN
+        description: UART5 clock enable during Sleep mode
   APB2LPENR:
     _modify:
       EXTITEN:
         name: EXTITLPEN
-    _add:
-      UART9LPEN:
+      USART9LPEN:
+        name: UART9LPEN
         description: UART9 clock enable during Sleep mode
-        bitOffset: 6
-        bitWidth: 1
-      UART10LPEN:
+      USART10LPEN:
+        name: UART10LPEN
         description: UART10 clock enable during Sleep mode
-        bitOffset: 7
-        bitWidth: 1
   DCKCFGR:
     _delete:
       - LPTIMER1SEL
