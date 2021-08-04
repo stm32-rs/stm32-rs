@@ -35,7 +35,14 @@ DAC:
       - "TSEL1*"
 
 EXTI:
-  IMR2:
+  _modify:
+    IMR1:
+      name:
+        C1IMR1
+    IMR2:
+      name:
+        C1IMR2
+  C1IMR2:
     _modify:
       IM42:
         bitWidth: 1
