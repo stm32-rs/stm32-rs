@@ -25,18 +25,153 @@ _modify:
     name: ADC_Common
 
 # Stripping prefixes
-DSI:
-  _strip:
-    - "DSI_"
-GPIO?:
-  _strip:
-    - "GPIO?_"
 ADC*:
   _strip:
     - "ADC_"
+AXIMC_Mx:
+  _strip:
+    - "AXIMC_"
+BSEC:
+  _strip:
+    - "BSEC_"
+CCU:
+  _strip:
+    - "FCCAN_CCU_"
+CRC?:
+  _strip:
+    - "CRC_"
+CRYP?:
+  _strip:
+    - "CRYP_"
+DAC?:
+  _strip:
+    - "DAC_"
+DCMI:
+  _strip:
+    - "DCMI_"
+DDRCTRL:
+  _strip:
+    - "DDRCTRL_"
+DDRPERFM:
+  _strip:
+    - "DDRPERFM_"
+DDRPHYC:
+  _strip:
+    - "DDRPHYC_"
+DFSDM?:
+  _strip:
+    - "DFSDM_"
+DLYB*:
+  _strip:
+    - "DLYB_"
+DMA?:
+  _strip:
+    - "DMA_"
+DMAMUX?:
+  _strip:
+    - "DMAMUX_"
+DSI:
+  _strip:
+    - "DSI_"
+DTS:
+  _strip:
+    - "DTS_"
+ETH*:
+  _strip:
+    - "ETH_"
+ETZPC:
+  _strip:
+    - "ETZPC_"
+EXTI:
+  _strip:
+    - "EXTI_"
+FDCAN?:
+  _strip:
+    - "FDCAN_"
+FMC:
+  _strip:
+    - "FMC_"
+GIC?:
+  _strip:
+    - "GIC?_"
+GPIO?:
+  _strip:
+    - "GPIO?_"
+HASH?:
+  _strip:
+    - "HASH_"
+HDMI_CEC:
+  _strip:
+    - "CEC_"
+HDP:
+  _strip:
+    - "HDP_"
+HSEM:
+  _strip:
+    - "HSEM_"
+I2C?:
+  _strip:
+    - "I2C_"
 IPCC:
   _strip:
     - "IPCC_"
+IWDG?:
+  _strip:
+    - "IWDG_"
+LPTIM?:
+  _strip:
+    - "LPTIM_"
+LTDC:
+  _strip:
+    - "LTDC_"
+MDIOS:
+  _strip:
+    - "MDIOS_"
+MDMA:
+  _strip:
+    - "MDMA_"
+OTG:
+  _strip:
+    - "OTG_"
+PWR:
+  _strip:
+    - "PWR_"
+QUADSPI:
+  _strip:
+    - "QUADSPI_"
+RCC:
+  _strip:
+    - "RCC_"
+RNG?:
+  _strip:
+    - "RNG_"
+RTC:
+  _strip:
+    - "RTC_"
+SAI?:
+  _strip:
+    - "SAI_"
+SDMMC?:
+  _strip:
+    - "SDMMC_"
+SPDIFRX:
+  _strip:
+    - "SPDIFRX_"
+SPI?:
+  _strip:
+    - "SPI_"
+STGENC:
+  _strip:
+    - "STGENC_"
+STGEN?:
+  _strip:
+    - "STGEN?_"
+SYSCFG:
+  _strip:
+    - "SYSCFG_"
+TAMP:
+  _strip:
+    - "TAMP_"
 TIM?:
   _strip:
     - TIM?_
@@ -44,6 +179,18 @@ TIM1?:
   _strip:
     - TIM1?_
     - TIM?_
+TZC:
+  _strip:
+    - "TZC_"
+USBPHYC:
+  _strip:
+    - "USBPHYC_"
+VREFBUF:
+  _strip:
+    - "VREFBUF_"
+WWDG?:
+  _strip:
+    - "WWDG_"
 
 # Cleaning up the timers
 TIM*:
