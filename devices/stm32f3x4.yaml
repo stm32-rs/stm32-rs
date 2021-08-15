@@ -122,6 +122,12 @@ HRTIM_Common:
     _modify:
       SYSFLTC:
         access: write-only
+  ISR:
+    _modify:
+      FLT[12345]:
+        access: read-write
+      BMPER,DLLRDY:
+        access: read-write
 
 HRTIM_Master:
   _modify:
