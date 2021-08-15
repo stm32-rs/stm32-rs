@@ -126,6 +126,8 @@ HRTIM_Common:
     _modify:
       FLT[12345]:
         access: read-write
+      BMPER,DLLRDY:
+        access: read-write
 
 HRTIM_Master:
   _modify:
