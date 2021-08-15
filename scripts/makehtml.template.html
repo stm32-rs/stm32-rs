@@ -118,7 +118,7 @@ nav.menu a {
         <a class=toggle-registers href=#>Toggle Registers</a>.
       </p>
       <div class="container registers" id="{{ pname }}-registers">
-        {% for roffset, register in peripheral.registers|dictsort %}
+        {% for _, register in peripheral.registers|dictsort %}
         <div class=row>
           <div class="col-sm-11 register">
             <h4>

@@ -69,7 +69,7 @@ def parse_device(svdfile):
             rdesc = rtag.findtext('description')
             rrstv = rtag.findtext('resetValue')
             raccs = rtag.findtext('access') or "Unspecified"
-            roffset = int(rtag.findtext('addressOffset'), 16)
+            roffset = int(rtag.findtext('addressOffset'), 0)
             for ftag in rtag.iter('field'):
                 register_fields_total += 1
                 fname = ftag.findtext('name')
@@ -146,14 +146,14 @@ def parse_device(svdfile):
             # Bodge to prevent /0 when there are no fields in a register
             if register_fields_total == 0:
                 register_fields_total = 1
-            registers[roffset] = {"name": rname,
-                                  "offset": "0x{:X}".format(roffset),
-                                  "description": rdesc, "resetValue": rrstv,
-                                  "access": raccs, "fields": fields,
-                                  "table": table,
-                                  "fields_total": register_fields_total,
-                                  "fields_documented":
-                                      register_fields_documented}
+            registers[(roffset, rname)] = {"name": rname,
+                                           "offset": "0x{:X}".format(roffset),
+                                           "description": rdesc, "resetValue": rrstv,
+                                           "access": raccs, "fields": fields,
+                                           "table": table,
+                                           "fields_total": register_fields_total,
+                                           "fields_documented":
+                                               register_fields_documented}
             peripheral_fields_total += register_fields_total
             peripheral_fields_documented += register_fields_documented
         peripherals[pname] = {"name": pname, "base": pbase,
