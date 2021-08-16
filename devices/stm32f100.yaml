@@ -28,11 +28,14 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/gpio_f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
@@ -42,7 +45,5 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu_rename.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/adc/adc_f1_common.yaml

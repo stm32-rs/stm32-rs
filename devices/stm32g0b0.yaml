@@ -29,8 +29,13 @@ TIM3:
       OC1M2:
         name: OC1M_3
 
+TIM1:
+  _strip:
+    - "TIM1_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml
  - ./common_patches/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
+ - ../peripherals/tim/v2/ccm.yaml

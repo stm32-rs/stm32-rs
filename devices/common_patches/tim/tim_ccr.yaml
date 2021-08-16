@@ -1,7 +1,11 @@
-"TIM[1234589],TIM10,TIM11,TIM12,TIM13,TIM14,TIM21,TIM22":
+"TIM[1-589],TIM??":
+  _modify:
+    "CCR?":
+      description: "capture/compare register"
   "CCR?":
     _modify:
       "CCR?":
         name: CCR
+        description: "Capture/Compare value"
   _array:
     "CCR[1234]": {}

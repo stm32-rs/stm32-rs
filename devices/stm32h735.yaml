@@ -544,6 +544,8 @@ _include:
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
  - ../peripherals/spi/spi_v3.yaml
+ - common_patches/tim/v2/h7.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim16.yaml
@@ -551,16 +553,14 @@ _include:
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
+ - common_patches/tim/tim_ccr.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/tim/tim_ccr.yaml
-# - ../peripherals/tim/tim_ccm_v2.yaml
-# - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml

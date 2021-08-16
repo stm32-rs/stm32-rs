@@ -1,0 +1,14 @@
+"TIM9,TIM12,TIM15":
+  CCMR?_Output:
+    OC?M:
+      Frozen: [0, "The comparison between the output compare register TIMx_CCRy and the counter TIMx_CNT has no effect on the outputs / OpmMode1: Retriggerable OPM mode 1 - In up-counting mode, the channel is active until a trigger event is detected (on TRGI signal). In down-counting mode, the channel is inactive"]
+      ActiveOnMatch: [1, "Set channel to active level on match. OCyREF signal is forced high when the counter matches the capture/compare register / OpmMode2: Inversely to OpmMode1"]
+      InactiveOnMatch: [2, "Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register / Reserved"]
+      Toggle: [3, "OCyREF toggles when TIMx_CNT=TIMx_CCRy / Reserved"]
+      ForceInactive: [4, "OCyREF is forced low / CombinedPwmMode1: OCyREF has the same behavior as in PWM mode 1. OCyREFC is the logical OR between OC1REF and OC2REF"]
+      ForceActive: [5, "OCyREF is forced high / CombinedPwmMode2: OCyREF has the same behavior as in PWM mode 2. OCyREFC is the logical AND between OC1REF and OC2REF"]
+      PwmMode1: [6, "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active / Reserved"]
+      PwmMode2: [7, "Inversely to PwmMode1 / Reserved"]
+    OC?M_3:
+      Normal: [0, "Normal output compare mode (modes 0-7)"]
+      Extended: [1, "Extended output compare mode (modes 7-15)"]

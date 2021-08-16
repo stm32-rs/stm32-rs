@@ -1,0 +1,15 @@
+"TIM*":
+  CR1:
+    _modify:
+      OMP:
+        name: OPM
+
+"TIM[1-58-9],TIM??":
+  CCMR1_Input:
+    _modify:
+      ICPCS:
+        name: IC1PSC
+      IC1PCS:
+        name: IC1PSC
+      IC2PCS:
+        name: IC2PSC

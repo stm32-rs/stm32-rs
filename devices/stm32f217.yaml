@@ -71,7 +71,10 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
@@ -82,6 +85,4 @@ _include:
  - common_patches/hash/hash_v1.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
- - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
