@@ -191,6 +191,26 @@ RCC:
         bitWidth: 3
         access: read-write
 
+TIM[1-58],TIM1[1-4]:
+  SMCR:
+    _add:
+      SMS_3:
+        description: Slave mode selection - bit 3
+        bitOffset: 16
+        bitWidth: 1
+
+TIM2:
+  _delete:
+    - OR2
+  _modify:
+    OR1:
+      name: OR
+  OR:
+    _modify:
+      ITR1_RMP:
+        bitOffset: 10
+        bitWidth: 2
+
 Ethernet_MAC:
   MACFFR:
     _modify:
@@ -315,7 +335,9 @@ _include:
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
+ - common_patches/f7_tim.yaml
  - common_patches/tim/v2/f7.yaml
+ - common_patches/f745_f750_f765_f7x6_f7x7_f7x9_tim.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
