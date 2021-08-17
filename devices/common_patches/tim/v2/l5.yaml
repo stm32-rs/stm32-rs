@@ -51,6 +51,10 @@ TIM15:
   _modify:
     CCR2:
       addressOffset: 0x38
+  CCMR1_Output:
+    _modify:
+      OC1M_bit3:
+        name: OC1M_3
 
 "TIM[18]":
   CCMR1_Output:
@@ -86,9 +90,3 @@ TIM15:
           name: OC3M_3
         OC4M_bit3:
           name: OC4M_3
-
-TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M_bit3:
-        name: OC1M_3

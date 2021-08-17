@@ -626,6 +626,7 @@ _add:
             description: PHY direction
             bitOffset: 1
             bitWidth: 1
+      ISR0:
         description: DSI Host interrupt and status register 0
         addressOffset: 0x00BC
         resetValue: 0x00000000
@@ -1530,6 +1531,7 @@ _add:
             description: tCLK-PREPARE
             bitOffset: 0
             bitWidth: 8
+      WPCR3:
         description: DSI wrapper PHY configuration register 3
         addressOffset: 0x0424
         resetValue: 0x00000000
@@ -1550,6 +1552,7 @@ _add:
             description: tHS-ZERO
             bitOffset: 0
             bitWidth: 8
+      WPCR4:
         description: DSI wrapper PHY configuration register 4
         addressOffset: 0x0428
         resetValue: 0x00000000

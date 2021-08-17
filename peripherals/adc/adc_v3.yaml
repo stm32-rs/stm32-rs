@@ -167,6 +167,8 @@
       TIM3_CC1: [13, "Timer 3 CC1 event"]
       TIM6_TRGO: [14, "Timer 6 TRGO event"]
       TIM15_TRGO: [15, "Timer 15 TRGO event"]
+    JL: [0, 3]      # Total number of conversions in injected sequence
+    "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
   AWD2CR:
     _split: [AWD2CH]
     "AWD2CH*":
@@ -182,9 +184,6 @@
     L: [0, 15]       # Total number of conversions in regular sequence
   SQR?:
     "SQ*": [0, 19]   # Channel number for Nth item in regular seqeunce
-  JSQR:
-    JL: [0, 3]      # Total number of conversions in injected sequence
-    "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
   # Differential mode
   DIFSEL:
     _split: ["DIFSEL*"]
