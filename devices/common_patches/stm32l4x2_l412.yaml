@@ -1,0 +1,132 @@
+# Common patches and includes for L4x2 and L412.
+
+# SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
+# SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
+# SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
+# SVD incorrectly omits APB1ENR1 bit 1 (TIM3RST), which is present for
+# STM32L45xx and STM32L46xx devices.
+RCC:
+  APB1ENR1:
+    _modify:
+      USART1EN:
+        name: USART3EN
+        description: USART3 clock enable
+      USBF:
+        name: USBFSEN
+        description: USB FS clock enable
+      SPI1EN:
+        name: SPI2EN
+        description: SPI2 clock enable
+  APB1RSTR1:
+    _modify:
+      USART1RST:
+        name: USART3RST
+        description: USART3 reset
+    _add:
+      TIM3RST:
+        description: TIM3 timer reset
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+
+_modify:
+  USB_SRAM:
+     name: USB
+     # without quotes, get less readable value 1073768448
+     baseAddress: "0x40006800"
+
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
+ADC1:
+  _modify:
+    _interrupts:
+      ADC1:
+        name: ADC1_2
+
+_add:
+  ADC2:
+    derivedFrom: ADC1
+    baseAddress: "0x50040100"
+
+USB:
+  _add:
+    _interrupts:
+      USB_FS:
+        description: USB event interrupt through EXTI
+        value: 67
+
+_delete:
+  - USB_FS
+
+# Merge the thousands of individal bit fields into a single field for each
+# CAN filter register. This is not only much easier to use but also saves
+# a huge amount of filespace and compilation time etc -- as much as 30% of all
+# fields in many devices are just these CAN filter bank fields.
+"CAN*":
+  "F?R?":
+    _merge:
+      - "FB*"
+  "F??R?":
+    _merge:
+      - "FB*"
+
+# TIM3 is 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
+# NB: Paths here are relative to the common_patches directory.
+_include:
+ - 4_nvic_prio_bits.yaml
+ - merge_USART_CR1_DEATx_fields.yaml
+ - merge_USART_CR2_ADDx_fields.yaml
+ - merge_USART_CR2_ABRMODx_fields.yaml
+ - merge_USART_CR1_DEDTx_fields.yaml
+ - rename_USART_CR2_DATAINV_field.yaml
+ - merge_LPUART_CR1_DEATx_fields.yaml
+ - merge_LPUART_CR1_DEDTx_fields.yaml
+ - rename_LPUART_CR2_DATAINV_field.yaml
+ - merge_LPUART_CR2_ADDx_fields.yaml
+ - merge_USART_BRR_fields.yaml
+ - can/can.yaml
+ - can/can_filter_bank.yaml
+ - ../../peripherals/can/can.yaml
+ - sai/sai_v1.yaml
+ - dfsdm/dfsdm_v2.yaml
+ - ../../peripherals/gpio/gpio_v2.yaml
+ - crc/crc_rename_init.yaml
+ - ../../peripherals/crc/crc_advanced.yaml
+ - ../../peripherals/crc/crc_idr_8bit.yaml
+ - ../../peripherals/crc/crc_with_polysize.yaml
+ - ../../peripherals/wwdg/wwdg.yaml
+ - ../../peripherals/rcc/rcc_l4.yaml
+ - tim/common.yaml
+ - ../../peripherals/tim/tim_basic.yaml
+ - ../../peripherals/tim/tim16.yaml
+ - ../../peripherals/tim/tim6.yaml
+ - ../../peripherals/tim/tim2345_mixed.yaml
+ - tim/tim2345_mixed_l.yaml
+ - ../../peripherals/tim/tim_advanced.yaml
+ - tim/tim_ccr.yaml
+ - tim/v2/l4.yaml
+ - ../../peripherals/tim/v2/ccm.yaml
+ - ../../peripherals/dma/dma_v1_with_remapping.yaml
+ - ../../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../../peripherals/exti/exti.yaml
+ - ../../peripherals/i2c/i2c_v2.yaml
+ - ../../peripherals/usart/lpuart_v2A.yaml
+ - ../../peripherals/usart/usart_v2B2.yaml
+ - rtc/rtc_cr.yaml
+ - tsc/tsc.yaml
+ - fpu_interrupt.yaml
+ - ../../peripherals/usb/usb_array.yaml
+ - ../../peripherals/usb/usb_with_LPM.yaml
+ - flash/flash_boot0s.yaml
+ - ../../peripherals/sai/sai.yaml
+ - l4_adc_common.yaml
+ - l4_adc_smpr.yaml
+ - l4_adc_sqr1.yaml
+ - l4_spi.yaml
+ - ../../peripherals/spi/spi_l4.yaml

@@ -33,3 +33,7 @@ mv stm32g491xx.svd stm32g491.svd
 
 # Rename WLE5 file to remove _cm4, since it only has one core.
 mv stm32wle5_cm4.svd stm32wle5.svd
+
+# Copy L4X2 svd into L412; a 412 one doesn't exist.
+# We handle its modified RTC register block in `devices/stm32l412.yaml`.
+cp stm32l4x2.svd stm32l412.svd
