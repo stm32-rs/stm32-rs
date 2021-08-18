@@ -115,11 +115,11 @@ RTC:
           description: Registers synchronization flag
           bitOffset: 5
           bitWidth: 1
-          access: read-only
         INITF:
           description: Initialization flag
           bitOffset: 6
           bitWidth: 1
+          access: read-only
         INIT:
           description: Initialization mode
           bitOffset: 7
