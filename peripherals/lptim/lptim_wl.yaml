@@ -1,0 +1,52 @@
+LPTIM,LPTIM?:
+  ISR:
+    REPOK:
+      _read:
+        Set: [1, "Repetition register update OK"]
+    UE:
+      _read:
+        Set: [1, "LPTIM update event occurred"]
+  ICR:
+    REPOKCF:
+      _write:
+        Clear: [1, "Clear REPOK flag"]
+    UECF:
+      _write:
+        Clear: [1, "Clear update event flag"]
+  IER:
+    REPOKIE:
+      Disabled: [0, "Repetition register update OK interrupt disabled"]
+      Enabled: [1, "Repetition register update OK interrupt enabled"]
+    UEIE:
+      Disabled: [0, "Update event interrupt disabled"]
+      Enabled: [1, "Update event interrupt enabled"]
+
+  CR:
+    RSTARE:
+      Disabled: [0, "CNT Register reads do not trigger reset"]
+      Enabled: [1, "CNT Register reads trigger reset of LPTIM"]
+    COUNTRST:
+      _write:
+        Reset: [1, "Trigger synchronous reset of CNT (3 LPTimer core clock cycles)"]
+      _read:
+        Idle: [0, "Triggering of reset is possible"]
+        Busy: [1, "Reset in progress, do not write 1 to this field"]
+  RCR:
+    REP: [0, 0xFF]
+
+LPTIM1:
+  OR:
+    OR_1:
+      IO: [0, "LPTIM1 input 2 is connected to I/O"]
+      COMP2_OUT: [1, "LPTIM1 input 2 is connected to COMP2_OUT"]
+    OR_0:
+      IO: [0, "LPTIM1 input 1 is connected to I/O"]
+      COMP1_OUT: [1, "LPTIM1 input 1 is connected to COMP1_OUT"]
+
+LPTIM[23]:
+  OR:
+    OR_:
+      IO: [0, "Input 1 is connected to I/O"]
+      COMP1_OUT: [1, "Input 1 is connected to COMP1_OUT"]
+      COMP2_OUT: [2, "Input 1 is connected to COMP2_OUT"]
+      OR_COMP1_COMP2: [3, "Input 1 is connected to COMP1_OUT OR COMP2_OUT"]

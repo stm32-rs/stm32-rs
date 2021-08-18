@@ -33,6 +33,9 @@ RCC:
     C1_APB4LPENR:
       resetValue: "0x0C01E6AA"
 
+  _strip:
+    - RCC_
+
   APB1LRSTR:
     _modify:
       DAC12RST:
@@ -52,42 +55,15 @@ RCC:
     _delete:
       - LPTIM4RST
       - LPTIM5RST
-    _add:
-      DAC2RST:
-        description: DAC2 (containing one converter) reset
-        bitOffset: 13
-        bitWidth: 1
-        access: read-write
   APB4ENR:
     _delete:
       - LPTIM4EN
       - LPTIM5EN
-    _add:
-      DAC2EN:
-        description: DAC2 (containing one converter) peripheral clock enable
-        bitOffset: 13
-        bitWidth: 1
-        access: read-write
   APB4LPENR:
     _delete:
       - LPTIM4LPEN
       - LPTIM5LPEN
-    _add:
-      DAC2LPEN:
-        description: DAC2 (containing one converter) peripheral clock enable during CSleep mode
-        bitOffset: 13
-        bitWidth: 1
-        access: read-write
-  D3AMR:
-    _delete:
-      - LPTIM4AMEN
-      - LPTIM5AMEN
-    _add:
-      DAC2AMEN:
-        description: DAC2 (containing one converter) Autonomous mode enable
-        bitOffset: 13
-        bitWidth: 1
-        access: read-write
+
 DBGMCU:
   APB4FZ1:
     _delete:
@@ -110,7 +86,7 @@ _include:
  - common_patches/h7_adc.yaml
  - common_patches/h7_dsi.yaml
  - common_patches/h7_adc_boost_rev_v.yaml
- - common_patches/h7_hsicfgr_csicfgr_rev_v.yaml
+ - common_patches/h7_octospi.yaml
  - common_patches/h7_sai.yaml
  - common_patches/h7_spdifrx.yaml
  - common_patches/h7_otg.yaml
@@ -124,7 +100,6 @@ _include:
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
  - common_patches/sai/sai_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
@@ -146,6 +121,8 @@ _include:
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
  - ../peripherals/spi/spi_v3.yaml
+ - common_patches/tim/v2/h7.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim16.yaml
@@ -153,16 +130,14 @@ _include:
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/tim/tim_ccr.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
- - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml

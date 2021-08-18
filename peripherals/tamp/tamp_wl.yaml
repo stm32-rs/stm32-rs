@@ -1,0 +1,92 @@
+
+TAMP:
+  CR1:
+    ITAMP?E:
+      Disabled: [0, "Internal tamper x disabled"]
+      Enabled: [1, "Internal tamper x enabled"]
+    TAMP?E:
+      Disabled: [0, "Tamper detection on TAMP_INx is disabled"]
+      Enabled: [1, "Tamper detection on TAMP_IN3 is enabled"]
+
+  CR2:
+    TAMP?TRG:
+      FilteredLowOrUnfilteredHigh: [0, "If TAMPFLT != 00 Tamper x input staying low triggers a tamper detection event. If TAMPFLT = 00 Tamper x input rising edge and high level triggers a tamper detection event"]
+      FilteredHighOrUnfilteredLow: [1, "If TAMPFLT != 00 Tamper x input staying high triggers a tamper detection event. If TAMPFLT = 00 Tamper x input falling edge and low level triggers a tamper detection event"]
+    BKERASE:
+      _write:
+        Reset: [1, "Reset backup registers"]
+    TAMP?MSK:
+      ResetBySoftware: [0, "Tamper x event generates a trigger event and TAMPxF must be cleared by software to allow next tamper event detection"]
+      ResetByHardware: [1, "Tamper x event generates a trigger event. TAMPxF is masked and internally cleared by hardware. The backup registers are not erased. The tamper x interrupt must not be enabled when TAMP3MSK is set"]
+    TAMP?NOER:
+      Erase: [0, "Tamper x event erases the backup registers"]
+      NotErase: [1, "Tamper x event does not erase the backup registers"]
+
+  CR3:
+    ITAMP?NOER:
+      Erase: [0, "Internal tamper x event erases the backup registers"]
+      NotErase: [1, "Internal tamper x event does not erase the backup registers"]
+
+  FLTCR:
+    TAMPPUDIS:
+      Enabled: [0, "Precharge TAMP_INx pins before sampling (enable internal pull-up)"]
+      Disabled: [1, "Disable precharge of TAMP_INx pins"]
+    TAMPPRCH:
+      Cycles1: [0, "1 RTCCLK cycle"]
+      Cycles2: [1, "2 RTCCLK cycles"]
+      Cycles4: [2, "4 RTCCLK cycles"]
+      Cycles8: [3, "8 RTCCLK cycles"]
+    TAMPFLT:
+      NoFilter: [0, Tamper event is activated on edge of TAMP_INx input transitions to the active level (no internal pull-up on TAMP_INx input)"]
+      Filter2: [1, Tamper event is activated after 2 consecutive samples at the active level"]
+      Filter4: [2, Tamper event is activated after 4 consecutive samples at the active level"]
+      Filter8: [3, Tamper event is activated after 8 consecutive samples at the active level"]
+    TAMPFREQ:
+      Hz_1: [0, "RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)"]
+      Hz_2: [1, "RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)"]
+      Hz_4: [2, "RTCCLK / 8192 (4 Hz when RTCCLK = 32768 Hz)"]
+      Hz_8: [3, "RTCCLK / 4096 (8 Hz when RTCCLK = 32768 Hz)"]
+      Hz_16: [4, "RTCCLK / 2048 (16 Hz when RTCCLK = 32768 Hz)"]
+      Hz_32: [5, "RTCCLK / 1024 (32 Hz when RTCCLK = 32768 Hz)"]
+      Hz_64: [6, "RTCCLK / 512 (64 Hz when RTCCLK = 32768 Hz)"]
+      Hz_128: [7, "RTCCLK / 256 (128 Hz when RTCCLK = 32768 Hz)"]
+
+  IER:
+    ITAMP?IE:
+      Disabled: [0, "Internal tamper x interrupt disabled"]
+      Enabled: [1, "Internal tamper x interrupt enabled"]
+    TAMP?IE:
+      Disabled: [0, "Tamper x interrupt disabled"]
+      Enabled: [1, "Tampoer x interrupt enabled"]
+
+  SR:
+    ITAMP?F:
+      Idle: [0, "No tamper detected"]
+      Tamper: [1, "Internal tamper detected"]
+    TAMP?F:
+      Idle: [0, "No tamper detected"]
+      Tamper: [1, "Tamper detected"]
+
+  MISR:
+    ITAMP?MF:
+      Idle: [0, "No tamper detected - Masked"]
+      Tamper: [1, "Internal tamper detected - Masked"]
+    TAMP?MF:
+      Idle: [0, "No tamper detected - Masked"]
+      Tamper: [1, "Tamper detected - Masked"]
+
+  SCR:
+    CITAMP?F:
+      _write:
+        Clear: [1, "Clear tamper flag"]
+    CTAMP?F:
+      _write:
+        Clear: [1, "Clear tamper flag"]
+
+  COUNTR:
+    COUNT: [0, 0xFFFFFFFF]
+
+  BKP?R:
+    BKP: [0, 0xFFFFFFFF]
+  BKP1?R:
+    BKP: [0, 0xFFFFFFFF]

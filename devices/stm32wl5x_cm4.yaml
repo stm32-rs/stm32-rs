@@ -2,3 +2,162 @@ _svd: ../svd/stm32wl5x_cm4.svd
 
 _modify:
   name: STM32WL5X_CM4
+
+ADC:
+  CFGR2:
+    _merge:
+      - "OVSS*"
+      - "OVSR*"
+
+AES:
+  CR:
+    _modify:
+      CHMOD10:
+        name: CHMOD
+  DINR:
+    _modify:
+      AES_DINR:
+        name: DIN
+  DOUTR:
+    _modify:
+      AES_DOUTR:
+        name: DOUT
+  "KEYR?":
+    _modify:
+      "AES_KEYR?":
+        name: KEY
+  "IVR?":
+    _modify:
+      "AES_IVR?":
+        name: IVI
+  "SUSP?R":
+    _modify:
+      "AES_SUSP?R":
+        name: SUSP
+
+DAC:
+  CR:
+    _merge:
+      - "TSEL1*"
+
+HSEM:
+  _strip:
+    - HSEM_
+  _modify:
+    HSEM_C2ICR:
+      access: read-write
+
+TIM1:
+  _modify:
+    CCMR3OutputComparemode:
+      name: CCMR3_Output
+
+TIM2:
+  _strip:
+    - TIM2_
+
+TIM1?:
+  _strip:
+    - TIM1?_
+  DIER:
+    _delete:
+      - COMDE
+  BDTR:
+    _delete:
+      - BKF
+
+LPTIM,LPTIM?:
+  _strip:
+    - LPTIM_
+    - LPTIM?_
+
+LPTIM[23]:
+  OR:
+    _merge:
+      - "OR*"
+
+IWDG:
+  _delete:
+    - WINR
+
+# Rename this so it has the same name as all other STM32 USARTs
+LPUART,USART?:
+  ICR:
+    _modify:
+      NECF:
+        name: NCF
+
+# CR1 and ISR have 2 versions depending on whether FIFO is enabled or not
+# The only difference is the addition of 2 bits at the top of the register
+# and some names (e.g. TXEIE - TXFNFIE), but all functionality remains the same
+# so we remove the "disabled" version and leave the "enabled" version as
+# reference
+LPUART:
+  _modify:
+    CR1_enabled:
+      name: CR1
+    ISR_enabled:
+      name: ISR
+  _delete:
+    - CR1_disabled
+    - ISR_disabled
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+_delete:
+  - SYSCFG_continue
+
+_include:
+ - ../devices/common_patches/l4_spi.yaml
+ - ../devices/common_patches/wl_adc.yaml
+ - ../devices/common_patches/crc/crc_rename_init.yaml
+ - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
+ - ../devices/common_patches/wl_exti.yaml
+ - ../devices/common_patches/merge_USART_CR1_DEATx_fields.yaml
+ - ../devices/common_patches/merge_USART_CR1_DEDTx_fields.yaml
+ - ../devices/common_patches/merge_USART_CR2_ADDx_fields_inverted.yaml
+ - ../devices/common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+ - ../devices/common_patches/rename_USART_CR1_M0_field.yaml
+ - ../devices/common_patches/rename_USART_CR3_SCARCNT_field.yaml
+ - ../peripherals/adc/adc_wl.yaml
+ - ../peripherals/aes/aes_wl.yaml
+ - ../peripherals/comp/comp_wl.yaml
+ - ../peripherals/crc/crc_advanced.yaml
+ - ../peripherals/crc/crc_pol.yaml
+ - ../peripherals/crc/crc_with_polysize.yaml
+ - ../peripherals/dac/dac_wl.yaml
+ - ../peripherals/dac/dac_wl_12bit.yaml
+ - ../peripherals/dac/dac_wl_8bit.yaml
+ - ../peripherals/dma/dma_wl.yaml
+ - ../peripherals/dma/dmamux_wl.yaml
+ - ../peripherals/dbg/dbg_wl.yaml
+ - ../peripherals/exti/exti.yaml
+ - ../peripherals/flash/flash_wl.yaml
+ - ../peripherals/gpio/gpio_v2_common.yaml
+ - ../peripherals/gpio/gpio_wl_with_brr.yaml
+ - ../peripherals/hsem/hsem_wl.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - ../peripherals/iwdg/iwdg_sr.yaml
+ - ../peripherals/lptim/lptim_v1.yaml
+ - ../peripherals/lptim/lptim_wl.yaml
+ - ../peripherals/usart/lpuart_wl.yaml
+ - ../peripherals/pka/pka.yaml
+ - ../peripherals/pwr/pwr_wl.yaml
+ - ../peripherals/rcc/rcc_wl.yaml
+ - ../peripherals/rtc/rtc_wl.yaml
+ - ../peripherals/rng/rng_wl.yaml
+ - ../peripherals/spi/spi_v2.yaml
+ - ../peripherals/syscfg/syscfg_wl.yaml
+ - ../peripherals/tamp/tamp_wl.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim12_common_wl.yaml
+ - ../peripherals/tim/tim1_wl.yaml
+ - ../peripherals/tim/tim2_wl.yaml
+ - ../peripherals/tim/tim16_wl.yaml
+ - ../peripherals/usart/usart_v2C.yaml
+ - ../peripherals/usart/usart_wl.yaml
+ - ../peripherals/vrefbuf/vrefbuf_wl.yaml
+ - ../peripherals/wwdg/wwdg.yaml
+ - ../peripherals/tim/v2/ccm_common.yaml

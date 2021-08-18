@@ -13,6 +13,10 @@ CRYP:
     _merge:
       - "IV*"
 
+_derive:
+  TIM4: TIM3
+  TIM14: TIM13
+
 _include:
  - common_patches/h7_common_dualcore.yaml
  - common_patches/4_nvic_prio_bits.yaml  # Specifically for CM4 core
@@ -25,7 +29,6 @@ _include:
  - common_patches/h7_rcc_src_sel.yaml
  - common_patches/h7_ethernet_combined_desc.yaml
  - common_patches/h7_exti_dualcore.yaml
- - common_patches/h7_dbgmcu.yaml
  - common_patches/h7_dbgmcu_dualcore.yaml
  - common_patches/h7_dmamux.yaml
  - common_patches/dma/dma2d_v2.yaml
@@ -47,7 +50,6 @@ _include:
  - common_patches/merge_USART_CR2_ADDx_fields.yaml
  - common_patches/rename_USART_CR2_DATAINV_field.yaml
  - common_patches/merge_USART_BRR_fields.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/ramecc/ramecc_new.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
@@ -65,11 +67,14 @@ _include:
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/rcc/rcc_h7.yaml
+ - ../peripherals/rcc/rcc_v3_hrtim.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
  - ../peripherals/spi/spi_v3.yaml
  - ../peripherals/syscfg/syscfg_h747.yaml
+ - common_patches/tim/v2/h7.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim16.yaml
@@ -77,16 +82,14 @@ _include:
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_h7.yaml
  - ../peripherals/tim/tim_h7.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/tim/tim_ccr.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
- - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/h7_crc_addr_fix.yaml
  - common_patches/h7_wwdg.yaml

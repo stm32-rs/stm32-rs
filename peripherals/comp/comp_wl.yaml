@@ -1,0 +1,64 @@
+COMP:
+  COMP?_CSR:
+    LOCK:
+      Unlocked: [0, "Comparator CSR bits are read-write"]
+      Locked: [1, "Comparator CSR bits are read-only"]
+    VALUE:
+      Low: [0, "Comparator output is low"]
+      High: [1, "Comparator output is high"]
+    SCALEN:
+      Disabled: [0, "Voltage scaler disabled"]
+      Enabled: [1, "Voltage scaler enabled"]
+    BRGEN:
+      Disabled: [0, "Scaler resistor bridge disabled"]
+      Enabled: [1, "Scaler resistor bridge enabled"]
+    BLANKING:
+      NoBlanking: [0, "No blanking"]
+      TIM1OC5: [1, "TIM1 OC5 selected as blanking source"]
+      TIM2OC3: [2, "TIM2 OC3 selected as blanking source"]
+    HYST:
+      NoHysteresis: [0, "No hysteresis"]
+      LowHysteresis: [1, "Low hysteresis"]
+      MediumHysteresis: [2, "Medium hysteresis"]
+      HighHysteresis: [3, "High hysteresis"]
+    POLARITY:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      DAC_CH1: [4, "DAC Channel 1"]
+      PB3: [6, "PB3"]
+      GPIO: [7, "GPIO pin selected by INMESEL"]
+    PWRMODE:
+      HighSpeed: [0, "High speed / full power"]
+      MediumSpeed: [1, "Medium speed / medium power"]
+      LowSpeed: [2, "Low speed / low power"]
+      VeryLowSpeed: [3, "Very-low speed / ultra-low power"]
+    EN:
+      Disabled: [0, "Comparator 1 disabled"]
+      Enabled: [1, "Comparator 1 enabled"]
+
+  COMP1_CSR:
+    INMESEL:
+      PA10: [0, "PA10 connected to input minus"]
+      PA11: [1, "PA11 connected to input minus"]
+      PA15: [2, "PA15 connected to input minus"]
+    INPSEL:
+      PB4: [0, "PB4 connected to input plus"]
+      PB2: [1, "PB2 connected to input plus"]
+
+  COMP2_CSR:
+    INMESEL:
+      PB2: [0, "PB2 connected to input minus"]
+      PA10: [1, "PA10 connected to input minus"]
+      PA11: [2, "PA11 connected to input minus"]
+    WINMODE:
+      Disabled: [0, "COMP2 input plus is not connected to COMP1"]
+      Enabled: [1, "COMP2 input plus is connected to COMP1"]
+    INPSEL:
+      PB4: [0, "PB4 connected to input plus"]
+      PB1: [1, "PB1 connected to input plus"]
+      PA15: [2, "PA15 connected to input plus"]

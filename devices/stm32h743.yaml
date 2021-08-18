@@ -1,7 +1,24 @@
 _svd: ../svd/stm32h743.svd
 
+_derive:
+  TIM4: TIM3
+  TIM14: TIM13
+
+TIM5:
+  _delete:
+    _interrupts:
+      - TIM4
+
+TIM4:
+  _add:
+    _interrupts:
+      TIM4:
+        description: TIM4 global interrupt
+        value: 30
+
 _include:
  - common_patches/h7_common_singlecore.yaml
+ - common_patches/h7_ethernet_dma_mr.yaml
  - common_patches/dma_fcr_wo.yaml
  - common_patches/dma/bdma.yaml
  - common_patches/dma/dma_v3.yaml
@@ -29,7 +46,6 @@ _include:
  - common_patches/merge_USART_BRR_fields.yaml
  - common_patches/h7_sai.yaml
  - common_patches/sai/sai_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/ramecc/ramecc_new.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
@@ -48,10 +64,13 @@ _include:
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - ../peripherals/rcc/rcc_h7.yaml
+ - ../peripherals/rcc/rcc_v3_hrtim.yaml
  - ../peripherals/rcc/rcc_h7_revision_y.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
  - ../peripherals/spi/spi_v3.yaml
+ - common_patches/tim/v2/h7.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_gp1.yaml
  - ../peripherals/tim/tim16.yaml
@@ -60,15 +79,13 @@ _include:
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/tim/tim_h7.yaml
- - common_patches/tim/tim_h7.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/tim/tim_ccr.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
- - ../peripherals/tim/tim1234_1567_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml

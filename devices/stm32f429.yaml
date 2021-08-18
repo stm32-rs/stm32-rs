@@ -57,6 +57,12 @@ FMC:
       addressOffset: "0x11C"
       alternateRegister: ""
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 # Add missing RCC reset/enable bits
 RCC:
   AHB1LPENR:
@@ -133,7 +139,6 @@ _include:
  - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - common_patches/sai/sai_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -155,7 +160,15 @@ _include:
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim2345_mixed.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
+ - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/eth/eth_dma_common.yaml
  - ../peripherals/eth/eth_dma_mb_edfe_dmarswtr.yaml
  - ../peripherals/eth/eth_mac_common.yaml
@@ -168,10 +181,6 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
- - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/hash/hash.yaml
@@ -180,7 +189,6 @@ _include:
  - common_patches/usb_otg/otg_fs_fixes_v1.yaml
  - common_patches/usb_otg/otg_hs_remove_prefix.yaml
  - common_patches/usb_otg/otg_hs_fixes_v1.yaml
- - common_patches/tim/tim_ccr.yaml
  - common_patches/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - common_patches/fsmc/fsmc_sram.yaml
@@ -190,11 +198,12 @@ _include:
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/sai/sai.yaml
  - ../peripherals/rng/rng_v1.yaml
  - common_patches/f4_rtc_cr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/flash/flash_v1.yaml
+ - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml

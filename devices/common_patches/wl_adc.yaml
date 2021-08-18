@@ -1,0 +1,11 @@
+ADC:
+  CCR:
+    _merge:
+      - "PRESC*"
+  CFGR2:
+    _merge:
+      - "OVSS*"
+      - "OVSR*"
+  SMPR:
+    _split:
+      - "SMPSEL"

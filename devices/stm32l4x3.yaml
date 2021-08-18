@@ -7,7 +7,6 @@ RCC:
       SP3EN:
         name: SPI3EN
         description: SPI peripheral 3 clock enable
-    _modify:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
@@ -131,12 +130,16 @@ _include:
  - ../peripherals/crc/crc_with_polysize.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/rcc/rcc_l4.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
  - common_patches/tim/tim2_32bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/tim/v2/l4.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
@@ -146,9 +149,7 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - ./common_patches/flash/flash_boot0s.yaml
- - ../peripherals/tim/tim_ccm_v2.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/dma_interrupt_names.yaml
  - ./common_patches/l4_adc_common.yaml

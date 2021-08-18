@@ -57,10 +57,9 @@ crates:
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -g -i ../../../$$<
-	rustfmt --config-path="rustfmt.toml" $$(@D)/lib.rs
-	sed "1,20d;23,28d" $$(@D)/lib.rs > $$@
-	rm $$(@D)/build.rs $$(@D)/lib.rs
+	cd $$(@D); svd2rust -m -g -i ../../../$$<
+	rustfmt --config-path="rustfmt.toml" $$@
+	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
@@ -95,11 +94,14 @@ svdformat: $(FORMATTED_SVDS)
 
 check: $(CHECK_SRCS)
 
-html/index.html: $(PATCHED_SVDS)
+html/index.html: $(PATCHED_SVDS) scripts/makehtml.py scripts/makehtml.index.template.html scripts/makehtml.template.html
 	@mkdir -p html
 	python3 scripts/makehtml.py html/ svd/stm32*.svd.patched
 
-html: html/index.html
+html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
+	scripts/htmlcomparesvdall.sh
+
+html: html/index.html html/comparisons.html
 
 lint: $(PATCHED_SVDS)
 	xmllint --schema svd/cmsis-svd.xsd --noout $(PATCHED_SVDS)

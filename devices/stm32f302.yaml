@@ -85,8 +85,9 @@ _delete:
 _copy:
   TIM3:
     from: TIM2
-  TIM4:
-    from: TIM2
+
+_derive:
+  TIM4: TIM3
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
@@ -120,7 +121,6 @@ _include:
  - ../peripherals/can/can.yaml
  - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/unprefix_USB_registers.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -133,12 +133,16 @@ _include:
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/rcc/rcc_f3.yaml
  - ../peripherals/rcc/rcc_f3_i2s.yaml
  - ../peripherals/rcc/rcc_pllsrc_2bit.yaml
@@ -152,10 +156,8 @@ _include:
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/f3_dbgmcu.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml

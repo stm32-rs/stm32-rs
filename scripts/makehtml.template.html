@@ -22,11 +22,21 @@
   border: solid 1px #eee;
   margin-bottom: 3px;
 }
-.registers {
+.registers,
+.register-map {
   display: none;
 }
 .bitfield td, .bitfield th {
   text-align: center;
+}
+.vertical {
+  padding: 5px 0 !important;
+  vertical-align: middle !important;
+  text-align: center;
+  text-align: -webkit-center;
+}
+.vertical div {
+  writing-mode: vertical-lr;
 }
 .doccol {
   color: rgb(92, 184, 92);
@@ -57,9 +67,12 @@ nav.menu a {
 <nav class="navbar navbar-inverse">
   <div class=container>
     <div class=navbar-header>
-      <a class=navbar-brand href=#>{{ device.name }} Peripheral Coverage</a>
+      <a class="navbar-brand" href="index.html">stm32-rs Device Coverage</a>
     </div>
     <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">{{ device.name }} Peripheral Coverage</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href=# id=show-all-registers>Show All Registers</a></li>
         <li><a href=# id=hide-all-registers>Hide All Registers</a></li>
@@ -112,10 +125,42 @@ nav.menu a {
           {{ peripheral.fields_documented }}/{{peripheral.fields_total }}
           fields covered.
         </em>
-        <a class=toggle-registers href=#>Toggle Registers</a>.
+        <a class=toggle-registers href=#>Toggle Registers</a>
       </p>
+      <p><a class=toggle-register-map href=#>Show register map</a></p>
+      <div class="register-map" id="{{ pname }}-register-map">
+        <table class="table table-bordered register-map-table">
+          <tr>
+            <th>Offset</th>
+            <th>Name</th>
+            {% for i in range(31, -1, -1) %}
+            <th class=vertical><div>{{ i }}</div></th>
+            {% endfor %}
+          </tr>
+          {% for _, register in peripheral.registers|dictsort %}
+            <tr>
+              <td>{{ register.offset }}</td>
+              <td>{{ register.name }}</td>
+              {% for row in register.table %}
+                {% for field in row.fields %}
+                  {% if not field.name %}
+                    {% for _ in range(field.width) %}
+                    <td {% if field.separated %}class=separated{% endif %}></td>
+                    {% endfor %}
+                  {% endif %}
+                  {% if field.name %}
+                    <td colspan={{ field.width }} class="vertical{% if field.separated %} separated{% endif %}">
+                      <div><a class="fieldlink" href="#{{ pname }}:{{ register.name }}:{{ field.name }}">{{ field.name }}</a></div>
+                    </td>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
       <div class="container registers" id="{{ pname }}-registers">
-        {% for roffset, register in peripheral.registers|dictsort %}
+        {% for _, register in peripheral.registers|dictsort %}
         <div class=row>
           <div class="col-sm-11 register">
             <h4>
@@ -166,7 +211,7 @@ nav.menu a {
                     </tr>
                     {% endfor %}
                   </table>
-                  <a href=# class=toggle-fields>Toggle Fields</a>.
+                  <a href=# class=toggle-fields>Toggle Fields</a>
                 </div>
               </div>
             </div>
@@ -213,6 +258,10 @@ nav.menu a {
     $(this).parent().siblings(".registers").toggle();
     e.preventDefault();
   });
+  $('.toggle-register-map').click(function(e) {
+    $(this).parent().siblings(".register-map").toggle();
+    e.preventDefault();
+  });
   $('#show-all-registers').click(function(e) {
     $('.registers').show();
     e.preventDefault();
@@ -235,7 +284,6 @@ nav.menu a {
     var register = parts[1];
     $('#' + peripheral + '-registers').show(0, function() {
       if(parts.length == 3) {
-        console.log("parts.length == 3");
         $('#' + peripheral + '-' + register + '-fields').show(0, function() {
           window.location.hash = hash;
         });

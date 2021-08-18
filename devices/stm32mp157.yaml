@@ -2,8 +2,6 @@ _svd: ../svd/stm32mp157.svd
 
 _modify:
   name: STM32MP157
-
-_modify:
   cpu:
     name: CM4
     revision: r0p1
@@ -12,3 +10,9 @@ _modify:
     fpuPresent: "true"
     nvicPrioBits: 4
     vendorSystickConfig: "false"
+  DSIHOST1:
+    name: DSI
+
+DSI:
+  _strip:
+    - "DSI_"

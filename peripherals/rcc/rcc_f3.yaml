@@ -11,6 +11,9 @@ _include:
 
 RCC:
   CFGR2:
+    _modify:
+      "ADC*PRES":
+        bitWidth: 5
     "ADC*PRES":
       NoClock: [0, "No clock"] # Same for [0, 15]
       Div1: [16, "PLL clock not divided"]

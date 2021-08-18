@@ -1,0 +1,92 @@
+# SVD has TIM3,TIM4,TIM5 interrupts under TIM2 as
+# TIM2_3, TIM2_4, TIM2_5.  This somewhat matches
+# documentation RM0438 vector table, but is non-
+# intuitive and appears a documentation error also.
+#
+# Remove from TIM2 and add to TIM3/4/5, add to
+# respective timers.
+
+TIM2:
+  _delete:
+    _interrupts:
+      - TIM2_*
+
+TIM3:
+  _add:
+    _interrupts:
+      TIM3:
+        description: TIM3 global interrupt
+        value: 46
+
+TIM4:
+  _add:
+    _interrupts:
+      TIM4:
+        description: TIM4 global interrupt
+        value: 47
+
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: TIM5 global interrupt
+        value: 48
+
+# TIM6 and TIM7 interrupts are missing from SVD
+TIM6:
+  _add:
+    _interrupts:
+      TIM6:
+        description: TIM6 global interrupt
+        value: 49
+
+TIM7:
+  _add:
+    _interrupts:
+      TIM7:
+        description: TIM7 global interrupt
+        value: 50
+
+TIM15:
+  _modify:
+    CCR2:
+      addressOffset: 0x38
+  CCMR1_Output:
+    _modify:
+      OC1M_bit3:
+        name: OC1M_3
+
+"TIM[18]":
+  CCMR1_Output:
+    _modify:
+        OC1M_bit3:
+          name: OC1M_3
+        OC2M_bit3:
+          name: OC2M_3
+  CCMR2_Output:
+    _modify:
+        OC3M_bit3:
+          name: OC3M_3
+        OC4M_bit3:
+          name: OC4M_3
+  CCMR3_Output:
+    _modify:
+        OC5M_bit3:
+          name: OC5M_3
+          bitWidth: 1
+        OC6M_bit3:
+          name: OC6M_3
+          bitWidth: 1
+"TIM[234]":
+  CCMR1_Output:
+    _modify:
+        OC1M_bit3:
+          name: OC1M_3
+        OC2M_bit3:
+          name: OC2M_3
+  CCMR2_Output:
+    _modify:
+        OC3M_bit3:
+          name: OC3M_3
+        OC4M_bit3:
+          name: OC4M_3

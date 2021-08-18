@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+Common:
+
+* The `rt` feature is now enabled by default; use `default-features=false` to
+  disable.
+
 ## [v0.13.1] 2021-06-02
 
 This version has only been released as a patch release for the

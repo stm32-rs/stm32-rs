@@ -84,6 +84,13 @@ RCC:
     _modify:
       LPWRSTF:
         name: LPWRRSTF
+      RMVF:
+        bitOffset: 23
+    _add:
+      FWRSTF:
+        description: Firewall reset flag
+        bitOffset: 24
+        bitWidth: 1
   APB2RSTR:
     _modify:
       TM12RST:
@@ -154,16 +161,16 @@ _include:
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0.yaml
  - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/tim/tim_l0.yaml
- - ../peripherals/tim/tim21.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim6.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - common_patches/tim/tim2345_16bit_l.yaml
+ - common_patches/tim/common.yaml
+ - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tim/tim_ccr.yaml
- - common_patches/tim/tim2345_16bit_l.yaml
  - common_patches/dma/dma_v1.yaml

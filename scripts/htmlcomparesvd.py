@@ -1,4 +1,4 @@
-import sys
+import argparse
 import os.path
 import xml.etree.ElementTree as ET
 
@@ -208,10 +208,15 @@ def html_tables(parts):
 
 
 def main():
-    parts = [parse(svdfile) for svdfile in sys.argv[1:]]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("htmldir", help="Path to write HTML files to")
+    parser.add_argument("svdfiles", help="Path to patched SVD files", nargs="*")
+    args = parser.parse_args()
+
+    parts = [parse(svdfile) for svdfile in args.svdfiles]
     files = html_tables(parts)
     for fn in files:
-        with open(os.path.join("html", fn), "w") as f:
+        with open(os.path.join(args.htmldir, fn), "w") as f:
             f.write(files[fn])
 
 if __name__ == "__main__":

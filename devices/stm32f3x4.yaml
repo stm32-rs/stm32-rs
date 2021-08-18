@@ -122,6 +122,12 @@ HRTIM_Common:
     _modify:
       SYSFLTC:
         access: write-only
+  ISR:
+    _modify:
+      FLT[12345]:
+        access: read-write
+      BMPER,DLLRDY:
+        access: read-write
 
 HRTIM_Master:
   _modify:
@@ -216,6 +222,28 @@ CAN:
         description: CAN_SCE interrupt
         value: 22
 
+TIM3:
+  CCMR1_Output:
+    _add:
+      OC1M_3:
+        description: "Output Compare 1 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC2M_3:
+        description: "Output Compare 2 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+  CCMR2_Output:
+    _add:
+      OC3M_3:
+        description: "Output Compare 3 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC4M_3:
+        description: "Output Compare 4 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
@@ -240,7 +268,6 @@ _include:
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/gpio/gpio_v2.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - common_patches/f3_gpio_ospeedr.yaml
@@ -251,12 +278,16 @@ _include:
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
+ - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - common_patches/tim/tim_ccr.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/rcc/rcc_f3.yaml
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
  - common_patches/dma/dma_v1.yaml
@@ -267,10 +298,8 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/tsc/tsc.yaml
- - common_patches/tim/tim_ccr.yaml
  - common_patches/f3_dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
- - ../peripherals/tim/tim_ccm_v1.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/dac/dac_wavegen.yaml

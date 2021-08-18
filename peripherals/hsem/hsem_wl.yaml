@@ -1,0 +1,80 @@
+"HSEM":
+  "R[0123456789]":
+    LOCK:
+      _read:
+        Free: [0, "Semaphore is free"]
+        Locked: [1, "Semaphore is locked"]
+      _write:
+        Free: [0, "Free semaphore"]
+        TryLock: [1, "Try to lock semaphore"]
+    COREID: [0, 0xF]
+    PROCID: [0, 0xFF]
+  "R1[012345]":
+    LOCK:
+      _read:
+        Free: [0, "Semaphore is free"]
+        Locked: [1, "Semaphore is locked"]
+      _write:
+        Free: [0, "Free semaphore"]
+        TryLock: [1, "Try to lock semaphore"]
+    COREID: [0, 0xF]
+    PROCID: [0, 0xFF]
+  "RLR[0123456789]":
+    LOCK:
+      _read:
+        Free: [0, "Semaphore is free"]
+        Locked: [1, "Semaphore is locked"]
+      _write:
+        Free: [0, "Free semaphore"]
+        TryLock: [1, "Try to lock semaphore"]
+    COREID: [0, 0xF]
+    PROCID: [0, 0xFF]
+  "RLR1[012345]":
+    LOCK:
+      _read:
+        Free: [0, "Semaphore is free"]
+        Locked: [1, "Semaphore is locked"]
+      _write:
+        Free: [0, "Free semaphore"]
+        TryLock: [1, "Try to lock semaphore"]
+    COREID: [0, 0xF]
+    PROCID: [0, 0xFF]
+  C?IER:
+    "ISE[0123456789]":
+      Disabled: [0, "Interrupt generation disabled"]
+      Enabled: [1, "Interrupt generation enabled"]
+    "ISE1[012345]":
+      Disabled: [0, "Interrupt generation disabled"]
+      Enabled: [1, "Interrupt generation enabled"]
+  C?ICR:
+    "ISC[0123456789]":
+      _read:
+        NoEffect: [0, "Always reads 0"]
+      _write:
+        NoEffect: [0, "Interrupt semaphore x status ISFx and masked status MISFx not affected"]
+        Clear : [1, "Interrupt semaphore x status ISFx and masked status MISFx cleared"]
+    "ISC1[012345]":
+      _read:
+        NoEffect: [0, "Always reads 0"]
+      _write:
+        NoEffect: [0, "Interrupt semaphore x status ISFx and masked status MISFx not affected"]
+        Clear : [1, "Interrupt semaphore x status ISFx and masked status MISFx cleared"]
+  C?ISR:
+    "ISF[0123456789]":
+      NotPending: [0, "No interrupt pending"]
+      Pending: [1, "Interrupt pending"]
+    "ISF1[012345]":
+      NotPending: [0, "No interrupt pending"]
+      Pending: [1, "Interrupt pending"]
+  C?MISR:
+    "MISF[0123456789]":
+      NotPending: [0, "No interrupt pending after masking"]
+      Pending: [1, "Interrupt pending after masking"]
+    "MISF1[012345]":
+      NotPending: [0, "No interrupt pending after masking"]
+      Pending: [1, "Interrupt pending after masking"]
+  CR:
+    KEY: [0, 0xFFFF]
+    COREID: [0, 0xF]
+  KEYR:
+    KEY: [0, 0xFFFF]

@@ -31,13 +31,13 @@ jobs:
         id: cache-cargo
         with:
           path: ~/cargo-bin
-          key: ${{ runner.os }}-cargo-binaries-0.17.0
+          key: ${{ runner.os }}-cargo-binaries-0.18.0
       - name: Install svd2rust
         if: steps.cache-cargo.outputs.cache-hit != 'true'
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: svd2rust --version 0.17.0
+          args: svd2rust --version 0.19.0
       - name: Install form
         if: steps.cache-cargo.outputs.cache-hit != 'true'
         uses: actions-rs/cargo@v1

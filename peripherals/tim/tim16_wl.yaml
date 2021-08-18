@@ -1,0 +1,182 @@
+_include:
+  - tim16.yaml
+
+TIM1[67]:
+  _include:
+    - tim_1ch_16bit.yaml
+  CR1:
+    UIFREMAP:
+      Disabled: [0, "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31"]
+      Enabled: [1, "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31"]
+
+  DIER:
+    UDE:
+      Disabled: [0, "Update DMA request disabled"]
+      Enabled: [1, "Update DMA request enabled"]
+
+  SR:
+    "CC?OF":
+      _read:
+        NoOvercapture: [0, "No overcapture has been detected"]
+        Overcapture: [1, "The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set"]
+      _write:
+        Clear: [0, "Clear flag"]
+    BIF:
+      _read:
+        NoBreak: [0, "No break event occurred"]
+        Break: [1, "Break interrupt pending"]
+      _write:
+        Clear: [0, "Clear flag"]
+    COMIF:
+      _read:
+        NoCOM: [0, "No COM event occurred"]
+        COM: [1, "COM interrupt pending"]
+      _write:
+        Clear: [0, "Clear flag"]
+    "CC?IF":
+      _read:
+        NoMatch: [0, "No campture/compare has been detected"]
+        Match: [1, "If CC1 is an output: The content of the counter TIMx_CNT matches the content of the TIMx_CCR1 register. If CC1 is an input: The counter value has been captured in TIMx_CCR1 register"]
+      _write:
+        Clear: [0, "Clear flag"]
+
+  EGR:
+    BG:
+      _write:
+        Trigger: [1, "A break event is generated. MOE bit is cleared and BIF flag is set. Related interrupt or DMA transfer can occur if enabled"]
+    COMG:
+      _write:
+        Trigger: [1, "When CCPC bit is set, it allows CCxE, CCxNE and OCxM bits to be updated"]
+    "CC?G":
+      _write:
+        Trigger: [1, "If CC1 is an output: CC1IF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CC1 is an input: The current value of the counter is captured in TIMx_CCR1 register"]
+
+  CCMR?_Input:
+    IC?F:
+      NoFilter: [0, "No filter, sampling is done at fDTS"]
+      FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
+      FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
+      FCK_INT_N8: [3, "fSAMPLING=fCK_INT, N=8"]
+      FDTS_Div2_N6: [4, "fSAMPLING=fDTS/2, N=6"]
+      FDTS_Div2_N8: [5, "fSAMPLING=fDTS/2, N=8"]
+      FDTS_Div4_N6: [6, "fSAMPLING=fDTS/4, N=6"]
+      FDTS_Div4_N8: [7, "fSAMPLING=fDTS/4, N=8"]
+      FDTS_Div8_N6: [8, "fSAMPLING=fDTS/8, N=6"]
+      FDTS_Div8_N8: [9, "fSAMPLING=fDTS/8, N=8"]
+      FDTS_Div16_N5: [10, "fSAMPLING=fDTS/16, N=5"]
+      FDTS_Div16_N6: [11, "fSAMPLING=fDTS/16, N=6"]
+      FDTS_Div16_N8: [12, "fSAMPLING=fDTS/16, N=8"]
+      FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
+      FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
+      FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
+    IC?PSC:
+      Output: [0, "CCx channel is configured as output"]
+      Capture_2: [1, "Capture is done once every 2 events"]
+      Capture_4: [2, "Capture is done once every 4 events"]
+      Capture_8: [3, "Capture is done once every 8 events"]
+    CC?S:
+      Output: [0, "CCx channel is configured as output"]
+      TI1: [1, "CCx channel is configured as input, ICx is mapped on TI1"]
+      TI2: [2, "CCx channel is configured as input, ICx is mapped on TI2"]
+      TRC: [3, "CCx channel is configured as input, ICx is mapped on TRC"]
+
+  CCMR[12]_Output:
+    OC?PE:
+      Disabled: [0, "Preload register on CCRx disabled. New values written to CCRx are taken into account immediately"]
+      Enabled: [1, "Preload register on CCRx enabled. Preload value is loaded into active register on each update event"]
+    OC?FE:
+      Disabled: [0, "Fast output disabled"]
+      Enabled: [1, "Fast output enabled"]
+    CC?S:
+      "Output": [0, "CCx channel is configured as output"]
+      TI1: [1, "CCx channel is configured as input, ICx is mapped on TI1"]
+
+  CCER:
+    "CC?NP":
+      ActiveHigh: [0, "OCxN active high"]
+      ActiveLow: [1, "OCxN active low"]
+    "CC?NE":
+      Disabled: [0, "Complementary output disabled"]
+      Enabled: [1, "Complementary output enabled"]
+    "CC?P":
+      RisingEdge: [0, "Noninverted/rising edge"]
+      FallingEdge: [1, "Inverted/falling edge"]
+    "CC?E":
+      Disabled: [0, "Capture disabled"]
+      Enabled: [1, "Capture enabled"]
+
+  RCR:
+    REP: [0, 0xFF]
+
+  BDTR:
+    _modify:
+      DT:
+        name: DTG
+    BKBID:
+      Input: [0, "Break input BRK in input mode"]
+      Bidirectional: [1, "Break input BRK in bidirectional mode"]
+    BKDSRM:
+      Armed: [0, "Break input BRK is armed"]
+      Disarmed: [1, "Break input BRK is disarmed"]
+    MOE:
+      Disabled: [0, "OC and OCN outputs are disabled or forced to idle state depending on the OSSI bit"]
+      Enabled: [1, "OC and OCN outputs are enabled if their respective enable bits are set (CCxE, CCxNE in TIMx_CCER register)"]
+    AOE:
+      Disabled: [0, "MOE can be set only by software"]
+      Enabled: [1, "MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active)"]
+    BKP:
+      ActiveLow: [0, "Break input BRK is active low"]
+      ActiveHigh: [1, "Break input BRK is active high"]
+    BKE:
+      Disabled: [0, "Break inputs (BRK and CCS clock failure event) disabled"]
+      Enabled: [1, "Break inputs (BRK and CCS clock failure event) enabled"]
+    OSSR:
+      Disabled: [0, "OC/OCN outputs are disabled when inactive"]
+      Enabled: [1, "OC/OCN outputs are enabled with their inactive level as soon as CCxE=1 or CCxNE=1"]
+    OSSI:
+      Disabled: [0, "OC/OCN outputs are disabled when inactive"]
+      Enabled: [1, "OC/OCN outputs are first forced with their inactive level then forced to their idle level after the deadtime"]
+    LOCK:
+      "Off": [0, "No write protection"]
+      Level1: [1, "Level 1 write protection"]
+      Level2: [2, "Level 2 write protection"]
+      Level3: [3, "Level 3 write protection"]
+    DTG: [0, 0xFF]
+
+  DCR:
+    DBL: [0, 0b10001]
+    DBA: [0, 31]
+
+  DMAR:
+    DMAB: [0, 0xFFFF]
+
+  OR1:
+    TI1_RMP:
+      GPIO : [0, "TI1 is connected to GPIO"]
+      LSI  : [1, "TI1 is connected to LSI"]
+      LSE  : [2, "TI1 is connected to LSE"]
+      RTC  : [3, "TI1 is connected to RTC wake-up interrupt"]
+
+  AF1:
+    BKCMP2P:
+      NotInverted: [0, 'Input polarity not inverted']
+      Inverted: [1, 'Input polarity inverted']
+    BKCMP1P:
+      NotInverted: [0, 'Input polarity not inverted']
+      Inverted: [1, 'Input polarity inverted']
+    BKINP:
+      NotInverted: [0, 'Input polarity not inverted']
+      Inverted: [1, 'Input polarity inverted']
+    BKCMP2E:
+      Disabled: [0, "COMP2 input disabled"]
+      Enabled: [1, "COMP2 input enabled"]
+    BKCMP1E:
+      Disabled: [0, "COMP1 input disabled"]
+      Enabled: [1, "COMP1 input enabled"]
+    BKINE:
+      Disabled: [0, "BKIN input disabled"]
+      Enabled: [1, "BKIN input enabled"]
+
+  TISEL:
+    TISEL:
+      Selected: [0, "TIM1_CH1 input selected"]

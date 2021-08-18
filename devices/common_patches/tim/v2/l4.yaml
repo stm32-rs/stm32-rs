@@ -1,0 +1,56 @@
+"TIM[18]":
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+        bitWidth: 1
+      OC6M_bit3:
+        name: OC6M_3
+  CCMR1_Output:
+    _add:
+      OC1M_3:
+        description: "Output Compare 1 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC2M_3:
+        description: "Output Compare 2 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+  CCMR2_Output:
+    _add:
+      OC3M_3:
+        description: "Output Compare 3 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC4M_3:
+        description: "Output Compare 4 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+
+"TIM[23]":
+  CCMR1_Output:
+    _add:
+      OC1M_3:
+        description: "Output Compare 1 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC2M_3:
+        description: "Output Compare 2 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+  CCMR2_Output:
+    _add:
+      OC3M_3:
+        description: "Output Compare 3 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
+      OC4M_3:
+        description: "Output Compare 4 mode, bit 3"
+        bitOffset: 24
+        bitWidth: 1
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3

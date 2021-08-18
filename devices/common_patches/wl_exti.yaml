@@ -1,0 +1,47 @@
+EXTI:
+  RTSR1:
+    _add:
+      RT22:
+        description: Rising trigger event configuration bit of Configurable Event input
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+    _modify:
+      RT21:
+        bitWidth: 1
+    _split: [RT]
+  FTSR1:
+    _add:
+      FT22:
+        description: Falling trigger event configuration bit of Configurable Event input
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+    _modify:
+      FT21:
+        bitWidth: 1
+    _split: [FT]
+  SWIER1:
+    _add:
+      SWI22:
+        description: Software interrupt on event
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+    _modify:
+      SWI21:
+        bitWidth: 1
+    _split: [SWI]
+  PR1:
+    _add:
+      PIF22:
+        description: Configurable event inputs Pending bit
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+    _modify:
+      PIF21:
+        bitWidth: 1
+    _split: [PIF]
+  C1IMR1,IMR1:
+    _split: [IM]

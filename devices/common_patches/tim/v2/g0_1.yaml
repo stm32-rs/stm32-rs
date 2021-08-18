@@ -1,0 +1,36 @@
+"TIM1,TIM15":
+  CCMR1_Output:
+    _clear:
+      - OC1M?
+    _modify:
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
+TIM1:
+  CCMR2_Output:
+    _modify:
+      OC3M1:
+        name: OC3M
+      OC3M2:
+        name: OC3M_3
+      OC4M1:
+        name: OC4M
+      OC4M2:
+        name: OC4M_3
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+      OC6M_bit3:
+        name: OC6M_3
+
+"TIM1[46]":
+  CCMR1_Output:
+    _clear:
+      - OC1M?
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3

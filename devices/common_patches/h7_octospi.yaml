@@ -1,0 +1,34 @@
+# OCTOSPI v1 peripheral on at least H7
+
+"OCTOSPI*":
+  DCR1:
+    _add:
+      DLYBYP:
+        description: Delay block bypass
+        bitWidth: 1
+        bitOffset: 3
+    _modify:
+      MTYP:
+        bitWidth: 3
+  DCR4:
+    _modify:
+      REFRESH:
+        bitWidth: 32
+  SR:
+    _modify:
+      CTEF:
+        name: TEF
+        description: Transfer error flag
+      CTCF:
+        name: TCF
+        description: Transfer complete flag
+      CSMF:
+        name: SMF
+        description: Status match flag
+      CTOF:
+        name: TOF
+        description: Timeout flag
+  AR:
+    _modify:
+      ADRESS:
+        name: ADDRESS

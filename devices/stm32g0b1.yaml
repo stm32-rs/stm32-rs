@@ -7,9 +7,27 @@ TIM1:
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COM:
-        description: IM1 break, update, trigger and commutation interrupts
+        description: TIM1 break, update, trigger and commutation interrupts
+  _strip:
+    - "TIM1_"
+
+"TIM1,TIM2,TIM15":
+  SMCR:
+    _clear:
+      - SMS?
+      - TS?
+
+TIM2:
+  CCMR1_Output:
+    _clear:
+      OC1M1:
+    _modify:
+      OC1M1:
+        name: OC1M
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml
  - ./common_patches/g0_add_dma2_5ch.yaml
+ - common_patches/tim/v2/g0_1.yaml
+ - ../peripherals/tim/v2/ccm.yaml

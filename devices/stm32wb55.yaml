@@ -191,6 +191,15 @@ TIM17:
       - BKINE
       - BKINP
 
+TIM1:
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+      OC6M_bit3:
+        name: OC6M_3
+
 _include:
  - ./common_patches/sai/sai_v1.yaml
  - ./common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/tim/v2/ccm_common.yaml

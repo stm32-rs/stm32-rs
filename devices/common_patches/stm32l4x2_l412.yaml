@@ -102,12 +102,16 @@ _include:
  - ../../peripherals/crc/crc_with_polysize.yaml
  - ../../peripherals/wwdg/wwdg.yaml
  - ../../peripherals/rcc/rcc_l4.yaml
+ - tim/common.yaml
  - ../../peripherals/tim/tim_basic.yaml
  - ../../peripherals/tim/tim16.yaml
  - ../../peripherals/tim/tim6.yaml
  - ../../peripherals/tim/tim2345_mixed.yaml
  - tim/tim2345_mixed_l.yaml
  - ../../peripherals/tim/tim_advanced.yaml
+ - tim/tim_ccr.yaml
+ - tim/v2/l4.yaml
+ - tim/v2/ccm.yaml
  - ../../peripherals/dma/dma_v1_with_remapping.yaml
  - ../../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../../peripherals/exti/exti.yaml
@@ -116,12 +120,10 @@ _include:
  - ../../peripherals/usart/usart_v2B2.yaml
  - rtc/rtc_cr.yaml
  - tsc/tsc.yaml
- - tim/tim_ccr.yaml
  - fpu_interrupt.yaml
  - ../../peripherals/usb/usb_array.yaml
  - ../../peripherals/usb/usb_with_LPM.yaml
  - flash/flash_boot0s.yaml
- - ../../peripherals/tim/tim_ccm_v2.yaml
  - ../../peripherals/sai/sai.yaml
  - l4_adc_common.yaml
  - l4_adc_smpr.yaml
