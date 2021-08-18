@@ -124,7 +124,7 @@ TIM16:
         bitWidth: 1
       BIE:
         description: Break interrupt enable.
-        bitOffset: 8
+        bitOffset: 7
         bitWidth: 1
       UDE:
         description: Update DMA request enable.
@@ -133,7 +133,7 @@ TIM16:
       CC1DE:
         description: Capture/Compare 1 DMA request enable.
         bitOffset: 9
-        bitWidth: 2
+        bitWidth: 1
 
     _delete:
       - BKCMP1E
@@ -172,7 +172,7 @@ TIM17:
         bitWidth: 1
       BIE:
         description: Break interrupt enable.
-        bitOffset: 8
+        bitOffset: 7
         bitWidth: 1
       UDE:
         description: Update DMA request enable.
@@ -181,7 +181,7 @@ TIM17:
       CC1DE:
         description: Capture/Compare 1 DMA request enable.
         bitOffset: 9
-        bitWidth: 2
+        bitWidth: 1
 
     _delete:
       - BKCMP1E
