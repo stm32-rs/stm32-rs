@@ -63,6 +63,9 @@ RCC:
     _delete:
       - LPTIM4LPEN
       - LPTIM5LPEN
+  RSR,C1_RSR:
+    _clear:
+      - RMVF
 
 DBGMCU:
   APB4FZ1:

@@ -87,6 +87,9 @@ CAN:
       - COMP1_2
 
 FLASH:
+  _modify:
+    OBR:
+      resetValue: 0xFFFFFF0F
   SR:
     _modify:
       WRPRT:
@@ -97,7 +100,6 @@ FLASH:
         name: "OBL_LAUNCH"
   OBR:
     _modify:
-      resetValue: 0xFFFFFF0F
       BOOT1:
         name: "nBOOT1"
 
