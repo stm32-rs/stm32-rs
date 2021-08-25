@@ -66,6 +66,7 @@ RCC:
   RSR,C1_RSR:
     _clear:
       - RMVF
+      - BORRSTF
 
 DBGMCU:
   APB4FZ1:
