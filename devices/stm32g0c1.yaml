@@ -26,7 +26,7 @@ TIM1:
 TIM2:
   CCMR1_Output:
     _clear:
-      OC1M1:
+      - OC1M1
     _modify:
       OC1M1:
         name: OC1M

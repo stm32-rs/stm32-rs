@@ -5,6 +5,8 @@ _modify:
     groupName: SDIO
     addressBlock:
       size: "0x400"
+      offset: 0
+      usage: registers
 
 SDIO:
   _strip: SDMMC_

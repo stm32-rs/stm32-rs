@@ -1,9 +1,8 @@
 RCC:
+  _modify:
+    DCKCFGR[12]:
+      resetValue: 0x00000000
   DCKCFGR1:
     _modify:
-      resetValue: 0x00000000
       PLLI2SDIV:
         name: PLLI2SDIVQ
-  DCKCFGR2:
-    _modify:
-      resetValue: 0x00000000

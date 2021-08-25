@@ -1,4 +1,7 @@
 FLASH:
+  _modify:
+    OBR:
+      resetValue: 0xFFFFFF0F
   ACR:
     _add:
       HLFCYA:
@@ -16,6 +19,5 @@ FLASH:
         name: "OBL_LAUNCH"
   OBR:
     _modify:
-      resetValue: 0xFFFFFF0F
       BOOT1:
         name: "nBOOT1"
