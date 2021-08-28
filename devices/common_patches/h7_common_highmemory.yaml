@@ -811,15 +811,7 @@ USART6:
       USART6:
         description: USART6 global interrupt
         value: 71
-
 "USART*,UART*":
-  BRR:
-    _modify:
-      BRR_4_15:
-        name: BRR4
-      BRR_0_3:
-        name: BRR0
-    _merge: ["BRR*"]
   CR1:
     _merge:
       - "DEAT*"
@@ -832,6 +824,13 @@ USART6:
       - "ABRMOD*"
 
 "UART*":
+  BRR:
+    _modify:
+      BRR_4_15:
+        name: BRR4
+      BRR_0_3:
+        name: BRR0
+    _merge: ["BRR*"]
   CR2:
     _modify:
       ADD0_3:

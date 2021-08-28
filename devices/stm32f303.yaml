@@ -52,8 +52,6 @@ RCC:
         name: UART5EN
 
 SYSCFG:
-  _strip:
-    - SYSCFG_
   _add:
     CFGR3:
       description: configuration register 3

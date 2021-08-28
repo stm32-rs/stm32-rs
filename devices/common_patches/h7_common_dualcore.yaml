@@ -402,8 +402,6 @@ Ethernet_DMA:
         access: read-write
 
 RCC:
-  _delete:
-    - ICSCR
   _modify:
     CIFR:
       access: read-only
@@ -726,15 +724,6 @@ WWDG1,WWDG2:
 IWDG1,IWDG2:
   _strip:
     - IWDG_
-
-"USART*":
-  BRR:
-    _modify:
-      BRR_4_15:
-        name: BRR4
-      BRR_0_3:
-        name: BRR0
-    _merge: ["BRR*"]
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
