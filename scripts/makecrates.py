@@ -104,7 +104,7 @@ SRC_LIB_RS_TPL = """\
 //!
 //! This crate supports all {family} devices; for the complete list please
 //! see:
-//! [{crate}](https://github.com/stm32-rs/stm32-rs/tree/master/{crate})
+//! [{crate}](https://crates.io/crates/{crate})
 //!
 //! Due to doc build limitations, not all devices may be shown on docs.rs;
 //! a representative few have been selected instead. For a complete list of
