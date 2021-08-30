@@ -51,8 +51,8 @@
       Range32M: [0b1010, "range 10 around 32 MHz"]
       Range48M: [0b1011, "range 11 around 48 MHz"]
     MSIRGSEL:
-      CSR: [0, "MSI frequency range defined by MSISRANGE[3:0] in the RCC_CSR register"]
-      CR: [1, "MSI frequency range defined by MSIRANGE[3:0] in the RCC_CR register"]
+      CSR: [0, "MSI frequency range defined by MSISRANGE\\[3:0\\] in the RCC_CSR register"]
+      CR: [1, "MSI frequency range defined by MSIRANGE\\[3:0\\] in the RCC_CR register"]
     MSIPLLEN:
       "Off": [0, "MSI PLL Off"]
       "On": [1, "MSI PLL On"]

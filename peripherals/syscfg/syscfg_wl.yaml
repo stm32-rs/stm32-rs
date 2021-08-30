@@ -124,8 +124,8 @@ SYSCFG:
         Connect: [1, "Connect ECC error to TIM1/16/17 break input"]
     PVDL:
       _read:
-        Disconnected: [0, "PVD interrupt disconnected from TIM1/16/17 break input. PVDE and PLS[2:0] bits can be programmed by the application"]
-        Connected:    [1, "PVD interrupt connected to TIM1/16/17 break input. PVDE and PLS[2:0] bits are read only"]
+        Disconnected: [0, "PVD interrupt disconnected from TIM1/16/17 break input. PVDE and PLS\\[2:0\\] bits can be programmed by the application"]
+        Connected:    [1, "PVD interrupt connected to TIM1/16/17 break input. PVDE and PLS\\[2:0\\] bits are read only"]
       _write:
         Connect: [1, "Connect PVD interretup to TIM1/16/17 break input"]
     SPL:
@@ -157,5 +157,5 @@ SYSCFG:
 
   RFDCR:
     RFTBSEL:
-      Digital: [0, "Digital test bus selected on RF_ADTB[3:0]"]
-      Analog:  [1, "Analog test bus selected on RF_ADTB[3:0]"]
+      Digital: [0, "Digital test bus selected on RF_ADTB\\[3:0\\]"]
+      Analog:  [1, "Analog test bus selected on RF_ADTB\\[3:0\\]"]

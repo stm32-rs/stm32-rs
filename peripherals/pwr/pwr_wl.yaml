@@ -45,8 +45,8 @@ PWR:
       Disabled: [0, "Internal wakeup line interrupt to CPU disabled"]
       Enabled: [1, "Internal wakeup line interrupt to CPU enabled"]
     EWRFIRQ:
-      Disabled: [0, "Radio IRQ[2:0] is disabled and does not trigger a wakeup from Standby event to CPU."]
-      Enabled: [1, "Radio IRQ[2:0] is enabled and triggers a wakeup from Standby event to CPU."]
+      Disabled: [0, "Radio IRQ\\[2:0\\] is disabled and does not trigger a wakeup from Standby event to CPU."]
+      Enabled: [1, "Radio IRQ\\[2:0\\] is enabled and triggers a wakeup from Standby event to CPU."]
     EWRFBUSY:
       Disabled: [0, "Radio Busy is disabled and does not trigger a wakeup from Standby event to CPUwhen a rising or a falling edge occurs"]
       Enabled: [1, "Radio Busy is enabled and triggers a wakeup from Standby event to CPUwhen a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4"]
@@ -171,54 +171,54 @@ PWR:
       Enabled: [1, "Radio end-of-life detector enabled"]
   PUCRA:
     "PU1[012345]":
-      Disabled: [0, "Disable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA\\[y\\] bit is also set"]
     "PU[0123456789]":
-      Disabled: [0, "Disable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA\\[y\\] bit is also set"]
   PDCRA:
     "PD1[012345]":
-      Disabled: [0, "Disable the pull-down on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
     "PD[0123456789]":
-      Disabled: [0, "Disable the pull-down on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PA\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   PUCRB:
     "PU1[012345]":
-      Disabled: [0, "Disable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB\\[y\\] bit is also set"]
     "PU[0123456789]":
-      Disabled: [0, "Disable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB\\[y\\] bit is also set"]
   PDCRB:
     "PD1[012345]":
-      Disabled: [0, "Disable the pull-down on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
     "PD[0123456789]":
-      Disabled: [0, "Disable the pull-down on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PB\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   PUCRC:
     "PU1[345]":
-      Disabled: [0, "Disable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC\\[y\\] bit is also set"]
     "PU[0123456]":
-      Disabled: [0, "Disable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC\\[y\\] bit is also set"]
   PDCRC:
     "PD1[345]":
-      Disabled: [0, "Disable the pull-down on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
     "PD[0123456]":
-      Disabled: [0, "Disable the pull-down on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PC\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   PUCRH:
     PU3:
-      Disabled: [0, "Disable pull-up on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PH[y] bit is also set"]
+      Disabled: [0, "Disable pull-up on PH\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable pull-up on PH\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PH\\[y\\] bit is also set"]
   PDCRH:
     PD3:
-      Disabled: [0, "Disable the pull-down on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable the pull-down on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Disabled: [0, "Disable the pull-down on PH\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
+      Enabled: [1, "Enable the pull-down on PH\\[y\\] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   EXTSCR:
     C1DS:
       RunningOrSleep: [0, "CPU is running or in sleep"]

@@ -26,14 +26,14 @@ RTC:
       _read:
         Pending: [1, "The RECALPF status flag is automatically set to 1 when software writes to the RTC_CALR register, indicating that the RTC_CALR register is blocked. When the new calibration settings are taken into account, this bit returns to 0"]
     BCDU:
-      Bit7: [0, "1s increment each time SS[7:0]=0"]
-      Bit8: [1, "1s increment each time SS[8:0]=0"]
-      Bit9: [2, "1s increment each time SS[9:0]=0"]
-      Bit10: [3, "1s increment each time SS[10:0]=0"]
-      Bit11: [4, "1s increment each time SS[11:0]=0"]
-      Bit12: [5, "1s increment each time SS[12:0]=0"]
-      Bit13: [6, "1s increment each time SS[13:0]=0"]
-      Bit14: [7, "1s increment each time SS[14:0]=0"]
+      Bit7: [0, "1s increment each time SS\\[7:0\\]=0"]
+      Bit8: [1, "1s increment each time SS\\[8:0\\]=0"]
+      Bit9: [2, "1s increment each time SS\\[9:0\\]=0"]
+      Bit10: [3, "1s increment each time SS\\[10:0\\]=0"]
+      Bit11: [4, "1s increment each time SS\\[11:0\\]=0"]
+      Bit12: [5, "1s increment each time SS\\[12:0\\]=0"]
+      Bit13: [6, "1s increment each time SS\\[13:0\\]=0"]
+      Bit14: [7, "1s increment each time SS\\[14:0\\]=0"]
     BIN:
       BCD: [0, "Free running BCD calendar mode (Binary mode disabled)"]
       Binary: [1, "Free running Binary mode (BCD mode disabled)"]
@@ -101,8 +101,8 @@ RTC:
       AlarmB: [2, "Alarm B output enabled"]
       Wakeup: [3, "Wakeup output enabled"]
     POL:
-      High: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
-      Low: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
+      High: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL\\[1:0\\])"]
+      Low: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL\\[1:0\\])"]
     COSEL:
       CalFreq_512Hz: [0, "Calibration output is 512 Hz (with default prescaler setting)"]
       CalFreq_1Hz: [1, "Calibration output is 1 Hz (with default prescaler setting)"]
@@ -214,8 +214,8 @@ RTC:
       Mask: [0, "Alarm set if the date/day match"]
       NotMask: [1, "Date/day don’t care in Alarm comparison"]
     WDSEL:
-      DateUnits: [0, "DU[3:0] represents the date units"]
-      WeekDay: [1, "DU[3:0] represents the week day. DT[1:0] is don’t care."]
+      DateUnits: [0, "DU\\[3:0\\] represents the date units"]
+      WeekDay: [1, "DU\\[3:0\\] represents the week day. DT\\[1:0\\] is don’t care."]
     DT: [0, 3]
     DU: [0, 15]
     PM:
@@ -230,8 +230,8 @@ RTC:
 
   "ALRM?SSR":
     SSCLR:
-      FreeRunning: [0, "The synchronous binary counter (SS[31:0] in RTC_SSR) is free-running"]
-      ALRMBINR: [1, "The synchronous binary counter (SS[31:0] in RTC_SSR) is running from 0xFFFF FFFF to RTC_ALRMABINR → SS[31:0] value and is automatically reloaded with 0xFFFF FFFF when reaching RTC_ALRMABINR → SS[31:0]"]
+      FreeRunning: [0, "The synchronous binary counter (SS\\[31:0\\] in RTC_SSR) is free-running"]
+      ALRMBINR: [1, "The synchronous binary counter (SS\\[31:0\\] in RTC_SSR) is running from 0xFFFF FFFF to RTC_ALRMABINR → SS\\[31:0\\] value and is automatically reloaded with `0xFFFF_FFFF` when reaching RTC_ALRMABINR → SS\\[31:0\\]"]
     MASKSS: [0, 0x3F]
     SS: [0, 0x7FFF]
 

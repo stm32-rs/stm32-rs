@@ -5,8 +5,8 @@ _include:
 RNG:
   CR:
     CONFIGLOCK:
-      Enabled: [0, "Writes to the RNG_CR configuration bits [29:4] are allowed"]
-      Disabled: [1, "Writes to the RNG_CR configuration bits [29:4] are ignored until the next RNG reset"]
+      Enabled: [0, "Writes to the RNG_CR configuration bits \\[29:4\\] are allowed"]
+      Disabled: [1, "Writes to the RNG_CR configuration bits \\[29:4\\] are ignored until the next RNG reset"]
     CONDRST:
     RNG_CONFIG1:
       ConfigA: [0x0F, "Recommended value for config A (NIST certifiable)"]
