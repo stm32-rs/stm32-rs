@@ -96,7 +96,7 @@ check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS) scripts/makehtml.py scripts/makehtml.index.template.html scripts/makehtml.template.html
 	@mkdir -p html
-	python3 scripts/makehtml.py html/ svd/stm32*.svd.patched
+	python3 scripts/makehtml.py html/ $(PATCHED_SVDS)
 
 html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
 	scripts/htmlcomparesvdall.sh
