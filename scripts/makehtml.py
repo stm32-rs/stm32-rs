@@ -79,13 +79,13 @@ def parse_device(svdfile):
                 frange = ftag.findtext('bitRange')
                 if frange:
                     parts = frange[1:-1].split(':')
-                    end = int(parts[0])
-                    start = int(parts[1])
+                    end = int(parts[0], 0)
+                    start = int(parts[1], 0)
                     foffset = start
                     fwidth = end - start + 1
                 else:
-                    foffset = int(ftag.findtext('bitOffset'))
-                    fwidth = int(ftag.findtext('bitWidth'))
+                    foffset = int(ftag.findtext('bitOffset'), 0)
+                    fwidth = int(ftag.findtext('bitWidth'), 0)
                 faccs = ftag.findtext('access') or raccs
                 enum = ftag.find('enumeratedValues')
                 wc = ftag.find('writeConstraint')

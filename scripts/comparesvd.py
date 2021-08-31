@@ -9,11 +9,11 @@ def getregs(s):
     regs = {}
     for peripheral in s.iter('peripheral'):
         pname = peripheral.find('name').text
-        base = int(peripheral.find('baseAddress').text, 16)
+        base = int(peripheral.find('baseAddress').text, 0)
         for register in peripheral.iter('register'):
             rname = register.find('name').text
             name = pname + "_" + rname
-            offset = int(register.find('addressOffset').text, 16)
+            offset = int(register.find('addressOffset').text, 0)
             regs[name] = hex(base+offset)
     return regs
 
