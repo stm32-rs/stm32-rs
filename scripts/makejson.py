@@ -50,7 +50,7 @@ def parse_device(svdfile):
                 raccs = raccs.text
             else:
                 raccs = "Unspecified"
-            roffset = int(rtag.find('addressOffset').text, 16)
+            roffset = int(rtag.find('addressOffset').text, 0)
             for ftag in rtag.iter('field'):
                 register_fields_total += 1
                 fname = ftag.find('name').text

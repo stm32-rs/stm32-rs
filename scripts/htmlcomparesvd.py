@@ -24,11 +24,11 @@ def parse(svdfile):
     for ptag in iter_peripherals(tree):
         registers = {}
         pname = ptag.find('name').text
-        pbase = int(ptag.find('baseAddress').text, 16)
+        pbase = int(ptag.find('baseAddress').text, 0)
         for rtag in iter_registers(ptag):
             fields = {}
             rname = rtag.find('name').text
-            roffset = int(rtag.find('addressOffset').text, 16)
+            roffset = int(rtag.find('addressOffset').text, 0)
             for ftag in iter_fields(rtag):
                 fname = ftag.find('name').text
                 foffset = int(ftag.find('bitOffset').text)

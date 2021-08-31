@@ -29,7 +29,7 @@ def parse_periph(svdfile, pname):
     for rtag in ptag.iter('register'):
         fields = {}
         rname = rtag.find('name').text
-        roffset = int(rtag.find('addressOffset').text, 16)
+        roffset = int(rtag.find('addressOffset').text, 0)
         for ftag in rtag.iter('field'):
             fname = ftag.find('name').text
             foffset = int(ftag.find('bitOffset').text)
