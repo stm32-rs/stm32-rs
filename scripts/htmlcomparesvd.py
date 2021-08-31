@@ -31,8 +31,8 @@ def parse(svdfile):
             roffset = int(rtag.find('addressOffset').text, 0)
             for ftag in iter_fields(rtag):
                 fname = ftag.find('name').text
-                foffset = int(ftag.find('bitOffset').text)
-                fwidth = int(ftag.find('bitWidth').text)
+                foffset = int(ftag.find('bitOffset').text, 0)
+                fwidth = int(ftag.find('bitWidth').text, 0)
                 fields[fname] = {"name": fname, "offset": foffset,
                                  "width": fwidth}
             registers[rname] = {"name": rname, "offset": roffset,

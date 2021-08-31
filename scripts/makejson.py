@@ -55,8 +55,8 @@ def parse_device(svdfile):
                 register_fields_total += 1
                 fname = ftag.find('name').text
                 fdesc = ftag.find('description').text
-                foffset = int(ftag.find('bitOffset').text)
-                fwidth = int(ftag.find('bitWidth').text)
+                foffset = int(ftag.find('bitOffset').text, 0)
+                fwidth = int(ftag.find('bitWidth').text, 0)
                 enum = ftag.find('enumeratedValues')
                 if enum is not None:
                     register_fields_documented += 1

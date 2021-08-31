@@ -32,8 +32,8 @@ def parse_periph(svdfile, pname):
         roffset = int(rtag.find('addressOffset').text, 0)
         for ftag in rtag.iter('field'):
             fname = ftag.find('name').text
-            foffset = int(ftag.find('bitOffset').text)
-            fwidth = int(ftag.find('bitWidth').text)
+            foffset = int(ftag.find('bitOffset').text, 0)
+            fwidth = int(ftag.find('bitWidth').text, 0)
             fields[foffset] = {"name": fname, "width": fwidth}
         registers[roffset] = {"name": rname, "fields": fields}
     return registers
