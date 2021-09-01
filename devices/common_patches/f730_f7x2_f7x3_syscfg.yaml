@@ -1,0 +1,22 @@
+SYSCFG:
+  PMC:
+    _delete:
+      - PB*
+      - I2C*
+    _add:
+      MII_RMII_SEL:
+        description: ADC3DC2
+        bitOffset: 23
+        bitWidth: 1
+      ADC3DC2:
+        description: ADC3DC2
+        bitOffset: 18
+        bitWidth: 1
+      ADC2DC2:
+        description: ADC2DC2
+        bitOffset: 17
+        bitWidth: 1
+    _modify:
+      ADCDC2:
+        name: ADC1DC2
+        bitWidth: 1

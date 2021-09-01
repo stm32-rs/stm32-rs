@@ -1,0 +1,35 @@
+SYSCFG:
+  PMC:
+    _add:
+      PB9_FMP:
+        description: PB9_FMP Fast Mode + Enable
+        bitOffset: 7
+        bitWidth: 1
+      PB8_FMP:
+        description: PB8_FMP Fast Mode + Enable
+        bitOffset: 6
+        bitWidth: 1
+      PB7_FMP:
+        description: PB7_FMP Fast Mode + Enable
+        bitOffset: 5
+        bitWidth: 1
+      PB6_FMP:
+        description: PB6_FMP Fast Mode + Enable
+        bitOffset: 4
+        bitWidth: 1
+      I2C4_FMP:
+        description: I2C4 Fast Mode + Enable
+        bitOffset: 3
+        bitWidth: 1
+      I2C3_FMP:
+        description: I2C3 Fast Mode + Enable
+        bitOffset: 2
+        bitWidth: 1
+      I2C2_FMP:
+        description: I2C2 Fast Mode + Enable
+        bitOffset: 1
+        bitWidth: 1
+      I2C1_FMP:
+        description: I2C1 Fast Mode + Enable
+        bitOffset: 0
+        bitWidth: 1
