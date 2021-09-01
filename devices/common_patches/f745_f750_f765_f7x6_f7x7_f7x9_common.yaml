@@ -1,3 +1,23 @@
+RCC:
+  AHB1ENR:
+    _modify:
+      CCMDATARAMEN:
+        name: DTCMRAMEN
+  APB1ENR:
+    _modify:
+      LPTMI1EN:
+        name: LPTIM1EN
+  AHB1LPENR:
+    _add:
+      AXILPEN:
+        description: AXI to AHB bridge clock enable during Sleep mode
+        bitOffset: 13
+        bitWidth: 1
+      DTCMLPEN:
+        description: DTCM RAM interface clock enable during Sleep mode
+        bitOffset: 20
+        bitWidth: 1
+
 _include:
   - f745_f750_f765_f7x6_f7x7_f7x9_tim.yaml
   - f745_f750_f765_f7x6_f7x7_f7x9_syscfg.yaml
