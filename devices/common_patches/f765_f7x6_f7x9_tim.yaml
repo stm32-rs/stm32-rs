@@ -4,7 +4,7 @@ TIM[18]:
       description: alternate function option register 1
       addressOffset: "0x60"
       size: 0x20
-      resetValue: 0x00000000
+      resetValue: 0x00000001
       access: read-write
       fields:
         BKINE:
@@ -23,7 +23,7 @@ TIM[18]:
       description: alternate function option register 2
       addressOffset: "0x64"
       size: 0x20
-      resetValue: 0x00000000
+      resetValue: 0x00000001
       access: read-write
       fields:
         BK2INE:
