@@ -1,0 +1,13 @@
+_svd: ../svd/stm32mp153.svd
+
+_modify:
+  name: STM32MP153
+  cpu:
+    name: CM4
+    revision: r0p1
+    endian: little
+    mpuPresent: "false"
+    fpuPresent: "true"
+    nvicPrioBits: 4
+    vendorSystickConfig: "false"
+

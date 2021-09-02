@@ -19,6 +19,7 @@ cp stm32h753.svd stm32h753v.svd
 
 # Rename MP1 svd files to remove trailing 'x'
 mv stm32mp157x.svd stm32mp157.svd
+mv stm32mp153x.svd stm32mp153.svd
 
 # Rename G4 svd files to remove trailing 'xx'
 mv stm32g4a1xx.svd stm32g4a1.svd
