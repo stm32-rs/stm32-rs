@@ -24,3 +24,10 @@ TIM[1346-9],TIM12:
         bitOffset: 31
         bitWidth: 1
         access: read-only
+TIM[18]:
+  CCER:
+    _add:
+      CC4NP:
+        description: Capture/Compare 4 complementary output polarity
+        bitOffset: 15
+        bitWidth: 1
