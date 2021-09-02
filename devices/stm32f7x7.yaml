@@ -199,18 +199,6 @@ TIM[1-58],TIM12:
         bitOffset: 16
         bitWidth: 1
 
-TIM2:
-  _delete:
-    - OR2
-  _modify:
-    OR1:
-      name: OR
-  OR:
-    _modify:
-      ITR1_RMP:
-        bitOffset: 10
-        bitWidth: 2
-
 Ethernet_MAC:
   MACFFR:
     _modify:

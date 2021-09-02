@@ -22,6 +22,10 @@ TIM2:
     _delete:
       - TI4_RMP
       - ETR1_RMP
+    _modify:
+      ITR1_RMP:
+        bitOffset: 10
+        bitWidth: 2
 
 TIM5:
   OR:
