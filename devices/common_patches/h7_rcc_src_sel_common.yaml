@@ -1,0 +1,59 @@
+# Rename *SRC to *SEL in H7 domain kernel clock configuration registers (DxCCIPR)
+
+# Applies only to RM0433, RM0399 and RM0468 parts
+
+RCC:
+  D1CCIPR:
+    _modify:
+      CKPERSRC:
+          name: CKPERSEL
+      SDMMCSRC:
+          name: SDMMCSEL
+      FMCSRC:
+          name: FMCSEL
+  D2CCIP1R:
+    _modify:
+      FDCANSRC:
+          name: FDCANSEL
+      DFSDM1SRC:
+          name: DFSDM1SEL
+      SPDIFSRC:
+          name: SPDIFSEL
+      SPI45SRC:
+          name: SPI45SEL
+      SPI123SRC:
+          name: SPI123SEL
+      SAI23SRC:
+          name: SAI23SEL
+      SAI1SRC:
+          name: SAI1SEL
+  D2CCIP2R:
+    _modify:
+      LPTIM1SRC:
+          name: LPTIM1SEL
+      CECSRC:
+          name: CECSEL
+      USBSRC:
+          name: USBSEL
+      RNGSRC:
+          name: RNGSEL
+      USART234578SRC:
+          name: USART234578SEL
+  D3CCIPR:
+    _modify:
+      SPI6SRC:
+          name: SPI6SEL
+      SAI4BSRC:
+          name: SAI4BSEL
+      SAI4ASRC:
+          name: SAI4ASEL
+      ADCSRC:
+          name: ADCSEL
+      LPTIM345SRC:
+          name: LPTIM345SEL
+      LPTIM2SRC:
+          name: LPTIM2SEL
+      I2C4SRC:
+          name: I2C4SEL
+      LPUART1SRC:
+          name: LPUART1SEL
