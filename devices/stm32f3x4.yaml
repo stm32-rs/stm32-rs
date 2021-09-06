@@ -77,8 +77,6 @@ RCC:
       - UART5SW
 
 SYSCFG:
-  _strip:
-    - SYSCFG_
   CFGR1:
     _delete:
       - USB_IT_RMP

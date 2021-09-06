@@ -12,9 +12,6 @@ CRYP:
 
 # Fix invalid groupName
 _modify:
-  Flash:
-    name: FLASH
-    groupName: FLASH
   OctoSPII_O_Manager:
     groupName: OctoSPII_O_Manager
   DMAMUX3:
@@ -226,8 +223,6 @@ RCC:
       resetValue: "0x00010000"
     C1_APB4LPENR:
       resetValue: "0x0421DEAA"
-  _delete:
-    - ICSCR
   CSICFGR:
     _modify:
       CSICAL:
@@ -474,10 +469,6 @@ OCTOSPI?:
 
 _delete:
   - HRTIM                       # RM0468 devices do not have an HRTIM
-
-FDCAN?:
-  _strip:
-    - FDCAN_
 
 SAI?:
   _strip:
