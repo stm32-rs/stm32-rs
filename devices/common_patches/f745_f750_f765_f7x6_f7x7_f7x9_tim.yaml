@@ -1,0 +1,33 @@
+TIM5:
+  OR:
+    _modify:
+      TI4_RMP:
+        bitOffset: 6
+
+TIM10:
+  CR1:
+    _add:
+      OPM:
+        description: One-pulse mode
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+
+TIM[16]:
+  CNT:
+    _add:
+      UIFCPY:
+        description: >
+          UIF copy
+          This bit is a read-only copy of the UIF bit of the TIMx_ISR register.
+          If the UIFREMAP bit in the TIMxCR1 is reset, bit 31 is reserved and read at 0
+        bitOffset: 31
+        bitWidth: 1
+        access: read-only
+TIM[18]:
+  CCER:
+    _add:
+      CC4NP:
+        description: Capture/Compare 4 complementary output polarity
+        bitOffset: 15
+        bitWidth: 1

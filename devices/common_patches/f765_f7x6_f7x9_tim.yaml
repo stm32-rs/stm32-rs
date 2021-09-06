@@ -1,0 +1,40 @@
+TIM[18]:
+  _add:
+    AF1:
+      description: alternate function option register 1
+      addressOffset: "0x60"
+      size: 0x20
+      resetValue: 0x00000001
+      access: read-write
+      fields:
+        BKINE:
+          description: BRK BKIN input enable
+          bitOffset: 0
+          bitWidth: 1
+        BKDFBKE:
+          description: BRK DFSDM_BREAK[0] enable
+          bitOffset: 8
+          bitWidth: 1
+        BKINP:
+          description: BRK BKIN input polarity
+          bitOffset: 9
+          bitWidth: 1
+    AF2:
+      description: alternate function option register 2
+      addressOffset: "0x64"
+      size: 0x20
+      resetValue: 0x00000001
+      access: read-write
+      fields:
+        BK2INE:
+          description: BRK2 BKIN input enable
+          bitOffset: 0
+          bitWidth: 1
+        BK2DFBKE:
+          description: BRK2 DFSDM_BREAK[0] enable
+          bitOffset: 8
+          bitWidth: 1
+        BK2INP:
+          description: BRK2 BKIN input polarity
+          bitOffset: 9
+          bitWidth: 1

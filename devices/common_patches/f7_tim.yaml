@@ -1,0 +1,58 @@
+TIM*:
+  CR1:
+    _delete:
+      - UIFREMAP
+    _add:
+      UIFREMAP:
+        description: UIF status bit remapping
+        bitOffset: 11
+        bitWidth: 1
+
+TIM[18]:
+  _modify:
+    CRR6:
+      name: CCR6
+
+TIM1[0134]:
+  _delete:
+    - SMCR
+
+
+TIM[2-579],TIM1[02]:
+  CNT:
+    _add:
+      UIFCPY:
+        description: >
+          UIF copy
+          This bit is a read-only copy of the UIF bit of the TIMx_ISR register.
+          If the UIFREMAP bit in the TIMxCR1 is reset, bit 31 is reserved and read at 0
+        bitOffset: 31
+        bitWidth: 1
+        access: read-only
+
+TIM3:
+  CNT:
+    _delete:
+      - CNT_H
+  ARR:
+    _delete:
+      - ARR_H
+  CCR%s:
+    _delete:
+      - CCR1_H
+
+TIM9:
+  SMCR:
+    _add:
+      SMS_3:
+        description: Slave mode selection - bit 3
+        bitOffset: 16
+        bitWidth: 1
+
+TIM[1-58]:
+  DMAR:
+    _modify:
+      # Self-inconsistency between the register map and the
+      # specific register field documentation in RMs
+      DMAB:
+        bitWidth: 32
