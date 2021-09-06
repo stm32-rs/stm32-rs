@@ -1,6 +1,4 @@
 TIM*:
-  _delete:
-    - CRR6
   CR1:
     _delete:
       - UIFREMAP
@@ -9,6 +7,11 @@ TIM*:
         description: UIF status bit remapping
         bitOffset: 11
         bitWidth: 1
+
+TIM[18]:
+  _modify:
+    CRR6:
+      name: CCR6
 
 TIM1[0134]:
   _delete:
