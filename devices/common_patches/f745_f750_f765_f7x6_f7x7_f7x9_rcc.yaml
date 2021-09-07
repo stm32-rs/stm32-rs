@@ -1,0 +1,19 @@
+RCC:
+  AHB1ENR:
+    _modify:
+      CCMDATARAMEN:
+        name: DTCMRAMEN
+  APB1ENR:
+    _modify:
+      LPTMI1EN:
+        name: LPTIM1EN
+  AHB1LPENR:
+    _add:
+      AXILPEN:
+        description: AXI to AHB bridge clock enable during Sleep mode
+        bitOffset: 13
+        bitWidth: 1
+      DTCMLPEN:
+        description: DTCM RAM interface clock enable during Sleep mode
+        bitOffset: 20
+        bitWidth: 1
