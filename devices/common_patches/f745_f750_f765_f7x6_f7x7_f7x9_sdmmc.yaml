@@ -1,0 +1,18 @@
+SDMMC*:
+  CMD:
+    _delete:
+      - CE_ATACMD
+      - nIEN
+      - ENCMDcompl
+  STA:
+    _delete:
+      - CEATAEND
+      - STBITERR
+  ICR:
+    _delete:
+      - CEATAENDC
+      - STBITERRC
+  MASK:
+    _delete:
+      - CEATAENDIE
+      - STBITERRIE
