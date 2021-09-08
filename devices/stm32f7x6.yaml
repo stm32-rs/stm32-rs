@@ -81,10 +81,6 @@ SYSCFG:
   MEMRMP:
     _delete:
       - FB_MODE
-  PMC:
-    _delete:
-      - PN*
-      - I2C*
 
 _include:
  - common_patches/f7_interrupts.yaml
