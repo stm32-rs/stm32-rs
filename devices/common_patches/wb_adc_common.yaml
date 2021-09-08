@@ -1,0 +1,91 @@
+# Not quite the same as L4 ADC_Common, as there's no slave ADC on WB.
+_add:
+  # This SVD is missing the ADC_Common peripheral that most other parts with
+  # this ADC contain; consequently it's missing the CSR and CCR regs
+  # from RM0434.
+  ADC_Common:
+    description: ADC common registers
+    groupName: ADC
+    baseAddress: 0x50040300
+    addressBlock:
+      offset: 0
+      size: 0xc
+      usage: registers
+    registers:
+      CSR:
+        description: ADC common status register
+        addressOffset: 0x0
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          JQOVF_MST:
+            description: Injected Context Queue Overflow flag of the master ADC
+            bitOffset: 10
+            bitWidth: 1
+          AWD3_MST:
+            description: Analog watchdog 3 flag of the master ADC
+            bitOffset: 9
+            bitWidth: 1
+          AWD2_MST:
+            description: Analog watchdog 2 flag of the master ADC
+            bitOffset: 8
+            bitWidth: 1
+          AWD1_MST:
+            description: Analog watchdog 1 flag of the master ADC
+            bitOffset: 7
+            bitWidth: 1
+          JEOS_MST:
+            description: End of injected sequence flag of the master ADC
+            bitOffset: 6
+            bitWidth: 1
+          JEOC_MST:
+            description: End of injected conversion flag of the master ADC
+            bitOffset: 5
+            bitWidth: 1
+          OVR_MST:
+            description: Overrun flag of the master ADC
+            bitOffset: 4
+            bitWidth: 1
+          EOS_MST:
+            description: End of regular sequence flag of the master ADC
+            bitOffset: 3
+            bitWidth: 1
+          EOC_MST:
+            description: End of regular conversion flag of the master ADC
+            bitOffset: 2
+            bitWidth: 1
+          EOSMP_MST:
+            description: End of Sampling phase flag of the master ADC
+            bitOffset: 1
+            bitWidth: 1
+          ADRDY_MST:
+            description: master ADC ready
+            bitOffset: 0
+            bitWidth: 1
+
+      CCR:
+        description: ADC common control register
+        addressOffset: 0x08
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          CH18SEL:
+            description: CH18 selection (Vbat)
+            bitOffset: 24
+            bitWidth: 1
+          CH17SEL:
+            description: CH17 selection (temperature)
+            bitOffset: 23
+            bitWidth: 1
+          VREFEN:
+            description: Vrefint enable
+            bitOffset: 22
+            bitWidth: 1
+          PRESC:
+            description: ADC prescaler
+            bitOffset: 18
+            bitWidth: 4
+          CKMODE:
+            description: ADC clock mode
+            bitOffset: 16
+            bitWidth: 2
