@@ -1,0 +1,17 @@
+SYSCFG:
+  PMC:
+    _delete:
+      - MII_RMII_SEL
+    _add:
+      ADC3DC2:
+        description: ADC3DC2
+        bitOffset: 18
+        bitWidth: 1
+      ADC2DC2:
+        description: ADC2DC2
+        bitOffset: 17
+        bitWidth: 1
+    _modify:
+      ADCDC2:
+        name: ADC1DC2
+        bitWidth: 1
