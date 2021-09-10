@@ -77,6 +77,18 @@ EXTI:
   C2IMR2:
     _split: [IM]
 
+HSEM:
+  _modify:
+    C1IER0:
+      name: C1IER
+    C2IER0:
+      name: C2IER
+
+IPCC:
+  _modify:
+    C1TO2SR:
+      name: C1TOC2SR
+
 SYSCFG:
   _modify:
     IMR1:
@@ -165,17 +177,6 @@ TIM16:
       - BKINE
       - BKINP
 
-HSEM:
-  _modify:
-    C1IER0:
-      name: C1IER
-    C2IER0:
-      name: C2IER
-
-IPCC:
-  _modify:
-    C1TO2SR:
-      name: C1TOC2SR
 
 TIM17:
   DIER:
