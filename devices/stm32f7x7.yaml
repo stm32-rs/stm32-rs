@@ -171,18 +171,6 @@ FLASH:
         name: OPTKEYR
 
 RCC:
-  AHB1ENR:
-    _add:
-      DTCMRAMEN:
-        description: DTCM data RAM clock enable
-        bitOffset: 20
-        bitWidth: 1
-  APB2ENR:
-    _add:
-      MDIOEN:
-        description: MDIO clock enable
-        bitOffset: 30
-        bitWidth: 1
   PLLCFGR:
     _add:
       PLLR:
@@ -325,6 +313,7 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/f7_tim.yaml
  - common_patches/tim/v2/f7.yaml
+ - common_patches/f765_f7x7_f7x9_common.yaml
  - common_patches/f745_f750_f765_f7x6_f7x7_f7x9_common.yaml
  - common_patches/f765_f7x7_f7x9_syscfg.yaml
  - ../peripherals/tim/v2/ccm.yaml
