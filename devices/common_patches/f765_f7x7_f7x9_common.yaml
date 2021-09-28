@@ -53,7 +53,7 @@ RCC:
         bitWidth: 1
   APB1LPENR:
     _add:
-      CAN3EN:
+      CAN3LPEN:
         description: CAN 3 clock enable during Sleep mode
         bitOffset: 13
         bitWidth: 1
