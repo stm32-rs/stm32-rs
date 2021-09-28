@@ -1,0 +1,77 @@
+RCC:
+  APB1RSTR:
+    _add:
+      CAN3RST:
+        description: CAN 3 reset
+        bitOffset: 13
+        bitWidth: 1
+  APB2RSTR:
+    _add:
+      MDIORST:
+        description: MDIO reset
+        bitOffset: 30
+        bitWidth: 1
+      DFSDM1RST:
+        description: DFSDM 1 reset
+        bitOffset: 29
+        bitWidth: 1
+      DSIRST:
+        description: DSI reset
+        bitOffset: 27
+        bitWidth: 1
+  AHB2ENR:
+    _add:
+      JPEGEN:
+        description: JPEG enable
+        bitOffset: 1
+        bitWidth: 1
+  APB1ENR:
+    _add:
+      CAN3EN:
+        description: CAN 3 enable
+        bitOffset: 13
+        bitWidth: 1
+  APB2ENR:
+    _add:
+      MDIOEN:
+        description: MDIO clock enable
+        bitOffset: 30
+        bitWidth: 1
+      DFSDM1EN:
+        description: DFSDM1 clock enable
+        bitOffset: 29
+        bitWidth: 1
+      DSIEN:
+        description: DSI clock enable
+        bitOffset: 27
+        bitWidth: 1
+  AHB2LPENR:
+    _add:
+      JPEGLPEN:
+        description: JPEG module enabled during Sleep mode
+        bitOffset: 1
+        bitWidth: 1
+  APB1LPENR:
+    _add:
+      CAN3LPEN:
+        description: CAN 3 clock enable during Sleep mode
+        bitOffset: 13
+        bitWidth: 1
+  APB2LPENR:
+    _add:
+      MDIOLPEN:
+        description: MDIO clock enable during Sleep mode
+        bitOffset: 30
+        bitWidth: 1
+      DFSDM1LPEN:
+        description: DFSDM1 clock enable during Sleep mode
+        bitOffset: 29
+        bitWidth: 1
+      DSILPEN:
+        description: DSI clock enable during Sleep mode
+        bitOffset: 27
+        bitWidth: 1
+      SDMMC2LPEN:
+        description: SDMMC2 clock enable during Sleep mode
+        bitOffset: 7
+        bitWidth: 1
