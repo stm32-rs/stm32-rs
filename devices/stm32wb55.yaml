@@ -108,6 +108,16 @@ SYSCFG:
     SIPCR:
       addressOffset: 0x110
 
+TIM2:
+  CNT:
+    _delete:
+      - CNT_H
+    _modify:
+      CNT_L:
+        name: CNT
+        description: Counter value
+        bitWidth: 32
+
 TIM16:
   _add:
     TISEL:
