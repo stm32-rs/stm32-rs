@@ -44,6 +44,12 @@ EXTI:
     C1EMR2:
       name: EMR2
 
+    _interrupts:
+      EXTI10_15:
+        name: EXTI15_10
+      EXTI5_9:
+        name: EXTI9_5
+
   RTSR1:
     _modify:
       RT_31:
