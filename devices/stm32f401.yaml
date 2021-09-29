@@ -51,6 +51,9 @@ TIM3:
         description: TIM5 global interrupt
         value: 50
 
+_delete:
+  - TIM8
+
 DMA2:
   # Add the missing DMA1_STREAM0..7 and DMA2_STREAM0..7 interruptsinterrupts
   _add:
