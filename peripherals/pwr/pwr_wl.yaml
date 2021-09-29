@@ -42,14 +42,14 @@ PWR:
       Enabled: [1, "PVD Enabled"]
   CR3:
     EIWUL:
-      Disabled: [0, "Internal wakeup line interrupt to CPU disabled"]
-      Enabled: [1, "Internal wakeup line interrupt to CPU enabled"]
+      Disabled: [0, "Internal wakeup line interrupt to CPU1 disabled"]
+      Enabled: [1, "Internal wakeup line interrupt to CPU1 enabled"]
     EWRFIRQ:
-      Disabled: [0, "Radio IRQ[2:0] is disabled and does not trigger a wakeup from Standby event to CPU."]
-      Enabled: [1, "Radio IRQ[2:0] is enabled and triggers a wakeup from Standby event to CPU."]
+      Disabled: [0, "Radio IRQ[2:0] is disabled and does not trigger a wakeup from Standby event to CPU1."]
+      Enabled: [1, "Radio IRQ[2:0] is enabled and triggers a wakeup from Standby event to CPU1."]
     EWRFBUSY:
-      Disabled: [0, "Radio Busy is disabled and does not trigger a wakeup from Standby event to CPUwhen a rising or a falling edge occurs"]
-      Enabled: [1, "Radio Busy is enabled and triggers a wakeup from Standby event to CPUwhen a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4"]
+      Disabled: [0, "Radio Busy is disabled and does not trigger a wakeup from Standby event to CPU1 when a rising or a falling edge occurs"]
+      Enabled: [1, "Radio Busy is enabled and triggers a wakeup from Standby event to CPU1 when a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4"]
     APC:
       Disabled: [0, "I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied"]
       Enabled: [1, "PWR_PUCRx and PWR_PDCRx registers are NOT applied to the I/Os"]

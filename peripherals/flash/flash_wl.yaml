@@ -5,7 +5,7 @@ FLASH:
       Empty: [1, "User Flash empty"]
     PES:
       Granted: [0, "Flash program and erase operations granted"]
-      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. The PESD bit in FLASH_SR is set when PES bit in FLASH_ACRis set"]
+      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. The PESD bit in FLASH_SR is set when PES bit in FLASH_ACR is set"]
     DCRST:
       NotReset: [0, "Data cache is not reset"]
       Reset: [1, "Data cache is reset"]
@@ -156,7 +156,7 @@ FLASH:
         Done: [0, "Options modification completed or idle"]
       _write:
         Start: [1, "Trigger options programming operation"]
-    PNB: [0, 0x63]
+    PNB: [0, 0x7F]
     MER:
       NoErase: [0, "No mass erase"]
       MassErase: [1, "Trigger mass erase"]

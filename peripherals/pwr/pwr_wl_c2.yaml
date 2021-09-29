@@ -1,0 +1,39 @@
+PWR:
+  C2CR1:
+    FPDS:
+      Idle: [0, "Flash memory in Idle mode when system is in LPSleep mode"]
+      PowerDown: [1, "Flash memory in Power-down mode when system is in LPSleep mode"]
+    FPDR:
+      Idle: [0, "Flash memory in Idle mode when system is in LPRun mode"]
+      PowerDown: [1, "Flash memory in Power-down mode when system is in LPRun mode"]
+    LPMS:
+      Stop0: [0, "Stop 0 mode"]
+      Stop1: [1, "Stop 1 mode"]
+      Stop2: [2, "Stop 2 mode"]
+      Standby: [3, "Standby mode"]
+      Shutdown: [4, "Shutdown mode"]
+  C2CR3:
+    EIWUL:
+      Disabled: [0, "Internal wakeup line interrupt to CPU2 disabled"]
+      Enabled: [1, "Internal wakeup line interrupt to CPU2 enabled"]
+    EWRFIRQ:
+      Disabled: [0, "Radio IRQ[2:0] is disabled and does not trigger a wakeup from Standby event to CPU2."]
+      Enabled: [1, "Radio IRQ[2:0] is enabled and triggers a wakeup from Standby event to CPU2."]
+    EWRFBUSY:
+      Disabled: [0, "Radio Busy is disabled and does not trigger a wakeup from Standby event to CPU2 when a rising or a falling edge occurs"]
+      Enabled: [1, "Radio Busy is enabled and triggers a wakeup from Standby event to CPU2 when a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4"]
+    APC:
+      Disabled: [0, "I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied"]
+      Enabled: [1, "PWR_PUCRx and PWR_PDCRx registers are NOT applied to the I/Os"]
+    EWPVD:
+      Disabled: [0, "PVD not enabled by the sub-GHz radio active state"]
+      Enabled: [1, "PVD enabled while the sub-GHz radio is active"]
+    EWUP3:
+      Disabled: [0, "WKUP pin 3 is used for general purpose I/Os. An event on the WKUP pin 3 does not wakeup the device from Standby mode"]
+      Enabled: [1, "WKUP pin 3 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 3wakes-up the system from Standby mode)"]
+    EWUP2:
+      Disabled: [0, "WKUP pin 2 is used for general purpose I/Os. An event on the WKUP pin 2 does not wakeup the device from Standby mode"]
+      Enabled: [1, "WKUP pin 2 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 2 wakes-up the system from Standby mode)"]
+    EWUP1:
+      Disabled: [0, "WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode"]
+      Enabled: [1, "WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode)"]

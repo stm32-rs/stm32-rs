@@ -1,0 +1,26 @@
+IPCC:
+  "C[12]CR":
+    TXFIE:
+      Enabled: [1, "Enable an unmasked processor transmit channel free to generate a TX free interrupt"]
+      Disabled: [0, "Processor TX free interrupt disabled"]
+    RXOIE:
+      Enabled: [1, "Enable an unmasked processor receive channel occupied to generate an RX occupied interrupt"]
+      Disabled: [0, "Processor RX occupied interrupt disabled"]
+  "C[12]MR":
+    "CH[1-6]FM":
+      Masked: [1, "Transmit channel n free interrupt masked"]
+      Unmasked: [0, "Transmit channel n free interrupt not masked"]
+    "CH[1-6]OM":
+      Masked: [1, "Receive channel n occupied interrupt masked"]
+      Unmasked: [0, "Receive channel n occupied interrupt not masked"]
+  "C[12]SCR":
+    "CH[1-6]S":
+      Set: [1, "Processor transmit channel n status bit set"]
+      NoAction: [0, "No action"]
+    "CH[1-6]C":
+      Clear: [1, "Processor receive channel n status bit clear"]
+      NoAction: [0, "No action"]
+  "C[12]TOC[12]SR":
+    "CH[1-5]F":
+      Occupied: [1, "Channel occupied, data can be read by the receiving processor. Generates a channel RX occupied interrupt to the other processor, when unmasked"]
+      Free: [0, "Channel free, data can be written by the sending processor. Generates a channel TX free interrupt to the current processor, when unmasked"]

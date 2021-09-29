@@ -1,0 +1,145 @@
+FLASH:
+  IPCCBR:
+    IPCCDBA: [0, 0x3FFF]
+  C2ACR:
+    PES:
+      Granted: [0, "Flash program and erase operations granted"]
+      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. The PESD bit in FLASH_C2SR is set when PES bit in FLASH_C2ACR is set"]
+    ICRST:
+      NotReset: [0, "CPU2 instruction cache is not reset"]
+      Reset: [1, "CPU2 instruction cache is reset"]
+    ICEN:
+      Disabled: [0, "CPU2 instruction cache is disabled"]
+      Enabled: [1, "CPU2 instruction cache is enabled"]
+    PRFTEN:
+      Disabled: [0, "CPU2 prefetch is disabled"]
+      Enabled: [1, "CPU2 prefetch is enabled"]
+  C2SR:
+    _modify:
+      MISERR:
+        name: MISSERR
+    PESD:
+      Granted: [0, "Flash program and erase operations granted"]
+      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. This bit is set when at least one PES bit in FLASH_ACR or FLASH_C2ACR is set."]
+    CFGBSY:
+      Free: [0, "PG, PNB, PER, MER bits available for writing"]
+      Busy: [1, "PG, PNB, PER, MER bits not available for writing (operation ongoing)"]
+    BSY:
+      Inactive: [0, "No write/erase operation is in progress"]
+      Active: [1, "No write/erase operation is in progress"]
+    RDERR:
+      _read:
+        NoError: [0, "No read-only error happened"]
+        Error: [1, "Read-only error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    FASTERR:
+      _read:
+        NoError: [0, "No fast programming error happened"]
+        Error: [1, "Fast programming error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    MISSERR:
+      _read:
+        NoError: [0, "No fast programming data miss error happened"]
+        Error: [1, "Fast programming data miss error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    PGSERR:
+      _read:
+        NoError: [0, "No fast programming sequence error happened"]
+        Error: [1, "Fast programming sequence error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    SIZERR:
+      _read:
+        NoError: [0, "No size error happened"]
+        Error: [1, "Size error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    PGAERR:
+      _read:
+        NoError: [0, "No programming alignment error happened"]
+        Error: [1, "Programming alignment error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    WRPERR:
+      _read:
+        NoError: [0, "No write protection error happened"]
+        Error: [1, "Write protection error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    PROGERR:
+      _read:
+        NoError: [0, "No size programming error happened"]
+        Error: [1, "Programming error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    OPERR:
+      _read:
+        NoError: [0, "No memory opreation error happened"]
+        Error: [1, "Memory operation error happened"]
+      _write:
+        Clear: [1, "Clear the flag"]
+    EOP:
+      _read:
+        NoEvent: [0, "No EOP operation occurred"]
+        Event: [1, "An EOP event occurred"]
+      _write:
+        Clear: [1, "Clear the flag"]
+  C2CR:
+    RDERRIE:
+      Disabled: [0, "PCROP read error interrupt disable"]
+      Enabled: [1, "PCROP read error interrupt enable"]
+    ERRIE:
+      Disabled: [0, "OPERR Error interrupt disable"]
+      Enabled: [1, "OPERR Error interrupt enable"]
+    EOPIE:
+      Disabled: [0, "End of program interrupt disable"]
+      Enabled: [1, "End of program interrupt enable"]
+    FSTPG:
+      Disabled: [0, "Fast programming disabled"]
+      Enabled: [1, "Fast programming enabled"]
+    STRT:
+      _read:
+        Done: [0, "Options modification completed or idle"]
+      _write:
+        Start: [1, "Trigger options programming operation"]
+    PNB: [0, 0x7F]
+    MER:
+      NoErase: [0, "No mass erase"]
+      MassErase: [1, "Trigger mass erase"]
+    PER:
+      Disabled: [0, "Page erase disabled"]
+      Enabled: [1, "Page erase enabled"]
+    PG:
+      Disabled: [0, "Flash programming disabled"]
+      Enabled: [1, "Flash programming enabled"]
+  SFR:
+    SUBGHSPISD:
+      Enabled: [0, "sub-GHz radio SPI security enabled"]
+      Disabled: [1, "sub-GHz radio SPI security disabled"]
+    HDPAD:
+      Enabled: [0, "User Flash memory hide protection area enabled. HDPSA[6:0] contains the start address of the first 2-Kbyte page of the user Flash memory hide protection area"]
+      Disabled: [1, "User Flash memory hide protection area disabled"]
+    HDPSA: [0, 0x7F]
+    DDS:
+      Enabled: [0, "CPU2 debug access enabled"]
+      Disabled: [1, "CPU2 debug access disabled"]
+    FSD:
+      Secure: [0, "System and Flash memory secure"]
+      NonSecure: [1, "System and Flash memory non-secure"]
+    SFSA: [0, 0x7F]
+  SRRVR:
+    C2OPT:
+      SRAM: [0, "SBRV offset addresses SRAM1 or SRAM2, from start address 0x2000_0000 + SBRV"]
+      Flash: [1, "SBRV offset addresses the Flash memory, from start address 0x0800_0000 + SBRV"]
+    NBRSD:
+      Secure: [0, 'SRAM1 is secure. SNBRSA[4:0] contains the start address of the first 1-Kbyte page of the secure non-backup SRAM1 area']
+      NonSecure: [1, 'SRAM1 is non-secure']
+    SNBRSA: [0, 0x1F]
+    BRSD:
+      Secure: [0, 'SRAM2 is secure. SNBRSA[4:0] contains the start address of the first 1-Kbyte page of the secure backup SRAM2 area']
+      NonSecure: [1, 'SRAM2 is non-secure']
+    SBRSA: [0, 0x1F]
+    SBRV: [0, 0xFFFF]
