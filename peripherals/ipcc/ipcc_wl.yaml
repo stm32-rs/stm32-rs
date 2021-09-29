@@ -15,10 +15,10 @@ IPCC:
       Unmasked: [0, "Receive channel n occupied interrupt not masked"]
   "C[12]SCR":
     "CH[1-6]S":
-      Clear: [1, "Processor transmit channel n status bit set"]
+      Set: [1, "Processor transmit channel n status bit set"]
       NoAction: [0, "No action"]
     "CH[1-6]C":
-      Clear: [1, "Processor receive channel n status bit set"]
+      Clear: [1, "Processor receive channel n status bit clear"]
       NoAction: [0, "No action"]
   "C[12]TOC[12]SR":
     "CH[1-5]F":
