@@ -83,6 +83,18 @@ EXTI:
   C2IMR2:
     _split: [IM]
 
+HSEM:
+  _modify:
+    C1IER0:
+      name: C1IER
+    C2IER0:
+      name: C2IER
+
+IPCC:
+  _modify:
+    C1TO2SR:
+      name: C1TOC2SR
+
 SYSCFG:
   _modify:
     IMR1:
@@ -97,6 +109,15 @@ SYSCFG:
       addressOffset: 0x110
 
 TIM16:
+  _add:
+    TISEL:
+      addressOffset: 0x68
+      description: Input Selection
+
+  _modify:
+    AF1:
+      description: TIM16 Alternate function
+
   CR1:
     _add:
       CEN:
@@ -136,54 +157,48 @@ TIM16:
       - BKINE
       - BKINP
 
-  DIER:
-    _add:
-      UIE:
-        description: Update interrupt enable.
-        bitOffset: 0
-        bitWidth: 1
-      CC1IE:
-        description: Capture/Compare 1 interrupt enable.
-        bitOffset: 1
-        bitWidth: 1
-      COMIE:
-        description: COM interrupt enable.
-        bitOffset: 5
-        bitWidth: 1
-      BIE:
-        description: Break interrupt enable.
-        bitOffset: 7
-        bitWidth: 1
-      UDE:
-        description: Update DMA request enable.
-        bitOffset: 8
-        bitWidth: 1
-      CC1DE:
-        description: Capture/Compare 1 DMA request enable.
-        bitOffset: 9
-        bitWidth: 1
-
-    _delete:
-      - BKCMP1E
-      - BKCMP1P
-      - BKCMP2E
-      - BKCMP2P
-      - BKINE
-      - BKINP
-
-HSEM:
-  _modify:
-    C1IER0:
-      name: C1IER
-    C2IER0:
-      name: C2IER
-
-IPCC:
-  _modify:
-    C1TO2SR:
-      name: C1TOC2SR
-
 TIM17:
+  _add:
+    TISEL:
+      addressOffset: 0x68
+      description: Input Selection
+
+  _modify:
+    DIER:
+      addressOffset: 0xc
+    SR:
+      addressOffset: 0x10
+    EGR:
+      addressOffset: 0x14
+    CCMR1_Output:
+      addressOffset: 0x18
+    CCER:
+      addressOffset: 0x20
+    CNT:
+      addressOffset: 0x24
+    PSC:
+      addressOffset: 0x28
+    ARR:
+      addressOffset: 0x2c
+    RCR:
+      addressOffset: 0x30
+    CCR1:
+      addressOffset: 0x34
+    BDTR:
+      addressOffset: 0x44
+    DCR:
+      addressOffset: 0x48
+    DMAR:
+      addressOffset: 0x4c
+    OR1:
+      addressOffset: 0x50
+      description: TIM17 option register 1
+    AF1:
+      addressOffset: 0x60
+      description: TIM17 Alternate function
+
+
+TIM1[67]:
   DIER:
     _add:
       UIE:
@@ -218,6 +233,35 @@ TIM17:
       - BKCMP2P
       - BKINE
       - BKINP
+
+  SR:
+    _delete:
+      - TIF
+
+  EGR:
+    _delete:
+      - TG
+
+  BDTR:
+    _add:
+      BKBID:
+        description: Break bidirectional
+        bitOffset: 28
+        bitWidth: 1
+      BKDSRM:
+        description: Break disarm
+        bitOffset: 26
+        bitWidth: 1
+
+    _delete:
+      - BKF
+
+  TISEL:
+    _add:
+      TI1SEL:
+        description: Selects TI1 input
+        bitOffset: 0
+        bitWidth: 4
 
 TIM1:
   CCMR3_Output:
@@ -232,3 +276,4 @@ _include:
  - ./common_patches/rtc/rtc_cr.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - ./common_patches/wb_adc_common.yaml
+ - ./common_patches/l4_adc_smpr.yaml
