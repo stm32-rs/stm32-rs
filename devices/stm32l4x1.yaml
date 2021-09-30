@@ -2,6 +2,10 @@ _svd: ../svd/stm32l4x1.svd
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
+# SVD incorrectly shifts CRCRST 11 bits instead of 12
+# SVD incorrectly labels APB1SMENR1 bit 17 as USART1SMEN instead of USART2SMEN
+# SVD incorrectly labels APB1SMENR1 bit 18 as USART2SMEN instead of USART3SMEN
+# SVD is missing label APB1SMENR1 bit 19 as UART4SMEN
 RCC:
   APB1ENR1:
     _modify:
@@ -16,6 +20,27 @@ RCC:
       USART1RST:
         name: USART3RST
         description: USART3 reset
+  AHB1RSTR:
+    _modify:
+      CRCRST:
+        bitOffset: 12
+  APB1SMENR1:
+    _delete:
+      - USART1SMEN
+    _modify:
+      USART2SMEN:
+        bitOffset: 17
+    _add:
+      USART3SMEN:
+        description: USART3 clocks enable during Sleep and Stop modes
+        bitOffset: 18
+        bitWidth: 1
+        access: read-write
+      UART4SMEN:
+        description: UART4 clocks enable during Sleep and Stop modes
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
 
 _modify:
   # The SVD calls ADC1 ADC.
