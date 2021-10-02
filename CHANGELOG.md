@@ -2,10 +2,106 @@
 
 ## [Unreleased]
 
+## [v0.14.0] 2021-10-02
+
+Family-specific:
+
+* F0:
+    * Fix duplicated aliased registers WAIT/AUTDLY and DMAEN/DMA1EN (#538)
+* F3:
+    * Mark HRTIM ISR FLT fields read-write (#592)
+    * Fix reset value for FLASH OBR (#600)
+* F4:
+    * Add FLASH and PLLR description for F446 (#533)
+    * Add FLTR register to all I2C peripherals (#534)
+    * Rename DSIHOST to DSI for F469 (#585)
+    * Fix UART RCC enable/reset bits (#589)
+    * Remove non-existant TIM8 from F401 (#633)
+* F7:
+    * Strip DSI prefix from DSI registers (#585)
+    * Fix reset value for RCC DCKCFGR (#600)
+    * Fix all timer registers (#606)
+    * Fix all SYSCFG registers (#612)
+    * Fix all RCC registers (#613)
+    * Fix all SDMMC registers (#620)
+    * Fix CRC INIT and POL register offsets (#632)
+* L0:
+    * Add L0x0 family (#505)
+    * Fix TIM CNT, ARR, CCR register sizes (#581)
+    * Fix RCC_CSR RMVF bit offset in L0x2 and L0x3 (#566)
+* L4:
+    * Fix ADC SQR1.L name and description (#519)
+    * Add missing APB1RSTR1.USBFSRST field for L4x3 (#526)
+    * Fix AHB1 CRC bits for L4x3 (#517)
+    * Add STM32L4R9 (#532)
+    * Add SPI register descriptions (#535)
+    * Strip DSI prefix from DSI registers (#585)
+    * Fix RTC registers in L41x and L42x (#580)
+    * Add USB_BCDR register, fix USB base address, and add USB interrupt (#580)
+    * Add CRSEN to APB1ENR1 (#580)
+    * Fix bit offset for CRC and USART bits in RCC (#571)
+    * Fix LCD RAM_COM register size and arrayify (#552)
+* L5:
+    * Fix TIM15 CCR2 address offset (#518)
+* H7:
+    * Add WWDG field descriptions (#502)
+    * Add DAC2AMEN to H7B3 (#500)
+    * Add LTDC field descriptions (#512)
+    * Fix FDCAN_TEST register to be writable (#574)
+    * Update to latest ST SVDs and add H72x/H73x devices (#554)
+    * Fix invalid patches to RCC registers (#615)
+    * Fix and cluster DFSDM registers (#637)
+    * Add SAI CR1 NOMCK alias bit to H743/753 and remove MCKEN (#640)
+* G0:
+    * Update to new ST SVD release (#514)
+* G4:
+    * Add I2C register definitions (#510)
+    * Add USB BCDR register (#506)
+    * Add GPIO register definitions (#531)
+    * Add more descriptions for RCC (#528)
+* WB:
+    * Enable in nightly releases (#509)
+    * Fix ADC SQR1.L name and description (#519)
+    * Add missing EXTI fields (#580)
+    * Fix TIM16 CR1 (#580)
+    * Rename ADC to ADC1, add new ADC_Common peripheral (#623)
+    * Fix SYSCFG register offsets (#624)
+    * Fixes for ADC, TIM16, and TIM17 (#625)
+    * Rename EXTI10_15 and EXTI5_9 interrupts to EXTI15_10 and EXTI9_5 (#634)
+    * Fix TIM2.CNT bit width (#635)
+* WL:
+    * Update to new ST SVD release (#507)
+    * Extensive patches and descriptions for WLE5, covering many peripherals (#559)
+    * Unify EXTI.IMRx for WLE5 to match dual-core parts (#590)
+    * Fix EXTI14 enumerated values (#599)
+    * Add register descriptions for dual-core variants (#628)
+* MP:
+    * Strip DSI prefix from DSI registers (#585)
+    * Add initial support for STM32MP153 device (#614)
+
 Common:
 
+* Many devices using USART "v2" had write constraints fixed to allow 9-bit
+  words, affecting F0, F3, F7, H7, L0, L4, and WL families. (#558)
 * The `rt` feature is now enabled by default; use `default-features=false` to
-  disable.
+  disable (#582).
+* Updated to svd2rust 0.19, with changes to the generated crate API.
+  This update required a number of fixes to bugs in the SVD files,
+  especially including fixes to timers across all families (#540, #546, #596).
+* Fix a bug causing aliased registers to be suppressed in the HTML output
+  (#591)
+* Added a register map to HTML output (#598).
+* Allow generating HTML output for selected families only (#607).
+* Cortex-m-rt version 0.7 is now supported (#595, #603).
+
+Contributors to this release:
+
+[@diondokter] [@mattico] [@noslaver] [@jglauche] [@ofauchon] [@richardeoin]
+[@Geens] [@wallacejohn] [@kevswims] [@qwandor] [@cyrusmetcalf] [@ByteNaked]
+[@cyberillithid] [@kenbell] [@tachiniererin] [@yusefkarim] [@lynaghk]
+[@sirhcel] [@timblakely] [@lulf] [@ijager] [@jorgeig-space] [@burrbull]
+[@timokroeger] [@newAM] [@maximeborges] [@David-OConnor] [@rmsc] [@jhbruhn]
+[@karlp] [@AndreasKarg]
 
 ## [v0.13.1] 2021-06-02
 
@@ -528,7 +624,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.14.0...HEAD
+[v0.14.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...v0.14.0
 [v0.13.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...v0.13.1
 [v0.13.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.1...v0.13.0
 [v0.12.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.0...v0.12.1
@@ -553,6 +650,7 @@ work in this release!
 [@albru123]: https://github.com/albru123
 [@almusil]: https://github.com/almusil
 [@AlyoshaVasilieva]: https://github.com/AlyoshaVasilieva
+[@AndreasKarg]: https://github.com/AndreasKarg
 [@arkorobotics]: https://github.com/arkorobotics
 [@astro]: https://github.com/astro
 [@aurabindo]: https://github.com/aurabindo
@@ -560,8 +658,11 @@ work in this release!
 [@birkenfeld]: https://github.com/birkenfeld
 [@BryanKadzban]: https://github.com/BryanKadzban
 [@burrbull]: https://github.com/burrbull
+[@ByteNaked]: https://github.com/ByteNaked
 [@chengsun]: https://github.com/chengsun
 [@cyberillithid]: https://github.com/cyberillithid
+[@cyrusmetcalf]: https://github.com/cyrusmetcalf
+[@David-OConnor]: https://github.com/David-OConnor
 [@diondokter]: https://github.com/diondokter
 [@dirk-dms]: https://github.com/dirk-dms
 [@disasm]: https://github.com/disasm
@@ -569,6 +670,7 @@ work in this release!
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
 [@eupn]: https://github.com/eupn
+[@Geens]: https://github.com/Geens
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
@@ -576,14 +678,20 @@ work in this release!
 [@ijager]: https://github.com/ijager
 [@JarLob]: https://github.com/JarLob
 [@jessebraham]: https://github.com/jessebraham
+[@jglauche]: https://github.com/jglauche
+[@jhbruhn]: https://github.com/jhbruhn
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
 [@jordens]: https://github.com/jordens
+[@jorgeig-space]: https://github.com/jorgeig-space
+[@karlp]: https://github.com/karlp
 [@kenbell]: https://github.com/kenbell
+[@kevswims]: https://github.com/kevswims
 [@kitzin]: https://github.com/kitzin
 [@korken89]: https://github.com/korken89
 [@lichtfeind]: https://github.com/lichtfeind
 [@lochsh]: https://github.com/lochsh
+[@lulf]: https://github.com/lulf
 [@lynaghk]: https://github.com/lynaghk
 [@mabezdev]: https://github.com/mabezdev
 [@MarcoIeni]: https://github.com/MarcoIeni
@@ -592,24 +700,32 @@ work in this release!
 [@MattCatz]: https://github.com/MattCatz
 [@mattico]: https://github.com/mattico
 [@maximeborges]: https://github.com/maximeborges
+[@newAM]: https://github.com/newAM
 [@nickray]: https://github.com/nickray
+[@noslaver]: https://github.com/noslaver
 [@octronics]: https://github.com/octronics
+[@ofauchon]: https://github.com/ofauchon
 [@osannolik]: https://github.com/osannolik
 [@Pagten]: https://github.com/Pagten
 [@pawelchcki]: https://github.com/pawelchcki
 [@Piroro-hs]: https://github.com/Piroro-hs
-[@Rahix]: https://github.com/Rahix
+[@qwandor]: https://github.com/qwandor
 [@ra-kete]: https://github.com/ra-kete
+[@Rahix]: https://github.com/Rahix
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
+[@rmsc]: https://github.com/rmsc
 [@ryan-summers]: https://github.com/ryan-summers
 [@samcrow]: https://github.com/samcrow
 [@Sh3Rm4n]: https://github.com/Sh3Rm4n
+[@sirhcel]: https://github.com/sirhcel
 [@solderjs]: https://github.com/solderjs
 [@tachiniererin]: https://github.com/tachiniererin
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
+[@timblakely]: https://github.com/timblakely
+[@timokroeger]: https://github.com/timokroeger
 [@torkeldanielsson]: https://github.com/torkeldanielsson
 [@TwoHandz]: https://github.com/TwoHandz
 [@wallacejohn]: https://github.com/wallacejohn
