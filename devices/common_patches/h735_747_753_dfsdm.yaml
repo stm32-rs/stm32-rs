@@ -1,0 +1,115 @@
+DFSDM*:
+  _modify:
+    DFSDM_FLT1CHGR:
+      name: DFSDM_FLT1JCHGR
+
+  # Remove non-existant DLYR fields.
+  _delete:
+    - "CH*DLYR"
+
+  # Add fake DFSDMEN and CKOUTSRC fields to channel registers beyond 0
+  # to permit them to be clustered.
+  CH1CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH2CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH3CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH4CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH5CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH6CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+  CH7CFGR1:
+    _add:
+      DFSDMEN:
+        bitWidth: 1
+        bitOffset: 31
+      CKOUTSRC:
+        bitWidth: 1
+        bitOffset: 30
+      CKOUTDIV:
+        bitWidth: 8
+        bitOffset: 16
+
+  _strip:
+    - "DFSDM_"
+
+  _cluster:
+    "CH%s":
+      "CH?CFGR1": { name: CFGR1 }
+      "CH?CFGR2": { name: CFGR2 }
+      "CH?AWSCDR": { name: AWSCDR }
+      "CH?WDATR": { name: WDATR }
+      "CH?DATINR": { name: DATINR }
+    "FLT%s":
+      "FLT?CR1": { name: CR1 }
+      "FLT?CR2": { name: CR2 }
+      "FLT?ISR": { name: ISR }
+      "FLT?ICR": { name: ICR }
+      "FLT?JCHGR": { name: JCHGR }
+      "FLT?FCR": { name: FCR }
+      "FLT?JDATAR": { name: JDATAR }
+      "FLT?RDATAR": { name: RDATAR }
+      "FLT?AWHTR": { name: AWHTR }
+      "FLT?AWLTR": { name: AWLTR }
+      "FLT?AWSR": { name: AWSR }
+      "FLT?AWCFR": { name: AWCFR }
+      "FLT?EXMAX": { name: EXMAX }
+      "FLT?EXMIN": { name: EXMIN }
+      "FLT?CNVTIMR": { name CNVTIMR }

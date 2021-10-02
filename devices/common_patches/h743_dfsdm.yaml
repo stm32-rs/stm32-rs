@@ -1,16 +1,9 @@
-# Fix address names (All H7), and offsets (H743 and H743V only)
-# We leave this as one file for syntax simplicity and DRY reduction.
-# Register offsets are the same across all H7 DFSDM.
-
-# todo: Perhaps later, break out the names, and apply to other (non-H7)
-# variants that need the renaming?
-
-DFSDM:
+DFSDM*:
   _modify:
-    DFSDM_CHCFG0R1: 
+    DFSDM_CHCFG0R1:
       addressOffset: 0x00
       name: "CH0CFGR1"
-    DFSDM_CHCFG0R2: 
+    DFSDM_CHCFG0R2:
       addressOffset: 0x04
       name: "CH0CFGR2"
     DFSDM_AWSCD0R:
@@ -23,10 +16,10 @@ DFSDM:
       addressOffset: 0x10
       name: "CH0DATINR"
 
-    DFSDM_CHCFG1R1: 
+    DFSDM_CHCFG1R1:
       addressOffset: 0x20
       name: "CH1CFGR1"
-    DFSDM_CHCFG1R2: 
+    DFSDM_CHCFG1R2:
       addressOffset: 0x24
       name: "CH1CFGR2"
     DFSDM_AWSCD1R:
@@ -39,10 +32,10 @@ DFSDM:
       addressOffset: 0x30
       name: "CH1DATINR"
 
-    DFSDM_CHCFG2R1: 
+    DFSDM_CHCFG2R1:
       addressOffset: 0x40
       name: "CH2CFGR1"
-    DFSDM_CHCFG2R2: 
+    DFSDM_CHCFG2R2:
       addressOffset: 0x44
       name: "CH2CFGR2"
     DFSDM_AWSCD2R:
@@ -55,10 +48,10 @@ DFSDM:
       addressOffset: 0x50
       name: "CH2DATINR"
 
-    DFSDM_CHCFG3R1: 
+    DFSDM_CHCFG3R1:
       addressOffset: 0x60
       name: "CH3CFGR1"
-    DFSDM_CHCFG3R2: 
+    DFSDM_CHCFG3R2:
       addressOffset: 0x64
       name: "CH3CFGR2"
     DFSDM_AWSCD3R:
@@ -71,10 +64,10 @@ DFSDM:
       addressOffset: 0x70
       name: "CH3DATINR"
 
-    DFSDM_CHCFG4R1: 
+    DFSDM_CHCFG4R1:
       addressOffset: 0x80
       name: "CH4CFGR1"
-    DFSDM_CHCFG4R2: 
+    DFSDM_CHCFG4R2:
       addressOffset: 0x84
       name: "CH4CFGR2"
     DFSDM_AWSCD4R:
@@ -87,10 +80,10 @@ DFSDM:
       addressOffset: 0x90
       name: "CH4DATINR"
 
-    DFSDM_CHCFG5R1: 
+    DFSDM_CHCFG5R1:
       addressOffset: 0xA0
       name: "CH5CFGR1"
-    DFSDM_CHCFG5R2: 
+    DFSDM_CHCFG5R2:
       addressOffset: 0xA4
       name: "CH5CFGR2"
     DFSDM_AWSCD5R:
@@ -103,10 +96,10 @@ DFSDM:
       addressOffset: 0xB0
       name: "CH5DATINR"
 
-    DFSDM_CHCFG6R1: 
+    DFSDM_CHCFG6R1:
       addressOffset: 0xC0
       name: "CH6CFGR1"
-    DFSDM_CHCFG6R2: 
+    DFSDM_CHCFG6R2:
       addressOffset: 0xC4
       name: "CH6CFGR2"
     DFSDM_AWSCD6R:
@@ -119,10 +112,10 @@ DFSDM:
       addressOffset: 0xD0
       name: "CH6DATINR"
 
-    DFSDM_CHCFG7R1: 
+    DFSDM_CHCFG7R1:
       addressOffset: 0xE0
       name: "CH7CFGR1"
-    DFSDM_CHCFG7R2: 
+    DFSDM_CHCFG7R2:
       addressOffset: 0xE4
       name: "CH7CFGR2"
     DFSDM_AWSCD7R:
@@ -134,7 +127,6 @@ DFSDM:
     DFSDM_CHDATIN7R:
       addressOffset: 0xF0
       name: "CH7DATINR"
-
 
     DFSDM0_CR1:
       addressOffset: 0x100
@@ -174,7 +166,7 @@ DFSDM:
       name: "FLT0AWCFR"
     DFSDM0_EXMAX:
       addressOffset: 0x130
-      name: "FLT0EXMXX"
+      name: "FLT0EXMAX"
     DFSDM0_EXMIN:
       addressOffset: 0x134
       name: "FLT0EXMIN"
@@ -220,7 +212,7 @@ DFSDM:
       name: "FLT1AWCFR"
     DFSDM1_EXMAX:
       addressOffset: 0x1B0
-      name: "FLT1EXMXX"
+      name: "FLT1EXMAX"
     DFSDM1_EXMIN:
       addressOffset: 0x1B4
       name: "FLT1EXMIN"
@@ -266,7 +258,7 @@ DFSDM:
       name: "FLT2AWCFR"
     DFSDM2_EXMAX:
       addressOffset: 0x230
-      name: "FLT2EXMXX"
+      name: "FLT2EXMAX"
     DFSDM2_EXMIN:
       addressOffset: 0x234
       name: "FLT2EXMIN"
@@ -312,10 +304,34 @@ DFSDM:
       name: "FLT3AWCFR"
     DFSDM3_EXMAX:
       addressOffset: 0x2B0
-      name: "FLT3EXMXX"
+      name: "FLT3EXMAX"
     DFSDM3_EXMIN:
       addressOffset: 0x2B4
       name: "FLT3EXMIN"
     DFSDM3_CNVTIMR:
       addressOffset: 0x2B8
       name: "FLT3CNVTIMR"
+
+  _cluster:
+    "CH%s":
+      "CH?CFGR1": { name: CFGR1 }
+      "CH?CFGR2": { name: CFGR2 }
+      "CH?AWSCDR": { name: AWSCDR }
+      "CH?WDATR": { name: WDATR }
+      "CH?DATINR": { name: DATINR }
+    "FLT%s":
+      "FLT?CR1": { name: CR1 }
+      "FLT?CR2": { name: CR2 }
+      "FLT?ISR": { name: ISR }
+      "FLT?ICR": { name: ICR }
+      "FLT?JCHGR": { name: JCHGR }
+      "FLT?FCR": { name: FCR }
+      "FLT?JDATAR": { name: JDATAR }
+      "FLT?RDATAR": { name: RDATAR }
+      "FLT?AWHTR": { name: AWHTR }
+      "FLT?AWLTR": { name: AWLTR }
+      "FLT?AWSR": { name: AWSR }
+      "FLT?AWCFR": { name: AWCFR }
+      "FLT?EXMAX": { name: EXMAX }
+      "FLT?EXMIN": { name: EXMIN }
+      "FLT?CNVTIMR": { name CNVTIMR }
