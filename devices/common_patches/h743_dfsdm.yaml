@@ -8,88 +8,88 @@ DFSDM:
       addressOffset: 0x00
     DFSDM_CHCFG0R2: 
       addressOffset: 0x04
-    DFSDM_AWSCDR0R:
+    DFSDM_AWSCD0R:
       addressOffset: 0x08
-    DFSDM0_DAT0R:
+    DFSDM_CHWDAT0R:
       addressOffset: 0x0C
-    DFSDM0_DATIN0R:
+    DFSDM_CHDATIN0R:
       addressOffset: 0x10
 
     DFSDM_CHCFG1R1: 
       addressOffset: 0x20
     DFSDM_CHCFG1R2: 
       addressOffset: 0x24
-    DFSDM_AWSCDR1R:
+    DFSDM_AWSCD1R:
       addressOffset: 0x28
-    DFSDM0_DAT1R:
+    DFSDM_CHWDAT1R:
       addressOffset: 0x2C
-    DFSDM0_DATIN1R:
+    DFSDM_CHDATIN1R:
       addressOffset: 0x30
 
     DFSDM_CHCFG2R1: 
       addressOffset: 0x40
     DFSDM_CHCFG2R2: 
       addressOffset: 0x44
-    DFSDM_AWSCDR2R:
+    DFSDM_AWSCD2R:
       addressOffset: 0x48
-    DFSDM0_DAT2R:
+    DFSDM_CHWDAT2R:
       addressOffset: 0x4C
-    DFSDM0_DATIN2R:
+    DFSDM_CHDATIN2R:
       addressOffset: 0x50
 
     DFSDM_CHCFG3R1: 
       addressOffset: 0x60
     DFSDM_CHCFG3R2: 
       addressOffset: 0x64
-    DFSDM_AWSCDR3R:
+    DFSDM_AWSCD3R:
       addressOffset: 0x68
-    DFSDM0_DAT3R:
+    DFSDM_CHWDAT3R:
       addressOffset: 0x6C
-    DFSDM0_DATIN3R:
+    DFSDM_CHDATIN3R:
       addressOffset: 0x70
 
     DFSDM_CHCFG4R1: 
       addressOffset: 0x80
     DFSDM_CHCFG4R2: 
       addressOffset: 0x84
-    DFSDM_AWSCDR4R:
+    DFSDM_AWSCD4R:
       addressOffset: 0x88
-    DFSDM0_DAT4R:
+    DFSDM_CHWDAT4R:
       addressOffset: 0x8C
-    DFSDM0_DATIN4R:
+    DFSDM_CHDATIN4R:
       addressOffset: 0x90
 
     DFSDM_CHCFG5R1: 
       addressOffset: 0xA0
     DFSDM_CHCFG5R2: 
       addressOffset: 0xA4
-    DFSDM_AWSCDR5R:
+    DFSDM_AWSCD5R:
       addressOffset: 0xA8
-    DFSDM0_DAT5R:
+    DFSDM_CHWDAT5R:
       addressOffset: 0xAC
-    DFSDM0_DATIN5R:
+    DFSDM_CHDATIN5R:
       addressOffset: 0xB0
 
     DFSDM_CHCFG6R1: 
       addressOffset: 0xC0
     DFSDM_CHCFG6R2: 
       addressOffset: 0xC4
-    DFSDM_AWSCDR6R:
+    DFSDM_AWSCD6R:
       addressOffset: 0xC8
-    DFSDM0_DAT6R:
+    DFSDM_CHWDAT6R:
       addressOffset: 0xCC
-    DFSDM0_DATIN6R:
+    DFSDM_CHDATIN6R:
       addressOffset: 0xE0
 
     DFSDM_CHCFG7R1: 
       addressOffset: 0xE0
     DFSDM_CHCFG7R2: 
       addressOffset: 0xE4
-    DFSDM_AWSCDR7R:
+    DFSDM_AWSCD7R:
       addressOffset: 0xE8
-    DFSDM0_DAT7R:
+    DFSDM_CHWDAT7R:
       addressOffset: 0xEC
-    DFSDM0_DATIN7R:
+    DFSDM_CHDATIN7R:
       addressOffset: 0xF0
 
 
@@ -113,7 +113,7 @@ DFSDM:
       addressOffset: 0x120
     DFSDM0_AWLTR:
       addressOffset: 0x124
-    DFSDM0_AWLSR:
+    DFSDM0_AWSR:
       addressOffset: 0x128
     DFSDM0_AWCFR:
       addressOffset: 0x12C
@@ -144,7 +144,7 @@ DFSDM:
       addressOffset: 0x1A0
     DFSDM1_AWLTR:
       addressOffset: 0x1A4
-    DFSDM1_AWLSR:
+    DFSDM1_AWSR:
       addressOffset: 0x1A8
     DFSDM1_AWCFR:
       addressOffset: 0x1AC
@@ -175,7 +175,7 @@ DFSDM:
       addressOffset: 0x220
     DFSDM2_AWLTR:
       addressOffset: 0x224
-    DFSDM2_AWLSR:
+    DFSDM2_AWSR:
       addressOffset: 0x228
     DFSDM2_AWCFR:
       addressOffset: 0x22C
@@ -206,7 +206,7 @@ DFSDM:
       addressOffset: 0x2A0
     DFSDM3_AWLTR:
       addressOffset: 0x2A4
-    DFSDM3_AWLSR:
+    DFSDM3_AWSR:
       addressOffset: 0x2A8
     DFSDM3_AWCFR:
       addressOffset: 0x2AC
