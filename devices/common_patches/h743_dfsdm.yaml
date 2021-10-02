@@ -1,0 +1,337 @@
+DFSDM*:
+  _modify:
+    DFSDM_CHCFG0R1:
+      addressOffset: 0x00
+      name: "CH0CFGR1"
+    DFSDM_CHCFG0R2:
+      addressOffset: 0x04
+      name: "CH0CFGR2"
+    DFSDM_AWSCD0R:
+      addressOffset: 0x08
+      name: "CH0AWSCDR"
+    DFSDM_CHWDAT0R:
+      addressOffset: 0x0C
+      name: "CH0WDATR"
+    DFSDM_CHDATIN0R:
+      addressOffset: 0x10
+      name: "CH0DATINR"
+
+    DFSDM_CHCFG1R1:
+      addressOffset: 0x20
+      name: "CH1CFGR1"
+    DFSDM_CHCFG1R2:
+      addressOffset: 0x24
+      name: "CH1CFGR2"
+    DFSDM_AWSCD1R:
+      addressOffset: 0x28
+      name: "CH1AWSCDR"
+    DFSDM_CHWDAT1R:
+      addressOffset: 0x2C
+      name: "CH1WDATR"
+    DFSDM_CHDATIN1R:
+      addressOffset: 0x30
+      name: "CH1DATINR"
+
+    DFSDM_CHCFG2R1:
+      addressOffset: 0x40
+      name: "CH2CFGR1"
+    DFSDM_CHCFG2R2:
+      addressOffset: 0x44
+      name: "CH2CFGR2"
+    DFSDM_AWSCD2R:
+      addressOffset: 0x48
+      name: "CH2AWSCDR"
+    DFSDM_CHWDAT2R:
+      addressOffset: 0x4C
+      name: "CH2WDATR"
+    DFSDM_CHDATIN2R:
+      addressOffset: 0x50
+      name: "CH2DATINR"
+
+    DFSDM_CHCFG3R1:
+      addressOffset: 0x60
+      name: "CH3CFGR1"
+    DFSDM_CHCFG3R2:
+      addressOffset: 0x64
+      name: "CH3CFGR2"
+    DFSDM_AWSCD3R:
+      addressOffset: 0x68
+      name: "CH3AWSCDR"
+    DFSDM_CHWDAT3R:
+      addressOffset: 0x6C
+      name: "CH3WDATR"
+    DFSDM_CHDATIN3R:
+      addressOffset: 0x70
+      name: "CH3DATINR"
+
+    DFSDM_CHCFG4R1:
+      addressOffset: 0x80
+      name: "CH4CFGR1"
+    DFSDM_CHCFG4R2:
+      addressOffset: 0x84
+      name: "CH4CFGR2"
+    DFSDM_AWSCD4R:
+      addressOffset: 0x88
+      name: "CH4AWSCDR"
+    DFSDM_CHWDAT4R:
+      addressOffset: 0x8C
+      name: "CH4WDATR"
+    DFSDM_CHDATIN4R:
+      addressOffset: 0x90
+      name: "CH4DATINR"
+
+    DFSDM_CHCFG5R1:
+      addressOffset: 0xA0
+      name: "CH5CFGR1"
+    DFSDM_CHCFG5R2:
+      addressOffset: 0xA4
+      name: "CH5CFGR2"
+    DFSDM_AWSCD5R:
+      addressOffset: 0xA8
+      name: "CH5AWSCDR"
+    DFSDM_CHWDAT5R:
+      addressOffset: 0xAC
+      name: "CH5WDATR"
+    DFSDM_CHDATIN5R:
+      addressOffset: 0xB0
+      name: "CH5DATINR"
+
+    DFSDM_CHCFG6R1:
+      addressOffset: 0xC0
+      name: "CH6CFGR1"
+    DFSDM_CHCFG6R2:
+      addressOffset: 0xC4
+      name: "CH6CFGR2"
+    DFSDM_AWSCD6R:
+      addressOffset: 0xC8
+      name: "CH6AWSCDR"
+    DFSDM_CHWDAT6R:
+      addressOffset: 0xCC
+      name: "CH6WDATR"
+    DFSDM_CHDATIN6R:
+      addressOffset: 0xD0
+      name: "CH6DATINR"
+
+    DFSDM_CHCFG7R1:
+      addressOffset: 0xE0
+      name: "CH7CFGR1"
+    DFSDM_CHCFG7R2:
+      addressOffset: 0xE4
+      name: "CH7CFGR2"
+    DFSDM_AWSCD7R:
+      addressOffset: 0xE8
+      name: "CH7AWSCDR"
+    DFSDM_CHWDAT7R:
+      addressOffset: 0xEC
+      name: "CH7WDATR"
+    DFSDM_CHDATIN7R:
+      addressOffset: 0xF0
+      name: "CH7DATINR"
+
+    DFSDM0_CR1:
+      addressOffset: 0x100
+      name: "FLT0CR1"
+    DFSDM0_CR2:
+      addressOffset: 0x104
+      name: "FLT0CR2"
+    DFSDM0_ISR:
+      addressOffset: 0x108
+      name: "FLT0ISR"
+    DFSDM0_ICR:
+      addressOffset: 0x10C
+      name: "FLT0ICR"
+    DFSDM0_JCHGR:
+      addressOffset: 0x110
+      name: "FLT0JCHGR"
+    DFSDM0_FCR:
+      addressOffset: 0x114
+      name: "FLT0FCR"
+    DFSDM0_JDATAR:
+      addressOffset: 0x118
+      name: "FLT0JDATAR"
+    DFSDM0_RDATAR:
+      addressOffset: 0x11C
+      name: "FLT0RDATAR"
+    DFSDM0_AWHTR:
+      addressOffset: 0x120
+      name: "FLT0AWHTR"
+    DFSDM0_AWLTR:
+      addressOffset: 0x124
+      name: "FLT0AWLTR"
+    DFSDM0_AWSR:
+      addressOffset: 0x128
+      name: "FLT0AWSR"
+    DFSDM0_AWCFR:
+      addressOffset: 0x12C
+      name: "FLT0AWCFR"
+    DFSDM0_EXMAX:
+      addressOffset: 0x130
+      name: "FLT0EXMAX"
+    DFSDM0_EXMIN:
+      addressOffset: 0x134
+      name: "FLT0EXMIN"
+    DFSDM0_CNVTIMR:
+      addressOffset: 0x138
+      name: "FLT0CNVTIMR"
+
+    DFSDM1_CR1:
+      addressOffset: 0x180
+      name: "FLT1CR1"
+    DFSDM1_CR2:
+      addressOffset: 0x184
+      name: "FLT1CR2"
+    DFSDM1_ISR:
+      addressOffset: 0x188
+      name: "FLT1ISR"
+    DFSDM1_ICR:
+      addressOffset: 0x18C
+      name: "FLT1ICR"
+    DFSDM1_JCHGR:
+      addressOffset: 0x190
+      name: "FLT1JCHGR"
+    DFSDM1_FCR:
+      addressOffset: 0x194
+      name: "FLT1FCR"
+    DFSDM1_JDATAR:
+      addressOffset: 0x198
+      name: "FLT1JDATAR"
+    DFSDM1_RDATAR:
+      addressOffset: 0x19C
+      name: "FLT1RDATAR"
+    DFSDM1_AWHTR:
+      addressOffset: 0x1A0
+      name: "FLT1AWHTR"
+    DFSDM1_AWLTR:
+      addressOffset: 0x1A4
+      name: "FLT1AWLTR"
+    DFSDM1_AWSR:
+      addressOffset: 0x1A8
+      name: "FLT1AWSR"
+    DFSDM1_AWCFR:
+      addressOffset: 0x1AC
+      name: "FLT1AWCFR"
+    DFSDM1_EXMAX:
+      addressOffset: 0x1B0
+      name: "FLT1EXMAX"
+    DFSDM1_EXMIN:
+      addressOffset: 0x1B4
+      name: "FLT1EXMIN"
+    DFSDM1_CNVTIMR:
+      addressOffset: 0x1B8
+      name: "FLT1CNVTIMR"
+
+    DFSDM2_CR1:
+      addressOffset: 0x200
+      name: "FLT2CR1"
+    DFSDM2_CR2:
+      addressOffset: 0x204
+      name: "FLT2CR2"
+    DFSDM2_ISR:
+      addressOffset: 0x208
+      name: "FLT2ISR"
+    DFSDM2_ICR:
+      addressOffset: 0x20C
+      name: "FLT2ICR"
+    DFSDM2_JCHGR:
+      addressOffset: 0x210
+      name: "FLT2JCHGR"
+    DFSDM2_FCR:
+      addressOffset: 0x214
+      name: "FLT2FCR"
+    DFSDM2_JDATAR:
+      addressOffset: 0x218
+      name: "FLT2JDATAR"
+    DFSDM2_RDATAR:
+      addressOffset: 0x21C
+      name: "FLT2RDATAR"
+    DFSDM2_AWHTR:
+      addressOffset: 0x220
+      name: "FLT2AWHTR"
+    DFSDM2_AWLTR:
+      addressOffset: 0x224
+      name: "FLT2AWLTR"
+    DFSDM2_AWSR:
+      addressOffset: 0x228
+      name: "FLT2AWSR"
+    DFSDM2_AWCFR:
+      addressOffset: 0x22C
+      name: "FLT2AWCFR"
+    DFSDM2_EXMAX:
+      addressOffset: 0x230
+      name: "FLT2EXMAX"
+    DFSDM2_EXMIN:
+      addressOffset: 0x234
+      name: "FLT2EXMIN"
+    DFSDM2_CNVTIMR:
+      addressOffset: 0x238
+      name: "FLT2CNVTIMR"
+
+    DFSDM3_CR1:
+      addressOffset: 0x280
+      name: "FLT3CR1"
+    DFSDM3_CR2:
+      addressOffset: 0x284
+      name: "FLT3CR2"
+    DFSDM3_ISR:
+      addressOffset: 0x288
+      name: "FLT3ISR"
+    DFSDM3_ICR:
+      addressOffset: 0x28C
+      name: "FLT3ICR"
+    DFSDM3_JCHGR:
+      addressOffset: 0x290
+      name: "FLT3JCHGR"
+    DFSDM3_FCR:
+      addressOffset: 0x294
+      name: "FLT3FCR"
+    DFSDM3_JDATAR:
+      addressOffset: 0x298
+      name: "FLT3JDATAR"
+    DFSDM3_RDATAR:
+      addressOffset: 0x29C
+      name: "FLT3RDATAR"
+    DFSDM3_AWHTR:
+      addressOffset: 0x2A0
+      name: "FLT3AWHTR"
+    DFSDM3_AWLTR:
+      addressOffset: 0x2A24
+      name: "FLT3AWLTR"
+    DFSDM3_AWSR:
+      addressOffset: 0x2A8
+      name: "FLT3AWSR"
+    DFSDM3_AWCFR:
+      addressOffset: 0x2AC
+      name: "FLT3AWCFR"
+    DFSDM3_EXMAX:
+      addressOffset: 0x2B0
+      name: "FLT3EXMAX"
+    DFSDM3_EXMIN:
+      addressOffset: 0x2B4
+      name: "FLT3EXMIN"
+    DFSDM3_CNVTIMR:
+      addressOffset: 0x2B8
+      name: "FLT3CNVTIMR"
+
+  _cluster:
+    "CH%s":
+      "CH?CFGR1": { name: CFGR1 }
+      "CH?CFGR2": { name: CFGR2 }
+      "CH?AWSCDR": { name: AWSCDR }
+      "CH?WDATR": { name: WDATR }
+      "CH?DATINR": { name: DATINR }
+    "FLT%s":
+      "FLT?CR1": { name: CR1 }
+      "FLT?CR2": { name: CR2 }
+      "FLT?ISR": { name: ISR }
+      "FLT?ICR": { name: ICR }
+      "FLT?JCHGR": { name: JCHGR }
+      "FLT?FCR": { name: FCR }
+      "FLT?JDATAR": { name: JDATAR }
+      "FLT?RDATAR": { name: RDATAR }
+      "FLT?AWHTR": { name: AWHTR }
+      "FLT?AWLTR": { name: AWLTR }
+      "FLT?AWSR": { name: AWSR }
+      "FLT?AWCFR": { name: AWCFR }
+      "FLT?EXMAX": { name: EXMAX }
+      "FLT?EXMIN": { name: EXMIN }
+      "FLT?CNVTIMR": { name CNVTIMR }
