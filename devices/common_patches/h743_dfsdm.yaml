@@ -1,0 +1,218 @@
+# Fix incorrect register offset addresses for DFSDM. See H742 RM, section 21.8.16
+# Applies to: H743, H743v only
+
+
+DFSDM:
+  _modify:
+    DFSDM_CHCFG0R1: 
+      addressOffset: 0x00
+    DFSDM_CHCFG0R2: 
+      addressOffset: 0x04
+    DFSDM_AWSCDR0R:
+      addressOffset: 0x08
+    DFSDM0_DAT0R:
+      addressOffset: 0x0C
+    DFSDM0_DATIN0R:
+      addressOffset: 0x10
+
+    DFSDM_CHCFG1R1: 
+      addressOffset: 0x20
+    DFSDM_CHCFG1R2: 
+      addressOffset: 0x24
+    DFSDM_AWSCDR1R:
+      addressOffset: 0x28
+    DFSDM0_DAT1R:
+      addressOffset: 0x2C
+    DFSDM0_DATIN1R:
+      addressOffset: 0x30
+
+    DFSDM_CHCFG2R1: 
+      addressOffset: 0x40
+    DFSDM_CHCFG2R2: 
+      addressOffset: 0x44
+    DFSDM_AWSCDR2R:
+      addressOffset: 0x48
+    DFSDM0_DAT2R:
+      addressOffset: 0x4C
+    DFSDM0_DATIN2R:
+      addressOffset: 0x50
+
+    DFSDM_CHCFG3R1: 
+      addressOffset: 0x60
+    DFSDM_CHCFG3R2: 
+      addressOffset: 0x64
+    DFSDM_AWSCDR3R:
+      addressOffset: 0x68
+    DFSDM0_DAT3R:
+      addressOffset: 0x6C
+    DFSDM0_DATIN3R:
+      addressOffset: 0x70
+
+    DFSDM_CHCFG4R1: 
+      addressOffset: 0x80
+    DFSDM_CHCFG4R2: 
+      addressOffset: 0x84
+    DFSDM_AWSCDR4R:
+      addressOffset: 0x88
+    DFSDM0_DAT4R:
+      addressOffset: 0x8C
+    DFSDM0_DATIN4R:
+      addressOffset: 0x90
+
+    DFSDM_CHCFG5R1: 
+      addressOffset: 0xA0
+    DFSDM_CHCFG5R2: 
+      addressOffset: 0xA4
+    DFSDM_AWSCDR5R:
+      addressOffset: 0xA8
+    DFSDM0_DAT5R:
+      addressOffset: 0xAC
+    DFSDM0_DATIN5R:
+      addressOffset: 0xB0
+
+    DFSDM_CHCFG6R1: 
+      addressOffset: 0xC0
+    DFSDM_CHCFG6R2: 
+      addressOffset: 0xC4
+    DFSDM_AWSCDR6R:
+      addressOffset: 0xC8
+    DFSDM0_DAT6R:
+      addressOffset: 0xCC
+    DFSDM0_DATIN6R:
+      addressOffset: 0xE0
+
+    DFSDM_CHCFG7R1: 
+      addressOffset: 0xE0
+    DFSDM_CHCFG7R2: 
+      addressOffset: 0xE4
+    DFSDM_AWSCDR7R:
+      addressOffset: 0xE8
+    DFSDM0_DAT7R:
+      addressOffset: 0xEC
+    DFSDM0_DATIN7R:
+      addressOffset: 0xF0
+
+
+    DFSDM0_CR1:
+      addressOffset: 0x100
+    DFSDM0_CR2:
+      addressOffset: 0x104
+    DFSDM0_ISR:
+      addressOffset: 0x108
+    DFSDM0_ICR:
+      addressOffset: 0x10C
+    DFSDM0_JCHGR:
+      addressOffset: 0x110
+    DFSDM0_FCR:
+      addressOffset: 0x114
+    DFSDM0_JDATAR:
+      addressOffset: 0x118
+    DFSDM0_RDATAR:
+      addressOffset: 0x11C
+    DFSDM0_AWHTR:
+      addressOffset: 0x120
+    DFSDM0_AWLTR:
+      addressOffset: 0x124
+    DFSDM0_AWLSR:
+      addressOffset: 0x128
+    DFSDM0_AWCFR:
+      addressOffset: 0x12C
+    DFSDM0_EXMAX:
+      addressOffset: 0x130
+    DFSDM0_EXMIN:
+      addressOffset: 0x134
+    DFSDM0_CNVTIMR:
+      addressOffset: 0x138
+
+    DFSDM1_CR1:
+      addressOffset: 0x180
+    DFSDM1_CR2:
+      addressOffset: 0x184
+    DFSDM1_ISR:
+      addressOffset: 0x188
+    DFSDM1_ICR:
+      addressOffset: 0x18C
+    DFSDM1_JCHGR:
+      addressOffset: 0x190
+    DFSDM1_FCR:
+      addressOffset: 0x194
+    DFSDM1_JDATAR:
+      addressOffset: 0x198
+    DFSDM1_RDATAR:
+      addressOffset: 0x19C
+    DFSDM1_AWHTR:
+      addressOffset: 0x1A0
+    DFSDM1_AWLTR:
+      addressOffset: 0x1A4
+    DFSDM1_AWLSR:
+      addressOffset: 0x1A8
+    DFSDM1_AWCFR:
+      addressOffset: 0x1AC
+    DFSDM1_EXMAX:
+      addressOffset: 0x1B0
+    DFSDM1_EXMIN:
+      addressOffset: 0x1B4
+    DFSDM1_CNVTIMR:
+      addressOffset: 0x1B8
+
+    DFSDM2_CR1:
+      addressOffset: 0x200
+    DFSDM2_CR2:
+      addressOffset: 0x204
+    DFSDM2_ISR:
+      addressOffset: 0x208
+    DFSDM2_ICR:
+      addressOffset: 0x20C
+    DFSDM2_JCHGR:
+      addressOffset: 0x210
+    DFSDM2_FCR:
+      addressOffset: 0x214
+    DFSDM2_JDATAR:
+      addressOffset: 0x218
+    DFSDM2_RDATAR:
+      addressOffset: 0x21C
+    DFSDM2_AWHTR:
+      addressOffset: 0x220
+    DFSDM2_AWLTR:
+      addressOffset: 0x224
+    DFSDM2_AWLSR:
+      addressOffset: 0x228
+    DFSDM2_AWCFR:
+      addressOffset: 0x22C
+    DFSDM2_EXMAX:
+      addressOffset: 0x220
+    DFSDM2_EXMIN:
+      addressOffset: 0x224
+    DFSDM2_CNVTIMR:
+      addressOffset: 0x228
+
+    DFSDM3_CR1:
+      addressOffset: 0x280
+    DFSDM3_CR2:
+      addressOffset: 0x284
+    DFSDM3_ISR:
+      addressOffset: 0x288
+    DFSDM3_ICR:
+      addressOffset: 0x28C
+    DFSDM3_JCHGR:
+      addressOffset: 0x290
+    DFSDM3_FCR:
+      addressOffset: 0x194
+    DFSDM3_JDATAR:
+      addressOffset: 0x298
+    DFSDM3_RDATAR:
+      addressOffset: 0x29C
+    DFSDM3_AWHTR:
+      addressOffset: 0x2A0
+    DFSDM3_AWLTR:
+      addressOffset: 0x2A4
+    DFSDM3_AWLSR:
+      addressOffset: 0x2A8
+    DFSDM3_AWCFR:
+      addressOffset: 0x2AC
+    DFSDM3_EXMAX:
+      addressOffset: 0x2B0
+    DFSDM3_EXMIN:
+      addressOffset: 0x2B4
+    DFSDM3_CNVTIMR:
+      addressOffset: 0x2B8
