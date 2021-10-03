@@ -139,10 +139,11 @@ compile the device(s) you want. To use, in your Cargo.toml:
 ```toml
 [dependencies.{crate}]
 version = "{version}"
-features = ["{device}", "rt"]
+features = ["{device}"]
 ```
 
-The `rt` feature is optional and brings in support for `cortex-m-rt`.
+The `rt` feature is enabled by default and brings in support for `cortex-m-rt`.
+To disable, specify `default-features = false` in `Cargo.toml`.
 
 In your code:
 
