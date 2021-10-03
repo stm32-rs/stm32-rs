@@ -1,0 +1,19 @@
+# Applies to H7 RM0399, RM0455, RM0468
+
+"SAI*":
+  ACR1:
+    _delete:
+      - NOMCK
+    _add:
+      MCKEN:
+        description: Master clock generation enable
+        bitOffset: 27
+        bitWidth: 1
+  BCR1:
+    _delete:
+      - NOMCK
+    _add:
+      MCKEN:
+        description: Master clock generation enable
+        bitOffset: 27
+        bitWidth: 1
