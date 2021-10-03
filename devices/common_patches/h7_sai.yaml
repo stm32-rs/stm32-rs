@@ -3,6 +3,11 @@
     _modify:
       MCKDIV:
         bitWidth: 6
+    _add:
+      NODIV:
+        description: No fixed divider between MCLK and FS
+        bitOffset: 19
+        bitWidth: 1
   AFRCR:
     _modify:
       FSDEF:
@@ -11,6 +16,11 @@
     _modify:
       MCKDIV:
         bitWidth: 6
+    _add:
+      NODIV:
+        description: No fixed divider between MCLK and FS
+        bitOffset: 19
+        bitWidth: 1
   BFRCR:
     _modify:
       FSDEF:
