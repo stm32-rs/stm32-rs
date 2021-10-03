@@ -201,21 +201,16 @@ for full details of the patch file format.
 
 Notes for maintainers:
 
-```
-$ make -j16 form
-$ env CARGO_INCREMENTAL=0 make -j12 check
-$ vi scripts/makecrates.py # update version number
-$ python3 scripts/makecrates.py devices/
-$ vi CHANGELOG.md # add changelog entry
-$ vi README.md # update version number
-$ git checkout -b vX.X.X
-$ git commit -am "vX.X.X"
-$ git push origin vX.X.X
-# wait for CI build to succeed
-$ git tag -a 'vX.X.X' -m 'vX.X.X'
-$ git push origin vX.X.X
-$ for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb; cd $f; pwd; cargo publish --allow-dirty; cd ..; end
-```
+1. Create PR preparing for new release:
+    * Update `CHANGELOG.md` with changes since last release and new contributors
+    * Update `README.md` to bump version number in example snippet
+    * Update `scripts/makecrates.py` to update version number for generated PACs
+2. Merge PR once CI passes, pull master locally.
+3. `make clean`
+4. `make -j16 form`
+5. `for f in stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb; cd $f; pwd; cargo publish --allow-dirty --no-default-features; cd ..; end`
+6. `git tag -a vX.X.X -m vX.X.X`
+7. `git push vX.X.X`
 
 ## License
 
