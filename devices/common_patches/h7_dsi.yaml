@@ -12,6 +12,10 @@ _add:
       offset: 0x000
       size: 0x500
       usage: registers
+    interrupts:
+      DSI:
+        description: DSI Host global interrupt
+        value: 123
     registers:
       VR:
         description: DSI Host version register
