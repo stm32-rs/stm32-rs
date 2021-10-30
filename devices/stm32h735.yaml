@@ -443,12 +443,39 @@ RCC:
   APB2RSTR:
     _delete:
       - HRTIMRST
+    _add:
+      UART9RST:
+        description: UART9 block reset
+        bitWidth: 1
+        bitOffset: 6
+      USART10RST:
+        description: USART10 block reset
+        bitWidth: 1
+        bitOffset: 7
   APB2ENR:
     _delete:
       - HRTIMEN
+    _add:
+      UART9EN:
+        description: UART9 peripheral clocks enable
+        bitWidth: 1
+        bitOffset: 6
+      USART10EN:
+        description: USART10 peripheral clocks enable
+        bitWidth: 1
+        bitOffset: 7
   APB2LPENR,C1_APB2LPENR:
     _delete:
       - HRTIMLPEN
+    _add:
+      UART9LPEN:
+        description: UART9 peripheral clocks enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 6
+      USART10LPEN:
+        description: USART10 peripheral clocks enable during CSleep Mode
+        bitWidth: 1
+        bitOffset: 7
   APB4RSTR:
     _add:
       DTSRST:
