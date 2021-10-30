@@ -382,14 +382,14 @@ _add:
         value: 83
   UART9:
     derivedFrom: USART1
-    baseAddress: 0x40018000
+    baseAddress: 0x40011800
     interrupts:
       UART9:
          description: UART9 global interrupt
          value: 140
   USART10:
     derivedFrom: USART1
-    baseAddress: 0x4001C000
+    baseAddress: 0x40011C00
     interrupts:
       USART10:
         description: USART10 global interrupt

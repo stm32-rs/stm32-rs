@@ -71,6 +71,20 @@ _add:
       BDMA_CH7:
         description: BDMA Channel 7 interrupt
         value: 136
+  UART9:
+    derivedFrom: USART1
+    baseAddress: 0x40011800
+    interrupts:
+      UART9:
+         description: UART9 global interrupt
+         value: 155
+  USART10:
+    derivedFrom: USART1
+    baseAddress: 0x40011C00
+    interrupts:
+      USART10:
+        description: USART10 global interrupt
+        value: 156
 
 # PWR block
 PWR:
