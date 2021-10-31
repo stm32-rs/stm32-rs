@@ -12,8 +12,6 @@ _modify:
     name: FDCAN2
   DAC:
     name: DAC1
-  OCTOSPI1_CONTROL_REGISTER:
-    name: OCTOSPI1
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -313,6 +311,8 @@ AXI:
 # Work around the DMA_STR? interrupt mess in the SVD.
 # Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
 # the numeral.
+#
+# Since it is not possible to modify a derivedFrom peripheral, we delete it first
 
 _delete:
   - DMA2
@@ -322,6 +322,7 @@ _delete:
   - UART8
   - USART9
   - USART10
+  - OCTOSPI1_CONTROL_REGISTER
 
 _add:
   DMA2:
@@ -394,6 +395,13 @@ _add:
       USART10:
         description: USART10 global interrupt
         value: 141
+  OCTOSPI1:
+    derivedFrom: OCTOSPI2
+    baseAddress: 0x52005000
+    interrupts:
+      OCTOSPI1:
+        description: OCTOSPI global interrupt
+        value: 92
   DAC2:
     derivedFrom: DAC1
     baseAddress: 0x58003400
