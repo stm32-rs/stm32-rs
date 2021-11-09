@@ -2,6 +2,8 @@ _svd: ../svd/stm32wl5x_cm4.svd
 
 _modify:
   name: STM32WL5X_CM4
+  TIM*:
+    groupName: TIM
 
 AES:
   CR:
