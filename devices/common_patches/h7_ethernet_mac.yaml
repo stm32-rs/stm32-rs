@@ -1,0 +1,10 @@
+Ethernet_MAC:
+  MMC_TX_INTERRUPT_MASK:
+    _modify:
+      TXLPITRCIM:
+        access: read-write
+
+  MMC_RX_INTERRUPT_MASK:
+    _modify:
+      RXLPITRCIM:
+        access: read-write
