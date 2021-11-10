@@ -492,10 +492,10 @@ TIM[1-58]:
   _add:
     CCMR1_Output:
       description: >
-        The same register can be used for output compare mode (this section) or for input capture 
-        mode (previous section). The direction of a channel is defined by configuring the 
-        corresponding CCxS bits. All the other bits of this register have a different function for input 
-        capture and for output compare modes. It is possible to combine both modes independently 
+        The same register can be used for output compare mode (this section) or for input capture
+        mode (previous section). The direction of a channel is defined by configuring the
+        corresponding CCxS bits. All the other bits of this register have a different function for input
+        capture and for output compare modes. It is possible to combine both modes independently
         (e.g. channel 1 in input capture mode and channel 2 in output compare mode).
       access: read-write
       resetValue: 0x00000000
@@ -627,3 +627,4 @@ _include:
 - ../devices/common_patches/rename_USART_CR3_SCARCNT_field.yaml
 - ../devices/common_patches/rename_USART_CR2_DATAINV_field.yaml
 - common_patches/merge_USART_BRR_fields.yaml
+- common_patches/h7_mp1_ethernet_mac.yaml
