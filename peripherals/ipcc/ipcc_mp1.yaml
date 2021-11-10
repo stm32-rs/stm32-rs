@@ -1,0 +1,113 @@
+IPCC:
+  C1CR:
+    RXOIE:
+      Disabled: [0, "Processor 1 RX occupied interrupt disabled"]
+      Enabled: [1, " Enable an unmasked processor 1 receive channel occupied to generate an RX occupied interrupt"]
+    TXFIE:
+      Disabled: [0, "Processor 1 TX free interrupt disabled"]
+      Enabled: [1, " Enable an unmasked processor 1 transmit channel free to generate a TX free interrupt"]
+  C2CR:
+    TXFIE:
+      Disabled: [0, "Processor 2 TX free interrupt disabled"]
+      Enabled: [1, "Enable an unmasked processor 2 transmit channel free to generate a TX free interrupt"]
+    RXOIE:
+      Disabled: [0, "Processor 2 RX occupied interrupt disabled"]
+      Enabled: [1, ": Enable an unmasked processor 2 receive channel occupied to generate an RX occupied interrupt"]
+
+  C1MR:
+    _split:
+      CHxFM:
+        name: CH%sFM
+        description: Processor 1 transmit channel %s free interrupt mask
+      CHxOM:
+        name: CH%sOM
+        description: Processor 1 receive channel %s occupied interrupt mask
+    CH?FM:
+      Unmasked: [0, "Transmit channel n free interrupt unmasked"]
+      Masked: [1, "Transmit channel n free interrupt masked"]
+    CH?OM:
+      Unmasked: [0, "Receive channel n occupied interrupt unmasked"]
+      Masked: [1, "Receive channel n occupied interrupt masked"]
+  C2MR:
+    _split:
+      CHxFM:
+        name: CH%sFM
+        description: Processor 2 transmit channel %s free interrupt mask
+      CHxOM:
+        name: CH%sOM
+        description: Processor 2 receive channel %s occupied interrupt mask
+    CH?FM:
+      Unmasked: [0, "Transmit channel n free interrupt unmasked"]
+      Masked: [1, "Transmit channel n free interrupt masked"]
+    CH?OM:
+      Unmasked: [0, "Receive channel n occupied interrupt unmasked"]
+      Masked: [1, "Receive channel n occupied interrupt masked"]
+
+  C1SCR:
+    _split:
+      CHxS:
+        name: CH%sS
+        description: Processor 1 transmit channel %s status set
+      CHxC:
+        name: CH%sC
+        description: Processor 1 receive channel %s status clear
+    CH?S:
+      NoAction: [0, "No action"]
+      SetStatusBit: [1, "Processor 1 transmit channel n status bit set"]
+    CH?C:
+      NoAction: [0, "No action"]
+      SetStatusBit: [1, "Processor 1 receive channel n status bit clear"]
+  C2SCR:
+    _split:
+      CHxS:
+        name: CH%sS
+        description: Processor 2 transmit channel %s status set
+      CHxC:
+        name: CH%sC
+        description: Processor 2 receive channel %s status clear
+    CH?S:
+      NoAction: [0, "No action"]
+      SetStatusBit: [1, "Processor 2 transmit channel n status bit set"]
+    CH?C:
+      NoAction: [0, "No action"]
+      SetStatusBit: [1, "Processor 2 receive channel n status bit clear"]
+
+  C1TOC2SR:
+    _split:
+      CHxF:
+        name: CH%sF
+        description: Processor 1 transmit to processor 2 receive channel %i status flag before masking
+    CH?F:
+      Free: [0, "Channel free, data can be written by the sending processor 1"]
+      Occupied: [1, "Channel occupied, data can be read by the receiving processor 2"]
+  C2TOC1SR:
+    _split:
+      CHxF:
+        name: CH%sF
+        description: Processor 2 transmit to processor 1 receive channel %i status flag before masking
+    CH?F:
+      Free: [0, "Channel free, data can be written by the sending processor 2"]
+      Occupied: [1, "Channel occupied, data can be read by the receiving processor 1"]
+  HWCFGR:
+    _add:
+      SECCTRL:
+        description: Security options
+        bitOffset: 8
+        bitWidth: 4
+        access: read-only
+      OPTBITS:
+        description: Reserved for future use
+        bitOffset: 16
+        bitWidth: 8
+        access: read-only
+      CIDWIDTH:
+        description: CID bit field width range 0 to 12
+        bitOffset: 24
+        bitWidth: 4
+        access: read-only
+    SECCTRL:
+      NoSecurity: [0, "No security"]
+      Security: [1, "Security"]
+      SecurityAndPrivilege: [2, "Security and privilege"]
+      SecurityPrivilegeResourceIsolation: [3, "Security, privilege and resource isolation."]
+    CIDWIDTH: [0, 12]

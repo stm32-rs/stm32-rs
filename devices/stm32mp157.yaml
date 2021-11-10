@@ -12,7 +12,617 @@ _modify:
     vendorSystickConfig: "false"
   DSIHOST1:
     name: DSI
+    description: DSI
+    groupName: DSI
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+    description: ADC1
+    groupName: ADC1
+  ADC_common:
+    name: ADC_Common
 
+# Stripping prefixes
+ADC*:
+  _strip:
+    - "ADC_"
+AXIMC_Mx:
+  _strip:
+    - "AXIMC_"
+BSEC:
+  _strip:
+    - "BSEC_"
+CCU:
+  _strip:
+    - "FCCAN_CCU_"
+CRC?:
+  _strip:
+    - "CRC_"
+CRYP?:
+  _strip:
+    - "CRYP_"
+DAC?:
+  _strip:
+    - "DAC_"
+DCMI:
+  _strip:
+    - "DCMI_"
+DDRCTRL:
+  _strip:
+    - "DDRCTRL_"
+DDRPERFM:
+  _strip:
+    - "DDRPERFM_"
+DDRPHYC:
+  _strip:
+    - "DDRPHYC_"
+DFSDM?:
+  _strip:
+    - "DFSDM_"
+DLYB*:
+  _strip:
+    - "DLYB_"
+DMA?:
+  _strip:
+    - "DMA_"
+DMAMUX?:
+  _strip:
+    - "DMAMUX_"
 DSI:
   _strip:
     - "DSI_"
+DTS:
+  _strip:
+    - "DTS_"
+ETH*:
+  _strip:
+    - "ETH_"
+ETZPC:
+  _strip:
+    - "ETZPC_"
+EXTI:
+  _strip:
+    - "EXTI_"
+FDCAN?:
+  _strip:
+    - "FDCAN_"
+FMC:
+  _strip:
+    - "FMC_"
+GIC?:
+  _strip:
+    - "GIC?_"
+GPIO?:
+  _strip:
+    - "GPIO?_"
+HASH?:
+  _strip:
+    - "HASH_"
+HDMI_CEC:
+  _strip:
+    - "CEC_"
+HDP:
+  _strip:
+    - "HDP_"
+HSEM:
+  _strip:
+    - "HSEM_"
+I2C?:
+  _strip:
+    - "I2C_"
+IPCC:
+  _strip:
+    - "IPCC_"
+IWDG?:
+  _strip:
+    - "IWDG_"
+LPTIM?:
+  _strip:
+    - "LPTIM_"
+LTDC:
+  _strip:
+    - "LTDC_"
+MDIOS:
+  _strip:
+    - "MDIOS_"
+MDMA:
+  _strip:
+    - "MDMA_"
+OTG:
+  _strip:
+    - "OTG_"
+PWR:
+  _strip:
+    - "PWR_"
+QUADSPI:
+  _strip:
+    - "QUADSPI_"
+RCC:
+  _strip:
+    - "RCC_"
+RNG?:
+  _strip:
+    - "RNG_"
+RTC:
+  _strip:
+    - "RTC_"
+SAI?:
+  _strip:
+    - "SAI_"
+SDMMC?:
+  _strip:
+    - "SDMMC_"
+SPDIFRX:
+  _strip:
+    - "SPDIFRX_"
+SPI?:
+  _strip:
+    - "SPI_"
+STGENC:
+  _strip:
+    - "STGENC_"
+STGEN?:
+  _strip:
+    - "STGEN?_"
+SYSCFG:
+  _strip:
+    - "SYSCFG_"
+TAMP:
+  _strip:
+    - "TAMP_"
+TIM?:
+  _strip:
+    - TIM?_
+TIM1?:
+  _strip:
+    - TIM1?_
+    - TIM?_
+TZC:
+  _strip:
+    - "TZC_"
+USBPHYC:
+  _strip:
+    - "USBPHYC_"
+VREFBUF:
+  _strip:
+    - "VREFBUF_"
+WWDG?:
+  _strip:
+    - "WWDG_"
+
+# Cleaning up the timers
+TIM*:
+  CR1:
+    _modify:
+      OMP:
+        name: OPM
+TIM1:
+  _modify:
+    CCMR1ALTERNATE1:
+      name: CCMR1_Input
+    CCMR2ALTERNATE17:
+      name: CCMR2_Input
+    CCMR3:
+      name: CCMR3_Output
+
+TIM2:
+  _add:
+    AF1:
+      description: "TIM2 alternate function option register 1"
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x60
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 4
+  _modify:
+    CCMR1ALTERNATE2:
+      name: CCMR1_Input
+    CCMR2ALTERNATE18:
+      name: CCMR2_Input
+TIM3:
+  _add:
+    AF1:
+      description: "TIM3 alternate function option register 1"
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x60
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 4
+  _modify:
+    CCMR1ALTERNATE3:
+      name: CCMR1_Input
+    CCMR2ALTERNATE19:
+      name: CCMR2_Input
+TIM4:
+  _add:
+    AF1:
+      description: "TIM4 alternate function option register 1"
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x60
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 4
+  _modify:
+    CCMR1ALTERNATE4:
+      name: CCMR1_Input
+    CCMR2ALTERNATE20:
+      name: CCMR2_Input
+TIM5:
+  _add:
+    AF1:
+      description: "TIM5 alternate function option register 1"
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x60
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 4
+  _modify:
+    CCMR1ALTERNATE5:
+      name: CCMR1_Input
+    CCMR2ALTERNATE21:
+      name: CCMR2_Input
+TIM8:
+  _modify:
+    CCMR1ALTERNATE8:
+      name: CCMR1_Input
+    CCMR2ALTERNATE24:
+      name: CCMR2_Input
+    CCMR3:
+      name: CCMR3_Output
+  CCMR3_Output:
+    _modify:
+      OC5M3:
+        name: OC5M_3
+      OC6M3:
+        name: OC6M_3
+TIM12:
+  _modify:
+    CCMR1_output:
+      name: CCMR1_Output
+    CCMR1_input:
+      name: CCMR1_Input
+  SMCR:
+    _modify:
+      TS_3:
+        name: TS3
+      TS_4:
+        name: TS4
+
+TIM[1-58],TIM12:
+  SMCR:
+    _merge:
+        TS_4_3: TS[34]
+
+TIM[1-8]:
+  EGR:
+    _modify:
+      COM:
+        name: COMG
+
+TIM[1-58],TIM1[25]:
+  SMCR:
+    _modify:
+      SMS3:
+        name: SMS_3
+
+TIM[18],TIM1[5-7]:
+  BDTR:
+    _modify:
+      DT:
+        name: DTG
+
+TIM1[34]:
+  _modify:
+    CCMR1:
+      name: CCMR1_Output
+  CCMR1_Output:
+    _modify:
+      OC1M3:
+        name: OC1M_3
+
+TIM[18]:
+  CCMR3_Output:
+    _modify:
+      OC5M3:
+        name: OC5M_3
+      OC6M3:
+        name: OC6M_3
+TIM1[3-4]:
+  _add:
+    CCMR1_Input:
+      description: >
+        The same register can be used for input capture mode (this section) or for output compare
+        mode (next section). The direction of a channel is defined by configuring the corresponding
+        CCxS bits. All the other bits in this register have different functions in input and output
+        modes
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x18
+      fields:
+        IC1F:
+          description: Input capture 1 filter
+          bitOffset: 4
+          bitWidth: 4
+        IC1PSC:
+          description: Input capture 1 prescaler
+          bitOffset: 2
+          bitWidth: 2
+        CC1S:
+          description: Capture/Compare 1 selection
+          bitOffset: 0
+          bitWidth: 2
+TIM[25]:
+  _modify:
+    CNT:
+      size: 32
+    ARR:
+      size: 32
+    CCR?:
+      size: 32
+  CNT:
+    _delete:
+      - UIFCPY
+    _modify:
+      CNT:
+        bitWidth: 32
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 32
+  CCR?:
+    _modify:
+      CCR?:
+        bitWidth: 32
+TIM[2-7]:
+  _delete:
+    - CCMR3
+    - CCR6
+    - RCR
+    - BDTR
+TIM[2-5]:
+  _delete:
+    - CCR5
+  _add:
+    TISEL:
+      description: Timer input selection register
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x68
+      fields:
+        TI1SEL:
+          description: TI1[0] to TI1[15] input selection
+          bitOffset: 0
+          bitWidth: 4
+        TI2SEL:
+          description: TI2[0] to TI2[15] input selection
+          bitOffset: 8
+          bitWidth: 4
+        TI3SEL:
+          description: TI3[0] to TI3[15] input selection
+          bitOffset: 16
+          bitWidth: 4
+        TI4SEL:
+          description: TI4[0] to TI4[15] input selection
+          bitOffset: 24
+          bitWidth: 4
+  CR2:
+    _delete:
+      - CCPC
+      - CCUS
+      - OIS*
+      - MMS2
+  DIER:
+    _delete:
+      - COMIE
+      - BIE
+      - COMDE
+  SR:
+    _delete:
+      - COMIF
+      - BIF
+      - B2IF
+      - SBIF
+      - CC5IF
+      - CC6IF
+  EGR:
+    _delete:
+      - COMG
+      - BG
+      - B2G
+  CCER:
+    _delete:
+      - CC?NE
+      - CC5*
+      - CC6*
+  DMAR:
+    _modify:
+      DMAB:
+        bitWidth: 16
+TIM[67]:
+  _delete:
+    - SMCR
+    - CCMR*
+    - CCER
+    - CCR*
+    - DCR
+    - DMAR
+  CR1:
+    _delete:
+      - DIR
+      - CMS
+      - CKD
+  CR2:
+    _delete:
+      - C*
+      - O*
+      - MMS2
+      - TI1S
+  DIER:
+    _delete:
+      - B*
+      - C*
+      - T*
+  SR:
+    _delete:
+      - B*
+      - C*
+      - S*
+      - T*
+  EGR:
+    _delete:
+      - B*
+      - C*
+      - T*
+
+TIM[1-58]:
+  _add:
+    CCMR1_Output:
+      description: >
+        The same register can be used for output compare mode (this section) or for input capture
+        mode (previous section). The direction of a channel is defined by configuring the
+        corresponding CCxS bits. All the other bits of this register have a different function for input
+        capture and for output compare modes. It is possible to combine both modes independently
+        (e.g. channel 1 in input capture mode and channel 2 in output compare mode).
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x18
+      fields:
+        OC2M_3:
+          description: Output Compare 2 mode[3]
+          bitOffset: 24
+          bitWidth: 1
+        OC1M_3:
+          description: Output Compare 1 mode[3]
+          bitOffset: 16
+          bitWidth: 1
+        OC2CE:
+          description: Output Compare 2 clear enable
+          bitOffset: 15
+          bitWidth: 1
+        OC4M:
+          description: Output Compare 2 mode
+          bitOffset: 12
+          bitWidth: 3
+        OC2PE:
+          description: Output Compare 2 preload enable
+          bitOffset: 11
+          bitWidth: 1
+        OC2FE:
+          description: Output Compare 2 fast enable
+          bitOffset: 10
+          bitWidth: 1
+        CC2S:
+          description: Capture/Compare 2 selection
+          bitOffset: 8
+          bitWidth: 2
+        OC1CE:
+          description: Output Compare 1 clear enable
+          bitOffset: 7
+          bitWidth: 1
+        OC1M:
+          description: Output Compare 1 mode
+          bitOffset: 4
+          bitWidth: 3
+        OC1PE:
+          description: Output Compare 1 preload enable
+          bitOffset: 3
+          bitWidth: 1
+        OC1FE:
+          description: Output Compare 1 fast enable
+          bitOffset: 2
+          bitWidth: 1
+        CC1S:
+          description: Capture/Compare 1 selection
+          bitOffset: 0
+          bitWidth: 2
+    CCMR2_Output:
+      description: >
+        The same register can be used for output compare mode (this section) or for input capture
+        mode (previous section). The direction of a channel is defined by configuring the
+        corresponding CCxS bits. All the other bits of this register have a different function for input
+        capture and for output compare modes. It is possible to combine both modes independently
+        (e.g. channel 1 in input capture mode and channel 2 in output compare mode).
+      access: read-write
+      resetValue: 0x00000000
+      addressOffset: 0x1C
+      fields:
+        OC4M_3:
+          description: Output Compare 2 mode[3]
+          bitOffset: 24
+          bitWidth: 1
+        OC3M_3:
+          description: Output Compare 1 mode[3]
+          bitOffset: 16
+          bitWidth: 1
+        OC4CE:
+          description: Output Compare 2 clear enable
+          bitOffset: 15
+          bitWidth: 1
+        OC4M:
+          description: Output Compare 2 mode
+          bitOffset: 12
+          bitWidth: 3
+        OC4PE:
+          description: Output Compare 2 preload enable
+          bitOffset: 11
+          bitWidth: 1
+        OC4FE:
+          description: Output Compare 2 fast enable
+          bitOffset: 10
+          bitWidth: 1
+        CC4S:
+          description: Capture/Compare 2 selection
+          bitOffset: 8
+          bitWidth: 2
+        OC3CE:
+          description: Output Compare 1 clear enable
+          bitOffset: 7
+          bitWidth: 1
+        OC3M:
+          description: TIM[1-58]:Output Compare 1 mode
+          bitOffset: 4
+          bitWidth: 3
+        OC3PE:
+          description: Output Compare 1 preload enable
+          bitOffset: 3
+          bitWidth: 1
+        OC3FE:
+          description: Output Compare 1 fast enable
+          bitOffset: 2
+          bitWidth: 1
+        CC3S:
+          description: Capture/Compare 1 selection
+          bitOffset: 0
+          bitWidth: 2
+
+_include:
+- ../peripherals/adc/adc_v3_mp1.yaml
+- ../peripherals/adc/adc_v3_common_mp1.yaml
+- ../peripherals/gpio/gpio_v2.yaml
+- ../peripherals/gpio/gpio_with_brr.yaml
+- ../peripherals/gpio/gpio_with_seccfgr.yaml
+- ../peripherals/ipcc/ipcc_mp1.yaml
+- ../peripherals/usart/usart_v2C.yaml
+- ../peripherals/usart/usart_wl.yaml
+- ../peripherals/tim/tim_gp_mp1.yaml
+- ../devices/common_patches/merge_USART_CR1_DEATx_fields.yaml
+- ../devices/common_patches/merge_USART_CR1_DEDTx_fields.yaml
+- ../devices/common_patches/merge_USART_CR2_ADDx_fields.yaml
+- ../devices/common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+- ../devices/common_patches/rename_USART_CR1_M0_field.yaml
+- ../devices/common_patches/rename_USART_CR3_SCARCNT_field.yaml
+- ../devices/common_patches/rename_USART_CR2_DATAINV_field.yaml
+- common_patches/merge_USART_BRR_fields.yaml
+- common_patches/h7_mp1_ethernet_mac.yaml

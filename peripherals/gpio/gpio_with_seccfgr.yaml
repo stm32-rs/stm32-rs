@@ -1,0 +1,8 @@
+# GPIOZ appear to have SECCFGR registers
+
+"GPIOZ":
+  SECCFGR:
+    "SEC[01234567]":
+      _write:
+        NonSecure: [0, "The I/O pin is non-secure"]
+        Secure: [1, "The I/O pin is secure"]

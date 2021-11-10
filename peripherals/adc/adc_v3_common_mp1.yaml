@@ -1,0 +1,40 @@
+# ADC_Common with MP1 specific fields
+
+_include:
+  - "adc_v3_common.yaml"
+
+"ADC*_*":
+  CCR:
+    MDMA:
+      Disabled: [0, "MDMA mode disabled"]
+      Bits12_10: [2, "MDMA mode enabled for 12 and 10-bit resolution"]
+      Bits8_6: [3, "MDMA mode enabled for 8 and 6-bit resolution"]
+    DMACFG:
+      OneShot: [0, "DMA one shot mode selected"]
+      Circulator: [1, "DMA circular mode selected"]
+    _modify:
+      CH17SEL:
+        name: TSEN
+        description: Temperature sensor voltage enable
+      CH18SEL:
+        name: VBATEN
+        description: VBAT enable
+    TSEN:
+      Disabled: [0, "Temperature sensor channel disabled"]
+      Enabled: [1, "Temperature sensor channel enabled"]
+    VBATEN:
+      Disabled: [0, "VBAT channel disabled"]
+      Enabled: [1, "VBAT channel enabled"]
+    PRESC:
+      Div1: [0, "Input ADC clock not divided"]
+      Div2: [1, "Input ADC clock divided by 2"]
+      Div4: [2, "Input ADC clock divided by 4"]
+      Div6: [3, "Input ADC clock divided by 6"]
+      Div8: [4, "Input ADC clock divided by 8"]
+      Div10: [5, "Input ADC clock divided by 10"]
+      Div12: [6, "Input ADC clock divided by 12"]
+      Div16: [7, "Input ADC clock divided by 16"]
+      Div32: [8, "Input ADC clock divided by 32"]
+      Div64: [9, "Input ADC clock divided by 64"]
+      Div128: [10, "Input ADC clock divided by 128"]
+      Div256: [11, "Input ADC clock divided by 256"]
