@@ -28,6 +28,10 @@ DMAMUX:
   _strip:
     - "DMAMUX_"
 
+DAC:
+  _strip:
+    - "DAC_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml
