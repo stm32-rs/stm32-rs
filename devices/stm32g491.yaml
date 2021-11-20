@@ -11,6 +11,10 @@ OPAMP:
       addressOffset: "0x2C"
       description: OPAMP6 control/status register
 
+COMP:
+  _strip:
+    - "COMP_"
+
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml

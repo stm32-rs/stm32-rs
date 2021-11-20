@@ -39,6 +39,14 @@ DBG:
   _strip:
     - "DBG_"
 
+IWDG:
+  _strip:
+    - "IWDG_"
+
+WWDG:
+  _strip:
+    - "WWDG_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml

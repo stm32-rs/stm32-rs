@@ -1,5 +1,9 @@
 _svd: ../svd/stm32g483.svd
 
+COMP:
+  _strip:
+    - "COMP_"
+
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml

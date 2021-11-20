@@ -36,6 +36,14 @@ CRC:
   _strip:
     - "CRC_"
 
+IWDG:
+  _strip:
+    - "IWDG_"
+
+WWDG:
+  _strip:
+    - "WWDG_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml
