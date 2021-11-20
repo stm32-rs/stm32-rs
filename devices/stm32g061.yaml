@@ -27,6 +27,10 @@ TIM2:
       OC2M2:
         name: OC2M_3
 
+DMAMUX:
+  _strip:
+    - "DMAMUX_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml
