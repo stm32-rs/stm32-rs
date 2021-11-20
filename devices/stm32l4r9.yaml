@@ -15,6 +15,10 @@ _svd: ../svd/stm32l4r9.svd
 DSI:
   _strip:
     - "DSI_"
+  _modify:
+    _interrupts:
+      DSIHSOT:
+        name: DSIHOST
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
