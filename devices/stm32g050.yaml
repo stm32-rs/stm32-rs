@@ -25,6 +25,14 @@ DMAMUX:
   _strip:
     - "DMAMUX_"
 
+CRC:
+  _strip:
+    - "CRC_"
+
+DBG:
+  _strip:
+    - "DBG_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml

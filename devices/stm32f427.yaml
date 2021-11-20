@@ -163,6 +163,10 @@ MPU:
   _strip:
     - "MPU_"
 
+DMA2D:
+  _strip:
+    - "DMA2D_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
