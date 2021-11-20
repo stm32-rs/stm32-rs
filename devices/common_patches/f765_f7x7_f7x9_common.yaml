@@ -19,6 +19,10 @@ RCC:
         description: DSI reset
         bitOffset: 27
         bitWidth: 1
+      SDMMC2RST:
+        description: SDMMC2 module reset
+        bitOffset: 7
+        bitWidth: 1
   AHB2ENR:
     _add:
       JPEGEN:
@@ -44,6 +48,10 @@ RCC:
       DSIEN:
         description: DSI clock enable
         bitOffset: 27
+        bitWidth: 1
+      SDMMC2EN:
+        description: SDMMC2 clock enable
+        bitOffset: 7
         bitWidth: 1
   AHB2LPENR:
     _add:
