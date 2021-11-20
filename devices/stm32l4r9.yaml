@@ -15,6 +15,10 @@ _svd: ../svd/stm32l4r9.svd
 DSI:
   _strip:
     - "DSI_"
+  _modify:
+    _interrupts:
+      DSIHSOT:
+        name: DSIHOST
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
@@ -73,6 +77,7 @@ _include:
  - common_patches/tsc/tsc.yaml
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
+ - common_patches/hash/hash.yaml
  - ../peripherals/sai/sai.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - common_patches/usb_otg/otg_fs_remove_prefix.yaml
