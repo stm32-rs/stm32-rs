@@ -107,6 +107,10 @@ DFSDM1:
   _strip:
     - "DFSDM1_"
 
+MDIOS:
+  _strip:
+    - "MDIOS_"
+
 _include:
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml
