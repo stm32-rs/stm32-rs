@@ -153,6 +153,10 @@ WWDG:
         description: "Window watchdog interrupt"
         value: 0
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

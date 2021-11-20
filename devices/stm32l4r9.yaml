@@ -24,6 +24,10 @@ RCC:
         name: SPI3EN
         description: SPI peripheral 3 clock enable
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml

@@ -99,6 +99,22 @@ CRYP:
     _merge:
       - "IV*"
 
+MPU:
+  _strip:
+    - "MPU_"
+
+DFSDM1:
+  _strip:
+    - "DFSDM1_"
+
+MDIOS:
+  _strip:
+    - "MDIOS_"
+
+JPEG:
+  _strip:
+    - "JPEG_"
+
 _include:
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml

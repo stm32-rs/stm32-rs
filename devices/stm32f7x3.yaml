@@ -22,6 +22,10 @@ WWDG:
     WWDG_SR:
       name: SR
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/f7x23_pllsai.yaml
  - common_patches/dma_fcr_wo.yaml

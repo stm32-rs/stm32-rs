@@ -242,6 +242,10 @@ TIM3:
         bitOffset: 24
         bitWidth: 1
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml

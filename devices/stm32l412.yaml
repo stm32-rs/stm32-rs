@@ -226,6 +226,10 @@ RTC:
           bitOffset: 5
           bitWidth: 1
 
+MPU:
+  _strip:
+    - "MPU_"
+
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
   - ./common_patches/stm32l4x2_l412.yaml

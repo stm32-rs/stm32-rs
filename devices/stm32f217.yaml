@@ -37,6 +37,10 @@ CRYP:
     _merge:
       - "IV*"
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/dma_fcr_wo.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

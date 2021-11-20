@@ -64,6 +64,18 @@ TIM15:
       - SMS?
       - TS?
 
+MPU:
+  _strip:
+    - "MPU_"
+
+DMAMUX:
+  _strip:
+    - "DMAMUX_"
+
+DAC:
+  _strip:
+    - "DAC_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml

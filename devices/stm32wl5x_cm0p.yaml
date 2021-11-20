@@ -108,6 +108,18 @@ LPUART:
 _delete:
   - SYSCFG_continue
 
+MPU:
+  _strip:
+    - "MPU_"
+
+TZSC:
+  _strip:
+    - "TZSC_"
+
+ADC:
+  _strip:
+    - "ADC_"
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml

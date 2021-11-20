@@ -58,6 +58,10 @@ RCC:
         bitOffset: 11
         bitWidth: 1
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - ./common_patches/rename_TIM2_CCR3_CCR3.yaml
  - ./common_patches/rcc_LSECSSC_LSECSSF.yaml

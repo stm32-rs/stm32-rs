@@ -16,6 +16,18 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
+MPU:
+  _strip:
+    - "MPU_"
+
+DMAMUX:
+  _strip:
+    - "DMAMUX_"
+
+DAC:
+  _strip:
+    - "DAC_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml

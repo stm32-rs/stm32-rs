@@ -240,6 +240,18 @@ CRYP:
     _merge:
       - "IV*"
 
+MPU:
+  _strip:
+    - "MPU_"
+
+DFSDM:
+  _strip:
+    - "DFSDM_"
+
+JPEG:
+  _strip:
+    - "JPEG_"
+
 _include:
  - common_patches/rename_ltcd.yaml
  - common_patches/f7_interrupts.yaml

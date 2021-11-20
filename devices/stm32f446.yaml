@@ -509,6 +509,9 @@ _add:
             bitOffset: 0
             bitWidth: 8
 
+MPU:
+  _strip:
+    - "MPU_"
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml

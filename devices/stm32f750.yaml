@@ -29,6 +29,10 @@ SYSCFG:
     _delete:
       - FB_MODE
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/merge_USART_CR1_DEATx_fields.yaml
  - common_patches/merge_USART_CR1_DEDTx_fields.yaml

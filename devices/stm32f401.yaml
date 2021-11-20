@@ -107,6 +107,10 @@ DMA2:
         description: DMA2_STREAM7 global interrupt
         value: 70
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

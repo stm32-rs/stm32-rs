@@ -281,6 +281,10 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - ./common_patches/sai/sai_v1.yaml
  - ./common_patches/rtc/rtc_cr.yaml
