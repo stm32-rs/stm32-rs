@@ -111,6 +111,10 @@ MDIOS:
   _strip:
     - "MDIOS_"
 
+JPEG:
+  _strip:
+    - "JPEG_"
+
 _include:
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml
