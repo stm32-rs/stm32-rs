@@ -108,6 +108,10 @@ LPUART:
 _delete:
   - SYSCFG_continue
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - ../devices/common_patches/l4_spi.yaml
  - ../devices/common_patches/wl_adc.yaml

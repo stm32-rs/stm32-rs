@@ -478,6 +478,10 @@ SDMMC?:
   _strip:
     - SDMMC_
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/h7_common_singlecore.yaml
  - common_patches/dma_fcr_wo.yaml

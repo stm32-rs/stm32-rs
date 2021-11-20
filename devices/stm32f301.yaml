@@ -129,6 +129,10 @@ TIM2:
   _include:
     - ../peripherals/tim/tim2_common_32bit.yaml
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml

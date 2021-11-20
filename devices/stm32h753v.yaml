@@ -26,6 +26,10 @@ TIM4:
         description: TIM4 global interrupt
         value: 30
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/h7_common_singlecore.yaml
  - common_patches/h7_ethernet_dma_mr.yaml

@@ -384,6 +384,10 @@ FMPI2C1:
         description: I2CFMP1 error interrupt
         value: 96
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

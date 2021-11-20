@@ -10,6 +10,10 @@ WWDG:
       EWI:
         name: EWIF
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - ./common_patches/f1_uart45.yaml
  - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml

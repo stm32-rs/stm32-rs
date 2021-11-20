@@ -120,6 +120,10 @@ RCC:
         bitOffset: 21
         bitWidth: 1
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml

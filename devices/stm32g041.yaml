@@ -3,6 +3,10 @@ _svd: ../svd/stm32g041.svd
 _modify:
   name: STM32G041
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml

@@ -17,6 +17,10 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/h7_common_dualcore.yaml
  - common_patches/dma_fcr_wo.yaml

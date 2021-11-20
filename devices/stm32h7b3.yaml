@@ -74,6 +74,10 @@ DBGMCU:
       - LPTIM4
       - LPTIM5
 
+MPU:
+  _strip:
+    - "MPU_"
+
 _include:
  - common_patches/h7_common_highmemory.yaml
  - common_patches/dma_fcr_wo.yaml
