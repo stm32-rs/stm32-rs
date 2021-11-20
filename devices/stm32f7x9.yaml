@@ -251,6 +251,10 @@ MPU:
   _strip:
     - "MPU_"
 
+DFSDM:
+  _strip:
+    - "DFSDM_"
+
 _include:
  - common_patches/rename_ltcd.yaml
  - common_patches/f7_interrupts.yaml
