@@ -22,6 +22,10 @@ RNG:
   _strip:
     - "RNG_"
 
+PKA:
+  _strip:
+    - "PKA_"
+
 _include:
  - common_patches/dma_interrupt_names.yaml
  - ../peripherals/gpio/gpio_l5.yaml

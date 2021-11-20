@@ -4,6 +4,10 @@ COMP:
   _strip:
     - "COMP_"
 
+VREFBUF:
+  _strip:
+    - "VREFBUF_"
+
 _include:
  - ./common_patches/g4_rcc.yaml
  - ./common_patches/g4_exti.yaml
