@@ -1,0 +1,21 @@
+# Fixes duplicate enum values
+USB:
+  CNTR:
+    USBRST:
+      _replace_enum:
+        NoEffect: [0, "No effect"]
+        Reset: [1, "USB core is under reset / USB reset driven"]
+    SUSPEN:
+      _replace_enum:
+        NoEffect: [0, "No effect"]
+        Suspend: [1, "Enter L1/L2 suspend"]
+    L1RESUME:
+      _replace_enum:
+        NoEffect: [0, "No effect"]
+        WakeupResume: [1, "Send 50us remote-wakeup signaling to host / Send L1 resume signaling to device"]
+  LPMCSR:
+    LPMACK:
+      _replace_enum:
+        Nyet: [0, "The valid LPM Token will be NYET / NYET answer"]
+        Ack: [1, "The valid LPM Token will be ACK / ACK answer"]
+
