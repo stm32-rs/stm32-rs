@@ -1,0 +1,95 @@
+"FDCAN,FDCAN?":
+  TEST:
+    RX:
+      dominant: [0b0, "CAN bus is dominant"]
+      recessive: [0b1, "Can bus is recessive"]
+    TX:
+      can_core:     [0b00, "TX controlled by the CAN core, updated at the end of the CAN bit time"]
+      sample_point: [0b01, "Sample point can be monitored at pin FDCANx_TX"]
+      dominant:     [0b10, "Dominant (0) level at pin FDCANx_TX"]
+      recessive:    [0b11, "Recessive (1) at pin FDCANx_TX"]
+
+  CCCR:
+    TEST:
+      normal:       [0b0, "Normal operation, register TEST holds reset values"]
+      test:         [0b1, "Test Mode, write access to register TEST enabled"]
+    DAR:
+      retransmit:   [0b0, "Automatric retransmission of messages not transmitted successfully enabled"]
+      noretransmit: [0b1, "Automatic retransmission disabled"]
+    ASM:
+      normal:       [0b0, "Normal CAN operation"]
+      restricted:   [0b1, "Restricted operation Mode active"]
+    CCE:
+      readonly:     [0b0, "The CPU has no write access to the protected configuration registers"]
+      readwrite:    [0b1, "The CPU has write access to the protected configuration registers (while CCCR.INIT = 1)"]
+    INIT:
+      run:          [0b0, "Normal operation"]
+      init:         [0b1, "Initialization started"]
+
+  TSCC:
+    TSS:
+      zero:             [0b00, "Timestamp counter value always 0x000"]
+      increment_by_tcp: [0b01, "Timestamp counter value incremented according to TCP"]
+      tim3_cnt:         [0b10, "External timestamp counter from TIM3 value (tim3_cnt[0:15])"]
+      zero_:            [0b11, "Same as 00 (zero)"]
+
+  TOCC:
+    TOS:
+      continuous:     [0b00, "Continuous operation"]
+      tx_event_fifo:  [0b01, "Timeout controlled by Tx event FIFO"]
+      rx_fifo0:       [0b10, "Timeout controlled by Rx FIFO 0"]
+      rx_fifo1:       [0b11, "Timeout controlled by Rx FIFO 1"]
+
+  PSR:
+    DLEC:
+      none:       [0b000, "No error"]
+      stuff:      [0b001, "Stuff error"]
+      form:       [0b010, "Form error"]
+      ack:        [0b11, "Ack error"]
+      bit1:       [0b100, "Bit1 error"]
+      bit0:       [0b101, "Bit0 error"]
+      crc:        [0b110, "Crc error"]
+      no_change:  [0b111, "No change: any read access to the Protocol status register re-initializes DLEC to '7'. When DLEC shows the value '7', no CAN bus event was detected since the last CPU read"]
+    ACT:
+      synchronizing:  [0b00, "Node is synchronizing on CAN communication"]
+      idle:           [0b01, "Node is neither receiver nor transmitter"]
+      receiver:       [0b10, "Node is operating as receiver"]
+      transmitter:    [0b11, "Node is operating as transmitter"]
+    LEC:
+      none:       [0b000, "No error"]
+      stuff:      [0b001, "Stuff error"]
+      form:       [0b010, "Form error"]
+      ack:        [0b11, "Ack error"]
+      bit1:       [0b100, "Bit1 error"]
+      bit0:       [0b101, "Bit0 error"]
+      crc:        [0b110, "Crc error"]
+      no_change:  [0b111, "No change: any read access to the Protocol status register re-initializes LEC to '7'. When LEC shows the value '7', no CAN bus event was detected since the last CPU read"]
+
+  HPMS:
+    FLST:
+      standard: [0b0, "Standard filter list"]
+      extended: [0b1, "Extended filter list"]
+    MSI:
+      no_fifo:      [0b00, "No FIFO selected"]
+      fifo_overrun: [0b01, "FIFO overrun"]
+      store_fifo0:  [0b10, "Message stored in FIFO 0"]
+      store_fifo1:  [0b11, "Message stored in FIFO 1"]
+
+  CKDIV:
+    PDIV:
+      div1:     [0b0000, "APB clock divided by 1"]
+      div2:     [0b0001, "APB clock divided by 2"]
+      div4:     [0b0010, "APB clock divided by 4"]
+      div6:     [0b0011, "APB clock divided by 6"]
+      div8:     [0b0100, "APB clock divided by 8"]
+      div10:    [0b0101, "APB clock divided by 10"]
+      div12:    [0b0110, "APB clock divided by 12"]
+      div14:    [0b0111, "APB clock divided by 14"]
+      div16:    [0b1000, "APB clock divided by 16"]
+      div18:    [0b1001, "APB clock divided by 18"]
+      div20:    [0b1010, "APB clock divided by 20"]
+      div22:    [0b1011, "APB clock divided by 22"]
+      div24:    [0b1100, "APB clock divided by 24"]
+      div26:    [0b1101, "APB clock divided by 26"]
+      div28:    [0b1110, "APB clock divided by 28"]
+      div30:    [0b1111, "APB clock divided by 30"]

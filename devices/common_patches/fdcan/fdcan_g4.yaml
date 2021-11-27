@@ -4,6 +4,14 @@ _include:
   - ./fdcan_common.yaml
 
 "FDCAN,FDCAN?":
+  _modify:
+    CREL:
+      resetValue: 0x32141218
+    PSR:
+      access: read-only
+    RXF0S:
+      access: read-only
+
   RXGFC:
     _add:
       LSE:
@@ -22,6 +30,32 @@ _include:
         description: FIFO 1 operation mode
         bitOffset: 8
         bitWidth: 1
+    _modify:
+      ANFS:
+        description: Accept Non-matching frames standard
+      ANFE:
+        description: Accept Non-matching frames extended
+      RRFS:
+        description: Reject remote frames standard
+      RRFE:
+        description: Reject remote frames extended
+
+    ANFS:
+      accept_rx_fifo0:  [0b00, "Accept non-matching standard frames in Rx FIFO 0"]
+      accept_rx_fifo1:  [0b01, "Accept non-matching standard frames in Rx FIFO 1"]
+      reject:           [0b10, "Reject non-matching standard frames"]
+      reject_:          [0b11, "Reject non-matching standard frames"]
+    ANFE:
+      accept_rx_fifo0:  [0b00, "Accept non-matching extended frames in Rx FIFO 0"]
+      accept_rx_fifo1:  [0b01, "Accept non-matching extended frames in Rx FIFO 1"]
+      reject:           [0b10, "Reject non-matching extended frames"]
+      reject_:          [0b11, "Reject non-matching extended frames"]
+    RRFS:
+      filter: [0b0, "Filter remote frames with 11-bit standard IDs"]
+      reject: [0b1, "Reject all remote frames with 11-bit standard IDs"]
+    RRFE:
+      filter: [0b0, "Filter remote frames with 29-bit standard IDs"]
+      reject: [0b1, "Reject remote frames with 29-bit standard IDs"]
 
   # Interrupt registers are a disaster, start over
   IR:
@@ -260,8 +294,10 @@ _include:
   TXFQS:
     _modify:
       TFQPI:
+        bitOffset: 16
         bitWidth: 2
       TFGI:
+        bitOffset: 8
         bitWidth: 2
       TFFL:
         bitWidth: 3
@@ -301,3 +337,76 @@ _include:
     _modify:
       CFIE:
         bitWidth: 3
+
+  ECR:
+    _modify:
+      TREC:
+        name: REC
+
+  HPMS:
+    _modify:
+      FIDX:
+        bitOffset: 8
+        bitWidth: 5
+      MSI:
+        bitOffset: 6
+        bitWidth: 2
+      BIDX:
+        bitOffset: 0
+        bitWidth: 3
+
+  RXF0S:
+    _modify:
+      F0PI:
+        bitOffset: 16
+        bitWidth: 2
+      F0GI:
+        bitOffset: 8
+        bitWidth: 2
+      F0FL:
+        bitOffset: 0
+        bitWidth: 4
+
+  RXF0A:
+    _modify:
+      F0AI:
+        bitOffset: 0
+        bitWidth: 3
+
+  RXF1S:
+    _delete:
+      DMS:
+    _modify:
+      F1PI:
+        bitOffset: 16
+        bitWidth: 2
+      F1GI:
+        bitOffset: 8
+        bitWidth: 2
+      F1FL:
+        bitOffset: 0
+        bitWidth: 4
+
+  RXF1A:
+    _modify:
+      F1AI:
+        bitOffset: 0
+        bitWidth: 4
+
+  TXBC:
+    _delete:
+      TFQS:
+      NDTB:
+      TBSA:
+    _modify:
+      TFQM:
+        bitOffset: 24
+        bitWidth: 1
+    TFQM:
+      fifo:   [0b0, "Tx FIFO operation"]
+      queue:  [0b1, "Tx queue operation"]
+
+  TXEFA:
+    _modify:
+      EFAI:
+        bitWidth: 2
