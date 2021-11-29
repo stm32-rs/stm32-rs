@@ -28,6 +28,13 @@ RCC:
         name: SPI3EN
         description: SPI peripheral 3 clock enable
 
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 MPU:
   _strip:
     - "MPU_"
