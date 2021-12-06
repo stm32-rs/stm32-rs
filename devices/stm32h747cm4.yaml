@@ -22,6 +22,7 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/hdmi_cec.yaml
  - common_patches/h7_common_dualcore.yaml
  - common_patches/4_nvic_prio_bits.yaml  # Specifically for CM4 core
  - common_patches/dma_fcr_wo.yaml
