@@ -13,6 +13,7 @@ _copy:
     from: TIM2
 
 _include:
+ - common_patches/hdmi_cec.yaml
  - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/rename_f0_SPI_registers.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
