@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* `SVDTOOLS` env value for specifying patching tool
+
 Family-specific:
 
 * F7:
