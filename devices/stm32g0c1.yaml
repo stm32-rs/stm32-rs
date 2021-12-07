@@ -4,8 +4,8 @@ _modify:
   name: STM32G0C1
 
 _delete:
-  DMA1:
-  DMA2:
+  - DMA1
+  - DMA2
 
 AES:
   _strip:
@@ -68,18 +68,6 @@ VREFBUF:
   _strip:
     - "VREFBUF_"
 
-USB:
-  _strip:
-    - "USB_"
-
-ADC:
-  _strip:
-    - "ADC_"
-
-"FDCAN?":
-  _strip:
-    - FDCAN_
-
 I2C?:
   _strip:
     - "I2C_"
@@ -88,31 +76,9 @@ LPTIM?:
   _strip:
     - "LPTIM_"
 
-LPUART?:
-  _strip:
-    - "LPUART_"
-
-RTC:
-  _strip:
-    - "RTC_"
-
-SPI?:
-  _strip:
-    - "SPI_"
-
-TAMP:
-  _strip:
-    - "TAMP_"
-
-UCPD?:
-  _strip:
-    - "UCPD_"
-
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml
  - ./common_patches/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
- - common_patches/g0_usb_enum.yaml
- - ../peripherals/exti/exti_g0.yaml
  - ../peripherals/tim/v2/ccm.yaml
