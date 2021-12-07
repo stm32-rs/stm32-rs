@@ -54,13 +54,13 @@ jobs:
         id: cache-cargo
         with:
           path: ~/cargo-bin
-          key: ${{ runner.os }}-svd2rust-0.19.0
+          key: ${{ runner.os }}-svd2rust-0.20.0
       - name: Install svd2rust
         if: steps.cache-cargo.outputs.cache-hit != 'true'
         uses: actions-rs/install@v0.1
         with:
           crate: svd2rust
-          version: 0.19.0
+          version: 0.20.0
       - name: Copy svd2rust to cache directory
         if: steps.cache-cargo.outputs.cache-hit != 'true'
         run: |
