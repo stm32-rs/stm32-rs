@@ -5,6 +5,9 @@ all: patch svd2rust
 
 SHELL := /usr/bin/env bash
 
+# Path to `svd`/`svdtools`
+SVDTOOLS ?= svd
+
 CRATES ?= stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
           stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 \
           stm32wl stm32wb
@@ -40,7 +43,7 @@ CHECK_SRCS := $(foreach crate, $(CRATES), \
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
-	svd patch $<
+	$(SVDTOOLS) patch $<
 
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
@@ -48,7 +51,7 @@ svd/%.svd.formatted: svd/%.svd.patched
 # Generate mmap from patched SVD
 mmaps/%.mmap: svd/%.svd.patched
 	@mkdir -p mmaps
-	svd mmap $< > $@
+	$(SVDTOOLS) mmap $< > $@
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
@@ -141,6 +144,6 @@ update-venv:
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
-	svd makedeps $< $@
+	$(SVDTOOLS) makedeps $< $@
 
 -include .deps/*
