@@ -88,6 +88,265 @@ _add:
         description: TIM24 global interrupt
         value: 162
 
+  # CORDIC block
+  # TODO: Validate. The patch (at the end of the includes) also has
+  #       to be checked. I copy-pasted the latter from the g4_cordic
+  #       one with some minor changes in spelling and descriptions,
+  #       then verified them to RM0468. The CORDIC registers mean the
+  #       same between the g4 and h7.
+  CORDIC:
+    description: CORDIC co-processor
+    groupName: CORDIC
+    baseAddress: 0x48024400
+    addressBlock:
+      offset: 0x0
+      size: 0x400 # There is a typo in Table 7, P136, RM0468.
+      usage: registers
+    registers:
+      CSR:
+        description: Control and status register
+        addressOffset: 0x00
+        resetValue: 0x00000050
+        fields:
+          RRDY:
+            description: Result ready flag
+            bitOffset: 31
+            bitWidth: 1
+          ARGSIZE:
+            description: Width of input data
+            bitOffset: 22
+            bitWidth: 1
+          RESSIZE:
+            description: Width of output data
+            bitOffset: 21
+            bitWidth: 1
+          NARGS:
+            description: Number of arguments expected by the WDATA register
+            bitOffset: 20
+            bitWidth: 1
+          NRES:
+            description: Number of results in the RDATA register
+            bitOffset: 19
+            bitWidth: 1
+          DMAWEN:
+            description: Enable DMA write channel
+            bitOffset: 18
+            bitWidth: 1
+          DMAREN:
+            description: Enable DMA wread channel
+            bitOffset: 17
+            bitWidth: 1
+          IEN:
+            description: Enable interrupt
+            bitOffset: 16
+            bitWidth: 1
+          SCALE:
+            description: Scaling factor (2^-n for arguments, 2^n for results)
+            bitOffset: 8
+            bitWidth: 3
+          PRECISION:
+            description: Precision required (number of iterations/cycles), where PRECISION = (number of iterations/4)
+            bitOffset: 4
+            bitWidth: 4
+          FUNC:
+            description: Function
+            bitOffset: 0
+            bitWidth: 4
+      WDATA:
+        description: Argument register
+        addressOffset: 0x04
+        resetValue: 0xFFFFFFFF
+        fields:
+          ARG:
+            description: Function input arguments
+            bitOffset: 0
+            bitWidth: 32
+      RDATA:
+        description: Result register
+        addressOffset: 0x08
+        resetValue: 0x00000000
+        fields:
+          RES:
+            description: Function result
+            bitOffset: 0
+            bitWidth: 32
+    interrupts:
+      CORDIC_IT:
+        value: 154
+        description: CORDIC interrupt
+
+  # FMAC block
+  # TODO: Validate.
+  FMAC:
+    description: Filter math accelerator
+    groupName: FMAC
+    baseAddress: 0x48024000
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: registers
+    registers:
+      X1BUFCFG:
+        description: X1 buffer configuration register
+        addressOffset: 0x00
+        resetValue: 0x00000000
+        fields:
+          FULL_WM:
+            description: Watermark for buffer full flag
+            bitOffset: 24
+            bitWidth: 2
+          X1_BUF_SIZE:
+            description: Allocated size of X1 buffer in 16-bit words
+            bitOffset: 8
+            bitWidth: 8
+          X1_BASE:
+            description: Base address of X1 buffer
+            bitOffset: 0
+            bitWidth: 8  
+      X2BUFCFG:
+        description: X2 buffer configuration register
+        addressOffset: 0x04
+        resetValue: 0x00000000
+        fields:
+          X2_BUF_SIZE:
+            description: Size of X2 buffer in 16-bit words
+            bitOffset: 8
+            bitWidth: 8
+          X2_BASE:
+            description: Base address of X2 buffer
+            bitOffset: 0
+            bitWidth: 8
+      YBUFCFG:
+        description: Y buffer configuration register
+        addressOffset: 0x08
+        resetValue: 0x00000000
+        fields:
+          EMPTY_WM:
+            description: Watermark for buffer empty flag
+            bitOffset: 24
+            bitWidth: 2
+          Y_BUF_SIZE:
+            description: Size of Y buffer in 16-bit words
+            bitOffset: 8
+            bitWidth: 8
+          Y_BASE:
+            description: Base address of Y buffer
+            bitOffset: 0
+            bitWidth: 8
+      PARAM:
+        description: Parameter register
+        addressOffset: 0x0C
+        resetValue: 0x00000000
+        fields:
+          START:
+            description: Enable execution
+            bitOffset: 31
+            bitWidth: 1
+          FUNC:
+            description: Function
+            bitOffset: 24
+            bitWidth: 7
+          R:
+            description: Input parameter R
+            bitOffset: 16
+            bitWidth: 8
+          Q:
+            description: Input parameter Q
+            bitOffset: 8
+            bitWidth: 8
+          P:
+            description: Input parameter P
+            bitOffset: 0
+            bitWidth: 8
+      CR:
+        description: Control register
+        addressOffset: 0x10
+        resetValue: 0x00000000
+        fields:
+          RESET:
+            description: Reset FMAC unit
+            bitOffset: 16
+            bitWidth: 1
+          CLIPEN:
+            description: Enable clipping
+            bitOffset: 15
+            bitWidth: 1
+          DMAWEN:
+            description: Enable DMA write channel requests
+            bitOffset: 9
+            bitWidth: 1
+          DMAREN:
+            description: Enable DMA read channel requests
+            bitOffset: 8
+            bitWidth: 1
+          SATIEN:
+            description: Enable saturation error interrupts
+            bitOffset: 4
+            bitWidth: 1
+          UNFLIEN:
+            description: Enable underflow error interrupts
+            bitOffset: 3
+            bitWidth: 1
+          OVFLIEN:
+            description: Enable overflow error interrupts
+            bitOffset: 2
+            bitWidth: 1
+          WIEN:
+            description: Enable write interrupt
+            bitOffset: 1
+            bitWidth: 1
+          RIEN:
+            description: Enable read interrupt
+            bitOffset: 0
+            bitWidth: 1  
+      SR:
+        description: Status register
+        addressOffset: 0x14
+        resetValue: 0x00000001
+        fields:
+          SAT:
+            description: Saturation error flag
+            bitOffset: 10
+            bitWidth: 1
+          UNFL:
+            description: Underflow error flag
+            bitOffset: 9
+            bitWidth: 1
+          OVFL:
+            description: Overflow error flag
+            bitOffset: 8
+            bitWidth: 1
+          X1FULL:
+            description: X1 buffer full flag
+            bitOffset: 1
+            bitWidth: 1
+          YEMPTY:
+            description: Y buffer empty flag
+            bitOffset: 0
+            bitWidth: 1
+      WDATA:
+        description: Write data register
+        addressOffset: 0x18
+        resetValue: 0x00000000
+        fields:
+          WDATA:
+            description: Write data (write data are transferred to the address indicated by the write pointer)
+            bitOffset: 0
+            bitWidth: 16
+      RDATA:
+        description: Read data register
+        addressOffset: 0x1C
+        resetValue: 0x00000000
+        fields:
+          RES:
+            description: Read data (contents of the Y output buffer at the address indicated by the READ pointer)
+            bitOffset: 0
+            bitWidth: 16  
+    interrupts:
+      FMAC:
+        value: 153
+        description: FMAC interrupt
+
 # PWR block
 PWR:
   CR3:
@@ -502,6 +761,154 @@ MDIOS:
   _strip:
     - "MDIOS_"
 
+# -----------------------------------------------------------------------------
+# This is the list of missing interrupts and mis-named interrupts/registers I
+# found. That's 19 missing registers out of 169 total...
+# CORDIC and FMAC, including their register definitions, have already been 
+# added at the top of the file, in the _add section.
+# TODO: The blocks that are commented-out below should either go into an existing
+#       block, or have a new block made for them. It's probably better that I 
+#       don't improvise...
+# TODO: For USB OTG_HS, I picked the existing "OTG1_HS_GLOBAL" group, but this 
+#       should probably be OTG_HS instead for consistency with other devices. 
+#       The latter does not exist yet.
+TIM1:
+  _modify:
+    _interrupts:
+      TIM_CC:
+        name: TIM1_CC
+
+DCMI:
+  _modify:
+    _interrupts:
+      DCMI:
+        name: DCMI_PSSI
+        description: DCMI/PSSI global interrupt
+
+OTG1_HS_GLOBAL:
+  _add:
+    _interrupts:
+      OTG_HS_EP1_OUT:
+        value: 74
+        description: USB OTG_HS OUT endpoint1 global interrupt
+      OTG_HS_EP1_IN:
+        value: 75
+        description: USB OTG_HS IN endpoint1 global interrupt
+      OTG_HS_WKUP:
+        value: 76
+        description: USB OTG_HS wakeup Interrupt through EXTI line
+      OTG_HS:
+        value: 77
+        description: USB OTG_HS global interrupt
+
+RNG:
+  _add:
+    _interrupts:
+      HASH_RNG:
+        value: 80
+        description: HASH OR RNG interrupt
+
+LTDC:
+  _add:
+    _interrupts:
+      LTDC_ERR:
+        value: 89
+        description: LCD-TFT global Error interrupt
+
+#RAMECC:
+#  _add:
+#    _interrupts:
+#      ECC_DIAG_IT:
+#        value: 145
+#        description: ECC diagnostic global interrupt
+
+#TEMP:
+# TODO: This seems wrong. There is not a single mention of this interrupt
+#       (via find) in RM0468 outside of Table 140. I think this could actually
+#       be the DTS (digital temperature sensor) interrupt instead: 
+#       not TEMP_IT, but rather DTS_IT (dts_it shared with exti_dts_wkup).
+#  _add:
+#    _interrupts:
+#      TEMP_IT:
+#        value: 147
+#        description: Temperature sensor global interrupt
+
+#OTFDEC:
+#  _add:
+#    _interrupts:
+#      OTFDEC1:
+#        value: 151
+#        description: OTFDEC1 interrupt
+#      OTFDEC2:
+#        value: 152
+#        description: OTFDEC2 interrupt
+          
+#UART9:
+#  _add:
+#    _interrupts:
+#      UART9_IT_OR_UART9_WKUP:
+#        value: 155
+#        description: UART9 interrupt
+
+#USART10:
+#  _add:
+#    _interrupts:
+#      USART10:
+#        value: 156
+#        description: USART10 interrupt
+
+#I2C5:
+#  _add:
+#    _interrupts:
+#      I2C5_EV:
+#        value: 157 
+#        description: I2C5 event interrupt
+#      I2C5_ER:
+#        value: 158
+#        description: I2C5 error interrupt
+                
+#FDCAN3:
+#  _add:
+#    _interrupts:
+#      FDCAN3_IT0:
+#        value: 159
+#        description: FDCAN3 interrupt line 0        
+#      FDCAN3_IT1:
+#        value: 160
+#        description: FDCAN3 interrupt line 1
+
+#TIM23:
+#  _add:
+#    _interrupts:
+#      TIM23:
+#        value: 161 
+#        description: TIM23 global interrupt
+
+#TIM24:
+#  _add:
+#    _interrupts:                
+#      TIM24:
+#        value: 162
+#        description: TIM24 global interrupt
+
+# Modify the DBGMCU.CR register fields names to be consistent with RM0468.
+# TODO: Interesting aside: the svd lists these controls additionally for D2 and
+#       D3, while the RM0468 specifies those as reserved bits, while still having
+#       clock controls specified for D2, D3. Thus, it may not be unthinkable that
+#       the same name changes need to be done for D2, D3, even though the reference
+#       manual does not specify them. OR: perhaps remove the D2, D3 fields instead?
+DBGMCU:
+  CR:
+    _modify:
+      DBGSTBD1:
+        name: DBGSTBY_D1
+      DBGSTPD1:
+        name: DBGSTOP_D1
+      DBGSLPD1:
+        name: DBGSLEEP_D1
+        
+# -----------------------------------------------------------------------------
+
 _include:
  - common_patches/hdmi_cec.yaml
  - common_patches/h7_common_singlecore.yaml
@@ -583,3 +990,4 @@ _include:
  - common_patches/h7_crc_addr_fix.yaml
  - common_patches/h7_wwdg.yaml
  - common_patches/h7_ethernet_mac.yaml
+ - ../peripherals/cordic/cordic_h7.yaml
