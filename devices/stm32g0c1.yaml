@@ -4,8 +4,8 @@ _modify:
   name: STM32G0C1
 
 _delete:
-  DMA1:
-  DMA2:
+  - DMA1
+  - DMA2
 
 AES:
   _strip:
