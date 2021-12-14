@@ -158,3 +158,9 @@
       COMP1_OUT: [2, "TIM2x ETR input connected to COMP1_OUT"]
       LSE: [3, "TIM2x ETR input connected to LSE clock"]
 
+# TI2_RMP is only available on TIM21
+TIM21:
+  OR:
+    TI2_RMP:
+      GPIO: [0, "TIM2x TI2 input connected to GPIO"]
+      COMP2_OUT: [1, "TIM2x TI2 input connected to COMP2_OUT"]
