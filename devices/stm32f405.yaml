@@ -28,6 +28,15 @@ _modify:
         bitWidth: 1
         access: read-write
 
+TIM2:
+  OR:
+    ITR1_RMP:
+      _replace_enum:
+        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
+        PTP_TRGOUT: [1, "PTP trigger output is connected to TIM2_ITR1 input"]
+        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
+        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
