@@ -1,5 +1,8 @@
 _svd: ../svd/stm32h753v.svd
 
+_modify:
+     name: STM32H753v
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -113,3 +116,5 @@ _include:
  - common_patches/h7_crc_addr_fix.yaml
  - common_patches/h7_wwdg.yaml
  - common_patches/h7_ethernet_mac.yaml
+ - common_patches/h74x_syscfg_pwrcr.yaml
+ - common_patches/h743_hrtim_common.yaml
