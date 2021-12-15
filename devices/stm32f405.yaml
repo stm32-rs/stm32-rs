@@ -28,15 +28,6 @@ _modify:
         bitWidth: 1
         access: read-write
 
-TIM2:
-  OR:
-    ITR1_RMP:
-      _replace_enum:
-        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
-        PTP_TRGOUT: [1, "PTP trigger output is connected to TIM2_ITR1 input"]
-        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
-        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -116,6 +107,7 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - common_patches/tim/tim2_itr1_rmp.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml

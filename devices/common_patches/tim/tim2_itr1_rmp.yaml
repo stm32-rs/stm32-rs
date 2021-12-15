@@ -1,0 +1,13 @@
+# TIM2 peripheral on STM32F405/415, STM32F407/F417, STM32F427/437, STM32F429/439
+# can remap ITR1 to internal trigger signals
+#
+#
+
+TIM2:
+  OR:
+    ITR1_RMP:
+      _replace_enum:
+        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
+        PTP: [1, "Ethernet PTP clock is connected to TIM2_ITR1 input"]
+        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
+        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
