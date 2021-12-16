@@ -304,16 +304,17 @@ def process_svd(svdfile):
     return device
 
 
-def generate_if_newer(device):
+def generate_if_newer(arg):
+    device, htmldir = arg
     pagename = "{}.html".format(device["name"])
-    filename = os.path.join(args.htmldir, pagename)
+    filename = os.path.join(htmldir, pagename)
     isfile = os.path.isfile(filename)
     if not isfile or os.stat(filename).st_mtime < device['last-modified']:
         page = generate_device_page(device)
         print("Generating", pagename)
         with open(filename, "w", encoding='utf-8') as f:
             f.write(page)
-        shutil.copy(device["svdfile"], args.htmldir)
+        shutil.copy(device["svdfile"], htmldir)
 
 
 if __name__ == "__main__":
@@ -322,10 +323,9 @@ if __name__ == "__main__":
     parser.add_argument("svdfiles", help="Path to patched SVD files", nargs="*")
     args = parser.parse_args()
     devices = {}
-
     with multiprocessing.pool.ThreadPool() if sys.platform == 'win32' else multiprocessing.Pool() as p:
         devices = p.map(process_svd, args.svdfiles)
-        p.map(generate_if_newer, devices)
+        p.map(generate_if_newer, [(device,args.htmldir) for device in devices])
     devices = {d['name']: d for d in devices}
     index_page = generate_index_page(devices)
     with open(os.path.join(args.htmldir, "index.html"), "w", encoding='utf-8') as f:
