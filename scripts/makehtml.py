@@ -325,7 +325,7 @@ if __name__ == "__main__":
     devices = {}
     with multiprocessing.pool.ThreadPool() if sys.platform == 'win32' else multiprocessing.Pool() as p:
         devices = p.map(process_svd, args.svdfiles)
-        p.map(generate_if_newer, [(device,args.htmldir) for device in devices])
+        p.map(generate_if_newer, [(device, args.htmldir) for device in devices])
     devices = {d['name']: d for d in devices}
     index_page = generate_index_page(devices)
     with open(os.path.join(args.htmldir, "index.html"), "w", encoding='utf-8') as f:
