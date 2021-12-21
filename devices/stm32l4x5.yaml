@@ -9,12 +9,21 @@ _modify:
 ADC_Common:
   CCR:
     _modify:
+      MULT:
+        name: DUAL
+        description: Dual ADC mode selection
       TSEN:
         name: CH18SEL
         description: CH18 selection (Vbat)
       VBATEN:
         name: CH17SEL
         description: CH17 selection (temperature)
+    _add:
+      PRESC:
+        description: ADC prescaler
+        bitOffset: 18
+        bitWidth: 4
+        access: read-write
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
@@ -179,4 +188,5 @@ _include:
  - ./common_patches/l4_adc_smpr.yaml
  - ./common_patches/l4_adc_sqr1.yaml
  - ./common_patches/l4_spi.yaml
+ - ./common_patches/l4_gpio_ascr_brr.yaml
  - ../peripherals/spi/spi_l4.yaml

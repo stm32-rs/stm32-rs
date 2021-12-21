@@ -1,0 +1,20 @@
+"GPIO*":
+  _add:
+    ASCR:
+      description: GPIO port analog switch control register
+      addressOffset: 0x2C
+      fields:
+        ASC:
+          description: These bits are written by software to configure the analog connection of the IOs.
+          access: read-write
+          bitOffset: 0
+          bitWidth: 16
+    BRR:
+      description: GPIO port bit reset register
+      addressOffset: 0x28
+      fields:
+        BR:
+          description: These bits are write-only. A read to these bits returns the value 0x0000
+          access: read-only
+          bitOffset: 0
+          bitWidth: 16
