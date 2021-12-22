@@ -30,8 +30,5 @@
       LSE: [5, "TIM2 ETR input is connected to LSE"]
       HSI: [3, "TIM2 ETR input is connected to HSI16 when HSI16OUTEN bit is set"]
 
-"TIM21":
-  OR:
-    TI2_RMP:
-      GPIO: [0, "TIM2x TI2 input connected to GPIO"]
-      COMP2_OUT: [1, "TIM2x TI2 input connected to COMP2_OUT"] 
+_include:
+  - ./tim21.yaml
