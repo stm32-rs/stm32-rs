@@ -93,6 +93,12 @@ MPU:
   _strip:
     - "MPU_"
 
+TIM3:
+  CNT:
+    _modify:
+      CNT_or_UIFCPY:
+        name: UIFCPY
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml

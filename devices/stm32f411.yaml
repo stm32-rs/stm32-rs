@@ -155,10 +155,13 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/tim10_missing_opm.yaml
+ - common_patches/tim/tim11_missing_opm.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
+ - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml

@@ -10,9 +10,6 @@
     DIR:
       Up: [0, "Counter used as upcounter"]
       Down: [1, "Counter used as downcounter"]
-    OPM:
-      NotStopped: [0, "Counter is not stopped on the update event"]
-      Stopped: [1, "Counter stops counting on the next update event (clearing the CEN bit)"]
   CR2:
     MMS:
       Reset: [0, "Reset - the UG bit from the TIMx_EGR register is used as trigger output (TRGO)"]

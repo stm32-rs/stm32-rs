@@ -7,13 +7,19 @@ CNT:
     "CNT_L,CNTL":
       name: CNT
       description: Counter value
+  _delete:
+    - "CNT_H,CNTH"
 ARR:
   _modify:
     "ARR_L,ARRL":
       name: ARR
       description: "Auto-reload value"
+  _delete:
+    - "ARR_H,ARRH"
 CCR1:
   _modify:
-    "CCR1_L,CCR1L":
-      name: CCR1
+    "CCR1,CCR1_L,CCR1L":
+      name: CCR
       description: "Capture/Compare 1 value"
+  _delete:
+    - "CCR1_H,CCR1H"

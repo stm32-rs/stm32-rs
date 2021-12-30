@@ -42,7 +42,7 @@ _include:
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/rename_USART_CR1_M0_field.yaml
  - ./common_patches/merge_USART_BRR_fields.yaml
- - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim1_16bit.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim14_16bit.yaml
@@ -50,9 +50,6 @@ _include:
  - ../peripherals/tim/tim16_16bit.yaml
  - common_patches/tim/tim1_16bit_l.yaml
  - common_patches/tim/tim2345_16bit_l.yaml
- - common_patches/tim/tim14_16bit_l.yaml
- - common_patches/tim/tim15_16bit_l.yaml
- - common_patches/tim/tim16_16bit_l.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
