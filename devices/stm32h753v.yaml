@@ -1,8 +1,5 @@
 _svd: ../svd/stm32h753v.svd
 
-_modify:
-     name: STM32H753v
-
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
