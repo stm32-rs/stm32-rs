@@ -9,12 +9,9 @@
           access: read-write
           bitOffset: 0
           bitWidth: 16
-    BRR:
-      description: GPIO port bit reset register
-      addressOffset: 0x28
-      fields:
-        BR:
-          description: These bits are write-only. A read to these bits returns the value 0x0000
-          access: read-only
-          bitOffset: 0
-          bitWidth: 16
+  ASCR:
+    _split: [ASC]
+    ASC*:
+      _write:
+          NoAction: [0, "Disconnect analog switch to the ADC input"]
+          Reset: [1, " Connect analog switch to the ADC input"]
