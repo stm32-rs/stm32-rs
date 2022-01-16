@@ -1,7 +1,5 @@
 "TIM1,TIM15":
   CCMR1_Output:
-    _clear:
-      - OC1M?
     _modify:
       OC2M1:
         name: OC2M
@@ -27,8 +25,6 @@ TIM1:
 
 "TIM1[46]":
   CCMR1_Output:
-    _clear:
-      - OC1M?
     _modify:
       OC1M1:
         name: OC1M

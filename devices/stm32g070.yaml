@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g070.svd
 
+_clear_fields: ["*"]
+
 _modify:
   name: STM32G070
 
@@ -133,15 +135,6 @@ _add:
   USART3:
     derivedFrom: USART1
     baseAddress: "0x40004800"
-
-
-
-
-"TIM1,TIM2,TIM15":
-  SMCR:
-    _clear:
-      - SMS?
-      - TS?
 
 MPU:
   _strip:
