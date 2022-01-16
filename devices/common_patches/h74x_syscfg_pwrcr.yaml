@@ -1,0 +1,6 @@
+SYSCFG:
+  PWRCR:
+    _modify:
+      ODEN:
+        bitWidth: 1
+        description: "Overdrive enable"
