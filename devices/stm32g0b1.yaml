@@ -93,6 +93,7 @@ UCPD*:
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
+ - ../peripherals/dma/dma_v1.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml
  - ./common_patches/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
