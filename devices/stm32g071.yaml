@@ -3,6 +3,8 @@ _svd: ../svd/stm32g071.svd
 _modify:
   name: STM32G071
 
+_clear_fields: ["*"]
+
 _delete:
   - RNG
 
@@ -45,9 +47,6 @@ TIM1:
 
 TIM15:
   CCMR1_Output:
-    _clear:
-      - OC1M1
-      - OC1M2
     _modify:
       OC1M1:
         name: OC1M
@@ -57,12 +56,6 @@ TIM15:
         name: OC2M
       OC2M2:
         name: OC2M_3
-
-"TIM1,TIM3,TIM15":
-  SMCR:
-    _clear:
-      - SMS?
-      - TS?
 
 MPU:
   _strip:

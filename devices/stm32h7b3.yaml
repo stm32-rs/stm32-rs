@@ -1,5 +1,7 @@
 _svd: ../svd/stm32h7b3.svd
 
+_clear_fields: ["*"]
+
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
@@ -63,10 +65,6 @@ RCC:
     _delete:
       - LPTIM4LPEN
       - LPTIM5LPEN
-  RSR,C1_RSR:
-    _clear:
-      - RMVF
-      - "*RSTF"
 
 DBGMCU:
   APB4FZ1:

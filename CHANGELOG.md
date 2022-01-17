@@ -7,6 +7,12 @@
 
 Family-specific:
 
+* G0:
+    * Clear all vendor provided enumeratedValues
+
+* H7:
+    * h7b3: clear all enumeratedValues
+
 * F7:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)
 

@@ -3,6 +3,8 @@ _svd: ../svd/stm32g0c1.svd
 _modify:
   name: STM32G0C1
 
+_clear_fields: ["*"]
+
 _delete:
   - DMA1
   - DMA2
@@ -10,9 +12,6 @@ _delete:
 AES:
   _strip:
     - "AES_"
-  CR:
-    _clear:
-      - CHMOD?
 
 TIM1:
   _modify:
@@ -22,16 +21,8 @@ TIM1:
   _strip:
     - "TIM1_"
 
-"TIM1,TIM2,TIM15":
-  SMCR:
-    _clear:
-      - SMS?
-      - TS?
-
 "TIM1,TIM2":
   CCMR1_Output:
-    _clear:
-      - OC1M1
     _modify:
       OC1M1:
         name: OC1M
