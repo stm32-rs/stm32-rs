@@ -39,9 +39,14 @@ ADC:
   _strip:
     - "ADC_"
 
+I2C1:
+  _strip:
+    - "I2C_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/gpio/gpio_l0.yaml
 # TODO: add DMA
+ - ../peripherals/i2c/i2c_v2.yaml

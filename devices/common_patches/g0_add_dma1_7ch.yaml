@@ -922,14 +922,5 @@ _add:
             bitWidth: 32
 
 DMA1:
-  _cluster:
-    "CH%s":
-      description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
-      "CCR?":
-        name: CR
-      "CNDTR?":
-        name: NDTR
-      "CPAR?":
-        name: PAR
-      "CMAR?":
-        name: MAR
+  _include:
+    - dma/v1_array.yaml
