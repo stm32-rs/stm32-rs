@@ -1,0 +1,15 @@
+"SPI*":
+  CR1:
+    _modify:
+      DFF:
+        name: CRCL
+        description: "CRC length"
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: "Frame format error"
+  I2SCFGR:
+    _modify:
+      SE2:
+        name: I2SE

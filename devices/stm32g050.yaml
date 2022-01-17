@@ -43,6 +43,16 @@ I2C1:
   _strip:
     - "I2C_"
 
+"USART?":
+  _delete:
+    - CR1_FIFO_DISABLED
+    - ISR_FIFO_DISABLED
+  _modify:
+    CR1_FIFO_ENABLED:
+      name: CR1
+    ISR_FIFO_ENABLED:
+      name: ISR
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - common_patches/tim/v2/g0_1.yaml
@@ -51,3 +61,4 @@ _include:
 # TODO: add DMA
  - ../peripherals/i2c/i2c_v2.yaml
 # TODO: add SPI
+# TODO: usart CR1
