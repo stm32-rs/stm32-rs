@@ -24,3 +24,5 @@ _include:
  - ../peripherals/gpio/gpio_l0.yaml
  - common_patches/i2c/g0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - ./common_patches/rename_g0_SPI_registers.yaml
+ - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
