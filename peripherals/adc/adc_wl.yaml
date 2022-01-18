@@ -243,6 +243,14 @@ ADC:
     DATA: [0, 65535]
   CALFACT:
     CALFACT: [0, 127]
+  AWD2CR:
+    "AWD2CH*":
+      NotMonitored: [0, "ADC analog channel-x is not monitored by AWD2"]
+      Monitored: [1, "ADC analog channel-x is monitored by AWD2"]
+  AWD3CR:
+    "AWD3CH*":
+      NotMonitored: [0, "ADC analog channel-x is not monitored by AWD3"]
+      Monitored: [1, "ADC analog channel-x is monitored by AWD3"]
   CCR:
     VBATEN:
       Disabled: [0, "VBAT channel disabled"]

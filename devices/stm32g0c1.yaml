@@ -66,6 +66,11 @@ USB:
 ADC:
   _strip:
     - "ADC_"
+  _modify:
+    ADC_CHSELR:
+      name: CHSELR0
+    CHSELR_1:
+      name: CHSELR1
 
 "FDCAN?":
   _strip:
@@ -115,3 +120,4 @@ _include:
 # TODO: usart CR1
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
+ - ../peripherals/adc/adc_wl.yaml
