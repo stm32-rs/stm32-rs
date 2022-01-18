@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-* Updated to svd2rust 0.20
+* Updated to svd2rust 0.21
 * `SVDTOOLS` env value for specifying patching tool
 
 Family-specific:

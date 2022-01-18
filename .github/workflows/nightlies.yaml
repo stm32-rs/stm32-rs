@@ -37,7 +37,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: svd2rust --version 0.20.0
+          args: svd2rust --version 0.21.0
       - name: Install form
         if: steps.cache-cargo.outputs.cache-hit != 'true'
         uses: actions-rs/cargo@v1
