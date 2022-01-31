@@ -1,0 +1,6 @@
+Ethernet_MMC:
+  MMCTIMR:
+    _modify:
+      TGFM:
+        # SVDs for F2, F4, and F7 have TGFM in position 16 instead of 21.
+        bitOffset: 21

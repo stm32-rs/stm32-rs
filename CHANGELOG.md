@@ -13,8 +13,15 @@ Family-specific:
 * H7:
     * h7b3: clear all enumeratedValues
 
+* F2:
+    * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
+
+* F4:
+    * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
+
 * F7:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)
+    * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
 
 ## [v0.14.0] 2021-10-02
 
