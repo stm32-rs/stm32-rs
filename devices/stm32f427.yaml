@@ -184,6 +184,7 @@ _include:
  - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
  - common_patches/rcc_rename_plli2scfgr.yaml
  - common_patches/rcc_add_plli2sq_sai.yaml
  - common_patches/rcc_add_gpiojk.yaml
@@ -250,7 +251,6 @@ _include:
  - common_patches/usb_otg/otg_hs_fixes_v1.yaml
  - common_patches/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
- - ../peripherals/sai/sai.yaml
  - ../peripherals/rng/rng_v1.yaml
  - common_patches/f4_rtc_cr.yaml
  - ../peripherals/flash/flash_v1.yaml
