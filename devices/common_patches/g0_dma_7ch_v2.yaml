@@ -1,8 +1,17 @@
 
 # Fixes for STM32G0 devices with 7 DMA channels
 DMA:
-  _include:
-    - dma/v1_array.yaml
+  _cluster:
+    "CH%s":
+      description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
+      "CCR?":
+        name: CR
+      "CNDTR?":
+        name: NDTR
+      "CPAR?":
+        name: PAR
+      "CMAR?":
+        name: MAR
   _modify:
     IFCR:
       access: write-only
@@ -94,87 +103,87 @@ DMA:
         description: Clear channel 7 transfer error flag
   ISR:
     _modify:
-      GIF1:
+      GIF0:
         name: GIF1
         description: Channel 1 global interrupt flag
       TCIF1:
         name: TCIF1
         description: Channel 1 transfer complete flag
-      HTIF1:
+      HTIF2:
         name: HTIF1
         description: Channel 1 half transfer flag
-      TEIF1:
+      TEIF3:
         name: TEIF1
         description: Channel 1 transfer error flag
-      GIF2:
+      GIF4:
         name: GIF2
         description: Channel 2 global interrupt flag
-      TCIF2:
+      TCIF5:
         name: TCIF2
         description: Channel 2 transfer complete flag
-      HTIF2:
+      HTIF6:
         name: HTIF2
         description: Channel 2 half transfer flag
-      TEIF2:
+      TEIF7:
         name: TEIF2
         description: Channel 2 transfer error flag
-      GIF3:
+      GIF8:
         name: GIF3
         description: Channel 3 global interrupt flag
-      TCIF3:
+      TCIF9:
         name: TCIF3
         description: Channel 3 transfer complete flag
-      HTIF3:
+      HTIF10:
         name: HTIF3
         description: Channel 3 half transfer flag
-      TEIF3:
+      TEIF11:
         name: TEIF3
         description: Channel 3 transfer error flag
-      GIF4:
+      GIF12:
         name: GIF4
         description: Channel 4 global interrupt flag
-      TCIF4:
+      TCIF13:
         name: TCIF4
         description: Channel 4 transfer complete flag
-      HTIF4:
+      HTIF14:
         name: HTIF4
         description: Channel 4 half transfer flag
-      TEIF4:
+      TEIF15:
         name: TEIF4
         description: Channel 4 transfer error flag
-      GIF5:
+      GIF16:
         name: GIF5
         description: Channel 5 global interrupt flag
-      TCIF5:
+      TCIF17:
         name: TCIF5
         description: Channel 5 transfer complete flag
-      HTIF5:
+      HTIF18:
         name: HTIF5
         description: Channel 5 half transfer flag
-      TEIF5:
+      TEIF19:
         name: TEIF5
         description: Channel 5 transfer error flag
-      GIF6:
+      GIF20:
         name: GIF6
         description: Channel 6 global interrupt flag
-      TCIF6:
+      TCIF21:
         name: TCIF6
         description: Channel 6 transfer complete flag
-      HTIF6:
+      HTIF22:
         name: HTIF6
         description: Channel 6 half transfer flag
-      TEIF6:
+      TEIF23:
         name: TEIF6
         description: Channel 6 transfer error flag
-      GIF7:
+      GIF24:
         name: GIF7
         description: Channel 7 global interrupt flag
-      TCIF7:
+      TCIF25:
         name: TCIF7
         description: Channel 7 transfer complete flag
-      HTIF7:
+      HTIF26:
         name: HTIF7
         description: Channel 7 half transfer flag
-      TEIF7:
+      TEIF27:
         name: TEIF7
         description: Channel 7 transfer error flag
