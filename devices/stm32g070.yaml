@@ -120,6 +120,14 @@ TIM6:
         description: TIM7 global interrupt
         value: 18
 
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+
 USART1:
   _add:
     _interrupts:
