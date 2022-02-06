@@ -5,6 +5,9 @@ _modify:
   Flash:
     name: FLASH
 
+  ADC_Common:
+    name: ADC1_2
+
 _rebase:
   SPI1: SPI3
 
@@ -100,7 +103,7 @@ SYSCFG:
       - PAGE6_WP
       - PAGE7_WP
 
-ADC_Common:
+ADC1_2:
   _strip:
     - ADC1_
 
