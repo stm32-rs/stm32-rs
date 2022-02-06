@@ -45,6 +45,8 @@ ADC1:
     _modify:
       '*':
         access: read-write
+      JADST:
+        name: JADSTP
 
 ADC1_2:
   _delete:
