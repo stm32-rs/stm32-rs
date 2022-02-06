@@ -11,10 +11,6 @@ OTG_FS_GLOBAL:
       resetValue: 0x00000000
       access: read-only
       fields:
-        STSPHST:
-          description: Status phase start
-          bitOffset: 27
-          bitWidth: 1
         FRMNUM:
           description: Frame number
           bitOffset: 21
