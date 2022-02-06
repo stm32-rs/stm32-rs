@@ -1,6 +1,10 @@
 # For F401, F411
 
 OTG_FS_GLOBAL:
+  GINTMSK:
+    _modify:
+      PRTIM:
+        access: read-write
   _delete:
     GRXSTSR_Host
   _add:
@@ -93,6 +97,13 @@ OTG_FS_GLOBAL:
     DIEPTXF[123]:
       displayName: DIEPTXF%s
       description: OTF_FS device IN endpoint transmit FIFO size register
+
+
+OTG_FS_HOST:
+  HCFG:
+    _modify:
+      FSLSS:
+        access: read-write
 
 
 OTG_FS_DEVICE:
