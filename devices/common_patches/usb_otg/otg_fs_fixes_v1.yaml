@@ -11,8 +11,14 @@ OTG_FS_GLOBAL:
         description: Vbus sensing disable option
         bitOffset: 21
         bitWidth: 1
-  _delete:
-    GRXSTSR_Host
+
+  GRXSTSR_Host:
+    _delete:
+      - FRMNUM
+    _modify:
+      EPNUM:
+        name: CHNUM
+        description: Channel number
   _add:
     GRXSTSP_Device:
       description: OTG status read and pop (device mode)
@@ -65,6 +71,7 @@ OTG_FS_GLOBAL:
           description: Channel number
           bitOffset: 0
           bitWidth: 4
+  _modify:
     GRXSTSR_Host:
       description: OTG status debug read (host mode)
       addressOffset: 0x1C
@@ -72,24 +79,6 @@ OTG_FS_GLOBAL:
       resetValue: 0x00000000
       access: read-only
       alternateRegister: FS_GRXSTSR_Device
-      fields:
-        PKTSTS:
-          description: Packet status
-          bitOffset: 17
-          bitWidth: 4
-        DPID:
-          description: Data PID
-          bitOffset: 15
-          bitWidth: 2
-        BCNT:
-          description: Byte count
-          bitOffset: 4
-          bitWidth: 11
-        CHNUM:
-          description: Channel number
-          bitOffset: 0
-          bitWidth: 4
-  _modify:
     GNPTXFSIZ_Device:
       name: DIEPTXF0
       displayName: DIEPTXF0
