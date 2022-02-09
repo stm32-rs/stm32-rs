@@ -97,7 +97,7 @@
       Start: [1, "Starts conversion of channel"]
     ADDIS:
       _write:
-        Disable: [0, "Disable ADC conversion and go to power down mode"]
+        Disable: [1, "Disable ADC conversion and go to power down mode"]
     ADEN:
       _write:
         Enable: [1, "Enable ADC"]
