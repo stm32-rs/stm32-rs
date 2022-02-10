@@ -56,3 +56,11 @@ TIM[1-58]:
       # specific register field documentation in RMs
       DMAB:
         bitWidth: 32
+
+"TIM9,TIM1[0-4]":
+  CNT:
+    CNT: [0, 65535]
+  ARR:
+    ARR: [0, 65535]
+  CCR%s:
+    CCR: [0, 65535]
