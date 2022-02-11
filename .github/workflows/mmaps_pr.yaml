@@ -1,5 +1,8 @@
 name: compare mmaps
 
+env:
+  SVDTOOLS_VERSION: 0.2.1
+
 on:
   pull_request_target:
 
@@ -8,28 +11,42 @@ jobs:
     name: Compare mmaps
     runs-on: ubuntu-18.04
     continue-on-error: true
+
+    env:
+      SVDTOOLS: svdtools
+
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
         with:
           path: master
+
       - name: Checkout pull request
         uses: actions/checkout@v2
         with:
           ref: refs/pull/${{ github.event.number }}/head
           path: pr
+
       - name: Checkout mmaps
         uses: actions/checkout@v2
         with:
           repository: stm32-rs/stm32-rs-mmaps
           ssh-key: ${{ secrets.MMAPS_KEY }}
           path: mmaps
-      - name: Install Python dependencies
+
+      - name: Add fictive crate
         run: |
-          pip3 install --user setuptools wheel
-          pip3 install --user svdtools
-      - name: Put pip binary directory into path
-        run: echo "~/.local/bin" >> $GITHUB_PATH
+          cargo init
+
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
+        with:
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}
+
+      - name: Install svdtools
+        run: |
+          cargo install svdtools --version $SVDTOOLS_VERSION
+
       - name: Build and publish
         run: |
           # Grab commit ID from checked out PR

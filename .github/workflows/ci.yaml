@@ -1,11 +1,24 @@
 name: CI
 
+env:
+  SVDTOOLS_VERSION: 0.2.1
+  SVD2RUST_VERSION: 0.21.0
+  FORM_VERSION: 0.8.0
+
 on:
   push:
     branches: [ staging, trying, master ]
   pull_request:
 
 jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    needs: [check]
+    steps:
+      - name: Done
+        run: exit 0
+
   check:
     name: Check
     runs-on: ubuntu-latest
@@ -28,12 +41,16 @@ jobs:
           - stm32mp1
           - stm32wl
           - stm32wb
+
     env:
       CRATES: ${{ matrix.crate }}
       CARGO_INCREMENTAL: 0
+      SVDTOOLS: svdtools
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
@@ -41,38 +58,33 @@ jobs:
           profile: minimal
           override: true
           components: rustfmt
+
       - name: Install xmllint
         run: sudo apt-get install libxml2-utils
-      - name: Install Python dependencies
-        run: |
-          pip3 install --user setuptools wheel
-          pip3 install --user svdtools
-      - name: Put pip binary directory into path
-        run: echo "~/.local/bin" >> $GITHUB_PATH
-      - name: Cache Cargo installed binaries
-        uses: actions/cache@v1
-        id: cache-cargo
+
+      - name: Create working crate
+        run: make crates
+
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
         with:
-          path: ~/cargo-bin
-          key: ${{ runner.os }}-svd2rust-0.21.0
-      - name: Install svd2rust
-        if: steps.cache-cargo.outputs.cache-hit != 'true'
-        uses: actions-rs/install@v0.1
-        with:
-          crate: svd2rust
-          version: 0.21.0
-      - name: Copy svd2rust to cache directory
-        if: steps.cache-cargo.outputs.cache-hit != 'true'
+          working-directory: ${{ matrix.crate }}
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2rust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
+
+      - name: Install tools
         run: |
-          mkdir ~/cargo-bin
-          cp ~/.cargo/bin/svd2rust ~/cargo-bin
-      - name: Put new cargo binary directory into path
-        run: echo "~/cargo-bin" >> $GITHUB_PATH
+          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
+          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
+          cargo install form --version $FORM_VERSION --target-dir deps-target
+
       - name: Patch SVDs
         run: make -j2 patch
+
       - name: Check SVDs
         run: make lint
+
       - name: Build PACs
         run: make -j2 svd2rust
+
       - name: Check PACs
         run: make -j2 check
