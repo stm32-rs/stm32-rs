@@ -1,4 +1,10 @@
 name: build nightlies
+
+env:
+  SVDTOOLS_VERSION: 0.2.1
+  SVD2RUST_VERSION: 0.21.0
+  FORM_VERSION: 0.8.0
+
 on:
   push:
     branches:
@@ -8,17 +14,16 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
+
+    env:
+      SVDTOOLS: svdtools
+
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
         with:
           path: stm32-rs
-      - name: Install Python dependencies
-        run: |
-          pip3 install --user setuptools wheel
-          pip3 install --user svdtools
-      - name: Put pip binary directory into path
-        run: echo "~/.local/bin" >> $GITHUB_PATH
+
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
@@ -26,31 +31,22 @@ jobs:
           profile: minimal
           components: rustfmt
           override: true
-      - name: Cache Cargo installed binaries
-        uses: actions/cache@v1
-        id: cache-cargo
-        with:
-          path: ~/cargo-bin
-          key: ${{ runner.os }}-cargo-binaries-0.18.0
-      - name: Install svd2rust
-        if: steps.cache-cargo.outputs.cache-hit != 'true'
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: svd2rust --version 0.21.0
-      - name: Install form
-        if: steps.cache-cargo.outputs.cache-hit != 'true'
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: form --version 0.7.0
-      - name: Copy svd2rust and form to cache directory
-        if: steps.cache-cargo.outputs.cache-hit != 'true'
+
+      - name: Add fictive crate
         run: |
-          mkdir ~/cargo-bin
-          cp ~/.cargo/bin/{svd2rust,form} ~/cargo-bin
-      - name: Put cargo binary directory into path
-        run: echo "~/cargo-bin" >> $GITHUB_PATH
+          cargo init
+
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
+        with:
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2tust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
+          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
+          cargo install form --version $FORM_VERSION --target-dir deps-target
+
       - name: Deploy SSH key
         run: |
           mkdir ~/.ssh

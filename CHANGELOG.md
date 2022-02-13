@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Replace python svd tools with rust alternatives
 * Updated to svd2rust 0.21
 * `SVDTOOLS` env value for specifying patching tool
 
