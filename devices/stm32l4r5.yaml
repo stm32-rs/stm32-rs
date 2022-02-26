@@ -27,6 +27,22 @@ _copy:
 _derive:
   TIM4: TIM3
 
+
+DFSDM1:
+  _delete:
+    - CH7WDATR
+
+  _derive:
+    CH7WDATR:
+      _from: CH6WDATR
+      addressOffset: 0xEC
+      description: 'CH7WDATR'
+
+    CH7DATINR:
+      _from: CH6DATINR
+      addressOffset: 0xF0
+      description: 'CH7DATINR'
+
 MPU:
   _strip:
     - "MPU_"
