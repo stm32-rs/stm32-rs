@@ -13,6 +13,7 @@ Family-specific:
 
 * H7:
     * h7b3: clear all enumeratedValues
+    * h747: add flash registers mirrored in bank2
 
 * F2:
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
