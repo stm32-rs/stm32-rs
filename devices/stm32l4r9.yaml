@@ -28,6 +28,10 @@ RCC:
         name: SPI3EN
         description: SPI peripheral 3 clock enable
 
+_modify:
+  ADC:
+    name: ADC1
+
 _copy:
   TIM3:
     from: TIM2
@@ -40,6 +44,7 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/l4_adc_sqr1.yaml
  - common_patches/4_nvic_prio_bits.yaml
  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
  - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
