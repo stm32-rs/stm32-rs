@@ -24,6 +24,13 @@ _modify:
   ADC:
     name: ADC1
 
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 DFSDM1:
   _delete:
     - CH7WDATR
