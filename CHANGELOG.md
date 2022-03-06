@@ -20,6 +20,9 @@ Family-specific:
 * F4:
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
 
+* L4:
+    * Added missing channel 2 on TIM15
+
 * F7:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
