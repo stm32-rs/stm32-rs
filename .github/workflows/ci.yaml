@@ -60,7 +60,9 @@ jobs:
           components: rustfmt
 
       - name: Install xmllint
-        run: sudo apt-get install libxml2-utils
+        run: |
+          sudo apt-get update
+          sudo apt-get install libxml2-utils
 
       - name: Create working crate
         run: make crates
