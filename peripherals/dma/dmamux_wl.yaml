@@ -117,16 +117,11 @@ DMAMUX:
       lptim2_out: [19, "Signal `lptim2_out` selected as synchronization input"]
       lptim3_out: [20, "Signal `lptim3_out` selected as synchronization input"]
   CSR:
-    "SOF[0123456789]":
+    "SOF*":
       NoSyncEvent: [0, "No synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
       SyncEvent: [1, "Synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
-    "SOF1[0123]":
-      NoSyncEvent: [0, "No synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
-      SyncEvent: [1, "Synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
-  CCFR:
-    "CSOF[0123456789]":
-      Clear: [1, "Clear synchronization flag"]
-    "CSOF1[0123]":
+  "CFR,CCFR":
+    "CSOF*":
       Clear: [1, "Clear synchronization flag"]
   RGSR:
     "OF[0123]":

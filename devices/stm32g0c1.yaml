@@ -66,6 +66,11 @@ USB:
 ADC:
   _strip:
     - "ADC_"
+  _modify:
+    ADC_CHSELR:
+      name: CHSELR0
+    CHSELR_1:
+      name: CHSELR1
 
 "FDCAN?":
   _strip:
@@ -101,9 +106,22 @@ UCPD?:
 
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
+ - ../peripherals/dma/dma_v1.yaml
  - ./common_patches/g0_add_dma1_7ch.yaml
  - ./common_patches/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
  - common_patches/g0_usb_enum.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ../peripherals/tim/v2/ccm.yaml
+ - ../peripherals/gpio/gpio_l0.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+ - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
+# TODO: usart CR1
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - ../peripherals/wwdg/wwdg_v2.yaml
+ - ../peripherals/adc/adc_wl.yaml
+ - common_patches/tim/common.yaml
+ - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim6.yaml
+ - ../peripherals/tim/tim_advanced.yaml

@@ -1,0 +1,11 @@
+I2C1:
+  OAR1:
+    _delete:
+      - OA1_0
+      - OA1_7_1
+      - OA1_8_9
+    _add:
+      OA1:
+        description: "Interface address"
+        bitOffset: 0
+        bitWidth: 10
