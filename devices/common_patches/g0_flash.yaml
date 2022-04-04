@@ -1,0 +1,15 @@
+FLASH:
+  _modify:
+    # Fix access and reset values.
+    WRP??R:
+      access: read-write
+      resetValue: 0x000000ff
+    PCROP??SR:
+      access: read-write
+      resetValue: 0xffffffff
+    PCROP??ER:
+      access: read-write
+      resetValue: 0x00000000
+    SECR:
+      access: read-write
+      resetValue: 0x00000000
