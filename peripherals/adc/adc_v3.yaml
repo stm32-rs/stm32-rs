@@ -92,15 +92,29 @@
       SingleEnded: [0, "Calibration for single-ended mode"]
       Differential: [1, "Calibration for differential mode"]
     JADSTP,ADSTP:
-      Stop: [1, "Stop conversion of channel"]
+      _read:
+        NotStopping: [0, "No stop command active"]
+        Stopping: [1, "ADC stopping conversion"]
+      _write:
+        StopConversion: [1, "Stop the active conversion"]
     JADSTART,ADSTART:
-      Start: [1, "Starts conversion of channel"]
+      _read:
+        NotActive: [0, "No conversion ongoing"]
+        Active: [1, "ADC operating and may be converting"]
+      _write:
+        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
     ADDIS:
+      _read:
+        NotDisabling: [0, "No disable command active"]
+        Disabling: [1, "ADC disabling"]
       _write:
-        Disable: [0, "Disable ADC conversion and go to power down mode"]
+        Disable: [1, "Disable the ADC"]
     ADEN:
+      _read:
+        Disabled: [0, "ADC disabled"]
+        Enabled: [1, "ADC enabled"]
       _write:
-        Enable: [1, "Enable ADC"]
+        Enabled: [1, "Enable the ADC"]
   CFGR:
     AWD1CH: [0, 19]
     JAUTO:
