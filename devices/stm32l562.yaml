@@ -28,10 +28,15 @@ PKA:
 GTZC_MPCBB1:
   _strip:
     - "MPCBB1_"
-
+  _array:
+    "VCTR*":
+      name: VCTR%s
 GTZC_MPCBB2:
   _strip:
     - "MPCBB2_"
+  _array:
+    "VCTR*":
+      name: VCTR%s
 
 GTZC_TZIC:
   _strip:
