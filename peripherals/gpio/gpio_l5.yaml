@@ -1,5 +1,8 @@
 # This GPIO is used on the STM32L5 families.
 
+_include:
+  - gpio_with_brr.yaml
+
 "GPIO*":
   MODER:
     "MODE*":
