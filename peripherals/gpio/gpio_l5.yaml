@@ -38,10 +38,7 @@
       _write:
         Set: [1, "Sets the corresponding ODx bit"]
   LCKR:
-    "LCK[0123456789]":
-      Unlocked: [0, "Port configuration not locked"]
-      Locked: [1, "Port configuration locked"]
-    "LCK1[012345]":
+    "LCK[0123456789]*":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
     "LCKK":

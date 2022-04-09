@@ -22,10 +22,7 @@
         NoAction: [0, "No action on the corresponding ODx bit"]
         Reset: [1, "Reset the ODx bit"]
   LCKR:
-    "LCK[0123456789]":
-      Unlocked: [0, "Port configuration not locked"]
-      Locked: [1, "Port configuration locked"]
-    "LCK1[012345]":
+    "LCK[0123456789]*":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
     "LCKK":
