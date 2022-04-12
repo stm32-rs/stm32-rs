@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Checkout stm32-rs
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: stm32-rs
 
       - name: Checkout mmaps
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: stm32-rs/stm32-rs-mmaps
           ssh-key: ${{ secrets.MMAPS_KEY }}
