@@ -5,7 +5,7 @@ _include:
 
 "GPIO*":
   LCKR:
-    "LCK[0123456789]*":
+    "LCK[0123456789],LCK1[012345]":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
     "LCKK":
