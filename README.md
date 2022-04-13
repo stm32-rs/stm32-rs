@@ -90,7 +90,7 @@ contain the latest patches and updates.
 
 ## Generating Device Crates / Building Locally
 
-* Install `svd2rust`: `cargo install --version 0.22.1 svd2rust`
+* Install `svd2rust`: `cargo install --version 0.22.2 svd2rust`
 * Install `form`: `cargo install form`
 * Install rustfmt: `rustup component add rustfmt`
 * Install svdtools: `pip install --user svdtools`
