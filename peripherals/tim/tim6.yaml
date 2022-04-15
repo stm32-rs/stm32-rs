@@ -1,8 +1,8 @@
 # TIM6 and TIM7
-# Present accross all STM32 except STM32F401, STM32F413 and STM32F411 devices.
+# Present accross all STM32 except STM32F401 and STM32F411 devices.
 # STM32F410 has only TIM6
 
-"TIM6":
+"TIM[67]":
   CR2:
     MMS:
       Reset: [0, "Use UG bit from TIMx_EGR register"]
