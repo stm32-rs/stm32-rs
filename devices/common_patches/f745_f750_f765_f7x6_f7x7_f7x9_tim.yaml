@@ -4,15 +4,6 @@ TIM5:
       TI4_RMP:
         bitOffset: 6
 
-TIM10:
-  CR1:
-    _add:
-      OPM:
-        description: One-pulse mode
-        bitOffset: 3
-        bitWidth: 1
-        access: read-write
-
 TIM[16]:
   CNT:
     _add:

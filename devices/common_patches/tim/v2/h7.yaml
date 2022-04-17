@@ -3,41 +3,20 @@
 
 # These have fewer capture/compare registers
 
-# TIM12-14
+# TIM13,14,16,17
 # For 16bit timers where the SVD names fields ending "L" or "_L"
-"TIM1[2-4]":
-  CNT:
-    _modify:
-      "CNT_L,CNTL":
-        name: CNT
-        description: Counter value
-  ARR:
-    _modify:
-      "ARR_L,ARRL":
-        name: ARR
-        description: "Auto-reload value"
-  CCR1:
-    _modify:
-      "CCR1_L,CCR1L":
-        name: CCR
-        description: "Capture/Compare 1 value"
-
-# TIM15-17
-# For 16bit timers where the SVD names fields ending "L" or "_L"
-"TIM1[5-7]":
-  CCR1:
-    _modify:
-      "CCR1,CCR1_L,CCR1L":
-        name: CCR
-        description: "Capture/Compare 1 value"
+"TIM1[3467]":
+  _include:
+    - ../tim_1ch_16bit_l.yaml
+  _delete:
+    - CCR[234]
 
 # Dual channel timers
 "TIM1[25]":
-  CCR2:
-    _modify:
-      "CCR2,CCR2_L,CCR2L":
-        name: CCR
-        description: "Capture/Compare 2 value"
+  _include:
+    - ../tim_2ch_16bit_l.yaml
+  _delete:
+    - CCR[34]
 
 "TIM[18]":
   CCMR3_Output:

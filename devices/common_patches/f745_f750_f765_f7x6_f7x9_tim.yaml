@@ -17,10 +17,3 @@ TIM[18]:
         description: Break 2 polarity
         bitOffset: 25
         bitWidth: 1
-
-TIM2:
-  OR:
-    _modify:
-      ITR1_RMP:
-        bitOffset: 10
-        bitWidth: 2

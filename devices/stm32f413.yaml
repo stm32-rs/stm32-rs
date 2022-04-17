@@ -160,6 +160,12 @@ MPU:
   _strip:
     - "MPU_"
 
+TIM7:
+  CR1:
+    _delete: [UIFREMAP]
+  CNT:
+    _delete: [UIFCPY]
+
 _include:
  - common_patches/4_nvic_prio_bits.yaml
  - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
@@ -204,7 +210,8 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
- - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_basic_no_opm.yaml
+ - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
