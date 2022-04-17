@@ -8,14 +8,13 @@
   _include:
    - tim_gp1.yaml
 
-"TIM?,TIM?[12356789]":
+"TIM*":
   _include:
     - tim_no_opm.yaml
-    - tim_opm.yaml
 
-"TIM14":
+"TIM?,TIM1[256789],TIM2?":
   _include:
-    - tim_no_opm.yaml
+    - tim_opm.yaml
 
 "TIM[1-58-9],TIM??":
   _include:

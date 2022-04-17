@@ -184,9 +184,8 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
- - common_patches/tim/tim11_missing_opm.yaml
  - common_patches/tim/common.yaml
- - ../peripherals/tim/tim_basic.yaml
+ - ../peripherals/tim/tim_basic_no_opm.yaml
  - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim6.yaml
