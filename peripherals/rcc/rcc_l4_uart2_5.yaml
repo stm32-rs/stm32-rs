@@ -1,0 +1,16 @@
+# These are only supported on STM32L47xxx, STM32L48xxx, STM32L49xxx and STM32L4Axxx.
+
+RCC:
+  APB1ENR1:
+    USART5EN:
+      Disabled: [0, "USART5 clock disabled"]
+      Enabled: [1, "USART5 clock enabled"]
+    USART4EN:
+      Disabled: [0, "USART4 clock disabled"]
+      Enabled: [1, "USART4 clock enabled"]
+    USART3EN:
+      Disabled: [0, "USART3 clock disabled"]
+      Enabled: [1, "USART3 clock enabled"]
+    USART2EN:
+      Disabled: [0, "USART2 clock disabled"]
+      Enabled: [1, "USART2 clock enabled"]
