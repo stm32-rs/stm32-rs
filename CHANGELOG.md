@@ -20,6 +20,7 @@ Family-specific:
 
 * F4:
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
+    * Fix OTG_FS registers
 
 * F7:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)

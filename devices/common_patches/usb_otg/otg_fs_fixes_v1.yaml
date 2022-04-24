@@ -1,6 +1,24 @@
 # For F401, F411
 
 OTG_FS_GLOBAL:
+  GINTMSK:
+    _modify:
+      PRTIM:
+        access: read-write
+  GCCFG:
+    _add:
+      NOVBUSSENS:
+        description: Vbus sensing disable option
+        bitOffset: 21
+        bitWidth: 1
+
+  GRXSTSR_Host:
+    _delete:
+      - FRMNUM
+    _modify:
+      EPNUM:
+        name: CHNUM
+        description: Channel number
   _add:
     GRXSTSP_Device:
       description: OTG status read and pop (device mode)
@@ -9,10 +27,6 @@ OTG_FS_GLOBAL:
       resetValue: 0x00000000
       access: read-only
       fields:
-        STSPHST:
-          description: Status phase start
-          bitOffset: 27
-          bitWidth: 1
         FRMNUM:
           description: Frame number
           bitOffset: 21
@@ -33,7 +47,6 @@ OTG_FS_GLOBAL:
           description: Endpoint number
           bitOffset: 0
           bitWidth: 4
-
     GRXSTSP_Host:
       description: OTG status read and pop (host mode)
       addressOffset: 0x20
@@ -58,8 +71,14 @@ OTG_FS_GLOBAL:
           description: Channel number
           bitOffset: 0
           bitWidth: 4
-
   _modify:
+    GRXSTSR_Host:
+      description: OTG status debug read (host mode)
+      addressOffset: 0x1C
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      alternateRegister: FS_GRXSTSR_Device
     GNPTXFSIZ_Device:
       name: DIEPTXF0
       displayName: DIEPTXF0
@@ -73,6 +92,13 @@ OTG_FS_GLOBAL:
     DIEPTXF[123]:
       displayName: DIEPTXF%s
       description: OTF_FS device IN endpoint transmit FIFO size register
+
+
+OTG_FS_HOST:
+  HCFG:
+    _modify:
+      FSLSS:
+        access: read-write
 
 
 OTG_FS_DEVICE:
