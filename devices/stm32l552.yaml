@@ -42,6 +42,8 @@ _include:
  - common_patches/dma_interrupt_names.yaml
  - ../peripherals/gpio/gpio_l5.yaml
  - ../peripherals/rcc/rcc_l5.yaml
+ - common_patches/rtc/alarm.yaml
+ - common_patches/rtc/tamp_bkpr.yaml
  - ./common_patches/sai/sai_v1.yaml
  - common_patches/tim/v2/l5.yaml
  - ../peripherals/tim/v2/ccm.yaml
