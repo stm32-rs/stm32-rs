@@ -3,3 +3,27 @@ RTC:
     "ALRM?R": {}
     "ALRM?SSR": {}
     "ALR?BINR": {}
+TAMP:
+  _array:
+    "BKP*R": {}
+  _modify:
+    BKP10R:
+      addressOffset: 0x128
+    BKP11R:
+      addressOffset: 0x12C
+    BKP12R:
+      addressOffset: 0x130
+    BKP13R:
+      addressOffset: 0x134
+    BKP14R:
+      addressOffset: 0x138
+    BKP15R:
+      addressOffset: 0x13C
+    BKP16R:
+      addressOffset: 0x140
+    BKP17R:
+      addressOffset: 0x144
+    BKP18R:
+      addressOffset: 0x148
+    BKP19R:
+      addressOffset: 0x14C
