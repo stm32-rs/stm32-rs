@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Use PascalCase for values of enums
 * Added missing TIMx:CR1:OPM, removed unused CNT_H, ARR_H, CCR_H
 * Replace python svd tools with rust alternatives
 * Updated to svd2rust 0.23.0
