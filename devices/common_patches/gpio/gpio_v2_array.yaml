@@ -1,29 +1,38 @@
 "GPIO*":
   MODER:
     _array:
-      "MODER*": {}
+      "MODER*":
+        description: Port x configuration bits (y = 0..15)
   OTYPER:
     _array:
-      "OT*": {}
+      "OT*":
+        description: Port x configuration bits (y = 0..15)
   OSPEEDR:
     _array:
-      "OSPEEDR*": {}
+      "OSPEEDR*":
+        description: Port x configuration bits (y = 0..15)
   PUPDR:
     _array:
-      "PUPDR*": {}
+      "PUPDR*":
+        description: Port x configuration bits (y = 0..15)
   IDR:
     _array:
-      "IDR*": {}
+      "IDR*":
+        description: Port input data (y = 0..15)
   ODR:
     _array:
-      "ODR*": {}
+      "ODR*":
+        description: Port output data (y = 0..15)
   BSRR:
     _array:
-      "BR*": {}
-      "BS*": {}
+      "BR*":
+        description: Port x reset bit y (y = 0..15)
+      "BS*":
+        description: Port x set bit y (y= 0..15)
   LCKR:
     _array:
-      "LCK[0-9],LCK1[0-5]": {}
+      "LCK[0-9],LCK1[0-5]":
+        description: Port x lock bit y (y= 0..15)
   AFRL:
     _array:
       "AFR*": {}

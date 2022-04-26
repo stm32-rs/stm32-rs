@@ -17,9 +17,13 @@
       "LCK[0-9],LCK1[0-5]": {}
   CRL:
     _array:
-      CNF*: {}
-      MODE*: {}
+      CNF*:
+        description: Port n.%s configuration bits
+      MODE*:
+        description: Port n.%s mode bits
   CRH:
     _array:
-      CNF*: {}
-      MODE*: {}
+      CNF*:
+        description: Port n.%s configuration bits
+      MODE*:
+        description: Port n.%s mode bits
