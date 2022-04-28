@@ -12,6 +12,9 @@ Family-specific:
 * G0:
     * Clear all vendor provided enumeratedValues
 
+* G4:
+    * RCC: Remove RNGSMEN -> RNGEN renaming to have AHB2SMENR.RNGSMEN
+
 * H7:
     * h7b3: clear all enumeratedValues
 
