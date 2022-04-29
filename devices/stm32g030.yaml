@@ -14,7 +14,7 @@ TIM1:
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
- - ../peripherals/dma/single_dma_v1.yaml
+# - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/g0_dma_5ch.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - ../peripherals/gpio/gpio_l0.yaml
@@ -28,7 +28,7 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../devices/common_patches/g0_adc.yaml
- - ../peripherals/adc/adc_wl.yaml
+# - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_advanced.yaml

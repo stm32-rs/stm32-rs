@@ -65,6 +65,10 @@ DAC:
   _strip:
     - "DAC_"
 
+ADC:
+  _strip:
+    - "ADC_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
@@ -81,8 +85,8 @@ _include:
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
- - ../devices/common_patches/g0_adc.yaml
- - ../peripherals/adc/adc_wl.yaml
+# - ../devices/common_patches/g0_adc.yaml
+# - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
