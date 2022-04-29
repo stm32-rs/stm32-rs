@@ -136,10 +136,6 @@ _add:
     derivedFrom: USART1
     baseAddress: "0x40004800"
 
-MPU:
-  _strip:
-    - "MPU_"
-
 DMAMUX:
   _strip:
     - "DMAMUX_"
