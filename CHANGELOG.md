@@ -15,6 +15,11 @@ Family-specific:
 * H7:
     * h7b3: clear all enumeratedValues
 
+* F1:
+    * F103
+        * Rename CANEN, CANRST to CAN1EN, CAN1RST in (APB1EN and APB1RST)
+        * Add CAN2EN, CAN2RST
+
 * F2:
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
 

@@ -38,6 +38,32 @@ RCC:
         name: USBPRE
         description: USB prescaler
 
+  # According to RM0008, connectivity line has CAN2
+  # Normalize CAN to CAN1
+  APB1ENR:
+    _modify:
+      CANEN:
+        name: CAN1EN
+        description: "CAN1 clock enable"
+
+    _add:
+      CAN2EN:
+        bitOffset: 26
+        bitWidth: 1
+        description: "CAN2 clock enable"
+
+  APB1RSTR:
+    _modify:
+      CANRST:
+        name: CAN1RST
+        description: "CAN1 reset"
+
+    _add:
+      CAN2RST:
+        bitOffset: 26
+        bitWidth: 1
+        description: "CAN2 reset"
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
