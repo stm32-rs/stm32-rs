@@ -14,6 +14,76 @@ _derive:
       OC6M_bit3:
         name: OC6M_3
 
+  CR1:
+    CKD:
+      Div1: [0, "t_DTS = t_CK_INT"]
+      Div2: [1, "t_DTS = 2 × t_CK_INT"]
+      Div4: [2, "t_DTS = 4 × t_CK_INT"]
+    CMS:
+      EdgeAligned: [0, "The counter counts up or down depending on the direction bit"]
+      CenterAligned1: [1, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting down."]
+      CenterAligned2: [2, "The counter counts up and down alternatively. Output compare interrupt flags are set only when the counter is counting up."]
+      CenterAligned3: [3, "The counter counts up and down alternatively. Output compare interrupt flags are set both when the counter is counting up or down."]
+    DIR:
+      Up: [0, "Counter used as upcounter"]
+      Down: [1, "Counter used as downcounter"]
+    CEN:
+      Disabled: [0, "Counter disabled"]
+      Enabled: [1, "Counter enabled"]
+
+  CCMR1_Output:
+    OC2PE:
+      Disabled: [0, "Preload register on CCR2 disabled. New values written to CCR2 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR2 enabled. Preload value is loaded into active register on each update event"]
+    CC2S:
+      Output: [0, "CC2 channel is configured as output"]
+    OC1PE:
+      Disabled: [0, "Preload register on CCR1 disabled. New values written to CCR1 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR1 enabled. Preload value is loaded into active register on each update event"]
+    CC1S:
+      Output: [0, "CC1 channel is configured as output"]
+
+  CCMR2_Output:
+    OC4PE:
+      Disabled: [0, "Preload register on CCR4 disabled. New values written to CCR4 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR4 enabled. Preload value is loaded into active register on each update event"]
+    CC4S:
+      Output: [0, "CC4 channel is configured as output"]
+    OC3PE:
+      Disabled: [0, "Preload register on CCR3 disabled. New values written to CCR3 are taken into account immediately"]
+      Enabled: [1, "Preload register on CCR3 enabled. Preload value is loaded into active register on each update event"]
+    CC3S:
+      Output: [0, "CC3 channel is configured as output"]
+
+  DIER:
+    TDE:
+      Disabled: [0, "Trigger DMA request disabled"]
+      Enabled: [1, "Trigger DMA request enabled"]
+    "CC?DE":
+      Disabled: [0, "CCx DMA request disabled"]
+      Enabled: [1, "CCx DMA request enabled"]
+    UDE:
+      Disabled: [0, "Update DMA request disabled"]
+      Enabled: [1, "Update DMA request enabled"]
+    TIE:
+      Disabled: [0, "Trigger interrupt disabled"]
+      Enabled: [1, "Trigger interrupt enabled"]
+    "CC?IE":
+      Disabled: [0, "CCx interrupt disabled"]
+      Enabled: [1, "CCx interrupt enabled"]
+    UIE:
+      Disabled: [0, "Update interrupt disabled"]
+      Enabled: [1, "Update interrupt enabled"]
+
+  PSC:
+    _modify:
+      PSC:
+        bitOffset: 0
+        bitWidth: 16
+        _write_constraint: [0, 65535]
+
+
+
 TIM2:
   CNT:
     _modify:
@@ -33,15 +103,26 @@ TIM2:
   CNT:
     _modify:
       CNT:
+        bitOffset: 0
         bitWidth: 16
+        _write_constraint: [0, 65535]
   ARR:
     _modify:
       ARR:
-        bitWidth: 20
+        bitOffset: 0
+        bitWidth: 16
+        _write_constraint: [0, 65535]
   CCR?:
     _modify:
       CCR?:
-        bitWidth: 20
+        bitOffset: 0
+        bitWidth: 16
+        _write_constraint: [0, 65535]
+      CCR:
+        bitOffset: 0
+        bitWidth: 16
+        _write_constraint: [0, 65535]
+
 
 _include:
  - ../tim_ccr.yaml

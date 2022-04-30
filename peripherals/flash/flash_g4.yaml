@@ -1,0 +1,131 @@
+FLASH:
+  # Device-specific, based on amount of flash available.
+  # _add:
+    # PCROP2SR:
+    #   description: Proprietary code readout protection 2 start
+    #   addressOffset: 0x0044
+    #   access: read-write
+    #   size: 32
+    #   resetValue: 0xFFFFxxxx
+    #   fields:
+    #     PCROP2_STRT:
+    #       description: PCROP area start offset
+    #       msb: 14
+    #       lsb: 0
+    # PCROP2ER:
+    #   description: Proprietary code readout protection 2 end
+    #   addressOffset: 0x0048
+    #   access: read-write
+    #   size: 32
+    #   resetValue: 0x0000xxxx
+    #   fields:
+    #     PCROP2_END:
+    #       description: PCROP area end offset
+    #       msb: 14
+    #       lsb: 0
+    # WRP2AR:
+    #   description: Bank 2 WRP area A address
+    #   addressOffset: 0x004C
+    #   access: read-write
+    #   size: 32
+    #   resetValue: 0x00xx00xx
+    #   fields:
+    #     WRP2A_END:
+    #       description: WRP first area A end offset
+    #       msb: 22
+    #       lsb: 16
+    #     WRP2A_STRT:
+    #       description: WRP first area A start offset
+    #       msb: 6
+    #       lsb: 0
+    # WRP2BR:
+    #   description: Bank 2 WRP area B address
+    #   addressOffset: 0x0050
+    #   access: read-write
+    #   size: 32
+    #   resetValue: 0x00xx00xx
+    #   fields:
+    #     WRP2B_END:
+    #       description: WRP first area B end offset
+    #       msb: 22
+    #       lsb: 16
+    #     WRP2B_STRT:
+    #       description: WRP first area B start offset
+    #       msb: 6
+    #       lsb: 0
+    # SEC2R:
+    #   description: Flash securable area bank2
+    #   addressOffset: 0x0074
+    #   access: read-write
+    #   size: 32
+    #   resetValue: 0xFFFFFFXX
+    #   fields:
+    #     SEC_SIZE2:
+    #       description: number of pages in secure bank 2
+    #       msb: 7
+    #       lsb: 0
+
+  ACR:
+    DCRST:
+      NotReset: [0, "Data cache is not reset"]
+      Reset: [1, "Data cache is reset"]
+    ICRST:
+      NotReset: [0, "Instruction cache is not reset"]
+      Reset: [1, "Instruction cache is reset"]
+    DCEN:
+      Disabled: [0, "Data cache is disabled"]
+      Enabled: [1, "Data cache is enabled"]
+    ICEN:
+      Disabled: [0, "Instruction cache is disabled"]
+      Enabled: [1, "Instruction cache is enabled"]
+    PRFTEN:
+      Disabled: [0, "Prefetch is disabled"]
+      Enabled: [1, "Prefetch is enabled"]
+    LATENCY:
+      Zero: [0, "Zero wait state"]
+      One: [1, "One wait state"]
+      Two: [2, "Two wait states"]
+      Three: [3, "Three wait states"]
+      Four: [4, "Four wait states"]
+      Five: [5, "Five wait states"]
+      Six: [6, "Six wait states"]
+      Seven: [7, "Seven wait states"]
+      Eight: [8, "Eight wait states"]
+      Nine: [9, "Nine wait states"]
+      Ten: [10, "Ten wait states"]
+      Eleven: [11, "Eleven wait states"]
+      Twelve: [12, "Twelve wait states"]
+      Thirteen: [13, "Thirteen wait states"]
+      Fourteen: [14, "Fourteen wait states"]
+      Fifteen: [15, "Fifteen wait states"]
+
+  CR:
+    _add:
+      SEC_PROT2:
+        description: Securable memory area protection bank 2
+        bitOffset: 29
+        bitWidth: 1
+      MER2:
+        description: Bank 2 mass erase
+        bitOffset: 15
+        bitWidth: 1
+      BKER:
+        description: Bank erase
+        bitOffset: 11
+        bitWidth: 1
+  OPTR:
+    _modify:
+      SRAM2_RST:
+        name: CCMSRAM_RST
+        description: CCM SRAM Erase when system reset
+      SRAM2_PE:
+        name: SRAM_PE
+    _add:
+      DBANK:
+        description: Single or dual bank mode
+        bitOffset: 22
+        bitWidth: 1
+      BFB2:
+        description: Dual-bank boot
+        bitOffset: 20
+        bitWidth: 1
