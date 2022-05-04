@@ -73,14 +73,7 @@ _include:
       RisingEdge: [1, "Trigger detection on the rising edge"]
       FallingEdge: [2, "Trigger detection on the falling edge"]
       BothEdges: [3, "Trigger detection on both the rising and falling edges"]
-    EXTSEL:
-      TIM1CC1: [0, "Timer 1 CC1 event"]
-      TIM1CC2: [1, "Timer 1 CC2 event"]
-      TIM1CC3: [2, "Timer 1 CC3 event"]
-      TIM2CC2: [3, "Timer 2 CC2 event"]
-      TIM2CC3: [4, "Timer 2 CC3 event"]
-      TIM2CC4: [5, "Timer 2 CC4 event"]
-      TIM2TRGO: [6, "Timer 2 TRGO event"]
+    # xEXTSEL is now handled in the adc_v2_extsel_x.yaml
     JSWSTART:
       _write:
         Start: [1, "Starts conversion of injected channels"]
@@ -89,21 +82,6 @@ _include:
       RisingEdge: [1, "Trigger detection on the rising edge"]
       FallingEdge: [2, "Trigger detection on the falling edge"]
       BothEdges: [3, "Trigger detection on both the rising and falling edges"]
-    JEXTSEL:
-      TIM1TRGO: [0, "Timer 1 TRGO event"]
-      TIM1CC4: [1, "Timer 1 CC4 event"]
-      TIM2TRGO: [2, "Timer 2 TRGO event"]
-      TIM2CC1: [3, "Timer 2 CC1 event"]
-      TIM3CC4: [4, "Timer 3 CC4 event"]
-      TIM4TRGO: [5, "Timer 4 TRGO event"]
-      TIM8CC4: [7, "Timer 8 CC4 event"]
-      TIM1TRGO2: [8, "Timer 1 TRGO(2) event"]
-      TIM8TRGO: [9, "Timer 8 TRGO event"]
-      TIM8TRGO2: [10, "Timer 8 TRGO(2) event"]
-      TIM3CC3: [11, "Timer 3 CC3 event"]
-      TIM5TRGO: [12, "Timer 5 TRGO event"]
-      TIM3CC1: [13, "Timer 3 CC1 event"]
-      TIM6TRGO: [14, "Timer 6 TRGO event"]
     ALIGN:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
