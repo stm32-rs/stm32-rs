@@ -1,6 +1,8 @@
 
 # Fixes for STM32G0 devices with 7 DMA channels
 DMA:
+  _strip:
+    - "DMA_"
   _include:
     - dma/v1_array.yaml
   _modify:

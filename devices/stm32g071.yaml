@@ -57,10 +57,6 @@ TIM15:
       OC2M2:
         name: OC2M_3
 
-MPU:
-  _strip:
-    - "MPU_"
-
 DMAMUX:
   _strip:
     - "DMAMUX_"
@@ -69,10 +65,13 @@ DAC:
   _strip:
     - "DAC_"
 
+ADC:
+  _strip:
+    - "ADC_"
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
- - ./common_patches/g0_adc_typo.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/g0_dma_7ch.yaml
  - ../peripherals/tim/v2/ccm.yaml
@@ -86,8 +85,8 @@ _include:
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
- - ../devices/common_patches/g0_adc.yaml
- - ../peripherals/adc/adc_wl.yaml
+# - ../devices/common_patches/g0_adc.yaml
+# - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml

@@ -1,16 +1,13 @@
-_include:
-  - wl_adc.yaml
-
 ADC:
+  _strip:
+    - "ADC_"
+
   _modify:
-    CHSELR:
+    CHSELR_0:
       name: CHSELR0
     CHSELR_1:
       name: CHSELR1
-  CFGR1:
-    _modify:
-      AWDCH1CH:
-        name: AWD1CH
+
   DR:
     _modify:
       regularDATA:

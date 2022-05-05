@@ -1,6 +1,8 @@
 # Fixes for STM32G0 devices with 5 DMA channels
 # This patch removes register fields for channels 6 and 7
 DMA:
+  _strip:
+    - "DMA_"
   _include:
     - dma/v1_array.yaml
   _modify:

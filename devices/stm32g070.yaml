@@ -136,10 +136,6 @@ _add:
     derivedFrom: USART1
     baseAddress: "0x40004800"
 
-MPU:
-  _strip:
-    - "MPU_"
-
 DMAMUX:
   _strip:
     - "DMAMUX_"
@@ -147,7 +143,6 @@ DMAMUX:
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
- - ./common_patches/g0_adc_typo.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/g0_dma_7ch.yaml
  - common_patches/tim/v2/g0_1.yaml
@@ -163,7 +158,7 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../devices/common_patches/g0_adc.yaml
- - ../peripherals/adc/adc_wl.yaml
+# - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
