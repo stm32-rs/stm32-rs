@@ -41,12 +41,17 @@ RNG:
     SEIS:
       NoFault: [0, "No faulty sequence detected"]
       Fault: [1, "At least one faulty sequence has been detected"]
-    CEIS,CECS:
+    CEIS:
       Correct: [0, "The RNG clock is correct (fRNGCLK> fHCLK/32)"]
       Slow: [1, "The RNG clock before internal divider has been detected too slow (fRNGCLK< fHCLK/32)"]
     SECS:
-      NoFault: [0, "No faulty sequence has currently been detected. If the SEIS bit is set, this means that a faulty sequence was detected and the situation has been recovered"]
-      Fault: [1, "At least one faulty sequence has been detected - see ref manual for details"]
+      _read:
+        NoFault: [0, "No faulty sequence has currently been detected. If the SEIS bit is set, this means that a faulty sequence was detected and the situation has been recovered"]
+        Fault: [1, "At least one faulty sequence has been detected - see ref manual for details"]
+    CECS:
+      _read:
+        Correct: [0, "The RNG clock is correct (fRNGCLK> fHCLK/32)"]
+        Slow: [1, "The RNG clock before internal divider has been detected too slow (fRNGCLK< fHCLK/32)"]
     DRDY:
       Invalid: [0, "The RNG_DR register is not yet valid, no random data is available"]
       Valid: [1, "The RNG_DR register contains valid random data"]

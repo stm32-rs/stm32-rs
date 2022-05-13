@@ -104,6 +104,11 @@ UCPD?:
   _strip:
     - "UCPD_"
 
+SPI1:
+  _modify:
+    "*":
+      size: 32
+
 _include:
  - ./common_patches/2_nvic_prio_bits.yaml
  - ../peripherals/dma/dma_v1.yaml
