@@ -86,19 +86,11 @@ HSEM:
     HSEM_MISR:
       name:
         C1MISR
-  "R[0123456789]":
+  "R[0-9],R1[0-5]":
     _modify:
       MASTERID:
         name: COREID
-  "R1[012345]":
-    _modify:
-      MASTERID:
-        name: COREID
-  "RLR[0123456789]":
-    _modify:
-      MASTERID:
-        name: COREID
-  "RLR1[012345]":
+  "RLR[0-9],RLR1[0-5]":
     _modify:
       MASTERID:
         name: COREID

@@ -111,6 +111,8 @@ HRTIM_Common:
   _modify:
     BDMUPDR:
       name: BDMUPR
+    OENR:
+      access: read-write
     _interrupts:
       HRTIM1_FLT:
         name: HRTIM_FLT

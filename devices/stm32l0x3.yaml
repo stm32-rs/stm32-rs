@@ -67,6 +67,9 @@ FLASH:
         name: FRE
 
 RCC:
+  _modify:
+    CICR:
+      access: write-only
   CR:
     _modify:
       CSSLSEON:
