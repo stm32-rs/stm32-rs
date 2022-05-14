@@ -1,9 +1,9 @@
 name: build nightlies
 
 env:
-  SVDTOOLS_VERSION: 0.2.3
-  SVD2RUST_VERSION: 0.24.1
-  FORM_VERSION: 0.8.0
+  SVDTOOLS_VERSION: v0.2.5
+  SVD2RUST_VERSION: v0.25.0
+  FORM_VERSION: v0.10.0
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     env:
       SVDTOOLS: svdtools
@@ -37,15 +37,10 @@ jobs:
           cargo init
 
       - name: Cache dependencies
-        uses: Swatinem/rust-cache@v1
-        with:
-          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2tust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
+        uses: Swatinem/rust-cache@v2
 
-      - name: Install dependencies
-        run: |
-          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
-          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
-          cargo install form --version $FORM_VERSION --target-dir deps-target
+      - name: Install tools
+        run: make install
 
       - name: Deploy SSH key
         run: |

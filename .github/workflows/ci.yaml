@@ -1,9 +1,8 @@
 name: CI
 
 env:
-  SVDTOOLS_VERSION: 0.2.3
-  SVD2RUST_VERSION: 0.24.1
-  FORM_VERSION: 0.8.0
+  SVDTOOLS_VERSION: v0.2.5
+  SVD2RUST_VERSION: v0.25.0
 
 on:
   push:
@@ -68,16 +67,12 @@ jobs:
         run: make crates
 
       - name: Cache dependencies
-        uses: Swatinem/rust-cache@v1
+        uses: Swatinem/rust-cache@v2
         with:
           working-directory: ${{ matrix.crate }}
-          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2rust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
 
       - name: Install tools
-        run: |
-          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
-          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
-          cargo install form --version $FORM_VERSION --target-dir deps-target
+        run: make install
 
       - name: Patch SVDs
         run: make -j2 patch

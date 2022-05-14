@@ -1,7 +1,7 @@
 name: build mmaps
 
 env:
-  SVDTOOLS_VERSION: 0.2.3
+  SVDTOOLS_VERSION: v0.2.5
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build mmaps
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     env:
       SVDTOOLS: svdtools
@@ -33,14 +33,8 @@ jobs:
         run: |
           cargo init
 
-      - name: Cache dependencies
-        uses: Swatinem/rust-cache@v1
-        with:
-          key: svdtools-${{ env.SVDTOOLS_VERSION }}
-
-      - name: Install svdtools
-        run: |
-          cargo install svdtools --version $SVDTOOLS_VERSION
+      - name: Install tools
+        run: make install
 
       - name: Build and publish
         run: |
