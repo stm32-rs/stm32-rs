@@ -21,7 +21,7 @@ jobs:
         run: echo "~/.local/bin" >> $GITHUB_PATH
       - name: Build HTML
         run: |
-          make -j2 html
+          SVDTOOLS=svd make -j2 html
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
