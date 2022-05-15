@@ -1,0 +1,37 @@
+RTC:
+  _modify:
+    "ALRM?R":
+      description: Alarm register
+    "ALRM?SSR":
+      description: Alarm sub-second register
+
+  "ALRM?R":
+    _modify:
+      SU:
+        description: Second units in BCD format
+      ST:
+        description: Second tens in BCD format
+      MSK1:
+        description: Alarm seconds mask
+      MNU:
+        description: Minute units in BCD format
+      MNT:
+        description: Minute tens in BCD format
+      MSK2:
+        description: Alarm minutes mask
+      HU:
+        description: Hour units in BCD format
+      HT:
+        description: Hour tens in BCD format
+      MSK3:
+        description: Alarm hours mask
+      DU:
+        description: Date units or day in BCD format
+      DT:
+        description: Date tens in BCD format
+      MSK4:
+        description: Alarm date mask
+
+  _array:
+    "ALRM?R": {}
+    "ALRM?SSR": {}

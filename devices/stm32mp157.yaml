@@ -16,3 +16,15 @@ _modify:
 DSI:
   _strip:
     - "DSI_"
+
+RTC:
+  _strip:
+    - "RTC_"
+
+TAMP:
+  _strip:
+    - "TAMP_"
+
+_include:
+ - common_patches/rtc/alarm.yaml
+ - common_patches/rtc/tamp_bkpr.yaml

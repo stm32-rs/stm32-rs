@@ -22,7 +22,9 @@ _include:
  - ./common_patches/g4_cordic.yaml
  - ../peripherals/cordic/cordic_g4.yaml 
  - ./common_patches/sai/sai_v1.yaml
- - ./common_patches/rtc/rtc_cr.yaml
+ - common_patches/rtc/alarm.yaml
+ - common_patches/rtc/tamp_bkpr.yaml
+ - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/opamp/opamp_g4_common.yaml 
  - ../peripherals/opamp/opamp_g4_opamp4_5.yaml 
  - ../peripherals/opamp/opamp_g4_opamp6.yaml 
