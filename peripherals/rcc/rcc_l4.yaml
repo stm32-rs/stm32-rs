@@ -1,4 +1,36 @@
 RCC:
+  AHB2ENR:
+    ADCEN:
+      Disabled: [0, "ADC clock disabled"]
+      Enabled: [1, "ADC clock enabled"]
+
+  APB2ENR:
+    USART1EN:
+      Disabled: [0, "USART1 clock disabled"]
+      Enabled: [1, "USART1 clock enabled"]
+
+  APB1ENR1:
+    LPTIM1EN:
+      Disabled: [0, "LPTIM1 clock disabled"]
+      Enabled: [1, "LPTIM1 clock enabled"]
+    I2C3EN:
+      Disabled: [0, "I2C3 clock disabled"]
+      Enabled: [1, "I2C3 clock enabled"]
+    I2C2EN:
+      Disabled: [0, "I2C2 clock disabled"]
+      Enabled: [1, "I2C2 clock enabled"]
+    I2C1EN:
+      Disabled: [0, "I2C1 clock disabled"]
+      Enabled: [1, "I2C1 clock enabled"]
+
+  APB1ENR2:
+    LPTIM2EN:
+      Disabled: [0, "LPTIM2 clock disabled"]
+      Enabled: [1, "LPTIM2 clock enabled"]
+    LPUART1EN:
+      Disabled: [0, "LPUART1 clock disabled"]
+      Enabled: [1, "LPUART1 clock enabled"]
+
   CR:
     MSIRANGE:
       Range100K: [0b0000, "range 0 around 100 kHz"]
@@ -13,3 +45,44 @@ RCC:
       Range24M: [0b1001, "range 9 around 24 MHz"]
       Range32M: [0b1010, "range 10 around 32 MHz"]
       Range48M: [0b1011, "range 11 around 48 MHz"]
+
+  CCIPR:
+    ADCSEL:
+      NoClock: [0, "No clock selected"]
+      PLLSAI1: [1, "PLLSAI1 clock selected"]
+      PLLSAI2: [2, "PLLSAI2 clock selected (only for STM32L47x/L48x/L49x/L4Ax devices)"]
+      SYSCLK: [3, "SYSCLK clock selected"]
+    CLK48SEL:
+      HSI48: [0, "HSI48 clock selected (only for STM32L41x/L42x/L43x/L44x/L45x/L46x/L49x/L4Ax devices, otherwise no clock selected)"]
+      PLLSAI1: [1, "PLLSAI1 clock selected"]
+      PLL: [2, "PLL clock selected"]
+      MSI: [3, "MSI clock selected"]
+    "LPTIM[123]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      LSI: [1, "LSI clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+    "I2C[123]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+    LPUART1SEL:
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+    "USART[12345]SEL":
+      PCLK: [0, "PCLK clock selected"]
+      SYSCLK: [1, "SYSCLK clock selected"]
+      HSI16: [2, "HSI16 clock selected"]
+      LSE: [3, "LSE clock selected"]
+
+  BDCR:
+    RTCEN:
+      Disabled: [0, "RTC clock disabled"]
+      Enabled: [1, "RTC clock enabled"]
+    RTCSEL:
+      NoClock: [0, "No clock"]
+      LSE: [1, "LSE oscillator clock selected"]
+      LSI: [2, "LSI oscillator clock selected"]
+      HSE: [3, "HSE oscillator clock divided by 32 selected"]
