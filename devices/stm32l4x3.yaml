@@ -10,7 +10,7 @@ RCC:
       USBF:
         name: USBFSEN
         description: USB FS clock enable
-        
+
   # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
   AHB1ENR:
     _modify:
@@ -158,6 +158,7 @@ _include:
  - ../peripherals/fw/fw_l0_l4.yaml
  - ../peripherals/sai/sai.yaml
  - common_patches/dma_interrupt_names.yaml
+ - ./common_patches/l4_adc.yaml
  - ./common_patches/l4_adc_common.yaml
  - ./common_patches/l4_adc_smpr.yaml
  - ./common_patches/l4_adc_sqr1.yaml

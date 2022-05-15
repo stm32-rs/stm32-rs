@@ -27,6 +27,9 @@ Family-specific:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
 
+* L4:
+    * Fix ADC RDATA field name and description. (#723)
+
 ## [v0.14.0] 2021-10-02
 
 Family-specific:

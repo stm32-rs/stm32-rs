@@ -1,3 +1,6 @@
+_include:
+  - adc_dr_rdata.yaml
+
 "ADC?":
   SQR1:
     _modify:
@@ -18,7 +21,3 @@
     _modify:
       ADVREGEN:
         bitWidth: 2
-  DR:
-    _modify:
-      regularDATA:
-        name: RDATA
