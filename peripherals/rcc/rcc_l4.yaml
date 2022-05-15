@@ -50,7 +50,7 @@ RCC:
     ADCSEL:
       NoClock: [0, "No clock selected"]
       PLLSAI1: [1, "PLLSAI1 clock selected"]
-      PLLSAI2: [2, "PLLSAI2 clock selected"]
+      PLLSAI2: [2, "PLLSAI2 clock selected (only for STM32L47x/L48x/L49x/L4Ax devices)"]
       SYSCLK: [3, "SYSCLK clock selected"]
     CLK48SEL:
       HSI48: [0, "HSI48 clock selected (only for STM32L41x/L42x/L43x/L44x/L45x/L46x/L49x/L4Ax devices, otherwise no clock selected)"]
