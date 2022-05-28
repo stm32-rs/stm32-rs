@@ -114,6 +114,100 @@ TIM8:
     _delete:
       - ETR_ADC3_RMP
 
+PWR:
+  _add:
+    PDCRI:
+      description: Power Port I pull-down control register
+      addressOffset: 0x64
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        PD0:
+          description: Port I pull-down bit 0
+          bitOffset: 0
+          bitWidth: 1
+        PD1:
+          description: Port I pull-down bit 1
+          bitOffset: 1
+          bitWidth: 1
+        PD2:
+          description: Port I pull-down bit 2
+          bitOffset: 2
+          bitWidth: 1
+        PD3:
+          description: Port I pull-down bit 3
+          bitOffset: 3
+          bitWidth: 1
+        PD4:
+          description: Port I pull-down bit 4
+          bitOffset: 4
+          bitWidth: 1
+        PD5:
+          description: Port I pull-down bit 5
+          bitOffset: 5
+          bitWidth: 1
+        PD6:
+          description: Port I pull-down bit 6
+          bitOffset: 6
+          bitWidth: 1
+        PD7:
+          description: Port I pull-down bit 7
+          bitOffset: 7
+          bitWidth: 1
+        PD8:
+          description: Port I pull-down bit 8
+          bitOffset: 8
+          bitWidth: 1
+        PD9:
+          description: Port I pull-down bit 9
+          bitOffset: 9
+          bitWidth: 1
+        PD10:
+          description: Port I pull-down bit 10
+          bitOffset: 10
+          bitWidth: 1
+        PD11:
+          description: Port I pull-down bit 11
+          bitOffset: 11
+          bitWidth: 1
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+  SR:
+    _add:
+      PEMPTY:
+        description: Program empty
+        bitOffset: 17
+        bitWidth: 1
+        access: read-write
+  ECCR:
+    _modify:
+      ADDR_ECC:
+        bitWidth: 21
+      BK_ECC:
+        bitOffset: 21
+      SYSF_ECC:
+        bitOffset: 22
+
+  _add:
+    CFGR:
+      description: Flash configuration register
+      addressOffset: 0x130
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        LVEN:
+          description: Low-voltage enable
+          bitOffset: 0
+          bitWidth: 1
+
+
+
 _include:
   - common_patches/l4_adc_sqr1.yaml
   - common_patches/4_nvic_prio_bits.yaml
@@ -166,3 +260,4 @@ _include:
   - ./common_patches/l4_dbg_apb_fzr_rename.yaml
   - common_patches/usb_otg/otg_fs_remove_prefix.yaml
   - common_patches/usb_otg/otg_fs_fixes_v1.yaml
+  - common_patches/l4_lpuart_presc.yaml
