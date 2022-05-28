@@ -50,6 +50,11 @@ MPU:
   _strip:
     - "MPU_"
 
+ADC1:
+  _delete:
+    _interrupts:
+      - ADC3
+
 _include:
   - common_patches/l4_adc_sqr1.yaml
   - common_patches/4_nvic_prio_bits.yaml
