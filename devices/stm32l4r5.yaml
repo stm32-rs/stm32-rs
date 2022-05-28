@@ -1,4 +1,4 @@
-_svd: ../svd/stm32l4r9.svd
+_svd: ../svd/stm32l4r5.svd
 
 # Merge the thousands of individal bit fields into a single field for each
 # CAN filter register. This is not only much easier to use but also saves
@@ -11,14 +11,6 @@ _svd: ../svd/stm32l4r9.svd
   "F??R?":
     _merge:
       - "FB*"
-
-DSI:
-  _strip:
-    - "DSI_"
-  _modify:
-    _interrupts:
-      DSIHSOT:
-        name: DSIHOST
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
@@ -38,6 +30,21 @@ _copy:
 
 _derive:
   TIM4: TIM3
+
+DFSDM1:
+  _delete:
+    - CH7WDATR
+
+  _derive:
+    CH7WDATR:
+      _from: CH6WDATR
+      addressOffset: 0xEC
+      description: "CH7WDATR"
+
+    CH7DATINR:
+      _from: CH6DATINR
+      addressOffset: 0xF0
+      description: "CH7DATINR"
 
 MPU:
   _strip:
@@ -84,7 +91,6 @@ _include:
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/usart/lpuart_v2A.yaml
   - ../peripherals/usart/usart_v2B1.yaml
-  - common_patches/rtc/alarm.yaml
   - common_patches/rtc/rtc_bkpr.yaml
   - common_patches/rtc/rtc_cr.yaml
   - common_patches/tsc/tsc.yaml

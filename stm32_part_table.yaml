@@ -10,7 +10,6 @@
 #
 # This data is used to generate more informative crate READMEs.
 
-
 stm32f0:
   stm32f0x0:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x0-value-line.html
@@ -52,7 +51,6 @@ stm32f0:
       - STM32F058
       - STM32F078
       - STM32F098
-
 
 stm32f1:
   stm32f100:
@@ -96,7 +94,6 @@ stm32f1:
       - STM32F105
       - STM32F107
 
-
 stm32f2:
   stm32f215:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f2x5.html
@@ -115,7 +112,6 @@ stm32f2:
     members:
       - STM32F207
       - STM32F217
-
 
 stm32f3:
   stm32f301:
@@ -162,7 +158,6 @@ stm32f3:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00093941.pdf
     members:
       - STM32F334
-
 
 stm32f4:
   stm32f401:
@@ -259,7 +254,6 @@ stm32f4:
       - STM32F469
       - STM32F479
 
-
 stm32f7:
   stm32f730:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f7x0-value-line.html
@@ -338,7 +332,6 @@ stm32f7:
       - STM32F769
       - STM32F778
       - STM32F779
-
 
 stm32h7:
   stm32h743:
@@ -462,7 +455,6 @@ stm32l0:
       - STM32L073
       - STM32L083
 
-
 stm32l1:
   stm32l100:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32l100-value-line.html
@@ -488,7 +480,6 @@ stm32l1:
     rm_url: https://www.st.com/resource/en/reference_manual/cd00240193.pdf
     members:
       - STM32L162
-
 
 stm32l4:
   stm32l4x1:
@@ -549,6 +540,15 @@ stm32l4:
       - STM32L496
       - STM32L4A6
 
+  stm32l4r5:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32l4r5-s5.html
+    rm: RM0432
+    rm_title: STM32L4+ Series
+    rm_url: https://www.st.com/resource/en/reference_manual/dm00310109.pdf
+    members:
+      - STM32L4R5
+      - STM32L4S5
+
   stm32l4r9:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32l4r9-s9.html
     rm: RM0432
@@ -557,7 +557,6 @@ stm32l4:
     members:
       - STM32L4R9
       - STM32L4S9
-
 
 stm32l5:
   stm32l552:
@@ -671,7 +670,6 @@ stm32g0:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00371828-stm32g0x1-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
     members:
       - STM32G0c1
-
 
 stm32g4:
   stm32g4x1:
