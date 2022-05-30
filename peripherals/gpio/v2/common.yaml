@@ -1,14 +1,11 @@
-# This GPIO is used on the STM32F0, F3, F4, and F7 families.
+# This GPIO is used on the STM32F0, F3, F4, F7 and WL families.
 
 _include:
-  - gpio_v2_common.yaml
+  - base.yaml
 
 "GPIO*":
   LCKR:
-    "LCK[0123456789]":
-      Unlocked: [0, "Port configuration not locked"]
-      Locked: [1, "Port configuration locked"]
-    "LCK1[012345]":
+    "LCK[0-9],LCK1[0-5]":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
     "LCKK":
