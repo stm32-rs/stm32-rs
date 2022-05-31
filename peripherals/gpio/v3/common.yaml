@@ -1,9 +1,9 @@
-# This GPIO is used on the STM32L0 families.
+# This GPIO is used on the STM32G0, L0 and L5 families.
 
 "GPIO*":
   MODER:
     "MODE*":
-      Input: [0, "Input mode (reset state)"]
+      Input: [0, "Input mode"]
       Output: [1, "General purpose output mode"]
       Alternate: [2, "Alternate function mode"]
       Analog: [3, "Analog mode"]
@@ -38,22 +38,9 @@
       _write:
         Set: [1, "Sets the corresponding ODx bit"]
   LCKR:
-    "LCK[0123456789]":
-      Unlocked: [0, "Port configuration not locked"]
-      Locked: [1, "Port configuration locked"]
-    "LCK1[012345]":
+    "LCK[0-9],LCK1[0-5]":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
     "LCKK":
       NotActive: [0, "Port configuration lock key not active"]
       Active: [1, "Port configuration lock key active"]
-  "AFR[LH]":
-    "AFSEL*":
-      AF0:  [0,  "AF0"]
-      AF1:  [1,  "AF1"]
-      AF2:  [2,  "AF2"]
-      AF3:  [3,  "AF3"]
-      AF4:  [4,  "AF4"]
-      AF5:  [5,  "AF5"]
-      AF6:  [6,  "AF6"]
-      AF7:  [7,  "AF7"]
