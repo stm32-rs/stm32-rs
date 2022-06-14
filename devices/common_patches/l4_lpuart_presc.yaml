@@ -1,0 +1,13 @@
+LPUART1:
+  _add:
+    PRESC:
+      description: prescaler register
+      addressOffset: 0x2C
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        PRESCALER:
+          description: clock prescaler
+          bitOffset: 0
+          bitWidth: 4

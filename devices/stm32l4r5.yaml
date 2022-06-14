@@ -1,0 +1,263 @@
+_svd: ../svd/stm32l4r5.svd
+
+# Merge the thousands of individal bit fields into a single field for each
+# CAN filter register. This is not only much easier to use but also saves
+# a huge amount of filespace and compilation time etc -- as much as 30% of all
+# fields in many devices are just these CAN filter bank fields.
+"CAN*":
+  "F?R?":
+    _merge:
+      - "FB*"
+  "F??R?":
+    _merge:
+      - "FB*"
+
+# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
+RCC:
+  APB1ENR1:
+    _modify:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+
+  AHB3ENR:
+    _add:
+      OSPI1EN:
+        description: OSPI1 memory interface clock enable
+        bitOffset: 8
+        bitWidth: 1
+
+  AHB3RSTR:
+    _add:
+      OSPI1RST:
+        description: OSPI1 memory interface reset
+        bitOffset: 8
+        bitWidth: 1
+
+  AHB3SMENR:
+    _add:
+      OSPI1SMEN:
+        description: OSPI1 memory interface clock enable during Sleep and Stop modes
+        bitOffset: 8
+        bitWidth: 1
+
+  CFGR:
+    _modify:
+      MCOSEL:
+        bitWidth: 4
+
+  _add:
+    DLYCFGR:
+      description: Delay configuration register
+      addressOffset: 0xA4
+      size: 0x20
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        OCTOSPI1_DLY:
+          description: Delay sampling configuration on OCTOSPI1
+          bitOffset: 0
+          bitWidth: 4
+        OCTOSPI2_DLY:
+          description: Delay sampling configuration on OCTOSPI2
+          bitOffset: 4
+          bitWidth: 4
+
+_modify:
+  ADC:
+    name: ADC1
+
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
+DFSDM1:
+  _delete:
+    - CH7WDATR
+
+  _derive:
+    CH7WDATR:
+      _from: CH6WDATR
+      addressOffset: 0xEC
+      description: "CH7WDATR"
+
+    CH7DATINR:
+      _from: CH6DATINR
+      addressOffset: 0xF0
+      description: "CH7DATINR"
+
+MPU:
+  _strip:
+    - "MPU_"
+
+ADC1:
+  _delete:
+    _interrupts:
+      - ADC3
+
+TIM1:
+  _modify:
+    OR1:
+      description: "TIM1 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+TIM8:
+  _modify:
+    OR1:
+      description: "TIM8 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+PWR:
+  _add:
+    PDCRI:
+      description: Power Port I pull-down control register
+      addressOffset: 0x64
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        PD0:
+          description: Port I pull-down bit 0
+          bitOffset: 0
+          bitWidth: 1
+        PD1:
+          description: Port I pull-down bit 1
+          bitOffset: 1
+          bitWidth: 1
+        PD2:
+          description: Port I pull-down bit 2
+          bitOffset: 2
+          bitWidth: 1
+        PD3:
+          description: Port I pull-down bit 3
+          bitOffset: 3
+          bitWidth: 1
+        PD4:
+          description: Port I pull-down bit 4
+          bitOffset: 4
+          bitWidth: 1
+        PD5:
+          description: Port I pull-down bit 5
+          bitOffset: 5
+          bitWidth: 1
+        PD6:
+          description: Port I pull-down bit 6
+          bitOffset: 6
+          bitWidth: 1
+        PD7:
+          description: Port I pull-down bit 7
+          bitOffset: 7
+          bitWidth: 1
+        PD8:
+          description: Port I pull-down bit 8
+          bitOffset: 8
+          bitWidth: 1
+        PD9:
+          description: Port I pull-down bit 9
+          bitOffset: 9
+          bitWidth: 1
+        PD10:
+          description: Port I pull-down bit 10
+          bitOffset: 10
+          bitWidth: 1
+        PD11:
+          description: Port I pull-down bit 11
+          bitOffset: 11
+          bitWidth: 1
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+  SR:
+    _add:
+      PEMPTY:
+        description: Program empty
+        bitOffset: 17
+        bitWidth: 1
+        access: read-write
+  ECCR:
+    _modify:
+      ADDR_ECC:
+        bitWidth: 21
+      BK_ECC:
+        bitOffset: 21
+      SYSF_ECC:
+        bitOffset: 22
+
+  _add:
+    CFGR:
+      description: Flash configuration register
+      addressOffset: 0x130
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        LVEN:
+          description: Low-voltage enable
+          bitOffset: 0
+          bitWidth: 1
+
+
+
+_include:
+  - common_patches/l4_adc_sqr1.yaml
+  - common_patches/4_nvic_prio_bits.yaml
+  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
+  - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
+  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
+  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
+  - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
+  - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
+  - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
+  - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
+  - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
+  - ./common_patches/merge_USART_BRR_fields.yaml
+  - common_patches/can/can.yaml
+  - common_patches/can/can_filter_bank.yaml
+  - ../peripherals/can/can.yaml
+  - common_patches/sai/sai_v1.yaml
+  - ../peripherals/gpio/v2/common.yaml
+  - ../peripherals/gpio/gpio_with_brr.yaml
+  - common_patches/crc/crc_rename_init.yaml
+  - ../peripherals/crc/crc_advanced.yaml
+  - ../peripherals/crc/crc_idr_8bit.yaml
+  - ../peripherals/crc/crc_with_polysize.yaml
+  - ../peripherals/wwdg/wwdg.yaml
+  - ../peripherals/rcc/rcc_l4.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim16.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim2345_mixed.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - common_patches/tim/tim_ccr.yaml
+  - common_patches/tim/v2/l4.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/usart/lpuart_v2A.yaml
+  - ../peripherals/usart/usart_v2B1.yaml
+  - common_patches/rtc/rtc_bkpr.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - common_patches/tsc/tsc.yaml
+  - ./common_patches/flash/flash_boot0s.yaml
+  - ../peripherals/fw/fw_l0_l4.yaml
+  - common_patches/hash/hash.yaml
+  - ../peripherals/sai/sai.yaml
+  - ../peripherals/dma/dma2d_v1.yaml
+  - ./common_patches/l4_dbg_apb_fzr_rename.yaml
+  - common_patches/usb_otg/otg_fs_remove_prefix.yaml
+  - common_patches/usb_otg/otg_fs_fixes_v1.yaml
+  - common_patches/l4_lpuart_presc.yaml
