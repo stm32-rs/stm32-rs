@@ -5,6 +5,10 @@ _modify:
   Flash:
     name: FLASH
 
+  # Rename DAC to DAC1 in accordance with the reference manual.
+  DAC:
+    name: DAC1
+
 "SPI*":
   SR:
     _modify:
