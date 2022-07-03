@@ -3,6 +3,7 @@ _svd: ../svd/stm32l4x2.svd
 MPU:
   _strip:
     - "MPU_"
+    
 
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
@@ -13,3 +14,8 @@ _include:
  - ../peripherals/fw/fw_l0_l4.yaml
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml
  - ../peripherals/rcc/rcc_l4_uart4.yaml
+ - ./common_patches/comp/l4xx_comp_reg_rename.yaml
+ - ../peripherals/comp/comp_l4x1.yaml
+ - ./common_patches/dac/dac_rename_stm32l4xx.yaml
+ - ../peripherals/dac/dac_l4xx.yaml
+ - ../peripherals/opamp/opamp_l4.yaml
