@@ -53,12 +53,16 @@ GTZC_TZSC:
         description: Number of data to transfer
         bitOffset: 0
         bitWidth: 18
+    _delete:
+      - MA
   "CNDTR[6-8]":
     _add:
       NDT:
         description: Number of data to transfer
         bitOffset: 0
         bitWidth: 16
+    _delete:
+      - MA
 
 # exclude CCR1 and CCR5, since they already contains the correct regs
   "CCR[2-4]":
@@ -132,6 +136,8 @@ GTZC_TZSC:
         description: privileged mode
         bitOffset: 20
         bitWidth: 1
+    _delete:
+      - MA
   "CCR[6-8]":
     _add:
       MEM2MEM:
@@ -203,6 +209,8 @@ GTZC_TZSC:
         description: privileged mode
         bitOffset: 20
         bitWidth: 1
+    _delete:
+      - MA
 
 _include:
  - common_patches/dma_interrupt_names.yaml
