@@ -10,6 +10,9 @@ _modify:
     name: TIM3
     baseAddress: "0x40000400"
 
+  SYSCFG_VREFBUF:
+    name: SYSCFG
+
 _delete:
   - TIM3
   - LPTIM1
@@ -19,7 +22,6 @@ _delete:
   - LPUART
   - UCPD1
   - UCPD2
-  - SYSCFG_VREFBUF
   - RNG
   - HDMI_CEC
 # deleted so we can re-add them without interrupts
@@ -124,6 +126,11 @@ USART1:
       USART3_USART4:
         description: USART3 + USART4 interrupt
         value: 29
+
+SYSCFG:
+  _delete:
+    - VREFBUF_CSR
+    - VREFBUF_CCR
 
 # Remove interrupts from derived Peripherals (after we renamed and moved them to the base peripherals)
 # Since it is not possible to modify a derivedFrom peripheral, we delete it first
