@@ -12,6 +12,7 @@ Family-specific:
 
 * G0:
     * Clear all vendor provided enumeratedValues
+    * Fix DMA and TIM15 register field names
 
 * G4:
     * RCC: Remove RNGSMEN -> RNGEN renaming to have AHB2SMENR.RNGSMEN
