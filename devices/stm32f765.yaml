@@ -138,6 +138,7 @@ _include:
  - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
  - common_patches/rcc_add_plli2sp.yaml
  - common_patches/f7_rcc_apbenr.yaml
  - common_patches/f7_rcc_lsedrv.yaml
@@ -213,7 +214,6 @@ _include:
  - ../peripherals/fsmc/fsmc_wfdis.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
- - ../peripherals/sai/sai.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml

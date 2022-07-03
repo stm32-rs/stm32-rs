@@ -1,9 +1,44 @@
 "SAI,SAI?":
+  _modify:
+    "?SR":
+      access: read-only
+      resetValue: 8
+    "?CLRFR":
+      access: write-only
   _cluster:
     "CH%s":
       "?CR1": {}
-      "?CR2": {}
-      "?FRCR": {}
+      "?CR2":
+        _modify:
+          FTH:
+            access: read-write
+          FFLUS:
+            access: write-only
+          TRIS:
+            access: read-write
+          MUTE:
+            access: read-write
+          MUTEVAL:
+            access: read-write
+          MUTECN,MUTECNT:
+            name: MUTECNT
+            access: read-write
+          CPL:
+            access: read-write
+          COMP:
+            access: read-write
+      "?FRCR":
+        _modify:
+          FRL:
+            access: read-write
+          FSALL:
+            access: read-write
+          FSDEF:
+            access: read-only
+          FSPOL:
+            access: read-write
+          FSOFF:
+            access: read-write
       "?SLOTR": {}
       "?IM": {}
       "?SR": {}

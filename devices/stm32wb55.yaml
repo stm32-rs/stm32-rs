@@ -285,11 +285,16 @@ MPU:
   _strip:
     - "MPU_"
 
+SAI1:
+  _delete:
+    - GCR
+
 _include:
- - ./common_patches/sai/sai_v1.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
+ - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - ./common_patches/wb_adc_common.yaml
  - ./common_patches/l4_adc_smpr.yaml

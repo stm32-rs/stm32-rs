@@ -1,7 +1,7 @@
 "SAI,SAI?":
   "*CR1":
     #MCKDIV:
-    NOMCK,NODIV:
+    NODIV:
       MasterClock: [0, "MCLK output is enabled. Forces the ratio between FS and MCLK to 256 or 512 according to the OSR value"]
       NoDiv: [1, "MCLK output enable set by the MCKEN bit (where present, else 0). Ratio between FS and MCLK depends on FRL."]
     DMAEN:
@@ -51,7 +51,7 @@
     CPL:
       OnesComplement: [0, "1’s complement representation"]
       TwosComplement: [1, "2’s complement representation"]
-    #MUTECNT:
+    #MUTECN,MUTECNT:
     MUTEVAL:
       SendZero: [0, "Bit value 0 is sent during the mute mode"]
       SendLast: [1, "Last values are sent during the mute mode"]
