@@ -89,11 +89,6 @@ _add:
         value: 162
 
   # CORDIC block
-  # TODO: Validate. The patch (at the end of the includes) also has
-  #       to be checked. I copy-pasted the latter from the g4_cordic
-  #       one with some minor changes in spelling and descriptions,
-  #       then verified them to RM0468. The CORDIC registers mean the
-  #       same between the g4 and h7.
   CORDIC:
     description: CORDIC co-processor
     groupName: CORDIC
@@ -176,7 +171,6 @@ _add:
         description: CORDIC interrupt
 
   # FMAC block
-  # TODO: Validate.
   FMAC:
     description: Filter math accelerator
     groupName: FMAC
@@ -761,17 +755,6 @@ MDIOS:
   _strip:
     - "MDIOS_"
 
-# -----------------------------------------------------------------------------
-# This is the list of missing interrupts and mis-named interrupts/registers I
-# found. That's 19 missing registers out of 169 total...
-# CORDIC and FMAC, including their register definitions, have already been 
-# added at the top of the file, in the _add section.
-# TODO: The blocks that are commented-out below should either go into an existing
-#       block, or have a new block made for them. It's probably better that I 
-#       don't improvise...
-# TODO: For USB OTG_HS, I picked the existing "OTG1_HS_GLOBAL" group, but this 
-#       should probably be OTG_HS instead for consistency with other devices. 
-#       The latter does not exist yet.
 TIM1:
   _modify:
     _interrupts:
@@ -815,24 +798,23 @@ LTDC:
         value: 89
         description: LCD-TFT global Error interrupt
 
-#RAMECC:
-#  _add:
-#    _interrupts:
-#      ECC_DIAG_IT:
-#        value: 145
-#        description: ECC diagnostic global interrupt
+RAMECC1:
+  _add:
+    _interrupts:
+      ECC_DIAG_IT:
+        value: 145
+        description: ECC diagnostic global interrupt
 
-#TEMP:
-# TODO: This seems wrong. There is not a single mention of this interrupt
-#       (via find) in RM0468 outside of Table 140. I think this could actually
-#       be the DTS (digital temperature sensor) interrupt instead: 
-#       not TEMP_IT, but rather DTS_IT (dts_it shared with exti_dts_wkup).
+# DTS peripheral is missing from the SVD.
+# This interrupt is probably the one described as DTS-IT in the DTS docs.
+#DTS:
 #  _add:
 #    _interrupts:
 #      TEMP_IT:
 #        value: 147
-#        description: Temperature sensor global interrupt
+#        description: Temperature sensor global interrupt (also known as DTS-IT).
 
+# OTFDEC peripheral is missing from the SVD.
 #OTFDEC:
 #  _add:
 #    _interrupts:
@@ -842,7 +824,8 @@ LTDC:
 #      OTFDEC2:
 #        value: 152
 #        description: OTFDEC2 interrupt
-          
+
+# UART9 peripheral is missing from the SVD.
 #UART9:
 #  _add:
 #    _interrupts:
@@ -850,6 +833,7 @@ LTDC:
 #        value: 155
 #        description: UART9 interrupt
 
+# USART10 peripheral is missing from the SVD.
 #USART10:
 #  _add:
 #    _interrupts:
@@ -857,6 +841,7 @@ LTDC:
 #        value: 156
 #        description: USART10 interrupt
 
+# I2C5 peripheral is missing from the SVD.
 #I2C5:
 #  _add:
 #    _interrupts:
@@ -866,30 +851,17 @@ LTDC:
 #      I2C5_ER:
 #        value: 158
 #        description: I2C5 error interrupt
-                
+
+# FDCAN3 peripheral is missing from the SVD.
 #FDCAN3:
 #  _add:
 #    _interrupts:
 #      FDCAN3_IT0:
 #        value: 159
-#        description: FDCAN3 interrupt line 0        
+#        description: FDCAN3 interrupt line 0
 #      FDCAN3_IT1:
 #        value: 160
 #        description: FDCAN3 interrupt line 1
-
-#TIM23:
-#  _add:
-#    _interrupts:
-#      TIM23:
-#        value: 161 
-#        description: TIM23 global interrupt
-
-#TIM24:
-#  _add:
-#    _interrupts:                
-#      TIM24:
-#        value: 162
-#        description: TIM24 global interrupt
 
 # Modify the DBGMCU.CR register fields names to be consistent with RM0468.
 # TODO: Interesting aside: the svd lists these controls additionally for D2 and
@@ -906,7 +878,7 @@ DBGMCU:
         name: DBGSTOP_D1
       DBGSLPD1:
         name: DBGSLEEP_D1
-        
+
 # -----------------------------------------------------------------------------
 
 _include:
