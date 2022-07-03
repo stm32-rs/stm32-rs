@@ -166,8 +166,6 @@ RCC:
         name: ADC12SMEN
       CRYPTSMEN:
         name: AESMEN # sic, from RM0440 but likely should be AESSMEN
-      RNGSMEN:
-        name: RNGEN # sic, from RM0440 but RNGSMEN seems more correct
 
   AHB3SMENR:
     _modify:
