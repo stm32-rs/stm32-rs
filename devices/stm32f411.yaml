@@ -139,8 +139,10 @@ _include:
  - common_patches/f4_rcc_dckcfgr.yaml
  - common_patches/f4_adc_no_csr.yaml
  - common_patches/f4_adc_single_ccr.yaml
+ - common_patches/f41x_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml

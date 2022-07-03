@@ -405,9 +405,11 @@ _include:
  - common_patches/f4_adc_single_ccr.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
+ - common_patches/f41x_bdcr_lsemod.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/rcc/rcc_merge_sw_sws.yaml
  - ../peripherals/rcc/rcc_v2.yaml
+ - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
