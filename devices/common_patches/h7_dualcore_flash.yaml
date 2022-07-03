@@ -648,6 +648,19 @@ _add:
             description: Bank 1 ECC error address
             bitOffset: 0
             bitWidth: 15
+      ACR_:
+        description: FLASH access control register
+        addressOffset: 0x100
+        resetValue: 0x00000037
+        fields:
+          WRHIGHFREQ:
+            description: Flash signal delay
+            bitOffset: 4
+            bitWidth: 2
+          LATENCY:
+            description: Read latency
+            bitOffset: 0
+            bitWidth: 4
       KEYR2:
         description: FLASH key register for bank 2
         addressOffset: 0x104
@@ -658,6 +671,17 @@ _add:
             description: Bank access configuration unlock key
             bitOffset: 0
             bitWidth: 32
+      OPTKEYR_:
+        description: FLASH option key register
+        addressOffset: 0x108
+        resetValue: 0x00000000
+        access: write-only
+        fields:
+          OPTKEYR:
+            description: FLASH option bytes control access unlock key
+            bitOffset: 0
+            bitWidth: 32
+
       CR2:
         description: FLASH control register for bank 2
         addressOffset: 0x10C
@@ -869,6 +893,186 @@ _add:
             description: Bank 2 EOP2 flag clear bit
             bitOffset: 16
             bitWidth: 1
+      OPTCR_:
+        description: FLASH option control register
+        addressOffset: 0x118
+        resetValue: 0x00000001
+        fields:
+          SWAP_BANK:
+            description: Bank swapping option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          OPTCHANGEERRIE:
+            description: Option byte change error interrupt enable bit
+            bitOffset: 30
+            bitWidth: 1
+          MER:
+            description: mass erase request
+            bitOffset: 4
+            bitWidth: 1
+          OPTSTART:
+            description: Option byte start change option configuration bit
+            bitOffset: 1
+            bitWidth: 1
+          OPTLOCK:
+            description: FLASH
+            bitOffset: 0
+            bitWidth: 1
+      OPTSR_CUR_:
+        description: FLASH option status register
+        addressOffset: 0x11C
+        resetValue: 0x00000000
+        fields:
+          SWAP_BANK_OPT:
+            description: Bank swapping option status bit
+            bitOffset: 31
+            bitWidth: 1
+          OPTCHANGEERR:
+            description: Option byte change error flag
+            bitOffset: 30
+            bitWidth: 1
+          IO_HSLV:
+            description: I
+            bitOffset: 29
+            bitWidth: 1
+          NRST_STBY_D2:
+            description: D2 domain DStandby entry reset option status bit
+            bitOffset: 25
+            bitWidth: 1
+          NRST_STOP_D2:
+            description: D2 domain DStop entry reset option status bit
+            bitOffset: 24
+            bitWidth: 1
+          BOOT_CM7:
+            description: Arm Cortex
+            bitOffset: 23
+            bitWidth: 1
+          BOOT_CM4:
+            description: Arm Cortex
+            bitOffset: 22
+            bitWidth: 1
+          SECURITY:
+            description: Security enable option status bit
+            bitOffset: 21
+            bitWidth: 1
+          ST_RAM_SIZE:
+            description: ST RAM size option status
+            bitOffset: 19
+            bitWidth: 2
+          IWDG_FZ_SDBY:
+            description: IWDG Standby mode freeze option status bit
+            bitOffset: 18
+            bitWidth: 1
+          IWDG_FZ_STOP:
+            description: IWDG Stop mode freeze option status bit
+            bitOffset: 17
+            bitWidth: 1
+          RDP:
+            description: Readout protection level option status byte
+            bitOffset: 8
+            bitWidth: 8
+          RST_STDY_D1:
+            description: D1 domain DStandby entry reset option status bit
+            bitOffset: 7
+            bitWidth: 1
+          NRST_STOP_D1:
+            description: D1 domain DStop entry reset option status bit
+            bitOffset: 6
+            bitWidth: 1
+          IWDG2_SW:
+            description: IWDG2 control mode option status bit
+            bitOffset: 5
+            bitWidth: 1
+          IWDG_SW:
+            description: IWDG control mode option status bit
+            bitOffset: 4
+            bitWidth: 1
+          BOR_LEV:
+            description: Brownout level option status bit
+            bitOffset: 2
+            bitWidth: 2
+          OPT_BUSY:
+            description: Option byte change ongoing flag
+            bitOffset: 0
+            bitWidth: 1
+      OPTSR_PRG_:
+        description: FLASH option status register
+        addressOffset: 0x120
+        resetValue: 0x00000000
+        fields:
+          SWAP_BANK_OPT:
+            description: Bank swapping option configuration bit
+            bitOffset: 31
+            bitWidth: 1
+          IO_HSLV:
+            description: I
+            bitOffset: 29
+            bitWidth: 1
+          NRST_STBY_D2:
+            description: D2 domain DStandby entry reset option configuration bit
+            bitOffset: 25
+            bitWidth: 1
+          NRST_STOP_D2:
+            description: D2 domain DStop entry reset option configuration bit
+            bitOffset: 24
+            bitWidth: 1
+          BOOT_CM7:
+            description: Arm Cortex
+            bitOffset: 23
+            bitWidth: 1
+          BOOT_CM4:
+            description: Arm Cortex
+            bitOffset: 22
+            bitWidth: 1
+          SECURITY:
+            description: Security enable option configuration bit
+            bitOffset: 21
+            bitWidth: 1
+          ST_RAM_SIZE:
+            description: ST RAM size option configuration bits
+            bitOffset: 19
+            bitWidth: 2
+          IWDG_FZ_SDBY:
+            description: IWDG Standby mode freeze option configuration bit
+            bitOffset: 18
+            bitWidth: 1
+          IWDG_FZ_STOP:
+            description: IWDG Stop mode freeze option configuration bit
+            bitOffset: 17
+            bitWidth: 1
+          RDP:
+            description: Readout protection level option configuration bits
+            bitOffset: 8
+            bitWidth: 8
+          NRST_STDY_D1:
+            description: D1 domain DStandby entry reset option configuration bit
+            bitOffset: 7
+            bitWidth: 1
+          NRST_STOP_D1:
+            description: D1 domain DStop entry reset option configuration bit
+            bitOffset: 6
+            bitWidth: 1
+          IWDG2_SW:
+            description: IWDG2 control mode option configuration bit
+            bitOffset: 5
+            bitWidth: 1
+          IWDG_SW:
+            description: IWDG control mode option configuration bit
+            bitOffset: 4
+            bitWidth: 1
+          BOR_LEV:
+            description: Brownout level option configuration bit
+            bitOffset: 2
+            bitWidth: 2
+      OPTCCR_:
+        description: FLASH option clear control register
+        addressOffset: 0x124
+        resetValue: 0x00000000
+        fields:
+          CLR_OPTCHANGEERR:
+            description: OPTCHANGEERR reset bit
+            bitOffset: 30
+            bitWidth: 1
       PRAR_CUR2:
         description: FLASH protection address for bank 2
         addressOffset: 0x128
@@ -955,6 +1159,58 @@ _add:
             description: Bank 2 sector write protection option status byte
             bitOffset: 0
             bitWidth: 8
+      BOOT7_CURR_:
+        description: FLASH register boot address for Arm Cortex-M7 core
+        addressOffset: 0x140
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM7_ADD1:
+            description: Arm Cortex-M7 boot address 1
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM7_ADD0:
+            description: Arm Cortex-M7 boot address 0
+            bitOffset: 0
+            bitWidth: 16
+      BOOT7_PRGR_:
+        description: FLASH register boot address for Arm Cortex-M7 core
+        addressOffset: 0x144
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM7_ADD1:
+            description: Arm Cortex-M7 boot address 1 configuration
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM7_ADD0:
+            description: Arm Cortex-M7 boot address 0 configuration
+            bitOffset: 0
+            bitWidth: 16
+      BOOT4_CURR_:
+        description: FLASH register boot address for Arm Cortex-M4 core
+        addressOffset: 0x148
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM4_ADD1:
+            description: Arm Cortex-M4 boot address 1
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM4_ADD0:
+            description: Arm Cortex-M4 boot address 0
+            bitOffset: 0
+            bitWidth: 16
+      BOOT4_PRGR_:
+        description: FLASH register boot address for Arm Cortex-M4 core
+        addressOffset: 0x14C
+        resetValue: 0x00000000
+        fields:
+          BOOT_CM4_ADD1:
+            description: Arm Cortex-M4 boot address 1 configuration
+            bitOffset: 16
+            bitWidth: 16
+          BOOT_CM4_ADD0:
+            description: Arm Cortex-M4 boot address 0 configuration
+            bitOffset: 0
+            bitWidth: 16
       CRCCR2:
         description: FLASH CRC control register for bank 2
         addressOffset: 0x150

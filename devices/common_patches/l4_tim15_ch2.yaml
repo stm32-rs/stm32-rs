@@ -1,0 +1,67 @@
+
+# TIM15 channel 2 for STM32L4x
+"TIM15":
+  CCER:
+    _add:
+      CC2E:
+        description: Capture/Compare 2 output enable
+        bitWidth: 1
+        bitOffset: 4
+      CC2P:
+        description: Capture/Compare 2 output polarity
+        bitWidth: 1
+        bitOffset: 5
+      CC2NP:
+        description: Capture/Compare 2 complementary output polarity
+        bitWidth: 1
+        bitOffset: 7
+
+  CCMR1_Input:
+    _add:
+      CC2S:
+        description: Capture/Compare 2 selection
+        bitWidth: 2
+        bitOffset: 8
+      IC2PSC:
+        description:  Input capture 2 prescaler
+        bitWidth: 2
+        bitOffset: 10
+      IC2F:
+        description:  Input capture 2 filter
+        bitWidth: 4
+        bitOffset: 12
+
+  CCMR1_Output:
+    _add:
+      CC2S:
+        description: Capture/Compare 2 selection
+        bitWidth: 2
+        bitOffset: 8
+      OC2FE:
+        description: Output Compare 2 fast enable
+        bitWidth: 1
+        bitOffset: 10
+      OC2PE:
+        description: Capture/Compare 2 selection
+        bitWidth: 1
+        bitOffset: 11
+      OC2M:
+        description: Output Compare 2 mode
+        bitWidth: 3
+        bitOffset: 12
+      OC2M_3:
+        description:  Output Compare 2 mode - bit 3
+        bitWidth: 1
+        bitOffset: 24
+
+  _add:
+    CCR2:
+      description: Channel 2 capture/compare register
+      addressOffset: 0x38
+      fields:
+        CCR2:
+          description: Capture/Compare 2 value
+          access: read-write
+          bitOffset: 0
+          bitWidth: 16
+
