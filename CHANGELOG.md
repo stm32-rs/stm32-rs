@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
-* Updated to svd2rust 0.24.1
+## [v0.15.1] 2022-07-04
+
+* Updated to svd2rust 0.24.1 to fix critical codegen issue (#751)
+* Fix FSDEF field being marked read-only in SAI (#752)
 
 ## [v0.15.0] 2022-07-04
+
+This release has been yanked from crates.io as it was generated using svd2rust
+0.24.0 which suffered from a codegen bug (see #748).
 
 Common changes:
 
