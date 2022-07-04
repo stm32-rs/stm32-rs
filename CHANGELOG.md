@@ -2,41 +2,125 @@
 
 ## [Unreleased]
 
-* Use PascalCase for values of enums
-* Added missing TIMx:CR1:OPM, removed unused CNT_H, ARR_H, CCR_H
-* Replace python svd tools with rust alternatives
-* Updated to svd2rust 0.24.0
-* `SVDTOOLS` env value for specifying patching tool
+## [v0.15.0] 2022-07-04
+
+Common changes:
+
+* Strip prefixes from many peripheral registers (#661)
+* Add `SVDTOOLS` env value for specifying patching tool (#673)
+* Fix HTML generation on macOS (#679)
+* Replace Python svd tools with Rust alternatives (#701)
+* Added missing TIMx:CR1:OPM, removed unused CNT_H, ARR_H, CCR_H (#684)
+* Use PascalCase for generated values of enums (#727)
+* Updated to svd2rust 0.24.0 (#733)
+* Document RTC ALARM and BKPR (#724)
+* Extensive internal refactor of GPIO patches (#717)
+* Change groupName of ADC_Common to ADC_Common (#719)
+* Fix field access on many SAI fields (#691)
 
 Family-specific:
 
 * G0:
-    * Clear all vendor provided enumeratedValues
-    * Fix DMA and TIM15 register field names
+    * G0B1/G0C1: Update SVDs (#666)
+    * G0B1/G0C1: Fix previous incorrect deletion of DMA1/2 (#675)
+    * Clear all vendor provided enumeratedValues (#686)
+    * Update SVDs, document DMA, various other patches (#687)
+    * Make FLASH_WRP??R and FLASH_SECR writeable (#690)
+    * G070: Rename SYSCFG_VREFBUF to SYSCFG, remove VREFBUF registers (#716)
+    * Fix DMA and TIM15 register field names (#695)
 
 * G4:
-    * RCC: Remove RNGSMEN -> RNGEN renaming to have AHB2SMENR.RNGSMEN
+    * Fix ADC ADSTP, ADSTART, ADDIS, ADEN bit enumerations (#699)
+    * Remove RNGSMEN -> RNGEN renaming to have AHB2SMENR.RNGSMEN (#729)
 
 * H7:
-    * h7b3: clear all enumeratedValues
-    * h747: add flash registers mirrored in bank2
+    * h747: add midding DSI interrupt (#646)
+    * h735, h7b3: remove unavailable DSI peripheral (#648)
+    * Make ETH_MAC MMC mask register writable (#658)
+    * RM0455: Fix incorrect rename of OCTOSPI peripheral (#653)
+    * Arrayify HASH registers (#663)
+    * Add bit ranges to HDMI CRC registers (#671)
+    * H743/H753: Fix Overdrive and BDMADR fields (#649)
+    * h7b3: clear all enumeratedValues (#686)
+    * Change DMA CR to only cover SxCR, not LIFCR and HIFCR (#702)
+    * H735: Add TIM23 and TIM24 (#712)
+    * Fix ADC ADSTP, ADSTART, ADDIS, ADEN bit enumerations (#699)
+    * Arrayify HSEM registers (#735, #737)
+    * h747: add flash registers mirrored in bank2 (#704)
+    * H735: Add CORDIC and FMAC peripherals (#677)
+    * H735: Add missing TIM1, DCMI, OTG USB, RNG, LTDC, RAMECC interrupts (#677)
+    * Rename DBGSTBD1, DBGSTPD1, DBGSLPD1 fields to match RM (#677)
+    * RM0468: Add UART9/USART10, RM0455: fix USART base addresses (#652)
+
+* F0:
+    * F0x1/2/8: Add bit ranges to HDMI CRC registers (#671)
+    * Add missing CRC POL register (#710)
 
 * F2:
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
+    * Add ADC EXTSEL enumerations (#707)
+    * Apply existing OTG_FSv1 fixes (#706)
+
+* F3:
+    * Add missing 'P' to JADST (#696)
+    * Fix ADC ADSTP, ADSTART, ADDIS, ADEN bit enumerations (#699)
+    * Fix various fields access (#734)
+    * F302: Rename `DAC` to `DAC1` (#742)
 
 * F4:
+    * F469: Fix `DSIHSOT_CCR` register name (#664)
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
-    * Fix OTG_FS registers
-
-* L4:
-    * Added missing channel 2 on TIM15
+    * F411: Fix OTG_FS registers (#697)
+    * Add ADC EXTSEL enumerations (#707)
+    * Add GTPR register to UART (#713)
+    * Document TIM2 ITR1_RMP enums (#678)
+    * F410/411/412: add BDCR LSEMOD field (#708)
 
 * F7:
     * Add SDMMC2EN and SDMMC2RST to F765, F7x7, F7x9 (#662)
     * Fix incorrect bit position for Ethernet MMCTIMR TGFM (#689)
+    * Add bit ranges to HDMI CRC registers (#671)
+    * Add ADC EXTSEL enumerations (#707)
+    * Fix ADC DR RDATA name and description (#723)
+    * Document safe ranges for CNT/ARR/CCR (#700)
+    * Arrayify JPEG memory registers (#725)
+
+* L0:
+    * Re-add TIM21/TIM22 (#659)
+    * Fix various fields access (#734)
 
 * L4:
+    * Add documentation for FIREWALL (#660)
+    * Arrayify HASH registers (#663)
+    * L4R9: Fix `DSIHSOT` interrupt name (#664)
+    * L4R9: Add TIM3 and TIM4 (#669)
+    * L4x5/6/R9: Rename DBGMCU APB_FZR to remove underscores (#681)
+    * Add GPIOx ASCR and BRR registers (#680)
+    * Added missing channel 2 on TIM15 (#705)
     * Fix ADC RDATA field name and description. (#723)
+    * Add more enums for clock selection registers (#720)
+    * Rename `Polynomialcoefficients` field to `POL` (#710)
+    * Remove COMP1/COMP2 prefix from field names, document fields (#682)
+
+* L5:
+    * Fix DMA CCR fields, arrayify GTZC VCTR (#715)
+
+* WB:
+    * Arrayify HSEM registers (#735, #737)
+
+* WL:
+    * Put all timers into common TIM group (#657)
+    * Fix various fields access (#734)
+    * Arrayify HSEM registers (#735, #737)
+
+Contributors to this release:
+
+[@LeonSkoog] [@kenbell] [@ryan-summers] [@burrbull] [@richardeoin]
+[@systec-ms] [@DerFetzer] [@newAM] [@jspngh] [@jamwaffles] [@sephamorr]
+[@MathiasKoch] [@omion] [@davidlattimore] [@Sh3Rm4n] [@Windfisch] [@sorki]
+[@taylorh140] [@reitermarkus] [@larchuto] [@jonas-schievink] [@tim-seoss]
+[@Wassasin] [@Gekkio] [@korken89] [@maximeborges] [@sphw] [@dgoodland]
+[@X-yl] [@disasm] [@Pagten] [@oldsheep68] [@TomDeRybel]
 
 ## [v0.14.0] 2021-10-02
 
@@ -660,7 +744,8 @@ work in this release!
 * Fix nvicPrioBits being incorrect in many STM32s (de117ef)
 * Add support for specifying interrupts and modifying CPU node
 
-[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/stm32-rs/stm32-rs/compare/v0.15.0...HEAD
+[v0.15.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...v0.14.0
 [v0.13.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.13.0...v0.13.1
 [v0.13.0]: https://github.com/stm32-rs/stm32-rs/compare/v0.12.1...v0.13.0
@@ -699,6 +784,9 @@ work in this release!
 [@cyberillithid]: https://github.com/cyberillithid
 [@cyrusmetcalf]: https://github.com/cyrusmetcalf
 [@David-OConnor]: https://github.com/David-OConnor
+[@davidlattimore]: https://github.com/davidlattimore
+[@DerFetzer]: https://github.com/DerFetzer
+[@dgoodland]: https://github.com/dgoodland
 [@diondokter]: https://github.com/diondokter
 [@dirk-dms]: https://github.com/dirk-dms
 [@disasm]: https://github.com/disasm
@@ -707,11 +795,13 @@ work in this release!
 [@ehntoo]: https://github.com/ehntoo
 [@eupn]: https://github.com/eupn
 [@Geens]: https://github.com/Geens
+[@Gekkio]: https://github.com/Gekkio
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
 [@ijager]: https://github.com/ijager
+[@jamwaffles]: https://github.com/jamwaffles
 [@JarLob]: https://github.com/JarLob
 [@jessebraham]: https://github.com/jessebraham
 [@jglauche]: https://github.com/jglauche
@@ -720,17 +810,21 @@ work in this release!
 [@jonas-schievink]: https://github.com/jonas-schievink
 [@jordens]: https://github.com/jordens
 [@jorgeig-space]: https://github.com/jorgeig-space
+[@jspngh]: https://github.com/jspngh
 [@karlp]: https://github.com/karlp
 [@kenbell]: https://github.com/kenbell
 [@kevswims]: https://github.com/kevswims
 [@kitzin]: https://github.com/kitzin
 [@korken89]: https://github.com/korken89
+[@larchuto]: https://github.com/larchuto
+[@LeonSkoog]: https://github.com/LeonSkoog
 [@lichtfeind]: https://github.com/lichtfeind
 [@lochsh]: https://github.com/lochsh
 [@lulf]: https://github.com/lulf
 [@lynaghk]: https://github.com/lynaghk
 [@mabezdev]: https://github.com/mabezdev
 [@MarcoIeni]: https://github.com/MarcoIeni
+[@MathiasKoch]: https://github.com/MathiasKoch
 [@mathk]: https://github.com/mathk
 [@matoushybl]: https://github.com/matoushybl]
 [@MattCatz]: https://github.com/MattCatz
@@ -741,6 +835,8 @@ work in this release!
 [@noslaver]: https://github.com/noslaver
 [@octronics]: https://github.com/octronics
 [@ofauchon]: https://github.com/ofauchon
+[@oldsheep68]: https://github.com/oldsheep68
+[@omion]: https://github.com/omion
 [@osannolik]: https://github.com/osannolik
 [@Pagten]: https://github.com/Pagten
 [@pawelchcki]: https://github.com/pawelchcki
@@ -748,23 +844,34 @@ work in this release!
 [@qwandor]: https://github.com/qwandor
 [@ra-kete]: https://github.com/ra-kete
 [@Rahix]: https://github.com/Rahix
+[@reitermarkus]: https://github.com/reitermarkus
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
 [@rmsc]: https://github.com/rmsc
 [@ryan-summers]: https://github.com/ryan-summers
 [@samcrow]: https://github.com/samcrow
+[@sephamorr]: https://github.com/sephamorr
 [@Sh3Rm4n]: https://github.com/Sh3Rm4n
 [@sirhcel]: https://github.com/sirhcel
 [@solderjs]: https://github.com/solderjs
+[@sorki]: https://github.com/sorki
+[@sphw]: https://github.com/sphw
+[@systec-ms]: https://github.com/systec-ms
 [@tachiniererin]: https://github.com/tachiniererin
+[@taylorh140]: https://github.com/taylorh140
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
+[@tim-seoss]: https://github.com/tim-seoss
 [@timblakely]: https://github.com/timblakely
 [@timokroeger]: https://github.com/timokroeger
+[@TomDeRybel]: https://github.com/TomDeRybel
 [@torkeldanielsson]: https://github.com/torkeldanielsson
 [@TwoHandz]: https://github.com/TwoHandz
 [@wallacejohn]: https://github.com/wallacejohn
+[@Wassasin]: https://github.com/Wassasin
+[@Windfisch]: https://github.com/Windfisch
+[@X-yl]: https://github.com/X-yl
 [@x37v]: https://github.com/x37v
 [@YruamaLairba]: https://github.com/YruamaLairba
 [@yusefkarim]: https://github.com/yusefkarim
