@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Updated to svd2rust 0.24.1
+
 ## [v0.15.0] 2022-07-04
 
 Common changes:
