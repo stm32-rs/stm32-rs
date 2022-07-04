@@ -101,6 +101,7 @@ Family-specific:
     * Add more enums for clock selection registers (#720)
     * Rename `Polynomialcoefficients` field to `POL` (#710)
     * Remove COMP1/COMP2 prefix from field names, document fields (#682)
+    * Add L4R5 device (#740)
 
 * L5:
     * Fix DMA CCR fields, arrayify GTZC VCTR (#715)
@@ -120,7 +121,7 @@ Contributors to this release:
 [@MathiasKoch] [@omion] [@davidlattimore] [@Sh3Rm4n] [@Windfisch] [@sorki]
 [@taylorh140] [@reitermarkus] [@larchuto] [@jonas-schievink] [@tim-seoss]
 [@Wassasin] [@Gekkio] [@korken89] [@maximeborges] [@sphw] [@dgoodland]
-[@X-yl] [@disasm] [@Pagten] [@oldsheep68] [@TomDeRybel]
+[@X-yl] [@disasm] [@Pagten] [@oldsheep68] [@TomDeRybel] [@mattcarp12]
 
 ## [v0.14.0] 2021-10-02
 
@@ -827,6 +828,7 @@ work in this release!
 [@MathiasKoch]: https://github.com/MathiasKoch
 [@mathk]: https://github.com/mathk
 [@matoushybl]: https://github.com/matoushybl]
+[@mattcarp12]: https://github.com/mattcarp12
 [@MattCatz]: https://github.com/MattCatz
 [@mattico]: https://github.com/mattico
 [@maximeborges]: https://github.com/maximeborges
