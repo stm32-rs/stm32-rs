@@ -166,13 +166,17 @@ TIM7:
   CNT:
     _delete: [UIFCPY]
 
-# UART4 is erroneously derived from a fully-featured USART (with extra fields which UARTs lack).
+# The UART peripherals are erroneously derived from a fully-featured USART
+# (with extra features, and register fields which UARTs lack).
 _delete:
   UART4:
+  UART5:
 
 _copy:
   UART4:
     from: ../svd/stm32f405.svd:UART4
+  UART5:
+    from: ../svd/stm32f405.svd:UART5
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
