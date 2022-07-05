@@ -170,6 +170,42 @@ TIM7:
   CNT:
     _delete: [UIFCPY]
 
+# The USART peripheral definitions in the svd have a random array of unrelated
+# incorrect interrupt definitions.
+USART1:
+  _add:
+    _interrupts:
+      USART1:
+        description: USART 1 global interrupt
+        value: 37
+  _delete:
+    _interrupts:
+      - USART7
+
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART 2 global interrupt
+        value: 38
+  _delete:
+    _interrupts:
+      - USART3
+
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART 3 global interrupt
+        value: 39
+
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART 6 global interrupt
+        value: 71
+
 # The UART peripherals are erroneously derived from a fully-featured USART
 # (with extra features, and register fields which UARTs lack).  They also have
 # incorrect interrupt definitions.
