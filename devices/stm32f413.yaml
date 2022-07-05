@@ -171,16 +171,47 @@ TIM7:
     _delete: [UIFCPY]
 
 # The UART peripherals are erroneously derived from a fully-featured USART
-# (with extra features, and register fields which UARTs lack).
+# (with extra features, and register fields which UARTs lack).  They also have
+# incorrect interrupt definitions.
 _delete:
   UART4:
   UART5:
+  UART7:
+  UART8:
 
 _copy:
   UART4:
-    from: ../svd/stm32f405.svd:UART4
+    from: ../svd/stm32f469.svd:UART4
   UART5:
-    from: ../svd/stm32f405.svd:UART5
+    from: ../svd/stm32f469.svd:UART5
+  UART7:
+    from: ../svd/stm32f469.svd:UART7
+  UART8:
+    from: ../svd/stm32f469.svd:UART8
+  UART9:
+    from: UART8
+  UART10:
+    from: UART8
+
+UART9:
+  _add:
+    _interrupts:
+      UART9:
+        description: UART 9 global interrupt
+        value: 88
+  _delete:
+    _interrupts:
+      - USART8
+
+UART10:
+  _add:
+    _interrupts:
+      UART10:
+        description: UART 10 global interrupt
+        value: 89
+  _delete:
+    _interrupts:
+      - UART5
 
 _include:
  - common_patches/4_nvic_prio_bits.yaml
