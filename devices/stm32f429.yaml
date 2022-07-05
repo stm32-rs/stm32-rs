@@ -11,6 +11,10 @@ _modify:
   C_ADC:
     name: ADC_Common
 
+_derive:
+  UART7: UART4
+  UART8: UART4
+
 "SPI*":
   SR:
     _modify:
