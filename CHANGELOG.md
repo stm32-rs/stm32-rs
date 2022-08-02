@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Updated to svd2rust 0.25.0, use tools binaries for CI
+
 ## [v0.15.1] 2022-07-04
 
 * Updated to svd2rust 0.24.1 to fix critical codegen issue (#751)
