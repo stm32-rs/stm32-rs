@@ -69,7 +69,7 @@ jobs:
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
         with:
-          working-directory: ${{ matrix.crate }}
+          workspaces: "${{ matrix.crate }} -> target"
 
       - name: Install tools
         run: make install
