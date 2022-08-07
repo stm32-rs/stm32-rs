@@ -1,8 +1,5 @@
 name: compare mmaps
 
-env:
-  SVDTOOLS_VERSION: v0.2.5
-
 on:
   pull_request_target:
 
@@ -39,7 +36,8 @@ jobs:
           cargo init
 
       - name: Install tools
-        run: make install
+        run: |
+          ./scripts/tool_install.sh svdtools
 
       - name: Build and publish
         run: |

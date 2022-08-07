@@ -1,9 +1,5 @@
 name: CI
 
-env:
-  SVDTOOLS_VERSION: v0.2.5
-  SVD2RUST_VERSION: v0.25.0
-
 on:
   push:
     branches: [ staging, trying, master ]
@@ -66,13 +62,10 @@ jobs:
       - name: Create working crate
         run: make crates
 
-      - name: Cache dependencies
-        uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "${{ matrix.crate }} -> target"
-
       - name: Install tools
-        run: make install
+        run: |
+          ./scripts/tool_install.sh svdtools
+          ./scripts/tool_install.sh svd2rust
 
       - name: Patch SVDs
         run: make -j2 patch
