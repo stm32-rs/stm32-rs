@@ -1,15 +1,12 @@
 name: compare mmaps
 
-env:
-  SVDTOOLS_VERSION: 0.2.3
-
 on:
   pull_request_target:
 
 jobs:
   compare:
     name: Compare mmaps
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     continue-on-error: true
 
     env:
@@ -38,14 +35,9 @@ jobs:
         run: |
           cargo init
 
-      - name: Cache dependencies
-        uses: Swatinem/rust-cache@v1
-        with:
-          key: svdtools-${{ env.SVDTOOLS_VERSION }}
-
-      - name: Install svdtools
+      - name: Install tools
         run: |
-          cargo install svdtools --version $SVDTOOLS_VERSION
+          ./scripts/tool_install.sh svdtools
 
       - name: Build and publish
         run: |

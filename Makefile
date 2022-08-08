@@ -141,6 +141,9 @@ update-venv:
 	venv/bin/pip install -U pip
 	venv/bin/pip install -U -r requirements.txt
 
+install:
+	scripts/tool_install.sh
+
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
