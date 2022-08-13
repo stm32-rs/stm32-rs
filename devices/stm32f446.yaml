@@ -514,15 +514,15 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
- - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - common_patches/dma_fcr_wo.yaml
+ - common_patches/nvic/4_prio_bits.yaml
+ - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/dma/fcr_wo.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
  - common_patches/sai/sai_v1.yaml
  - ../peripherals/sai/sai.yaml
- - common_patches/f4_rcc_fmpi2c.yaml
+ - common_patches/rcc/f4_fmpi2c.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -565,7 +565,7 @@ _include:
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
- - common_patches/f4_add_UART_GTPR.yaml
+ - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
@@ -577,7 +577,7 @@ _include:
  - common_patches/usb_otg/otg_fs_remove_prefix.yaml
  - common_patches/usb_otg/otg_fs_fixes_v1_446_469.yaml
  - common_patches/usb_otg/otg_hs_fixes_v1.yaml
- - common_patches/dbgmcu.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix.yaml
@@ -587,14 +587,14 @@ _include:
  - ../peripherals/fsmc/fsmc_wfdis.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
- - common_patches/f4_rtc_cr.yaml
+ - common_patches/rtc/f4_cr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
- - common_patches/sdio_f446.yaml
+ - common_patches/sdio_sdmmc/f446.yaml
  - ../peripherals/sdio/sdio.yaml
  - ../peripherals/sdio/sdio_f4_common.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/adc/adc_common_group_name.yaml

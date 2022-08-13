@@ -70,28 +70,28 @@ DAC:
     - "DAC_"
 
 _include:
- - ./common_patches/2_nvic_prio_bits.yaml
+ - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
- - ./common_patches/g0_adc_typo.yaml
+ - ./common_patches/adc/g0_typo.yaml
  - ../peripherals/dma/single_dma_v1.yaml
- - ./common_patches/g0_dma_7ch.yaml
+ - ./common_patches/dma/g0_7ch.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/gpio/gpio_g0_l0.yaml
  - common_patches/i2c/g0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
- - ./common_patches/rename_g0_SPI_registers.yaml
+ - ./common_patches/spi/g0_rename_registers.yaml
  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
  - common_patches/usart/g0.yaml
  - ../peripherals/usart/usart_v2C.yaml
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
- - ../devices/common_patches/g0_adc.yaml
+ - ../devices/common_patches/adc/g0.yaml
  - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - ./common_patches/g0_flash.yaml
+ - ./common_patches/flash/g0.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/tamp_bkpr.yaml

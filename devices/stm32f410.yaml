@@ -158,12 +158,12 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
- - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - common_patches/f4_rcc_fmpi2c.yaml
- - common_patches/f4_adc_single_csr.yaml
- - common_patches/f4_adc_single_ccr.yaml
- - common_patches/f41x_bdcr_lsemod.yaml
+ - common_patches/nvic/4_prio_bits.yaml
+ - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/rcc/f4_fmpi2c.yaml
+ - common_patches/adc/f4_single_csr.yaml
+ - common_patches/adc/f4_single_ccr.yaml
+ - common_patches/rcc/f41x_bdcr_lsemod.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -207,10 +207,10 @@ _include:
  - ../peripherals/flash/flash_latency16.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/dbgmcu.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
- - common_patches/i2c_v1_fltr.yaml
+ - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/adc/adc_common_group_name.yaml

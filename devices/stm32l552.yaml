@@ -39,7 +39,7 @@ GTZC_TZSC:
     - "TZSC_"
 
 _include:
- - common_patches/dma_interrupt_names.yaml
+ - common_patches/dma/interrupt_names.yaml
  - ../peripherals/gpio/gpio_l5.yaml
  - ../peripherals/rcc/rcc_l5.yaml
  - common_patches/rtc/alarm.yaml
@@ -48,4 +48,4 @@ _include:
  - ../peripherals/sai/sai.yaml
  - common_patches/tim/v2/l5.yaml
  - ../peripherals/tim/v2/ccm.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/adc/adc_common_group_name.yaml

@@ -15,8 +15,8 @@ MPU:
     - "MPU_"
 
 _include:
- - ./common_patches/f1_uart45.yaml
- - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - ./common_patches/rcc/f1_uart45.yaml
+ - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
@@ -50,5 +50,5 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - common_patches/dbgmcu_rename.yaml
+ - common_patches/dbgmcu/rename.yaml
  - ../peripherals/adc/adc_f1_common.yaml

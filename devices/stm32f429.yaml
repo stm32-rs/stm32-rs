@@ -125,17 +125,17 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
- - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - common_patches/dma_fcr_wo.yaml
- - common_patches/ethernet_mac_regs.yaml
- - common_patches/ethernet_mmc.yaml
- - common_patches/f2_f4_ethernet.yaml
- - common_patches/rcc_sai.yaml
- - common_patches/rcc_dma2d_ltdc.yaml
- - common_patches/rcc_spi4.yaml
- - common_patches/rcc_spi5.yaml
- - common_patches/rcc_add_gpiojk.yaml
+ - common_patches/nvic/4_prio_bits.yaml
+ - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/dma/fcr_wo.yaml
+ - common_patches/ethernet/mac_regs.yaml
+ - common_patches/ethernet/mmc.yaml
+ - common_patches/ethernet/f2_f4.yaml
+ - common_patches/rcc/sai.yaml
+ - common_patches/rcc/dma2d_ltdc.yaml
+ - common_patches/rcc/spi4.yaml
+ - common_patches/rcc/spi5.yaml
+ - common_patches/rcc/add_gpiojk.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
@@ -188,7 +188,7 @@ _include:
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
- - common_patches/f4_add_UART_GTPR.yaml
+ - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/iwdg/iwdg.yaml
@@ -200,7 +200,7 @@ _include:
  - common_patches/usb_otg/otg_fs_fixes_v1.yaml
  - common_patches/usb_otg/otg_hs_remove_prefix.yaml
  - common_patches/usb_otg/otg_hs_fixes_v1.yaml
- - common_patches/dbgmcu.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
@@ -210,11 +210,11 @@ _include:
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
  - ../peripherals/rng/rng_v1.yaml
- - common_patches/f4_rtc_cr.yaml
+ - common_patches/rtc/f4_cr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/adc/adc_common_group_name.yaml

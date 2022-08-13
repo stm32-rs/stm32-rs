@@ -43,19 +43,19 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/dma_fcr_wo.yaml
- - common_patches/merge_I2C_OAR1_ADDx_fields.yaml
+ - common_patches/dma/fcr_wo.yaml
+ - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/can/can.yaml
  - ../peripherals/can/can.yaml
  - common_patches/cryp/cryp_v1.yaml
- - common_patches/f2_rcc.yaml
+ - common_patches/rcc/f2.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - common_patches/fsmc/fsmc_nand_v1.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
- - common_patches/f2_f4_ethernet.yaml
- - common_patches/ethernet_mmc.yaml
+ - common_patches/ethernet/f2_f4.yaml
+ - common_patches/ethernet/mmc.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -95,5 +95,5 @@ _include:
  - common_patches/rtc/rtc_cr.yaml
  - common_patches/usb_otg/otg_fs_remove_prefix.yaml
  - common_patches/usb_otg/otg_fs_fixes_v1.yaml
- - common_patches/dbgmcu.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
+ - common_patches/adc/adc_common_group_name.yaml

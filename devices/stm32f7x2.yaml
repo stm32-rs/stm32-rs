@@ -17,21 +17,21 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/f7x23_pllsai.yaml
- - common_patches/dma_fcr_wo.yaml
- - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
- - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
- - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
- - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
- - common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/rcc/f7x23_pllsai.yaml
+ - common_patches/dma/fcr_wo.yaml
+ - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
+ - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+ - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
+ - common_patches/usart/merge_BRR_fields.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
  - common_patches/sai/sai_v1.yaml
  - ../peripherals/sai/sai.yaml
- - common_patches/f7_rcc_lsedrv.yaml
- - common_patches/f7_rcc_dckcfgr.yaml
- - common_patches/f7x23_rcc_dckcfgr.yaml
+ - common_patches/rcc/f7_lsedrv.yaml
+ - common_patches/rcc/f7_dckcfgr.yaml
+ - common_patches/rcc/f7x23_dckcfgr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -61,7 +61,7 @@ _include:
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
- - common_patches/f7_tim.yaml
+ - common_patches/tim/f7.yaml
  - common_patches/f730_f7x2_f7x3_common.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
@@ -78,7 +78,7 @@ _include:
  - ../peripherals/fsmc/fsmc_sd.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/dbgmcu.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
- - common_patches/adc_common_group_name.yaml
+ - common_patches/adc/adc_common_group_name.yaml

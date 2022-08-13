@@ -110,12 +110,12 @@ SPI1:
       size: 32
 
 _include:
- - ./common_patches/2_nvic_prio_bits.yaml
+ - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/dma/dma_v1.yaml
- - ./common_patches/g0_add_dma1_7ch.yaml
- - ./common_patches/g0_add_dma2_5ch.yaml
+ - ./common_patches/dma/g0_add_dma1_7ch.yaml
+ - ./common_patches/dma/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
- - common_patches/g0_usb_enum.yaml
+ - ../peripherals/usb/g0_enum.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/gpio/gpio_g0_l0.yaml
@@ -130,6 +130,6 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - ./common_patches/g0_flash.yaml
+ - ./common_patches/flash/g0.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/tamp_bkpr.yaml

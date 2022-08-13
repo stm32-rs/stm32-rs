@@ -25,23 +25,23 @@ SPI1:
       - UDR
 
 _include:
- - ./common_patches/rename_RCC_CIR_HSI14RDYIE_field.yaml
- - ./common_patches/rename_f0_SPI_registers.yaml
- - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
- - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
- - ./common_patches/f0_no_hdmi_cec.yaml
- - ./common_patches/f0_v18pwrrstf.yaml
- - ./common_patches/f0_adc_cfgr2_ckmode.yaml
- - ./common_patches/f0_adc_fixes.yaml
- - ./common_patches/f0_usart3.yaml
- - ./common_patches/f0_usart6.yaml
- - ./common_patches/f0_dmaen.yaml
- - ./common_patches/f0_usben.yaml
- - ./common_patches/f0_hsi48cal.yaml
- - ./common_patches/f0_syscfg.yaml
- - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
- - ./common_patches/rename_USART_CR1_M0_field.yaml
- - ./common_patches/merge_USART_BRR_fields.yaml
+ - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
+ - ./common_patches/spi/f0_rename_registers.yaml
+ - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
+ - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
+ - ./common_patches/rcc/f0_no_hdmi_cec.yaml
+ - ./common_patches/rcc/f0_v18pwrrstf.yaml
+ - ./common_patches/adc/f0_cfgr2_ckmode.yaml
+ - ./common_patches/adc/f0_fixes.yaml
+ - ./common_patches/rcc/f0_usart3.yaml
+ - ./common_patches/rcc/f0_usart6.yaml
+ - ./common_patches/dma/f0_dmaen.yaml
+ - ./common_patches/rcc/f0_usben.yaml
+ - ./common_patches/rcc/f0_hsi48cal.yaml
+ - ./common_patches/syscfg/f0.yaml
+ - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/rename_CR1_M0_field.yaml
+ - ./common_patches/usart/merge_BRR_fields.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim1_16bit.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
@@ -73,7 +73,7 @@ _include:
  - ../peripherals/adc/adc_aditf4_v1_1.yaml
  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
- - common_patches/f0_ram_parity_check.yaml
+ - common_patches/flash/f0_ram_parity_check.yaml
  - ../peripherals/flash/flash_f0.yaml
- - ./common_patches/2_nvic_prio_bits.yaml
- - ./common_patches/f0_crc_init_addr_fix.yaml
+ - ./common_patches/nvic/2_prio_bits.yaml
+ - ./common_patches/crc/f0_init_addr_fix.yaml

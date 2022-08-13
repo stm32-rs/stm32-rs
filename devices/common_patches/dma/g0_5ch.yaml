@@ -2,7 +2,7 @@
 # This patch removes register fields for channels 6 and 7
 DMA:
   _include:
-    - dma/v1_array.yaml
+    - v1_array.yaml
   _modify:
     IFCR:
       access: write-only
