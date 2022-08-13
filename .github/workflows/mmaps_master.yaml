@@ -32,7 +32,7 @@ jobs:
 
       - name: Install tools
         run: |
-          ./scripts/tool_install.sh svdtools
+          ./stm32-rs/scripts/tool_install.sh svdtools
 
       - name: Build and publish
         run: |
