@@ -37,7 +37,7 @@ jobs:
 
       - name: Install tools
         run: |
-          ./scripts/tool_install.sh svdtools
+          ./master/scripts/tool_install.sh svdtools
 
       - name: Build and publish
         run: |
