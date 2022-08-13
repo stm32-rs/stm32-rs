@@ -104,17 +104,17 @@ _copy:
 
 # NB: Paths here are relative to the common_patches directory.
 _include:
- - 4_nvic_prio_bits.yaml
- - merge_USART_CR1_DEATx_fields.yaml
- - merge_USART_CR2_ADDx_fields.yaml
- - merge_USART_CR2_ABRMODx_fields.yaml
- - merge_USART_CR1_DEDTx_fields.yaml
- - rename_USART_CR2_DATAINV_field.yaml
- - merge_LPUART_CR1_DEATx_fields.yaml
- - merge_LPUART_CR1_DEDTx_fields.yaml
- - rename_LPUART_CR2_DATAINV_field.yaml
- - merge_LPUART_CR2_ADDx_fields.yaml
- - merge_USART_BRR_fields.yaml
+ - nvic/4_prio_bits.yaml
+ - usart/merge_CR1_DEATx_fields.yaml
+ - usart/merge_CR2_ADDx_fields.yaml
+ - usart/merge_CR2_ABRMODx_fields.yaml
+ - usart/merge_CR1_DEDTx_fields.yaml
+ - usart/rename_CR2_DATAINV_field.yaml
+ - usart/merge_LPUART_CR1_DEATx_fields.yaml
+ - usart/merge_LPUART_CR1_DEDTx_fields.yaml
+ - usart/rename_LPUART_CR2_DATAINV_field.yaml
+ - usart/merge_LPUART_CR2_ADDx_fields.yaml
+ - usart/merge_BRR_fields.yaml
  - can/can.yaml
  - can/can_filter_bank.yaml
  - ../../peripherals/can/can.yaml
@@ -152,9 +152,9 @@ _include:
  - ../../peripherals/usb/usb_array.yaml
  - ../../peripherals/usb/usb_with_LPM.yaml
  - flash/flash_boot0s.yaml
- - l4_adc.yaml
- - l4_adc_common.yaml
- - l4_adc_smpr.yaml
- - l4_adc_sqr1.yaml
- - l4_spi.yaml
+ - adc/l4.yaml
+ - adc/l4_adc_common.yaml
+ - adc/l4_smpr.yaml
+ - adc/l4_sqr1.yaml
+ - spi/l4.yaml
  - ../../peripherals/spi/spi_l4.yaml

@@ -80,17 +80,17 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
- - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
- - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
- - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
- - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
- - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
- - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
- - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
- - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
- - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
- - ./common_patches/merge_USART_BRR_fields.yaml
+ - common_patches/nvic/4_prio_bits.yaml
+ - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/rename_CR2_DATAINV_field.yaml
+ - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+ - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
+ - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
+ - ./common_patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
+ - ./common_patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
+ - ./common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
+ - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/merge_BRR_fields.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
@@ -130,13 +130,13 @@ _include:
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
  - ../peripherals/sai/sai.yaml
- - ./common_patches/l4_adc.yaml
- - ./common_patches/l4_adc_common.yaml
- - ./common_patches/l4_adc_smpr.yaml
- - ./common_patches/l4_adc_sqr1.yaml
- - ./common_patches/l4_spi.yaml
- - ./common_patches/l4_gpio_brr.yaml
- - ./common_patches/l4_tim15_ch2.yaml
+ - ./common_patches/adc/l4.yaml
+ - ./common_patches/adc/l4_adc_common.yaml
+ - ./common_patches/adc/l4_smpr.yaml
+ - ./common_patches/adc/l4_sqr1.yaml
+ - ./common_patches/spi/l4.yaml
+ - ./common_patches/gpio/l4_brr.yaml
+ - ./common_patches/tim/l4_tim15_ch2.yaml
  - ../peripherals/spi/spi_l4.yaml
  - ./common_patches/comp/l4xx_comp_reg_rename.yaml
  - ../peripherals/comp/comp_l4x1.yaml

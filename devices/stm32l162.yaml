@@ -17,13 +17,13 @@ MPU:
     - "MPU_"
 
 _include:
- - ./common_patches/rename_TIM2_CCR3_CCR3.yaml
- - ./common_patches/merge_I2C_OAR1_ADDx_fields.yaml
- - common_patches/split_exti.yaml
+ - ./common_patches/tim/rename_TIM2_CCR3_CCR3.yaml
+ - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
- - ./common_patches/unprefix_USB_registers.yaml
+ - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -31,7 +31,7 @@ _include:
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../devices/common_patches/gpio_with_OSPEEDER.yaml
+ - ../devices/common_patches/gpio/with_OSPEEDER.yaml
  - ../peripherals/gpio/v2/common.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml

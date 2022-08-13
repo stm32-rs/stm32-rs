@@ -44,18 +44,18 @@ MPU:
     - "MPU_"
 
 _include:
-  - common_patches/l4_adc_sqr1.yaml
-  - common_patches/4_nvic_prio_bits.yaml
-  - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
-  - ./common_patches/merge_USART_CR2_ABRMODx_fields.yaml
-  - ./common_patches/merge_USART_CR1_DEDTx_fields.yaml
-  - ./common_patches/merge_USART_CR1_DEATx_fields.yaml
-  - ./common_patches/rename_USART_CR2_DATAINV_field.yaml
-  - ./common_patches/merge_LPUART_CR1_DEATx_fields.yaml
-  - ./common_patches/merge_LPUART_CR1_DEDTx_fields.yaml
-  - ./common_patches/rename_LPUART_CR2_DATAINV_field.yaml
-  - ./common_patches/merge_LPUART_CR2_ADDx_fields.yaml
-  - ./common_patches/merge_USART_BRR_fields.yaml
+  - common_patches/adc/l4_sqr1.yaml
+  - common_patches/nvic/4_prio_bits.yaml
+  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+  - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
+  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
+  - ./common_patches/usart/rename_CR2_DATAINV_field.yaml
+  - ./common_patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
+  - ./common_patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
+  - ./common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
+  - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
+  - ./common_patches/usart/merge_BRR_fields.yaml
   - common_patches/can/can.yaml
   - common_patches/can/can_filter_bank.yaml
   - ../peripherals/can/can.yaml
@@ -94,8 +94,8 @@ _include:
   - ../peripherals/fw/fw_l0_l4.yaml
   - common_patches/hash/hash.yaml
   - ../peripherals/dma/dma2d_v1.yaml
-  - ./common_patches/l4_dbg_apb_fzr_rename.yaml
+  - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
   - common_patches/usb_otg/otg_fs_remove_prefix.yaml
   - common_patches/usb_otg/otg_fs_fixes_v1.yaml
-  - common_patches/l4_lpuart_presc.yaml
-  - common_patches/adc_common_group_name.yaml
+  - common_patches/usart/l4_lpuart_presc.yaml
+  - common_patches/adc/adc_common_group_name.yaml

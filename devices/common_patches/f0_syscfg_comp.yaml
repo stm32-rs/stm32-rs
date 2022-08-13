@@ -26,8 +26,8 @@ SYSCFG:
         name: I2C2_FMP
 
 _include:
- - ./f0_syscfg_common.yaml
- - ./f0_comp_common.yaml
+ - ./syscfg/f0_common.yaml
+ - ./comp/f0_common.yaml
 
 COMP:
   CSR:

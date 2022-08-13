@@ -3,8 +3,8 @@
 
 # Create separate DMA and MTL periperhals
 _include:
-  - ./h7_ethernet_dma.yaml
-  - ./h7_ethernet_mtl.yaml
+  - h7_dma.yaml
+  - h7_mtl.yaml
 
 Ethernet_MAC:
   # Delete DMA and MTL parts from MAC
@@ -15,4 +15,4 @@ Ethernet_MAC:
 
   # Descriptions for MAC
   _include:
-    - ./h7_ethernet_desc_mac.yaml
+    - h7_desc_mac.yaml

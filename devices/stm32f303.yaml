@@ -100,46 +100,46 @@ TIM3:
         name: UIFCPY
 
 _include:
- - common_patches/4_nvic_prio_bits.yaml
- - ./common_patches/merge_I2C_CR2_SADDx_fields.yaml
- - ./common_patches/merge_I2C_OAR1_OA1x_fields.yaml
- - ./common_patches/merge_USART_CR2_ADDx_fields.yaml
- - ./common_patches/merge_USART_BRR_fields.yaml
- - ./common_patches/f3_adc.yaml
- - ./common_patches/f3_adc_multi_dual.yaml
- - ./common_patches/f3_gpio_reset_values.yaml
- - ./common_patches/f3_rcc.yaml
- - ./common_patches/f3_rcc_mco.yaml
- - ./common_patches/f3_rcc_usb.yaml
- - ./common_patches/f3_rcc_spi4.yaml
- - ./common_patches/f3_rcc_tim20.yaml
- - ./common_patches/f3_rcc_cfgr3_tim.yaml
- - ./common_patches/f3_syscfg.yaml
- - ./common_patches/f3_syscfg_cfgr1_mem_mode_3.yaml
- - ./common_patches/f3_syscfg_cfgr1_dac2_ch1_dma_rmp.yaml
- - ./common_patches/f3_syscfg_cfgr1_i2c3_fmp.yaml
- - ./common_patches/f3_syscfg_cfgr1_timx_dacx_chx_dma_rmp.yaml
- - ./common_patches/f3_syscfg_cfgr1_adc2_dac1_rmp.yaml
- - ./common_patches/f3_syscfg_cfgr2.yaml
- - ./common_patches/f3_syscfg_cfgr4.yaml
- - ./common_patches/f3_syscfg_rcr_page8-15.yaml
+ - common_patches/nvic/4_prio_bits.yaml
+ - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
+ - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
+ - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/merge_BRR_fields.yaml
+ - ./common_patches/adc/f3.yaml
+ - ./common_patches/adc/f3_multi_dual.yaml
+ - ./common_patches/gpio/f3_reset_values.yaml
+ - ./common_patches/rcc/f3.yaml
+ - ./common_patches/rcc/f3_mco.yaml
+ - ./common_patches/rcc/f3_usb.yaml
+ - ./common_patches/rcc/f3_spi4.yaml
+ - ./common_patches/rcc/f3_tim20.yaml
+ - ./common_patches/rcc/f3_cfgr3_tim.yaml
+ - ./common_patches/syscfg/f3.yaml
+ - ./common_patches/syscfg/f3_cfgr1_mem_mode_3.yaml
+ - ./common_patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
+ - ./common_patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
+ - ./common_patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
+ - ./common_patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
+ - ./common_patches/syscfg/f3_cfgr2.yaml
+ - ./common_patches/syscfg/f3_cfgr4.yaml
+ - ./common_patches/syscfg/f3_rcr_page8-15.yaml
  - ../peripherals/syscfg/syscfg_f3.yaml
  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
  - ../peripherals/syscfg/syscfg_f303_3x8.yaml
- - ./common_patches/f3_opamp1234.yaml
- - ./common_patches/f3_comp1234567.yaml
+ - ./common_patches/opamp/f3_opamp1234.yaml
+ - ./common_patches/comp/f3_comp1234567.yaml
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
- - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
- - ./common_patches/unprefix_USB_registers.yaml
+ - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+ - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v2/common.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
- - common_patches/f3_gpio_ospeedr.yaml
+ - common_patches/gpio/f3_ospeedr.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
@@ -162,7 +162,7 @@ _include:
  - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - common_patches/f3_exti_offset.yaml
+ - common_patches/exti/f3_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
@@ -170,14 +170,14 @@ _include:
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/tsc/tsc.yaml
  - ../peripherals/usb/usb.yaml
- - common_patches/f3_dbgmcu.yaml
+ - common_patches/dbgmcu/f3.yaml
  - common_patches/fpu_interrupt.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
  - ../peripherals/adc/adc_v3_common_f3.yaml
- - common_patches/f3_flash.yaml
- - common_patches/f3_flash_obr_rdptr.yaml
+ - common_patches/flash/f3.yaml
+ - common_patches/flash/f3_obr_rdptr.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml

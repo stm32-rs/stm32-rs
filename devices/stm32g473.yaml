@@ -9,17 +9,17 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
- - ./common_patches/g4_rcc.yaml
- - ./common_patches/g4_exti.yaml
+ - ./common_patches/rcc/g4.yaml
+ - ./common_patches/exti/g4.yaml
  - ./common_patches/fdcan/fdcan_g4.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/adc/adc_v3_g4.yaml
  - ../peripherals/adc/adc_v3_common_g4.yaml
- - ./common_patches/g4_comp.yaml
- - ./common_patches/g4_adc.yaml
+ - ./common_patches/comp/g4.yaml
+ - ./common_patches/adc/g4.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
- - ./common_patches/g4_cordic.yaml
+ - ./common_patches/cordic/g4.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/tamp_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
@@ -31,8 +31,8 @@ _include:
  - ../peripherals/opamp/opamp_g4_opamp6.yaml 
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/gpio/v2/common.yaml
- - ./common_patches/rename_USB_FS_peripheral_to_USB.yaml
- - ./common_patches/g4_usb.yaml
+ - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+ - ./common_patches/usb/g4.yaml
  - ../peripherals/rcc/rcc_g4.yaml
  - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
