@@ -1,8 +1,4 @@
 DFSDM:
-  _modify:
-    DFSDM?_RDATAR:
-      alternateRegister: JDATAR
-
   _cluster:
     "CH%s":
       description: "DFSDM channel configuration cluster"
@@ -40,7 +36,7 @@ DFSDM:
       "DFSDM[0123]_AWLTR":
         name: AWLTR
       "DFSDM[0123]_AWSR":
-        name: AWSRR
+        name: AWSR
       "DFSDM[0123]_AWCFR":
         name: AWCFR
       "DFSDM[0123]_EXMAX":
