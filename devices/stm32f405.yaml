@@ -63,6 +63,26 @@ MPU:
   _strip:
     - "MPU_"
 
+UART7:
+  _add:
+    _interrupts:
+      UART7:
+        description: USART 7 global interrupt
+        value: 82
+  _delete:
+    _interrupts:
+      - UART4
+
+UART8:
+  _add:
+    _interrupts:
+      UART8:
+        description: USART 8 global interrupt
+        value: 83
+  _delete:
+    _interrupts:
+      - UART5
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
