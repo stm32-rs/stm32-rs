@@ -244,15 +244,35 @@ MPU:
   _strip:
     - "MPU_"
 
-DFSDM:
-  _strip:
-    - "DFSDM_"
-
 JPEG:
   _strip:
     - "JPEG_"
 
+DFSDM:
+  _modify:
+    DFSDM3_CR1:
+      addressOffset: 0x280
+    DFSDM3_CR2:
+      addressOffset: 0x284
+    DFSDM3_ISR:
+      addressOffset: 0x288
+    DFSDM3_ICR:
+      addressOffset: 0x28C
+    DFSDM3_JCHGR:
+      addressOffset: 0x290
+    DFSDM3_FCR:
+      addressOffset: 0x294
+    DFSDM3_JDATAR:
+      addressOffset: 0x298
+    DFSDM1_RDATAR:
+      addressOffset: 0x19C
+    DFSDM2_RDATAR:
+      addressOffset: 0x21C
+    DFSDM3_RDATAR:
+      addressOffset: 0x29C
+
 _include:
+ - common_patches/dfsdm/f7.yaml
  - common_patches/ltdc/rename.yaml
  - common_patches/f7_interrupts.yaml
  - common_patches/ltdc/f7_ltdc_interrupts.yaml

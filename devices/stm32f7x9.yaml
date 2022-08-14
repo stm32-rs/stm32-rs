@@ -251,15 +251,12 @@ MPU:
   _strip:
     - "MPU_"
 
-DFSDM:
-  _strip:
-    - "DFSDM_"
-
 JPEG:
   _strip:
     - "JPEG_"
 
 _include:
+ - common_patches/dfsdm/f7.yaml
  - common_patches/ltdc/rename.yaml
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml
