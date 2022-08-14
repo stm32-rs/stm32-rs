@@ -21,7 +21,7 @@ EXTI:
         Pend: [1, "Generates an interrupt request"]
   PR,PR?,?PR?,CPUPR?,C?PR?:
     "PR*,PIF*,?PIF*":
-      _write:
+      _W1C:
         Clear: [1, "Clears pending bit"]
       _read:
         NotPending: [0, "No trigger request occurred"]
