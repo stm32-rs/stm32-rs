@@ -7,3 +7,7 @@ TIM*:
   _delete:
     - TIM*_SMCR
     - TIM*_CCMR1_output
+
+SYSCFG:
+  _delete:
+    - SYSCFG_CFGR3
