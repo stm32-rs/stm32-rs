@@ -20,6 +20,7 @@ VERSION = "0.15.1"
 SVD2RUST_VERSION = "0.25.0"
 
 CRATE_DOC_FEATURES = {
+    "stm32c0": ["rt", "stm32c011", "stm32c031"],
     "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
     "stm32f1": ["rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103",
                 "stm32f107"],
@@ -40,6 +41,7 @@ CRATE_DOC_FEATURES = {
 }
 
 CRATE_DOC_TARGETS = {
+    "stm32c0": "thumbv6m-none-eabi",
     "stm32f0": "thumbv6m-none-eabi",
     "stm32f1": "thumbv7m-none-eabi",
     "stm32f2": "thumbv7m-none-eabi",

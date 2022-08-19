@@ -1,6 +1,7 @@
 # STM32 Peripheral Access Crates
 
 [![CI](https://github.com/stm32-rs/stm32-rs/workflows/CI/badge.svg?branch=master)](https://github.com/stm32-rs/stm32-rs)
+[![crates.io](https://img.shields.io/crates/v/stm32c0.svg?label=stm32c0)](https://crates.io/crates/stm32c0)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)

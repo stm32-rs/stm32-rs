@@ -1,0 +1,9 @@
+_svd: ../svd/stm32c031.svd
+
+_modify:
+  name: STM32C031
+
+TIM*:
+  _delete:
+    - TIM*_SMCR
+    - TIM*_CCMR1_output

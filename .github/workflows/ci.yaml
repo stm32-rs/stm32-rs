@@ -20,6 +20,7 @@ jobs:
     strategy:
       matrix:
         crate:
+          - stm32c0
           - stm32f0
           - stm32f1
           - stm32f2
