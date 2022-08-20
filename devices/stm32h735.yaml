@@ -802,13 +802,6 @@ TIM1:
       TIM_CC:
         name: TIM1_CC
 
-DCMI:
-  _modify:
-    _interrupts:
-      DCMI:
-        name: DCMI_PSSI
-        description: DCMI/PSSI global interrupt
-
 OTG1_HS_GLOBAL:
   _add:
     _interrupts:
@@ -1004,3 +997,5 @@ _include:
  - common_patches/wwdg/h7.yaml
  - common_patches/ethernet/h7_mac.yaml
  - ../peripherals/cordic/cordic_h7.yaml
+ - ../peripherals/dcmi/dcmi.yaml
+ - ../peripherals/pssi/pssi.yaml
