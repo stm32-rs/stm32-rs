@@ -1,0 +1,12 @@
+# ADC features specific to the reduced performance ADC3 on H7 RM0468 parts
+
+_include:
+  - "adc_v3_h7_reduced.yaml"
+
+"ADC3":
+  CFGR:
+    RES:
+      TwelveBit: [0, "12-bit resolution"]
+      TenBit: [1, "10-bit resolution"]
+      EightBit: [2, "8-bit resolution"]
+      SixBit: [3, "6-bit resolution"]

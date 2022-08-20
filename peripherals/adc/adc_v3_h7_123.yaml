@@ -1,0 +1,9 @@
+# ADC v3 with H7 specific fields. For all ADCs
+
+_include:
+  - "adc_v3.yaml"
+  - "adc_v3_h7.yaml"
+
+"ADC,ADC?":
+  _include:
+    - "adc_v3_h7_full.yaml"
