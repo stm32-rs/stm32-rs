@@ -23,6 +23,13 @@ _modify:
       size: 0x100
       usage: registers
 
+# ADC3 is not quite the same as ADC1
+_delete:
+  - ADC3
+_copy:
+    ADC3:
+        from: ADC1
+
 _add:
   # ADC2
   # Slave ADC, shares an interrupt with ADC2
@@ -938,6 +945,7 @@ _include:
  - common_patches/dma/h7_dmamux.yaml
  - common_patches/dma/dma2d_v2.yaml
  - common_patches/hsem/array.yaml
+ - common_patches/adc/h7_adc3.yaml
  - common_patches/adc/h7.yaml
  - common_patches/adc/h7_boost_rev_v.yaml
  - common_patches/octospi/h7.yaml
