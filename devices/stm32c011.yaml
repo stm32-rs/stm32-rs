@@ -3,11 +3,5 @@ _svd: ../svd/stm32c011.svd
 _modify:
   name: STM32C011
 
-TIM*:
-  _delete:
-    - TIM*_SMCR
-    - TIM*_CCMR1_output
-
-SYSCFG:
-  _delete:
-    - SYSCFG_CFGR3
+_include:
+  - ./common_patches/c0.yaml

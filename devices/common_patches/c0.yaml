@@ -1,0 +1,66 @@
+RCC:
+  _strip:
+    - "RCC_"
+
+ADC:
+  _strip:
+    - "ADC_"
+
+DMA:
+  _strip:
+    - "DMA_"
+
+DMAMUX:
+  _strip:
+    - "DMAMUX_"
+
+CRC:
+  _strip:
+    - "CRC_"
+
+RTC:
+  _strip:
+    - "RTC_"
+
+EXTI:
+  _strip:
+    - "EXTI_"
+
+GPIO?:
+  _strip:
+    - "GPIO?_"
+
+USART?:
+  _strip:
+    - "USART_"
+
+SPI:
+  _strip:
+    - "SPI_"
+
+I2C:
+  _strip:
+    - "I2C_"
+
+IWDG:
+  _strip:
+    - "IWDG_"
+
+PWR:
+  _strip:
+    - "PWR_"
+
+WWDG:
+  _strip:
+    - "WWDG_"
+
+TIM*:
+  _delete:
+    - TIM*_SMCR
+    - TIM*_CCMR1_output
+  _strip:
+    - "TIM*_"
+
+SYSCFG:
+  _delete:
+    - SYSCFG_CFGR3
