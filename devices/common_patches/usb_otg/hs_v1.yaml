@@ -1,0 +1,139 @@
+# For F215, F217, F405, F407, F427
+
+# Fix power and clock gating control register name
+
+OTG_HS_GLOBAL,OTG_HS_DEVICE,OTG_HS_HOST,OTG_HS_PWRCLK:
+  _strip: OTG_HS_
+
+OTG_HS_GLOBAL:
+  _delete:
+    _registers:
+      - DIEPTXF6
+      - DIEPTXF7
+
+  _modify:
+    GNPTXFSIZ_Host:
+      name: HNPTXFSIZ
+      displayName: HNPTXFSIZ
+    
+    GNPTXSTS:
+      name: HNPTXSTS
+
+    TX0FSIZ_Peripheral:
+      name: DIEPTXF0
+      displayName: DIEPTXF0
+      alternateRegister: HNPTXFSIZ
+
+    DIEPTXF3:
+      addressOffset: '0x10C'
+    DIEPTXF4:
+      addressOffset: '0x110'
+    DIEPTXF5:
+      addressOffset: '0x114'
+
+  _array:
+    DIEPTXF[12345]: {}
+
+OTG_HS_HOST:
+  _include:
+    - hs_host_array.yaml
+
+OTG_HS_DEVICE:
+  _delete:
+    _registers:
+      - DIEPCTL6
+      - DIEPCTL7
+      - DIEPINT6
+      - DIEPINT7
+      - DOEPINT6
+      - DOEPINT7
+
+  DIEPCTL*:
+    _modify:
+      EPENA:
+        access: read-write
+
+  DOEPCTL*:
+    _modify:
+      EPENA:
+        access: read-write
+
+  # Rename Stall to uppercase
+  DIEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL handshake
+
+  DOEPCTL*:
+    _modify:
+      Stall:
+        name: STALL
+        description: STALL handshake
+
+  _copy:
+    DIEPDMA0:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-0 DMA address register
+      addressOffset: 0x114
+    DOEPCTL4:
+      _from: DOEPCTL1
+      description: device endpoint-4 control register
+      addressOffset: 0x380
+    DOEPCTL5:
+      _from: DOEPCTL1
+      description: device endpoint-5 control register
+      addressOffset: 0x3A0
+    DOEPTSIZ5:
+      _from: DOEPTSIZ1
+      description: OTG_HS device endpoint-5 transfer size register
+      addressOffset: 0x3B0
+    DOEPDMA0:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-0 DMA address register
+      addressOffset: 0x314
+    DOEPDMA1:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-1 DMA address register
+      addressOffset: 0x334
+    DOEPDMA2:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-2 DMA address register
+      addressOffset: 0x354
+    DOEPDMA3:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-3 DMA address register
+      addressOffset: 0x374
+    DOEPDMA4:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-4 DMA address register
+      addressOffset: 0x394
+    DOEPDMA5:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-5 DMA address register
+      addressOffset: 0x3B4
+  _modify:
+    DIEPDMA1:
+      addressOffset: 0x134
+    DIEPDMA2:
+      addressOffset: 0x154
+    DIEPDMA3:
+      addressOffset: 0x174
+    DIEPDMA4:
+      addressOffset: 0x194
+    DIEPDMA5:
+      addressOffset: 0x1B4
+
+    DIEPEACHMSK1:
+      addressOffset: 0x44
+    DOEPEACHMSK1:
+      addressOffset: 0x84
+
+  _include:
+    - hs_device_cluster.yaml
+
+OTG_HS_PWRCLK:
+  _modify:
+    PCGCR:
+      name: PCGCCTL
+      displayName: PCGCCTL

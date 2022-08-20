@@ -78,7 +78,7 @@ OTG_FS_GLOBAL:
       size: 32
       resetValue: 0x00000000
       access: read-only
-      alternateRegister: FS_GRXSTSR_Device
+      alternateRegister: GRXSTSR_Device
     GNPTXFSIZ_Device:
       name: DIEPTXF0
       displayName: DIEPTXF0
@@ -89,7 +89,7 @@ OTG_FS_GLOBAL:
       alternateRegister: DIEPTXF0
 
   _array:
-    DIEPTXF[123]:
+    DIEPTXF[1-5]:
       displayName: DIEPTXF%s
       description: OTF_FS device IN endpoint transmit FIFO size register
 
@@ -103,14 +103,19 @@ OTG_FS_HOST:
 
 OTG_FS_DEVICE:
   _array:
-    DIEPCTL[123]:
+    DIEPCTL[1-5]:
       displayName: DIEPCTL%s
       description: OTG_FS device endpoint %s IN control register
-    DOEPCTL[123]:
+    DOEPCTL[1-5]:
       displayName: DOEPCTL%s
       description: OTG_FS device endpoint %s OUT control register
 
-  DIEPCTL0:
+  DIEPCTL*:
+    _modify:
+      EPENA:
+        access: read-write
+
+  DOEPCTL*:
     _modify:
       EPENA:
         access: read-write
@@ -119,13 +124,13 @@ OTG_FS_DEVICE:
     _modify:
       Stall:
         name: STALL
-        description: STALL
+        description: STALL handshake
 
   DOEPCTL*:
     _modify:
       Stall:
         name: STALL
-        description: STALL
+        description: STALL handshake
 
   DAINTMSK:
     _modify:

@@ -1,6 +1,96 @@
 # For F446, F469, F479
 
 OTG_FS_GLOBAL:
+  GOTGCTL:
+    _add:
+      VBVALOEN:
+        description: VBUS valid override enable
+        bitOffset: 2
+        bitWidth: 1
+        access: read-write
+      VBVALOVAL:
+        description: VBUS valid override value
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+      AVALOEN:
+        description: A-peripheral session valid override enable
+        bitOffset: 4
+        bitWidth: 1
+        access: read-write
+      AVALOVAL:
+        description: A-peripheral session valid override value
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
+      BVALOEN:
+        description: B-peripheral session valid override enable
+        bitOffset: 6
+        bitWidth: 1
+        access: read-write
+      BVALOVAL:
+        description: B-peripheral session valid override value
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      EHEN:
+        description: Embedded host enable
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+      OTGVER:
+        description: OTG version
+        bitOffset: 20
+        bitWidth: 1
+        access: read-write
+      CURMOD:
+        description: Current mode of operation
+        bitOffset: 21
+        bitWidth: 1
+        access: read-only
+  GOTGINT:
+    _add:
+      IDCHNG:
+        description: ID input pin changed
+        bitOffset: 20
+        bitWidth: 1
+  GUSBCFG:
+    _delete:
+      - CTXPKT
+  GINTSTS:
+    _add:
+      RSTDET:
+        description: Reset detected interrupt
+        bitOffset: 23
+        bitWidth: 1
+        access: read-write
+  GINTMSK:
+    _delete:
+      - EPMISM
+    _add:
+      RSTDETM:
+        description: Reset detected interrupt mask
+        bitOffset: 23
+        bitWidth: 1
+        access: read-write
+      LPMIN:
+        description: LPM interrupt mask
+        bitOffset: 27
+        bitWidth: 1
+        access: read-write
+    _modify:
+      PRTIM:
+        access: read-write
+  GCCFG:
+    _delete:
+      - VBUSASEN
+      - VBUSBSEN
+      - SOFOUTEN
+    _add:
+      VBDEN:
+        description: USB VBUS detection enable
+        bitOffset: 21
+        bitWidth: 1
   _copy:
     DIEPTXF4:
       _from: DIEPTXF1
@@ -9,6 +99,13 @@ OTG_FS_GLOBAL:
       _from: DIEPTXF1
       addressOffset: 0x114
 
+  GRXSTSR_Host:
+    _delete:
+      - FRMNUM
+    _modify:
+      EPNUM:
+        name: CHNUM
+        description: Channel number
   _add:
     GRXSTSP_Device:
       description: OTG status read and pop (device mode)
@@ -41,7 +138,6 @@ OTG_FS_GLOBAL:
           description: Endpoint number
           bitOffset: 0
           bitWidth: 4
-
     GRXSTSP_Host:
       description: OTG status read and pop (host mode)
       addressOffset: 0x20
@@ -69,11 +165,91 @@ OTG_FS_GLOBAL:
 
     GLPMCFG:
       addressOffset: 0x54
-      # TODO
+      size: 32
+      resetValue: 0x0
+      fields:
+        LPMEN:
+          description: LPM support enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        LPMACK:
+          description: LPM token acknowledge enable
+          bitOffset: 1
+          bitWidth: 1
+          access: read-write
+        BESL:
+          description: Best effort service latency
+          bitOffset: 2
+          bitWidth: 4
+          access: read-write
+        REMWAKE:
+          description: RemoteWake value
+          bitOffset: 6
+          bitWidth: 1
+          access: read-write
+        L1SSEN:
+          description: L1 Shallow Sleep enable
+          bitOffset: 7
+          bitWidth: 1
+          access: read-write
+        BESLTHRS:
+          description: BESL threshold
+          bitOffset: 8
+          bitWidth: 4
+          access: read-write
+        L1DSEN:
+          description: L1 deep sleep enable
+          bitOffset: 12
+          bitWidth: 1
+          access: read-write
+        LPMRST:
+          description: LPM response
+          bitOffset: 13
+          bitWidth: 2
+          access: read-only
+        SLPSTS:
+          description: Port sleep status
+          bitOffset: 15
+          bitWidth: 1
+          access: read-only
+        L1RSMOK:
+          description: Sleep State Resume OK
+          bitOffset: 16
+          bitWidth: 1
+          access: read-only
+        LPMCHIDX:
+          description: LPM Channel Index
+          bitOffset: 17
+          bitWidth: 4
+          access: read-write
+        LPMRCNT:
+          description: LPM retry count
+          bitOffset: 21
+          bitWidth: 3
+          access: read-write
+        SNDLPM:
+          description: Send LPM transaction
+          bitOffset: 24
+          bitWidth: 1
+          access: read-write
+        LPMRCNTSTS:
+          description: LPM retry count status
+          bitOffset: 25
+          bitWidth: 3
+          access: read-only
+        ENBESL:
+          description: Enable best effort service latency
+          bitOffset: 28
+          bitWidth: 1
+          access: read-write
 
   _modify:
+    GRXSTSR_Host:
+      alternateRegister: GRXSTSR_Device
+    GNPTXSTS:
+      name: HNPTXSTS
     CID:
-      name: OTG_CID
       resetValue: 0x00002000
 
     GNPTXFSIZ_Device:
@@ -85,10 +261,11 @@ OTG_FS_GLOBAL:
       displayName: HNPTXFSIZ
       alternateRegister: DIEPTXF0
 
-  _array:
-    DIEPTXF[12345]:
-      displayName: DIEPTXF%s
-      description: OTF_FS device IN endpoint transmit FIFO size register
+OTG_FS_HOST:
+  HCFG:
+    _modify:
+      FSLSS:
+        access: read-write
 
 
 OTG_FS_DEVICE:
@@ -163,11 +340,5 @@ OTG_FS_DEVICE:
         name: OEPM
         description: OUT EP interrupt mask bits
 
-  _array:
-    DIEPCTL[12345]: {}
-    DIEPINT[12345]: {}
-    DIEPTSIZ[12345]: {}
-    DOEPCTL[12345]: {}
-    DOEPINT[12345]: {}
-    DOEPTSIZ[12345]: {}
-    DTXFSTS[12345]: {}
+  _include:
+    - fs_v1_device_cluster.yaml
