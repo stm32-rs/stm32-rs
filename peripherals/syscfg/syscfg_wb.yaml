@@ -1,0 +1,198 @@
+MEMRMP:
+  MEM_MODE:
+    MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
+    SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
+    SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
+    QUADSPI: [6, "QUADSPI memory mapped at 0x0000_0000"]
+
+
+CFGR1:
+  _split: [FPU_IE]
+  FPU_IE5:
+    Disabled: [0, "Inexact interrupt disable"]
+    Enabled: [1, "Inexact interrupt enable"]
+  FPU_IE4:
+    Disabled: [0, "Input denormal interrupt disable"]
+    Enabled: [1, "Input denormal interrupt enable"]
+  FPU_IE3:
+    Disabled: [0, "Overflow interrupt disable"]
+    Enabled: [1, "Overflow interrupt enable"]
+  FPU_IE2:
+    Disabled: [0, "Underflow interrupt disable"]
+    Enabled: [1, "Underflow interrupt enable"]
+  FPU_IE1:
+    Disabled: [0, "Devide-by-zero interrupt disable"]
+    Enabled: [1, "Devide-by-zero interrupt enable"]
+  FPU_IE0:
+    Disabled: [0, "Invalid operation interrupt disable"]
+    Enabled: [1, "Invalid operation interrupt enable"]
+  I2C3_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C1_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C_PB9_FMP:
+    Standard: [0, "PB9 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+  I2C_PB8_FMP:
+    Standard: [0, "PB8 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+  I2C_PB7_FMP:
+    Standard: [0, "PB7 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+  I2C_PB6_FMP:
+    Standard: [0, "PB6 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+  BOOSTEN:
+    Disabled: [0, "I/O analog switches are supplied by VDDA voltage. This is the recommended configuration when using the ADC in high VDDA voltage operation"]
+    Enabled:  [1, "I/O analog switches are supplied by a dedicated voltage booster (supplied by VDD). This is the recommended configuration when using the ADC in low VDDA voltage operation"]
+
+EXTICR1:
+  EXTI3:
+    PA3: [0, "Select PA3 as the source input for the EXTI3 external interrupt"]
+    PB3: [1, "Select PB3 as the source input for the EXTI3 external interrupt"]
+    PH3: [7, "Select PH3 as the source input for the EXTI3 external interrupt"]
+  EXTI2:
+    PA2: [0, "Select PA2 as the source input for the EXTI2 external interrupt"]
+    PB2: [1, "Select PB2 as the source input for the EXTI2 external interrupt"]
+  EXTI1:
+    PA1: [0, "Select PA1 as the source input for the EXTI1 external interrupt"]
+    PB1: [1, "Select PB1 as the source input for the EXTI1 external interrupt"]
+  EXTI0:
+    PA0: [0, "Select PA0 as the source input for the EXTI0 external interrupt"]
+    PB0: [1, "Select PB0 as the source input for the EXTI0 external interrupt"]
+
+EXTICR2:
+  EXTI7:
+    PA7: [0, "Select PA7 as the source input for the EXTI7 external interrupt"]
+    PB7: [1, "Select PB7 as the source input for the EXTI7 external interrupt"]
+  EXTI6:
+    PA6: [0, "Select PA6 as the source input for the EXTI6 external interrupt"]
+    PB6: [1, "Select PB6 as the source input for the EXTI6 external interrupt"]
+  EXTI5:
+    PA5: [0, "Select PA5 as the source input for the EXTI5 external interrupt"]
+    PB5: [1, "Select PB5 as the source input for the EXTI5 external interrupt"]
+  EXTI4:
+    PA4: [0, "Select PA4 as the source input for the EXTI4 external interrupt"]
+    PB4: [1, "Select PB4 as the source input for the EXTI4 external interrupt"]
+    PE4: [4, "Select PE4 as the source input for the EXTI4 external interrupt"]
+
+EXTICR3:
+  EXTI11:
+    PA11: [0, "Select PA11 as the source input for the EXTI11 external interrupt"]
+  EXTI10:
+    PA10: [0, "Select PA10 as the source input for the EXTI10 external interrupt"]
+  EXTI9:
+    PA9: [0, "Select PA9 as the source input for the EXTI9 external interrupt"]
+    PB9: [1, "Select PB9 as the source input for the EXTI9 external interrupt"]
+  EXTI8:
+    PA8: [0, "Select PA8 as the source input for the EXTI8 external interrupt"]
+    PB8: [1, "Select PB8 as the source input for the EXTI8 external interrupt"]
+
+EXTICR4:
+  EXTI15:
+    PA15: [0, "Select PA15 as the source input for the EXTI15 external interrupt"]
+    PC15: [2, "Select PC15 as the source input for the EXTI15 external interrupt"]
+  EXTI14:
+    PA14: [0, "Select PA14 as the source input for the EXTI14 external interrupt"]
+    PC14: [2, "Select PC14 as the source input for the EXTI14 external interrupt"]
+  EXTI13:
+    PA13: [0, "Select PA13 as the source input for the EXTI13 external interrupt"]
+  EXTI12:
+    PA12: [0, "Select PA12 as the source input for the EXTI12 external interrupt"]
+
+SCSR:
+  C2RFD:
+    Disabled: [0, "CPU2 fetch from SRAM1, SRAM2a and SRAM2b enabled"]
+    Enabled: [1, "CPU2 fetch from SRAM1, SRAM2a and SRAM2b disabled"]
+  SRAM2BSY:
+    Idle: [0, "No SRAM2 or PKA RAM erase operation is ongoing"]
+    Busy: [1, "SRAM2 and/or PKA RAM erase operation is ongoing"]
+  SRAM2ER:
+    _write:
+      Erase: [1, "Start SRAM2 erase operation"]
+
+CFGR2:
+  _modify:
+    ECCL:
+      access: read-write
+    PVDL:
+      access: read-write
+    SPL:
+      access: read-write
+    CLL:
+      access: read-write
+  SPF:
+    _read:
+      Nominal: [0, "No SRAM2 parity error detected"]
+      Error:   [1, "SRAM2 parity error detected"]
+    _write:
+      Clear: [1, "Clear SRAM2 parity error flag"]
+  ECCL:
+    _read:
+      Disconnected: [0, "ECC error disconnected from TIM1/16/17 break input"]
+      Connected:    [1, "ECC error connected to TIM1/16/17 break input"]
+    _write:
+      Connect: [1, "Connect ECC error to TIM1/16/17 break input"]
+  PVDL:
+    _read:
+      Disconnected: [0, "PVD interrupt disconnected from TIM1/16/17 break input. PVDE and PLS[2:0] bits can be programmed by the application"]
+      Connected:    [1, "PVD interrupt connected to TIM1/16/17 break input. PVDE and PLS[2:0] bits are read only"]
+    _write:
+      Connect: [1, "Connect PVD interretup to TIM1/16/17 break input"]
+  SPL:
+    _read:
+      Disconnected: [0, "SRAM2 parity error signal disconnected from TIM1/16/17 break input"]
+      Connected:    [1, "SRAM2 parity error signal connected to TIM1/16/17 break input"]
+    _write:
+      Connect: [1, "Connect SRAM2 parity error signal to TIM1/16/17 break input"]
+  CLL:
+    _read:
+      Disconnected: [0, "CPU LOCKUP output disconnected from TIM1/16/17 break input"]
+      Connected:    [1, "CPU LOCKUP output connected to TIM1/16/17 break input"]
+    _write:
+      Connect: [1, "Connect CPU LOCKUP output to TIM1/16/17 break input"]
+
+SWPR:
+  P??WP:
+    Disabled: [0, "SRAM2 1 KB page protection disabled"]
+    Enabled: [1, "SRAM2 1 KB page protection enabled"]
+  P?WP:
+    Disabled: [0, "SRAM2 1 KB page protection disabled"]
+    Enabled: [1, "SRAM2 1 KB page protection enabled"]
+
+SKR:
+  KEY:
+    Step1: [0xCA, "Step 1 to remove SRAM2ER bits write protection"]
+    Step2: [0x53, "Step 2 to remove SRAM2ER bits write protection"]
+    WriteProtect: [0x11, "Activate SRAM2ER bits write protection"]
+
+SWPR2:
+  P??WP:
+    Disabled: [0, "SRAM2 1 KB page protection disabled"]
+    Enabled: [1, "SRAM2 1 KB page protection enabled"]
+
+IMR?:
+  "*IM":
+    Unmasked: [0, "Peripheral interrupt forwarded to CPU1"]
+    Masked: [1, "Peripheral interrupt to CPU1 masked"]
+
+C2IMR?:
+  "*":
+    Unmasked: [0, "Peripheral interrupt forwarded to CPU2"]
+    Masked: [1, "Peripheral interrupt to CPU2 masked"]
+
+SIPCR:
+  SRNG:
+    Disabled: [0, "True RNG security disabled"]
+    Enabled: [1, "True RNG security enabled"]
+  SPKA:
+    Disabled: [0, "PKA security disabled"]
+    Enabled: [1, "PKA security enabled"]
+  SAES2:
+    Disabled: [0, "AES2 security disabled"]
+    Enabled: [1, "AES2 security enabled"]
+  SAES1:
+    Disabled: [0, "AES1 KEY[7:0] security disabled"]
+    Enabled: [1, "AES1 KEY[7:0] security enabled"]

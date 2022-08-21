@@ -99,6 +99,10 @@ HSEM:
       MASTERID:
         name: COREID
 
+RCC:
+  _include:
+    - ../peripherals/rcc/rcc_wl.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -170,7 +174,7 @@ MPU:
     - "MPU_"
 
 _include:
- - ../devices/common_patches/spi/l4.yaml
+ - ../devices/common_patches/spi/rename_dff_tifrfe.yaml
  - ../devices/common_patches/adc/wl.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
@@ -206,7 +210,6 @@ _include:
  - ../peripherals/usart/lpuart_wl.yaml
  - ../peripherals/pka/pka.yaml
  - ../peripherals/pwr/pwr_wl.yaml
- - ../peripherals/rcc/rcc_wl.yaml
  - common_patches/rtc/wl.yaml
  - ../peripherals/rtc/rtc_wl.yaml
  - ../peripherals/tamp/tamp_wl.yaml

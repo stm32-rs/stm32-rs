@@ -1,13 +1,16 @@
 CR:
+  PLLSAI1RDY:
+    Unlocked: [0, "PLLSAI1 unlocked"]
+    Locked: [1, "PLLSAI1 unlocked"]
+  PLLSAI1ON:
+    "Off": [0, "PLLSAI1 Off"]
+    "On": [1, "PLLSAI1 On"]
   PLLRDY:
     Unlocked: [0, "PLL unlocked"]
     Locked: [1, "PLL Locked"]
   PLLON:
     "Off": [0, "Main PLL Off"]
     "On": [1, "Main PLL On"]
-  HSEBYPPWR:
-    PB0: [0, "PB0 selected"]
-    VDDTCXO: [1, "VDDTCXO selected"]
   HSEPRE:
     Div1: [0, "SYSCLK not divided (HSE32)"]
     Div2: [1, "SYSCLK divided by two (HSE32/2)"]
@@ -48,9 +51,6 @@ CR:
     Range24M: [0b1001, "range 9 around 24 MHz"]
     Range32M: [0b1010, "range 10 around 32 MHz"]
     Range48M: [0b1011, "range 11 around 48 MHz"]
-  MSIRGSEL:
-    CSR: [0, "MSI frequency range defined by MSISRANGE[3:0] in the RCC_CSR register"]
-    CR: [1, "MSI frequency range defined by MSIRANGE[3:0] in the RCC_CR register"]
   MSIPLLEN:
     "Off": [0, "MSI PLL Off"]
     "On": [1, "MSI PLL On"]
@@ -97,8 +97,14 @@ CFGR:
   STOPWUCK:
     MSI: [0, "MSI oscillator selected as wakeup from stop clock and CSS backup clock"]
     HSI16: [1, "HSI16 oscillator selected as wakeup from stop clock and CSS backup clock"]
-  PPRE[12]:
-    Div1: [-1, "HCLK not divided"] 
+  PPRE2:
+    Div1: [-1, "HCLK not divided"]
+    Div2: [4, "HCLK divided by 2"]
+    Div4: [5, "HCLK divided by 4"]
+    Div8: [6, "HCLK divided by 8"]
+    Div16: [7, "HCLK divided by 16"]
+  PPRE1:
+    Div1: [-1, "HCLK not divided"]
     Div2: [4, "HCLK divided by 2"]
     Div4: [5, "HCLK divided by 4"]
     Div8: [6, "HCLK divided by 8"]
@@ -173,7 +179,7 @@ PLLCFGR:
     Div30: [29, "PLL = VCO/(N+1)"]
     Div31: [30, "PLL = VCO/(N+1)"]
     Div32: [31, "PLL = VCO/(N+1)"]
-  PLLN: [6, 127]
+  PLLN: [4, 127]
   PLLM:
     Div1: [0, "VCO input = PLL input / PLLM"]
     Div2: [1, "VCO input = PLL input / PLLM"]
@@ -185,9 +191,55 @@ PLLCFGR:
     Div8: [7, "VCO input = PLL input / PLLM"]
   PLLSRC:
     NoClock: [0, "No clock sent to PLL"]
-    MSI: [1, "MSI clock selected as PLL clock entry"]
-    HSI16: [2, "HSI16 clock selected as PLL clock entry"]
-    HSE32: [3, "HSE32 clock selected as PLL clock entry"]
+    MSI: [1, "MSI clock selected as PLL and PLLSAI1 clock entry"]
+    HSI16: [2, "HSI16 clock selected as PLL and PLLSAI1 clock entry"]
+    HSE32: [3, "HSE32 clock selected as PLL and PLLSAI1 clock entry"]
+
+PLLSAI1CFGR:
+  "PLL[RQ]":
+    Div2: [1, "PLL = VCO/(N+1)"]
+    Div3: [2, "PLL = VCO/(N+1)"]
+    Div4: [3, "PLL = VCO/(N+1)"]
+    Div5: [4, "PLL = VCO/(N+1)"]
+    Div6: [5, "PLL = VCO/(N+1)"]
+    Div7: [6, "PLL = VCO/(N+1)"]
+    Div8: [7, "PLL = VCO/(N+1)"]
+  "PLL[PRQ]EN":
+    Disabled: [0, "PLLCLK output disabled"]
+    Enabled: [1, "PLLCLK output enabled"]
+  PLLP:
+    Div2: [1, "PLL = VCO/(N+1)"]
+    Div3: [2, "PLL = VCO/(N+1)"]
+    Div4: [3, "PLL = VCO/(N+1)"]
+    Div5: [4, "PLL = VCO/(N+1)"]
+    Div6: [5, "PLL = VCO/(N+1)"]
+    Div7: [6, "PLL = VCO/(N+1)"]
+    Div8: [7, "PLL = VCO/(N+1)"]
+    Div9: [8, "PLL = VCO/(N+1)"]
+    Div10: [9, "PLL = VCO/(N+1)"]
+    Div11: [10, "PLL = VCO/(N+1)"]
+    Div12: [11, "PLL = VCO/(N+1)"]
+    Div13: [12, "PLL = VCO/(N+1)"]
+    Div14: [13, "PLL = VCO/(N+1)"]
+    Div15: [14, "PLL = VCO/(N+1)"]
+    Div16: [15, "PLL = VCO/(N+1)"]
+    Div17: [16, "PLL = VCO/(N+1)"]
+    Div18: [17, "PLL = VCO/(N+1)"]
+    Div19: [18, "PLL = VCO/(N+1)"]
+    Div20: [19, "PLL = VCO/(N+1)"]
+    Div21: [20, "PLL = VCO/(N+1)"]
+    Div22: [21, "PLL = VCO/(N+1)"]
+    Div23: [22, "PLL = VCO/(N+1)"]
+    Div24: [23, "PLL = VCO/(N+1)"]
+    Div25: [24, "PLL = VCO/(N+1)"]
+    Div26: [25, "PLL = VCO/(N+1)"]
+    Div27: [26, "PLL = VCO/(N+1)"]
+    Div28: [27, "PLL = VCO/(N+1)"]
+    Div29: [28, "PLL = VCO/(N+1)"]
+    Div30: [29, "PLL = VCO/(N+1)"]
+    Div31: [30, "PLL = VCO/(N+1)"]
+    Div32: [31, "PLL = VCO/(N+1)"]
+  PLLN: [4, 127]
 
 CIER:
   "*IE":
@@ -195,13 +247,30 @@ CIER:
     Enabled: [1, "Interrupt enabled"]
 
 CIFR:
+  _modify:
+    HSECSSF:
+      name: CSSF
   "*F":
     NotInterrupted: [0, "Not interrupted"]
     Interrupted: [1, "Interrupted"]
 
 CICR:
+  _modify:
+    HSECSSC:
+      name: CSSC
   "*C":
     Clear: [1, "Clear interrupt flag"]
+
+SMPSCR:
+  SMPSSWS:
+    HSI16: [0, "HSI16 oscillator used as SMPS step-down converter clock"]
+    MSI: [1, "MSI oscillator used as SMPS step-down converter clock"]
+    HSE: [2, "HSE oscillator used as SMPS step-down converter clock"]
+    NoClock: [3, "No clock is used"]
+  SMPSSEL:
+    HSI16: [0, "HSI16 selected as SMPS step-down converter clock"]
+    MSI: [1, "MSI selected as SMPS step-down converter clock"]
+    HSE: [2, "HSE selected as SMPS step-down converter clock"]
 
 "AHB[123]RSTR":
   "*":
@@ -230,21 +299,30 @@ CICR:
 
 CCIPR:
   RNGSEL:
-    PLLQ: [0, "PLLQ clock selected"]
+    CLK48: [0, "Use clock as selected by CLK48SEL"]
     LSI: [1, "LSI clock selected"]
     LSE: [2, "LSE clock selected"]
-    MSI: [3, "MSI clock selected"]
   ADCSEL:
     NoClock: [0, "No clock selected"]
-    HSI16: [1, "HSI16 clock selected"]
-    PLLP: [2, "PLLP clock selected"]
+    PLLSAI1: [1, "PLLSAI1R clock selected"]
+    PLL: [2, "PLLP clock selected"]
     SYSCLK: [3, "SYSCLK clock selected"]
-  "LPTIM[123]SEL":
+  CLK48SEL:
+    HSI48: [0, "HSI48 clock selected"]
+    PLLSAI1: [1, "PLLSAI1Q clock selected"]
+    PLL: [2, "PLLQ clock selected"]
+    MSI: [3, "MSI clock selected"]
+  SAI1SEL:
+    PLLSAI1: [0, "PLLSAI1P clock selected"]
+    PLL: [1, "PLLP clock selected"]
+    HSI16: [2, "HSI16 clock selected"]
+    Ext: [3, "External clock input selected"]
+  "LPTIM[12]SEL":
     PCLK: [0, "PCLK clock selected"]
     LSI: [1, "LSI clock selected"]
     HSI16: [2, "HSI16 clock selected"]
     LSE: [3, "LSE clock selected"]
-  "I2C[123]SEL":
+  "I2C[13]SEL":
     PCLK: [0, "PCLK clock selected"]
     SYSCLK: [1, "SYSCLK clock selected"]
     HSI16: [2, "HSI16 clock selected"]
@@ -253,11 +331,7 @@ CCIPR:
     SYSCLK: [1, "SYSCLK clock selected"]
     HSI16: [2, "HSI16 clock selected"]
     LSE: [3, "LSE clock selected"]
-  SPI2S2SEL:
-    PLLQ: [1, "PLLQ clock selected"]
-    HSI16: [2, "HSI16 clock selected"]
-    I2S: [3, "External input I2S_CKIN selected"]
-  "USART[12]SEL":
+  USART1SEL:
     PCLK: [0, "PCLK clock selected"]
     SYSCLK: [1, "SYSCLK clock selected"]
     HSI16: [2, "HSI16 clock selected"]
@@ -274,19 +348,16 @@ BDCR:
     NotActive: [0, "Reset not activated"]
     Reset: [1, "Entire Backup domain reset"]
   RTCEN:
-    Disabled: [0, "RTC kernel clock disabled"]
-    Enabled: [1, "RTC kernel clock enabled"]
-  LSESYSRDY:
-    NotReady: [0, "LSE system clock not ready"]
-    Ready: [1, "LSE system clock ready"]
+    Disabled: [0, "RTC clock disabled"]
+    Enabled: [1, "RTC clock enabled"]
   RTCSEL:
     NoClock: [0, "No clock"]
     LSE: [1, "LSE oscillator clock selected"]
     LSI: [2, "LSI oscillator clock selected"]
     HSE32: [3, "HSE32 oscillator clock divided by 32 selected"]
-  LSESYSEN:
-    Disabled: [0, "LSE system clock disabled to USARTx, LPUARTx, LPTIMx, TIMx, RNG, system LSCO, MCO, MSI PLL mode"]
-    Enabled: [1, "LSE system clock enabled to USARTx, LPUARTx, LPTIMx, TIMx, RNG, system LSCO, MCO, MSI PLL mode"]
+  _modify:
+    LSECSSD_:
+      name: LSECSSD
   LSECSSD:
     NoFailure: [0, "No failure detected on LSE"]
     Failure: [1, "Failure detected on LSE"]
@@ -312,39 +383,67 @@ CSR:
   LPWRRSTF,WWDGRSTF,IWDGRSTF,SFTRSTF,BORRSTF,PINRSTF,OBLRSTF:
     NoReset: [0, "No reset occurred"]
     Reset: [1, "Reset occurred"]
-  RFILARSTF:
-    NoIllegalCommand: [0, "No SUBGHZ radio illegal command occurred"]
-    IllegalCommand: [1, "SUBGHZ radio illegal command occurred"]
   RMVF:
     NoEffect: [0, "No effect"]
     Clear: [1, "Reset flags reset"]
-  RFRST:
-    Removed: [0, "Sub-GHz radio software reset removed"]
-    Reset: [1, "Sub-GHz radio software reset active"]
-  RFRSTF:
-    NoReset: [0, "Sub-GHz radio out of reset"]
-    Reset: [1, "Sub-GHz radio in reset"]
-  MSISRANGE:
-    f_1MHz: [0b0100, "Range 4 around 1 MHz"]
-    f_2MHz: [0b0101, "Range 5 around 2 MHz"]
-    f_4MHz: [0b0110, "Range 6 around 4 MHz (reset value)"]
-    f_8MHz: [0b0111, "Range 7 around 8 MHz"]
-  LSIPRE:
-    Div1: [0, "LSI clock not divided"]
-    Div128: [1, "LSI clock divided by 128"]
-  LSIRDY:
+  RFRSTS:
+    NoReset: [0, "Radio system BLE and 802.15.4 not in reset"]
+    Reset: [1, "Radio system BLE and 802.15.4 under reset"]
+  RFWKPSEL:
+    NoClock: [0, "No clock"]
+    LSE: [1, "LSE oscillator clock selected"]
+    HSE: [3, "HSE oscillator clock selected"]
+  LSI[21]RDY:
     NotReady: [0, "LSI oscillator not ready"]
     Ready: [1, "LSI oscillator ready"]
-  LSION:
+  LSI[21]ON:
     "Off": [0, "LSI oscillator off"]
     "On": [1, "LSI oscillator on"]
 
+CRRCR:
+  HSI48RDY:
+    NotReady: [0, "HSI48 oscillator not ready"]
+    Ready: [1, "HSI48 oscillator ready"]
+  HSI48ON:
+    "Off": [0, "HSI48 oscillator off"]
+    "On": [1, "HSI48 oscillator on"]
+
+HSECR:
+  _modify:
+    HSETUNE:
+      access: read-write
+  _add:
+    KEY:
+      bitOffset: 0
+      bitWidth: 32
+      access: write-only
+  KEY:
+    Unlock: [0xcafecafe, "Write enable key"]
+  HSEGMC:
+    Max0_18: [0, "Current max limit 0.18 mA/V"]
+    Max0_57: [1, "Current max limit 0.57 mA/V"]
+    Max0_78: [2, "Current max limit 0.78 mA/V"]
+    Max1_13: [3, "Current max limit 1.13 mA/V"]
+    Max0_61: [4, "Current max limit 0.61 mA/V"]
+    Max1_65: [5, "Current max limit 1.65 mA/V"]
+    Max2_12: [6, "Current max limit 2.12 mA/V"]
+    Max2_84: [7, "Current max limit 2.84 mA/V"]
+  HSES:
+    OneHalf: [0, "HSE bias current factor 1/2"]
+    ThreeQuarter: [1, "HSE bias current factor 3/4"]
+
 EXTCFGR:
+  RFCSS:
+    HSI16: [0, "HSI16 used for radio system HCLK5 and APB3 clock"]
+    HSE_Div2: [1, "HSE divided by 2 used for radio system HCLK5 and APB3 clock"]
+  C2HPREF:
+    NotApplied: [0, "HCLK2 prescaler value not yet applied"]
+    Applied: [1, "HCLK2 prescaler value applied"]
   SHDHPREF:
-    NotApplied: [0, "HCLK3 prescaler value not yet applied"]
-    Applied: [1, "HCLK3 prescaler value applied"]
-  SHDHPRE:
-    Div1: [-1, "SYSCLK not divided"]
+    NotApplied: [0, "HCLK4 prescaler value not yet applied"]
+    Applied: [1, "HCLK4 prescaler value applied"]
+  C2HPRE,SHDHPRE:
+    Div1: [0b0000, "SYSCLK not divided"]
     Div3: [0b0001, "SYSCLK divided by 3"]
     Div5: [0b0010, "SYSCLK divided by 5"]
     Div6: [0b0101, "SYSCLK divided by 6"]
