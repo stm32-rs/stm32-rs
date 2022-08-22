@@ -1,7 +1,7 @@
 _svd: ../svd/stm32g491.svd
 
 OPAMP:
-  _derive:
+  _copy:
     OPAMP6_CSR:
       _from: OPAMP1_CSR
       addressOffset: "0x14"
