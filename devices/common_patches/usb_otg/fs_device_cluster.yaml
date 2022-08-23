@@ -5,17 +5,17 @@ _cluster:
     DIEPINT[0]: { name: INT }
     DIEPTSIZ[0]: { name: TSIZ }
     DTXFSTS[0]: { name: TXFSTS }
-  "DOEP0":
-    description: Device OUT endpoint 0
-    DOEPCTL[0]: { name: CTL }
-    DOEPINT[0]: { name: INT }
-    DOEPTSIZ[0]: { name: TSIZ }
   "DIEP%s":
     description: Device IN endpoint X
     DIEPCTL[1-5]: { name: CTL }
     DIEPINT[1-5]: { name: INT }
     DIEPTSIZ[1-5]: { name: TSIZ }
     DTXFSTS[1-5]: { name: TXFSTS }
+  "DOEP0":
+    description: Device OUT endpoint 0
+    DOEPCTL[0]: { name: CTL }
+    DOEPINT[0]: { name: INT }
+    DOEPTSIZ[0]: { name: TSIZ }
   "DOEP%s":
     description: Device IN endpoint X
     DOEPCTL[1-5]: { name: CTL }

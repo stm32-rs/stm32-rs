@@ -1,6 +1,13 @@
 _svd: ../svd/stm32f446.svd
 
 _copy:
+  OTG_FS_GLOBAL:
+    from: ../svd/stm32f7x7.svd:OTG_FS_GLOBAL
+  OTG_FS_HOST:
+    from: ../svd/stm32f7x7.svd:OTG_FS_HOST
+  OTG_FS_DEVICE:
+    from: ../svd/stm32f7x7.svd:OTG_FS_DEVICE
+
   OTG_HS_GLOBAL:
     from: ../svd/stm32f7x7.svd:OTG_HS_GLOBAL
   OTG_HS_HOST:
@@ -587,9 +594,10 @@ _include:
  - ../peripherals/exti/exti.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/usb_otg/otg_fs_remove_prefix.yaml
- - common_patches/usb_otg/otg_fs_fixes_v1_446_469.yaml
- - common_patches/usb_otg/fs_host_array.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_host_addr.yaml
+ - common_patches/usb_otg/fs_v2.yaml
+ - common_patches/usb_otg/fs_fixes_446_469.yaml
  - common_patches/usb_otg/hs_v2.yaml
  - common_patches/usb_otg/hs_fixes_446_469.yaml
  - common_patches/dbgmcu/dbgmcu.yaml

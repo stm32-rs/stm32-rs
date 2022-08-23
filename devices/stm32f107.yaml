@@ -80,9 +80,8 @@ _include:
  - ../peripherals/dma/dma_v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - common_patches/usb_otg/otg_fs_fixes_107.yaml
- - common_patches/usb_otg/otg_fs_remove_prefix.yaml
- - common_patches/usb_otg/fs_host_array.yaml
+ - common_patches/usb_otg/fs_fixes_107.yaml
+ - common_patches/usb_otg/fs_v1.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/rename.yaml
  - ../peripherals/flash/flash_f1.yaml

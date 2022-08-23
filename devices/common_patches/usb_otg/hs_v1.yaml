@@ -56,25 +56,19 @@ OTG_HS_DEVICE:
       - DOEPINT6
       - DOEPINT7
 
-  DIEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-
-  DOEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-
   # Rename Stall to uppercase
   DIEPCTL*:
     _modify:
+      EPENA:
+        access: read-write
       Stall:
         name: STALL
         description: STALL handshake
 
   DOEPCTL*:
     _modify:
+      EPENA:
+        access: read-write
       Stall:
         name: STALL
         description: STALL handshake

@@ -206,9 +206,9 @@ _include:
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/usb_otg/otg_fs_remove_prefix_1.yaml
- - common_patches/usb_otg/otg_fs_host_addr.yaml
- - common_patches/usb_otg/fs_host_array.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_host_addr.yaml
+ - common_patches/usb_otg/fs_v2.yaml
  - common_patches/usb_otg/hs_v2.yaml
  - common_patches/hash/hash.yaml
  - common_patches/rtc/alarm.yaml

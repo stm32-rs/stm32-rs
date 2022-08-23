@@ -1,12 +1,11 @@
-OTG_FS_HOST:
-  _cluster:
-    "HC%s":
-      description: "Host channel"
-      HCCHAR?,HCCHAR??:
-        name: CHAR
-      HCINT?,HCINT??:
-        name: INT
-      HCINTMSK?,HCINTMSK??:
-        name: INTMSK
-      HCTSIZ?,HCTSIZ??:
-        name: TSIZ
+_cluster:
+  "HC%s":
+    description: "Host channel"
+    HCCHAR?,HCCHAR??:
+      name: CHAR
+    HCINT?,HCINT??:
+      name: INT
+    HCINTMSK?,HCINTMSK??:
+      name: INTMSK
+    HCTSIZ?,HCTSIZ??:
+      name: TSIZ

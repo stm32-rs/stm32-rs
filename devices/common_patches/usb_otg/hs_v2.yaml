@@ -314,20 +314,14 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
     _modify:
       EPENA:
         access: read-write
-
-  DOEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-
-  DIEPCTL*:
-    _modify:
       Stall:
         name: STALL
         description: STALL handshake
 
   DOEPCTL*:
     _modify:
+      EPENA:
+        access: read-write
       Stall:
         name: STALL
         description: STALL handshake

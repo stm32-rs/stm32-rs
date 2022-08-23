@@ -93,41 +93,27 @@ OTG_FS_GLOBAL:
       displayName: DIEPTXF%s
       description: OTF_FS device IN endpoint transmit FIFO size register
 
-
 OTG_FS_HOST:
   HCFG:
     _modify:
       FSLSS:
         access: read-write
-
+  _include:
+    - fs_host_array.yaml
 
 OTG_FS_DEVICE:
-  _array:
-    DIEPCTL[1-5]:
-      displayName: DIEPCTL%s
-      description: OTG_FS device endpoint %s IN control register
-    DOEPCTL[1-5]:
-      displayName: DOEPCTL%s
-      description: OTG_FS device endpoint %s OUT control register
-
   DIEPCTL*:
     _modify:
       EPENA:
         access: read-write
-
-  DOEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-
-  DIEPCTL*:
-    _modify:
       Stall:
         name: STALL
         description: STALL handshake
 
   DOEPCTL*:
     _modify:
+      EPENA:
+        access: read-write
       Stall:
         name: STALL
         description: STALL handshake
@@ -137,3 +123,7 @@ OTG_FS_DEVICE:
       OEPINT:
         name: OEPM
         description: OUT EP interrupt mask bits
+
+  _include:
+    - fs_device_cluster.yaml
+
