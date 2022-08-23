@@ -37,6 +37,49 @@ OTG_HS_GLOBAL,OTG1_HS_GLOBAL:
       resetValue: 0x02001000
     DIEPTXF8:
       resetValue: 0x02001200
+  
+  GOTGCTL:
+    _add:
+      VBVALOEN:
+        description: V_BUS valid override enable
+        bitOffset: 2
+        bitWidth: 1
+        access: read-write
+      VBVALOVAL:
+        description: V_BUS valid override value
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+      AVALOEN:
+        description: A-peripheral session valid override enable
+        bitOffset: 4
+        bitWidth: 1
+        access: read-write
+      AVALOVAL:
+        description: A-peripheral session valid override value
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
+      BVALOEN:
+        description: B-peripheral session valid override enable
+        bitOffset: 6
+        bitWidth: 1
+        access: read-write
+      BVALOVAL:
+        description: B-peripheral session valid override value
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      OTGVER:
+        description: OTG version
+        bitOffset: 20
+        bitWidth: 1
+        access: read-write
+      CURMOD:
+        description: Current mode of operation
+        bitOffset: 21
+        bitWidth: 1
+        access: read-only
 
 OTG_HS_HOST,OTG1_HS_HOST:
   _modify:

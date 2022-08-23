@@ -24,6 +24,14 @@ OTG_HS_GLOBAL:
       displayName: DIEPTXF0
       alternateRegister: HNPTXFSIZ
 
+    GRXSTSR_Peripheral:
+      name: GRXSTSR_Device
+      alternateRegister: GRXSTSR_Host
+
+    GRXSTSP_Peripheral:
+      name: GRXSTSP_Device
+      alternateRegister: GRXSTSP_Host
+
     DIEPTXF3:
       addressOffset: '0x10C'
     DIEPTXF4:
