@@ -1,0 +1,23 @@
+DMA2D:
+  CR:
+    _modify:
+      MODE:
+        bitWidth: 3
+
+    _add:
+      LOM:
+        description: ??
+        bitOffset: 6
+        bitWidth: 1
+
+  ?GOR:
+    _modify:
+      LO:
+        bitWidth: 16
+
+  OPFCCR:
+    _add:
+      SB:
+        description: ??
+        bitOffset: 9
+        bitWidth: 1

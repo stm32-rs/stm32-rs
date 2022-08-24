@@ -1,0 +1,413 @@
+TIM[1234568]:
+  CR1:
+    _add:
+      UIFREMA:
+        description: UIF status bit remapping
+        bitOffset: 11
+        bitWidth: 1
+
+    UIFREMA:
+      Disabled: [ 0 , "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31" ]
+      Enabled: [ 1, "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31" ]
+
+TIM[123458]:
+  SMCR:
+    _add:
+      SMS3:
+        description: Bit 3 of Slave mode selection
+        bitOffset: 16
+        bitWidth: 1
+
+TIM[2345]:
+  DIER:
+    _delete:
+      - COMDE
+
+TIM[23]:
+  _modify:
+    OR:
+      name: OR1
+      description: option register 1
+
+  _add:
+    OR2:
+      description: option register 2
+      addressOffset: 0x60
+      resetValue: 0x0
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 3
+
+TIM2:
+  OR1:
+    _modify:
+      TI4_RMP:
+        bitOffset: 2
+      ETR_RMP:
+        bitOffset: 1
+        bitWidth: 1
+
+    _add:
+      ITR1_RMP:
+        description: Internal trigger 1 remap
+        bitOffset: 0
+        bitWidth: 1
+
+TIM3:
+  OR1:
+    _delete:
+      - ETR_RMP
+
+    _modify:
+      TI4_RMP:
+        name: TI1_RMP
+        bitOffset: 0
+        bitWidth: 1
+
+
+
+
+TIM[45]:
+  # This delete is not working...
+  _delete:
+    - OR
+    - OR1
+    - OR2
+
+  CCMR?_Output:
+    _add:
+      OC1M_3:
+        description: Bit 3 of Output compare 1 mode
+        bitOffset: 16
+        bitWidth: 1
+      OC2M_3:
+        description: Bit 3 of Output compare 2 mode
+        bitOffset: 24
+        bitWidth: 1
+
+TIM[34]:
+  CNT:
+    _modify:
+      CNT:
+        bitWidth: 16
+
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 16
+
+TIM[18]:
+  _modify:
+    OR1:
+      description: "TIM1 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+  CR2:
+    _add:
+      OIS5:
+        description: Output Idle state 5
+        bitOffset: 16
+        bitWidth: 1
+      OIS6:
+        description: Output Idle state 6
+        bitOffset: 18
+        bitWidth: 1
+      MMS2:
+        description: ??
+        bitOffset: 20
+        bitWidth: 4
+
+  SR:
+    _add:
+      SBIF:
+        description: ??
+        bitOffset: 13
+        bitWidth: 1
+      CC5IF:
+        description: ??
+        bitOffset: 16
+        bitWidth: 1
+      CC6IF:
+        description: ??
+        bitOffset: 17
+        bitWidth: 1
+      B2IF:
+        description: ??
+        bitOffset: 8
+        bitWidth: 1
+
+  EGR:
+    _add:
+      B2G:
+        description: ??
+        bitOffset: 8
+        bitWidth: 1
+
+  CCER:
+    _add:
+      CC4NP:
+        description: Capture/Compare 4 output Polarity
+        bitOffset: 15
+        bitWidth: 1
+      CC5E:
+        description: Capture/Compare 5 output enable
+        bitOffset: 16
+        bitWidth: 1
+      CC5P:
+        description: Capture/Compare 5 output polarity
+        bitOffset: 17
+        bitWidth: 1
+      CC6E:
+        description: Capture/Compare 6 output enable
+        bitOffset: 20
+        bitWidth: 1
+      CC6P:
+        description: Capture/Compare 6 output polarity
+        bitOffset: 21
+        bitWidth: 1
+
+  BDTR:
+    _modify:
+      DTG:
+        name: DT
+
+    _add:
+      BKF:
+        description: ??
+        bitOffset: 16
+        bitWidth: 4
+      BK2F:
+        description: ??
+        bitOffset: 20
+        bitWidth: 4
+      BK2E:
+        description: ??
+        bitOffset: 24
+        bitWidth: 1
+      BK2P:
+        description: ??
+        bitOffset: 25
+        bitWidth: 1
+      BKDSRM:
+        description: ??
+        bitOffset: 26
+        bitWidth: 1
+      BK2DSRM:
+        description: ??
+        bitOffset: 27
+        bitWidth: 1
+      BKBID:
+        description: ??
+        bitOffset: 28
+        bitWidth: 1
+      BK2BID:
+        description: ??
+        bitOffset: 29
+        bitWidth: 1
+
+  DMAR:
+    _modify:
+      DMAB:
+        bitWidth: 32
+
+TIM15:
+  _add:
+    SMCR:
+      description: ??
+      addressOffset: 0x8
+      resetValue: 0x0
+      fields:
+        SMS:
+          description: ??
+          bitOffset: 0
+          bitWidth: 3
+        TS:
+          description: ??
+          bitOffset: 5
+          bitWidth: 3
+        MSM:
+          description: ??
+          bitOffset: 8
+          bitWidth: 1
+        SMS_3:
+          description: ??
+          bitOffset: 16
+          bitWidth: 1
+    CCR2:
+      description: capture/compare 2 register
+      addressOffset: 0x38
+      resetValue: 0x0
+      fields:
+        CCR:
+          description: Capture/Compare value
+          bitOffset: 0
+          bitWidth: 16
+    OR1:
+      description: ??
+      addressOffset: 0x50
+      resetValue: 0x0
+      fields:
+        TI1_RMP:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        ENCODER_MODE:
+          description: ??
+          bitOffset: 1
+          bitWidth: 2
+    OR2:
+      description: ??
+      addressOffset: 0x60
+      resetValue: 0x0
+      fields:
+        BKINE:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        BKCMP1E:
+          description: ??
+          bitOffset: 1
+          bitWidth: 1
+        BKCMP2E:
+          description: ??
+          bitOffset: 2
+          bitWidth: 1
+        BKDF1BK0E:
+          description: ??
+          bitOffset: 8
+          bitWidth: 1
+        BKINP:
+          description: ??
+          bitOffset: 9
+          bitWidth: 1
+        BKCMP1P:
+          description: ??
+          bitOffset: 10
+          bitWidth: 1
+        BKCMP2P:
+          description: ??
+          bitOffset: 11
+          bitWidth: 1
+
+
+  CR1:
+    _modify:
+      UIFREMAP:
+        name: UIFREMA
+
+  CR2:
+    _add:
+      OIS2:
+        description: ??
+        bitOffset: 10
+        bitWidth: 1
+
+  DIER:
+    _add:
+      CC2IE:
+        description: Capture/Compare 1 interrupt enable
+        bitOffset: 2
+        bitWidth: 1
+
+  SR:
+    _add:
+      CC2IF:
+        description: Capture/Compare 1 interrupt flag
+        bitOffset: 2
+        bitWidth: 1
+      CC2OF:
+        description: Capture/Compare 2 overcapture flag
+        bitOffset: 9
+        bitWidth: 1
+
+  EGR:
+    _add:
+      CC2G:
+        description: Capture/compare 2 generation
+        bitOffset: 2
+        bitWidth: 1
+
+  CCER:
+    _add:
+      CC2E:
+        description: Capture/Compare 2 output enable
+        bitOffset: 4
+        bitWidth: 1
+      CC2P:
+        description: Capture/Compare 2 output Polarity
+        bitOffset: 5
+        bitWidth: 1
+      CC2NP:
+        description: Capture/Compare 2 output Polarity
+        bitOffset: 7
+        bitWidth: 1
+
+TIM1[567]:
+  BDTR:
+    _delete:
+      - BKF
+
+    _add:
+      BKDSRM:
+        description: ??
+        bitOffset: 26
+        bitWidth: 1
+      BKBID:
+        description: ??
+        bitOffset: 28
+        bitWidth: 1
+
+TIM1[67]:
+  CR1:
+    _modify:
+      UIFREMAP:
+        name: UIFREMA
+
+  DIER:
+    _delete:
+      - COMDE
+      - TDE
+
+  SR:
+    _delete:
+      - TIF
+
+  EGR:
+    _delete:
+      - TG
+
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
+LPTIM?:
+  _add:
+    OR:
+      description: ??
+      addressOffset: 0x20
+      resetValue: 0x0
+      fields:
+        OR_0:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        OR_1:
+          description: ??
+          bitOffset: 1
+          bitWidth: 1
+
+  CR:
+    _add:
+      COUNTRST:
+        description: ??
+        bitOffset: 3
+        bitWidth: 1
+      RSTARE:
+        description: ??
+        bitOffset: 4
+        bitWidth: 1

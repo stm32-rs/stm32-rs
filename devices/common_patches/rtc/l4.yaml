@@ -1,0 +1,221 @@
+RTC:
+  _add:
+    SR:
+      description: ??
+      addressOffset: 0x50
+      resetValue: 0x0
+      fields:
+        ALRAF:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        ALRBF:
+          description: ??
+          bitOffset: 1
+          bitWidth: 1
+        WUTF:
+          description: ??
+          bitOffset: 2
+          bitWidth: 1
+        TSF:
+          description: ??
+          bitOffset: 3
+          bitWidth: 1
+        TSOVF:
+          description: ??
+          bitOffset: 4
+          bitWidth: 1
+        ITSF:
+          description: ??
+          bitOffset: 5
+          bitWidth: 1
+        SSRUF:
+          description: ??
+          bitOffset: 6
+          bitWidth: 1
+    MISR:
+      description: ??
+      addressOffset: 0x54
+      resetValue: 0x0
+      fields:
+        ALRAMF:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        ALRBMF:
+          description: ??
+          bitOffset: 1
+          bitWidth: 1
+        WUTMF:
+          description: ??
+          bitOffset: 2
+          bitWidth: 1
+        TSMF:
+          description: ??
+          bitOffset: 3
+          bitWidth: 1
+        TSOVMF:
+          description: ??
+          bitOffset: 4
+          bitWidth: 1
+        ITSMF:
+          description: ??
+          bitOffset: 5
+          bitWidth: 1
+        SSRUMF:
+          description: ??
+          bitOffset: 6
+          bitWidth: 1
+    SCR:
+      description: ??
+      addressOffset: 0x5C
+      resetValue: 0x0
+      fields:
+        CALRAF:
+          description: ??
+          bitOffset: 0
+          bitWidth: 1
+        CALRBF:
+          description: ??
+          bitOffset: 1
+          bitWidth: 1
+        CWUTF:
+          description: ??
+          bitOffset: 2
+          bitWidth: 1
+        CTSF:
+          description: ??
+          bitOffset: 3
+          bitWidth: 1
+        CTSOVF:
+          description: ??
+          bitOffset: 4
+          bitWidth: 1
+        CITSF:
+          description: ??
+          bitOffset: 5
+          bitWidth: 1
+        CSSRUF:
+          description: ??
+          bitOffset: 6
+          bitWidth: 1
+    ALRABINR:
+      description: ??
+      addressOffset: 0x70
+      resetValue: 0x0
+      fields:
+        SS:
+          description: ??
+          bitOffset: 0
+          bitWidth: 32
+    ALRBBINR:
+      description: ??
+      addressOffset: 0x74
+      resetValue: 0x0
+      fields:
+        SS:
+          description: ??
+          bitOffset: 0
+          bitWidth: 32
+
+
+  _delete:
+    - TAMPCR
+    - OR
+    - BKP*R
+
+  _modify:
+    SSR:
+      addressOffset: 0x08
+    CR:
+      addressOffset: 0x18
+    ISR:
+      name: ICSR
+    WPR:
+      addressOffset: 0x24
+    CALR:
+      addressOffset: 0x28
+    SHIFTR:
+      addressOffset: 0x2C
+    TSTR:
+      addressOffset: 0x30
+    TSDR:
+      addressOffset: 0x34
+    TSSSR:
+      addressOffset: 0x38
+    ALRMAR:
+      addressOffset: 0x40
+    ALRMASSR:
+      addressOffset: 0x44
+    ALRMBR:
+      addressOffset: 0x48
+    ALRMBSSR:
+      addressOffset: 0x4C
+
+
+  SSR:
+    _modify:
+      SS:
+        bitWidth: 32
+  ICSR:
+    _delete:
+      - ALRAWF
+      - ALRBWF
+      - ALRAF
+      - ALRBF
+      - WUTF
+      - TSF
+      - TSOVF
+      - TAMP?F
+
+    _add:
+      BIN:
+        description: Binary mode
+        bitOffset: 8
+        bitWidth: 2
+      BCDU:
+        description: BCD update (BIN = 10 or 11)
+        bitOffset: 10
+        bitWidth: 3
+
+  WUTR:
+    _add:
+      WUTOCLR:
+        description: Wakeup auto-reload output clear value
+        bitOffset: 16
+        bitWidth: 16
+
+  CR:
+    _add:
+      TAMPTS:
+        description: Activate timestamp on tamper detection event
+        bitOffset: 25
+        bitWidth: 1
+      TAMPOE:
+        description: Tamper detection output enable on TAMPALRM
+        bitOffset: 26
+        bitWidth: 1
+      TAMPALRM_PU:
+        description: TAMPALRM pull-up enable
+        bitOffset: 29
+        bitWidth: 1
+      TAMPALRM_TYPE:
+        description: TAMPALRM output type
+        bitOffset: 30
+        bitWidth: 1
+      OUT2EN:
+        description: RTC_OUT2 output enable
+        bitOffset: 31
+        bitWidth: 1
+
+  CALR:
+    _add:
+      LPCAL:
+        description: Calibration low-power mode
+        bitOffset: 12
+        bitWidth: 1
+
+  TSSSR:
+    _modify:
+      SS:
+        bitWidth: 32

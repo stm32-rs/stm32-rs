@@ -1,0 +1,63 @@
+FMC:
+  _add:
+    PCSCNTR:
+      description: ??
+      addressOffset: 0x20
+      resetValue: 0x0
+      fields:
+        CSCOUNT:
+          description: ??
+          bitOffset: 0
+          bitWidth: 16
+        CNTB1EN:
+          description: ??
+          bitOffset: 16
+          bitWidth: 1
+        CNTB2EN:
+          description: ??
+          bitOffset: 17
+          bitWidth: 1
+        CNTB3EN:
+          description: ??
+          bitOffset: 18
+          bitWidth: 1
+        CNTB4EN:
+          description: ??
+          bitOffset: 19
+          bitWidth: 1
+
+  BCR?:
+    _delete:
+      - WRAPMOD
+
+    _add:
+      CPSIZE:
+        description: ??
+        bitOffset: 16
+        bitWidth: 3
+      NBLSEL:
+        description: ??
+        bitOffset: 22
+        bitWidth: 2
+
+  BTR?:
+    _add:
+      DATAHLD:
+        description: ??
+        bitOffset: 30
+        bitWidth: 2
+
+  BWTR?:
+    _delete:
+      - CLKDIV
+      - DATLAT
+
+    _add:
+      BUSTURN:
+        description: ??
+        bitOffset: 16
+        bitWidth: 4
+      DATAHLD:
+        description: ??
+        bitOffset: 30
+        bitWidth: 2

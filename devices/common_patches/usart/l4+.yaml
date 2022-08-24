@@ -1,0 +1,121 @@
+USART?:
+  CR1:
+    _modify:
+      RXNEIE:
+        name: RXFNEIE
+      TXNEIE:
+        name: TXFNEIE
+
+  ISR:
+    _modify:
+      NF:
+        name: NE
+
+  ICR:
+    _add:
+      TXFECF:
+        description: ??
+        bitOffset: 5
+        bitWidth: 1
+      TCBGTCF:
+        description: ??
+        bitOffset: 7
+        bitWidth: 1
+
+    _modify:
+      NCF:
+        name: NCEF
+
+
+LPUART?:
+  CR1:
+    _modify:
+      RXNEIE:
+        name: RXFNEIE
+      TXEIE:
+        name: TXFNEIE
+
+    _merge:
+      - DEDT*
+      - DEAT*
+
+    _add:
+      FIFOEN:
+        description: ??
+        bitOffset: 29
+        bitWidth: 1
+      TXFEIE:
+        description: ??
+        bitOffset: 30
+        bitWidth: 1
+      RXFFIE:
+        description: ??
+        bitOffset: 31
+        bitWidth: 1
+
+  CR2:
+    _delete:
+      - CLKEN
+
+    _merge:
+      - ADD[04]*
+
+    _modify:
+      TAINV:
+        name: DATAINV
+
+  CR3:
+    _add:
+      TXFTIE:
+        description: ??
+        bitOffset: 23
+        bitWidth: 1
+      RXFTCFG:
+        description: ??
+        bitOffset: 25
+        bitWidth: 3
+      RXFTIE:
+        description: ??
+        bitOffset: 28
+        bitWidth: 1
+      TXFTCFG:
+        description: ??
+        bitOffset: 29
+        bitWidth: 3
+
+  RQR:
+    _add:
+      TXFRQ:
+        description: ??
+        bitOffset: 4
+        bitWidth: 1
+
+  ISR:
+    _modify:
+      RXNE:
+        name: RXFNE
+      TXE:
+        name: TXFNF
+
+    _add:
+      TXFF:
+        description: ??
+        bitOffset: 23
+        bitWidth: 1
+      RXFF:
+        description: ??
+        bitOffset: 24
+        bitWidth: 1
+      RXFT:
+        description: ??
+        bitOffset: 26
+        bitWidth: 1
+      TXFT:
+        description: ??
+        bitOffset: 27
+        bitWidth: 1
+
+  ICR:
+    _modify:
+      NCF:
+        name: NCEF

@@ -1,0 +1,45 @@
+HASH:
+  _strip:
+    - HASH_
+
+  _modify:
+    HR0:
+      name: HRA0
+
+  _add:
+    HRA1:
+      description: digest registers
+      addressOffset: 0x10
+      resetValue: 0x0
+      fields:
+        H1:
+          description: H1
+          bitOffset: 0
+          bitWidth: 32
+    HRA2:
+      description: digest registers
+      addressOffset: 0x14
+      resetValue: 0x0
+      fields:
+        H1:
+          description: H2
+          bitOffset: 0
+          bitWidth: 32
+    HRA3:
+      description: digest registers
+      addressOffset: 0x18
+      resetValue: 0x0
+      fields:
+        H1:
+          description: H3
+          bitOffset: 0
+          bitWidth: 32
+    HRA4:
+      description: digest registers
+      addressOffset: 0x1C
+      resetValue: 0x0
+      fields:
+        H1:
+          description: H4
+          bitOffset: 0
+          bitWidth: 32

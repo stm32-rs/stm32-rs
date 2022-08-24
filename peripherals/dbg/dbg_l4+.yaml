@@ -1,0 +1,11 @@
+# Debug registers for L4+ series
+
+_include:
+  - "dbg_trace.yaml"
+  - "dbg_common.yaml"
+
+DBGMCU:
+  APB1FZR1:
+    DBG_CAN1_STOP:
+      NormalMode: [ 0, "Same behavior as in normal mode" ]
+      ReceiveRegistersFrozen: [ 1, "The bxCAN1 receive registers are frozen" ]

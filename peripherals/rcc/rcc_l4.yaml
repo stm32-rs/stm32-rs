@@ -78,6 +78,15 @@ RCC:
       LSE: [3, "LSE clock selected"]
 
   BDCR:
+    LSCOSEL:
+      LSI: [ 0, "LSI clock selected" ]
+      LSE: [ 1, "LSE clock selected" ]
+    LSCOEN:
+      Disabled: [ 0, "Low speed clock output (LSCO) disabled" ]
+      Enabled: [ 1, "Low speed clock output (LSCO) enabled" ]
+    BDRST:
+      NoReset: [ 0, "Reset not activated" ]
+      Reset: [ 1, "Reset the entire Backup domain" ]
     RTCEN:
       Disabled: [0, "RTC clock disabled"]
       Enabled: [1, "RTC clock enabled"]
@@ -86,3 +95,9 @@ RCC:
       LSE: [1, "LSE oscillator clock selected"]
       LSI: [2, "LSI oscillator clock selected"]
       HSE: [3, "HSE oscillator clock divided by 32 selected"]
+    LSESYSDIS:
+      Disabled: [ 0, "No clock LSE propagation" ]
+      Enabled: [ 1, "Clock LSE propagation enabled" ]
+    LSECSSD:
+      NoFailure: [ 0, " No failure detected on LSE (32 kHz oscillator)" ]
+      FailureDetected: [ 1, "Failure detected on LSE (32 kHz oscillator)" ]

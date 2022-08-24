@@ -1,0 +1,152 @@
+AES:
+  _add:
+    KEYR4:
+      description: key register 4
+      addressOffset: 0x30
+      resetValue: 0x0
+      fields:
+        KEY:
+          description: Cryptographic key, bits [159:128]
+          bitOffset: 0
+          bitWidth: 32
+    KEYR5:
+      description: key register 5
+      addressOffset: 0x34
+      resetValue: 0x0
+      fields:
+        KEY:
+          description: Cryptographic key, bits [191:160]
+          bitOffset: 0
+          bitWidth: 32
+    KEYR6:
+      description: key register 6
+      addressOffset: 0x38
+      resetValue: 0x0
+      fields:
+        KEY:
+          description: Cryptographic key, bits [223:192]
+          bitOffset: 0
+          bitWidth: 32
+    KEYR7:
+      description: key register 7
+      addressOffset: 0x3C
+      resetValue: 0x0
+      fields:
+        KEY:
+          description: Cryptographic key, bits [255:224]
+          bitOffset: 0
+          bitWidth: 32
+    SUSP0R:
+      description: suspend registers
+      addressOffset: 0x40
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP1R:
+      description: suspend registers
+      addressOffset: 0x44
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP2R:
+      description: suspend registers
+      addressOffset: 0x48
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP3R:
+      description: suspend registers
+      addressOffset: 0x4C
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP4R:
+      description: suspend registers
+      addressOffset: 0x50
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP5R:
+      description: suspend registers
+      addressOffset: 0x54
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP6R:
+      description: suspend registers
+      addressOffset: 0x58
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+    SUSP7R:
+      description: suspend registers
+      addressOffset: 0x5C
+      resetValue: 0x0
+      fields:
+        SUSP:
+          description: AES suspend
+          bitOffset: 0
+          bitWidth: 32
+
+  CR:
+    _add:
+      NPBLB:
+        description: Number of padding bytes in last block
+        bitOffset: 20
+        bitWidth: 4
+      KEYSIZE:
+        description: Key size selection
+        bitOffset: 18
+        bitWidth: 1
+      GCMPH:
+        description: GCM or CCM phase selection
+        bitOffset: 13
+        bitWidth: 2
+
+  SR:
+    _add:
+      BUSY:
+        description: Busy
+        bitOffset: 3
+        bitWidth: 1
+
+  DINR:
+    _modify:
+      AES_DINR:
+        name: DIN
+
+  DOUTR:
+    _modify:
+      AES_DOUTR:
+        name: DOUT
+
+  "KEYR[01234567]":
+    _modify:
+      AES_KEYR*:
+        name: KEY
+
+  "IVR[0123]":
+    _modify:
+      AES_IVR*:
+        name: IVI
