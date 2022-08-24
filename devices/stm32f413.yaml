@@ -10,6 +10,7 @@ _derive:
   TIM9: TIM12
   TIM13: TIM10
   TIM14: TIM10
+  UART5: UART4
   UART7: UART4
   UART8: UART4
   UART9: UART4
@@ -227,13 +228,6 @@ _copy:
     from: UART8
   UART10:
     from: UART8
-
-_derive:
-  UART5: UART4
-  UART7: UART4
-  UART8: UART4
-  UART9: UART4
-  UART10: UART4
 
 UART9:
   _add:
