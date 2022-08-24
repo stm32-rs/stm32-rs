@@ -60,7 +60,7 @@ crates:
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values -i ../../../$$<
+	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
