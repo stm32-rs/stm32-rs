@@ -90,10 +90,10 @@ contain the latest patches and updates.
 
 ## Generating Device Crates / Building Locally
 
-* Install `svd2rust`: `cargo install --version 0.25.0 svd2rust`
+* Install `svd2rust`: `cargo install --version 0.25.1 svd2rust`
 * Install `form`: `cargo install form`
 * Install rustfmt: `rustup component add rustfmt`
-* Install svdtools: `pip install --user svdtools`
+* Install svdtools: `cargo install svdtools`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
 * Generate svd2rust device crates: `make svd2rust`
