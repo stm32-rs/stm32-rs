@@ -30,6 +30,10 @@ MPU:
   _strip:
     - "MPU_"
 
+SAI4:
+  _strip:
+    - SAI_
+
 _include:
  - common_patches/hdmi_cec.yaml
  - common_patches/h7_common_singlecore.yaml
