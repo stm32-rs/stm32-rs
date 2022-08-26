@@ -3,7 +3,7 @@ _svd: ../svd/stm32l412.svd
 
 # This module is the same as l4x2, but with the RTC peripheral from L5 and G4.
 # Applies to L412 and L422 MCUs. Note that the RM (RM0394) includes two separate
-# RTC chapters: One that applies to L41x and L42x (Chapter 34), and one that 
+# RTC chapters: One that applies to L41x and L42x (Chapter 34), and one that
 # applies to the rest. (Chapter 36). This module includes the Chapter 34 RTC setup.
 
 # TR, DR, PRER, WPR, TSSSR, SHIFTR, TSTR, TSDR, ALRMASSR,registers unchanged.
@@ -52,7 +52,7 @@ RTC:
           bitWidth: 16
           access: read-write
 
-  CALR:     
+  CALR:
     _add:
       LPCAL:
         description: Calibration low-power mode
@@ -193,7 +193,7 @@ RTC:
           description: Internal timestamp masked flag
           bitOffset: 5
           bitWidth: 1
-          
+
     SCR:
       description: RTC status clear register
       addressOffset: 0x5c
