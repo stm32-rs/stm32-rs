@@ -16,40 +16,40 @@ SDIO:
     - '*VER'
     - '*ID'
   _modify:
-    SDMMC_POWER:
+    POWER:
       description: 'SDIO power control register'
-    SDMMC_CLKCR:
+    CLKCR:
       description: 'CLKCR register controls the SDIO_CK output clock.'
-    SDMMC_CMDR:
-      name: "SDMMC_CMD"
-    SDMMC_RESP4R:
+    CMDR:
+      name: CMD
+    RESP4R:
       addressOffset: "0x20"
       name: RESP4
-    SDMMC_RESP3R:
+    RESP3R:
       addressOffset: "0x1C"
       name: RESP3
-    SDMMC_RESP2R:
+    RESP2R:
       addressOffset: "0x18"
       name: RESP2
-    SDMMC_RESP1R:
+    RESP1R:
       addressOffset: "0x14"
       name: RESP1
-    SDMMC_ARGR:
+    ARGR:
       name: ARG
-    SDMMC_RESPCMDR:
+    RESPCMDR:
       name: RESPCMD
       addressOffset: "0x10"
-    SDMMC_DLENR:
-      name: "SDMMC_DLEN"
-    SDMMC_DCNTR:
-      name: 'SDMMC_DCOUNT'
-    SDMMC_STAR:
-      name: SDMMC_STA
-    SDMMC_MASKR:
-      name: SDMMC_MASK
-    SDMMC_FIFOR:
+    DLENR:
+      name: DLEN
+    DCNTR:
+      name: DCOUNT
+    STAR:
+      name: STA
+    MASKR:
+      name: MASK
+    FIFOR:
       addressOffset: "0x80"
-      name: SDMMC_FIFO
+      name: FIFO
 
   _add:
     _interrupts:

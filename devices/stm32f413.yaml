@@ -10,6 +10,11 @@ _derive:
   TIM9: TIM12
   TIM13: TIM10
   TIM14: TIM10
+  UART5: UART4
+  UART7: UART4
+  UART8: UART4
+  UART9: UART4
+  UART10: UART4
 
 _modify:
   FMPI2C:
@@ -165,14 +170,94 @@ TIM7:
     _delete: [UIFREMAP]
   CNT:
     _delete: [UIFCPY]
+# The USART peripheral definitions in the svd have a random array of unrelated
+# incorrect interrupt definitions.
+USART1:
+  _add:
+    _interrupts:
+      USART1:
+        description: USART 1 global interrupt
+        value: 37
+  _delete:
+    _interrupts:
+      - USART7
 
-# UART4 is erroneously derived from a fully-featured USART (with extra fields which UARTs lack).
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART 2 global interrupt
+        value: 38
+  _delete:
+    _interrupts:
+      - USART3
+
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART 3 global interrupt
+        value: 39
+
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART 6 global interrupt
+        value: 71
+
+# The UART peripherals are erroneously derived from a fully-featured USART
+# (with extra features, and register fields which UARTs lack).  They also have
+# incorrect interrupt definitions.
 _delete:
-  UART4:
+  - UART4
+  - UART5
+  - UART7
+  - UART8
 
 _copy:
   UART4:
-    from: ../svd/stm32f405.svd:UART4
+    from: ../svd/stm32f469.svd:UART4
+  UART5:
+    from: ../svd/stm32f469.svd:UART5
+  UART7:
+    from: ../svd/stm32f469.svd:UART7
+  UART8:
+    from: ../svd/stm32f469.svd:UART8
+  UART9:
+    from: UART8
+  UART10:
+    from: UART8
+
+UART9:
+  _add:
+    _interrupts:
+      UART9:
+        description: UART 9 global interrupt
+        value: 88
+  _delete:
+    _interrupts:
+      - USART8
+
+UART10:
+  _add:
+    _interrupts:
+      UART10:
+        description: UART 10 global interrupt
+        value: 89
+  _delete:
+    _interrupts:
+      - UART5
+
+OTG_FS_PWRCLK:
+  _delete:
+    _interrupts:
+      - USART9
+
+OTG_FS_DEVICE:
+  _delete:
+    _interrupts:
+      - USART10
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml
@@ -229,6 +314,7 @@ _include:
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
+ - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml

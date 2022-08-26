@@ -5,6 +5,11 @@ RTC:
     "ALRM?SSR":
       description: Alarm sub-second register
 
+  _derive:
+    TSTR: TR
+    TSDR: DR
+    TSSSR: SSR
+
   "ALRM?R":
     _modify:
       SU:
