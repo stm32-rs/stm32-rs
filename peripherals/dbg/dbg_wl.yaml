@@ -8,3 +8,8 @@ DBGMCU:
     _read:
       REV_ID: [0, 65535]
       DEV_ID: [0, 4095]
+
+  APB1FZR1:
+    "DBG_I2C*_STOP":
+      NormalMode: [ 0, "Same behavior as in normal mode" ]
+      SMBusTimeoutFrozen: [ 1, "I2Cx SMBUS timeout is frozen" ]
