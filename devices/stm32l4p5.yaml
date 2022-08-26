@@ -45,6 +45,7 @@ DFSDM1:
 _delete:
   - SWPMI1
 
+
 _include:
   - ../peripherals/gpio/v2/common.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
@@ -60,25 +61,25 @@ _include:
   - common_patches/usart/l4+.yaml
   - ../peripherals/usart/usart_v2B2.yaml
   - ../peripherals/tsc/tsc.yaml
-  - common_patches/fsmc/l4p5.yaml
+  - common_patches/fsmc/fsmc_l4+.yaml
   - common_patches/fsmc/fsmc_nand_v2.yaml
-  - common_patches/hash/l4p5.yaml
+  - common_patches/hash/hash_l4+.yaml
   - common_patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_basic.yaml
   - ../peripherals/crc/crc_pol.yaml
   - ../peripherals/crc/crc_rev.yaml
-  - common_patches/aes/l4p5.yaml
-  - ../peripherals/aes/aes_l4p5.yaml
-  - common_patches/exti/l4p5.yaml
-  - common_patches/firewall/l4p5.yaml
+  - common_patches/aes/l4+.yaml
+  - ../peripherals/aes/aes_l4+.yaml
+  - common_patches/exti/l4+.yaml
+  - common_patches/firewall/l4+.yaml
   - common_patches/ltdc/rename.yaml
   - ../peripherals/ltdc/ltdc.yaml
-  - common_patches/rng/l4p5.yaml
+  - common_patches/rng/l4+.yaml
   - ../peripherals/rng/rng_wl.yaml
   - common_patches/spi/l4.yaml
   - common_patches/rtc/l4.yaml
   - common_patches/rtc/rtc_cr.yaml
-  - common_patches/octospi/l4.yaml
+  - common_patches/octospi/l4+.yaml
   - ../peripherals/octospi/l4.yaml
   - common_patches/octospim/l4+.yaml
   - common_patches/dbgmcu/l4_apb_fzr_rename.yaml
