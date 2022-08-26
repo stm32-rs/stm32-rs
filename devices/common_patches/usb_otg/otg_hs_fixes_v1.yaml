@@ -208,7 +208,7 @@ OTG_HS_DEVICE:
           description: Received data PID/SETUP packet count
           bitOffset: 29
           bitWidth: 2
-  
+
   _array:
     DIEPCTL[12345]: {}
     DOEPCTL[12345]: {}
@@ -217,4 +217,4 @@ OTG_HS_DEVICE:
     DIEPINT[012345]: {}
     DOEPINT[012345]: {}
     DTXFSTS[012345]: {}
-    
+

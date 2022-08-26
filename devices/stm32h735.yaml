@@ -210,7 +210,7 @@ _add:
           X1_BASE:
             description: Base address of X1 buffer
             bitOffset: 0
-            bitWidth: 8  
+            bitWidth: 8
       X2BUFCFG:
         description: X2 buffer configuration register
         addressOffset: 0x04
@@ -306,7 +306,7 @@ _add:
           RIEN:
             description: Enable read interrupt
             bitOffset: 0
-            bitWidth: 1  
+            bitWidth: 1
       SR:
         description: Status register
         addressOffset: 0x14
@@ -349,7 +349,7 @@ _add:
           RES:
             description: Read data (contents of the Y output buffer at the address indicated by the READ pointer)
             bitOffset: 0
-            bitWidth: 16  
+            bitWidth: 16
     interrupts:
       FMAC:
         value: 153
@@ -887,7 +887,7 @@ RAMECC1:
 #  _add:
 #    _interrupts:
 #      I2C5_EV:
-#        value: 157 
+#        value: 157
 #        description: I2C5 event interrupt
 #      I2C5_ER:
 #        value: 158
