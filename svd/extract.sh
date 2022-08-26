@@ -39,5 +39,7 @@ mv stm32wle5_cm4.svd stm32wle5.svd
 # We handle its modified RTC register block in `devices/stm32l412.yaml`.
 cp stm32l4x2.svd stm32l412.svd
 
-# Rename U5 svd files to remove trailing 'xx'
-mv stm32u5xx.svd stm32u5.svd
+# Duplicate U5X5 to provide a copy for each chip
+cp stm32u5xx.svd stm32u575.svd
+cp stm32u5xx.svd stm32u585.svd
+rm stm32u5xx.svd
