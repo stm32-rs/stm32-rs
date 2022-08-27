@@ -11,7 +11,7 @@ ADC?:
         description: Analog watchdog 1 flag
       JEOS:
         description: Injected channel end of sequence flag
-      JEOC: 
+      JEOC:
         description: Injected channel end of conversion flag
       OVR:
         description: ADC overrun
@@ -23,7 +23,7 @@ ADC?:
         description: End of sampling flag
       ADRDY:
         description: ADC ready
-  
+
   IER:
     _modify:
       JQOVFIE:
@@ -36,7 +36,7 @@ ADC?:
         description: Analog watchdog 1 interrupt enable
       JEOSIE:
         description: End of injected sequence of conversions interrupt enable
-      JEOCIE: 
+      JEOCIE:
         description: End of injected conversion interrupt enable
       OVRIE:
         description: Overrun interrupt enable
@@ -48,7 +48,7 @@ ADC?:
         description: End of sampling flag interrupt enable for regular conversions
       ADRDYIE:
         description: ADC ready interrupt enable
-  
+
   CR:
     _modify:
       ADCAL:
@@ -115,7 +115,7 @@ ADC?:
         description: Direct memory access configuration
       DMAEN:
         description: Direct memory access enable
-  
+
   CFGR2:
     _modify:
       SMPTRIG:
@@ -184,7 +184,7 @@ ADC?:
         description: Channel 11 sampling time selection
       SMP10:
         description: Channel 10 sampling time selection
-  
+
   TR1:
     _modify:
       HT1:
@@ -193,7 +193,7 @@ ADC?:
         description: Analog watchdog filtering parameter
       LT1:
         description: Analog watchdog 1 lower threshold
-  
+
   TR2:
     _modify:
       HT2:
@@ -220,7 +220,7 @@ ADC?:
         description: 1st conversion in regular sequence
       L:
         description: Regular channel sequence length
-  
+
   SQR2:
     _modify:
       SQ9:
@@ -283,7 +283,7 @@ ADC?:
         description: Positive offset
       OFFSET1:
         description: Data offset 1 for the channel programmed into bits OFFSET1_CH
-  
+
   OFR2:
     _modify:
       OFFSET1_EN:
@@ -299,7 +299,7 @@ ADC?:
       OFFSET1:
         name: OFFSET2
         description: Data offset 2 for the channel programmed into bits OFFSET2_CH
-  
+
   OFR3:
     _modify:
       OFFSET1_EN:
@@ -342,7 +342,7 @@ ADC?:
       JDATA2:
         name: JDATA
         description: Injected data
-  
+
   JDR3:
     _modify:
       JDATA3:
@@ -354,7 +354,7 @@ ADC?:
       JDATA4:
         name: JDATA
         description: Injected data
-  
+
   AWD2CR:
     _modify:
       AWD2CH:
@@ -369,7 +369,7 @@ ADC?:
     _modify:
       DIFSEL:
         description: Differential mode for channels 18 to 0
-  
+
   CALFACT:
     _modify:
       CALFACT_D:
