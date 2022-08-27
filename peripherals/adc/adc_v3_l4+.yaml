@@ -73,7 +73,7 @@ ADC:
       Add1Cycle: [ 1, "2.5 ADC clock cycle sampling time becomes 3.5 ADC clock cycles for the ADC_SMPR1 and ADC_SMPR2 registers" ]
 
   SMPR?:
-    SMP*:
+    SMP?,SMP??:
       Cycles2_5: [ 0, "2.5 ADC clock cycles" ]
       Cycles6_5: [ 1, "6.5 ADC clock cycles" ]
       Cycles12_5: [ 2, "12.5 ADC clock cycles" ]

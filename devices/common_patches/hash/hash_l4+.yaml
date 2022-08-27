@@ -1,10 +1,24 @@
 HASH:
-  _strip:
-    - HASH_
-
   _modify:
     HR0:
       name: HRA0
+    # strip doesn't work because otherwise we end up with two HRA0 registers...
+    HASH_HR0:
+      name: HR0
+    HASH_HR1:
+      name: HR1
+    HASH_HR2:
+      name: HR2
+    HASH_HR3:
+      name: HR3
+    HASH_HR4:
+      name: HR4
+    HASH_HR5:
+      name: HR5
+    HASH_HR6:
+      name: HR6
+    HASH_HR7:
+      name: HR7
 
   _add:
     HRA1:
