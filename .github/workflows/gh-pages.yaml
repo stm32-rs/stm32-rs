@@ -22,9 +22,22 @@ jobs:
       - name: Build HTML
         run: |
           SVDTOOLS=svd make -j2 html
-      - name: Publish to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: html
-          force_orphan: true
+          path: html
+
+  deploy_pages:
+    name: Deploy GH Pages
+    runs-on: ubuntu-latest
+    needs: build_html
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
