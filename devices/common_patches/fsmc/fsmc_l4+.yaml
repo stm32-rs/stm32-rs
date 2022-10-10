@@ -1,28 +1,28 @@
 FMC:
   _add:
     PCSCNTR:
-      description: ??
+      description: PSRAM chip select counter register
       addressOffset: 0x20
       resetValue: 0x0
       fields:
         CSCOUNT:
-          description: ??
+          description: Chip select counter
           bitOffset: 0
           bitWidth: 16
         CNTB1EN:
-          description: ??
+          description: Counter Bank 1 enable
           bitOffset: 16
           bitWidth: 1
         CNTB2EN:
-          description: ??
+          description: Counter Bank 2 enable
           bitOffset: 17
           bitWidth: 1
         CNTB3EN:
-          description: ??
+          description: Counter Bank 3 enable
           bitOffset: 18
           bitWidth: 1
         CNTB4EN:
-          description: ??
+          description: Counter Bank 4 enable
           bitOffset: 19
           bitWidth: 1
 
@@ -32,18 +32,18 @@ FMC:
 
     _add:
       CPSIZE:
-        description: ??
+        description: CRAM page size
         bitOffset: 16
         bitWidth: 3
-      NBLSEL:
-        description: ??
+      NBLSET:
+        description: Byte lane (NBL) setup
         bitOffset: 22
         bitWidth: 2
 
   BTR?:
     _add:
       DATAHLD:
-        description: ??
+        description: Data hold phase duration
         bitOffset: 30
         bitWidth: 2
 
@@ -54,10 +54,10 @@ FMC:
 
     _add:
       BUSTURN:
-        description: ??
+        description: Bus turnaround phase duration
         bitOffset: 16
         bitWidth: 4
       DATAHLD:
-        description: ??
+        description: Data hold phase duration
         bitOffset: 30
         bitWidth: 2

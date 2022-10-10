@@ -1,120 +1,120 @@
 RTC:
   _add:
     SR:
-      description: ??
+      description: RTC status register
       addressOffset: 0x50
       resetValue: 0x0
       fields:
         ALRAF:
-          description: ??
+          description: Alarm A flag
           bitOffset: 0
           bitWidth: 1
         ALRBF:
-          description: ??
+          description: Alarm B flag
           bitOffset: 1
           bitWidth: 1
         WUTF:
-          description: ??
+          description: Wakeup timer flag
           bitOffset: 2
           bitWidth: 1
         TSF:
-          description: ??
+          description: Timestamp flag
           bitOffset: 3
           bitWidth: 1
         TSOVF:
-          description: ??
+          description:  Timestamp overflow flag
           bitOffset: 4
           bitWidth: 1
         ITSF:
-          description: ??
+          description: Internal timestamp flag
           bitOffset: 5
           bitWidth: 1
         SSRUF:
-          description: ??
+          description: SSR underflow flag
           bitOffset: 6
           bitWidth: 1
     MISR:
-      description: ??
+      description: RTC masked interrupt status register
       addressOffset: 0x54
       resetValue: 0x0
       fields:
         ALRAMF:
-          description: ??
+          description: Alarm A masked flag
           bitOffset: 0
           bitWidth: 1
         ALRBMF:
-          description: ??
+          description: Alarm B masked flag
           bitOffset: 1
           bitWidth: 1
         WUTMF:
-          description: ??
+          description: Wakeup timer masked flag
           bitOffset: 2
           bitWidth: 1
         TSMF:
-          description: ??
+          description: Timestamp masked flag
           bitOffset: 3
           bitWidth: 1
         TSOVMF:
-          description: ??
+          description: Timestamp overflow masked flag
           bitOffset: 4
           bitWidth: 1
         ITSMF:
-          description: ??
+          description: Internal timestamp masked flag
           bitOffset: 5
           bitWidth: 1
         SSRUMF:
-          description: ??
+          description: SSR underflow masked flag
           bitOffset: 6
           bitWidth: 1
     SCR:
-      description: ??
+      description: RTC status clear register
       addressOffset: 0x5C
       resetValue: 0x0
       fields:
         CALRAF:
-          description: ??
+          description: Clear alarm A flag
           bitOffset: 0
           bitWidth: 1
         CALRBF:
-          description: ??
+          description: Clear alarm B flag
           bitOffset: 1
           bitWidth: 1
         CWUTF:
-          description: ??
+          description: Clear wakeup timer flag
           bitOffset: 2
           bitWidth: 1
         CTSF:
-          description: ??
+          description: Clear timestamp flag
           bitOffset: 3
           bitWidth: 1
         CTSOVF:
-          description: ??
+          description: Clear timestamp overflow flag
           bitOffset: 4
           bitWidth: 1
         CITSF:
-          description: ??
+          description: Clear internal timestamp flag
           bitOffset: 5
           bitWidth: 1
         CSSRUF:
-          description: ??
+          description: Clear SSR underflow flag
           bitOffset: 6
           bitWidth: 1
     ALRABINR:
-      description: ??
+      description: RTC alarm A binary mode register
       addressOffset: 0x70
       resetValue: 0x0
       fields:
         SS:
-          description: ??
+          description: Synchronous counter alarm value in Binary mode
           bitOffset: 0
           bitWidth: 32
     ALRBBINR:
-      description: ??
+      description: RTC alarm B binary mode register
       addressOffset: 0x74
       resetValue: 0x0
       fields:
         SS:
-          description: ??
+          description: Synchronous counter alarm value in Binary mode
           bitOffset: 0
           bitWidth: 32
 

@@ -14,11 +14,11 @@ USART?:
   ICR:
     _add:
       TXFECF:
-        description: ??
+        description: TXFIFO empty clear flag
         bitOffset: 5
         bitWidth: 1
       TCBGTCF:
-        description: ??
+        description: Transmission complete before Guard time clear flag
         bitOffset: 7
         bitWidth: 1
 
@@ -41,15 +41,15 @@ LPUART?:
 
     _add:
       FIFOEN:
-        description: ??
+        description: :FIFO mode enable
         bitOffset: 29
         bitWidth: 1
       TXFEIE:
-        description: ??
+        description: TXFIFO empty interrupt enable
         bitOffset: 30
         bitWidth: 1
       RXFFIE:
-        description: ??
+        description: RXFIFO Full interrupt enable
         bitOffset: 31
         bitWidth: 1
 
@@ -67,26 +67,26 @@ LPUART?:
   CR3:
     _add:
       TXFTIE:
-        description: ??
+        description: TXFIFO threshold interrupt enable
         bitOffset: 23
         bitWidth: 1
       RXFTCFG:
-        description: ??
+        description: Receive FIFO threshold configuration
         bitOffset: 25
         bitWidth: 3
       RXFTIE:
-        description: ??
+        description: RXFIFO threshold interrupt enable
         bitOffset: 28
         bitWidth: 1
       TXFTCFG:
-        description: ??
+        description: TXFIFO threshold configuration
         bitOffset: 29
         bitWidth: 3
 
   RQR:
     _add:
       TXFRQ:
-        description: ??
+        description: Transmit data flush request
         bitOffset: 4
         bitWidth: 1
 
@@ -107,11 +107,11 @@ LPUART?:
         bitOffset: 24
         bitWidth: 1
       RXFT:
-        description: ??
+        description: RXFIFO threshold flag
         bitOffset: 26
         bitWidth: 1
       TXFT:
-        description: ??
+        description: TXFIFO threshold flag
         bitOffset: 27
         bitWidth: 1
 

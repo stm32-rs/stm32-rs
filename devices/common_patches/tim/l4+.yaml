@@ -117,33 +117,33 @@ TIM[18]:
         bitOffset: 18
         bitWidth: 1
       MMS2:
-        description: ??
+        description: Master mode selection 2
         bitOffset: 20
         bitWidth: 4
 
   SR:
     _add:
       SBIF:
-        description: ??
+        description: System Break interrupt flag
         bitOffset: 13
         bitWidth: 1
       CC5IF:
-        description: ??
+        description: Compare 5 interrupt flag
         bitOffset: 16
         bitWidth: 1
       CC6IF:
-        description: ??
+        description: Compare 6 interrupt flag
         bitOffset: 17
         bitWidth: 1
       B2IF:
-        description: ??
+        description: Break 2 interrupt flag
         bitOffset: 8
         bitWidth: 1
 
   EGR:
     _add:
       B2G:
-        description: ??
+        description: Break 2 generation
         bitOffset: 8
         bitWidth: 1
 
@@ -177,35 +177,35 @@ TIM[18]:
 
     _add:
       BKF:
-        description: ??
+        description: Break filter
         bitOffset: 16
         bitWidth: 4
       BK2F:
-        description: ??
+        description: Break 2 filter
         bitOffset: 20
         bitWidth: 4
       BK2E:
-        description: ??
+        description: Break 2 enable
         bitOffset: 24
         bitWidth: 1
       BK2P:
-        description: ??
+        description: Break 2 polarity
         bitOffset: 25
         bitWidth: 1
       BKDSRM:
-        description: ??
+        description: Break Disarm
         bitOffset: 26
         bitWidth: 1
       BK2DSRM:
-        description: ??
+        description: Break2 Disarm
         bitOffset: 27
         bitWidth: 1
       BKBID:
-        description: ??
+        description: Break Bidirectional
         bitOffset: 28
         bitWidth: 1
       BK2BID:
-        description: ??
+        description: Break2 bidirectional
         bitOffset: 29
         bitWidth: 1
 
@@ -222,19 +222,19 @@ TIM15:
       resetValue: 0x0
       fields:
         SMS:
-          description: ??
+          description: Slave mode selection
           bitOffset: 0
           bitWidth: 3
         TS:
-          description: ??
+          description: Trigger selection
           bitOffset: 5
           bitWidth: 3
         MSM:
-          description: ??
+          description: Master/Slave mode
           bitOffset: 8
           bitWidth: 1
         SMS_3:
-          description: ??
+          description: Slave mode selection
           bitOffset: 16
           bitWidth: 1
     CCR2:
@@ -247,49 +247,49 @@ TIM15:
           bitOffset: 0
           bitWidth: 16
     OR1:
-      description: ??
+      description: TIM15 option register 1
       addressOffset: 0x50
       resetValue: 0x0
       fields:
         TI1_RMP:
-          description: ??
+          description: Input Capture 1 remap
           bitOffset: 0
           bitWidth: 1
         ENCODER_MODE:
-          description: ??
+          description: Encoder mode
           bitOffset: 1
           bitWidth: 2
     OR2:
-      description: ??
+      description: TIM15 option register 2
       addressOffset: 0x60
       resetValue: 0x0
       fields:
         BKINE:
-          description: ??
+          description: BRK BKIN input enable
           bitOffset: 0
           bitWidth: 1
         BKCMP1E:
-          description: ??
+          description: BRK COMP1 enable
           bitOffset: 1
           bitWidth: 1
         BKCMP2E:
-          description: ??
+          description: BRK COMP2 enable
           bitOffset: 2
           bitWidth: 1
         BKDF1BK0E:
-          description: ??
+          description: BRK dfsdm1_break[0] enable
           bitOffset: 8
           bitWidth: 1
         BKINP:
-          description: ??
+          description: BRK BKIN input polarity
           bitOffset: 9
           bitWidth: 1
         BKCMP1P:
-          description: ??
+          description: BRK COMP1 input polarity
           bitOffset: 10
           bitWidth: 1
         BKCMP2P:
-          description: ??
+          description: BRK COMP2 input polarity
           bitOffset: 11
           bitWidth: 1
 
@@ -302,7 +302,7 @@ TIM15:
   CR2:
     _add:
       OIS2:
-        description: ??
+        description: Output idle state 2 (OC2 output)
         bitOffset: 10
         bitWidth: 1
 
@@ -353,11 +353,11 @@ TIM1[567]:
 
     _add:
       BKDSRM:
-        description: ??
+        description: Break Disarm
         bitOffset: 26
         bitWidth: 1
       BKBID:
-        description: ??
+        description: Break Bidirectional
         bitOffset: 28
         bitWidth: 1
 
@@ -393,21 +393,21 @@ LPTIM?:
       resetValue: 0x0
       fields:
         OR_0:
-          description: ??
+          description: Option register bit 0
           bitOffset: 0
           bitWidth: 1
         OR_1:
-          description: ??
+          description: Option register bit 1
           bitOffset: 1
           bitWidth: 1
 
   CR:
     _add:
       COUNTRST:
-        description: ??
+        description:  Counter reset
         bitOffset: 3
         bitWidth: 1
       RSTARE:
-        description: ??
+        description: Reset after read enable
         bitOffset: 4
         bitWidth: 1

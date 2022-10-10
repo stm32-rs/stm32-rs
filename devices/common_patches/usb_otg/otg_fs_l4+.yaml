@@ -89,146 +89,146 @@ OTG_FS_GLOBAL:
           bitOffset: 16
           bitWidth: 16
     GLPMCFG:
-      description: ??
+      description: OTG core LPM configuration register
       addressOffset: 0x54
       resetValue: 0x0
       fields:
         LPMEN:
-          description: ??
+          description: LPM support enable
           bitOffset: 0
           bitWidth: 1
         LPMACK:
-          description: ??
+          description: LPM token acknowledge enable
           bitOffset: 1
           bitWidth: 1
         BESL:
-          description: ??
+          description: Best effort service latency
           bitOffset: 2
           bitWidth: 4
         REMWAKE:
-          description: ??
+          description: bRemoteWake value
           bitOffset: 6
           bitWidth: 1
         L1SSEN:
-          description: ??
+          description: L1 Shallow Sleep enable
           bitOffset: 7
           bitWidth: 1
         BESLTHRS:
-          description: ??
+          description: BESL threshold
           bitOffset: 8
           bitWidth: 4
         L1DSEN:
-          description: ??
+          description: L1 deep sleep enable
           bitOffset: 12
           bitWidth: 1
-        LPMRST:
-          description: ??
+        LPMRSP:
+          description: LPM response
           bitOffset: 13
           bitWidth: 2
         SLPSTS:
-          description: ??
+          description: Port sleep status
           bitOffset: 15
           bitWidth: 1
         L1RSMOK:
-          description: ??
+          description: Sleep state resume OK
           bitOffset: 16
           bitWidth: 1
         LPMCHIDX:
-          description: ??
+          description: LPM Channel Index
           bitOffset: 17
           bitWidth: 4
         PMRCNT:
-          description: ??
+          description: LPM retry count
           bitOffset: 21
           bitWidth: 3
         SNDLPM:
-          description: ??
+          description: Send LPM transaction
           bitOffset: 24
           bitWidth: 1
         LPMRCNTSTS:
-          description: ??
+          description: LPM retry count status
           bitOffset: 25
           bitWidth: 3
         ENBESL:
-          description: ??
+          description: Enable best effort service latency
           bitOffset: 28
           bitWidth: 1
     GPWRDN:
-      description: ??
+      description: OTG power down register
       addressOffset: 0x58
       resetValue: 0x0
       fields:
         ADPMEN:
-          description: ??
+          description: ADP module enable
           bitOffset: 0
           bitWidth: 1
         ADPIF:
-          description: ??
+          description: ADP interrupt flag
           bitOffset: 23
           bitWidth: 1
     GADPCTL:
-      description: ??
+      description: OTG ADP timer, control and status register
       addressOffset: 0x60
       resetValue: 0x0
       fields:
         PRBDSCHG:
-          description: ??
+          description: Probe discharge
           bitOffset: 0
           bitWidth: 2
         PRBDELTA:
-          description: ??
+          description: Probe delta
           bitOffset: 2
           bitWidth: 2
         PRBPER:
-          description: ??
+          description: Probe period
           bitOffset: 0
           bitWidth: 4
         RTIM:
-          description: ??
+          description: Ramp time
           bitOffset: 6
           bitWidth: 11
         ENAPRB:
-          description: ??
+          description: Enable probe
           bitOffset: 17
           bitWidth: 1
         ENASNS:
-          description: ??
+          description: Enable sense
           bitOffset: 18
           bitWidth: 1
         ADPRST:
-          description: ??
+          description: ADP reset
           bitOffset: 19
           bitWidth: 1
         ADPEN:
-          description: ??
+          description: ADP enable
           bitOffset: 20
           bitWidth: 1
         ADPPRBIF:
-          description: ??
+          description: ADP probe interrupt flag
           bitOffset: 21
           bitWidth: 1
         ADPSNSIF:
-          description: ??
+          description: ADP sense interrupt flag
           bitOffset: 22
           bitWidth: 1
         ADPTOIF:
-          description: ??
+          description: ADP timeout interrupt flag
           bitOffset: 23
           bitWidth: 1
         ADPPRBIM:
-          description: ??
+          description: ADP probe interrupt mask
           bitOffset: 24
           bitWidth: 1
         ADPSNSIM:
-          description: ??
+          description: ADP sense interrupt mask
           bitOffset: 25
           bitWidth: 1
         ADPTOIM:
-          description: ??
+          description: ADP timeout interrupt mask
           bitOffset: 26
           bitWidth: 1
         AR:
-          description: ??
+          description: Access request
           bitOffset: 27
           bitWidth: 2
 
@@ -238,39 +238,39 @@ OTG_FS_GLOBAL:
   GOTGCTL:
     _add:
       VBVALOEN:
-        description: ??
+        description: VBUS valid override enable
         bitOffset: 2
         bitWidth: 1
       VBVALOVA:
-        description: ??
+        description: VBUS valid override value
         bitOffset: 3
         bitWidth: 1
       AVALOEN:
-        description: ??
+        description: A-peripheral session valid override enable
         bitOffset: 4
         bitWidth: 1
       AVALOVAL:
-        description: ??
+        description: A-peripheral session valid override value
         bitOffset: 5
         bitWidth: 1
       BVALOEN:
-        description: ??
+        description: B-peripheral session valid override enable
         bitOffset: 6
         bitWidth: 1
       BVALOVAL:
-        description: ??
+        description: B-peripheral session valid override value
         bitOffset: 7
         bitWidth: 1
       EHEN:
-        description: ??
+        description: Embedded host enable
         bitOffset: 12
         bitWidth: 1
       OTGVER:
-        description: ??
+        description: OTG version
         bitOffset: 20
         bitWidth: 1
       CURMOD:
-        description: ??
+        description: Current mode of operation
         bitOffset: 21
         bitWidth: 1
 
@@ -286,29 +286,29 @@ OTG_FS_GLOBAL:
   GINTSTS:
     _add:
       RSTDET:
-        description: ??
+        description: Reset detected interrupt
         bitOffset: 23
         bitWidth: 1
       LPMINT:
-        description: ??
+        description: LPM interrupt
         bitOffset: 27
         bitWidth: 1
 
   GINTMSK:
     _add:
-      RSTDET:
-        description: ??
+      RSTDETM:
+        description: Reset detected interrupt mask
         bitOffset: 23
         bitWidth: 1
-      LPMINT:
-        description: ??
+      LPMINTM:
+        description: LPM interrupt mask
         bitOffset: 27
         bitWidth: 1
 
   GRXSTSR_Device:
     _add:
       STSPHST:
-        description: ??
+        description: Status phase start
         bitOffset: 27
         bitWidth: 1
 
@@ -327,39 +327,39 @@ OTG_FS_GLOBAL:
 
     _add:
       DCDET:
-        description: ??
+        description: Data contact detection (DCD) status
         bitOffset: 0
         bitWidth: 1
       PDET:
-        description: ??
+        description: Primary detection (PD) status
         bitOffset: 1
         bitWidth: 1
       SDET:
-        description: ??
+        description: Secondary detection (SD) status
         bitOffset: 2
         bitWidth: 1
       PS2DET:
-        description: ??
+        description: DM pull-up detection status
         bitOffset: 3
         bitWidth: 1
       BCDEN:
-        description: ??
+        description: Battery charging detector (BCD) enable
         bitOffset: 17
         bitWidth: 1
       DCDEN:
-        description: ??
+        description: Data contact detection (DCD) mode enable
         bitOffset: 18
         bitWidth: 1
       PDEN:
-        description: ??
+        description: Primary detection (PD) mode enable
         bitOffset: 19
         bitWidth: 1
       SDEN:
-        description: ??
+        description: Secondary detection (SD) mode enable
         bitOffset: 20
         bitWidth: 1
       VBDEN:
-        description: ??
+        description: USB VBUS detection enable
         bitOffset: 21
         bitWidth: 1
 
@@ -367,7 +367,7 @@ OTG_FS_HOST:
   HFIR:
     _add:
       RLDCTRL:
-        description: ??
+        description: Reload control
         bitOffset: 16
         bitWidth: 1
 
@@ -378,40 +378,36 @@ OTG_FS_HOST:
   HCTSIZ*:
     _add:
       DOPNG:
-        description: ??
+        description: Do Ping
         bitOffset: 31
         bitWidth: 1
 
 OTG_FS_DEVICE:
   DCFG:
     _add:
-      XCVRDLY:
-        description: ??
-        bitOffset: 14
-        bitWidth: 1
       ERRATIM:
-        description: ??
+        description: Erratic error interrupt mask
         bitOffset: 15
         bitWidth: 1
 
   DCTL:
     _add:
       DSBESLRJCT:
-        description: ??
+        description: Deep sleep BESL reject
         bitOffset: 18
         bitWidth: 1
 
   DSTS:
     _add:
       DEVLNSTS:
-        description: ??
+        description: Device line status
         bitOffset: 22
         bitWidth: 2
 
   DIEPMSK:
     _add:
       NAKM:
-        description: ??
+        description: NAK interrupt mask
         bitOffset: 13
         bitWidth: 1
 
@@ -419,30 +415,30 @@ OTG_FS_DEVICE:
   DOEPMSK:
     _add:
       OUTPKTERRM:
-        description: ??
+        description: Out packet error mask
         bitOffset: 8
         bitWidth: 1
       BERRM:
-        description: ??
+        description: Babble error interrupt mask
         bitOffset: 12
         bitWidth: 1
       NAKMSK:
-        description: ??
+        description: NAK interrupt mask
         bitOffset: 13
         bitWidth: 1
 
   DIEPINT?:
     _add:
       INEPNM:
-        description: ??
+        description: IN token received with EP mismatch
         bitOffset: 5
         bitWidth: 1
       PKTDRPSTS:
-        description: ??
+        description: Packet dropped status
         bitOffset: 11
         bitWidth: 1
       NAK:
-        description: ??
+        description: NAK input
         bitOffset: 13
         bitWidth: 1
 
@@ -452,15 +448,15 @@ OTG_FS_DEVICE:
 
     _add:
       STSPHSRX:
-        description: ??
+        description: Status phase received for control write
         bitOffset: 5
         bitWidth: 1
       BERR:
-        description: ??
+        description: Babble error interrupt
         bitOffset: 12
         bitWidth: 1
       NAK:
-        description: ??
+        description: NAK input
         bitOffset: 13
         bitWidth: 1
 
@@ -468,14 +464,14 @@ OTG_FS_PWRCLK:
   PCGCCTL:
     _add:
       ENL1GTG:
-        description: ??
+        description: Enable sleep clock gating
         bitOffset: 5
         bitWidth: 1
       PHYSLEEP:
-        description: ??
+        description: PHY in Sleep
         bitOffset: 6
         bitWidth: 1
       SUSP:
-        description: ??
+        description: Deep Sleep
         bitOffset: 7
         bitWidth: 1
