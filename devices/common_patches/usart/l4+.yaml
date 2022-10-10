@@ -1,0 +1,121 @@
+USART?:
+  CR1:
+    _modify:
+      RXNEIE:
+        name: RXFNEIE
+      TXNEIE:
+        name: TXFNEIE
+
+  ISR:
+    _modify:
+      NF:
+        name: NE
+
+  ICR:
+    _add:
+      TXFECF:
+        description: TXFIFO empty clear flag
+        bitOffset: 5
+        bitWidth: 1
+      TCBGTCF:
+        description: Transmission complete before Guard time clear flag
+        bitOffset: 7
+        bitWidth: 1
+
+    _modify:
+      NCF:
+        name: NCEF
+
+
+LPUART?:
+  CR1:
+    _modify:
+      RXNEIE:
+        name: RXFNEIE
+      TXEIE:
+        name: TXFNEIE
+
+    _merge:
+      - DEDT*
+      - DEAT*
+
+    _add:
+      FIFOEN:
+        description: :FIFO mode enable
+        bitOffset: 29
+        bitWidth: 1
+      TXFEIE:
+        description: TXFIFO empty interrupt enable
+        bitOffset: 30
+        bitWidth: 1
+      RXFFIE:
+        description: RXFIFO Full interrupt enable
+        bitOffset: 31
+        bitWidth: 1
+
+  CR2:
+    _delete:
+      - CLKEN
+
+    _merge:
+      - ADD[04]*
+
+    _modify:
+      TAINV:
+        name: DATAINV
+
+  CR3:
+    _add:
+      TXFTIE:
+        description: TXFIFO threshold interrupt enable
+        bitOffset: 23
+        bitWidth: 1
+      RXFTCFG:
+        description: Receive FIFO threshold configuration
+        bitOffset: 25
+        bitWidth: 3
+      RXFTIE:
+        description: RXFIFO threshold interrupt enable
+        bitOffset: 28
+        bitWidth: 1
+      TXFTCFG:
+        description: TXFIFO threshold configuration
+        bitOffset: 29
+        bitWidth: 3
+
+  RQR:
+    _add:
+      TXFRQ:
+        description: Transmit data flush request
+        bitOffset: 4
+        bitWidth: 1
+
+  ISR:
+    _modify:
+      RXNE:
+        name: RXFNE
+      TXE:
+        name: TXFNF
+
+    _add:
+      TXFF:
+        description: ??
+        bitOffset: 23
+        bitWidth: 1
+      RXFF:
+        description: ??
+        bitOffset: 24
+        bitWidth: 1
+      RXFT:
+        description: RXFIFO threshold flag
+        bitOffset: 26
+        bitWidth: 1
+      TXFT:
+        description: TXFIFO threshold flag
+        bitOffset: 27
+        bitWidth: 1
+
+  ICR:
+    _modify:
+      NCF:
+        name: NCEF

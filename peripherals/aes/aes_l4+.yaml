@@ -1,0 +1,21 @@
+_include:
+  - "aes_common.yaml"
+
+AES:
+  CR:
+    NPBLB: [ 0, 0xF ]
+    KEYSIZE:
+      AES128: [ 0, "128" ]
+      AES256: [ 1, "256" ]
+    GCMPH:
+      Init: [ 0, "Init phase" ]
+      Header: [ 1, "Header phase" ]
+      Payload: [ 2, "Payload phase" ]
+      Final: [ 3, "Final Phase" ]
+  SR:
+    BUSY:
+      Idle: [ 0, "Idle" ]
+      Busy: [ 1, "Busy" ]
+
+  SUSP?R:
+    SUSP: [ 0, 0xFFFFFFFF ]
