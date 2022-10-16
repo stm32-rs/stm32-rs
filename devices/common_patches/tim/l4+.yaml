@@ -76,7 +76,7 @@ TIM[45]:
     - OR1
     - OR2
 
-  CCMR?_Output:
+  CCMR1_Output:
     _add:
       OC1M_3:
         description: Bit 3 of Output compare 1 mode
@@ -84,6 +84,17 @@ TIM[45]:
         bitWidth: 1
       OC2M_3:
         description: Bit 3 of Output compare 2 mode
+        bitOffset: 24
+        bitWidth: 1
+
+  CCMR2_Output:
+    _add:
+      OC3M_3:
+        description: Bit 3 of Output compare 3 mode
+        bitOffset: 16
+        bitWidth: 1
+      OC4M_3:
+        description: Bit 3 of Output compare 4 mode
         bitOffset: 24
         bitWidth: 1
 
