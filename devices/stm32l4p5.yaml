@@ -3,6 +3,9 @@ _svd: ../svd/stm32l4p5.svd
 _modify:
   DMAMUX1:
     name: DMAMUX
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
 
 _copy:
   TIM3:
@@ -32,7 +35,7 @@ RCC:
       MCOSEL:
         bitWidth: 4
 
-ADC:
+ADC1:
   JSQR:
     _modify:
       JEXTEN:
@@ -41,6 +44,10 @@ ADC:
 DFSDM1:
   _strip:
     - DFSDM_
+
+  _modify:
+    FLT1CHGR:
+      name: FLT1JCHGR
 
 _delete:
   - SWPMI1
@@ -97,7 +104,9 @@ _include:
   - common_patches/can/can_l4+.yaml
   - common_patches/usb_otg/otg_fs_l4+.yaml
   - common_patches/sai/sai_l4+.yaml
+  - common_patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
+  - common_patches/dfsdm/dfsdm_l4+.yaml
   - ../peripherals/dfsdm/dfsdm.yaml
   - common_patches/dac/dac_l4+.yaml
   - ../peripherals/dac/dac_l4+.yaml

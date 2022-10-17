@@ -1,11 +1,4 @@
 USART?:
-  CR1:
-    _modify:
-      RXNEIE:
-        name: RXFNEIE
-      TXNEIE:
-        name: TXFNEIE
-
   ISR:
     _modify:
       NF:
@@ -29,12 +22,6 @@ USART?:
 
 LPUART?:
   CR1:
-    _modify:
-      RXNEIE:
-        name: RXFNEIE
-      TXEIE:
-        name: TXFNEIE
-
     _merge:
       - DEDT*
       - DEAT*
@@ -91,12 +78,6 @@ LPUART?:
         bitWidth: 1
 
   ISR:
-    _modify:
-      RXNE:
-        name: RXFNE
-      TXE:
-        name: TXFNF
-
     _add:
       TXFF:
         description: ??

@@ -6,7 +6,7 @@ _include:
   - adc_v3_common_l4+.yaml
 
 
-ADC:
+ADC?:
   CR:
     DEEPPWD:
       NotDeepPowerDown: [ 0, "ADC not in Deep-power down" ]
