@@ -74,8 +74,11 @@
       Enabled: [1, "Peripheral enabled"]
   CR2:
     PECBYTE:
-      NoPec: [0, "No PEC transfer"]
-      Pec: [1, "PEC transmission/reception is requested"]
+      _read:
+        NoPec: [0, "No PEC transfer"]
+        Pec: [1, "PEC transmission/reception is requested"]
+      _W1S:
+        Pec: [1, "PEC transmission/reception is requested"]
     AUTOEND:
       Software: [0, "Software end mode: TC flag is set when NBYTES data are transferred, stretching SCL low"]
       Automatic: [1, "Automatic end mode: a STOP condition is automatically sent when NBYTES data are transferred"]
@@ -83,14 +86,23 @@
       Completed: [0, "The transfer is completed after the NBYTES data transfer (STOP or RESTART will follow)"]
       NotCompleted: [1, "The transfer is not completed after the NBYTES data transfer (NBYTES will be reloaded)"]
     NACK:
-      Ack: [0, "an ACK is sent after current received byte"]
-      Nack: [1, "a NACK is sent after current received byte"]
+      _read:
+        Ack: [0, "an ACK is sent after current received byte"]
+        Nack: [1, "a NACK is sent after current received byte"]
+      _W1S:
+        Nack: [1, "a NACK is sent after current received byte"]
     STOP:
-      NoStop: [0, "No Stop generation"]
-      Stop: [1, "Stop generation after current byte transfer"]
+      _read:
+        NoStop: [0, "No Stop generation"]
+        Stop: [1, "Stop generation after current byte transfer"]
+      _W1S:
+        Stop: [1, "Stop generation after current byte transfer"]
     START:
-      NoStart: [0, "No Start generation"]
-      Start: [1, "Restart/Start generation"]
+      _read:
+        NoStart: [0, "No Start generation"]
+        Start: [1, "Restart/Start generation"]
+      _W1S:
+        Start: [1, "Restart/Start generation"]
     HEAD10R:
       Complete: [0, "The master sends the complete 10 bit slave address read sequence"]
       Partial: [1, "The master only sends the 1st 7 bits of the 10 bit address, followed by Read direction"]
@@ -187,11 +199,17 @@
       Empty: [0, "The RXDR register is empty"]
       NotEmpty: [1, "Received data is copied into the RXDR register, and is ready to be read"]
     TXIS:
-      NotEmpty: [0, "The TXDR register is not empty"]
-      Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
+      _read:
+        NotEmpty: [0, "The TXDR register is not empty"]
+        Empty: [1, "The TXDR register is empty and the data to be transmitted must be written in the TXDR register"]
+      _W1S:
+        Trigger: [1, "Generate a TXIS event"]
     TXE:
-      NotEmpty: [0, "TXDR register not empty"]
-      Empty: [1, "TXDR register empty"]
+      _read:
+        NotEmpty: [0, "TXDR register not empty"]
+        Empty: [1, "TXDR register empty"]
+      _W1S:
+        Flush: [1, "Flush the transmit data register"]
 
   ICR:
     ALERTCF:
