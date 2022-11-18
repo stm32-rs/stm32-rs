@@ -67,9 +67,13 @@ DAC:
   _strip:
     - "DAC_"
 
-I2C1:
+I2C*:
   _strip:
     - "I2C_"
+
+SPI*:
+  _strip:
+    - "SPI_"
 
 ADC:
   _strip:
@@ -99,7 +103,6 @@ _include:
   - ../peripherals/i2c/i2c_v2.yaml
   - ./common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/usart/g0.yaml
   - ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
