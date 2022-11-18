@@ -47,6 +47,18 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
+
 DMAMUX:
   _strip:
     - "DMAMUX_"
@@ -54,6 +66,10 @@ DMAMUX:
 DAC:
   _strip:
     - "DAC_"
+
+I2C1:
+  _strip:
+    - "I2C_"
 
 ADC:
   _strip:
@@ -79,9 +95,7 @@ _include:
   - ../peripherals/dma/dma_v1.yaml
   - ./common_patches/dma/g0_add_dma1_7ch.yaml
   - ./common_patches/dma/g0_add_dma2_5ch.yaml
-  - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/gpio/gpio_g0_l0.yaml
-  - common_patches/i2c/g0.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ./common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
