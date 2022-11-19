@@ -6,30 +6,24 @@ _modify:
 _clear_fields: ["*"]
 
 _delete:
-  - RNG
   - DMA1
   - DMA2
-
-EXTI:
-  _delete:
-    - VERR
-    - IPIDR
-    - SIDR
 
 TIM1:
   _strip:
     - "TIM1_"
-  _modify:
-    _interrupts:
-      TIM1_BRK_UP_TRG_COMP:
-        name: TIM1_BRK_UP_TRG_COM
-        description: TIM1 break, update, trigger and commutation interrupts
-  CCMR3_Output:
+
+"TIM1,TIM2,TIM15,TIM16":
+  CCMR1_Output:
     _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
 
 DMAMUX:
   _strip:
@@ -60,6 +54,9 @@ RTC:
 TAMP:
   _strip:
     - "TAMP_"
+USB:
+  _strip:
+    - "USB_"
 
 ADC:
   _strip:
@@ -78,24 +75,73 @@ ADC:
       regularDATA:
         name: DATA
 
+CRC:
+  _strip:
+    - "CRC_"
+
+DBG:
+  _strip:
+    - "DBG_"
+
+VREFBUF:
+  _strip:
+    - "VREFBUF_"
+
+"FDCAN?":
+  _strip:
+    - FDCAN_
+
+LPTIM*:
+  _strip:
+    - "LPTIM_"
+
+LPUART*:
+  _strip:
+    - "LPUART_"
+
+UCPD*:
+  _strip:
+    - "UCPD_"
+
+SPI1:
+  _modify:
+    "*":
+      size: 32
+
+RCC:
+  _modify:
+    PLLCFGR:
+      name: PLLSYSCFGR
+
+# Enabling FIFO by default for CR1 and ISR
+"USART?":
+  _delete:
+    - CR1_FIFO_DISABLED
+  _modify:
+    CR1_FIFO_ENABLED:
+      name: CR1
+    ISR_FIFO_ENABLED:
+      name: ISR
+
 _include:
   - ./common_patches/nvic/2_prio_bits.yaml
-  - ../peripherals/exti/exti_g0.yaml
-  - ./common_patches/adc/g0_typo.yaml
   - ../peripherals/dma/dma_v1.yaml
   - ./common_patches/dma/g0_add_dma1_7ch.yaml
   - ./common_patches/dma/g0_add_dma2_5ch.yaml
+  - common_patches/tim/v2/g0_1.yaml
+  - ../peripherals/usb/g0_enum.yaml
+  - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/gpio/gpio_g0_l0.yaml
   - ../peripherals/i2c/i2c_v2.yaml
-  - ./common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
   - ../peripherals/wwdg/wwdg_v2.yaml
   - ../peripherals/adc/adc_wl.yaml
-  - ./common_patches/tim/common.yaml
+  - common_patches/tim/common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim_advanced.yaml
   - ./common_patches/flash/g0.yaml
-  - ./common_patches/rtc/alarm.yaml
-  - ./common_patches/rtc/tamp_bkpr.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/tamp_bkpr.yaml
