@@ -125,6 +125,7 @@ RCC:
 
 _include:
   - ./common_patches/nvic/2_prio_bits.yaml
+  - ../peripherals/exti/exti_g0.yaml
   - ../peripherals/dma/dma_v1.yaml
   - ./common_patches/dma/g0_add_dma1_7ch.yaml
   - ./common_patches/dma/g0_add_dma2_5ch.yaml
