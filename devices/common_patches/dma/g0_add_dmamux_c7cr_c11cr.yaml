@@ -1,0 +1,437 @@
+DMAMUX:
+  _add:
+    C7CR:
+      displayName: C7CR
+      description: DMAMUX request line multiplexer channel 7 configuration register
+      addressOffset: 0x01C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DMAREQ_ID:
+          description: DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.
+          bitOffset: "0"
+          bitWidth: "6"
+          access: read-write
+        SOIE:
+          description: Synchronization overrun interrupt enable
+          bitOffset: "8"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: interrupt disabled
+                value: "0x0"
+              B_0x1:
+                description: interrupt enabled
+                value: "0x1"
+        EGE:
+          description: Event generation enable
+          bitOffset: "9"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: event generation disabled
+                value: "0x0"
+              B_0x1:
+                description: event generation enabled
+                value: "0x1"
+        SE:
+          description: Synchronization enable
+          bitOffset: "16"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: synchronization disabled
+                value: "0x0"
+              B_0x1:
+                description: synchronization enabled
+                value: "0x1"
+        SPOL:
+          description: Synchronization polarity Defines the edge polarity of the selected synchronization input
+          bitOffset: "17"
+          bitWidth: "2"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: "no event, i.e. no synchronization nor detection."
+                value: "0x0"
+              B_0x1:
+                description: rising edge
+                value: "0x1"
+              B_0x2:
+                description: falling edge
+                value: "0x2"
+              B_0x3:
+                description: rising and falling edge
+                value: "0x3"
+        NBREQ:
+          description:
+            Number of DMA requests minus 1 to forward Defines the number of DMA
+            requests to forward to the DMA controller after a synchronization event,
+            and/or the number of DMA requests before an output event is generated.
+            This field shall only be written when both SE and EGE bits are low.
+          bitOffset: "19"
+          bitWidth: "5"
+          access: read-write
+        SYNC_ID:
+          description:
+            Synchronization identification Selects the synchronization input (see
+            inputs to resources STM32G0).
+          bitOffset: "24"
+          bitWidth: "5"
+          access: read-write
+    C8CR:
+      displayName: C8CR
+      description: DMAMUX request line multiplexer channel 8 configuration register
+      addressOffset: 0x020
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DMAREQ_ID:
+          description: DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.
+          bitOffset: "0"
+          bitWidth: "6"
+          access: read-write
+        SOIE:
+          description: Synchronization overrun interrupt enable
+          bitOffset: "8"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: interrupt disabled
+                value: "0x0"
+              B_0x1:
+                description: interrupt enabled
+                value: "0x1"
+        EGE:
+          description: Event generation enable
+          bitOffset: "9"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: event generation disabled
+                value: "0x0"
+              B_0x1:
+                description: event generation enabled
+                value: "0x1"
+        SE:
+          description: Synchronization enable
+          bitOffset: "16"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: synchronization disabled
+                value: "0x0"
+              B_0x1:
+                description: synchronization enabled
+                value: "0x1"
+        SPOL:
+          description: Synchronization polarity Defines the edge polarity of the selected synchronization input
+          bitOffset: "17"
+          bitWidth: "2"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: "no event, i.e. no synchronization nor detection."
+                value: "0x0"
+              B_0x1:
+                description: rising edge
+                value: "0x1"
+              B_0x2:
+                description: falling edge
+                value: "0x2"
+              B_0x3:
+                description: rising and falling edge
+                value: "0x3"
+        NBREQ:
+          description:
+            Number of DMA requests minus 1 to forward Defines the number of DMA
+            requests to forward to the DMA controller after a synchronization event,
+            and/or the number of DMA requests before an output event is generated.
+            This field shall only be written when both SE and EGE bits are low.
+          bitOffset: "19"
+          bitWidth: "5"
+          access: read-write
+        SYNC_ID:
+          description:
+            Synchronization identification Selects the synchronization input (see
+            inputs to resources STM32G0).
+          bitOffset: "24"
+          bitWidth: "5"
+          access: read-write
+    C9CR:
+      displayName: C9CR
+      description: DMAMUX request line multiplexer channel 9 configuration register
+      addressOffset: 0x024
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DMAREQ_ID:
+          description: DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.
+          bitOffset: "0"
+          bitWidth: "6"
+          access: read-write
+        SOIE:
+          description: Synchronization overrun interrupt enable
+          bitOffset: "8"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: interrupt disabled
+                value: "0x0"
+              B_0x1:
+                description: interrupt enabled
+                value: "0x1"
+        EGE:
+          description: Event generation enable
+          bitOffset: "9"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: event generation disabled
+                value: "0x0"
+              B_0x1:
+                description: event generation enabled
+                value: "0x1"
+        SE:
+          description: Synchronization enable
+          bitOffset: "16"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: synchronization disabled
+                value: "0x0"
+              B_0x1:
+                description: synchronization enabled
+                value: "0x1"
+        SPOL:
+          description: Synchronization polarity Defines the edge polarity of the selected synchronization input
+          bitOffset: "17"
+          bitWidth: "2"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: "no event, i.e. no synchronization nor detection."
+                value: "0x0"
+              B_0x1:
+                description: rising edge
+                value: "0x1"
+              B_0x2:
+                description: falling edge
+                value: "0x2"
+              B_0x3:
+                description: rising and falling edge
+                value: "0x3"
+        NBREQ:
+          description:
+            Number of DMA requests minus 1 to forward Defines the number of DMA
+            requests to forward to the DMA controller after a synchronization event,
+            and/or the number of DMA requests before an output event is generated.
+            This field shall only be written when both SE and EGE bits are low.
+          bitOffset: "19"
+          bitWidth: "5"
+          access: read-write
+        SYNC_ID:
+          description:
+            Synchronization identification Selects the synchronization input (see
+            inputs to resources STM32G0).
+          bitOffset: "24"
+          bitWidth: "5"
+          access: read-write
+    C10CR:
+      displayName: C10CR
+      description: DMAMUX request line multiplexer channel 10 configuration register
+      addressOffset: 0x028
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DMAREQ_ID:
+          description: DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.
+          bitOffset: "0"
+          bitWidth: "6"
+          access: read-write
+        SOIE:
+          description: Synchronization overrun interrupt enable
+          bitOffset: "8"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: interrupt disabled
+                value: "0x0"
+              B_0x1:
+                description: interrupt enabled
+                value: "0x1"
+        EGE:
+          description: Event generation enable
+          bitOffset: "9"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: event generation disabled
+                value: "0x0"
+              B_0x1:
+                description: event generation enabled
+                value: "0x1"
+        SE:
+          description: Synchronization enable
+          bitOffset: "16"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: synchronization disabled
+                value: "0x0"
+              B_0x1:
+                description: synchronization enabled
+                value: "0x1"
+        SPOL:
+          description: Synchronization polarity Defines the edge polarity of the selected synchronization input
+          bitOffset: "17"
+          bitWidth: "2"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: "no event, i.e. no synchronization nor detection."
+                value: "0x0"
+              B_0x1:
+                description: rising edge
+                value: "0x1"
+              B_0x2:
+                description: falling edge
+                value: "0x2"
+              B_0x3:
+                description: rising and falling edge
+                value: "0x3"
+        NBREQ:
+          description:
+            Number of DMA requests minus 1 to forward Defines the number of DMA
+            requests to forward to the DMA controller after a synchronization event,
+            and/or the number of DMA requests before an output event is generated.
+            This field shall only be written when both SE and EGE bits are low.
+          bitOffset: "19"
+          bitWidth: "5"
+          access: read-write
+        SYNC_ID:
+          description:
+            Synchronization identification Selects the synchronization input (see
+            inputs to resources STM32G0).
+          bitOffset: "24"
+          bitWidth: "5"
+          access: read-write
+    C11CR:
+      displayName: C11CR
+      description: DMAMUX request line multiplexer channel 11 configuration register
+      addressOffset: 0x02C
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DMAREQ_ID:
+          description: DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.
+          bitOffset: "0"
+          bitWidth: "6"
+          access: read-write
+        SOIE:
+          description: Synchronization overrun interrupt enable
+          bitOffset: "8"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: interrupt disabled
+                value: "0x0"
+              B_0x1:
+                description: interrupt enabled
+                value: "0x1"
+        EGE:
+          description: Event generation enable
+          bitOffset: "9"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: event generation disabled
+                value: "0x0"
+              B_0x1:
+                description: event generation enabled
+                value: "0x1"
+        SE:
+          description: Synchronization enable
+          bitOffset: "16"
+          bitWidth: "1"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: synchronization disabled
+                value: "0x0"
+              B_0x1:
+                description: synchronization enabled
+                value: "0x1"
+        SPOL:
+          description: Synchronization polarity Defines the edge polarity of the selected synchronization input
+          bitOffset: "17"
+          bitWidth: "2"
+          access: read-write
+          enumeratedValues:
+            enumeratedValue:
+              B_0x0:
+                description: "no event, i.e. no synchronization nor detection."
+                value: "0x0"
+              B_0x1:
+                description: rising edge
+                value: "0x1"
+              B_0x2:
+                description: falling edge
+                value: "0x2"
+              B_0x3:
+                description: rising and falling edge
+                value: "0x3"
+        NBREQ:
+          description:
+            Number of DMA requests minus 1 to forward Defines the number of DMA
+            requests to forward to the DMA controller after a synchronization event,
+            and/or the number of DMA requests before an output event is generated.
+            This field shall only be written when both SE and EGE bits are low.
+          bitOffset: "19"
+          bitWidth: "5"
+          access: read-write
+        SYNC_ID:
+          description:
+            Synchronization identification Selects the synchronization input (see
+            inputs to resources STM32G0).
+          bitOffset: "24"
+          bitWidth: "5"
+          access: read-write
