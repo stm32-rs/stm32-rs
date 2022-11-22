@@ -113,14 +113,15 @@ RCC:
     PLLCFGR:
       name: PLLSYSCFGR
 
-# Enabling FIFO by default for CR1 and ISR
+# Disabling FIFO by default for CR1 and ISR
 "USART?":
   _delete:
-    - CR1_FIFO_DISABLED
+    - CR1_FIFO_ENABLED
+    - ISR_FIFO_ENABLED
   _modify:
-    CR1_FIFO_ENABLED:
+    CR1_FIFO_DISABLED:
       name: CR1
-    ISR_FIFO_ENABLED:
+    ISR_FIFO_DISABLED:
       name: ISR
 
 _include:
