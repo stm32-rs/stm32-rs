@@ -13,6 +13,11 @@ TIM1:
   _strip:
     - "TIM1_"
 
+# Disabled to have TIM2 have a 32 bit cnt always
+TIM2:
+  _delete:
+    - "CNT_ALTERNATE5"
+
 "TIM1,TIM2,TIM15,TIM16":
   CCMR1_Output:
     _modify:
@@ -144,7 +149,7 @@ _include:
   - common_patches/tim/common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim_advanced.yaml
+  - ./common_patches/tim/tim2_32bit.yaml
   - ./common_patches/flash/g0.yaml
   - common_patches/rtc/alarm.yaml
   - common_patches/rtc/tamp_bkpr.yaml
