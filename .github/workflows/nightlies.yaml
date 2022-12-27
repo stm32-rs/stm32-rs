@@ -20,12 +20,9 @@ jobs:
           path: stm32-rs
 
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
-          profile: minimal
           components: rustfmt
-          override: true
 
       - name: Add fictive crate
         run: |
