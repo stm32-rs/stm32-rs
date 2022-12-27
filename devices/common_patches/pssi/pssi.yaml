@@ -1,9 +1,6 @@
-_copy:
+_add:
   PSSI:
-    from: DCMI
-
-_modify:
-  PSSI:
+    baseAddress: 0x50050400
     description: Parallel synchronous slave interface
     groupName: PSSI
     addressBlock:
