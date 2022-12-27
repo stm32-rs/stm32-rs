@@ -7,7 +7,7 @@ on:
 jobs:
   build_html:
     name: Build HTML
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout master
         uses: actions/checkout@v3
