@@ -40,6 +40,8 @@ GTZC_TZSC:
 
 _include:
  - common_patches/dma/interrupt_names.yaml
+ - common_patches/flash/l5_array.yaml
+ - common_patches/icache/l5.yaml
  - ../peripherals/gpio/gpio_l5.yaml
  - ../peripherals/rcc/rcc_l5.yaml
  - common_patches/rtc/alarm.yaml

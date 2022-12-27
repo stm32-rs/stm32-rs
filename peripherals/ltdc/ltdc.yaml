@@ -78,13 +78,17 @@
 
   ICR:
     CRRIF:
-      Clear: [1, "Clears the RRIF flag in the ISR register"]
+      _W1C:
+        Clear: [1, "Clears the RRIF flag in the ISR register"]
     CTERRIF:
-      Clear: [1, "Clears the TERRIF flag in the ISR register"]
+      _W1C:
+        Clear: [1, "Clears the TERRIF flag in the ISR register"]
     CFUIF:
-      Clear: [1, "Clears the FUIF flag in the ISR register"]
+      _W1C:
+        Clear: [1, "Clears the FUIF flag in the ISR register"]
     CLIF:
-      Clear: [1, "Clears the LIF flag in the ISR register"]
+      _W1C:
+        Clear: [1, "Clears the LIF flag in the ISR register"]
 
   LIPCR:
     LIPOS: [0, 2047]

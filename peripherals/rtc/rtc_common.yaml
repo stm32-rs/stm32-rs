@@ -93,32 +93,32 @@ RTC:
     "TAMP*F":
       _read:
         Tampered: [1, "This flag is set by hardware when a tamper detection event is detected on the RTC_TAMPx input"]
-      _write:
+      _W0C:
         Clear: [0, "Flag cleared by software writing 0"]
     TSOVF:
       _read:
         Overflow: [1, "This flag is set by hardware when a time-stamp event occurs while TSF is already set"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     TSF:
       _read:
         TimestampEvent: [1, "This flag is set by hardware when a time-stamp event occurs"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     WUTF:
       _read:
         Zero: [1, "This flag is set by hardware when the wakeup auto-reload counter reaches 0"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     ALRBF:
       _read:
         Match: [1, "This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm B register (RTC_ALRMBR)"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     ALRAF:
       _read:
         Match: [1, "This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm A register (RTC_ALRMAR)"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     INIT:
       FreeRunningMode: [0, "Free running mode"]
@@ -131,7 +131,7 @@ RTC:
       _read:
         NotSynced: [0, "Calendar shadow registers not yet synchronized"]
         Synced: [1, "Calendar shadow registers synchronized"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     INITS:
       _read:

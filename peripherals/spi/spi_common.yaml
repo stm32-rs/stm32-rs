@@ -82,8 +82,11 @@
         NoFault: [0, "No mode fault occurred"]
         Fault: [1, "Mode fault occurred"]
     CRCERR:
-      Match: [0, "CRC value received matches the SPIx_RXCRCR value"]
-      NoMatch: [1, "CRC value received does not match the SPIx_RXCRCR value"]
+      _read:
+        Match: [0, "CRC value received matches the SPIx_RXCRCR value"]
+        NoMatch: [1, "CRC value received does not match the SPIx_RXCRCR value"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     TXE:
       NotEmpty: [0, "Tx buffer not empty"]
       Empty: [1, "Tx buffer empty"]

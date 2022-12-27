@@ -44,19 +44,47 @@ USB:
     CTR:
       Completed: [1, "endpoint has successfully completed a transaction"]
     PMAOVR:
-      Overrun: [1, "microcontroller has not been able to respond in time to an USB memory request"]
+      _read:
+        NotOverrun: [0, "Overrun is not occurred"]
+        Overrun: [1, "microcontroller has not been able to respond in time to an USB memory request"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     ERR:
-      Error: [1, "One of No ANSwer, Cyclic Redundancy Check, Bit Stuffing or Framing format Violation error occurred"]
+      _read:
+        NotOverrun: [0, "Errors are not occurred"]
+        Error: [1, "One of No ANSwer, Cyclic Redundancy Check, Bit Stuffing or Framing format Violation error occurred"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     WKUP:
-      Wakeup: [1, "activity is detected that wakes up the USB peripheral"]
+      _read:
+        NotWakeup: [0, "NotWakeup"]
+        Wakeup: [1, "activity is detected that wakes up the USB peripheral"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     SUSP:
-      Suspend: [1, "no traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
+      _read:
+        NotSuspend: [0, "NotSuspend"]
+        Suspend: [1, "no traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     RESET:
-      Reset: [1, "peripheral detects an active USB RESET signal at its inputs"]
+      _read:
+        NotReset: [0, "NotReset"]
+        Reset: [1, "peripheral detects an active USB RESET signal at its inputs"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     SOF:
-      StartOfFrame: [1, "beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus"]
+      _read:
+        NotStartOfFrame: [0, "NotStartOfFrame"]
+        StartOfFrame: [1, "beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     ESOF:
-      ExpectedStartOfFrame: [1, "an SOF packet is expected but not received"]
+      _read:
+        NotExpectedStartOfFrame: [0, "NotExpectedStartOfFrame"]
+        ExpectedStartOfFrame: [1, "an SOF packet is expected but not received"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     DIR:
       To: [0, "data transmitted by the USB peripheral to the host PC"]
       From: [1, "data received by the USB peripheral from the host PC"]
@@ -79,12 +107,16 @@ USB:
     BTABLE: [0, 0b1111111111111]
   "EP*R":
     CTR_RX:
+      _W0C: {}
     DTOG_RX:
+      _W1T: {}
     STAT_RX:
-      Disabled: [0, "all reception requests addressed to this endpoint are ignored"]
-      Stall: [1, "the endpoint is stalled and all reception requests result in a STALL handshake"]
-      Nak: [2, "the endpoint is naked and all reception requests result in a NAK handshake"]
-      Valid: [3, "this endpoint is enabled for reception"]
+      _read:
+        Disabled: [0, "all reception requests addressed to this endpoint are ignored"]
+        Stall: [1, "the endpoint is stalled and all reception requests result in a STALL handshake"]
+        Nak: [2, "the endpoint is naked and all reception requests result in a NAK handshake"]
+        Valid: [3, "this endpoint is enabled for reception"]
+      _W1T: {}
     SETUP:
       #"the last completed transaction is a SETUP"]
     EP_TYPE:
@@ -95,10 +127,14 @@ USB:
     EP_KIND:
       #"DBL_BUF if EP_TYPE=Bulk or STATUS_OUT if EP_TYPE=Control"]
     CTR_TX:
+      _W0C: {}
     DTOG_TX:
+      _W1T: {}
     STAT_TX:
-      Disabled: [0, "all transmission requests addressed to this endpoint are ignored"]
-      Stall: [1, "the endpoint is stalled and all transmission requests result in a STALL handshake"]
-      Nak: [2, "the endpoint is naked and all transmission requests result in a NAK handshake"]
-      Valid: [3, "this endpoint is enabled for transmission"]
+      _read:
+        Disabled: [0, "all transmission requests addressed to this endpoint are ignored"]
+        Stall: [1, "the endpoint is stalled and all transmission requests result in a STALL handshake"]
+        Nak: [2, "the endpoint is naked and all transmission requests result in a NAK handshake"]
+        Valid: [3, "this endpoint is enabled for transmission"]
+      _W1T: {}
     EA: [0, 0b1111]
