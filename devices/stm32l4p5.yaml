@@ -1,0 +1,140 @@
+_svd: ../svd/stm32l4p5.svd
+
+_modify:
+  DMAMUX1:
+    name: DMAMUX
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
+  TIM5:
+    from: TIM2
+
+TIM8:
+  _modify:
+    OR1:
+      description: "TIM8 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
+RCC:
+  CFGR:
+    _modify:
+      MCOSEL:
+        bitWidth: 4
+
+ADC1:
+  JSQR:
+    _modify:
+      JEXTEN:
+        bitWidth: 2
+
+DFSDM1:
+  _strip:
+    - DFSDM_
+
+  _modify:
+    FLT1CHGR:
+      name: FLT1JCHGR
+
+_delete:
+  - SWPMI1
+
+CRC:
+  INIT:
+    _modify:
+      CRC_INIT:
+        name: INIT
+
+
+_include:
+  - ../peripherals/gpio/v2/common.yaml
+  - ../peripherals/gpio/gpio_with_brr.yaml
+  - ../peripherals/gpio/v2/common.yaml
+  - ../peripherals/gpio/gpio_with_brr.yaml
+  - ../peripherals/wwdg/wwdg.yaml
+  - common_patches/usart/merge_BRR_fields.yaml
+  - common_patches/usart/merge_CR1_DEATx_fields.yaml
+  - common_patches/usart/merge_CR1_DEDTx_fields.yaml
+  - common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - common_patches/usart/merge_CR2_ADDx_fields.yaml
+  - common_patches/usart/rename_CR2_DATAINV_field.yaml
+  - common_patches/usart/l4+.yaml
+  - ../peripherals/usart/usart_v2B2.yaml
+  - ../peripherals/tsc/tsc.yaml
+  - common_patches/fsmc/fsmc_l4+.yaml
+  - common_patches/fsmc/fsmc_nand_v2.yaml
+  - common_patches/hash/hash_l4+.yaml
+  - common_patches/crc/crc_rename_pol.yaml
+  - ../peripherals/crc/crc_advanced.yaml
+  - ../peripherals/crc/crc_pol.yaml
+  - common_patches/aes/l4+.yaml
+  - ../peripherals/aes/aes_l4+.yaml
+  - common_patches/exti/l4+.yaml
+  - ../peripherals/exti/exti.yaml
+  - common_patches/firewall/l4+.yaml
+  - common_patches/ltdc/rename.yaml
+  - ../peripherals/ltdc/ltdc.yaml
+  - common_patches/rng/l4+.yaml
+  - ../peripherals/rng/rng_wl.yaml
+  - common_patches/spi/l4.yaml
+  - common_patches/rtc/l4.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - common_patches/octospi/l4+.yaml
+  - ../peripherals/octospi/l4.yaml
+  - common_patches/octospim/l4+.yaml
+  - common_patches/dbgmcu/l4_apb_fzr_rename.yaml
+  - common_patches/dbgmcu/l4+.yaml
+  - ../peripherals/dbg/dbg_l4+.yaml
+  - common_patches/adc/l4+.yaml
+  - ../peripherals/adc/adc_v3_l4+.yaml
+  - common_patches/dma/dma2d_l4+.yaml
+  - common_patches/can/can_l4+.yaml
+  - common_patches/usb_otg/otg_fs_l4+.yaml
+  - common_patches/sai/sai_l4+.yaml
+  - common_patches/sai/sai_v1.yaml
+  - ../peripherals/sai/sai.yaml
+  - common_patches/dfsdm/dfsdm_l4+.yaml
+  - ../peripherals/dfsdm/dfsdm.yaml
+  - common_patches/dac/dac_l4+.yaml
+  - ../peripherals/dac/dac_l4+.yaml
+  - common_patches/comp/l4xx_comp_reg_rename.yaml
+  - ../peripherals/comp/comp_l4+.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - ../peripherals/dma/dmamux_wl.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - common_patches/syscfg/l4+.yaml
+  - ../peripherals/syscfg/syscfg_l4+.yaml
+  - common_patches/flash/l4+.yaml
+  - ../peripherals/flash/flash_l4+.yaml
+  - common_patches/rcc/l4+.yaml
+  - ../peripherals/rcc/rcc_l4+.yaml
+  - common_patches/tim/l4+.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim16.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim2345_mixed.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - common_patches/tim/tim_ccr.yaml
+  - common_patches/tim/v2/l4.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - common_patches/pwr/l4+.yaml
+  - ../peripherals/pwr/pwr_l4+.yaml
+  - common_patches/dcmi/dcmi.yaml
+  - ../peripherals/dcmi/dcmi.yaml
+  - common_patches/pssi/pssi.yaml
+  - ../peripherals/pssi/pssi.yaml

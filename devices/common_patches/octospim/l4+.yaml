@@ -1,0 +1,15 @@
+OCTOSPIM:
+  _add:
+    CR:
+      description: configuration register
+      addressOffset: 0x0
+      resetValue: 0x0
+      fields:
+        MUXEN:
+          description: Multiplexed mode enable
+          bitOffset: 0
+          bitWidth: 1
+        REQ2ACK_TIME:
+          description: REQ to ACK time
+          bitOffset: 16
+          bitWidth: 8

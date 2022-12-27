@@ -1,0 +1,10 @@
+DBGMCU:
+  CR:
+    TRACE_MODE:
+      Asynchronous: [ 0, "TRACE pin assignment for Asynchronous Mode" ]
+      Size1: [ 1, "TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 1" ]
+      Size2: [ 2, "TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 2" ]
+      Size4: [ 3, "TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 4" ]
+    TRACE_IOEN:
+      Disabled: [ 0, "Trace pins not assigned (default state)" ]
+      Enabled: [ 1, "Trace pins assigned" ]

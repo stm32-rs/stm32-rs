@@ -1,0 +1,152 @@
+"DCMI":
+  CR:
+    OELS:
+      Odd: [0, "Interface captures first line after the frame start, second one being dropped"]
+      Even: [1, "Interface captures second line from the frame start, first one being dropped"]
+    LSM:
+      All: [0, "Interface captures all received lines"]
+      Half: [1, "Interface captures one line out of two"]
+    OEBS:
+      Odd: [0, "Interface captures first data (byte or double byte) from the frame/line start, second one being dropped"]
+      Even: [1, " Interface captures second data (byte or double byte) from the frame/line start, first one being dropped"]
+    BSM:
+      All: [0, "Interface captures all received data"]
+      EveryOther: [1, "Interface captures every other byte from the received data"]
+      Fourth: [2, "Interface captures one byte out of four"]
+      TwoOfFour: [3, "Interface captures two bytes out of four"]
+    ENABLE:
+      Disabled: [0, "DCMI disabled"]
+      Enabled: [1, "DCMI enabled"]
+    EDM:
+      BitWidth8: [0, "Interface captures 8-bit data on every pixel clock"]
+      BitWidth10: [1, "Interface captures 10-bit data on every pixel clock"]
+      BitWidth12: [2, "Interface captures 12-bit data on every pixel clock"]
+      BitWidth14: [3, "Interface captures 14-bit data on every pixel clock"]
+    FCRC:
+      All: [0, "All frames are captured"]
+      Alternate: [1, "Every alternate frame captured (50% bandwidth reduction)"]
+      OneOfFour: [2, "One frame out of four captured (75% bandwidth reduction)"]
+    VSPOL:
+      ActiveLow: [0, "DCMI_VSYNC active low"]
+      ActiveHigh: [1, "DCMI_VSYNC active high"]
+    HSPOL:
+      ActiveLow: [0, "DCMI_HSYNC active low" ]
+      ActiveHigh: [1, "DCMI_HSYNC active high" ]
+    PCKPOL:
+      FallingEdge: [0, "Falling edge active"]
+      RisingEdge: [1, "Rising edge active"]
+    ESS:
+      Hardware: [0, "Hardware synchronization data capture (frame/line start/stop) is synchronized with the DCMI_HSYNC/DCMI_VSYNC signals"]
+      Embedded: [1, "Embedded synchronization data capture is synchronized with synchronization codes embedded in the data flow"]
+    JPEG:
+      Uncompressed: [0, "Uncompressed video format"]
+      JPEG: [1, "This bit is used for JPEG data transfers. The DCMI_HSYNC signal is used as data enable. The crop and embedded synchronization features (ESS bit) cannot be used in this mode"]
+    CROP:
+      Full: [0, "The full image is captured. In this case the total number of bytes in an image frame must be a multiple of four"]
+      Cropped: [1, "Only the data inside the window specified by the crop register is captured. If the size of the crop window exceeds the picture size, then only the picture size is captured"]
+    CM:
+      Continuous: [0, "Continuous grab mode - The received data are transferred into the destination memory through the DMA. The buffer location and mode (linear or circular buffer) is controlled through the system DMA"]
+      Snapshot: [1, "Snapshot mode (single frame) - Once activated, the interface waits for the start of frame and then transfers a single frame through the DMA. At the end of the frame, the CAPTURE bit is automatically reset"]
+    CAPTURE:
+      Disabled: [0, "Capture disabled"]
+      Enabled: [1, "Capture enabled"]
+
+  SR:
+    FNE:
+      NotEmpty: [0, "FIFO contains valid data"]
+      Empty: [1, "FIFO empty"]
+    VSYNC:
+      ActiveFrame: [0, "Active frame"]
+      BetweenFrames: [1, "Synchronization between frames"]
+    HSYNC:
+      ActiveLine: [0, "Active line"]
+      BetweenLines: [1, "Synchronization between lines"]
+
+  RIS:
+    LINE_RIS:
+      Set: [1, "Interrupt set"]
+      Cleared: [0, "Interrupt cleared"]
+    VSYNC_RIS:
+      Set: [1, "Interrupt set"]
+      Cleared: [0, "Interrupt cleared"]
+    ERR_RIS:
+      SynchronizationError: [1, "Embedded synchronization characters are not received in the correct order"]
+      NoError: [0, "No synchronization error detected"]
+    OVR_RIS:
+      OverrunOccured: [1, "A data buffer overrun occurred and the data FIFO is corrupted. The bit is cleared by setting the OVR_ISC bit of the DCMI_ICR register"]
+      NoOverrun: [0, "No data buffer overrun occurred"]
+    FRAME_RIS:
+      FrameCaptured: [1, "A frame has been captured"]
+      NoNewCapture: [0, "No new capture"]
+
+  IER:
+    LINE_IE:
+      Disabled: [0, "No interrupt generation when the line is received"]
+      Enabled: [1, "An Interrupt is generated when a line has been completely received"]
+    VSYNC_IE:
+      Disabled: [0, "No interrupt generation"]
+      Enabled: [1, "An interrupt is generated on each DCMI_VSYNC transition from the inactive to the active state"]
+    ERR_IE:
+      Disabled: [0, "No interrupt generation"]
+      Enabled: [1, "An interrupt is generated if the embedded synchronization codes are not received in the correct order"]
+    OVR_IE:
+      Disabled: [0, "No interrupt generation"]
+      Enabled: [1, "An interrupt is generated if the DMA was not able to transfer the last data before new data (32-bit) are received"]
+    FRAME_IE:
+      Disabled: [0, "No interrupt generation"]
+      Enabled: [1, "An interrupt is generated at the end of each received frame/crop window (in crop mode)"]
+
+  MIS:
+    LINE_MIS:
+      Disabled: [0, "No interrupt generation when the line is received"]
+      Enabled: [1, "An Interrupt is generated when a line has been completely received and the LINE_IE bit is set in DCMI_IER"]
+    VSYNC_MIS:
+      Disabled: [0, "No interrupt is generated on DCMI_VSYNC transitions"]
+      Enabled: [1, "An interrupt is generated on each DCMI_VSYNC transition from the inactive to the active state and the VSYNC_IE bit is set in DCMI_IER"]
+    ERR_MIS:
+      Disabled: [0, "No interrupt is generated on a synchronization error"]
+      Enabled: [1, "An interrupt is generated if the embedded synchronization codes are not received in the correct order and the ERR_IE bit in DCMI_IER is set"]
+    OVR_MIS:
+      Disabled: [0, "No interrupt is generated on overrun"]
+      Enabled: [1, "An interrupt is generated if the DMA was not able to transfer the last data before new data (32-bit) are received and the OVR_IE bit is set in DCMI_IER"]
+    FRAME_MIS:
+      Disabled: [0, "No interrupt is generated after a complete capture"]
+      Enabled: [1, "An interrupt is generated at the end of each received frame/crop window (in crop mode) and the FRAME_IE bit is set in DCMI_IER"]
+
+  ICR:
+    LINE_ISC:
+      Clear: [1, "Setting this bit clears the LINE_RIS flag in the DCMI_RIS register"]
+    VSYNC_ISC:
+      Clear: [1, "Setting this bit clears the VSYNC_RIS flag in the DCMI_RIS register"]
+    ERR_ISC:
+      Clear: [1, "Setting this bit clears the ERR_RIS flag in the DCMI_RIS register"]
+    OVR_ISC:
+      Clear: [1, "Setting this bit clears the OVR_RIS flag in the DCMI_RIS register"]
+    FRAME_ISC:
+      Clear: [1, "Setting this bit clears the FRAME_RIS flag in the DCMI_RIS register"]
+
+  ESCR:
+    FEC:
+    LEC:
+    LSC:
+    FSC:
+
+  ESUR:
+    FEU:
+    LEU:
+    LSU:
+    FSU:
+
+  CWSTRT:
+    VST:
+    HOFFCNT:
+
+  CWSIZE:
+    VLINE:
+    CAPCNT:
+
+  DR:
+    Byte3:
+    Byte2:
+    Byte1:
+    Byte0:

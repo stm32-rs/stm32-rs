@@ -1,0 +1,36 @@
+ADC?:
+  CFGR:
+    _merge:
+      - "EXTSEL*"
+
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+
+  JDR?:
+    _modify:
+      JDATA?:
+        name: JDATA
+
+  DIFSEL:
+    _merge:
+      - "DIFSEL*"
+
+    _modify:
+      "DIFSEL*":
+        name: DIFSEL
+
+ADC_Common:
+  CSR:
+    _modify:
+      ADDRDY_MST:
+        name: ADRDY_MST
+
+  CCR:
+    _modify:
+      CH18SEL:
+        name: VBATEN
+        description: VBAT selection
+      CH17SEL:
+        name: VSENSEEN
+        description: Temperature sensor selection

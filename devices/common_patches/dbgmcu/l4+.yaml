@@ -1,0 +1,15 @@
+DBGMCU:
+  APB1FZR1:
+    _modify:
+      DBG_LPTIMER_STOP:
+        name: DBG_LPTIM1_STOP
+
+      DBG_CAN_STOP:
+        name: DBG_CAN1_STOP
+
+  APB1FZR2:
+    _add:
+      DBG_I2C4_STOP:
+        description: I2C4 SMBUS timeout counter stopped when core is halted
+        bitOffset: 1
+        bitWidth: 1

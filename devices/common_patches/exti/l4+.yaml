@@ -1,0 +1,13 @@
+EXTI:
+  IMR2:
+    _add:
+      MR40:
+        description: Interrupt Mask on external/internal line 40
+        bitOffset: 8
+        bitWidth: 1
+  EMR2:
+    _add:
+      MR40:
+        description: Event mask on external/internal line 40
+        bitOffset: 8
+        bitWidth: 1
