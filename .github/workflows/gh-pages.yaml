@@ -8,20 +8,18 @@ jobs:
   build_html:
     name: Build HTML
     runs-on: ubuntu-latest
+    env:
+      SVDTOOLS: svdtools
     steps:
       - name: Checkout master
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Install Python dependencies
+      - name: Install tools
         run: |
-          pip3 install --user setuptools wheel
-          pip3 install --user svdtools
-      - name: Put pip binary directory into path
-        run: echo "~/.local/bin" >> $GITHUB_PATH
+          ./scripts/tool_install.sh svdtools
       - name: Build HTML
-        run: |
-          SVDTOOLS=svd make -j2 html
+        run: make -j2 html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
