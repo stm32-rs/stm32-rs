@@ -131,6 +131,7 @@ This project is still young and there's a lot to do!
 
 ## Supported Device Families
 
+[![crates.io](https://img.shields.io/crates/v/stm32c0.svg?label=stm32c0)](https://crates.io/crates/stm32c0)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
