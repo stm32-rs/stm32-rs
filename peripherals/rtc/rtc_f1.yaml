@@ -20,25 +20,25 @@ RTC:
       _read:
         NotSynchronized: [0, "Registers not yet synchronized"]
         Synchronized: [1, "Registers synchronized"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     OWF:
       _read:
         NoOverflow: [0, "Overflow not detected"]
         Overflow: [1, "32-bit programmable counter overflow occurred"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     ALRF:
       _read:
         NoAlarm: [0, "Alarm not detected"]
         Alarm: [1, "Alarm detected"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     SECF:
       _read:
         NoPrescalerOverflow: [0, "Second flag condition not met"]
         PrescalerOverflow: [1, "Second flag condition met"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
   PRLH:
     PRLH: [0, 0xF]

@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     env:
       SVDTOOLS: svdtools
@@ -20,12 +20,9 @@ jobs:
           path: stm32-rs
 
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
-          profile: minimal
           components: rustfmt
-          override: true
 
       - name: Add fictive crate
         run: |

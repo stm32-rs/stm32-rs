@@ -19,19 +19,19 @@ TIM1[67]:
       _read:
         NoOvercapture: [0, "No overcapture has been detected"]
         Overcapture: [1, "The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     BIF:
       _read:
         NoBreak: [0, "No break event occurred"]
         Break: [1, "Break interrupt pending"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     COMIF:
       _read:
         NoCOM: [0, "No COM event occurred"]
         COM: [1, "COM interrupt pending"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     "CC?IF":
       _read:

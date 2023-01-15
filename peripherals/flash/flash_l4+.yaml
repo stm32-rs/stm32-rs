@@ -1,0 +1,281 @@
+"FLASH":
+  ACR:
+    SLEEP_PD:
+      Idle: [ 0, "Flash in idle mode during Sleep and Low-power sleep modes" ]
+      PowerDown: [ 1, "Flash in Power-down mode during Sleep and Low-power sleep modes" ]
+    RUN_PD:
+      Idle: [ 0, "Flash in idle mode" ]
+      PowerDown: [ 1, "Flash in Power-down mode" ]
+    DCRST:
+      NotReset: [0, "Data cache is not reset"]
+      Reset: [1, "Data cache is reset"]
+    ICRST:
+      NotReset: [0, "Instruction cache is not reset"]
+      Reset: [1, "Instruction cache is reset"]
+    DCEN:
+      Disabled: [0, "Data cache is disabled"]
+      Enabled: [1, "Data cache is enabled"]
+    ICEN:
+      Disabled: [0, "Instruction cache is disabled"]
+      Enabled: [1, "Instruction cache is enabled"]
+    PRFTEN:
+      Disabled: [0, "Prefetch is disabled"]
+      Enabled: [1, "Prefetch is enabled"]
+    LATENCY:
+      WS0: [ 0, "0 wait states" ]
+      WS1: [ 1, "1 wait states" ]
+      WS2: [ 2, "2 wait states" ]
+      WS3: [ 3, "3 wait states" ]
+      WS4: [ 4, "4 wait states" ]
+      WS5: [ 5, "5 wait states" ]
+      WS6: [ 6, "6 wait states" ]
+      WS7: [ 7, "7 wait states" ]
+      WS8: [ 8, "8 wait states" ]
+      WS9: [ 9, "9 wait states" ]
+      WS10: [ 10, "10 wait states" ]
+      WS11: [ 11, "11 wait states" ]
+      WS12: [ 12, "12 wait states" ]
+      WS13: [ 13, "13 wait states" ]
+      WS14: [ 14, "14 wait states" ]
+      WS15: [ 15, "15 wait states" ]
+
+  PDKEYR:
+    PDKEY: [0, 0xFFFFFFFF]
+
+  KEYR:
+    KEY: [0, 0xFFFFFFFF]
+
+  OPTKEYR:
+    OPTKEY: [0, 0xFFFFFFFF]
+
+  SR:
+    PEMPTY:
+      Toggling: [ 0, "The bit value is toggling" ]
+      NoEffect: [ 1, "No effect" ]
+    BSY:
+      NotBusy: [ 0, "Not busy" ]
+      Busy: [ 1, "Busy" ]
+    OPTVERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when the options read may not be the one configured by the user. If option haven’t been properly loaded, OPTVERR is set again after each system reset" ]
+        NoError: [ 0, "No error" ]
+    RDERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when an address to be read through the D-bus belongs to a read protected area of the Flash (PCROP protection)" ]
+        NoError: [ 0, "No error" ]
+    FASTERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when a fast programming sequence (activated by FSTPG) is interrupted due to an error (alignment, size, write protection or data miss). The corresponding status bit (PGAERR, SIZERR, WRPERR or MISSERR) is set at the same time" ]
+        NoError: [ 0, "No error" ]
+    MISERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "In fast programming mode, 32 double words must be sent to Flash successively, and the new data must be sent to the Flash logic control before the current data is fully programmed. MISSERR is set by hardware when the new data is not present in time" ]
+        NoError: [ 0, "No error" ]
+    PGSERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when a write access to the Flash memory is performed by the code while PG or FSTPG have not been set previously. Set also by hardware when PROGERR, SIZERR, PGAERR, WRPERR, MISSERR or FASTERR is set due to a previous programming error. Set also when trying to perform bank erase when DBANK=0 (or DB1M = 0)" ]
+        NoError: [ 0, "No error" ]
+    SIZERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when the size of the access is a byte or half-word during a program or a fast program sequence. Only double word programming is allowed (consequently: word access)" ]
+        NoError: [ 0, "No error" ]
+    PGAERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when the data to program cannot be contained in the same 64-bit Flash memory row in case of standard programming, or if there is a change of page during fast programming" ]
+        NoError: [ 0, "No error" ]
+    WRPERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when an address to be erased/programmed belongs to a writeprotected part (by WRP, PCROP or RDP level 1) of the Flash memory" ]
+        NoError: [ 0, "No error" ]
+    PROGERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when a double-word address to be programmed contains a value different from '0xFFFF FFFF' before programming, except if the data to write is '0x0000 0000'" ]
+        NoError: [ 0, "No error" ]
+    OPERR:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when a Flash memory operation (program / erase) completes unsuccessfully" ]
+        NoError: [ 0, "No error" ]
+    EOP:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        Error: [ 1, "Set by hardware when one or more Flash memory operation (programming / erase) has been completed successfully" ]
+        NoError: [ 0, "No error" ]
+
+  CR:
+    LOCK:
+      _write:
+        Set: [ 1, "This bit is set only. When set, the FLASH_CR register is locked" ]
+      _read:
+        Unlocked: [0, "FLASH_CR register is unlocked"]
+        Locked: [1, "FLASH_CR register is locked"]
+    OPTLOCK:
+      _write:
+        Set: [ 1, "This bit is set only. When set, all bits concerning user option in FLASH_CR register and so option page are locked" ]
+      _read:
+        Unlocked: [ 0, "Option page is unlocked" ]
+        Locked: [ 1, "All bits concerning user option in FLASH_CR register and so option page are locked" ]
+    OBL_LAUNCH:
+      _write:
+        Set: [ 1, "Force option byte reloading" ]
+      _read:
+        Complete: [ 0, "Option byte loading complete" ]
+        Requested: [ 1, " Option byte loading requested" ]
+    RDERRIE:
+      Disabled: [ 0, "PCROP read error interrupt disabled" ]
+      Enabled: [ 1, "PCROP read error interrupt enabled" ]
+    ERRIE:
+      Disabled: [0, "Error interrupt generation disabled"]
+      Enabled: [1, "Error interrupt generation enabled"]
+    EOPIE:
+      Disabled: [0, "End of operation interrupt disabled"]
+      Enabled: [1, "End of operation interrupt enabled"]
+    FSTPG:
+      Disabled: [ 0, "Fast programming disabled" ]
+      Enabled: [ 1, "Fast programming enabled" ]
+    OPTSTRT:
+      _write:
+        Set: [ 1, "This bit triggers an options operation when set" ]
+      _read:
+        Complete: [ 0, "Cleared when BSY bit is cleared in SR" ]
+        Requested: [ 1, "Options modification requested" ]
+    START:
+      _write:
+        Start: [1, "Trigger an erase operation"]
+      _read:
+        Complete: [ 0, "Cleared when BSY bit is cleared in SR" ]
+        Requested: [ 1, "Erase operation requested" ]
+    MER2:
+      _write:
+        MassErase: [1, "This bit triggers the bank 2 mass erase (all bank 2 user pages) when set"]
+    BKER:
+      Bank1: [ 0, "Bank 1 is selected for page erase" ]
+      Bank2: [ 1, "Bank 2 is selected for page erase" ]
+    PNB: [0, 255]
+    MER1:
+      _write:
+        MassErase: [1, "This bit triggers the bank 1 mass erase (all bank 1 user pages) when set"]
+    PER:
+      Disabled: [ 0, "Page erase disabled" ]
+      Enabled: [ 1, "Page erase enabled" ]
+    PG:
+      Disabled: [ 0, "Flash programming disabled" ]
+      Enabled: [ 1, "Flash programming enabled" ]
+
+  ECCR:
+    ECCD:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        NoError: [ 0, "No double ECC errors detected on LSB" ]
+        Error: [ 1, "Set by hardware when two ECC errors have been detected on LSB" ]
+    ECCC:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        NoError: [ 0, "No ECC error detected on LSB" ]
+        Error: [ 1, "Set by hardware when one ECC errors have been detected and corrected on LSB" ]
+    ECCD2:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        NoError: [ 0, "No double ECC errors detected on MSB" ]
+        Error: [ 1, "Set by hardware when two ECC errors have been detected on MSB" ]
+    ECCC2:
+      _write:
+        Clear: [ 1, "Cleared by writing 1" ]
+      _read:
+        NoError: [ 0, "No ECC error detected on MSB" ]
+        Error: [ 1, "Set by hardware when one ECC errors have been detected and corrected on MSB" ]
+    ECCIE:
+      Disabled: [ 0, "ECCC interrupt disabled" ]
+      Enabled: [ 1, "ECCC interrupt enabled" ]
+    SYSF_ECC:
+      InSystemFlash: [ 1, "This bit indicates that the ECC error correction or double ECC error detection is located in the System Flash" ]
+    BK_ECC:
+      Bank1: [ 0, "Bank 1" ]
+      Bank2: [ 1, "Bank 2" ]
+    ADDR_ECC: [0, 0x1FFFFF]
+
+  OPTR:
+    nBOOT0:
+      Disabled: [ 0, "nBOOT0 = 0" ]
+      Enabled: [ 1, "nBOOT0 = 1" ]
+    nSWBOOT0:
+      OptionBit: [ 0, "BOOT0 taken from the option bit nBOOT0" ]
+      Pin: [ 1, "BOOT0 taken from PH3/BOOT0 pin" ]
+    SRAM2_RST:
+      Enabled: [ 0, "SRAM2 erased when a system reset occurs" ]
+      Disabled: [ 1, "SRAM2 is not erased when a system reset occurs" ]
+    SRAM2_PE:
+      Enabled: [ 0, " SRAM2 parity check enabled" ]
+      Disabled: [ 1, " SRAM2 parity check disabled" ]
+    DBANK:
+      SingleBankMode: [ 0, "Single-bank mode with 128 bits data read width" ]
+      DualBankMode: [ 1, "Dual-bank mode with 64 bits data" ]
+    DB1M:
+      SingleBank: [ 0, "Single Flash contiguous address in Bank 1" ]
+      DualBank: [ 1, "Dual-bank Flash with contiguous addresses" ]
+    BFB2:
+      Disabled: [ 0, "Dual-bank boot disabled" ]
+      Enabled: [ 1, "Dual-bank boot enabled" ]
+    WWDG_SW:
+      Hardware: [ 0, "Hardware window watchdog" ]
+      Software: [ 1, "Software window watchdog" ]
+    IWDG_STDBY:
+      Frozen: [ 0, "Independent watchdog counter is frozen in Standby mode" ]
+      Running: [ 1, "Independent watchdog counter is running in Standby mode" ]
+    IWDG_STOP:
+      Frozen: [ 0, "Independent watchdog counter is frozen in Stop mode" ]
+      Running: [ 1, "Independent watchdog counter is running in Stop mode" ]
+    IDWG_SW:
+      Hardware: [ 0, "Hardware independent watchdog" ]
+      Software: [ 1, "Software independent watchdog" ]
+
+  PCROP1SR:
+    PCROP1_STRT: [ 0, 0x1FFFF ]
+
+  PCROP1ER:
+    PCROP_RDP:
+      Disabled: [ 0, "PCROP area is not erased when the RDP level is decreased from Level 1 to Level 0" ]
+      Enabled: [ 1, "PCROP area is erased when the RDP level is decreased from Level 1 to Level 0" ]
+    PCROP1_END: [ 0, 0x1FFFF ]
+
+  PCROP2SR:
+    PCROP2_STRT: [ 0, 0x1FFFF ]
+
+  PCROP2ER:
+    PCROP2_END: [ 0, 0x1FFFF ]
+
+  WRP1BR:
+    WRP1B_END: [ 0, 0xFF ]
+    WRP1B_STRT: [ 0, 0xFF ]
+
+  WRP2BR:
+    WRP2B_END: [ 0, 0xFF ]
+    WRP2B_STRT: [ 0, 0xFF ]
+
+  CFGR:
+    LVEN:
+      Disabled: [ 0, "Flash low voltage disabled" ]
+      Enabled: [ 1, "Flash low voltage enabled" ]

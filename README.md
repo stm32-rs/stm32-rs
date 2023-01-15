@@ -91,10 +91,14 @@ contain the latest patches and updates.
 
 ## Generating Device Crates / Building Locally
 
-* Install `svd2rust`: `cargo install --version 0.25.0 svd2rust`
-* Install `form`: `cargo install form`
+* Install `svd2rust`, `svdtools`, and `form`:
+    * On x86-64 Linux, run `make install` to download pre-built binaries at the
+      current version used by stm32-rs
+    * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
+        * `cargo install form --version 0.10.0`
+        * `cargo install svdtools --version 0.2.6`
+        * `cargo install svd2rust --version 0.28.0`
 * Install rustfmt: `rustup component add rustfmt`
-* Install svdtools: `pip install --user svdtools`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
 * Generate svd2rust device crates: `make svd2rust`

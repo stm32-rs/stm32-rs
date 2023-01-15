@@ -1,7 +1,7 @@
 # For F446, F469, F479
 
 OTG_FS_GLOBAL:
-  _derive:
+  _copy:
     DIEPTXF4:
       _from: DIEPTXF1
       addressOffset: 0x110
@@ -92,7 +92,7 @@ OTG_FS_GLOBAL:
 
 
 OTG_FS_DEVICE:
-  _derive:
+  _copy:
     DIEPCTL4:
       _from: DIEPCTL1
       addressOffset: 0x180

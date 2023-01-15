@@ -1,5 +1,28 @@
-
 "FLASH":
+  SR:
+    BSY:
+      _read:
+        NotBusy: [0, "no Flash memory operation ongoing"]
+        Busy: [1, "Flash memory operation ongoing"]
+    ERSERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    PGPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    PGAERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    WRPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    OPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    EOP:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+
   ACR:
     ARTRST:
       NotReset: [0, "Accelerator is not reset"]
@@ -10,7 +33,7 @@
     PRFTEN:
       Disabled: [0, "Prefetch is disabled"]
       Enabled: [1, "Prefetch is enabled"]
-    LATENCY: 
+    LATENCY:
       WS0: [0, "0 wait states"]
       WS1: [1, "1 wait states"]
       WS2: [2, "2 wait states"]

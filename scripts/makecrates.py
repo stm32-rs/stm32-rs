@@ -17,27 +17,26 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.25.0"
+SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
-    "stm32c0": ["rt", "stm32c011", "stm32c031"],
-    "stm32f0": ["rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
-    "stm32f1": ["rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103",
-                "stm32f107"],
-    "stm32f2": ["rt", "stm32f215", "stm32f217"],
-    "stm32f3": ["rt", "stm32f302", "stm32f303", "stm32f373"],
-    "stm32f4": ["rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
-    "stm32f7": ["rt", "stm32f7x3", "stm32f7x9"],
-    "stm32h7": ["rt", "stm32h743", "stm32h743v", "stm32h747cm7"],
-    "stm32l0": ["rt", "stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
-    "stm32l1": ["rt", "stm32l100", "stm32l151", "stm32l162"],
-    "stm32l4": ["rt", "stm32l4x1", "stm32l4x5"],
-    "stm32l5": ["rt", "stm32l562"],
-    "stm32g0": ["rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
-    "stm32g4": ["rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
-    "stm32mp1": ["rt", "stm32mp157"],
-    "stm32wl": ["rt", "stm32wle5", "stm32wl5x_cm4"],
-    "stm32wb": ["rt", "stm32wb55"]
+    "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
+    "stm32f0": ["critical-section", "rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
+    "stm32f1": ["critical-section", "rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
+    "stm32f2": ["critical-section", "rt", "stm32f215", "stm32f217"],
+    "stm32f3": ["critical-section", "rt", "stm32f302", "stm32f303", "stm32f373"],
+    "stm32f4": ["critical-section", "rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
+    "stm32f7": ["critical-section", "rt", "stm32f7x3", "stm32f7x9"],
+    "stm32h7": ["critical-section", "rt", "stm32h743", "stm32h743v", "stm32h747cm7"],
+    "stm32l0": ["critical-section", "rt", "stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
+    "stm32l1": ["critical-section", "rt", "stm32l100", "stm32l151", "stm32l162"],
+    "stm32l4": ["critical-section", "rt", "stm32l4x1", "stm32l4x5"],
+    "stm32l5": ["critical-section", "rt", "stm32l562"],
+    "stm32g0": ["critical-section", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
+    "stm32g4": ["critical-section", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
+    "stm32mp1": ["critical-section", "rt", "stm32mp157"],
+    "stm32wl": ["critical-section", "rt", "stm32wle5", "stm32wl5x_cm4"],
+    "stm32wb": ["critical-section", "rt", "stm32wb55"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -74,13 +73,10 @@ categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
 
 [dependencies]
-bare-metal = "1.0.0"
+critical-section = {{ version = "1.0", optional = true }}
+cortex-m = "0.7.6"
+cortex-m-rt = {{ version = ">=0.6.15,<0.8", optional = true }}
 vcell = "0.1.3"
-cortex-m = "0.7.2"
-
-[dependencies.cortex-m-rt]
-optional = true
-version = ">=0.6.15,<0.8"
 
 [package.metadata.docs.rs]
 features = {docs_features}
@@ -88,7 +84,7 @@ default-target = "{doc_target}"
 targets = []
 
 [features]
-default = ["rt"]
+default = ["critical-section", "rt"]
 rt = ["cortex-m-rt/device"]
 {features}
 """

@@ -49,19 +49,19 @@ TIM1:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the system break input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     B2IF:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the break 2 input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     BIF:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the break input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
 
   EGR:
@@ -253,5 +253,3 @@ TIM1:
       ADC_AWD1: [1, 'TIM1_ETR is connected to ADC AWD1']
       ADC_AWD2: [2, 'TIM1_ETR is connected to ADC AWD2']
       ADC_AWD3: [3, 'TIM1_ETR is connected to ADC AWD3']
-
-

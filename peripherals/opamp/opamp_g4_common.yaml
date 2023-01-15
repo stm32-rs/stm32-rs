@@ -5,7 +5,7 @@ OPAMP:
       ReadWrite: [0, "CSR is read-write"]
       ReadOnly: [1, "CSR is read-only, can only be cleared by system reset"]
     CALOUT: [0, 1]
-    TRIMOFFSETN: [0, 31] 
+    TRIMOFFSETN: [0, 31]
     TRIMOFFSETP: [0, 31]
     PGA_GAIN:
       Gain2: [0, "Gain 2"]
@@ -31,7 +31,7 @@ OPAMP:
       Gain8_InputVINM0FilteringVINM1: [26, "Gain 8, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
       Gain16_InputVINM0FilteringVINM1: [27, "Gain 16, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
       Gain32_InputVINM0FilteringVINM1: [28, "Gain 32, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
-      Gain64_InputVINM0FilteringVINM1: [29, "Gain 64, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]   
+      Gain64_InputVINM0FilteringVINM1: [29, "Gain 64, input/bias connected to VINM0 with filtering on VINM1 or inverting gain"]
     CALSEL:
       Percent3_3: [0, "0.033*VDDA applied to OPAMP inputs during calibration"]
       Percent10: [1, "0.1*VDDA applied to OPAMP inputs during calibration"]
@@ -73,7 +73,7 @@ OPAMP:
     T1CM_EN:
       Disabled: [0, "Automatic input switch triggered by TIM1 disabled"]
       Enabled: [1, "Automatic input switch triggered by TIM1 enabled"]
-  
+
   OPAMP1_CSR:
     VP_SEL:
       VINP0: [0, "VINP0 connected to VINP input"]
@@ -85,9 +85,9 @@ OPAMP:
       VINP0: [0, "VINP0 connected to VINP input"]
       VINP1: [1, "VINP1 connected to VINP input"]
       VINP2: [2, "VINP2 connected to VINP input"]
-      DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]   
+      DAC3_CH1: [3, "DAC3_CH1 connected to VINP input"]
   OPAMP2_CSR:
-    VP_SEL: 
+    VP_SEL:
       VINP0: [0, "VINP0 connected to VINP input"]
       VINP1: [1, "VINP1 connected to VINP input"]
       VINP2: [2, "VINP2 connected to VINP input"]
@@ -97,9 +97,9 @@ OPAMP:
       VINP0: [0, "VINP0 connected to VINP input"]
       VINP1: [1, "VINP1 connected to VINP input"]
       VINP2: [2, "VINP2 connected to VINP input"]
-      VINP3: [3, "VINP3 connected to VINP input"]   
+      VINP3: [3, "VINP3 connected to VINP input"]
   OPAMP3_CSR:
-    VP_SEL: 
+    VP_SEL:
       VINP0: [0, "VINP0 connected to VINP input"]
       VINP1: [1, "VINP1 connected to VINP input"]
       VINP2: [2, "VINP2 connected to VINP input"]
@@ -109,4 +109,4 @@ OPAMP:
       VINP0: [0, "VINP0 connected to VINP input"]
       VINP1: [1, "VINP1 connected to VINP input"]
       VINP2: [2, "VINP2 connected to VINP input"]
-      DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]      
+      DAC3_CH2: [3, "DAC3_CH2 connected to VINP input"]

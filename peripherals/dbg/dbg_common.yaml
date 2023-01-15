@@ -1,0 +1,35 @@
+DBGMCU:
+  CR:
+    DBG_STANDBY:
+      Disabled: [0, "Debug Standby Mode Disabled"]
+      Enabled: [1, "Debug Standby Mode Enabled"]
+    DBG_STOP:
+      Disabled: [0, "Debug Stop Mode Disabled"]
+      Enabled: [1, "Debug Stop Mode Enabled"]
+    DBG_SLEEP:
+      Disabled: [0, "Debug Sleep Mode Disabled"]
+      Enabled: [1, "Debug Sleep Mode Enabled"]
+
+  APB1FZR1:
+    DBG_IWDG_STOP:
+      Continue: [0, "The independent watchdog counter clock continues even if the core is halted"]
+      Stop: [1, "The independent watchdog counter clock is stopped when the core is halted"]
+    DBG_WWDG_STOP:
+      Continue: [0, "The window watchdog counter clock continues even if the core is halted"]
+      Stop: [1, "The window watchdog counter clock is stopped when the core is halted"]
+    DBG_RTC_STOP:
+      Continue: [0, "The clock of the RTC counter is fed even if the core is halted"]
+      Stop: [1, "The clock of the RTC counter is stopped when the core is halted"]
+    "DBG_TIM*_STOP":
+      Continue: [0, "The counter clock of TIMx is fed even if the core is halted"]
+      Stop: [1, "The counter clock of TIMx is stopped when the core is halted"]
+
+  APB1FZR?:
+    "DBG_LPTIM?_STOP":
+      Continue: [ 0, "LPTIMx counter clock is fed even if the core is halted" ]
+      Stop: [ 1, "LPTIMx counter clock is stopped when the core is halted" ]
+
+  APB2FZR:
+    "DBG_TIM*_STOP":
+      Continue: [ 0, "The counter clock of TIMx is fed even if the core is halted" ]
+      Stop: [ 1, "The counter clock of TIMx is stopped when the core is halted" ]

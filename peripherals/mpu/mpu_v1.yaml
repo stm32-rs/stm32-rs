@@ -5,7 +5,7 @@ MPU:
     _read:
       IREGION: [0, 0xFF]
       DREGION: [0, 0xFF]
-    SEPARATE: 
+    SEPARATE:
       _read:
         Unified: [0, "Unified"]
         Separate: [1, "Separate"]
@@ -43,4 +43,3 @@ MPU:
     ENABLE:
       Disabled: [0, "Disable region"]
       Enabled: [1, "Enable region"]
-

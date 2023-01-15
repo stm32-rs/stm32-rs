@@ -74,16 +74,16 @@ HSEM:
   _strip:
     - HSEM_
   _modify:
-    HSEM_IER:
+    IER:
       name:
         C1IER
-    HSEM_ICR:
+    ICR:
       name:
         C1ICR
-    HSEM_ISR:
+    ISR:
       name:
         C1ISR
-    HSEM_MISR:
+    MISR:
       name:
         C1MISR
   "R[0-9],R1[0-5]":

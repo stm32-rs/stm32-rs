@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-* Updated to svd2rust 0.25.0, use tools binaries for CI
+* Updated to svd2rust 0.28.0, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
 
 ## [v0.15.1] 2022-07-04

@@ -78,18 +78,18 @@
     "CC?OF":
       _read:
         Overcapture: [1, "The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     TIF:
       _read:
         NoTrigger: [0, "No trigger event occurred"]
         Trigger: [1, "Trigger interrupt pending"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     "CC?IF":
       _read:
         Match: [1, "If CC1 is an output: The content of the counter TIMx_CNT matches the content of the TIMx_CCR1 register. If CC1 is an input: The counter value has been captured in TIMx_CCR1 register."]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
   EGR:
     TG:

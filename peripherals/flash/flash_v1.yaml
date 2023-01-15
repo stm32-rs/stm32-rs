@@ -1,5 +1,29 @@
 
 "FLASH":
+  SR:
+    BSY:
+      _read:
+        NotBusy: [0, "no Flash memory operation ongoing"]
+        Busy: [1, "Flash memory operation ongoing"]
+    PGSERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    PGPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    PGAERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    WRPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    OPERR:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+    EOP:
+      _W1C:
+        Clear: [1, "Clear error flag"]
+
   ACR:
     DCRST:
       NotReset: [0, "Data cache is not reset"]

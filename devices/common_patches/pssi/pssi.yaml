@@ -1,0 +1,134 @@
+_add:
+  PSSI:
+    baseAddress: 0x50050400
+    description: Parallel synchronous slave interface
+    groupName: PSSI
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: "registers"
+
+    registers:
+      CR:
+        description: PSSI control register
+        addressOffset: 0x0
+        size: 0x20
+        access: read-write
+        resetValue:  0x40000000
+        fields:
+          OUTEN:
+            description: Data direction selection bit
+            bitOffset: 31
+            bitWidth: 1
+          DMAEN:
+            description: DMA enable bit
+            bitOffset: 30
+            bitWidth: 1
+          DERDYCFG:
+            description: Data enable and ready configuration
+            bitOffset: 18
+            bitWidth: 3
+          ENABLE:
+            description: PSSI enable
+            bitOffset: 14
+            bitWidth: 1
+          EDM:
+            description: Extended data mode
+            bitOffset: 10
+            bitWidth: 2
+          RDYPOL:
+            description: Ready (PSSI_RDY) polarity
+            bitOffset: 8
+            bitWidth: 1
+          DEPOL:
+            description: Data enable (PSSI_DE) polarity
+            bitOffset: 6
+            bitWidth: 1
+          CKPOL:
+            description: Parallel data clock polarity
+            bitOffset: 5
+            bitWidth: 1
+
+      SR:
+        description: PSSI status register
+        addressOffset: 0x4
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          RTT1B:
+            description: FIFO is ready to transfer one byte
+            bitOffset: 3
+            bitWidth: 1
+          RTT4B:
+            description: FIFO is ready to transfer four bytes
+            bitOffset: 2
+            bitWidth: 1
+
+      RIS:
+        description: PSSI raw interrupt status register
+        addressOffset: 0x8
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          OVR_RIS:
+            description: Data buffer overrun/underrun raw interrupt status
+            bitOffset: 1
+            bitWidth: 1
+
+      IER:
+        description: PSSI interrupt enable register
+        addressOffset: 0xC
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          OVR_IE:
+            description: Data buffer overrun/underrun interrupt enable
+            bitOffset: 1
+            bitWidth: 1
+
+      MIS:
+        description: PSSI masked interrupt status register
+        addressOffset: 0x10
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+        fields:
+          OVR_MIS:
+            description: Data buffer overrun/underrun masked interrupt status
+            bitOffset: 1
+            bitWidth: 1
+
+      ICR:
+        description: PSSI interrupt clear register
+        addressOffset: 0x14
+        size: 0x20
+        access: write-only
+        resetValue: 0x00000000
+        fields:
+          OVR_ISC:
+            description: Data buffer overrun/underrun interrupt status clear
+            bitOffset: 1
+            bitWidth: 1
+
+      DR:
+        description: PSSI data register
+        addressOffset: 0x28
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          Byte3:
+            bitOffset: 24
+            bitWidth: 8
+          Byte2:
+            bitOffset: 16
+            bitWidth: 8
+          Byte1:
+            bitOffset: 8
+            bitWidth: 8
+          Byte0:
+            bitOffset: 0
+            bitWidth: 8

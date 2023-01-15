@@ -7,24 +7,35 @@ on:
 jobs:
   build_html:
     name: Build HTML
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    env:
+      SVDTOOLS: svdtools
     steps:
       - name: Checkout master
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Install Python dependencies
+      - name: Install tools
         run: |
-          pip3 install --user setuptools wheel
-          pip3 install --user svdtools
-      - name: Put pip binary directory into path
-        run: echo "~/.local/bin" >> $GITHUB_PATH
+          ./scripts/tool_install.sh svdtools
       - name: Build HTML
-        run: |
-          SVDTOOLS=svd make -j2 html
-      - name: Publish to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        run: make -j2 html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: html
-          force_orphan: true
+          path: html
+
+  deploy_pages:
+    name: Deploy GH Pages
+    runs-on: ubuntu-latest
+    needs: build_html
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
