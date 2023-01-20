@@ -5,6 +5,11 @@ RCC:
 ADC:
   _strip:
     - "ADC_"
+  _modify:
+    CHSELR_MOD0:
+      name: CHSELR0
+    CHSELR_MOD1:
+      name: CHSELR1
 
 DMA:
   _strip:
@@ -25,6 +30,11 @@ RTC:
 EXTI:
   _strip:
     - "EXTI_"
+  _modify:
+    _interrupts:
+      EXTI4_5:
+        name: EXTI4_15
+        description: "EXTI line 4 to 15 interrupt"
 
 GPIO?:
   _strip:
@@ -84,6 +94,13 @@ TIM[13]:
     TS2:
      _replace_enum:
         Reserved: [0b00, "Reserved"]
+
+TIM3:
+  _delete:
+    - CNT
+  _modify:
+    CNT_alternate:
+      name: "CNT"
 
 TIM*:
   _strip:
