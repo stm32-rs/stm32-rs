@@ -1,3 +1,5 @@
+_clear_fields: ["*"]
+
 RCC:
   _strip:
     - "RCC_"
@@ -67,33 +69,6 @@ WWDG:
 TIM[13]:
   _strip:
     - "TIM?_"
-  SMCR:
-    SMS1:
-     _replace_enum:
-        SlaveModeDisabled: [0b0000, "if CEN is 1 then the prescaler is clocked directly by the internal clock."]
-        EncoderMode1: [0b0001, "Counter counts up/down on TI1FP1 edge depending on TI2FP2 level."]
-        EncoderMode2: [0b0010, "Counter counts up/down on TI2FP2 edge depending on TI1FP1 level."]
-        EncoderMode3: [0b0011, "Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input."]
-        ResetMode: [0b0100, "Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers."]
-        GatedMode: [0b0101, "The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled."]
-        TriggerMode: [0b0110, "The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled."]
-        ExternalClockMode1: [0b0111, "Rising edges of the selected trigger (TRGI) clock the counter."]
-    SMS2:
-     _replace_enum:
-        CombinedReset: [0b1, "Combined reset trigger mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter, generates an update of the registers and starts the counter."]
-    TS1:
-     _replace_enum:
-        ITR0: [0b000, "Internal Trigger 0 (ITR0)"]
-        ITR1: [0b001, "Internal Trigger 1 (ITR1)"]
-        ITR2: [0b010, "Internal Trigger 2 (ITR2)"]
-        ITR3: [0b011, "Internal Trigger 3 (ITR3)"]
-        TI1F_ED: [0b100, "TI1 Edge Detector (TI1F_ED)"]
-        TI1FP1: [0b101, "Filtered Timer Input 1 (TI1FP1)"]
-        TI2FP2: [0b110, "Filtered Timer Input 2 (TI2FP2)"]
-        ETRF: [0b111, "External Trigger input (ETRF)"]
-    TS2:
-     _replace_enum:
-        Reserved: [0b00, "Reserved"]
 
 TIM3:
   _delete:
@@ -106,49 +81,3 @@ TIM*:
   _strip:
     - "TIM*__"
     - "TIM?*_"
-  CCMR1_output:
-    OC1M1:
-      _replace_enum:
-        Frozen: [0b000, "Frozen"]
-        SetChannel1ActiveLevelOnMatc: [0b001, "SetChannel1ActiveLevelOnMatc"]
-        SetChannel1InactiveLevelOnMatch: [0b010, "SetChannel1InactiveLevelOnMatch"]
-        ToggleOC1REF: [0b011, "ToggleOC1REF"]
-        ForceInactiveLevel: [0b100, "ForceInactiveLevel"]
-        ForceActiveLevel: [0b101, "ForceActiveLevel"]
-        PWMMode1: [0b110, "PWMMode1"]
-        PWMMode2: [0b111, "PWMMode2"]
-    OC1M2:
-      _replace_enum:
-        Stub: [0b00, "See OC1M1 docs."]
-
-SYSCFG:
-  SYSCFG_CFGR3:
-    PINMUX0:
-      _replace_enum:
-        PB7: [0b00, "PB7"]
-        PB14: [0b01, "PB14"]
-    PINMUX1:
-      _replace_enum:
-        PF2: [0b00, "PF2"]
-        PA0: [0b01, "PA0"]
-        PA1: [0b10, "PA1"]
-        PA2: [0b11, "PA2"]
-    PINMUX2:
-      _replace_enum:
-        PA8: [0b00, "PA8"]
-        PA11: [0b01, "PA11"]
-    PINMUX3:
-      _replace_enum:
-        PA14: [0b00, "PA14"]
-        PB6: [0b01, "PB6"]
-        PC15: [0b10, "PC15"]
-    PINMUX4:
-      _replace_enum:
-        PA7: [0b00, "PA7"]
-        PA12: [0b01, "PA12"]
-    PINMUX5:
-      _replace_enum:
-        PA3: [0b00, "PA3"]
-        PA4: [0b01, "PA4"]
-        PA5: [0b10, "PA5"]
-        PA6: [0b11, "PA6"]
