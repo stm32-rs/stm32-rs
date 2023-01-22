@@ -1,8 +1,5 @@
 # Patches for the Flexible Data Rate CAN (FDCAN) on H7
 
-_include:
-  - ./fdcan_common.yaml
-
 "FDCAN,FDCAN?":
   RXF0C:
     _modify:
@@ -35,6 +32,12 @@ _include:
         description: Event FIFO put index
         bitOffset: 16
         bitWidth: 5
+
+  _modify:
+    TEST:
+      access: read-write
+
+FDCAN1:
   TTOST:
     _modify:
       GTP:
@@ -43,7 +46,3 @@ _include:
     _modify:
       CT:
         name: CCV
-
-  _modify:
-    TEST:
-      access: read-write
