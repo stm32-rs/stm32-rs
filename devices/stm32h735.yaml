@@ -366,6 +366,19 @@ _add:
         value: 153
         description: FMAC interrupt
 
+  # FDCAN3 peripheral is missing from the SVD
+  FDCAN3:
+    derivedFrom: FDCAN2
+    description: FDCAN3
+    baseAddress: "0x4000D400"
+    interrupts:
+      FDCAN3_IT0:
+        value: 159
+        description: FDCAN3 Interrupt 0
+      FDCAN3_IT1:
+        value: 160
+        description: FDCAN3 Interrupt 1
+
 # PWR block
 PWR:
   CR3:
@@ -899,17 +912,6 @@ RAMECC1:
 #      I2C5_ER:
 #        value: 158
 #        description: I2C5 error interrupt
-
-# FDCAN3 peripheral is missing from the SVD.
-#FDCAN3:
-#  _add:
-#    _interrupts:
-#      FDCAN3_IT0:
-#        value: 159
-#        description: FDCAN3 interrupt line 0
-#      FDCAN3_IT1:
-#        value: 160
-#        description: FDCAN3 interrupt line 1
 
 # Modify the DBGMCU.CR register fields names to be consistent with RM0468.
 # TODO: Interesting aside: the svd lists these controls additionally for D2 and
