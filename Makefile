@@ -10,7 +10,7 @@ SVDTOOLS ?= svdtools
 
 CRATES ?= stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h7 \
           stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 \
-          stm32wl stm32wb
+          stm32wl stm32wb stm32u5
 
 # All yaml files in devices/ will be used to patch an SVD
 YAMLS := $(foreach crate, $(CRATES), \
