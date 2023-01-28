@@ -16,6 +16,8 @@
 * Fix ADC SMPR fields in L1
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
+* Some fields (GPIO, EXTI, DMA, DSI, ADC) replaced with field arrays
+* Fix EXTI_IMR_IM9 field, H7 DMAMUX register names
 * DMA ISR fixes for G0, G4
 * Fix ETH_MACFFR bitOffsets
 * GFXMMU LUT cluster
