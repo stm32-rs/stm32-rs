@@ -245,8 +245,8 @@ RCC:
       Div16: [15, "pll_p_ck = vco_ck / 16"]
     PLLSRC:
       None: [0, "No clock sent to PLL"]
-      HSI16: [2, "No clock sent to PLL"]
-      HSE: [3, "No clock sent to PLL"]
+      HSI16: [2, "HSI16 sent to PLL input"]
+      HSE: [3, "HSE sent to PLL input"]
 
   BDCR:
     LSCOSEL:
