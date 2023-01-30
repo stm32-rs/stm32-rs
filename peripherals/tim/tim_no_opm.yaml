@@ -17,8 +17,12 @@ DIER:
     Enabled: [1, "Update interrupt enabled"]
 SR:
   UIF:
-    Clear: [0, "No update occurred"]
-    UpdatePending: [1, "Update interrupt pending."]
+    _read:
+      NoUpdateOccured: [0, "No update occurred"]
+      UpdatePending: [1, "Update interrupt pending"]
+    _W0C:
+      Clear: [0, "Clear flag"]
+      Keep: [1, "Not modify flag"]
 EGR:
   UG:
     Update: [1, "Re-initializes the timer counter and generates an update of the registers."]
