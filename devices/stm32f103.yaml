@@ -52,7 +52,7 @@ TIM10:
         bitWidth: 1
 
 _include:
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/i2c/v1.yaml
  - common_patches/bkp/bkp.yaml
  - ../peripherals/bkp/bkp.yaml
  - collect/bkp/dr.yaml
@@ -68,10 +68,14 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/i2c/i2c_v1.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v1/common.yaml
  - collect/gpio/f1.yaml
+ - common_patches/spi/v1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
@@ -82,6 +86,7 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
+ - common_patches/usart/v1.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
@@ -90,7 +95,6 @@ _include:
  - ../peripherals/rtc/rtc_f1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - collect/dma/v1.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - collect/sdio/resp.yaml
  - ../peripherals/adc/adc_f1.yaml

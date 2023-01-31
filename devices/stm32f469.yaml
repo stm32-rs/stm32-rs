@@ -122,7 +122,7 @@ SAI:
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/i2c/v1.yaml
  - common_patches/ethernet/mac_regs.yaml
  - common_patches/ethernet/mmc.yaml
  - common_patches/ethernet/f2_f4.yaml
@@ -168,6 +168,7 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - collect/dma/st.yaml
  - ../peripherals/dma/dma2d_v1.yaml
+ - common_patches/spi/v1.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
@@ -184,14 +185,17 @@ _include:
  - ../peripherals/eth/eth_mac_cstf.yaml
  - ../peripherals/eth/eth_mmc_common.yaml
  - ../peripherals/eth/eth_mmc_mcfhp_mcp.yaml
+ - common_patches/usart/v1.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
+ - common_patches/iwdg_16bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/wwdg_16bit.yaml
+ - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/fsmc/fsmc_sramfix.yaml
  - common_patches/fsmc/fsmc_nand_v2.yaml

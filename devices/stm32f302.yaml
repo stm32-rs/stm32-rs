@@ -146,7 +146,11 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
@@ -164,7 +168,6 @@ _include:
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - ../peripherals/dma/dma_v1.yaml
  - collect/dma/v1.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - common_patches/exti/f3_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml

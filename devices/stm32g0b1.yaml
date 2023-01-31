@@ -116,10 +116,12 @@ _include:
  - ../peripherals/gpio/gpio_g0_l0.yaml
  - collect/gpio/v2.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
  - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
 # TODO: usart CR1
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/v2/g0_1.yaml

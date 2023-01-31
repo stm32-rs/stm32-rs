@@ -17,7 +17,8 @@ MPU:
     - "MPU_"
 
 _include:
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/i2c/v1.yaml
+ - ../peripherals/i2c/i2c_v1.yaml
  - common_patches/adc/l1_smpr.yaml
  - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
@@ -29,11 +30,15 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - common_patches/gpio/with_OSPEEDER.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
+ - common_patches/spi/v1.yaml
  - common_patches/tim/rename_TIM2_CCR3_CCR3.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
@@ -43,11 +48,10 @@ _include:
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_cr.yaml
  - collect/rtc/alarm.yaml
  - collect/rtc/bkpr.yaml
+ - common_patches/usart/v1.yaml
  - ../peripherals/usb/usb.yaml

@@ -64,9 +64,11 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
@@ -87,6 +89,7 @@ _include:
  - ../peripherals/syscfg/syscfg_f0x128.yaml
  - ../peripherals/comp/comp_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1_RM0091.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
  - collect/usb/epxr.yaml

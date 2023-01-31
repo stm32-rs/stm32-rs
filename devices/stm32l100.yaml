@@ -65,7 +65,7 @@ MPU:
 _include:
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/i2c/v1.yaml
  - common_patches/adc/l1_smpr.yaml
  - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
@@ -77,7 +77,11 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
+ - common_patches/spi/v1.yaml
  - ../peripherals/spi/spi_v1.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v2/common.yaml
@@ -91,7 +95,6 @@ _include:
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l1.yaml
@@ -100,4 +103,5 @@ _include:
  - common_patches/rtc/rtc_cr.yaml
  - collect/rtc/alarm.yaml
  - collect/rtc/bkpr.yaml
+ - common_patches/usart/v1.yaml
  - ../peripherals/usb/usb.yaml

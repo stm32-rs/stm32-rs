@@ -47,6 +47,8 @@ GTZC_TZSC:
     - "TZSC_"
 
 _include:
+ - common_patches/iwdg_16bit.yaml
+ - common_patches/wwdg_16bit.yaml
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
  - collect/dma/l5.yaml

@@ -103,6 +103,7 @@ PWR:
       LOW_POWER_MODE: [1, "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)"]
 
 _include:
+ - common_patches/spi/v1.yaml
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/flash/l0.yaml
  - ./common_patches/firewall/l0.yaml
@@ -140,6 +141,7 @@ _include:
  - ../peripherals/gpio/gpio_g0_l0.yaml
  - collect/gpio/v2r.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - common_patches/iwdg_16bit.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/nvic/nvic_v1.yaml
@@ -163,4 +165,5 @@ _include:
  - collect/tim/ccr.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml

@@ -149,6 +149,7 @@ _include:
  - collect/hsem/r.yaml
  - ../peripherals/ipcc/ipcc_wl.yaml
  - ../peripherals/i2c/i2c_v2.yaml
+ - common_patches/iwdg_16bit.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/iwdg/iwdg_sr.yaml
  - ../peripherals/lptim/lptim_v1.yaml
@@ -165,6 +166,7 @@ _include:
  - collect/rtc/tamp_bkpr.yaml
  - collect/rtc/alarm_wl.yaml
  - ../peripherals/rng/rng_wl.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/syscfg/syscfg_wl.yaml
  - common_patches/tim/tim2_32bit.yaml
@@ -178,4 +180,5 @@ _include:
  - ../peripherals/usart/usart_v2C.yaml
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/vrefbuf/vrefbuf_wl.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml

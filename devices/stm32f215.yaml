@@ -23,7 +23,7 @@ MPU:
     - "MPU_"
 
 _include:
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/i2c/v1.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
@@ -57,8 +57,12 @@ _include:
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
  - collect/dma/st.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
+ - common_patches/spi/v1.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
@@ -69,11 +73,11 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
+ - common_patches/usart/v1.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - collect/hash/v1.yaml
