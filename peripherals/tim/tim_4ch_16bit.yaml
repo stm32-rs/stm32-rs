@@ -1,4 +1,4 @@
-# 16bit timer peripheral with 2 channel
+# 16bit timer peripheral with 4 channel
 # Applies to Advanced-control (ac) and General-purpose (gp) timers
 
 CNT:
@@ -9,3 +9,7 @@ CCR1:
   CCR1: [0, 0xFFFF]
 CCR2:
   CCR2: [0, 0xFFFF]
+CCR3:
+  CCR3: [0, 0xFFFF]
+CCR4:
+  CCR4: [0, 0xFFFF]

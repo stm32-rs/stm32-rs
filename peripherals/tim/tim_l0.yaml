@@ -19,7 +19,7 @@
       Disabled: [0, "Capture disabled"]
       Enabled: [1, "Capture enabled"]
   DMAR:
-    DMAB: [0, 65535]
+    DMAB: [0, 0xFFFF]
   OR:
     TI4_RMP:
       COMP2_OUT: [1, "TIM2 TI4 input connected to COMP2_OUT"]

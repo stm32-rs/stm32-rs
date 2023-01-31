@@ -139,11 +139,11 @@
       Disabled: [0, "Capture disabled"]
       Enabled: [1, "Capture enabled"]
   CNT:
-    CNT: [0, 65535]
+    CNT: [0, 0xFFFF]
   ARR:
-    ARR: [0, 65535]
+    ARR: [0, 0xFFFF]
   "CCR?":
-    "CCR?": [0, 65535]
+    "CCR?": [0, 0xFFFF]
   OR:
     TI1_RMP:
       GPIO: [0, "TIM2x TI1 input connected to GPIO"]
