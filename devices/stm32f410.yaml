@@ -169,6 +169,11 @@ DAC:
       - BOFF2
       - EN2
 
+"TIM*":
+  _modify:
+    "?*":
+      size: 16
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/v1.yaml
