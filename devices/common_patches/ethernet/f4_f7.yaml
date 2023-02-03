@@ -1,0 +1,9 @@
+Ethernet_PTP:
+  PTPPPSCR:
+    _add:
+      PPSFREQ:
+        bitWidth: 4
+        bitOffset: 0
+        access: read-write
+        description: PPS frequency selection
+    _delete: ["TSSO", "TSTTR"]
