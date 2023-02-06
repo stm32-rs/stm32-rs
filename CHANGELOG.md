@@ -4,6 +4,7 @@
 
 * Updated to svd2rust 0.28.0, svdtools 0.2.8, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
+* F1: rename GPIOx_CRL/H CNF field enum items
 
 ## [v0.15.1] 2022-07-04
 
