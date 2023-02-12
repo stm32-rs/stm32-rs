@@ -1,0 +1,25 @@
+OTG_HS_GLOBAL:
+  _delete:
+    - GI2CCTL
+
+OTG_HS_DEVICE:
+  _delete:
+    - DIEPDMA9
+    - DIEPDMA10
+    - DIEPDMA11
+    - DIEPDMA12
+    - DIEPDMA13
+    - DIEPDMA14
+    - DIEPDMA15
+    - DOEPDMA9
+    - DOEPDMA10
+    - DOEPDMA11
+    - DOEPDMA12
+    - DOEPDMA13
+    - DOEPDMA14
+    - DOEPDMA15
+  _copy:
+    DIEPDMA5:
+      _from: DIEPDMA1
+      description: OTG_HS device endpoint-5 DMA address register
+      addressOffset: 0x1B4

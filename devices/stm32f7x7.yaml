@@ -249,6 +249,10 @@ JPEG:
     - "JPEG_"
 
 
+"OTG_HS_*":
+  _strip:
+    - OTG_HS_
+
 _include:
  - common_patches/dfsdm/f7.yaml
  - common_patches/ltdc/rename.yaml
@@ -335,6 +339,10 @@ _include:
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_host_addr.yaml
+ - common_patches/usb_otg/fs_v2.yaml
+ - common_patches/usb_otg/hs_v2.yaml
  - common_patches/hash/hash.yaml
  - common_patches/mdios/mdios.yaml
  - common_patches/rtc/alarm.yaml
