@@ -97,9 +97,9 @@ svdformat: $(FORMATTED_SVDS)
 
 check: $(CHECK_SRCS)
 
-html/index.html: $(PATCHED_SVDS) scripts/makehtml.py scripts/makehtml.index.template.html scripts/makehtml.template.html
+html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html
-	python3 scripts/makehtml.py html/ $(PATCHED_SVDS)
+	svd2html html/ $(PATCHED_SVDS)
 
 html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
 	scripts/htmlcomparesvdall.sh
