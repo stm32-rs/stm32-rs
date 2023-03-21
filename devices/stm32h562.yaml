@@ -1,8 +1,1 @@
-_svd: ../svd/STM32H562.svd
-
-_modify:
-  name: STM32C011
-
-_include:
-  - ./common_patches/c0.yaml
-  - ./common_patches/nvic/2_prio_bits.yaml
+_svd: ../svd/stm32h562.svd
