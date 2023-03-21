@@ -170,9 +170,8 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
 * Run `svd/extract.sh` to extract the zips into `svd` (ignored in git).
 * Add new YAML file in `devices/` with the new SVD path and include any
   required SVD patches for this device, such as renaming or merging fields.
-* Add the new devices to the `CRATES` field in `Makefile`
+* Add the new devices to `stm32_part_table.yaml`.
 * Add the new devices `scripts/makecrates.py`.
-* Update this Readme to include the new devices.
 * You can run `scripts/matchperipherals.py` script to find out what existing
   peripherals could be cleanly applied to this new SVD. If they look sensible,
   you can include them in your device YAML.  This requires a Python environment with the `pyyaml`
@@ -180,6 +179,13 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
 * Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.
+
+### If adding a new STM32 family (not just a new device to an existing family), complete
+these steps as well:
+
+* Add the new devices to the `CRATES` field in `Makefile`.
+* Update this Readme to include the new devices.
+* Add the devices to `workflows/ci.yaml` and `workflows/nightlies.yaml`.
 
 ## Updating Existing Devices/Peripherals
 
