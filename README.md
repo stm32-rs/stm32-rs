@@ -180,7 +180,7 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.
 
-### If adding a new STM32 family (not just a new device to an existing family), complete
+If adding a new STM32 family (not just a new device to an existing family), complete
 these steps as well:
 
 * Add the new devices to the `CRATES` field in `Makefile`.
