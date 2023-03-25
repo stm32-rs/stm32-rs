@@ -8,67 +8,71 @@ ADC:
   _strip:
     - "ADC_"
 
-# DMA:
-#   _strip:
-#     - "DMA_"
+DBGMCU:
+  _strip:
+    - "DBGMCU_"
 
-# CRC:
+# GPDMA1:
 #   _strip:
-#     - "CRC_"
+#     - "GPDMA_"
 
-# RTC:
-#   _strip:
-#     - "RTC_"
+CRC:
+  _strip:
+    - "CRC_"
 
-# EXTI:
-#   _strip:
-#     - "EXTI_"
-#   _modify:
-#     _interrupts:
-#       EXTI4_5:
-#         name: EXTI4_15
-#         description: "EXTI line 4 to 15 interrupt"
+RTC:
+  _strip:
+    - "RTC_"
 
-# GPIO?:
-#   _strip:
-#     - "GPIO?_"
+EXTI:
+  _strip:
+    - "EXTI_"
+  _modify:
+    _interrupts:
+      EXTI4_5:
+        name: EXTI4_15
+        description: "EXTI line 4 to 15 interrupt"
 
-# USART?:
-#   _strip:
-#     - "USART_"
+GPIO?:
+  _strip:
+    - "GPIO?_"
 
-# SPI:
-#   _strip:
-#     - "SPI_"
+USART?:
+  _strip:
+    - "USART_"
 
-# I2C:
-#   _strip:
-#     - "I2C_"
+SPI?:
+  _strip:
+    - "SPI_"
 
-# IWDG:
-#   _strip:
-#     - "IWDG_"
+I2C?:
+  _strip:
+    - "I2C_"
 
-# PWR:
-#   _strip:
-#     - "PWR_"
+IWDG:
+  _strip:
+    - "IWDG_"
 
-# WWDG:
-#   _strip:
-#     - "WWDG_"
+PWR:
+  _strip:
+    - "PWR_"
 
-# TIM[13]:
-#   _strip:
-#     - "TIM?_"
+WWDG:
+  _strip:
+    - "WWDG_"
 
-# TIM3:
-#   _delete:
-#     - CNT
-#   _modify:
-#     CNT_alternate:
-#       name: "CNT"
+TIM[13]:
+  _strip:
+    - "TIM?_"
 
-# TIM*:
-#   _strip:
-#     - "TIM*__"
-#     - "TIM?*_"
+TIM3:
+  _delete:
+    - CNT
+  _modify:
+    CNT_alternate:
+      name: "CNT"
+
+TIM*:
+  _strip:
+    - "TIM*__"
+    - "TIM?*_"
