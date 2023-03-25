@@ -141,7 +141,7 @@ This project is still young and there's a lot to do!
 [![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
 [![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
 [![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
-[![crates.io](https://img.shields.io/crates/v/stm32h5.svg?label=stm32h7)](https://crates.io/crates/stm32h5)
+[![crates.io](https://img.shields.io/crates/v/stm32h5.svg?label=stm32h5)](https://crates.io/crates/stm32h5)
 [![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
