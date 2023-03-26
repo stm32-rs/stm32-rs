@@ -112,6 +112,20 @@ OTG_HS_HOST,OTG1_HS_HOST:
     - hs_host_array.yaml
 
 OTG_HS_DEVICE,OTG1_HS_DEVICE:
+  _delete:
+    - DIEPDMA0
+    - DIEPDMA6
+    - DIEPDMA7
+    - DIEPDMA8
+    - DOEPDMA0
+    - DOEPDMA1
+    - DOEPDMA2
+    - DOEPDMA3
+    - DOEPDMA4
+    - DOEPDMA5
+    - DOEPDMA6
+    - DOEPDMA7
+    - DOEPDMA8
   _copy:
     DIEPDMA0:
       _from: DIEPDMA1
