@@ -61,10 +61,6 @@ WWDG:
   _strip:
     - "WWDG_"
 
-TIM[13]:
-  _strip:
-    - "TIM?_"
-
 TIM3:
   _delete:
     - CNT
@@ -74,5 +70,5 @@ TIM3:
 
 TIM*:
   _strip:
-    - "TIM*__"
-    - "TIM?*_"
+    - "TIM?_"
+    - "TIM??_"
