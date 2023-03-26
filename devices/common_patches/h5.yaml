@@ -61,14 +61,14 @@ WWDG:
   _strip:
     - "WWDG_"
 
-TIM3:
-  _delete:
-    - CNT
-  _modify:
-    CNT_alternate:
-      name: "CNT"
+# TIM3:
+#   _delete:
+#     - CNT
+#   _modify:
+#     CNT_alternate:
+#       name: "CNT"
 
-TIM*:
-  _strip:
-    - "TIM?_"
-    - "TIM??_"
+# TIM?:
+#   _strip:
+#     - "TIM?_"
+#     - "TIM??_"
