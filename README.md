@@ -99,6 +99,7 @@ contain the latest patches and updates.
         * `cargo install form --version 0.10.0`
         * `cargo install svdtools --version 0.2.8`
         * `cargo install svd2rust --version 0.28.0`
+        * `cargo install svd2html --version 0.1.2`
 * Install rustfmt: `rustup component add rustfmt`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
