@@ -7,7 +7,7 @@
     DMAEN:
       Disabled: [0, "DMA disabled"]
       Enabled: [1, "DMA enabled"]
-    SAIEN:
+    SAIEN,SAI?EN:
       Disabled: [0, "SAI audio block disabled"]
       Enabled: [1, "SAI audio block enabled"]
     OUTDRIV:
@@ -115,7 +115,7 @@
       Enabled: [1, "Interrupt is enabled"]
 
   "*SR":
-    FLVL:
+    FLTH,FLVL:
       _read:
         Empty: [0, "FIFO empty"]
         Quarter1: [1, "FIFO <= 1⁄4 but not empty"]
