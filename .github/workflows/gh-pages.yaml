@@ -17,7 +17,8 @@ jobs:
           persist-credentials: false
       - name: Install tools
         run: |
-          ./scripts/tool_install.sh svdtools svd2html
+          ./scripts/tool_install.sh svdtools
+          ./scripts/tool_install.sh svd2html
       - name: Build HTML
         run: make -j2 html
       - name: Upload artifact
