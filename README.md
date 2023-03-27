@@ -97,7 +97,7 @@ contain the latest patches and updates.
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.10.0`
-        * `cargo install svdtools --version 0.2.8`
+        * `cargo install svdtools --version 0.3.0`
         * `cargo install svd2rust --version 0.28.0`
         * `cargo install svd2html --version 0.1.3`
 * Install rustfmt: `rustup component add rustfmt`
