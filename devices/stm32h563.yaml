@@ -2,3 +2,5 @@ _svd: ../svd/stm32h563.svd
 
 _include:
   - common_patches/h5.yaml
+  - common_patches/h56x_h57x.yaml
+  - common_patches/ethernet/h5.yaml

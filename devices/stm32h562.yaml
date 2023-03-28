@@ -4,6 +4,7 @@ _svd: ../svd/stm32h562.svd
 # todo place them in the common/h5.yaml
 _include:
   - common_patches/h5.yaml
+  - common_patches/h56x_h57x.yaml
 
   - common_patches/crc/crc_rename_init.yaml
   - ../peripherals/crc/crc_advanced.yaml
