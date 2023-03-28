@@ -5,3 +5,25 @@ _include:
   - common_patches/h56x_h57x.yaml
   - common_patches/h5_security.yaml
   - common_patches/ethernet/h5.yaml
+
+  - common_patches/crc/crc_rename_init.yaml
+  - ../peripherals/crc/crc_advanced.yaml
+  # - ../peripherals/crc/crc_idr_32bit.yaml
+  - ../peripherals/crc/crc_pol.yaml
+  - common_patches/crc/h7_addr_fix.yaml
+
+
+  # - common_patches/flash/l5_array.yaml
+
+  - ../peripherals/gpio/v3/common.yaml
+
+  # - ../peripherals/rcc/rcc_v3.yaml
+  # - ../peripherals/rcc/rcc_v3_pll.yaml
+  # - ../peripherals/rcc/rcc_v3_h7_ccip.yaml
+
+  - common_patches/rtc/alarm.yaml
+  # - common_patches/rtc/rtc_bkpr.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  # - ../peripherals/rtc/rtc_common.yaml
+
+  - ../peripherals/sai/sai.yaml
