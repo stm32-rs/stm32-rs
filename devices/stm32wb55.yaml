@@ -108,16 +108,6 @@ SYSCFG:
     SIPCR:
       addressOffset: 0x110
 
-TIM2:
-  CNT:
-    _delete:
-      - CNT_H
-    _modify:
-      CNT_L:
-        name: CNT
-        description: Counter value
-        bitWidth: 32
-
 TIM16:
   _add:
     TISEL:
@@ -299,3 +289,4 @@ _include:
  - ./common_patches/adc/wb_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
  - common_patches/hsem/array.yaml
+ - common_patches/tim/tim2_32bit.yaml
