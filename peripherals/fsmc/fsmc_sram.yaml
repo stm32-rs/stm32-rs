@@ -3,12 +3,12 @@
     CBURSTRW:
       Enabled: [1, "Write operations are performed in synchronous mode"]
       Disabled: [0, "Write operations are always performed in asynchronous mode"]
-    CPSIZE:
-      NoBurstSplit: [0, "No burst split when crossing page boundary"]
-      Bytes128: [1, "128 bytes CRAM page size"]
-      Bytes256: [2, "256 bytes CRAM page size"]
-      Bytes512: [3, "512 bytes CRAM page size"]
-      Bytes1024: [4, "1024 bytes CRAM page size"]
+    # CPSIZE:
+    #   NoBurstSplit: [0, "No burst split when crossing page boundary"]
+    #   Bytes128: [1, "128 bytes CRAM page size"]
+    #   Bytes256: [2, "256 bytes CRAM page size"]
+    #   Bytes512: [3, "512 bytes CRAM page size"]
+    #   Bytes1024: [4, "1024 bytes CRAM page size"]
     ASYNCWAIT:
       Disabled: [0, "Wait signal not used in asynchronous mode"]
       Enabled: [1, "Wait signal used even in asynchronous mode"]

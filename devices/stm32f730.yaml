@@ -80,9 +80,11 @@ _include:
  - common_patches/fsmc/fsmc_nand_v2.yaml
  - common_patches/fsmc/fsmc_sd.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
- - ../peripherals/fsmc/fsmc_wfdis.yaml
+ - ../peripherals/fsmc/fsmc_wfdis1.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_nand_ptyp.yaml
  - ../peripherals/fsmc/fsmc_sd.yaml
+ - ../peripherals/fsmc/fsmc_sd_sdsr.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/dbgmcu/dbgmcu.yaml

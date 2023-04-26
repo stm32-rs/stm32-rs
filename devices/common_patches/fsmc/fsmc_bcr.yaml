@@ -1,0 +1,8 @@
+"FMC,FSMC":
+  "BCR[2-4]":
+    _modify:
+      FMCEN:
+          access: read-only
+      BMAP:
+          access: read-only
+
