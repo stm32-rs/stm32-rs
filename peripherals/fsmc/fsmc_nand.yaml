@@ -15,9 +15,6 @@
     PWID:
       Bits8: [0, "External memory device width 8 bits"]
       Bits16: [1, "External memory device width 16 bits"]
-    # TODO:
-    # PTYP:
-    #   NANDFlash: [1, "NAND Flash"]
     PBKEN:
       Disabled: [0, "Corresponding memory bank is disabled"]
       Enabled: [1, "Corresponding memory bank is enabled"]
