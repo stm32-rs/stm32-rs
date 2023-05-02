@@ -5,6 +5,10 @@ _svd: ../svd/stm32f745.svd
 _rebase:
   USART1: USART6
 
+_derive:
+  SPI3: SPI1
+  SPI6: SPI1
+
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
