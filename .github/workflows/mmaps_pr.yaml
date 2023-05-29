@@ -70,7 +70,7 @@ jobs:
           git config user.name "stm32-rs builder"
           git config user.email "action@github.com"
           git commit --allow-empty -m "stm32-rs PR #${{ github.event.number }} $COMMIT"
-          git push origin $BRANCH
+          git push -f origin $BRANCH
       - name: Comment
         uses: mshick/add-pr-comment@v1
         with:
