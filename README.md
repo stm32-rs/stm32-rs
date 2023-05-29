@@ -103,6 +103,9 @@ contain the latest patches and updates.
 * Install rustfmt: `rustup component add rustfmt`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
+    * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
+        * `cargo install cargo-make`
+        * `cargo make patch`
 * Generate svd2rust device crates: `make svd2rust`
 * Optional: Format device crates: `make form`
 
