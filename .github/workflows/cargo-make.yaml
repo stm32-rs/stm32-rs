@@ -1,6 +1,9 @@
 name: Cargo Make
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
   merge_group:
 
