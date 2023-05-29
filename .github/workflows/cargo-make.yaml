@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CRATES: stm32g0
+      CRATES: stm32f0
       CARGO_INCREMENTAL: 0
       SVDTOOLS: svdtools
 
