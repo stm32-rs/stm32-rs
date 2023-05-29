@@ -2,6 +2,9 @@ _svd: ../svd/stm32h7b3.svd
 
 _clear_fields: ["*"]
 
+_derive:
+  I2C3: I2C1
+
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
