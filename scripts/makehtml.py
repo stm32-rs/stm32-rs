@@ -137,7 +137,9 @@ def expand_cluster(node):
     The returned register nodes are as though they were never in a cluster.
     """
     if node.attrib.get("dim_index") is None:
-        raise ValueError("Can't process cluster without dim_index")
+        raise ValueError("Can't process cluster '{}' without dim_index".format(
+            get_string(node, "name")
+        ))
     cluster_idx = node.attrib["dim_index"]
     cluster_addr = get_int(node, "addressOffset")
     nodes = []
