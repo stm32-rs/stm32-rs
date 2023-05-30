@@ -5,6 +5,7 @@
 * Replace `makehtml.py` with `svd2html`
 * Updated to svd2rust 0.28.0, svdtools 0.3.0, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
+* DMA ISR fixes for G0, G4
 
 ## [v0.15.1] 2022-07-04
 
