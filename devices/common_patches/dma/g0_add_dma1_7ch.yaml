@@ -20,142 +20,114 @@ _add:
             description: Channel 1 global interrupt flag
             bitOffset: 0
             bitWidth: 1
-            access: read-only
           TCIF1:
             description: Channel 1 transfer complete flag
             bitOffset: 1
             bitWidth: 1
-            access: read-only
           HTIF1:
             description: Channel 1 half transfer flag
             bitOffset: 2
             bitWidth: 1
-            access: read-only
           TEIF1:
             description: Channel 1 transfer error flag
             bitOffset: 3
             bitWidth: 1
-            access: read-only
           GIF2:
             description: Channel 2 global interrupt flag
             bitOffset: 4
             bitWidth: 1
-            access: read-only
           TCIF2:
             description: Channel 2 transfer complete flag
             bitOffset: 5
             bitWidth: 1
-            access: read-only
           HTIF2:
             description: Channel 2 half transfer flag
             bitOffset: 6
             bitWidth: 1
-            access: read-only
           TEIF2:
             description: Channel 2 transfer error flag
             bitOffset: 7
             bitWidth: 1
-            access: read-only
           GIF3:
             description: Channel 3 global interrupt flag
             bitOffset: 8
             bitWidth: 1
-            access: read-only
           TCIF3:
             description: Channel 3 transfer complete flag
             bitOffset: 9
             bitWidth: 1
-            access: read-only
           HTIF3:
             description: Channel 3 half transfer flag
             bitOffset: 10
             bitWidth: 1
-            access: read-only
           TEIF3:
             description: Channel 3 transfer error flag
             bitOffset: 11
             bitWidth: 1
-            access: read-only
           GIF4:
             description: Channel 4 global interrupt flag
             bitOffset: 12
             bitWidth: 1
-            access: read-only
           TCIF4:
             description: Channel 4 transfer complete flag
             bitOffset: 13
             bitWidth: 1
-            access: read-only
           HTIF4:
             description: Channel 4 half transfer flag
             bitOffset: 14
             bitWidth: 1
-            access: read-only
           TEIF4:
             description: Channel 4 transfer error flag
             bitOffset: 15
             bitWidth: 1
-            access: read-only
           GIF5:
             description: Channel 5 global interrupt flag
             bitOffset: 16
             bitWidth: 1
-            access: read-only
           TCIF5:
             description: Channel 5 transfer complete flag
             bitOffset: 17
             bitWidth: 1
-            access: read-only
           HTIF5:
             description: Channel 5 half transfer flag
             bitOffset: 18
             bitWidth: 1
-            access: read-only
           TEIF5:
             description: Channel 5 transfer error flag
             bitOffset: 19
             bitWidth: 1
-            access: read-only
           GIF6:
             description: Channel 6 global interrupt flag
             bitOffset: 20
             bitWidth: 1
-            access: read-only
           TCIF6:
             description: Channel 6 transfer complete flag
             bitOffset: 21
             bitWidth: 1
-            access: read-only
           HTIF6:
             description: Channel 6 half transfer flag
             bitOffset: 22
             bitWidth: 1
-            access: read-only
           TEIF6:
             description: Channel 6 transfer error flag
             bitOffset: 23
             bitWidth: 1
-            access: read-only
           GIF7:
             description: Channel 7 global interrupt flag
             bitOffset: 24
             bitWidth: 1
-            access: read-only
           TCIF7:
             description: Channel 7 transfer complete flag
             bitOffset: 25
             bitWidth: 1
-            access: read-only
           HTIF7:
             description: Channel 7 half transfer flag
             bitOffset: 26
             bitWidth: 1
-            access: read-only
           TEIF7:
             description: Channel 7 transfer error flag
             bitOffset: 27
             bitWidth: 1
-            access: read-only
       IFCR:
         displayName: IFCR
         description: high interrupt status register

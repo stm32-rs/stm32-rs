@@ -16,6 +16,7 @@
 * Fix ADC SMPR fields in L1
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
+* DMA ISR fixes for G0, G4
 * Fix ETH_MACFFR bitOffsets
 * GFXMMU LUT cluster
 * Fix writeConstraint bugs
