@@ -36,9 +36,7 @@ jobs:
         run: cargo make crates
 
       - name: Install tools
-        run: |
-          ./scripts/tool_install.sh svdtools
-          ./scripts/tool_install.sh svd2rust
+        run: cargo make install
 
       - name: Patch SVDs
         run: cargo make patch

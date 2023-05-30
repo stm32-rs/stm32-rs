@@ -108,14 +108,8 @@ for i in ${handle}
     end
     if ${need_update}
         echo "form: ${serie}"
-        echo "modpath: ${modpath}, dir_name: ${dir_name}"
         exec form -i ${modpath} -o ${dir_name}
-        ls ${dir_name}
         rm ${modpath}
-        echo "dir_name: ${dir_name}"
-        echo "modpath: ${modpath}"
-        echo "ls dir_name:"
-        ls ${dir_name}
         cp ${dir_name}/lib.rs ${modpath}
         rm ${dir_name}/lib.rs
         exec rustfmt ${modpath}
