@@ -28,7 +28,7 @@
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
 * Fix typo in STM32G491 FDCAN2 patch
-* DMA ISR fixes for G4
+* DMA ISR fixes for G0, G4
 * F103: USB RESP1 fix name
 * Fix DAC for stm32f4 (#921)
 
