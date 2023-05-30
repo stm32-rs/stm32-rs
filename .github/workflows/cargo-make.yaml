@@ -1,6 +1,9 @@
 name: Cargo Make
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
   merge_group:
 
@@ -10,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CRATES: stm32g0
+      CRATES: stm32f0
       CARGO_INCREMENTAL: 0
       SVDTOOLS: svdtools
 
@@ -33,9 +36,7 @@ jobs:
         run: cargo make crates
 
       - name: Install tools
-        run: |
-          ./scripts/tool_install.sh svdtools
-          ./scripts/tool_install.sh svd2rust
+        run: cargo make install
 
       - name: Patch SVDs
         run: cargo make patch
