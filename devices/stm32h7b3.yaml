@@ -2,6 +2,9 @@ _svd: ../svd/stm32h7b3.svd
 
 _clear_fields: ["*"]
 
+_derive:
+  I2C3: I2C1
+
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
@@ -102,7 +105,7 @@ _include:
  - common_patches/sai/h7_mcken.yaml
  - common_patches/sai/sai_v1.yaml
  - common_patches/h7_spdifrx.yaml
- - common_patches/usb_otg/h7.yaml
+ - common_patches/usb_otg/hs_v2.yaml
  - common_patches/flash/flash_dual_bank.yaml
  - common_patches/hash/hash.yaml
  - common_patches/ltdc/ltdc.yaml

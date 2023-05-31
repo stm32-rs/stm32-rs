@@ -3,8 +3,9 @@
 set -euo pipefail
 
 FORM_VERSION="${FORM_VERSION:-v0.10.0}"
-SVDTOOLS_VERSION="${SVDTOOLS_VERSION:-v0.2.7}"
-SVD2RUST_VERSION="${SVD2RUST_VERSION:-v0.26.0}"
+SVDTOOLS_VERSION="${SVDTOOLS_VERSION:-v0.3.0}"
+SVD2RUST_VERSION="${SVD2RUST_VERSION:-v0.28.0}"
+SVD2HTML_VERSION="${SVD2HTML_VERSION:-v0.1.3}"
 
 case "${1:-}" in
     form)
@@ -16,10 +17,14 @@ case "${1:-}" in
     svd2rust)
         svd2rust="${2:-$SVD2RUST_VERSION}"
         ;;
+    svd2html)
+        svd2html="${2:-$SVD2HTML_VERSION}"
+        ;;
     *)
         form=$FORM_VERSION
         svdtools=$SVDTOOLS_VERSION
         svd2rust=$SVD2RUST_VERSION
+        svd2html=$SVD2HTML_VERSION
         echo "Install default versions"
         ;;
 esac
@@ -40,4 +45,10 @@ if [ "${svd2rust:-}" ]; then
     echo "svd2rust = ${svd2rust}"
     curl -sSfL https://github.com/rust-embedded/svd2rust/releases/download/$svd2rust/svd2rust-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svd2rust
     chmod +x ~/.cargo/bin/svd2rust
+fi
+
+if [ "${svd2html:-}" ]; then
+    echo "svd2html = ${svd2html}"
+    curl -sSfL https://github.com/burrbull/svd2html/releases/download/$svd2html/svd2html-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svd2html
+    chmod +x ~/.cargo/bin/svd2html
 fi

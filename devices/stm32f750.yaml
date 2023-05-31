@@ -3,6 +3,9 @@ _svd: ../svd/stm32f750.svd
 _rebase:
   USART1: USART6
 
+_derive:
+  SPI2: SPI1
+
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
@@ -32,6 +35,10 @@ SYSCFG:
 MPU:
   _strip:
     - "MPU_"
+
+"OTG_HS_*":
+  _strip:
+    - OTG_HS_
 
 _include:
  - common_patches/usart/merge_CR1_DEATx_fields.yaml
@@ -101,6 +108,10 @@ _include:
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_host_addr.yaml
+ - common_patches/usb_otg/fs_v2.yaml
+ - common_patches/usb_otg/hs_v2.yaml
  - common_patches/hash/hash.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fsmc/fsmc_sramfix.yaml
@@ -121,3 +132,5 @@ _include:
  - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
  - ../peripherals/ltdc/ltdc.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/ethernet/f4_f7.yaml
+ - ../peripherals/eth/eth_ptp_ppsfreq.yaml

@@ -17,15 +17,17 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.26.0"
+SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
+    "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
     "stm32f0": ["critical-section", "rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
     "stm32f1": ["critical-section", "rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
     "stm32f2": ["critical-section", "rt", "stm32f215", "stm32f217"],
     "stm32f3": ["critical-section", "rt", "stm32f302", "stm32f303", "stm32f373"],
     "stm32f4": ["critical-section", "rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
     "stm32f7": ["critical-section", "rt", "stm32f7x3", "stm32f7x9"],
+    "stm32h5": ["critical-section", "rt", "stm32h503", "stm32h562", "stm32h563", "stm32h573"],
     "stm32h7": ["critical-section", "rt", "stm32h743", "stm32h743v", "stm32h747cm7"],
     "stm32l0": ["critical-section", "rt", "stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
     "stm32l1": ["critical-section", "rt", "stm32l100", "stm32l151", "stm32l162"],
@@ -34,17 +36,20 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["critical-section", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
     "stm32g4": ["critical-section", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["critical-section", "rt", "stm32mp157"],
+    "stm32u5": ["rt", "stm32u575", "stm32u585"],
     "stm32wl": ["critical-section", "rt", "stm32wle5", "stm32wl5x_cm4"],
     "stm32wb": ["critical-section", "rt", "stm32wb55"]
 }
 
 CRATE_DOC_TARGETS = {
+    "stm32c0": "thumbv6m-none-eabi",
     "stm32f0": "thumbv6m-none-eabi",
     "stm32f1": "thumbv7m-none-eabi",
     "stm32f2": "thumbv7m-none-eabi",
     "stm32f3": "thumbv7em-none-eabihf",
     "stm32f4": "thumbv7em-none-eabihf",
     "stm32f7": "thumbv7em-none-eabihf",
+    "stm32h5": "thumbv8m.main-none-eabihf",
     "stm32h7": "thumbv7em-none-eabihf",
     "stm32l0": "thumbv6m-none-eabi",
     "stm32l1": "thumbv7m-none-eabi",
@@ -53,6 +58,7 @@ CRATE_DOC_TARGETS = {
     "stm32g0": "thumbv6m-none-eabi",
     "stm32g4": "thumbv7em-none-eabihf",
     "stm32mp1": "thumbv7em-none-eabihf",
+    "stm32u5": "thumbv8m.main-none-eabi",
     "stm32wl": "thumbv7em-none-eabi",
     "stm32wb": "thumbv7em-none-eabihf"
 }

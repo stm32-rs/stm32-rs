@@ -10,6 +10,16 @@
 #
 # This data is used to generate more informative crate READMEs.
 
+stm32c0:
+  stm32c0x1:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32c0x1.html
+    rm: RM0490
+    rm_title: STM32C0x1
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0490-stm32c0x1-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32C011
+      - STM32C031
+
 stm32f0:
   stm32f0x0:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x0-value-line.html
@@ -332,6 +342,39 @@ stm32f7:
       - STM32F769
       - STM32F778
       - STM32F779
+
+stm32h5:
+  stm32h503:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32h503.html
+    rm: RM0492
+    rm_title: STM32H503 line Arm®-based 32-bit MCUs
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0492-stm32h503-line-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32H503
+
+  stm32h562:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32h562.html
+    rm: RM0481
+    rm_title: STM32H563/H573 and STM32H562 Arm®-based 32-bit MCUs
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0481-stm32h563h573-and-stm32h562-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32H562
+
+  stm32h563:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32h563-573.html
+    rm: RM0481
+    rm_title: STM32H563/H573 and STM32H562 Arm®-based 32-bit MCUs
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0481-stm32h563h573-and-stm32h562-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32H563
+
+  stm32h573:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32h563-573.html
+    rm: RM0481
+    rm_title: STM32H563/H573 and STM32H562 Arm®-based 32-bit MCUs
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0481-stm32h563h573-and-stm32h562-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32H573
 
 stm32h7:
   stm32h743:
@@ -747,3 +790,13 @@ stm32wb:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00318631-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
     members:
       - STM32WB55
+
+stm32u5:
+  stm32u5x5:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html
+    rm: RM0456
+    rm_title: STM32U575 and STM32U585
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U575
+      - STM32U585

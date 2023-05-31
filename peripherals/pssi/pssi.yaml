@@ -1,0 +1,68 @@
+PSSI:
+  CR:
+    OUTEN:
+      ReceiveMode: [ 0, "Data is input synchronously with PSSI_PDCK" ]
+      TransmitMode: [ 1, "Data is output synchronously with PSSI_PDCK" ]
+
+    DMAEN:
+      Disabled: [ 0, "DMA transfers are disabled. The user application can directly access the PSSI_DR register when DMA transfers are disabled." ]
+      Enabled: [ 1, "DMA transfers are enabled (default configuration). A DMA channel in the general-purpose DMA controller must be configured to perform transfers from/to PSSI_DR" ]
+
+    DERDYCFG:
+      Disabled: [ 0, "PSSI_DE and PSSI_RDY both disabled" ]
+      Rdy: [ 1, "Only PSSI_RDY enabled" ]
+      De: [ 2, "Only PSSI_DE enabled" ]
+      RdyDeAlt: [ 3, "Both PSSI_RDY and PSSI_DE alternate functions enabled" ]
+      RdyDe: [ 4, "Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_RDY pin" ]
+      RdyRemapped: [ 5, "Only PSSI_RDY function enabled, but mapped to PSSI_DE pin" ]
+      DeRemapped: [ 6, "Only PSSI_DE function enabled, but mapped to PSSI_RDY pin" ]
+      RdyDeBidi: [ 7, "Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_DE pin" ]
+
+    ENABLE:
+      Disabled: [ 0, "PSSI disabled" ]
+      Enabled: [ 1, "PSSI enabled" ]
+
+    EDM:
+      BitWidth8: [ 0, "Interface captures 8-bit data on every parallel data clock" ]
+      BitWidth16: [ 3, "The interface captures 16-bit data on every parallel data clock" ]
+
+    RDYPOL:
+      ActiveLow: [ 0, "PSSI_RDY active low (0 indicates that the receiver is ready to receive)" ]
+      ActiveHigh: [ 1, "PSSI_RDY active high (1 indicates that the receiver is ready to receive)" ]
+
+    DEPOL:
+      ActiveLow: [ 0, "PSSI_DE active low (0 indicates that data is valid)" ]
+      ActiveHigh: [ 1, "PSSI_DE active high (1 indicates that data is valid)" ]
+
+    CKPOL:
+      FallingEdge: [ 0, "Falling edge active for inputs or rising edge active for outputs" ]
+      RisingEdge: [ 1, "Rising edge active for inputs or falling edge active for outputs" ]
+
+  SR:
+    RTT1B:
+      Ready: [ 1, "FIFO is ready for a one byte (32-bit) transfer. In receive mode, this means that at least one valid data byte is in the FIFO. In transmit mode, this means that there is at least one byte free in the FIFO" ]
+      NotReady: [ 0, "FIFO is not ready for a 1-byte transfer" ]
+
+    RTT4B:
+      Ready: [ 1, "FIFO is ready for a four-byte (32-bit) transfer. In receive mode, this means that at least four valid data bytes are in the FIFO. In transmit mode, this means that there are at least four bytes free in the FIFO" ]
+      NotReady: [ 0, "FIFO is not ready for a four-byte transfer" ]
+
+  RIS:
+    OVR_RIS:
+      Cleared: [ 0, "No overrun/underrun occurred" ]
+      Occurred: [ 1, "An overrun/underrun occurred: overrun in receive mode, underrun in transmit mode. This bit is cleared by writing a 1 to the OVR_ISC bit in PSSI_ICR" ]
+
+  IER:
+    OVR_IE:
+      Disabled: [ 0, "No interrupt generation" ]
+      Enabled: [ 1, "An interrupt is generated if either an overrun or an underrun error occurred" ]
+
+  MIS:
+    OVR_MIS:
+      Disabled: [ 0, "No interrupt is generated when an overrun/underrun error occurs" ]
+      Enabled: [ 1, "An interrupt is generated if there is either an overrun or an underrun error and the OVR_IE bit is set in PSSI_IER" ]
+
+  ICR:
+    OVR_ISC:
+      Clear: [ 1, "Writing this bit to 1 clears the OVR_RIS bit in PSSI_RIS" ]
+

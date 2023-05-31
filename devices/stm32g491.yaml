@@ -20,6 +20,7 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
+ - common_patches/dma/dma_v1.yaml
  - ./common_patches/rcc/g4.yaml
  - ./common_patches/exti/g4.yaml
  - ./common_patches/fdcan/fdcan_g4.yaml
@@ -46,3 +47,4 @@ _include:
  - ../peripherals/rcc/rcc_g4.yaml
  - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
+ - ../peripherals/flash/flash_g4.yaml

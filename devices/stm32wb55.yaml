@@ -108,15 +108,22 @@ SYSCFG:
     SIPCR:
       addressOffset: 0x110
 
+
 TIM2:
   CNT:
-    _delete:
-      - CNT_H
+    _add:
+      UIFREMAP_CNT:
+        description: Counter value when CR1.UIFREMAP=1
+        bitOffset: 0
+        bitWidth: 31
     _modify:
+      UIFCPY:
+        description: Copy of ISR.UIF when CR1.UIFREMAP=1
+      CNT_H:
+        bitWidth: 16
+        bitOffset: 16
       CNT_L:
-        name: CNT
-        description: Counter value
-        bitWidth: 32
+        bitOffset: 0
 
 TIM16:
   _add:
@@ -299,3 +306,4 @@ _include:
  - ./common_patches/adc/wb_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
  - common_patches/hsem/array.yaml
+ - common_patches/tim/tim2_32bit.yaml

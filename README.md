@@ -1,6 +1,7 @@
 # STM32 Peripheral Access Crates
 
 [![CI](https://github.com/stm32-rs/stm32-rs/workflows/CI/badge.svg?branch=master)](https://github.com/stm32-rs/stm32-rs)
+[![crates.io](https://img.shields.io/crates/v/stm32c0.svg?label=stm32c0)](https://crates.io/crates/stm32c0)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
@@ -9,6 +10,7 @@
 [![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
 [![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
 [![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
+[![crates.io](https://img.shields.io/crates/v/stm32h5.svg?label=stm32h5)](https://crates.io/crates/stm32h5)
 [![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
@@ -95,11 +97,15 @@ contain the latest patches and updates.
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.10.0`
-        * `cargo install svdtools --version 0.2.6`
-        * `cargo install svd2rust --version 0.26.0`
+        * `cargo install svdtools --version 0.3.0`
+        * `cargo install svd2rust --version 0.28.0`
+        * `cargo install svd2html --version 0.1.3`
 * Install rustfmt: `rustup component add rustfmt`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
+    * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
+        * `cargo install cargo-make`
+        * `cargo make patch`
 * Generate svd2rust device crates: `make svd2rust`
 * Optional: Format device crates: `make form`
 
@@ -130,6 +136,7 @@ This project is still young and there's a lot to do!
 
 ## Supported Device Families
 
+[![crates.io](https://img.shields.io/crates/v/stm32c0.svg?label=stm32c0)](https://crates.io/crates/stm32c0)
 [![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
 [![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
 [![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
@@ -138,6 +145,7 @@ This project is still young and there's a lot to do!
 [![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
 [![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
 [![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
+[![crates.io](https://img.shields.io/crates/v/stm32h5.svg?label=stm32h5)](https://crates.io/crates/stm32h5)
 [![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
 [![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
@@ -166,18 +174,29 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
 * Run `svd/extract.sh` to extract the zips into `svd` (ignored in git).
 * Add new YAML file in `devices/` with the new SVD path and include any
   required SVD patches for this device, such as renaming or merging fields.
+* Add the new devices to `stm32_part_table.yaml`.
+* Add the new devices `scripts/makecrates.py`.
 * You can run `scripts/matchperipherals.py` script to find out what existing
   peripherals could be cleanly applied to this new SVD. If they look sensible,
-  you can include them in your device YAML.
+  you can include them in your device YAML.  This requires a Python environment with the `pyyaml`
+  and `svdtools` dependencies.
+  Example command: `python scripts/matchperipherals.py peripherals/rcc devices/stm32h562.yaml`
 * Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.
 
+If adding a new STM32 family (not just a new device to an existing family), complete
+these steps as well:
+
+* Add the new devices to the `CRATES` field in `Makefile`.
+* Update this Readme to include the new devices.
+* Add the devices to `workflows/ci.yaml` and `workflows/nightlies.yaml`.
+
 ## Updating Existing Devices/Peripherals
 
-* You'll need to run `svd/extract.sh` at least once to pull the SVDs out.
+* Using Linux, run `svd/extract.sh` at least once to pull the SVDs out.
 * Edit the device or peripheral YAML (see below for format).
-* Run `make` to rebuild all the crates using `svd patch` and `svd2rust`.
+* Using Linux, run `make` to rebuild all the crates using `svd patch` and `svd2rust`.
 * Test your new stuff compiles: `cd stm32f4; cargo build --features stm32f405`
 
 If you've added a new peripheral, consider using the `matchperipherals.py`

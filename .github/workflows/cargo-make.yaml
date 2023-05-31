@@ -1,0 +1,54 @@
+name: Cargo Make
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  merge_group:
+
+jobs:
+  cargo_make:
+    name: Cargo Make
+    runs-on: ubuntu-latest
+
+    env:
+      CRATES: stm32f0
+      CARGO_INCREMENTAL: 0
+      SVDTOOLS: svdtools
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Install cargo-make
+        run: |
+          wget https://github.com/sagiegurari/cargo-make/releases/download/0.36.8/cargo-make-v0.36.8-x86_64-unknown-linux-gnu.zip
+          unzip cargo-make-*.zip
+          mv cargo-make*/cargo-make $HOME/.cargo/bin
+
+      - name: Create working crate
+        run: cargo make crates
+
+      - name: Install tools
+        run: cargo make install
+
+      - name: Patch SVDs
+        run: cargo make patch
+
+      - name: Build PACs
+        run: cargo make svd2rust
+
+      - name: Format PACs
+        run: cargo make form
+
+      - name: Check PACs
+        run: cargo make check-patched
+
+      - name: Clean up
+        run: cargo make clean-all

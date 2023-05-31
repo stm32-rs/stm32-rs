@@ -46,174 +46,24 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
-"DMA[1-2]":
-  "CNDTR[2-4]":
-    _add:
-      NDT:
-        description: Number of data to transfer
-        bitOffset: 0
-        bitWidth: 18
-    _delete:
-      - MA
-  "CNDTR[6-8]":
-    _add:
-      NDT:
-        description: Number of data to transfer
-        bitOffset: 0
-        bitWidth: 16
-    _delete:
-      - MA
-
-# exclude CCR1 and CCR5, since they already contains the correct regs
-  "CCR[2-4]":
-    _add:
-      MEM2MEM:
-        description: Memory to memory mode
-        bitOffset: 14
-        bitWidth: 1
-      PL:
-        description: Channel priority level
-        bitOffset: 12
-        bitWidth: 2
-      MSIZE:
-        description: Memory size
-        bitOffset: 10
-        bitWidth: 2
-      PSIZE:
-        description: Peripheral size
-        bitOffset: 8
-        bitWidth: 2
-      MINC:
-        description: Memory increment mdoe
-        bitOffset: 7
-        bitWidth: 1
-      PINC:
-        description: Peripheral increment mode
-        bitOffset: 7
-        bitWidth: 1
-      CIRC:
-        description: Ciruclar mode
-        bitOffset: 5
-        bitWidth: 1
-      DIR:
-        description: Data transfer direction
-        bitOffset: 4
-        bitWidth: 1
-      TEIE:
-        description: Transfer error interupt enable
-        bitOffset: 3
-        bitWidth: 1
-      HTIE:
-        description: Half transfer interrupt enable
-        bitOffset: 2
-        bitWidth: 1
-      TCIE:
-        description: Transfer complete interrupt enable
-        bitOffset: 1
-        bitWidth: 1
-      EN:
-        description: Channel enable
-        bitOffset: 0
-        bitWidth: 1
-      DBM:
-        description: double-buffer mode
-        bitOffset: 15
-        bitWidth: 1
-      CT:
-        description: Current target memory of DMA transfer in double-bufer mode
-        bitOffset: 16
-        bitWidth: 1
-      SECM:
-        bitOffset: 17
-        bitWidth: 1
-      SSEC:
-        bitOffset: 18
-        bitWidth: 1
-      DSEC:
-        bitOffset: 19
-        bitWidth: 1
-      PRIV:
-        description: privileged mode
-        bitOffset: 20
-        bitWidth: 1
-    _delete:
-      - MA
-  "CCR[6-8]":
-    _add:
-      MEM2MEM:
-        description: Memory to memory mode
-        bitOffset: 14
-        bitWidth: 1
-      PL:
-        description: Channel priority level
-        bitOffset: 12
-        bitWidth: 2
-      MSIZE:
-        description: Memory size
-        bitOffset: 10
-        bitWidth: 2
-      PSIZE:
-        description: Peripheral size
-        bitOffset: 8
-        bitWidth: 2
-      MINC:
-        description: Memory increment mdoe
-        bitOffset: 7
-        bitWidth: 1
-      PINC:
-        description: Peripheral increment mode
-        bitOffset: 7
-        bitWidth: 1
-      CIRC:
-        description: Ciruclar mode
-        bitOffset: 5
-        bitWidth: 1
-      DIR:
-        description: Data transfer direction
-        bitOffset: 4
-        bitWidth: 1
-      TEIE:
-        description: Transfer error interupt enable
-        bitOffset: 3
-        bitWidth: 1
-      HTIE:
-        description: Half transfer interrupt enable
-        bitOffset: 2
-        bitWidth: 1
-      TCIE:
-        description: Transfer complete interrupt enable
-        bitOffset: 1
-        bitWidth: 1
-      EN:
-        description: Channel enable
-        bitOffset: 0
-        bitWidth: 1
-      DBM:
-        description: double-buffer mode
-        bitOffset: 15
-        bitWidth: 1
-      CT:
-        description: Current target memory of DMA transfer in double-bufer mode
-        bitOffset: 16
-        bitWidth: 1
-      SECM:
-        bitOffset: 17
-        bitWidth: 1
-      SSEC:
-        bitOffset: 18
-        bitWidth: 1
-      DSEC:
-        bitOffset: 19
-        bitWidth: 1
-      PRIV:
-        description: privileged mode
-        bitOffset: 20
-        bitWidth: 1
-    _delete:
-      - MA
+_cluster:
+  "CH%s":
+    description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR?, and CM1AR? registers"
+    "CCR?":
+      name: CR
+    "CNDTR?":
+      name: NDTR
+    "CPAR?":
+      name: PAR
+    "CM0AR?":
+      name: M0AR
+    "CM1AR?":
+      name: M1AR
 
 _include:
  - common_patches/dma/interrupt_names.yaml
+ - common_patches/flash/l5_array.yaml
+ - common_patches/icache/l5.yaml
  - ../peripherals/gpio/gpio_l5.yaml
  - ../peripherals/rcc/rcc_l5.yaml
  - common_patches/sai/sai_v1.yaml

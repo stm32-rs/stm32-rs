@@ -12,7 +12,11 @@ USB:
       Requested: [1, "LPM L1 request requested"]
   ISTR:
     L1REQ:
-      Received: [1, "LPM command to enter the L1 state is successfully received and acknowledged"]
+      _read:
+        NotReceived: [0, "LPM command to enter the L1 state is not received"]
+        Received: [1, "LPM command to enter the L1 state is successfully received and acknowledged"]
+      _W0C:
+        Clear: [0, "Clear flag"]
   LPMCSR:
     BESL: [0, 0b1111]
     REMWAKE:

@@ -4,31 +4,31 @@
       _read:
         NotStarted: [0, "No regular channel conversion started"]
         Started: [1, "Regular channel conversion has started"]
-      _write:
+      _W0C:
         Clear: [0, "Clear the Regular channel Start flag"]
     JSTRT:
       _read:
         NotStarted: [0, "No injected group conversion started"]
         Started: [1, "Injected group conversion has started"]
-      _write:
+      _W0C:
         Clear: [0, "Clear Injected channel Start flag"]
     JEOC:
       _read:
         NotComplete: [0, "Conversion is not complete"]
         Complete: [1, "Conversion complete"]
-      _write:
+      _W0C:
         Clear: [0, "Clear Injected channel end of conversion flag"]
     EOC:
       _read:
         NotComplete: [0, "Conversion is not complete"]
         Complete: [1, "Conversion complete"]
-      _write:
+      _W0C:
         Clear: [0, "Clear End of conversion flag"]
     AWD:
       _read:
         NoEvent: [0, "No analog watchdog event occurred"]
         Event: [1, "Analog watchdog event occurred"]
-      _write:
+      _W0C:
         Clear: [0, "Clear the analog watchdog event flag"]
 
   CR1:

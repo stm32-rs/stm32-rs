@@ -18,11 +18,11 @@ TIM1:
       RisingOC5_6: [0b1110, "Compare Pulse - OC5REFC or OC6REFC rising edges generate pulses on TRGO2"]
       RisingOC5_FallingOC6: [0b1111, "Compare Pulse - OC5REFC rising or OC6REFC falling edges generate pulses on TRGO2"]
     OIS?N:
-      Disabled: [0, "OCxN=0 after a dead-time when MOE=0"]
-      Enabled: [1, "OCxN=1 after a dead-time when MOE=0"]
+      Reset: [0, "OCxN=0 after a dead-time when MOE=0"]
+      Set: [1, "OCxN=1 after a dead-time when MOE=0"]
     OIS?:
-      Disabled: [0, "OCx=0 (after a dead-time if OCx(N) is implemented) when MOE=0"]
-      Enabled: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
+      Reset: [0, "OCx=0 (after a dead-time if OCx(N) is implemented) when MOE=0"]
+      Set: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
     CCUS:
       Bit: [0, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only"]
       BitOrEdge: [1, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit or when an rising edge occurs on TRGI"]
@@ -49,19 +49,19 @@ TIM1:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the system break input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     B2IF:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the break 2 input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
     BIF:
       _read:
         NoTrigger: [0, "No break event occurred"]
         Trigger: [1, "An active level has been detected on the break input. An interrupt is generated if BIE=1 in the TIMx_DIER register"]
-      _write:
+      _W0C:
         Clear: [0, "Clear flag"]
 
   EGR:

@@ -1,14 +1,24 @@
-# For F446, F469, F479
+# For F215, F217, F401, F411
 
 OTG_FS_GLOBAL:
-  _copy:
-    DIEPTXF4:
-      _from: DIEPTXF1
-      addressOffset: 0x110
-    DIEPTXF5:
-      _from: DIEPTXF1
-      addressOffset: 0x114
+  GINTMSK:
+    _modify:
+      PRTIM:
+        access: read-write
+  GCCFG:
+    _add:
+      NOVBUSSENS:
+        description: Vbus sensing disable option
+        bitOffset: 21
+        bitWidth: 1
 
+  GRXSTSR_Host:
+    _delete:
+      - FRMNUM
+    _modify:
+      EPNUM:
+        name: CHNUM
+        description: Channel number
   _add:
     GRXSTSP_Device:
       description: OTG status read and pop (device mode)
@@ -17,10 +27,6 @@ OTG_FS_GLOBAL:
       resetValue: 0x00000000
       access: read-only
       fields:
-        STSPHST:
-          description: Status phase start
-          bitOffset: 27
-          bitWidth: 1
         FRMNUM:
           description: Frame number
           bitOffset: 21
@@ -41,7 +47,6 @@ OTG_FS_GLOBAL:
           description: Endpoint number
           bitOffset: 0
           bitWidth: 4
-
     GRXSTSP_Host:
       description: OTG status read and pop (host mode)
       addressOffset: 0x20
@@ -66,16 +71,14 @@ OTG_FS_GLOBAL:
           description: Channel number
           bitOffset: 0
           bitWidth: 4
-
-    GLPMCFG:
-      addressOffset: 0x54
-      # TODO
-
   _modify:
-    CID:
-      name: OTG_CID
-      resetValue: 0x00002000
-
+    GRXSTSR_Host:
+      description: OTG status debug read (host mode)
+      addressOffset: 0x1C
+      size: 32
+      resetValue: 0x00000000
+      access: read-only
+      alternateRegister: GRXSTSR_Device
     GNPTXFSIZ_Device:
       name: DIEPTXF0
       displayName: DIEPTXF0
@@ -86,76 +89,34 @@ OTG_FS_GLOBAL:
       alternateRegister: DIEPTXF0
 
   _array:
-    DIEPTXF[12345]:
+    DIEPTXF[1-5]:
       displayName: DIEPTXF%s
       description: OTF_FS device IN endpoint transmit FIFO size register
 
+OTG_FS_HOST:
+  HCFG:
+    _modify:
+      FSLSS:
+        access: read-write
+  _include:
+    - fs_host_array.yaml
 
 OTG_FS_DEVICE:
-  _copy:
-    DIEPCTL4:
-      _from: DIEPCTL1
-      addressOffset: 0x180
-      description: OTG device endpoint-4 control register
-    DIEPCTL5:
-      _from: DIEPCTL1
-      addressOffset: 0x1A0
-      description: OTG device endpoint-5 control register
-    DIEPINT4:
-      _from: DIEPINT1
-      addressOffset: 0x188
-      description: device endpoint-4 interrupt register
-    DIEPINT5:
-      _from: DIEPINT1
-      addressOffset: 0x1A8
-      description: device endpoint-5 interrupt register
-    DTXFSTS4:
-      _from: DTXFSTS1
-      addressOffset: 0x198
-    DTXFSTS5:
-      _from: DTXFSTS1
-      addressOffset: 0x1B8
-    DIEPTSIZ4:
-      _from: DIEPTSIZ1
-      addressOffset: 0x190
-    DIEPTSIZ5:
-      _from: DIEPTSIZ1
-      addressOffset: 0x1b0
-    DOEPCTL4:
-      _from: DOEPCTL1
-      addressOffset: 0x380
-    DOEPCTL5:
-      _from: DOEPCTL1
-      addressOffset: 0x3a0
-    DOEPINT4:
-      _from: DOEPINT1
-      addressOffset: 0x388
-    DOEPINT5:
-      _from: DOEPINT1
-      addressOffset: 0x3a8
-    DOEPTSIZ4:
-      _from: DOEPTSIZ1
-      addressOffset: 0x390
-    DOEPTSIZ5:
-      _from: DOEPTSIZ1
-      addressOffset: 0x3b0
-
-  DIEPCTL0:
+  DIEPCTL*:
     _modify:
       EPENA:
         access: read-write
-
-  DIEPCTL*:
-    _modify:
       Stall:
         name: STALL
-        description: STALL
+        description: STALL handshake
 
   DOEPCTL*:
     _modify:
+      EPENA:
+        access: read-write
       Stall:
         name: STALL
-        description: STALL
+        description: STALL handshake
 
   DAINTMSK:
     _modify:
@@ -163,11 +124,6 @@ OTG_FS_DEVICE:
         name: OEPM
         description: OUT EP interrupt mask bits
 
-  _array:
-    DIEPCTL[12345]: {}
-    DIEPINT[12345]: {}
-    DIEPTSIZ[12345]: {}
-    DOEPCTL[12345]: {}
-    DOEPINT[12345]: {}
-    DOEPTSIZ[12345]: {}
-    DTXFSTS[12345]: {}
+  _include:
+    - fs_device_cluster.yaml
+

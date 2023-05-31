@@ -4,6 +4,7 @@
 
 _include:
  - ./crc_basic.yaml
+ - ./crc_rev.yaml
 
 CRC:
   _add:
@@ -34,16 +35,9 @@ CRC:
 
   DR8:
     DR8: [0, 255]
+
   DR16:
     DR16: [0, 65535]
-  CR:
-    REV_IN:
-      Normal: [0, "Bit order not affected"]
-      Byte: [1, "Bit reversal done by byte"]
-      HalfWord: [2, "Bit reversal done by half-word"]
-      Word: [3, "Bit reversal done by word"]
-    REV_OUT:
-      Normal: [0, "Bit order not affected"]
-      Reversed: [1, "Bit reversed output"]
+
   INIT:
     INIT: [0, 4294967295]

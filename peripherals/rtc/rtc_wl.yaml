@@ -50,7 +50,7 @@ RTC:
       _read:
         NotSynced: [0, "Calendar shadow registers not yet synchronized"]
         Synced: [1, "Calendar shadow registers synchronized"]
-      _write:
+      _W0C:
         Clear: [0, "This flag is cleared by software by writing 0"]
     INITS:
       _read:
