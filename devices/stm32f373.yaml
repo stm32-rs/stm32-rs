@@ -134,6 +134,16 @@ MPU:
   _strip:
     - "MPU_"
 
+"TIM[34679],TIM1?":
+  _modify:
+    "?*":
+      size: 16
+
+"TIM[25]":
+  _modify:
+    "CR?,SMCR,DIER,SR,EGR,CCMR?_Output,CCMR?_Input,CCER,PSC,DCR,DMAR,TIM?_OR":
+      size: 16
+
 _include:
  - common_patches/cec/cfgr.yaml
  - ../peripherals/hdmi_cec.yaml
