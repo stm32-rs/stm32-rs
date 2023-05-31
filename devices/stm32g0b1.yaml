@@ -10,18 +10,25 @@ _delete:
   - DMA2
 
 TIM1:
-  _modify:
-    _interrupts:
-      TIM1_BRK_UP_TRG_COM:
-        description: TIM1 break, update, trigger and commutation interrupts
   _strip:
     - "TIM1_"
 
-"TIM1,TIM2":
+# Disabled to have TIM2 have a 32 bit cnt always
+TIM2:
+  _delete:
+    - "CNT_ALTERNATE5"
+
+"TIM1,TIM2,TIM15,TIM16":
   CCMR1_Output:
     _modify:
       OC1M1:
         name: OC1M
+      OC1M2:
+        name: OC1M_3
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
 
 DMAMUX:
   _strip:
@@ -31,26 +38,27 @@ DAC:
   _strip:
     - "DAC_"
 
-CRC:
-  _strip:
-    - "CRC_"
-
-DBG:
-  _strip:
-    - "DBG_"
-
 IWDG:
   _strip:
     - "IWDG_"
 
+I2C*:
+  _strip:
+    - "I2C_"
 WWDG:
   _strip:
     - "WWDG_"
 
-VREFBUF:
+SPI*:
   _strip:
-    - "VREFBUF_"
+    - "SPI_"
 
+RTC:
+  _strip:
+    - "RTC_"
+TAMP:
+  _strip:
+    - "TAMP_"
 USB:
   _strip:
     - "USB_"
@@ -63,14 +71,30 @@ ADC:
       name: CHSELR0
     CHSELR_1:
       name: CHSELR1
+  CFGR1:
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+  DR:
+    _modify:
+      regularDATA:
+        name: DATA
+
+CRC:
+  _strip:
+    - "CRC_"
+
+DBG:
+  _strip:
+    - "DBG_"
+
+VREFBUF:
+  _strip:
+    - "VREFBUF_"
 
 "FDCAN?":
   _strip:
     - FDCAN_
-
-I2C*:
-  _strip:
-    - "I2C_"
 
 LPTIM*:
   _strip:
@@ -79,18 +103,6 @@ LPTIM*:
 LPUART*:
   _strip:
     - "LPUART_"
-
-RTC:
-  _strip:
-    - "RTC_"
-
-SPI*:
-  _strip:
-    - "SPI_"
-
-TAMP:
-  _strip:
-    - "TAMP_"
 
 UCPD*:
   _strip:
@@ -101,27 +113,43 @@ SPI1:
     "*":
       size: 32
 
+RCC:
+  _modify:
+    PLLCFGR:
+      name: PLLSYSCFGR
+
+# Disabling FIFO by default for CR1 and ISR
+"USART?":
+  _delete:
+    - CR1_FIFO_ENABLED
+    - ISR_FIFO_ENABLED
+  _modify:
+    CR1_FIFO_DISABLED:
+      name: CR1
+    ISR_FIFO_DISABLED:
+      name: ISR
+
 _include:
- - ./common_patches/nvic/2_prio_bits.yaml
- - ../peripherals/dma/dma_v1.yaml
- - ./common_patches/dma/g0_add_dma1_7ch.yaml
- - ./common_patches/dma/g0_add_dma2_5ch.yaml
- - common_patches/tim/v2/g0_1.yaml
- - ../peripherals/usb/g0_enum.yaml
- - ../peripherals/exti/exti_g0.yaml
- - ../peripherals/tim/v2/ccm.yaml
- - ../peripherals/gpio/gpio_g0_l0.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
- - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
-# TODO: usart CR1
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
- - ../peripherals/adc/adc_wl.yaml
- - common_patches/tim/common.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - ./common_patches/flash/g0.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/tamp_bkpr.yaml
+  - ./common_patches/nvic/2_prio_bits.yaml
+  - ../peripherals/exti/exti_g0.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - ./common_patches/dma/g0_add_dma1_7ch.yaml
+  - ./common_patches/dma/g0_add_dma2_5ch.yaml
+  - ./common_patches/dma/g0_add_dmamux_c7cr_c11cr.yaml
+  - common_patches/tim/v2/g0_1.yaml
+  - ../peripherals/usb/g0_enum.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - ../peripherals/wwdg/wwdg_v2.yaml
+  - ../peripherals/adc/adc_wl.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ./common_patches/tim/tim2_32bit.yaml
+  - ./common_patches/flash/g0.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/tamp_bkpr.yaml
