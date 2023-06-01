@@ -50,8 +50,10 @@ _include:
  - common_patches/cryp/cryp_v1.yaml
  - common_patches/rcc/f2.yaml
  - common_patches/fsmc/fsmc_sram.yaml
+ - common_patches/fsmc/fsmc_sramfix_common.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - common_patches/fsmc/fsmc_nand_v1.yaml
+ - common_patches/fsmc/fsmc_nand_pio.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/fsmc/fsmc_sram_bwtr_busturn.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml

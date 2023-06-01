@@ -70,10 +70,6 @@
       Clear: [1, "Refresh Error Flag is cleared"]
 
   SDSR:
-    # TODO:
-    # BUSY:
-    #   NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
-    #   Busy: [1, "SDRAM Controller is not ready to accept a new request"]
     "MODES?":
       Normal: [0, "Normal Mode"]
       SelfRefresh: [1, "Self-refresh mode"]

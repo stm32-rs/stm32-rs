@@ -133,6 +133,16 @@ _include:
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - common_patches/fsmc/fsmc_nand_v1.yaml
+ - common_patches/fsmc/fsmc_nand_pio.yaml
+ - common_patches/fsmc/fsmc_sramfix_v3.yaml
+ - common_patches/fsmc/fsmc_sramfix_v3.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_nand_ptyp.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_cclken1.yaml
+ - ../peripherals/fsmc/fsmc_wrapmod.yaml
+ - ../peripherals/fsmc/fsmc_pio.yaml
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
