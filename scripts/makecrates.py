@@ -81,6 +81,7 @@ critical-section = {{ version = "1.0", optional = true }}
 cortex-m = "0.7.6"
 cortex-m-rt = {{ version = ">=0.6.15,<0.8", optional = true }}
 vcell = "0.1.3"
+portable-atomic = {{ version = "1", default-features = false }}
 
 [package.metadata.docs.rs]
 features = {docs_features}
