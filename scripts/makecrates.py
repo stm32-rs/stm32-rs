@@ -65,7 +65,7 @@ CRATE_DOC_TARGETS = {
 
 CARGO_TOML_TPL = """\
 [package]
-edition = "2018"
+edition = "2021"
 name = "{crate}"
 version = "{version}"
 authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
@@ -75,6 +75,7 @@ readme = "README.md"
 keywords = ["stm32", "svd2rust", "no_std", "embedded"]
 categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
+rust-version = "1.65"
 
 [dependencies]
 critical-section = {{ version = "1.0", optional = true }}
