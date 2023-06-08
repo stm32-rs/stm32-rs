@@ -6,6 +6,11 @@
 * Updated to svd2rust 0.28.0, svdtools 0.3.0, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
 
+Family-specific:
+
+* F4:
+    * stm32f4: rename `gint` field to `gintmsk` (#848)
+
 ## [v0.15.1] 2022-07-04
 
 * Updated to svd2rust 0.24.1 to fix critical codegen issue (#751)
