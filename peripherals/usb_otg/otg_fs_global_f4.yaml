@@ -1,0 +1,160 @@
+# the main frame of this file was generated from stm32f429.svd.patched
+
+"OTG_FS_GLOBAL":
+  GOTGCTL:
+    BSVLD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    ASVLD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    DBCT:
+    CIDSTS:
+    DHNPEN:
+    HSHNPEN:
+    HNPRQ:
+    HNGSCS:
+    SRQ:
+    SRQSCS:
+
+  GOTGINT:
+    DBCDNE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    ADTOCHG:
+    HNGDET:
+    HNSSCHG:
+    SRSSCHG:
+    SEDET:
+
+  GAHBCFG:
+    PTXFELVL:
+    TXFELVL:
+    GINTMSK:
+
+  GUSBCFG:
+    CTXPKT:
+    FDMOD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    FHMOD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+    TRDT:
+    HNPCAP:
+    SRPCAP:
+    PHYSEL:
+    TOCAL:
+
+  GRSTCTL:
+    AHBIDL:
+    TXFNUM:
+    TXFFLSH:
+    RXFFLSH:
+    FCRST:
+    HSRST:
+    CSRST:
+
+  GINTSTS:
+    WKUPINT:
+    SRQINT:
+    DISCINT:
+    CIDSCHG:
+    PTXFE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    HCINT:
+    HPRTINT:
+    IPXFR_INCOMPISOOUT:
+    IISOIXFR:
+    OEPINT:
+    IEPINT:
+    EOPF:
+    ISOODRP:
+    ENUMDNE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    USBRST:
+    USBSUSP:
+    ESUSP:
+    GOUTNAKEFF:
+    GINAKEFF:
+    NPTXFE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    RXFLVL:
+    SOF:
+    OTGINT:
+    MMIS:
+    CMOD:
+      Enabled: [0, ""]
+      Disabled: [1, ""]
+
+  GINTMSK:
+    WUIM:
+    SRQIM:
+    DISCINT:
+    CIDSCHGM:
+    PTXFEM:
+    HCIM:
+    PRTIM:
+    IPXFRM_IISOOXFRM:
+    IISOIXFRM:
+    OEPINT:
+    IEPINT:
+    EPMISM:
+    EOPFM:
+    ISOODRPM:
+    ENUMDNEM:
+    USBRST:
+    USBSUSPM:
+    ESUSPM:
+    GONAKEFFM:
+    GINAKEFFM:
+    NPTXFEM:
+    RXFLVLM:
+    SOFM:
+    OTGINT:
+    MMISM:
+
+  GRXSTSR_Host:
+    PKTSTS:
+    DPID:
+    BCNT:
+    CHNUM:
+
+  GRXSTSP_Host:
+    PKTSTS:
+    DPID:
+    BCNT:
+    CHNUM:
+
+  GRXFSIZ:
+    RXFD:
+
+  HNPTXFSIZ:
+    NPTXFD:
+    NPTXFSA:
+
+  GNPTXSTS:
+    NPTXQTOP:
+    NPTQXSAV:
+    NPTXFSAV:
+
+  GCCFG:
+    NOVBUSSENS:
+    SOFOUTEN:
+    VBUSBSEN:
+    VBUSASEN:
+    PWRDWN:
+
+  CID:
+    PRODUCT_ID:
+
+  HPTXFSIZ:
+    PTXFSIZ:
+    PTXSA:
+
+  DIEPTXF%s:
+    INEPTXFD:
+    INEPTXSA:
