@@ -3,3 +3,23 @@ OTG_FS_GLOBAL:
     _modify:
       GINT:
         name: GINTMSK
+  GUSBCFG:
+    _modify:
+      CTXPKT:
+        description: "Never set this bit to 1. This bit is for debug purposes only. Corrupt Tx packet."
+      PHYSEL:
+        access: read-only
+  GINTSTS:
+    _modify:
+      IPXFR_INCOMPISOOUT: # 2 state flags are occupied same bit field, "split" them
+        name: IPXFR
+        description: "Incomplete periodic transfer"
+    _add:
+      INCOMPISOOUT: # this flag is "split" from `IPXFR_INCOMPISOOUT` field
+        description: "Incomplete isochronous OUT transfer"
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+  _modify:
+    GNPTXSTS:
+      name: HNPTXSTS
