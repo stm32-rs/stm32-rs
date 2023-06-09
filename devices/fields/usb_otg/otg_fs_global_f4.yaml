@@ -1,0 +1,389 @@
+# Note: if you want to include `OTG_FS_GLOBAL`, `OTG_FS_DEVICE`, `OTG_FS_HOST` and `OTG_FS_PWRCLK`,
+# then try include `../peripherals/otg_fs_f4.yaml` into device yaml file instead.
+#
+# the main frame of this file was generated from stm32f429.svd.patched
+
+GOTGCTL:
+  BSVLD:
+    NotValid: [0, "B-session is not valid"]
+    Valid: [1, "B-session is valid"]
+  ASVLD:
+    NotValid: [0, "A-session is not valid"]
+    Valid: [1, "A-session is valid"]
+  DBCT:
+    Long: [0, "Long debounce time, used for physical connections (100 ms + 2.5 us)"]
+    Short: [1, "Short debounce time, used for soft connections (2.5 us)"]
+  CIDSTS:
+    ADeviceMode: [0, "The OTG_FS controller is in A-device mode"]
+    BDeviceMode: [1, "The OTG_FS controller is in B-device mode"]
+  DHNPEN:
+    NotEnabled: [0, "HNP is not enabled in the application"]
+    Enabled: [1, "HNP is enabled in the application"]
+  HSHNPEN:
+    NotEnabled: [0, "Host Set HNP is not enabled"]
+    Enabled: [1, "Host Set HNP is enabled"]
+  HNPRQ:
+    NotRequested: [0, "No HNP request"]
+    Requested: [1, "HNP request"]
+  HNGSCS:
+    Failure: [0, "Host negotiation failure"]
+    Succeed: [1, "Host negotiation success"]
+  SRQ:
+    NotRequested: [0, "No session request"]
+    Requested: [1, "Session request"]
+  SRQSCS:
+    Failure: [0, "Session request failure"]
+    Succeed: [1, "Session request success"]
+
+GOTGINT:
+  DBCDNE:
+    NotDone: [0, ""]
+    Done: [1, ""]
+  ADTOCHG:
+    NotTimeOut: [0, ""]
+    TimeOut: [1, ""]
+  HNGDET:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  HNSSCHG:
+    Unchanged: [0, ""]
+    Changed: [1, ""]
+  SRSSCHG:
+    Unchanged: [0, ""]
+    Changed: [1, ""]
+  SEDET:
+    NotEnd: [0, ""]
+    Ended: [1, ""]
+
+GAHBCFG:
+  PTXFELVL:
+    HalfEmpty: [0, "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is half empty"]
+    CompletelyEmpty: [1, "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is completely empty"]
+  TXFELVL:
+    HalfEmpty:
+      [
+        0,
+        "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is half empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is half empty",
+      ]
+    CompletelyEmpty:
+      [
+        1,
+        "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is completely empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is completely empty",
+      ]
+  GINTMSK:
+    Masked: [0, "Mask the interrupt assertion to the application"]
+    Unmasked: [1, "Unmask the interrupt assertion to the application"]
+
+GUSBCFG:
+  CTXPKT:
+    KeepAtZero: [0, "Always keep at this variant"]
+    NeverSetToThis: [1, "WARNING: NEVER SET TO THIS VARIANT"]
+  FDMOD:
+    Normal: [0, "Normal mode"]
+    ForceDevice: [1, "Force device mode"]
+  FHMOD:
+    Normal: [0, "Normal mode"]
+    ForceHost: [1, "Force host mode"]
+  TRDT: [0x6, 0xF]
+  HNPCAP:
+    NotEnabled: [0, "HNP capability is not enabled"]
+    Enabled: [1, "HNP capability is enabled"]
+  SRPCAP:
+    NotEnabled: [0, "SRP capability is not enabled"]
+    Enabled: [1, "SRP capability is enabled"]
+  PHYSEL:
+    Impossible: [0, "This variant is NOT POSSIBLE"]
+    Selected: [1, "This variant is always used"]
+  TOCAL: [0, 7]
+
+GRSTCTL:
+  AHBIDL:
+    NotIdle: [0, ""]
+    Idle: [1, ""]
+  TXFNUM:
+    FIFO0_NonPeriodic: [0, ""]
+    FIFO1_Periodic: [1, ""]
+    FIFO2: [2, ""]
+    FIFO3: [3, ""]
+    FIFO4: [4, ""]
+    # There might be a bug in STM32F429's Reference Manual
+    # This vaiant mark as TXFIFO 15, but the value is only 5
+    FIFO5: [5, ""]
+    FIFOAll: [16, ""]
+  TXFFLSH:
+    NotFlush: [0, ""]
+    Flush: [1, ""]
+  RXFFLSH:
+    NotFlush: [0, ""]
+    Flush: [1, ""]
+  FCRST:
+    NotReset: [0, ""]
+    Reset: [1, ""]
+  HSRST:
+    NotReset: [0, ""]
+    Reset: [1, ""]
+  CSRST:
+    NotReset: [0, ""]
+    Reset: [1, ""]
+
+GINTSTS:
+  WKUPINT:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  SRQINT:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  DISCINT:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  CIDSCHG:
+    Unchanged: [0, ""]
+    Changed: [1, ""]
+  PTXFE:
+    NotEmpty: [0, ""]
+    Empty: [1, ""]
+  HCINT:
+    NotPending: [0, ""]
+    Pending: [1, ""]
+  HPRTINT:
+    Unchanged: [0, ""]
+    Changed: [1, ""]
+  IPXFR:
+    Completed: [0, ""]
+    Incompleted: [1, ""]
+  INCOMPISOOUT:
+    Completed: [0, ""]
+    Incompleted: [1, ""]
+  IISOIXFR:
+    Completed: [0, ""]
+    Incompleted: [1, ""]
+  OEPINT:
+    NotPending: [0, ""]
+    Pending: [1, ""]
+  IEPINT:
+    NotPending: [0, ""]
+    Pending: [1, ""]
+  EOPF:
+    NotEnd: [0, ""]
+    Ended: [1, ""]
+  ISOODRP:
+    NotDropped: [0, ""]
+    Dropped: [1, ""]
+  ENUMDNE:
+    NotCompleted: [0, ""]
+    Completed: [1, ""]
+  USBRST:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  USBSUSP:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  ESUSP:
+    NotDetected: [0, ""]
+    Detected: [1, ""]
+  GOUTNAKEFF:
+    NotEffective: [0, ""]
+    Effective: [1, ""]
+  GINAKEFF:
+    NotEffective: [0, ""]
+    Effective: [1, ""]
+  NPTXFE:
+    NotEmpty: [0, ""]
+    Empty: [1, ""]
+  RXFLVL:
+    Empty: [0, ""]
+    NotEmpty: [1, ""]
+  SOF:
+    NotTransmitted: [0, ""]
+    Transmitted: [1, ""]
+  OTGINT:
+    NotOccurred: [0, ""]
+    Occurred: [1, ""]
+  MMIS:
+    Matched: [0, ""]
+    Mismatched: [1, ""]
+  CMOD:
+    DeviceMode: [0, ""]
+    HostMode: [1, ""]
+
+GINTMSK:
+  WUIM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  SRQIM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  DISCINT:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  CIDSCHGM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  PTXFEM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  HCIM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  PRTIM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  IPXFRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  IISOOXFRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  IISOIXFRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  OEPINT:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  IEPINT:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  EPMISM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  EOPFM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  ISOODRPM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  ENUMDNEM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  USBRST:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  USBSUSPM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  ESUSPM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  GONAKEFFM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  GINAKEFFM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  NPTXFEM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  RXFLVLM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  SOFM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  OTGINT:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  MMISM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+
+GRXSTSR_Host:
+  PKTSTS:
+    InDataReceived: [2, "IN data packet received"]
+    InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
+    DataToggleError: [5, "Data toggle error (triggers an interrupt)"]
+    ChannelHalted: [7, "Channel halted (triggers an interrupt)"]
+  DPID:
+    Data0: [0, ""]
+    Data1: [2, ""]
+    Data2: [1, ""]
+    MData: [3, ""]
+  BCNT: [0, 0x7FF]
+  CHNUM: [0, 0xF]
+
+GRXSTSR_Device:
+  FRMNUM: [0, 0xF]
+  PKTSTS:
+    InDataReceived: [2, "IN data packet received"]
+    InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
+    DataToggleError: [5, "Data toggle error (triggers an interrupt)"]
+    ChannelHalted: [7, "Channel halted (triggers an interrupt)"]
+  DPID:
+    Data0: [0, ""]
+    Data1: [2, ""]
+    Data2: [1, ""]
+    MData: [3, ""]
+  BCNT: [0, 0x7FF]
+  EPNUM: [0, 0xF]
+
+GRXSTSP_Host:
+  PKTSTS:
+    InDataReceived: [2, "IN data packet received"]
+    InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
+    DataToggleError: [5, "Data toggle error (triggers an interrupt)"]
+    ChannelHalted: [7, "Channel halted (triggers an interrupt)"]
+  DPID:
+    Data0: [0, ""]
+    Data1: [2, ""]
+    Data2: [1, ""]
+    MData: [3, ""]
+  BCNT: [0, 0x7FF]
+  CHNUM: [0, 0xF]
+
+GRXSTSP_Device:
+  FRMNUM: [0, 0xF]
+  PKTSTS:
+    InDataReceived: [2, "IN data packet received"]
+    InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
+    DataToggleError: [5, "Data toggle error (triggers an interrupt)"]
+    ChannelHalted: [7, "Channel halted (triggers an interrupt)"]
+  DPID:
+    Data0: [0, ""]
+    Data1: [2, ""]
+    Data2: [1, ""]
+    MData: [3, ""]
+  BCNT: [0, 0x7FF]
+  EPNUM: [0, 0xF]
+
+GRXFSIZ:
+  RXFD: [16, 256]
+
+HNPTXFSIZ:
+  NPTXFD: [16, 256]
+  NPTXFSA: [0, 0xFFFF]
+
+DIEPTXF0:
+  TX0FD: [16, 256]
+  TX0FSA: [0, 0xFFFF]
+
+HNPTXSTS:
+  NPTXQTOP: [0, 0x7F]
+  NPTQXSAV: [0, 0xFF]
+  NPTXFSAV: [0, 0xFFFF]
+
+GCCFG:
+  NOVBUSSENS:
+    Avaliable: [0, "Vbus sensing available by hardware"]
+    NotAvaliable: [1, "Vbus sensing not available by hardware"]
+  SOFOUTEN:
+    Avaliable: [0, "SOF pulse not available on PAD (OTG_FS_SOF)"]
+    NotAvaliable: [1, "SOF pulse available on PAD (OTG_FS_SOF)"]
+  VBUSBSEN:
+    Disabled: [0, 'Vbus sensing "B" disabled']
+    Enabled: [1, 'Vbus sensing "B" enabled']
+  VBUSASEN:
+    Disabled: [0, 'Vbus sensing "A" disabled']
+    Enabled: [1, 'Vbus sensing "A" enabled']
+  PWRDWN:
+    PowerDown: [0, "Power down active"]
+    TransceiverActive: [1, 'Power down deactivated ("Transceiver active")']
+
+CID:
+  PRODUCT_ID: [0, 0xFFFF_FFFF]
+
+HPTXFSIZ:
+  PTXFD: [16, 0xFFFF]
+  PTXSA: [0, 0xFFFF]
+
+DIEPTXF[1-3]:
+  INEPTXFD: [16, 0xFFFF]
+  INEPTXSA: [0, 0xFFFF]

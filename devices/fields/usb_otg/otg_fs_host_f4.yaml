@@ -1,0 +1,161 @@
+# Note: if you want to include `OTG_FS_GLOBAL`, `OTG_FS_DEVICE`, `OTG_FS_HOST` and `OTG_FS_PWRCLK`,
+# then try include `../peripherals/otg_fs_f4.yaml` into device yaml file instead.
+#
+# the main frame of this file was generated from stm32f429.svd.patched
+
+HCFG:
+  FSLSS:
+    FSLSOnly: [1, "FS/LS-only, even if the connected device can support HS (read-only)"]
+  FSLSPCS:
+    Clock48MHz: [1, "Select 48 MHz PHY clock frequency"]
+    Clock6MHz: [2, "Select 6 MHz PHY clock frequency"]
+
+HFIR:
+  FRIVL: [0, 0xFFFF]
+
+HFNUM:
+  FTREM: [0, 0xFFFF]
+  FRNUM: [0, 0x3FFF]
+
+HPTXSTS:
+  PTXQTOP: [0, 0xFF]
+  PTXQSAV: [0, 0xFF]
+  PTXFSAVL: [0, 0xFFFF]
+
+HAINT:
+  HAINT: [0, 0xFFFF]
+
+HAINTMSK:
+  HAINTM: [0, 0xFFFF]
+
+HPRT:
+  PSPD:
+    FullSpeed: [1, "Full speed"]
+    LowSpeed: [2, "Low speed"]
+  PTCTL:
+    Disabled: [0, "Test mode disabled"]
+    JMode: [1, "Test_J mode"]
+    KMode: [2, "Test_K mode"]
+    SE0NAK: [3, "Test_SE0_NAK mode"]
+    Packet: [4, "Test_Packet mode"]
+    ForceEnable: [5, "Test_Force_Enable"]
+  PPWR:
+    Off: [0, "Power Off"]
+    On: [1, "Power On"]
+  PLSTS: [0, 3]
+  PRST:
+    NotReset: [0, "Port not in reset"]
+    Reset: [1, "Port in reset"]
+  PSUSP:
+    NotSuspended: [0, "Port not in Suspend mode"]
+    Suspended: [1, "Port in Suspend mode"]
+  PRES:
+    NotDriven: [0, "No resume driven"]
+    Driven: [1, "Resume driven"]
+  POCCHNG: [0, 1]
+  POCA:
+    NoOvercurrent: [0, "No overcurrent condition"]
+    Overcurrent: [1, "Overcurrent condition"]
+  PENCHNG: [0, 1]
+  PENA:
+    Disabled: [0, "Port disabled"]
+    Enabled: [1, "Port enabled"]
+  PCDET: [0, 1]
+  PCSTS:
+    NotAttached: [0, "No device is attached to the port"]
+    Attached: [1, "A device is attached to the port"]
+
+HCCHAR[0-7]:
+  CHENA:
+    Disabled: [0, "Channel disabled"]
+    Enabled: [1, "Channel enabled"]
+  CHDIS: [0, 1]
+  ODDFRM:
+    Even: [0, "Even frame"]
+    Odd: [1, "Odd frame"]
+  DAD: [0, 0x7F]
+  MCNT:
+    One: [1, "1 transaction"]
+    Two: [2, "2 transactions per frame to be issued for this endpoint"]
+    Three: [3, "3 transactions per frame to be issued for this endpoint"]
+  EPTYP:
+    Bulk: [0, "Bulk endpoint"]
+    Control: [1, "Control endpoint"]
+    Iso: [2, "Iso endpoint"]
+    Interrupt: [3, "Interrupt endpoint"]
+  LSDEV: [0, 1]
+  EPDIR:
+    Out: [0, "OUT"]
+    In: [1, "IN"]
+  EPNUM: [0, 0xF]
+  MPSIZ: [0, 0x7FF]
+
+HCINT[0-7]:
+  DTERR:
+    NoError: [0, ""]
+    Error: [1, ""]
+  FRMOR:
+    NoOverrun: [0, ""]
+    Overrun: [1, ""]
+  BBERR:
+    NoError: [0, ""]
+    Error: [1, ""]
+  TXERR:
+    NoError: [0, ""]
+    Error: [1, ""]
+  ACK:
+    NotACK: [0, ""]
+    ACK: [1, ""]
+  NAK:
+    NotNAK: [0, ""]
+    NAK: [1, ""]
+  STALL:
+    NotStall: [0, ""]
+    Stall: [1, ""]
+  CHH:
+    NotHalt: [0, ""]
+    Halt: [1, ""]
+  XFRC:
+    NotCompleted: [0, ""]
+    Completed: [1, ""]
+
+HCINTMSK[0-7]:
+  DTERRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  FRMORM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  BBERRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  TXERRM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  NYET:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  ACKM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  NAKM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  STALLM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  CHHM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+  XFRCM:
+    Masked: [0, "Masked interrupt"]
+    Unmasked: [1, "Unmasked interrupt"]
+
+HCTSIZ[0-7]:
+  DPID:
+    Data0: [0, ""]
+    Data1: [2, ""]
+    Data2: [1, ""]
+    MData: [3, ""]
+  PKTCNT: [0, 0x3FF]
+  XFRSIZ: [0, 0x7_FFFF]

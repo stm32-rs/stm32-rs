@@ -207,6 +207,7 @@ OTG_FS_DEVICE:
   _include:
     - patches/usb_otg/fs_v1_device_ext.yaml
     - patches/usb_otg/fs_v1_device.yaml
+    #- patches/usb_otg/fs_f4_device.yaml # read fs_f4.yaml before activate this
     - collect/usb_otg/fs_device.yaml
 
 # Fix invalid formatting on this alternateRegister field
@@ -219,6 +220,7 @@ OTG_FS_GLOBAL:
   _include:
     - patches/usb_otg/fs_v1_global_ext.yaml
     - patches/usb_otg/fs_v1_global.yaml
+    #- fields/usb_otg/otg_fs_global_f4.yaml # read fs_f4.yaml before activate this
     - collect/usb_otg/fs_global.yaml
 
 OTG_FS_HOST:

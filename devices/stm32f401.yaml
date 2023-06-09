@@ -110,17 +110,24 @@ OTG_FS_*:
 OTG_FS_DEVICE:
   _include:
     - patches/usb_otg/fs_v1_device.yaml
+    - patches/usb_otg/fs_f4_device.yaml
+    - fields/usb_otg/otg_fs_device_f4.yaml
     - collect/usb_otg/fs_device.yaml
 OTG_FS_GLOBAL:
   _include:
     - patches/usb_otg/fs_v1_global.yaml
     - patches/usb_otg/fs_v1_novbussens.yaml
+    - patches/usb_otg/fs_f4_global.yaml
+    - fields/usb_otg/otg_fs_global_f4.yaml
     - collect/usb_otg/fs_global.yaml
 OTG_FS_HOST:
   _include:
     - patches/usb_otg/fs_v1_host.yaml
+    - fields/usb_otg/otg_fs_host_f4.yaml
     - collect/usb_otg/fs_host.yaml
-OTG_FS_PWRCLK: {}
+OTG_FS_PWRCLK:
+  _include:
+    - fields/usb_otg/otg_fs_pwrclk_f4.yaml
 
 PWR:
   CR:
