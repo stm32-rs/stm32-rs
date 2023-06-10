@@ -1,5 +1,4 @@
-env_scripts = [
-'''
+env_scripts = ['''
 #!@duckscript
 crates = get_env CRATES
 crates = array %{crates}
@@ -318,4 +317,6 @@ script = "rm -r .deps"
 [env]
 PYTHON = { value = "python3", condition = { env_not_set = ["PYTHON"] } }
 SVDTOOLS = { value = "svdtools", condition = { env_not_set = ["SVDTOOLS"] } }
-CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = ["CRATES"] } }
+CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = [
+    "CRATES",
+] } }
