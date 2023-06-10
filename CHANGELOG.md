@@ -6,8 +6,10 @@
 * Updated to svd2rust 0.29.0, svdtools 0.3.0, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
+* check `CARGO_HOME` env var before put binary into default place ([#850])
 * remove excutable file perm bit from yaml file ([#854])
 
+[#850]: https://github.com/stm32-rs/stm32-rs/pull/850
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
 ## [v0.15.1] 2022-07-04
