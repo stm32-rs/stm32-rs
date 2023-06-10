@@ -5,46 +5,139 @@
 "OTG_FS_DEVICE":
   DCFG:
     PFIVL:
+      Interval80: [0, "80% of the frame interval"]
+      Interval85: [1, "85% of the frame interval"]
+      Interval90: [2, "90% of the frame interval"]
+      Interval95: [3, "95% of the frame interval"]
     DAD:
+      SendStallDirectly:
+        [
+          0,
+          "Send a STALL handshake on a nonzero-length status OUT transaction and do not send the received OUT packet to the application",
+        ]
+      SendStallByCondition:
+        [
+          1,
+          "Send the received OUT packet to the application (zero-length or nonzero-length) and send a handshake based on the NAK and STALL bits for the endpoint in the Device endpoint control register",
+        ]
     NZLSOHSK:
     DSPD:
+      FullSpeed: [3, "Full speed (USB 1.1 transceiver clock is 48 MHz)"]
 
   DCTL:
     POPRGDNE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
+      NotDone: [0, ""]
+      Done: [1, ""]
     CGONAK:
+      Clear: [1, ""]
     SGONAK:
+      Clear: [1, ""]
     CGINAK:
+      Clear: [1, ""]
     SGINAK:
+      Clear: [1, ""]
     TCTL:
+      Disabled: [0, "Test mode disabled"]
+      JMode: [1, "Test_J mode"]
+      KMode: [2, "Test_K mode"]
+      SE0NAK: [3, "Test_SE0_NAK mode"]
+      Packet: [4, "Test_Packet mode"]
+      ForceEnable: [5, "Test_Force_Enable"]
     GONSTS:
+      ByCondition:
+        [
+          0,
+          "A handshake is sent based on the FIFO Status and the NAK and STALL bit settings",
+        ]
+      AllNAK:
+        [
+          1,
+          "No data is written to the RxFIFO, irrespective of space availability. Sends a NAK handshake on all packets, except on SETUP transactions. All isochronous OUT packets are dropped",
+        ]
     GINSTS:
+      ByCondition:
+        [
+          0,
+          "A handshake is sent out based on the data availability in the transmit FIFO",
+        ]
+      AllNAK:
+        [
+          1,
+          "A NAK handshake is sent out on all non-periodic IN endpoints, irrespective of the data availability in the transmit FIFO",
+        ]
     SDIS:
+      Normal:
+        [
+          0,
+          "Normal operation. When this bit is cleared after a soft disconnect, the core generates a device connect event to the USB host. When the device is reconnected, the USB host restarts device enumeration",
+        ]
+      Disconnect:
+        [1, "The core generates a device disconnect event to the USB host"]
     RWUSIG:
+      Clear: [0, ""]
+      WakeUp: [1, ""]
 
   DSTS:
     FNSOF:
     EERR:
+      Clear: [0, ""]
+      Error: [1, ""]
     ENUMSPD:
+      FullSpeed: [3, "Full speed (PHY clock is running at 48 MHz)"]
     SUSPSTS:
+      Clear: [0, ""]
+      Suspended: [1, ""]
 
   DIEPMSK:
     NAKM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     INEPNEM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     INEPNMM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     ITTXFEMSK:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     TOM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     EPDM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     XFRCM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
 
   DOEPMSK:
+    NAKMSK:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
+    BERRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
+    OUTPKTERRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
+    STSPHSRXM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     OTEPDM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     STUPM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     EPDM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     XFRCM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
 
-  DAINTMSK:
+  DAINT:
     OEPM:
     IEPM:
 
@@ -63,58 +156,163 @@
 
   DIEPCTL0:
     EPENA:
+      Disabled: [0, ""]
+      Enabled: [1, "Start transmitting data on the endpoint 0"]
     EPDIS:
+      Clear: [0, ""]
+      Stop: [1, "Stop transmitting data on an endpoint"]
     SNAK:
+      Clear: [0, ""]
+      Set: [1, ""]
     CNAK:
+      Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
     TXFNUM:
     STALL:
+      Clear:
+        [
+          0,
+          "the core clears it when a SETUP token is received for this endpoint",
+        ]
+      Set: [1, ""]
     EPTYP:
     NAKSTS:
+      ByCondition:
+        [
+          0,
+          "The core is transmitting non-NAK handshakes based on the FIFO status",
+        ]
+      AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
     USBAEP:
     MPSIZ:
+      Byte64: [0, "64 bytes"]
+      Byte32: [1, "32 bytes"]
+      Byte16: [2, "16 bytes"]
+      Byte8: [3, "8 bytes"]
 
   DIEPCTL[1-3]:
     EPENA:
+      Disabled: [0, ""]
+      Enabled: [1, "Start transmitting data on the endpoint 0"]
     EPDIS:
+      Clear: [0, ""]
+      Stop: [1, "Stop transmitting data on an endpoint"]
     SODDFRM:
-    SD0PID_SEVNFRM:
+      OddFrame: [1, "Sets the Even/Odd frame (EONUM) field to Odd frame"]
+    SD0PID:
+      Set:
+        [1, "sets the endpoint data PID (DPID) field in this register to DATA0"]
+    SEVNFRM:
+      EvenFrame: [1, "Sets the Even/Odd frame (EONUM) field to even frame"]
     SNAK:
+      Set: [1, "sets the NAK bit for the endpoint"]
     CNAK:
+      Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
+    TXFNUM:
     STALL:
-    SNPM:
+      Clear: [0, ""]
+      Stall: [1, "Stall all tokens from the USB host to this endpoint"]
     EPTYP:
+      Control: [0, ""]
+      Isochronous: [1, ""]
+      Bulk: [2, ""]
+      Interrupt: [3, ""]
     NAKSTS:
-    EONUM_DPID:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
+      ByCondition:
+        [
+          0,
+          "The core is transmitting non-NAK handshakes based on the FIFO status",
+        ]
+      AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
+    EONUM:
+      Even: [0, "Even frame"]
+      Odd: [1, "Odd frame"]
+    DPID:
+      Data0: [0, "DATA0"]
+      Data1: [1, "DATA1"]
     USBAEP:
+      Inactive: [0, "Endpoint is inactive"]
+      Active: [1, "Endpoint is active"]
     MPSIZ:
 
   DOEPCTL0:
     EPENA:
+      Disabled: [0, ""]
+      Enabled: [1, "Start transmitting data on the endpoint 0"]
     EPDIS:
     SNAK:
+      Clear: [0, ""]
+      Set: [1, ""]
     CNAK:
+      Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
     STALL:
+      Clear: [0, ""]
+      Set: [1, ""]
     SNPM:
+      Clear: [0, ""]
+      Set: [1, ""]
     EPTYP:
     NAKSTS:
+      ByCondition:
+        [
+          0,
+          "The core is transmitting non-NAK handshakes based on the FIFO status",
+        ]
+      AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
     USBAEP:
     MPSIZ:
+      Byte64: [0, "64 bytes"]
+      Byte32: [1, "32 bytes"]
+      Byte16: [2, "16 bytes"]
+      Byte8: [3, "8 bytes"]
 
   DOEPCTL[1-3]:
     EPENA:
+      Disabled: [0, ""]
+      Enabled: [1, "Start transmitting data on an endpoint"]
     EPDIS:
-    SODDFRM_SD1PID:
-    SD0PID_SEVNFRM:
+      Clear: [0, ""]
+      Stop: [1, "Stop transmitting data on an endpoint"]
+    SD1PID:
+      Set:
+        [1, "sets the endpoint data PID (DPID) field in this register to DATA1"]
+    SODDFRM:
+      OddFrame: [1, "Sets the Even/Odd frame (EONUM) field to Odd frame"]
+    SD0PID:
+      Set:
+        [1, "sets the endpoint data PID (DPID) field in this register to DATA0"]
+    SEVNFRM:
+      EvenFrame: [1, "Sets the Even/Odd frame (EONUM) field to even frame"]
     SNAK:
+      Set: [1, "sets the NAK bit for the endpoint"]
     CNAK:
+      Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
     STALL:
+      Clear: [0, ""]
+      Stall: [1, "Stall all tokens from the USB host to this endpoint"]
     SNPM:
+      Clear: [0, ""]
+      Set: [1, ""]
     EPTYP:
+      Control: [0, ""]
+      Isochronous: [1, ""]
+      Bulk: [2, ""]
+      Interrupt: [3, ""]
     NAKSTS:
-    EONUM_DPID:
+      ByCondition:
+        [
+          0,
+          "The core is transmitting non-NAK handshakes based on the FIFO status",
+        ]
+      AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
+    EONUM:
+      Even: [0, "Even frame"]
+      Odd: [1, "Odd frame"]
+    DPID:
+      Data0: [0, "DATA0"]
+      Data1: [1, "DATA1"]
     USBAEP:
+      Inactive: [0, "Endpoint is inactive"]
+      Active: [1, "Endpoint is active"]
     MPSIZ:
 
   DIEPINT[0-3]:
@@ -136,17 +334,17 @@
     OTEPDIS:
     STUP:
     EPDISD:
-      Enabled: [0, ""]
-      Disabled: [1, ""]
     XFRC:
 
   DIEPTSIZ0:
     PKTCNT:
     XFRSIZ:
 
-
   DOEPTSIZ0:
     STUPCNT:
+      Packet1: [1, "1 packet"]
+      Packet2: [2, "2 packets"]
+      Packet3: [3, "3 packets"]
     PKTCNT:
     XFRSIZ:
 

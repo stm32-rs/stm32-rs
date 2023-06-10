@@ -11,7 +11,11 @@
       NotValid: [0, "A-session is not valid"]
       Valid: [1, "A-session is valid"]
     DBCT:
-      Long: [0, "Long debounce time, used for physical connections (100 ms + 2.5 us)"]
+      Long:
+        [
+          0,
+          "Long debounce time, used for physical connections (100 ms + 2.5 us)",
+        ]
       Short: [1, "Short debounce time, used for soft connections (2.5 us)"]
     CIDSTS:
       ADeviceMode: [0, "The OTG_FS controller is in A-device mode"]
@@ -57,11 +61,27 @@
 
   GAHBCFG:
     PTXFELVL:
-      HalfEmpty: [0, "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is half empty"]
-      CompletelyEmpty: [1, "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is completely empty"]
+      HalfEmpty:
+        [
+          0,
+          "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is half empty",
+        ]
+      CompletelyEmpty:
+        [
+          1,
+          "PTXFE (in OTG_FS_GINTSTS) interrupt indicates that the Periodic TxFIFO is completely empty",
+        ]
     TXFELVL:
-      HalfEmpty: [0, "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is half empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is half empty"]
-      CompletelyEmpty: [1, "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is completely empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is completely empty"]
+      HalfEmpty:
+        [
+          0,
+          "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is half empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is half empty",
+        ]
+      CompletelyEmpty:
+        [
+          1,
+          "In device mode, the TXFE (in OTG_FS_DIEPINTx) interrupt indicates that the IN Endpoint TxFIFO is completely empty; In host mode, the NPTXFE (in OTG_FS_GINTSTS) interrupt indicates that the nonperiodic Tx FIFO is completely empty",
+        ]
     GINTMSK:
       Masked: [0, "Mask the interrupt assertion to the application"]
       Unmasked: [1, "Unmask the interrupt assertion to the application"]
@@ -348,14 +368,14 @@
       Avaliable: [0, "SOF pulse not available on PAD (OTG_FS_SOF)"]
       NotAvaliable: [1, "SOF pulse available on PAD (OTG_FS_SOF)"]
     VBUSBSEN:
-      Disabled: [0, "Vbus sensing \"B\" disabled"]
-      Enabled: [1, "Vbus sensing \"B\" enabled"]
+      Disabled: [0, 'Vbus sensing "B" disabled']
+      Enabled: [1, 'Vbus sensing "B" enabled']
     VBUSASEN:
-      Disabled: [0, "Vbus sensing \"A\" disabled"]
-      Enabled: [1, "Vbus sensing \"A\" enabled"]
+      Disabled: [0, 'Vbus sensing "A" disabled']
+      Enabled: [1, 'Vbus sensing "A" enabled']
     PWRDWN:
       PowerDown: [0, "Power down active"]
-      TransceiverActive: [1, "Power down deactivated (\"Transceiver active\")"]
+      TransceiverActive: [1, 'Power down deactivated ("Transceiver active")']
 
   CID:
     PRODUCT_ID:
