@@ -5,6 +5,7 @@
 * Replace `makehtml.py` with `svd2html`
 * Updated to svd2rust 0.28.0, svdtools 0.3.0, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
+* check `CARGO_HOME` env var before put binary into default place (#850)
 
 ## [v0.15.1] 2022-07-04
 
