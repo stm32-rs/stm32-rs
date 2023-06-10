@@ -3,7 +3,77 @@
 # the main frame of this file was generated from stm32f429.svd.patched
 
 "OTG_FS_DEVICE":
-  CTL:
+  DCFG:
+    PFIVL:
+    DAD:
+    NZLSOHSK:
+    DSPD:
+
+  DCTL:
+    POPRGDNE:
+      Disabled: [0, ""]
+      Enabled: [1, ""]
+    CGONAK:
+    SGONAK:
+    CGINAK:
+    SGINAK:
+    TCTL:
+    GONSTS:
+    GINSTS:
+    SDIS:
+    RWUSIG:
+
+  DSTS:
+    FNSOF:
+    EERR:
+    ENUMSPD:
+    SUSPSTS:
+
+  DIEPMSK:
+    NAKM:
+    INEPNEM:
+    INEPNMM:
+    ITTXFEMSK:
+    TOM:
+    EPDM:
+    XFRCM:
+
+  DOEPMSK:
+    OTEPDM:
+    STUPM:
+    EPDM:
+    XFRCM:
+
+  DAINTMSK:
+    OEPM:
+    IEPM:
+
+  DAINTMSK:
+    OEPM:
+    IEPM:
+
+  DVBUSDIS:
+    VBUSDT:
+
+  DVBUSPULSE:
+    DVBUSP:
+
+  DIEPEMPMSK:
+    INEPTXFEM:
+
+  DIEPCTL0:
+    EPENA:
+    EPDIS:
+    SNAK:
+    CNAK:
+    TXFNUM:
+    STALL:
+    EPTYP:
+    NAKSTS:
+    USBAEP:
+    MPSIZ:
+
+  DIEPCTL[1-3]:
     EPENA:
     EPDIS:
     SODDFRM:
@@ -20,22 +90,49 @@
     USBAEP:
     MPSIZ:
 
-  DCTL:
-    POPRGDNE:
-      Disabled: [0, ""]
-      Enabled: [1, ""]
-    CGONAK:
-    SGONAK:
-    CGINAK:
-    SGINAK:
-    TCTL:
-    GONSTS:
-    GINSTS:
-    SDIS:
-    RWUSIG:
+  DOEPCTL0:
+    EPENA:
+    EPDIS:
+    SNAK:
+    CNAK:
+    STALL:
+    SNPM:
+    EPTYP:
+    NAKSTS:
+    USBAEP:
+    MPSIZ:
 
-  INT:
-    B2BSTUP:
+  DOEPCTL[1-3]:
+    EPENA:
+    EPDIS:
+    SODDFRM_SD1PID:
+    SD0PID_SEVNFRM:
+    SNAK:
+    CNAK:
+    STALL:
+    SNPM:
+    EPTYP:
+    NAKSTS:
+    EONUM_DPID:
+    USBAEP:
+    MPSIZ:
+
+  DIEPINT[0-3]:
+    NAK:
+    PKTDRPSTS:
+    TXFE:
+    INEPNE:
+    INEPNM:
+    ITTXFE:
+    TOC:
+    EPDISD:
+    XFRC:
+
+  DOEPINT[0-3]:
+    NAK:
+    BERR:
+    OUTPKTERR:
+    STSPHHSRX:
     OTEPDIS:
     STUP:
     EPDISD:
@@ -43,29 +140,24 @@
       Disabled: [1, ""]
     XFRC:
 
-  TSIZ:
-    RXDPID_STUPCNT:
+  DIEPTSIZ0:
     PKTCNT:
     XFRSIZ:
 
-  DOEPMSK:
-    OTEPDM:
-    STUPM:
-    EPDM:
-    XFRCM:
 
-  TXFSTS:
+  DOEPTSIZ0:
+    STUPCNT:
+    PKTCNT:
+    XFRSIZ:
+
+  DIEPTSIZ[1-3]:
+    PKTCNT:
+    XFRSIZ:
+
+  DTXFSTS[0-3]:
     INEPTFSAV:
 
-  DAINTMSK:
-    OEPM:
-    IEPM:
-
-  DVBUSDIS:
-    VBUSDT:
-
-  DVBUSPULSE:
-    DVBUSP:
-
-  DIEPEMPMSK:
-    INEPTXFEM:
+  DOEPTSIZ[1-3]:
+    RXDPID_STUPCNT:
+    PKTCNT:
+    XFRSIZ:
