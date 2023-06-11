@@ -107,12 +107,22 @@
       Impossible: [0, "This variant is NOT POSSIBLE"]
       Selected: [1, "This variant is always used"]
     TOCAL:
+      [0, 7]
 
   GRSTCTL:
     AHBIDL:
       NotIdle: [0, ""]
       Idle: [1, ""]
     TXFNUM:
+      FIFO0_NonPeriodic: [0, ""]
+      FIFO1_Periodic: [1, ""]
+      FIFO2: [2, ""]
+      FIFO3: [3, ""]
+      FIFO4: [4, ""]
+      # There might be a bug in STM32F429's Reference Manual
+      # This vaiant mark as TXFIFO 15, but the value is only 5
+      FIFO5: [5, ""]
+      FIFOAll: [16, ""]
     TXFFLSH:
       NotFlush: [0, ""]
       Flush: [1, ""]
@@ -231,7 +241,10 @@
     PRTIM:
       Masked: [0, "Masked interrupt"]
       Unmasked: [1, "Unmasked interrupt"]
-    IPXFRM_IISOOXFRM:
+    IPXFRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
+    IISOOXFRM:
       Masked: [0, "Masked interrupt"]
       Unmasked: [1, "Unmasked interrupt"]
     IISOIXFRM:
@@ -298,10 +311,13 @@
       Data2: [1, ""]
       MData: [3, ""]
     BCNT:
+      [0, 0x7FF]
     CHNUM:
+      [0, 0xF]
 
   GRXSTSR_Device:
     FRMNUM:
+      [0, 0xF]
     PKTSTS:
       InDataReceived: [2, "IN data packet received"]
       InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
@@ -313,7 +329,9 @@
       Data2: [1, ""]
       MData: [3, ""]
     BCNT:
-    CHNUM:
+      [0, 0x7FF]
+    EPNUM:
+      [0, 0xF]
 
   GRXSTSP_Host:
     PKTSTS:
@@ -327,10 +345,13 @@
       Data2: [1, ""]
       MData: [3, ""]
     BCNT:
+      [0, 0x7FF]
     CHNUM:
+      [0, 0xF]
 
   GRXSTSP_Device:
     FRMNUM:
+      [0, 0xF]
     PKTSTS:
       InDataReceived: [2, "IN data packet received"]
       InTransferCompleted: [3, "IN transfer completed (triggers an interrupt)"]
@@ -342,23 +363,33 @@
       Data2: [1, ""]
       MData: [3, ""]
     BCNT:
-    CHNUM:
+      [0, 0x7FF]
+    EPNUM:
+      [0, 0xF]
 
   GRXFSIZ:
-    RXFD: [16, 256]
+    RXFD:
+      [16, 256]
 
   HNPTXFSIZ:
-    NPTXFD: [16, 256]
+    NPTXFD:
+      [16, 256]
     NPTXFSA:
+      [0, 0xFFFF]
 
   DIEPTXF0:
-    TX0FD: [16, 256]
+    TX0FD:
+      [16, 256]
     TX0FSA:
+      [0, 0xFFFF]
 
   HNPTXSTS:
     NPTXQTOP:
+      [0, 0x7F]
     NPTQXSAV:
+      [0, 0xFF]
     NPTXFSAV:
+      [0, 0xFFFF]
 
   GCCFG:
     NOVBUSSENS:
@@ -379,11 +410,16 @@
 
   CID:
     PRODUCT_ID:
+      [0, 0xFFFF_FFFF]
 
   HPTXFSIZ:
-    PTXFSIZ:
+    PTXFD:
+      [16, 0xFFFF]
     PTXSA:
+      [0, 0xFFFF]
 
   DIEPTXF[1-3]:
     INEPTXFD:
+      [16, 0xFFFF]
     INEPTXSA:
+      [0, 0xFFFF]

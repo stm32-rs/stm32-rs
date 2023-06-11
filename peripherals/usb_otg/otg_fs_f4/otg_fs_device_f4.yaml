@@ -3,6 +3,7 @@
 # the main frame of this file was generated from stm32f429.svd.patched
 
 "OTG_FS_DEVICE":
+
   DCFG:
     PFIVL:
       Interval80: [0, "80% of the frame interval"]
@@ -21,6 +22,8 @@
           "Send the received OUT packet to the application (zero-length or nonzero-length) and send a handshake based on the NAK and STALL bits for the endpoint in the Device endpoint control register",
         ]
     NZLSOHSK:
+      ByCondition: [0, ""]
+      SendStall: [1, ""]
     DSPD:
       FullSpeed: [3, "Full speed (USB 1.1 transceiver clock is 48 MHz)"]
 
@@ -79,6 +82,7 @@
 
   DSTS:
     FNSOF:
+      [0, 0x3fff]
     EERR:
       Clear: [0, ""]
       Error: [1, ""]
@@ -138,21 +142,28 @@
       Unmasked: [1, "Unmasked interrupt"]
 
   DAINT:
-    OEPM:
-    IEPM:
+    OEPINT:
+      [0, 0xF]
+    IEPINT:
+      [0, 0xF]
 
   DAINTMSK:
     OEPM:
+      [0, 0xF]
     IEPM:
+      [0, 0xF]
 
   DVBUSDIS:
     VBUSDT:
+      [0, 0xFFFF]
 
   DVBUSPULSE:
     DVBUSP:
+      [0, 0xFFF]
 
   DIEPEMPMSK:
     INEPTXFEM:
+      [0, 0xF]
 
   DIEPCTL0:
     EPENA:
@@ -167,6 +178,7 @@
     CNAK:
       Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
     TXFNUM:
+      [0, 0xF]
     STALL:
       Clear:
         [
@@ -175,6 +187,7 @@
         ]
       Set: [1, ""]
     EPTYP:
+      [0, 0]
     NAKSTS:
       ByCondition:
         [
@@ -183,6 +196,7 @@
         ]
       AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
     USBAEP:
+      [1, 1]
     MPSIZ:
       Byte64: [0, "64 bytes"]
       Byte32: [1, "32 bytes"]
@@ -208,6 +222,7 @@
     CNAK:
       Set: [1, "A write to this bit clears the NAK bit for the endpoint"]
     TXFNUM:
+      [0, 0xF]
     STALL:
       Clear: [0, ""]
       Stall: [1, "Stall all tokens from the USB host to this endpoint"]
@@ -233,12 +248,14 @@
       Inactive: [0, "Endpoint is inactive"]
       Active: [1, "Endpoint is active"]
     MPSIZ:
+      [0, 3]
 
   DOEPCTL0:
     EPENA:
       Disabled: [0, ""]
       Enabled: [1, "Start transmitting data on the endpoint 0"]
     EPDIS:
+      [0, 0]
     SNAK:
       Clear: [0, ""]
       Set: [1, ""]
@@ -251,6 +268,7 @@
       Clear: [0, ""]
       Set: [1, ""]
     EPTYP:
+      [1, 1]
     NAKSTS:
       ByCondition:
         [
@@ -259,6 +277,7 @@
         ]
       AllNAK: [1, "The core is transmitting NAK handshakes on this endpoint"]
     USBAEP:
+      [1, 1]
     MPSIZ:
       Byte64: [0, "64 bytes"]
       Byte32: [1, "32 bytes"]
@@ -314,17 +333,33 @@
       Inactive: [0, "Endpoint is inactive"]
       Active: [1, "Endpoint is active"]
     MPSIZ:
+      [0, 0x7FF]
 
   DIEPINT[0-3]:
     NAK:
+      NotNAK: [0, ""]
+      NAK: [1, ""]
     PKTDRPSTS:
+      NotDropped: [0, ""]
+      Dropped: [1, ""]
     TXFE:
+      NotEmpty: [0, ""]
+      Empty: [1, ""]
     INEPNE:
+      [0, 1]
     INEPNM:
+      [0, 1]
     ITTXFE:
+      [0, 1]
     TOC:
+      NotTimeout: [0, ""]
+      Timeout: [1, ""]
     EPDISD:
+      NotDisabled: [0, ""]
+      Disabled: [1, ""]
     XFRC:
+      NotCompleted: [0, ""]
+      Completed: [1, ""]
 
   DOEPINT[0-3]:
     NAK:
@@ -334,6 +369,8 @@
     OTEPDIS:
     STUP:
     EPDISD:
+      NotDisabled: [0, ""]
+      Disabled: [1, ""]
     XFRC:
 
   DIEPTSIZ0:

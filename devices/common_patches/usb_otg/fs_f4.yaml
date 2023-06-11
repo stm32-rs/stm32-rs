@@ -1,4 +1,14 @@
+# this file is for STM32F401, F411, F405, F407, F427, F429
+# and can be included into (currently non-exist) F417, F437, F439 yaml in future
+#
+# for maintainer of F412, F413, F423, F446, F469, F479:
+# this file might not be suitable for these devices,
+# double check if you want to include
+
 OTG_FS_GLOBAL:
+  _modify:
+    GNPTXSTS:
+      name: HNPTXSTS
   GAHBCFG:
     _modify:
       GINT:
@@ -20,9 +30,21 @@ OTG_FS_GLOBAL:
         bitOffset: 21
         bitWidth: 1
         access: read-write
-  _modify:
-    GNPTXSTS:
-      name: HNPTXSTS
+  GINTMSK:
+    _modify:
+      IPXFRM_IISOOXFRM: # 2 state flags are occupied same bit field, "split" them
+        name: IPXFRM
+        description: Incomplete periodic transfer mask
+    _add:
+      IISOOXFRM:
+        description: "Incomplete isochronous OUT transfer mask"
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+  HPTXFSIZ:
+    _modify:
+      PTXFSIZ:
+        name: PTXFD
 
 OTG_FS_DEVICE:
   DIEPMSK:
@@ -75,15 +97,13 @@ OTG_FS_DEVICE:
         bitOffset: 28
         bitWidth: 1
         access: write-only
-      STALL:
-        description: STALL handshake
-        bitOffset: 21
-        bitWidth: 1
       DPID: # this flag is "split" from `EONUM_DPID` field
         description: Endpoint data PID
         bitOffset: 16
         bitWidth: 1
         access: read-only
+    _delete:
+      - "SODDFRM_SD1PID"
   DOEPCTL0:
     _modify:
       EPDIS:
@@ -92,17 +112,8 @@ OTG_FS_DEVICE:
         description: "Endpoint type\nHardcoded to '00' for control"
       USBAEP:
         description: "USB active endpoint\nThis bit is always set to 1, indicating that control endpoint 0 is always active in all configurations and interfaces"
-    _add:
-      STALL:
-        desciption: "STALL handshake"
-        bitOffset: 21
-        bitWidth: 1
-        access: read-only
   DOEPCTL[1-3]:
     _modify:
-      SODDFRM_SD1PID: # 2 flags are occupied same bit field, "split" them
-        name: SD1PID
-        description: Set DATA1 PID
       SD0PID_SEVNFRM: # 2 flags are occupied same bit field, "split" them
         name: SD0PID
         description: Set DATA0 PID
@@ -110,8 +121,10 @@ OTG_FS_DEVICE:
         name: EONUM
         description: Even/odd frame
     _add:
-      SODDFRM: # this flag is "split" from `SODDFRM_SD1PID` field
-        description: Set odd frame
+      # some other file has remove SODDFRM_SD1PID and create SODDFRM
+      # we need to create SD1PID itself
+      SD1PID:
+        description: Set DATA1 PID
         bitOffset: 29
         bitWidth: 1
         access: write-only
@@ -125,3 +138,20 @@ OTG_FS_DEVICE:
         bitOffset: 16
         bitWidth: 1
         access: read-only
+  DIEPINT[0-3]:
+    _add:
+      NAK:
+        description: NAK input
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+      PKTDRPSTS:
+        description: Packet dropped status
+        bitOffset: 11
+        bitWidth: 1
+        access: read-write
+      INEPNM:
+        description: IN token received with EP mismatch
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
