@@ -1,0 +1,8 @@
+EXTICR1:
+  _modify:
+    EXTI[1-3]:
+      _derivedFrom: EXTI0
+EXTICR[2-4]:
+  _modify:
+    "EXTI?,EXTI1?":
+      _derivedFrom: SYSCFG.EXTICR1.EXTI0

@@ -1,0 +1,48 @@
+_include:
+  - ../exti.yaml
+  - cmpcr.yaml
+
+MEMRMP:
+  MEM_MODE:
+    MainFlash: [0, "Main Flash memory mapped at 0x0000 0000"]
+    SystemFlash: [1, "System Flash memory mapped at 0x0000 0000"]
+    FSMCBank1: [2, "FSMC Bank1 (NOR/PSRAM 1 and 2) mapped at 0x0000 0000"]
+    EmbeddedSRAM: [3, "Embedded SRAM mapped at 0x0000 0000"]
+
+PMC:
+  ADC1DC2: [0, 1]
+
+EXTICR1:
+  EXTI0:
+    PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
+    PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
+    PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]
+    PD: [3, "Select PDx as the source input for the EXTIx external interrupt"]
+    PE: [4, "Select PEx as the source input for the EXTIx external interrupt"]
+    PF: [5, "Select PFx as the source input for the EXTIx external interrupt"]
+    PG: [6, "Select PGx as the source input for the EXTIx external interrupt"]
+
+CFGR2:
+  PVDL:
+    NotConnected:
+      [
+        0,
+        "PVD interrupt not connected to TIM1 Break input. PVDE and PVDS[2:0] can be read and modified",
+      ]
+    Connected:
+      [
+        1,
+        "PVD interrupt connected to TIM1 Break input. PVDE and PVDS[2:0] are read-only",
+      ]
+  CLL:
+    NotConnected:
+      [0, "Cortex-M4 LOCKUP output not connected to TIM1 Break input"]
+    Connected: [1, "Cortex-M4 LOCKUP output connected to TIM1 Break input"]
+
+CFGR:
+  I2CFMP1_SDA:
+    Clear: [0, ""]
+    Forced: [1, "forces FM+ drive capability on I2CFMP1_SDA pin"]
+  I2CFMP1_SCL:
+    Clear: [0, ""]
+    Forced: [1, "forces FM+ drive capability on I2CFMP1_SCL pin"]

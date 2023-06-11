@@ -1,0 +1,21 @@
+_include:
+  - ../exti.yaml
+  - cmpcr.yaml
+
+MEMRMP:
+  MEM_MODE:
+    MainFlash: [0, "Main Flash memory mapped at 0x0000 0000"]
+    SystemFlash: [1, "System Flash memory mapped at 0x0000 0000"]
+    EmbeddedSRAM: [3, "Embedded SRAM mapped at 0x0000 0000"]
+
+PMC:
+  ADC1DC2: [0, 1]
+
+EXTICR1:
+  EXTI0:
+    PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
+    PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
+    PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]
+    PD: [3, "Select PDx as the source input for the EXTIx external interrupt"]
+    PE: [4, "Select PEx as the source input for the EXTIx external interrupt"]
+    PH: [7, "Select PHx as the source input for the EXTIx external interrupt"]
