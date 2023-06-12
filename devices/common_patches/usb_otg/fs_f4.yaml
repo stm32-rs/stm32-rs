@@ -156,6 +156,8 @@ OTG_FS_DEVICE:
         bitWidth: 1
         access: read-write
   DOEPINT[0-3]:
+    _delete:
+      - B2BSTUP
     _add:
       NAK:
         description: NAK input
@@ -177,6 +179,9 @@ OTG_FS_DEVICE:
         bitOffset: 5
         bitWidth: 1
         access: read-write
+  DIEPTSIZ[1-3]:
+    _delete:
+      - MCNT
   DOEPTSIZ[1-3]:
     _modify:
       RXDPID_STUPCNT:

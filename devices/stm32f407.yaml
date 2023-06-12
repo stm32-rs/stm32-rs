@@ -132,7 +132,10 @@ _include:
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/usb_otg/fs_remove_prefix.yaml
- - common_patches/usb_otg/fs_v1ext.yaml
+ # the file below create DIEP*[4-5] and DOEP*[4-5], which is not exist for this device
+ # but there are some other registers created in the same file
+ # I will just comment it out for now, until we can safely remove it
+ #- common_patches/usb_otg/fs_v1ext.yaml
  - common_patches/usb_otg/fs_v1.yaml
  - common_patches/usb_otg/fs_f4.yaml
  - common_patches/usb_otg/hs_v1.yaml
