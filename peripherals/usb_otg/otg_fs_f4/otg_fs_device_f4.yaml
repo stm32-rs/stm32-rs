@@ -363,19 +363,35 @@
 
   DOEPINT[0-3]:
     NAK:
+      NotNAK: [0, ""]
+      NAK: [1, ""]
     BERR:
+      NotBabbled: [0, ""]
+      Babbled: [1, ""]
     OUTPKTERR:
-    STSPHHSRX:
+      NoError: [0, ""]
+      Error: [1, ""]
+    STSPHSRX:
+      NotReceived: [0, ""]
+      Received: [1, ""]
     OTEPDIS:
+      NotReceived: [0, ""]
+      Received: [1, ""]
     STUP:
+      NotCompleted: [0, ""]
+      Completed: [1, ""]
     EPDISD:
       NotDisabled: [0, ""]
       Disabled: [1, ""]
     XFRC:
+      NotCompleted: [0, ""]
+      Completed: [1, ""]
 
   DIEPTSIZ0:
     PKTCNT:
+      [0, 3]
     XFRSIZ:
+      [0, 0x7F]
 
   DOEPTSIZ0:
     STUPCNT:
@@ -383,16 +399,31 @@
       Packet2: [2, "2 packets"]
       Packet3: [3, "3 packets"]
     PKTCNT:
+      [0, 1]
     XFRSIZ:
+      [0, 0x7F]
 
   DIEPTSIZ[1-3]:
     PKTCNT:
+      [0, 0x3FF]
     XFRSIZ:
+      [0, 0x1FFF_FFFF]
 
   DTXFSTS[0-3]:
     INEPTFSAV:
+      [0, 0xFFFF]
 
   DOEPTSIZ[1-3]:
-    RXDPID_STUPCNT:
+    RXDPID:
+      Data0: [0, ""]
+      Data1: [2, ""]
+      Data2: [1, ""]
+      MData: [3, ""]
+    STUPCNT:
+      Packet1: [1, "1 packet"]
+      Packet2: [2, "2 packets"]
+      Packet3: [3, "3 packets"]
     PKTCNT:
+      [0, 0x3FF]
     XFRSIZ:
+      [0, 0x7_FFFF]

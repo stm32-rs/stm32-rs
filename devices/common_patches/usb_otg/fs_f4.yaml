@@ -155,3 +155,36 @@ OTG_FS_DEVICE:
         bitOffset: 5
         bitWidth: 1
         access: read-write
+  DOEPINT[0-3]:
+    _add:
+      NAK:
+        description: NAK input
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+      BERR:
+        description: Babble error interrupt
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+      OUTPKTERR:
+        description: OUT packet error
+        bitOffset: 8
+        bitWidth: 1
+        access: read-write
+      STSPHSRX:
+        description: Status phase received for control write
+        bitOffset: 5
+        bitWidth: 1
+        access: read-write
+  DOEPTSIZ[1-3]:
+    _modify:
+      RXDPID_STUPCNT:
+        name: RXDPID
+        description: Received data PID
+    _add:
+      STUPCNT:
+        description: SETUP packet count
+        bitOffset: 29
+        bitWidth: 2
+        access: read-write
