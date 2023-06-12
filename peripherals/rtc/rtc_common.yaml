@@ -158,11 +158,11 @@ RTC:
     WUT: [0, 0xFFFF]
   "ALRM?R":
     "MSK*":
-      Mask: [0, "Alarm set if the date/day match"]
-      NotMask: [1, "Date/day don’t care in Alarm comparison"]
+      ToMatch: [0, "Alarm set if the date/day match"]
+      NotCare: [1, "Date/day don't care in Alarm comparison"]
     WDSEL:
       DateUnits: [0, "DU[3:0] represents the date units"]
-      WeekDay: [1, "DU[3:0] represents the week day. DT[1:0] is don’t care."]
+      WeekDay: [1, "DU[3:0] represents the week day. DT[1:0] is don't care."]
     DT: [0, 3]
     DU: [0, 15]
     PM:
@@ -211,9 +211,9 @@ RTC:
       NoChange: [0, "No RTCCLK pulses are added"]
       IncreaseFreq: [1, "One RTCCLK pulse is effectively inserted every 2^11 pulses (frequency increased by 488.5 ppm)"]
     CALW8:
-      Eight_Second: [1, "When CALW8 is set to ‘1’, the 8-second calibration cycle period is selected"]
+      Eight_Second: [1, "When CALW8 is set to '1', the 8-second calibration cycle period is selected"]
     CALW16:
-      Sixteen_Second: [1, "When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected.This bit must not be set to ‘1’ if CALW8=1"]
+      Sixteen_Second: [1, "When CALW16 is set to '1', the 16-second calibration cycle period is selected.This bit must not be set to '1' if CALW8=1"]
     CALM: [0, 511]
   "ALRM?SSR":
     MASKSS: [0, 15]
