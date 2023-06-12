@@ -35,6 +35,7 @@ set_env FORMATTED_SVDS ${FORMATTED_SVDS}
 RUST_DIRS = trim ${RUST_DIRS}
 set_env RUST_DIRS ${RUST_DIRS}
 exec echo CARGO_HOME is ${CARGO_HOME}
+exec echo PATH is ${PATH}
 ''']
 
 [tasks.default]
