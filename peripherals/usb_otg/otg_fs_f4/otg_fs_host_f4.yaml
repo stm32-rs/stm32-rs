@@ -1,0 +1,68 @@
+# Note: if you want to include `OTG_FS_GLOBAL`, `OTG_FS_DEVICE` and `OTG_FS_HOST`, then try include `../peripherals/otg_fs_f4.yaml` into device yaml file instead.
+#
+# the main frame of this file was generated from stm32f429.svd.patched
+
+"OTG_FS_HOST":
+  CHAR:
+    CHENA:
+    CHDIS:
+    ODDFRM:
+    DAD:
+    MCNT:
+    EPTYP:
+    LSDEV:
+    EPDIR:
+    EPNUM:
+    MPSIZ:
+
+  HFIR:
+    FRIVL:
+
+  INT:
+    DTERR:
+    FRMOR:
+    BBERR:
+    TXERR:
+    ACK:
+    NAK:
+    STALL:
+    CHH:
+    XFRC:
+
+  INTMSK:
+    DTERRM:
+    FRMORM:
+    BBERRM:
+    TXERRM:
+    NYET:
+    ACKM:
+    NAKM:
+    STALLM:
+    CHHM:
+    XFRCM:
+
+  TSIZ:
+    DPID:
+    PKTCNT:
+    XFRSIZ:
+
+  HAINT:
+    HAINT:
+
+  HAINTMSK:
+    HAINTM:
+
+  HPRT:
+    PSPD:
+    PTCTL:
+    PPWR:
+    PLSTS:
+    PRST:
+    PSUSP:
+    PRES:
+    POCCHNG:
+    POCA:
+    PENCHNG:
+    PENA:
+    PCDET:
+    PCSTS:
