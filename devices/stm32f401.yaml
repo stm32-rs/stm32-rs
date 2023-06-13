@@ -111,6 +111,11 @@ MPU:
   _strip:
     - "MPU_"
 
+OTG_FS_PWRCLK:
+  _modify:
+    FS_PCGCCTL:
+      name: OTG_FS_PCGCCTL
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
