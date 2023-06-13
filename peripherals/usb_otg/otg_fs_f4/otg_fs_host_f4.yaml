@@ -82,39 +82,99 @@
       Disabled: [0, "Channel disabled"]
       Enabled: [1, "Channel enabled"]
     CHDIS:
+      [0, 1]
     ODDFRM:
+      Even: [0, "Even frame"]
+      Odd: [1, "Odd frame"]
     DAD:
+      [0, 0x7F]
     MCNT:
+      One: [1, "1 transaction"]
+      Two: [2, "2 transactions per frame to be issued for this endpoint"]
+      Three: [3, "3 transactions per frame to be issued for this endpoint"]
     EPTYP:
+      Bulk: [0, "Bulk endpoint"]
+      Control: [1, "Control endpoint"]
+      Iso: [2, "Iso endpoint"]
+      Interrupt: [3, "Interrupt endpoint"]
     LSDEV:
+      [0, 1]
     EPDIR:
+      Out: [0, "OUT"]
+      In: [1, "IN"]
     EPNUM:
+      [0, 0xF]
     MPSIZ:
+      [0, 0x7FF]
 
   HCINT[0-7]:
     DTERR:
+      NoError: [0, ""]
+      Error: [1, ""]
     FRMOR:
+      NoOverrun: [0, ""]
+      Overrun: [1, ""]
     BBERR:
+      NoError: [0, ""]
+      Error: [1, ""]
     TXERR:
+      NoError: [0, ""]
+      Error: [1, ""]
     ACK:
+      NotACK: [0, ""]
+      ACK: [1, ""]
     NAK:
+      NotNAK: [0, ""]
+      NAK: [1, ""]
     STALL:
+      NotStall: [0, ""]
+      Stall: [1, ""]
     CHH:
+      NotHalt: [0, ""]
+      Halt: [1, ""]
     XFRC:
+      NotCompleted: [0, ""]
+      Completed: [1, ""]
 
   HCINTMSK[0-7]:
     DTERRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     FRMORM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     BBERRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     TXERRM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     NYET:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     ACKM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     NAKM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     STALLM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     CHHM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
     XFRCM:
+      Masked: [0, "Masked interrupt"]
+      Unmasked: [1, "Unmasked interrupt"]
 
   HCTSIZ[0-7]:
     DPID:
+      Data0: [0, ""]
+      Data1: [2, ""]
+      Data2: [1, ""]
+      MData: [3, ""]
     PKTCNT:
+      [0, 0x3FF]
     XFRSIZ:
+      [0, 0x7_FFFF]
