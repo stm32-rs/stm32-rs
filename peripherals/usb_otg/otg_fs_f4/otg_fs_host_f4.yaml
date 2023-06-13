@@ -3,8 +3,84 @@
 # the main frame of this file was generated from stm32f429.svd.patched
 
 "OTG_FS_HOST":
-  CHAR:
+  HCFG:
+    FSLSS:
+      FSLSOnly: [1, "FS/LS-only, even if the connected device can support HS (read-only)"]
+    FSLSPCS:
+      Clock48MHz: [1, "Select 48 MHz PHY clock frequency"]
+      Clock6MHz: [2, "Select 6 MHz PHY clock frequency"]
+
+  HFIR:
+    FRIVL:
+      [0, 0xFFFF]
+
+  HFNUM:
+    FTREM:
+      [0, 0xFFFF]
+    FRNUM:
+      [0, 0x3FFF]
+
+  HPTXSTS:
+    PTXQTOP:
+      [0, 0xFF]
+    PTXQSAV:
+      [0, 0xFF]
+    PTXFSAVL:
+      [0, 0xFFFF]
+
+  HAINT:
+    HAINT:
+      [0, 0xFFFF]
+
+  HAINTMSK:
+    HAINTM:
+      [0, 0xFFFF]
+
+  HPRT:
+    PSPD:
+      FullSpeed: [1, "Full speed"]
+      LowSpeed: [2, "Low speed"]
+    PTCTL:
+      Disabled: [0, "Test mode disabled"]
+      JMode: [1, "Test_J mode"]
+      KMode: [2, "Test_K mode"]
+      SE0NAK: [3, "Test_SE0_NAK mode"]
+      Packet: [4, "Test_Packet mode"]
+      ForceEnable: [5, "Test_Force_Enable"]
+    PPWR:
+      Off: [0, "Power Off"]
+      On: [1, "Power On"]
+    PLSTS:
+      [0, 3]
+    PRST:
+      NotReset: [0, "Port not in reset"]
+      Reset: [1, "Port in reset"]
+    PSUSP:
+      NotSuspended: [0, "Port not in Suspend mode"]
+      Suspended: [1, "Port in Suspend mode"]
+    PRES:
+      NotDriven: [0, "No resume driven"]
+      Driven: [1, "Resume driven"]
+    POCCHNG:
+      [0, 1]
+    POCA:
+      NoOvercurrent: [0, "No overcurrent condition"]
+      Overcurrent: [1, "Overcurrent condition"]
+    PENCHNG:
+      [0, 1]
+    PENA:
+      Disabled: [0, "Port disabled"]
+      Enabled: [1, "Port enabled"]
+    PCDET:
+      [0, 1]
+    PCSTS:
+      NotAttached: [0, "No device is attached to the port"]
+      Attached: [1, "A device is attached to the port"]
+
+  HCCHAR[0-7]:
     CHENA:
+      Disabled: [0, "Channel disabled"]
+      Enabled: [1, "Channel enabled"]
     CHDIS:
     ODDFRM:
     DAD:
@@ -15,10 +91,7 @@
     EPNUM:
     MPSIZ:
 
-  HFIR:
-    FRIVL:
-
-  INT:
+  HCINT[0-7]:
     DTERR:
     FRMOR:
     BBERR:
@@ -29,7 +102,7 @@
     CHH:
     XFRC:
 
-  INTMSK:
+  HCINTMSK[0-7]:
     DTERRM:
     FRMORM:
     BBERRM:
@@ -41,28 +114,7 @@
     CHHM:
     XFRCM:
 
-  TSIZ:
+  HCTSIZ[0-7]:
     DPID:
     PKTCNT:
     XFRSIZ:
-
-  HAINT:
-    HAINT:
-
-  HAINTMSK:
-    HAINTM:
-
-  HPRT:
-    PSPD:
-    PTCTL:
-    PPWR:
-    PLSTS:
-    PRST:
-    PSUSP:
-    PRES:
-    POCCHNG:
-    POCA:
-    PENCHNG:
-    PENA:
-    PCDET:
-    PCSTS:
