@@ -6,8 +6,10 @@
 * Updated to svd2rust 0.28.0, svdtools 0.3.0, use tools binaries for CI
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
+* doc on `STK` core peripheral for STM32F4 ([#856])
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+[#856]: https://github.com/stm32-rs/stm32-rs/pull/856
 
 ## [v0.15.1] 2022-07-04
 
