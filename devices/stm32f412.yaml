@@ -388,6 +388,40 @@ MPU:
   _strip:
     - "MPU_"
 
+PWR:
+  CR:
+    _add:
+      FISSR:
+        description: Flash Interface Stop while System Run
+        bitOffset: 21
+        bitWidth: 1
+      FMSSR:
+        description: Flash Memory Sleep System Run
+        bitOffset: 20
+        bitWidth: 1
+      MRLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 11
+        bitWidth: 1
+      LPLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 10
+        bitWidth: 1
+  CSR:
+    _modify:
+      EWUP:
+        name: EWUP1
+        description: Enable WKUP1 pin (PA0)
+    _add:
+      EWUP2:
+        description: Enable WKUP1 pin (PC0)
+        bitOffset: 7
+        bitWidth: 1
+      EWUP3:
+        description: Enable WKUP1 pin (PC1)
+        bitOffset: 6
+        bitWidth: 1
+
 RNG:
   _include: ../peripherals/rng/rng_f4_ced.yaml
   CR:
@@ -480,3 +514,5 @@ _include:
  - collect/sdio/resp.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml

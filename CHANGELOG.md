@@ -41,6 +41,7 @@
 * F103: USB RESP1 fix name
 * F4: collect SDIO RESP
 * Fix DAC for stm32f4 (#921)
+* `PWR` peripherals for STM32F4 ([#857])
 * tools_install: support `$CARGO_HOME` environment variable
 * Update RNG for stm32h735
 * H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios
@@ -59,6 +60,7 @@
 * U5: Add DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, RCC peripherals
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+[#857]: https://github.com/stm32-rs/stm32-rs/pull/857
 [#870]: https://github.com/stm32-rs/stm32-rs/pull/870
 [#875]: https://github.com/stm32-rs/stm32-rs/pull/875
 

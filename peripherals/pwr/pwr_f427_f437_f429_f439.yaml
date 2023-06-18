@@ -1,0 +1,84 @@
+# the frame was extract from stm32f469.svd.patched
+
+PWR:
+  CR:
+    UDEN:
+      Disabled: [0, "Under-drive disable"]
+      Enabled: [3, "Under-drive enable"]
+    ODSWEN:
+      Disabled: [0, "Over-drive switching disabled"]
+      Enabled: [1, "Over-drive switching enabled"]
+    ODEN:
+      Disabled: [0, "Over-drive disabled"]
+      Enabled: [1, "Over-drive enabled"]
+    VOS:
+      Scale3: [1, "Scale 3 mode"]
+      Scale2: [2, "Scale 2 mode"]
+      Scale1: [3, "Scale 1 mode"]
+    ADCDC1:
+      [0, 1]
+    MRUDS:
+      "On": [0, "Main regulator ON when the device is in Stop mode"]
+      UnderDrive: [1, "Main Regulator in under-drive mode and Flash memory in power-down when the device is in Stop under-drive mode"]
+    LPUDS:
+      "On": [0, "Low-power regulator ON if LPDS bit is set when the device is in Stop mode"]
+      UnderDrive: [1, "Low-power regulator in under-drive mode if LPDS bit is set and Flash memory in power-down when the device is in Stop under-drive mode"]
+    FPDS:
+      NotPowerDown: [0, "Flash memory not in power-down when the device is in Stop mode"]
+      PowerDown: [1, "Flash memory in power-down when the device is in Stop mode"]
+    DBP:
+      Protected: [0, "Access to RTC and RTC Backup registers and backup SRAM disabled"]
+      Writable: [1, "Access to RTC and RTC Backup registers and backup SRAM enabled"]
+    PLS:
+      [0, 7]
+    PVDE:
+      Disabled: [0, "PVD disabled"]
+      Enabled: [1, "PVD enabled"]
+    CSBF:
+      _read:
+        Zero: [0, "This bit is always read as 0"]
+      _write:
+        Clear: [1, "Clear the SBF Standby Flag"]
+    CWUF:
+      _read:
+        Zero: [0, "This bit is always read as 0"]
+      _write:
+        Clear: [1, "Clear the WUPF Wakeup Flag **after 2 System clock cycles**"]
+    PDDS:
+      EnterStop: [0, "Enter Stop mode when the CPU enters deepsleep. The regulator status depends on the LPDS bit"]
+      EnterStandby: [1, "Enter Standby mode when the CPU enters deepsleep"]
+    LPDS:
+      Main: [0, "Main voltage regulator ON during Stop mode"]
+      LowPower: [1, "Low-power voltage regulator ON during Stop mode"]
+
+  CSR:
+    UDRDY:
+      NotReady: [0, "Under-drive is disabled"]
+      Ready: [3, "Under-drive mode is activated in Stop mode"]
+    ODSWRDY:
+      NotReady: [0, "Over-drive mode is not active"]
+      Ready: [1, "Over-drive mode is active on digital area on 1.2 V domain"]
+    ODRDY:
+      NotReady: [0, "Over-drive mode not ready"]
+      Ready: [1, "Over-drive mode ready"]
+    VOSRDY:
+      NotReady: [0, "Not ready"]
+      Ready: [1, "Ready"]
+    BRE:
+      Disabled: [0, "Backup regulator disabled"]
+      Enabled: [1, "Backup regulator enabled"]
+    EWUP:
+      GPIO: [0, "WKUP1 pin is used for general purpose I/O. An event on the WKUP1 pin does not wakeup the device from Standby mode"]
+      WakeUp: [1, "WKUP1 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge or falling on WKUP pin wakes-up the system from Standby mode)"]
+    BRR:
+      NotReady: [0, "Backup Regulator not ready"]
+      Ready: [1, "Backup Regulator ready"]
+    PVDO:
+      Higher: [0, "Vdd is higher than the PVD threshold selected with the PLS[2:0] bits"]
+      Lower: [1, "Vdd is lower than the PVD threshold selected with the PLS[2:0] bits"]
+    SBF:
+      InStandby: [0, "Device has not been in Standby mode"]
+      NotInStandby: [1, "Device has been in Standby mode"]
+    WUF:
+      NotOccurred: [0, "No wakeup event occurred"]
+      Occurred: [1, "A wakeup event was received from the WKUP pin PA0"]
