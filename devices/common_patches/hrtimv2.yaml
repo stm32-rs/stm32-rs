@@ -11,3 +11,99 @@ HRTIM_Common:
       TF2ODS:
         name: TF2OEN
         description: Bit 11 - Timer F Output 2 Enable
+  ADC1R:
+    _strip:
+    - AD1T
+    - AD1
+
+    _modify:
+      EC2:
+        name: FRST
+        description: Bit 28 - ADC trigger 1 on timer F reset and counter roll-over
+
+      DC2:
+        name: FPER
+        description: Bit 24 - ADC trigger 1 on timer F period
+
+      CC2:
+        name: FC4
+        description: Bit 20 - ADC trigger 1 on timer F compare 4
+
+      BC2:
+        name: FC3
+        description: Bit 15 - ADC trigger 1 on timer F compare 3
+
+      AC2:
+        name: FC2
+        description: Bit 10 - ADC trigger 1 on timer F compare 2
+  
+  ADC3R:
+    _strip:
+    - AD1T
+    - AD1
+
+    _modify:
+      EC2:
+        name: FRST
+        description: Bit 28 - ADC trigger 3 on timer F reset and counter roll-over
+
+      DC2:
+        name: FPER
+        description: Bit 24 - ADC trigger 3 on timer F period
+
+      CC2:
+        name: FC4
+        description: Bit 20 - ADC trigger 3 on timer F compare 4
+
+      BC2:
+        name: FC3
+        description: Bit 15 - ADC trigger 3 on timer F compare 3
+
+      AC2:
+        name: FC2
+        description: Bit 10 - ADC trigger 3 on timer F compare 2
+
+  ADC2R:
+    _strip:
+    - AD2T
+    - AD2
+
+    _modify:
+      DC3:
+        name: FPER
+        description: Bit 24 - ADC trigger 2 on timer F period
+
+      CC3:
+        name: FC4
+        description: Bit 19 - ADC trigger 2 on timer F compare 4
+
+      BC3:
+        name: FC3
+        description: Bit 15 - ADC trigger 2 on timer F compare 3
+
+      AC3:
+        name: FC2
+        description: Bit 11 - ADC trigger 3 on timer F compare 2
+
+  
+  ADC4R:
+    _strip:
+    - AD2T
+    - AD2
+  
+    _modify:
+      DC3:
+        name: FPER
+        description: Bit 24 - ADC trigger 2 on timer F period
+
+      CC3:
+        name: FC4
+        description: Bit 19 - ADC trigger 2 on timer F compare 4
+
+      BC3:
+        name: FC3
+        description: Bit 15 - ADC trigger 2 on timer F compare 3
+
+      AC3:
+        name: FC2
+        description: Bit 11 - ADC trigger 3 on timer F compare 2
