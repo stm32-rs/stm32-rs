@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
+.PHONY: extract patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -17,6 +17,7 @@ YAMLS := $(foreach crate, $(CRATES), \
 	       $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
+EXTRACTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd, $(YAMLS))
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
@@ -86,6 +87,8 @@ svd/%.svd: svd/.extracted ;
 
 svd/.extracted:
 	cd svd && ./extract.sh && touch .extracted
+
+extract: $(EXTRACTED_SVDS)
 
 patch: $(PATCHED_SVDS)
 
