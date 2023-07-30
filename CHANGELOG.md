@@ -52,6 +52,7 @@
 * Add USART v2C peripheral on G4
 * doc on `RNG` peripheral for STM32F4 ([#870])
 * H7: fix GPIO register reset values (#973)
+* H735: add I2C5
 * Doc `QUADSPI` peripheral ([#875])
     * `DR` register can be access by 1 byte, half word and full word. Use `.dr8()`, `.dr16()`, `.dr()` to access this register.
 
