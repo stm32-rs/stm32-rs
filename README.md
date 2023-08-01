@@ -92,21 +92,28 @@ contain the latest patches and updates.
 
 ## Generating Device Crates / Building Locally
 
+* Pre-requirements
+    * `Python3`
+    * `yaml` paraser for python: `pip install pyyaml`
+    * (Optional) install `cargo-make` if needed: `cargo install cargo-make`
+        * Note for using `cargo make`: if python3 executable isn't named as `python3`, or cannot be find in `PATH`
+          you can create a environment variable `PYTHON`, change its content to your python executable binary path
 * Install `svd2rust`, `svdtools`, and `form`:
     * On x86-64 Linux, run `make install` to download pre-built binaries at the
+      current version used by stm32-rs
+    * On x86-64 Windows, run `cargo make install` to download pre-build binaries at the 
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.10.0`
         * `cargo install svdtools --version 0.3.0`
-        * `cargo install svd2rust --version 0.29.0`
-        * `cargo install svd2html --version 0.1.3`
+        * `cargo install svd2rust --version 0.30.0`
+        * `cargo install svd2html --version 0.1.4`
 * Install rustfmt: `rustup component add rustfmt`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
     * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
-        * `cargo install cargo-make`
         * `cargo make patch`
-* Generate svd2rust device crates: `make svd2rust`
-* Optional: Format device crates: `make form`
+* Generate svd2rust device crates: `make svd2rust` / `cargo make svd2rust`
+* Optional: Format device crates: `make form` / `cargo make form`
 
 ## Motivation and Objectives
 
@@ -170,7 +177,7 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
 ## Adding New Devices
 
 * Update SVD zips in `svd/vendor` to include new SVDs.
-* Run `make extract` to extract the new zip files.
+* Run `make extract` / `cargo make extract` to extract the new zip files.
 * Add new YAML file in `devices/` with the new SVD path and include any
   required SVD patches for this device, such as renaming or merging fields.
 * Add the new devices to `stm32_part_table.yaml`.
@@ -193,9 +200,9 @@ these steps as well:
 
 ## Updating Existing Devices/Peripherals
 
-* Using Linux, run `make extract` at least once to pull the SVDs out.
+* Run `make extract` / `cargo make extract` at least once to pull the SVDs out.
 * Edit the device or peripheral YAML (see below for format).
-* Using Linux, run `make` to rebuild all the crates using `svd patch` and `svd2rust`.
+* Run `make` / `cargo make` to rebuild all the crates using `svdtools` and `svd2rust`.
 * Test your new stuff compiles: `cd stm32f4; cargo build --features stm32f405`
 
 If you've added a new peripheral, consider using the `matchperipherals.py`
