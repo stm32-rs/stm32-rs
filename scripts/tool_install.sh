@@ -30,7 +30,7 @@ case "${1:-}" in
 esac
 
 # check CARGO_HOME env var
-CARGO_BIN_DIR="${CARGO_HOME:-${HOME}/.cargo/bin}"
+CARGO_BIN_DIR="${CARGO_HOME:-${HOME}/.cargo}/bin"
 
 if [ "${form:-}" ]; then
     echo "form = ${form}"
