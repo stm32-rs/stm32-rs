@@ -61,7 +61,7 @@ crates:
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size -i ../../../$$<
+	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
@@ -74,7 +74,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
+	cd $(1) && cargo check --target-dir ../target/check/ --features rt,atomics,$$*
 	touch $$@
 
 $(1)/Cargo.toml: crates
