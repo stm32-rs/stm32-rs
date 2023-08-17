@@ -383,6 +383,14 @@ MPU:
   _strip:
     - "MPU_"
 
+RNG:
+  CR:
+    _add:
+      CED:
+        description: Clock error detection
+        bitOffset: 5
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -466,3 +474,4 @@ _include:
  - collect/sdio/resp.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
+ - ../peripherals/rng/rng_f410_f412_f469_f479.yaml

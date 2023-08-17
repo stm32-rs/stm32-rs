@@ -120,6 +120,14 @@ SAI:
   _delete:
     - GCR
 
+RNG:
+  CR:
+    _add:
+      CED:
+        description: Clock error detection
+        bitOffset: 5
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -226,4 +234,5 @@ _include:
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
  - collect/dsi/isr.yaml
+ - ../peripherals/rng/rng_f410_f412_f469_f479.yaml
 
