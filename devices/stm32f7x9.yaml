@@ -264,6 +264,8 @@ JPEG:
     - OTG_HS_
 
 _include:
+ - common_patches/nvic/ipr.yaml
+ - common_patches/nvic/array.yaml
  - common_patches/dfsdm/f7.yaml
  - common_patches/ltdc/rename.yaml
  - common_patches/f7_interrupts.yaml

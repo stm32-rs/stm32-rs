@@ -1,0 +1,26 @@
+NVIC:
+  "ISER3":
+    _add:
+      SETENA:
+        bitOffset: 0
+        bitWidth: 32
+  "ICER3":
+    _add:
+      CLRENA:
+        bitOffset: 0
+        bitWidth: 32
+  "ISPR3":
+    _add:
+      SETPEND:
+        bitOffset: 0
+        bitWidth: 32
+  "ICPR3":
+    _add:
+      CLRPEND:
+        bitOffset: 0
+        bitWidth: 32
+  "IABR3":
+    _add:
+      ACTIVE:
+        bitOffset: 0
+        bitWidth: 32

@@ -53,6 +53,9 @@ _cluster:
       name: M1AR
 
 _include:
+ - common_patches/nvic/l5.yaml
+ - common_patches/nvic/ipr.yaml
+ - common_patches/nvic/array.yaml
  - common_patches/dma/interrupt_names.yaml
  - common_patches/flash/l5_array.yaml
  - common_patches/icache/l5.yaml

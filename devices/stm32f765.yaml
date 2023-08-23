@@ -122,8 +122,24 @@ JPEG:
 "OTG_HS_*":
   _strip:
     - OTG_HS_
+NVIC:
+  "IPR2[6-8]":
+    _add:
+      IPR_N0:
+        bitOffset: 0
+        bitWidth: 8
+      IPR_N1:
+        bitOffset: 8
+        bitWidth: 8
+      IPR_N2:
+        bitOffset: 16
+        bitWidth: 8
+      IPR_N3:
+        bitOffset: 24
+        bitWidth: 8
 
 _include:
+ - common_patches/nvic/array.yaml
  - common_patches/hdmi_cec.yaml
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml

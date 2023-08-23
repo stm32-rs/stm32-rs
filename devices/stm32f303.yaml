@@ -100,6 +100,7 @@ TIM3:
         name: UIFCPY
 
 _include:
+ - common_patches/nvic/array.yaml
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml

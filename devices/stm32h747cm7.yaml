@@ -22,6 +22,8 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/nvic/h7.yaml
+ - common_patches/nvic/array.yaml
  - common_patches/hdmi_cec.yaml
  - common_patches/h7_common_dualcore.yaml
  - common_patches/dma/fcr_wo.yaml

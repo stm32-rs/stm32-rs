@@ -1,0 +1,31 @@
+NVIC:
+  "ISER[34]":
+    _add:
+      SETENA:
+        bitOffset: 0
+        bitWidth: 32
+  "ICER[34]":
+    _add:
+      CLRENA:
+        bitOffset: 0
+        bitWidth: 32
+  "ISPR[34]":
+    _add:
+      SETPEND:
+        bitOffset: 0
+        bitWidth: 32
+  "ICPR[34]":
+    _add:
+      CLRPEND:
+        bitOffset: 0
+        bitWidth: 32
+  "IABR[34]":
+    _add:
+      ACTIVE:
+        bitOffset: 0
+        bitWidth: 32
+  _modify:
+    ICPR3:
+      addressOffset: 0x18C
+    ICPR4:
+      addressOffset: 0x190

@@ -269,6 +269,7 @@ UART10:
       - USART10
 
 _include:
+ - common_patches/nvic/array.yaml
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/can/can.yaml

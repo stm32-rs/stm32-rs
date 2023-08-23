@@ -15,6 +15,7 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/nvic/array.yaml
  - ./common_patches/rcc/f1_uart45.yaml
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/fsmc/fsmc_sram.yaml

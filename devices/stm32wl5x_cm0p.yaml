@@ -121,6 +121,7 @@ ADC:
     - "ADC_"
 
 _include:
+ - common_patches/nvic/array.yaml
  - ../devices/common_patches/spi/l4.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml

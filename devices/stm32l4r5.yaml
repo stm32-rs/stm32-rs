@@ -209,6 +209,7 @@ FLASH:
 
 
 _include:
+  - common_patches/nvic/array.yaml
   - common_patches/adc/l4_sqr1.yaml
   - common_patches/nvic/4_prio_bits.yaml
   - ./common_patches/usart/merge_CR2_ADDx_fields.yaml

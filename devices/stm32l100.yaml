@@ -63,6 +63,7 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/nvic/array.yaml
  - ./common_patches/tim/rename_TIM2_CCR3_CCR3.yaml
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml

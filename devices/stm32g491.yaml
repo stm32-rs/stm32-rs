@@ -20,6 +20,8 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
+ - common_patches/nvic/ipr.yaml
+ - common_patches/nvic/array.yaml
  - common_patches/dma/dma_v1.yaml
  - ./common_patches/rcc/g4.yaml
  - ./common_patches/exti/g4.yaml
