@@ -83,7 +83,33 @@ COMP1:
   _strip:
     - "COMP1_"
 
+NVIC:
+  _modify:
+    ISER3:
+      addressOffset: 0xC
+    ISER4:
+      addressOffset: 0x10
+    ICER3:
+      addressOffset: 0x8C
+    ICER4:
+      addressOffset: 0x90
+    ISPR3:
+      addressOffset: 0x10C
+    ISPR4:
+      addressOffset: 0x110
+    ICPR3:
+      addressOffset: 0x18C
+    ICPR4:
+      addressOffset: 0x190
+    IABR3:
+      addressOffset: 0x20C
+    IABR4:
+      addressOffset: 0x210
+    IPR40:
+      addressOffset: 0x3a0
+
 _include:
+ - common_patches/nvic/array.yaml
  - common_patches/hdmi_cec.yaml
  - common_patches/h7_common_highmemory.yaml
  - common_patches/dma/fcr_wo.yaml
