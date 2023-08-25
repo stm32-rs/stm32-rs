@@ -15,9 +15,7 @@ _include:
 
   - ../peripherals/gpio/v3/common.yaml
 
-  # - ../peripherals/rcc/rcc_v3.yaml
-  # - ../peripherals/rcc/rcc_v3_pll.yaml
-  # - ../peripherals/rcc/rcc_v3_h7_ccip.yaml
+  - ../peripherals/rcc/rcc_h5.yaml
 
   - common_patches/rtc/alarm.yaml
   # - common_patches/rtc/rtc_bkpr.yaml

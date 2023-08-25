@@ -1,0 +1,88 @@
+RCC:
+  AHB2ENR:
+    _modify:
+      ADC1EN:
+        name: ADCEN
+        description: ADC peripherals clock enabled
+
+  AHB2LPENR:
+    _modify:
+      ADC1LPEN:
+        name: ADCLPEN
+        description: ADC peripherals clock enable during sleep mode
+
+  AHB2RSTR:
+    _modify:
+      ADC1RST:
+        name: ADCRST
+        description: ADC block reset
+
+  APB1HENR:
+    _modify:
+      FDCAN1EN:
+        name: FDCANEN
+        description: FDCAN peripheral clock enable
+
+  APB1HLPENR:
+    _modify:
+      FDCAN1LPEN:
+        name: FDCANLPEN
+        description: FDCAN peripheral clock enable during sleep mode
+
+  APB1HRSTR:
+    _modify:
+      FDCAN1RST:
+        name: FDCANRST
+        description: FDCAN block reset
+
+  APB2ENR:
+    _modify:
+      USBFSEN:
+        name: USBEN
+        description: USB clock enable
+
+  APB2LPENR:
+    _modify:
+      USBFSLPEN:
+        name: USBLPEN
+        description: USB clock enable during sleep mode
+
+  APB2RSTR:
+    _modify:
+      USBFSRST:
+        name: USBRST
+        description: USB block reset
+
+  _modify:
+    CFGR:           # There are 2 CFGR registers on the H5
+      name: CFGR1
+      displayName: CFGR1
+
+  CFGR1:
+    _modify:
+      SW:
+        bitWidth: 2
+      SWS:
+        bitWidth: 2
+
+  PLL1CFGR:
+    _modify:
+      DIVM1:
+        name: PLL1M
+
+  PLL2CFGR:
+    _modify:
+      DIVM2:
+        name: PLL2M
+
+  CCIPR4:
+    _modify:
+      USBFSSEL:
+        name: USBSEL
+        description: USB kernel clock source selection
+
+  CCIPR5:
+    _modify:
+      FDCAN12SEL:
+        name: FDCANSEL
+        description: FDCAN kernel clock source selection
