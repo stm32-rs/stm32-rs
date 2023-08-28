@@ -2,3 +2,6 @@ _svd: ../svd/stm32h503.svd
 
 _include:
   - common_patches/h5.yaml
+
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
