@@ -2,3 +2,6 @@ _svd: ../svd/stm32h503.svd
 
 _include:
   - common_patches/h5.yaml
+
+  - ../peripherals/spi/spi_v3_base.yaml
+  - ../peripherals/spi/spi_v3_cfg1_bpass.yaml

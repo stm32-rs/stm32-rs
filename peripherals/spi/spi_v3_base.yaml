@@ -33,7 +33,6 @@
       Enabled: [1, "Peripheral enabled"]
 
   CR2:
-    TSER: [0, 65535]
     TSIZE: [0, 65535]
 
   CFG1:
@@ -56,10 +55,6 @@
     RXDMAEN:
       Disabled: [0, "Rx buffer DMA disabled"]
       Enabled: [1, "Rx buffer DMA enabled"]
-    UDRDET:
-      StartOfFrame: [0, "Underrun is detected at begin of data frame"]
-      EndOfFrame: [1, "Underrun is detected at end of last data frame"]
-      StartOfSlaveSelect: [2, "Underrun is detected at begin of active SS signal"]
     UDRCFG:
       Constant: [0, "Slave sends a constant underrun pattern"]
       RepeatReceived: [1, "Slave repeats last received data frame from master"]
@@ -126,9 +121,6 @@
     MSSI: [0, 15]
 
   IER:
-    TSERFIE:
-      Masked: [0, "TSER loaded interrupt masked"]
-      NotMasked: [1, "TSER loaded interrupt not masked"]
     MODFIE:
       Masked: [0, "Mode fault interrupt masked"]
       NotMasked: [1, "Mode fault interrupt not masked"]
@@ -176,9 +168,6 @@
     SUSP:
       NotSuspended: [0, "Master not suspended"]
       Suspended: [1, "Master suspended"]
-    TSERF:
-      NotLoaded: [0, "Additional number of SPI data to be transacted not yet loaded"]
-      Loaded: [1, "Additional number of SPI data to be transacted was reloaded"]
     MODF:
       NoFault: [0, "No mode fault detected"]
       Fault: [1, "Mode fault detected"]

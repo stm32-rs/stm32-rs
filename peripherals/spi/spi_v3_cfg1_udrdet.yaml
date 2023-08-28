@@ -1,0 +1,6 @@
+"SPI*":
+  CFG1:
+    UDRDET:
+      StartOfFrame: [0, "Underrun is detected at begin of data frame"]
+      EndOfFrame: [1, "Underrun is detected at end of last data frame"]
+      StartOfSlaveSelect: [2, "Underrun is detected at begin of active SS signal"]
