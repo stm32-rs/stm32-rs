@@ -1,0 +1,62 @@
+# Applicable to the H5 family
+# The timers support dithering, and the ARR and CCRx registers store the
+# dithering part of the value in the least significant 4 bytes. This adds
+# overlapping field definitions to address the integer and dithering parts
+# separately
+
+"TIM[13489],TIM??":
+  "CCR?s":
+    _add:
+      INTEGER:
+        description: Integer part in dithering mode
+        bitOffset: 4
+        bitWidth: 16
+        access: read-write
+      DITHER:
+        description: Dithered part in dithering mode
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
+
+"TIM[25]":
+  "CCR?s":
+    _add:
+      INTEGER:
+        description: Integer part in dithering mode
+        bitOffset: 4
+        bitWidth: 28
+        access: read-write
+      DITHER:
+        description: Dithered part in dithering mode
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
+
+"TIM[1346789],TIM??":
+  ARR:
+    _add:
+      INTEGER:
+        description: Integer part in dithering mode
+        bitOffset: 4
+        bitWidth: 16
+        access: read-write
+      DITHER:
+        description: Dithered part in dithering mode
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
+
+"TIM[25]":
+  ARR:
+    _add:
+      INTEGER:
+        description: Integer part in dithering mode
+        bitOffset: 4
+        bitWidth: 28
+        access: read-write
+      DITHER:
+        description: Dithered part in dithering mode
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
+

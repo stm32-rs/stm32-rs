@@ -109,6 +109,22 @@ TIM1:
   _strip:
     - "TIM1_"
 
+TIM2:
+  _strip:
+    - "TIM2_"
+
+TIM3:
+  _strip:
+    - "TIM3_"
+
+TIM6:
+  _strip:
+    - "TIM6_"
+
+TIM7:
+  _strip:
+    - "TIM7_"
+
 USART?:
   _strip:
     - "USART_"
@@ -120,10 +136,3 @@ USB:
 WWDG:
   _strip:
     - "WWDG_"
-
-# TIM3:
-#   _delete:
-#     - CNT
-#   _modify:
-#     CNT_alternate:
-#       name: "CNT"

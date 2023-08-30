@@ -1,0 +1,21 @@
+"TIM[25]":
+  CNT:
+    CNT: [0, 0xFFFFFFFF]
+  ARR:
+    ARR: [0, 0xFFFFF]
+  "CCR?s":
+    CCR: [0, 0xFFFFFFFF]
+
+"TIM[1348]":
+  CNT:
+    CNT: [0, 0xFFFF]
+  ARR:
+    ARR: [0, 0xFFFFF]
+  "CCR?s":
+    CCR: [0, 0xFFFFF]
+
+"TIM*":
+  CR1:
+    DITHEN:
+      Disabled: [0, "Dithering disabled"]
+      Enabled: [1, "Dithering enabled"]
