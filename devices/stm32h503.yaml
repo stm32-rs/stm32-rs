@@ -2,3 +2,6 @@ _svd: ../svd/stm32h503.svd
 
 _include:
   - common_patches/h5.yaml
+
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/exti/exti_priv.yaml
