@@ -21,6 +21,12 @@ MPU:
   _strip:
     - "MPU_"
 
+QUADSPI:
+  _strip: QUADSPI_
+  _include:
+    - common_patches/quadspi/dr_multi_access.yaml
+    - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml

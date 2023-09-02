@@ -1,0 +1,168 @@
+CR:
+  PRESCALER: [0, 255]
+  PMM:
+    AndMatch:
+      [
+        0,
+        "AND match mode. SMF is set if all the unmasked bits received from the Flash memory match the corresponding bits in the match register.",
+      ]
+    OrMatch:
+      [
+        1,
+        "OR match mode. SMF is set if any one of the unmasked bits received from the Flash memory matches its corresponding bit in the match register.",
+      ]
+  APMS:
+    NotStopOnMatch:
+      [
+        0,
+        "Automatic polling mode is stopped only by abort or by disabling the QUADSPI.",
+      ]
+    StopOnMatch:
+      [1, "Automatic polling mode stops as soon as there is a match."]
+  "*IE":
+    Disabled: [0, "Interrupt disable"]
+    Enabled: [1, "Interrupt enabled"]
+  SSHIFT:
+    NoShift: [0, "No shift"]
+    OneHalfCycleShift: [1, "1/2 cycle shift"]
+  TCEN:
+    Disabled:
+      [
+        0,
+        "Timeout counter is disabled, and thus the chip select (nCS) remains active indefinitely after an access in memory-mapped mode.",
+      ]
+    Enabled:
+      [
+        1,
+        "Timeout counter is enabled, and thus the chip select is released in memory-mapped mode after TIMEOUT[15:0] cycles of Flash memory inactivity.",
+      ]
+  DMAEN:
+    Disabled: [0, "DMA is disabled for indirect mode"]
+    Enabled: [1, "DMA is enabled for indirect mode"]
+  ABORT:
+    NoAbortRequested: [0, "No abort requested"]
+    AbortRequested: [1, "Abort requested"]
+  EN:
+    Disabled: [0, "QUADSPI is disabled"]
+    Enabled: [1, "QUADSPI is enabled"]
+
+DCR:
+  FSIZE: [0, 31]
+  CSHT: [0, 7]
+  CKMODE:
+    Mode0:
+      [
+        0,
+        "CLK must stay low while nCS is high (chip select released). This is referred to as mode 0.",
+      ]
+    Mode3:
+      [
+        1,
+        "CLK must stay high while nCS is high (chip select released). This is referred to as mode 3.",
+      ]
+
+SR:
+  FLEVEL: [0, 31]
+  BUSY:
+    NotBusy: [0, ""]
+    Busy: [1, ""]
+  TOF:
+    NotTimeout: [0, ""]
+    Timeout: [1, ""]
+  SMF:
+    NotMatched: [0, ""]
+    Matched: [1, ""]
+  FTF:
+    NotReached: [0, ""]
+    Reached: [1, ""]
+  TCF:
+    NotComplete: [0, ""]
+    Complete: [1, ""]
+  TEF:
+    NoError: [0, ""]
+    Error: [1, ""]
+
+FCR:
+  CTOF:
+    Clear: [1, "clears the TOF flag in the QUADSPI_SR register"]
+  CSMF:
+    Clear: [1, "clears the SMF flag in the QUADSPI_SR register"]
+  CTCF:
+    Clear: [1, "clears the TCF flag in the QUADSPI_SR register"]
+  CTEF:
+    Clear: [1, "clears the TEF flag in the QUADSPI_SR register"]
+
+DLR:
+  DL: [0, 0xFFFF_FFFF]
+
+CCR:
+  DDRM:
+    Disabled: [0, "DDR Mode disabled"]
+    Enabled: [1, "DDR Mode enabled"]
+  SIOO:
+    SendEveryTransaction: [0, "Send instruction on every transaction"]
+    SendFirstCommand: [1, "Send instruction only for the first command"]
+  FMODE:
+    IndirectWrite: [0, "Indirect write mode"]
+    IndirectRead: [1, "Indirect read mode"]
+    AutomaticPolling: [2, "Automatic polling mode"]
+    MemoryMapped: [3, "Memory-mapped mode"]
+  DMODE:
+    NoData: [0, "No data"]
+    SingleLine: [1, "Data on a single line"]
+    TwoLines: [2, "Data on two lines"]
+    FourLines: [3, "Data on four lines"]
+  DCYC: [0, 31]
+  ABSIZE:
+    Bit8: [0, "8-bit alternate byte"]
+    Bit16: [1, "16-bit alternate bytes"]
+    Bit24: [2, "24-bit alternate bytes"]
+    Bit32: [3, "32-bit alternate bytes"]
+  ABMODE:
+    NoAlternateBytes: [0, "No alternate bytes"]
+    SingleLine: [1, "Alternate bytes on a single line"]
+    TwoLines: [2, "Alternate bytes on two lines"]
+    FourLines: [3, "Alternate bytes on four lines"]
+  ADSIZE:
+    Bit8: [0, "8-bit address"]
+    Bit16: [1, "16-bit address"]
+    Bit24: [2, "24-bit address"]
+    Bit32: [3, "32-bit address"]
+  ADMODE:
+    NoAddress: [0, "No address"]
+    SingleLine: [1, "Address on a single line"]
+    TwoLines: [2, "Address on two lines"]
+    FourLines: [3, "Address on four lines"]
+  IMODE:
+    NoInstruction: [0, "No instruction"]
+    SingleLine: [1, "Instruction on a single line"]
+    TwoLines: [2, "Instruction on two lines"]
+    FourLines: [3, "Instruction on four lines"]
+  INSTRUCTION: [0, 255]
+
+AR:
+  ADDRESS: [0, 0xFFFF_FFFF]
+
+ABR:
+  ALTERNATE: [0, 0xFFFF_FFFF]
+
+DR:
+  DATA: [0, 0xFFFF_FFFF]
+
+DR16:
+  DATA: [0, 0xFFFF]
+
+DR8:
+  DATA: [0, 0xFF]
+
+PSMKR:
+  MASK: [0, 0xFFFF_FFFF]
+
+PSMAR:
+  MATCH: [0, 0xFFFF_FFFF]
+
+PIR:
+  INTERVAL: [0, 0xFFFF]
+
+LPTR:
+  TIMEOUT: [0, 0xFFFF]
