@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Remove workaround for bug in duckscript's `mv` 
 * Replace `makehtml.py` with `svd2html`
 * Updated to svd2rust 0.30.0, svdtools 0.3.0, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)

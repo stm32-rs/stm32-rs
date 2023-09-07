@@ -41,5 +41,4 @@ cp stm32l4x2.svd stm32l412.svd
 
 # Duplicate U5X5 to provide a copy for each chip
 cp stm32u5xx.svd stm32u575.svd
-cp stm32u5xx.svd stm32u585.svd
-rm stm32u5xx.svd
+mv stm32u5xx.svd stm32u585.svd
