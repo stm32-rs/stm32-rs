@@ -55,6 +55,16 @@ FMC:
     BWTR4:
       addressOffset: "0x11C"
       alternateRegister: ""
+  SDCR2:
+    _add:
+      RPIPE:
+        description: "Read pipe"
+        bitOffset: 13
+        bitWidth: 2
+      RBURST:
+        description: "Burst read"
+        bitOffset: 12
+        bitWidth: 1
 
 FLASH:
   ACR:
@@ -64,6 +74,7 @@ FLASH:
 
 EXTI:
   _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
@@ -74,64 +85,18 @@ IWDG:
 
 # Add missing RCC reset/enable bits
 RCC:
-  AHB1LPENR:
-    _add:
-      SRAM3LPEN:
-        description: SRAM3 interface clock enable during Sleep mode
-        bitOffset: 19
-        bitWidth: 1
-  APB1RSTR:
-    _add:
-      UART7RST:
-        description: UART7 reset
-        bitOffset: 30
-        bitWidth: 1
-      UART8RST:
-        description: UART8 reset
-        bitOffset: 31
-        bitWidth: 1
   APB1ENR:
-    _add:
-      UART7EN:
-        description: UART7 clock enable
-        bitOffset: 30
-        bitWidth: 1
-      UART8EN:
-        description: UART8 clock enable
-        bitOffset: 31
-        bitWidth: 1
-  APB1LPENR:
-    _add:
-      UART7LPEN:
-        description: UART7 clock enable during Sleep mode
-        bitOffset: 30
-        bitWidth: 1
-      UART8LPEN:
-        description: UART8 clock enable during Sleep mode
-        bitOffset: 31
-        bitWidth: 1
-  APB2RSTR:
-    _add:
-      SPI6RST:
-        description: SPI6 reset
-        bitOffset: 21
-        bitWidth: 1
+    _modify:
+      UART7ENR:
+        name: UART7EN
+      UART8ENR:
+        name: UART8EN
   APB2ENR:
-    _add:
-      SPI6EN:
-        description: SPI6 clock enable
-        bitOffset: 21
-        bitWidth: 1
-  APB2LPENR:
-    _add:
-      SPI6LPEN:
-        description: SPI6 clock enable during Sleep mode
-        bitOffset: 21
-        bitWidth: 1
-
-MPU:
-  _strip:
-    - "MPU_"
+    _modify:
+      SPI5ENR:
+        name: SPI5EN
+      SPI6ENR:
+        name: SPI6EN
 
 PWR:
   CR:
@@ -157,8 +122,9 @@ WWDG:
     - common_patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
-  - common_patches/nvic/4_prio_bits.yaml
   - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/ethernet/mac_regs.yaml
   - common_patches/ethernet/mmc.yaml
@@ -179,15 +145,13 @@ _include:
   - ../peripherals/dac/dac_dmaudr.yaml
   - common_patches/rcc/sai.yaml
   - common_patches/rcc/dma2d_ltdc.yaml
-  - common_patches/rcc/spi4.yaml
-  - common_patches/rcc/spi5.yaml
   - common_patches/rcc/add_gpiojk.yaml
   - common_patches/rcc/rcc_merge_sw_sws.yaml
   - common_patches/rcc/rcc_merge_rtcsel.yaml
+  - common_patches/rcc/rename_plli2scfgr.yaml
   - ../peripherals/rcc/rcc_v2.yaml
   - ../peripherals/rcc/rcc_v2_i2s.yaml
   - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
-  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
   - ../peripherals/rcc/rcc_v2_sai_pllr.yaml
   - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
   - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
@@ -205,7 +169,6 @@ _include:
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/tim_o24ce.yaml
   - common_patches/tim/tim10_14_missing_opm.yaml
   - common_patches/tim/common.yaml
   - common_patches/tim/tim2345_mixed_l.yaml
@@ -240,11 +203,9 @@ _include:
   - common_patches/usb_otg/fs_v1.yaml
   - common_patches/usb_otg/fs_v1_novbussens.yaml
   - collect/usb_otg/fs.yaml
-  - common_patches/usb_otg/hs_v1.yaml
+  - common_patches/usb_otg/hs_v1_f4.yaml
   - collect/usb_otg/hs.yaml
   - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/fpu_interrupt.yaml
-  - common_patches/fsmc/fsmc_sramfix_v3.yaml
   - common_patches/fsmc/fsmc_nand_v1.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - ../peripherals/fsmc/fsmc_nand.yaml

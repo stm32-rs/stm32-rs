@@ -1,13 +1,19 @@
 "DSI,DSIHOST":
   ISR0:
     _array:
-      "AE*": {}
-      "PE*": {}
+      "AE*":
+        description: Acknowledge error %s
+      "PE*":
+        description: PHY error %s
   IER0:
     _array:
-      "AE*IE": {}
-      "PE*IE": {}
+      "AE*IE":
+        description: Acknowledge error %s interrupt enable
+      "PE*IE":
+        description: PHY error %s interrupt enable
   FIR0:
     _array:
-      "FAE*": {}
-      "FPE*": {}
+      "FAE*":
+        description: Force acknowledge error %s
+      "FPE*":
+        description: Force PHY error %s
