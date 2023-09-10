@@ -151,16 +151,11 @@ RCC:
           bitOffset: 24
           bitWidth: 1
 
-MPU:
-  _strip:
-    - "MPU_"
-
 DMA2D:
   _strip:
     - "DMA2D_"
 
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/ethernet/mac_regs.yaml
  - common_patches/ethernet/mmc.yaml
@@ -228,7 +223,6 @@ _include:
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
@@ -253,10 +247,10 @@ _include:
  - common_patches/usb_otg/fs_v1.yaml
  - common_patches/usb_otg/fs_v1_novbussens.yaml
  - collect/usb_otg/fs.yaml
- - common_patches/usb_otg/hs_v1.yaml
+ - common_patches/usb_otg/hs_v1_f4.yaml
  - collect/usb_otg/hs.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
