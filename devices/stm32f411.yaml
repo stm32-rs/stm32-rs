@@ -37,67 +37,9 @@ FLASH:
 
 EXTI:
   _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
-
-# Add missing interrupts
-DMA1:
-  _add:
-    _interrupts:
-      DMA1_Stream0:
-        description: "DMA1 stream0 global interrupt"
-        value: 11
-      DMA1_Stream1:
-        description: "DMA1 stream1 global interrupt"
-        value: 12
-      DMA1_Stream2:
-        description: "DMA1 stream2 global interrupt"
-        value: 13
-      DMA1_Stream3:
-        description: "DMA1 stream3 global interrupt"
-        value: 14
-      DMA1_Stream4:
-        description: "DMA1 stream4 global interrupt"
-        value: 15
-      DMA1_Stream5:
-        description: "DMA1 stream5 global interrupt"
-        value: 16
-      DMA1_Stream6:
-        description: "DMA1 stream6 global interrupt"
-        value: 17
-      DMA1_Stream7:
-        description: "DMA1 stream7 global interrupt"
-        value: 47
-      DMA2_Stream0:
-        description: "DMA2 stream0 global interrupt"
-        value: 56
-      DMA2_Stream1:
-        description: "DMA2 stream1 global interrupt"
-        value: 57
-      DMA2_Stream2:
-        description: "DMA2 stream2 global interrupt"
-        value: 58
-      DMA2_Stream3:
-        description: "DMA2 stream3 global interrupt"
-        value: 59
-      DMA2_Stream4:
-        description: "DMA2 stream4 global interrupt"
-        value: 60
-      DMA2_Stream5:
-        description: "DMA2 stream5 global interrupt"
-        value: 68
-      DMA2_Stream6:
-        description: "DMA2 stream6 global interrupt"
-        value: 69
-      DMA2_Stream7:
-        description: "DMA2 stream7 global interrupt"
-        value: 70
-SPI1:
-  _add:
-    _interrupts:
-      SPI5:
-        description: "SPI5 global interrupt"
-        value: 85
 
 SYSCFG:
   _include:
@@ -105,29 +47,22 @@ SYSCFG:
     - ../peripherals/syscfg/f4/syscfg_f401_f411.yaml
 
 TIM3:
+  _delete:
+    _interrupts:
+      - DMA2_Stream7
+TIM1:
+  _delete:
+    _interrupts:
+      - TIM1_UP_TIM10
+      - TIM1_TRG_COM_TIM11
   _add:
     _interrupts:
-      TIM4:
-        description: "TIM4 global interrupt"
-        value: 30
-TIM5:
-  _add:
-    _interrupts:
-      TIM5:
-        description: "TIM5 global interrupt"
-        value: 50
-USART1:
-  _add:
-    _interrupts:
-      USART1:
-        description: "USART1 global interrupt"
-        value: 37
-      USART2:
-        description: "USART2 global interrupt"
-        value: 38
-      USART6:
-        description: "USART6 global interrupt"
-        value: 71
+      TIM1_UP_TIM10:
+        value: 25
+        description: TIM1 Update interrupt and TIM10 global interrupt
+      TIM1_TRG_COM_TIM11:
+        value: 26
+        description: TIM1 Trigger and Commutation interrupts and TIM11 global interrupt
 
 IWDG:
   _include:
@@ -138,11 +73,6 @@ WWDG:
   _include:
     - common_patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
-  _add:
-    _interrupts:
-      WWDG:
-        description: "Window watchdog interrupt"
-        value: 0
 
 # Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
@@ -153,9 +83,7 @@ RCC:
         bitOffset: 13
         bitWidth: 1
 
-MPU:
-  _strip:
-    - "MPU_"
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 PWR:
   CR:
@@ -178,7 +106,6 @@ PWR:
         bitWidth: 1
 
 _include:
-  - common_patches/nvic/4_prio_bits.yaml
   - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/adc/f4_no_csr.yaml
   - common_patches/adc/f4_single_ccr.yaml
@@ -207,7 +134,6 @@ _include:
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/tim_o24ce.yaml
   - common_patches/tim/tim10_14_missing_opm.yaml
   - common_patches/tim/common.yaml
   - common_patches/tim/tim2345_mixed_l.yaml
@@ -232,7 +158,6 @@ _include:
   - common_patches/usb_otg/fs_v1_novbussens.yaml
   - collect/usb_otg/fs.yaml
   - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/fpu_interrupt.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
   - common_patches/i2c/v1_fltr.yaml

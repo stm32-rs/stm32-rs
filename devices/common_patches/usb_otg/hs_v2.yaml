@@ -321,18 +321,6 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
     DTXFSTS7:
       addressOffset: 0x1F8
 
-  DIEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-      Stall:
-        name: STALL
-        description: STALL handshake
+  _include:
+    - epena_stall.yaml
 
-  DOEPCTL*:
-    _modify:
-      EPENA:
-        access: read-write
-      Stall:
-        name: STALL
-        description: STALL handshake
