@@ -87,12 +87,6 @@ FSMC:
     _delete:
       - DATLAT
       - CLKDIV
-  # Add the missing interrupt
-  _add:
-    _interrupts:
-      FSMC:
-        description: FSMC global interrupt
-        value: 48
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0402
@@ -101,288 +95,38 @@ CRC:
       CR:
         name: RESET
 
-# Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
-  PLLCFGR:
-    _add:
-      PLLR:
-        description: Main PLL division factor for I2S, DFSDM clocks
-        bitOffset: 28
-        bitWidth: 3
-  APB2RSTR:
-    _add:
-      SPI4RST:
-        description: SPI4 reset
-        bitOffset: 13
-        bitWidth: 1
-  PLLI2SCFGR:
-    _add:
-      PLLI2SSRC:
-        description: "PLLI2S entry clock source"
-        bitOffset: 22
-        bitWidth: 1
-  _add:
-    DCKCFGR:
-      description: Dedicated Clock Configuration Register
-      addressOffset: 0x8C
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        CKDFSDM1ASEL:
-          description: DFSDM1 audio clock selection
-          bitOffset: 15
-          bitWidth: 5
-        TIMPRE:
-          description: Timers clocks prescalers selection
-          bitOffset: 24
-          bitWidth: 1
-        I2S1SRC:
-          description: I2S APB1 clocks source selection (I2S2/3)
-          bitOffset: 25
-          bitWidth: 2
-        I2S2SRC:
-          description: I2S APB2 clocks source selection (I2S1/4/5)
-          bitOffset: 27
-          bitWidth: 2
-        CKDFSDM1SEL:
-          description: DFSDM1 Kernel clock selection
-          bitOffset: 31
-          bitWidth: 1
-    DCKCFGR2:
-      description: Dedicated Clock Configuration Register
-      addressOffset: 0x94
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        FMPI2C1SEL:
-          description: FMPI2C1 kernel clock source selection
-          bitOffset: 22
-          bitWidth: 2
-        CK48MSEL:
-          description: SDIO/USBFS clock selection
-          bitOffset: 27
-          bitWidth: 1
-        SDIOSEL:
-          description: SDIO clock selection
-          bitOffset: 28
-          bitWidth: 1
-    CKGATENR:
-      description: Clocks gated enable register
-      addressOffset: 0x90
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        AHB2APB1_CKEN:
-          description: AHB to APB1 Bridge clock enable
-          bitOffset: 0
-          bitWidth: 1
-        AHB2APB2_CKEN:
-          description: AHB to APB2 Bridge clock enable
-          bitOffset: 1
-          bitWidth: 1
-        CM4DBG_CKEN:
-          description: Cortex M4 ETM clock enable
-          bitOffset: 2
-          bitWidth: 1
-        SPARE_CKEN:
-          description: Spare clock enable
-          bitOffset: 3
-          bitWidth: 1
-        SRAM_CKEN:
-          description: SRAM controller clock enable
-          bitOffset: 4
-          bitWidth: 1
-        FLITF_CKEN:
-          description: Flash interface clock enable
-          bitOffset: 5
-          bitWidth: 1
-        RCC_CKEN:
-          description: RCC clock enable
-          bitOffset: 6
-          bitWidth: 1
-        EVTCL_CKEN:
-          description: EVTCL clock enable
-          bitOffset: 7
-          bitWidth: 1
-    # Add missing reset and enable registers for AHB3
-    AHB3RSTR:
-      description: RCC AHB3 peripheral reset register
-      addressOffset: 0x18
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        FSMCRST:
-          description: Flexible static memory controller module reset
-          bitOffset: 0
-          bitWidth: 1
-        QSPIRST:
-          description: QUADSPI module reset
-          bitOffset: 1
-          bitWidth: 1
-    AHB3ENR:
-      description: RCC AHB3 peripheral clock enable register
-      addressOffset: 0x38
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000000
-      fields:
-        FSMCEN:
-          description: Flexible static memory controller module clock enable
-          bitOffset: 0
-          bitWidth: 1
-        QSPIEN:
-          description: QUADSPI memory controller module clock enable
-          bitOffset: 1
-          bitWidth: 1
+  APB1ENR:
+    _modify:
+      RTCAPB:
+        name: RTCAPBEN
+  DCKCFGR2:
+    _modify:
+      I2CFMP1SEL:
+        name: FMPI2C1SEL
+        bitWidth: 2
+      CKSDIOSEL:
+        name: SDIOSEL
 
 # Add missing interrupts defined in RM0402
-WWDG:
-  _add:
-    _interrupts:
-      WWDG:
-        description: Window Watchdog interrupt
-        value: 0
-TIM2:
-  _add:
-    _interrupts:
-      TIM4:
-        description: TIM4 global interrupt
-        value: 30
-USART1:
-  _add:
-    _interrupts:
-      USART1:
-        description: USART1 global interrupt
-        value: 37
-      USART2:
-        description: USART2 global interrupt
-        value: 38
-      USART3:
-        description: USART3 global interrupt
-        value: 39
-      USART6:
-        description: USART6 global interrupt
-        value: 71
-TIM1:
-  _add:
-    _interrupts:
-      TIM8_CC:
-        description: TIM8 Cap/Com interrupt
-        value: 46
-TIM5:
-  _add:
-    _interrupts:
-      TIM5:
-        description: TIM5 global interrupt
-        value: 50
-SPI1:
-  _add:
-    _interrupts:
-      SPI3:
-        description: SPI3 global interrupt
-        value: 51
-      SPI5:
-        description: SPI5 global interrupt
-        value: 85
-DMA2:
-  _add:
-    _interrupts:
-      DMA1_Stream0:
-        description: DMA1 Stream0 global interrupt
-        value: 11
-      DMA1_Stream1:
-        description: DMA1 Stream1 global interrupt
-        value: 12
-      DMA1_Stream2:
-        description: DMA1 Stream2 global interrupt
-        value: 13
-      DMA1_Stream3:
-        description: DMA1 Stream3 global interrupt
-        value: 14
-      DMA1_Stream4:
-        description: DMA1 Stream4 global interrupt
-        value: 15
-      DMA1_Stream5:
-        description: DMA1 Stream5 global interrupt
-        value: 16
-      DMA1_Stream6:
-        description: DMA1 Stream6 global interrupt
-        value: 17
-      DMA1_Stream7:
-        description: DMA1 global interrupt Channel 7
-        value: 47
-      DMA2_Stream0:
-        description: DMA2 Stream0 global interrupt
-        value: 56
-      DMA2_Stream1:
-        description: DMA2 Stream1 global interrupt
-        value: 57
-      DMA2_Stream2:
-        description: DMA2 Stream2 global interrupt
-        value: 58
-      DMA2_Stream3:
-        description: DMA2 Stream3 global interrupt
-        value: 59
-      DMA2_Stream4:
-        description: DMA2 Stream4 global interrupt
-        value: 60
-      DMA2_Stream5:
-        description: DMA2 Stream5 global interrupt
-        value: 68
-      DMA2_Stream6:
-        description: DMA2 Stream6 global interrupt
-        value: 69
-      DMA2_Stream7:
-        description: DMA2 Stream7 global interrupt
-        value: 70
-DFSDM:
-  _add:
-    _interrupts:
-      DFSDM1_FLT0:
-        description: SD filter0 global interrupt
-        value: 61
-      DFSDM1_FLT1:
-        description: SD filter1 global interrupt
-        value: 62
-CAN1:
-  _add:
-    _interrupts:
-      CAN2_TX:
-        description: CAN2 TX interrupt
-        value: 63
-      CAN2_RX0:
-        description: BXCAN2 RX0 interrupt
-        value: 64
-      CAN2_RX1:
-        description: BXCAN2 RX1 interrupt
-        value: 65
-      CAN2_SCE:
-        description: CAN2 SCE interrupt
-        value: 66
-
 QUADSPI:
-  _add:
+  _modify:
     _interrupts:
-      Quad_SPI:
-        description: Quad-SPI global interrupt
-        value: 92
+      Quad_SP:
+        name: Quad_SPI
   _include:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
-
+I2C3:
+  _delete:
+    _interrupts:
+      - I2CFMP1_event
 FMPI2C1:
   _add:
     _interrupts:
       I2CFMP1_event:
         description: I2CFMP1 event interrupt
         value: 95
-      I2CFMP1_error:
-        description: I2CFMP1 error interrupt
-        value: 96
   OAR1:
     _delete: ["OA1", "OA11_7", "OA18_9"]
     _add:
@@ -390,10 +134,6 @@ FMPI2C1:
         description: Interface own slave address
         bitOffset: 0
         bitWidth: 10
-
-MPU:
-  _strip:
-    - "MPU_"
 
 PWR:
   CR:
@@ -438,8 +178,9 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
@@ -452,18 +193,11 @@ _include:
  - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - collect/fsmc/sram.yaml
- - common_patches/rcc/spi5.yaml
- - common_patches/rcc/rename_plli2scfgr.yaml
- - common_patches/rcc/add_plli2sq_usb.yaml
- - common_patches/rcc/add_plli2sm.yaml
  - common_patches/rcc/f4_fmpi2c.yaml
- - common_patches/rcc/f41x_bdcr_lsemod.yaml
- - common_patches/rcc/rcc_merge_sw_sws.yaml
  - common_patches/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
- - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
@@ -486,7 +220,6 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - collect/dma/st.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
@@ -515,7 +248,7 @@ _include:
  - common_patches/usb_otg/fs_v1.yaml
  - collect/usb_otg/fs.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
  - common_patches/i2c/v1_fltr.yaml
