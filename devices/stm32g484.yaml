@@ -8,6 +8,14 @@ VREFBUF:
   _strip:
     - "VREFBUF_"
 
+QUADSPI:
+  CCR:
+    _add:
+      DHHC:
+        description: DDR hold
+        bitOffset: 30
+        bitWidth: 1
+
 _include:
  - common_patches/dma/dma_v1.yaml
  - ./common_patches/rcc/g4.yaml
@@ -38,3 +46,5 @@ _include:
  - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/flash/flash_g4.yaml
+ - common_patches/quadspi/dr_multi_access.yaml
+ - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
