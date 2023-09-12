@@ -5,9 +5,9 @@
 "IWDG,IWDG?":
   KR:
     KEY:
-      Enable: [21845, "Enable access to PR, RLR and WINR registers (0x5555)"]
-      Reset: [43690, "Reset the watchdog value (0xAAAA)"]
-      Start: [52428, "Start the watchdog (0xCCCC)"]
+      Unlock: [0x5555, "Enable access to PR, RLR and WINR registers"]
+      Feed: [0xAAAA, "Feed watchdog with RLR register value"]
+      Start: [0xCCCC, "Start the watchdog"]
   PR:
     PR:
       DivideBy4: [0, "Divider /4"]
