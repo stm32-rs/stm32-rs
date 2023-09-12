@@ -1,0 +1,36 @@
+# Note: the definition of STK (SysTick) is located in PM0214 STM32 Cortex(R)-M4 MCUs and MPUs programming manual
+#
+# the main frame of this file was extracted from STM32F469.svd.patched
+
+"STK":
+  CTRL:
+    COUNTFLAG:
+      NotReached: [0, ""]
+      Reached: [1, "Timer counted to 0 since last time this was read"]
+    CLKSOURCE:
+      Div8: [0, "AHB/8"]
+      NotDiv: [1, "Processor clock (AHB)"]
+    TICKINT:
+      Disabled: [0, "Counting down to zero does not assert the SysTick exception request"]
+      Enabled: [1, "Counting down to zero to asserts the SysTick exception request"]
+    ENABLE:
+      Disabled: [0, "Counter disabled"]
+      Enabled: [1, "Counter enabled"]
+
+  LOAD:
+    RELOAD:
+      [0x00000001, 0x00FFFFFF] # this representation is from PM0214
+
+  VAL:
+    CURRENT:
+      [0, 0x00FFFFFF]
+
+  CALIB:
+    NOREF:
+      RefClockProvided: [0, "A separate reference clock is provided"]
+      NoRefClock: [1, ""]
+    SKEW:
+      NotSkew: [0, ""]
+      Skewed: [1, "Calibration value for the 1 ms inexact timing is not known because TENMS is not known"]
+    TENMS:
+      [0, 0xFF_FFFF]
