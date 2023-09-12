@@ -106,6 +106,14 @@ MPU:
   _strip:
     - "MPU_"
 
+"PWR":
+  CR:
+    _add:
+      VOS:
+        description: Regulator voltage scaling output selection
+        bitOffset: 14
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -178,3 +186,5 @@ _include:
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f405_f415_f407_f417.yaml
