@@ -127,3 +127,7 @@ WWDG:
 #   _modify:
 #     CNT_alternate:
 #       name: "CNT"
+
+_include:
+  - usart/merge_CR3_WUS_field.yaml
+  - usart/rename_CR1_ISR_enabled_disabled.yaml
