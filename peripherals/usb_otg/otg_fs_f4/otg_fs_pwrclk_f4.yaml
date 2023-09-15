@@ -1,0 +1,14 @@
+# Note: if you want to include `OTG_FS_GLOBAL`, `OTG_FS_DEVICE`, `OTG_FS_HOST` and `OTG_FS_PWRCLK`,
+# then try include `../peripherals/otg_fs_f4.yaml` into device yaml file instead.
+#
+# the main frame of this file was generated from stm32f429.svd.patched
+
+"OTG_FS_PWRCLK":
+  OTG_FS_PCGCCTL:
+    PHYSUSP:
+      NotSuspended: [0, ""]
+      Suspended: [1, ""]
+    GATEHCLK:
+      [0, 1]
+    STPPCLK:
+      [0, 1]
