@@ -102,9 +102,9 @@ check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html
-	svd2html html/ $(PATCHED_SVDS)
+	svdtools html html/ $(PATCHED_SVDS)
 
-html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
+html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh
 	scripts/htmlcomparesvdall.sh
 
 html: html/index.html html/comparisons.html

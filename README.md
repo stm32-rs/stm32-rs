@@ -97,9 +97,8 @@ contain the latest patches and updates.
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.10.0`
-        * `cargo install svdtools --version 0.3.0`
-        * `cargo install svd2rust --version 0.30.0`
-        * `cargo install svd2html --version 0.1.3`
+        * `cargo install svdtools --version 0.3.4`
+        * `cargo install svd2rust --version 0.30.1`
 * Install rustfmt: `rustup component add rustfmt`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
     * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
