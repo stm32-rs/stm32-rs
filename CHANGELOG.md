@@ -9,6 +9,7 @@
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
+* Fix ADC SR OVR enums
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
