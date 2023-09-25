@@ -10,6 +10,7 @@
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
+* Fix ADC SR OVR enums
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
