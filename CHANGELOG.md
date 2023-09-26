@@ -7,6 +7,11 @@
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
+* Add GPIOx:HSLVR
+
+* H5:
+    * H503: Add all GPIO registers
+    * H562/563/573: Add BRR, AFRH/L, HSLVR
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
