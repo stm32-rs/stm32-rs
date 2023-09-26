@@ -2,16 +2,18 @@
 
 ## [Unreleased]
 
+* Remove workaround for bug in duckscript's `mv`
 * Replace `makehtml.py` with `svd2html`
 * Updated to svd2rust 0.30.0, svdtools 0.3.0, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
+* DMAMUX: merge registers in arrays
+* STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
+* Fix ADC SR OVR enums
 * Add GPIOx:HSLVR
-
-* H5:
-    * H503: Add all GPIO registers
-    * H562/563/573: Add BRR, AFRH/L, HSLVR
+* H503: Add all GPIO registers
+* H562/563/573: Add BRR, AFRH/L, HSLVR
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 

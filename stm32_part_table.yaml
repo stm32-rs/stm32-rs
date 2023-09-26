@@ -790,13 +790,60 @@ stm32wb:
     rm_url: https://www.st.com/resource/en/reference_manual/dm00318631-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
     members:
       - STM32WB55
-
 stm32u5:
-  stm32u5x5:
-    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html
+  stm32u535:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u535-545.html
     rm: RM0456
-    rm_title: STM32U575 and STM32U585
-    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf
+    rm_title: STM32U535
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U535
+  stm32u545:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u535-545.html
+    rm: RM0456
+    rm_title: STM32U545
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U545
+  stm32u575:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u575-585.html
+    rm: RM0456
+    rm_title: STM32U575
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
     members:
       - STM32U575
+  stm32u585:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u575-585.html
+    rm: RM0456
+    rm_title: STM32U585
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
       - STM32U585
+  stm32u595:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u595-5a5.html
+    rm: RM0456
+    rm_title: STM32U595
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U595
+  stm32u5a5:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u595-5a5.html
+    rm: RM0456
+    rm_title: STM32U5A5
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U5a5
+  stm32u599:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u599-5a9.html
+    rm: RM0456
+    rm_title: STM32U599 with enhanced graphics capability)
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U599
+  stm32u5a9:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32u599-5a9.html
+    rm: RM0456
+    rm_title: STM32U5A9 with enhanced graphics capability)
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32U5a9
