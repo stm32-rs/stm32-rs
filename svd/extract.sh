@@ -38,8 +38,3 @@ mv stm32wle5_cm4.svd stm32wle5.svd
 # Copy L4X2 svd into L412; a 412 one doesn't exist.
 # We handle its modified RTC register block in `devices/stm32l412.yaml`.
 cp stm32l4x2.svd stm32l412.svd
-
-# Duplicate U5X5 to provide a copy for each chip
-cp stm32u5xx.svd stm32u575.svd
-cp stm32u5xx.svd stm32u585.svd
-rm stm32u5xx.svd
