@@ -20,6 +20,12 @@ MPU:
   _strip:
     - OTG_HS_
 
+EXTI:
+  IMR:
+    _modify:
+      MI9:
+        name: IM9
+
 _include:
  - common_patches/rcc/f7x23_pllsai.yaml
  - common_patches/dma/fcr_wo.yaml
