@@ -53,7 +53,8 @@ _include:
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/adc/adc_v2_smpr.yaml
+ - common_patches/adc/adc_v2_smpr.yaml
+ - common_patches/adc/adc_array.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_d.yaml
  - common_patches/dma/dma_v2.yaml
