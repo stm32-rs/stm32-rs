@@ -7,12 +7,14 @@
     - FMR
     - FM1R
 
-  "F?R?":
-    _merge:
-      - "FB*"
-  "F??R?":
-    _merge:
-      - "FB*"
+  _cluster:
+    "FB%s":
+      description: "CAN Filter Bank cluster"
+      "F*R1":
+        description: "Filter bank x register 1"
+      "F*R2":
+        description: "Filter bank x register 2"
+
   "FS1R":
     _merge:
       - "FSC*"
@@ -22,6 +24,8 @@
   "FA1R":
     _merge:
       - "FACT*"
+  "F?R?,F??R?":
+    _merge: ["FB*"]
 
   TSR:
     _merge:

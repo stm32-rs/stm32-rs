@@ -2,5 +2,11 @@
   _cluster:
     "FB%s":
       description: "CAN Filter Bank cluster"
-      "F*R1": {}
-      "F*R2": {}
+      "F*R1":
+        description: "Filter bank x register 1"
+      "F*R2":
+        description: "Filter bank x register 2"
+
+  "F?R?,F??R?":
+    _merge: ["FB*"]
+
