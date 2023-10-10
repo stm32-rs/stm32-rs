@@ -14,7 +14,6 @@
 * move merge CAN FB fields in patch file
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
 * Fix ADC SMPR fields in L1
-* Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Some fields (GPIO, EXTI, DMA, DSI, ADC) replaced with field arrays
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX register names

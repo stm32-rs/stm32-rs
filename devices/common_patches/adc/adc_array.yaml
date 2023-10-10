@@ -1,4 +1,4 @@
-"ADC?":
+"ADC,ADC?":
   _array:
     "JOFR?":
       JOFFSET: [0, 4095]
@@ -6,11 +6,5 @@
         JOFFSET1:
           name: JOFFSET
     "JDR?": {}
-  JSQR:
-    _array:
-      "JSQ?":
-        description: "%s conversion in injected sequence"
-  SQR?:
-    _array:
-      "SQ*":
-        description: "%s conversion in regular sequence"
+  _include:
+    - field_array.yaml

@@ -1,7 +1,4 @@
-_include:
-  - dr_rdata.yaml
-
-"ADC?":
+"ADC,ADC?":
   SQR1:
     _modify:
       L3:
@@ -21,3 +18,7 @@ _include:
     _modify:
       ADVREGEN:
         bitWidth: 2
+
+  _include:
+    - dr_rdata.yaml
+    - field_array.yaml
