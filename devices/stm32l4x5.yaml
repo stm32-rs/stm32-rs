@@ -53,6 +53,11 @@ RCC:
         bitOffset: 10
         bitWidth: 1
         access: read-write
+      CRSEN:
+        description: Clock Recovery System clock enable (this bit is reserved for STM32L47x/L48x devices)
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
   APB1SMENR1:
     _add:
       RTCAPBSMEN:
@@ -176,6 +181,7 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/v2/ccm.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml

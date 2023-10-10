@@ -1,0 +1,321 @@
+env_scripts = [
+'''
+#!@duckscript
+crates = get_env CRATES
+crates = array %{crates}
+NAMES = set ""
+CRATE_NAMES = set ""
+YAMLS = set ""
+PATCHED_SVDS = set ""
+FORMATTED_SVDS = set ""
+RUST_DIRS = set ""
+for crate in ${crates}
+    crate_yamls = glob_array devices/${crate}*.yaml
+    for yaml in ${crate_yamls}
+        serie = substring ${yaml} 8
+        serie = substring ${serie} -5
+        NAMES = concat ${NAMES} " " ${serie}
+        CRATE_NAMES = concat ${CRATE_NAMES} " " ${crate}
+        YAMLS = concat ${YAMLS} " " ${yaml}
+        PATCHED_SVDS = concat ${PATCHED_SVDS} " " svd/${serie}.svd.patched
+        FORMATTED_SVDS = concat ${FORMATTED_SVDS} " " svd/${serie}.svd.formatted
+        RUST_DIRS = concat ${RUST_DIRS} " " ${crate}/src/${serie}/
+    end
+    release ${crate_yamls}
+end
+NAMES = trim ${NAMES}
+set_env NAMES ${NAMES}
+CRATE_NAMES = trim ${CRATE_NAMES}
+set_env CRATE_NAMES ${CRATE_NAMES}
+YAMLS = trim ${YAMLS}
+set_env YAMLS ${YAMLS}
+PATCHED_SVDS = trim ${PATCHED_SVDS}
+set_env PATCHED_SVDS ${PATCHED_SVDS}
+FORMATTED_SVDS = trim ${FORMATTED_SVDS}
+set_env FORMATTED_SVDS ${FORMATTED_SVDS}
+RUST_DIRS = trim ${RUST_DIRS}
+set_env RUST_DIRS ${RUST_DIRS}
+''']
+
+[tasks.default]
+alias = "patch"
+
+[tasks.install_svdtools]
+install_crate = "svdtools"
+
+[tasks.install_svd2rust]
+install_crate = "svd2rust"
+
+[tasks.install]
+#dependencies = ["install_svdtools", "install_svd2rust"]
+command = "scripts/tool_install.sh"
+
+[tasks.check-patched]
+env = { "CRATES" = "${CRATE_NAMES}", "NAMES" = "${NAMES}" }
+dependencies = ["svd2rust"]
+script_runner = "@duckscript"
+script = '''
+NAMES = array %{NAMES}
+CRATES = array %{CRATES}
+count = array_length ${NAMES}
+handle = range 0 ${count}
+for i in ${handle}
+    serie = array_get ${NAMES} ${i}
+    crate = array_get ${CRATES} ${i}
+    dir_name = set ${crate}/src/${serie}
+    modpath = set ${dir_name}/mod.rs
+    checkpath = set ${dir_name}/.check
+
+    mod_modified = get_last_modified_time ${modpath}
+    if is_path_exists ${checkpath}
+        check_modified = get_last_modified_time ${checkpath}
+        need_update = less_than ${check_modified} ${mod_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "check: ${serie}"
+        cd ${crate}
+        exec cargo check --target-dir ../target/check/ --features rt,${serie}
+        cd ..
+        touch ${checkpath}
+    end
+end
+'''
+
+[tasks.form]
+env = { "CRATES" = "${CRATE_NAMES}", "NAMES" = "${NAMES}" }
+dependencies = ["svd2rust"]
+script_runner = "@duckscript"
+script = '''
+NAMES = array %{NAMES}
+CRATES = array %{CRATES}
+count = array_length ${NAMES}
+handle = range 0 ${count}
+for i in ${handle}
+    serie = array_get ${NAMES} ${i}
+    crate = array_get ${CRATES} ${i}
+    dir_name = set ${crate}/src/${serie}
+    modpath = set ${dir_name}/mod.rs
+    formpath = set ${dir_name}/.form
+
+    mod_modified = get_last_modified_time ${modpath}
+    if is_path_exists ${formpath}
+        form_modified = get_last_modified_time ${formpath}
+        need_update = less_than ${form_modified} ${mod_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "form: ${serie}"
+        exec form -i ${modpath} -o ${dir_name}
+        rm ${modpath}
+        cp ${dir_name}/lib.rs ${modpath}
+        rm ${dir_name}/lib.rs
+        exec rustfmt ${modpath}
+        touch ${formpath}
+    end
+end
+'''
+
+[tasks.svd2rust]
+env = { "CRATES" = "${CRATE_NAMES}", "NAMES" = "${NAMES}" }
+dependencies = ["patch", "crates"]
+script_runner = "@duckscript"
+script = '''
+NAMES = array %{NAMES}
+CRATES = array %{CRATES}
+count = array_length ${NAMES}
+handle = range 0 ${count}
+for i in ${handle}
+    serie = array_get ${NAMES} ${i}
+    crate = array_get ${CRATES} ${i}
+    dir_name = set ${crate}/src/${serie}
+    mkdir ${dir_name}
+    patchedpath = set svd/${serie}.svd.patched
+    modpath = set ${crate}/src/${serie}/mod.rs
+
+    patched_modified = get_last_modified_time ${patchedpath}
+    if is_path_exists ${modpath}
+        mod_modified = get_last_modified_time ${modpath}
+        need_update = less_than ${mod_modified} ${patched_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "svd2rust: ${serie}"
+        cd ${dir_name}
+        exec svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i "../../../${patchedpath}"
+        rm build.rs
+        rm ../generic.rs
+        mv generic.rs ../
+        cd ../../..
+        exec rustfmt ${modpath}
+    end
+end
+'''
+
+[tasks.mmaps]
+env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
+dependencies = ["patch"]
+script_runner = "@duckscript"
+script = '''
+mkdir mmaps
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    patchedpath = set svd/${serie}.svd.patched
+    mmappath = set mmaps/${serie}.mmap
+
+    patched_modified = get_last_modified_time ${patchedpath}
+    if is_path_exists ${mmappath}
+        mmap_modified = get_last_modified_time ${mmappath}
+        need_update = less_than ${mmap_modified} ${patched_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "mmaps: ${serie}"
+        command = set ${SVDTOOLS}
+        output = exec ${command} mmap ${patchedpath}
+        stdout = set ${output.stdout}
+        writefile ${mmappath} ${stdout}
+    end
+end
+'''
+
+[tasks.patch]
+env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
+dependencies = ["deps", "extracted"]
+script_runner = "@duckscript"
+script = '''
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    patchedpath = set svd/${serie}.svd.patched
+    deppath = set .deps/${serie}.d
+    ymlpath = set devices/${serie}.yaml
+
+    dep_modified = get_last_modified_time ${deppath}
+    if is_path_exists ${patchedpath}
+        patched_modified = get_last_modified_time ${patchedpath}
+        need_update = less_than ${patched_modified} ${dep_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "patch: ${serie}"
+        command = set ${SVDTOOLS}
+        exec ${command} patch ${ymlpath}
+    end
+end
+'''
+
+[tasks.deps]
+private = true
+env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
+script_runner = "@duckscript"
+script = '''
+mkdir .deps
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    deppath = set .deps/${serie}.d
+    ymlpath = set devices/${serie}.yaml
+    need_update = set false
+    yaml_modified = get_last_modified_time ${ymlpath}
+    if is_path_exists ${deppath}
+        dep_modified = get_last_modified_time ${deppath}
+        need_update = less_than ${dep_modified} ${yaml_modified}
+
+        deps = readfile ${deppath}
+        handle = split ${deps} ": "
+        dep_files = array_pop ${handle}
+        dep_files = trim ${dep_files}
+        release ${handle}
+        if not starts_with ${dep_files} ".deps"
+            dep_files = array %{dep_files}
+            for file in ${dep_files}
+                if is_path_exists ${file}
+                    dep_yaml_modified = get_last_modified_time ${file}
+                    if less_than ${dep_modified} ${dep_yaml_modified}
+                        echo "modified ${file}"
+                        need_update = set true
+                    end
+                else
+                    echo "File ${file} is not founded"
+                    need_update = set true
+                end
+            end
+        end
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "makedeps: ${serie}"
+        command = set ${SVDTOOLS}
+        exec ${command} makedeps ${ymlpath} ${deppath}
+    end
+end
+'''
+
+[tasks.extracted]
+private = true
+script_runner = "@duckscript"
+condition = { files_not_exist = ["svd/.extracted"] }
+script = { file = "svd/extract.ds" }
+
+[tasks.crates]
+env = { "PYTHON" = "${PYTHON}" }
+script_runner = "@duckscript"
+script = '''
+command = set ${PYTHON}
+exec ${command} scripts/makecrates.py devices/ -y --families ${CRATES}
+'''
+
+[tasks.clean-rs]
+env = { "RUST_DIRS" = "${RUST_DIRS}" }
+script_runner = "@duckscript"
+script = '''
+rm -r $RUST_DIRS
+handle = glob_array */src/generic.rs
+for file in ${handle}
+    rm ${file}
+end
+'''
+
+[tasks.clean-patch]
+env = { "PATCHED_SVDS" = "${PATCHED_SVDS}", "FORMATTED_SVDS" = "${FORMATTED_SVDS}" }
+script_runner = "@duckscript"
+script = '''
+rm %{PATCHED_SVDS}
+rm %{FORMATTED_SVDS}
+'''
+
+[tasks.clean-html]
+script_runner = "@duckscript"
+script = "rm -r html"
+
+[tasks.clean-crates]
+env = { "CRATES" = "${CRATES}" }
+script_runner = "@duckscript"
+script = '''
+rm -r %{CRATES}
+'''
+
+[tasks.clean-svd]
+script_runner = "@duckscript"
+script = '''
+handle = glob_array svd/*.svd
+for file in ${handle}
+    rm ${file}
+end
+rm svd/.extracted
+'''
+
+[tasks.clean-all]
+dependencies = ["clean-rs", "clean-patch", "clean-html", "clean-svd"]
+script_runner = "@duckscript"
+script = "rm -r .deps"
+
+[env]
+PYTHON = { value = "python3", condition = { env_not_set = ["PYTHON"] } }
+SVDTOOLS = { value = "svdtools", condition = { env_not_set = ["SVDTOOLS"] } }
+CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = ["CRATES"] } }

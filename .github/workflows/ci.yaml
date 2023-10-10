@@ -2,18 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [ staging, trying, master ]
+    branches:
+      - master
   pull_request:
+  merge_group:
 
 jobs:
-  ci:
-    name: CI
-    runs-on: ubuntu-latest
-    needs: [check]
-    steps:
-      - name: Done
-        run: exit 0
-
   check:
     name: Check
     runs-on: ubuntu-latest
@@ -27,6 +21,7 @@ jobs:
           - stm32f3
           - stm32f4
           - stm32f7
+          - stm32h5
           - stm32h7
           - stm32l0
           - stm32l1

@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
+.PHONY: extract patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -9,7 +9,7 @@ SHELL := /usr/bin/env bash
 SVDTOOLS ?= svdtools
 
 CRATES ?= stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 \
-          stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 \
+          stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 \
           stm32mp1 stm32wl stm32wb stm32u5
 
 # All yaml files in devices/ will be used to patch an SVD
@@ -17,6 +17,7 @@ YAMLS := $(foreach crate, $(CRATES), \
 	       $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
+EXTRACTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd, $(YAMLS))
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
@@ -60,7 +61,7 @@ crates:
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size -i ../../../$$<
+	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
@@ -73,7 +74,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
+	cd $(1) && cargo check --target-dir ../target/check/ --features rt,atomics,$$*
 	touch $$@
 
 $(1)/Cargo.toml: crates
@@ -87,6 +88,8 @@ svd/%.svd: svd/.extracted ;
 svd/.extracted:
 	cd svd && ./extract.sh && touch .extracted
 
+extract: $(EXTRACTED_SVDS)
+
 patch: $(PATCHED_SVDS)
 
 svd2rust: $(RUST_SRCS) crates
@@ -97,9 +100,9 @@ svdformat: $(FORMATTED_SVDS)
 
 check: $(CHECK_SRCS)
 
-html/index.html: $(PATCHED_SVDS) scripts/makehtml.py scripts/makehtml.index.template.html scripts/makehtml.template.html
+html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html
-	python3 scripts/makehtml.py html/ $(PATCHED_SVDS)
+	svd2html html/ $(PATCHED_SVDS)
 
 html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
 	scripts/htmlcomparesvdall.sh

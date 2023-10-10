@@ -111,6 +111,7 @@ SPI1:
 
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
+ - common_patches/dma/dmamux_array.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ./common_patches/dma/g0_add_dma1_7ch.yaml
  - ./common_patches/dma/g0_add_dma2_5ch.yaml
@@ -133,3 +134,4 @@ _include:
  - ./common_patches/flash/g0.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/tamp_bkpr.yaml
+ - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml

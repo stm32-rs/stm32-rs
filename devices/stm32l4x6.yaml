@@ -31,10 +31,6 @@ MPU:
   _strip:
     - "MPU_"
 
-DFSDM1:
-  _strip:
-    - "DFSDM1_"
-
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -51,6 +47,7 @@ _include:
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
  - common_patches/sai/sai_v1.yaml
+ - common_patches/dfsdm/dfsdm_v2.yaml
  - ./common_patches/rcc/l4_crrcr.yaml
  - ../peripherals/gpio/v2/common.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
@@ -74,6 +71,7 @@ _include:
  - common_patches/tim/tim_ccr.yaml
  - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/v2/ccm.yaml
+ - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
@@ -94,7 +92,10 @@ _include:
  - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
  - ./common_patches/lcd/l4_segment.yaml
  - common_patches/adc/adc_common_group_name.yaml
- - ./common_patches/comp/l4xx_comp_reg_rename.yaml
+ - common_patches/comp/l4xx_comp_reg_rename.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_v1ext.yaml
+ - common_patches/usb_otg/fs_v1.yaml
  - ../peripherals/comp/comp_l4x6.yaml
  - ../peripherals/dac/dac_l4xx.yaml
  - ../peripherals/opamp/opamp_l4.yaml

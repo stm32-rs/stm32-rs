@@ -32,6 +32,15 @@ _modify:
       TIFRFE:
         name: "FRE"
 
+_add:
+    # I2S*ext are missing
+    I2S2ext:
+        derivedFrom: SPI1
+        baseAddress: "0x40003400"
+    I2S3ext:
+        derivedFrom: SPI1
+        baseAddress: "0x40004000"
+
 FLASH:
   ACR:
     _modify:
@@ -151,7 +160,7 @@ RCC:
         name: SDIOSEL
 
 # Fix invalid formatting on this alternateRegister field
-OTG_FS_GLOBAL:
+"OTG_FS_GLOBAL*":
   _modify:
     FS_GNPTXFSIZ_Host:
       alternateRegister: GNPTXFSIZ_Device
@@ -249,12 +258,12 @@ UART10:
     _interrupts:
       - UART5
 
-OTG_FS_PWRCLK:
+"OTG_FS_PWRCLK*":
   _delete:
     _interrupts:
       - USART9
 
-OTG_FS_DEVICE:
+"OTG_FS_DEVICE*":
   _delete:
     _interrupts:
       - USART10
@@ -326,7 +335,9 @@ _include:
  - ../peripherals/flash/flash_latency16.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/usb_otg/otg_fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_v1ext.yaml
+ - common_patches/usb_otg/fs_v1.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - common_patches/rtc/rtc_cr.yaml

@@ -15,7 +15,9 @@ RTC:
     YT: [0, 15]
     YU: [0, 15]
     WDU: [1, 7]
-    MT: [0, 1]
+    MT:
+      Zero: [0, "Month tens is 0"]
+      One: [1, "Month tens is 1"]
     MU: [0, 15]
     DT: [0, 3]
     DU: [0, 15]
@@ -195,7 +197,9 @@ RTC:
   TSDR:
     _read:
       WDU: [0, 3]
-      MT: [0, 1]
+      MT:
+        Zero: [0, "Month tens is 0"]
+        One: [1, "Month tens is 1"]
       MU: [0, 7]
       DT: [0, 3]
       DU: [0, 15]

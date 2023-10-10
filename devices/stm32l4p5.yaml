@@ -112,8 +112,10 @@ _include:
   - ../peripherals/dac/dac_l4+.yaml
   - common_patches/comp/l4xx_comp_reg_rename.yaml
   - ../peripherals/comp/comp_l4+.yaml
+  - common_patches/dma/dma_v1.yaml
   - ../peripherals/dma/dma_v1.yaml
   - ../peripherals/dma/dmamux_wl.yaml
+  - common_patches/dma/dmamux_array.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - common_patches/syscfg/l4+.yaml
   - ../peripherals/syscfg/syscfg_l4+.yaml

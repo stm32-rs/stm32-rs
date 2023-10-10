@@ -3,6 +3,11 @@ _svd: ../svd/stm32f405.svd
 _delete:
   - UART7
   - UART8
+  # STM32F405 doesn't have ethernet, but the SVD does
+  - Ethernet_MAC
+  - Ethernet_MMC
+  - Ethernet_DMA
+  - Ethernet_PTP
 
 _rebase:
   # Make I2C1 the base type
@@ -16,6 +21,40 @@ _modify:
     name: ADC_Common
   SAI1:
     groupName: SAI
+
+# All of these fields and registers only concern Ethernet.
+# They are present in the SVD for stm32f405, but the stm32f405
+# doesn't actually have ethernet.
+RCC:
+  AHB1ENR:
+    _delete:
+      - ETHMACPTPEN
+      - ETHMACRXEN
+      - ETHMACTXEN
+      - ETHMACEN
+  AHB1LPENR:
+    _delete:
+      - ETHMACPTPLPEN
+      - ETHMACRXLPEN
+      - ETHMACTXLPEN
+      - ETHMACLPEN
+  AHB1RSTR:
+    _delete:
+      - ETHMACRST
+# The PMC register is used to configure MII or RMII mode
+# for ethernet, which stm32f405 doesn't have.
+SYSCFG:
+  _delete:
+    - PMC
+# We need to patch ITR1_RMP because it contains a
+# PTP variant, but stm32f405 doesn't have PTP.
+TIM2:
+  OR:
+    ITR1_RMP:
+      _replace_enum:
+        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
+        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
+        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
 
 "SPI*":
   SR:
@@ -113,7 +152,6 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
- - common_patches/tim/tim2_itr1_rmp.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_uart.yaml
@@ -128,10 +166,10 @@ _include:
  - common_patches/hash/hash.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/usb_otg/otg_fs_remove_prefix.yaml
- - common_patches/usb_otg/otg_fs_fixes_v1.yaml
- - common_patches/usb_otg/otg_hs_remove_prefix.yaml
- - common_patches/usb_otg/otg_hs_fixes_v1.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_v1ext.yaml
+ - common_patches/usb_otg/fs_v1.yaml
+ - common_patches/usb_otg/hs_v1.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
  - ../peripherals/sai/sai.yaml
