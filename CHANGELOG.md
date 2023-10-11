@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-* Remove workaround for bug in duckscript's `mv` 
+* Remove workaround for bug in duckscript's `mv`
 * Replace `makehtml.py` with `svd2html`
 * Updated to svd2rust 0.30.0, svdtools 0.3.0, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)
@@ -11,6 +11,7 @@
 * DMAMUX: merge registers in arrays
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
 * Fix ADC SR OVR enums
+* H5: Add CRS definitions
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
