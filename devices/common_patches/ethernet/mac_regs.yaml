@@ -1,4 +1,12 @@
 Ethernet_MAC:
+  MACFFR:
+    _modify:
+      SAIF:
+        bitOffset: 8
+      SAF:
+        bitOffset: 9
+      HPF:
+        bitOffset: 10
   MACMIIDR:
     _modify:
       TD:

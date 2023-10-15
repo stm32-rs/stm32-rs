@@ -12,6 +12,7 @@
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
+* Fix ETH_MACFFR bitOffsets
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
