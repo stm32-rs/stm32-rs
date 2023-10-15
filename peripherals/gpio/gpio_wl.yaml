@@ -2,22 +2,4 @@
 
 _include:
   - v2/common.yaml
-
-"GPIO[AB]":
-  BRR:
-    "BR[0-9],BR1[0-5]":
-      _write:
-        NoAction: [0, "No action on the corresponding ODx bit"]
-        Reset: [1, "Reset the ODx bit"]
-"GPIOC":
-  BRR:
-    "BR[0-6],BR1[3-5]":
-      _write:
-        NoAction: [0, "No action on the corresponding ODx bit"]
-        Reset: [1, "Reset the ODx bit"]
-"GPIOH":
-  BRR:
-    "BR3":
-      _write:
-        NoAction: [0, "No action on the corresponding ODx bit"]
-        Reset: [1, "Reset the ODx bit"]
+  - gpio_with_brr.yaml
