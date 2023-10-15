@@ -11,6 +11,7 @@
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
+* Fix ADC SMPR fields in L1
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
