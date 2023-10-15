@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
 * Replace `makehtml.py` with `svdtools html`
 * Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
