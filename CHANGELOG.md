@@ -16,6 +16,7 @@
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
+* GFXMMU LUT cluster
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
