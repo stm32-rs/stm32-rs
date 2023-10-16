@@ -8,6 +8,14 @@ FLASH:
   _strip:
     - FLASH_
 
+GTZC1_MPCBB?:
+  _strip: MPCBB?_
+  _include:
+    - ../collect/gtzc/h5_u5.yaml
+
+GTZC1_TZSC:
+  _strip: TZSC_
+
 ICACHE:
   _strip:
     - ICACHE_
