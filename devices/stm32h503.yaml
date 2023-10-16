@@ -1,5 +1,17 @@
 _svd: ../svd/stm32h503.svd
 
+GTZC1:
+  _strip: GTZC1_
+  _array:
+    MPCBB1_PRIVCFGR*:
+      description: SRAM1 MPCBB privileged configuration for super-block %s register
+      _array:
+        PRIV*: {}
+    MPCBB2_PRIVCFGR*:
+      description: SRAM2 MPCBB privileged configuration for super-block %s register
+      _array:
+        PRIV*: {}
+
 IWDG:
   _include:
     - common_patches/16bit_with_mask.yaml
