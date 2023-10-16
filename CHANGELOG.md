@@ -7,6 +7,7 @@
 * Remove workaround for bug in duckscript's `mv` 
 * Replace `makehtml.py` with `svdtools html`
 * Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
+* Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
