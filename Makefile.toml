@@ -183,6 +183,34 @@ for serie in ${NAMES}
 end
 '''
 
+[tasks.svdconv]
+env = { "NAMES" = "${NAMES}" }
+dependencies = ["patch"]
+script_runner = "@duckscript"
+script = '''
+mkdir svdconv
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    patchedpath = set svd/${serie}.svd.patched
+    txtpath = set svdconv/${serie}.txt
+
+    patched_modified = get_last_modified_time ${patchedpath}
+    if is_path_exists ${txtpath}
+        mmap_modified = get_last_modified_time ${txtpath}
+        need_update = less_than ${mmap_modified} ${patched_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "svdconv: ${serie}"
+        command = set ${SVDTOOLS}
+        output = exec svdconv --suppress-warnings ${patchedpath}
+        stdout = set ${output.stdout}
+        writefile ${txtpath} ${stdout}
+    end
+end
+'''
+
 [tasks.patch]
 env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
 dependencies = ["deps", "extracted"]
