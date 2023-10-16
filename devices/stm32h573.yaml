@@ -1,10 +1,5 @@
 _svd: ../svd/stm32h573.svd
 
-"GTZC1_MPCBB?":
-  _strip: ["GTZC1_MPCBB?_"]
-"GTZC1_TZIC":
-  _strip: ["GTZC1_TZIC_"]
-
 _include:
   - common_patches/h5.yaml
   - common_patches/h56x_h57x.yaml
@@ -18,6 +13,7 @@ _include:
 
   # - common_patches/flash/l5_array.yaml
 
+  - common_patches/gtzc/h5.yaml
   - ../peripherals/gpio/v3/common.yaml
 
   # - ../peripherals/rcc/rcc_v3.yaml

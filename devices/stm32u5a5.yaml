@@ -1,8 +1,6 @@
 _svd: ../svd/stm32u5a5.svd
 
-"GTZC1_MPCBB?":
-  _strip: ["MPCBB?_"]
-"GTZC1_TZSC":
-  _strip: ["TZSC_"]
-
 _clear_fields: ["*"]
+
+_include:
+ - common_patches/gtzc/u5.yaml
