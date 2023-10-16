@@ -1,17 +1,4 @@
-"TIM[1-589],TIM??":
-  _modify:
-    "CCR?":
-      description: "capture/compare register"
-  "CCR?":
-    _modify:
-      "CCR?":
-        name: CCR
-        description: "Capture/Compare value"
-  _array:
-    "CCR[1234]": {}
-  
-# field arrays
-"TIM[1-589],TIM1[0-8],TIM2?":
+"TIM?,TIM??":
   CCER:
     _array:
       "CC?E":
@@ -20,7 +7,7 @@
         description: "Capture/Compare %s output Polarity"
       "CC?NP":
         description: "Capture/Compare %s output Polarity"
-"TIM[18],TIM20":
+"TIM[18]":
   CCER:
     _array:
       "CC?NE":

@@ -18,10 +18,10 @@
         description: "Capture/Compare %s output enable"
       "CC?P":
         description: "Capture/Compare %s output Polarity"
-      "CC?NP":
-        description: "Capture/Compare %s output Polarity"
-"TIM[18],TIM20":
+"TIM[18]":
   CCER:
     _array:
+      "CC?NP":
+        description: "Capture/Compare %s output Polarity"
       "CC?NE":
         description: "Capture/Compare %s complementary output enable"
