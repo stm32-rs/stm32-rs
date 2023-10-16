@@ -1,4 +1,7 @@
 _svd: ../svd/stm32h503.svd
 
+"GTZC1":
+  _strip: ["GTZC1_"]
+
 _include:
   - common_patches/h5.yaml

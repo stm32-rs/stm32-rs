@@ -1,3 +1,8 @@
 _svd: ../svd/stm32u585.svd
 
+"GTZC1_MPCBB?":
+  _strip: ["MPCBB?_"]
+"GTZC1_TZSC":
+  _strip: ["TZSC_"]
+
 _clear_fields: ["*"]

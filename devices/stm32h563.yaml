@@ -1,5 +1,10 @@
 _svd: ../svd/stm32h563.svd
 
+"GTZC1_MPCBB?":
+  _strip: ["GTZC1_MPCBB?_"]
+"GTZC1_TZIC":
+  _strip: ["GTZC1_TZIC_"]
+
 _include:
   - common_patches/h5.yaml
   - common_patches/h56x_h57x.yaml

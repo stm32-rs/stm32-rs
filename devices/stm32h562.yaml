@@ -1,5 +1,10 @@
 _svd: ../svd/stm32h562.svd
 
+"GTZC1_MPCBB?":
+  _strip: ["GTZC1_MPCBB?_"]
+"GTZC1_TZIC":
+  _strip: ["GTZC1_TZIC_"]
+
 # todo: Once tested, apply these to the other H5 variants as applicable, or possibly
 # todo place them in the common/h5.yaml
 _include:
