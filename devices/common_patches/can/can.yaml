@@ -1,12 +1,8 @@
 "CAN,CAN?":
-  "TDL?R":
+  "TDL?R,TDH?R,RDL?R,RDH?R":
     _array:
       "DATA?":
-        description: DATA%s
-  "TDH?R":
-    _array:
-      "DATA?":
-        description: DATA%s
+        description: Data byte %s of the message
 
   _cluster:
     "TX%s":

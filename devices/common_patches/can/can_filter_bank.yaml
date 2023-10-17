@@ -7,6 +7,23 @@
       "F*R2":
         description: "Filter bank x register 2"
 
+  "FM?R":
+    _array:
+      "FBM*":
+        description: "Filter mode"
+  "FS?R":
+    _array:
+      "FSC*":
+        description: "Filter scale configuration"
+  "FFA?R":
+    _array:
+      "FFA*":
+        description: "Filter FIFO assignment for filter %s"
+  "FA?R":
+    _array:
+      "FACT*":
+        description: "Filter active"
+
   # Merge the thousands of individal bit fields into a single field for each
   # CAN filter register. This is not only much easier to use but also saves
   # a huge amount of filespace and compilation time etc -- as much as 30% of all

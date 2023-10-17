@@ -16,14 +16,17 @@
         description: "Filter bank x register 2"
 
   "FS1R":
-    _merge:
-      - "FSC*"
+    _array:
+      "FSC*":
+        description: "Filter scale configuration"
   "FFA1R":
-    _merge:
-      - "FFA*"
+    _array:
+      "FFA*":
+        description: "Filter FIFO assignment for filter %s"
   "FA1R":
-    _merge:
-      - "FACT*"
+    _array:
+      "FACT*":
+        description: "Filter active"
   "F?R?,F??R?":
     _merge: ["FB*"]
 

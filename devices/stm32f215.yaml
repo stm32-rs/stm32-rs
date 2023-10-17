@@ -17,6 +17,19 @@ _rebase:
       "F*R2":
         description: "Filter bank x register 2"
 
+  "FM?R":
+    _array:
+      "FBM*": {}
+  "FS1R":
+    _array:
+      "FSC*": {}
+  "FFA?R":
+    _array:
+      "FFA*": {}
+  "FA?R":
+    _array:
+      "FACT*": {}
+
   "F?R?,F??R?":
     _merge: ["FB*"]
 
