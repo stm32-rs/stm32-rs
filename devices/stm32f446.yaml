@@ -104,6 +104,12 @@ SYSCFG:
           description: Forces FM+ drive capability on I2CFMP1_SCL pin
           bitOffset: 1
           bitWidth: 1
+  MEMRMP:
+    _delete:
+      - FB_MODE
+  PMC:
+    _delete:
+      - MII_RMII_SEL
 
 # Add missing FMPI2C1 peripheral
 _add:
@@ -610,3 +616,5 @@ _include:
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/syscfg/f4_common.yaml
+ - ../peripherals/syscfg/f4/syscfg_f446.yaml

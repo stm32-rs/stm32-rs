@@ -159,6 +159,21 @@ DMA2D:
   _strip:
     - "DMA2D_"
 
+SYSCFG:
+  MEMRMP:
+    _modify:
+      MEM_MODE:
+        bitWidth: 3
+    _add:
+      SWP_FMC:
+        description: FMC memory mapping swap
+        bitOffset: 10
+        bitWidth: 2
+      FB_MODE:
+        description: Flash Bank mode selection
+        bitOffset: 8
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -255,3 +270,5 @@ _include:
  - common_patches/adc/adc_common_group_name.yaml
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
+ - common_patches/syscfg/f4_common.yaml
+ - ../peripherals/syscfg/f4/syscfg_f427_f437_f429_f439.yaml

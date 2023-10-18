@@ -8,6 +8,7 @@
 * Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
+* doc on `SYSCFG` peripheral for STM32F4 ([#852])
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
 * move merge CAN FB fields in patch file
@@ -18,7 +19,9 @@
 * Fix ETH_MACFFR bitOffsets
 * GFXMMU LUT cluster
 
+[#852]: https://github.com/stm32-rs/stm32-rs/pull/852
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+
 
 ## [v0.15.1] 2022-07-04
 

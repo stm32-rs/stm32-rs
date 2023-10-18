@@ -376,6 +376,32 @@ MPU:
   _strip:
     - "MPU_"
 
+SYSCFG:
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+  _add:
+    CFGR2:
+      description: ADC Common status register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PVDL:
+          description: PVD lock
+          bitOffset: 2
+          bitWidth: 1
+        CLL:
+          description: core lockup lock
+          bitOffset: 0
+          bitWidth: 1
+  CFGR:
+    _modify:
+      I2C4SDA:
+        name: I2CFMP1_SDA
+      I2C4SCL:
+        name: I2CFMP1_SCL
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -453,3 +479,5 @@ _include:
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/syscfg/f4_common.yaml
+ - ../peripherals/syscfg/f4/syscfg_f412.yaml

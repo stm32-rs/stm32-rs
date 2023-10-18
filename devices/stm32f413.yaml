@@ -256,6 +256,114 @@ UART10:
     _interrupts:
       - USART10
 
+SYSCFG:
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+  _add:
+    CFGR2:
+      description: ADC Common status register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PVDL:
+          description: PVD lock
+          bitOffset: 2
+          bitWidth: 1
+        CLL:
+          description: core lockup lock
+          bitOffset: 0
+          bitWidth: 1
+    MCHDLYCR:
+      description: DFSDM Multi-channel delay control register
+      addressOffset: 0x30
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DFSDM2_CKOSEL:
+          description: Source selection for DFSDM2_CKOUT
+          bitOffset: 18
+          bitWidth: 1
+        DFSDM2_CFG:
+          description: CkIn source selection for DFSDM2
+          bitOffset: 17
+          bitWidth: 1
+        DFSDM2_CK37SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC1
+          bitOffset: 16
+          bitWidth: 1
+        DFSDM2_CK26SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC2
+          bitOffset: 15
+          bitWidth: 1
+        DFSDM2_CK15SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC3
+          bitOffset: 14
+          bitWidth: 1
+        DFSDM2_CK04SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC4
+          bitOffset: 13
+          bitWidth: 1
+        DFSDM2_D6SEL:
+          description: Source selection for DatIn6 of DFSDM2
+          bitOffset: 12
+          bitWidth: 1
+        DFSDM2_D4SEL:
+          description: Source selection for DatIn4 of DFSDM2
+          bitOffset: 11
+          bitWidth: 1
+        DFSDM2_D2SEL:
+          description: Source selection for DatIn2 of DFSDM2
+          bitOffset: 10
+          bitWidth: 1
+        DFSDM2_D0SEL:
+          description: Source selection for DatIn0 of DFSDM2
+          bitOffset: 9
+          bitWidth: 1
+        MCHDLYEN2:
+          description: MCHDLY clock enable for DFSDM2
+          bitOffset: 8
+          bitWidth: 1
+        DFSDM1_CKOSEL:
+          description: Source selection for DFSDM1_CKOUT
+          bitOffset: 7
+          bitWidth: 1
+        DFSDM1_CFG:
+          description: CkIn source selection for DFSDM1
+          bitOffset: 6
+          bitWidth: 1
+        DFSDM1_CK13SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC1
+          bitOffset: 5
+          bitWidth: 1
+        DFSDM1_CK02SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC2
+          bitOffset: 4
+          bitWidth: 1
+        DFSDM1_D2SEL:
+          description: Source selection for DatIn2 of DFSDM1
+          bitOffset: 3
+          bitWidth: 1
+        DFSDM1_D0SEL:
+          description: Source selection for DatIn0 of DFSDM1
+          bitOffset: 2
+          bitWidth: 1
+        MCHDLYEN1:
+          description: MCHDLY clock enable for DFSDM1
+          bitOffset: 1
+          bitWidth: 1
+        BSCKSEL:
+          description: Bitstream clock source selection
+          bitOffset: 0
+          bitWidth: 1
+  CFGR:
+    _modify:
+      I2C4SDA:
+        name: I2CFMP1_SDA
+      I2C4SCL:
+        name: I2CFMP1_SCL
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -334,3 +442,5 @@ _include:
  - ../peripherals/sdio/sdio_f4.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/syscfg/f4_common.yaml
+ - ../peripherals/syscfg/f4/syscfg_f413_f423.yaml
