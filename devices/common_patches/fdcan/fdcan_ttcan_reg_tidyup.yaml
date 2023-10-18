@@ -1,0 +1,57 @@
+# Removes redundant TTCAN (Time Triggered CAN) registers on FDCAN peripherals
+# that don't support TTCAN, also fixes bad interrupt definitions on H7Ax/H7B0
+
+# This patch deletes the derived FDCAN peripheral and updates a copy of the
+# primary one, deleting the TTCAN registers.
+# This can then be used to derive further non-TTCAN FDCAN peripherals where
+# present, e.g. H72x/H73x.
+
+# When including this patch ensure that:
+#  - the TTCAN peripheral is (re)named FDCAN1
+#  - FDCAN1 is copied to FDCAN2
+#  - FDCAN2 base-address is correctly updated
+
+_delete:
+  - FDCAN
+  - FDCAN2
+
+# Logically, the copy of FDCAN1 -> FDCAN2 happens here, but must be placed
+# in device specific files due to FDCAN peripheral naming differences (namely
+# H7Ax/H7Bx)
+
+_modify:
+  FDCAN1:
+    description: FDCAN1
+  FDCAN2:
+    description: FDCAN2
+
+# SVD files are missing interrupts for FDCAN1 on H7Ax/H7Bx, other SVDs have
+# bad descriptions, delete and re-add interrupts to handle all cases here
+FDCAN1:
+  _delete:
+    _interrupts:
+      - FDCAN?_IT?
+  _add:
+    _interrupts:
+      FDCAN1_IT0:
+        description: FDCAN1 Interrupt 0
+        value: 19
+      FDCAN1_IT1:
+        description: FDCAN1 Interrupt 1
+        value: 21
+
+FDCAN2:
+  _delete:
+    # Delete redundant TTCAN registers copied from FDCAN1
+    _registers:
+      - TT*
+      - TUR*
+  _add:
+    # Add correct interrupts for FDCAN2
+    _interrupts:
+      FDCAN2_IT0:
+        description: FDCAN2 Interrupt 0
+        value: 20
+      FDCAN2_IT1:
+        description: FDCAN2 Interrupt 1
+        value: 22

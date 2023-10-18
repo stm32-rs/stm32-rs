@@ -1,0 +1,16 @@
+# Patches for the Flexible Data Rate CAN (FDCAN) on mp153/mp157
+
+_delete:
+  - FDCAN2                      # see: ./fdcan_ttcan_reg_tidyup.yaml
+
+_copy:
+  FDCAN2:
+    from: FDCAN1                # see: ./fdcan_ttcan_reg_tidyup.yaml
+
+_modify:
+  FDCAN2:
+    baseAddress: "0x4400F000"   # see: ./fdcan_ttcan_reg_tidyup.yaml
+
+_include:
+  - ./fdcan_common.yaml
+  - ./fdcan_ttcan_reg_tidyup.yaml
