@@ -1,0 +1,35 @@
+# ADC v3 with specific fields for reduced ADC3 found on H7 RM0468 parts
+
+"ADC3":
+  CFGR2:
+    OSVR:
+      Oversample2: [0, "Oversample 2x"]
+      Oversample4: [1, "Oversample 4x"]
+      Oversample8: [2, "Oversample 8x"]
+      Oversample16: [3, "Oversample 16x"]
+      Oversample32: [4, "Oversample 32x"]
+      Oversample64: [5, "Oversample 64x"]
+      Oversample128: [6, "Oversample 128x"]
+      Oversample256: [7, "Oversample 256x"]
+    OVSS: [0, 8]
+  "SMPR?":
+    "SMP?,SMP1?":
+      Cycles2_5: [0, "2.5 ADC clock cycles"]
+      Cycles6_5: [1, "6.5 ADC clock cycles"]
+      Cycles12_5: [2, "12.5 ADC clock cycles"]
+      Cycles24_5: [3, "24.5 ADC clock cycles"]
+      Cycles47_5: [4, "47.5 ADC clock cycles"]
+      Cycles92_5: [5, "92.5 ADC clock cycles"]
+      Cycles247_5: [6, "247.5 ADC clock cycles"]
+      Cycles640_5: [7, "640.5 ADC clock cycles"]
+  "TR?":
+    "HT?": [0, 0x0FFF]
+    "LT?": [0, 0x0FFF]
+  "OFR?":
+    SATEN:
+      Disabled: [0, "No saturation control, offset result can be signed"]
+      Enabled: [1, "Saturation enabled, offset result unsigned and saturated at 0x000 and 0xFFF"]
+    "OFFSET?_CH": [0, 31]
+    "OFFSET?": [0, 0x0FFF]
+  CALFACT:
+    CALFACT_?: [0, 127]

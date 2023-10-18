@@ -1,0 +1,50 @@
+# ADC v3 with H7 specific fields. For full ADCs (not RM0468 ADC3)
+
+CR:
+  "LINCALRDYW?":
+    Reset: [0, "LINCALFACT Word Read"]
+    Set: [1, "LINCALFACT Word Write"]
+  ADCALLIN:
+    NoLinearity: [0, "ADC calibration without linearaity calibration"]
+    Linearity: [1, "ADC calibration with linearaity calibration"]
+CFGR:
+  DMNGT:
+    DR: [0, "Store output data in DR only"]
+    DMA_OneShot: [1, "DMA One Shot Mode selected"]
+    DFSDM: [2, "DFSDM mode selected"]
+    DMA_Circular: [3, "DMA Circular Mode selected"]
+CFGR2:
+  LSHIFT: [0, 15]
+  OSVR: [0, 1023]
+  "RSHIFT?":
+    Disabled: [0, "Right-shifting disabled"]
+    Enabled: [1, "Data is right-shifted 1-bit"]
+  OVSS: [0, 11]
+"SMPR?":
+  "SMP*":
+    Cycles1_5: [0, "1.5 ADC clock cycles"]
+    Cycles2_5: [1, "2.5 ADC clock cycles"]
+    Cycles8_5: [2, "8.5 ADC clock cycles"]
+    Cycles16_5: [3, "16.5 ADC clock cycles"]
+    Cycles32_5: [4, "32.5 ADC clock cycles"]
+    Cycles64_5: [5, "64.5 ADC clock cycles"]
+    Cycles387_5: [6, "387.5 ADC clock cycles"]
+    Cycles810_5: [7, "810.5 ADC clock cycles"]
+"HTR?":
+  "HTR?": [0, 0x03FF_FFFF]
+"LTR?":
+  "LTR?": [0, 0x03FF_FFFF]
+"OFR?":
+  SSATE:
+    Disabled: [0, "Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)"]
+    Enabled: [1, "Offset is subtracted and result is saturated to maintain result size"]
+  "OFFSET?_CH": [0, 31]
+  "OFFSET?": [0, 0x3FFFFFF]
+PCSEL:
+  "PCSEL*":
+    NotPreselected: [0, "Input channel x is not pre-selected"]
+    Preselected: [1, "Pre-select input channel x"]
+CALFACT:
+  CALFACT_?: [0, 2047]
+CALFACT2:
+  LINCALFACT: [0, 0x3FFFFFFF]

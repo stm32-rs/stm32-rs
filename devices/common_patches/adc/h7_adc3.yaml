@@ -1,0 +1,252 @@
+# Patches for the reduced ADC3 peripheral found on RM0468 devies
+
+"ADC3":
+  _delete:
+    - PCSEL
+    - LTR?                      # LTR1 added again with name TR1
+    - HTR?                      # HTR1 added again with name TR2
+    - OFR?                      # Added again below
+    - DIFSEL                    # Added again at the right address
+    - CALFACT                   # Added again at the right address
+    - CALFACT2
+
+  CR:
+    _delete:
+      - BOOST
+      - ADCALLIN
+      - LINCALRDYW?
+
+  CFGR:
+    _delete:
+      - DMNGT
+    _modify:
+      RES:
+        bitOffset: 3
+        bitWidth: 2
+      AUTDLY:
+        description: Delayed conversion mode
+    _add:
+      DMAEN:
+        description: Direct memory access enable
+        bitOffset: 0
+        bitWidth: 1
+      DMACFG:
+        description: Direct memory access configuration
+        bitOffset: 1
+        bitWidth: 1
+      DFSDMCFG:
+        description: DFSDM mode configuration
+        bitOffset: 2
+        bitWidth: 1
+      ALIGN:
+        description: Data alignment
+        bitOffset: 15
+        bitWidth: 1
+  CFGR2:
+    _delete:
+      - RSHIFT?
+      - OVSR
+      - LSHIFT
+    _add:
+      OVSR:
+        description: Oversampling ratio
+        bitOffset: 2
+        bitWidth: 3
+      SWTRIG:
+        description: Software trigger bit for sampling time control trigger mode
+        bitOffset: 25
+        bitWidth: 1
+      BULB:
+        description: Bulb sampling mode
+        bitOffset: 26
+        bitWidth: 1
+      SMPTRIG:
+        description: Sampling time control trigger mode
+        bitOffset: 27
+        bitWidth: 1
+  SMPR1:
+    _add:
+      SMPPLUS:
+        description: Addition of one clock cycle to the sampling time
+        bitOffset: 31
+        bitWidth: 1
+  SMPR2:
+    _delete:
+      - SMP19
+  AWD2CR:
+    _modify:
+      AWD2CH:
+        bitOffset: 0
+        bitWidth: 18
+  AWD3CR:
+    _modify:
+      AWD3CH:
+        bitOffset: 0
+        bitWidth: 18
+
+  _add:
+    TR1:
+      description: ADC watchdog threshold register 1
+      addressOffset: 0x20
+      resetValue: 0x0FFF0000
+      fields:
+        HT1:
+          description: Analog watchdog 1 higher threshold
+          bitOffset: 16
+          bitWidth: 12
+        AWDFILT:
+          description: Analog watchdog filtering parameter
+          bitOffset: 12
+          bitWidth: 3
+        LT1:
+          description: Analog watchdog 1 lower threshold
+          bitOffset: 0
+          bitWidth: 12
+    TR2:
+      description: ADC watchdog threshold register 2
+      addressOffset: 0x24
+      resetValue: 0x00FF0000
+      fields:
+        HT2:
+          description: Analog watchdog 2 higher threshold
+          bitOffset: 16
+          bitWidth: 8
+        LT2:
+          description: Analog watchdog 2 lower threshold
+          bitOffset: 0
+          bitWidth: 8
+    TR3:
+      description: ADC watchdog threshold register 3
+      addressOffset: 0x28
+      resetValue: 0x00FF0000
+      fields:
+        HT3:
+          description: Analog watchdog 3 higher threshold
+          bitOffset: 16
+          bitWidth: 8
+        LT3:
+          description: Analog watchdog 3 lower threshold
+          bitOffset: 0
+          bitWidth: 8
+    OFR1:
+      description: ADC offset number 1 register
+      addressOffset: 0x60
+      resetValue: 0x00000000
+      fields:
+        OFFSET1_EN:
+          description: Offset 1 Enable
+          bitOffset: 31
+          bitWidth: 1
+        OFFSET1_CH:
+          description: Channel selection for the data offset 1
+          bitOffset: 26
+          bitWidth: 5
+        SATEN:
+          description: Saturation enable
+          bitOffset: 25
+          bitWidth: 1
+        OFFSETPOS:
+          description: Positive offset
+          bitOffset: 24
+          bitWidth: 1
+        OFFSET1:
+          description: Data offset 1 for the channel programmed into bits OFFSET1_CH
+          bitOffset: 0
+          bitWidth: 12
+    OFR2:
+      description: ADC offset number 2 register
+      addressOffset: 0x64
+      resetValue: 0x00000000
+      fields:
+        OFFSET2_EN:
+          description: Offset 2 Enable
+          bitOffset: 31
+          bitWidth: 1
+        OFFSET2_CH:
+          description: Channel selection for the data offset 2
+          bitOffset: 26
+          bitWidth: 5
+        SATEN:
+          description: Saturation enable
+          bitOffset: 25
+          bitWidth: 1
+        OFFSETPOS:
+          description: Positive offset
+          bitOffset: 24
+          bitWidth: 1
+        OFFSET2:
+          description: Data offset 2 for the channel programmed into bits OFFSET2_CH
+          bitOffset: 0
+          bitWidth: 12
+    OFR3:
+      description: ADC offset number 3 register
+      addressOffset: 0x68
+      resetValue: 0x00000000
+      fields:
+        OFFSET3_EN:
+          description: Offset 3 Enable
+          bitOffset: 31
+          bitWidth: 1
+        OFFSET3_CH:
+          description: Channel selection for the data offset 3
+          bitOffset: 26
+          bitWidth: 5
+        SATEN:
+          description: Saturation enable
+          bitOffset: 25
+          bitWidth: 1
+        OFFSETPOS:
+          description: Positive offset
+          bitOffset: 24
+          bitWidth: 1
+        OFFSET3:
+          description: Data offset 3 for the channel programmed into bits OFFSET3_CH
+          bitOffset: 0
+          bitWidth: 12
+    OFR4:
+      description: ADC offset number 4 register
+      addressOffset: 0x6C
+      resetValue: 0x00000000
+      fields:
+        OFFSET4_EN:
+          description: Offset 4 Enable
+          bitOffset: 31
+          bitWidth: 1
+        OFFSET4_CH:
+          description: Channel selection for the data offset 4
+          bitOffset: 26
+          bitWidth: 5
+        SATEN:
+          description: Saturation enable
+          bitOffset: 25
+          bitWidth: 1
+        OFFSETPOS:
+          description: Positive offset
+          bitOffset: 24
+          bitWidth: 1
+        OFFSET4:
+          description: Data offset 4 for the channel programmed into bits OFFSET4_CH
+          bitOffset: 0
+          bitWidth: 12
+    DIFSEL:
+      description: ADC differential mode selection register
+      addressOffset: 0xB0
+      resetValue: 0x00000000
+      fields:
+        DIFSEL:
+          description: Differential mode for channels 18 to 0
+          bitOffset: 0
+          bitWidth: 18
+    CALFACT:
+      description: ADC calibration factors
+      addressOffset: 0xB4
+      resetValue: 0x00000000
+      fields:
+        CALFACT_D:
+          description: Calibration Factors in differential mode
+          bitOffset: 16
+          bitWidth: 7
+        CALFACT_S:
+          description: Calibration Factors In single-ended mode
+          bitOffset: 0
+          bitWidth: 7
