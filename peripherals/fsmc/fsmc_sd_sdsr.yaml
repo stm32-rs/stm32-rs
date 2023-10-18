@@ -1,0 +1,5 @@
+"FMC,FSMC":
+  SDSR:
+    BUSY:
+      NotBusy: [0, "SDRAM Controller is ready to accept a new request"]
+      Busy: [1, "SDRAM Controller is not ready to accept a new request"]

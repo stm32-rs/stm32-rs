@@ -43,6 +43,7 @@ _include:
  - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
+ - ../peripherals/fsmc/fsmc_sram_bwtr_busturn.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -61,6 +62,7 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - common_patches/fsmc/fsmc_sramfix_common.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
