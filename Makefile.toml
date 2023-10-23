@@ -145,7 +145,7 @@ for i in ${handle}
     if ${need_update}
         echo "svd2rust: ${serie}"
         cd ${dir_name}
-        exec svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i "../../../${patchedpath}"
+        exec svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics --const_generic -i "../../../${patchedpath}"
         rm build.rs
         rm ../generic.rs
         mv generic.rs ../
