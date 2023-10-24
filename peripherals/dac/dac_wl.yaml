@@ -70,7 +70,7 @@ DAC:
       Error: [1, 'DMA underrun error condition occurred for DAC channel x (the currently selected trigger is driving DAC channel1 conversion at a frequency higher than the DMA service capability rate)']
 
   CCR:
-    "OTRIM?": [0, 63]
+    "OTRIM?": [0, 0x1F]
 
   MCR:
     "MODE?":

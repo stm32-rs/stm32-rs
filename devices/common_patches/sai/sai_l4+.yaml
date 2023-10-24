@@ -38,6 +38,7 @@ SAI?:
         name: OUTDRIV
       MCJDIV:
         name: MCKDIV
+        bitWidth: 6
 
     OSR:
       Multiplier256: [ 0, "Master clock frequency = FFS x 256" ]

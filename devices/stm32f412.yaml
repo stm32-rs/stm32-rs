@@ -371,6 +371,13 @@ FMPI2C1:
       I2CFMP1_error:
         description: I2CFMP1 error interrupt
         value: 96
+  OAR1:
+    _delete: ["OA1", "OA11_7", "OA18_9"]
+    _add:
+      OA1:
+        description: Interface own slave address
+        bitOffset: 0
+        bitWidth: 10
 
 MPU:
   _strip:

@@ -138,6 +138,8 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/cec/cfgr.yaml
+ - ../peripherals/hdmi_cec.yaml
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
@@ -158,6 +160,7 @@ _include:
  - common_patches/can/can.yaml
  - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - common_patches/usb/merge_add.yaml
  - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml

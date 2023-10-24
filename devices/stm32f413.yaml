@@ -256,6 +256,15 @@ UART10:
     _interrupts:
       - USART10
 
+FMPI2C1:
+  OAR1:
+    _delete: ["OA1", "OA11_7", "OA18_9"]
+    _add:
+      OA1:
+        description: Interface own slave address
+        bitOffset: 0
+        bitWidth: 10
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml

@@ -98,6 +98,7 @@ MPU:
     - OTG_HS_
 
 _include:
+ - ../peripherals/hdmi_cec.yaml
  - common_patches/f7_interrupts.yaml
  - common_patches/f7_lptim_interrupt.yaml
  - common_patches/ltdc/f7_ltdc_interrupts.yaml
