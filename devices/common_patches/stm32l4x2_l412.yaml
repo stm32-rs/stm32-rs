@@ -1,5 +1,8 @@
 # Common patches and includes for L4x2 and L412.
 
+_derive:
+  USART3: USART1
+
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
 # SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.

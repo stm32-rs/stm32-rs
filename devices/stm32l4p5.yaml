@@ -58,6 +58,11 @@ CRC:
       CRC_INIT:
         name: INIT
 
+OCTOSPI1:
+  DCR1:
+    _modify:
+      CSHT:
+        bitWidth: 6
 
 _include:
   - ../peripherals/gpio/v2/common.yaml

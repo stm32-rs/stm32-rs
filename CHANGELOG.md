@@ -17,6 +17,7 @@
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
 * GFXMMU LUT cluster
+* Fix writeConstraint bugs
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 

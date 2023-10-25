@@ -31,6 +31,12 @@ MPU:
   _strip:
     - "MPU_"
 
+Ethernet_MAC:
+  MACA2LR:
+    _modify:
+      MACA2L:
+        bitWidth: 32
+
 _include:
  - common_patches/rcc/f1_uart45.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml

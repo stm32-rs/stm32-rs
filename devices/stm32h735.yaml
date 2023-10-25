@@ -923,7 +923,7 @@ DBGMCU:
 # -----------------------------------------------------------------------------
 
 _include:
- - common_patches/hdmi_cec.yaml
+ - ../peripherals/hdmi_cec.yaml
  - common_patches/h7_common_singlecore.yaml
  - common_patches/dma/fcr_wo.yaml
  - common_patches/dma/bdma_v2_new.yaml

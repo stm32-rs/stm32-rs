@@ -40,9 +40,10 @@ _include:
       Cycles61_5: [5, "61.5 ADC clock cycles"]
       Cycles181_5: [6, "181.5 ADC clock cycles"]
       Cycles601_5: [7, "601.5 ADC clock cycles"]
-  "TR?":
-    "HT?": [0, 0xFFF]
-    "LT?": [0, 0xFFF]
+  TR1:
+    "[HL]T1": [0, 0xFFF]
+  "TR[23]":
+    "[HL]T?": [0, 0xFF]
   "OFR?":
     "OFFSET?_EN":
       Disabled: [0, "Offset disabled"]

@@ -1,5 +1,8 @@
 _svd: ../svd/stm32l4x1.svd
 
+_derive:
+  USART3: USART1
+
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
 # SVD incorrectly shifts CRCRST 11 bits instead of 12
