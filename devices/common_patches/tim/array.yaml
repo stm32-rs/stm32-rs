@@ -13,6 +13,15 @@
       "CC?NP":
         description: "Capture/Compare %s output Polarity"
 
+  "CCMR[12]_Input":
+    _array:
+      "CC?S":
+        description: "Capture/Compare %s selection"
+      "IC?PSC":
+        description: "Input capture %s prescaler"
+      "IC?F":
+        description: "Input capture %s filter"
+
   "CCMR[12]_Output":
     _array:
       "CC?S":
@@ -25,13 +34,35 @@
         description: "Output compare %s preload enable"
       "OC?M":
         description: "Output compare %s mode"
+  DIER:
+    _array:
+      "CC?IE":
+        description: "Capture/Compare %s interrupt enable"
+  SR:
+    _array:
+      "CC[1-4]IF":
+        description: "Capture/compare %s interrupt flag"
+      "CC?OF":
+        description: "Capture/Compare %s overcapture flag"
+
 "TIM[1-58],TIM19,TIM20":
   "CCMR?_Output":
     _array:
       "OC?CE":
         description: "Output compare %s clear enable"
+  DIER:
+    _array:
+      "CC?DE":
+        description: "Capture/Compare %s DMA request enable"
+
 "TIM[18],TIM20":
   CCER:
     _array:
       "CC?NE":
         description: "Capture/Compare %s complementary output enable"
+  CR2:
+    _array:
+      "OIS?":
+        description: "Output Idle state %s (OC%s output)"
+      "OIS?N":
+        description: "Output Idle state %s (OC%sN output)"
