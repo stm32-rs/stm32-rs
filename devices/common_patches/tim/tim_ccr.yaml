@@ -7,21 +7,3 @@
       "CCR?":
         name: CCR
         description: "Capture/Compare value"
-  _array:
-    "CCR[1234]": {}
-  
-# field arrays
-"TIM[1-589],TIM1[0-8],TIM2?":
-  CCER:
-    _array:
-      "CC?E":
-        description: "Capture/Compare %s output enable"
-      "CC?P":
-        description: "Capture/Compare %s output Polarity"
-      "CC?NP":
-        description: "Capture/Compare %s output Polarity"
-"TIM[18],TIM20":
-  CCER:
-    _array:
-      "CC?NE":
-        description: "Capture/Compare %s complementary output enable"

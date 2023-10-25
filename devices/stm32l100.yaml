@@ -92,8 +92,9 @@ _include:
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
- - common_patches/tim/tim_ccr_l0.yaml
+ - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - common_patches/tim/array_l0.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml

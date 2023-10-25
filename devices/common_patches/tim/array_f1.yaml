@@ -1,12 +1,4 @@
-"TIM[1-589],TIM??":
-  _modify:
-    "CCR?":
-      description: "capture/compare register"
-  "CCR?":
-    _modify:
-      "CCR?":
-        name: CCR
-        description: "Capture/Compare value"
+"TIM[1-589],TIM[12]?":
   _array:
     "CCR[1234]": {}
   
@@ -18,6 +10,19 @@
         description: "Capture/Compare %s output enable"
       "CC?P":
         description: "Capture/Compare %s output Polarity"
+
+  "CCMR[12]_Output":
+    _array:
+      "CC?S":
+        description: "Capture/Compare %s selection"
+  "CCMR?_Output":
+    _array:
+      "OC?FE":
+        description: "Output compare %s fast enable"
+      "OC?PE":
+        description: "Output compare %s preload enable"
+      "OC?M":
+        description: "Output compare %s mode"
 "TIM[18]":
   CCER:
     _array:

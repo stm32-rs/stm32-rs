@@ -1,0 +1,37 @@
+"TIM[1-589],TIM[12]?":
+  _array:
+    "CCR[1234]": {}
+  
+# field arrays
+"TIM[1-589],TIM1[0-8],TIM2?":
+  CCER:
+    _array:
+      "CC?E":
+        description: "Capture/Compare %s output enable"
+      "CC?P":
+        description: "Capture/Compare %s output Polarity"
+      "CC?NP":
+        description: "Capture/Compare %s output Polarity"
+
+  "CCMR[12]_Output":
+    _array:
+      "CC?S":
+        description: "Capture/Compare %s selection"
+  "CCMR?_Output":
+    _array:
+      "OC?FE":
+        description: "Output compare %s fast enable"
+      "OC?PE":
+        description: "Output compare %s preload enable"
+      "OC?M":
+        description: "Output compare %s mode"
+"TIM[1-58],TIM19,TIM20":
+  "CCMR?_Output":
+    _array:
+      "OC?CE":
+        description: "Output compare %s clear enable"
+"TIM[18],TIM20":
+  CCER:
+    _array:
+      "CC?NE":
+        description: "Capture/Compare %s complementary output enable"
