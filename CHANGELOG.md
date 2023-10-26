@@ -17,6 +17,8 @@
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
 * move merge CAN FB fields in patch file
+* Fix G0 TIM1 CCMR?_Input fields
+* G4, L5, U5 TIM common fixes
 * STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
 * Fix several array descriptions
 * Fix ADC SMPR fields in L1
