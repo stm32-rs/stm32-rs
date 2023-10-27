@@ -20,6 +20,7 @@
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
 * GFXMMU LUT cluster
+* Add missing CAN registers to l4x3/x5
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
 * Fix typo in STM32G491 FDCAN2 patch
