@@ -1,3 +1,6 @@
 _svd: ../svd/stm32u595.svd
 
 _clear_fields: ["*"]
+
+_include:
+ - common_patches/sdio_sdmmc/u5.yaml

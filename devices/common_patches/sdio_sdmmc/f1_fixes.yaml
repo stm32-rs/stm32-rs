@@ -1,0 +1,20 @@
+SDIO:
+  _modify:
+    RESPI1:
+      name: RESP1
+  DCTRL:
+    _modify:
+      PWSTART:
+        name: RWSTART
+      PWSTOP:
+        name: RWSTOP
+  MASK:
+    _modify:
+      DBACKENDIE:
+        name: DBCKENDIE
+      CEATENDIE:
+        name: CEATAENDIE
+  FIFOCNT:
+    _modify:
+      FIF0COUNT:
+        name: FIFOCOUNT

@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f446.svd
 
+_delete:
+  - SDMMC
+
 _copy:
   OTG_FS_GLOBAL:
     from: ../svd/stm32f7x7.svd:OTG_FS_GLOBAL
@@ -17,12 +20,17 @@ _copy:
   OTG_HS_PWRCLK:
     from: ../svd/stm32f7x7.svd:OTG_HS_PWRCLK
 
+  SDIO:
+    from: ../svd/stm32f7x2.svd:SDMMC1
+
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C3
   USART1: USART6
 
 _modify:
+  SDIO:
+    groupName: SDIO
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
   C_ADC:
@@ -602,9 +610,8 @@ _include:
  - common_patches/rtc/f4_cr.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
- - common_patches/sdio_sdmmc/f446.yaml
- - ../peripherals/sdio/sdio.yaml
- - ../peripherals/sdio/sdio_f4_common.yaml
+ - ../peripherals/sdio/sdio_f7.yaml
+ - common_patches/sdio_sdmmc/sdio.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml

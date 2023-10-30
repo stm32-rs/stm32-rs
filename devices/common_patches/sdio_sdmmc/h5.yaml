@@ -1,0 +1,9 @@
+"SDMMC,SDMMC?":
+  _strip: ["SDMMC_"]
+  _array:
+    RESP[1-4]R:
+      _modify:
+        CARDSTATUSx:
+          name: CARDSTATUS
+
+    FIFOR?*: {}

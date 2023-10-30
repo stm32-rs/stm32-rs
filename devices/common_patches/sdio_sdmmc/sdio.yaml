@@ -1,0 +1,7 @@
+"SDIO,SDMMC,SDMMC?":
+  _array:
+    "RESP[1-4],RESP[1-4]R":
+      name: RESP%sR
+      _modify:
+        CARDSTATUS?:
+          name: CARDSTATUS

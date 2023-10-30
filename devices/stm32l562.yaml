@@ -46,6 +46,9 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
+SDMMC?:
+  _strip: ["SDMMC_"]
+
 _cluster:
   "CH%s":
     description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR?, and CM1AR? registers"

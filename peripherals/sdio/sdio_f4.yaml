@@ -1,6 +1,3 @@
-_include:
-  - sdio_f4_common.yaml
-
 SDIO:
   CMD:
     CE_ATACMD:
@@ -23,3 +20,7 @@ SDIO:
 
   DCTRL:
     DBLOCKSIZE: [0, 0xF]
+  
+  _include:
+    - sdio_f4_common.yaml
+
