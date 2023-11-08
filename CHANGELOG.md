@@ -19,6 +19,7 @@
 * GFXMMU LUT cluster
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
+* Fix typo in STM32G491 FDCAN2 patch
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
