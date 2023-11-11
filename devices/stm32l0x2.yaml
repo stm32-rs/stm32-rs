@@ -107,10 +107,9 @@ _include:
  - ./common_patches/firewall/l0.yaml
  - ./common_patches/pwr/l0_wakeup.yaml
  - ./common_patches/rtc/l0.yaml
- - ./common_patches/tim/l0.yaml
  - ./common_patches/syscfg/l0_cfgr.yaml
  - ./common_patches/nvic/l0_prio_bits.yaml
- - ./common_patches/tsc/tsc.yaml
+ - ./collect/tsc/iogcr.yaml
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
  - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -134,8 +133,8 @@ _include:
  - ../peripherals/dbg/dbg_l0.yaml
  - ../peripherals/dac/dac_common_1ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/flash/flash_l0.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
@@ -148,20 +147,21 @@ _include:
  - ../peripherals/rcc/rcc_l0.yaml
  - ../peripherals/rtc/rtc_common.yaml
  - ../peripherals/rtc/rtc_l0.yaml
+ - common_patches/rtc/alarm.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0.yaml
+ - common_patches/tim/l0.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim6.yaml
- - common_patches/tim/tim_ccr.yaml
- - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
  - ../peripherals/wwdg/wwdg.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/dma/dma_v1.yaml

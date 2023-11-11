@@ -39,13 +39,6 @@ OTG_HS_GLOBAL:
     DIEPTXF5:
       addressOffset: '0x114'
 
-  _array:
-    DIEPTXF[12345]: {}
-
-OTG_HS_HOST:
-  _include:
-    - hs_host_array.yaml
-
 OTG_HS_DEVICE:
   _delete:
     _registers:
@@ -130,9 +123,6 @@ OTG_HS_DEVICE:
       addressOffset: 0x44
     DOEPEACHMSK1:
       addressOffset: 0x84
-
-  _include:
-    - hs_device_cluster.yaml
 
 OTG_HS_PWRCLK:
   _modify:

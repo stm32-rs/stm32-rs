@@ -106,12 +106,14 @@ _include:
  - usart/rename_LPUART_CR2_DATAINV_field.yaml
  - usart/merge_LPUART_CR2_ADDx_fields.yaml
  - usart/merge_BRR_fields.yaml
- - can/can.yaml
- - can/can_filter_bank.yaml
  - ../../peripherals/can/can.yaml
+ - ../collect/can/can.yaml
+ - ../collect/can/filter_bank.yaml
  - sai/sai_v1.yaml
  - ../../peripherals/sai/sai.yaml
+ - ../collect/sai/ch.yaml
  - dfsdm/dfsdm_v2.yaml
+ - ../collect/dfsdm/v2.yaml
  - ../../peripherals/gpio/v2/common.yaml
  - crc/crc_rename_init.yaml
  - crc/crc_rename_pol.yaml
@@ -121,17 +123,17 @@ _include:
  - ../../peripherals/wwdg/wwdg.yaml
  - ../../peripherals/rcc/rcc_l4.yaml
  - tim/common.yaml
+ - tim/tim2345_mixed_l.yaml
+ - tim/v2/l4.yaml
  - ../../peripherals/tim/tim_basic.yaml
  - ../../peripherals/tim/tim16.yaml
  - ../../peripherals/tim/tim6.yaml
  - ../../peripherals/tim/tim2345_mixed.yaml
- - tim/tim2345_mixed_l.yaml
  - ../../peripherals/tim/tim_advanced.yaml
- - tim/tim_ccr.yaml
- - tim/v2/l4.yaml
  - ../../peripherals/tim/v2/ccm.yaml
- - ../common_patches/dma/dma_v1.yaml
+ - ../collect/tim/ccr.yaml
  - ../../peripherals/dma/dma_v1_with_remapping.yaml
+ - ../collect/dma/v1.yaml
  - ../../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../../peripherals/exti/exti.yaml
  - ../../peripherals/i2c/i2c_v2.yaml
@@ -139,10 +141,11 @@ _include:
  - ../../peripherals/usart/usart_v2B2.yaml
  - rtc/alarm.yaml
  - rtc/rtc_cr.yaml
- - tsc/tsc.yaml
+ - ../collect/rtc/alarm.yaml
+ - ../collect/tsc/iogcr.yaml
  - fpu_interrupt.yaml
- - ../../peripherals/usb/usb_array.yaml
  - ../../peripherals/usb/usb_with_LPM.yaml
+ - ../collect/usb/epxr.yaml
  - flash/flash_boot0s.yaml
  - adc/l4.yaml
  - adc/l4_adc_common.yaml

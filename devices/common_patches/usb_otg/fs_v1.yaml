@@ -88,18 +88,11 @@ OTG_FS_GLOBAL:
       displayName: HNPTXFSIZ
       alternateRegister: DIEPTXF0
 
-  _array:
-    DIEPTXF[1-5]:
-      displayName: DIEPTXF%s
-      description: OTF_FS device IN endpoint transmit FIFO size register
-
 OTG_FS_HOST:
   HCFG:
     _modify:
       FSLSS:
         access: read-write
-  _include:
-    - fs_host_array.yaml
 
 OTG_FS_DEVICE:
   DIEPCTL*:
@@ -123,7 +116,3 @@ OTG_FS_DEVICE:
       OEPINT:
         name: OEPM
         description: OUT EP interrupt mask bits
-
-  _include:
-    - fs_device_cluster.yaml
-
