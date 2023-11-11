@@ -64,13 +64,14 @@ _include:
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/gpio/gpio_g0_l0.yaml
  - common_patches/dma/dmamux_array.yaml
+ - common_patches/dma/no2.yaml
 # TODO: add DMA
  - ../peripherals/i2c/i2c_v2.yaml
 # TODO: add SPI
 # TODO: usart CR1
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
-# TODO: fix ADC
+ - common_patches/adc/g0.yaml
  - ../peripherals/adc/adc_wl.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml

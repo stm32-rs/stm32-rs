@@ -51,10 +51,9 @@ I2C1:
 
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
+ - common_patches/g0.yaml
  - common_patches/dma/dmamux_array.yaml
  - ../peripherals/dma/dma_v1.yaml
- - ./common_patches/dma/g0_add_dma1_7ch.yaml
- - ./common_patches/dma/g0_add_dma2_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/gpio/gpio_g0_l0.yaml

@@ -3,14 +3,15 @@ _svd: ../svd/stm32g041.svd
 _modify:
   name: STM32G041
 
-MPU:
-  _strip:
-    - "MPU_"
+_clear_fields:
+  - DMA
 
 _include:
+ - common_patches/g0.yaml
  - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - common_patches/dma/dmamux_array.yaml
+ - common_patches/dma/no2.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/dma/g0_5ch.yaml
  - common_patches/tim/v2/g0_1.yaml

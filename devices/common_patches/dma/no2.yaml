@@ -1,0 +1,9 @@
+# there is no DMA2 on this device
+# => rename DMA1 to DMA and remove DMA2
+
+_modify:
+  DMA1:
+    name: DMA
+
+_remove:
+  - DMA2

@@ -3,6 +3,10 @@ _svd: ../svd/stm32g030.svd
 _modify:
   name: STM32G030
 
+_clear_fields:
+  - ADC
+  - DMA
+
 TIM1:
   CCMR3_Output:
     _modify:
@@ -11,13 +15,11 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
-MPU:
-  _strip:
-    - "MPU_"
-
 _include:
+ - common_patches/g0.yaml
  - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
+ - common_patches/dma/no2.yaml
  - common_patches/dma/dmamux_array.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/dma/g0_5ch.yaml
