@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+Common changes:
+
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
 * Replace `makehtml.py` with `svdtools html`
@@ -23,6 +25,11 @@
 * Fix typo in STM32G491 FDCAN2 patch
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+
+Family-specific:
+
+* G0:
+    * Update SVDs (#918)
 
 ## [v0.15.1] 2022-07-04
 

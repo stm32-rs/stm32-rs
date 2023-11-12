@@ -1,9 +1,15 @@
-_include:
-  - wl.yaml
-
 ADC:
+  CCR:
+    _merge:
+      - "PRESC*"
+  CFGR2:
+    _merge:
+      - "OVSS*"
+      - "OVSR*"
   _modify:
     CHSELR:
+      name: CHSELR0
+    CHSELR_0:
       name: CHSELR0
     CHSELR_1:
       name: CHSELR1
