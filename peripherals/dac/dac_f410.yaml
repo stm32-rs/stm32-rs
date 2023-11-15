@@ -1,0 +1,28 @@
+DAC:
+  CR:
+    EN?:
+      Disabled: [0, "DAC channel X disabled"]
+      Enabled: [1, "DAC channel X enabled"]
+    BOFF?:
+      Enabled: [0, "DAC channel X output buffer enabled"]
+      Disabled: [1, "DAC channel X output buffer disabled"]
+    TEN?:
+      Disabled: [0, "DAC channel X trigger disabled"]
+      Enabled: [1, "DAC channel X trigger enabled"]
+    TSEL?:
+      TIM5_TRGO: [3, "Timer 5 TRGO event"]
+      EXTI9: [6, "EXTI line9"]
+      SOFTWARE: [7, "Software trigger"]
+    DMAEN?:
+      Disabled: [0, "DAC channel X DMA mode disabled"]
+      Enabled: [1, "DAC channel X DMA mode enabled"]
+  SWTRIGR:
+    SWTRIG?:
+      Disabled: [0, "DAC channel X software trigger disabled"]
+      Enabled: [1, "DAC channel X software trigger enabled"]
+  DHR12R?:
+    DACC?DHR: [0, 4095]
+  DHR12L?:
+    DACC?DHR: [0, 4095]
+  DHR8R?:
+    DACC?DHR: [0, 255]
