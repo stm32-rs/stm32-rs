@@ -2,13 +2,8 @@
 
 DAC,DAC?:
   CR:
-    WAVE1:
+    WAVE?:
       Disabled: [0, "Wave generation disabled"]
       Noise: [1, "Noise wave generation enabled"]
       Triangle: [2, "Triangle wave generation enabled"]
-    MAMP1: [0, 15]
-    WAVE2:
-      Disabled: [0, "Wave generation disabled"]
-      Noise: [1, "Noise wave generation enabled"]
-      Triangle: [2, "Triangle wave generation enabled"]
-    MAMP2: [0, 15]
+    MAMP?: [0, 15]
