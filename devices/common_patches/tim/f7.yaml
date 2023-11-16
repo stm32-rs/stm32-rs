@@ -37,7 +37,7 @@ TIM3:
   ARR:
     _delete:
       - ARR_H
-  CCR%s:
+  CCR?:
     _delete:
       - CCR1_H
 
@@ -62,5 +62,5 @@ TIM[1-58]:
     CNT: [0, 65535]
   ARR:
     ARR: [0, 65535]
-  CCR%s:
-    CCR: [0, 65535]
+  CCR?:
+    "CCR,CCR?": [0, 65535]

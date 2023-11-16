@@ -1,7 +1,12 @@
-_include:
-  - ./cryp_v1.yaml
-
 CRYP:
+  _cluster:
+    "KEY%s":
+      "K?LR": {}
+      "K?RR": {}
+    "INIT%s":
+      "IV?LR": {}
+      "IV?RR": {}
+
   _array:
     "CSGCMCCM?R":
       _modify:

@@ -5,6 +5,7 @@
 * L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
+* move `_array`` and `_cluster`` patches to `devices/collect`
 * Replace `makehtml.py` with `svdtools html`
 * Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
 * Enable atomic operations on register support, Rust edition 2021 (#846)
