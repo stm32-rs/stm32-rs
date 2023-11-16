@@ -5,6 +5,7 @@ set -euo pipefail
 FORM_VERSION="${FORM_VERSION:-v0.10.0}"
 SVDTOOLS_VERSION="${SVDTOOLS_VERSION:-v0.3.4}"
 SVD2RUST_VERSION="${SVD2RUST_VERSION:-v0.30.1}"
+SVDCONV_VERSION="${SVDCONV_VERSION:-3.3.46}"
 
 case "${1:-}" in
     form)
@@ -16,10 +17,14 @@ case "${1:-}" in
     svd2rust)
         svd2rust="${2:-$SVD2RUST_VERSION}"
         ;;
+    svdconv)
+        svdconv="${2:-$SVDCONV_VERSION}"
+        ;;
     *)
         form=$FORM_VERSION
         svdtools=$SVDTOOLS_VERSION
         svd2rust=$SVD2RUST_VERSION
+        svdconv=$SVDCONV_VERSION
         echo "Install default versions"
         ;;
 esac
@@ -40,4 +45,10 @@ if [ "${svd2rust:-}" ]; then
     echo "svd2rust = ${svd2rust}"
     curl -sSfL https://github.com/rust-embedded/svd2rust/releases/download/$svd2rust/svd2rust-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svd2rust
     chmod +x ~/.cargo/bin/svd2rust
+fi
+
+if [ "${svdconv:-}" ]; then
+    echo "svdconv = ${svdconv}"
+    curl -sSfL https://github.com/Open-CMSIS-Pack/devtools/releases/download/tools/svdconv/$svdconv/svdconv-$svdconv-linux-amd64.tbz2 | tar -xj -C ~/.cargo/bin/
+    chmod +x ~/.cargo/bin/svdconv
 fi
