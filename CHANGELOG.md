@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
 * Replace `makehtml.py` with `svdtools html`
