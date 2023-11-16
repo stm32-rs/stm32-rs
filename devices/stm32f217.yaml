@@ -8,19 +8,6 @@ _rebase:
   I2C1: I2C3
   USART1: USART6
 
-"CAN2":
-  _cluster:
-    "FB%s":
-      description: "CAN Filter Bank cluster"
-      "F*R1":
-        description: "Filter bank x register 1"
-      "F*R2":
-        description: "Filter bank x register 2"
-
-  "F?R?,F??R?":
-    _merge: ["FB*"]
-
-
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -39,6 +26,7 @@ _include:
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
+ - collect/can/filter_bank2.yaml
  - collect/cryp/v1.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - common_patches/fsmc/fsmc_nand_v1.yaml
