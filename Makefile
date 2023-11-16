@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
+.PHONY: extract patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -17,6 +17,7 @@ YAMLS := $(foreach crate, $(CRATES), \
 	       $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
+EXTRACTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd, $(YAMLS))
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
@@ -60,7 +61,7 @@ crates:
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size -i ../../../$$<
+	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i ../../../$$<
 	rustfmt --config-path="rustfmt.toml" $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
@@ -73,7 +74,7 @@ $(1)/src/%/.form: $(1)/src/%/mod.rs
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
-	cd $(1) && cargo check --target-dir ../target/check/ --features rt,$$*
+	cd $(1) && cargo check --target-dir ../target/check/ --features rt,atomics,$$*
 	touch $$@
 
 $(1)/Cargo.toml: crates
@@ -87,6 +88,8 @@ svd/%.svd: svd/.extracted ;
 svd/.extracted:
 	cd svd && ./extract.sh && touch .extracted
 
+extract: $(EXTRACTED_SVDS)
+
 patch: $(PATCHED_SVDS)
 
 svd2rust: $(RUST_SRCS) crates
@@ -99,9 +102,9 @@ check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html
-	svd2html html/ $(PATCHED_SVDS)
+	svdtools html html/ $(PATCHED_SVDS)
 
-html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
+html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh
 	scripts/htmlcomparesvdall.sh
 
 html: html/index.html html/comparisons.html

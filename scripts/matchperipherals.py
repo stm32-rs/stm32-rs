@@ -5,7 +5,7 @@ Licensed under the MIT and Apache 2.0 licenses.
 
 Finds all peripherals that match the specified device.
 
-Usage: python3 scripts/makeyaml.py peripherals/ devices/stm32f0x0.yaml
+Usage: python3 scripts/matchperipherals.py peripherals/ devices/stm32f0x0.yaml
 """
 
 import sys

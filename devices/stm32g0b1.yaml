@@ -31,6 +31,9 @@ DAC:
   _strip:
     - "DAC_"
 
+HDMI_CEC:
+  _strip: ["CEC_"]
+
 CRC:
   _strip:
     - "CRC_"
@@ -103,6 +106,7 @@ SPI1:
 
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
+ - common_patches/dma/dmamux_array.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ./common_patches/dma/g0_add_dma1_7ch.yaml
  - ./common_patches/dma/g0_add_dma2_5ch.yaml

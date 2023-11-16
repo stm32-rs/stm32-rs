@@ -20,6 +20,9 @@ MPU:
   _strip:
     - "MPU_"
 
+HDMI_CEC:
+  _strip: ["CEC_"]
+
 DMAMUX:
   _strip:
     - "DMAMUX_"
@@ -32,6 +35,7 @@ _include:
  - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - ./common_patches/adc/g0_typo.yaml
+ - common_patches/dma/dmamux_array.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/dma/g0_7ch_v2.yaml
  - ../peripherals/tim/v2/ccm.yaml

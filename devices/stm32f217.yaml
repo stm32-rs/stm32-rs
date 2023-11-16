@@ -8,24 +8,18 @@ _rebase:
   I2C1: I2C3
   USART1: USART6
 
-# Merge the thousands of individal bit fields into a single field for each
-# CAN filter register. This is not only much easier to use but also saves
-# a huge amount of filespace and compilation time etc -- as much as 30% of all
-# fields in many devices are just these CAN filter bank fields.
-"CAN*":
-  "F?R?":
-    _merge:
-      - "FB*"
-  "F??R?":
-    _merge:
-      - "FB*"
-
 "CAN2":
   _cluster:
     "FB%s":
       description: "CAN Filter Bank cluster"
-      "F*R1": {}
-      "F*R2": {}
+      "F*R1":
+        description: "Filter bank x register 1"
+      "F*R2":
+        description: "Filter bank x register 2"
+
+  "F?R?,F??R?":
+    _merge: ["FB*"]
+
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -66,6 +60,7 @@ _include:
  - ../peripherals/gpio/v2/common.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
+ - common_patches/adc/adc_array.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
  - common_patches/dma/dma_v2.yaml

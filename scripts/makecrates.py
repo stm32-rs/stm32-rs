@@ -17,7 +17,7 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.28.0"
+SVD2RUST_VERSION = "0.30.1"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
@@ -36,7 +36,7 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["critical-section", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
     "stm32g4": ["critical-section", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["critical-section", "rt", "stm32mp157"],
-    "stm32u5": ["rt", "stm32u575", "stm32u585"],
+    "stm32u5": ["critical-section", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
     "stm32wl": ["critical-section", "rt", "stm32wle5", "stm32wl5x_cm4"],
     "stm32wb": ["critical-section", "rt", "stm32wb55"]
 }
@@ -65,7 +65,7 @@ CRATE_DOC_TARGETS = {
 
 CARGO_TOML_TPL = """\
 [package]
-edition = "2018"
+edition = "2021"
 name = "{crate}"
 version = "{version}"
 authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
@@ -75,12 +75,14 @@ readme = "README.md"
 keywords = ["stm32", "svd2rust", "no_std", "embedded"]
 categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
+rust-version = "1.65"
 
 [dependencies]
 critical-section = {{ version = "1.0", optional = true }}
 cortex-m = "0.7.6"
 cortex-m-rt = {{ version = ">=0.6.15,<0.8", optional = true }}
 vcell = "0.1.3"
+portable-atomic = {{ version = "1", default-features = false, optional = true }}
 
 [package.metadata.docs.rs]
 features = {docs_features}
@@ -90,6 +92,7 @@ targets = []
 [features]
 default = ["critical-section", "rt"]
 rt = ["cortex-m-rt/device"]
+atomics = ["dep:portable-atomic"]
 {features}
 """
 

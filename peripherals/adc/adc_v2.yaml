@@ -1,16 +1,13 @@
 # ADC as used on F2, F4 and F7
 
-_include:
-  - "adc_array.yaml"
-
 "ADC?":
   SR:
-    _read:
-      OVR:
+    OVR:
+      _read:
         NoOverrun: [0, "No overrun occurred"]
         Overrun: [1, "Overrun occurred"]
-    _W0C:
-      Clear: [0, "Clear flag"]
+      _W0C:
+        Clear: [0, "Clear flag"]
     STRT:
       _read:
         NotStarted: [0, "No regular channel conversion started"]

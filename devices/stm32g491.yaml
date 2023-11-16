@@ -1,5 +1,20 @@
 _svd: ../svd/stm32g491.svd
 
+_derive:
+  FDCAN2:
+    _from: FDCAN
+    baseAddress: 0x40006800
+
+FDCAN2:
+  _add:
+    _interrupts:
+      FDCAN2_intr0:
+        description: FDCAN2_intr0
+        value: 86
+      FDCAN2_intr1:
+        description: FDCAN2_intr1
+        value: 87
+
 OPAMP:
   _copy:
     OPAMP6_CSR:
@@ -20,6 +35,7 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
+ - common_patches/dma/dmamux_array.yaml
  - common_patches/dma/dma_v1.yaml
  - ./common_patches/rcc/g4.yaml
  - ./common_patches/exti/g4.yaml

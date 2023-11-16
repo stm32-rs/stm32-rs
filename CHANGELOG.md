@@ -3,10 +3,26 @@
 ## [Unreleased]
 
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
-* Replace `makehtml.py` with `svd2html`
-* Updated to svd2rust 0.28.0, svdtools 0.3.0, use tools binaries for CI
+* modify `LP_Timer1` interrupt instead of adding new
+* Remove workaround for bug in duckscript's `mv` 
+* Replace `makehtml.py` with `svdtools html`
+* Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
+* Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
+* DMAMUX: merge registers in arrays
+* move merge CAN FB fields in patch file
+* STM32U5xx: Update SVD version and add variants for xx=35,45,95,A5,99,A9 (#844)
+* Fix several array descriptions
+* Fix ADC SMPR fields in L1
+* Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
+* Fix ADC SR OVR enums
+* Fix ETH_MACFFR bitOffsets
+* GFXMMU LUT cluster
+* Fix writeConstraint bugs
+* STM32G491: Add FDCAN2 peripheral
+* Fix typo in STM32G491 FDCAN2 patch
+* Fix DAC for stm32f4 (#921)
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 

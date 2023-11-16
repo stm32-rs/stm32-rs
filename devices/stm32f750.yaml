@@ -41,6 +41,7 @@ MPU:
     - OTG_HS_
 
 _include:
+ - ../peripherals/hdmi_cec.yaml
  - common_patches/usart/merge_CR1_DEATx_fields.yaml
  - common_patches/usart/merge_CR1_DEDTx_fields.yaml
  - common_patches/usart/merge_CR2_ABRMODx_fields.yaml
@@ -72,6 +73,7 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
+ - common_patches/adc/adc_array.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_d.yaml
  - common_patches/dma/fcr_wo.yaml
