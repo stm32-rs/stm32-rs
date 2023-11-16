@@ -157,13 +157,25 @@ MPU:
   _strip:
     - "MPU_"
 
+DAC:
+  CR:
+    _delete:
+      - DMAUDRIE2
+      - DMAEN2
+      - MAMP2
+      - WAVE2
+      - TSEL2
+      - TEN2
+      - BOFF2
+      - EN2
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/f4_single_csr.yaml
  - common_patches/adc/f4_single_ccr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
- - ../peripherals/dac/dac_common_2ch.yaml
+ - ../peripherals/dac/dac_f410.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
  - common_patches/rcc/f4_fmpi2c.yaml
  - common_patches/rcc/f41x_bdcr_lsemod.yaml

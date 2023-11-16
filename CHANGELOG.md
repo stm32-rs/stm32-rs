@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
 * move `_array`` and `_cluster`` patches to `devices/collect`
@@ -22,6 +23,7 @@
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
 * Fix typo in STM32G491 FDCAN2 patch
+* Fix DAC for stm32f4 (#921)
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
