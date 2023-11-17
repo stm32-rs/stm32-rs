@@ -22,6 +22,7 @@
 * Fix ETH_MACFFR bitOffsets
 * Fix adding OTG_FS GCCFG NOVBUSSENS
 * GFXMMU LUT cluster
+* Fix L5 DMA cluster
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
 * Fix typo in STM32G491 FDCAN2 patch
