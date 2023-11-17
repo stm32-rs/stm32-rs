@@ -20,6 +20,7 @@
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
+* Fix adding OTG_FS GCCFG NOVBUSSENS
 * GFXMMU LUT cluster
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
