@@ -5,12 +5,6 @@ OTG_FS_GLOBAL:
     _modify:
       PRTIM:
         access: read-write
-  GCCFG:
-    _add:
-      NOVBUSSENS:
-        description: Vbus sensing disable option
-        bitOffset: 21
-        bitWidth: 1
 
   GRXSTSR_Host:
     _delete:

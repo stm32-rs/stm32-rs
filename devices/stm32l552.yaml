@@ -38,23 +38,10 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
-_cluster:
-  "CH%s":
-    description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR?, and CM1AR? registers"
-    "CCR?":
-      name: CR
-    "CNDTR?":
-      name: NDTR
-    "CPAR?":
-      name: PAR
-    "CM0AR?":
-      name: M0AR
-    "CM1AR?":
-      name: M1AR
-
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
+ - collect/dma/l5.yaml
  - collect/flash/secbbr.yaml
  - common_patches/icache/l5.yaml
  - collect/icache/crr.yaml
