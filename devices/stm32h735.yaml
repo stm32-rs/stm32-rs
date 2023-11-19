@@ -982,8 +982,8 @@ _include:
  - collect/ltdc/layer.yaml
  - ../peripherals/rcc/rcc_h7.yaml
  - ../peripherals/rcc/rcc_h7_revision_v.yaml
- - ../peripherals/rng/rng_v1.yaml
- - ../peripherals/rng/rng_v1_ced.yaml
+ - common_patches/rng/h735.yaml
+ - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v3.yaml
  - common_patches/tim/v2/h7.yaml
  - common_patches/tim/common.yaml
