@@ -98,7 +98,7 @@ contain the latest patches and updates.
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.10.0`
         * `cargo install svdtools --version 0.3.4`
-        * `cargo install svd2rust --version 0.30.1`
+        * `cargo install svd2rust --version 0.31.0`
 * Install rustfmt: `rustup component add rustfmt`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
     * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
