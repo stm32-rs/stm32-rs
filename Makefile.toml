@@ -49,14 +49,14 @@ SVDTOOLS = { value = "svdtools", condition = { env_not_set = ["SVDTOOLS"] } }
 FORM_VERSION = { value = "v0.10.0", condition = { env_not_set = [
     "FORM_VERSION",
 ] } }
-SVDTOOLS_VERSION = { value = "v0.3.0", condition = { env_not_set = [
+SVDTOOLS_VERSION = { value = "v0.3.4", condition = { env_not_set = [
     "SVDTOOLS_VERSION",
 ] } }
-SVD2RUST_VERSION = { value = "v0.30.0", condition = { env_not_set = [
+SVD2RUST_VERSION = { value = "v0.30.1", condition = { env_not_set = [
     "SVD2RUST_VERSION",
 ] } }
-SVD2HTML_VERSION = { value = "v0.1.4", condition = { env_not_set = [
-    "SVD2HTML_VERSION",
+SVDCONV_VERSION = { value = "3.3.46", condition = { env_not_set = [
+    "SVDCONV_VERSION",
 ] } }
 CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = [
     "CRATES",
@@ -86,8 +86,8 @@ echo download svdtools ${SVDTOOLS_VERSION}
 wget -O "${CARGO_BIN_DIR}/svdtools.zip" "https://github.com/stm32-rs/svdtools/releases/download/${SVDTOOLS_VERSION}/svdtools-x86_64-pc-windows-msvc.zip"
 echo download svd2rust ${SVD2RUST_VERSION}
 wget -O "${CARGO_BIN_DIR}/svd2rust.exe" "https://github.com/rust-embedded/svd2rust/releases/download/${SVD2RUST_VERSION}/svd2rust-x86_64-pc-windows-msvc.exe"
-echo download svd2html ${SVD2HTML_VERSION}
-wget -O "${CARGO_BIN_DIR}/svd2html.exe" "https://github.com/burrbull/svd2html/releases/download/${SVD2HTML_VERSION}/svd2html-x86_64-pc-windows-msvc.exe"
+echo download svdconv ${SVDCONV_VERSION}
+wget -O "${CARGO_BIN_DIR}/svdconv.zip" "https://github.com/Open-CMSIS-Pack/devtools/releases/download/tools/svdconv/${SVDCONV_VERSION}/svdconv-${SVDCONV_VERSION}-windows-amd64.zip"
 
 echo "unzip tools"
 
@@ -99,8 +99,12 @@ unzip "${CARGO_BIN_DIR}/svdtools.zip" "${CARGO_BIN_DIR}/svdtools"
 mv "${CARGO_BIN_DIR}/svdtools/svdtools.exe" "${CARGO_BIN_DIR}/svdtools.exe"
 rm -r "${CARGO_BIN_DIR}/svdtools"
 
+rm "${CARGO_BIN_DIR}/svdconv.exe"
+unzip "${CARGO_BIN_DIR}/svdconv.zip" "${CARGO_BIN_DIR}"
+
 rm "${CARGO_BIN_DIR}/form.zip"
 rm "${CARGO_BIN_DIR}/svdtools.zip"
+rm "${CARGO_BIN_DIR}/svdconv.zip"
 '''
 
 [tasks.check-patched]
