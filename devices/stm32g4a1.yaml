@@ -21,6 +21,7 @@ VREFBUF:
 
 _include:
  - collect/dma/dmamux.yaml
+ - common_patches/dma/g4_ifcr.yaml
  - collect/dma/v1.yaml
  - ./common_patches/rcc/g4.yaml
  - ./common_patches/exti/g4.yaml

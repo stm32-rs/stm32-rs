@@ -15,9 +15,13 @@ JPEG:
     "DHTMEM*": {}
     "HUFFENC_AC0_*":
       name: HUFFENC_AC0%s
+      description: JPEG encoder, AC Huffman table 0
     "HUFFENC_AC1_*":
+      description: JPEG encoder, AC Huffman table 1
       name: HUFFENC_AC1%s
     "HUFFENC_DC0_*":
       name: HUFFENC_DC0%s
+      description: JPEG encoder, DC Huffman table 0
     "HUFFENC_DC1_*":
       name: HUFFENC_DC1%s
+      description: JPEG encoder, DC Huffman table 1
