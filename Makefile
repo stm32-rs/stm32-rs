@@ -5,6 +5,9 @@ all: patch svd2rust
 
 SHELL := /usr/bin/env bash
 
+# Path to `python3` executable binary
+PYTHON ?= python3
+
 # Path to `svd`/`svdtools`
 SVDTOOLS ?= svdtools
 
@@ -64,7 +67,7 @@ svdconv/%.txt: svd/%.svd.patched
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
-	python3 scripts/makecrates.py devices/ -y --families $(CRATES)
+	$(PYTHON) scripts/makecrates.py devices/ -y --families $(CRATES)
 
 define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
@@ -154,7 +157,7 @@ clean: clean-rs clean-patch clean-html clean-svd clean-mmaps clean-svdconv
 # As alternative to `pip install --user svdtools`:
 # run `make venv update-venv` and `source venv/bin/activate'
 venv:
-	python3 -m venv venv
+	$(PYTHON) -m venv venv
 
 update-venv:
 	venv/bin/pip install -U pip

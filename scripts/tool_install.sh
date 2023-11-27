@@ -29,26 +29,30 @@ case "${1:-}" in
         ;;
 esac
 
+# check CARGO_HOME env var
+CARGO_BIN_DIR="${CARGO_HOME:-${HOME}/.cargo}/bin"
+
 if [ "${form:-}" ]; then
     echo "form = ${form}"
-    curl -sSfL https://github.com/djmcgill/form/releases/download/$form/form-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/form
-    chmod +x ~/.cargo/bin/form
+    curl -sSfL https://github.com/djmcgill/form/releases/download/$form/form-x86_64-unknown-linux-gnu.gz | gzip -d - > "${CARGO_BIN_DIR}/form"
+    chmod +x "${CARGO_BIN_DIR}/form"
 fi
 
 if [ "${svdtools:-}" ]; then
     echo "svdtools = ${svdtools}"
-    curl -sSfL https://github.com/stm32-rs/svdtools/releases/download/$svdtools/svdtools-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svdtools
-    chmod +x ~/.cargo/bin/svdtools
+    curl -sSfL https://github.com/stm32-rs/svdtools/releases/download/$svdtools/svdtools-x86_64-unknown-linux-gnu.gz | gzip -d - > "${CARGO_BIN_DIR}/svdtools"
+    chmod +x "${CARGO_BIN_DIR}/svdtools"
 fi
 
 if [ "${svd2rust:-}" ]; then
     echo "svd2rust = ${svd2rust}"
-    curl -sSfL https://github.com/rust-embedded/svd2rust/releases/download/$svd2rust/svd2rust-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svd2rust
-    chmod +x ~/.cargo/bin/svd2rust
+    curl -sSfL https://github.com/rust-embedded/svd2rust/releases/download/$svd2rust/svd2rust-x86_64-unknown-linux-gnu.gz | gzip -d - > "${CARGO_BIN_DIR}/svd2rust"
+    chmod +x "${CARGO_BIN_DIR}/svd2rust"
 fi
+
 
 if [ "${svdconv:-}" ]; then
     echo "svdconv = ${svdconv}"
-    curl -sSfL https://github.com/Open-CMSIS-Pack/devtools/releases/download/tools/svdconv/$svdconv/svdconv-$svdconv-linux-amd64.tbz2 | tar -xj -C ~/.cargo/bin/
-    chmod +x ~/.cargo/bin/svdconv
+    curl -sSfL https://github.com/Open-CMSIS-Pack/devtools/releases/download/tools/svdconv/$svdconv/svdconv-$svdconv-linux-amd64.tbz2 | tar -xj -C "${CARGO_BIN_DIR}"
+    chmod +x ""${CARGO_BIN_DIR}"/svdconv"
 fi
