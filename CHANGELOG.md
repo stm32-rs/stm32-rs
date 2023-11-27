@@ -31,7 +31,6 @@
 - Fix DAC for stm32f4 (#921)
 - check `CARGO_HOME` env var before put binary into default place ([#865])
 - `cargo make install` will install pre-build binary tools on windows ([#865])
-- bump up `svd2html` version to `v0.1.4` ([#865])
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 [#865]: https://github.com/stm32-rs/stm32-rs/pull/865
