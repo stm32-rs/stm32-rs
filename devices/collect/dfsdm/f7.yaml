@@ -1,0 +1,47 @@
+DFSDM:
+  _cluster:
+    "CH%s":
+      description: "DFSDM channel configuration cluster"
+      "DFSDM_CHCFG?R1":
+        name: CFGR1
+      "DFSDM_CHCFG?R2":
+        name: CFGR2
+      "DFSDM_AWSCD?R":
+        name: AWSCDR
+      "DFSDM_CHWDAT?R":
+        name: WDATR
+      "DFSDM_CHDATIN?R":
+        name: DATINR
+
+    "FLT%s":
+      description: "DFSDM cluster: CR1, CR2, ISR, ICR, JCHGR, FCR, JDATAR, RDATAR, AWHTR, AWLTR, AWSR, AWCFR, EXMAX, EXMIN, CNVTIMR registers"
+      "DFSDM[0123]_CR1":
+        name: CR1
+      "DFSDM[0123]_CR2":
+        name: CR2
+      "DFSDM[0123]_ISR":
+        name: ISR
+      "DFSDM[0123]_ICR":
+        name: ICR
+      "DFSDM[0123]_JCHGR":
+        name: JCHGR
+      "DFSDM[0123]_FCR":
+        name: FCR
+      "DFSDM[0123]_JDATAR":
+        name: JDATAR
+      "DFSDM[0123]_RDATAR":
+        name: RDATAR
+      "DFSDM[0123]_AWHTR":
+        name: AWHTR
+      "DFSDM[0123]_AWLTR":
+        name: AWLTR
+      "DFSDM[0123]_AWSR":
+        name: AWSR
+      "DFSDM[0123]_AWCFR":
+        name: AWCFR
+      "DFSDM[0123]_EXMAX":
+        name: EXMAX
+      "DFSDM[0123]_EXMIN":
+        name: EXMIN
+      "DFSDM[0123]_CNVTIMR":
+        name: CNVTIMR

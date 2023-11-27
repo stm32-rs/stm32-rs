@@ -9,18 +9,6 @@ _copy:
   ADC3:
     from: ADC2
 
-# Merge the thousands of individal bit fields into a single field for each
-# CAN filter register. This is not only much easier to use but also saves
-# a huge amount of filespace and compilation time etc -- as much as 30% of all
-# fields in many devices are just these CAN filter bank fields.
-CAN1:
-  "F?R?":
-    _merge:
-      - "FB*"
-  "F??R?":
-    _merge:
-      - "FB*"
-
 _modify:
   # Fix case on Ethernet peripherals to match other devices
   ETHERNET_DMA:
@@ -43,15 +31,22 @@ MPU:
   _strip:
     - "MPU_"
 
+Ethernet_MAC:
+  MACA2LR:
+    _modify:
+      MACA2L:
+        bitWidth: 32
+
 _include:
  - common_patches/rcc/f1_uart45.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/bkp/bkp.yaml
  - ../peripherals/bkp/bkp.yaml
+ - collect/bkp/dr.yaml
  - common_patches/can/can_remove_prefix.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/crc/crc_basic.yaml
@@ -67,7 +62,7 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
@@ -76,12 +71,13 @@ _include:
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
  - ../peripherals/rcc/rcc_cfgr2_f107.yaml
  - ../peripherals/rtc/rtc_f1.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/usb_otg/fs_fixes_107.yaml
  - common_patches/usb_otg/fs_v1.yaml
+ - collect/usb_otg/fs.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/rename.yaml
  - ../peripherals/flash/flash_f1.yaml

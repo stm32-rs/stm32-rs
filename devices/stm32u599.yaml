@@ -1,0 +1,10 @@
+_svd: ../svd/stm32u599.svd
+
+_clear_fields: ["*"]
+
+GFXMMU:
+  _strip:
+    - "GFXMMU_"
+
+_include:
+ - collect/gfxmmu/lut.yaml

@@ -31,7 +31,8 @@ _copy:
     from: TIM2
 
 _include:
- - common_patches/hdmi_cec.yaml
+ - common_patches/cec/cfgr.yaml
+ - ../peripherals/hdmi_cec.yaml
  - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
  - ./common_patches/spi/f0_rename_registers.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -50,9 +51,9 @@ _include:
  - ./common_patches/usart/rename_CR1_M0_field.yaml
  - ./common_patches/usart/merge_BRR_fields.yaml
  - common_patches/can/can_remove_prefix.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -66,28 +67,28 @@ _include:
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
+ - common_patches/tim/common.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
- - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/rcc/rcc_f0x128.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - ../peripherals/syscfg/syscfg_f0x128.yaml
  - ../peripherals/comp/comp_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1_RM0091.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
- - ../peripherals/usb/usb_array.yaml
+ - collect/usb/epxr.yaml
  - common_patches/flash/f0_ram_parity_check.yaml
  - ../peripherals/flash/flash_f04x_f09x.yaml
  - ./common_patches/nvic/2_prio_bits.yaml

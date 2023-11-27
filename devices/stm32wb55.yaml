@@ -297,13 +297,16 @@ SAI1:
     - GCR
 
 _include:
+ - collect/dma/dmamux.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
  - common_patches/sai/sai_v1.yaml
  - ../peripherals/sai/sai.yaml
+ - collect/sai/ch.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - ./common_patches/adc/wb_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
- - common_patches/hsem/array.yaml
+ - collect/hsem/r.yaml
  - common_patches/tim/tim2_32bit.yaml

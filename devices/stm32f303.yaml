@@ -128,10 +128,11 @@ _include:
  - ../peripherals/syscfg/syscfg_f303_3x8.yaml
  - ./common_patches/opamp/f3_opamp1234.yaml
  - ./common_patches/comp/f3_comp1234567.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+ - common_patches/usb/merge_add.yaml
  - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
@@ -147,28 +148,32 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/rcc/rcc_f3.yaml
  - ../peripherals/rcc/rcc_f3_i2s.yaml
  - ../peripherals/rcc/rcc_pllsrc_2bit.yaml
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - common_patches/exti/f3_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
+ - common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/rtc/rtc_f3.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/f3.yaml
  - common_patches/fpu_interrupt.yaml
@@ -181,6 +186,3 @@ _include:
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - ../peripherals/rtc/rtc_f3.yaml

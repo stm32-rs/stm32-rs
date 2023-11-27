@@ -1,17 +1,6 @@
 
 # Fixes for STM32G0 devices with 7 DMA channels
 DMA:
-  _cluster:
-    "CH%s":
-      description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
-      "CCR?":
-        name: CR
-      "CNDTR?":
-        name: NDTR
-      "CPAR?":
-        name: PAR
-      "CMAR?":
-        name: MAR
   _modify:
     IFCR:
       access: write-only

@@ -1,6 +1,4 @@
 TIM2:
-  _include:
-    - ../../devices/common_patches/tim/tim2_common_32bit.yaml
   OR1:
     TI4_RMP:
       GPIO: [0, "TIM2 TI4 is connected to GPIO: Refer to Alternate Function mapping"]

@@ -1,0 +1,8 @@
+USB:
+  DADDR:
+    _delete: ["ADD,ADD?"]
+    _add:
+      ADD:
+        description: Device address
+        bitOffset: 0
+        bitWidth: 7

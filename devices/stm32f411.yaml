@@ -133,38 +133,41 @@ MPU:
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+ - common_patches/adc/f4_no_csr.yaml
+ - common_patches/adc/f4_single_ccr.yaml
  - common_patches/rcc/spi5.yaml
  - common_patches/rcc/rename_plli2scfgr.yaml
  - common_patches/rcc/add_plli2sm.yaml
  - common_patches/rcc/f4_dckcfgr.yaml
- - common_patches/adc/f4_no_csr.yaml
- - common_patches/adc/f4_single_ccr.yaml
  - common_patches/rcc/f41x_bdcr_lsemod.yaml
- - ../peripherals/rcc/rcc_merge_sw_sws.yaml
+ - common_patches/rcc/rcc_merge_sw_sws.yaml
+ - common_patches/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/rcc/rcc_v2.yaml
  - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
  - ../peripherals/rcc/rcc_v2_i2s.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
- - ../peripherals/rcc/rcc_merge_rtcsel.yaml
  - ../peripherals/gpio/v2/common.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
- - ../peripherals/adc/adc_v2_smpr.yaml
+ - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_b.yaml
+ - collect/adc/jofr_jdr.yaml
  - common_patches/dma/dma_v2.yaml
  - ../peripherals/dma/dma_v2.yaml
+ - collect/dma/st.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
@@ -176,14 +179,16 @@ _include:
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/usb_otg/fs_remove_prefix.yaml
- - common_patches/usb_otg/fs_v1.yaml
- - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - common_patches/usb_otg/fs_remove_prefix.yaml
+ - common_patches/usb_otg/fs_v1.yaml
+ - common_patches/usb_otg/fs_v1_novbussens.yaml
+ - collect/usb_otg/fs.yaml
+ - common_patches/dbgmcu/dbgmcu.yaml
+ - common_patches/fpu_interrupt.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/adc/adc_common_group_name.yaml

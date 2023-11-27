@@ -4,12 +4,11 @@ MPU:
   _strip:
     - "MPU_"
 
-
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:
  - ./common_patches/stm32l4x2_l412.yaml
- - common_patches/rtc/rtc_bkpr.yaml
+ - collect/rtc/bkpr.yaml
  - ./common_patches/gpio/l4_brr.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml

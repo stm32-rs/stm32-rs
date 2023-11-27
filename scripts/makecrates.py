@@ -17,7 +17,7 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.30.0"
+SVD2RUST_VERSION = "0.30.1"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
@@ -36,7 +36,7 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["critical-section", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
     "stm32g4": ["critical-section", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["critical-section", "rt", "stm32mp157"],
-    "stm32u5": ["rt", "stm32u575", "stm32u585"],
+    "stm32u5": ["critical-section", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
     "stm32wl": ["critical-section", "rt", "stm32wle5", "stm32wl5x_cm4"],
     "stm32wb": ["critical-section", "rt", "stm32wb55"]
 }

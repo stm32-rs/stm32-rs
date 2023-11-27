@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: extract patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
+.PHONY: extract patch crates svd2rust svdconv form check clean_mmaps clean-rs clean-patch clean-html clean-svd clean_svdconv clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -26,6 +26,9 @@ FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
 # Each yaml file also corresponds to a mmap in mmaps/
 MMAPS := $(patsubst devices/%.yaml, mmaps/%.mmap, $(YAMLS))
+
+# Each yaml file also corresponds to svdconv report in svdconv/
+SVDCONV_REPORTS := $(patsubst devices/%.yaml, svdconv/%.txt, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
 RUST_SRCS := $(foreach crate, $(CRATES), \
@@ -56,6 +59,11 @@ svd/%.svd.formatted: svd/%.svd.patched
 mmaps/%.mmap: svd/%.svd.patched
 	@mkdir -p mmaps
 	$(SVDTOOLS) mmap $< > $@
+
+# Generate svdconv reports from patched SVD
+svdconv/%.txt: svd/%.svd.patched
+	@mkdir -p svdconv
+	svdconv --suppress-warnings $< > $@ | true
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
@@ -105,9 +113,9 @@ check: $(CHECK_SRCS)
 
 html/index.html: $(PATCHED_SVDS)
 	@mkdir -p html
-	svd2html html/ $(PATCHED_SVDS)
+	svdtools html html/ $(PATCHED_SVDS)
 
-html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh scripts/htmlcomparesvd.py
+html/comparisons.html: $(PATCHED_SVDS) scripts/htmlcomparesvdall.sh
 	scripts/htmlcomparesvdall.sh
 
 html: html/index.html html/comparisons.html
@@ -116,6 +124,8 @@ lint: $(PATCHED_SVDS)
 	xmllint --schema svd/cmsis-svd.xsd --noout $(PATCHED_SVDS)
 
 mmaps: $(MMAPS)
+
+svdconv: $(SVDCONV_REPORTS)
 
 clean-rs:
 	rm -rf $(RUST_DIRS)
@@ -128,6 +138,12 @@ clean-patch:
 clean-html:
 	rm -rf html
 
+clean-mmaps:
+	rm -rf mmaps
+
+clean-svdconv:
+	rm -rf svdconv
+
 clean-crates:
 	rm -rf $(CRATES)
 
@@ -135,7 +151,7 @@ clean-svd:
 	rm -f svd/*.svd
 	rm -f svd/.extracted
 
-clean: clean-rs clean-patch clean-html clean-svd
+clean: clean-rs clean-patch clean-html clean-svd clean-mmaps clean-svdconv
 	rm -rf .deps
 
 # As alternative to `pip install --user svdtools`:

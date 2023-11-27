@@ -10,8 +10,20 @@ _include:
       Disabled: [2, "ADC voltage regulator disabled"]
   CFGR:
     EXTSEL:
+      TIM1_CC1: [0, "Timer 1 CC1 event"]
+      TIM1_CC2: [1, "Timer 1 CC2 event"]
+      TIM1_CC3: [2, "Timer 1 CC3 event"]
+      TIM2_CC2: [3, "Timer 2 CC2 event"]
+      TIM3_TRGO: [4, "Timer 3 TRGO event"]
+      EXTI11: [6, "EXTI line 11"]
       HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]
       HRTIM_ADCTRG3: [8, "HRTIM_ADCTRG3 event"]
+      TIM1_TRGO: [9, "Timer 1 TRGO event"]
+      TIM1_TRGO2: [10, "Timer 1 TRGO2 event"]
+      TIM2_TRGO: [11, "Timer 2 TRGO event"]
+      TIM6_TRGO: [13, "Timer 6 TRGO event"]
+      TIM15_TRGO: [14, "Timer 15 TRGO event"]
+      TIM3_CC4: [15, "Timer 3 CC4 event"]
     ALIGN:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
@@ -28,8 +40,20 @@ _include:
       Enabled: [1, "DMA enabled"]
   JSQR:
     JEXTSEL:
+      TIM1_TRGO: [0, "Timer 1 TRGO event"]
+      TIM1_CC4: [1, "Timer 1 CC4 event"]
+      TIM2_TRGO: [2, "Timer 2 TRGO event"]
+      TIM2_CC1: [3, "Timer 2 CC1 event"]
+      TIM3_CC4: [4, "Timer 3 CC4 event"]
+      EXTI15: [6, "EXTI line 15"]
+      TIM1_TRGO2: [8, "Timer 1 TRGO2 event"]
       HRTIM_ADCTRG2: [9, "HRTIM_ADCTRG2 event"]
       HRTIM_ADCTRG4: [10, "HRTIM_ADCTRG4 event"]
+      TIM3_CC3: [11, "Timer 3 CC3 event"]
+      TIM3_TRGO: [12, "Timer 3 TRGO event"]
+      TIM3_CC1: [13, "Timer 3 CC1 event"]
+      TIM6_TRGO: [14, "Timer 6 TRGO event"]
+      TIM15_TRGO: [15, "Timer 15 TRGO event"]
   "SMPR?":
     "SMP*":
       Cycles1_5: [0, "1.5 ADC clock cycles"]
@@ -40,9 +64,10 @@ _include:
       Cycles61_5: [5, "61.5 ADC clock cycles"]
       Cycles181_5: [6, "181.5 ADC clock cycles"]
       Cycles601_5: [7, "601.5 ADC clock cycles"]
-  "TR?":
-    "HT?": [0, 0xFFF]
-    "LT?": [0, 0xFFF]
+  TR1:
+    "[HL]T1": [0, 0xFFF]
+  "TR[23]":
+    "[HL]T?": [0, 0xFF]
   "OFR?":
     "OFFSET?_EN":
       Disabled: [0, "Offset disabled"]

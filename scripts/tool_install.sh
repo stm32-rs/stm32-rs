@@ -3,9 +3,9 @@
 set -euo pipefail
 
 FORM_VERSION="${FORM_VERSION:-v0.10.0}"
-SVDTOOLS_VERSION="${SVDTOOLS_VERSION:-v0.3.0}"
-SVD2RUST_VERSION="${SVD2RUST_VERSION:-v0.30.0}"
-SVD2HTML_VERSION="${SVD2HTML_VERSION:-v0.1.4}"
+SVDTOOLS_VERSION="${SVDTOOLS_VERSION:-v0.3.4}"
+SVD2RUST_VERSION="${SVD2RUST_VERSION:-v0.30.1}"
+SVDCONV_VERSION="${SVDCONV_VERSION:-3.3.46}"
 
 case "${1:-}" in
     form)
@@ -17,14 +17,14 @@ case "${1:-}" in
     svd2rust)
         svd2rust="${2:-$SVD2RUST_VERSION}"
         ;;
-    svd2html)
-        svd2html="${2:-$SVD2HTML_VERSION}"
+    svdconv)
+        svdconv="${2:-$SVDCONV_VERSION}"
         ;;
     *)
         form=$FORM_VERSION
         svdtools=$SVDTOOLS_VERSION
         svd2rust=$SVD2RUST_VERSION
-        svd2html=$SVD2HTML_VERSION
+        svdconv=$SVDCONV_VERSION
         echo "Install default versions"
         ;;
 esac
@@ -50,8 +50,9 @@ if [ "${svd2rust:-}" ]; then
     chmod +x "${CARGO_BIN_DIR}/svd2rust"
 fi
 
-if [ "${svd2html:-}" ]; then
-    echo "svd2html = ${svd2html}"
-    curl -sSfL https://github.com/burrbull/svd2html/releases/download/$svd2html/svd2html-x86_64-unknown-linux-gnu.gz | gzip -d - > "${CARGO_BIN_DIR}/svd2html"
-    chmod +x "${CARGO_BIN_DIR}/svd2html"
+
+if [ "${svdconv:-}" ]; then
+    echo "svdconv = ${svdconv}"
+    curl -sSfL https://github.com/Open-CMSIS-Pack/devtools/releases/download/tools/svdconv/$svdconv/svdconv-$svdconv-linux-amd64.tbz2 | tar -xj -C "${CARGO_BIN_DIR}"
+    chmod +x ""${CARGO_BIN_DIR}"/svdconv"
 fi

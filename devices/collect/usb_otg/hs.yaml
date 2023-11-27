@@ -1,0 +1,49 @@
+OTG_HS_HOST,OTG1_HS_HOST:
+  _cluster:
+    "HC%s":
+      description: "Host channel"
+      HCCHAR?,HCCHAR??:
+        name: CHAR
+      HCSPLT?,HCSPLT??:
+        name: SPLT
+      HCINT?,HCINT??:
+        name: INT
+      HCINTMSK?,HCINTMSK??:
+        name: INTMSK
+      HCTSIZ?,HCTSIZ??:
+        name: TSIZ
+      HCDMA?,HCDMA??:
+        name: DMA
+
+OTG_HS_DEVICE,OTG1_HS_DEVICE:
+  _cluster:
+    "DIEP0":
+      description: Device IN endpoint 0
+      DIEPCTL[0]: { name: CTL }
+      DIEPINT[0]: { name: INT }
+      DIEPTSIZ[0]: { name: TSIZ }
+      DIEPDMA[0]: { name: DMA }
+      DTXFSTS[0]: { name: TXFSTS }
+    "DOEP0":
+      description: Device OUT endpoint 0
+      DOEPCTL[0]: { name: CTL }
+      DOEPINT[0]: { name: INT }
+      DOEPTSIZ[0]: { name: TSIZ }
+      DOEPDMA[0]: { name: DMA }
+    "DIEP%s":
+      description: Device IN endpoint X
+      DIEPCTL[1-8]: { name: CTL }
+      DIEPINT[1-8]: { name: INT }
+      DIEPTSIZ[1-8]: { name: TSIZ }
+      DIEPDMA[1-8]: { name: DMA }
+      DTXFSTS[1-8]: { name: TXFSTS }
+    "DOEP%s":
+      description: Device IN endpoint X
+      DOEPCTL[1-8]: { name: CTL }
+      DOEPINT[1-8]: { name: INT }
+      DOEPDMA[1-8]: { name: DMA }
+      DOEPTSIZ[1-8]: { name: TSIZ }
+
+"OTG_HS_GLOBAL,OTG1_HS_GLOBAL":
+  _array:
+    DIEPTXF[12345]: {}

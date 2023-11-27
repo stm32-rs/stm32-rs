@@ -35,6 +35,9 @@ DAC:
   _strip:
     - "DAC_"
 
+HDMI_CEC:
+  _strip: ["CEC_"]
+
 CRC:
   _strip:
     - "CRC_"
@@ -111,9 +114,11 @@ SPI1:
 
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
+ - collect/dma/dmamux.yaml
  - ../peripherals/dma/dma_v1.yaml
  - ./common_patches/dma/g0_add_dma1_7ch.yaml
  - ./common_patches/dma/g0_add_dma2_5ch.yaml
+ - collect/dma/v1.yaml
  - common_patches/tim/v2/g0_1.yaml
  - ../peripherals/usb/g0_enum.yaml
  - ../peripherals/exti/exti_g0.yaml
@@ -132,5 +137,6 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ./common_patches/flash/g0.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/tamp_bkpr.yaml
+ - collect/rtc/tamp_bkpr.yaml
+ - collect/rtc/alarm.yaml
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml

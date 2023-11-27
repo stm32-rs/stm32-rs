@@ -1,5 +1,5 @@
 "DMAMUX?":
-  CCR%s:
+  C%sCR:
     NBREQ: [0, 31]
     SPOL:
       NoEdge: [0, "No event, i.e. no synchronization nor detection"]
@@ -15,7 +15,7 @@
     SOIE:
       Disabled: [0, "Synchronization overrun interrupt disabled"]
       Enabled: [1, "Synchronization overrun interrupt enabled"]
-  RGCR%s:
+  RG%sCR:
     GNBREQ: [0, 31]
     GPOL:
       NoEdge: [0, "No event, i.e. no detection nor generation"]
@@ -30,7 +30,7 @@
       Enabled: [1, "Trigger overrun interrupt enabled"]
 
 "DMAMU?1":
-  CCR%s:
+  C%sCR:
     SYNC_ID:
       dmamux1_evt0: [0, "Signal `dmamux1_evt0` selected as synchronization input"]
       dmamux1_evt1: [1, "Signal `dmamux1_evt1` selected as synchronization input"]
@@ -156,7 +156,7 @@
       sai3_a_dma: [113, "Signal `sai3_a_dma` selected as request input"]
       sai3_b_dma: [114, "Signal `sai3_b_dma` selected as request input"]
       adc3_dma: [115, "Signal `adc3_dma` selected as request input"]
-  RGCR%s:
+  RG%sCR:
     SIG_ID:
       dmamux1_evt0: [0, "Signal `dmamux1_evt0` selected as trigger input"]
       dmamux1_evt1: [1, "Signal `dmamux1_evt1` selected as trigger input"]
@@ -168,7 +168,7 @@
       tim12_trgo: [7, "Signal `tim12_trgo` selected as trigger input"]
 
 "DMAMU?2":
-  CCR%s:
+  C%sCR:
     SYNC_ID:
       dmamux2_evt0: [0, "Signal `dmamux2_evt0` selected as synchronization input"]
       dmamux2_evt1: [1, "Signal `dmamux2_evt1` selected as synchronization input"]
@@ -205,7 +205,7 @@
       sai4_a_dma: [15, "Signal `sai4_a_dma` selected as request input"]
       sai4_b_dma: [16, "Signal `sai4_b_dma` selected as request input"]
       adc3_dma: [17, "Signal `adc3_dma` selected as request input"]
-  RGCR%s:
+  RG%sCR:
     SIG_ID:
       dmamux2_evt0: [0, "Signal `dmamux2_evt0` selected as trigger input"]
       dmamux2_evt1: [1, "Signal `dmamux2_evt1` selected as trigger input"]
