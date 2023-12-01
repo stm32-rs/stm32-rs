@@ -10,7 +10,7 @@ _add:
     registers:
       ISR:
         displayName: ISR
-        description: low interrupt status register
+        description: DMA interrupt status register
         addressOffset: 0x0
         size: 0x20
         access: read-only
@@ -130,7 +130,7 @@ _add:
             bitWidth: 1
       IFCR:
         displayName: IFCR
-        description: high interrupt status register
+        description: DMA interrupt flag clear register
         addressOffset: 0x4
         size: 0x20
         access: read-only
