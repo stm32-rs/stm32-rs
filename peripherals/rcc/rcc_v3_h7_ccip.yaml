@@ -6,7 +6,7 @@
 RCC:
   D1CFGR,CDCFGR1:
     "D?CPRE,HPRE,CDCPRE":
-      Div1: [0, "sys_ck not divided"]
+      Div1: [-1, "sys_ck not divided"]
       Div2: [8, "sys_ck divided by 2"]
       Div4: [9, "sys_ck divided by 4"]
       Div8: [10, "sys_ck divided by 8"]
@@ -17,7 +17,7 @@ RCC:
       Div512: [15, "sys_ck divided by 512"]
   D?CFGR,CDCFGR?:
     D?PPR*,CDPPRE*:
-      Div1: [0, "rcc_hclk not divided"]
+      Div1: [-1, "rcc_hclk not divided"]
       Div2: [4, "rcc_hclk divided by 2"]
       Div4: [5, "rcc_hclk divided by 4"]
       Div8: [6, "rcc_hclk divided by 8"]

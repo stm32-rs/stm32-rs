@@ -33,7 +33,7 @@ RCC:
       Div6: [2, "PCLK divided by 6"]
       Div8: [3, "PCLK divided by 8"]
     SDPRE:
-      Div2: [0, "SYSCLK divided by 2"] # Same for [0, 16]
+      Div2: [-1, "SYSCLK divided by 2"]
       Div4: [17, "SYSCLK divided by 4"]
       Div6: [18, "SYSCLK divided by 6"]
       Div8: [19, "SYSCLK divided by 8"]
