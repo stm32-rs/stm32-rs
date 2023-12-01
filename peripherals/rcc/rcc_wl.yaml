@@ -99,14 +99,8 @@
     STOPWUCK:
       MSI: [0, "MSI oscillator selected as wakeup from stop clock and CSS backup clock"]
       HSI16: [1, "HSI16 oscillator selected as wakeup from stop clock and CSS backup clock"]
-    PPRE2:
-      Div1: [0, "HCLK not divided"] # Same for [0, 8]
-      Div2: [4, "HCLK divided by 2"]
-      Div4: [5, "HCLK divided by 4"]
-      Div8: [6, "HCLK divided by 8"]
-      Div16: [7, "HCLK divided by 16"]
-    PPRE1:
-      Div1: [0, "HCLK not divided"] # Same for [0, 8]
+    PPRE[12]:
+      Div1: [-1, "HCLK not divided"] 
       Div2: [4, "HCLK divided by 2"]
       Div4: [5, "HCLK divided by 4"]
       Div8: [6, "HCLK divided by 8"]
