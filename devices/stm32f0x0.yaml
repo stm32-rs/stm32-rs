@@ -37,7 +37,7 @@ SYSCFG:
   _include:
     - common_patches/syscfg/f0.yaml
     - ../peripherals/syscfg/syscfg_f0.yaml
-    - ../peripherals/syscfg/exti.yaml
+    - ../peripherals/exti/derive.yaml
 
   EXTICR1:
     EXTI0:
