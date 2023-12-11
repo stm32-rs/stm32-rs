@@ -1,4 +1,9 @@
 "CAN,CAN?":
+  "TDL?R,TDH?R,RDL?R,RDH?R":
+    _array:
+      "DATA?":
+        description: DATA%s
+
   _cluster:
     "TX%s":
       description: "CAN Transmit cluster"
@@ -23,3 +28,8 @@
           name: FULL
         FMP0:
           name: FMP
+
+  TSR:
+    _array:
+      TME?: {}
+      LOW?: {}
