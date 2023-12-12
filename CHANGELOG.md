@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-* Collent in field arrays: GPIO, CAN, DSI, SAI
+* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA
 * L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
