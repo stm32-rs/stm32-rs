@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f101.svd
 
+_delete:
+  - CAN[12]
+
 _derive:
   UART5: UART4
 
@@ -39,8 +42,6 @@ _include:
  - common_patches/bkp/bkp.yaml
  - ../peripherals/bkp/bkp.yaml
  - collect/bkp/dr.yaml
- - collect/can/can.yaml
- - collect/can/filter_bank.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - collect/fsmc/sram.yaml
