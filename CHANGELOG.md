@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA
 * L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new

@@ -1,0 +1,14 @@
+HRTIM_Common:
+  OENR:
+    TF1OEN:
+      _read:
+        Disabled: [0, "Output disabled"]
+        Enabled: [1, "Output enabled"]
+      _write:
+        Enable: [1, "Enable output"]
+    TF2OEN:
+      _read:
+        Disabled: [0, "Output disabled"]
+        Enabled: [1, "Output enabled"]
+      _write:
+        Enable: [1, "Enable output"]
