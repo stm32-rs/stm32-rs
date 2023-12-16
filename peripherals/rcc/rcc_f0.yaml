@@ -21,20 +21,31 @@ RCC:
         bitWidth: 4
 
     MCO:
+      NoMCO: [0, "MCO output disabled, no clock on MCO"]
       HSI14: [1, "Internal RC 14 MHz (HSI14) oscillator clock selected"]
+      LSI: [2, "Internal low speed (LSI) oscillator clock selected"]
+      LSE: [3, "External low speed (LSE) oscillator clock selected"]
+      SYSCLK: [4, "System clock selected"]
+      HSI: [5, "Internal RC 8 MHz (HSI) oscillator clock selected"]
+      HSE: [6, "External 4-32 MHz (HSE) oscillator clock selected"]
+      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
       HSI48: [8, "Internal RC 48 MHz (HSI48) oscillator clock selected"]
     SWS:
       _read:
+        HSI: [0, "HSI oscillator used as system clock"]
+        HSE: [1, "HSE oscillator used as system clock"]
+        PLL: [2, "PLL used as system clock"]
         HSI48: [3, "HSI48 used as system clock (when avaiable)"]
     SW:
+      HSI: [0, "HSI selected as system clock"]
+      HSE: [1, "HSE selected as system clock"]
+      PLL: [2, "PLL selected as system clock"]
       HSI48: [3, "HSI48 selected as system clock (when available)"]
   CFGR3:
     _modify:
       ADCSW:
         description: "ADCSW is deprecated. See ADC field in CFGR2 register."
 
-    USBSW:
-      PLLCLK: [1, "PLL clock selected as USB clock source"]
   CR2:
     HSI48CAL: [0, 255]
     HSI48RDY:

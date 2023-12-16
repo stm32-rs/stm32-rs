@@ -17,11 +17,12 @@ MPU:
 _include:
  - ./common_patches/rcc/f1_uart45.yaml
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
- - common_patches/fsmc/fsmc_sram.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
+ - collect/fsmc/sram.yaml
  - common_patches/bkp/bkp.yaml
  - ../peripherals/bkp/bkp.yaml
+ - collect/bkp/dr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
  - ../peripherals/dac/dac_common_2ch.yaml
  - ../peripherals/dac/dac_dmaudr.yaml
@@ -31,6 +32,7 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v1/common.yaml
+ - collect/gpio/f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
@@ -39,15 +41,15 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/rcc/rcc_f1.yaml
  - ../peripherals/rcc/rcc_cfgr2_prediv.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/dbgmcu/rename.yaml

@@ -145,7 +145,7 @@ for i in ${handle}
     if ${need_update}
         echo "svd2rust: ${serie}"
         cd ${dir_name}
-        exec svd2rust -m -g --strict --pascal_enum_values --max_cluster_size --atomics --atomics_feature atomics -i "../../../${patchedpath}"
+        exec svd2rust -c "../../../svd2rust.toml" -i "../../../${patchedpath}"
         rm build.rs
         rm ../generic.rs
         mv generic.rs ../
@@ -179,6 +179,34 @@ for serie in ${NAMES}
         output = exec ${command} mmap ${patchedpath}
         stdout = set ${output.stdout}
         writefile ${mmappath} ${stdout}
+    end
+end
+'''
+
+[tasks.svdconv]
+env = { "NAMES" = "${NAMES}" }
+dependencies = ["patch"]
+script_runner = "@duckscript"
+script = '''
+mkdir svdconv
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    patchedpath = set svd/${serie}.svd.patched
+    txtpath = set svdconv/${serie}.txt
+
+    patched_modified = get_last_modified_time ${patchedpath}
+    if is_path_exists ${txtpath}
+        mmap_modified = get_last_modified_time ${txtpath}
+        need_update = less_than ${mmap_modified} ${patched_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "svdconv: ${serie}"
+        command = set ${SVDTOOLS}
+        output = exec svdconv --suppress-warnings ${patchedpath}
+        stdout = set ${output.stdout}
+        writefile ${txtpath} ${stdout}
     end
 end
 '''
@@ -293,6 +321,14 @@ rm %{FORMATTED_SVDS}
 script_runner = "@duckscript"
 script = "rm -r html"
 
+[tasks.clean-mmaps]
+script_runner = "@duckscript"
+script = "rm -r mmaps"
+
+[tasks.clean-svdconv]
+script_runner = "@duckscript"
+script = "rm -r svdconv"
+
 [tasks.clean-crates]
 env = { "CRATES" = "${CRATES}" }
 script_runner = "@duckscript"
@@ -311,7 +347,7 @@ rm svd/.extracted
 '''
 
 [tasks.clean-all]
-dependencies = ["clean-rs", "clean-patch", "clean-html", "clean-svd"]
+dependencies = ["clean-rs", "clean-patch", "clean-html", "clean-svd", "clean-mmaps", "clean-svdconv"]
 script_runner = "@duckscript"
 script = "rm -r .deps"
 

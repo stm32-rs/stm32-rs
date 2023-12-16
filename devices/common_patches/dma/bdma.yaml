@@ -155,16 +155,3 @@
         description: Double-buffer mode
         bitOffset: 15
         bitWidth: 1
-  _cluster:
-    "CH%s":
-      description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR? and CM1AR? registers"
-      "CCR?":
-        name: CR
-      "CNDTR?":
-        name: NDTR
-      "CPAR?":
-        name: PAR
-      "CM0AR?":
-        name: M0AR
-      "CM1AR?":
-        name: M1AR

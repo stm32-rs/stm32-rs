@@ -65,10 +65,10 @@ OCTOSPI1:
         bitWidth: 6
 
 _include:
-  - ../peripherals/gpio/v2/common.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
   - ../peripherals/gpio/v2/common.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
+  - collect/gpio/v2.yaml
   - ../peripherals/wwdg/wwdg.yaml
   - common_patches/usart/merge_BRR_fields.yaml
   - common_patches/usart/merge_CR1_DEATx_fields.yaml
@@ -106,21 +106,25 @@ _include:
   - common_patches/adc/l4+.yaml
   - ../peripherals/adc/adc_v3_l4+.yaml
   - common_patches/dma/dma2d_l4+.yaml
-  - common_patches/can/can_l4+.yaml
+  - ../peripherals/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
   - common_patches/usb_otg/otg_fs_l4+.yaml
   - common_patches/sai/sai_l4+.yaml
   - common_patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
+  - collect/sai/ch.yaml
   - common_patches/dfsdm/dfsdm_l4+.yaml
   - ../peripherals/dfsdm/dfsdm.yaml
+  - collect/dfsdm/v1+.yaml
   - common_patches/dac/dac_l4+.yaml
   - ../peripherals/dac/dac_l4+.yaml
   - common_patches/comp/l4xx_comp_reg_rename.yaml
   - ../peripherals/comp/comp_l4+.yaml
-  - common_patches/dma/dma_v1.yaml
   - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
   - ../peripherals/dma/dmamux_wl.yaml
-  - common_patches/dma/dmamux_array.yaml
+  - collect/dma/dmamux.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - common_patches/syscfg/l4+.yaml
   - ../peripherals/syscfg/syscfg_l4+.yaml
@@ -130,15 +134,15 @@ _include:
   - ../peripherals/rcc/rcc_l4+.yaml
   - common_patches/tim/l4+.yaml
   - common_patches/tim/common.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - common_patches/tim/v2/l4.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim2345_mixed.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_advanced.yaml
-  - common_patches/tim/tim_ccr.yaml
-  - common_patches/tim/v2/l4.yaml
   - ../peripherals/tim/v2/ccm.yaml
+  - collect/tim/ccr.yaml
   - common_patches/pwr/l4+.yaml
   - ../peripherals/pwr/pwr_l4+.yaml
   - common_patches/dcmi/dcmi.yaml

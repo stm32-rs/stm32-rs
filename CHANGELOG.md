@@ -3,10 +3,15 @@
 ## [Unreleased]
 
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
+* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA
+* L1 TIM9: add CCER
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
+* move `_array`` and `_cluster`` patches to `devices/collect`
 * Replace `makehtml.py` with `svdtools html`
-* Updated to svd2rust 0.30.1, svdtools 0.3.4, use tools binaries for CI
+* Updated to svd2rust 0.31.2, svdtools 0.3.6, use tools binaries for CI
+* Use `svd2rust.toml` config
+* Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
@@ -18,10 +23,17 @@
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
+* Fix adding OTG_FS GCCFG NOVBUSSENS
 * GFXMMU LUT cluster
+* Add missing CAN registers to l4x3/x5
+* Remove CAN from F101/102
+* Fix L5 DMA cluster
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
 * Fix typo in STM32G491 FDCAN2 patch
+* DMA ISR fixes for G0, G4
+* F103: USB RESP1 fix name
+* F4: collect SDIO RESP
 * Fix DAC for stm32f4 (#921)
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854

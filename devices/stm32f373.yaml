@@ -151,9 +151,9 @@ _include:
  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
  - ../peripherals/syscfg/syscfg_f37x.yaml
  - ./common_patches/comp/f0_common.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - common_patches/usb/merge_add.yaml
  - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -161,38 +161,40 @@ _include:
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
+ - common_patches/gpio/f3_ospeedr.yaml
  - ../peripherals/gpio/gpio_v2_f373.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
- - common_patches/gpio/f3_ospeedr.yaml
+# - collect/gpio/v2.yaml
  - common_patches/tim/tim_o24ce.yaml
+ - common_patches/tim/tim2345_mixed.yaml
+ - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed.yaml
- - common_patches/tim/common.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - ../peripherals/rcc/rcc_f373.yaml
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
- - common_patches/adc/adc_array.yaml
+ - common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/rtc/rtc_f3.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/f3.yaml
  - ../peripherals/adc/adc_f37x.yaml
+ - collect/adc/jofr_jdr.yaml
  - common_patches/flash/f3_obr_rdptr.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
  - ../peripherals/flash/flash_f3_obr_vdd_monitor.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - ../peripherals/rtc/rtc_f3.yaml

@@ -129,10 +129,6 @@ SYSCFG:
         bitOffset: 24
         bitWidth: 1
 
-TIM2:
-  _include:
-    - ../peripherals/tim/tim2_common_32bit.yaml
-
 MPU:
   _strip:
     - "MPU_"
@@ -157,9 +153,9 @@ _include:
  - ../peripherals/syscfg/syscfg_f3.yaml
  - ../peripherals/syscfg/syscfg_f301.yaml
  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - common_patches/usb/merge_add.yaml
  - ./common_patches/usb/unprefix_registers.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -168,31 +164,37 @@ _include:
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
+ - collect/gpio/v2.yaml
  - ../peripherals/gpio/v2/common.yaml
  - common_patches/gpio/f3_ospeedr.yaml
+ - common_patches/tim/tim2_32bit.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/tim2345_mixed.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
- - common_patches/tim/tim2345_mixed.yaml
  - ../peripherals/tim/tim2_common.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/rcc/rcc_f3.yaml
  - ../peripherals/rcc/rcc_f3_i2s.yaml
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
- - common_patches/dma/dma_v1.yaml
  - ../peripherals/dma/dma_v1.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - common_patches/exti/f3_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
- - common_patches/tsc/tsc.yaml
+ - common_patches/rtc/rtc_cr.yaml
+ - ../peripherals/rtc/rtc_common.yaml
+ - ../peripherals/rtc/rtc_f3.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/f3.yaml
  - ../peripherals/comp/comp_f3.yaml
@@ -205,6 +207,3 @@ _include:
  - common_patches/flash/f3.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - ../peripherals/rtc/rtc_f3.yaml

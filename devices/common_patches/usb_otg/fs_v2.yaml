@@ -39,8 +39,6 @@ OTG_FS_HOST:
     _modify:
       FSLSS:
         access: read-write
-  _include:
-    - fs_host_array.yaml
 
 OTG_FS_DEVICE:
   _modify:
@@ -76,6 +74,3 @@ OTG_FS_DEVICE:
       OEPINT:
         name: OEPM
         description: OUT EP interrupt mask bits
-
-  _include:
-    - fs_device_cluster.yaml

@@ -12,7 +12,7 @@ _include:
   - ../peripherals/crc/crc_pol.yaml
 
 
-  # - common_patches/flash/l5_array.yaml
+  # - collect/flash/secbbr.yaml
 
   - ../peripherals/gpio/v3/common.yaml
 
@@ -21,8 +21,9 @@ _include:
   # - ../peripherals/rcc/rcc_v3_h7_ccip.yaml
 
   - common_patches/rtc/alarm.yaml
-  # - common_patches/rtc/rtc_bkpr.yaml
   - common_patches/rtc/rtc_cr.yaml
   # - ../peripherals/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  # - collect/rtc/bkpr.yaml
 
   - ../peripherals/sai/sai.yaml

@@ -44,13 +44,15 @@ _include:
   - ./common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - ./common_patches/usart/merge_BRR_fields.yaml
-  - common_patches/can/can.yaml
-  - common_patches/can/can_filter_bank.yaml
   - ../peripherals/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
   - common_patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
+  - collect/sai/ch.yaml
   - ../peripherals/gpio/v2/common.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
+  - collect/gpio/v2.yaml
   - common_patches/crc/crc_rename_init.yaml
   - common_patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_advanced.yaml
@@ -59,35 +61,38 @@ _include:
   - ../peripherals/wwdg/wwdg.yaml
   - ../peripherals/rcc/rcc_l4.yaml
   - common_patches/tim/common.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - common_patches/tim/v2/l4.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim2345_mixed.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_advanced.yaml
-  - common_patches/tim/tim_ccr.yaml
-  - common_patches/tim/v2/l4.yaml
   - ../peripherals/tim/v2/ccm.yaml
-  - common_patches/dma/dmamux_array.yaml
-  - common_patches/dma/dma_v1.yaml
+  - collect/tim/ccr.yaml
+  - collect/dma/dmamux.yaml
   - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
   - ../peripherals/exti/exti.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/usart/lpuart_v2A.yaml
   - ../peripherals/usart/usart_v2B1.yaml
   - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_bkpr.yaml
   - common_patches/rtc/rtc_cr.yaml
-  - common_patches/tsc/tsc.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - collect/tsc/iogcr.yaml
   - ./common_patches/flash/flash_boot0s.yaml
   - ../peripherals/fw/fw_l0_l4.yaml
-  - common_patches/hash/hash.yaml
+  - collect/hash/v2.yaml
   - ../peripherals/dma/dma2d_v1.yaml
   - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
   - common_patches/usb_otg/fs_remove_prefix.yaml
   - common_patches/usb_otg/fs_v1ext.yaml
   - common_patches/usb_otg/fs_v1.yaml
+  - collect/usb_otg/fs.yaml
   - common_patches/usart/l4_lpuart_presc.yaml
   - common_patches/adc/adc_common_group_name.yaml
-  - common_patches/gfxmmu/lut.yaml
+  - collect/dsi/isr.yaml
+  - collect/gfxmmu/lut.yaml

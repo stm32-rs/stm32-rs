@@ -7,6 +7,15 @@ _include:
 
 RCC:
   CFGR:
+    SWS:
+      _read:
+        HSI: [0, "HSI oscillator used as system clock"]
+        HSE: [1, "HSE oscillator used as system clock"]
+        PLL: [2, "PLL used as system clock"]
+    SW:
+      HSI: [0, "HSI selected as system clock"]
+      HSE: [1, "HSE selected as system clock"]
+      PLL: [2, "PLL selected as system clock"]
     PLLMUL:
       Mul4: [2, "PLL input clock x4"]
       Mul5: [3, "PLL input clock x5"]

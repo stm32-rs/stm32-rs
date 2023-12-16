@@ -138,14 +138,14 @@ _include:
  - ../peripherals/dac/dac_wl_8bit.yaml
  - ../peripherals/dma/dma_wl.yaml
  - ../peripherals/dma/dmamux_wl.yaml
- - common_patches/dma/dmamux_array.yaml
+ - collect/dma/dmamux.yaml
  - ../peripherals/dbg/dbg_wl.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/flash/flash_wl.yaml
  - ../peripherals/flash/flash_wl_c2.yaml
  - ../peripherals/gpio/gpio_wl.yaml
- - common_patches/hsem/array.yaml
  - ../peripherals/hsem/hsem_wl.yaml
+ - collect/hsem/r.yaml
  - ../peripherals/ipcc/ipcc_wl.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/iwdg/iwdg.yaml
@@ -160,10 +160,13 @@ _include:
  - ../peripherals/rcc/rcc_wl_c2.yaml
  - common_patches/rtc/wl.yaml
  - ../peripherals/rtc/rtc_wl.yaml
+ - ../peripherals/tamp/tamp_wl.yaml
+ - collect/rtc/tamp_bkpr.yaml
+ - collect/rtc/alarm_wl.yaml
  - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/syscfg/syscfg_wl.yaml
- - ../peripherals/tamp/tamp_wl.yaml
+ - common_patches/tim/tim2_32bit.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim12_common_wl.yaml
  - ../peripherals/tim/tim1_wl.yaml

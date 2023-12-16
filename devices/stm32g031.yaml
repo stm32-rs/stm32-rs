@@ -18,11 +18,13 @@ MPU:
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
- - common_patches/dma/dmamux_array.yaml
+ - collect/dma/dmamux.yaml
  - ../peripherals/dma/single_dma_v1.yaml
  - ./common_patches/dma/g0_5ch.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - ../peripherals/gpio/gpio_g0_l0.yaml
+ - collect/gpio/v2.yaml
  - common_patches/i2c/g0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ./common_patches/spi/g0_rename_registers.yaml
@@ -39,4 +41,5 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ./common_patches/flash/g0.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/tamp_bkpr.yaml
+ - collect/rtc/tamp_bkpr.yaml
+ - collect/rtc/alarm.yaml
