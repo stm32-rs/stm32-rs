@@ -50,6 +50,7 @@
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ADC modifiedWriteValues
+* Add ADC enums for L4, L5, G0, H5, WB
 * Fix ETH_MACFFR bitOffsets
 * Fix adding OTG_FS GCCFG NOVBUSSENS
 * GFXMMU LUT cluster

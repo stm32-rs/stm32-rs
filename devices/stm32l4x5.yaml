@@ -213,9 +213,14 @@ _include:
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
  - common_patches/dma/interrupt_names.yaml
+ - common_patches/adc/adc_common_group_name.yaml
  - ./common_patches/adc/l4.yaml
  - ./common_patches/adc/l4_smpr.yaml
  - ./common_patches/adc/l4_sqr1.yaml
+ - common_patches/adc/l4+.yaml
+ - common_patches/adc/l4+common.yaml
+ - ../peripherals/adc/adc_v3_common_l4+.yaml
+ - ../peripherals/adc/adc_v3_l4.yaml
  - ./common_patches/spi/rename_dff_tifrfe.yaml
  - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
  - ../peripherals/spi/spi_l4.yaml

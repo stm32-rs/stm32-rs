@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h503.svd
 
+_modify:
+  ADC:
+    name: ADC1
+
 GTZC1:
   _strip: GTZC1_
   _array:
@@ -30,6 +34,8 @@ WWDG:
 
 _include:
   - common_patches/h5.yaml
+  - common_patches/adc/l4+.yaml
+  - ../peripherals/adc/adc_h5.yaml
   - ../peripherals/crs/crs.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml

@@ -201,12 +201,9 @@ ADC:
     LFMEN:
       Disabled: [0, "Low Frequency Mode disabled"]
       Enabled: [1, "Low Frequency Mode enabled"]
-    TSEN:
-      Disabled: [0, "Temperature sensor disabled"]
-      Enabled: [1, "Temperature sensor enabled"]
-    VREFEN:
-      Disabled: [0, "VREFINT disabled"]
-      Enabled: [1, "VREFINT enabled"]
+    "TSEN,VREFEN":
+      Disabled: [0, "The selected ADC channel disabled"]
+      Enabled: [1, "The selected ADC channel enabled"]
     PRESC:
       Div1: [0, "Input ADC clock not divided"]
       Div2: [1, "Input ADC clock divided by 2"]
