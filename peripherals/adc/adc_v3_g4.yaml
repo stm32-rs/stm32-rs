@@ -6,7 +6,7 @@ _include:
 "ADC,ADC?":
   DIFSEL:
     _merge:
-      - "DIFSEL*"
+      DIFSEL: "DIFSEL*"
   CR:
     ADVREGEN:
       Disabled: [0, "ADC voltage regulator disabled"]

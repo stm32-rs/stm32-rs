@@ -8,7 +8,7 @@ _include:
         name: L
   DIFSEL:
     _merge:
-      - "DIFSEL*"
+      DIFSEL: "DIFSEL*"
   CFGR:
     _delete:
       - AUTOFF

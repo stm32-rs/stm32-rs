@@ -1,4 +1,7 @@
-# ADC_Common with L4+ specific fields
+# ADC_Common with L4/L4+/L5 specific fields
+
+_include:
+  - "adc_v3_common.yaml"
 
 ADC_Common:
   CCR:
@@ -10,12 +13,9 @@ ADC_Common:
       Interleaved: [ 1, "Enable dual interleaved mode to output to the master channel of DFSDM interface both Master and the Slave result (16-bit data width)" ]
       Bits12_10: [ 2, "MDMA mode enabled for 12 and 10-bit resolution" ]
       Bits8_6: [ 3, "MDMA mode enabled for 8 and 6-bit resolution" ]
-    VBATEN:
-      Disabled: [ 0, "VBAT channel disabled" ]
-      Enabled: [ 1, "VBAT channel enabled" ]
-    VSENSEEN:
-      Disabled: [ 0, "Temperature sensor channel disabled" ]
-      Enabled: [ 1, "Temperature sensor channel enabled" ]
+    "VBATEN,VSENSEEN":
+      Disabled: [0, "The selected ADC channel disabled"]
+      Enabled: [1, "The selected ADC channel enabled"]
     PRESC:
       Div1: [ 0b0000, "Input ADC clock not divided" ]
       Div2: [ 0b0001, "Input ADC clock divided by 2" ]
