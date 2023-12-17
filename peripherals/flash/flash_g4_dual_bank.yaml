@@ -9,3 +9,7 @@ FLASH:
     BFB2:
       Disabled: [ 0, "Boot from memory bank 1" ]
       Enabled: [ 1, "Boot from memory bank 2" ]
+  CR:
+    BKER:
+      Bank1: [ 0, "Bank 1 is selected for page erase" ]
+      Bank2: [ 1, "Bank 2 is selected for page erase" ]
