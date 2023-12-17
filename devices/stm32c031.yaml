@@ -4,6 +4,7 @@ _modify:
   name: STM32C031
 
 _include:
+  - ../peripherals/adc/adc_wl.yaml
   - ./common_patches/c0.yaml
   - ./common_patches/nvic/2_prio_bits.yaml
   - collect/dma/dmamux.yaml

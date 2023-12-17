@@ -252,15 +252,9 @@ ADC:
       NotMonitored: [0, "ADC analog channel-x is not monitored by AWD3"]
       Monitored: [1, "ADC analog channel-x is monitored by AWD3"]
   CCR:
-    VBATEN:
-      Disabled: [0, "VBAT channel disabled"]
-      Enabled: [1, "VBAT channel enabled"]
-    TSEN:
-      Disabled: [0, "Temperature sensor disabled"]
-      Enabled: [1, "Temperature sensor enabled"]
-    VREFEN:
-      Disabled: [0, "VREFINT disabled"]
-      Enabled: [1, "VREFINT enabled"]
+    "VBATEN,TSEN,VREFEN":
+      Disabled: [0, "The selected ADC channel disabled"]
+      Enabled: [1, "The selected ADC channel enabled"]
     PRESC:
       Div1: [0, "Input ADC clock not divided"]
       Div2: [1, "Input ADC clock divided by 2"]
