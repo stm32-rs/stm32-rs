@@ -6,43 +6,43 @@ ADC:
       _read:
         NotComplete: [0, "Calibration is not complete"]
         Complete: [1, "Calibration complete"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the calibration flag"]
     AWD:
       _read:
         NoEvent: [0, "No analog watchdog event occurred"]
         Event: [1, "Analog watchdog event occurred"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the analog watchdog event flag"]
     OVR:
       _read:
         NoOverrun: [0, "No overrun occurred"]
         Overrun: [1, "Overrun occurred"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the overrun flag"]
     EOS:
       _read:
         NotComplete: [0, "Conversion sequence is not complete"]
         Complete: [1, "Conversion sequence complete"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the conversion sequence flag"]
     EOC:
       _read:
         NotComplete: [0, "Channel conversion is not complete"]
         Complete: [1, "Channel conversion complete"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the channel conversion flag"]
     EOSMP:
       _read:
         NotAtEnd: [0, "Not at the end of the samplings phase"]
         AtEnd: [1, "End of sampling phase reached"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the sampling phase flag"]
     ADRDY:
       _read:
         NotReady: [0, "ADC not yet ready to start conversion"]
         Ready: [1, "ADC ready to start conversion"]
-      _write:
+      _W1C:
         Clear: [1, "Clear the ADC ready flag"]
   IER:
     EOCALIE:
@@ -71,7 +71,7 @@ ADC:
       _read:
         NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
         Calibrating: [1, "ADC calibration in progress"]
-      _write:
+      _W1S:
         StartCalibration: [1, "Start the ADC calibration sequence"]
     ADVREGEN:
       Disabled: [0, "ADC voltage regulator disabled"]
@@ -80,25 +80,25 @@ ADC:
       _read:
         NotStopping: [0, "No stop command active"]
         Stopping: [1, "ADC stopping conversion"]
-      _write:
+      _W1S:
         StopConversion: [1, "Stop the active conversion"]
     ADSTART:
       _read:
         NotActive: [0, "No conversion ongoing"]
         Active: [1, "ADC operating and may be converting"]
-      _write:
+      _W1S:
         StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
     ADDIS:
       _read:
         NotDisabling: [0, "No disable command active"]
         Disabling: [1, "ADC disabling"]
-      _write:
+      _W1S:
         Disable: [1, "Disable the ADC"]
     ADEN:
       _read:
         Disabled: [0, "ADC disabled"]
         Enabled: [1, "ADC enabled"]
-      _write:
+      _W1S:
         Enabled: [1, "Enable the ADC"]
   CFGR1:
     AWDCH: [0, 18]

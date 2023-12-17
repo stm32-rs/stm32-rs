@@ -5,49 +5,49 @@ ISR:
     _read:
       NotComplete: [0, "Channel configuration update not applied"]
       Complete: [1, "Channel configuration update is applied"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the channel configuration flag"]
   EOCAL:
     _read:
       NotComplete: [0, "Calibration is not complete"]
       Complete: [1, "Calibration complete"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the calibration flag"]
   "AWD[123]":
     _read:
       NoEvent: [0, "No analog watchdog event occurred"]
       Event: [1, "Analog watchdog event occurred"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the analog watchdog event flag"]
   OVR:
     _read:
       NoOverrun: [0, "No overrun occurred"]
       Overrun: [1, "Overrun occurred"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the overrun flag"]
   EOS:
     _read:
       NotComplete: [0, "Conversion sequence is not complete"]
       Complete: [1, "Conversion sequence complete"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the conversion sequence flag"]
   EOC:
     _read:
       NotComplete: [0, "Channel conversion is not complete"]
       Complete: [1, "Channel conversion complete"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the channel conversion flag"]
   EOSMP:
     _read:
       NotAtEnd: [0, "Not at the end of the samplings phase"]
       AtEnd: [1, "End of sampling phase reached"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the sampling phase flag"]
   ADRDY:
     _read:
       NotReady: [0, "ADC not yet ready to start conversion"]
       Ready: [1, "ADC ready to start conversion"]
-    _write:
+    _W1C:
       Clear: [1, "Clear the ADC ready flag"]
 IER:
   CCRDYIE:
@@ -61,25 +61,46 @@ IER:
     Enabled: [1, "Analog watchdog interrupt enabled"]
   OVRIE:
     Disabled: [0, "Overrun interrupt disabled"]
-    Enabled: [1, "Overrun interrupt enabled. An interrupt is generated when the OVR bit is set."]
+    Enabled:
+      [
+        1,
+        "Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.",
+      ]
   EOSIE:
     Disabled: [0, "EOS interrupt disabled"]
-    Enabled: [1, "EOS interrupt enabled. An interrupt is generated when the EOS bit is set."]
+    Enabled:
+      [
+        1,
+        "EOS interrupt enabled. An interrupt is generated when the EOS bit is set.",
+      ]
   EOCIE:
     Disabled: [0, "EOC interrupt disabled"]
-    Enabled: [1, "EOC interrupt enabled. An interrupt is generated when the EOC bit is set."]
+    Enabled:
+      [
+        1,
+        "EOC interrupt enabled. An interrupt is generated when the EOC bit is set.",
+      ]
   EOSMPIE:
     Disabled: [0, "EOSMP interrupt disabled"]
-    Enabled: [1, "EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set."]
+    Enabled:
+      [
+        1,
+        "EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.",
+      ]
   ADRDYIE:
     Disabled: [0, "ADRDY interrupt disabled"]
-    Enabled: [1, "ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set."]
+    Enabled:
+      [
+        1,
+        "ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.",
+      ]
 CR:
   ADCAL:
     _read:
-      NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
+      NotCalibrating:
+        [0, "ADC calibration either not yet performed or completed"]
       Calibrating: [1, "ADC calibration in progress"]
-    _write:
+    _W1S:
       StartCalibration: [1, "Start the ADC calibration sequence"]
   ADVREGEN:
     Disabled: [0, "ADC voltage regulator disabled"]
@@ -88,25 +109,26 @@ CR:
     _read:
       NotStopping: [0, "No stop command active"]
       Stopping: [1, "ADC stopping conversion"]
-    _write:
+    _W1S:
       StopConversion: [1, "Stop the active conversion"]
   ADSTART:
     _read:
       NotActive: [0, "No conversion ongoing"]
       Active: [1, "ADC operating and may be converting"]
-    _write:
-      StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+    _W1S:
+      StartConversion:
+        [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
   ADDIS:
     _read:
       NotDisabling: [0, "No disable command active"]
       Disabling: [1, "ADC disabling"]
-    _write:
+    _W1S:
       Disable: [1, "Disable the ADC"]
   ADEN:
     _read:
       Disabled: [0, "ADC disabled"]
       Enabled: [1, "ADC enabled"]
-    _write:
+    _W1S:
       Enabled: [1, "Enable the ADC"]
 CFGR1:
   AWD1CH: [0, 17]
@@ -132,13 +154,22 @@ CFGR1:
     Single: [0, "Single conversion mode"]
     Continuous: [1, "Continuous conversion mode"]
   OVRMOD:
-    Preserve: [0, "ADC_DR register is preserved with the old data when an overrun is detected"]
-    Overwrite: [1, "ADC_DR register is overwritten with the last conversion result when an overrun is detected"]
+    Preserve:
+      [
+        0,
+        "ADC_DR register is preserved with the old data when an overrun is detected",
+      ]
+    Overwrite:
+      [
+        1,
+        "ADC_DR register is overwritten with the last conversion result when an overrun is detected",
+      ]
   EXTEN:
     Disabled: [0, "Hardware trigger detection disabled"]
     RisingEdge: [1, "Hardware trigger detection on the rising edge"]
     FallingEdge: [2, "Hardware trigger detection on the falling edge"]
-    BothEdges: [3, "Hardware trigger detection on both the rising and falling edges"]
+    BothEdges:
+      [3, "Hardware trigger detection on both the rising and falling edges"]
   EXTSEL:
     TIM1_TRGO: [0, "Timer 1 TRGO event"]
     TIM1_CC4: [1, "Timer 1 CC4 event"]
@@ -175,8 +206,13 @@ CFGR2:
     Disabled: [0, "Low Frequency Trigger Mode disabled"]
     Enabled: [1, "Low Frequency Trigger Mode enabled"]
   TOVS:
-    TriggerAll: [0, "All oversampled conversions for a channel are done consecutively after a trigger"]
-    TriggerEach: [1, "Each oversampled conversion for a channel needs a trigger"]
+    TriggerAll:
+      [
+        0,
+        "All oversampled conversions for a channel are done consecutively after a trigger",
+      ]
+    TriggerEach:
+      [1, "Each oversampled conversion for a channel needs a trigger"]
   OVSS:
     NoShift: [0, "No shift"]
     Shift1: [1, "Shift 1-bit"]
