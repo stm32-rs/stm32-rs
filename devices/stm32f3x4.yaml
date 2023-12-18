@@ -247,10 +247,6 @@ TIM3:
         bitOffset: 24
         bitWidth: 1
 
-MPU:
-  _strip:
-    - "MPU_"
-
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -306,7 +302,6 @@ _include:
  - ../peripherals/usart/usart_v2B.yaml
  - collect/tsc/iogcr.yaml
  - common_patches/dbgmcu/f3.yaml
- - common_patches/fpu_interrupt.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/dac/dac_wavegen.yaml
@@ -319,6 +314,7 @@ _include:
  - common_patches/flash/f3_obr_rdptr.yaml
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_cr.yaml
  - ../peripherals/rtc/rtc_common.yaml
