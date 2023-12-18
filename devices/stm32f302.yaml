@@ -9,6 +9,10 @@ _modify:
   DAC:
     name: DAC1
 
+EXTI:
+  _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -95,10 +99,6 @@ _copy:
 
 _derive:
   TIM4: TIM3
-
-MPU:
-  _strip:
-    - "MPU_"
 
 TIM3:
   CNT:
