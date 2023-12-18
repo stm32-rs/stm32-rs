@@ -117,6 +117,10 @@ CAN:
         description: CAN_SCE interrupt
         value: 22
 
+EXTI:
+  _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
+
 IWDG:
   _include:
     - common_patches/16bit.yaml
@@ -148,10 +152,6 @@ TIM3:
         description: "Output Compare 4 mode, bit 3"
         bitOffset: 24
         bitWidth: 1
-
-MPU:
-  _strip:
-    - "MPU_"
 
 WWDG:
   _include:
@@ -211,7 +211,6 @@ _include:
   - ../peripherals/usart/usart_v2B.yaml
   - collect/tsc/iogcr.yaml
   - common_patches/dbgmcu/f3.yaml
-  - common_patches/fpu_interrupt.yaml
   - ../peripherals/comp/comp_f3.yaml
   - ../peripherals/opamp/opamp_f3.yaml
   - ../peripherals/dac/dac_wavegen.yaml

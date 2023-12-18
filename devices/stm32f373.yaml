@@ -108,6 +108,10 @@ FLASH:
       BOOT1:
         name: "nBOOT1"
 
+EXTI:
+  _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
+
 GPIOA:
   _modify:
     MODER:
@@ -135,10 +139,6 @@ GPIOD:
     PUPDR:
       resetValue: "0x00000000"
 
-MPU:
-  _strip:
-    - "MPU_"
-
 IWDG:
   _include:
     - common_patches/16bit.yaml
@@ -150,64 +150,64 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
- - common_patches/cec/cfgr.yaml
- - ../peripherals/hdmi_cec.yaml
- - common_patches/nvic/4_prio_bits.yaml
- - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
- - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
- - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
- - ./common_patches/usart/merge_BRR_fields.yaml
- - ./common_patches/rcc/f3.yaml
- - ./common_patches/rcc/f3_usb.yaml
- - ./common_patches/rcc/f3_dac3_dac2.yaml
- - ./common_patches/syscfg/f3.yaml
- - ./common_patches/syscfg/f3_cfgr2.yaml
- - ../peripherals/syscfg/syscfg_f3.yaml
- - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
- - ../peripherals/syscfg/syscfg_f37x.yaml
- - ./common_patches/comp/f0_common.yaml
- - ../peripherals/can/can.yaml
- - collect/can/can.yaml
- - collect/can/filter_bank.yaml
- - common_patches/usb/merge_add.yaml
- - ./common_patches/usb/unprefix_registers.yaml
- - ../peripherals/crc/crc_advanced.yaml
- - ../peripherals/crc/crc_idr_8bit.yaml
- - ../peripherals/crc/crc_pol.yaml
- - ../peripherals/spi/spi_v2.yaml
- - common_patches/gpio/f3_ospeedr.yaml
- - ../peripherals/gpio/v2/common.yaml
- - ../peripherals/gpio/gpio_with_brr.yaml
- - collect/gpio/v2.yaml
- - common_patches/tim/tim_o24ce.yaml
- - common_patches/tim/tim2345_mixed.yaml
- - common_patches/tim/common.yaml
- - ../peripherals/tim/tim_basic_no_opm.yaml
- - ../peripherals/tim/tim16.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2345_mixed.yaml
- - ../peripherals/tim/v1/ccm.yaml
- - collect/tim/ccr.yaml
- - ../peripherals/rcc/rcc_f373.yaml
- - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
- - ../peripherals/rcc/rcc_f1_f3_usb.yaml
- - ../peripherals/dma/dma_v1.yaml
- - collect/dma/v1.yaml
- - ../peripherals/exti/exti.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/usart/usart_v2B.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - ../peripherals/rtc/rtc_f3.yaml
- - collect/rtc/alarm.yaml
- - collect/rtc/bkpr.yaml
- - collect/tsc/iogcr.yaml
- - ../peripherals/usb/usb.yaml
- - common_patches/dbgmcu/f3.yaml
- - ../peripherals/adc/adc_f37x.yaml
- - collect/adc/jofr_jdr.yaml
- - common_patches/flash/f3_obr_rdptr.yaml
- - ../peripherals/flash/flash_f3_common.yaml
- - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
- - ../peripherals/flash/flash_f3_obr_vdd_monitor.yaml
+  - common_patches/cec/cfgr.yaml
+  - ../peripherals/hdmi_cec.yaml
+  - common_patches/nvic/4_prio_bits.yaml
+  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
+  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+  - ./common_patches/usart/merge_BRR_fields.yaml
+  - ./common_patches/rcc/f3.yaml
+  - ./common_patches/rcc/f3_usb.yaml
+  - ./common_patches/rcc/f3_dac3_dac2.yaml
+  - ./common_patches/syscfg/f3.yaml
+  - ./common_patches/syscfg/f3_cfgr2.yaml
+  - ../peripherals/syscfg/syscfg_f3.yaml
+  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+  - ../peripherals/syscfg/syscfg_f37x.yaml
+  - ./common_patches/comp/f0_common.yaml
+  - ../peripherals/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - common_patches/usb/merge_add.yaml
+  - ./common_patches/usb/unprefix_registers.yaml
+  - ../peripherals/crc/crc_advanced.yaml
+  - ../peripherals/crc/crc_idr_8bit.yaml
+  - ../peripherals/crc/crc_pol.yaml
+  - ../peripherals/spi/spi_v2.yaml
+  - common_patches/gpio/f3_ospeedr.yaml
+  - ../peripherals/gpio/v2/common.yaml
+  - ../peripherals/gpio/gpio_with_brr.yaml
+  - collect/gpio/v2.yaml
+  - common_patches/tim/tim_o24ce.yaml
+  - common_patches/tim/tim2345_mixed.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/tim_basic_no_opm.yaml
+  - ../peripherals/tim/tim16.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim2345_mixed.yaml
+  - ../peripherals/tim/v1/ccm.yaml
+  - collect/tim/ccr.yaml
+  - ../peripherals/rcc/rcc_f373.yaml
+  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
+  - ../peripherals/rcc/rcc_f1_f3_usb.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/usart/usart_v2B.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - ../peripherals/rtc/rtc_common.yaml
+  - ../peripherals/rtc/rtc_f3.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - collect/tsc/iogcr.yaml
+  - ../peripherals/usb/usb.yaml
+  - common_patches/dbgmcu/f3.yaml
+  - ../peripherals/adc/adc_f37x.yaml
+  - collect/adc/jofr_jdr.yaml
+  - common_patches/flash/f3_obr_rdptr.yaml
+  - ../peripherals/flash/flash_f3_common.yaml
+  - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
+  - ../peripherals/flash/flash_f3_obr_vdd_monitor.yaml
