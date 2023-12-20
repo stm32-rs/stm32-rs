@@ -39,6 +39,7 @@
 * GFXMMU LUT cluster
 * Add missing CAN registers to l4x3/x5
 * Remove CAN from F101/102
+* Remove CAN2 from F103, rename CAN1 to CAN
 * Fix L5 DMA cluster
 * Fix writeConstraint bugs
 * STM32G491: Add FDCAN2 peripheral
