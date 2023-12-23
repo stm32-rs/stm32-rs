@@ -30,7 +30,7 @@
       "BS*":
         description: Port x set pin %s
   # TODO: add BRR array
-  LCKR:
+  "?~LCKR":
     _array:
       "LCK[0-9],LCK1[0-5]":
         description: Port x lock pin %s
