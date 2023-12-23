@@ -5,6 +5,7 @@
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA
 * L1 TIM9: add CCER
+* F373 GPIOC LCKR, collect GPIO.BRR
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
 * move `_array`` and `_cluster`` patches to `devices/collect`

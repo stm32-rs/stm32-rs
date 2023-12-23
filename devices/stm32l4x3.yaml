@@ -118,6 +118,7 @@ _include:
  - common_patches/sai/sai_v1.yaml
  - ../peripherals/sai/sai.yaml
  - collect/sai/ch.yaml
+ - common_patches/gpio/l4_brr.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
  - common_patches/crc/crc_rename_init.yaml
@@ -158,7 +159,6 @@ _include:
  - ./common_patches/adc/l4_smpr.yaml
  - ./common_patches/adc/l4_sqr1.yaml
  - ./common_patches/spi/l4.yaml
- - ./common_patches/gpio/l4_brr.yaml
  - ../peripherals/spi/spi_l4.yaml
  - ./common_patches/lcd/l4_segment.yaml
  - ./common_patches/comp/l4xx_comp_reg_rename.yaml

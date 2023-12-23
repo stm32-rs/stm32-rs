@@ -4,7 +4,7 @@ _include:
   - base.yaml
 
 "GPIO*":
-  LCKR:
+  "?~LCKR":
     "LCK[0-9],LCK1[0-5]":
       Unlocked: [0, "Port configuration not locked"]
       Locked: [1, "Port configuration locked"]
