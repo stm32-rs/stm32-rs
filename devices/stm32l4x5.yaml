@@ -152,6 +152,8 @@ _include:
  - ../peripherals/fsmc/fsmc_wfdis.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - collect/fsmc/sram.yaml
+ - common_patches/gpio/l4_ascr.yaml
+ - common_patches/gpio/l4_brr.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
  - common_patches/crc/crc_rename_init.yaml
@@ -193,8 +195,6 @@ _include:
  - ./common_patches/adc/l4_smpr.yaml
  - ./common_patches/adc/l4_sqr1.yaml
  - ./common_patches/spi/l4.yaml
- - ./common_patches/gpio/l4_ascr.yaml
- - ./common_patches/gpio/l4_brr.yaml
  - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
  - ../peripherals/spi/spi_l4.yaml
  - ./common_patches/tim/l4_tim15_ch2.yaml

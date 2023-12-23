@@ -29,7 +29,10 @@
         description: Port x reset pin %s
       "BS*":
         description: Port x set pin %s
-  # TODO: add BRR array
+  "?~BRR":
+    _array:
+      "BR*":
+        description: Reset pin %s
   "?~LCKR":
     _array:
       "LCK[0-9],LCK1[0-5]":
