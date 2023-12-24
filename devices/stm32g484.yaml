@@ -1,5 +1,10 @@
 _svd: ../svd/stm32g484.svd
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 COMP:
   _strip:
     - "COMP_"

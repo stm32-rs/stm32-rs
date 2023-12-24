@@ -1,0 +1,9 @@
+CR:
+  "CHMOD,CHMOD1,CHMOD10":
+    ECB: [0, "Electronic codebook (ECB) / Counter with CBC-MAC (CCM) if CHMOD2 is 1"]
+    CBC: [1, "Cipher-block chaining (CBC)"]
+    CTR: [2, "Counter mode (CTR)"]
+    GCM: [3, "Galois counter mode (GCM) and Galois message authentication code (GMAC)"]
+  "CHMOD2,CHMOD_2":
+    CHMOD: [0, "Mode as per CHMOD (ECB, CBC, CTR, GCM)"]
+    CCM: [1, "Counter with CBC-MAC (CCM) - CHMOD must be 0 (ECB)"]

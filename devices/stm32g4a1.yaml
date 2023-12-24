@@ -8,6 +8,11 @@ _derive:
     _from: TIM1
     baseAddress: 0x40015000
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 FDCAN2:
   _add:
     _interrupts:

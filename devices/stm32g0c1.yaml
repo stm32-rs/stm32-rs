@@ -11,7 +11,10 @@ _copy:
     baseAddress: 0x40000400
 
 AES:
-  _strip: "AES_"
+  _strip: AES_
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
 
 "FDCAN?":
   _strip: "FDCAN_"

@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h573.svd
 
+AES:
+  _include:
+    - ../peripherals/aes/v3.yaml
+
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
