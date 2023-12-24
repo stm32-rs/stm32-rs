@@ -46,7 +46,15 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
+AES:
+  "SUSP?R":
+    _modify:
+      "AES_SUSP?R":
+        name: SUSP
+
+
 _include:
+ - ../peripherals/aes/v2.yaml
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
  - collect/dma/l5.yaml

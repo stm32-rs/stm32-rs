@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* AES enums & patches
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER

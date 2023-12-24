@@ -7,6 +7,9 @@ MPU:
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:
+ - common_patches/aes/fields.yaml
+ - common_patches/aes/l4.yaml
+ - ../peripherals/aes/v2.yaml
  - common_patches/gpio/l4_brr.yaml
  - ./common_patches/stm32l4x2_l412.yaml
  - collect/rtc/bkpr.yaml

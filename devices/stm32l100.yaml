@@ -63,6 +63,8 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/aes/fields.yaml
+ - ../peripherals/aes/v1.yaml
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml

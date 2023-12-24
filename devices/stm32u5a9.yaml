@@ -6,6 +6,13 @@ GFXMMU:
   _strip:
     - "GFXMMU_"
 
+AES:
+  SUSP?R:
+    _modify:
+      SUSP?:
+        name: SUSP
+
 _include:
+ - ../peripherals/aes/v3.yaml
  - collect/gfxmmu/lut.yaml
  - common_patches/tim/common.yaml
