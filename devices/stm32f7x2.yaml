@@ -16,6 +16,11 @@ ADC2:
   _include:
     - common_patches/adc/smpx_18.yaml
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 MPU:
   _strip:
     - "MPU_"

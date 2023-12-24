@@ -15,6 +15,12 @@ _svd: ../svd/stm32l412.svd
 # ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
 # SCR, MISR, SR, ICSR added
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - common_patches/aes/l4.yaml
+    - ../peripherals/aes/v2.yaml
+
 RTC:
   _delete:
     - ISR

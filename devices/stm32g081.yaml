@@ -16,6 +16,11 @@ ADC:
     - ../peripherals/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 EXTI:
   _include:
     - common_patches/exti/exti_rename.yaml

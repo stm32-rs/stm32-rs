@@ -1,0 +1,25 @@
+_include:
+  - "common.yaml"
+  - "chmod3b.yaml"
+  - "aes256.yaml"
+
+CR:
+  KMOD:
+    NormalKey: [0, "Normal key mode. Key registers are freely usable"]
+    SharedKey:
+      [2, "Shared key mode. If shared key mode is properly initialized in SAES peripheral, the AES peripheral automatically loads its key registers with the data stored in the SAES key registers. The key value is available in AES key registers when BUSY bit is cleared and KEYVALID is set in the AES_SR register. Key error flag KEIF is set otherwise in the AES_ISR register"]
+IER:
+  "*IE":
+    Disabled: [0, "Interrupt is disabled (masked)"]
+    Enabled: [1, "Interrupt is enabled (not masked)"]
+ISR:
+  "*IF":
+    NoError: [0, "No error detected"]
+    Error: [1, "The error detected"]
+  CCF:
+    NotCompleted: [0, "Computation not completed"]
+    Completed: [1, "Computation completed"]
+ICR:
+  "*":
+    _write:
+      Clear: [1, "Setting this bit clears corresponding interrupt status bit"]

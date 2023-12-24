@@ -17,7 +17,10 @@ ADC:
     - collect/adc/c0_g0_wl.yaml
 
 AES:
-  _strip: "AES_"
+  _strip: AES_
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
 
 EXTI:
   _include:

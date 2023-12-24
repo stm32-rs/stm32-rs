@@ -1,5 +1,13 @@
 _svd: ../svd/stm32u5a9.svd
 
+AES:
+  SUSP?R:
+    _modify:
+      SUSP?:
+        name: SUSP
+  _include:
+    - ../peripherals/aes/v3.yaml
+
 GFXMMU:
   _strip: GFXMMU_
 

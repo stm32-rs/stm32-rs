@@ -17,26 +17,9 @@ AES:
     _modify:
       CHMOD10:
         name: CHMOD
-  DINR:
-    _modify:
-      AES_DINR:
-        name: DIN
-  DOUTR:
-    _modify:
-      AES_DOUTR:
-        name: DOUT
-  "KEYR?":
-    _modify:
-      "AES_KEYR?":
-        name: KEY
-  "IVR?":
-    _modify:
-      "AES_IVR?":
-        name: IVI
-  "SUSP?R":
-    _modify:
-      "AES_SUSP?R":
-        name: SUSP
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
 
 DAC:
   CR:
@@ -153,7 +136,6 @@ _include:
  - ../devices/common_patches/usart/merge_CR2_ABRMODx_fields.yaml
  - ../devices/common_patches/usart/rename_CR1_M0_field.yaml
  - ../devices/common_patches/usart/rename_CR3_SCARCNT_field.yaml
- - ../peripherals/aes/aes_wl.yaml
  - ../peripherals/comp/comp_wl.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_pol.yaml

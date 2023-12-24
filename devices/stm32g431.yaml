@@ -4,6 +4,11 @@ COMP:
   _strip:
     - "COMP_"
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 DAC?:
   _strip:
     - "DAC_"

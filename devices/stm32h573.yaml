@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h573.svd
 
+AES:
+  _include:
+    - ../peripherals/aes/v3.yaml
+
 GTZC1_MPCBB?:
   _strip: GTZC1_MPCBB?_
   _include:

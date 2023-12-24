@@ -66,6 +66,12 @@ _copy:
   TIM3:
     from: TIM2
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - common_patches/aes/l4.yaml
+    - ../peripherals/aes/v2.yaml
+
 MPU:
   _strip:
     - "MPU_"
