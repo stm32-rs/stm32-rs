@@ -49,6 +49,16 @@ CRC:
 
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
+FSMC:
+  _modify:
+    BWTR3:
+      addressOffset: 0x114
+      alternateRegister: ""
+    BWTR4:
+      _from: BWTR1
+      addressOffset: 0x11C
+      alternateRegister: ""
+
 _include:
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/ethernet/mac_regs.yaml
@@ -58,14 +68,6 @@ _include:
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
  - collect/cryp/v2.yaml
- - common_patches/ltdc/ltdc.yaml
- - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
- - ../peripherals/ltdc/ltdc.yaml
- - collect/ltdc/layer.yaml
- - common_patches/sai/sai_v2.yaml
- - ../peripherals/sai/sai.yaml
- - collect/sai/ch.yaml
- - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - common_patches/fsmc/fsmc_nand_v1.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml

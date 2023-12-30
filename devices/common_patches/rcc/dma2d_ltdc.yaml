@@ -18,12 +18,6 @@ RCC:
         description: DMA2D clock enable
         bitOffset: 23
         bitWidth: 1
-  APB2ENR:
-    _add:
-      LTDCEN:
-        description: LTDC clock enable
-        bitOffset: 26
-        bitWidth: 1
   AHB1LPENR:
     _add:
       DMA2DLPEN:
