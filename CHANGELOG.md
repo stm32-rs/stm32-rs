@@ -3,7 +3,7 @@
 ## [Unreleased]
 
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
-* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA
+* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR
 * modify `LP_Timer1` interrupt instead of adding new

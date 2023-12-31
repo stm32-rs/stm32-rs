@@ -37,6 +37,14 @@ MPU:
   _strip:
     - "MPU_"
 
+TIM10:
+  CCMR1_Output:
+    _add:
+      OC1FE:
+        description: Output compare 1 fast enable
+        bitOffset: 3
+        bitWidth: 1
+
 _include:
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/bkp/bkp.yaml
@@ -62,8 +70,8 @@ _include:
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - collect/tim/ccr.yaml
  - ../peripherals/tim/v1/ccm.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml

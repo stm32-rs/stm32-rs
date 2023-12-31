@@ -63,8 +63,6 @@ I2C1:
 
 _include:
  - ./common_patches/nvic/2_prio_bits.yaml
- - common_patches/tim/v2/g0_1.yaml
- - ../peripherals/tim/v2/ccm.yaml
 # - ../peripherals/gpio/gpio_g0_l0.yaml TODO: add GPIO
  - collect/dma/dmamux.yaml
 # TODO: add DMA
@@ -74,7 +72,10 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/adc/adc_wl.yaml
+ - common_patches/tim/v2/g0_1.yaml
  - common_patches/tim/common.yaml
+ - ../peripherals/tim/v2/ccm.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim_advanced.yaml
+ - collect/tim/ccr.yaml
