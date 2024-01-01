@@ -4,12 +4,19 @@ FLASH:
     WRP??R:
       access: read-write
       resetValue: 0x000000ff
-    PCROP??SR:
-      access: read-write
-      resetValue: 0xffffffff
-    PCROP??ER:
-      access: read-write
-      resetValue: 0x00000000
-    SECR:
-      access: read-write
-      resetValue: 0x00000000
+  KEYR:
+    _modify:
+      KEYR:
+        name: KEY
+  OPTKEYR:
+    _modify:
+      OPTKEYR:
+        name: OPTKEY
+  SR:
+    _modify:
+      MISERR:
+        name: MISSERR
+  OPTR:
+    _modify:
+      IDWG_SW:
+        name: IWDG_SW

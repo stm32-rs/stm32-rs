@@ -1,0 +1,15 @@
+"USART?":
+  _delete:
+    - CR1_FIFO_DISABLED
+    - ISR_FIFO_DISABLED
+  _modify:
+    CR1_FIFO_ENABLED:
+      name: CR1
+    ISR_FIFO_ENABLED:
+      name: ISR
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
