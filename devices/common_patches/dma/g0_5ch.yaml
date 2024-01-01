@@ -1,183 +1,22 @@
-# Fixes for STM32G0 devices with 5 DMA channels
-# This patch removes register fields for channels 6 and 7
-DMA:
+# convert a G0 DMA peripheral from 7 channels to 5
+# include _inside_ the DMA peripheral
+
+ISR:
   _delete:
-    - ISR
-    - IFCR
-  _add:
-    ISR:
-      displayName: ISR
-      description: DMA interrupt status register
-      addressOffset: 0x0
-      size: 0x20
-      access: read-only
-      resetValue: 0x00000000
-      fields:
-        GIF1:
-          description: Channel 1 global interrupt flag
-          bitOffset: 0
-          bitWidth: 1
-        TCIF1:
-          description: Channel 1 transfer complete flag
-          bitOffset: 1
-          bitWidth: 1
-        HTIF1:
-          description: Channel 1 half transfer flag
-          bitOffset: 2
-          bitWidth: 1
-        TEIF1:
-          description: Channel 1 transfer error flag
-          bitOffset: 3
-          bitWidth: 1
-        GIF2:
-          description: Channel 2 global interrupt flag
-          bitOffset: 4
-          bitWidth: 1
-        TCIF2:
-          description: Channel 2 transfer complete flag
-          bitOffset: 5
-          bitWidth: 1
-        HTIF2:
-          description: Channel 2 half transfer flag
-          bitOffset: 6
-          bitWidth: 1
-        TEIF2:
-          description: Channel 2 transfer error flag
-          bitOffset: 7
-          bitWidth: 1
-        GIF3:
-          description: Channel 3 global interrupt flag
-          bitOffset: 8
-          bitWidth: 1
-        TCIF3:
-          description: Channel 3 transfer complete flag
-          bitOffset: 9
-          bitWidth: 1
-        HTIF3:
-          description: Channel 3 half transfer flag
-          bitOffset: 10
-          bitWidth: 1
-        TEIF3:
-          description: Channel 3 transfer error flag
-          bitOffset: 11
-          bitWidth: 1
-        GIF4:
-          description: Channel 4 global interrupt flag
-          bitOffset: 12
-          bitWidth: 1
-        TCIF4:
-          description: Channel 4 transfer complete flag
-          bitOffset: 13
-          bitWidth: 1
-        HTIF4:
-          description: Channel 4 half transfer flag
-          bitOffset: 14
-          bitWidth: 1
-        TEIF4:
-          description: Channel 4 transfer error flag
-          bitOffset: 15
-          bitWidth: 1
-        GIF5:
-          description: Channel 5 global interrupt flag
-          bitOffset: 16
-          bitWidth: 1
-        TCIF5:
-          description: Channel 5 transfer complete flag
-          bitOffset: 17
-          bitWidth: 1
-        HTIF5:
-          description: Channel 5 half transfer flag
-          bitOffset: 18
-          bitWidth: 1
-        TEIF5:
-          description: Channel 5 transfer error flag
-          bitOffset: 19
-          bitWidth: 1
-    IFCR:
-      displayName: IFCR
-      description: DMA interrupt flag clear register
-      addressOffset: 0x4
-      size: 0x20
-      access: write-only
-      resetValue: 0x00000000
-      fields:
-        CGIF1:
-          description: Clear channel 1 global interrupt flag
-          bitOffset: 0
-          bitWidth: 1
-        CTCIF1:
-          description: Clear channel 1 transfer complete flag
-          bitOffset: 1
-          bitWidth: 1
-        CHTIF1:
-          description: Clear channel 1 half transfer flag
-          bitOffset: 2
-          bitWidth: 1
-        CTEIF1:
-          description: Clear channel 1 transfer error flag
-          bitOffset: 3
-          bitWidth: 1
-        CGIF2:
-          description: Clear channel 2 global interrupt flag
-          bitOffset: 4
-          bitWidth: 1
-        CTCIF2:
-          description: Clear channel 2 transfer complete flag
-          bitOffset: 5
-          bitWidth: 1
-        CHTIF2:
-          description: Clear channel 2 half transfer flag
-          bitOffset: 6
-          bitWidth: 1
-        CTEIF2:
-          description: Clear channel 2 transfer error flag
-          bitOffset: 7
-          bitWidth: 1
-        CGIF3:
-          description: Clear channel 3 global interrupt flag
-          bitOffset: 8
-          bitWidth: 1
-        CTCIF3:
-          description: Clear channel 3 transfer complete flag
-          bitOffset: 9
-          bitWidth: 1
-        CHTIF3:
-          description: Clear channel 3 half transfer flag
-          bitOffset: 10
-          bitWidth: 1
-        CTEIF3:
-          description: Clear channel 3 transfer error flag
-          bitOffset: 11
-          bitWidth: 1
-        CGIF4:
-          description: Clear channel 4 global interrupt flag
-          bitOffset: 12
-          bitWidth: 1
-        CTCIF4:
-          description: Clear channel 4 transfer complete flag
-          bitOffset: 13
-          bitWidth: 1
-        CHTIF4:
-          description: Clear channel 4 half transfer flag
-          bitOffset: 14
-          bitWidth: 1
-        CTEIF4:
-          description: Clear channel 4 transfer error flag
-          bitOffset: 15
-          bitWidth: 1
-        CGIF5:
-          description: Clear channel 5 global interrupt flag
-          bitOffset: 16
-          bitWidth: 1
-        CTCIF5:
-          description: Clear channel 5 transfer complete flag
-          bitOffset: 17
-          bitWidth: 1
-        CHTIF5:
-          description: Clear channel 5 half transfer flag
-          bitOffset: 18
-          bitWidth: 1
-        CTEIF5:
-          description: Clear channel 5 transfer error flag
-          bitOffset: 19
-          bitWidth: 1
+    - "GIF[67]"
+    - "TCIF[67]"
+    - "HTIF[67]"
+    - "TEIF[67]"
+IFCR:
+  _delete:
+    - "CGIF[67]"
+    - "CTCIF[67]"
+    - "CHTIF[67]"
+    - "CTEIF[67]"
+
+_delete:
+  _registers:
+    - "CCR[67]"
+    - "CNDTR[67]"
+    - "CPAR[67]"
+    - "CMAR[67]"

@@ -7,15 +7,15 @@
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR
 * modify `LP_Timer1` interrupt instead of adding new
-* Remove workaround for bug in duckscript's `mv` 
-* move `_array`` and `_cluster`` patches to `devices/collect`
+* Remove workaround for bug in duckscript's `mv`
+* move `_array` and `_cluster` patches to `devices/collect`
 * Replace `makehtml.py` with `svdtools html`
 * Updated to svd2rust 0.31.3, svdtools 0.3.8, use tools binaries for CI
 * Use `svd2rust.toml` config
 * Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
-* remove excutable file perm bit from yaml file ([#854])
+* remove excutable file perm bit from yaml file (#854)
 * DMAMUX: merge registers in arrays
 * move merge CAN FB fields in patch file
 * Fix G0 TIM1 CCMR?_Input fields
@@ -39,7 +39,50 @@
 * F4: collect SDIO RESP
 * Fix DAC for stm32f4 (#921)
 
-[#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+Family-specific:
+
+* GO:
+  * Update vendor SVD bundle from v1.1 to v1.5 (#947)
+    * remove Cortex-M0+ core peripherals (use `cortex-m` crate instead)
+    * `DMA?:IFCR` changed from read-only (wrong) to write-only
+    * split `ADC:CHSELR1:CHSEL` into separate 1-bit fields
+    * correct multiple fields in
+      `EXTI`, `FLASH`, `PWR`, `RCC`, `TAMP`, and `SYSCFG`
+    * G030/G031/G041:
+      * rename `DMA` to `DMA1`
+      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
+        (replaced by `DMA1_Channel_4_5_DMAMUX` in `DMA1`)
+      * move `PVD` interrupt from `EXTI` to `PWR`
+      * move `ITLINE*` registers from `SYSCFG_ITLINE` to `SYSCFG`
+    * G050/G051/G061:
+      * add missing peripherals `AES` (G061), `COMP`, `DBG`, `DMA1`, `EXTI`,
+        `FLASH`, `GPIO?`, `LPUART1` (G0x1), `PWR`, `RCC`, `RNG` (G061),
+        `RTC`, `SPI?`, `SYSCFG`, and `TAMP`
+      * `USART?:CR1`: change `RXFNEIE` to `RXNEIE` and `TXFNEIE` to `TXEIE`
+      * remove `DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` interrupt
+        from `DMAMUX` (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
+      * remove register prefix from `LPTIM[12]` (G0x1)
+    * G070/G071/G081:
+      * remove non-existent registers `HWCFG*`, `VERR`, `IPIDR`, and `SIDR`
+        from `ADC`, `RTC`, and `TAMP`
+      * rename `DMA` to `DMA1`
+      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
+        (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
+      * split `SYSCFG_VREFBUF` peripheral into `SYSCFG` and `VREFBUF` (G0x1)
+    * G0B0:
+      * add missing peripherals `ADC`, `EXTI`, `FLASH`, `I2C3`,
+        `PWR`, `RCC`, `RTC`, `SPI?`, `SYSCFG`, `TAMP`, `TIM4`, `USB`
+      * `USART?`: many changes to `CR1` and `ISR`
+      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX` (replaced by
+        `DMA1_Channel_4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` in `DMA1`)
+      * rename `I2C2` interrupt to `I2C2_I2C3`
+      * rename `TIM3` interrupt to `TIM3_TIM4`
+    * G0B1/G0C1:
+      * add missing peripheral `SYSCFG`
+      * fix `SPI` register sizes
+      * remove `TIM6_DAC` interrupt
+      * `USART?`: many changes to `CR1` and `ISR`
+      * add `DMA?` interrupts
 
 ## [v0.15.1] 2022-07-04
 
