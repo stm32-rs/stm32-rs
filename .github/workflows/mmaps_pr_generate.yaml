@@ -1,0 +1,35 @@
+name: Generate PR mmaps
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'svd/**'
+      - 'devices/**'
+      - 'cortex_m/**'
+      - 'peripherals/**'
+      - 'Makefile'
+      - 'Makefile.toml'
+      - 'scripts/tool_install.sh'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install svdtools
+        run: ./scripts/tool_install.sh svdtools
+
+      - name: Generate mmaps
+        run: make -j2 mmaps
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mmaps
+          path: mmaps/
+          if-no-files-found: error
+          retention-days: 7
+
+  # commit and push to stm32-rs-mmaps is handled in mmaps_pr_compare.yaml
