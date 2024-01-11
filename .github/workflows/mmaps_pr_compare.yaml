@@ -1,0 +1,48 @@
+name: Compare PR mmaps
+
+on:
+  workflow_run:
+    workflows: [Generate PR mmaps]
+    types: [completed]
+
+jobs:
+  compare:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      pull-requests: write  # add PR comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mmaps
+        uses: actions/checkout@v4
+        with:
+          repository: stm32-rs/stm32-rs-mmaps
+          ssh-key: ${{ secrets.MMAPS_KEY }}
+
+      - name: Download new mmaps
+        uses: actions/download-artifact@v4
+        with:
+          name: mmaps
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Commit new mmaps
+        run: |
+          PR=${{ github.event.workflow_run.pull_requests[0].number }}
+          COMMIT=${{ github.event.workflow_run.pull_requests[0].head.sha }}
+          BRANCH=pr-$PR-$COMMIT
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+          git checkout -b $BRANCH
+          git add .
+          git config user.name "stm32-rs builder"
+          git config user.email "action@github.com"
+          git commit --allow-empty -m "stm32-rs PR #$PR $COMMIT"
+          git push -f origin $BRANCH
+
+      - name: Comment
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            [Memory map comparison](https://github.com/stm32-rs/stm32-rs-mmaps/compare/${{ env.BRANCH }})
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]'
+          issue: ${{ github.event.workflow_run.pull_requests[0].number }}
