@@ -28,6 +28,13 @@ EXTI:
 "LPUART*":
   _strip: "LPUART_"
 
+RCC:
+  _include:
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
+    - ../peripherals/rcc/rcc_g0x1.yaml
+    - ../peripherals/rcc/rcc_g0x1_aes.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml

@@ -5,12 +5,6 @@ _modify:
 
 _clear_fields: ["*"]
 
-RCC:
-  CCIPR:
-    _modify:
-      - I2S2SEL:
-        name: I2C2SEL
-
 TIM1:
   _modify:
     _interrupts:
@@ -34,6 +28,14 @@ USB:
         name: L1RESUME
       L2RES:
         name: L2RESUME
+
+RCC:
+  _modify:
+    PLLSYSCFGR:
+      name: PLLCFGR
+  _include:
+    - common_patches/rcc/g0b.yaml
+    - ../peripherals/rcc/rcc_g0b.yaml
 
 SPI?:
   _include:

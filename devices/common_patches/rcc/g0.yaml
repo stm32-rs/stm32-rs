@@ -1,0 +1,16 @@
+# G0 parts other that G0Bx/G0Cx
+
+_modify:
+  PLLSYSCFGR:
+    name: PLLCFGR
+
+CFGR:
+  _delete:
+    # these are only present on G0Bx/G0Cx
+    - MCO2PRE
+    - MCO2SEL
+
+CCIPR:
+  _modify:
+    I2S2SEL:
+      name: I2S1SEL

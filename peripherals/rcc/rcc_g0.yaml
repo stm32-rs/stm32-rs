@@ -1,0 +1,29 @@
+# non-G0Bx G0 parts
+
+_include:
+  - rcc_g0_common.yaml
+
+CFGR:
+  MCOPRE:
+    Div1:   [0b000, "Divide by 1"]
+    Div2:   [0b001, "Divide by 2"]
+    Div3:   [0b010, "Divide by 4"]
+    Div8:   [0b011, "Divide by 8"]
+    Div16:  [0b100, "Divide by 16"]
+    Div32:  [0b101, "Divide by 32"]
+    Div64:  [0b110, "Divide by 64"]
+    Div128: [0b111, "Divide by 128"]
+  MCOSEL:
+    NoClock: [0b0000, "No clock"]
+    SYSCLK:  [0b0001, "SYSCLK clock selected"]
+    HSI16:   [0b0011, "HSI16 oscillator clock selected"]
+    HSE:     [0b0100, "HSE oscillator clock selected"]
+    PLLR:    [0b0101, "PLLRCLK clock selected"]
+    LSI:     [0b0110, "LSI oscillator clock selected"]
+    LSE:     [0b0111, "LSE oscillator clock selected"]
+CCIPR:
+  I2S1SEL:
+    SYSCLK: [0b00, "SYSCLK clock selected"]
+    PLLP:   [0b01, "PLLPCLK clock selected"]
+    HSI16:  [0b10, "HSI16 clock selected"]
+    CKIN:   [0b11, "I2S_CKIN clock selected"]

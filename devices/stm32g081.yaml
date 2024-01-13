@@ -10,6 +10,14 @@ _copy:
     from: TIM2
     baseAddress: 0x40000400
 
+RCC:
+  _include:
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
+    - ../peripherals/rcc/rcc_g0x1.yaml
+    - ../peripherals/rcc/rcc_g0x1_aes.yaml
+    - ../peripherals/rcc/rcc_g0x1_cec.yaml
+
 SPI?:
   _include: common_patches/spi/dr8.yaml
   _modify:

@@ -14,6 +14,12 @@ _delete:
   - RNG
 
 RCC:
+  _include:
+    - common_patches/rcc/g0.yaml
+    - common_patches/rcc/g0_no_aes.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
+    - ../peripherals/rcc/rcc_g0x1.yaml
+    - ../peripherals/rcc/rcc_g0x1_cec.yaml
   AHBRSTR:
     _delete:
       - AESRST
