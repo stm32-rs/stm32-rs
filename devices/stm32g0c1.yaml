@@ -11,6 +11,13 @@ AES:
 "FDCAN?":
   _strip: "FDCAN_"
 
+RCC:
+  CCIPR2:
+    _modify:
+      USBSEL:
+        # mistakenly set to 1 upstream
+        bitWidth: 2
+
 RNG:
   _strip: "RNG_"
 
@@ -47,6 +54,9 @@ _include:
   - collect/gpio/v2.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - common_patches/rcc/g0b.yaml
+  - ../peripherals/rcc/rcc_g0b1.yaml
+  - ../peripherals/rcc/rcc_g0x1_aes.yaml
   - common_patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml

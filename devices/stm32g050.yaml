@@ -33,6 +33,8 @@ _include:
   - collect/gpio/v2.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - common_patches/rcc/g0.yaml
+  - ../peripherals/rcc/rcc_g0.yaml
   - common_patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml

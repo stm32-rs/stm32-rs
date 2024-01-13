@@ -1,0 +1,11 @@
+# G0Bx/G0Cx parts
+
+RCC:
+  _modify:
+    PLLSYSCFGR:
+      name: PLLCFGR
+  CCIPR:
+    _modify:
+      I2S2SEL:
+        name: I2C2SEL
+
