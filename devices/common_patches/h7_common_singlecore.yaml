@@ -236,13 +236,6 @@ _modify:
     _modify:
       L3:
         name: L
-  SMPR1:
-    _add:
-      SMP0:
-        description: ADC channel 0 sampling time
-        bitOffset: 0
-        bitWidth: 3
-        access: read-write
   SMPR2:
     _modify:
       SMP19:
