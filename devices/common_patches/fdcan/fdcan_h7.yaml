@@ -29,12 +29,6 @@ _include:
         description: FIFO 1 operation mode
         bitOffset: 31
         bitWidth: 1
-  TXEFS:
-    _add:
-      EFPI:
-        description: Event FIFO put index
-        bitOffset: 16
-        bitWidth: 5
   TTOST:
     _modify:
       GTP:
