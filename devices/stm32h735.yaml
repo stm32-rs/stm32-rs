@@ -212,60 +212,7 @@ RCC:
         name: USART16910SEL
       I2C123SRC:
         name: I2C1235SEL
-  AHB3RSTR:
-    _delete:
-      - JPGDECRST
-      - QSPIRST
-    _add:
-      OCTOSPI1RST:
-        description: OCTOSPI1 and OCTOSPI1 delay block reset
-        bitWidth: 1
-        bitOffset: 14
-      OCTOSPI2RST:
-        description: OCTOSPI2 and OCTOSPI2 delay block reset
-        bitWidth: 1
-        bitOffset: 19
-      IOMNGRRST:
-        description: OCTOSPI IO manager reset
-        bitWidth: 1
-        bitOffset: 21
-      OTFD1RST:
-        description: OTFDEC1 reset
-        bitWidth: 1
-        bitOffset: 22
-      OTFD2RST:
-        description: OTFDEC2 reset
-        bitWidth: 1
-        bitOffset: 23
-  AHB3ENR:
-    _delete:
-      - JPGDECEN
-      - QSPIEN
-    _add:
-      OCTOSPI1EN:
-        description: OCTOSPI1 and OCTOSPI1 delay block enable
-        bitWidth: 1
-        bitOffset: 14
-      OCTOSPI2EN:
-        description: OCTOSPI2 and OCTOSPI2 delay block enable
-        bitWidth: 1
-        bitOffset: 19
-      IOMNGREN:
-        description: OCTOSPI IO manager enable
-        bitWidth: 1
-        bitOffset: 21
-      OTFD1EN:
-        description: OTFDEC1 enable
-        bitWidth: 1
-        bitOffset: 22
-      OTFD2EN:
-        description: OTFDEC2 enable
-        bitWidth: 1
-        bitOffset: 23
   AHB3LPENR,C1_AHB3LPENR:
-    _delete:
-      - JPGDECLPEN
-      - QSPILPEN
     _add:
       OCTOSPI1LPEN:
         description: OCTOSPI1 and OCTOSPI1 delay block enable during CSleep Mode
@@ -275,186 +222,26 @@ RCC:
         description: OCTOSPI2 and OCTOSPI2 delay block enable during CSleep Mode
         bitWidth: 1
         bitOffset: 19
-      IOMNGRLPEN:
-        description: OCTOSPI IO manager enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 21
-      OTFD1LPEN:
-        description: OTFDEC1 enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 22
-      OTFD2LPEN:
-        description: OTFDEC2 enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 23
-  AHB1RSTR:
-    _delete:
-      - USB2OTGRST
-  AHB1ENR:
-    _delete:
-      - USB2OTGEN
-      - USB2ULPIEN
-  AHB1LPENR,C1_AHB1LPENR:
-    _delete:
-      - USB2OTGLPEN
-      - USB2ULPILPEN
-  AHB2RSTR:
-    _add:
-      FMACRST:
-        description: FMAC reset
-        bitWidth: 1
-        bitOffset: 16
-      CORDICRST:
-        description: CORDIC reset
-        bitWidth: 1
-        bitOffset: 17
-  AHB2ENR:
-    _delete:
-      - SRAM3EN
-    _add:
-      FMACEN:
-        description: FMAC enable
-        bitWidth: 1
-        bitOffset: 16
-      CORDICEN:
-        description: CORDIC enable
-        bitWidth: 1
-        bitOffset: 17
-  AHB2LPENR,C1_AHB2LPENR:
-    _delete:
-      - SRAM3LPEN
-    _add:
-      FMACLPEN:
-        description: FMAC enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 16
-      CORDICLPEN:
-        description: CORDIC enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 17
   APB1LRSTR:
-    _add:
-      I2C5RST:
-        description: I2C5 block reset
-        bitWidth: 1
-        bitOffset: 25
     _modify:
       HDMICECRST:
         name: CECRST
   APB1LENR:
-    _add:
-      I2C5EN:
-        description: I2C5 block enable
-        bitWidth: 1
-        bitOffset: 25
     _modify:
       HDMICECEN:
         name: CECEN
-  APB1LLPENR,C1_APB1LLPENR:
-    _add:
-      I2C5LPEN:
-        description: I2C5 block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 25
   APB1HRSTR:
     _modify:
       SWPRST:
         name: SWPMIRST
-    _add:
-      TIM23RST:
-        description: TIM23 block reset
-        bitWidth: 1
-        bitOffset: 24
-      TIM24RST:
-        description: TIM24 block reset
-        bitWidth: 1
-        bitOffset: 25
   APB1HENR:
     _modify:
       SWPEN:
         name: SWPMIEN
-    _add:
-      TIM23EN:
-        description: TIM23 block enable
-        bitWidth: 1
-        bitOffset: 24
-      TIM24EN:
-        description: TIM24 block enable
-        bitWidth: 1
-        bitOffset: 25
   APB1HLPENR,C1_APB1HLPENR:
     _modify:
       SWPLPEN:
         name: SWPMILPEN
-    _add:
-      TIM23LPEN:
-        description: TIM23 block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 24
-      TIM24LPEN:
-        description: TIM24 block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 25
-  APB2RSTR:
-    _delete:
-      - HRTIMRST
-    _add:
-      UART9RST:
-        description: UART9 block reset
-        bitWidth: 1
-        bitOffset: 6
-      USART10RST:
-        description: USART10 block reset
-        bitWidth: 1
-        bitOffset: 7
-  APB2ENR:
-    _delete:
-      - HRTIMEN
-    _add:
-      UART9EN:
-        description: UART9 peripheral clocks enable
-        bitWidth: 1
-        bitOffset: 6
-      USART10EN:
-        description: USART10 peripheral clocks enable
-        bitWidth: 1
-        bitOffset: 7
-  APB2LPENR,C1_APB2LPENR:
-    _delete:
-      - HRTIMLPEN
-    _add:
-      UART9LPEN:
-        description: UART9 peripheral clocks enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 6
-      USART10LPEN:
-        description: USART10 peripheral clocks enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 7
-  APB4RSTR:
-    _add:
-      DTSRST:
-        description: Digital temperature sensor block reset
-        bitWidth: 1
-        bitOffset: 26
-  APB4ENR:
-    _add:
-      DTSEN:
-        description: Digital temperature sensor block enable
-        bitWidth: 1
-        bitOffset: 26
-  APB4LPENR,C1_APB4LPENR:
-    _add:
-      DTSLPEN:
-        description: Digital temperature sensor block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 26
-  D3AMR:
-    _add:
-      DTSAMEN:
-        description: Digital temperature sensor Autonomous mode enable
-        bitWidth: 1
-        bitOffset: 26
 
 # OCTOSPI blocks
 OCTOSPI?:
