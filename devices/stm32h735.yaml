@@ -38,43 +38,6 @@ _add:
       offset: 0x0
       size: 0x100
       usage: registers
-
-  # BDMA block
-  BDMA:
-    description: Basic Direct Memory Access
-    groupName: BDMA
-    baseAddress: 0x58025400
-    addressBlock:
-      offset: 0x000
-      size: 0x400
-      usage: registers
-    registers:
-      {}
-    interrupts:
-      BDMA_CH0:
-        description: BDMA Channel 0 interrupt
-        value: 129
-      BDMA_CH1:
-        description: BDMA Channel 1 interrupt
-        value: 130
-      BDMA_CH2:
-        description: BDMA Channel 2 interrupt
-        value: 131
-      BDMA_CH3:
-        description: BDMA Channel 3 interrupt
-        value: 132
-      BDMA_CH4:
-        description: BDMA Channel 4 interrupt
-        value: 133
-      BDMA_CH5:
-        description: BDMA Channel 5 interrupt
-        value: 134
-      BDMA_CH6:
-        description: BDMA Channel 6 interrupt
-        value: 135
-      BDMA_CH7:
-        description: BDMA Channel 7 interrupt
-        value: 136
   UART9:
     derivedFrom: USART1
     baseAddress: 0x40011800
