@@ -23,6 +23,10 @@ _modify:
       size: 0x100
       usage: registers
 
+CORDIC:
+  _strip:
+    - "CORDIC_"
+
 _add:
   # ADC2
   # Slave ADC, shares an interrupt with ADC2
@@ -87,88 +91,6 @@ _add:
         value: 156
 
   # Additional timers
-
-  # CORDIC block
-  CORDIC:
-    description: CORDIC co-processor
-    groupName: CORDIC
-    baseAddress: 0x48024400
-    addressBlock:
-      offset: 0x0
-      size: 0x400 # There is a typo in Table 7, P136, RM0468.
-      usage: registers
-    registers:
-      CSR:
-        description: Control and status register
-        addressOffset: 0x00
-        resetValue: 0x00000050
-        fields:
-          RRDY:
-            description: Result ready flag
-            bitOffset: 31
-            bitWidth: 1
-          ARGSIZE:
-            description: Width of input data
-            bitOffset: 22
-            bitWidth: 1
-          RESSIZE:
-            description: Width of output data
-            bitOffset: 21
-            bitWidth: 1
-          NARGS:
-            description: Number of arguments expected by the WDATA register
-            bitOffset: 20
-            bitWidth: 1
-          NRES:
-            description: Number of results in the RDATA register
-            bitOffset: 19
-            bitWidth: 1
-          DMAWEN:
-            description: Enable DMA write channel
-            bitOffset: 18
-            bitWidth: 1
-          DMAREN:
-            description: Enable DMA wread channel
-            bitOffset: 17
-            bitWidth: 1
-          IEN:
-            description: Enable interrupt
-            bitOffset: 16
-            bitWidth: 1
-          SCALE:
-            description: Scaling factor (2^-n for arguments, 2^n for results)
-            bitOffset: 8
-            bitWidth: 3
-          PRECISION:
-            description: Precision required (number of iterations/cycles), where PRECISION = (number of iterations/4)
-            bitOffset: 4
-            bitWidth: 4
-          FUNC:
-            description: Function
-            bitOffset: 0
-            bitWidth: 4
-      WDATA:
-        description: Argument register
-        addressOffset: 0x04
-        resetValue: 0xFFFFFFFF
-        fields:
-          ARG:
-            description: Function input arguments
-            bitOffset: 0
-            bitWidth: 32
-      RDATA:
-        description: Result register
-        addressOffset: 0x08
-        resetValue: 0x00000000
-        fields:
-          RES:
-            description: Function result
-            bitOffset: 0
-            bitWidth: 32
-    interrupts:
-      CORDIC_IT:
-        value: 154
-        description: CORDIC interrupt
 
   # FMAC block
   FMAC:
