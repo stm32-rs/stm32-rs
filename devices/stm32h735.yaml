@@ -38,20 +38,6 @@ _add:
       offset: 0x0
       size: 0x100
       usage: registers
-  UART9:
-    derivedFrom: USART1
-    baseAddress: 0x40011800
-    interrupts:
-      UART9:
-         description: UART9 global interrupt
-         value: 155
-  USART10:
-    derivedFrom: USART1
-    baseAddress: 0x40011C00
-    interrupts:
-      USART10:
-        description: USART10 global interrupt
-        value: 156
 
   # FMAC block
   FMAC:
