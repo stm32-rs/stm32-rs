@@ -40,6 +40,9 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
+
 TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml
 

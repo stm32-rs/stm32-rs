@@ -69,6 +69,7 @@ Family-specific:
 * GO:
   * Update vendor SVD bundle from v1.1 to v1.5 (#947)
     * remove Cortex-M0+ core peripherals (use `cortex-m` crate instead)
+    * add enums for `RCC` & `SYSCFG`
     * `DMA?:IFCR` changed from read-only (wrong) to write-only
     * split `ADC:CHSELR1:CHSEL` into separate 1-bit fields
     * correct multiple fields in

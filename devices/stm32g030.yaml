@@ -33,6 +33,7 @@ VREFBUF:
   _strip: "VREFBUF_"
 
 SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
   _delete:
     - ITLINE8
     - ITLINE17

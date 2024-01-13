@@ -23,6 +23,9 @@ RCC:
 #    - common_patches/16bit.yaml
 #    - common_patches/spi/dr8.yaml
 
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
+
 TIM1:
   _modify:
     _interrupts:

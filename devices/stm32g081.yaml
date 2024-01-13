@@ -24,6 +24,9 @@ SPI?:
     "CR1,CR2,SR,DR,CRCPR,RXCRCR,TXCRCR,I2SCFGR,I2SPR":
       size: 16
 
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
+
 TIM1:
   _modify:
     _interrupts:
