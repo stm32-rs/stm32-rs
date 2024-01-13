@@ -801,22 +801,6 @@ DCMI:
         name: DCMI_PSSI
         description: DCMI/PSSI global interrupt
 
-OTG1_HS_GLOBAL:
-  _add:
-    _interrupts:
-      OTG_HS_EP1_OUT:
-        value: 74
-        description: USB OTG_HS OUT endpoint1 global interrupt
-      OTG_HS_EP1_IN:
-        value: 75
-        description: USB OTG_HS IN endpoint1 global interrupt
-      OTG_HS_WKUP:
-        value: 76
-        description: USB OTG_HS wakeup Interrupt through EXTI line
-      OTG_HS:
-        value: 77
-        description: USB OTG_HS global interrupt
-
 RNG:
   _add:
     _interrupts:
