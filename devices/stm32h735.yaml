@@ -87,20 +87,6 @@ _add:
         value: 156
 
   # Additional timers
-  TIM23:
-    derivedFrom: TIM2
-    baseAddress: 0x4000E000
-    interrupts:
-      TIM23:
-        description: TIM23 global interrupt
-        value: 161
-  TIM24:
-    derivedFrom: TIM2
-    baseAddress: 0x4000E400
-    interrupts:
-      TIM24:
-        description: TIM24 global interrupt
-        value: 162
 
   # CORDIC block
   CORDIC:
