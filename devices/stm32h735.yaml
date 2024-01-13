@@ -23,6 +23,10 @@ _modify:
       size: 0x100
       usage: registers
 
+"ADC*":
+  _strip:
+    - "ADC_"
+
 CORDIC:
   _strip:
     - "CORDIC_"
@@ -34,14 +38,6 @@ FMAC:
 _add:
   # ADC2
   # Slave ADC, shares an interrupt with ADC2
-  ADC2:
-    description: Analog to Digital Converter
-    derivedFrom: ADC1
-    baseAddress: 0x40022100
-    addressBlock:
-      offset: 0x0
-      size: 0x100
-      usage: registers
 
   # FMAC block
 
