@@ -1,7 +1,6 @@
 make_mod = true
 generic_mod = true
 strict = true
-pascal_enum_values = true
 max_cluster_size = true
 atomics = true
 atomics_feature = "atomics"
@@ -9,3 +8,16 @@ debug_impl = true
 defmt_impl = "defmt"
 reexport_core_peripherals = true
 reexport_interrupt = true
+
+[ident_formats.register_spec]
+case = "constant"
+suffix = "rs"
+
+[ident_formats.enum_name]
+case = "constant"
+
+[ident_formats.enum_write_name]
+case = "constant"
+
+[ident_formats.enum_value]
+case = "pascal"
