@@ -1,0 +1,14 @@
+"TIM[18],TIM20":
+  _modify:
+    "CR1,DIER,EGR,CCMR?_Input,PSC,ARR,RCR,CCR?,DCR":
+      size: 16
+
+"TIM[34679],TIM1?":
+  _modify:
+    "CR?,DIER,SR,EGR,CCMR?_Input,CCER,PSC,ARR,DCR,CCR?,DMAR":
+      size: 16
+
+"TIM[25]":
+  _modify:
+    "CR?,DIER,SR,EGR,CCMR?_Input,CCER,PSC,DCR,DMAR,TIM?_OR":
+      size: 16

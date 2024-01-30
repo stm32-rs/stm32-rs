@@ -20,7 +20,9 @@ _include:
  - ../peripherals/adc/adc_v3_g4.yaml
  - ../peripherals/adc/adc_v3_common_g4.yaml
  - ./common_patches/comp/g4.yaml
+ - common_patches/iwdg_16bit.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ./common_patches/cordic/g4.yaml
  - ../peripherals/cordic/cordic_g4.yaml

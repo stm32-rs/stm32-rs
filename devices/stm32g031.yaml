@@ -27,14 +27,17 @@ _include:
  - common_patches/i2c/g0.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ./common_patches/spi/g0_rename_registers.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
  - common_patches/usart/g0.yaml
  - ../peripherals/usart/usart_v2C.yaml
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../devices/common_patches/adc/g0.yaml
  - ../peripherals/adc/adc_wl.yaml
+ - common_patches/tim/v2/f7_size16.yaml
  - common_patches/tim/g0_tim1_ccmr_input.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
  - common_patches/tim/common.yaml

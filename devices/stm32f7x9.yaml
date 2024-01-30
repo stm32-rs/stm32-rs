@@ -319,6 +319,7 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_d.yaml
@@ -339,6 +340,7 @@ _include:
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
  - ../peripherals/flash/flash_v2_dual_bank.yaml
+ - common_patches/tim/v2/f7_size16.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml

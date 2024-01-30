@@ -30,6 +30,16 @@ SPI1:
       - CHSIDE
       - UDR
 
+"TIM[18],TIM20":
+  _modify:
+    "CR?,SMCR,DIER,SR,EGR,CCMR?_Output,CCMR?_Input,CCER,CNT,PSC,ARR,RCR,CCR?,BDTR,DCR":
+      size: 16
+
+"TIM[34679],TIM1?":
+  _modify:
+    "?*":
+      size: 16
+
 SYSCFG:
   EXTICR1:
     EXTI0:
@@ -169,9 +179,11 @@ _include:
  - collect/gpio/v2.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
+ - common_patches/iwdg_16bit.yaml
+ - ../peripherals/iwdg/iwdg_with_WINR.yaml
+ - common_patches/wwdg_16bit.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_f0x0.yaml
  - ../peripherals/dma/dma_v1.yaml
@@ -181,6 +193,7 @@ _include:
  - collect/rtc/bkpr.yaml
  - ../peripherals/syscfg/syscfg_f0.yaml
  - ../peripherals/adc/adc_aditf4_v1_1.yaml
+ - common_patches/spi/v2.yaml
  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
  - common_patches/flash/f0_ram_parity_check.yaml
