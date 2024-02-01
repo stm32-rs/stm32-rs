@@ -5,12 +5,9 @@ _include:
 
 "ADC*_Common":
   CCR:
-    VSENSEEN:
-      Disabled: [0, "Temperature sensor channel disabled"]
-      Enabled: [1, "Temperature sensor channel enabled"]
-    VBATEN:
-      Disabled: [0, "V_BAT channel disabled"]
-      Enabled: [1, "V_BAT channel enabled"]
+    "VSENSEEN,VBATEN":
+      Disabled: [0, "The selected ADC channel disabled"]
+      Enabled: [1, "The selected ADC channel enabled"]
     PRESC:
       Div1: [0, "adc_ker_ck_input not divided"]
       Div2: [1, "adc_ker_ck_input divided by 2"]

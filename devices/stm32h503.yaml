@@ -1,4 +1,10 @@
 _svd: ../svd/stm32h503.svd
 
+_modify:
+  ADC:
+    name: ADC1
+
 _include:
   - common_patches/h5.yaml
+  - common_patches/adc/l4+.yaml
+  - ../peripherals/adc/adc_h5.yaml

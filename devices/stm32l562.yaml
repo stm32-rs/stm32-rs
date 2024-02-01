@@ -46,6 +46,13 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
+ADC_Common:
+  CCR:
+    _modify:
+      DELAY:
+        bitOffset: 8
+        bitWidth: 4
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
@@ -66,3 +73,8 @@ _include:
  - collect/rtc/tamp_bkpr.yaml
  - collect/rtc/alarm.yaml
  - common_patches/adc/adc_common_group_name.yaml
+ - common_patches/adc/l4+.yaml
+ - common_patches/adc/l4+common.yaml
+ - ../peripherals/adc/adc_v3_common_l4+.yaml
+ - ../peripherals/adc/adc_v3_l4.yaml
+
