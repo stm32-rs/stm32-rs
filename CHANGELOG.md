@@ -15,6 +15,7 @@
 * Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
+* F1: rename GPIOx_CRL/H CNF field enum items
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
 * move merge CAN FB fields in patch file

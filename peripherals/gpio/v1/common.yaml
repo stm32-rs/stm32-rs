@@ -30,10 +30,10 @@
       Active: [1, "Port configuration lock key active"]
   CRH:
     CNF*:
-      PushPull: [0, "Analog mode / Push-Pull mode"]
-      OpenDrain: [1, "Floating input (reset state) / Open Drain-Mode"]
-      AltPushPull: [2, "Input with pull-up/pull-down / Alternate Function Push-Pull Mode"]
-      AltOpenDrain: [3, "Alternate Function Open-Drain Mode"]
+      AnalogModeOrPushPullOutput: [0, "Analog mode / General purpose output Push-Pull"]
+      FloatingInputOrOpenDrainOutput: [1, "Floating input (reset state) / General purpose output Open-Drain"]
+      PullUpDownInputOrAltPushPullOutput: [2, "Input with pull-up/pull-down / Alternate function output Push-Pull"]
+      ReservedOrAltOpenDrainOutput: [3, "Reserved / Alternate function output Open-Drain"]
     MODE*:
       Input: [0, "Input mode (reset state)"]
       Output: [1, "Output mode 10 MHz"]
@@ -41,10 +41,10 @@
       Output50: [3, "Output mode 50 MHz"]
   CRL:
     CNF*:
-      PushPull: [0, "Analog mode / Push-Pull mode"]
-      OpenDrain: [1, "Floating input (reset state) / Open Drain-Mode"]
-      AltPushPull: [2, "Input with pull-up/pull-down / Alternate Function Push-Pull Mode"]
-      AltOpenDrain: [3, "Alternate Function Open-Drain Mode"]
+      AnalogModeOrPushPullOutput: [0, "Analog mode / General purpose output Push-Pull"]
+      FloatingInputOrOpenDrainOutput: [1, "Floating input (reset state) / General purpose output Open-Drain"]
+      PullUpDownInputOrAltPushPullOutput: [2, "Input with pull-up/pull-down / Alternate function output Push-Pull"]
+      ReservedOrAltOpenDrainOutput: [3, "Reserved / Alternate function output Open-Drain"]
     MODE*:
       Input: [0, "Input mode (reset state)"]
       Output: [1, "Output mode 10 MHz"]
