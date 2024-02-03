@@ -3,7 +3,6 @@ _svd: ../svd/stm32h503.svd
 _include:
   - common_patches/h5.yaml
 
-<<<<<<< HEAD
   - ../peripherals/crs/crs.yaml
   - ../peripherals/wwdg/wwdg_v2.yaml
   - ../peripherals/iwdg/iwdg_with_WINR.yaml
@@ -13,3 +12,4 @@ _include:
   - ../peripherals/iwdg/iwdg_pr_ext.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+  - ../peripherals/sbs/sbs.yaml
