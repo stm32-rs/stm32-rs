@@ -1,6 +1,7 @@
 _svd: ../svd/stm32h503.svd
 
 _include:
+<<<<<<< HEAD
   - common_patches/h5.yaml
   - ../peripherals/crs/crs.yaml
   - ../peripherals/wwdg/wwdg_v2.yaml
@@ -27,3 +28,6 @@ _include:
   - ../peripherals/usart/usart_sync_slave.yaml
   - ../peripherals/usart/usart_smartcard.yaml
   - ../peripherals/usart/usart_prescalar.yaml
+  - ./common_patches/h5.yaml
+  - ./common_patches/rcc/h503.yaml
+  - ../peripherals/rcc/rcc_h503.yaml
