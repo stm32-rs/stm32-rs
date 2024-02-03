@@ -48,3 +48,17 @@ _include:
   - ../peripherals/usart/usart_sync_slave.yaml
   - ../peripherals/usart/usart_smartcard.yaml
   - ../peripherals/usart/usart_prescalar.yaml
+
+  - common_patches/tim/tim_ccm_ext.yaml
+  - common_patches/tim/tim_dither.yaml
+  - common_patches/tim/tim_mms_ts_sms_ext.yaml
+  - common_patches/tim/tim_uifremap.yaml
+
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim1_advanced.yaml
+  - ../peripherals/tim/tim2_common.yaml
+  - ../peripherals/tim/tim6_dither.yaml
+  - ../peripherals/tim/tim_common_ext.yaml
+  - ../peripherals/tim/tim_uifremap.yaml
+  - ../peripherals/tim/tim_dither.yaml
+  - ../peripherals/tim/v2/ccm_1_8.yaml
