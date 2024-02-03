@@ -1,0 +1,11 @@
+# CSR definition for V3. Not available on all devices
+
+RCC:
+  CSR:
+    LSIRDY:
+      _read:
+        NotReady: [0, "LSI oscillator not ready"]
+        Ready: [1, "LSI oscillator ready"]
+    LSION:
+      "Off": [0, "LSI oscillator Off"]
+      "On": [1, "LSI oscillator On"]

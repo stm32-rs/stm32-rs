@@ -1,0 +1,74 @@
+# Extended functionality for GP and Advanced timers. Applicable to H5.
+
+"TIM[1-58]":
+  CR2:
+    MMS_L: [0, 7]
+    MMS_H: [0, 1]
+
+  SMCR:
+    TS_L: [0, 7]
+    TS_H: [0, 3]
+    SMS_L: [0, 7]
+    SMS_H: [0, 1]
+    SMSPS:
+      Update: [0, "SMSM[3:0] is preloaded from Update event"]
+      Index: [1, "SMSM[3:0] is preloaded from Index event"]
+    SMSPE:
+      NotPreloaded: [0, "SMSM[3:0] is not preloaded"]
+      PreloadEnabled: [1, "SMSM[3:0] is preload is enabled"]
+
+  DIER:
+    TERRIE:
+      Disabled: [0, "Transition error interrupt disabled"]
+      Enabled: [1, "Transition error interrupt enabled"]
+    IERRIE:
+      Disabled: [0, "Index error interrupt disabled"]
+      Enabled: [1, "Index error interrupt enabled"]
+    DIRIE:
+      Disabled: [0, "Direction change interrupt disabled"]
+      Enabled: [1, "Direction change interrupt enabled"]
+    IDXIE:
+      Disabled: [0, "Index change interrupt disabled"]
+      Enabled: [1, "Index change interrupt enabled"]
+
+  SR:
+    TERRF:
+      _read:
+        NoTrigger: [0, "No encoder transition error has been detected"]
+        Trigger: [1, "An encoder transition error has been detected"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    IERRF:
+      _read:
+        NoTrigger: [0, "No index error has been detected"]
+        Trigger: [1, "An index erorr has been detected"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    DIRF:
+      _read:
+        NoTrigger: [0, "No direction change has been detected"]
+        Trigger: [1, "A direction change has been detected"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    IDXF:
+      _read:
+        NoTrigger: [0, "No index event occurred"]
+        Trigger: [1, "An index event has occurred"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+
+  AF1:
+    ETRSEL:
+      Legacy: [0, 'ETR legacy mode']
+      COMP1: [1, 'COMP1 output']
+      COMP2: [2, 'COMP2 output']
+
+  AF2:
+    OCRSEL: [0, 7]
+
+  TISEL:
+    TI?SEL:
+      Selected: [0, "TIM1_CHx input selected"]
+
+  DCR:
+    DBSS: [0, 7]

@@ -2,3 +2,45 @@ _svd: ../svd/stm32h503.svd
 
 _include:
   - common_patches/h5.yaml
+  - ../peripherals/crs/crs.yaml
+  - ../peripherals/wwdg/wwdg_v2.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - ../peripherals/iwdg/iwdg_sr.yaml
+  - ../peripherals/iwdg/iwdg_sr_ext.yaml
+  - ../peripherals/iwdg/iwdg_ewcr.yaml
+  - ../peripherals/iwdg/iwdg_pr_ext.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+  - ../peripherals/sbs/sbs.yaml
+  - ../peripherals/pwr/pwr_h5.yaml
+  - ../peripherals/gpio/v3/common.yaml
+  - ../peripherals/gpio/v3/af0-15.yaml
+  - ../peripherals/gpio/gpio_with_brr.yaml
+  - ../peripherals/gpio/gpio_with_hslvr.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/exti/exti_priv.yaml
+  - ../peripherals/gpdma/gpdma.yaml
+  - ../peripherals/spi/spi_v3_base.yaml
+  - ../peripherals/spi/spi_v3_cfg1_bpass.yaml
+  - ../peripherals/usart/usart_v2B1.yaml
+  - ../peripherals/usart/usart_fifoen.yaml
+  - ../peripherals/usart/usart_sync_slave.yaml
+  - ../peripherals/usart/usart_smartcard.yaml
+  - ../peripherals/usart/usart_prescalar.yaml
+  - ./common_patches/h5.yaml
+  - ./common_patches/rcc/h503.yaml
+  - ../peripherals/rcc/rcc_h503.yaml
+
+  - common_patches/tim/tim_ccm_ext.yaml
+  - common_patches/tim/tim_dither.yaml
+  - common_patches/tim/tim_mms_ts_sms_ext.yaml
+  - common_patches/tim/tim_uifremap.yaml
+
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim1_advanced.yaml
+  - ../peripherals/tim/tim2_common.yaml
+  - ../peripherals/tim/tim6_dither.yaml
+  - ../peripherals/tim/tim_common_ext.yaml
+  - ../peripherals/tim/tim_uifremap.yaml
+  - ../peripherals/tim/tim_dither.yaml
+  - ../peripherals/tim/v2/ccm_1_8.yaml
