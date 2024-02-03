@@ -88,7 +88,9 @@ _include:
  - ../peripherals/rcc/rcc_h7_revision_y.yaml
  - ../peripherals/rng/rng_v1.yaml
  - ../peripherals/rng/rng_v1_ced.yaml
- - ../peripherals/spi/spi_v3.yaml
+ - ../peripherals/spi/spi_v3_base.yaml
+ - ../peripherals/spi/spi_v3_tser.yaml
+ - ../peripherals/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
  - common_patches/tim/v2/h7.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
