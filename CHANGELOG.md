@@ -40,7 +40,7 @@
 * Fix DAC for stm32f4 (#921)
 * tools_install: support `$CARGO_HOME` environment variable
 * Update RNG for stm32h735
-* H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI definitios
+* H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA definitios
 * Add GPIOx:HSLVR
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
