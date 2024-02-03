@@ -266,6 +266,9 @@ FMPI2C1:
         bitWidth: 10
 
 _include:
+ - common_patches/aes/fields.yaml
+ - common_patches/aes/l4.yaml
+ - ../peripherals/aes/v2.yaml
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml

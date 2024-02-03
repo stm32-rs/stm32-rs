@@ -126,6 +126,9 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/aes/fields.yaml
+ - common_patches/aes/l4.yaml
+ - ../peripherals/aes/v2.yaml
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
  - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml

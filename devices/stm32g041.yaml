@@ -8,6 +8,8 @@ MPU:
     - "MPU_"
 
 _include:
+ - common_patches/aes/fields.yaml
+ - ../peripherals/aes/v2.yaml
  - ./common_patches/nvic/2_prio_bits.yaml
  - ../peripherals/exti/exti_g0.yaml
  - collect/dma/dmamux.yaml

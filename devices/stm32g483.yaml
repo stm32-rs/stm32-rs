@@ -9,6 +9,8 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
+ - common_patches/aes/fields.yaml
+ - ../peripherals/aes/v2.yaml
  - collect/dma/dmamux.yaml
  - common_patches/dma/g4_ifcr.yaml
  - collect/dma/v1.yaml

@@ -2,5 +2,12 @@ _svd: ../svd/stm32u5a5.svd
 
 _clear_fields: ["*"]
 
+AES:
+  SUSP?R:
+    _modify:
+      SUSP?:
+        name: SUSP
+
 _include:
+ - ../peripherals/aes/v3.yaml
  - common_patches/tim/common.yaml
