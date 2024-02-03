@@ -5,17 +5,14 @@ _modify:
 
 _clear_fields: ["*"]
 
-_delete:
-  - DMA1
-  - DMA2
+"FDCAN?":
+  _strip: "FDCAN_"
 
 TIM1:
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COM:
         description: TIM1 break, update, trigger and commutation interrupts
-  _strip:
-    - "TIM1_"
 
 "TIM1,TIM2":
   CCMR1_Output:
@@ -23,114 +20,42 @@ TIM1:
       OC1M1:
         name: OC1M
 
-DMAMUX:
-  _strip:
-    - "DMAMUX_"
-
-DAC:
-  _strip:
-    - "DAC_"
-
-HDMI_CEC:
-  _strip: ["CEC_"]
-
-CRC:
-  _strip:
-    - "CRC_"
-
-DBG:
-  _strip:
-    - "DBG_"
-
-IWDG:
-  _strip:
-    - "IWDG_"
-
-WWDG:
-  _strip:
-    - "WWDG_"
-
-VREFBUF:
-  _strip:
-    - "VREFBUF_"
+"UCPD*":
+  _strip: "UCPD_"
 
 USB:
-  _strip:
-    - "USB_"
-
-ADC:
-  _strip:
-    - "ADC_"
-  _modify:
-    CHSELR:
-      name: CHSELR0
-    CHSELR_1:
-      name: CHSELR1
-
-"FDCAN?":
-  _strip:
-    - FDCAN_
-
-I2C*:
-  _strip:
-    - "I2C_"
-
-LPTIM*:
-  _strip:
-    - "LPTIM_"
-
-LPUART*:
-  _strip:
-    - "LPUART_"
-
-RTC:
-  _strip:
-    - "RTC_"
-
-SPI*:
-  _strip:
-    - "SPI_"
-
-TAMP:
-  _strip:
-    - "TAMP_"
-
-UCPD*:
-  _strip:
-    - "UCPD_"
-
-SPI1:
-  _modify:
-    "*":
-      size: 32
+  _strip: "USB_"
 
 _include:
- - ./common_patches/nvic/2_prio_bits.yaml
- - collect/dma/dmamux.yaml
- - ../peripherals/dma/dma_v1.yaml
- - ./common_patches/dma/g0_add_dma1_7ch.yaml
- - ./common_patches/dma/g0_add_dma2_5ch.yaml
- - collect/dma/v1.yaml
- - ../peripherals/usb/g0_enum.yaml
- - ../peripherals/exti/exti_g0.yaml
- - ../peripherals/gpio/gpio_g0_l0.yaml
- - collect/gpio/v2.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
- - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
-# TODO: usart CR1
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
- - ../peripherals/adc/adc_wl.yaml
- - common_patches/tim/v2/g0_1.yaml
- - common_patches/tim/common.yaml
- - ../peripherals/tim/v2/ccm.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - collect/tim/ccr.yaml
- - ./common_patches/flash/g0.yaml
- - common_patches/rtc/alarm.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
- - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+  - common_patches/g0x1_strip.yaml
+  - common_patches/nvic/2_prio_bits.yaml
+  - common_patches/adc/g0.yaml
+  - ../peripherals/adc/adc_wl.yaml
+  - common_patches/dma/g0_dma2_5ch.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
+  - collect/dma/dmamux.yaml
+  - ../peripherals/exti/exti_g0.yaml
+  - common_patches/flash/g0.yaml
+  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - collect/gpio/v2.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml
+  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
+  - common_patches/tim/v2/g0_1.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - collect/tim/ccr.yaml
+  - common_patches/usart/g0_CR1.yaml
+  # TODO: fix UART?:ICR:NECF
+  #- ../peripherals/usart/usart_v2C.yaml
+  - ../peripherals/usart/usart_wl.yaml
+  - ../peripherals/usb/g0_enum.yaml
+  - ../peripherals/wwdg/wwdg_v2.yaml
