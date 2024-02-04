@@ -1,0 +1,17 @@
+# the vendor SVD has 7ch DMA1 and DMA2
+# but the device only has a 7ch DMA1 and no DMA2
+
+_delete:
+  - DMA2
+
+DMA1:
+  _modify:
+    _interrupts:
+      DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5:
+        name: DMA1_Channel4_5_6_7_DMAMUX
+        description: interrupts for DMA1 channels 4-7 and DMAMUX
+
+SYSCFG:
+  ITLINE11:
+    _delete:
+      - "DMA2_CH*"
