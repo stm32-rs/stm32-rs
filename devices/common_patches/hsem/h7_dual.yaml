@@ -1,0 +1,94 @@
+HSEM:
+  _modify:
+    IER:
+      name: C1IER
+      displayName: C1IER
+      description: HSEM Interrupt enable register of Line 1
+    ICR:
+      name: C1ICR
+      displayName: C1ICR
+      description: HSEM Interrupt clear register of Line 1
+      access: read-write
+    ISR:
+      name: C1ISR
+      displayName: C1ISR
+      description: HSEM Interrupt status register of Line 1
+    MISR:
+      name: C1MISR
+      displayName: C1MISR
+      description: HSEM Masked interrupt status of Line 1
+  _add:
+    C2IER:
+      displayname: C2IER
+      description: HSEM Interrupt enable register of Line 2
+      addressOffset: 0x110
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        ISEM%s:
+          dim: 32
+          dimIncrement: 1
+          dimIndex: 0-31
+          description: Interrupt(2) semaphore %s enable bit
+          bitOffset: 0
+          bitWidth: 1
+    C2ICR:
+      displayname: C2ICR
+      description: HSEM Interrupt clear register of Line 2
+      addressOffset: 0x114
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        ISEM%s:
+          dim: 32
+          dimIncrement: 1
+          dimIndex: 0-31
+          description: Interrupt(2) semaphore %s clear
+          bitOffset: 0
+          bitWidth: 1
+    C2ISR:
+      displayname: C2ISR
+      description: HSEM Interrupt status register of Line 2
+      addressOffset: 0x118
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        ISEM%s:
+          dim: 32
+          dimIncrement: 1
+          dimIndex: 0-31
+          description: Interrupt(2) semaphore %s status bit
+          bitOffset: 0
+          bitWidth: 1
+    C2MISR:
+      displayname: C2MISR
+      description: HSEM Masked interrupt status register of Line 2
+      addressOffset: 0x11C
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        ISEM%s:
+          dim: 32
+          dimIncrement: 1
+          dimIndex: 0-31
+          description: masked interrupt(2) semaphore %s status bit
+          bitOffset: 0
+          bitWidth: 1
+
+  C1IER:
+    _array:
+      ISEM*:
+        description: Interrupt(1) semaphore %s enable bit
+  C1ICR:
+    _array:
+      ISEM*:
+        description: Interrupt(1) semaphore %s clear
+  C1ISR:
+    _array:
+      ISEM*:
+        description: Interrupt(1) semaphore %s status bit
+  C1MISR:
+    _array:
+      ISEM*:
+        description: masked interrupt(1) semaphore %s status bit

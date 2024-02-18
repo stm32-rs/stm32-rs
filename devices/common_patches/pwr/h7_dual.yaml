@@ -1,0 +1,68 @@
+PWR:
+  _modify:
+    CPUCR:
+      name: CPU1CR
+      displayName: CPU1CR
+  CPU1CR:
+    _add:
+      HOLD2F:
+        description: CPU2 in hold wakeup flag. This flag also generates a CPU1 interrupt. CPU1 has been woken up from a CPU2 wakeup source with CPU2 on hold. This flag is set by hardware and cleared only by a system reset or by setting the CPU1 CSSF bit.
+        bitOffset: 4
+        bitWidth: 1
+      HOLD2:
+        description: Hold the CPU2 and allocated peripherals when exiting from Stop mode.
+        bitOffset: 10
+        bitWidth: 1
+  _add:
+    _registers:
+      CPU2CR:
+        displayname: CPU2CR
+        description: This register allows controlling CPU2 power
+        addressOffset: 0x14
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          PDDS_D1:
+            description: D1 domain Power Down Deepsleep selection. This bit allows CPU2 to define the Deepsleep mode for D1 domain
+            bitOffset: 0
+            bitWidth: 1
+          PDDS_D2:
+            description: D2 domain Power Down Deepsleep selection. This bit allows CPU2 to define the Deepsleep mode for D2 domain
+            bitOffset: 1
+            bitWidth: 1
+          PDDS_D3:
+            description: D3 domain Power Down Deepsleep selection. This bit allows CPU2 to define the Deepsleep mode for D3 domain
+            bitOffset: 2
+            bitWidth: 1
+          HOLD1F:
+            description: CPU1 in hold wakeup flag. This flag also generates a CPU2 interrupt. CPU2 has been woken up from a CPU1 wakeup source with CPU1 on hold. This flag is set by hardware and cleared only by a system reset or by setting the CPU2 CSSF bit.
+            bitOffset: 4
+            bitWidth: 1
+          STOPF:
+            description: Stop Flag. This bit is set by hardware and cleared only by any reset or by setting the CPU2 CSSF bit.
+            bitOffset: 5
+            bitWidth: 1
+          SBF:
+            description: System Standby flag. This bit is set by hardware and cleared only by a POR (Power-on Reset) or by setting the CPU2 CSSF bit
+            bitOffset: 6
+            bitWidth: 1
+          SBF_D1:
+            description: D1 domain DStandby flag. This bit is set by hardware and cleared only by a POR (Power-on Reset) or by setting the CPU2 CSSF bit
+            bitOffset: 7
+            bitWidth: 1
+          SBF_D2:
+            description: D2 domain DStandby flag. This bit is set by hardware and cleared by any Reset or by setting the CPU2 CSSF bit. Once set, this bit can be cleared only when the D2 domain is no longer in DStandby mode.
+            bitOffset: 8
+            bitWidth: 1
+          CSSF:
+            description: Clear D2 domain CPU2 Standby, Stop and HOLD flags (always read as 0)
+            bitOffset: 9
+            bitWidth: 1
+          HOLD1:
+            description: Hold the CPU1 and allocated peripherals when exiting from Stop mode.
+            bitOffset: 10
+            bitWidth: 1
+          RUN_D3:
+            description: Keep D3 domain in Run mode regardless of the other CPU subsystems modes.
+            bitOffset: 11
+            bitWidth: 1

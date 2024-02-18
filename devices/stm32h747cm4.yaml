@@ -34,6 +34,7 @@ _include:
  - common_patches/dbgmcu/h7_dualcore.yaml
  - common_patches/dma/fcr_wo.yaml
  - common_patches/dma/bdma.yaml
+ - common_patches/dma/h7_dmacr.yaml
  - common_patches/dma/h7_dmamux.yaml
  - ../peripherals/dma/bdma.yaml
  - ../peripherals/dma/dma_v3.yaml
@@ -44,6 +45,8 @@ _include:
  - collect/dma/mdma.yaml
  - common_patches/dma/dma2d_v2.yaml
  - ../peripherals/dma/dma2d_v2.yaml
+ - common_patches/hsem/h7_dual.yaml
+ - common_patches/hsem/h7_dual_cm4.yaml
  - collect/hsem/r.yaml
  - common_patches/adc/h7.yaml
  - common_patches/dsi/h7.yaml
@@ -118,3 +121,4 @@ _include:
  - common_patches/wwdg/h7.yaml
  - common_patches/ethernet/h7_mac.yaml
  - common_patches/syscfg/h74x_pwrcr.yaml
+ - common_patches/pwr/h7_dual.yaml
