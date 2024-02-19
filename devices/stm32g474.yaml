@@ -25,6 +25,11 @@ QUADSPI:
 
 _include:
  - common_patches/usart/merge_BRR_fields.yaml
+ - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
+ - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
+ - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+ - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
+ - ./common_patches/usart/rename_CR2_DATAINV_field.yaml
  - collect/dma/dmamux.yaml
  - common_patches/dma/g4_ifcr.yaml
  - collect/dma/v1.yaml
@@ -57,6 +62,7 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
+ - ../peripherals/usart/usart_v2C.yaml
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/usb/g4.yaml
  - ./common_patches/hrtimv2.yaml
