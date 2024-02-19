@@ -35,6 +35,7 @@ VREFBUF:
     - "VREFBUF_"
 
 _include:
+ - common_patches/usart/merge_BRR_fields.yaml
  - collect/dma/dmamux.yaml
  - common_patches/dma/g4_ifcr.yaml
  - collect/dma/v1.yaml
