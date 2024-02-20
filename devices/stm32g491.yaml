@@ -30,6 +30,10 @@ COMP:
   _strip:
     - "COMP_"
 
+DAC?:
+  _strip:
+    - "DAC_"
+
 VREFBUF:
   _strip:
     - "VREFBUF_"
@@ -59,6 +63,9 @@ _include:
  - ../peripherals/sai/sai.yaml
  - collect/sai/ch.yaml
  - collect/sai/pdm.yaml
+ - ../peripherals/dac/dac_wl.yaml
+ - ../peripherals/dac/dac_wl_12bit.yaml
+ - ../peripherals/dac/dac_wl_8bit.yaml
  - ../peripherals/opamp/opamp_g4_common.yaml
  - ../peripherals/opamp/opamp_g4_opamp6.yaml
  - ../peripherals/i2c/i2c_v2.yaml
