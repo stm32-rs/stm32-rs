@@ -8,12 +8,16 @@ debug_impl = true
 defmt_impl = "defmt"
 reexport_core_peripherals = true
 reexport_interrupt = true
+ident_formats_theme = "legacy"
 
 [ident_formats.register_spec]
 case = "constant"
 suffix = "rs"
 
 [ident_formats.enum_name]
+case = "constant"
+
+[ident_formats.enum_read_name]
 case = "constant"
 
 [ident_formats.enum_write_name]

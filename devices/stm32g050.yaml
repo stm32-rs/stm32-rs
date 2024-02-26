@@ -18,6 +18,10 @@ TIM3:
 DMAMUX:
   _strip:
     - "DMAMUX_"
+  CFR:
+    _modify:
+      "CSOF*":
+        access: write-only
 
 CRC:
   _strip:

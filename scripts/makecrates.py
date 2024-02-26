@@ -17,7 +17,7 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.31.5"
+SVD2RUST_VERSION = "0.32.0"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
