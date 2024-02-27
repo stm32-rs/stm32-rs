@@ -10,6 +10,7 @@
 * Format yamls: remove unneeded quotes
 * Apply existing RTC patches for new families, RTC alarm arrays
 * Update L4/L4+ source to v1.4
+* Manual enum names for EXRI & GPIO
 * AES enums & patches
 * HPDMA: clusters
 * H5: Array gpio registers

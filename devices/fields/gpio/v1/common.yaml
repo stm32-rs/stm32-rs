@@ -2,49 +2,47 @@
 
 IDR:
   IDR*:
+    _name: InputData
     High: [1, Input is logic high]
     Low: [0, Input is logic low]
 ODR:
   ODR*:
+    _name: OutputData
     High: [1, Set output to logic high]
     Low: [0, Set output to logic low]
 BSRR:
   BR*:
     _write:
+      _name: BitReset
       Reset: [1, Resets the corresponding ODRx bit]
   BS*:
     _write:
+      _name: BitSet
       Set: [1, Sets the corresponding ODRx bit]
 BRR:
   BR*:
     _write:
+      _name: BitReset
       NoAction: [0, No action on the corresponding ODx bit]
       Reset: [1, Reset the ODx bit]
 LCKR:
   "LCK[0-9],LCK1[0-5]":
+    _name: Lock
     Unlocked: [0, Port configuration not locked]
     Locked: [1, Port configuration locked]
   LCKK:
+    _name: LockKey
     NotActive: [0, Port configuration lock key not active]
     Active: [1, Port configuration lock key active]
-CRH:
+CR[LH]:
   CNF*:
+    _name: Config
     PushPull: [0, Analog mode / Push-Pull mode]
     OpenDrain: [1, Floating input (reset state) / Open Drain-Mode]
     AltPushPull: [2, Input with pull-up/pull-down / Alternate Function Push-Pull Mode]
     AltOpenDrain: [3, Alternate Function Open-Drain Mode]
   MODE*:
-    Input: [0, Input mode (reset state)]
-    Output: [1, Output mode 10 MHz]
-    Output2: [2, Output mode 2 MHz]
-    Output50: [3, Output mode 50 MHz]
-CRL:
-  CNF*:
-    PushPull: [0, Analog mode / Push-Pull mode]
-    OpenDrain: [1, Floating input (reset state) / Open Drain-Mode]
-    AltPushPull: [2, Input with pull-up/pull-down / Alternate Function Push-Pull Mode]
-    AltOpenDrain: [3, Alternate Function Open-Drain Mode]
-  MODE*:
+    _name: Mode
     Input: [0, Input mode (reset state)]
     Output: [1, Output mode 10 MHz]
     Output2: [2, Output mode 2 MHz]

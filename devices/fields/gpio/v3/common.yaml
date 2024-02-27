@@ -2,49 +2,60 @@
 
 MODER:
   MODE*:
+    _name: Mode
     Input: [0, Input mode]
     Output: [1, General purpose output mode]
     Alternate: [2, Alternate function mode]
     Analog: [3, Analog mode]
 OTYPER:
   OT*:
+    _name: OutputType
     PushPull: [0, Output push-pull (reset state)]
     OpenDrain: [1, Output open-drain]
 OSPEEDR:
   OSPEED*:
+    _name: OutputSpeed
     LowSpeed: [0, Low speed]
     MediumSpeed: [1, Medium speed]
     HighSpeed: [2, High speed]
     VeryHighSpeed: [3, Very high speed]
 PUPDR:
   PUPD*:
+    _name: Pull
     Floating: [0, "No pull-up, pull-down"]
     PullUp: [1, Pull-up]
     PullDown: [2, Pull-down]
 IDR:
   ID*:
+    _name: InputData
     High: [1, Input is logic high]
     Low: [0, Input is logic low]
 ODR:
   OD*:
+    _name: OutputData
     High: [1, Set output to logic high]
     Low: [0, Set output to logic low]
 "?~BRR":
   BR*:
     _write:
+      _name: BitReset
       NoAction: [0, No action on the corresponding ODx bit]
       Reset: [1, Reset the ODx bit]
 BSRR:
   BR*:
     _write:
+      _name: BitReset
       Reset: [1, Resets the corresponding ODx bit]
   BS*:
     _write:
+      _name: BitSet
       Set: [1, Sets the corresponding ODx bit]
 LCKR:
   "LCK[0-9],LCK1[0-5]":
+    _name: Lock
     Unlocked: [0, Port configuration not locked]
     Locked: [1, Port configuration locked]
   LCKK:
+    _name: LockKey
     NotActive: [0, Port configuration lock key not active]
     Active: [1, Port configuration lock key active]
