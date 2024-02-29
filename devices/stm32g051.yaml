@@ -54,6 +54,7 @@ ADC:
       name: CHSELR0
     CHSELRMOD1:
       name: CHSELR1
+      alternateRegister: CHSELR0
 
 I2C1:
   _strip:
@@ -70,6 +71,7 @@ _include:
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/adc/adc_wl.yaml
+ - collect/adc/g0.yaml
  - common_patches/tim/v2/g0_1.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/v2/ccm.yaml

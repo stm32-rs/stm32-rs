@@ -296,6 +296,12 @@ SAI1:
   _delete:
     - GCR
 
+"ADC,ADC?":
+  AWD2CR:
+    _split: ["AWD2CH"]
+  AWD3CR:
+    _split: ["AWD3CH"]
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/rtc/alarm.yaml
@@ -307,7 +313,8 @@ _include:
  - collect/sai/ch.yaml
  - collect/sai/pdm.yaml
  - ../peripherals/tim/v2/ccm_common.yaml
- - ./common_patches/adc/wb_adc_common.yaml
- - ./common_patches/adc/l4_smpr.yaml
+ - common_patches/adc/wb_adc_common.yaml
+ - common_patches/adc/l4_smpr.yaml
+ - collect/adc/v3.yaml
  - common_patches/tim/tim2_32bit.yaml
  - collect/hsem/r.yaml
