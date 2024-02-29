@@ -44,6 +44,7 @@
 * Add GPIOx:HSLVR
 * Merge USART BRR fields on G4
 * Add G4 DAC peripheral
+* Add USART v2C peripheral on G4
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
