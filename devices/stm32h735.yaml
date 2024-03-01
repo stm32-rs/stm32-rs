@@ -86,6 +86,17 @@ _add:
         description: USART10 global interrupt
         value: 156
 
+  I2C5:
+    derivedFrom: I2C1
+    baseAddress: 0x40006400
+    interrupts:
+      I2C5_EV:
+        description: I2C5 event interrupt
+        value: 157
+      I2C5_ER:
+        description: I2C5 error interrupt
+        value: 158
+
   # Additional timers
   TIM23:
     derivedFrom: TIM2
