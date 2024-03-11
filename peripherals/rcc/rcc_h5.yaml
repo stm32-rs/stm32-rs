@@ -14,8 +14,6 @@ _include:
 RCC:
   CSICFGR:
     CSITRIM: [0, 0x3F]
-    _read:
-      CSICAL: [0, 0xFF]
   PLL?CFGR:
     PLL??EN:
       Disabled: [0, "Clock output is disabled"]

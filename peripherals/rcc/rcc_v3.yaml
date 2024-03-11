@@ -23,9 +23,6 @@ RCC:
     "*ON":
       "Off": [0, "Clock Off"]
       "On": [1, "Clock On"]
-  CRRCR:
-    _read:
-      HSI48CAL: [0, 0x3FF]
   CIER:
     "*IE":
       Disabled: [0, "Interrupt disabled"]
