@@ -12,16 +12,6 @@ _modify:
   C_ADC:
     name: ADC_Common
 
-# Registers name are prefixed with WWDG_. Use common names.
-WWDG:
-  _modify:
-    WWDG_CR:
-      name: CR
-    WWDG_CFR:
-      name: CFR
-    WWDG_SR:
-      name: SR
-
 MPU:
   _strip:
     - "MPU_"

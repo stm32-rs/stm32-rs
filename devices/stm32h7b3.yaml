@@ -28,14 +28,11 @@ _modify:
 # TODO: remove LPTIM4/LPTIM5 from EXTI enumerated values
 RCC:
   _modify:
-    # Fix reset values for these registers.
-    # Note that the rename operation to remove C1 happens alongside this
-    # modification, so we have to use the original names.
-    C1_APB1LLPENR:
+    APB1LLPENR:
       resetValue: "0xE8FFC3FF"
-    C1_APB4ENR:
+    APB4ENR:
       resetValue: "0x00010000"
-    C1_APB4LPENR:
+    APB4LPENR:
       resetValue: "0x0C01E6AA"
 
   _strip:
