@@ -74,11 +74,6 @@ SBS:
       Disabled: [0, "I/O compensation cell disabled"]
       Enabled: [1, "I/O compensation cell enabled"]
 
-  CCVALR:
-    _read:
-      ANSRC?: [0, 0xF]
-      APSRC?: [0, 0xF]
-
   CCSWCR:
     SW_APSRC?: [0, 0xF]
     SW_ANSRC?: [0, 0xF]
