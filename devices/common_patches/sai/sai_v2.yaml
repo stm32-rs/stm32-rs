@@ -2,9 +2,9 @@
   _strip:
     - SAI_
   _modify:
-    "SAI_?CLRFR":
+    "?CLRFR":
       access: write-only
-    "SAI_?CR2":
+    "?CR2":
       resetValue: 0
 
   "?CR1":

@@ -439,53 +439,18 @@ DMA1:
 RCC:
   _delete:
     - ICSCR
+  _strip: "C1_"
   _modify:
     CIFR:
       access: read-only
-    D1CCIPR:
+    "D1CCIPR,CDCCIPR":
       name: CDCCIPR
-    D2CCIP1R:
+    "D2CCIP1R,CDCCIP1R":
       name: CDCCIP1R
-    D2CCIP2R:
+    "D2CCIP2R,CDCCIP2R":
       name: CDCCIP2R
-    D3CCIPR:
+    "D3CCIPR,SRDCCIPR":
       name: SRDCCIPR
-    C1_APB1LENR:
-      name: APB1LENR
-    C1_APB1LLPENR:
-      name: APB1LLPENR
-    C1_APB1HENR:
-      name: APB1HENR
-    C1_APB1HLPENR:
-      name: APB1HLPENR
-    C1_APB2ENR:
-      name: APB2ENR
-    C1_APB2LPENR:
-      name: APB2LPENR
-    C1_APB3ENR:
-      name: APB3ENR
-    C1_APB3LPENR:
-      name: APB3LPENR
-    C1_APB4ENR:
-      name: APB4ENR
-    C1_APB4LPENR:
-      name: APB4LPENR
-    C1_AHB1ENR:
-      name: AHB1ENR
-    C1_AHB2ENR:
-      name: AHB2ENR
-    C1_AHB1LPENR:
-      name: AHB1LPENR
-    C1_AHB2LPENR:
-      name: AHB2LPENR
-    C1_AHB3ENR:
-      name: AHB3ENR
-    C1_AHB3LPENR:
-      name: AHB3LPENR
-    C1_AHB4ENR:
-      name: AHB4ENR
-    C1_AHB4LPENR:
-      name: AHB4LPENR
 
   _add:
     # This doesn't exist in RM0455 Rev 3, but the WW1RSC field is

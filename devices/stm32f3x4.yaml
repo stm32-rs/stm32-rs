@@ -153,47 +153,47 @@ HRTIM_Master:
 
 HRTIM_TIMA:
   _modify:
+    TIMADIER5:
+      name: TIMADIER
     _interrupts:
       HRTIM1_TIMA:
         value: 68
         name: HRTIM_TIMA
 HRTIM_TIMB:
   _modify:
+    TIMBDIER5:
+      name: TIMBDIER
+    CNTR:
+      name: CNTBR
     _interrupts:
       HRTIM_TIMB:
         value: 69
 HRTIM_TIMC:
   _modify:
+    TIMCDIER5:
+      name: TIMCDIER
     _interrupts:
       HRTIM1_TIMC:
         name: HRTIM_TIMC
         value: 70
 HRTIM_TIMD:
   _modify:
+    TIMDDIER5:
+      name: TIMDDIER
     _interrupts:
       HRTIM1_TIMD:
         name: HRTIM_TIMD
         value: 71
 HRTIM_TIME:
   _modify:
+    TIMEDIER5:
+      name: TIMEDIER
     _interrupts:
       HRTIM_TIME:
         value: 72
 
 "HRTIM_TIM[ABCDE]":
   _modify:
-    TIMADIER5:
-      name: TIMADIER
-    TIMBDIER5:
-      name: TIMBDIER
-    TIMCDIER5:
-      name: TIMCDIER
-    TIMDDIER5:
-      name: TIMDDIER
-    TIMEDIER5:
-      name: TIMEDIER
-    CNTR:
-      name: CNTBR
   "TIM[ABCDE]CR":
     _modify:
       CK_PSCx:

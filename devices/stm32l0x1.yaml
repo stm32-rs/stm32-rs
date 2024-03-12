@@ -21,11 +21,6 @@ ADC:
       Disabled: [0, "VLCD reading circuitry disabled"]
       Enabled: [1, "VLCD reading circuitry enabled"]
 
-DBG:
-  _modify:
-    DBG_APB2_FZ:
-      name: APB2_FZ
-
 FLASH:
   _modify:
     OBR:
@@ -86,14 +81,12 @@ RCC:
       TIM3EN:
         bitOffset: 1
 
-WWDG:
+SYSCFG:
   _modify:
-    WWDG_CR:
-      name: CR
-    WWDG_CFR:
-      name: CFR
-    WWDG_SR:
-      name: SR
+    COMP1_CTRL:
+      name: COMP1_CSR
+    COMP2_CTRL:
+      name: COMP2_CSR
 
 PWR:
   CR:
