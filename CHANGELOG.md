@@ -45,6 +45,7 @@
 * Merge USART BRR fields on G4
 * Add G4 DAC peripheral
 * Fix incorrectly used `_read`, `_modify`
+* G4:COMP fix and collect array
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
