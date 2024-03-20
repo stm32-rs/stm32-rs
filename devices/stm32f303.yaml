@@ -51,36 +51,6 @@ RCC:
       USART5EN:
         name: UART5EN
 
-SYSCFG:
-  _add:
-    CFGR3:
-      description: configuration register 3
-      addressOffset: 0x50
-      size: 0x20
-      resetValue: 0x00000200
-      access: read-write
-      fields:
-        SPI1_RX_DMA_RMP:
-          description: SPI1_RX DMA remapping bit
-          bitOffset: 0
-          bitWidth: 2
-        SPI1_TX_DMA_RMP:
-          description: SPI1_TX DMA remapping bit
-          bitOffset: 2
-          bitWidth: 2
-        I2C1_RX_DMA_RMP:
-          description: I2C1_RX DMA remapping bit
-          bitOffset: 4
-          bitWidth: 2
-        I2C1_TX_DMA_RMP:
-          description: I2C1_TX DMA remapping bit
-          bitOffset: 6
-          bitWidth: 2
-        ADC2_DMA_RMP:
-          description: ADC2 DMA remapping bit
-          bitOffset: 8
-          bitWidth: 2
-
 # TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:
@@ -88,10 +58,6 @@ _copy:
 
 _derive:
   TIM4: TIM3
-
-MPU:
-  _strip:
-    - "MPU_"
 
 TIM3:
   CNT:
@@ -121,7 +87,6 @@ _include:
  - ./common_patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
  - ./common_patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
  - ./common_patches/syscfg/f3_cfgr2.yaml
- - ./common_patches/syscfg/f3_cfgr4.yaml
  - ./common_patches/syscfg/f3_rcr_page8-15.yaml
  - ../peripherals/syscfg/syscfg_f3.yaml
  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
@@ -177,7 +142,6 @@ _include:
  - collect/tsc/iogcr.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/dbgmcu/f3.yaml
- - common_patches/fpu_interrupt.yaml
  - ../peripherals/comp/comp_f3.yaml
  - ../peripherals/opamp/opamp_f3.yaml
  - ../peripherals/adc/adc_v3_f3.yaml
@@ -187,3 +151,4 @@ _include:
  - ../peripherals/flash/flash_f3_common.yaml
  - ../peripherals/flash/flash_f3_obr_sram_parity_check.yaml
  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
