@@ -44,7 +44,7 @@ jobs:
           cd stm32-rs
           COMMIT=$(git rev-parse HEAD)
           make -j2 form
-          mv stm32{c,f,g,h,l,mp,wl,wb}* ../nightly
+          mv stm32{c,f,g,h,l,mp,u,wl,wb}* ../nightly
           cp .github/workflows/README-nightlies.md ../nightly/README.md
           cd ../nightly
           git init
