@@ -1,44 +1,9 @@
+_include:
+ - ./h735.yaml
+
 RNG:
-  _add:
-    HTCR:
-      description: health test control register
-      addressOffset: 0x10
-      resetValue: 0x00005A4E
-      fields:
-        HTCFG:
-          description: health test configuration
-          bitOffset: 0
-          bitWidth: 32
   CR:
     _add:
-      CONFIGLOCK:
-        description: RNG Config lock
-        bitOffset: 31
-        bitWidth: 1
-      CONDRST:
-        description: Conditioning soft reset
-        bitOffset: 30
-        bitWidth: 1
-      RNG_CONFIG1:
-        description: RNG configuration 1
-        bitOffset: 20
-        bitWidth: 6
-      CLKDIV:
-        description: Clock divider factor
-        bitOffset: 16
-        bitWidth: 4
-      RNG_CONFIG2:
-        description: RNG configuration 2
-        bitOffset: 13
-        bitWidth: 3
-      NISTC:
-        description: Non NIST compliant
-        bitOffset: 12
-        bitWidth: 1
-      RNG_CONFIG3:
-        description: RNG configuration 3
-        bitOffset: 8
-        bitWidth: 4
       CED:
         description: Clock error detection
         bitOffset: 5

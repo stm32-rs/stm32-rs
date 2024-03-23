@@ -1,5 +1,8 @@
 _svd: ../svd/stm32l4x1.svd
 
+_derive:
+  USART3: USART1
+
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
 # SVD incorrectly shifts CRCRST 11 bits instead of 12
@@ -58,18 +61,6 @@ _add:
     derivedFrom: ADC1
     baseAddress: "0x50040100"
 
-# Merge the thousands of individal bit fields into a single field for each
-# CAN filter register. This is not only much easier to use but also saves
-# a huge amount of filespace and compilation time etc -- as much as 30% of all
-# fields in many devices are just these CAN filter bank fields.
-"CAN*":
-  "F?R?":
-    _merge:
-      - "FB*"
-  "F??R?":
-    _merge:
-      - "FB*"
-
 # TIM3 is 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:
@@ -91,12 +82,17 @@ _include:
  - ./common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
  - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
  - ./common_patches/usart/merge_BRR_fields.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
+ - collect/sai/ch.yaml
  - common_patches/dfsdm/dfsdm_v2.yaml
+ - collect/dfsdm/v2.yaml
+ - common_patches/gpio/l4_brr.yaml
  - ../peripherals/gpio/v2/common.yaml
+ - collect/gpio/v2.yaml
  - common_patches/crc/crc_rename_init.yaml
  - common_patches/crc/crc_rename_pol.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -107,37 +103,36 @@ _include:
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml
  - ../peripherals/rcc/rcc_l4_uart4.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/l4_tim15_ch2.yaml
+ - common_patches/tim/tim2345_mixed_l.yaml
+ - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
- - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/v2/ccm.yaml
- - common_patches/dma/dma_v1.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B2.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
- - common_patches/tsc/tsc.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - common_patches/fpu_interrupt.yaml
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
- - ../peripherals/sai/sai.yaml
  - ./common_patches/adc/l4.yaml
  - ./common_patches/adc/l4_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
  - ./common_patches/adc/l4_sqr1.yaml
  - ./common_patches/spi/l4.yaml
- - ./common_patches/gpio/l4_brr.yaml
- - ./common_patches/tim/l4_tim15_ch2.yaml
  - ../peripherals/spi/spi_l4.yaml
  - ./common_patches/comp/l4xx_comp_reg_rename.yaml
  - ../peripherals/comp/comp_l4x1.yaml

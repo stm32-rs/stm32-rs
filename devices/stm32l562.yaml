@@ -46,31 +46,23 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
-_cluster:
-  "CH%s":
-    description: "Channel cluster: CCR?, CNDTR?, CPAR?, CM0AR?, and CM1AR? registers"
-    "CCR?":
-      name: CR
-    "CNDTR?":
-      name: NDTR
-    "CPAR?":
-      name: PAR
-    "CM0AR?":
-      name: M0AR
-    "CM1AR?":
-      name: M1AR
-
 _include:
- - common_patches/dma/dmamux_array.yaml
+ - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
- - common_patches/flash/l5_array.yaml
+ - collect/dma/l5.yaml
+ - collect/flash/secbbr.yaml
  - common_patches/icache/l5.yaml
+ - collect/icache/crr.yaml
  - ../peripherals/gpio/gpio_l5.yaml
  - ../peripherals/rcc/rcc_l5.yaml
  - common_patches/sai/sai_v1.yaml
  - ../peripherals/sai/sai.yaml
+ - collect/sai/ch.yaml
+ - collect/sai/pdm.yaml
+ - common_patches/tim/common.yaml
  - common_patches/tim/v2/l5.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/tamp_bkpr.yaml
+ - collect/rtc/tamp_bkpr.yaml
+ - collect/rtc/alarm.yaml
  - common_patches/adc/adc_common_group_name.yaml

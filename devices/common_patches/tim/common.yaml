@@ -11,9 +11,7 @@ _modify:
 "TIM[1-58-9],TIM??":
   CCMR1_Input:
     _modify:
-      ICPCS:
-        name: IC1PSC
-      IC1PCS:
+      "ICPCS,IC1PCS":
         name: IC1PSC
       IC2PCS:
         name: IC2PSC

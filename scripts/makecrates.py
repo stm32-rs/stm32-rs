@@ -17,7 +17,7 @@ import re
 import yaml
 
 VERSION = "0.15.1"
-SVD2RUST_VERSION = "0.30.0"
+SVD2RUST_VERSION = "0.32.0"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
@@ -79,8 +79,9 @@ rust-version = "1.65"
 
 [dependencies]
 critical-section = {{ version = "1.0", optional = true }}
-cortex-m = "0.7.6"
-cortex-m-rt = {{ version = ">=0.6.15,<0.8", optional = true }}
+cortex-m = "0.7.7"
+cortex-m-rt = {{ version = "0.7.3", optional = true }}
+defmt = {{ version = "0.3.5", optional = true }}
 vcell = "0.1.3"
 portable-atomic = {{ version = "1", default-features = false, optional = true }}
 

@@ -39,16 +39,14 @@ OTG_FS_HOST:
     _modify:
       FSLSS:
         access: read-write
-  _include:
-    - fs_host_array.yaml
 
 OTG_FS_DEVICE:
   _modify:
     DIEPTSIZ4:
       addressOffset: 0x190
-    DIEPTSIZ55:
+    "DIEPTSIZ55,DIEPTSIZ5":
       name: DIEPTSIZ5
-    DTXFSTS55:
+    "DTXFSTS55,DTXFSTS5":
       name: DTXFSTS5
     DOEPCTL4:
       addressOffset: 0x380
@@ -76,6 +74,3 @@ OTG_FS_DEVICE:
       OEPINT:
         name: OEPM
         description: OUT EP interrupt mask bits
-
-  _include:
-    - fs_device_cluster.yaml

@@ -108,9 +108,6 @@ OTG_HS_HOST,OTG1_HS_HOST:
     HCDMA14: { addressOffset: 0x2D4 }
     HCDMA15: { addressOffset: 0x2F4 }
 
-  _include:
-    - hs_host_array.yaml
-
 OTG_HS_DEVICE,OTG1_HS_DEVICE:
   _delete:
     - DIEPDMA0
@@ -339,6 +336,3 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
       Stall:
         name: STALL
         description: STALL handshake
-
-  _include:
-    - hs_device_cluster.yaml

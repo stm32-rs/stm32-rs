@@ -1,0 +1,35 @@
+RCC:
+  _add:
+    PRIVCFGR:
+      description: RCC privilege configuration register
+      addressOffset: 0x114
+      access: read-write
+      fields:
+        PRIV:
+          description: RCC functions privilege configuration
+          bitOffset: 1
+          bitWidth: 1
+          access: read-write
+
+  AHB1ENR:
+    _add:
+      GTZC1EN:
+        description: GTZC1 clock enable
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
+
+  AHB1LPENR:
+    _add:
+      GTZC1LPEN:
+        description: GTZC1 clock enable during sleep mode
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
+
+  CCIPR5:
+    _modify:
+      DACSEL:
+        name: DAC1SEL
+      FDCAN1SEL:
+        name: FDCANSEL

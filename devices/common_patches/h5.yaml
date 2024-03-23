@@ -64,6 +64,15 @@ ICACHE:
 IWDG:
   _strip:
     - "IWDG_"
+  SR:
+    _add:
+      ONF:
+        description: "Watchdog enable status bit.
+                      Set to ‘1’ by hardware as soon as the IWDG is started. In software mode, it remains to '1' until
+                      the IWDG is reset. In hardware mode, this bit is always set to '1'."
+        bitOffset: 8
+        bitWidth: 1
+        access: read-only
 
 LPTIM?:
   _strip:
@@ -96,6 +105,16 @@ RTC:
 SBS:
   _strip:
     - "SBS_"
+  PMCR:
+    # Rename these fields on H503 to match other H5 processors
+    _modify:
+      PB6_FMPLUS:
+        name: PB6_FMP
+      PB7_FMPLUS:
+        name: PB7_FMP
+      PB8_FMPLUS:
+        name: PB8_FMP
+
 
 SPI?:
   _strip:
@@ -108,6 +127,22 @@ TAMP:
 TIM1:
   _strip:
     - "TIM1_"
+
+TIM2:
+  _strip:
+    - "TIM2_"
+
+TIM3:
+  _strip:
+    - "TIM3_"
+
+TIM6:
+  _strip:
+    - "TIM6_"
+
+TIM7:
+  _strip:
+    - "TIM7_"
 
 USART?:
   _strip:
@@ -127,3 +162,10 @@ WWDG:
 #   _modify:
 #     CNT_alternate:
 #       name: "CNT"
+
+_include:
+  - sbs/sbs.yaml
+  - gpdma/gpdma.yaml
+  - usart/merge_CR3_WUS_field.yaml
+  - usart/rename_CR1_ISR_enabled_disabled.yaml
+  - ./rcc/h5.yaml

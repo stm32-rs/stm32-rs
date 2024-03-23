@@ -10,7 +10,7 @@ TIM*:
 
 TIM[18]:
   _modify:
-    CRR6:
+    "CRR6,CCR6":
       name: CCR6
 
 TIM1[0134]:
@@ -37,7 +37,7 @@ TIM3:
   ARR:
     _delete:
       - ARR_H
-  CCR%s:
+  CCR?:
     _delete:
       - CCR1_H
 
@@ -62,5 +62,5 @@ TIM[1-58]:
     CNT: [0, 65535]
   ARR:
     ARR: [0, 65535]
-  CCR%s:
-    CCR: [0, 65535]
+  CCR?:
+    "CCR,CCR?": [0, 65535]

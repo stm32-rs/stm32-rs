@@ -188,26 +188,9 @@ RTC:
     SUBFS: [0, 32767]
 
   TSTR:
-    _read:
-      PM:
-        AM: [0, "AM or 24-hour format"]
-        PM: [1, "PM"]
-      HT: [0, 3]
-      HU: [0, 15]
-      MNT: [0, 7]
-      MNU: [0, 15]
-      ST: [0, 7]
-      SU: [0, 15]
-  TSDR:
-    _read:
-      WDU: [0, 3]
-      MT: [0, 1]
-      MU: [0, 7]
-      DT: [0, 3]
-      DU: [0, 15]
-  TSSSR:
-    _read:
-      SS: [0, 65535]
+    PM:
+      AM: [0, "AM or 24-hour format"]
+      PM: [1, "PM"]
 
   "ALRM?R":
     "MSK*":

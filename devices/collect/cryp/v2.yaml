@@ -1,0 +1,18 @@
+CRYP:
+  _cluster:
+    "KEY%s":
+      "K?LR": {}
+      "K?RR": {}
+    "INIT%s":
+      "IV?LR": {}
+      "IV?RR": {}
+
+  _array:
+    "CSGCMCCM?R":
+      _modify:
+        CSGCMCCMR0R:
+          name: CSGCMCCMR
+    "CSGCM?R":
+      _modify:
+        CSGCM0R:
+          name: CSGCMR

@@ -4,11 +4,11 @@ OTG_FS_*:
 
 OTG_FS_GLOBAL:
   _modify:
-    FS_GNPTXFSIZ_Device:
+    GNPTXFSIZ_Device:
       name: DIEPTXF0
-    FS_GNPTXFSIZ_Host:
+    GNPTXFSIZ_Host:
       name: HNPTXFSIZ
-    FS_GNPTXSTS:
+    GNPTXSTS:
       name: HNPTXSTS
 
   _add:

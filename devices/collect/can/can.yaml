@@ -1,0 +1,35 @@
+"CAN,CAN?":
+  "TDL?R,TDH?R,RDL?R,RDH?R":
+    _array:
+      "DATA?":
+        description: DATA%s
+
+  _cluster:
+    "TX%s":
+      description: "CAN Transmit cluster"
+      "TI?R": {}
+      "TDT?R": {}
+      "TDL?R": {}
+      "TDH?R": {}
+    "RX%s":
+      description: "CAN Receive cluster"
+      "RI?R": {}
+      "RDT?R": {}
+      "RDL?R": {}
+      "RDH?R": {}
+  _array:
+    "RF?R":
+      _modify:
+        RFOM0:
+          name: RFOM
+        FOVR0:
+          name: FOVR
+        FULL0:
+          name: FULL
+        FMP0:
+          name: FMP
+
+  TSR:
+    _array:
+      TME?: {}
+      LOW?: {}

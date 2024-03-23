@@ -1,3 +1,11 @@
 _svd: ../svd/stm32u5a9.svd
 
 _clear_fields: ["*"]
+
+GFXMMU:
+  _strip:
+    - "GFXMMU_"
+
+_include:
+ - collect/gfxmmu/lut.yaml
+ - common_patches/tim/common.yaml

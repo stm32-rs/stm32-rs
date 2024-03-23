@@ -2,16 +2,51 @@
 
 ## [Unreleased]
 
+* Fix inconsistencies for HRTIM_TIMF - stm32g4x4
+* Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
+* L1 TIM9: add CCER
+* F373 GPIOC LCKR, collect GPIO.BRR
+* modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv` 
-* Replace `makehtml.py` with `svd2html`
-* Updated to svd2rust 0.30.0, svdtools 0.3.0, use tools binaries for CI
+* move `_array`` and `_cluster`` patches to `devices/collect`
+* Replace `makehtml.py` with `svdtools html`
+* Updated to svd2rust 0.32.0, svdtools 0.3.10, use tools binaries for CI
+* Use `svd2rust.toml` config, use custom ident suffixes
+* Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file ([#854])
 * DMAMUX: merge registers in arrays
+* move merge CAN FB fields in patch file
+* Fix G0 TIM1 CCMR?_Input fields
+* G4, L5, U5 TIM common fixes
 * STM32U5xx: Update SVD to version 1.2 and add variants for xx=35,45,95,A5,99,A9 (#844)
-* Fix ADC SR OVR enums
 * STM32U5xx: Update SVD to version 1.3 (#890)
+* Fix several array descriptions
+* Fix ADC SMPR fields in L1
+* Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
+* Fix ADC SR OVR enums
+* Fix ETH_MACFFR bitOffsets
+* Fix adding OTG_FS GCCFG NOVBUSSENS
+* GFXMMU LUT cluster
+* Add missing CAN registers to l4x3/x5
+* Remove CAN from F101/102
+* Fix L5 DMA cluster
+* Fix writeConstraint bugs
+* STM32G491: Add FDCAN2 peripheral
+* Fix typo in STM32G491 FDCAN2 patch
+* DMA ISR fixes for G0, G4
+* F103: USB RESP1 fix name
+* F4: collect SDIO RESP
+* Fix DAC for stm32f4 (#921)
+* tools_install: support `$CARGO_HOME` environment variable
+* Update RNG for stm32h735
+* H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios
+* Add GPIOx:HSLVR
+* Merge USART BRR fields on G4
+* Add G4 DAC peripheral
+* Fix incorrectly used `_read`, `_modify`
+* G4:COMP fix and collect array
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 

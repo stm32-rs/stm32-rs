@@ -1,0 +1,8 @@
+SDIO:
+  _array:
+    "RESP?":
+      description: SDIO response %s register
+      _modify:
+        CARDSTATUS1:
+          name: CARDSTATUS
+          description: Status of a card, which is part of the received response

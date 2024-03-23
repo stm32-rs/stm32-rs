@@ -1,10 +1,5 @@
 # Add SYSCFG registers
 SYSCFG:
-  _modify:
-    COMP1_CTRL:
-      name: COMP1_CSR
-    COMP2_CTRL:
-      name: COMP2_CSR
   CFGR1:
     _add:
       UFB:

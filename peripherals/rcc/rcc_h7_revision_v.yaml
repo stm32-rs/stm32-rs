@@ -2,12 +2,9 @@
 
 # Does not apply to Revsion Y of H7
 
+_include:
+  - ./rcc_v3_hsicfgr.yaml
+
 RCC:
-  HSICFGR:
-    HSITRIM: [0, 0x7F]
-    _read:
-      HSICAL: [0, 0xFFF]
   CSICFGR:
     CSITRIM: [0, 0x3F]
-    _read:
-      CSICAL: [0, 0x3FF]

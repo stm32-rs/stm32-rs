@@ -2,7 +2,7 @@
 
 "GPIO*":
   BRR:
-    "BR[0-9],BR1[0-5]":
+    "BR*":
       _write:
         NoAction: [0, "No action on the corresponding ODx bit"]
         Reset: [1, "Reset the ODx bit"]

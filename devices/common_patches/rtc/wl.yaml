@@ -34,13 +34,7 @@ RTC:
       MSK4:
         description: Alarm date mask
 
-  _array:
-    "ALRM?R": {}
-    "ALRM?SSR": {}
-    "ALR?BINR": {}
 TAMP:
-  _array:
-    "BKP*R": {}
   _modify:
     BKP10R:
       addressOffset: 0x128

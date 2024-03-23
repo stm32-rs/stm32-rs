@@ -23,51 +23,21 @@ RCC:
     "*ON":
       "Off": [0, "Clock Off"]
       "On": [1, "Clock On"]
-  CRRCR:
-    _read:
-      HSI48CAL: [0, 0x3FF]
-  CFGR:
-    MCO2:
-      SYSCLK: [0, "System clock selected for micro-controller clock output"]
-      PLL2_P: [1, "pll2_p selected for micro-controller clock output"]
-      HSE: [2, "HSE selected for micro-controller clock output"]
-      PLL1_P: [3, "pll1_p selected for micro-controller clock output"]
-      CSI: [4, "CSI selected for micro-controller clock output"]
-      LSI: [5, "LSI selected for micro-controller clock output"]
-    MCO1:
-      HSI: [0, "HSI selected for micro-controller clock output"]
-      LSE: [1, "LSE selected for micro-controller clock output"]
-      HSE: [2, "HSE selected for micro-controller clock output"]
-      PLL1_Q: [3, "pll1_q selected for micro-controller clock output"]
-      HSI48: [4, "HSI48 selected for micro-controller clock output"]
-    MCO?PRE: [0, 15]
-    TIMPRE:
-      DefaultX2: [0, "Timer kernel clock equal to 2x pclk by default"]
-      DefaultX4: [1, "Timer kernel clock equal to 4x pclk by default"]
-    RTCPRE: [0, 63]
-    STOPWUCK,STOPKERWUCK:
-      HSI: [0, "HSI selected as wake up clock from system Stop"]
-      CSI: [1, "CSI selected as wake up clock from system Stop"]
-    SWS:
-      _read:
-        HSI: [0, "HSI oscillator used as system clock"]
-        CSI: [1, "CSI oscillator used as system clock"]
-        HSE: [2, "HSE oscillator used as system clock"]
-        PLL1: [3, "PLL1 used as system clock"]
-    SW:
-      HSI: [0, "HSI selected as system clock"]
-      CSI: [1, "CSI selected as system clock"]
-      HSE: [2, "HSE selected as system clock"]
-      PLL1: [3, "PLL1 selected as system clock"]
   CIER:
     "*IE":
       Disabled: [0, "Interrupt disabled"]
       Enabled: [1, "Interrupt enabled"]
+  CIFR:
+    "*RDYF":
+      _read:
+        NotInterrupted: [0, "No clock ready interrupt"]
+        Interrupted: [1, "Clock ready interrupt"]
   CICR:
     "*C":
       Clear: [1, "Clear interrupt flag"]
   BDCR:
     BDRST,VSWRST:
+      NotActivated: [0, "Reset not activated"]
       Reset: [1, "Resets the entire VSW domain"]
     RTCEN:
       Disabled: [0, "RTC clock disabled"]
@@ -99,33 +69,17 @@ RCC:
     LSEON:
       "Off": [0, "LSE oscillator Off"]
       "On": [1, "LSE oscillator On"]
-  CSR:
-    LSIRDY:
-      _read:
-        NotReady: [0, "LSI oscillator not ready"]
-        Ready: [1, "LSI oscillator ready"]
-    LSION:
-      "Off": [0, "LSI oscillator Off"]
-      "On": [1, "LSI oscillator On"]
   "A?B?RSTR,A?B??RSTR":
     "*RST":
       Reset: [1, "Reset the selected module"]
-  GCR:
-    WW1RSC:
-      Clear: [0, "Clear WWDG1 scope control"]
-      Set: [1, "Set WWDG1 scope control"]
-  D3AMR,SRDAMR:
-    "*AMEN":
-      Disabled: [0, "Clock disabled in autonomous mode"]
-      Enabled: [1, "Clock enabled in autonomous mode"]
   RSR,C1_RSR:
     "*RSTF":
       _read:
-        NoResetOccoured: [0, "No reset occoured for block"]
-        ResetOccourred: [1, "Reset occoured for block"]
+        NoResetOccurred: [0, "No reset occurred for block"]
+        ResetOccurred: [1, "Reset occurred for block"]
     RMVF:
-      NotActive: [0, "Not clearing the the reset flags"]
-      Clear: [1, "Clear the reset flags"]
+      NotActivated: [0, "Reset not activated"]
+      Reset: [1, "Reset the reset status flags"]
   "A?B?ENR,A?B??ENR,C1_A?B?ENR,C1_A?B??ENR":
     "*EN":
       Disabled: [0, "The selected clock is disabled"]

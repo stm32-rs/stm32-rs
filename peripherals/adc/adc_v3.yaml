@@ -148,19 +148,6 @@
     OVRMOD:
       Preserve: [0, "Preserve DR register when an overrun is detected"]
       Overwrite: [1, "Overwrite DR register when an overrun is detected"]
-    EXTSEL:
-      TIM1_CC1: [0, "Timer 1 CC1 event"]
-      TIM1_CC2: [1, "Timer 1 CC2 event"]
-      TIM1_CC3: [2, "Timer 1 CC3 event"]
-      TIM2_CC2: [3, "Timer 2 CC2 event"]
-      TIM3_TRGO: [4, "Timer 3 TRGO event"]
-      EXTI11: [6, "EXTI line 11"]
-      TIM1_TRGO: [9, "Timer 1 TRGO event"]
-      TIM1_TRGO2: [10, "Timer 1 TRGO2 event"]
-      TIM2_TRGO: [11, "Timer 2 TRGO event"]
-      TIM6_TRGO: [13, "Timer 6 TRGO event"]
-      TIM15_TRGO: [14, "Timer 15 TRGO event"]
-      TIM3_CC4: [15, "Timer 3 CC4 event"]
   CFGR,JSQR:
     EXTEN,JEXTEN:
       Disabled: [0, "Trigger detection disabled"]
@@ -168,19 +155,6 @@
       FallingEdge: [2, "Trigger detection on the falling edge"]
       BothEdges: [3, "Trigger detection on both the rising and falling edges"]
   JSQR:
-    JEXTSEL:
-      TIM1_TRGO: [0, "Timer 1 TRGO event"]
-      TIM1_CC4: [1, "Timer 1 CC4 event"]
-      TIM2_TRGO: [2, "Timer 2 TRGO event"]
-      TIM2_CC1: [3, "Timer 2 CC1 event"]
-      TIM3_CC4: [4, "Timer 3 CC4 event"]
-      EXTI15: [6, "EXTI line 15"]
-      TIM1_TRGO2: [8, "Timer 1 TRGO2 event"]
-      TIM3_CC3: [11, "Timer 3 CC3 event"]
-      TIM3_TRGO: [12, "Timer 3 TRGO event"]
-      TIM3_CC1: [13, "Timer 3 CC1 event"]
-      TIM6_TRGO: [14, "Timer 6 TRGO event"]
-      TIM15_TRGO: [15, "Timer 15 TRGO event"]
     JL: [0, 3]      # Total number of conversions in injected sequence
     "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
   AWD2CR:

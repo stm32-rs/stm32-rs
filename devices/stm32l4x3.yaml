@@ -94,18 +94,6 @@ USB:
           bitOffset: 15
           bitWidth: 1
 
-# Merge the thousands of individal bit fields into a single field for each
-# CAN filter register. This is not only much easier to use but also saves
-# a huge amount of filespace and compilation time etc -- as much as 30% of all
-# fields in many devices are just these CAN filter bank fields.
-"CAN*":
-  "F?R?":
-    _merge:
-      - "FB*"
-  "F??R?":
-    _merge:
-      - "FB*"
-
 MPU:
   _strip:
     - "MPU_"
@@ -123,11 +111,16 @@ _include:
  - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
  - ./common_patches/usart/merge_BRR_fields.yaml
  - ./common_patches/rcc/l4_crrcr.yaml
- - common_patches/can/can.yaml
- - common_patches/can/can_filter_bank.yaml
+ - common_patches/can/l4x3_missing_regs.yaml
  - ../peripherals/can/can.yaml
+ - collect/can/can.yaml
+ - collect/can/filter_bank.yaml
  - common_patches/sai/sai_v1.yaml
+ - ../peripherals/sai/sai.yaml
+ - collect/sai/ch.yaml
+ - common_patches/gpio/l4_brr.yaml
  - ../peripherals/gpio/v2/common.yaml
+ - collect/gpio/v2.yaml
  - common_patches/crc/crc_rename_init.yaml
  - common_patches/crc/crc_rename_pol.yaml
  - ../peripherals/crc/crc_advanced.yaml
@@ -137,36 +130,35 @@ _include:
  - ../peripherals/rcc/rcc_l4.yaml
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/tim2_32bit.yaml
+ - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2_32bit.yaml
- - common_patches/tim/tim2_32bit.yaml
  - ../peripherals/tim/tim_advanced.yaml
- - common_patches/tim/tim_ccr.yaml
- - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/v2/ccm.yaml
- - common_patches/dma/dma_v1.yaml
+ - collect/tim/ccr.yaml
  - ../peripherals/dma/dma_v1_with_remapping.yaml
+ - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_bkpr.yaml
  - common_patches/rtc/rtc_cr.yaml
- - common_patches/tsc/tsc.yaml
+ - collect/rtc/alarm.yaml
+ - collect/rtc/bkpr.yaml
+ - collect/tsc/iogcr.yaml
  - ./common_patches/flash/flash_boot0s.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
- - ../peripherals/sai/sai.yaml
  - common_patches/dma/interrupt_names.yaml
  - ./common_patches/adc/l4.yaml
  - ./common_patches/adc/l4_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
  - ./common_patches/adc/l4_sqr1.yaml
  - ./common_patches/spi/l4.yaml
- - ./common_patches/gpio/l4_brr.yaml
  - ../peripherals/spi/spi_l4.yaml
  - ./common_patches/lcd/l4_segment.yaml
  - ./common_patches/comp/l4xx_comp_reg_rename.yaml

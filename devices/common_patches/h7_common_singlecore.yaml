@@ -260,7 +260,7 @@ FLASH:
       alternateRegister: ""
     KEYR[12]:
       access: write-only
-    OPTKEYR_?:
+    OPTKEYR:
       access: write-only
     BOOT_PRGR:
       access: read-write
@@ -282,7 +282,7 @@ FLASH:
       TXPIE:
         access: read-write
   _modify:
-    CGFR:
+    "CGFR,I2SCFGR":
       name: I2SCFGR
   CFG1:
     _modify:
