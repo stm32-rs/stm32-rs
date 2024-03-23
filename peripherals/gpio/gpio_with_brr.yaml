@@ -4,5 +4,6 @@
   BRR:
     "BR*":
       _write:
+        _name: BitReset
         NoAction: [0, "No action on the corresponding ODx bit"]
         Reset: [1, "Reset the ODx bit"]
