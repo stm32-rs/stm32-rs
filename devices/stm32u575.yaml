@@ -6,7 +6,10 @@ UCPD1:
 
 _include:
  - common_patches/u5.yaml
+ - common_patches/fsmc/fsmc_u5.yaml
  - ../peripherals/dma/dma2d_v2.yaml
+ - ../peripherals/fsmc/fsmc_nand.yaml
+ - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/gpio/gpio_l5_u5.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
