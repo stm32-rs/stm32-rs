@@ -1,6 +1,5 @@
 _svd: ../svd/stm32u595.svd
 
-_clear_fields: ["*"]
-
 _include:
+ - common_patches/u5.yaml
  - common_patches/tim/common.yaml

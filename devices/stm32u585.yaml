@@ -1,3 +1,8 @@
 _svd: ../svd/stm32u585.svd
 
-_clear_fields: ["*"]
+UCPD1:
+  _strip:
+    - UCPD_
+
+_include:
+ - common_patches/u5.yaml
