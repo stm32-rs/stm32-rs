@@ -1,6 +1,9 @@
 _svd: ../svd/stm32u545.svd
 
-_clear_fields: ["*"]
+SDMMC:
+  _strip:
+    - SDMMC_
 
 _include:
+ - common_patches/u5.yaml
  - common_patches/tim/common.yaml
