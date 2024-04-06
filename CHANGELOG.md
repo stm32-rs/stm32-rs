@@ -47,6 +47,8 @@
 * Add G4 DAC peripheral
 * Fix incorrectly used `_read`, `_modify`
 * G4:COMP fix and collect array
+* U5: Strip prefixes from peripheral registers
+* U5: Add ADC, DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, PWR, RCC, UCPD peripherals
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 
