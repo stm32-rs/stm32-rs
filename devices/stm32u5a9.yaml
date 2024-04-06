@@ -17,6 +17,7 @@ _include:
  - common_patches/fsmc/fsmc_u5.yaml
  - collect/gfxmmu/lut.yaml
  - common_patches/tim/common.yaml
+ - common_patches/ucpd/tx_rx_missing_r.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
@@ -24,3 +25,4 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
  - ../peripherals/rcc/rcc_u5.yaml
+ - ../peripherals/ucpd/ucpd.yaml
