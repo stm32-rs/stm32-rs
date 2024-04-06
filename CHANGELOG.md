@@ -66,6 +66,7 @@
 * H7: add stm32h7r/s devices (#972)
 * WB: add `RCC`, `SYSCFG` enums
 * G4: fix FDCAN interrupt numbers being swapped
+* G0X1, G4, H5, H7R/S, L5, U5: Add UCPD peripheral
 
 Family-specific:
 

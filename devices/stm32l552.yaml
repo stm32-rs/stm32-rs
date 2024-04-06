@@ -59,6 +59,9 @@ _include:
  - ../peripherals/sai/sai.yaml
  - collect/sai/ch.yaml
  - collect/sai/pdm.yaml
+ - common_patches/ucpd/cfgr_missing_r.yaml
+ - common_patches/ucpd/tx_rx_missing_r.yaml
+ - ../peripherals/ucpd/ucpd_v1.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/v2/l5.yaml
  - ../peripherals/tim/v2/ccm.yaml
