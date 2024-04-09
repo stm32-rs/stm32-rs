@@ -19,6 +19,11 @@ DCACHE,DCACHE?:
 PWR:
   _strip:
     - PWR_
+  _add:
+    CR5:
+      addressOffset: 0xAC
+      size: 0x20
+      resetValue: 0x00000000
 
 RCC:
   _strip:
