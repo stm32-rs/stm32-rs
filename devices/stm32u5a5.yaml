@@ -3,6 +3,7 @@ _svd: ../svd/stm32u5a5.svd
 _include:
  - common_patches/u5.yaml
  - common_patches/fsmc/fsmc_u5.yaml
+ - common_patches/octospi/u5.yaml
  - common_patches/tim/common.yaml
  - common_patches/ucpd/tx_rx_missing_r.yaml
  - ../peripherals/dma/dma2d_v2.yaml
@@ -11,5 +12,6 @@ _include:
  - ../peripherals/gpio/gpio_l5_u5.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+ - ../peripherals/octospi/u5.yaml
  - ../peripherals/rcc/rcc_u5.yaml
  - ../peripherals/ucpd/ucpd.yaml
