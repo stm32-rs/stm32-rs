@@ -33,10 +33,13 @@ SPI?:
 
 _include:
  - common_patches/u5.yaml
+ - common_patches/adc/u5.yaml
+ - common_patches/adc/u5_vsensesel.yaml
  - common_patches/fsmc/fsmc_u5.yaml
  - collect/gfxmmu/lut.yaml
  - common_patches/octospi/u5.yaml
  - common_patches/tim/common.yaml
+ - ../peripherals/adc/adc_u5_dual.yaml
  - ../peripherals/exti/exti_u5.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
