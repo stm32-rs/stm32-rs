@@ -1,0 +1,10 @@
+ADC1,ADC2,ADC4:
+  CR:
+    _modify:
+      ADCAL,ADSTP,JADSTP,ADSTART,JADSTART,ADDIS,ADEN:
+        access: read-write
+
+ADC4:
+  _modify:
+    PWR:
+      name: PWRR

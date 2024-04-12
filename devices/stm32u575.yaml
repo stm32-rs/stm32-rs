@@ -4,10 +4,17 @@ UCPD1:
   _strip:
     - UCPD_
 
+# This SVD calls this ADC12, but ADC12_Common in most others
+_modify:
+  ADC12:
+    name: ADC12_Common
+
 _include:
  - common_patches/u5.yaml
+ - common_patches/adc/u5.yaml
  - common_patches/fsmc/fsmc_u5.yaml
  - common_patches/octospi/u5.yaml
+ - ../peripherals/adc/adc_u5.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
