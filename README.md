@@ -96,7 +96,7 @@ contain the latest patches and updates.
     * On x86-64 Linux, run `make install` to download pre-built binaries at the
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
-        * `cargo install form --version 0.10.0`
+        * `cargo install form --version 0.12.1`
         * `cargo install svdtools --version 0.3.14`
         * `cargo install svd2rust --version 0.33.1`
 * Install rustfmt: `rustup component add rustfmt`

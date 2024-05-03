@@ -108,13 +108,48 @@ for i in ${handle}
     end
     if ${need_update}
         echo "form: ${serie}"
-        exec form -i ${modpath} -o ${dir_name}
+        exec form -f -i ${modpath} -o ${dir_name}
         rm ${modpath}
         cp ${dir_name}/lib.rs ${modpath}
         rm ${dir_name}/lib.rs
-        exec rustfmt ${modpath}
         touch ${formpath}
     end
+end
+'''
+
+[tasks.fmt]
+env = { "CRATES" = "${CRATE_NAMES}", "NAMES" = "${NAMES}" }
+dependencies = ["svd2rust"]
+script_runner = "@duckscript"
+script = '''
+NAMES = array %{NAMES}
+CRATES = array %{CRATES}
+count = array_length ${NAMES}
+handle = range 0 ${count}
+for i in ${handle}
+    serie = array_get ${NAMES} ${i}
+    crate = array_get ${CRATES} ${i}
+    dir_name = set ${crate}/src/${serie}
+    modpath = set ${dir_name}/mod.rs
+    formpath = set ${dir_name}/.form
+
+    mod_modified = get_last_modified_time ${modpath}
+    if is_path_exists ${formpath}
+        form_modified = get_last_modified_time ${formpath}
+        need_update = less_than ${form_modified} ${mod_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "form: ${serie}"
+        exec form -f -i ${modpath} -o ${dir_name}
+        rm ${modpath}
+        cp ${dir_name}/lib.rs ${modpath}
+        rm ${dir_name}/lib.rs
+        touch ${formpath}
+    end
+    echo "rustfmt: ${serie}"
+    exec rustfmt ${modpath}
 end
 '''
 

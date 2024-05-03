@@ -10,8 +10,9 @@
 * Remove workaround for bug in duckscript's `mv` 
 * move `_array`` and `_cluster`` patches to `devices/collect`
 * Replace `makehtml.py` with `svdtools html`
-* Updated to svd2rust 0.33.1, svdtools 0.3.14, use tools binaries for CI
+* Updated to `svd2rust` 0.33.1, `svdtools` 0.3.14, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
+* Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
