@@ -1,0 +1,80 @@
+_clear_fields: ["*"]
+
+_modify:
+  ICache:
+    name: ICACHE
+
+FLASH:
+  _strip:
+    - FLASH_
+
+ICACHE:
+  _strip:
+    - ICACHE_
+
+DCACHE,DCACHE?:
+  _strip:
+    - DCACHE_
+
+PWR:
+  _strip:
+    - PWR_
+
+RCC:
+  _strip:
+    - RCC_
+
+GPIO?:
+  _strip:
+    - GPIO_
+
+LPGPIO?:
+  _strip:
+    - LPGPIO_
+
+GPDMA?:
+  _strip:
+    - GPDMA_
+
+LPDMA?:
+  _strip:
+    - LPDMA_
+
+EXTI:
+  _strip:
+    - EXTI_
+
+DLYBOS,DLYBOS?:
+  _strip:
+    - DLYB_
+
+ADC?:
+  _strip:
+    - ADC_
+
+ADC12_Common:
+  _strip:
+    - ADC12_
+
+DAC,DAC?:
+  _strip:
+    - DAC_
+
+VREFBUF:
+  _strip:
+    - VREFBUF_
+
+ADF?:
+  _strip:
+    - ADF_
+
+FDCAN?:
+  _strip:
+    - FDCAN?_
+
+TIM?:
+  _strip:
+    - TIM?_
+
+_include:
+  - usart/rename_CR1_ISR_enabled_disabled.yaml

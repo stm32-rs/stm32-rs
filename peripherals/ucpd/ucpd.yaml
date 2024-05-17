@@ -1,0 +1,189 @@
+# UCPD peripheral
+
+UCPD?:
+  CFGR1:
+    UCPDEN,RXDMAEN,TXDMAEN:
+      Disabled: [0, "Disable"]
+      Enabled: [1, "Enable"]
+    _split: [RXORDSETEN]
+    RXORDSETEN0:
+      Disabled: [0, "SOP detect disabled"]
+      Enabled: [1, "SOP detect enabled"]
+    RXORDSETEN1:
+      Disabled: [0, "SOP' detect disabled"]
+      Enabled: [1, "SOP' detect enabled"]
+    RXORDSETEN2:
+      Disabled: [0, "SOP'' detect disabled"]
+      Enabled: [1, "SOP'' detect enabled"]
+    RXORDSETEN3:
+      Disabled: [0, "Hard Reset detect enabled"]
+      Enabled: [1, "Hard Reset detect enabled"]
+    RXORDSETEN4:
+      Disabled: [0, "Cable Detect reset enabled"]
+      Enabled: [1, "Cable Detect reset enabled"]
+    RXORDSETEN5:
+      Disabled: [0, "SOP'_Debug disabled"]
+      Enabled: [1, "SOP'_Debug enabled"]
+    RXORDSETEN6:
+      Disabled: [0, "SOP''_Debug disabled"]
+      Enabled: [1, "SOP''_Debug enabled"]
+    RXORDSETEN7:
+      Disabled: [0, "SOP extension #1 disabled"]
+      Enabled: [1, "SOP extension #1 enabled"]
+    RXORDSETEN8:
+      Disabled: [0, "SOP extension #2 disabled"]
+      Enabled: [1, "SOP extension #2 enabled"]
+    PSC_USBPDCLK:
+      Div1: [0, "Divide by 1"]
+      Div2: [1, "Divide by 2"]
+      Div4: [2, "Divide by 4"]
+      Div8: [3, "Divide by 8"]
+      Div16: [4, "Divide by 16"]
+    TRANSWIN: [1, 0x1F]
+    IFRGAP: [1, 0x1F]
+    HBITCLKDIV: [0, 0x3F]
+  CFGR2:
+    "*EN":
+      Disabled: [0, "Disable"]
+      Enabled: [1, "Enable"]
+    FORCECLK:
+      NoForce: [0, "Do not force clock request"]
+      Force: [1, "Force clock request"]
+    RXFILT2N3:
+      Samp3: [0, "3 samples"]
+      Samp2: [1, "2 samples"]
+    RXFILTDIS:
+      Enabled: [0, "Enable"]
+      Disabled: [1, "Disable"]
+  CR:
+    CC?TCDIS:
+      Enabled: [0, "Enable"]
+      Disabled: [1, "Disable"]
+    RDCH:
+      NoEffect: [0, "No effect"]
+      ConditionDrive: [1, "Rdch condition drive"]
+    FRSTX:
+      NoEffect: [0, "No effect"]
+      Enabled: [1, "Enable"]
+    FRSRXEN:
+      Disabled: [0, "Disable"]
+      Enabled: [1, "Enable"]
+    CCENABLE:
+      Disabled: [0, "Disable both PHYs"]
+      CC1Enabled: [1, "Enable CC1 PHY"]
+      CC2Enabled: [2, "Enable CC2 PHY"]
+      BothEnabled: [3, "Enable CC1 and CC2 PHYs"]
+    ANAMODE:
+      Source: [0, "Source"]
+      Sink: [1, "Sink"]
+    ANASUBMODE:
+      Disabled: [0, "Disabled"]
+      Rp_DefaultUSB: [1, "Default USB Rp"]
+      Rp_1_5A: [2, "1.5A Rp"]
+      Rp_3A: [3, "3A Rp"]
+    PHYCCSEL:
+      CC1: [0, "Use CC1 IO for Power Delivery communication"]
+      CC2: [1, "Use CC2 IO for Power Delivery communication"]
+    PHYRXEN:
+      Disabled: [0, "Disable"]
+      Enabled: [1, "Enable"]
+    RXMODE:
+      Normal: [0, "Normal receive mode"]
+      BIST: [1, "BIST receive mode (BIST test data mode)"]
+    TXHRST:
+      NoEffect: [0, "No effect"]
+      Start: [1, "Start Tx Hard Reset message"]
+    TXSEND:
+      NoEffect: [0, "No effect"]
+      Start: [1, "Start Tx packet transmission"]
+    TXMODE:
+      RegisterSet: [0, "Transmission of Tx packet previously defined in other registers"]
+      CableReset: [1, "Cable Reset sequence"]
+      BISTTest: [2, "BIST test sequence (BIST Carrier Mode 2)"]
+  IMR:
+    "*IE":
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+  SR:
+    FRSEVT:
+      NoNewEvent: [0, "No new event"]
+      NewEvent: [1, "New FRS receive event occurred"]
+    TYPEC_VSTATE_CC?:
+      Lowest: [0, "Lowest"]
+      Low: [1, "Low"]
+      High: [2, "High"]
+      Highest: [3, "Highest"]
+    TYPECEVT?:
+      NoNewEvent: [0, "No new event"]
+      NewEvent: [1, "A new Type-C event occurred"]
+    RXERR:
+      NoError: [0, "No error detected"]
+      Error: [1, "Error(s) detected"]
+    RXMSGEND:
+      NoNewMessage: [0, "No new Rx message received"]
+      NewMessage: [1, "A new Rx message received"]
+    RXOVR:
+      NoOverflow: [0, "No overflow"]
+      Overflow: [1, "Overflow"]
+    RXHRSTDET:
+      NoHardReset: [0, "Hard Reset not received"]
+      HardReset: [1, "Hard Reset received"]
+    RXORDDET:
+      NoOrderedSet: [0, "No ordered set detected"]
+      OrderedSet: [1, "Ordered set detected"]
+    TXUND:
+      NoUnderrun: [0, "No Tx data underrun detected"]
+      Underrun: [1, "Tx data underrun detected"]
+    HRSTSENT:
+      NotSent: [0, "No Hard Reset message sent"]
+      Sent: [1, "Hard Reset message sent"]
+    HRSTDISC:
+      NotDiscarded: [0, "No Hard Reset discarded"]
+      Discarded: [1, "Hard Reset discarded"]
+    TXMSGABT:
+      NoAbort: [0, "No transmit message abort"]
+      Abort: [1, "Transmit message abort"]
+    TXMSGSENT:
+      NotCompleted: [0, "No Tx message completed"]
+      Completed: [1, "Tx message completed"]
+    TXMSGDISC:
+      NotDiscarded: [0, "No Tx message discarded"]
+      Discarded: [1, "Tx message discarded"]
+    TXIS:
+      NotRequired: [0, "New Tx data write not required"]
+      Required: [1, "New Tx data write required"]
+  ICR:
+    "*CF":
+      _write:
+        Clear: [1, "Clear flag in UCPD_SR"]
+  TX_ORDSETR:
+    TXORDSET: [0, 0xFFFFF]
+  TX_PAYSZR:
+    TXPAYSZ: [0, 0x3FF]
+  TXDR:
+    TXDATA: [0, 0xFF]
+  RX_ORDSETR:
+    RXSOPKINVALID:
+      Valid: [0, "No K-code corrupted"]
+      FirstCorrupted: [1, "First K-code corrupted"]
+      SecondCorrupted: [2, "Second K-code corrupted"]
+      ThirdCorrupted: [3, "Third K-code corrupted"]
+      FourthCorrupted: [4, "Fourth K-code corrupted"]
+    RXSOP3OF4:
+      AllCorrect: [0, "4 correct K-codes out of 4"]
+      OneIncorrect: [1, "3 correct K-codes out of 4"]
+    RXORDSET:
+      SOP: [0, "SOP code detected in receiver"]
+      SOPPrime: [1, "SOP' code detected in receiver"]
+      SOPDoublePrime: [2, "SOP'' code detected in receiver"]
+      SOPPrimeDebug: [3, "SOP'_Debug detected in receiver"]
+      SOPDoublePrimeDebug: [4, "SOP''_Debug detected in receiver"]
+      CableReset: [5, "Cable Reset detected in receiver"]
+      SOPExtension1: [6, "SOP extension #1 detected in receiver"]
+      SOPExtension2: [7, "SOP extension #2 detected in receiver"]
+  RX_PAYSZR:
+    RXPAYSZ: [0, 0x3FF]
+  RXDR:
+    RXDATA: [0, 0xFF]
+  RX_ORDEXTR?:
+    RXSOPX?: [0, 0xFFFFF]

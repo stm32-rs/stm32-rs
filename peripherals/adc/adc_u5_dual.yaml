@@ -1,0 +1,21 @@
+# only on U59x, U5Ax, U5Fx, U5Gx
+
+_include:
+  - "adc_u5.yaml"
+
+ADC12_Common:
+  CCR:
+    DAMDF:
+      NoPacking: [0, "Dual ADC mode without data packing"]
+      Format32_to_10: [2, "Data formatting mode for 32 down to 10-bit resolution"]
+      Format8: [3, "Data formatting mode for 8-bit resolution"]
+    DELAY: [0, 0xF]
+    DUAL:
+      Independent: [0, "Independent mode"]
+      RegularSimultaneousInjectedSimultaneous: [1, "Combined regular simultaneous + injected simultaneous mode"]
+      RegularSimultaneousAlternateTrigger: [2, "Combined regular simultaneous + alternate trigger mode"]
+      InterleavedInjectedSimultaneous: [3, "Combined interleaved mode + injected simultaneous mode"]
+      InjectedSimultaneous: [5, "Injected simultaneous mode only"]
+      RegularSimultaneous: [6, "Regular simultaneous mode only"]
+      Interleaved: [7, "Interleaved mode only"]
+      AlternateTrigger: [9, "Alternate trigger mode only"]
