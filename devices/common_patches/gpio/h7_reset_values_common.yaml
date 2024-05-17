@@ -1,0 +1,72 @@
+# In the H7 SVDs all GPIOs are derived from GPIOA,
+# but this leads to wrong reset values for some of the GPIO registers.
+#
+# We want the following reset values (omitted values are 0x0000_0000):
+#
+#   GPIOA:
+#     MODER:   0xABFF_FFFF
+#     OSPEEDR: 0x0C00_0000
+#     PUPDR:   0x6400_0000
+#
+#   GPIOB:
+#     MODER:   0xFFFF_FEBF
+#     OSPEEDR: 0x0000_00C0
+#     PUPDR:   0x0000_0100
+#
+# To this end, this patch ensures there are three different GPIO peripherals,
+# GPIOA, GPIOB, and GPIOC. GPIOC has all-zero reset values and all other GPIO
+# peripherals derive from that.
+# This file only derives the common GPIO peripherals, so don't include
+# this directly but through one of the other h7_xxx.yaml files.
+
+# Since GPIOC and GPIOC are derived from GPIOA, we need to delete and re-add
+# to be able to modify their reset values.
+_delete:
+  - GPIOB
+  - GPIOC
+_copy:
+  GPIOB:
+    from: GPIOA
+  GPIOC:
+    from: GPIOA
+_modify:
+  GPIOB:
+    baseAddress: "0x58020400"
+  GPIOC:
+    baseAddress: "0x58020800"
+
+# These GPIO's are common to all H7 devices
+_derive:
+  GPIOD: GPIOC
+  GPIOE: GPIOC
+  GPIOF: GPIOC
+  GPIOG: GPIOC
+  GPIOH: GPIOC
+
+GPIOA:
+  _modify:
+    MODER:
+      resetValue: "0xabffffff"
+    OSPEEDR:
+      resetValue: "0x0c000000"
+    PUPDR:
+      resetValue: "0x64000000"
+
+GPIOB:
+  _modify:
+    MODER:
+      resetValue: "0xfffffebf"
+    OSPEEDR:
+      resetValue: "0x000000c0"
+    PUPDR:
+      resetValue: "0x00000100"
+
+GPIOC:
+  _modify:
+    MODER:
+      resetValue: "0xffffffff"
+    OSPEEDR:
+      resetValue: "0x00000000"
+    PUPDR:
+      resetValue: "0x00000000"
+

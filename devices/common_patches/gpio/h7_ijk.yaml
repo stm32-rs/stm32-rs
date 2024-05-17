@@ -1,0 +1,8 @@
+# Fix the reset values for H7 devices with GPIOI, GPIOJ and GPIOK peripherals
+_include:
+  - h7_reset_values_common.yaml
+
+_derive:
+  GPIOI: GPIOC
+  GPIOJ: GPIOC
+  GPIOK: GPIOC

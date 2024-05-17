@@ -1,0 +1,37 @@
+# Fix the reset values for H7 devices with GPIOJ and GPIOK peripherals (RM0468)
+_include:
+  - h7_reset_values_common.yaml
+
+# We cannot derive GPIOJ and GPIOK from GPIOC, since their MODER register
+# has a different reset value
+_delete:
+  - GPIOJ
+  - GPIOK
+_copy:
+  GPIOJ:
+    from: GPIOA
+  GPIOK:
+    from: GPIOA
+_modify:
+  GPIOJ:
+    baseAddress: "0x58022400"
+  GPIOK:
+    baseAddress: "0x58022800"
+
+GPIOJ:
+  _modify:
+    MODER:
+      resetValue: "0x00ff0000"
+    OSPEEDR:
+      resetValue: "0x00000000"
+    PUPDR:
+      resetValue: "0x00000000"
+
+GPIOK:
+  _modify:
+    MODER:
+      resetValue: "0x0000003f"
+    OSPEEDR:
+      resetValue: "0x00000000"
+    PUPDR:
+      resetValue: "0x00000000"
