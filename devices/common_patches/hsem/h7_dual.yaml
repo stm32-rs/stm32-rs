@@ -1,0 +1,595 @@
+HSEM:
+  C1IER:
+    _array:
+      "ISEM*":
+         description: Interrupt(1) semaphore %s enable bit
+  C1ICR:
+    _array:
+      "ISEM*":
+         description: Interrupt(1) semaphore %s clear
+  C1ISR:
+    _array:
+       "ISEM*":
+         description: Interrupt(1) semaphore %s status bit
+  C1MISR:
+    _array:
+       "ISEM*":
+         description: masked interrupt(1) semaphore %s status bit
+  C2IER:
+    _array:
+      "ISEM*":
+         description: Interrupt(2) semaphore %s enable bit
+  C2ICR:
+    _array:
+      "ISEM*":
+         description: Interrupt(2) semaphore %s clear
+  C2ISR:
+    _array:
+       "ISEM*":
+         description: Interrupt(2) semaphore %s status bit
+  C2MISR:
+    _array:
+       "ISEM*":
+         description: masked interrupt(2) semaphore %s status bit
+
+  _modify:
+    IER:
+      name: C1IER
+      displayName: C1IER
+      description: HSEM Interrupt enable register of Line 1
+    ICR:
+      name: C1ICR
+      displayName: C1ICR
+      description: HSEM Interrupt clear register of Line 1
+      access: read-write
+    ISR:
+      name: C1ISR
+      displayName: C1ISR
+      description: HSEM Interrupt status register of Line 1
+    MISR:
+      name: C1MISR
+      displayName: C1MISR
+      description: HSEM Masked interrupt status of Line 1
+  _add:
+    _registers:
+      C2IER:
+        displayname: C2IER
+        description: HSEM Interrupt enable register of Line 2
+        addressOffset: 0x110
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          ISEM0:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 0
+            bitWidth: 1
+          ISEM1:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 1
+            bitWidth: 1
+          ISEM2:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 2
+            bitWidth: 1
+          ISEM3:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 3
+            bitWidth: 1
+          ISEM4:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 4
+            bitWidth: 1
+          ISEM5:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 5
+            bitWidth: 1
+          ISEM6:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 6
+            bitWidth: 1
+          ISEM7:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 7
+            bitWidth: 1
+          ISEM8:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 8
+            bitWidth: 1
+          ISEM9:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 9
+            bitWidth: 1
+          ISEM10:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 10
+            bitWidth: 1
+          ISEM11:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 11
+            bitWidth: 1
+          ISEM12:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 12
+            bitWidth: 1
+          ISEM13:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 13
+            bitWidth: 1
+          ISEM14:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 14
+            bitWidth: 1
+          ISEM15:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 15
+            bitWidth: 1
+          ISEM16:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 16
+            bitWidth: 1
+          ISEM17:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 17
+            bitWidth: 1
+          ISEM18:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 18
+            bitWidth: 1
+          ISEM19:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 19
+            bitWidth: 1
+          ISEM20:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 20
+            bitWidth: 1
+          ISEM21:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 21
+            bitWidth: 1
+          ISEM22:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 22
+            bitWidth: 1
+          ISEM23:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 23
+            bitWidth: 1
+          ISEM24:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 24
+            bitWidth: 1
+          ISEM25:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 25
+            bitWidth: 1
+          ISEM26:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 26
+            bitWidth: 1
+          ISEM27:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 27
+            bitWidth: 1
+          ISEM28:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 28
+            bitWidth: 1
+          ISEM29:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 29
+            bitWidth: 1
+          ISEM30:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 30
+            bitWidth: 1
+          ISEM31:
+            description: Interrupt semaphore n enable bit
+            bitOffset: 31
+            bitWidth: 1
+      C2ICR:
+        displayname: C2ICR
+        description: HSEM Interrupt clear register of Line 2
+        addressOffset: 0x114
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          ISEM0:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 0
+            bitWidth: 1
+          ISEM1:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 1
+            bitWidth: 1
+          ISEM2:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 2
+            bitWidth: 1
+          ISEM3:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 3
+            bitWidth: 1
+          ISEM4:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 4
+            bitWidth: 1
+          ISEM5:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 5
+            bitWidth: 1
+          ISEM6:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 6
+            bitWidth: 1
+          ISEM7:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 7
+            bitWidth: 1
+          ISEM8:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 8
+            bitWidth: 1
+          ISEM9:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 9
+            bitWidth: 1
+          ISEM10:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 10
+            bitWidth: 1
+          ISEM11:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 11
+            bitWidth: 1
+          ISEM12:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 12
+            bitWidth: 1
+          ISEM13:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 13
+            bitWidth: 1
+          ISEM14:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 14
+            bitWidth: 1
+          ISEM15:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 15
+            bitWidth: 1
+          ISEM16:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 16
+            bitWidth: 1
+          ISEM17:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 17
+            bitWidth: 1
+          ISEM18:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 18
+            bitWidth: 1
+          ISEM19:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 19
+            bitWidth: 1
+          ISEM20:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 20
+            bitWidth: 1
+          ISEM21:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 21
+            bitWidth: 1
+          ISEM22:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 22
+            bitWidth: 1
+          ISEM23:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 23
+            bitWidth: 1
+          ISEM24:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 24
+            bitWidth: 1
+          ISEM25:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 25
+            bitWidth: 1
+          ISEM26:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 26
+            bitWidth: 1
+          ISEM27:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 27
+            bitWidth: 1
+          ISEM28:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 28
+            bitWidth: 1
+          ISEM29:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 29
+            bitWidth: 1
+          ISEM30:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 30
+            bitWidth: 1
+          ISEM31:
+            description: Interrupt(N) semaphore n clear
+            bitOffset: 31
+            bitWidth: 1
+      C2ISR:
+        displayname: C2ISR
+        description: HSEM Interrupt status register of Line 2
+        addressOffset: 0x118
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          ISEM0:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 0
+            bitWidth: 1
+          ISEM1:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 1
+            bitWidth: 1
+          ISEM2:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 2
+            bitWidth: 1
+          ISEM3:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 3
+            bitWidth: 1
+          ISEM4:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 4
+            bitWidth: 1
+          ISEM5:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 5
+            bitWidth: 1
+          ISEM6:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 6
+            bitWidth: 1
+          ISEM7:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 7
+            bitWidth: 1
+          ISEM8:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 8
+            bitWidth: 1
+          ISEM9:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 9
+            bitWidth: 1
+          ISEM10:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 10
+            bitWidth: 1
+          ISEM11:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 11
+            bitWidth: 1
+          ISEM12:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 12
+            bitWidth: 1
+          ISEM13:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 13
+            bitWidth: 1
+          ISEM14:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 14
+            bitWidth: 1
+          ISEM15:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 15
+            bitWidth: 1
+          ISEM16:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 16
+            bitWidth: 1
+          ISEM17:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 17
+            bitWidth: 1
+          ISEM18:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 18
+            bitWidth: 1
+          ISEM19:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 19
+            bitWidth: 1
+          ISEM20:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 20
+            bitWidth: 1
+          ISEM21:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 21
+            bitWidth: 1
+          ISEM22:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 22
+            bitWidth: 1
+          ISEM23:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 23
+            bitWidth: 1
+          ISEM24:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 24
+            bitWidth: 1
+          ISEM25:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 25
+            bitWidth: 1
+          ISEM26:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 26
+            bitWidth: 1
+          ISEM27:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 27
+            bitWidth: 1
+          ISEM28:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 28
+            bitWidth: 1
+          ISEM29:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 29
+            bitWidth: 1
+          ISEM30:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 30
+            bitWidth: 1
+          ISEM31:
+            description: Interrupt(N) semaphore n status bit
+            bitOffset: 31
+            bitWidth: 1
+      C2MISR:
+        displayname: C2MISR
+        description: HSEM Masked interrupt status register of Line 2
+        addressOffset: 0x11C
+        size: 0x20
+        resetValue: 0x00000000
+        fields:
+          ISEM0:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 0
+            bitWidth: 1
+          ISEM1:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 1
+            bitWidth: 1
+          ISEM2:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 2
+            bitWidth: 1
+          ISEM3:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 3
+            bitWidth: 1
+          ISEM4:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 4
+            bitWidth: 1
+          ISEM5:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 5
+            bitWidth: 1
+          ISEM6:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 6
+            bitWidth: 1
+          ISEM7:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 7
+            bitWidth: 1
+          ISEM8:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 8
+            bitWidth: 1
+          ISEM9:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 9
+            bitWidth: 1
+          ISEM10:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 10
+            bitWidth: 1
+          ISEM11:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 11
+            bitWidth: 1
+          ISEM12:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 12
+            bitWidth: 1
+          ISEM13:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 13
+            bitWidth: 1
+          ISEM14:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 14
+            bitWidth: 1
+          ISEM15:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 15
+            bitWidth: 1
+          ISEM16:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 16
+            bitWidth: 1
+          ISEM17:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 17
+            bitWidth: 1
+          ISEM18:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 18
+            bitWidth: 1
+          ISEM19:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 19
+            bitWidth: 1
+          ISEM20:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 20
+            bitWidth: 1
+          ISEM21:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 21
+            bitWidth: 1
+          ISEM22:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 22
+            bitWidth: 1
+          ISEM23:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 23
+            bitWidth: 1
+          ISEM24:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 24
+            bitWidth: 1
+          ISEM25:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 25
+            bitWidth: 1
+          ISEM26:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 26
+            bitWidth: 1
+          ISEM27:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 27
+            bitWidth: 1
+          ISEM28:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 28
+            bitWidth: 1
+          ISEM29:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 29
+            bitWidth: 1
+          ISEM30:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 30
+            bitWidth: 1
+          ISEM31:
+            description: masked interrupt(N) semaphore n status bit
+            bitOffset: 31
+            bitWidth: 1

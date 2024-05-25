@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* H7: add bit TRBUFF of DMA_SxCR of H747 cm4
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER
