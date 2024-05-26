@@ -18,6 +18,14 @@ import yaml
 
 VERSION = {
     "default": "0.16.0",
+    "stm32f1": "0.18.0",
+    "stm32f3": "0.17.0",
+    "stm32f4": "0.18.0",
+    "stm32f7": "0.17.0",
+    "stm32g0": "0.17.0",
+    "stm32g4": "0.20.0",
+    "stm32h5": "0.18.1",
+    "stm32h7": "0.17.0",
 }
 SVD2RUST_VERSION = "0.35.0"
 
@@ -263,7 +271,7 @@ def main(devices_path, yes, families):
     for family in devices:
         devices[family] = sorted(devices[family])
         crate = family.lower()
-        crate_name = crate;
+        crate_name = crate + "-staging"
         features = make_features(devices[family])
         feature_list = make_feature_list(devices[family])
         mods = make_mods(devices[family])
