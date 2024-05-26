@@ -9,6 +9,7 @@ impl_defmt = "defmt"
 reexport_core_peripherals = true
 reexport_interrupt = true
 ident_formats_theme = "legacy"
+raw_access = true
 
 [ident_formats.register_spec]
 case = "constant"
