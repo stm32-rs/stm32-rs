@@ -1,5 +1,5 @@
 "FMC,FSMC":
-  "PMEM":
+  "PMEM,PMEM?":
     _modify:
       MEMHIZx:
         name: MEMHIZ
@@ -9,7 +9,7 @@
         name: MEMWAIT
       MEMSETx:
         name: MEMSET
-  "PATT":
+  "PATT,PATT?":
     _modify:
       ATTHIZx:
         name: ATTHIZ
@@ -19,7 +19,7 @@
         name: ATTWAIT
       ATTSETx:
         name: ATTSET
-  "ECCR":
+  "ECCR,ECCR?":
     _modify:
       ECCx:
         name: ECC
