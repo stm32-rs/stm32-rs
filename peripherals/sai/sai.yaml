@@ -1,5 +1,7 @@
 "SAI,SAI?":
-  "*CR1":
+ _clusters:
+  "CH%s":
+   CR1:
     #MCKDIV:
     NODIV:
       MasterClock: [0, "MCLK output is enabled. Forces the ratio between FS and MCLK to 256 or 512 according to the OSR value"]
@@ -7,7 +9,7 @@
     DMAEN:
       Disabled: [0, "DMA disabled"]
       Enabled: [1, "DMA enabled"]
-    SAIEN,SAI?EN:
+    SAIEN:
       Disabled: [0, "SAI audio block disabled"]
       Enabled: [1, "SAI audio block enabled"]
     OUTDRIV:
@@ -43,7 +45,7 @@
       SlaveTx: [2, "Slave transmitter"]
       SlaveRx: [3, "Slave receiver"]
 
-  "*CR2":
+   CR2:
     COMP:
       NoCompanding: [0, "No companding algorithm"]
       MuLaw: [2, "μ-Law algorithm"]
@@ -69,7 +71,7 @@
       Quarter3: [3, "3⁄4 FIFO"]
       Full: [4, "FIFO full"]
 
-  "*FRCR":
+   FRCR:
     FSOFF:
       OnFirst: [0, "FS is asserted on the first bit of the slot 0"]
       BeforeFirst: [1, "FS is asserted one bit before the first bit of the slot 0"]
@@ -80,7 +82,7 @@
     #FSALL:
     #FRL:
 
-  "*SLOTR":
+   SLOTR:
     SLOTEN:
       Inactive: [0, "Inactive slot"]
       Active: [1, "Active slot"]
@@ -91,7 +93,7 @@
       Bit32: [2, "32-bit"]
     #FBOFF:
 
-  "*IM":
+   IM:
     LFSDETIE:
       Disabled: [0, "Interrupt is disabled"]
       Enabled: [1, "Interrupt is enabled"]
@@ -114,8 +116,8 @@
       Disabled: [0, "Interrupt is disabled"]
       Enabled: [1, "Interrupt is enabled"]
 
-  "*SR":
-    FLTH,FLVL:
+   SR:
+    FLVL:
       _read:
         Empty: [0, "FIFO empty"]
         Quarter1: [1, "FIFO <= 1⁄4 but not empty"]
@@ -152,7 +154,7 @@
         NoError: [0, "No overrun/underrun error"]
         Overrun: [1, "Overrun/underrun error detection"]
 
-  "*CLRFR":
+   CLRFR:
     CLFSDET:
       _write:
         Clear: [1, "Clears the LFSDET flag"]
