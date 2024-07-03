@@ -48,8 +48,10 @@
 * Add G4 DAC peripheral
 * Fix incorrectly used `_read`, `_modify`
 * G4:COMP fix and collect array
+* doc on `RNG` peripheral for STM32F4 ([#870])
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
+[#870]: https://github.com/stm32-rs/stm32-rs/pull/870
 
 ## [v0.15.1] 2022-07-04
 
