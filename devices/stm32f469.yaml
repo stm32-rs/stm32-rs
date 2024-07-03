@@ -121,6 +121,7 @@ SAI:
     - GCR
 
 RNG:
+  _include: ../peripherals/rng/rng_f4_ced.yaml
   CR:
     _add:
       CED:
@@ -234,5 +235,3 @@ _include:
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
  - collect/dsi/isr.yaml
- - ../peripherals/rng/rng_f410_f412_f469_f479.yaml
-

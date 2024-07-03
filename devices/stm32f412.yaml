@@ -384,6 +384,7 @@ MPU:
     - "MPU_"
 
 RNG:
+  _include: ../peripherals/rng/rng_f4_ced.yaml
   CR:
     _add:
       CED:
@@ -474,4 +475,3 @@ _include:
  - collect/sdio/resp.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
- - ../peripherals/rng/rng_f410_f412_f469_f479.yaml
