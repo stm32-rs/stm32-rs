@@ -70,6 +70,11 @@ MPU:
   _strip:
     - "MPU_"
 
+QUADSPI:
+  _include:
+    - common_patches/quadspi/dr_multi_access.yaml
+    - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml

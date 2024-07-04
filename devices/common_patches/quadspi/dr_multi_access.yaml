@@ -1,0 +1,24 @@
+_modify:
+  DR:
+    description: "Data register: full word (32 bit) access"
+_add:
+  DR16:
+    addressOffset: 0x20
+    alternateRegister: DR
+    size: 0x10
+    description: "Data register: half word (16 bit) access"
+    fields:
+      DATA:
+        description: Data
+        bitOffset: 0
+        bitWidth: 16
+  DR8:
+    addressOffset: 0x20
+    alternateRegister: DR
+    size: 0x08
+    description: "Data register: one byte (8 bit) access"
+    fields:
+      DATA:
+        description: Data
+        bitOffset: 0
+        bitWidth: 8

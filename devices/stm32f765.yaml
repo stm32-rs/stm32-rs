@@ -118,6 +118,11 @@ CRC:
     POL:
       addressOffset: "0x14"
 
+QUADSPI:
+  _include:
+    - common_patches/quadspi/dr_multi_access.yaml
+    - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/f7_interrupts.yaml
@@ -239,4 +244,3 @@ _include:
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
  - collect/dsi/isr.yaml
-
