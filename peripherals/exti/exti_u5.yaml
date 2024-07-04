@@ -1,0 +1,17 @@
+_include:
+  - "exti.yaml"
+  - "exti_priv.yaml"
+
+EXTI:
+  EXTICR?:
+    EXTI*:
+      PA: [0, "PAx pin"]
+      PB: [1, "PBx pin"]
+      PC: [2, "PCx pin"]
+      PD: [3, "PDx pin"]
+      PE: [4, "PEx pin"]
+      PF: [5, "PFx pin"]
+      PG: [6, "PGx pin"]
+      PH: [7, "PHx pin"]
+      PI: [8, "PIx pin"]
+      PJ: [9, "PJx pin"]
