@@ -49,6 +49,7 @@
 * Add G4 DAC peripheral
 * Fix incorrectly used `_read`, `_modify`
 * G4:COMP fix and collect array
+* Add USART v2C peripheral on G4
 * doc on `RNG` peripheral for STM32F4 ([#870])
 * H7: fix GPIO register reset values (#973)
 * Doc `QUADSPI` peripheral ([#875])
