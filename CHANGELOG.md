@@ -46,6 +46,7 @@
 * Update RNG for stm32h735
 * H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios
 * Add GPIOx:HSLVR
+* Add dual bank flash related fields to g4 cat 3 devices
 * Merge USART BRR fields on G4
 * Add G4 DAC peripheral
 * Fix incorrectly used `_read`, `_modify`
