@@ -527,6 +527,26 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+PWR:
+  CR:
+    _delete:
+      - LPLVDS
+      - MRLVDS
+    _add:
+      MRUDS:
+        description: Main regulator in deepsleep under-drive mode
+        bitOffset: 11
+        bitWidth: 1
+      LPUDS:
+        description: Low-power regulator in deepsleep under-drive mode
+        bitOffset: 10
+        bitWidth: 1
+  CSR:
+    _modify:
+      EWUP:
+        name: EWUP1
+        description: Enable WKUP1 pin
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -622,3 +642,5 @@ _include:
  - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f446.yaml

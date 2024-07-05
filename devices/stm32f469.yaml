@@ -120,6 +120,13 @@ SAI:
   _delete:
     - GCR
 
+PWR:
+  CR:
+    _add:
+      ADCDC1:
+        bitOffset: 13
+        bitWidth: 1
+
 RNG:
   _include: ../peripherals/rng/rng_f4_ced.yaml
   CR:
@@ -240,3 +247,5 @@ _include:
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
  - collect/dsi/isr.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f469_f479.yaml

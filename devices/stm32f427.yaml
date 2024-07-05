@@ -159,6 +159,18 @@ DMA2D:
   _strip:
     - "DMA2D_"
 
+PWR:
+  CR:
+    _add:
+      MRUDS:
+        description: Main regulator in deepsleep under-drive mode
+        bitOffset: 11
+        bitWidth: 1
+      LPUDS:
+        description: Low-power regulator in deepsleep under-drive mode
+        bitOffset: 10
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -265,3 +277,5 @@ _include:
  - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f427_f437_f429_f439.yaml

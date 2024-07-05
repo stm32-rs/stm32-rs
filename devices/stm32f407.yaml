@@ -51,6 +51,14 @@ MPU:
   _strip:
     - "MPU_"
 
+PWR:
+  CR:
+    _add:
+      VOS:
+        description: Regulator voltage scaling output selection
+        bitOffset: 14
+        bitWidth: 1
+
 RNG:
   _include: ../peripherals/rng/rng_f4.yaml
 
@@ -147,3 +155,5 @@ _include:
  - collect/sdio/resp.yaml
  - common_patches/ethernet/f4_f7.yaml
  - ../peripherals/eth/eth_ptp_ppsfreq.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f405_f415_f407_f417.yaml

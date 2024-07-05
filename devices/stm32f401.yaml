@@ -111,6 +111,18 @@ MPU:
   _strip:
     - "MPU_"
 
+PWR:
+  CR:
+    _add:
+      MRLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 11
+        bitWidth: 1
+      LPLVDS:
+        description: Low-power regulator Low Voltage in Deep Sleep
+        bitOffset: 10
+        bitWidth: 1
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -171,3 +183,5 @@ _include:
  - collect/sdio/resp.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
+ - common_patches/pwr/f4.yaml
+ - ../peripherals/pwr/pwr_f401.yaml
