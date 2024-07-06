@@ -3,7 +3,7 @@ _svd: ../svd/stm32g071.svd
 _modify:
   name: STM32G071
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 _delete:
   - RNG

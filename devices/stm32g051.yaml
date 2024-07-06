@@ -3,7 +3,7 @@ _svd: ../svd/stm32g051.svd
 _modify:
   name: STM32G051
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 TIM1:
   _modify:

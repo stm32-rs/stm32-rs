@@ -3,7 +3,7 @@ _svd: ../svd/stm32g031.svd
 _modify:
   name: STM32G031
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 _delete:
   # in v1.5 the ITLINE* registers were moved to SYSCFG

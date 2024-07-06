@@ -3,7 +3,7 @@ _svd: ../svd/stm32g050.svd
 _modify:
   name: STM32G050
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 DMAMUX:
   _delete:

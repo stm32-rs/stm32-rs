@@ -3,7 +3,7 @@ _svd: ../svd/stm32g030.svd
 _modify:
   name: STM32G030
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 TIM1:
   CCMR3_Output:
