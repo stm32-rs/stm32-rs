@@ -1,6 +1,6 @@
 _svd: ../svd/stm32g070.svd
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 _modify:
   name: STM32G070
@@ -24,7 +24,7 @@ _delete:
   - UCPD2
   - RNG
   - HDMI_CEC
-# deleted so we can re-add them without interrupts
+  # deleted so we can re-add them without interrupts
   - TIM7
   - USART3
 
@@ -33,8 +33,10 @@ TIM3:
   _delete:
     _interrupts:
       - TIM2
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 RCC:
+  _include: common_patches/rcc/g0x0_delete.yaml
   AHBRSTR:
     _delete:
       - AESRST
@@ -47,8 +49,7 @@ RCC:
       - UCPD1RST
       - UCPD2RST
       - DAC1RST
-      - LPTIM2RST
-      - LPTIM1RST
+      - LPTIM[12]RST
   AHBENR:
     _delete:
       - AESEN
@@ -58,11 +59,9 @@ RCC:
       - TIM2EN
       - LPUART1EN
       - CECEN
-      - UCPD1EN
-      - UCPD2EN
+      - UCPD[12]EN
       - DAC1EN
-      - LPTIM2EN
-      - LPTIM1EN
+      - LPTIM[12]EN
   AHBSMENR:
     _delete:
       - AESSMEN
@@ -72,19 +71,16 @@ RCC:
       - TIM2SMEN
       - LPUART1SMEN
       - CECSMEN
-      - UCPD1SMEN
-      - UCPD2SMEN
+      - UCPD[12]SMEN
       - DAC1SMEN
-      - LPTIM2SMEN
-      - LPTIM1SMEN
+      - LPTIM[12]SMEN
   CCIPR:
     _delete:
       - CECSEL
       - LPUART1SEL
-      - LPTIM2SEL
+      - LPTIM[12]SEL
       - RNGSEL
       - RNGDIV
-      - LPTIM1SEL
 
 EXTI:
   _delete:
@@ -151,43 +147,36 @@ _add:
     derivedFrom: USART1
     baseAddress: "0x40004800"
 
-MPU:
-  _strip:
-    - "MPU_"
-
-DMAMUX:
-  _strip:
-    - "DMAMUX_"
-
 _include:
- - ./common_patches/nvic/2_prio_bits.yaml
- - ../peripherals/exti/exti_g0.yaml
- - ./common_patches/adc/g0_typo.yaml
- - collect/dma/dmamux.yaml
- - ./common_patches/dma/g0_7ch_v2.yaml
- - collect/dma/v1.yaml
- - ../peripherals/gpio/gpio_g0_l0.yaml
- - collect/gpio/v2.yaml
- - common_patches/i2c/g0.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ./common_patches/spi/g0_rename_registers.yaml
- - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
- - common_patches/usart/g0.yaml
- - ../peripherals/usart/usart_v2C.yaml
- - ../peripherals/usart/usart_wl.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
- - ../devices/common_patches/adc/g0.yaml
- - ../peripherals/adc/adc_wl.yaml
- - common_patches/tim/g0_tim1_ccmr_input.yaml
- - common_patches/tim/v2/g0_1.yaml
- - ../peripherals/tim/v2/ccm.yaml
- - common_patches/tim/common.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - collect/tim/ccr.yaml
- - ./common_patches/flash/g0.yaml
- - common_patches/rtc/alarm.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
+  - common_patches/g0_strip.yaml
+  - common_patches/nvic/2_prio_bits.yaml
+  - common_patches/adc/g0.yaml
+  - ../peripherals/adc/adc_wl.yaml
+  - common_patches/dma/g0_dma1_7ch_only.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
+  - collect/dma/dmamux.yaml
+  - ../peripherals/exti/exti_g0.yaml
+  - common_patches/flash/g0.yaml
+  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - collect/gpio/v2.yaml
+  - common_patches/i2c/g0.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml
+  - common_patches/spi/g0_rename_registers.yaml
+  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - common_patches/tim/g0_tim1_ccmr_input.yaml
+  - common_patches/tim/v2/g0_1.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - collect/tim/ccr.yaml
+  - common_patches/usart/g0.yaml
+  - ../peripherals/usart/usart_v2C.yaml
+  - ../peripherals/usart/usart_wl.yaml
+  - ../peripherals/wwdg/wwdg_v2.yaml

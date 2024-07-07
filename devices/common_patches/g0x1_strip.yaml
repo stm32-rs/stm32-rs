@@ -1,0 +1,18 @@
+_include:
+ - g0_strip.yaml
+
+DAC:
+  _strip: DAC_
+
+HDMI_CEC:
+  _strip: CEC_
+
+"LPTIM*":
+  _strip: LPTIM_
+
+"LPUART*":
+  _strip: LPUART_
+
+VREFBUF:
+  _strip: VREFBUF_
+

@@ -3,15 +3,18 @@ _svd: ../svd/stm32g061.svd
 _modify:
   name: STM32G061
 
-_clear_fields: ["*"]
+_clear_fields: "*"
+
+_copy:
+  TIM3:
+    from: TIM2
+    baseAddress: 0x40000400
 
 TIM1:
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COM:
         description: TIM1 break, update, trigger and commutation interrupts
-  _strip:
-    - "TIM1_"
 
 TIM2:
   CCMR1_Output:
@@ -20,62 +23,39 @@ TIM2:
         name: OC2M
       OC2M2:
         name: OC2M_3
+  _include: common_patches/tim/tim2_common_32bit.yaml
 
-DMAMUX:
-  _strip:
-    - "DMAMUX_"
-
-DAC:
-  _strip:
-    - "DAC_"
-
-HDMI_CEC:
-  _strip: ["CEC_"]
-
-CRC:
-  _strip:
-    - "CRC_"
-
-IWDG:
-  _strip:
-    - "IWDG_"
-
-WWDG:
-  _strip:
-    - "WWDG_"
-
-VREFBUF:
-  _strip:
-    - "VREFBUF_"
-
-ADC:
-  _strip:
-    - "ADC_"
-  _modify:
-    CHSELRMOD0:
-      name: CHSELR0
-    CHSELRMOD1:
-      name: CHSELR1
-
-I2C1:
-  _strip:
-    - "I2C_"
+TIM3:
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 _include:
- - ./common_patches/nvic/2_prio_bits.yaml
-# - ../peripherals/gpio/gpio_g0_l0.yaml TODO: add GPIO
- - collect/dma/dmamux.yaml
-# TODO: add DMA
- - ../peripherals/i2c/i2c_v2.yaml
-# TODO: add SPI
-# TODO: usart CR1
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
- - ../peripherals/adc/adc_wl.yaml
- - common_patches/tim/v2/g0_1.yaml
- - common_patches/tim/common.yaml
- - ../peripherals/tim/v2/ccm.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - collect/tim/ccr.yaml
+  - common_patches/g0x1_strip.yaml
+  - common_patches/nvic/2_prio_bits.yaml
+  - common_patches/adc/g0.yaml
+  - ../peripherals/adc/adc_wl.yaml
+  - common_patches/dma/g0_dma1_7ch_only.yaml
+  - ../peripherals/dma/dma_v1.yaml
+  - collect/dma/v1.yaml
+  - collect/dma/dmamux.yaml
+  - ../peripherals/exti/exti_g0.yaml
+  - common_patches/flash/g0.yaml
+  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - collect/gpio/v2.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/iwdg/iwdg_with_WINR.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml
+  # SPI* are missing upstream
+  - common_patches/tim/v2/g0_1.yaml
+  - common_patches/tim/common.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - collect/tim/ccr.yaml
+  - common_patches/usart/g0_CR1.yaml
+  # TODO: fix UART?:ICR:NECF
+  #- ../peripherals/usart/usart_v2C.yaml
+  - ../peripherals/usart/usart_wl.yaml
+  - ../peripherals/wwdg/wwdg_v2.yaml

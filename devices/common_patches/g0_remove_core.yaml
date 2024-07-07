@@ -1,0 +1,11 @@
+# removes the Cortex-M0+ core peripherals
+# these should come from the cortex-m crate, not stm32-rs
+_delete:
+  - SCB_ACTRL
+  - STK
+  - NVIC
+  - SCB
+  - FPU_CPACR
+  - MUP
+  - NVIC_STIR
+  - FPU

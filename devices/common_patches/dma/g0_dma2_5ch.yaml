@@ -1,0 +1,17 @@
+# the vendor SVD has DMA2 derivedFrom DMA1
+# but it only has 5 channels, not 7 like DMA1
+# so copy it and remove the extra registers/fields
+
+_copy:
+  DMA2:
+    from: DMA1
+
+DMA2:
+  _include:
+   - g0_5ch.yaml
+
+DMA1:
+  _interrupts:
+    DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5:
+      description: >
+        interrupts for DMA1 channels 4-7, DMAMUX, and DMA2 channels 1-5

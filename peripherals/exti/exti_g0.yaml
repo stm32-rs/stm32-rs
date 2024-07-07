@@ -9,8 +9,3 @@ EXTI:
       PC: [2, "GPIO port C selected"]
       PD: [3, "GPIO port D selected"]
       PF: [5, "GPIO port F selected"]
-
-  # fix bug: some svd files have the offset wrong for EMR1
-  _modify:
-    EMR1:
-      addressOffset: "0x84"

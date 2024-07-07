@@ -1,11 +1,8 @@
-_include:
-  - wl.yaml
-
 ADC:
   _modify:
-    CHSELR:
+    CHSELR,CHSELR_0,CHSELRMOD0:
       name: CHSELR0
-    CHSELR_1:
+    CHSELR_1,CHSELRMOD1:
       name: CHSELR1
   CFGR1:
     _modify:
