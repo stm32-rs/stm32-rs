@@ -2,18 +2,20 @@ name: compare mmaps
 
 on:
   pull_request_target:
+    types: [opened, reopened, labeled, unlabeled, synchronize]
     paths:
-      - 'svd/**'
-      - 'devices/**'
-      - 'cortex_m/**'
-      - 'peripherals/**'
-      - 'Makefile'
-      - 'Makefile.toml'
-      - 'scripts/tool_install.sh'
+      - "svd/**"
+      - "devices/**"
+      - "cortex_m/**"
+      - "peripherals/**"
+      - "Makefile"
+      - "Makefile.toml"
+      - "scripts/tool_install.sh"
 
 jobs:
   compare:
     name: Compare mmaps
+    if: ${{ !contains(github.event.pull_request.labels.*.name , 'skip-mmaps') }}
     runs-on: ubuntu-latest
     continue-on-error: true
 
@@ -76,4 +78,4 @@ jobs:
           message: |
             [Memory map comparison](https://github.com/stm32-rs/stm32-rs-mmaps/compare/${{ env.BRANCH }})
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]'
+          repo-token-user-login: "github-actions[bot]"
