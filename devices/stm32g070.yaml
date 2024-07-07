@@ -24,7 +24,7 @@ _delete:
   - UCPD2
   - RNG
   - HDMI_CEC
-# deleted so we can re-add them without interrupts
+  # deleted so we can re-add them without interrupts
   - TIM7
   - USART3
 
@@ -33,8 +33,10 @@ TIM3:
   _delete:
     _interrupts:
       - TIM2
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 RCC:
+  _include: common_patches/rcc/g0x0_delete.yaml
   AHBRSTR:
     _delete:
       - AESRST
@@ -47,8 +49,7 @@ RCC:
       - UCPD1RST
       - UCPD2RST
       - DAC1RST
-      - LPTIM2RST
-      - LPTIM1RST
+      - LPTIM[12]RST
   AHBENR:
     _delete:
       - AESEN
@@ -58,11 +59,9 @@ RCC:
       - TIM2EN
       - LPUART1EN
       - CECEN
-      - UCPD1EN
-      - UCPD2EN
+      - UCPD[12]EN
       - DAC1EN
-      - LPTIM2EN
-      - LPTIM1EN
+      - LPTIM[12]EN
   AHBSMENR:
     _delete:
       - AESSMEN
@@ -72,19 +71,16 @@ RCC:
       - TIM2SMEN
       - LPUART1SMEN
       - CECSMEN
-      - UCPD1SMEN
-      - UCPD2SMEN
+      - UCPD[12]SMEN
       - DAC1SMEN
-      - LPTIM2SMEN
-      - LPTIM1SMEN
+      - LPTIM[12]SMEN
   CCIPR:
     _delete:
       - CECSEL
       - LPUART1SEL
-      - LPTIM2SEL
+      - LPTIM[12]SEL
       - RNGSEL
       - RNGDIV
-      - LPTIM1SEL
 
 EXTI:
   _delete:

@@ -5,6 +5,11 @@ _modify:
 
 _clear_fields: ["*"]
 
+RCC:
+  CCIPR:
+    _modify:
+      - I2S2SEL:
+        name: I2C2SEL
 
 TIM1:
   _modify:
@@ -19,6 +24,7 @@ TIM3:
         name: OC1M
       OC1M2:
         name: OC1M_3
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 USB:
   _strip: "USB_"

@@ -5,6 +5,11 @@ _modify:
 
 _clear_fields: "*"
 
+_copy:
+  TIM3:
+    from: TIM2
+    baseAddress: 0x40000400
+
 _delete:
   - RNG
 
@@ -45,6 +50,12 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
+TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
+
+TIM3:
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
+
 TIM15:
   CCMR1_Output:
     _modify:
@@ -56,7 +67,6 @@ TIM15:
         name: OC2M
       OC2M2:
         name: OC2M_3
-
 
 _include:
   - common_patches/g0x1_strip.yaml

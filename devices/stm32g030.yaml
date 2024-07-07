@@ -1,7 +1,13 @@
 _svd: ../svd/stm32g030.svd
 
+_delete:
+  - TIM3
+
 _modify:
   name: STM32G030
+  TIM2:
+    name: TIM3
+    baseAddress: 0x40000400
 
 _clear_fields: "*"
 
@@ -13,8 +19,59 @@ TIM1:
       OC6M_bit3:
         name: OC6M_3
 
+TIM3:
+  _delete:
+    _interrupts: TIM2
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
+
 VREFBUF:
   _strip: "VREFBUF_"
+
+SYSCFG:
+  _delete:
+    - ITLINE8
+    - ITLINE17
+    - ITLINE18
+    - ITLINE20
+    - ITLINE29
+  ITLINE16:
+    _delete: TIM4
+  ITLINE24:
+    _delete: I2C3
+  ITLINE26:
+    _delete: SPI3
+
+RCC:
+  _include: common_patches/rcc/g0x0_delete.yaml
+  APBRSTR1:
+    _delete:
+      - TIM[67]RST
+      - USART[34]RST
+  APBRSTR2:
+    _delete:
+      - TIM15RST
+  APBENR1:
+    _delete:
+      - TIM[67]EN
+      - USART[34]EN
+  APBENR2:
+    _delete:
+      - TIM15EN
+  APBSMENR1:
+    _delete:
+      - TIM[67]SMEN
+      - USART[34]SMEN
+  APBSMENR2:
+    _delete:
+      - TIM15SMEN
+  CCIPR:
+    _delete:
+      - TIM15SEL
+      - USART3SEL
+
+DBG:
+  APB_FZ1:
+    _delete: DBG_TIM2_STOP
 
 _include:
   - common_patches/g0_strip.yaml

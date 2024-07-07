@@ -5,6 +5,10 @@ _modify:
 
 _clear_fields: "*"
 
+_copy:
+  TIM3:
+    from: TIM2
+    baseAddress: 0x40000400
 
 TIM1:
   _modify:
@@ -12,6 +16,12 @@ TIM1:
       TIM1_BRK_UP_TRG_COMP:
         name: TIM1_BRK_UP_TRG_COM
         description: TIM1 break, update, trigger and commutation interrupts
+
+TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
+
+TIM3:
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 _include:
   - common_patches/g0x1_strip.yaml

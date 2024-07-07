@@ -1,0 +1,35 @@
+_delete: CCIPR2
+AHBRSTR:
+  _delete:
+    - DMA2RST
+APBRSTR1:
+  _delete:
+    - TIM4RST
+    - USART[56]RST
+    - SPI3RST
+    - I2C3RST
+    - USBRST
+AHBENR:
+  _delete:
+    - DMA2EN
+APBENR1:
+  _delete:
+    - TIM4EN
+    - USART[56]EN
+    - SPI3EN
+    - I2C3EN
+    - USBEN
+AHBSMENR:
+  _delete:
+    - DMA2SMEN
+APBSMENR1:
+  _delete:
+    - TIM4SMEN
+    - USART[56]SMEN
+    - SPI3SMEN
+    - I2C3SMEN
+    - USBSMEN
+CCIPR:
+  _modify:
+    - I2S2SEL:
+      name: I2S1SEL

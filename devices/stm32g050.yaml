@@ -16,11 +16,29 @@ DMAMUX:
       "CSOF*":
         access: write-only
 
+RCC:
+  _include: common_patches/rcc/g0x0_delete.yaml
+  APBRSTR1:
+    _delete:
+      - USART[34]RST
+  APBENR1:
+    _delete:
+      - TIM4EN
+      - USART[34]EN
+  APBSMENR1:
+    _delete:
+      - TIM4SMEN
+      - USART[34]SMEN
+  CCIPR:
+    _delete:
+      - USART3SEL
+
 TIM3:
   CCMR1_Output:
     _modify:
       OC1M1:
         name: OC1M
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 _include:
   - common_patches/g0_strip.yaml

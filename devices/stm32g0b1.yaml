@@ -5,6 +5,11 @@ _modify:
 
 _clear_fields: ["*"]
 
+_copy:
+  TIM3:
+    from: TIM2
+    baseAddress: 0x40000400
+
 "FDCAN?":
   _strip: "FDCAN_"
 
@@ -19,6 +24,12 @@ TIM1:
     _modify:
       OC1M1:
         name: OC1M
+
+TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
+
+TIM3:
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 "UCPD*":
   _strip: "UCPD_"

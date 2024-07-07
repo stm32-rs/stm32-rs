@@ -5,6 +5,11 @@ _modify:
 
 _clear_fields: "*"
 
+_copy:
+  TIM3:
+    from: TIM2
+    baseAddress: 0x40000400
+
 _delete:
   # in v1.5 the ITLINE* registers were moved to SYSCFG
   # but for this part they forgot to remove the old SYSCFG_ITLINE
@@ -22,6 +27,12 @@ EXTI:
 
 "LPUART*":
   _strip: "LPUART_"
+
+TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
+
+TIM3:
+  _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 VREFBUF:
   _strip: "VREFBUF_"
