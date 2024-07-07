@@ -58,7 +58,7 @@
 * Doc `QUADSPI` peripheral ([#875])
     * `DR` register can be access by 1 byte, half word and full word. Use `.dr8()`, `.dr16()`, `.dr()` to access this register.
 * U5: Strip prefixes from peripheral registers
-* U5: Add DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, RCC peripherals
+* U5: Add DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, PWR, RCC peripherals
 
 Family-specific:
 

@@ -9,6 +9,58 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+PWR:
+  _add:
+    CR4:
+      displayName: PWR control register 4
+      addressOffset: 0xA8
+      size: 0x20
+      resetValue: 0x00000000
+      access: read-write
+      fields:
+        SRAM1PDS4:
+          bitOffset: 0
+          bitWidth: 1
+        SRAM1PDS5:
+          bitOffset: 1
+          bitWidth: 1
+        SRAM1PDS6:
+          bitOffset: 2
+          bitWidth: 1
+        SRAM1PDS7:
+          bitOffset: 3
+          bitWidth: 1
+        SRAM1PDS8:
+          bitOffset: 4
+          bitWidth: 1
+        SRAM1PDS9:
+          bitOffset: 5
+          bitWidth: 1
+        SRAM1PDS10:
+          bitOffset: 6
+          bitWidth: 1
+        SRAM1PDS11:
+          bitOffset: 7
+          bitWidth: 1
+        SRAM1PDS12:
+          bitOffset: 8
+          bitWidth: 1
+        SRAM3PDS9:
+          bitOffset: 10
+          bitWidth: 1
+        SRAM3PDS10:
+          bitOffset: 11
+          bitWidth: 1
+        SRAM3PDS11:
+          bitOffset: 12
+          bitWidth: 1
+        SRAM3PDS12:
+          bitOffset: 13
+          bitWidth: 1
+        SRAM3PDS13:
+          bitOffset: 14
+          bitWidth: 1
+
 _include:
  - common_patches/u5.yaml
  - common_patches/fsmc/fsmc_u5.yaml
@@ -21,4 +73,5 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
  - ../peripherals/octospi/u5.yaml
+ - ../peripherals/pwr/pwr_u5.yaml
  - ../peripherals/rcc/rcc_u5.yaml
