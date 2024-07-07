@@ -15,7 +15,7 @@ on:
 jobs:
   compare:
     name: Compare mmaps
-    if: ${{ !contains(github.event.pull_request.labels.*.name , 'skip-mmaps') }}
+    if: contains(github.event.pull_request.labels.*.name , 'skip-mmaps') != true
     runs-on: ubuntu-latest
     continue-on-error: true
 
