@@ -22,6 +22,7 @@
 * move merge CAN FB fields in patch file
 * Fix G0 TIM1 CCMR?_Input fields
 * G4, L5, U5 TIM common fixes
+* STM32U0xx initial support
 * STM32U5xx: Update SVD to version 1.2 and add variants for xx=35,45,95,A5,99,A9 (#844)
 * STM32U5xx: Update SVD to version 1.3 (#890)
 * Fix several array descriptions
