@@ -36,6 +36,7 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["atomics", "critical-section", "defmt", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
     "stm32g4": ["atomics", "critical-section", "defmt", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["atomics", "critical-section", "defmt", "rt", "stm32mp157"],
+    "stm32u0": ["atomics", "critical-section", "defmt", "rt", "stm32u031", "stm32u083"],
     "stm32u5": ["atomics", "critical-section", "defmt", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
     "stm32wl": ["atomics", "critical-section", "defmt", "rt", "stm32wle5", "stm32wl5x_cm4"],
     "stm32wb": ["atomics", "critical-section", "defmt", "rt", "stm32wb55"]
@@ -58,6 +59,7 @@ CRATE_DOC_TARGETS = {
     "stm32g0": "thumbv6m-none-eabi",
     "stm32g4": "thumbv7em-none-eabihf",
     "stm32mp1": "thumbv7em-none-eabihf",
+    "stm32u0": "thumbv6m-none-eabi",
     "stm32u5": "thumbv8m.main-none-eabi",
     "stm32wl": "thumbv7em-none-eabi",
     "stm32wb": "thumbv7em-none-eabihf"
