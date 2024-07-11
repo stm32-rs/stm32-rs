@@ -2,9 +2,11 @@
   _array:
     "JOFR?":
       JOFFSET: [0, 4095]
+      description: injected channel data offset register %s
       _modify:
         JOFFSET1:
           name: JOFFSET
+          description: Data offset for injected channel
     "JDR?": {}
 
   JSQR:
