@@ -1,0 +1,25 @@
+"MCE*":
+  _cluster:
+    "CC%s":
+      description: "Cipher context cluster"
+      "CC?CFGR": {}
+      "CC?NR0": {}
+      "CC?NR1": {}
+      "CC?KEYR0": {}
+      "CC?KEYR1": {}
+      "CC?KEYR2": {}
+      "CC?KEYR3": {}
+    "REG%s":
+      description: "Region cluster"
+      "REGCR?":
+        description: "Region configuration register"
+      "SADDR?":
+        description: "Region start address register"
+      "EADDR?":
+        description: "Region end address register"
+      "ATTR?":
+        description: "Region attribute register"
+
+  _array:
+    "MKEYR?": {}
+    "FMKEYR?": {}

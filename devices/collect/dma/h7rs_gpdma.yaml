@@ -1,0 +1,51 @@
+"GPDMA*":
+  _cluster:
+    "CH%s":
+      description: "Channel cluster"
+      "C[1][0-1]LBAR,C?LBAR":
+        name: LBAR
+      "C[1][0-1]FCR,C?FCR":
+        name: FCR
+      "C[1][0-1]SR,C?SR":
+        name: SR
+      "C[1][0-1]CR,C?CR":
+        name: CR
+      "C[1][0-1]TR1,C?TR1":
+        name: TR1
+      "C[1][0-1]TR2,C?TR2":
+        name: TR2
+      "C[1][0-1]BR1,C?BR1":
+        name: BR1
+      "C[1][0-1]SAR,C?SAR":
+        name: SAR
+      "C[1][0-1]DAR,C?DAR":
+        name: DAR
+      "C[1][0-1]LLR,C?LLR":
+        name: LLR
+
+    "ECH%s":
+      description: "Extended channel cluster"
+      "C[1][2-5]LBAR":
+        name: LBAR
+      "C[1][2-5]FCR":
+        name: FCR
+      "C[1][2-5]SR":
+        name: SR
+      "C[1][2-5]CR":
+        name: CR
+      "C[1][2-5]TR1":
+        name: TR1
+      "C[1][2-5]TR2":
+        name: TR2
+      "C[1][2-5]BR1":
+        name: BR1
+      "C[1][2-5]SAR":
+        name: SAR
+      "C[1][2-5]DAR":
+        name: DAR
+      "C[1][2-5]TR3":
+        name: TR3
+      "C[1][2-5]BR2":
+        name: BR2
+      "C[1][2-5]LLR":
+        name: LLR
