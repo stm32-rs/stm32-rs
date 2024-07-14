@@ -3,6 +3,9 @@ _svd: ../svd/stm32c011.svd
 _modify:
   name: STM32C011
 
+IWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
 SPI1:
   _include:
     - common_patches/16bit.yaml
@@ -59,6 +62,9 @@ TIM3:
   _modify:
     CNT_alternate:
       name: "CNT_remap"
+
+WWDG:
+  _include: common_patches/16bit_with_mask.yaml
 
 _include:
   - ./common_patches/c0.yaml

@@ -8,6 +8,9 @@ HSPI?:
   _strip:
     - HSPI?_
 
+IWDG:
+  _include: common_patches/16bit.yaml
+
 LTDC:
   _strip:
     - LTDC_
@@ -36,6 +39,9 @@ UCPD1:
     - common_patches/ucpd/rxordseten_split.yaml
     - common_patches/ucpd/tx_rx_missing_r.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml
+
+WWDG:
+  _include: common_patches/16bit.yaml
 
 _include:
  - common_patches/u5.yaml

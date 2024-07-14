@@ -157,6 +157,18 @@ _add:
     derivedFrom: USART1
     baseAddress: "0x40004800"
 
+IWDG:
+  _modify:
+    "KR,PR,RLR,SR,WINR":
+      size: 16
+  _include: ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _modify:
+    "CR,CFR,SR":
+      size: 16
+  _include: ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
   - common_patches/g0_strip.yaml
   - common_patches/nvic/2_prio_bits.yaml
@@ -172,7 +184,6 @@ _include:
   - collect/gpio/v2.yaml
   - common_patches/i2c/g0.yaml
   - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/iwdg/iwdg_with_WINR.yaml
   - common_patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
@@ -189,4 +200,3 @@ _include:
   - common_patches/usart/g0.yaml
   - ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml
-  - ../peripherals/wwdg/wwdg_v2.yaml

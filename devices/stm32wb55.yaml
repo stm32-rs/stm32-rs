@@ -95,6 +95,9 @@ IPCC:
     C1TO2SR:
       name: C1TOC2SR
 
+IWDG:
+  _include: common_patches/16bit.yaml
+
 RCC:
   _include:
     - ../peripherals/rcc/rcc_wb.yaml
@@ -312,6 +315,9 @@ SPI?:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
+
+WWDG:
+  _include: common_patches/16bit.yaml
 
 _include:
  - collect/dma/dmamux.yaml

@@ -80,7 +80,15 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
 WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
     _modify:
@@ -105,7 +113,6 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v1/common.yaml
  - collect/gpio/f1.yaml
@@ -126,7 +133,6 @@ _include:
  - ../peripherals/rtc/rtc_f1.yaml
  - ../peripherals/dma/dma_v1.yaml
  - collect/dma/v1.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/usb/usb.yaml
  - common_patches/usb_otg/fs_remove_prefix.yaml

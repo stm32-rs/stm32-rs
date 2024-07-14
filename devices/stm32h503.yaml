@@ -1,7 +1,9 @@
 _svd: ../svd/stm32h503.svd
 
 IWDG:
-  _include: ../peripherals/iwdg/h5.yaml
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/iwdg/h5.yaml
 
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
@@ -9,10 +11,14 @@ SPI?:
 TIM?:
   _strip: "TIM?_"
 
+WWDG:
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
   - common_patches/h5.yaml
   - ../peripherals/crs/crs.yaml
-  - ../peripherals/wwdg/wwdg_v2.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - ../peripherals/sbs/sbs.yaml

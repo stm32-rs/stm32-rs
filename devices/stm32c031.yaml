@@ -64,6 +64,12 @@ TIM3:
     CNT_alternate:
       name: "CNT_remap"
 
+IWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
+WWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
 _include:
   - ./common_patches/c0.yaml
   - ./common_patches/nvic/2_prio_bits.yaml

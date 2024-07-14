@@ -3,8 +3,7 @@
 # Extend `iwdg.yaml`.
 
 _include:
-  - ./iwdg.yaml
+  - iwdg.yaml
 
-"IWDG,IWDG?":
-  WINR:
-    WIN: [0, 4095]
+WINR:
+  WIN: [0, 4095]
