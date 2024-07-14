@@ -2,20 +2,19 @@
 # Present on F1, F2, F4 and L1 families.
 # Base for `iwdg_with_window.yaml`.
 
-"IWDG,IWDG?":
-  KR:
-    KEY:
-      Unlock: [0x5555, "Enable access to PR, RLR and WINR registers"]
-      Feed: [0xAAAA, "Feed watchdog with RLR register value"]
-      Start: [0xCCCC, "Start the watchdog"]
+KR:
+  KEY:
+    Unlock: [0x5555, "Enable access to PR, RLR and WINR registers"]
+    Feed: [0xAAAA, "Feed watchdog with RLR register value"]
+    Start: [0xCCCC, "Start the watchdog"]
+PR:
   PR:
-    PR:
-      DivideBy4: [0, "Divider /4"]
-      DivideBy8: [1, "Divider /8"]
-      DivideBy16: [2, "Divider /16"]
-      DivideBy32: [3, "Divider /32"]
-      DivideBy64: [4, "Divider /64"]
-      DivideBy128: [5, "Divider /128"]
-      DivideBy256: [6, "Divider /256"]
-  RLR:
-    RL: [0, 4095]
+    DivideBy4: [0, "Divider /4"]
+    DivideBy8: [1, "Divider /8"]
+    DivideBy16: [2, "Divider /16"]
+    DivideBy32: [3, "Divider /32"]
+    DivideBy64: [4, "Divider /64"]
+    DivideBy128: [5, "Divider /128"]
+    DivideBy256: [6, "Divider /256"]
+RLR:
+  RL: [0, 4095]

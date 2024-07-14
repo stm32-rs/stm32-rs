@@ -8,6 +8,12 @@ SPI:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+IWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
+WWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
 _include:
   - ./common_patches/c0.yaml
   - ./common_patches/nvic/2_prio_bits.yaml

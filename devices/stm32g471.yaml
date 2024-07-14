@@ -35,6 +35,16 @@ VREFBUF:
   _strip:
     - "VREFBUF_"
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
  - common_patches/usart/merge_BRR_fields.yaml
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
@@ -54,8 +64,6 @@ _include:
  - ../peripherals/adc/adc_v3_common_g4.yaml
  - common_patches/comp/g4.yaml
  - collect/comp/csr.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
  - ./common_patches/cordic/g4.yaml
  - ../peripherals/cordic/cordic_g4.yaml
  - common_patches/rtc/alarm.yaml
