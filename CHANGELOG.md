@@ -18,6 +18,7 @@
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file (#854)
+* rename `KEY` field variants of `IWDG_KR` ([#866])
 * DMAMUX: merge registers in arrays
 * move merge CAN FB fields in patch file
 * Fix G0 TIM1 CCMR?_Input fields
@@ -108,6 +109,7 @@ Family-specific:
 
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 [#857]: https://github.com/stm32-rs/stm32-rs/pull/857
+[#866]: https://github.com/stm32-rs/stm32-rs/pull/866
 [#870]: https://github.com/stm32-rs/stm32-rs/pull/870
 [#875]: https://github.com/stm32-rs/stm32-rs/pull/875
 
