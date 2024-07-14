@@ -56,7 +56,10 @@ TIM2:
         OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
         OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
 
-"SPI*":
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0090

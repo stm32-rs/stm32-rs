@@ -29,6 +29,9 @@ SPI1:
     _delete:
       - CHSIDE
       - UDR
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
 
 SYSCFG:
   EXTICR1:

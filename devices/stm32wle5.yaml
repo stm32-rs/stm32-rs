@@ -99,6 +99,11 @@ HSEM:
       MASTERID:
         name: COREID
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 TIM1:
   _modify:
     CCMR3OutputComparemode:

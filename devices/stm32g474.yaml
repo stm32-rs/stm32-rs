@@ -12,6 +12,11 @@ VREFBUF:
   _strip:
     - "VREFBUF_"
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 QUADSPI:
   CCR:
     _add:

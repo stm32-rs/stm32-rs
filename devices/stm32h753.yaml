@@ -39,6 +39,9 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/h7_common_singlecore.yaml

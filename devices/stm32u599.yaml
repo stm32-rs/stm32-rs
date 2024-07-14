@@ -28,6 +28,9 @@ PWR:
         bitOffset: 21
         bitWidth: 1
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 _include:
  - common_patches/u5.yaml
  - common_patches/fsmc/fsmc_u5.yaml

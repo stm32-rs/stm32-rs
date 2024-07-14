@@ -86,6 +86,11 @@ ADC1:
     _interrupts:
       - ADC3
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 TIM1:
   _modify:
     OR1:

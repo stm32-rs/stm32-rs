@@ -407,6 +407,9 @@ PWR:
       - WKUPF3
       - WKUPF5
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 # SYSCFG block
 SYSCFG:
   _add:

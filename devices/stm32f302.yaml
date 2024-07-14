@@ -9,7 +9,10 @@ _modify:
   DAC:
     name: DAC1
 
-"SPI*":
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0365

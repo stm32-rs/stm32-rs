@@ -2,6 +2,9 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: ["*"]
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 _include:
   - common_patches/h7_common_bootflash.yaml
   - collect/jpeg/ram_h7rs.yaml

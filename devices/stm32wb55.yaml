@@ -302,6 +302,11 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_single_flash.yaml
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/rtc/alarm.yaml

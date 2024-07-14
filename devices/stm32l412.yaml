@@ -235,6 +235,11 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
  - common_patches/stm32l4x2_l412.yaml
