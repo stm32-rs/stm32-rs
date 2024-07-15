@@ -54,10 +54,8 @@ _include:
  - common_patches/hsem/h7_dual.yaml
  - common_patches/hsem/h7_dual_cm4.yaml
  - collect/hsem/r.yaml
- - common_patches/adc/h7.yaml
  - common_patches/dsi/h7.yaml
  - collect/dsi/isr.yaml
- - common_patches/adc/h7_boost_rev_v.yaml
  - common_patches/flash/h7_dualcore.yaml
  - common_patches/sai/h7.yaml
  - common_patches/sai/h7_mcken.yaml
@@ -81,9 +79,12 @@ _include:
  - common_patches/usart/rename_CR2_DATAINV_field.yaml
  - common_patches/usart/merge_BRR_fields.yaml
  - common_patches/ramecc/ramecc_new.yaml
+ - common_patches/adc/h7.yaml
+ - common_patches/adc/h7_boost_rev_v.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
+ - collect/adc/v3.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_32bit.yaml

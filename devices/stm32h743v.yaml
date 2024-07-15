@@ -53,8 +53,6 @@ _include:
  - common_patches/dma/dma2d_v2.yaml
  - ../peripherals/dma/dma2d_v2.yaml
  - collect/hsem/r.yaml
- - common_patches/adc/h7.yaml
- - common_patches/adc/h7_boost_rev_v.yaml
  - common_patches/h7_spdifrx.yaml
  - common_patches/usb_otg/hs_v2.yaml
  - collect/usb_otg/hs.yaml
@@ -76,9 +74,12 @@ _include:
  - common_patches/dfsdm/h743.yaml
  - collect/dfsdm/v1.yaml
  - common_patches/ramecc/ramecc_new.yaml
+ - common_patches/adc/h7.yaml
+ - common_patches/adc/h7_boost_rev_v.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml
+ - collect/adc/v3.yaml
  - ../peripherals/axi/axi_v1.yaml
  - common_patches/crc/crc_rename_init.yaml
  - ../peripherals/crc/crc_advanced.yaml
