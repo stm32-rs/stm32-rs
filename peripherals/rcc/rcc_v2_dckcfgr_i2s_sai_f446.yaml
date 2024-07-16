@@ -1,7 +1,7 @@
-_include:
-  - ./rcc_v2_dckcfgr_i2s_sai_common.yaml
-
 RCC:
+  _include:
+    - ./rcc_v2_dckcfgr_i2s_sai_common.yaml
+
   DCKCFGR:
     SAI1SRC:
       PLLSAI: [0, "SAI1 clock frequency = f(PLLSAI_Q) / PLLSAIDIVQ"]

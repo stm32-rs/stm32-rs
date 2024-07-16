@@ -1,9 +1,11 @@
 _include:
-  - ./rcc_v3.yaml
   - ./rcc_v3_cfgr.yaml
   - ./rcc_v3_csr.yaml
 
 RCC:
+  _include:
+    - rcc_v3.yaml
+
   PLLCKSELR:
     DIVM?: [0, 63]
     PLLSRC:
