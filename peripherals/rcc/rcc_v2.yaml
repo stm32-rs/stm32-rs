@@ -1,9 +1,9 @@
 # Applicable at least to STM32F4 and STM32F7.
 
-_include:
-  - ./rcc_common.yaml
-
 RCC:
+  _include:
+    - ./rcc_common.yaml
+
   APB1RSTR:
     _modify:
       UART2RST:

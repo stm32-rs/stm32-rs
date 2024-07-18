@@ -1,7 +1,7 @@
-_include:
-  - ./rcc_common.yaml
-
 RCC:
+  _include:
+    - ./rcc_common.yaml
+
   CFGR:
     PLLMUL:
       Mul2: [0, "PLL input clock x2"]

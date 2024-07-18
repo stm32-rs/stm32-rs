@@ -1020,7 +1020,7 @@ RCC:
       HSI: [ 1, "HSI clock selected as DFSDM audio clock" ]
       MSI: [ 2, "MSI clock selected as DFSDM audio clock" ]
     DFSDMSEL:
-      PCLK2: [ 0, "APB2 clock (PCLK2) selected as DFSDM kernel clock" ]
+      PCLK: [ 0, "APBx clock (PCLKx) selected as DFSDM kernel clock" ]
       SYSCLK: [ 1, "System clock selected as DFSDM kernel clock" ]
     I2C4SEL:
       PCLK: [ 0, "PCLK clock selected" ]

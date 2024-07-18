@@ -2,10 +2,12 @@
 # Applicable to STM32F107
 
 _include:
-  - ./rcc_common.yaml
   - ./rcc_pllsrc_1bit.yaml
 
 RCC:
+  _include:
+    - ./rcc_common.yaml
+
   CFGR:
     SWS:
       _read:

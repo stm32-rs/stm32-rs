@@ -509,26 +509,39 @@ RCC:
       LSI: [1, "LSI selected"]
       LSE: [2, "LSE selected"]
     LPTIM2SEL:
-      PCLK1: [0, "PCLK1 selected"]
+      PCLK: [0, "PCLKx selected"]
       LSI: [1, "LSI selected"]
       HSI16: [2, "HSI16 selected"]
       MSIK: [3, "MSIK selected"]
-    SPI?SEL,I2C[124]SEL,UART[45]SEL,USART?SEL:
+    SPI?SEL:
+      _name: SpiSel
+      PCLK: [0, "PCLKx selected"]
+      SYSCLK: [1, "SYSCLK selected"]
+      HSI16: [2, "HSI16 selected"]
+      MSIK: [3, "MSIK selected"]
+    I2C?SEL:
+      _name: I2cSel
+      PCLK: [0, "PCLKx selected"]
+      SYSCLK: [1, "SYSCLK selected"]
+      HSI16: [2, "HSI16 selected"]
+      MSIK: [3, "MSIK selected"]
+    "USART?SEL,UART?SEL":
+      _name: UartSel
       PCLK: [0, "PCLKx selected"]
       SYSCLK: [1, "SYSCLK selected"]
       HSI16: [2, "HSI16 selected"]
       MSIK: [3, "MSIK selected"]
   CCIPR2:
+    _modify:
+      I2C[56]SEL:
+        derivedFrom: RCC.CCIPR1.I2C1SEL
+      USART6SEL:
+        derivedFrom: RCC.CCIPR1.USART1SEL
     OTGHSSEL:
       HSE: [0, "HSE selected"]
       PLL1P: [1, "PLL1 \"Q\" (pll1_q_ck) selected"]
       HSE2: [2, "HSE/2 selected"]
       PLL1P_Div2: [3, "PLL1 \"P\" divided by 2 (pll1_p_ck/2) selected"]
-    I2C[56]SEL,USART6SEL:
-      PCLK1: [0, "PCLK1 selected"]
-      SYSCLK: [1, "SYSCLK selected"]
-      HSI16: [2, "HSI16 selected"]
-      MSIK: [3, "MSIK selected"]
     HSPI1SEL:
       SYSCLK: [0, "SYSCLK selected"]
       PLL1Q: [1, "PLL1 \"Q\" (pll1_q_ck) selected, can be up to 200 MHz"]
@@ -568,6 +581,11 @@ RCC:
       AUDIOCLK: [3, "input pin AUDIOCLK selected"]
       MSIK: [4, "MSIK clock selected"]
   CCIPR3:
+    _modify:
+      I2C3SEL:
+        derivedFrom: RCC.CCIPR1.I2C1SEL
+      SPI3SEL:
+        derivedFrom: RCC.CCIPR1.SPI2SEL
     ADF1SEL:
       HCLK: [0, "HCLK selected"]
       PLL1P: [1, "PLL1 \"P\" (pll1_p_ck) selected"]
@@ -584,23 +602,13 @@ RCC:
       HSE: [3, "HSE clock selected"]
       HSI16: [4, "HSI16 clock selected"]
       MSIK: [5, "MSIK clock selected"]
-    LPTIM1SEL:
+    LPTIM1SEL,LPTIM34SEL:
       MSIK: [0, "MSIK clock selected"]
       LSI: [1, "LSI selected"]
       HSI16: [2, "HSI16 selected"]
       LSE: [3, "LSE selected"]
-    LPTIM34SEL:
-      MSIK: [0, "MSIK clock selected"]
-      LSI: [1, "LSI selected"]
-      HSI: [2, "HSI selected"]
-      LSE: [3, "LSE selected"]
-    I2C3SEL,SPI3SEL:
-      PCLK3: [0, "PCLK3 selected"]
-      SYSCLK: [1, "SYSCLK selected"]
-      HSI16: [2, "HSI16 selected"]
-      MSIK: [3, "MSIK selected"]
     LPUART1SEL:
-      PCLK3: [0, "PCLK3 selected"]
+      PCLK: [0, "PCLKx selected"]
       SYSCLK: [1, "SYSCLK selected"]
       HSI16: [2, "HSI16 selected"]
       LSE: [3, "LSE selected"]

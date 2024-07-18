@@ -6,9 +6,4 @@ RCC:
     - rcc_v3_gsr.yaml
     - rcc_v3_d3amr_srdamr.yaml
     - rcc_v3_pll.yaml
-    - rcc_v3_h7_ccip.yaml
-
-  D3CCIPR:
-    _modify:
-      I2C4SEL:
-        derivedFrom: RCC.D2CCIP2R.I2C123SEL
+    - rcc_v3_h7a_ccip.yaml

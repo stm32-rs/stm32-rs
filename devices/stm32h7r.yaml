@@ -2,6 +2,9 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: ["*"]
 
+RCC:
+  _include: ../peripherals/rcc/rcc_h7rs.yaml
+
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
@@ -23,4 +26,3 @@ _include:
   - ../peripherals/gpio/v3/common.yaml
   - ../peripherals/gpio/v3/af0-15.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
-  - ../peripherals/rcc/rcc_h7rs.yaml
