@@ -40,7 +40,10 @@ FLASH:
       RDPRT:
         name: RDPROT
 
-"SPI*,I2S*":
+"SPI?,I2S?":
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
   SR:
     _modify:
       TIFRFE:

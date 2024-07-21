@@ -64,6 +64,11 @@ OCTOSPI1:
       CSHT:
         bitWidth: 6
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
   - ../peripherals/gpio/gpio_with_brr.yaml
   - ../peripherals/gpio/v2/common.yaml

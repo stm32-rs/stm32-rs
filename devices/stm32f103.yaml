@@ -32,6 +32,11 @@ SDIO:
       name: RESP1
       displayName: RESP1
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:

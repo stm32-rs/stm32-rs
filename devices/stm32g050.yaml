@@ -33,6 +33,11 @@ RCC:
     _delete:
       - USART3SEL
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 TIM3:
   CCMR1_Output:
     _modify:

@@ -23,7 +23,10 @@ PWR:
         bitWidth: 1
         access: read-write
 
-"SPI*":
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0316

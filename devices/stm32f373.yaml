@@ -36,6 +36,11 @@ RCC:
       SDAD3EN:
         name: SDADC3EN
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 SYSCFG:
   _delete:
     - SYSCFG_RCR

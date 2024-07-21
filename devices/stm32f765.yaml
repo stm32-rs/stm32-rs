@@ -22,7 +22,10 @@ DSI:
   _strip:
     - "DSI_"
 
-"SPI3":
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0410

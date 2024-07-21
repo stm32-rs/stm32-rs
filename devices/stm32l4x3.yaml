@@ -98,6 +98,11 @@ MPU:
   _strip:
     - "MPU_"
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml

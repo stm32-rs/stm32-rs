@@ -35,6 +35,11 @@ USB:
       L2RES:
         name: L2RESUME
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 VREFBUF:
   _strip: "VREFBUF_"
 

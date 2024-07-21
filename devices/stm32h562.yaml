@@ -1,5 +1,8 @@
 _svd: ../svd/stm32h562.svd
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 # todo: Once tested, apply these to the other H5 variants as applicable, or possibly
 # todo place them in the common/h5.yaml
 _include:

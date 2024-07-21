@@ -38,6 +38,11 @@ GTZC_TZSC:
   _strip:
     - "TZSC_"
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml

@@ -37,6 +37,12 @@ EXTI:
     - IPIDR
     - SIDR
 
+SPI?:
+  _include: common_patches/spi/dr8.yaml
+  _modify:
+    "CR1,CR2,SR,DR,CRCPR,RXCRCR,TXCRCR,I2SCFGR,I2SPR":
+      size: 16
+
 TIM1:
   _modify:
     _interrupts:

@@ -15,6 +15,9 @@ PWR:
   CR4:
     _delete: SRAM5PDS*
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 _include:
  - common_patches/u5.yaml
  - common_patches/octospi/u535_u545.yaml

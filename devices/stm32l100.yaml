@@ -62,6 +62,11 @@ MPU:
   _strip:
     - "MPU_"
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml

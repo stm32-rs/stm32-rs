@@ -1,0 +1,50 @@
+_add:
+  TXDR16:
+    access: write-only
+    addressOffset: 0x20
+    alternateRegister: TXDR
+    description: Direct 16-bit access to transmit data register
+    size: 0x10
+    fields:
+      TXDR:
+        bitOffset: 0
+        bitWidth: 10
+        description: Transmit data register
+  TXDR8:
+    access: write-only
+    addressOffset: 0x20
+    alternateRegister: TXDR
+    description: Direct 8-bit access to transmit data register
+    size: 0x8
+    fields:
+      TXDR:
+        bitOffset: 0
+        bitWidth: 8
+        description: Transmit data register
+  RXDR16:
+    access: read-only
+    addressOffset: 0x30
+    alternateRegister: RXDR
+    description: Direct 16-bit access to receive data register
+    size: 0x10
+    fields:
+      RXDR:
+        bitOffset: 0
+        bitWidth: 10
+        description: Receive data register
+  RXDR8:
+    access: read-only
+    addressOffset: 0x30
+    alternateRegister: RXDR
+    description: Direct 8-bit access to receive data register
+    size: 0x8
+    fields:
+      RXDR:
+        bitOffset: 0
+        bitWidth: 8
+        description: Receive data register
+
+TXDR16:
+  TXDR: [0, 0xff]
+TXDR8:
+  TXDR: [0, 0xf]

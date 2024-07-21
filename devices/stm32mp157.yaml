@@ -21,6 +21,9 @@ RTC:
   _strip:
     - "RTC_"
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 TAMP:
   _strip:
     - "TAMP_"

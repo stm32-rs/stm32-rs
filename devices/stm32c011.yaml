@@ -3,6 +3,11 @@ _svd: ../svd/stm32c011.svd
 _modify:
   name: STM32C011
 
+SPI:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 _include:
   - ./common_patches/c0.yaml
   - ./common_patches/nvic/2_prio_bits.yaml

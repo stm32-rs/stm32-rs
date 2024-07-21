@@ -28,6 +28,11 @@ EXTI:
 "LPUART*":
   _strip: "LPUART_"
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 TIM1:
   CCMR3_Output:
     _modify:

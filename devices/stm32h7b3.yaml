@@ -84,6 +84,9 @@ DFSDM*:
   _strip:
     - "DFSDM_"
 
+SPI?:
+  _include: common_patches/spi/rxtxdr.yaml
+
 _include:
  - common_patches/h7_common_highmemory.yaml
  - ../peripherals/hdmi_cec.yaml

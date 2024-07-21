@@ -225,6 +225,11 @@ CAN:
         description: CAN_SCE interrupt
         value: 22
 
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
 TIM3:
   CCMR1_Output:
     _add:
