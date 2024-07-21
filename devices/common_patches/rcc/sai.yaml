@@ -1,18 +1,13 @@
 # Add missing reset/enable bits for the SAI clock and PLL
-_include:
- - pllsai.yaml
-
 RCC:
+  CR:
+    _modify:
+      PLLSAIRDY:
+        access: read-only
   APB2RSTR:
     _add:
       SAI1RST:
         description: SAI1 reset
-        bitOffset: 22
-        bitWidth: 1
-  APB2ENR:
-    _add:
-      SAI1EN:
-        description: SAI1 clock enable
         bitOffset: 22
         bitWidth: 1
   APB2LPENR:
