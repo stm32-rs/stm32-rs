@@ -41,13 +41,13 @@ RCC:
       Mul32: [7, "PLL clock entry x 32"]
       Mul48: [8, "PLL clock entry x 48"]
     "PPRE[12]":
-      Div1: [0, "HCLK not divided"]
+      Div1: [-1, "HCLK not divided"]
       Div2: [4, "HCLK divided by 2"]
       Div4: [5, "HCLK divided by 4"]
       Div8: [6, "HCLK divided by 8"]
       Div16: [7, "HCLK divided by 16"]
     HPRE:
-      Div1: [0, "system clock not divided"]
+      Div1: [-1, "system clock not divided"]
       Div2: [8, "system clock divided by 2"]
       Div4: [9, "system clock divided by 4"]
       Div8: [10, "system clock divided by 8"]

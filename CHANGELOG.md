@@ -54,6 +54,7 @@
 * G4:COMP fix and collect array
 * Add USART v2C peripheral on G4
 * doc on `RNG` peripheral for STM32F4 ([#870])
+* `isDefault` for some RCC enums
 * H7: fix GPIO register reset values (#973)
 * H735: add I2C5
 * Doc `QUADSPI` peripheral ([#875])

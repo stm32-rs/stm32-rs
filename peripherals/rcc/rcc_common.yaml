@@ -19,13 +19,13 @@ RCC:
       "On": [1, "Clock On"]
   CFGR:
     PPRE*:
-      Div1: [0, "HCLK not divided"] # Same for [0, 8]
+      Div1: [-1, "HCLK not divided"]
       Div2: [4, "HCLK divided by 2"]
       Div4: [5, "HCLK divided by 4"]
       Div8: [6, "HCLK divided by 8"]
       Div16: [7, "HCLK divided by 16"]
     HPRE:
-      Div1: [0, "SYSCLK not divided"] # Same for [0, 7]
+      Div1: [-1, "SYSCLK not divided"]
       Div2: [8, "SYSCLK divided by 2"]
       Div4: [9, "SYSCLK divided by 4"]
       Div8: [10, "SYSCLK divided by 8"]

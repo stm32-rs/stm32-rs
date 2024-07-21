@@ -28,7 +28,7 @@ RCC:
       Set: [1, "Set latch to tranfer FRACN to the Sigma-Delta modulator"]
   BMCFGR:
     HPRE:
-      Div1: [0, "sys_ck not divided"]
+      Div1: [-1, "sys_ck not divided"]
       Div2: [8, "sys_ck divided by 2"]
       Div4: [9, "sys_ck divided by 4"]
       Div8: [10, "sys_ck divided by 8"]

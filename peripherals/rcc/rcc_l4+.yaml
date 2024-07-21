@@ -97,13 +97,13 @@ RCC:
       MSI: [ 0, "MSI oscillator selected as wakeup from stop clock and CSS backup clock" ]
       HSI16: [ 1, "HSI16 oscillator selected as wakeup from stop clock and CSS backup clock" ]
     "PPRE?":
-      Div1: [0b000, "HCLK not divided" ]
+      Div1: [-1, "HCLK not divided" ]
       Div2: [0b100, "HCLK divided by 2" ]
       Div4: [0b101, "HCLK divided by 4" ]
       Div8: [0b110, "HCLK divided by 8" ]
       Div16: [0b111, "HCLK divided by 16" ]
     HPRE:
-      Div1: [ 0b0000, "SYSCLK not divided" ]
+      Div1: [ -1, "SYSCLK not divided" ]
       Div2: [ 0b1000, "SYSCLK divided by 2" ]
       Div4: [ 0b1001, "SYSCLK divided by 4" ]
       Div8: [ 0b1010, "SYSCLK divided by 8" ]
