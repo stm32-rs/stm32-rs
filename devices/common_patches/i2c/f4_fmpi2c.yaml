@@ -1,19 +1,18 @@
 # Fix incorrect fields names in FMPI2C
-FMPI2C*:
-  CR1:
-    _modify:
-      TCDMAEN:
-        name: TXDMAEN
-      ADDRE:
-        name: ADDRIE
-  CR2:
-    _merge:
-      - "SADD*"
-  OAR2:
-    _modify:
-      OA21_7:
-        name: OA2
-  ICR:
-    _modify:
-      ALERTC:
-        name: ALERTCF
+CR1:
+  _modify:
+    TCDMAEN:
+      name: TXDMAEN
+    ADDRE:
+      name: ADDRIE
+CR2:
+  _merge:
+    - "SADD*"
+OAR2:
+  _modify:
+    OA21_7:
+      name: OA2
+ICR:
+  _modify:
+    ALERTC:
+      name: ALERTCF

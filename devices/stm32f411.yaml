@@ -41,6 +41,13 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - common_patches/i2c/v1_fltr.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 SYSCFG:
   _include:
     - common_patches/syscfg/f4_common.yaml
@@ -106,7 +113,6 @@ PWR:
         bitWidth: 1
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/adc/f4_no_csr.yaml
   - common_patches/adc/f4_single_ccr.yaml
   - common_patches/rcc/spi5.yaml
@@ -145,7 +151,6 @@ _include:
   - ../peripherals/usart/uart_common.yaml
   - ../peripherals/usart/uart_sample.yaml
   - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
   - common_patches/rtc/alarm.yaml
@@ -160,7 +165,5 @@ _include:
   - common_patches/dbgmcu/dbgmcu.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
-  - common_patches/i2c/v1_fltr.yaml
-  - ../peripherals/i2c/i2c_v1_fltr.yaml
   - common_patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f411.yaml

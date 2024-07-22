@@ -70,6 +70,11 @@ FSMC:
       addressOffset: 0x11C
       alternateRegister: ""
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 IWDG:
   _include:
     - common_patches/16bit.yaml
@@ -99,7 +104,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/ethernet/mac_regs.yaml
   - common_patches/ethernet/mmc.yaml
   - common_patches/ethernet/f2_f4.yaml
@@ -156,7 +160,6 @@ _include:
   - ../peripherals/usart/uart_uart.yaml
   - ../peripherals/usart/uart_common.yaml
   - common_patches/usart/f4_add_UART_GTPR.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - collect/hash/v2.yaml
   - common_patches/rtc/alarm.yaml
   - common_patches/rtc/f4_cr.yaml

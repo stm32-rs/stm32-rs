@@ -66,6 +66,12 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 # Fix misnamed RCC enable bits, add PLLSAI clock
 RCC:
   CR:
@@ -156,6 +162,8 @@ FMPI2C1:
         access: read-write
       "RXNE,ADDR,NACKF,STOPF,TC,TCR,BERR,ARLO,OVR,PECERR,TIMEOUT,ALERT,BUSY,DIR,ADDCODE":
         access: read-only
+  _include:
+    - ../peripherals/i2c/i2c_v2_base.yaml
 
 "OTG_HS_*":
   _strip:
@@ -199,7 +207,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
@@ -253,8 +260,6 @@ _include:
   - ../peripherals/usart/uart_uart.yaml
   - ../peripherals/usart/uart_usart.yaml
   - common_patches/usart/f4_add_UART_GTPR.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
-  - ../peripherals/i2c/i2c_v2_fmp.yaml
   - common_patches/rtc/alarm.yaml
   - common_patches/rtc/f4_cr.yaml
   - common_patches/rtc/rtc_cr.yaml
@@ -284,6 +289,5 @@ _include:
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
   - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - ../peripherals/i2c/i2c_v1_fltr.yaml
   - common_patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f446.yaml

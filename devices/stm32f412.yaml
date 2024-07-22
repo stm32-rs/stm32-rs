@@ -106,6 +106,13 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - common_patches/i2c/v1_fltr.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 # Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
   APB1ENR:
@@ -155,6 +162,9 @@ FMPI2C1:
         description: Interface own slave address
         bitOffset: 0
         bitWidth: 10
+  _include:
+    - common_patches/i2c/f4_fmpi2c.yaml
+    - ../peripherals/i2c/i2c_v2_base.yaml
 
 PWR:
   CR:
@@ -206,6 +216,8 @@ SYSCFG:
   _modify:
     I2C_BUFOUT:
       name: CFGR
+      displayName: CFGR
+      description: Configuration register
   _add:
     CFGR2:
       description: ADC Common status register
@@ -231,7 +243,6 @@ SYSCFG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
@@ -243,7 +254,6 @@ _include:
   - common_patches/fsmc/fsmc_sramfix_common.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
-  - common_patches/rcc/f4_fmpi2c.yaml
   - common_patches/rcc/rcc_merge_rtcsel.yaml
   - ../peripherals/rcc/rcc_v2.yaml
   - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
@@ -281,8 +291,6 @@ _include:
   - ../peripherals/usart/uart_common.yaml
   - ../peripherals/usart/uart_sample.yaml
   - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
-  - ../peripherals/i2c/i2c_v2_fmp.yaml
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
   - common_patches/rtc/alarm.yaml
@@ -297,7 +305,5 @@ _include:
   - common_patches/dbgmcu/dbgmcu.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
-  - common_patches/i2c/v1_fltr.yaml
-  - ../peripherals/i2c/i2c_v1_fltr.yaml
   - common_patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml

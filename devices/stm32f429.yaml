@@ -78,6 +78,12 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 IWDG:
   _include:
     - common_patches/16bit.yaml
@@ -125,7 +131,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/ethernet/mac_regs.yaml
   - common_patches/ethernet/mmc.yaml
   - common_patches/ethernet/f2_f4.yaml
@@ -190,7 +195,6 @@ _include:
   - ../peripherals/usart/uart_uart.yaml
   - ../peripherals/usart/uart_usart.yaml
   - common_patches/usart/f4_add_UART_GTPR.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - collect/hash/v2.yaml
   - common_patches/rtc/alarm.yaml
   - common_patches/rtc/f4_cr.yaml
@@ -218,7 +222,6 @@ _include:
   - ../peripherals/flash/flash_latency16.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
-  - ../peripherals/i2c/i2c_v1_fltr.yaml
   - common_patches/ethernet/f4_f7.yaml
   - ../peripherals/eth/eth_ptp_ppsfreq.yaml
   - common_patches/pwr/f4.yaml
