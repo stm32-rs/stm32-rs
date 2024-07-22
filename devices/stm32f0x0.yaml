@@ -140,7 +140,7 @@ TIM1[456]:
 
 _include:
  - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
- - ./common_patches/spi/f0_rename_registers.yaml
+ - ./common_patches/spi/rename_dff_tifrfe.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
  - ./common_patches/rcc/f0_no_hdmi_cec.yaml

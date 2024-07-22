@@ -95,6 +95,12 @@ IPCC:
     C1TO2SR:
       name: C1TOC2SR
 
+RCC:
+  _include:
+    - ../peripherals/rcc/rcc_wb.yaml
+    - ../peripherals/rcc/rcc_wx_c2.yaml
+
+
 SYSCFG:
   _modify:
     IMR1:
@@ -107,7 +113,6 @@ SYSCFG:
       addressOffset: 0x10c
     SIPCR:
       addressOffset: 0x110
-
 
 TIM2:
   CNT:
@@ -307,6 +312,9 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_wb55.yaml
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/rtc/alarm.yaml
@@ -322,3 +330,6 @@ _include:
  - ./common_patches/adc/l4_smpr.yaml
  - common_patches/tim/tim2_32bit.yaml
  - collect/hsem/r.yaml
+ - common_patches/spi/rename_dff_tifrfe.yaml
+ - ../peripherals/i2c/i2c_v2.yaml
+ - ../peripherals/spi/spi_v2_no_I2S.yaml

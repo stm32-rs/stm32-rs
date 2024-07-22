@@ -99,11 +99,11 @@ _include:
   - ../peripherals/ltdc/ltdc.yaml
   - common_patches/rng/l4+.yaml
   - ../peripherals/rng/rng_wl.yaml
-  - common_patches/spi/l4.yaml
+  - common_patches/spi/rename_dff_tifrfe.yaml
   - common_patches/rtc/l4.yaml
   - common_patches/rtc/rtc_cr.yaml
   - common_patches/octospi/l4+.yaml
-  - ../peripherals/octospi/l4.yaml
+  - ../peripherals//octospi/l4.yaml
   - common_patches/octospim/l4+.yaml
   - common_patches/dbgmcu/l4_apb_fzr_rename.yaml
   - common_patches/dbgmcu/l4+.yaml
