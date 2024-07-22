@@ -221,14 +221,8 @@ TIM1:
     ARR: [0, 0xFFFF]
   RCR:
     REP: [0, 0xFFFF]
-  CCR1:
-    CCR1: [0, 0xFFFF]
-  CCR2:
-    CCR2: [0, 0xFFFF]
-  CCR3:
-    CCR3: [0, 0xFFFF]
-  CCR4:
-    CCR4: [0, 0xFFFF]
+  CCR?:
+    CCR?: [0, 0xFFFF]
   CCR5:
     GC5C3:
       Disabled: [0, "No effect of OC5REF on OC3REFC"]
@@ -239,9 +233,6 @@ TIM1:
     GC5C1:
       Disabled: [0, "No effect of OC5REF on OC1REFC"]
       Enabled: [1, "OC1REFC is the logical AND of OC1REFC and OC5REF"]
-    CCR5: [0, 0xFFFF]
-  CCR6:
-    CCR6: [0, 0xFFFF]
   DMAR:
     DMAB: [0, 0xFFFF]
   OR1:
