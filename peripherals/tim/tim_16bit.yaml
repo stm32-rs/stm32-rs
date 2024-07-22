@@ -1,11 +1,9 @@
-# 16bit timer peripheral with 2 channel
+# 16bit timer peripheral with 1 channel
 # Applies to Advanced-control (ac) and General-purpose (gp) timers
 
 CNT:
   CNT: [0, 0xFFFF]
 ARR:
   ARR: [0, 0xFFFF]
-CCR1:
-  CCR1: [0, 0xFFFF]
-CCR2:
-  CCR2: [0, 0xFFFF]
+CCR?:
+  CCR?: [0, 0xFFFF]
