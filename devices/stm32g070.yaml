@@ -97,6 +97,11 @@ ADC:
         name: ADC
         description: ADC Interrupt
 
+RCC:
+  _include:
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
+
 SPI?:
   _include: common_patches/spi/dr8.yaml
   _modify:
@@ -138,6 +143,7 @@ USART1:
         value: 29
 
 SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
   _delete:
     - VREFBUF_CSR
     - VREFBUF_CCR

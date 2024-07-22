@@ -1,0 +1,13 @@
+# G0x1 parts with AES
+
+CCIPR:
+  RNGDIV:
+    Div1: [0b00, "Divide by 1"]
+    Div2: [0b01, "Divide by 2"]
+    Div4: [0b10, "Divide by 4"]
+    Div8: [0b11, "Divide by 8"]
+  RNGSEL:
+    NoClock: [0b00, "No clock selected"]
+    HSI16:   [0b01, "HSI16 clock selected"]
+    SYSCLK:  [0b10, "SYSCLK clock selected"]
+    PLLQ:    [0b11, "PLLQCLK clock selected"]

@@ -1,0 +1,13 @@
+# all G0x1 parts
+
+CCIPR:
+  "LPTIM[12]SEL":
+    PCLK:  [0b00, "PCLK clock selected"]
+    LSI:   [0b01, "LSI clock selected"]
+    HSI16: [0b10, "HSI16 clock selected"]
+    LSE:   [0b11, "LSE clock selected"]
+  "LPUART[12]SEL":
+    PCLK:   [0b00, "PCLK clock selected"]
+    SYSCLK: [0b01, "SYSCLK clock selected"]
+    HSI16: [0b10, "HSI16 clock selected"]
+    LSE:   [0b11, "LSE clock selected"]

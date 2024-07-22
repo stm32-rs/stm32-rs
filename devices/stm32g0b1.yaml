@@ -13,10 +13,19 @@ _copy:
 "FDCAN?":
   _strip: "FDCAN_"
 
+RCC:
+  _include:
+    - common_patches/rcc/g0b.yaml
+    - common_patches/rcc/g0_no_aes.yaml
+    - ../peripherals/rcc/rcc_g0b1.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
+
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
 
 TIM1:
   _modify:

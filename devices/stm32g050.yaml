@@ -17,7 +17,10 @@ DMAMUX:
         access: write-only
 
 RCC:
-  _include: common_patches/rcc/g0x0_delete.yaml
+  _include:
+    - common_patches/rcc/g0x0_delete.yaml
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
   APBRSTR1:
     _delete:
       - USART[34]RST
@@ -37,6 +40,9 @@ SPI?:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
+
+SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
 
 TIM3:
   CCMR1_Output:

@@ -33,6 +33,7 @@ VREFBUF:
   _strip: "VREFBUF_"
 
 SYSCFG:
+  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
   _delete:
     - ITLINE8
     - ITLINE17
@@ -47,7 +48,10 @@ SYSCFG:
     _delete: SPI3
 
 RCC:
-  _include: common_patches/rcc/g0x0_delete.yaml
+  _include:
+    - common_patches/rcc/g0x0_delete.yaml
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
   APBRSTR1:
     _delete:
       - TIM[67]RST

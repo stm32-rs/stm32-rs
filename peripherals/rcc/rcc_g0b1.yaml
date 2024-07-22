@@ -1,0 +1,21 @@
+# G0B1/G0C1
+
+_include:
+  - rcc_g0b.yaml
+  - rcc_g0x1.yaml
+  - rcc_g0x1_cec.yaml
+
+CR:
+  HSI48RDY:
+    NotReady: [0, "HSI48 oscillator not ready"]
+    Ready:    [1, "HSI48 oscillator ready"]
+  HSI48ON:
+    Disabled: [0, "HSI48 oscillator powered off"]
+    Enabled:  [1, "HSI48 oscillator enabled"]
+CRRCR:
+  HSI48CAL: [0, 0x1FF]
+CCIPR2:
+  FDCANSEL:
+    PCLK: [0b00, "PCLK clock selected"]
+    PLLQ: [0b01, "PLLQCLK clock selected"]
+    HSE:  [0b10, "HSE clock selected"]
