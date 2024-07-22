@@ -31,15 +31,20 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
-SPI?:
+I2C?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
 
 IWDG:
   _include:
     - common_patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
+
+SPI?:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
 
 WWDG:
   _include:
@@ -63,7 +68,6 @@ Ethernet_MAC:
 
 _include:
   - common_patches/rcc/f1_uart45.yaml
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/bkp/bkp.yaml
   - ../peripherals/bkp/bkp.yaml
   - collect/bkp/dr.yaml
@@ -75,7 +79,6 @@ _include:
   - ../peripherals/dac/dac_common_2ch.yaml
   - ../peripherals/crc/crc_basic.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - ../peripherals/pwr/pwr_v1.yaml
   - ../peripherals/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
