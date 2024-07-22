@@ -135,6 +135,8 @@ SYSCFG:
       PD15: [3, "Select PD15 as the source input for the EXTI15 external interrupt"]
       PF15: [5, "Select PF15 as the source input for the EXTI15 external interrupt"]
 
+TIM1[456]:
+  _include: ../peripherals/tim/tim_16bit.yaml
 
 _include:
  - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
@@ -160,9 +162,6 @@ _include:
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/tim/tim2345_16bit.yaml
- - ../peripherals/tim/tim14_16bit.yaml
- - ../peripherals/tim/tim15_16bit.yaml
- - ../peripherals/tim/tim16_16bit.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/v1/ccm.yaml

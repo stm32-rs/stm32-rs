@@ -216,19 +216,13 @@ TIM1:
       Enabled: [1, "Complementary output enabled"]
 
   CNT:
-    CNT: [0, 65535]
+    CNT: [0, 0xFFFF]
   ARR:
-    ARR: [0, 65535]
+    ARR: [0, 0xFFFF]
   RCR:
-    REP: [0, 65535]
-  CCR1:
-    CCR1: [0, 65535]
-  CCR2:
-    CCR2: [0, 65535]
-  CCR3:
-    CCR3: [0, 65535]
-  CCR4:
-    CCR4: [0, 65535]
+    REP: [0, 0xFFFF]
+  CCR?:
+    CCR?: [0, 0xFFFF]
   CCR5:
     GC5C3:
       Disabled: [0, "No effect of OC5REF on OC3REFC"]
@@ -239,9 +233,6 @@ TIM1:
     GC5C1:
       Disabled: [0, "No effect of OC5REF on OC1REFC"]
       Enabled: [1, "OC1REFC is the logical AND of OC1REFC and OC5REF"]
-    CCR5: [0, 65535]
-  CCR6:
-    CCR6: [0, 65535]
   DMAR:
     DMAB: [0, 0xFFFF]
   OR1:

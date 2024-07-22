@@ -8,7 +8,7 @@ CR2:
     Enable: [1, "Use CNT bit from TIMx_CEN register"]
     Update: [2, "Use the update event"]
 CNT:
-  CNT: [0, 65535]
+  CNT: [0, 0xFFFF]
 DIER:
   UDE:
     Disabled: [0, "Update DMA request disabled"]

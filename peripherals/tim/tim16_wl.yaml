@@ -3,7 +3,11 @@ _include:
 
 TIM1[67]:
   _include:
-    - tim_1ch_16bit.yaml
+    - tim_16bit.yaml
+
+  DMAR:
+    DMAB: [0, 0xFFFF]
+
   CR1:
     UIFREMAP:
       Disabled: [0, "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31"]
@@ -146,9 +150,6 @@ TIM1[67]:
   DCR:
     DBL: [0, 0b10001]
     DBA: [0, 31]
-
-  DMAR:
-    DMAB: [0, 0xFFFF]
 
   OR1:
     TI1_RMP:
