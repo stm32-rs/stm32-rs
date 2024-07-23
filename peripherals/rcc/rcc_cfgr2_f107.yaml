@@ -1,7 +1,7 @@
-_include:
-  - ./rcc_cfgr2_prediv.yaml
-
 RCC:
+  _include:
+    - rcc_cfgr2_prediv.yaml
+
   CFGR2:
     PLL?MUL:
       Mul8: [6, "PLL clock entry x8"]

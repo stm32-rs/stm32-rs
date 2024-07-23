@@ -1,8 +1,8 @@
-_include:
-  - rcc_f0.yaml
-  - rcc_cfgr3_cecsw.yaml
-
 RCC:
+  _include:
+    - rcc_f0.yaml
+    - rcc_cfgr3_cecsw.yaml
+
   CFGR:
     PLLSRC:
       HSI_Div2: [0, "HSI divided by 2 selected as PLL input clock"]

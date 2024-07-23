@@ -14,6 +14,10 @@ MPU:
   _strip:
     - "MPU_"
 
+RCC:
+  _include:
+    - ../peripherals/rcc/rcc_cfgr2_prediv.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -52,7 +56,6 @@ _include:
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/rcc/rcc_f1.yaml
- - ../peripherals/rcc/rcc_cfgr2_prediv.yaml
  - ../peripherals/dma/dma_v1.yaml
  - collect/dma/v1.yaml
  - ../peripherals/iwdg/iwdg.yaml

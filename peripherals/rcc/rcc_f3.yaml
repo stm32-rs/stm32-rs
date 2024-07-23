@@ -1,15 +1,15 @@
 # RCC peripheral
 # Applicable to STM32F3
 
-_include:
-  - rcc_f0_f1_f3_common.yaml
-  - rcc_f0_f3_common.yaml
-  - rcc_cfgr_mcopre.yaml
-  - rcc_cfgr_pllnodiv.yaml
-  - rcc_v2_bdcr_lsedrv.yaml
-  - rcc_cfgr2_prediv.yaml
-
 RCC:
+  _include:
+    - rcc_f0_f1_f3_common.yaml
+    - rcc_f0_f3_common.yaml
+    - rcc_cfgr_mcopre.yaml
+    - rcc_cfgr_pllnodiv.yaml
+    - rcc_v2_bdcr_lsedrv.yaml
+    - rcc_cfgr2_prediv.yaml
+
   CFGR:
     MCO:
       NoMCO: [0, "MCO output disabled, no clock on MCO"]
