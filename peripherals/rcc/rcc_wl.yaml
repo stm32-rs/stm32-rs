@@ -203,27 +203,12 @@ CICR:
   "*C":
     Clear: [1, "Clear interrupt flag"]
 
-"AHB[123]RSTR":
+"AHB[123]RSTR,APB[123]RSTR?":
   "*":
     NoReset: [0, "No effect"]
     Reset: [1, "Reset peripheral"]
 
-"APB[123]RSTR?":
-  "*":
-    NoReset: [0, "No effect"]
-    Reset: [1, "Reset peripheral"]
-
-"A[PH]B[123]ENR":
-  "*":
-    Disabled: [0, "Clock disabled"]
-    Enabled: [1, "Clock enabled"]
-
-"APB[123]ENR?":
-  "*":
-    Disabled: [0, "Clock disabled"]
-    Enabled: [1, "Clock enabled"]
-
-"A[PH]B[123]SMENR?":
+"A[PH]B[123]ENR,APB[123]ENR?,A[PH]B[123]SMENR?":
   "*":
     Disabled: [0, "Clock disabled"]
     Enabled: [1, "Clock enabled"]

@@ -1,35 +1,8 @@
 RCC:
-  AHB2ENR:
-    ADCEN:
-      Disabled: [0, "ADC clock disabled"]
-      Enabled: [1, "ADC clock enabled"]
-
-  APB2ENR:
-    USART1EN:
-      Disabled: [0, "USART1 clock disabled"]
-      Enabled: [1, "USART1 clock enabled"]
-
-  APB1ENR1:
-    LPTIM1EN:
-      Disabled: [0, "LPTIM1 clock disabled"]
-      Enabled: [1, "LPTIM1 clock enabled"]
-    I2C3EN:
-      Disabled: [0, "I2C3 clock disabled"]
-      Enabled: [1, "I2C3 clock enabled"]
-    I2C2EN:
-      Disabled: [0, "I2C2 clock disabled"]
-      Enabled: [1, "I2C2 clock enabled"]
-    I2C1EN:
-      Disabled: [0, "I2C1 clock disabled"]
-      Enabled: [1, "I2C1 clock enabled"]
-
-  APB1ENR2:
-    LPTIM2EN:
-      Disabled: [0, "LPTIM2 clock disabled"]
-      Enabled: [1, "LPTIM2 clock enabled"]
-    LPUART1EN:
-      Disabled: [0, "LPUART1 clock disabled"]
-      Enabled: [1, "LPUART1 clock enabled"]
+  AHB2ENR,APB2ENR,APB1ENR[12]:
+    "*EN":
+      Disabled: [0, "The selected clock is disabled"]
+      Enabled: [1, "The selected clock is enabled"]
 
   CR:
     MSIRANGE:
