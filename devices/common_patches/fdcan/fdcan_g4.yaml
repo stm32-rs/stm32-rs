@@ -301,3 +301,11 @@ _include:
     _modify:
       CFIE:
         bitWidth: 3
+
+EXTI:
+  _modify:
+    _interrupts:
+      fdcan1_intr0_it:
+        value: 21
+      fdcan1_intr1_it:
+        value: 22
