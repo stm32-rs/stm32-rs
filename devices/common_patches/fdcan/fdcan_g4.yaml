@@ -305,7 +305,7 @@ _include:
 EXTI:
   _modify:
     _interrupts:
-      FDCAN1_INTR0_IT:
+      fdcan1_intr0_it:
         value: 21
-      FDCAN1_INTR1_IT:
+      fdcan1_intr1_it:
         value: 22
