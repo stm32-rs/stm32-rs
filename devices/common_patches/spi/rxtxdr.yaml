@@ -45,6 +45,6 @@ _add:
         description: Receive data register
 
 TXDR16:
-  TXDR: [0, 0xff]
+  TXDR: [0, 0xffff]
 TXDR8:
-  TXDR: [0, 0xf]
+  TXDR: [0, 0xff]
