@@ -15,6 +15,7 @@
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Add Open-CMSIS `svdconv` to for more checks
+* Add `derivePathType` to CMSIS-SVD schema
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
 * remove excutable file perm bit from yaml file (#854)
