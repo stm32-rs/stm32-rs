@@ -8,7 +8,7 @@ _add:
     fields:
       TXDR:
         bitOffset: 0
-        bitWidth: 10
+        bitWidth: 16
         description: Transmit data register
   TXDR8:
     access: write-only
@@ -30,7 +30,7 @@ _add:
     fields:
       RXDR:
         bitOffset: 0
-        bitWidth: 10
+        bitWidth: 16
         description: Receive data register
   RXDR8:
     access: read-only
@@ -45,6 +45,6 @@ _add:
         description: Receive data register
 
 TXDR16:
-  TXDR: [0, 0xff]
+  TXDR: [0, 0xffff]
 TXDR8:
-  TXDR: [0, 0xf]
+  TXDR: [0, 0xff]
