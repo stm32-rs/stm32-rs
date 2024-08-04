@@ -5,6 +5,11 @@ _clear_fields: ["*"]
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD:
+  _include:
+    - common_patches/ucpd/rxordseten_split.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
   - common_patches/h7_common_bootflash.yaml
   - collect/jpeg/ram_h7rs.yaml

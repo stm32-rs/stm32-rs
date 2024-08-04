@@ -3,6 +3,12 @@ _svd: ../svd/stm32h562.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD1:
+  _strip: UCPD_
+  _include:
+    - common_patches/ucpd/rxordseten_split.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
+
 # todo: Once tested, apply these to the other H5 variants as applicable, or possibly
 # todo place them in the common/h5.yaml
 _include:

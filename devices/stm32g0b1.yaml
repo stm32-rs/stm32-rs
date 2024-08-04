@@ -48,6 +48,11 @@ TIM3:
 "UCPD*":
   _strip: "UCPD_"
 
+UCPD?:
+  _include:
+    - common_patches/ucpd/rxordseten_split.yaml
+    - ../peripherals/ucpd/ucpd_v2.yaml
+
 USB:
   _strip: "USB_"
 
