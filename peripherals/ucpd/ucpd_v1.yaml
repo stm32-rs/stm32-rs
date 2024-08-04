@@ -10,34 +10,9 @@ CFGR1:
   TXDMAEN:
     Disabled: [0, "DMA mode for transmission disabled"]
     Enabled: [1, "DMA mode for transmission enabled"]
-  _split: [RXORDSETEN]
-  RXORDSETEN0:
-    Disabled: [0, "SOP detect disabled"]
-    Enabled: [1, "SOP detect enabled"]
-  RXORDSETEN1:
-    Disabled: [0, "SOP' detect disabled"]
-    Enabled: [1, "SOP' detect enabled"]
-  RXORDSETEN2:
-    Disabled: [0, "SOP'' detect disabled"]
-    Enabled: [1, "SOP'' detect enabled"]
-  RXORDSETEN3:
-    Disabled: [0, "Hard Reset detect enabled"]
-    Enabled: [1, "Hard Reset detect enabled"]
-  RXORDSETEN4:
-    Disabled: [0, "Cable Detect reset enabled"]
-    Enabled: [1, "Cable Detect reset enabled"]
-  RXORDSETEN5:
-    Disabled: [0, "SOP'_Debug disabled"]
-    Enabled: [1, "SOP'_Debug enabled"]
-  RXORDSETEN6:
-    Disabled: [0, "SOP''_Debug disabled"]
-    Enabled: [1, "SOP''_Debug enabled"]
-  RXORDSETEN7:
-    Disabled: [0, "SOP extension #1 disabled"]
-    Enabled: [1, "SOP extension #1 enabled"]
-  RXORDSETEN8:
-    Disabled: [0, "SOP extension #2 disabled"]
-    Enabled: [1, "SOP extension #2 enabled"]
+  RXORDSETEN?:
+    Disabled: [0, "Flag disabled"]
+    Enabled: [1, "Flag enabled"]
   PSC_USBPDCLK:
     Div1: [0, "Divide by 1"]
     Div2: [1, "Divide by 2"]

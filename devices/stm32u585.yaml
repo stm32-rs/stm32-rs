@@ -62,7 +62,9 @@ SPI?:
 
 UCPD1:
   _strip: UCPD_
-  _include: ../peripherals/ucpd/ucpd_v1.yaml
+  _include:
+    - common_patches/ucpd/rxordseten_split.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
 
 _include:
  - common_patches/u5.yaml

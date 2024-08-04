@@ -15,6 +15,7 @@ SPI?:
 
 UCPD1:
   _include:
+    - common_patches/ucpd/rxordseten_split.yaml
     - common_patches/ucpd/cfgr_missing_r.yaml
     - common_patches/ucpd/tx_rx_missing_r.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml

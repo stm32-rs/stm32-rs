@@ -1,0 +1,39 @@
+CFGR1:
+  _delete: RXORDSETEN
+  _add:
+    RXORDSETEN0:
+      description: SOP detection
+      bitOffset: 20
+      bitWidth: 1
+    RXORDSETEN1:
+      description: SOP' detection
+      bitOffset: 21
+      bitWidth: 1
+    RXORDSETEN2:
+      description: SOP'' detection
+      bitOffset: 22
+      bitWidth: 1
+    RXORDSETEN3:
+      description: Hard Reset detection
+      bitOffset: 23
+      bitWidth: 1
+    RXORDSETEN4:
+      description: Cable Detect reset
+      bitOffset: 24
+      bitWidth: 1
+    RXORDSETEN5:
+      description: SOP'_Debug
+      bitOffset: 25
+      bitWidth: 1
+    RXORDSETEN6:
+      description: SOP'' Debug
+      bitOffset: 26
+      bitWidth: 1
+    RXORDSETEN7:
+      description: "SOP extension #1" 
+      bitOffset: 27
+      bitWidth: 1
+    RXORDSETEN8:
+      description: "SOP extension #2"
+      bitOffset: 28
+      bitWidth: 1
