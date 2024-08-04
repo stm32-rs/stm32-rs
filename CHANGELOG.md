@@ -14,6 +14,7 @@
 * Updated to `svd2rust` 0.33.4, `svdtools` 0.3.17, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
+* Show avaliable device features if no one selected (#998)
 * Add Open-CMSIS `svdconv` to for more checks
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/common_patches moved to subdirectories
