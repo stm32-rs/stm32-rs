@@ -1,9 +1,5 @@
 _svd: ../svd/stm32u575.svd
 
-UCPD1:
-  _strip:
-    - UCPD_
-
 # This SVD calls this ADC12, but ADC12_Common in most others
 _modify:
   ADC12:
@@ -66,6 +62,10 @@ PWR:
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD1:
+  _strip: UCPD_
+  _include: ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
  - common_patches/u5.yaml
  - common_patches/adc/u5.yaml
@@ -83,4 +83,3 @@ _include:
  - ../peripherals/octospi/u5.yaml
  - ../peripherals/pwr/pwr_u5.yaml
  - ../peripherals/rcc/rcc_u5.yaml
- - ../peripherals/ucpd/ucpd_v1.yaml

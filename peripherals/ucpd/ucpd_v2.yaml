@@ -3,15 +3,14 @@
 _include:
   - ucpd_v1.yaml
 
-UCPD,UCPD?:
-  CR:
-    DBATTEN:
-      Disabled: [0, "Dead battery function disabled"]
-      Enabled: [1, "Dead battery function enabled"]
-    # Not in G071 and G081, unsure why
-    ?~CC2VCONNEN:
-      Disabled: [0, "VCONN switch for CC2 disabled"]
-      Enabled: [1, "VCONN switch for CC2 enabled"]
-    ?~CC1VCONNEN:
-      Disabled: [0, "VCONN switch for CC1 disabled"]
-      Enabled: [1, "VCONN switch for CC1 enabled"]
+CR:
+  DBATTEN:
+    Disabled: [0, "Dead battery function disabled"]
+    Enabled: [1, "Dead battery function enabled"]
+  # Not in G071 and G081, unsure why
+  ?~CC2VCONNEN:
+    Disabled: [0, "VCONN switch for CC2 disabled"]
+    Enabled: [1, "VCONN switch for CC2 enabled"]
+  ?~CC1VCONNEN:
+    Disabled: [0, "VCONN switch for CC1 disabled"]
+    Enabled: [1, "VCONN switch for CC1 enabled"]

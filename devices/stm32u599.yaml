@@ -31,6 +31,11 @@ PWR:
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD1:
+  _include:
+    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
  - common_patches/u5.yaml
  - common_patches/adc/u5.yaml
@@ -39,7 +44,6 @@ _include:
  - collect/gfxmmu/lut.yaml
  - common_patches/octospi/u5.yaml
  - common_patches/tim/common.yaml
- - common_patches/ucpd/tx_rx_missing_r.yaml
  - ../peripherals/adc/adc_u5_dual.yaml
  - ../peripherals/exti/exti_u5.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
@@ -50,4 +54,3 @@ _include:
  - ../peripherals/octospi/u5.yaml
  - ../peripherals/pwr/pwr_u5.yaml
  - ../peripherals/rcc/rcc_u5.yaml
- - ../peripherals/ucpd/ucpd_v1.yaml

@@ -40,6 +40,12 @@ TIM2:
 TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
+UCPD?:
+  _include:
+    - common_patches/ucpd/cfgr_missing_r.yaml
+    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - ../peripherals/ucpd/ucpd_v2.yaml
+
 _include:
   - common_patches/g0x1_strip.yaml
   - common_patches/nvic/2_prio_bits.yaml
@@ -69,9 +75,6 @@ _include:
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim_advanced.yaml
   - collect/tim/ccr.yaml
-  - common_patches/ucpd/cfgr_missing_r.yaml
-  - common_patches/ucpd/tx_rx_missing_r.yaml
-  - ../peripherals/ucpd/ucpd_v2.yaml
   - common_patches/usart/g0.yaml
   - ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml

@@ -3,6 +3,10 @@ _svd: ../svd/stm32h573.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD1:
+  _strip: UCPD_
+  _include: ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
   - common_patches/h5.yaml
   - common_patches/h56x_h57x.yaml
@@ -45,7 +49,6 @@ _include:
   - ../peripherals/gpdma/gpdma.yaml
   - ../peripherals/spi/spi_v3_base.yaml
   - ../peripherals/spi/spi_v3_cfg1_bpass.yaml
-  - ../peripherals/ucpd/ucpd_v1.yaml
   - ../peripherals/usart/usart_v2B1.yaml
   - ../peripherals/usart/usart_fifoen.yaml
   - ../peripherals/usart/usart_sync_slave.yaml

@@ -51,6 +51,12 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+UCPD1:
+  _include:
+    - common_patches/ucpd/cfgr_missing_r.yaml
+    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
  - collect/dma/dmamux.yaml
  - common_patches/dma/interrupt_names.yaml
@@ -67,9 +73,6 @@ _include:
  - common_patches/tim/common.yaml
  - common_patches/tim/v2/l5.yaml
  - ../peripherals/tim/v2/ccm.yaml
- - common_patches/ucpd/cfgr_missing_r.yaml
- - common_patches/ucpd/tx_rx_missing_r.yaml
- - ../peripherals/ucpd/ucpd_v1.yaml
  - common_patches/rtc/alarm.yaml
  - collect/rtc/tamp_bkpr.yaml
  - collect/rtc/alarm.yaml

@@ -5,6 +5,9 @@ _clear_fields: ["*"]
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+UCPD:
+  _include: ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
   - common_patches/h7_common_bootflash.yaml
   - collect/jpeg/ram_h7rs.yaml
@@ -19,4 +22,3 @@ _include:
   - ../peripherals/gpio/v3/af0-15.yaml
   - ../peripherals/gpio/gpio_with_brr.yaml
   - ../peripherals/rcc/rcc_h7rs.yaml
-  - ../peripherals/ucpd/ucpd_v1.yaml

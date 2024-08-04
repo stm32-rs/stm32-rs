@@ -28,6 +28,12 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+UCPD1:
+  _include:
+    - common_patches/ucpd/cfgr_missing_r.yaml
+    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
+
 _include:
  - common_patches/usart/merge_BRR_fields.yaml
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
@@ -67,9 +73,6 @@ _include:
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
- - common_patches/ucpd/cfgr_missing_r.yaml
- - common_patches/ucpd/tx_rx_missing_r.yaml
- - ../peripherals/ucpd/ucpd_v1.yaml
  - ../peripherals/usart/usart_v2C.yaml
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/usb/g4.yaml
