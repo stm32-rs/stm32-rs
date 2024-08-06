@@ -69,6 +69,7 @@
 * G4: fix FDCAN interrupt numbers being swapped
 * G0X1, G4, H5, H7R/S, L5, U5: Add UCPD peripheral
 * G4A1: Add FDCAN2 and rename USB peripheral
+* G4A1: Add BCDR and adjust to be closer to G491
 
 Family-specific:
 
