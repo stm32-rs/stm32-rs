@@ -1,13 +1,12 @@
 _svd: ../svd/stm32g4a1.svd
 
-_modify:
-  USB_FS_device:
-    name: USB
-
 _derive:
   FDCAN2:
     _from: FDCAN
     baseAddress: 0x40006800
+  TIM20:
+    _from: TIM1
+    baseAddress: 0x40015000
 
 FDCAN2:
   _add:
@@ -42,6 +41,13 @@ SPI?:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
+
+UCPD1:
+  _include:
+    - common_patches/ucpd/rxordseten_split.yaml
+    - common_patches/ucpd/cfgr_missing_r.yaml
+    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - ../peripherals/ucpd/ucpd_v1.yaml
 
 VREFBUF:
   _strip:
@@ -87,7 +93,11 @@ _include:
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
  - ../peripherals/usart/usart_v2C.yaml
- - common_patches/tim/v2/g4.yaml
+ - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+ - ./common_patches/usb/g4.yaml
+ - ../peripherals/rcc/rcc_g4.yaml
  - common_patches/tim/common.yaml
+ - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - collect/tim/ccr.yaml
+ - ../peripherals/flash/flash_g4.yaml

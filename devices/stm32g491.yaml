@@ -4,6 +4,9 @@ _derive:
   FDCAN2:
     _from: FDCAN
     baseAddress: 0x40006800
+  TIM20:
+    _from: TIM1
+    baseAddress: 0x40015000
 
 FDCAN2:
   _add:
