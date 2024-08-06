@@ -10,7 +10,7 @@ _derive:
     baseAddress: 0x40006800
 
 FDCAN2:
-  add:
+  _add:
     _interrupts:
       FDCAN2_intr0:
         description: FDCAN2_intr0
