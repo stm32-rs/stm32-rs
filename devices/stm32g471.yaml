@@ -1,5 +1,16 @@
 _svd: ../svd/stm32g471.svd
 
+OPAMP:
+  _copy:
+    OPAMP6_CSR:
+      _from: OPAMP1_CSR
+      addressOffset: "0x14"
+      description: OPAMP6 control/status register
+    OPAMP6_TCMR:
+      _from: OPAMP1_TCMR
+      addressOffset: "0x2C"
+      description: OPAMP6 control/status register
+
 COMP:
   _strip:
     - "COMP_"
@@ -59,6 +70,7 @@ _include:
  - ../peripherals/dac/dac_wl_12bit.yaml
  - ../peripherals/dac/dac_wl_8bit.yaml
  - ../peripherals/opamp/opamp_g4_common.yaml
+ - ../peripherals/opamp/opamp_g4_opamp6.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
