@@ -1,5 +1,24 @@
 _svd: ../svd/stm32g4a1.svd
 
+_modify:
+  USB_FS_device:
+    name: USB
+
+_derive:
+  FDCAN2:
+    _from: FDCAN
+    baseAddress: 0x40006800
+
+FDCAN2:
+  _add:
+    _interrupts:
+      FDCAN2_intr0:
+        description: FDCAN2_intr0
+        value: 86
+      FDCAN2_intr1:
+        description: FDCAN2_intr1
+        value: 87
+
 OPAMP:
   _copy:
     OPAMP6_CSR:
