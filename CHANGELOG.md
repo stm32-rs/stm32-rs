@@ -71,6 +71,7 @@
 * G4A1: Add FDCAN2 and rename USB peripheral
 * G4A1: Add BCDR and adjust to be closer to G491
 * G491 and G4A1: Add TIM20
+* G471: Add OPAMP6
 
 Family-specific:
 
