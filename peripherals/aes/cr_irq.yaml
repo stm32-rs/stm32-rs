@@ -1,0 +1,13 @@
+CR:
+  ERRIE:
+    Disabled: [0, "Disable (mask) error interrupt"]
+    Enabled: [1, "Enable error interrupt"]
+  CCFIE:
+    Disabled: [0, "Disable (mask) CCF interrupt"]
+    Enabled: [1, "Enable CCF interrupt"]
+  ERRC:
+    _write:
+      Clear: [1, "Clear RDERR and WRERR flags"]
+  CCFC:
+    _write:
+      Clear: [1, "Clear computation complete flag"]

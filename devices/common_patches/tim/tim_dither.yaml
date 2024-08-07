@@ -19,6 +19,18 @@
         access: read-write
 
 "TIM[25]":
+  ARR:
+    _add:
+      INTEGER:
+        description: Integer part in dithering mode
+        bitOffset: 4
+        bitWidth: 28
+        access: read-write
+      DITHER:
+        description: Dithered part in dithering mode
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
   "CCR?":
     _add:
       INTEGER:
@@ -45,18 +57,3 @@
         bitOffset: 0
         bitWidth: 4
         access: read-write
-
-"TIM[25]":
-  ARR:
-    _add:
-      INTEGER:
-        description: Integer part in dithering mode
-        bitOffset: 4
-        bitWidth: 28
-        access: read-write
-      DITHER:
-        description: Dithered part in dithering mode
-        bitOffset: 0
-        bitWidth: 4
-        access: read-write
-

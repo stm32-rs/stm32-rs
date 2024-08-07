@@ -36,7 +36,10 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 RCC:
-  _include: common_patches/rcc/g0x0_delete.yaml
+  _include:
+    - common_patches/rcc/g0x0_delete.yaml
+    - common_patches/rcc/g0.yaml
+    - ../peripherals/rcc/rcc_g0.yaml
   AHBRSTR:
     _delete:
       - AESRST
@@ -96,11 +99,6 @@ ADC:
       ADC_COMP:
         name: ADC
         description: ADC Interrupt
-
-RCC:
-  _include:
-    - common_patches/rcc/g0.yaml
-    - ../peripherals/rcc/rcc_g0.yaml
 
 SPI?:
   _include: common_patches/spi/dr8.yaml

@@ -30,8 +30,7 @@ PKA:
       ModularMul: [0b010000, 'Montgomery multiplication']
     START:
       _write:
-        Start: [1, 'Writing 1 to this bit starts the operation which is selected by MODE[5:0], using the operands
-and data already written to the PKA RAM - This bit is always read as 0']
+        Start: [1, 'Writing 1 to this bit starts the operation which is selected by MODE[5:0], using the operands and data already written to the PKA RAM - This bit is always read as 0']
     EN:
       Disabled: [0, 'Disable PKA']
       Enabled: [1, 'Enable PKA']

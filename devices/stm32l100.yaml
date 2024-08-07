@@ -1,5 +1,10 @@
 _svd: ../svd/stm32l100.svd
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v1.yaml
+
 CRC:
   DR:
     # The SVD calls the DR field "Data_register"
