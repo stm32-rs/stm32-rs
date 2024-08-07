@@ -10,6 +10,10 @@ _copy:
   ADC3:
     from: ADC2
 
+ADC[23]:
+  _include:
+    - common_patches/adc/smpx_17.yaml
+
 _modify:
   # Fix case on Ethernet peripherals to match other devices
   ETHERNET_DMA:

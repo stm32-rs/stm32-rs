@@ -5,6 +5,10 @@ _rebase:
   I2C1: I2C3
   SPI1: I2S2ext
 
+ADC1:
+  _include:
+    - common_patches/adc/smpx_18.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -145,7 +149,6 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - common_patches/adc/adc_common_group_name.yaml
- - common_patches/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_b.yaml
  - collect/adc/jofr_jdr.yaml

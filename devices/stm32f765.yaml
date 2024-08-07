@@ -18,6 +18,10 @@ _modify:
   SPDIF_RX:
     name: SPDIFRX
 
+ADC1:
+  _include:
+    - common_patches/adc/smpx_18.yaml
+
 DSI:
   _strip:
     - "DSI_"

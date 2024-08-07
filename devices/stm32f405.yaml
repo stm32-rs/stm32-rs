@@ -22,6 +22,10 @@ _modify:
   SAI1:
     groupName: SAI
 
+ADC1:
+  _include:
+    - common_patches/adc/smpx_18.yaml
+
 # All of these fields and registers only concern Ethernet.
 # They are present in the SVD for stm32f405, but the stm32f405
 # doesn't actually have ethernet.
@@ -143,7 +147,6 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - common_patches/adc/adc_common_group_name.yaml
- - common_patches/adc/adc_v2_smpr.yaml
  - ../peripherals/adc/adc_v2_multi.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
  - collect/adc/jofr_jdr.yaml

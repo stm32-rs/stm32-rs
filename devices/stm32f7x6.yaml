@@ -15,6 +15,10 @@ _modify:
   SPDIF_RX:
     name: SPDIFRX
 
+ADC1:
+  _include:
+    - common_patches/adc/smpx_18.yaml
+
 "GPIO*":
   _modify:
     # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
