@@ -1,0 +1,153 @@
+# Calibration Configuration Unit (CCU) registers for devices with FDCAN
+
+# This was created to fix CCU registers on h7b3 (total mess in SVD) and is
+# based on the SVD for h735 with some minor corrections.
+
+# TODO: Maybe use this on all CCUs now that it exists? It appears to match
+# all h7xx and mp1xx devices.
+
+_modify:
+  CAN_CCU:
+    description: CAN clock calibration unit
+    groupName: CAN_CCU
+
+# Delete and re-add all registers for the CCU peripheral
+CAN_CCU:
+  _delete:
+    _registers:
+      - ?*
+
+  _add:
+    CREL:
+      displayName: CREL
+      description: Clock calibration unit core release register
+      addressOffset: 0x0
+      size: 0x20
+      access: read-only
+      resetValue: 0x11141218
+      fields:
+        DAY:
+          description: Timestamp day
+          bitOffset: 0
+          bitWidth: 8
+        MON:
+          description: Timestamp month
+          bitOffset: 8
+          bitWidth: 8
+        YEAR:
+          description: Timestamp year
+          bitOffset: 16
+          bitWidth: 4
+        SUBSTEP:
+          description: Sub-step of core release
+          bitOffset: 20
+          bitWidth: 4
+        STEP:
+          description: Step of core release
+          bitOffset: 24
+          bitWidth: 4
+        REL:
+          description: Core release
+          bitOffset: 28
+          bitWidth: 4
+    CCFG:
+      displayName: CCFG
+      description: Calibration configuration register
+      addressOffset: 0x04
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000004
+      fields:
+        TQBT:
+          description: Time quanta per bit time
+          bitOffset: 0
+          bitWidth: 5
+        BCC:
+          description: Bypass clock calibration
+          bitOffset: 6
+          bitWidth: 1
+        CFL:
+          description: Calibration field length
+          bitOffset: 7
+          bitWidth: 1
+        OCPM:
+          description: Oscillator clock periods minimum
+          bitOffset: 8
+          bitWidth: 8
+        CDIV:
+          description: Clock divider
+          bitOffset: 16
+          bitWidth: 4
+        SWR:
+          description: Software reset
+          bitOffset: 31
+          bitWidth: 1
+    CSTAT:
+      displayName: CSTAT
+      description: Calibration status register
+      addressOffset: 0x08
+      size: 0x20
+      access: read-only
+      resetValue: 0x0203FFFF
+      fields:
+        OCPC:
+          description: Oscillator clock period counter
+          bitOffset: 0
+          bitWidth: 18
+        TQC:
+          description: Time quanta counter
+          bitOffset: 18
+          bitWidth: 11
+        CALS:
+          description: Calibration state
+          bitOffset: 30
+          bitWidth: 2
+    CWD:
+      displayName: CWD
+      description: Calibration watchdog register
+      addressOffset: 0x0C
+      size: 0x20
+      resetValue: 0x00000000
+      fields:
+        WDC:
+          description: Watchdog configuration
+          bitOffset: 0
+          bitWidth: 16
+          access: read-write
+        WDV:
+          description: Watchdog value
+          bitOffset: 16
+          bitWidth: 16
+          access: read-only
+    IR:
+      displayName: IR
+      description: Clock calibration unit interrupt register
+      addressOffset: 0x10
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CWE:
+          description: Calibration watchdog event
+          bitOffset: 0
+          bitWidth: 1
+        CSC:
+          description: Calibration state changed
+          bitOffset: 1
+          bitWidth: 1
+    IE:
+      displayName: IE
+      description: Clock calibration unit interrupt enable register
+      addressOffset: 0x14
+      size: 0x20
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        CWEE:
+          description: Calibration watchdog event enable
+          bitOffset: 0
+          bitWidth: 1
+        CSCE:
+          description: Calibration state changed enable
+          bitOffset: 1
+          bitWidth: 1

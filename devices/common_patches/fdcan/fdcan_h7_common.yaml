@@ -1,8 +1,5 @@
 # Patches for the Flexible Data Rate CAN (FDCAN) on H7
 
-_include:
-  - ./fdcan_common.yaml
-
 "FDCAN,FDCAN?":
   RXF0C:
     _modify:
@@ -49,3 +46,13 @@ _include:
       access: read-write
     CAN_TTGTP:
       name: TTGTP
+
+FDCAN1:
+  TTOST:
+    _modify:
+      GTP:
+        name: QGTP
+  TTCPT:
+    _modify:
+      CT:
+        name: CCV
