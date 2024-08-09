@@ -1,11 +1,10 @@
 # EWCR register. Present on H5 family.
 
-"IWDG,IWDG?":
-  EWCR:
-    EWIE:
-      Disabled: [0, "Early interrupt is disabled"]
-      Enabled: [1, "Early interrupt is enabled"]
-    EWIC:
-      _write:
-        Acknowledge: [1, "Acknowledge early wake-up interrupt"]
-    EWIT: [0x1, 0xFFF]
+EWCR:
+  EWIE:
+    Disabled: [0, "Early interrupt is disabled"]
+    Enabled: [1, "Early interrupt is enabled"]
+  EWIC:
+    _write:
+      Acknowledge: [1, "Acknowledge early wake-up interrupt"]
+  EWIT: [0x1, 0xFFF]

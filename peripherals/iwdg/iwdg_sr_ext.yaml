@@ -1,11 +1,9 @@
-
-"IWDG,IWDG?":
-  SR:
-    "*IF":
-      _read:
-        NotPending: [0, "No pending interrupt"]
-        Pending: [1, "Interrupt pending"]
-    ONF:
-      _read:
-        NotActivated: [0, "IWDG is not activated"]
-        Activated: [1, "IWDG is activated"]
+SR:
+  "*IF":
+    _read:
+      NotPending: [0, "No pending interrupt"]
+      Pending: [1, "Interrupt pending"]
+  ONF:
+    _read:
+      NotActivated: [0, "IWDG is not activated"]
+      Activated: [1, "IWDG is activated"]
