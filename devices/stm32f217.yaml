@@ -18,6 +18,11 @@ CRYP:
     _merge:
       - "IV*"
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -28,7 +33,6 @@ SPI?:
     - common_patches/spi/dr8.yaml
 
 _include:
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
@@ -80,7 +84,6 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - collect/hash/v1.yaml
  - common_patches/rtc/rtc_cr.yaml
  - collect/rtc/bkpr.yaml

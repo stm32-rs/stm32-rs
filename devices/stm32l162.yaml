@@ -12,6 +12,11 @@ CRC:
       Independent_data_register:
         name: IDR
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -22,7 +27,6 @@ SPI?:
     - common_patches/spi/dr8.yaml
 
 _include:
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/l1_smpr.yaml
  - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
@@ -50,7 +54,6 @@ _include:
  - collect/tim/ccr.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_cr.yaml
  - collect/rtc/alarm.yaml

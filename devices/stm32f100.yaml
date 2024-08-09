@@ -3,6 +3,11 @@ _svd: ../svd/stm32f100.svd
 _derive:
   UART5: UART4
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 WWDG:
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -21,7 +26,6 @@ SPI?:
 
 _include:
  - ./common_patches/rcc/f1_uart45.yaml
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - collect/fsmc/sram.yaml
@@ -33,7 +37,6 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v1/common.yaml
