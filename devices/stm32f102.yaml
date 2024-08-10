@@ -10,6 +10,10 @@ _copy:
   ADC3:
     from: ADC2
 
+ADC1:
+  _include:
+    - common_patches/adc/smpx_17.yaml
+
 _derive:
   TIM4: TIM2
   TIM5: TIM2

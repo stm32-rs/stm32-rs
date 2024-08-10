@@ -29,6 +29,7 @@
 * STM32U5xx: Update SVD to version 1.3 (#890)
 * Fix several array descriptions
 * Fix ADC SMPR fields in L1
+* Fix missing ADC.SMPR.SMPx_x
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums
 * Fix ETH_MACFFR bitOffsets
