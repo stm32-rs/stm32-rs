@@ -1,5 +1,10 @@
 _svd: ../svd/stm32u5a5.svd
 
+MDF1:
+  _strip: MDF_
+  _include:
+    - collect/mdf/u5.yaml
+
 PWR:
   CR1:
     _add:
