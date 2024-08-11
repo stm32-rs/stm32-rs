@@ -7,6 +7,12 @@ _modify:
   I2C:
     name: I2C1
 
+ADC:
+  _include:
+    - common_patches/adc/c0.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 SPI1:
   _include:
     - common_patches/16bit.yaml
@@ -17,13 +23,6 @@ SPI1:
 I2C?:
   _strip:
     - "I2C_"
-
-ADC:
-  _modify:
-    CHSELR_MOD0:
-      name: CHSELR0
-    CHSELR_MOD1:
-      name: CHSELR1
 
 TIM[123]:
   _strip: "TIM?_"

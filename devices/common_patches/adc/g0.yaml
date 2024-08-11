@@ -1,14 +1,13 @@
-ADC:
+_modify:
+  CHSELR,CHSELR_0,CHSELRMOD0:
+    name: CHSELR0
+  CHSELR_1,CHSELRMOD1:
+    name: CHSELR1
+CFGR1:
   _modify:
-    CHSELR,CHSELR_0,CHSELRMOD0:
-      name: CHSELR0
-    CHSELR_1,CHSELRMOD1:
-      name: CHSELR1
-  CFGR1:
-    _modify:
-      AWDCH1CH:
-        name: AWD1CH
-  DR:
-    _modify:
-      regularDATA:
-        name: DATA
+    AWDCH1CH:
+      name: AWD1CH
+DR:
+  _modify:
+    regularDATA:
+      name: DATA

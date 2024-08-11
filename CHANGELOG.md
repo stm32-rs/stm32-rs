@@ -15,6 +15,7 @@
 * HRTIM: derive identical registers
 * HRTIM: specify TIM events for each block
 * Collent in field arrays: GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
+* ADC: C0+G0+WL field arrays
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR
 * modify `LP_Timer1` interrupt instead of adding new
