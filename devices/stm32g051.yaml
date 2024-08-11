@@ -41,6 +41,16 @@ TIM2:
 TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
   - common_patches/g0x1_strip.yaml
   - common_patches/nvic/2_prio_bits.yaml
@@ -55,7 +65,6 @@ _include:
   - ../peripherals/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
   - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/iwdg/iwdg_with_WINR.yaml
   - common_patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
@@ -72,4 +81,3 @@ _include:
   # TODO: fix UART?:ICR:NECF
   #- ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml
-  - ../peripherals/wwdg/wwdg_v2.yaml

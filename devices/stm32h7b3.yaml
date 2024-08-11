@@ -87,6 +87,16 @@ DFSDM*:
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/wwdg/h7.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
  - common_patches/h7_common_highmemory.yaml
  - ../peripherals/hdmi_cec.yaml
@@ -163,10 +173,8 @@ _include:
  - ../peripherals/tim/tim_h7.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - collect/tim/ccr.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti_h7.yaml
  - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/wwdg/wwdg_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_cr.yaml
@@ -175,5 +183,4 @@ _include:
  - collect/rtc/alarm.yaml
  - collect/rtc/bkpr.yaml
  - common_patches/crc/h7_addr_fix.yaml
- - common_patches/wwdg/h7.yaml
  - collect/dfsdm/v1+.yaml

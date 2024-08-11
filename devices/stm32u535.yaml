@@ -18,6 +18,12 @@ PWR:
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+IWDG:
+  _include: common_patches/16bit.yaml
+
+WWDG:
+  _include: common_patches/16bit.yaml
+
 _include:
  - common_patches/u5.yaml
  - common_patches/adc/u5.yaml

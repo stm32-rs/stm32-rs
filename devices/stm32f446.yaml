@@ -554,6 +554,16 @@ PWR:
         name: EWUP1
         description: Enable WKUP1 pin
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -613,8 +623,6 @@ _include:
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/i2c/i2c_v2_fmp.yaml
- - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/f4_cr.yaml

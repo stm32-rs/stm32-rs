@@ -3,15 +3,23 @@ _svd: ../svd/stm32h503.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - ../peripherals/iwdg/iwdg_sr.yaml
+    - ../peripherals/iwdg/iwdg_sr_ext.yaml
+    - ../peripherals/iwdg/iwdg_ewcr.yaml
+    - ../peripherals/iwdg/iwdg_pr_ext.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
+
 _include:
   - common_patches/h5.yaml
   - ../peripherals/crs/crs.yaml
-  - ../peripherals/wwdg/wwdg_v2.yaml
-  - ../peripherals/iwdg/iwdg_with_WINR.yaml
-  - ../peripherals/iwdg/iwdg_sr.yaml
-  - ../peripherals/iwdg/iwdg_sr_ext.yaml
-  - ../peripherals/iwdg/iwdg_ewcr.yaml
-  - ../peripherals/iwdg/iwdg_pr_ext.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - ../peripherals/sbs/sbs.yaml

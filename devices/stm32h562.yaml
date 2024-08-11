@@ -1,5 +1,14 @@
 _svd: ../svd/stm32h562.svd
 
+IWDG:
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - ../peripherals/iwdg/iwdg_sr.yaml
+    - ../peripherals/iwdg/iwdg_sr_ext.yaml
+    - ../peripherals/iwdg/iwdg_ewcr.yaml
+    - ../peripherals/iwdg/iwdg_pr_ext.yaml
+
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
@@ -8,6 +17,11 @@ UCPD1:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit_with_mask.yaml
+    - ../peripherals/wwdg/wwdg_v2.yaml
 
 # todo: Once tested, apply these to the other H5 variants as applicable, or possibly
 # todo place them in the common/h5.yaml
@@ -38,12 +52,6 @@ _include:
 
   - ../peripherals/sai/sai.yaml
   - ../peripherals/crs/crs.yaml
-  - ../peripherals/wwdg/wwdg_v2.yaml
-  - ../peripherals/iwdg/iwdg_with_WINR.yaml
-  - ../peripherals/iwdg/iwdg_sr.yaml
-  - ../peripherals/iwdg/iwdg_sr_ext.yaml
-  - ../peripherals/iwdg/iwdg_ewcr.yaml
-  - ../peripherals/iwdg/iwdg_pr_ext.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - ../peripherals/pwr/pwr_h5.yaml
