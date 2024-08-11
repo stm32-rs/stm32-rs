@@ -19,6 +19,11 @@ DSI:
   _strip:
     - DSI_
 
+MDF1:
+  _strip: MDF_
+  _include:
+    - collect/mdf/u5.yaml
+
 PWR:
   CR1:
     _add:

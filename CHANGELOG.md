@@ -82,6 +82,7 @@
 * 16-bit SPI registers, add DR8 (#993) (fixed)
 * U5: Strip prefixes from peripheral registers
 * U5: Add ADC, DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, PWR, RCC peripherals
+* U5: MDF cluster
 * H7: add stm32h7r/s devices (#972)
 * WB: add `RCC`, `SYSCFG` enums
 * G4: fix FDCAN interrupt numbers being swapped
