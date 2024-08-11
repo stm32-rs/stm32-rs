@@ -12,7 +12,7 @@ jobs:
       SVDTOOLS: svdtools
     steps:
       - name: Checkout master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Install tools

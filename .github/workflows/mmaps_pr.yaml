@@ -22,18 +22,18 @@ jobs:
 
     steps:
       - name: Checkout master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: master
 
       - name: Checkout pull request
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: refs/pull/${{ github.event.number }}/head
           path: pr
 
       - name: Checkout mmaps
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: stm32-rs/stm32-rs-mmaps
           ssh-key: ${{ secrets.MMAPS_KEY }}
