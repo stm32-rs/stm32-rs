@@ -12,6 +12,11 @@ CRC:
       Independent_data_register:
         name: IDR
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 RCC:
   CR:
     _merge: ["RTCPRE*"]
@@ -70,7 +75,6 @@ SPI?:
 _include:
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/l1_smpr.yaml
  - common_patches/exti/split.yaml
  - common_patches/fsmc/fsmc_sramfix_common.yaml
@@ -100,7 +104,6 @@ _include:
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l1.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - common_patches/rtc/alarm.yaml
  - common_patches/rtc/rtc_cr.yaml
  - collect/rtc/alarm.yaml

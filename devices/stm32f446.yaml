@@ -35,6 +35,12 @@ ADC1:
   _include:
     - common_patches/adc/smpx_18.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -521,6 +527,10 @@ _add:
             bitOffset: 0
             bitWidth: 8
 
+FMPI2C?:
+  _include:
+    - ../peripherals/i2c/i2c_v2_base.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -556,7 +566,6 @@ PWR:
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
@@ -611,8 +620,6 @@ _include:
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
- - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
@@ -647,6 +654,5 @@ _include:
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml
  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
- - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/pwr/f4.yaml
  - ../peripherals/pwr/pwr_f446.yaml
