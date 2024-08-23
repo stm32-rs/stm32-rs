@@ -26,6 +26,7 @@
   stm32-rs changes:
   - enumerationType now has enumeratedValue minOccurs=0, as otherwise
     a derivedFrom enumerationType does not validate
+  - add derivePathType that allows using full path for derivedFrom
 
   Version 1.3.6:
   - add ARMV81MML as enumeration value for cpuNameType.
@@ -154,6 +155,13 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <!-- derivePathType specifies the sequence of dimableIdentifierType. -->
+  <!-- this is particularly important as these are used in ANSI C Structures during the device header file generation -->
+  <xs:simpleType name="derivePathType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(((%s)|(%s)[_A-Za-z]{1}[_A-Za-z0-9]*)|([_A-Za-z]{1}[_A-Za-z0-9]*(\[%s\])?)|([_A-Za-z]{1}[_A-Za-z0-9]*(%s)?[_A-Za-z0-9]*))(\.(((%s)|(%s)[_A-Za-z]{1}[_A-Za-z0-9]*)|([_A-Za-z]{1}[_A-Za-z0-9]*(\[%s\])?)|([_A-Za-z]{1}[_A-Za-z0-9]*(%s)?[_A-Za-z0-9]*)))*"/>
+    </xs:restriction>
+  </xs:simpleType>
   <!-- dimableIdentifierType specifies the subset and sequence of characters used for specifying identifiers that may contain %s from dim. -->
   <!-- this is particularly important as these are used in ANSI C Structures during the device header file generation -->
   <xs:simpleType name="dimableIdentifierType">
@@ -464,7 +472,7 @@
       <xs:element name="enumeratedValues" type="enumerationType" minOccurs="0" maxOccurs="2">
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="derivedFrom" type="dimableIdentifierType" use="optional"/>
+    <xs:attribute name="derivedFrom" type="derivePathType" use="optional"/>
   </xs:complexType>
 
   <xs:complexType name="fieldsType">
@@ -510,7 +518,7 @@
       <!-- fields section contains all fields that belong to this register -->
       <xs:element name="fields" type="fieldsType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="derivedFrom" type="dimableIdentifierType" use="optional"/>
+    <xs:attribute name="derivedFrom" type="derivePathType" use="optional"/>
   </xs:complexType>
 
   <!-- V1.1: A cluster is a set of registers that are composed into a C data structure in the device header file -->
@@ -537,7 +545,7 @@
         </xs:choice>
       </xs:sequence>
     </xs:sequence>
-    <xs:attribute name="derivedFrom" type="dimableIdentifierType" use="optional"/>
+    <xs:attribute name="derivedFrom" type="derivePathType" use="optional"/>
   </xs:complexType>
 
   <!-- the registers section can have an arbitrary list of cluster and register sections -->
