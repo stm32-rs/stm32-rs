@@ -28,6 +28,12 @@ TAMP:
   _strip:
     - "TAMP_"
 
+RCC:
+  RCC_BDCR:
+    _modify:
+      DIGBYP:
+        access: read-write
+
 _include:
  - collect/dsi/isr.yaml
  - common_patches/rtc/alarm.yaml
