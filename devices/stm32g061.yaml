@@ -10,6 +10,12 @@ _copy:
     from: TIM2
     baseAddress: 0x40000400
 
+ADC:
+  _include:
+    - common_patches/adc/g0.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 RCC:
   _include:
     - common_patches/rcc/g0.yaml
@@ -47,8 +53,6 @@ TIM3:
 _include:
   - common_patches/g0x1_strip.yaml
   - common_patches/nvic/2_prio_bits.yaml
-  - common_patches/adc/g0.yaml
-  - ../peripherals/adc/adc_wl.yaml
   - common_patches/dma/g0_dma1_7ch_only.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml

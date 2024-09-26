@@ -3,6 +3,12 @@ _svd: ../svd/stm32c031.svd
 _modify:
   name: STM32C031
 
+ADC:
+  _include:
+    - common_patches/adc/c0.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 SPI:
   _include:
     - common_patches/16bit.yaml

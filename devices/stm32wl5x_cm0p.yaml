@@ -5,6 +5,13 @@ _modify:
   TIM*:
     groupName: TIM
 
+ADC:
+  _strip: ADC_
+  _include:
+    - common_patches/adc/wl.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 AES:
   CR:
     _modify:
@@ -125,10 +132,6 @@ MPU:
 TZSC:
   _strip:
     - "TZSC_"
-
-ADC:
-  _strip:
-    - "ADC_"
 
 _include:
  - ../devices/common_patches/spi/rename_dff_tifrfe.yaml

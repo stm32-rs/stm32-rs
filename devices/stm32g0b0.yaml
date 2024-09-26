@@ -5,6 +5,12 @@ _modify:
 
 _clear_fields: ["*"]
 
+ADC:
+  _include:
+    - common_patches/adc/g0.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 TIM1:
   _modify:
     _interrupts:
@@ -51,8 +57,6 @@ VREFBUF:
 _include:
   - common_patches/g0_strip.yaml
   - common_patches/nvic/2_prio_bits.yaml
-  - common_patches/adc/g0.yaml
-  - ../peripherals/adc/adc_wl.yaml
   - common_patches/dma/g0_dma2_5ch.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml

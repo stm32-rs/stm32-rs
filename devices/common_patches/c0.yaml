@@ -4,15 +4,6 @@ RCC:
   _strip:
     - "RCC_"
 
-ADC:
-  _strip:
-    - "ADC_"
-  _modify:
-    CHSELR_MOD0:
-      name: CHSELR0
-    CHSELR_MOD1:
-      name: CHSELR1
-
 DMA:
   _strip:
     - "DMA_"

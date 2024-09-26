@@ -5,6 +5,12 @@ _modify:
   TIM*:
     groupName: TIM
 
+ADC:
+  _include:
+    - common_patches/adc/wl.yaml
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
 AES:
   CR:
     _modify:
@@ -128,7 +134,6 @@ TZSC:
 
 _include:
  - ../devices/common_patches/spi/rename_dff_tifrfe.yaml
- - ../devices/common_patches/adc/wl.yaml
  - ../devices/common_patches/crc/crc_rename_init.yaml
  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
  - ../devices/common_patches/exti/wl.yaml
@@ -138,7 +143,6 @@ _include:
  - ../devices/common_patches/usart/merge_CR2_ABRMODx_fields.yaml
  - ../devices/common_patches/usart/rename_CR1_M0_field.yaml
  - ../devices/common_patches/usart/rename_CR3_SCARCNT_field.yaml
- - ../peripherals/adc/adc_wl.yaml
  - ../peripherals/aes/aes_wl.yaml
  - ../peripherals/comp/comp_wl.yaml
  - ../peripherals/crc/crc_advanced.yaml
