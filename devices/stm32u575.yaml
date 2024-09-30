@@ -5,6 +5,11 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+MDF1:
+  _strip: MDF_
+  _include:
+    - collect/mdf/u5.yaml
+
 PWR:
   CR2:
     _remove: PKARAMPDS
