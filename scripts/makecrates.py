@@ -20,7 +20,7 @@ VERSION = "0.15.1"
 SVD2RUST_VERSION = "0.34.0"
 
 CRATE_DOC_FEATURES = {
-    "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031"],
+    "stm32c0": ["critical-section", "rt", "stm32c011", "stm32c031", "stm32c071"],
     "stm32f0": ["critical-section", "rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
     "stm32f1": ["critical-section", "rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
     "stm32f2": ["critical-section", "rt", "stm32f215", "stm32f217"],
