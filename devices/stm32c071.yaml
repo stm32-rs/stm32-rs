@@ -1,33 +1,33 @@
-_svd: ../svd/stm32c031.svd
+_svd: ../svd/stm32c071.svd
 
 _modify:
-  name: STM32C031
-  SPI:
-    name: SPI1
+  name: STM32C071
 
 SPI1:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
-  _strip:
-    - "SPI_"
-
-I2C:
-  _strip:
-    - "I2C_"
 
 ADC:
   _modify:
-    CHSELR_MOD0:
+    CHSELR:
       name: CHSELR0
-    CHSELR_MOD1:
+    CHSELR_ALTERNATE1:
       name: CHSELR1
+
+SPI?:
+  _strip:
+    - "SPI?_"
+
+I2C?:
+  _strip:
+    - "I2C?_"
 
 TIM3:
   _delete:
     - TIM3_CNT
   _modify:
-    TIM3_CNT_alternate:
+    TIM3_CNT_ALTERNATE1:
       name: "CNT"
 
 _include:

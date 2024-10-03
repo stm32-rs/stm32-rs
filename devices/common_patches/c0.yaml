@@ -7,11 +7,6 @@ RCC:
 ADC:
   _strip:
     - "ADC_"
-  _modify:
-    CHSELR_MOD0:
-      name: CHSELR0
-    CHSELR_MOD1:
-      name: CHSELR1
 
 DMA:
   _strip:
@@ -46,14 +41,6 @@ USART?:
   _strip:
     - "USART_"
 
-SPI:
-  _strip:
-    - "SPI_"
-
-I2C:
-  _strip:
-    - "I2C_"
-
 IWDG:
   _strip:
     - "IWDG_"
@@ -69,13 +56,6 @@ WWDG:
 TIM[13]:
   _strip:
     - "TIM?_"
-
-TIM3:
-  _delete:
-    - CNT
-  _modify:
-    CNT_alternate:
-      name: "CNT"
 
 TIM*:
   _strip:
