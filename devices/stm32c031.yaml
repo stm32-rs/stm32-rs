@@ -2,8 +2,10 @@ _svd: ../svd/stm32c031.svd
 
 _modify:
   name: STM32C031
+  SPI:
+    name: SPI1
 
-SPI:
+SPI1:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
