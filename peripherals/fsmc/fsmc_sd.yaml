@@ -9,7 +9,7 @@
     RBURST:
       Disabled: [0, "Single read requests are not managed as bursts"]
       Enabled: [1, "Single read requests are always managed as bursts"]
-    SDCLK:
+    "SDCLK,CLK":
       Disabled: [0, "SDCLK clock disabled"]
       Div2: [2, "SDCLK period = 2 x HCLK period"]
       Div3: [3, "SDCLK period = 3 x HCLK period"]

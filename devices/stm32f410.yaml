@@ -70,72 +70,6 @@ RCC:
         name: FMPI2C1SEL
         description: "FMPI2C1 kernel clock source selection"
 
-USART1:
-# Add missing USART interrupts
-  _add:
-    _interrupts:
-      USART1:
-        description: "USART1 global interrupt"
-        value: 37
-      USART2:
-        description: "USART2 global interrupt"
-        value: 38
-      USART6:
-        description: "USART6 global interrupt"
-        value: 71
-
-DMA1:
-  _add:
-    _interrupts:
-      DMA1_Stream0:
-        description: "DMA1 stream0 global interrupt"
-        value: 11
-      DMA1_Stream1:
-        description: "DMA1 stream1 global interrupt"
-        value: 12
-      DMA1_Stream2:
-        description: "DMA1 stream2 global interrupt"
-        value: 13
-      DMA1_Stream3:
-        description: "DMA1 stream3 global interrupt"
-        value: 14
-      DMA1_Stream4:
-        description: "DMA1 stream4 global interrupt"
-        value: 15
-      DMA1_Stream5:
-        description: "DMA1 stream5 global interrupt"
-        value: 16
-      DMA1_Stream6:
-        description: "DMA1 stream6 global interrupt"
-        value: 17
-      DMA1_Stream7:
-        description: "DMA1 stream7 global interrupt"
-        value: 47
-      DMA2_Stream0:
-        description: "DMA2 stream0 global interrupt"
-        value: 56
-      DMA2_Stream1:
-        description: "DMA2 stream1 global interrupt"
-        value: 57
-      DMA2_Stream2:
-        description: "DMA2 stream2 global interrupt"
-        value: 58
-      DMA2_Stream3:
-        description: "DMA2 stream3 global interrupt"
-        value: 59
-      DMA2_Stream4:
-        description: "DMA2 stream4 global interrupt"
-        value: 60
-      DMA2_Stream5:
-        description: "DMA2 stream5 global interrupt"
-        value: 68
-      DMA2_Stream6:
-        description: "DMA2 stream6 global interrupt"
-        value: 69
-      DMA2_Stream7:
-        description: "DMA2 stream7 global interrupt"
-        value: 70
-
 TIM5:
   _add:
     _interrupts:
@@ -159,10 +93,6 @@ WWDG:
       WWDG:
         description: "Window watchdog interrupt"
         value: 0
-
-MPU:
-  _strip:
-    - "MPU_"
 
 DAC:
   CR:
@@ -205,8 +135,9 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/f4_single_csr.yaml
  - common_patches/adc/f4_single_ccr.yaml
@@ -237,7 +168,6 @@ _include:
  - ../peripherals/dma/dma_v2.yaml
  - collect/dma/st.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
@@ -262,7 +192,7 @@ _include:
  - collect/rtc/alarm.yaml
  - collect/rtc/bkpr.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - common_patches/i2c/v1_fltr.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/pwr/f4.yaml
