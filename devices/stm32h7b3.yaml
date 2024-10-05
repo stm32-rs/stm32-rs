@@ -90,7 +90,8 @@ SPI?:
 _include:
  - common_patches/h7_common_highmemory.yaml
  - ../peripherals/hdmi_cec.yaml
- - common_patches/fdcan/fdcan_h7.yaml
+ - common_patches/fdcan/fdcan_h7_highmemory.yaml
+ - common_patches/fdcan/fdcan_ccu.yaml
  - collect/fsmc/sdram.yaml
  - common_patches/exti/h7_singlecore.yaml
  - common_patches/dbgmcu/h7.yaml

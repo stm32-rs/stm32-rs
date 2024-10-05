@@ -1,6 +1,8 @@
 # Patches for the Flexible Data Rate CAN (FDCAN) on at least H7, G4
 
 "FDCAN,FDCAN?":
+  _strip:
+    - FDCAN_
   _modify:
     "DBTP,TDCR,TSCV,TOCV,IR,IE,ILS,NDAT1,NDAT2":
       access: read-write

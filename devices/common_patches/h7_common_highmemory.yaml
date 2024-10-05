@@ -6,10 +6,6 @@
 _modify:
   Flash:
     name: FLASH
-  TT_FDCAN:
-    name: FDCAN1
-  FDCAN:
-    name: FDCAN2
   DAC:
     name: DAC1
 
@@ -720,10 +716,6 @@ VREFBUF:
 "OTG?_HS_*":
   _strip:
     - OTG_HS_
-
-"FDCAN?":
-  _strip:
-    - FDCAN_
 
 WWDG:
   _strip:
