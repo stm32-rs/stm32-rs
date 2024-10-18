@@ -53,7 +53,19 @@ WWDG:
   _strip:
     - "WWDG_"
 
-TIM[13]:
+DBG:
+  _strip:
+    - "DBG_"
+
+SYSCFG:
+  _strip:
+    - "SYSCFG_"
+
+FLASH:
+  _strip:
+    - "FLASH_"
+
+TIM[123]:
   _strip:
     - "TIM?_"
 
