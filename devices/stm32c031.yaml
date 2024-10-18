@@ -4,6 +4,8 @@ _modify:
   name: STM32C031
   SPI:
     name: SPI1
+  I2C:
+    name: I2C1
 
 SPI1:
   _include:
@@ -12,7 +14,7 @@ SPI1:
   _strip:
     - "SPI_"
 
-I2C:
+I2C?:
   _strip:
     - "I2C_"
 
@@ -24,11 +26,9 @@ ADC:
       name: CHSELR1
 
 TIM3:
-  _delete:
-    - TIM3_CNT
   _modify:
     TIM3_CNT_alternate:
-      name: "CNT"
+      name: "CNT_remap"
 
 _include:
   - ./common_patches/c0.yaml

@@ -21,14 +21,85 @@ SPI?:
 
 I2C?:
   _strip:
-    - "I2C?_"
+    - "I2C_"
 
-TIM3:
-  _delete:
-    - TIM3_CNT
+USB:
+  _strip:
+    - "USB_"
+
+USART1:
   _modify:
-    TIM3_CNT_ALTERNATE1:
-      name: "CNT"
+    USART_CR1:
+      name: USART_CR1_enabled
+    USART_CR1_ALTERNATE1:
+      name: USART_CR1_disabled
+    USART_ISR:
+      name: USART_ISR_enabled
+    USART_ISR_ALTERNATE1:
+      name: USART_ISR_disabled
+
+TIM[123]:
+  _modify:
+    CCMR1:
+      name: CCMR1_input
+    CCMR1_ALTERNATE1:
+      name: CCMR1_output
+    CCMR2:
+      name: CCMR2_input
+    CCMR2_ALTERNATE1:
+      name: CCMR2_output
+  CCMR2_output:
+    _modify:
+      OC3M:
+        name: OC3M1
+      OC3M_1:
+        name: OC3M2
+      OC4M:
+        name: OC4M1
+      OC4M_1:
+        name: OC4M2
+  CCMR1_output:
+    _modify:
+      OC1M:
+        name: OC1M1
+      OC1M_1:
+        name: OC1M2
+      OC2M:
+        name: OC2M1
+      OC2M_1:
+        name: OC2M2
+  SMCR:
+    _modify:
+      TS:
+        name: TS1
+      TS_1:
+        name: TS2
+      SMS:
+        name: SMS1
+      SMS_1:
+        name: SMS2
+
+TIM1[467]:
+  _modify:
+    TIM??_CCMR1:
+      name: CCMR1_input
+    TIM??_CCMR1_ALTERNATE1:
+      name: CCMR1_output
+  CCMR1_output:
+    _modify:
+      OC1M:
+        name: OC1M1
+      OC1M_1:
+        name: OC1M2
+
+CRS:
+  _strip:
+    - "CRS_"
+
+TIM[23]:
+  _modify:
+    CNT_ALTERNATE1:
+      name: "CNT_remap"
 
 _include:
   - ./common_patches/c0.yaml

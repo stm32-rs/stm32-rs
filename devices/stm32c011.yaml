@@ -21,14 +21,12 @@ SPI?:
 
 I2C?:
   _strip:
-    - "I2C?_"
+    - "I2C_"
 
 TIM3:
-  _delete:
-    - TIM3_CNT
   _modify:
     TIM3_CNT_alternate:
-      name: "CNT"
+      name: "CNT_remap"
 
 _include:
   - ./common_patches/c0.yaml
