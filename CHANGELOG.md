@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* MP15x: Strip prefixes from peripherals
 * MP15x: Fix DIGBYP bit access in RCC_BDCR
 * Fix yaml parsing errors
 * H7: add bit TRBUFF of DMA_SxCR of H747 cm4

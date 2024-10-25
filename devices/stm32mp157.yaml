@@ -17,24 +17,17 @@ DSI:
   _strip:
     - "DSI_"
 
-RTC:
-  _strip:
-    - "RTC_"
-
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
-TAMP:
-  _strip:
-    - "TAMP_"
-
 RCC:
-  RCC_BDCR:
+  BDCR:
     _modify:
       DIGBYP:
         access: read-write
 
 _include:
+ - common_patches/mpu_unprefix_registers.yaml
  - collect/dsi/isr.yaml
  - common_patches/rtc/alarm.yaml
  - collect/rtc/tamp_bkpr.yaml
