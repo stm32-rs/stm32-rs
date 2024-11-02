@@ -35,7 +35,7 @@ SPI?:
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/h7_common_singlecore.yaml
- - common_patches/fdcan/fdcan_h7.yaml
+ - common_patches/fdcan/fdcan_h7_stdmemory.yaml
  - collect/fsmc/sdram.yaml
  - common_patches/rcc/h7_src_sel.yaml
  - common_patches/ethernet/h7_desc.yaml

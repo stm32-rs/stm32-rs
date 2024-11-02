@@ -1,0 +1,14 @@
+# FDCAN modifications for standard memory density parts (h72xx/h73xx/h74xx/h75xx)
+
+_copy:
+  FDCAN2:
+    from: FDCAN1                # see: ./fdcan_ttcan_reg_tidyup.yaml
+
+_modify:
+  FDCAN2:
+    baseAddress: "0x4000A400"   # see: ./fdcan_ttcan_reg_tidyup.yaml
+
+_include:
+  - ./fdcan_common.yaml
+  - ./fdcan_h7_common.yaml
+  - ./fdcan_ttcan_reg_tidyup.yaml
