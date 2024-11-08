@@ -39,7 +39,7 @@ jobs:
           git push -f origin $BRANCH
 
       - name: Comment
-        uses: mshick/add-pr-comment@v1
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             [Memory map comparison](https://github.com/stm32-rs/stm32-rs-mmaps/compare/${{ env.BRANCH }})
