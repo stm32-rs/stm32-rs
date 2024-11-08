@@ -21,7 +21,7 @@ jobs:
       - name: Download new mmaps
         uses: actions/download-artifact@v4
         with:
-          name: mmaps
+          #name: mmaps
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: Commit new mmaps
