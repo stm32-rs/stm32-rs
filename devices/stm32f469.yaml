@@ -148,6 +148,16 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -217,8 +227,6 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - common_patches/fsmc/fsmc_sramfix.yaml
  - common_patches/fsmc/fsmc_nand_v2.yaml

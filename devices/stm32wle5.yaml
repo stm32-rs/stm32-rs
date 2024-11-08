@@ -140,6 +140,15 @@ LPTIM[23]:
 IWDG:
   _delete:
     - WINR
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+    - ../peripherals/iwdg/iwdg_sr.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
 
 # Rename this so it has the same name as all other STM32 USARTs
 LPUART,USART?:
@@ -203,8 +212,6 @@ _include:
  - ../peripherals/hsem/hsem_wl.yaml
  - collect/hsem/r.yaml
  - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/iwdg/iwdg.yaml
- - ../peripherals/iwdg/iwdg_sr.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/lptim/lptim_wl.yaml
  - ../peripherals/usart/lpuart_wl.yaml
@@ -229,4 +236,3 @@ _include:
  - ../peripherals/usart/usart_v2C.yaml
  - ../peripherals/usart/usart_wl.yaml
  - ../peripherals/vrefbuf/vrefbuf_wl.yaml
- - ../peripherals/wwdg/wwdg.yaml

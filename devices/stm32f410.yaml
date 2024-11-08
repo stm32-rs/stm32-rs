@@ -153,7 +153,15 @@ EXTI:
         description: "EXTI Line 20 interrupt"
         value: 76
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
 WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
   _add:
     _interrupts:
       WWDG:
@@ -251,8 +259,6 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/i2c/i2c_v2_fmp.yaml
- - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml

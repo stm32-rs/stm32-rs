@@ -4,10 +4,9 @@
 _include:
   - ./wwdg.yaml
 
-"WWDG,WWDG?":
-  CFR:
-    WDGTB:
-        Div16: [4, "Counter clock (PCLK1 div 4096) div 16"]
-        Div32: [5, "Counter clock (PCLK1 div 4096) div 32"]
-        Div64: [6, "Counter clock (PCLK1 div 4096) div 64"]
-        Div128: [7, "Counter clock (PCLK1 div 4096) div 128"]
+CFR:
+  WDGTB:
+      Div16: [4, "Counter clock (PCLK1 div 4096) div 16"]
+      Div32: [5, "Counter clock (PCLK1 div 4096) div 32"]
+      Div64: [6, "Counter clock (PCLK1 div 4096) div 64"]
+      Div128: [7, "Counter clock (PCLK1 div 4096) div 128"]

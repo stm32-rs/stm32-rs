@@ -17,6 +17,16 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - common_patches/cec/cfgr.yaml
  - ../peripherals/hdmi_cec.yaml
@@ -61,9 +71,7 @@ _include:
  - ../peripherals/crc/crc_advanced.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_f0x128.yaml
  - ../peripherals/dma/dma_v1.yaml

@@ -5,6 +5,9 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+IWDG:
+  _include: common_patches/16bit.yaml
+
 PWR:
   _add:
     CR4:
@@ -65,6 +68,9 @@ UCPD1:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml
+
+WWDG:
+  _include: common_patches/16bit.yaml
 
 _include:
  - common_patches/u5.yaml

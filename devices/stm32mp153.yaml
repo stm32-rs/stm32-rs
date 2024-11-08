@@ -20,6 +20,18 @@ RCC:
       DIGBYP:
         access: read-write
 
+IWDG1:
+  _strip: IWDG_
+  _modify:
+    "KR,PR,RLR,SR,WINR":
+      size: 16
+
+WWDG1:
+  _strip: WWDG_
+  _modify:
+    "CR,CFR,SR":
+      size: 16
+
 _include:
  - common_patches/mpu_unprefix_registers.yaml
  - common_patches/rtc/alarm.yaml

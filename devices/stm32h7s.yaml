@@ -6,6 +6,9 @@ CRYP:
   _strip:
     - CRYP_
 
+IWDG:
+  _include: common_patches/16bit_with_mask.yaml
+
 "MCE*":
   _strip:
     - MCE_
@@ -25,6 +28,9 @@ UCPD:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml
+
+WWDG:
+  _include: common_patches/16bit_with_mask.yaml
 
 _include:
   - common_patches/h7_common_bootflash.yaml

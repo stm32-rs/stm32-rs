@@ -67,6 +67,16 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml
@@ -83,7 +93,6 @@ _include:
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/spi/spi_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
@@ -96,7 +105,6 @@ _include:
  - ../peripherals/tim/tim2345_16bit.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
  - ../peripherals/rcc/rcc_l1.yaml
