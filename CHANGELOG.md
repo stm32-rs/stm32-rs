@@ -49,6 +49,7 @@
 * Fix DAC for stm32f4 (#921)
 * `PWR` peripherals for STM32F4 ([#857])
 * tools_install: support `$CARGO_HOME` environment variable
+* Split `mmaps_pr` workflow on `mmaps_pr_generate` and `mmaps_pr_compare`
 * Update RNG for stm32h735
 * H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios
 * TIM: rename & clean files
