@@ -1,0 +1,107 @@
+_svd: ../svd/stm32c071.svd
+
+_modify:
+  name: STM32C071
+
+SPI1:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
+
+ADC:
+  _modify:
+    CHSELR:
+      name: CHSELR0
+    CHSELR_ALTERNATE1:
+      name: CHSELR1
+
+SPI?:
+  _strip:
+    - "SPI?_"
+
+I2C?:
+  _strip:
+    - "I2C_"
+
+USB:
+  _strip:
+    - "USB_"
+
+USART1:
+  _modify:
+    USART_CR1:
+      name: USART_CR1_enabled
+    USART_CR1_ALTERNATE1:
+      name: USART_CR1_disabled
+    USART_ISR:
+      name: USART_ISR_enabled
+    USART_ISR_ALTERNATE1:
+      name: USART_ISR_disabled
+
+TIM[123]:
+  _modify:
+    CCMR1:
+      name: CCMR1_input
+    CCMR1_ALTERNATE1:
+      name: CCMR1_output
+    CCMR2:
+      name: CCMR2_input
+    CCMR2_ALTERNATE1:
+      name: CCMR2_output
+  CCMR2_output:
+    _modify:
+      OC3M:
+        name: OC3M1
+      OC3M_1:
+        name: OC3M2
+      OC4M:
+        name: OC4M1
+      OC4M_1:
+        name: OC4M2
+  CCMR1_output:
+    _modify:
+      OC1M:
+        name: OC1M1
+      OC1M_1:
+        name: OC1M2
+      OC2M:
+        name: OC2M1
+      OC2M_1:
+        name: OC2M2
+  SMCR:
+    _modify:
+      TS:
+        name: TS1
+      TS_1:
+        name: TS2
+      SMS:
+        name: SMS1
+      SMS_1:
+        name: SMS2
+
+TIM1[467]:
+  _modify:
+    TIM??_CCMR1:
+      name: CCMR1_input
+    TIM??_CCMR1_ALTERNATE1:
+      name: CCMR1_output
+  CCMR1_output:
+    _modify:
+      OC1M:
+        name: OC1M1
+      OC1M_1:
+        name: OC1M2
+
+CRS:
+  _strip:
+    - "CRS_"
+
+TIM[23]:
+  _modify:
+    CNT_ALTERNATE1:
+      name: "CNT_remap"
+
+_include:
+  - ./common_patches/c0.yaml
+  - ./common_patches/nvic/2_prio_bits.yaml
+  - collect/dma/dmamux.yaml
