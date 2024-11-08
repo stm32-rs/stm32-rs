@@ -7,7 +7,14 @@ _copy:
   ADC3:
     from: ADC2
 
+# Only one CAN on STM32F103
+_delete:
+  - CAN2
+
 _modify:
+  # Only one CAN on STM32F103
+  CAN1:
+    name: CAN
   # Fix case on Ethernet peripherals to match other devices
   ETHERNET_DMA:
     name: Ethernet_DMA
@@ -17,6 +24,21 @@ _modify:
     name: Ethernet_MMC
   ETHERNET_PTP:
     name: Ethernet_PTP
+
+AFIO:
+  MAPR:
+    _modify:
+      CAN_REMAP:
+        description: CAN remapping
+
+DBGMCU:
+  CR:
+    _modify:
+      DBG_CAN1_STOP:
+        name: DBG_CAN_STOP
+        description: DBG_CAN_STOP
+    _delete:
+      DBG_CAN2_STOP
 
 RCC:
   CFGR:
