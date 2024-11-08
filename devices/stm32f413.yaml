@@ -25,6 +25,12 @@ _modify:
      # ST got the base address of the FSMC peripheral wrong
      baseAddress: "0xA0000000"
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -271,6 +277,9 @@ FMPI2C1:
         description: Interface own slave address
         bitOffset: 0
         bitWidth: 10
+  _include:
+    - common_patches/i2c/f4_fmpi2c.yaml
+    - ../peripherals/i2c/i2c_v2_base.yaml
 
 QUADSPI:
   _include:
@@ -311,9 +320,24 @@ PWR:
         bitOffset: 6
         bitWidth: 1
 
+# Rename I2C_BUFOUT to CFGR and I2C4 to FMPI2C1
+SYSCFG:
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+      displayName: CFGR
+      description: Configuration register
+  CFGR:
+    _modify:
+      I2C4SCL:
+        name: FMPI2C1_SCL
+        description: Forces FM+ drive capability on I2CFMP1_SCL pin
+      I2C4SDA:
+        name: FMPI2C1_SDA
+        description: Forces FM+ drive capability on I2CFMP1_SCL pin
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
@@ -322,7 +346,6 @@ _include:
  - collect/sai/ch.yaml
  - common_patches/dfsdm/dfsdm_v1.yaml
  - collect/dfsdm/v1.yaml
- - common_patches/i2c/f4_fmpi2c.yaml
  - common_patches/adc/f4_single_csr.yaml
  - common_patches/adc/f4_single_ccr.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
@@ -374,8 +397,6 @@ _include:
  - ../peripherals/usart/uart_uart.yaml
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
- - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
@@ -394,6 +415,5 @@ _include:
  - common_patches/fpu_interrupt.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
- - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/pwr/f4.yaml
  - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml

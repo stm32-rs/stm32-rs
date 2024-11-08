@@ -75,6 +75,11 @@ _add:
         description: USART3 global interrupt
         value: 39
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 SPI?:
   _include:
     - common_patches/16bit.yaml
@@ -92,7 +97,6 @@ MPU:
     - "MPU_"
 
 _include:
- - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/bkp/bkp.yaml
  - ../peripherals/bkp/bkp.yaml
  - collect/bkp/dr.yaml
@@ -104,7 +108,6 @@ _include:
  - ../peripherals/dac/dac_dmaudr.yaml
  - ../peripherals/crc/crc_basic.yaml
  - ../peripherals/crc/crc_idr_8bit.yaml
- - ../peripherals/i2c/i2c_v1.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/gpio/v1/common.yaml

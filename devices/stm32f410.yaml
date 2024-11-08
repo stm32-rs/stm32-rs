@@ -44,6 +44,17 @@ FLASH:
       LATENCY:
         bitWidth: 4
 
+FMPI2C?:
+  _include:
+    - ../peripherals/i2c/i2c_v2_base.yaml
+
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - common_patches/i2c/v1_fltr.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
   PLLCFGR:
@@ -207,7 +218,6 @@ RNG:
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/f4_single_csr.yaml
  - common_patches/adc/f4_single_ccr.yaml
  - ../peripherals/dac/dac_wavegen.yaml
@@ -249,8 +259,6 @@ _include:
  - ../peripherals/usart/uart_common.yaml
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_usart.yaml
- - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/i2c/i2c_v2_fmp.yaml
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
@@ -263,7 +271,5 @@ _include:
  - collect/rtc/bkpr.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
  - common_patches/fpu_interrupt.yaml
- - common_patches/i2c/v1_fltr.yaml
- - ../peripherals/i2c/i2c_v1_fltr.yaml
  - common_patches/pwr/f4.yaml
  - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
