@@ -3,6 +3,17 @@ HRTIM_TIMF:
     RSTE1R:
       name: RSTF1R
 HRTIM_Common:
+  _modify:
+    BDMUPDR:
+      name: BDMUPR
+    BMTRG:
+      name: BMTRGR
+    ISR:
+      access: read-write
+  IER:
+    _modify:
+      SYSFLTE:
+        name: SYSFLTIE
   OENR:
     _modify:
       TF1ODS:
@@ -13,8 +24,8 @@ HRTIM_Common:
         description: Bit 11 - Timer F Output 2 Enable
   ADC1R:
     _strip:
-    - AD1T
-    - AD1
+      - AD1T
+      - AD1
 
     _modify:
       EC2:
@@ -36,11 +47,11 @@ HRTIM_Common:
       AC2:
         name: FC2
         description: Bit 10 - ADC trigger 1 on timer F compare 2
-  
+
   ADC3R:
     _strip:
-    - AD1T
-    - AD1
+      - AD1T
+      - AD1
 
     _modify:
       EC2:
@@ -65,8 +76,8 @@ HRTIM_Common:
 
   ADC2R:
     _strip:
-    - AD2T
-    - AD2
+      - AD2T
+      - AD2
 
     _modify:
       DC3:
@@ -85,12 +96,11 @@ HRTIM_Common:
         name: FC2
         description: Bit 11 - ADC trigger 3 on timer F compare 2
 
-  
   ADC4R:
     _strip:
-    - AD2T
-    - AD2
-  
+      - AD2T
+      - AD2
+
     _modify:
       DC3:
         name: FPER
@@ -107,3 +117,38 @@ HRTIM_Common:
       AC3:
         name: FC2
         description: Bit 11 - ADC trigger 3 on timer F compare 2
+
+HRTIM_Master:
+  MCR:
+    _modify:
+      SYNC_SRC:
+        name: SYNCSRC
+      SYNC_OUT:
+        name: SYNCOUT
+      SYNC_IN:
+        name: SYNCIN
+      CK_PSC:
+        name: CKPSC
+
+"HRTIM_TIM[ABCDEF]":
+  _modify:
+  "TIM[ABCDEF]CR":
+    _modify:
+      CK_PSCx:
+        name: CKPSCx
+  "TIM[ABCDEF]DIER":
+    _modify:
+      SET1xDE:
+        name: SETx1DE
+      SET1xIE:
+        name: SETx1IE
+  "CHP[ABCDEF]R":
+    _modify:
+      CHPDTY:
+        name: CARDTY
+      CHPFRQ:
+        name: CARFRQ
+  "CPT[12][ABCDEF]CR":
+    _modify:
+      UDPCPT:
+        name: UPDCPT
