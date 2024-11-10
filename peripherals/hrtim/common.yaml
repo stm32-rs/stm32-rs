@@ -190,10 +190,10 @@ EECR1:
     Enabled: [1, "Generation of ADC trigger on master compare event"]
 DLLCR:
   CALRTE:
-    Millis7_3: [0, "1048576*t_HRTIM (7.3ms)"]
-    Micros910: [1, "131072*t_HRTIM (910µs)"]
-    Micros114: [2, "16384*t_HRTIM (114µs)"]
-    Micros14: [3, "2048*t_HRTIM (14µs)"]
+    Clk1048576: [0, "1048576*t_HRTIM (6.168 ms for fHRTIM = 170 MHz)"]
+    Clk131072: [1, "131072*t_HRTIM (771 µs for f_HRTIM = 170 MHz)"]
+    Clk16384: [2, "16384*t_HRTIM (96 µs for f_HRTIM = 170 MHz)"]
+    Clk2048: [3, "2048*t_HRTIM (12 µs for f_HRTIM = 170 MHz)"]
   CALEN:
     Disabled: [0, "Periodic calibration disabled"]
     Enabled: [1, "Calibration is performed periodically, as per CALRTE setting"]

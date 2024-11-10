@@ -236,12 +236,12 @@ HRTIM_Master:
       SingleShot:
         [
           0,
-          "The timer operates in single-shot mode and stops when it reaches the MPER value",
+          "The timer operates in single-shot mode and stops when it reaches the TIMxPER value",
         ]
       Continuous:
         [
           1,
-          "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the MPER value",
+          "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the TIMxPER value",
         ]
     CKPSCx: [0, 7]
   "TIM[ABCDEF]ISR":
