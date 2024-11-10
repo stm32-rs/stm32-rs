@@ -325,7 +325,7 @@ EXTI:
 
 _delete:
   - DMA2
-  - RAMECC?                         # RAMECC definitions are so terrible
+  - RAMECC? # RAMECC definitions are so terrible
 
 _add:
   DMA2:
@@ -617,7 +617,8 @@ HRTIM_Common:
   _add:
     BDMADR:
       description: Burst DMA Data register
-      addressOffset: 0x0070
+      addressOffset: 0x70
+      size: 0x20
       resetValue: 0x00000000
       access: read-write
       fields:

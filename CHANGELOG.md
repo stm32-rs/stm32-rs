@@ -7,6 +7,7 @@
 * Fix yaml parsing errors
 * H7: add bit TRBUFF of DMA_SxCR of H747 cm4
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
+* HRTIM H7 & G4 fixes and enums
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR

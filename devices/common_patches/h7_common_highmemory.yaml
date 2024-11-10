@@ -386,8 +386,8 @@ _add:
     baseAddress: 0x40011800
     interrupts:
       UART9:
-         description: UART9 global interrupt
-         value: 140
+        description: UART9 global interrupt
+        value: 140
   USART10:
     derivedFrom: USART1
     baseAddress: 0x40011C00
@@ -540,7 +540,7 @@ RCC:
       HDMICECLPEN:
         name: CECLPEN
   AHB1ENR:
-    _delete:                    # highmemory only has one USB HS
+    _delete: # highmemory only has one USB HS
       - USB2OTGEN
       - USB2ULPIEN
   AHB2ENR:
@@ -549,7 +549,7 @@ RCC:
         name: DCMIEN
         description: "DCMI peripheral clock"
   AHB1LPENR:
-    _delete:                    # highmemory only has one USB HS
+    _delete: # highmemory only has one USB HS
       - USB2OTGLPEN
       - USB2ULPILPEN
   AHB2LPENR:
@@ -587,10 +587,9 @@ SYSCFG:
       name: CFGR
       addressOffset: 0x18
   PMCR:
-    _delete:                  # Functionality not available on these parts
+    _delete: # Functionality not available on these parts
       - BOOSTE
       - EPIS
-
 
 TIM1,TIM8:
   DMAR:
@@ -607,7 +606,8 @@ HRTIM_Common:
   _add:
     BDMADR:
       description: Burst DMA Data register
-      addressOffset: 0x0070
+      addressOffset: 0x70
+      size: 0x20
       resetValue: 0x00000000
       access: read-write
       fields:
@@ -672,7 +672,7 @@ PWR:
   _strip:
     - PWR_
   _delete:
-    _interrupts: WWDG1_RST      # Doesn't exist at all on these parts
+    _interrupts: WWDG1_RST # Doesn't exist at all on these parts
 
 RAMECC:
   _add:

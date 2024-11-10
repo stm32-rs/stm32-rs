@@ -1,0 +1,44 @@
+HRTIM_Common:
+  _include: common.yaml
+  CR1:
+    "AD?USRC":
+      Master: [0, "ADC trigger update from master timer"]
+      TimerA: [1, "ADC trigger update from timer A"]
+      TimerB: [2, "ADC trigger update from timer B"]
+      TimerC: [3, "ADC trigger update from timer C"]
+      TimerD: [4, "ADC trigger update from timer D"]
+      TimerE: [5, "ADC trigger update from timer E"]
+  BMTRGR:
+    "EEV[78]":
+      NoEffect: [0, "External event X has no effect"]
+      Trigger: [1, "External event X triggers a burst mode entry"]
+    "TDEEV8,TAEEV7":
+      NoEffect: [0, "Timer X period following external event Y has no effect"]
+      Trigger:
+        [
+          1,
+          "Timer X period following external event Y triggers a burst mode entry",
+        ]
+  EECR3:
+    EEVSD:
+      Div1: [0, "f_EEVS=f_HRTIM"]
+      Div2: [1, "f_EEVS=f_HRTIM/2"]
+      Div4: [2, "f_EEVS=f_HRTIM/4"]
+      Div8: [3, "f_EEVS=f_HRTIM/8"]
+    "EE*F":
+      Disabled: [0, "Filter disabled"]
+      Div1_N2: [1, "f_SAMPLING=f_HRTIM, N=2"]
+      Div1_N4: [2, "f_SAMPLING=f_HRTIM, N=4"]
+      Div1_N8: [3, "f_SAMPLING=f_HRTIM, N=8"]
+      Div2_N6: [4, "f_SAMPLING=f_HRTIM/2, N=6"]
+      Div2_N8: [5, "f_SAMPLING=f_HRTIM/2, N=8"]
+      Div4_N6: [6, "f_SAMPLING=f_HRTIM/4, N=6"]
+      Div4_N8: [7, "f_SAMPLING=f_HRTIM/4, N=8"]
+      Div8_N6: [8, "f_SAMPLING=f_HRTIM/8, N=6"]
+      Div8_N8: [9, "f_SAMPLING=f_HRTIM/8, N=8"]
+      Div16_N5: [10, "f_SAMPLING=f_HRTIM/16, N=5"]
+      Div16_N6: [11, "f_SAMPLING=f_HRTIM/16, N=6"]
+      Div16_N8: [12, "f_SAMPLING=f_HRTIM/16, N=8"]
+      Div32_N5: [13, "f_SAMPLING=f_HRTIM/32, N=5"]
+      Div32_N6: [14, "f_SAMPLING=f_HRTIM/32, N=6"]
+      Div32_N8: [15, "f_SAMPLING=f_HRTIM/32, N=8"]
