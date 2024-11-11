@@ -43,48 +43,8 @@ HRTIM_Master:
       CK_PSC:
         name: CKPSC
 
-HRTIM_TIMA:
+"HRTIM_TIM[ABCDEF]":
+  _include: strip.yaml
   _modify:
-    TIMADIER5:
-      name: TIMADIER
-HRTIM_TIMB:
-  _modify:
-    TIMBDIER5:
-      name: TIMBDIER
-    CNTR:
-      name: CNTBR
-HRTIM_TIMC:
-  _modify:
-    TIMCDIER5:
-      name: TIMCDIER
-HRTIM_TIMD:
-  _modify:
-    TIMDDIER5:
-      name: TIMDDIER
-HRTIM_TIME:
-  _modify:
-    TIMEDIER5:
-      name: TIMEDIER
-
-"HRTIM_TIM[ABCDE]":
-  _modify:
-  "TIM[ABCDE]CR":
-    _modify:
-      CK_PSCx:
-        name: CKPSCx
-  "TIM[ABCDE]DIER":
-    _modify:
-      SET1xDE:
-        name: SETx1DE
-      SET1xIE:
-        name: SETx1IE
-  "CHP[ABCDE]R":
-    _modify:
-      CHPDTY:
-        name: CARDTY
-      CHPFRQ:
-        name: CARFRQ
-  "CPT[12][ABCDE]CR":
-    _modify:
-      UDPCPT:
-        name: UPDCPT
+    "TIM[ABCDEF]DIER5":
+      name: TIMDIER

@@ -131,24 +131,11 @@ HRTIM_Master:
         name: CKPSC
 
 "HRTIM_TIM[ABCDEF]":
+  _include: strip.yaml
   _modify:
-  "TIM[ABCDEF]CR":
-    _modify:
-      CK_PSCx:
-        name: CKPSCx
-  "TIM[ABCDEF]DIER":
-    _modify:
-      SET1xDE:
-        name: SETx1DE
-      SET1xIE:
-        name: SETx1IE
-  "CHP[ABCDEF]R":
-    _modify:
-      CHPDTY:
-        name: CARDTY
-      CHPFRQ:
-        name: CARFRQ
-  "CPT[12][ABCDEF]CR":
-    _modify:
-      UDPCPT:
-        name: UPDCPT
+    "TIM[ABCDEF]DIER":
+      name: TIMDIER
+    "TIM[ABCDEF]CR2":
+      name: TIMCR2
+    "[ABCDEF]EEFR3":
+      name: EEFR3
