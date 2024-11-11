@@ -1,5 +1,4 @@
-env_scripts = [
-'''
+env_scripts = ['''
 #!@duckscript
 crates = get_env CRATES
 crates = array %{crates}
@@ -181,8 +180,12 @@ for i in ${handle}
         echo "svd2rust: ${serie}"
         output = exec svdtools info svd/${serie}.svd.patched device-name --input-format xml
         devicename = trim ${output.stdout}
+        settings_path = set "settings/${serie}.yaml"
+        if not is_path_exists ${settings_path}
+            writefile "${settings_path}" "html_url: https://stm32-rs.github.io/stm32-rs/${devicename}.html\ncrate_path: crate::${serie}"
+        end
         cd ${dir_name}
-        exec svd2rust -c "../../../svd2rust.toml" -i "../../../${patchedpath}" --html-url "https://stm32-rs.github.io/stm32-rs/${devicename}.html"
+        exec svd2rust -c "../../../svd2rust.toml" -i "../../../${patchedpath}" --settings "../../../${settings_path}"
         rm build.rs
         rm ../generic.rs
         mv generic.rs ../
@@ -344,6 +347,7 @@ handle = glob_array */src/generic.rs
 for file in ${handle}
     rm ${file}
 end
+rm -r settings
 '''
 
 [tasks.clean-patch]
@@ -384,11 +388,20 @@ rm svd/.extracted
 '''
 
 [tasks.clean-all]
-dependencies = ["clean-rs", "clean-patch", "clean-html", "clean-svd", "clean-mmaps", "clean-svdconv"]
+dependencies = [
+    "clean-rs",
+    "clean-patch",
+    "clean-html",
+    "clean-svd",
+    "clean-mmaps",
+    "clean-svdconv",
+]
 script_runner = "@duckscript"
 script = "rm -r .deps"
 
 [env]
 PYTHON = { value = "python3", condition = { env_not_set = ["PYTHON"] } }
 SVDTOOLS = { value = "svdtools", condition = { env_not_set = ["SVDTOOLS"] } }
-CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = ["CRATES"] } }
+CRATES = { value = "stm32c0 stm32f0 stm32f1 stm32f2 stm32f3 stm32f4 stm32f7 stm32h5 stm32h7 stm32l0 stm32l1 stm32l4 stm32l5 stm32g0 stm32g4 stm32mp1 stm32wl stm32wb stm32u5", condition = { env_not_set = [
+    "CRATES",
+] } }

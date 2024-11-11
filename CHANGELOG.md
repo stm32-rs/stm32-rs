@@ -9,6 +9,7 @@
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * HRTIM H7 & G4 fixes and enums
 * HRTIM: remove timer block suffixes from register/field names
+* HRTIM: derive identical registers
 * Collent in field arrays: GPIO, CAN, DSI, SAI, DMA, TIM
 * L1 TIM9: add CCER
 * F373 GPIOC LCKR, collect GPIO.BRR
@@ -16,7 +17,7 @@
 * Remove workaround for bug in duckscript's `mv`
 * move `_array` and `_cluster` patches to `devices/collect`
 * Replace `makehtml.py` with `svdtools html`
-* Updated to `svd2rust` 0.34.0, `svdtools` 0.3.19, `form` 0.12.1, use tools binaries for CI
+* Updated to `svd2rust` 0.35.0, `svdtools` 0.3.19, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Show avaliable device features if no one selected (#998)

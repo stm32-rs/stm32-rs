@@ -67,12 +67,17 @@ crates:
 	python3 scripts/makecrates.py devices/ -y --families $(CRATES)
 
 define crate_template
-$(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
+$(1)/src/%/mod.rs: svd/%.svd.patched settings/%.yaml $(1)/Cargo.toml
 	mkdir -p $$(@D)
-	cd $$(@D); svd2rust -c ../../../svd2rust.toml -i ../../../$$< --html-url "https://stm32-rs.github.io/stm32-rs/`svdtools info ../../../$$< device-name --input-format xml`.html"
+	cd $$(@D); svd2rust -c ../../../svd2rust.toml -i ../../../$$< --settings "../../../$$(word 2,$$^)"
 	rustfmt $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
+
+settings/%.yaml: svd/%.svd.patched
+	mkdir -p settings
+	echo "html_url: https://stm32-rs.github.io/stm32-rs/`svdtools info $$< device-name --input-format xml`.html" > $$@
+	echo "crate_path: crate::`echo $$< | sed -E 's|svd/(\w*)\.svd\.patched|\1|g'`" >> $$@
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -f -i $$< -o $$(@D)
@@ -127,6 +132,7 @@ svdconv: $(SVDCONV_REPORTS)
 clean-rs:
 	rm -rf $(RUST_DIRS)
 	rm -f */src/generic.rs
+	rm -rf settings
 
 clean-patch:
 	rm -f $(PATCHED_SVDS)
