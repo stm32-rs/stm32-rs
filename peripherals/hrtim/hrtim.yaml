@@ -122,7 +122,7 @@ HRTIM_Master:
     "MCMP[1234]": [0, 0xFFFF]
 
 "HRTIM_TIM[ABCDEF]":
-  "TIM[ABCDEF]CR":
+  TIMCR:
     UPDGAT:
       Independent:
         [0, "Update occurs independently from the DMA burst transfer"]
@@ -209,10 +209,10 @@ HRTIM_Master:
           3,
           "CMP2 is recomputed and is active following a capture 1 event or a Compare 3 match",
         ]
-    SYNCSTRTx:
+    SYNCSTRT:
       Disabled: [0, "Synchronization event has no effect on Timer x"]
       Start: [1, "Synchronization event starts Timer x"]
-    SYNCRSTx:
+    SYNCRST:
       Disabled: [0, "Synchronization event has no effect on Timer x"]
       Reset: [1, "Synchronization event resets Timer x"]
     PSHPLL:
@@ -243,8 +243,8 @@ HRTIM_Master:
           1,
           "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the TIMxPER value",
         ]
-    CKPSCx: [0, 7]
-  "TIM[ABCDEF]ISR":
+    CKPSC: [0, 7]
+  TIMISR:
     "?~O[12]CPY":
       Inactive: [0, "Output is inactive"]
       Active: [1, "Output is active"]
@@ -273,10 +273,10 @@ HRTIM_Master:
     "RST":
       NoEvent: [0, "No TIMx counter reset/roll-over interrupt occurred"]
       Event: [1, "TIMx counter reset/roll-over interrupt occurred"]
-    "RSTx[12]":
+    "RST[12]":
       NoEvent: [0, "No Tx output reset interrupt occurred"]
       Event: [1, "Tx output reset interrupt occurred"]
-    "SETx[12]":
+    "SET[12]":
       NoEvent: [0, "No Tx output set interrupt occurred"]
       Event: [1, "Tx output set interrupt occurred"]
     "CPT[12]":
@@ -291,20 +291,20 @@ HRTIM_Master:
     "CMP[1234]":
       NoEvent: [0, "No compare interrupt occurred"]
       Event: [1, "Compare interrupt occurred"]
-  "TIM[ABCDEF]ICR":
+  TIMICR:
     "*C":
       Clear: [1, "Clears associated flag in ISR register"]
-  "TIM[ABCDEF]DIER":
+  TIMDIER:
     DLYPRTDE:
       Disabled: [0, "Delayed protection DMA request disabled"]
       Enabled: [1, "Delayed protection DMA request enabled"]
     RSTDE:
       Disabled: [0, "Timer x counter reset/roll-over DMA request disabled"]
       Enabled: [1, "Timer x counter reset/roll-over DMA request enabled"]
-    "RSTx[12]DE":
+    "RST[12]DE":
       Disabled: [0, "Tx output reset DMA request disabled"]
       Enabled: [1, "Tx output reset DMA request enabled"]
-    "SETx[12]DE":
+    "SET[12]DE":
       Disabled: [0, "Tx output set DMA request disabled"]
       Enabled: [1, "Tx output set DMA request enabled"]
     "CPT[12]DE":
@@ -325,10 +325,10 @@ HRTIM_Master:
     RSTIE:
       Disabled: [0, "Timer x counter/reset roll-over interrupt disabled"]
       Enabled: [1, "Timer x counter/reset roll-over interrupt enabled"]
-    "RSTx[12]IE":
+    "RST[12]IE":
       Disabled: [0, "Tx output reset interrupt disabled"]
       Enabled: [1, "Tx output reset interrupt enabled"]
-    "SETx[12]IE":
+    "SET[12]IE":
       Disabled: [0, "Tx output set interrupt disabled"]
       Enabled: [1, "Tx output set interrupt enabled"]
     "CPT[12]IE":
@@ -343,42 +343,42 @@ HRTIM_Master:
     "CMP[1234]IE":
       Disabled: [0, "Compare interrupt disabled"]
       Enabled: [1, "Compare interrupt enabled"]
-  "CNTR,CNT[ABCDEF]R":
-    CNTx: [0, 0xFFFF]
-  "PER[ABCDEF]R":
-    PERx: [0, 0xFFFF]
-  "REP[ABCDEF]R":
-    REPx: [0, 0xFF]
-  "CMP[1234][ABCDEF]R":
-    "CMP[1234]x": [0, 0xFFFF]
-  "CMP1C[ABCDEF]R":
-    CMP1x: [0, 0xFFFF]
-    REPx: [0, 0xFF]
-  "CPT[12][ABCDEF]R":
-    "CPT[12]x": [0, 0xFFFF]
-  "DT[ABCDEF]R":
-    DTFLKx:
+  CNTR:
+    CNT: [0, 0xFFFF]
+  PERR:
+    PER: [0, 0xFFFF]
+  REPR:
+    REP: [0, 0xFF]
+  "CMP[1234]R":
+    "CMP[1234]": [0, 0xFFFF]
+  "CMP1CR":
+    CMP1: [0, 0xFFFF]
+    REP: [0, 0xFF]
+  "CPT[12]R":
+    "CPT[12]": [0, 0xFFFF]
+  "DTR":
+    DTFLK:
       Unlocked: [0, "Deadtime falling value and sign is writable"]
       Locked: [1, "Deadtime falling value and sign is read-only"]
-    DTFSLKx:
+    DTFSLK:
       Unlocked: [0, "Deadtime falling sign is writable"]
       Locked: [1, "Deadtime falling sign is read-only"]
-    SDTFx:
+    SDTF:
       Positive: [0, "Positive deadtime on falling edge"]
       Negative: [1, "Negative deadtime on falling edge"]
-    DTFx: [0, 0x1FF]
-    DTRLKx:
+    DTF: [0, 0x1FF]
+    DTRLK:
       Unlocked: [0, "Deadtime rising value and sign is writable"]
       Locked: [1, "Deadtime rising value and sign is read-only"]
-    DTRSLKx:
+    DTRSLK:
       Unlocked: [0, "Deadtime rising sign is writable"]
       Locked: [1, "Deadtime rising sign is read-only"]
     DTPRSC: [0, 7]
-    SDTRx:
+    SDTR:
       Positive: [0, "Positive deadtime on rising edge"]
       Negative: [1, "Negative deadtime on rising edge"]
-    DTRx: [0, 0x1FF]
-  "SET[ABCDEF][12]R":
+    DTR: [0, 0x1FF]
+  "SET[12]R":
     UPDATE:
       NoEffect: [0, "Register update event has no effect"]
       SetActive:
@@ -421,7 +421,7 @@ HRTIM_Master:
     SST:
       NoEffect: [0, "No effect"]
       SetActive: [1, "Force output to its active state"]
-  "RST[ABCDEF][12]R":
+  "RST[12]R":
     UPDATE:
       NoEffect: [0, "Register update event has no effect"]
       SetInactive:
@@ -468,7 +468,7 @@ HRTIM_Master:
     SRT:
       NoEffect: [0, "No effect"]
       SetInactive: [1, "Force output to its inactive state"]
-  "EEF[ABCDEF]R[12]":
+  "EEFR[12]":
     "EE*FLTR":
       Disabled: [0, "No filtering"]
       BlankResetToCompare1:
@@ -503,7 +503,7 @@ HRTIM_Master:
           1,
           "Event is latched and delayed till the end of the blanking or windowing period",
         ]
-  "RST[ABCDEF]R":
+  RSTR:
     "TIM[ABCDEF]CMP[1234]":
       NoEffect: [0, "Timer Y compare Z event has no effect"]
       ResetCounter: [1, "Timer X counter is reset upon timer Y compare Z event"]
@@ -524,11 +524,11 @@ HRTIM_Master:
     UPDT:
       NoEffect: [0, "Update event has no effect"]
       ResetCounter: [1, "Timer X counter is reset upon update event"]
-  "CHP[ABCDEF]R":
+  CHPR:
     STRTPW: [0, 0xF]
     CARDTY: [0, 7]
     CARFRQ: [0, 0xF]
-  "CPT[12][ABCDEF]CR":
+  "CPT[12]CR":
     "T[ABCDEF]CMP[12]":
       NoEffect: [0, "Timer X compare Y has no effect"]
       TriggerCapture: [1, "Timer X compare Y triggers capture Z"]
@@ -551,7 +551,7 @@ HRTIM_Master:
     SWCPT:
       NoEffect: [0, "No effect"]
       TriggerCapture: [1, "Force capture Z"]
-  "OUT[ABCDEF]R":
+  OUTR:
     "DIDL[12]":
       Disabled:
         [0, "The programmed idle state is applied immediately to the output"]
@@ -592,7 +592,7 @@ HRTIM_Master:
     DTEN:
       Disabled: [0, "Output 1 and 2 signals are independent"]
       Enabled: [1, "Deadtime is inserted between output 1 and output 2"]
-  "FLT[ABCDEF]R":
+  FLTR:
     FLTLCK:
       Unlocked: [0, "FLT1EN..FLT5EN bits are read/write"]
       Locked: [1, "FLT1EN..FLT5EN bits are read only"]
@@ -601,7 +601,7 @@ HRTIM_Master:
       Active: [1, "Fault input is active and can disable HRTIM outputs"]
 
 "HRTIM_TIM[ABC]":
-  "OUT[ABC]R":
+  OUTR:
     DLYPRT:
       Output1_EE6: [0, "Output 1 delayed idle on external event 6"]
       Output2_EE6: [1, "Output 2 delayed idle on external event 6"]
@@ -613,7 +613,7 @@ HRTIM_Master:
       Balanced_EE7: [7, "Balanced idle on external event 7"]
 
 "HRTIM_TIM[DE]":
-  "OUT[DE]R":
+  OUTR:
     DLYPRT:
       Output1_EE8: [0, "Output 1 delayed idle on external event 8"]
       Output2_EE8: [1, "Output 2 delayed idle on external event 8"]

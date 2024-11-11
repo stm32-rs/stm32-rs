@@ -1,0 +1,107 @@
+_modify:
+  "TIM[ABCDEF]CR":
+    name: TIMCR
+  "TIM[ABCDEF]ISR":
+    name: TIMISR
+  "TIM[ABCDEF]ICR":
+    name: TIMICR
+  "CNTR,CNT[ACDEF]R":
+    name: CNTR
+  "PER[ABCDEF]R":
+    name: PERR
+  "REP[ABCDEF]R":
+    name: REPR
+  "CMP1[ABCDEF]R":
+    name: CMP1R
+  "CMP2[ABCDEF]R":
+    name: CMP2R
+  "CMP3[ABCDEF]R":
+    name: CMP3R
+  "CMP4[ABCDEF]R":
+    name: CMP4R
+  "CMP1C[ABCDEF]R":
+    name: CMP1CR
+  "CPT1[ABCDEF]R":
+    name: CPT1R
+  "CPT2[ABCDEF]R":
+    name: CPT2R
+  "DT[ABCDEF]R":
+    name: DTR
+  "SET[ABCDEF]1R":
+    name: SET1R
+  "SET[ABCDEF]2R":
+    name: SET2R
+  "RST[ABCDEF]1R":
+    name: RST1R
+  "RST[ABCDEF]2R":
+    name: RST2R
+  "EEF[ABCDEF]R1":
+    name: EEFR1
+  "EEF[ABCDEF]R2":
+    name: EEFR2
+  "RST[ABCDEF]R":
+    name: RSTR
+  "CHP[ABCDEF]R":
+    name: CHPR
+  "CPT1[ABCDEF]CR":
+    name: CPT1CR
+  "CPT2[ABCDEF]CR":
+    name: CPT2CR
+  "OUT[ABCDEF]R":
+    name: OUTR
+  "FLT[ABCDEF]R":
+    name: FLTR
+
+TIMCR:
+  _modify:
+    CK_PSCx:
+      name: CKPSC
+    SYNCSTRTx:
+      name: SYNCSTRT
+    SYNCRSTx:
+      name: SYNCRST
+
+TIMISR:
+  _modify:
+    RSTx1:
+      name: RST1
+    RSTx2:
+      name: RST2
+    SETx1:
+      name: SET1
+    SETx2:
+      name: SET2
+
+TIMDIER:
+  _modify:
+    RSTx1DE:
+      name: RST1DE
+    RSTx2DE:
+      name: RST2DE
+    SETx1DE:
+      name: SET1DE
+    SETx2DE:
+      name: SET2DE
+    RSTx1IE:
+      name: RST1IE
+    RSTx2IE:
+      name: RST2IE
+    SET1xDE:
+      name: SET1DE
+    SET1xIE:
+      name: SET1IE
+
+CHPR:
+  _modify:
+    CHPDTY:
+      name: CARDTY
+    CHPFRQ:
+      name: CARFRQ
+
+"CPT[12]CR":
+  _modify:
+    UDPCPT:
+      name: UPDCPT
+
+"CNTR,PERR,REPR,CMP[1234]R,CMP1CR,CPT[12]R,DTR":
+  _strip_end: x
