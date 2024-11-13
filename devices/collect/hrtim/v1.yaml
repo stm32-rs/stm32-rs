@@ -23,3 +23,45 @@
     CHPR: HRTIM_TIMA.CHPR
     OUTR: HRTIM_TIMA.OUTR
     FLTR: HRTIM_TIMA.FLTR
+  TIMCR:
+    _modify:
+      CKPSC:
+        derivedFrom: HRTIM_TIMA.TIMCR.CKPSC
+      CONT:
+        derivedFrom: HRTIM_TIMA.TIMCR.CONT
+      RETRIG:
+        derivedFrom: HRTIM_TIMA.TIMCR.RETRIG
+      HALF:
+        derivedFrom: HRTIM_TIMA.TIMCR.HALF
+      PSHPLL:
+        derivedFrom: HRTIM_TIMA.TIMCR.PSHPLL
+      INTLVD:
+        derivedFrom: HRTIM_TIMA.TIMCR.INTLVD
+      RSYNCU:
+        derivedFrom: HRTIM_TIMA.TIMCR.RSYNCU
+      SYNCRST:
+        derivedFrom: HRTIM_TIMA.TIMCR.SYNCRST
+      SYNCSTRT:
+        derivedFrom: HRTIM_TIMA.TIMCR.SYNCSTRT
+      DELCMP2:
+        derivedFrom: HRTIM_TIMA.TIMCR.DELCMP2
+      DELCMP4:
+        derivedFrom: HRTIM_TIMA.TIMCR.DELCMP4
+      TREPU:
+        derivedFrom: HRTIM_TIMA.TIMCR.TREPU
+      TRSTU:
+        derivedFrom: HRTIM_TIMA.TIMCR.TRSTU
+      MSTU:
+        derivedFrom: HRTIM_TIMA.TIMCR.MSTU
+      DACSYNC:
+        derivedFrom: HRTIM_TIMA.TIMCR.DACSYNC
+      PREEN:
+        derivedFrom: HRTIM_TIMA.TIMCR.PREEN
+      UPDGAT:
+        derivedFrom: HRTIM_TIMA.TIMCR.UPDGAT
+  CPT2CR:
+    _modify:
+      SWCPT:
+        derivedFrom: HRTIM_TIMA.CPT2CR.SWCPT
+      UPDCPT:
+        derivedFrom: HRTIM_TIMA.CPT2CR.UPDCPT

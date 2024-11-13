@@ -139,3 +139,9 @@ HRTIM_Master:
       name: TIMCR2
     "[ABCDEF]EEFR3":
       name: EEFR3
+  CPT2CR:
+    _modify:
+      TF1CMP1:
+        name: TFCMP1
+      TF1CMP2:
+        name: TFCMP2
