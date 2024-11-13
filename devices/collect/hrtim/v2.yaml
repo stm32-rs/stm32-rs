@@ -1,0 +1,5 @@
+_include: v1.yaml
+"HRTIM_TIM[BCDEF]":
+  _derive:
+    TIMCR2: HRTIM_TIMA.TIMCR2
+    EEFR3: HRTIM_TIMA.EEFR3
