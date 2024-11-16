@@ -119,25 +119,16 @@ HRTIM_Common:
         description: Bit 11 - ADC trigger 3 on timer F compare 2
 
 HRTIM_Master:
-  MCR:
-    _modify:
-      SYNC_SRC:
-        name: SYNCSRC
-      SYNC_OUT:
-        name: SYNCOUT
-      SYNC_IN:
-        name: SYNCIN
-      CK_PSC:
-        name: CKPSC
+  _include: master.yaml
 
-"HRTIM_TIM[ABCDEF]":
+"HRTIM_TIM[A-F]":
   _include: strip.yaml
   _modify:
-    "TIM[ABCDEF]DIER":
-      name: TIMDIER
-    "TIM[ABCDEF]CR2":
-      name: TIMCR2
-    "[ABCDEF]EEFR3":
+    "[A-F]DIER":
+      name: DIER
+    "[A-F]CR2":
+      name: CR2
+    "[A-F]EEFR3":
       name: EEFR3
   CPT2CR:
     _modify:

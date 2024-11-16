@@ -1,58 +1,60 @@
+_strip: TIM
+
 _modify:
-  "TIM[ABCDEF]CR":
-    name: TIMCR
-  "TIM[ABCDEF]ISR":
-    name: TIMISR
-  "TIM[ABCDEF]ICR":
-    name: TIMICR
+  "[A-F]CR":
+    name: CR
+  "[A-F]ISR":
+    name: ISR
+  "[A-F]ICR":
+    name: ICR
   "CNTR,CNT[ACDEF]R":
     name: CNTR
-  "PER[ABCDEF]R":
+  "PER[A-F]R":
     name: PERR
-  "REP[ABCDEF]R":
+  "REP[A-F]R":
     name: REPR
-  "CMP1[ABCDEF]R":
+  "CMP1[A-F]R":
     name: CMP1R
-  "CMP2[ABCDEF]R":
+  "CMP2[A-F]R":
     name: CMP2R
-  "CMP3[ABCDEF]R":
+  "CMP3[A-F]R":
     name: CMP3R
-  "CMP4[ABCDEF]R":
+  "CMP4[A-F]R":
     name: CMP4R
-  "CMP1C[ABCDEF]R":
+  "CMP1C[A-F]R":
     name: CMP1CR
-  "CPT1[ABCDEF]R":
+  "CPT1[A-F]R":
     name: CPT1R
-  "CPT2[ABCDEF]R":
+  "CPT2[A-F]R":
     name: CPT2R
-  "DT[ABCDEF]R":
+  "DT[A-F]R":
     name: DTR
-  "SET[ABCDEF]1R":
+  "SET[A-F]1R":
     name: SET1R
-  "SET[ABCDEF]2R":
+  "SET[A-F]2R":
     name: SET2R
-  "RST[ABCDEF]1R":
+  "RST[A-F]1R":
     name: RST1R
-  "RST[ABCDEF]2R":
+  "RST[A-F]2R":
     name: RST2R
-  "EEF[ABCDEF]R1":
+  "EEF[A-F]R1":
     name: EEFR1
-  "EEF[ABCDEF]R2":
+  "EEF[A-F]R2":
     name: EEFR2
-  "RST[ABCDEF]R":
+  "RST[A-F]R":
     name: RSTR
-  "CHP[ABCDEF]R":
+  "CHP[A-F]R":
     name: CHPR
-  "CPT1[ABCDEF]CR":
+  "CPT1[A-F]CR":
     name: CPT1CR
-  "CPT2[ABCDEF]CR":
+  "CPT2[A-F]CR":
     name: CPT2CR
-  "OUT[ABCDEF]R":
+  "OUT[A-F]R":
     name: OUTR
-  "FLT[ABCDEF]R":
+  "FLT[A-F]R":
     name: FLTR
 
-TIMCR:
+CR:
   _modify:
     CK_PSCx:
       name: CKPSC
@@ -65,7 +67,7 @@ TIMCR:
     TxRSTU:
       name: TRSTU
 
-TIMISR:
+ISR:
   _modify:
     RSTx1:
       name: RST1
@@ -76,7 +78,7 @@ TIMISR:
     SETx2:
       name: SET2
 
-TIMDIER:
+DIER:
   _modify:
     RSTx1DE:
       name: RST1DE
@@ -107,5 +109,5 @@ CHPR:
     UDPCPT:
       name: UPDCPT
 
-"CNTR,PERR,REPR,CMP[1234]R,CMP1CR,CPT[12]R,DTR":
+"CNTR,PERR,REPR,CMP[1-4]R,CMP1CR,CPT[12]R,DTR":
   _strip_end: x

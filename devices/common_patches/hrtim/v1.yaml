@@ -29,22 +29,13 @@ HRTIM_Common:
       - AD?
 
 HRTIM_Master:
+  _include: master.yaml
   _modify:
-    MDIER4:
-      name: MDIER
-  MCR:
-    _modify:
-      SYNC_SRC:
-        name: SYNCSRC
-      SYNC_OUT:
-        name: SYNCOUT
-      SYNC_IN:
-        name: SYNCIN
-      CK_PSC:
-        name: CKPSC
+    DIER4:
+      name: DIER
 
-"HRTIM_TIM[ABCDEF]":
+"HRTIM_TIM[A-F]":
   _include: strip.yaml
   _modify:
-    "TIM[ABCDEF]DIER5":
-      name: TIMDIER
+    "[A-F]DIER5":
+      name: DIER

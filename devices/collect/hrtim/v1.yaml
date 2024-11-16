@@ -1,8 +1,8 @@
-"HRTIM_TIM[BCDEF]":
+"HRTIM_TIM[B-F]":
   _derive:
-    TIMISR: HRTIM_TIMA.TIMISR
-    TIMICR: HRTIM_TIMA.TIMICR
-    TIMDIER: HRTIM_TIMA.TIMDIER
+    ISR: HRTIM_TIMA.ISR
+    ICR: HRTIM_TIMA.ICR
+    DIER: HRTIM_TIMA.DIER
     CNTR: HRTIM_TIMA.CNTR
     PERR: HRTIM_TIMA.PERR
     REPR: HRTIM_TIMA.REPR
@@ -23,42 +23,42 @@
     CHPR: HRTIM_TIMA.CHPR
     OUTR: HRTIM_TIMA.OUTR
     FLTR: HRTIM_TIMA.FLTR
-  TIMCR:
+  CR:
     _modify:
       CKPSC:
-        derivedFrom: HRTIM_TIMA.TIMCR.CKPSC
+        derivedFrom: HRTIM_TIMA.CR.CKPSC
       CONT:
-        derivedFrom: HRTIM_TIMA.TIMCR.CONT
+        derivedFrom: HRTIM_TIMA.CR.CONT
       RETRIG:
-        derivedFrom: HRTIM_TIMA.TIMCR.RETRIG
+        derivedFrom: HRTIM_TIMA.CR.RETRIG
       HALF:
-        derivedFrom: HRTIM_TIMA.TIMCR.HALF
+        derivedFrom: HRTIM_TIMA.CR.HALF
       PSHPLL:
-        derivedFrom: HRTIM_TIMA.TIMCR.PSHPLL
+        derivedFrom: HRTIM_TIMA.CR.PSHPLL
       INTLVD:
-        derivedFrom: HRTIM_TIMA.TIMCR.INTLVD
+        derivedFrom: HRTIM_TIMA.CR.INTLVD
       RSYNCU:
-        derivedFrom: HRTIM_TIMA.TIMCR.RSYNCU
+        derivedFrom: HRTIM_TIMA.CR.RSYNCU
       SYNCRST:
-        derivedFrom: HRTIM_TIMA.TIMCR.SYNCRST
+        derivedFrom: HRTIM_TIMA.CR.SYNCRST
       SYNCSTRT:
-        derivedFrom: HRTIM_TIMA.TIMCR.SYNCSTRT
+        derivedFrom: HRTIM_TIMA.CR.SYNCSTRT
       DELCMP2:
-        derivedFrom: HRTIM_TIMA.TIMCR.DELCMP2
+        derivedFrom: HRTIM_TIMA.CR.DELCMP2
       DELCMP4:
-        derivedFrom: HRTIM_TIMA.TIMCR.DELCMP4
+        derivedFrom: HRTIM_TIMA.CR.DELCMP4
       TREPU:
-        derivedFrom: HRTIM_TIMA.TIMCR.TREPU
+        derivedFrom: HRTIM_TIMA.CR.TREPU
       TRSTU:
-        derivedFrom: HRTIM_TIMA.TIMCR.TRSTU
+        derivedFrom: HRTIM_TIMA.CR.TRSTU
       MSTU:
-        derivedFrom: HRTIM_TIMA.TIMCR.MSTU
+        derivedFrom: HRTIM_TIMA.CR.MSTU
       DACSYNC:
-        derivedFrom: HRTIM_TIMA.TIMCR.DACSYNC
+        derivedFrom: HRTIM_TIMA.CR.DACSYNC
       PREEN:
-        derivedFrom: HRTIM_TIMA.TIMCR.PREEN
+        derivedFrom: HRTIM_TIMA.CR.PREEN
       UPDGAT:
-        derivedFrom: HRTIM_TIMA.TIMCR.UPDGAT
+        derivedFrom: HRTIM_TIMA.CR.UPDGAT
   CPT2CR:
     _modify:
       SWCPT:

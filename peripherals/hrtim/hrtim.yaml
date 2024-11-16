@@ -1,7 +1,7 @@
 # HRTIM as found on STM32F3x4 and STM32H7
 
 HRTIM_Master:
-  MCR:
+  CR:
     BRSTDMA:
       Independent:
         [0, "Update done independently from the DMA burst transfer completion"]
@@ -30,7 +30,7 @@ HRTIM_Master:
       DACSync1: [1, "Trigger generated on DACSync1"]
       DACSync2: [2, "Trigger generated on DACSync2"]
       DACSync3: [3, "Trigger generated on DACSync3"]
-    "T[ABCDEF]CEN":
+    "T[A-F]CEN":
       Disabled: [0, "Timer counter disabled"]
       Enabled: [1, "Timer counter enabled"]
     MCEN:
@@ -47,10 +47,10 @@ HRTIM_Master:
         [2, "Positive pulse on SCOUT output (16x f_HRTIM clock cycles)"]
       NegativePulse:
         [3, "Negative pulse on SCOUT output (16x f_HRTIM clock cycles)"]
-    SYNCSTRTM:
+    SYNCSTRT:
       Disabled: [0, "No effect on the master timer"]
       Enabled: [1, "A synchroniation input event starts the master timer"]
-    SYNCRSTM:
+    SYNCRST:
       Disabled: [0, "No effect on the master timer"]
       Enabled: [1, "A synchroniation input event resets the master timer"]
     SYNCIN:
@@ -89,40 +89,40 @@ HRTIM_Master:
           "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the MPER value",
         ]
     CKPSC: [0, 7]
-  MISR:
-    MUPD:
+  ISR:
+    UPD:
       NoEvent: [0, "No master update interrupt occurred"]
       Event: [1, "Master update interrupt occurred"]
     SYNC:
       NoEvent: [0, "No sync input interrupt occurred"]
       Event: [1, "Sync input interrupt occurred"]
-    MREP:
+    REP:
       NoEvent: [0, "No master repetition interrupt occurred"]
       Event: [1, "Master repetition interrupt occurred"]
-    "MCMP[1234]":
+    "CMP[1-4]":
       NoEvent: [0, "No master compare interrupt occurred"]
       Event: [1, "Master compare interrupt occurred"]
-  MICR:
+  ICR:
     "M*C,SYNCC":
       Clear: [1, "Clears flag in MISR register"]
-  MDIER:
+  DIER:
     "M*DE,SYNCDE":
       Disabled: [0, "DMA request disabled"]
       Enabled: [1, "DMA request enabled"]
     "M*IE,SYNCIE":
       Disabled: [0, "Interrupt disabled"]
       Enabled: [1, "Interrupt enabled"]
-  MCNTR:
-    MCNT: [0, 0xFFFF]
-  MPER:
-    MPER: [0, 0xFFFF]
-  MREP:
-    MREP: [0, 0xFF]
-  "MCMP[1234]R":
-    "MCMP[1234]": [0, 0xFFFF]
+  CNTR:
+    CNT: [0, 0xFFFF]
+  PERR:
+    PER: [0, 0xFFFF]
+  REPR:
+    REP: [0, 0xFF]
+  "CMP[1-4]R":
+    "CMP[1-4]": [0, 0xFFFF]
 
-"HRTIM_TIM[ABCDEF]":
-  TIMCR:
+"HRTIM_TIM[A-F]":
+  CR:
     UPDGAT:
       Independent:
         [0, "Update occurs independently from the DMA burst transfer"]
@@ -172,7 +172,7 @@ HRTIM_Master:
     MSTU:
       Disabled: [0, "Update by master timer disabled"]
       Enabled: [1, "Update by master timer enabled"]
-    "T[ABCDEF]U":
+    "T[A-F]U":
       Disabled: [0, "Update by timer x disabled"]
       Enabled: [1, "Update by timer x enabled"]
     TRSTU:
@@ -244,7 +244,7 @@ HRTIM_Master:
           "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the TIMxPER value",
         ]
     CKPSC: [0, 7]
-  TIMISR:
+  ISR:
     "?~O[12]CPY":
       Inactive: [0, "Output is inactive"]
       Active: [1, "Output is active"]
@@ -288,13 +288,13 @@ HRTIM_Master:
     REP:
       NoEvent: [0, "No timer repetition interrupt occurred"]
       Event: [1, "Timer repetition interrupt occurred"]
-    "CMP[1234]":
+    "CMP[1-4]":
       NoEvent: [0, "No compare interrupt occurred"]
       Event: [1, "Compare interrupt occurred"]
-  TIMICR:
+  ICR:
     "*C":
       Clear: [1, "Clears associated flag in ISR register"]
-  TIMDIER:
+  DIER:
     DLYPRTDE:
       Disabled: [0, "Delayed protection DMA request disabled"]
       Enabled: [1, "Delayed protection DMA request enabled"]
@@ -316,7 +316,7 @@ HRTIM_Master:
     REPDE:
       Disabled: [0, "Repetition DMA request disabled"]
       Enabled: [1, "Repetition DMA request enabled"]
-    "CMP[1234]DE":
+    "CMP[1-4]DE":
       Disabled: [0, "Compare DMA request disabled"]
       Enabled: [1, "Compare DMA request enabled"]
     DLYPRTIE:
@@ -340,7 +340,7 @@ HRTIM_Master:
     REPIE:
       Disabled: [0, "Repetition interrupt disabled"]
       Enabled: [1, "Repetition interrupt enabled"]
-    "CMP[1234]IE":
+    "CMP[1-4]IE":
       Disabled: [0, "Compare interrupt disabled"]
       Enabled: [1, "Compare interrupt enabled"]
   CNTR:
@@ -349,8 +349,8 @@ HRTIM_Master:
     PER: [0, 0xFFFF]
   REPR:
     REP: [0, 0xFF]
-  "CMP[1234]R":
-    "CMP[1234]": [0, 0xFFFF]
+  "CMP[1-4]R":
+    "CMP[1-4]": [0, 0xFFFF]
   "CMP1CR":
     CMP1: [0, 0xFFFF]
     REP: [0, 0xFF]
@@ -389,7 +389,7 @@ HRTIM_Master:
     "TIMEVNT*":
       NoEffect: [0, "Timer event has no effect"]
       SetActive: [1, "Timer event forces the output to its active state"]
-    "MSTCMP[1234]":
+    "MSTCMP[1-4]":
       NoEffect: [0, "Master timer compare event has no effect"]
       SetActive:
         [1, "Master timer compare event forces the output to its active state"]
@@ -400,7 +400,7 @@ HRTIM_Master:
           1,
           "Master timer counter roll-over/reset forces the output to its active state",
         ]
-    "CMP[1234]":
+    "CMP[1-4]":
       NoEffect: [0, "Timer compare event has no effect"]
       SetActive:
         [1, "Timer compare event forces the output to its active state"]
@@ -432,7 +432,7 @@ HRTIM_Master:
     "TIMEVNT*":
       NoEffect: [0, "Timer event has no effect"]
       SetInactive: [1, "Timer event forces the output to its inactive state"]
-    "MSTCMP[1234]":
+    "MSTCMP[1-4]":
       NoEffect: [0, "Master timer compare event has no effect"]
       SetInactive:
         [
@@ -446,7 +446,7 @@ HRTIM_Master:
           1,
           "Master timer counter roll-over/reset forces the output to its inactive state",
         ]
-    "CMP[1234]":
+    "CMP[1-4]":
       NoEffect: [0, "Timer compare event has no effect"]
       SetInactive:
         [1, "Timer compare event forces the output to its inactive state"]
@@ -504,13 +504,13 @@ HRTIM_Master:
           "Event is latched and delayed till the end of the blanking or windowing period",
         ]
   RSTR:
-    "TIM[ABCDEF]CMP[1234]":
+    "TIM[A-F]CMP[1-4]":
       NoEffect: [0, "Timer Y compare Z event has no effect"]
       ResetCounter: [1, "Timer X counter is reset upon timer Y compare Z event"]
     "EXTEVNT*":
       NoEffect: [0, "External event Z has no effect"]
       ResetCounter: [1, "Timer X counter is reset upon external event Z"]
-    "MSTCMP[1234]":
+    "MSTCMP[1-4]":
       NoEffect: [0, "Master timer compare Z event has no effect"]
       ResetCounter:
         [1, "Timer X counter is reset upon master timer compare Z event"]
@@ -529,15 +529,15 @@ HRTIM_Master:
     CARDTY: [0, 7]
     CARFRQ: [0, 0xF]
   "CPT[12]CR":
-    "T[ABCDEF]CMP[12]":
+    "T[A-F]CMP[12]":
       NoEffect: [0, "Timer X compare Y has no effect"]
       TriggerCapture: [1, "Timer X compare Y triggers capture Z"]
-    "T[ABCDEF]1RST":
+    "T[A-F]1RST":
       NoEffect:
         [0, "Timer X output Y active to inactive transition has no effect"]
       TriggerCapture:
         [1, "Timer X output Y active to inactive transition triggers capture Z"]
-    "T[ABCDEF]1SET":
+    "T[A-F]1SET":
       NoEffect:
         [0, "Timer X output Y inactive to active transition has no effect"]
       TriggerCapture:
