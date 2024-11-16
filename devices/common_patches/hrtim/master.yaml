@@ -1,0 +1,27 @@
+_strip: M
+_modify:
+  PER:
+    name: PERR
+  REP:
+    name: REPR
+CR:
+  _modify:
+    SYNC_SRC:
+      name: SYNCSRC
+    SYNC_OUT:
+      name: SYNCOUT
+    SYNC_IN:
+      name: SYNCIN
+    CK_PSC:
+      name: CKPSC
+    SYNCRSTM:
+      name: SYNCRST
+    SYNCSTRTM:
+      name: SYNCSTRT
+"ISR,ICR,DIER,CNTR,PERR,REPR,CMP[1-4]R":
+  _strip: M
+
+CMP[1-4]R:
+  _modify:
+    CMP[1-4]:
+      name: CMP

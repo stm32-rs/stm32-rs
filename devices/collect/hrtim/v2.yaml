@@ -1,5 +1,17 @@
 _include: v1.yaml
-"HRTIM_TIM[BCDEF]":
+"HRTIM_TIM[BC-F]":
   _derive:
-    TIMCR2: HRTIM_TIMA.TIMCR2
+    CR2: HRTIM_TIMA.CR2
     EEFR3: HRTIM_TIMA.EEFR3
+
+HRTIM_Common:
+  FLTINR[34]:
+    _array:
+      FLT[1-6]BLKE:
+        dimIncrement: 8
+      FLT[1-6]BLKS:
+        dimIncrement: 8
+      FLT[1-6]CNT:
+        dimIncrement: 8
+      FLT[1-6]CRES:
+        dimIncrement: 8

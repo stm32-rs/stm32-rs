@@ -129,7 +129,7 @@ BMTRGR:
   "T[ABCDE]RST":
     NoEffect: [0, "Timer X reset/roll-over event has no effect"]
     Trigger: [1, "Timer X reset/roll-over event triggers a burst mode entry"]
-  "MSTCMP[1234]":
+  "MSTCMP[1-4]":
     NoEffect: [0, "Master timer compare X event has no effect"]
     Trigger: [1, "Master timer compare X event triggers a burst mode entry"]
   "MSTREP":
@@ -179,7 +179,7 @@ EECR1:
   "*PER":
     Disabled: [0, "No generation of ADC trigger on timer period event"]
     Enabled: [1, "Generation of ADC trigger on timer period event"]
-  "[ABCDEF]C[234]":
+  "[A-F]C[234]":
     Disabled: [0, "No generation of ADC trigger on timer compare event"]
     Enabled: [1, "Generation of ADC trigger on timer compare event"]
   "EEV*":
