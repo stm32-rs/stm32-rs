@@ -54,6 +54,9 @@ _modify:
   "FLT[A-F]R":
     name: FLTR
 
+"CNTR,PERR,REPR,CMP[1-4]R,CMP1CR,CPT[12]R,DTR":
+  _strip_end: x
+
 CR:
   _modify:
     CK_PSCx:
@@ -115,10 +118,17 @@ CHPR:
     CHPFRQ:
       name: CARFRQ
 
+CPT[12]R:
+  _modify:
+    CPT[12]:
+      name: CPT
+
+CMP[1-4]R:
+  _modify:
+    CMP[1-4]:
+      name: CMP
+
 "CPT[12]CR":
   _modify:
     UDPCPT:
       name: UPDCPT
-
-"CNTR,PERR,REPR,CMP[1-4]R,CMP1CR,CPT[12]R,DTR":
-  _strip_end: x

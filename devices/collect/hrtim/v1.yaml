@@ -1,19 +1,42 @@
+HRTIM_Master:
+  _derive:
+    CMP2R: CMP1R
+    CMP3R: CMP1R
+    CMP4R: CMP1R
+  ISR:
+    _array:
+      CMP[1-4]: {}
+  ICR:
+    _array:
+      CMP[1-4]C: {}
+  DIER:
+    _array:
+      CMP[1-4]IE: {}
+      CMP[1-4]DE: {}
+
 "HRTIM_TIM[AB-F]":
   _derive:
+    CMP2R: CMP1R
+    CMP3R: CMP1R
+    CMP4R: CMP1R
     CPT2R: CPT1R
     SET2R: SET1R
     RST2R: RST1R
     CPT2CR: CPT1CR
   ISR:
     _array:
+      CMP[1-4]: {}
       CPT[12]: {}
       SET[12]: {}
   ICR:
     _array:
+      CMP[1-4]C: {}
       CPT[12]C: {}
       SET[12]C: {}
   DIER:
     _array:
+      CMP[1-4]IE: {}
+      CMP[1-4]DE: {}
       CPT[12]IE: {}
       CPT[12]DE: {}
       SET[12]IE:
@@ -31,9 +54,6 @@
     REPR: HRTIM_TIMA.REPR
     CMP1R: HRTIM_TIMA.CMP1R
     CMP1CR: HRTIM_TIMA.CMP1CR
-    CMP2R: HRTIM_TIMA.CMP2R
-    CMP3R: HRTIM_TIMA.CMP3R
-    CMP4R: HRTIM_TIMA.CMP4R
     DTR: HRTIM_TIMA.DTR
     EEFR1: HRTIM_TIMA.EEFR1
     EEFR2: HRTIM_TIMA.EEFR2

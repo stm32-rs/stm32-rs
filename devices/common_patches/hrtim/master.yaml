@@ -20,3 +20,8 @@ CR:
       name: SYNCSTRT
 "ISR,ICR,DIER,CNTR,PERR,REPR,CMP[1-4]R":
   _strip: M
+
+CMP[1-4]R:
+  _modify:
+    CMP[1-4]:
+      name: CMP

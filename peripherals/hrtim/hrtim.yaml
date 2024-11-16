@@ -120,7 +120,7 @@ HRTIM_Master:
   REPR:
     REP: [0, 0xFF]
   "CMP[1-4]R":
-    "CMP[1-4]": [0, 0xFFFF]
+    CMP: [0, 0xFFFF]
 
 "HRTIM_TIM[A-F]":
   CR:
@@ -352,12 +352,12 @@ HRTIM_Master:
   REPR:
     REP: [0, 0xFF]
   "CMP[1-4]R":
-    "CMP[1-4]": [0, 0xFFFF]
+    CMP: [0, 0xFFFF]
   "CMP1CR":
     CMP1: [0, 0xFFFF]
     REP: [0, 0xFF]
   "CPT[12]R":
-    "CPT[12]": [0, 0xFFFF]
+    CPT: [0, 0xFFFF]
   "DTR":
     DTFLK:
       Unlocked: [0, "Deadtime falling value and sign is writable"]
