@@ -69,33 +69,44 @@ CR:
 
 ISR:
   _modify:
-    RSTx1:
+    "RSTx1,RST1x":
       name: RST1
-    RSTx2:
+    "RSTx2,RST2x":
       name: RST2
-    SETx1:
+    "SETx1,SET1x":
       name: SET1
-    SETx2:
+    "SETx2,SET2x":
       name: SET2
+
+ICR:
+  _modify:
+    "RSTx1C,RST1xC":
+      name: RST1C
+    "RSTx2C,RST2xC":
+      name: RST2C
+    "SETx1C,SET1xC":
+      name: SET1C
+    "SETx2C,SET2xC":
+      name: SET2C
 
 DIER:
   _modify:
-    RSTx1DE:
+    "RSTx1DE,RST1xDE":
       name: RST1DE
-    RSTx2DE:
+    "RSTx2DE,RST2xDE":
       name: RST2DE
-    SETx1DE:
+    "SETx1DE,SET1xDE":
       name: SET1DE
-    SETx2DE:
+    "SETx2DE,SET2xDE":
       name: SET2DE
-    RSTx1IE:
+    "RSTx1IE,RST1xIE":
       name: RST1IE
-    RSTx2IE:
+    "RSTx2IE,RST2xIE":
       name: RST2IE
-    SET1xDE:
-      name: SET1DE
-    SET1xIE:
+    "SET1xIE,SETx1IE":
       name: SET1IE
+    "SETx2IE,SET2xIE":
+      name: SET2IE
 
 CHPR:
   _modify:

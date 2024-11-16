@@ -49,10 +49,10 @@ HRTIM_Master:
         [3, "Negative pulse on SCOUT output (16x f_HRTIM clock cycles)"]
     SYNCSTRT:
       Disabled: [0, "No effect on the master timer"]
-      Enabled: [1, "A synchroniation input event starts the master timer"]
+      Start: [1, "A synchroniation input event starts the master timer"]
     SYNCRST:
       Disabled: [0, "No effect on the master timer"]
-      Enabled: [1, "A synchroniation input event resets the master timer"]
+      Reset: [1, "A synchroniation input event resets the master timer"]
     SYNCIN:
       Disabled:
         [0, "Disabled. HRTIM is not synchronized and runs in standalone mode"]
@@ -104,7 +104,8 @@ HRTIM_Master:
       Event: [1, "Master compare interrupt occurred"]
   ICR:
     "M*C,SYNCC":
-      Clear: [1, "Clears flag in MISR register"]
+      _W1C:
+        Clear: [1, "Clears flag in MISR register"]
   DIER:
     "M*DE,SYNCDE":
       Disabled: [0, "DMA request disabled"]
@@ -293,7 +294,8 @@ HRTIM_Master:
       Event: [1, "Compare interrupt occurred"]
   ICR:
     "*C":
-      Clear: [1, "Clears associated flag in ISR register"]
+      _W1C:
+        Clear: [1, "Clears associated flag in ISR register"]
   DIER:
     DLYPRTDE:
       Disabled: [0, "Delayed protection DMA request disabled"]

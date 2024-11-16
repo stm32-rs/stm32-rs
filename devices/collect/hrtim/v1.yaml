@@ -1,3 +1,26 @@
+"HRTIM_TIM[AB-F]":
+  _derive:
+    CPT2R: CPT1R
+    SET2R: SET1R
+    RST2R: RST1R
+    CPT2CR: CPT1CR
+  ISR:
+    _array:
+      CPT[12]: {}
+      SET[12]: {}
+  ICR:
+    _array:
+      CPT[12]C: {}
+      SET[12]C: {}
+  DIER:
+    _array:
+      CPT[12]IE: {}
+      CPT[12]DE: {}
+      SET[12]IE:
+        description: Output %s set interrupt enable
+      SET[12]DE:
+        description: Output %s set DMA request enable
+
 "HRTIM_TIM[B-F]":
   _derive:
     ISR: HRTIM_TIMA.ISR
@@ -11,18 +34,17 @@
     CMP2R: HRTIM_TIMA.CMP2R
     CMP3R: HRTIM_TIMA.CMP3R
     CMP4R: HRTIM_TIMA.CMP4R
-    CPT1R: HRTIM_TIMA.CPT1R
-    CPT2R: HRTIM_TIMA.CPT2R
     DTR: HRTIM_TIMA.DTR
-    SET1R: HRTIM_TIMA.SET1R
-    RST1R: HRTIM_TIMA.RST1R
-    SET2R: HRTIM_TIMA.SET2R
-    RST2R: HRTIM_TIMA.RST2R
     EEFR1: HRTIM_TIMA.EEFR1
     EEFR2: HRTIM_TIMA.EEFR2
     CHPR: HRTIM_TIMA.CHPR
     OUTR: HRTIM_TIMA.OUTR
     FLTR: HRTIM_TIMA.FLTR
+    CPT1R: HRTIM_TIMA.CPT1R
+    SET1R: HRTIM_TIMA.SET1R
+    RST1R: HRTIM_TIMA.RST1R
+    CPT1CR: HRTIM_TIMA.CPT1CR
+
   CR:
     _modify:
       CKPSC:
@@ -59,9 +81,3 @@
         derivedFrom: HRTIM_TIMA.CR.PREEN
       UPDGAT:
         derivedFrom: HRTIM_TIMA.CR.UPDGAT
-  CPT2CR:
-    _modify:
-      SWCPT:
-        derivedFrom: HRTIM_TIMA.CPT2CR.SWCPT
-      UPDCPT:
-        derivedFrom: HRTIM_TIMA.CPT2CR.UPDCPT
