@@ -3,6 +3,9 @@ HRTIM_Master:
     CMP2R: CMP1R
     CMP3R: CMP1R
     CMP4R: CMP1R
+  CR:
+    _array:
+      T[A-F]CEN: {}
   ISR:
     _array:
       CMP[1-4]: {}
@@ -46,6 +49,25 @@ HRTIM_Master:
   FLTR:
     _array:
       FLT[1-6]EN: {}
+  EEFR[12]:
+    _array:
+      "EE*LTCH": {}
+      "EE*FLTR": {}
+  SET1R:
+    _array:
+      "EXTEVNT*": {}
+      "TIMEVNT*": {}
+      "MSTCMP[1-4]": {}
+      "CMP[1-4]": {}
+  RST1R:
+    _array:
+      "EXTEVNT*": {}
+      "TIMEVNT*": {}
+      "MSTCMP[1-4]": {}
+      "CMP[1-4]": {}
+  CPT1CR:
+    _array:
+      "EXEV*CPT": {}
 
 "HRTIM_TIM[B-F]":
   _derive:
