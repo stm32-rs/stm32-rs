@@ -103,7 +103,7 @@ HRTIM_Master:
       NoEvent: [0, "No master compare interrupt occurred"]
       Event: [1, "Master compare interrupt occurred"]
   ICR:
-    "M*C,SYNCC":
+    "*C":
       _W1C:
         Clear: [1, "Clears flag in MISR register"]
   DIER:

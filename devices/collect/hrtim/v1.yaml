@@ -43,6 +43,9 @@ HRTIM_Master:
         description: Output %s set interrupt enable
       SET[12]DE:
         description: Output %s set DMA request enable
+  FLTR:
+    _array:
+      FLT[1-6]EN: {}
 
 "HRTIM_TIM[B-F]":
   _derive:
@@ -101,3 +104,15 @@ HRTIM_Master:
         derivedFrom: HRTIM_TIMA.CR.PREEN
       UPDGAT:
         derivedFrom: HRTIM_TIMA.CR.UPDGAT
+
+HRTIM_Common:
+  FLTINR[12]:
+    _array:
+      FLT[1-6]E:
+        dimIncrement: 8
+      FLT[1-6]P:
+        dimIncrement: 8
+      FLT[1-6]SRC:
+        dimIncrement: 8
+      FLT[1-6]F:
+        dimIncrement: 8
