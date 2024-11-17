@@ -9,6 +9,18 @@ HRTIM_Common:
       TimerD: [4, "ADC trigger update from timer D"]
       TimerE: [5, "ADC trigger update from timer E"]
       TimerF: [6, "ADC trigger update from timer F"]
+  "FLTINR[12]":
+    "FLT[1-6]SRC":
+      Input: [0, "Fault input is FLTx input pin"]
+      CompOutput: [1, "Fault input is connected to a COMPx output"]
+  "FLTINR2":
+    "FLT[1-6]SRC_1":
+      Default: [0, "As described in FLTxSRC"]
+      Eev:
+        [
+          1,
+          "Fault input is EEV5_muxout input pin (when FLTxSRC == 0) / reserved",
+        ]
   BMTRGR:
     "EEV[78]":
       NoEffect: [0, "External event X has no effect"]

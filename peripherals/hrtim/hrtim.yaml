@@ -105,7 +105,7 @@ HRTIM_Master:
   ICR:
     "*C":
       _W1C:
-        Clear: [1, "Clears flag in MISR register"]
+        Clear: [1, "Clears associated flag in ISR register"]
   DIER:
     "M*DE,SYNCDE":
       Disabled: [0, "DMA request disabled"]

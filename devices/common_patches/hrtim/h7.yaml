@@ -1,0 +1,25 @@
+_include: v1.yaml
+
+HRTIM_Common:
+  _modify:
+    BDTxUPR:
+      name: BDTAUPR
+
+  "BMTRG,BMTRGR":
+    _add:
+      TAEEV7:
+        description: Timer A period following External Event 7
+        bitOffset: 27
+        bitWidth: 1
+      TDEEV8:
+        description: Timer D period following External Event 8
+        bitOffset: 28
+        bitWidth: 1
+      EEV7:
+        description: External Event 7 (TIMA filters applied)
+        bitOffset: 29
+        bitWidth: 1
+      EEV8:
+        description: External Event 8 (TIMD filters applied)
+        bitOffset: 30
+        bitWidth: 1

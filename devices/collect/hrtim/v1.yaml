@@ -128,6 +128,45 @@ HRTIM_Master:
         derivedFrom: HRTIM_TIMA.CR.UPDGAT
 
 HRTIM_Common:
+  _derive:
+    ADC3R: ADC1R
+    ADC4R: ADC2R
+    BDTBUPR:
+      _from: BDTAUPR
+      addressOffset: 0x60
+    BDTCUPR:
+      _from: BDTAUPR
+      addressOffset: 0x64
+    BDTDUPR:
+      _from: BDTAUPR
+      addressOffset: 0x68
+    BDTEUPR:
+      _from: BDTAUPR
+      addressOffset: 0x6C
+
+  CR1:
+    _array:
+      T[A-F]UDIS:
+        description: Timer %s Update Disable
+      AD[1-4]USRC: {}
+  CR2:
+    _array:
+      T[A-F]SWU:
+        description: Timer %s Software Update
+      T[A-F]RST:
+        description: Timer %s counter software reset
+
+  EECR[12]:
+    _array:
+      EE*SRC: {}
+      EE*POL: {}
+  EECR1:
+    _array:
+      EE*FAST: {}
+  #EECR3:
+  #  _array:
+  #    EE*F: {}
+
   FLTINR[12]:
     _array:
       FLT[1-6]E:
@@ -136,5 +175,16 @@ HRTIM_Common:
         dimIncrement: 8
       FLT[1-6]SRC:
         dimIncrement: 8
+        description: Fault %s source
       FLT[1-6]F:
         dimIncrement: 8
+
+  BMCR:
+    _array:
+      T[A-F]BM:
+        description: Timer %s Burst Mode
+
+  ADC[1-4]R:
+    _array:
+      MC[1-4]: {}
+      EEV*: {}

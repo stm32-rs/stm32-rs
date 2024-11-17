@@ -2,14 +2,13 @@ HRTIM_TIMF:
   _modify:
     RSTE1R:
       name: RSTF1R
+
 HRTIM_Common:
   _modify:
     BDMUPDR:
       name: BDMUPR
     BMTRG:
       name: BMTRGR
-    ISR:
-      access: read-write
   IER:
     _modify:
       SYSFLTE:
@@ -117,6 +116,29 @@ HRTIM_Common:
       AC3:
         name: FC2
         description: Bit 11 - ADC trigger 3 on timer F compare 2
+
+  BMTRGR:
+    _modify:
+      TDEEV7:
+        name: TAEEV7
+        description: Timer A period following external event 7
+      TERST:
+        name: TFCMP1
+        description: Timer F compare 1 event
+      TDCMP1:
+        name: TFREP
+        description: Timer F repetition
+      TCCMP2:
+        name: TFRST
+        description: Timer F reset
+
+  BDT[A-F]UPR:
+    _strip: TIMx
+
+  FLTINR2:
+    _modify:
+      FLT6SRC_0:
+        name: FLT6SRC
 
 HRTIM_Master:
   _include: master.yaml
