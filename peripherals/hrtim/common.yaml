@@ -41,16 +41,20 @@ IER:
 OENR:
   "T[A-F][12]OEN":
     _read:
+      _name: TOENR
       Disabled: [0, "Output disabled"]
       Enabled: [1, "Output enabled"]
     _W1S:
+      _name: TORNW
       Enable: [1, "Enable output"]
 ODISR:
   "T[A-F][12]ODIS":
     _W1S:
+      _name: TODIS
       Disable: [1, "Disable output"]
 ODSR:
   "T[A-F][12]ODS":
+    _name: TODS
     Idle: [0, "Output disabled in idle state"]
     Fault: [1, "Output disabled in fault state"]
 BMCR:

@@ -185,3 +185,20 @@ HRTIM_Common:
     _array:
       MC[1-4]: {}
       EEV*: {}
+
+  OENR:
+    _array:
+      "T[A-F]1OEN":
+        description: Timer %s Output 1 Enable
+      "T[A-F]2OEN":
+        description: Timer %s Output 2 Enable
+  ODISR:
+    _array:
+      "T[A-F]1ODIS": {}
+      "T[A-F]2ODIS": {}
+  ODSR:
+    _array:
+      "T[A-F]1ODS":
+        description: Timer %s Output 1 disable status
+      "T[A-F]2ODS":
+        description: Timer %s Output 2 disable status
