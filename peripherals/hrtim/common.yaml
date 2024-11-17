@@ -16,7 +16,11 @@ ISR:
     _read:
       NoEvent: [0, "No DLL calibration ready interrupt occurred"]
       Event: [1, "DLL calibration ready interrupt occurred"]
-  "SYSFLT,FLT?":
+  SYSFLT:
+    _read:
+      NoEvent: [0, "No fault interrupt occurred"]
+      Event: [1, "Fault interrupt occurred"]
+  "FLT[1-6]":
     _read:
       NoEvent: [0, "No fault interrupt occurred"]
       Event: [1, "Fault interrupt occurred"]
