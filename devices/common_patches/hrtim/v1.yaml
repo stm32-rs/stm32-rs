@@ -36,6 +36,161 @@ HRTIM_Master:
     DIER4:
       name: DIER
 
+HRTIM_TIMA:
+  "RST[A-F][12]R,SET[A-F][12]R":
+    _modify:
+      TIMEVNT1:
+        name: TIMBCMP1
+        description: Timer B Compare 1
+      TIMEVNT2:
+        name: TIMBCMP2
+        description: Timer B Compare 2
+      TIMEVNT3:
+        name: TIMBCMP4
+        description: Timer B Compare 4
+      TIMEVNT4:
+        name: TIMCCMP2
+        description: Timer C Compare 2
+      TIMEVNT5:
+        name: TIMCCMP3
+        description: Timer C Compare 3
+      TIMEVNT6:
+        name: TIMDCMP1
+        description: Timer D Compare 1
+      TIMEVNT7:
+        name: TIMDCMP2
+        description: Timer D Compare 2
+      TIMEVNT8:
+        name: TIMECMP3
+        description: Timer E Compare 3
+      TIMEVNT9:
+        name: TIMECMP4
+        description: Timer E Compare 4
+
+HRTIM_TIMB:
+  "RST[A-F][12]R,SET[A-F][12]R":
+    _modify:
+      TIMEVNT1:
+        name: TIMACMP1
+        description: Timer A Compare 1
+      TIMEVNT2:
+        name: TIMACMP2
+        description: Timer A Compare 2
+      TIMEVNT3:
+        name: TIMACMP4
+        description: Timer A Compare 4
+      TIMEVNT4:
+        name: TIMCCMP3
+        description: Timer C Compare 3
+      TIMEVNT5:
+        name: TIMCCMP4
+        description: Timer C Compare 4
+      TIMEVNT6:
+        name: TIMDCMP3
+        description: Timer D Compare 3
+      TIMEVNT7:
+        name: TIMDCMP4
+        description: Timer D Compare 4
+      TIMEVNT8:
+        name: TIMECMP1
+        description: Timer E Compare 1
+      TIMEVNT9:
+        name: TIMECMP2
+        description: Timer E Compare 2
+
+HRTIM_TIMC:
+  "RST[A-F][12]R,SET[A-F][12]R":
+    _modify:
+      TIMEVNT1:
+        name: TIMACMP2
+        description: Timer A Compare 2
+      TIMEVNT2:
+        name: TIMACMP3
+        description: Timer A Compare 3
+      TIMEVNT3:
+        name: TIMBCMP2
+        description: Timer B Compare 2
+      TIMEVNT4:
+        name: TIMBCMP3
+        description: Timer B Compare 3
+      TIMEVNT5:
+        name: TIMDCMP2
+        description: Timer D Compare 2
+      TIMEVNT6:
+        name: TIMDCMP4
+        description: Timer D Compare 4
+      TIMEVNT7:
+        name: TIMECMP2
+        description: Timer E Compare 2
+      TIMEVNT8:
+        name: TIMECMP3
+        description: Timer E Compare 3
+      TIMEVNT9:
+        name: TIMECMP4
+        description: Timer E Compare 4
+
+HRTIM_TIMD:
+  "RST[A-F][12]R,SET[A-F][12]R":
+    _modify:
+      TIMEVNT1:
+        name: TIMACMP1
+        description: Timer A Compare 1
+      TIMEVNT2:
+        name: TIMACMP4
+        description: Timer A Compare 4
+      TIMEVNT3:
+        name: TIMBCMP2
+        description: Timer B Compare 2
+      TIMEVNT4:
+        name: TIMBCMP4
+        description: Timer B Compare 4
+      TIMEVNT5:
+        name: TIMCCMP1
+        description: Timer C Compare 1
+      TIMEVNT6:
+        name: TIMCCMP3
+        description: Timer C Compare 3
+      TIMEVNT7:
+        name: TIMCCMP4
+        description: Timer C Compare 4
+      TIMEVNT8:
+        name: TIMECMP1
+        description: Timer E Compare 1
+      TIMEVNT9:
+        name: TIMECMP2
+        description: Timer E Compare 2
+
+HRTIM_TIME:
+  "RST[A-F][12]R,SET[A-F][12]R":
+    _modify:
+      TIMEVNT1:
+        name: TIMACMP3
+        description: Timer A Compare 3
+      TIMEVNT2:
+        name: TIMACMP4
+        description: Timer A Compare 4
+      TIMEVNT3:
+        name: TIMBCMP3
+        description: Timer B Compare 3
+      TIMEVNT4:
+        name: TIMBCMP4
+        description: Timer B Compare 4
+      TIMEVNT5:
+        name: TIMCCMP1
+        description: Timer C Compare 1
+      TIMEVNT6:
+        name: TIMCCMP2
+        description: Timer C Compare 2
+      TIMEVNT7:
+        name: TIMDCMP1
+        description: Timer D Compare 1
+      TIMEVNT8:
+        name: TIMDCMP2
+        description: Timer D Compare 2
+      TIMEVNT9:
+        name: TIMDCMP4
+        description: Timer D Compare 4
+
 "HRTIM_TIM[A-F]":
   _include: strip.yaml
   _modify:

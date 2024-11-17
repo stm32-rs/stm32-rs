@@ -57,16 +57,9 @@ HRTIM_Master:
     _array:
       "EE*LTCH": {}
       "EE*FLTR": {}
-  SET1R:
+  "SET1R,RST1R":
     _array:
       "EXTEVNT*": {}
-      "TIMEVNT*": {}
-      "MSTCMP[1-4]": {}
-      "CMP[1-4]": {}
-  RST1R:
-    _array:
-      "EXTEVNT*": {}
-      "TIMEVNT*": {}
       "MSTCMP[1-4]": {}
       "CMP[1-4]": {}
   CPT1CR:
@@ -86,8 +79,6 @@ HRTIM_Master:
     OUTR: HRTIM_TIMA.OUTR
     FLTR: HRTIM_TIMA.FLTR
     CPT1R: HRTIM_TIMA.CPT1R
-    SET1R: HRTIM_TIMA.SET1R
-    RST1R: HRTIM_TIMA.RST1R
 
   CR:
     _modify:
