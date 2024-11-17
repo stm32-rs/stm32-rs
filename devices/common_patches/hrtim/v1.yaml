@@ -19,14 +19,16 @@ HRTIM_Common:
     _modify:
       SYSFLTC:
         access: write-only
-  ISR:
-    _modify:
-      "*":
-        access: read-write
   ADC[1234]R:
     _strip:
       - AD?T
       - AD?
+
+  BDT[A-F]UPR:
+    _strip: TIMx
+    _modify:
+      DTxR:
+        name: DTR
 
 HRTIM_Master:
   _include: master.yaml

@@ -5,6 +5,21 @@ _include: v1.yaml
     EEFR3: HRTIM_TIMA.EEFR3
 
 HRTIM_Common:
+  _derive:
+    BDTFUPR: BDTAUPR
+
+  CR2:
+    _array:
+      SWP[A-F]: {}
+
+  EECR3:
+    _array:
+      EE*F: {}
+
+  FLTINR2:
+    _array:
+      FLT[1-6]SRC_1:
+        description: Fault %s source bit 1
   FLTINR[34]:
     _array:
       FLT[1-6]BLKE:

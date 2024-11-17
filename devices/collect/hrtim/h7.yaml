@@ -1,0 +1,6 @@
+_include: v1.yaml
+
+"HRTIM_TIM[B-F]":
+  _derive:
+    RSTR: HRTIM_TIMA.RSTR
+    CPT1CR: HRTIM_TIMA.CPT1CR

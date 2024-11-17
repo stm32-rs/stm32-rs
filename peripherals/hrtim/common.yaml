@@ -12,29 +12,22 @@ ISR:
     _read:
       NoEvent: [0, "No burst mode period interrupt occurred"]
       Event: [1, "Burst mode period interrupt occured"]
-    _write:
-      Clear: [1, "Clear burst mode period interrupt"]
   DLLRDY:
     _read:
       NoEvent: [0, "No DLL calibration ready interrupt occurred"]
       Event: [1, "DLL calibration ready interrupt occurred"]
-    _write:
-      Clear: [1, "Clear DLL calibration interrupt"]
-  "SYSFLT,FLT?":
+  SYSFLT:
     _read:
       NoEvent: [0, "No fault interrupt occurred"]
       Event: [1, "Fault interrupt occurred"]
-    _write:
-      Clear: [1, "Clear fault interrupt"]
+  "FLT[1-6]":
+    _read:
+      NoEvent: [0, "No fault interrupt occurred"]
+      Event: [1, "Fault interrupt occurred"]
 ICR:
-  BMPERC:
-    Clear: [1, "Clears BMPER flag"]
-  DLLRDYC:
-    Clear: [1, "Clears DLL ready flag"]
-  "FLT?C":
-    Clear: [1, "Clears FLTx flag"]
-  SYSFLTC:
-    Clear: [1, "Clears SYSFLT flag"]
+  "*C":
+    _W1C:
+      Clear: [1, "Clears associated flag in ISR register"]
 IER:
   BMPERIE:
     Disabled: [0, "Burst mode period interrupt disabled"]
@@ -46,17 +39,22 @@ IER:
     Disabled: [0, "Fault interrupt disabled"]
     Enabled: [1, "Fault interrupt enabled"]
 OENR:
-  "T[ABCDE][12]OEN":
+  "T[A-F][12]OEN":
     _read:
+      _name: TOENR
       Disabled: [0, "Output disabled"]
       Enabled: [1, "Output enabled"]
-    _write:
+    _W1S:
+      _name: TORNW
       Enable: [1, "Enable output"]
 ODISR:
-  "T[ABCDE][12]ODIS":
-    Disable: [1, "Disable output"]
+  "T[A-F][12]ODIS":
+    _W1S:
+      _name: TODIS
+      Disable: [1, "Disable output"]
 ODSR:
-  "T[ABCDE][12]ODS":
+  "T[A-F][12]ODS":
+    _name: TODS
     Idle: [0, "Output disabled in idle state"]
     Fault: [1, "Output disabled in fault state"]
 BMCR:
@@ -64,9 +62,9 @@ BMCR:
     _read:
       Normal: [0, "Normal operation"]
       Burst: [1, "Burst operation ongoing"]
-    _write:
+    _W0C:
       Cancel: [0, "Terminate burst mode"]
-  "T[ABCDE]BM,MTBM":
+  "T[A-F]BM,MTBM":
     Normal: [0, "Counter clock is maintained and timer operates normally"]
     Stopped: [1, "Counter clock is stopped and counter is reset"]
   BMPREN:
@@ -120,13 +118,13 @@ BMTRGR:
   OCHPEV:
     NoEffect: [0, "Rising edge on an on-chip event has no effect"]
     Trigger: [1, "Rising edge on an on-chip event triggers a burst mode entry"]
-  "T[ABCDE]CMP[12]":
+  "T[A-F]CMP[12]":
     NoEffect: [0, "Timer X compare Y event has no effect"]
     Trigger: [1, "Timer X compare Y event triggers a burst mode entry"]
-  "T[ABCDE]REP":
+  "T[A-F]REP":
     NoEffect: [0, "Timer X repetition event has no effect"]
     Trigger: [1, "Timer X repetition event triggers a burst mode entry"]
-  "T[ABCDE]RST":
+  "T[A-F]RST":
     NoEffect: [0, "Timer X reset/roll-over event has no effect"]
     Trigger: [1, "Timer X reset/roll-over event triggers a burst mode entry"]
   "MSTCMP[1-4]":
@@ -223,9 +221,6 @@ DLLCR:
     Div32_N5: [13, "f_SAMPLING=f_HRTIM/32, N=5"]
     Div32_N6: [14, "f_SAMPLING=f_HRTIM/32, N=6"]
     Div32_N8: [15, "f_SAMPLING=f_HRTIM/32, N=8"]
-  "FLT[123456]SRC":
-    Input: [0, "Fault input is FLTx input pin"]
-    Internal: [1, "Fault input is FLTn_Int signal"]
   "FLT[123456]P":
     ActiveLow: [0, "Fault input is active low"]
     ActiveHigh: [1, "Fault input is active high"]
@@ -242,8 +237,8 @@ BDMUPR:
   "M*":
     NotUpdated: [0, "Register not updated by burst DMA access"]
     Updated: [1, "Register updated by burst DMA access"]
-"BDT?UPR":
-  "TIM*":
+"BDT[A-F]UPR":
+  "*":
     NotUpdated: [0, "Register not updated by burst DMA access"]
     Updated: [1, "Register updated by burst DMA access"]
 BDMADR:

@@ -19,6 +19,10 @@ HRTIM_Master:
 
 "HRTIM_TIM[AB-F]":
   _derive:
+    CNTR: HRTIM_Master.CNTR
+    PERR: HRTIM_Master.PERR
+    REPR: HRTIM_Master.REPR
+    CMP1R: HRTIM_Master.CMP1R
     CMP2R: CMP1R
     CMP3R: CMP1R
     CMP4R: CMP1R
@@ -74,10 +78,6 @@ HRTIM_Master:
     ISR: HRTIM_TIMA.ISR
     ICR: HRTIM_TIMA.ICR
     DIER: HRTIM_TIMA.DIER
-    CNTR: HRTIM_TIMA.CNTR
-    PERR: HRTIM_TIMA.PERR
-    REPR: HRTIM_TIMA.REPR
-    CMP1R: HRTIM_TIMA.CMP1R
     CMP1CR: HRTIM_TIMA.CMP1CR
     DTR: HRTIM_TIMA.DTR
     EEFR1: HRTIM_TIMA.EEFR1
@@ -88,7 +88,6 @@ HRTIM_Master:
     CPT1R: HRTIM_TIMA.CPT1R
     SET1R: HRTIM_TIMA.SET1R
     RST1R: HRTIM_TIMA.RST1R
-    CPT1CR: HRTIM_TIMA.CPT1CR
 
   CR:
     _modify:
@@ -128,6 +127,43 @@ HRTIM_Master:
         derivedFrom: HRTIM_TIMA.CR.UPDGAT
 
 HRTIM_Common:
+  _derive:
+    ADC3R: ADC1R
+    ADC4R: ADC2R
+    BDTBUPR:
+      _from: BDTAUPR
+      addressOffset: 0x60
+    BDTCUPR:
+      _from: BDTAUPR
+      addressOffset: 0x64
+    BDTDUPR:
+      _from: BDTAUPR
+      addressOffset: 0x68
+    BDTEUPR:
+      _from: BDTAUPR
+      addressOffset: 0x6C
+
+  CR1:
+    _array:
+      T[A-F]UDIS:
+        description: Timer %s Update Disable
+      AD[1-4]USRC: {}
+  CR2:
+    _array:
+      T[A-F]SWU:
+        description: Timer %s Software Update
+      T[A-F]RST:
+        description: Timer %s counter software reset
+
+  EECR[12]:
+    _array:
+      EE*SRC: {}
+      EE*POL: {}
+      EE*SNS: {}
+  EECR1:
+    _array:
+      EE*FAST: {}
+
   FLTINR[12]:
     _array:
       FLT[1-6]E:
@@ -136,5 +172,33 @@ HRTIM_Common:
         dimIncrement: 8
       FLT[1-6]SRC:
         dimIncrement: 8
+        description: Fault %s source
       FLT[1-6]F:
         dimIncrement: 8
+
+  BMCR:
+    _array:
+      T[A-F]BM:
+        description: Timer %s Burst Mode
+
+  ADC[1-4]R:
+    _array:
+      MC[1-4]: {}
+      EEV*: {}
+
+  OENR:
+    _array:
+      "T[A-F]1OEN":
+        description: Timer %s Output 1 Enable
+      "T[A-F]2OEN":
+        description: Timer %s Output 2 Enable
+  ODISR:
+    _array:
+      "T[A-F]1ODIS": {}
+      "T[A-F]2ODIS": {}
+  ODSR:
+    _array:
+      "T[A-F]1ODS":
+        description: Timer %s Output 1 disable status
+      "T[A-F]2ODS":
+        description: Timer %s Output 2 disable status
