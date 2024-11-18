@@ -388,7 +388,7 @@ HRTIM_Master:
     "EXTEVNT*":
       NoEffect: [0, "External event has no effect"]
       SetActive: [1, "External event forces the output to its active state"]
-    "TIMEVNT*":
+    "TIM[A-F]CMP[1-4]":
       NoEffect: [0, "Timer event has no effect"]
       SetActive: [1, "Timer event forces the output to its active state"]
     "MSTCMP[1-4]":
@@ -431,7 +431,7 @@ HRTIM_Master:
     "EXTEVNT*":
       NoEffect: [0, "External event has no effect"]
       SetInactive: [1, "External event forces the output to its inactive state"]
-    "TIMEVNT*":
+    "TIM[A-F]CMP[1-4]":
       NoEffect: [0, "Timer event has no effect"]
       SetInactive: [1, "Timer event forces the output to its inactive state"]
     "MSTCMP[1-4]":
