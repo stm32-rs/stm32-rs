@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* H5: Add RCC defitions for H56x/H573
 * MP15x: Strip prefixes from peripherals
 * MP15x: Fix DIGBYP bit access in RCC_BDCR
 * Fix yaml parsing errors

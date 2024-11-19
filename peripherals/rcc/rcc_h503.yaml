@@ -1,6 +1,4 @@
-# Common RCC patches for H5 chips
-# The H562/3 and H573 chips are typically a superset of H503, so additional fields
-# need to be specified for those chips.
+# RCC patches specifically for H503
 
 
 _include:
@@ -56,7 +54,7 @@ RCC:
       PER_CK: [4, "per_ck clock selected as clock source"]
     SPI2SEL:
       PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
-      PLL2_P: [1, "PLL2 QP clock selected as clock source (pll2_p_ck)"]
+      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
       AUDIOCLK: [3, "AUDIOCLK clock selected as clock source"]
       PER_CK: [4, "per_ck clock selected as clock source"]
     SPI3SEL:
