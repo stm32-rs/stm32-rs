@@ -76,8 +76,7 @@ $(1)/src/%/mod.rs: svd/%.svd.patched settings/%.yaml $(1)/Cargo.toml
 
 settings/%.yaml: svd/%.svd.patched
 	mkdir -p settings
-	echo "html_url: https://stm32-rs.github.io/stm32-rs/`svdtools info $$< device-name --input-format xml`.html" > $$@
-	echo "crate_path: crate::`echo $$< | sed -E 's|svd/(\w*)\.svd\.patched|\1|g'`" >> $$@
+	scripts/makesettings.sh $$< $$@
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
 	form -f -i $$< -o $$(@D)
