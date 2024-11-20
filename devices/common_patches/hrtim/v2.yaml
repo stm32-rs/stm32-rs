@@ -168,6 +168,10 @@ HRTIM_TIMA:
       TIMEVNT9:
         name: TIMFCMP4
         description: Timer F Compare 4
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCPM2:
+        name: TIMFCMP2
 
 HRTIM_TIMB:
   "RST[A-F][12]R,SET[A-F][12]R":
@@ -199,6 +203,10 @@ HRTIM_TIMB:
       TIMEVNT9:
         name: TIMFCMP3
         description: Timer F Compare 3
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCPM2:
+        name: TIMFCMP2
 
 HRTIM_TIMC:
   "RST[A-F][12]R,SET[A-F][12]R":
@@ -230,6 +238,10 @@ HRTIM_TIMC:
       TIMEVNT9:
         name: TIMFCMP2
         description: Timer F Compare 2
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCPM2:
+        name: TIMFCMP2
 
 HRTIM_TIMD:
   "RST[A-F][12]R,SET[A-F][12]R":
@@ -261,6 +273,10 @@ HRTIM_TIMD:
       TIMEVNT9:
         name: TIMFCMP3
         description: Timer F Compare 3
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCPM2:
+        name: TIMFCMP2
 
 HRTIM_TIME:
   "RST[A-F][12]R,SET[A-F][12]R":
@@ -292,6 +308,10 @@ HRTIM_TIME:
       TIMEVNT9:
         name: TIMFCMP4
         description: Timer F Compare 4
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCPM2:
+        name: TIMFCMP2
 
 HRTIM_TIMF:
   _modify:
@@ -326,6 +346,12 @@ HRTIM_TIMF:
       TIMEVNT9:
         name: TIMECMP3
         description: Timer E Compare 3
+  RST[A-F]R,RSTR:
+    _modify:
+      TIMFCMP1:
+        name: TIMECMP1
+      TIMFCPM2:
+        name: TIMECMP2
 
 "HRTIM_TIM[A-F]":
   _include: strip.yaml
