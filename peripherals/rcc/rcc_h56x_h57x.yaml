@@ -3,237 +3,69 @@ _include:
 
 RCC:
   CCIPR1:
-    TIMICSEL:
-      Disabled: [0, "No internal clock available for timers input capture"]
-      Enabled: [1, "hsi_ker_ck/1024, hsi_ker_ck/8 and csi_ker_ck/128 selected for timers input capture"]
-    USART10SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    UART9SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    UART8SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    UART7SEL:
-      RCC_PCLK2: [0, "PCLK2 selected as clock source (rcc_pclk2)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    USART6SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    UART5SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    UART4SEL:
-      RCC_PCLK2: [0, "PCLK2 selected as clock source (rcc_pclk2)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    USART3SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    USART2SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    USART1SEL:
-      RCC_PCLK2: [0, "PCLK2 selected as clock source (rcc_pclk2)"]
+    USART*SEL,UART*SEL:
+      _name: USARTSEL
+      PCLK: [0, "Peripheral bus clock used as selected as clock source (rcc_pclk_x)"]
       PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
       PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
       HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
       CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
       LSE: [5, "LSE clock selected as clock source (lse_ck)"]
   CCIPR2:
-    LPTIM6SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
+    LPTIM*SEL:
+      _name: LPTIMSEL
+      PCLK: [0, "Peripheral bus clock used as selected as clock source (rcc_pclk_x)"]
       PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
       PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
       LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
       LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
       PER_CK: [5, "per_ck clock selected as clock source"]
-    LPTIM5SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
-      LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      PER_CK: [5, "per_ck clock selected as clock source"]
-    LPTIM4SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
-      LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      PER_CK: [5, "per_ck clock selected as clock source"]
-    LPTIM3SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
-      LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      PER_CK: [5, "per_ck clock selected as clock source"]
-    LPTIM2SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
-      LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      PER_CK: [5, "per_ck clock selected as clock source"]
-    LPTIM1SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_R: [2, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      LSE_KER: [3, "LSE kernel selected as clock source (lse_ck)"]
-      LSI_KER: [4, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      PER_CK: [5, "per_ck clock selected as clock source"]
-    UART12SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
-    USART11SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE clock selected as clock source (lse_ck)"]
+    _modify:
+      USART*SEL,UART*SEL:
+        derivedFrom: RCC.CCIPR1.USART1SEL
   CCIPR3:
-    LPUART1SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_q_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      LSE: [5, "LSE selected as clock source (lse_ck)"]
-    SPI6SEL:
-      RCC_PCLK2: [0, "PCLK2 selected as clock source (rcc_pclk2)"]
+    _modify:
+      LPUART*SEL:
+        derivedFrom: RCC.CCIPR1.USART1SEL
+    SPI[456]SEL:
+      _name: SPI456SEL
+      PCLK: [0, "Peripheral bus clock used as selected as clock source (rcc_pclk_x)"]
       PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_p_ck)"]
       PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_p_ck)"]
       HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
       CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
       HSE: [5, "HSE clock selected as clock source (hse_ck)"]
-    SPI5SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_p_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_p_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      HSE: [5, "HSE clock selected as clock source (hse_ck)"]
-    SPI4SEL:
-      RCC_PCLK2: [0, "PCLK2 selected as clock source (rcc_pclk2)"]
-      PLL2_Q: [1, "PLL2 Q clock selected as clock source (pll2_p_ck)"]
-      PLL3_Q: [2, "PLL3 Q clock selected as clock source (pll3_p_ck)"]
-      HSI_KER: [3, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [4, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-      HSE: [5, "HSE clock selected as clock source (hse_ck)"]
-    SPI3SEL:
-      PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_P: [2, "PLL3 P clock selected as clock source (pll3_p_ck)"]
-      AUDIOCLK: [3, "AUDIOCLK clock selected as clock source"]
-      PER_CK: [4, "per_ck clock selected as clock source"]
-    SPI2SEL:
-      PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_P: [2, "PLL3 P clock selected as clock source (pll3_p_ck)"]
-      AUDIOCLK: [3, "AUDIOCLK clock selected as clock source"]
-      PER_CK: [4, "per_ck clock selected as clock source"]
-    SPI1SEL:
+    SPI[123]SEL:
+      _name: SPI123SEL
       PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
       PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
       PLL3_P: [2, "PLL3 P clock selected as clock source (pll3_p_ck)"]
       AUDIOCLK: [3, "AUDIOCLK clock selected as clock source"]
       PER_CK: [4, "per_ck clock selected as clock source"]
   CCIPR4:
-    I3C2SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
+    I3C*SEL:
+      _name: I3CSEL
+      PCLK: [0, "Peripheral bus clock used as selected as clock source (rcc_pclk_x)"]
       PLL3_R: [1, "PLL3 R clock selected as clock source (pll3_r_ck)"]
       HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-    I3C1SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL3_R: [1, "PLL3 R clock selected as clock source (pll3_r_ck)"]
-      HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-    I2C4SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
+    I2C*SEL:
+      _name: I2CSEL
+      PCLK: [0, "Peripheral bus clock used as selected as clock source (rcc_pclk_x)"]
       PLL3_R: [1, "PLL3 R Clock selected as clock source (pll3_r_ck)"]
       HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
       CSI_KER: [3, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-    I2C3SEL:
-      RCC_PCLK3: [0, "PCLK3 selected as clock source (rcc_pclk3)"]
-      PLL3_R: [1, "PLL3 R Clock selected as clock source (pll3_r_ck)"]
-      HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [3, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-    I2C2SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL3_R: [1, "PLL3 R Clock selected as clock source (pll3_r_ck)"]
-      HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [3, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-    I2C1SEL:
-      RCC_PCLK1: [0, "PCLK1 selected as clock source (rcc_pclk1)"]
-      PLL3_R: [1, "PLL3 R Clock selected as clock source (pll3_r_ck)"]
-      HSI_KER: [2, "HSI kernel clock selected as clock source (hsi_ker_ck)"]
-      CSI_KER: [3, "CSI kernel clock selected as clock source (csi_ker_ck)"]
-    SDMMC1SEL:
+    SDMMC*SEL:
+      _name: SDMMCSEL
       PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
       PLL2_R: [1, "PLL2 R clock selected as clock source (pll2_r_ck)"]
-    USBSEL:
-      DISABLE: [0, "Disable the clock"]
-      PLL1_Q: [1, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
-      PLL2_Q: [2, "PLL2 Q clock selected as clock source (pll2_q_ck)"]
-      HSI48: [3, "HSI48 clock selected as clock source (hsi48_ker_ck)"]
-    SYSTICKSEL:
-      HCLK_DIV8: [0, "RCC HLCK divided by 8 selected as clock source (rcc_hclk / 8)"]
-      LSI_KER: [1, "LSI kernel selected as clock source (lsi_ker_ck)"]
-      LSE: [2, "LSE selected as clock source (lse_ck)"]
     OCTOSPI1SEL:
       RCC_HCLK4: [0, "HCLK4 selected as clock source (rcc_hclk4)"]
       PLL1_Q: [1, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
       PLL2_R: [2, "PLL2 R clock selected as clock source (pll2_r_ck)"]
       PER_CK: [3, "per_ck clock selected as clock source"]
   CCIPR5:
-    SAI2SEL:
-      PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
-      PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
-      PLL3_P: [2, "PLL3 P clock selected as clock source (pll3_p_ck)"]
-      AUDIOCLK: [3, "AUDIOCLK clock selected as clock source"]
-      PER_CK: [4, "per_ck clock selected as clock source"]
-    SAI1SEL:
+    SAI*SEL:
+      _name: SAISEL
       PLL1_Q: [0, "PLL1 Q clock selected as clock source (pll1_q_ck)"]
       PLL2_P: [1, "PLL2 P clock selected as clock source (pll2_p_ck)"]
       PLL3_P: [2, "PLL3 P clock selected as clock source (pll3_p_ck)"]
