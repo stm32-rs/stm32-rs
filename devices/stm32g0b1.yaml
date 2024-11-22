@@ -10,6 +10,9 @@ _copy:
     from: TIM2
     baseAddress: 0x40000400
 
+_derive:
+  TIM4: TIM3
+
 "FDCAN?":
   _strip: "FDCAN_"
 
