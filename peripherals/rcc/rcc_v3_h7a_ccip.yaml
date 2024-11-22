@@ -30,7 +30,7 @@ CDCCIPR:
     PLL1_Q: [0, "pll1_q selected as peripheral clock"]
     PLL2_R: [1, "pll2_r selected as peripheral clock"]
   QSPISEL,FMCSEL,OCTOSPISEL:
-    RCC_HCLK3: [0, "rcc_hclk3 selected as peripheral clock"]
+    HCLK: [0, "rcc_hclk3 selected as peripheral clock"]
     PLL1_Q: [1, "pll1_q selected as peripheral clock"]
     PLL2_R: [2, "pll2_r selected as peripheral clock"]
     PER: [3, "PER selected as peripheral clock"]

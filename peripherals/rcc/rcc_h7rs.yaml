@@ -49,7 +49,7 @@ CCIPR1:
     PLL3_R: [1, "pll3_r selected as peripheral clock"]
     PER: [2, "per selected as peripheral clock"]
   ADFSEL:
-    HCLK1: [0, "hclk1 selected as ADF clock"]
+    HCLK: [0, "hclk1 selected as ADF clock"]
     PLL2_p: [1, "pll2_p_ck selected as ADF clock"]
     PLL3_P: [2, "pll3_p_ck selected as ADF clock"]
     I2S_CLKIN: [3, "I2S_CKIN selected as ADF clock"]
@@ -79,14 +79,14 @@ CCIPR1:
     MHz26: [14, "The clock frequency provided to the USBPHYC is 26 MHz"]
     MHz32: [11, "The clock frequency provided to the USBPHYC is 32 MHz"]
   OCTOSPI?SEL:
-    HCLK5: [0, "hclk5 selected as peripheral clock"]
+    HCLK: [0, "hclk5 selected as peripheral clock"]
     PLL2_S: [1, "pll2_s_ck selected as peripheral clock"]
     PLL2_T: [2, "pll2_t_ck selected as peripheral clock"]
   SDMMCSEL:
     PLL2_S: [0, "pll1_s selected as peripheral clock"]
     PLL2_T: [1, "pll2_t selected as peripheral clock"]
   FMCSEL:
-    HCLK5: [0, "hclk5 selected as peripheral clock"]
+    HCLK: [0, "hclk5 selected as peripheral clock"]
     PLL1_Q: [1, "pll1_q selected as peripheral clock"]
     PLL2_R: [2, "pll2_r selected as peripheral clock"]
     HSI_KER: [3, "hsi_ker selected as peripheral clock"]
