@@ -143,6 +143,9 @@ TIM15:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 USART1:
   _add:
     _interrupts:
@@ -188,7 +191,7 @@ _include:
   - collect/rtc/alarm.yaml
   - common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/tim/common.yaml
+  - common_patches/tim/group.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml

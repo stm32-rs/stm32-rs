@@ -14,11 +14,15 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:
  - common_patches/gpio/l4_brr.yaml
  - ./common_patches/stm32l4x2_l412.yaml
+ - common_patches/tim/group.yaml
  - collect/rtc/bkpr.yaml
  - ../peripherals/fw/fw_l0_l4.yaml
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml

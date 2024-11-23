@@ -30,6 +30,9 @@ TIM15:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 USB:
   _strip: "USB_"
   CNTR:
@@ -78,7 +81,7 @@ _include:
   - collect/rtc/alarm.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
   - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
-  - common_patches/tim/common.yaml
+  - common_patches/tim/group.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml

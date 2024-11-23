@@ -25,6 +25,9 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
  - ./common_patches/rcc/f1_uart45.yaml
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -45,7 +48,7 @@ _include:
  - ../peripherals/gpio/v1/common.yaml
  - collect/gpio/f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml

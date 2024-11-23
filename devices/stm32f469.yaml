@@ -154,6 +154,9 @@ QUADSPI:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -202,7 +205,7 @@ _include:
  - collect/dma/st.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim6.yaml

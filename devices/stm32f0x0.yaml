@@ -141,6 +141,8 @@ TIM1[456]:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
 
 _include:
  - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
@@ -160,7 +162,7 @@ _include:
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
  - ./common_patches/usart/rename_CR1_M0_field.yaml
  - ./common_patches/usart/merge_BRR_fields.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - common_patches/tim/tim1_16bit_l.yaml
  - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml

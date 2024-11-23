@@ -72,6 +72,9 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
   - ../peripherals/gpio/gpio_with_brr.yaml
   - ../peripherals/gpio/v2/common.yaml
@@ -140,7 +143,7 @@ _include:
   - ../peripherals/flash/flash_l4+.yaml
   - common_patches/rcc/l4+.yaml
   - ../peripherals/rcc/rcc_l4+.yaml
-  - common_patches/tim/common.yaml
+  - common_patches/tim/group.yaml
   - common_patches/tim/l4+.yaml
   - common_patches/tim/tim2345_mixed_l.yaml
   - common_patches/tim/v2/l4.yaml

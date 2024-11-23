@@ -46,6 +46,9 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -87,7 +90,7 @@ _include:
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
  - ../peripherals/flash/flash_v2.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - common_patches/tim/f7.yaml
  - common_patches/tim/f730_f7x2_f7x3.yaml

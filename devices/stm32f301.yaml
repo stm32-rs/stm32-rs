@@ -145,6 +145,9 @@ TIM2:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
  - common_patches/cec/cfgr.yaml
  - ../peripherals/hdmi_cec.yaml
@@ -179,7 +182,7 @@ _include:
  - collect/gpio/v2.yaml
  - ../peripherals/gpio/v2/common.yaml
  - common_patches/gpio/f3_ospeedr.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - common_patches/tim/tim2345_mixed.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
  - ../peripherals/tim/tim16.yaml

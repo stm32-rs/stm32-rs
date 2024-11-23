@@ -67,6 +67,9 @@ TIM*:
 "TIM[23]":
   _include: common_patches/tim/l0.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 _include:
  - ./common_patches/firewall/l0.yaml
  - ./common_patches/pwr/l0_mode.yaml
@@ -114,7 +117,7 @@ _include:
  - collect/rtc/bkpr.yaml
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0x0.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/tim/tim2345_16bit.yaml

@@ -42,6 +42,12 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+"TIM*":
+  _include: common_patches/tim/omp.yaml
+
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 UCPD1:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
@@ -52,9 +58,6 @@ UCPD1:
 VREFBUF:
   _strip:
     - "VREFBUF_"
-
-"TIM*":
-  _include: common_patches/tim/omp.yaml
 
 _include:
  - common_patches/usart/merge_BRR_fields.yaml
@@ -99,7 +102,7 @@ _include:
  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
  - ./common_patches/usb/g4.yaml
  - ../peripherals/rcc/rcc_g4.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - collect/tim/ccr.yaml

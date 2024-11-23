@@ -16,6 +16,9 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 VREFBUF:
   _strip:
     - "VREFBUF_"
@@ -85,7 +88,7 @@ _include:
   - ../peripherals/hrtim/common_v2.yaml
   - collect/hrtim/v2.yaml
   - ../peripherals/rcc/rcc_g4.yaml
-  - common_patches/tim/common.yaml
+  - common_patches/tim/group.yaml
   - common_patches/tim/v2/g4.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml

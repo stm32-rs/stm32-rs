@@ -34,6 +34,9 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/omp.yaml
 
+"TIM[1-58-9],TIM??":
+  _include: common_patches/tim/icpsc.yaml
+
 UCPD1:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
@@ -47,7 +50,7 @@ _include:
  - common_patches/fsmc/fsmc_u5.yaml
  - collect/gfxmmu/lut.yaml
  - common_patches/octospi/u5.yaml
- - common_patches/tim/common.yaml
+ - common_patches/tim/group.yaml
  - ../peripherals/adc/adc_u5_dual.yaml
  - ../peripherals/exti/exti_u5.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
