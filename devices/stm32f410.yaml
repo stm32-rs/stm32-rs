@@ -208,6 +208,9 @@ RNG:
 "TIM[2-5]":
   _include: common_patches/tim/tim_o24ce.yaml
 
+"TIM*":
+  _include: common_patches/tim/omp.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml

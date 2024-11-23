@@ -17,7 +17,7 @@ SPI?:
     - common_patches/spi/dr8.yaml
 
 TIM1:
-  _include: common_patches/tim/g0_tim1_ccmr_input.yaml
+  _include: common_patches/tim/v2/g0_tim1_ccmr_input.yaml
   CCMR3_Output:
     _modify:
       OC5M_bit3:
@@ -29,6 +29,9 @@ TIM3:
   _delete:
     _interrupts: TIM2
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
+
+"TIM*":
+  _include: common_patches/tim/omp.yaml
 
 VREFBUF:
   _strip: "VREFBUF_"

@@ -105,7 +105,9 @@ MPU:
     - "MPU_"
 
 TIM*:
-  _include: common_patches/tim/size16b.yaml
+  _include:
+    - common_patches/tim/size16b.yaml
+    - common_patches/tim/omp.yaml
 
 "TIM[23]":
   _include: common_patches/tim/l0.yaml

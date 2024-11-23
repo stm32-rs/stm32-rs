@@ -24,6 +24,9 @@ SPI?:
 "TIM[23]":
   _include: common_patches/tim/rename_TIM2_CCR3_CCR3.yaml
 
+"TIM*":
+  _include: common_patches/tim/omp.yaml
+
 _include:
  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/adc/l1_smpr.yaml

@@ -44,12 +44,24 @@ SPI?:
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
 
+TIM1:
+  _include: common_patches/tim/v2/g0_tim1_ccmr_output.yaml
+
 TIM3:
   CCMR1_Output:
     _modify:
       OC1M1:
         name: OC1M
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
+
+"TIM1[46]":
+  _include: common_patches/tim/v2/g0_tim146_ccmr_output.yaml
+
+TIM15:
+  _include: common_patches/tim/v2/g0_tim15_ccmr_output.yaml
+
+"TIM*":
+  _include: common_patches/tim/omp.yaml
 
 _include:
   - common_patches/g0_strip.yaml
@@ -71,7 +83,6 @@ _include:
   - collect/rtc/alarm.yaml
   - common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/tim/v2/g0_1.yaml
   - common_patches/tim/common.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/tim/tim_basic.yaml

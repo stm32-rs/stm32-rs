@@ -122,6 +122,9 @@ QUADSPI:
 "TIM1[0134]":
   _include: common_patches/tim/tim10_14_missing_opm.yaml
 
+"TIM*":
+  _include: common_patches/tim/omp.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/f7_interrupts.yaml

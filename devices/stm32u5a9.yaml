@@ -27,6 +27,9 @@ PWR:
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+"TIM*":
+  _include: common_patches/tim/omp.yaml
+
 UCPD1:
   _include:
     - common_patches/ucpd/rxordseten_split.yaml
