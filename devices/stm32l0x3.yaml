@@ -118,12 +118,10 @@ TIM*:
   _include:
     - common_patches/tim/size16b.yaml
     - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 "TIM[23]":
   _include: common_patches/tim/l0.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
 
 _include:
  - ./common_patches/cryp/l0_aes.yaml

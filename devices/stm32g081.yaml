@@ -50,10 +50,9 @@ TIM15:
   _include: common_patches/tim/v2/g0_tim15_ccmr_output.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 UCPD?:
   _include:

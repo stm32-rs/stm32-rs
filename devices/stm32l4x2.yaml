@@ -14,7 +14,7 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
-"TIM[1-58-9],TIM??":
+"TIM*":
   _include: common_patches/tim/icpsc.yaml
 
 # Most of the patches and includes for this device are shared with the L412,

@@ -107,10 +107,9 @@ TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml

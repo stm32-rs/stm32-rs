@@ -141,10 +141,9 @@ TIM15:
         name: OC1M_3
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 USART1:
   _add:

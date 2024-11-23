@@ -110,10 +110,9 @@ TIM3:
   _include: common_patches/tim/tim_o24ce.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml

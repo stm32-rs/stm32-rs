@@ -240,7 +240,7 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
-"TIM[1-58-9],TIM??":
+"TIM*":
   _include: common_patches/tim/icpsc.yaml
 
 # Most of the other patches for this device are common with the L4x2 device.

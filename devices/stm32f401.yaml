@@ -137,10 +137,9 @@ PWR:
   _include: common_patches/tim/tim10_14_missing_opm.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 _include:
  - common_patches/nvic/4_prio_bits.yaml

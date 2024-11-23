@@ -143,10 +143,9 @@ MPU:
   _include: common_patches/tim/tim_o24ce.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 _include:
  - common_patches/cec/cfgr.yaml
@@ -181,7 +180,7 @@ _include:
  - collect/gpio/v2.yaml
  - common_patches/tim/group.yaml
  - common_patches/tim/tim2345_mixed.yaml
- - ../peripherals/tim/tim_basic_no_opm.yaml
+ - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml

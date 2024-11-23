@@ -19,10 +19,9 @@ SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
 "TIM*":
-  _include: common_patches/tim/omp.yaml
-
-"TIM[1-58-9],TIM??":
-  _include: common_patches/tim/icpsc.yaml
+  _include:
+    - common_patches/tim/omp.yaml
+    - common_patches/tim/icpsc.yaml
 
 _include:
  - common_patches/u5.yaml
