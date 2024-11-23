@@ -17,6 +17,7 @@ SPI?:
     - common_patches/spi/dr8.yaml
 
 TIM1:
+  _include: common_patches/tim/g0_tim1_ccmr_input.yaml
   CCMR3_Output:
     _modify:
       OC5M_bit3:
@@ -104,7 +105,6 @@ _include:
   - collect/rtc/alarm.yaml
   - common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/tim/g0_tim1_ccmr_input.yaml
   - common_patches/tim/common.yaml
   - ../peripherals/tim/v2/ccm_common.yaml
   - ../peripherals/tim/tim_basic.yaml

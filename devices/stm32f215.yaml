@@ -27,6 +27,9 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+"TIM1[0134]":
+  _include: common_patches/tim/tim10_14_missing_opm.yaml
+
 _include:
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
@@ -65,7 +68,6 @@ _include:
  - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_v1.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml

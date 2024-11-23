@@ -1,8 +1,0 @@
-# General-purpose timer where there is only a single 32-bit timer in
-# the TIM[2-5] set.
-#
-# See tim2345* for when there are other timers
-
-"TIM2":
-  _include:
-    - ./tim2_common_32bit.yaml

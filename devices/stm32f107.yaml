@@ -43,6 +43,9 @@ Ethernet_MAC:
       MACA2L:
         bitWidth: 32
 
+"TIM1[0134]":
+  _include: common_patches/tim/tim10_14_missing_opm.yaml
+
 _include:
  - common_patches/rcc/f1_uart45.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -63,7 +66,6 @@ _include:
  - ../peripherals/gpio/v1/common.yaml
  - collect/gpio/f1.yaml
  - ../peripherals/spi/spi_v1_without_FRF_FRE.yaml
- - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml

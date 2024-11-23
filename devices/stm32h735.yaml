@@ -930,6 +930,9 @@ DBGMCU:
       DBGSLPD1:
         name: DBGSLEEP_D1
 
+"TIM[2-5]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
 # -----------------------------------------------------------------------------
 
 _include:
@@ -978,7 +981,6 @@ _include:
  - common_patches/usart/merge_CR2_ADDx_fields.yaml
  - common_patches/usart/rename_CR2_DATAINV_field.yaml
  - common_patches/usart/merge_BRR_fields.yaml
- - common_patches/tim/tim_o24ce.yaml
  - ../peripherals/adc/adc_v3_h7.yaml
  - ../peripherals/adc/adc_v3_common_h7.yaml
  - ../peripherals/adc/adc_h7_revision_v.yaml

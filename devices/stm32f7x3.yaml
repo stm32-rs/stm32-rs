@@ -40,6 +40,9 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+"TIM[2-5]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
 _include:
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -82,7 +85,6 @@ _include:
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
  - ../peripherals/flash/flash_v2.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - common_patches/tim/f7.yaml

@@ -63,6 +63,7 @@ TIM1:
       name: CCMR3_Output
 
 TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
   _strip:
     - TIM2_
 
@@ -175,7 +176,6 @@ _include:
  - ../peripherals/rng/rng_wl.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/syscfg/syscfg_wl.yaml
- - common_patches/tim/tim2_32bit.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim12_common_wl.yaml
  - ../peripherals/tim/tim1_wl.yaml

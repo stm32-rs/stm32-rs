@@ -106,6 +106,9 @@ TIM3:
       CNT_or_UIFCPY:
         name: UIFCPY
 
+"TIM[2-5]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -151,7 +154,6 @@ _include:
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
  - ../peripherals/wwdg/wwdg.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml

@@ -43,6 +43,9 @@ SPI?:
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
 
+TIM1:
+  _include: common_patches/tim/g0_tim1_ccmr_input.yaml
+
 TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml
 
@@ -73,7 +76,6 @@ _include:
   - collect/rtc/alarm.yaml
   - common_patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/tim/g0_tim1_ccmr_input.yaml
   - common_patches/tim/v2/g0_1.yaml
   - common_patches/tim/common.yaml
   - ../peripherals/tim/v2/ccm_common.yaml

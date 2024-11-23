@@ -266,6 +266,12 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+"TIM[2-5]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
+"TIM1[0134]":
+  _include: common_patches/tim/tim10_14_missing_opm.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/dfsdm/f7.yaml
@@ -342,8 +348,6 @@ _include:
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
  - ../peripherals/flash/flash_v2_dual_bank.yaml
- - common_patches/tim/tim_o24ce.yaml
- - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - common_patches/tim/f7.yaml

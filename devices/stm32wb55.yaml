@@ -116,6 +116,7 @@ SYSCFG:
       addressOffset: 0x110
 
 TIM2:
+  _include: common_patches/tim/tim2_common_32bit.yaml
   CNT:
     _add:
       UIFREMAP_CNT:
@@ -326,7 +327,6 @@ _include:
  - ../peripherals/tim/v2/ccm_common.yaml
  - ./common_patches/adc/wb_adc_common.yaml
  - ./common_patches/adc/l4_smpr.yaml
- - common_patches/tim/tim2_32bit.yaml
  - collect/hsem/r.yaml
  - common_patches/spi/rename_dff_tifrfe.yaml
  - ../peripherals/i2c/i2c_v2.yaml

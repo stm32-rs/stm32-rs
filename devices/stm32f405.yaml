@@ -112,6 +112,9 @@ PWR:
 RNG:
   _include: ../peripherals/rng/rng_f4.yaml
 
+"TIM[2-5]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -157,7 +160,6 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml
