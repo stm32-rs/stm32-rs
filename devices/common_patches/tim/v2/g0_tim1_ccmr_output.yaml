@@ -14,9 +14,5 @@ CCMR2_Output:
       name: OC4M
     OC4M2:
       name: OC4M_3
-CCMR3_Output:
-  _modify:
-    OC5M_bit3:
-      name: OC5M_3
-    OC6M_bit3:
-      name: OC6M_3
+
+_include: oc5m_bit3.yaml

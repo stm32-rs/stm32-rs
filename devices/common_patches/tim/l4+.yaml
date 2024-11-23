@@ -110,6 +110,8 @@ TIM[34]:
         bitWidth: 16
 
 TIM[18]:
+  _include: v2/add_bkf.yaml
+
   _modify:
     OR1:
       description: "TIM1 option register 1"
@@ -183,22 +185,6 @@ TIM[18]:
 
   BDTR:
     _add:
-      BKF:
-        description: Break filter
-        bitOffset: 16
-        bitWidth: 4
-      BK2F:
-        description: Break 2 filter
-        bitOffset: 20
-        bitWidth: 4
-      BK2E:
-        description: Break 2 enable
-        bitOffset: 24
-        bitWidth: 1
-      BK2P:
-        description: Break 2 polarity
-        bitOffset: 25
-        bitWidth: 1
       BKDSRM:
         description: Break Disarm
         bitOffset: 26

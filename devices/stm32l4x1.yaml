@@ -85,6 +85,28 @@ SPI?:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+"TIM[18]":
+  _include:
+    - common_patches/tim/v2/oc5m_bit3.yaml
+    - common_patches/tim/v2/add_ocm_bit3.yaml
+
+"TIM[23]":
+  _include: common_patches/tim/v2/add_ocm_bit3.yaml
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
+"TIM[34]":
+  _include:
+    - common_patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/tim2_common_32bit.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -119,8 +141,6 @@ _include:
  - ../peripherals/rcc/rcc_l4_uart4.yaml
  - common_patches/tim/group.yaml
  - common_patches/tim/l4_tim15_ch2.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
- - common_patches/tim/v2/l4.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml

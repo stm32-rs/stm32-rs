@@ -35,6 +35,14 @@ SPI?:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+"TIM[34]":
+  _include:
+    - common_patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/tim2_common_32bit.yaml
+
 _include:
   - ../peripherals/hdmi_cec.yaml
   - common_patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
@@ -117,7 +125,6 @@ _include:
   - ../peripherals/syscfg/syscfg_h747.yaml
   - common_patches/tim/group.yaml
   - common_patches/tim/v2/h7.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml

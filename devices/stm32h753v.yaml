@@ -31,6 +31,14 @@ TIM4:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+"TIM[34]":
+  _include:
+    - common_patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/tim2_common_32bit.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -124,7 +132,6 @@ _include:
   - ../peripherals/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - common_patches/tim/group.yaml
   - common_patches/tim/v2/h7.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml

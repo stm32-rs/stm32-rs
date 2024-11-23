@@ -123,6 +123,9 @@ TIM*:
 "TIM[23]":
   _include: common_patches/tim/l0.yaml
 
+"TIM[2345]":
+  _include: common_patches/tim/tim2_common_16bit_l.yaml
+
 _include:
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/flash/l0.yaml
@@ -176,7 +179,6 @@ _include:
  - ../peripherals/spi/spi_l0.yaml
  - ../peripherals/syscfg/syscfg_l0.yaml
  - common_patches/tim/group.yaml
- - common_patches/tim/tim2345_16bit_l.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim_l0.yaml
  - ../peripherals/tim/tim2345_16bit.yaml

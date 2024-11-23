@@ -17,6 +17,28 @@ SPI?:
 "TIM*":
   _include: common_patches/tim/icpsc.yaml
 
+"TIM[18]":
+  _include:
+    - common_patches/tim/v2/oc5m_bit3.yaml
+    - common_patches/tim/v2/add_ocm_bit3.yaml
+
+"TIM[23]":
+  _include: common_patches/tim/v2/add_ocm_bit3.yaml
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
+"TIM[34]":
+  _include:
+    - common_patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/tim2_common_32bit.yaml
+
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:

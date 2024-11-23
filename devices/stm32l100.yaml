@@ -78,6 +78,9 @@ SPI?:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+TIM9:
+  _include: common_patches/tim/l1_tim9_ccer.yaml
+
 _include:
  - ./common_patches/rcc/LSECSSC_LSECSSF.yaml
  - ./common_patches/gpio/with_OSPEEDER.yaml
@@ -99,7 +102,6 @@ _include:
  - ../peripherals/gpio/v2/common.yaml
  - collect/gpio/v2.yaml
  - common_patches/tim/group.yaml
- - common_patches/tim/l1_tim9_ccer.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_16bit.yaml

@@ -1,34 +1,33 @@
-TIM9:
-  _add:
-    CCER:
-      displayName: CCER
-      description: capture/compare enable register
-      addressOffset: 0x20
-      size: 0x20
-      access: read-write
-      resetValue: 0x0000
-      fields:
-        CC2NP:
-          description: Capture/Compare 2 complementary output Polarity
-          bitOffset: 7
-          bitWidth: 1
-        CC2P:
-          description: Capture/Compare 2 output Polarity
-          bitOffset: 5
-          bitWidth: 1
-        CC2E:
-          description: Capture/Compare 2 output enable
-          bitOffset: 4
-          bitWidth: 1
-        CC1NP:
-          description: Capture/Compare 1 complementary output Polarity
-          bitOffset: 3
-          bitWidth: 1
-        CC1P:
-          description: Capture/Compare 1 output Polarity
-          bitOffset: 1
-          bitWidth: 1
-        CC1E:
-          description: Capture/Compare 1 output enable
-          bitOffset: 0
-          bitWidth: 1
+_add:
+  CCER:
+    displayName: CCER
+    description: capture/compare enable register
+    addressOffset: 0x20
+    size: 0x20
+    access: read-write
+    resetValue: 0x0000
+    fields:
+      CC2NP:
+        description: Capture/Compare 2 complementary output Polarity
+        bitOffset: 7
+        bitWidth: 1
+      CC2P:
+        description: Capture/Compare 2 output Polarity
+        bitOffset: 5
+        bitWidth: 1
+      CC2E:
+        description: Capture/Compare 2 output enable
+        bitOffset: 4
+        bitWidth: 1
+      CC1NP:
+        description: Capture/Compare 1 complementary output Polarity
+        bitOffset: 3
+        bitWidth: 1
+      CC1P:
+        description: Capture/Compare 1 output Polarity
+        bitOffset: 1
+        bitWidth: 1
+      CC1E:
+        description: Capture/Compare 1 output enable
+        bitOffset: 0
+        bitWidth: 1

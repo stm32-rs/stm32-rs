@@ -562,6 +562,14 @@ PWR:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+"TIM[34]":
+  _include:
+    - common_patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/tim2_common_32bit.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -606,7 +614,6 @@ _include:
  - collect/dma/st.yaml
  - ../peripherals/spi/spi_v1.yaml
  - common_patches/tim/group.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml
