@@ -29,6 +29,24 @@ TIM4:
   _include:
     - common_patches/tim/tim2_common_32bit.yaml
 
+"TIM1[3467]":
+  _include:
+    - common_patches/tim/tim_1ch_16bit_l.yaml
+  _delete:
+    - CCR[234]
+
+# Dual channel timers
+"TIM1[25]":
+  _include: common_patches/tim/tim_2ch_16bit_l.yaml
+  _delete:
+    - CCR[34]
+
+"TIM[18]":
+  _include: common_patches/tim/v2/oc5m_bit3.yaml
+
+"TIM[2-5],TIM1[2-4]":
+  _include: common_patches/tim/tim_o24ce.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -118,7 +136,6 @@ _include:
   - ../peripherals/spi/spi_v3_tser.yaml
   - ../peripherals/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - common_patches/tim/group.yaml
-  - common_patches/tim/v2/h7.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml

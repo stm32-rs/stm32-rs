@@ -1,22 +1,8 @@
 TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M3:
-        name: OC5M_3
-      OC6M3:
-        name: OC6M_3
+  _include: v2/oc5m_bit3.yaml
 
 TIM1[0134]:
   _include: v2/add_uifcpy.yaml
 
 TIM[18]:
-  SR:
-    _add:
-      CC5IF:
-        description: Compare 5 interrupt flag
-        bitOffset: 16
-        bitWidth: 1
-      CC6IF:
-        description: Compare 6 interrupt flag
-        bitOffset: 17
-        bitWidth: 1
+  _include: v2/add_cc5if.yaml

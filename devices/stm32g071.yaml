@@ -73,16 +73,9 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-      OC1M2:
-        name: OC1M_3
-      OC2M1:
-        name: OC2M
-      OC2M2:
-        name: OC2M_3
+  _include:
+    - common_patches/tim/v2/oc1m.yaml
+    - common_patches/tim/v2/oc2m.yaml
 
 "TIM*":
   _include:

@@ -3,6 +3,34 @@ _svd: ../svd/stm32h563.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: TIM?_
+
+TIM1?:
+  _strip:
+    - TIM2_
+    - TIM1?_
+
+"TIM[1346-9],TIM??":
+  _include: common_patches/tim/add_dither16.yaml
+
+"TIM[25]":
+  _include:
+    - common_patches/tim/add_dither32.yaml
+    - common_patches/tim/tim_uifremap.yaml
+
+"TIM[18]":
+  _include:
+    - common_patches/tim/tim1_mms_ts_sms.yaml
+    - common_patches/tim/v2/ocm_bit3.yaml
+
+"TIM[2-5]":
+  _include:
+    - common_patches/tim/tim2_mms_ts_sms.yaml
+    - common_patches/tim/v2/oc1m.yaml
+    - common_patches/tim/v2/oc2m.yaml
+    - common_patches/tim/v2/oc3m.yaml
+
 UCPD1:
   _strip: UCPD_
   _include:
@@ -57,11 +85,6 @@ _include:
   - ../peripherals/usart/usart_sync_slave.yaml
   - ../peripherals/usart/usart_smartcard.yaml
   - ../peripherals/usart/usart_prescalar.yaml
-
-  - common_patches/tim/tim_ccm_ext.yaml
-  - common_patches/tim/tim_dither.yaml
-  - common_patches/tim/tim_mms_ts_sms_ext.yaml
-  - common_patches/tim/tim_uifremap.yaml
 
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim1_advanced.yaml

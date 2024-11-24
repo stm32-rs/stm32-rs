@@ -1,18 +1,4 @@
-CCMR1_Output:
-  _modify:
-    OC2M1:
-      name: OC2M
-    OC2M2:
-      name: OC2M_3
-CCMR2_Output:
-  _modify:
-    OC3M1:
-      name: OC3M
-    OC3M2:
-      name: OC3M_3
-    OC4M1:
-      name: OC4M
-    OC4M2:
-      name: OC4M_3
-
-_include: oc5m_bit3.yaml
+_include:
+  - oc2m.yaml
+  - oc3m.yaml
+  - oc5m_bit3.yaml

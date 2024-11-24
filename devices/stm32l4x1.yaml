@@ -98,6 +98,7 @@ TIM15:
     _modify:
       OC1M_2:
         name: OC1M_3
+  _include: common_patches/tim/l4_tim15_ch2.yaml
 
 "TIM[34]":
   _include:
@@ -140,7 +141,6 @@ _include:
  - ../peripherals/rcc/rcc_l4_usart2_3.yaml
  - ../peripherals/rcc/rcc_l4_uart4.yaml
  - common_patches/tim/group.yaml
- - common_patches/tim/l4_tim15_ch2.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim16.yaml
  - ../peripherals/tim/tim6.yaml

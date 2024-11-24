@@ -153,6 +153,8 @@ TIM15:
     _modify:
       OC1M_2:
         name: OC1M_3
+  _include: common_patches/tim/l4_tim15_ch2.yaml
+  
 
 "TIM[34]":
   _include:
@@ -232,7 +234,6 @@ _include:
  - ./common_patches/spi/rename_dff_tifrfe.yaml
  - ./common_patches/dbgmcu/l4_apb_fzr_rename.yaml
  - ../peripherals/spi/spi_l4.yaml
- - common_patches/tim/l4_tim15_ch2.yaml
  - common_patches/adc/adc_common_group_name.yaml
  - ./common_patches/comp/l4xx_comp_reg_rename.yaml
  - ../peripherals/comp/comp_l4x6.yaml

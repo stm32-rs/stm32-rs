@@ -156,6 +156,9 @@ MPU:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
 
+"TIM[25]":
+  _include: common_patches/tim/tim2_common_32bit.yaml
+
 _include:
   - common_patches/nvic/4_prio_bits.yaml
   - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -191,7 +194,6 @@ _include:
   - ../peripherals/wwdg/wwdg.yaml
   - ../peripherals/pwr/pwr_v1.yaml
   - common_patches/tim/group.yaml
-  - common_patches/tim/tim2345_mixed.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml

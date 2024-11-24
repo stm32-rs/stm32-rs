@@ -1,6 +1,11 @@
 _svd: ../svd/stm32g4a1.svd
 
+_copy:
+  TIM3:
+    from: TIM2
+
 _derive:
+  TIM4: TIM3
   FDCAN2:
     _from: FDCAN
     baseAddress: 0x40006800
@@ -46,6 +51,15 @@ SPI?:
   _include:
     - common_patches/tim/omp.yaml
     - common_patches/tim/icpsc.yaml
+
+"TIM[123]":
+  _include: common_patches/tim/v2/oc5m_bit3.yaml
+
+TIM2:
+  _include: common_patches/tim/v2/tim_32bit.yaml
+
+"TIM[13],TIM15,TIM16":
+  _include: common_patches/tim/v2/tim_20bit.yaml
 
 UCPD1:
   _include:
@@ -102,7 +116,6 @@ _include:
  - ./common_patches/usb/g4.yaml
  - ../peripherals/rcc/rcc_g4.yaml
  - common_patches/tim/group.yaml
- - common_patches/tim/v2/g4.yaml
  - ../peripherals/tim/v2/ccm.yaml
  - collect/tim/ccr.yaml
  - ../peripherals/flash/flash_g4.yaml

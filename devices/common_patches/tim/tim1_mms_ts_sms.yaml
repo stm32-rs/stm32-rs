@@ -1,0 +1,20 @@
+# Applicable to H5
+# The MMS, TS, SMS fields in the CR2 and SMCR registers are
+# extended in the general purpose and advanced timers
+
+CR2:
+  _modify:
+    MMS:
+      name: MMS_L
+    MMS_1:
+      name: MMS_H
+SMCR:
+  _modify:
+    TS:
+      name: TS_L
+    TS_1:
+      name: TS_H
+    SMS:
+      name: SMS_L
+    SMS_1:
+      name: SMS_H

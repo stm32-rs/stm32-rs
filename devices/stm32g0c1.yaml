@@ -58,10 +58,10 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 "TIM1[46]":
-  _include: common_patches/tim/v2/g0_tim146_ccmr_output.yaml
+  _include: common_patches/tim/v2/oc1m.yaml
 
 TIM15:
-  _include: common_patches/tim/v2/g0_tim15_ccmr_output.yaml
+  _include: common_patches/tim/v2/oc2m.yaml
 
 "TIM*":
   _include:
