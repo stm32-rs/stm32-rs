@@ -289,12 +289,7 @@ TIM1[67]:
         bitWidth: 4
 
 TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
+  _include: common_patches/tim/v2/oc5m_bit3.yaml
 
 MPU:
   _strip:

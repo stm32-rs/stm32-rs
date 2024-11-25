@@ -285,6 +285,18 @@ SPI?:
   _include:
     - common_patches/tim/tim2_common_32bit.yaml
 
+TIM5:
+  OR:
+    _modify:
+      TI4_RMP:
+        bitOffset: 6
+
+TIM[16]:
+  _include: common_patches/tim/v2/add_uifcpy.yaml
+
+TIM[18]:
+  _include: common_patches/tim/v2/add_cc4np.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/dfsdm/f7.yaml
@@ -364,7 +376,6 @@ _include:
  - common_patches/tim/group.yaml
  - common_patches/tim/f7.yaml
  - common_patches/tim/v2/f7.yaml
- - common_patches/tim/f745_f750_f765_f7x6_f7x7_f7x9.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml

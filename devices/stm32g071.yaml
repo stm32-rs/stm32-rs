@@ -53,18 +53,14 @@ SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
 
 TIM1:
-  _include: common_patches/tim/v2/g0_tim1_ccmr_input.yaml
+  _include:
+    - common_patches/tim/v2/g0_tim1_ccmr_input.yaml
+    - common_patches/tim/v2/oc5m_bit3.yaml
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COMP:
         name: TIM1_BRK_UP_TRG_COM
         description: TIM1 break, update, trigger and commutation interrupts
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
 
 TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml

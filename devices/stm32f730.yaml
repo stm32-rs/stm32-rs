@@ -56,6 +56,15 @@ SPI?:
   _include:
     - common_patches/tim/tim2_common_32bit.yaml
 
+TIM1:
+  _include: common_patches/tim/v2/oc5m_bit3.yaml
+
+TIM1[0134]:
+  _include: common_patches/tim/v2/add_uifcpy.yaml
+
+TIM[18]:
+  _include: common_patches/tim/v2/add_cc5if.yaml
+
 _include:
  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
@@ -99,7 +108,6 @@ _include:
  - ../peripherals/flash/flash_v2.yaml
  - common_patches/tim/group.yaml
  - common_patches/tim/f7.yaml
- - common_patches/tim/f730_f7x2_f7x3.yaml
  - ../peripherals/tim/tim_basic.yaml
  - ../peripherals/tim/tim6.yaml
  - ../peripherals/tim/tim2345_mixed.yaml

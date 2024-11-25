@@ -45,7 +45,10 @@ SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
 
 TIM1:
-  _include: common_patches/tim/v2/g0_tim1_ccmr_output.yaml
+  _include:
+    - common_patches/tim/v2/oc2m.yaml
+    - common_patches/tim/v2/oc3m.yaml
+    - common_patches/tim/v2/oc5m_bit3.yaml
 
 TIM3:
   CCMR1_Output:

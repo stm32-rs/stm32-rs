@@ -44,13 +44,9 @@ SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
 
 TIM1:
-  _include: common_patches/tim/v2/g0_tim1_ccmr_input.yaml
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
+  _include:
+    - common_patches/tim/v2/g0_tim1_ccmr_input.yaml
+    - common_patches/tim/v2/oc5m_bit3.yaml
 
 TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml
