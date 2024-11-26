@@ -1,5 +1,10 @@
 _svd: ../svd/stm32u545.svd
 
+MDF1:
+  _strip: MDF_
+  _include:
+    - collect/mdf/u5.yaml
+
 SDMMC:
   _strip:
     - SDMMC_
