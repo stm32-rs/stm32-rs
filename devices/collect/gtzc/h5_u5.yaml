@@ -1,0 +1,13 @@
+_array:
+  SECCFGR*:
+    description: MPCBBz security configuration for super-block %s register
+    _array:
+      SEC*: {}
+  PRIVCFGR*:
+    description: MPCBBz privileged configuration for super-block %s register
+    _array:
+      PRIV*: {}
+
+CFGLOCK?,CFGLOCKR?:
+  _array:
+    SPLCK*: {}
