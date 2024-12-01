@@ -30,8 +30,7 @@ _include:
   - ../peripherals/usart/usart_sync_slave.yaml
   - ../peripherals/usart/usart_smartcard.yaml
   - ../peripherals/usart/usart_prescalar.yaml
-  - ./common_patches/h5.yaml
-  - ./common_patches/rcc/h503.yaml
+  - common_patches/rcc/h503.yaml
   - ../peripherals/rcc/rcc_h503.yaml
 
   - common_patches/tim/tim_ccm_ext.yaml
@@ -47,3 +46,5 @@ _include:
   - ../peripherals/tim/tim_uifremap.yaml
   - ../peripherals/tim/tim_dither.yaml
   - ../peripherals/tim/v2/ccm_1_8.yaml
+
+  - collect/usb/chepr.yaml

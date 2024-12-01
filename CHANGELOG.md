@@ -87,7 +87,7 @@
 * G0: fix typo in HSIDIV (Div3 -> Div4)
 * C071: Update svd zip to v1.2, add c071 and cleanup c0xx
 * G0B1: make TIM4 16-bit timer
-* G0B1: merge USB CHEP[0-7]R registers into array
+* C0,G0,H5: merge USB CHEP[0-7]R registers into array
 
 Family-specific:
 
