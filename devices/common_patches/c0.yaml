@@ -64,12 +64,3 @@ SYSCFG:
 FLASH:
   _strip:
     - "FLASH_"
-
-TIM[123]:
-  _strip:
-    - "TIM?_"
-
-TIM*:
-  _strip:
-    - "TIM*__"
-    - "TIM?*_"

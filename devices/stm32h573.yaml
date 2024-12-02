@@ -3,6 +3,30 @@ _svd: ../svd/stm32h573.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: "TIM?_"
+
+TIM1?:
+  _strip:
+    - "TIM2_"
+    - "TIM1?_"
+
+TIM1[2357]:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+
+TIM1[25]:
+  CCMR1_Output:
+    _modify:
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
+
 UCPD1:
   _strip: UCPD_
   _include:

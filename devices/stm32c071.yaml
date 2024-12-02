@@ -2,6 +2,8 @@ _svd: ../svd/stm32c071.svd
 
 _modify:
   name: STM32C071
+  TIM*:
+    groupName: TIM
 
 SPI1:
   _include:
@@ -39,35 +41,28 @@ USART1:
       name: USART_ISR_disabled
 
 TIM[123]:
+  _strip: "TIM?_"
   _modify:
     CCMR1:
-      name: CCMR1_input
+      name: CCMR1_Input
     CCMR1_ALTERNATE1:
-      name: CCMR1_output
+      name: CCMR1_Output
     CCMR2:
-      name: CCMR2_input
+      name: CCMR2_Input
     CCMR2_ALTERNATE1:
-      name: CCMR2_output
-  CCMR2_output:
+      name: CCMR2_Output
+  CCMR2_Output:
     _modify:
-      OC3M:
-        name: OC3M1
       OC3M_1:
-        name: OC3M2
-      OC4M:
-        name: OC4M1
+        name: OC3M_3
       OC4M_1:
-        name: OC4M2
-  CCMR1_output:
+        name: OC4M_3
+  CCMR1_Output:
     _modify:
-      OC1M:
-        name: OC1M1
       OC1M_1:
-        name: OC1M2
-      OC2M:
-        name: OC2M1
+        name: OC1M_3
       OC2M_1:
-        name: OC2M2
+        name: OC2M_3
   SMCR:
     _modify:
       TS:
@@ -79,18 +74,21 @@ TIM[123]:
       SMS_1:
         name: SMS2
 
+TIM*:
+  _strip:
+    - "TIM*__"
+    - "TIM?*_"
+
 TIM1[467]:
   _modify:
-    TIM??_CCMR1:
-      name: CCMR1_input
-    TIM??_CCMR1_ALTERNATE1:
-      name: CCMR1_output
-  CCMR1_output:
+    CCMR1:
+      name: CCMR1_Input
+    CCMR1_ALTERNATE1:
+      name: CCMR1_Output
+  CCMR1_Output:
     _modify:
-      OC1M:
-        name: OC1M1
       OC1M_1:
-        name: OC1M2
+        name: OC1M_3
 
 CRS:
   _strip:

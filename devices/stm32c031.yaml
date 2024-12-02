@@ -25,9 +25,43 @@ ADC:
     CHSELR_MOD1:
       name: CHSELR1
 
+TIM[123]:
+  _strip: "TIM?_"
+
+TIM*:
+  _strip:
+    - "TIM*__"
+    - "TIM?*_"
+
+TIM[13],TIM1[467]:
+  _modify:
+    CCMR1_input:
+      name: CCMR1_Input
+    CCMR1_output:
+      name: CCMR1_Output
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+
+TIM[13]:
+  _modify:
+    CCMR2_input:
+      name: CCMR2_Input
+    CCMR2_output:
+      name: CCMR2_Output
+  CCMR1_Output:
+    _modify:
+      OC2M1:
+        name: OC2M
+      OC2M2:
+        name: OC2M_3
+
 TIM3:
   _modify:
-    TIM3_CNT_alternate:
+    CNT_alternate:
       name: "CNT_remap"
 
 _include:

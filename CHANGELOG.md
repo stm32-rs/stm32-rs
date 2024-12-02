@@ -88,6 +88,8 @@
 * C071: Update svd zip to v1.2, add c071 and cleanup c0xx
 * G0B1: make TIM4 16-bit timer
 * C0,G0,H5: merge USB CHEP[0-7]R registers into array
+* G0B1: force ARR field width to 16 bit when SVD describes ARR as 32-bit field for 16-bit timer.
+* C0,G0,H5: fix field names in cmmr1_output registers
 
 Family-specific:
 

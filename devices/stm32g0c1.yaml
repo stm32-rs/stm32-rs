@@ -54,7 +54,19 @@ TIM2:
   _include: common_patches/tim/tim2_common_32bit.yaml
 
 TIM3:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
+
+TIM1,TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
 
 "UCPD*":
   _strip: "UCPD_"
