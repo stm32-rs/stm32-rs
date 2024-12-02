@@ -110,14 +110,6 @@ DSI:
         name: LPVAE
       LPHFE:
         name: LPHFPE
-  _modify:
-    DSIHSOT_CCR:
-      name: CCR
-      displayName: CCR
-
-MPU:
-  _strip:
-    - "MPU_"
 
 "OTG_HS_*":
   _strip:
@@ -148,8 +140,9 @@ QUADSPI:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - common_patches/ethernet/mac_regs.yaml
  - common_patches/ethernet/mmc.yaml
@@ -196,7 +189,6 @@ _include:
  - collect/dma/st.yaml
  - ../peripherals/dma/dma2d_v1.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
@@ -246,7 +238,7 @@ _include:
  - collect/usb_otg/hs.yaml
  - common_patches/usb_otg/hs_fixes_446_469.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml

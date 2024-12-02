@@ -165,10 +165,6 @@ RCC:
         description: USB OTG FS Interrupt
         value: 67
 
-MPU:
-  _strip:
-    - "MPU_"
-
 TIM7:
   CR1:
     _delete: [UIFREMAP]
@@ -273,6 +269,11 @@ FMPI2C1:
         bitWidth: 10
 
 QUADSPI:
+  _add:
+    _interrupts:
+      QuadSPI:
+        value: 92
+        description: Quad-SPI global interrupt
   _include:
     - common_patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
@@ -311,8 +312,9 @@ PWR:
         bitOffset: 6
         bitWidth: 1
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
@@ -356,11 +358,9 @@ _include:
  - ../peripherals/adc/adc_v2_single.yaml
  - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
  - collect/adc/jofr_jdr.yaml
- - common_patches/dma/dma_v21.yaml
  - ../peripherals/dma/dma_v21.yaml
  - collect/dma/st.yaml
  - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic_no_opm.yaml
@@ -391,7 +391,7 @@ _include:
  - common_patches/usb_otg/fs_v1.yaml
  - collect/usb_otg/fs.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
  - ../peripherals/i2c/i2c_v1_fltr.yaml

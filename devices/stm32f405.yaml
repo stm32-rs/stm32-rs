@@ -97,10 +97,6 @@ CRYP:
     _merge:
       - "IV*"
 
-MPU:
-  _strip:
-    - "MPU_"
-
 PWR:
   CR:
     _add:
@@ -112,22 +108,24 @@ PWR:
 RNG:
   _include: ../peripherals/rng/rng_f4.yaml
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
+FSMC:
+  _modify:
+    BWTR3:
+      addressOffset: 0x114
+      alternateRegister: ""
+    BWTR4:
+      _from: BWTR1
+      addressOffset: 0x11C
+      alternateRegister: ""
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
  - ../peripherals/can/can.yaml
  - collect/can/can.yaml
  - collect/can/filter_bank.yaml
  - collect/cryp/v2.yaml
- - common_patches/ltdc/ltdc.yaml
- - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
- - common_patches/ltdc/f7_ltdc_interrupts.yaml
- - ../peripherals/ltdc/ltdc.yaml
- - collect/ltdc/layer.yaml
- - common_patches/sai/sai_v2.yaml
- - ../peripherals/sai/sai.yaml
- - collect/sai/ch.yaml
- - common_patches/fsmc/fsmc_sramfix_v3.yaml
  - common_patches/fsmc/fsmc_nand_v1.yaml
  - ../peripherals/fsmc/fsmc_sram.yaml
  - ../peripherals/fsmc/fsmc_nand.yaml
@@ -157,7 +155,6 @@ _include:
  - ../peripherals/spi/spi_v1.yaml
  - ../peripherals/sdio/sdio_f4.yaml
  - collect/sdio/resp.yaml
- - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/common.yaml
  - common_patches/tim/tim2345_mixed_l.yaml
  - ../peripherals/tim/tim_basic.yaml
@@ -189,9 +186,9 @@ _include:
  - common_patches/usb_otg/fs_v1.yaml
  - common_patches/usb_otg/fs_v1_novbussens.yaml
  - collect/usb_otg/fs.yaml
- - common_patches/usb_otg/hs_v1.yaml
+ - common_patches/usb_otg/hs_v1_f4.yaml
  - collect/usb_otg/hs.yaml
  - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
+ - common_patches/fpu_interrupt_in_exti.yaml
  - common_patches/pwr/f4.yaml
  - ../peripherals/pwr/pwr_f405_f415_f407_f417.yaml
