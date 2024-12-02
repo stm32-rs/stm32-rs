@@ -3,6 +3,9 @@ _svd: ../svd/stm32h503.svd
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: "TIM?_"
+
 _include:
   - common_patches/h5.yaml
   - ../peripherals/crs/crs.yaml

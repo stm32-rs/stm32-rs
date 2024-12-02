@@ -20,6 +20,14 @@ TIM3:
         name: OC1M_3
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
+TIM1,TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M1:
+        name: OC1M
+      OC1M2:
+        name: OC1M_3
+
 USB:
   _strip: "USB_"
   CNTR:

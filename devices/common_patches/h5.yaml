@@ -68,8 +68,8 @@ IWDG:
     _add:
       ONF:
         description: "Watchdog enable status bit.
-                      Set to ‘1’ by hardware as soon as the IWDG is started. In software mode, it remains to '1' until
-                      the IWDG is reset. In hardware mode, this bit is always set to '1'."
+          Set to ‘1’ by hardware as soon as the IWDG is started. In software mode, it remains to '1' until
+          the IWDG is reset. In hardware mode, this bit is always set to '1'."
         bitOffset: 8
         bitWidth: 1
         access: read-only
@@ -115,7 +115,6 @@ SBS:
       PB8_FMPLUS:
         name: PB8_FMP
 
-
 SPI?:
   _strip:
     - "SPI_"
@@ -123,26 +122,6 @@ SPI?:
 TAMP:
   _strip:
     - "TAMP_"
-
-TIM1:
-  _strip:
-    - "TIM1_"
-
-TIM2:
-  _strip:
-    - "TIM2_"
-
-TIM3:
-  _strip:
-    - "TIM3_"
-
-TIM6:
-  _strip:
-    - "TIM6_"
-
-TIM7:
-  _strip:
-    - "TIM7_"
 
 USART?:
   _strip:
