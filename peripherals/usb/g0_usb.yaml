@@ -1,0 +1,39 @@
+# Fixes duplicate enum values
+USB:
+  CNTR:
+    USBRST:
+        NoEffect: [0, "No effect"]
+        Reset: [1, "USB core is under reset / USB reset driven"]
+    SUSPEN:
+        NoEffect: [0, "No effect"]
+        Suspend: [1, "Enter L1/L2 suspend"]
+    L1RESUME:
+        NoEffect: [0, "No effect"]
+        WakeupResume: [1, "Send 50us remote-wakeup signaling to host / Send L1 resume signaling to device"]
+  LPMCSR:
+    LPMACK:
+        Nyet: [0, "The valid LPM Token will be NYET / NYET answer"]
+        Ack: [1, "The valid LPM Token will be ACK / ACK answer"]
+  CHEP?R:
+    _modify:
+      "STATRX,STATTX":
+        access: read-write
+    UTYPE:
+        Bulk: [0, "Bulk endpoint"]
+        Control: [1, "Control endpoint"]
+        Iso: [2, "Isochronous endpoint"]
+        Interrupt: [3, "Interrupt endpoint"]
+    STATRX:
+      _read:
+        Disabled: [0, "All reception requests addressed to this endpoint/channel are ignored."]
+        Stall: [1, "Device mode: the endpoint is stalled and all reception requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
+        Nak: [2, "Device mode: the endpoint is NAKed and all reception requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the reception request."]
+        Valid: [3, "This endpoint/channel is enabled for reception."]
+      _W1T: {}
+    STATTX:
+      _read:
+        Disabled: [0, "All transmission requests addressed to this endpoint/channel are ignored."]
+        Stall: [1, "Device mode: the endpoint is stalled and all transmission requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
+        Nak: [2, "Device mode: the endpoint is NAKed and all transmission requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the transmission request."]
+        Valid: [3, "This endpoint/channel is enabled for transmission."]
+      _W1T: {}
