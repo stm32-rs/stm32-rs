@@ -29,11 +29,73 @@ USB:
         Stall: [1, "Device mode: the endpoint is stalled and all reception requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
         Nak: [2, "Device mode: the endpoint is NAKed and all reception requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the reception request."]
         Valid: [3, "This endpoint/channel is enabled for reception."]
-      _W1T: {}
+      _W1T:
+        Keep: [0, "Do not change bits"]
     STATTX:
       _read:
         Disabled: [0, "All transmission requests addressed to this endpoint/channel are ignored."]
         Stall: [1, "Device mode: the endpoint is stalled and all transmission requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
         Nak: [2, "Device mode: the endpoint is NAKed and all transmission requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the transmission request."]
         Valid: [3, "This endpoint/channel is enabled for transmission."]
-      _W1T: {}
+      _W1T:
+        Keep: [0, "Do not change bits"]
+  ISTR:
+    THR512:
+      _read:
+        NotReached: [0, "512 bytes threshold not reached"]
+        Reached: [1, "512 bytes have been transmitted or received during isochronous transfers"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    CTR:
+      Completed: [1, "Endpoint has successfully completed a transaction"]
+    PMAOVR:
+      _read:
+        NotOverrun: [0, "Overrun is not occurred"]
+        Overrun: [1, "Microcontroller has not been able to respond in time to an USB memory request"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    ERR:
+      _read:
+        NotError: [0, "Errors are not occurred"]
+        Error: [1, "One of No ANSwer, Cyclic Redundancy Check, Bit Stuffing or Framing format Violation error occurred"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    WKUP:
+      _read:
+        NotWakeup: [0, "NotWakeup"]
+        Wakeup: [1, "Activity is detected that wakes up the USB peripheral"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    SUSP:
+      _read:
+        NotSuspend: [0, "NotSuspend"]
+        Suspend: [1, "No traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    RST_DCON:
+      _read:
+        NotReset: [0, "NotReset"]
+        Reset: [1, "Peripheral detects an active USB RESET signal at its inputs"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    SOF:
+      _read:
+        NotStartOfFrame: [0, "NotStartOfFrame"]
+        StartOfFrame: [1, "A SOF packet arrived through the USB bus"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    ESOF:
+      _read:
+        NotExpectedStartOfFrame: [0, "NotExpectedStartOfFrame"]
+        ExpectedStartOfFrame: [1, "An SOF packet is expected but not received"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    L1REQ:
+      _read:
+        NotL1State: [0, "NotL1State"]
+        L1State: [1, "LPM command to enter the L1 state is successfully received and acknowledged"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    DIR:
+      To: [0, "Data transmitted by the USB peripheral to the host PC"]
+      From: [1, "Data received by the USB peripheral from the host PC"]
