@@ -23,3 +23,28 @@ HRTIM_Common:
         description: External Event 8 (TIMD filters applied)
         bitOffset: 30
         bitWidth: 1
+
+  EECR3:
+    _delete:
+      - "EE*SNS"
+      - "EE*POL"
+      - "EE*SRC"
+    _add:
+      "EE[6]F":
+        bitOffset: 0
+        bitWidth: 4
+      "EE[7]F":
+        bitOffset: 6
+        bitWidth: 4
+      "EE[8]F":
+        bitOffset: 12
+        bitWidth: 4
+      "EE[9]F":
+        bitOffset: 18
+        bitWidth: 4
+      "EE[10]F":
+        bitOffset: 24
+        bitWidth: 4
+      EEVSD:
+        bitOffset: 30
+        bitWidth: 2
