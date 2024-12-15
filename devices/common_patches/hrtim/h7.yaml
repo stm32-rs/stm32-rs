@@ -54,3 +54,15 @@ HRTIM_Common:
         description: "External event sampling clock division"
         bitOffset: 30
         bitWidth: 2
+
+  ISR:
+    _delete:
+      - DLLRDY
+  IER:
+    _delete:
+      - DLLRDYIE
+  ICR:
+    _delete:
+      - DLLRDYC
+  _delete:
+    - DLLCR
