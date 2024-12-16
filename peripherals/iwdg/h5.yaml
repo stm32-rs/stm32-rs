@@ -1,0 +1,32 @@
+KR:
+  KEY:
+    Unlock: [0x5555, "Enable access to PR, RLR and WINR registers"]
+    Feed: [0xAAAA, "Feed watchdog with RLR register value"]
+    Start: [0xCCCC, "Start the watchdog"]
+PR:
+  PR:
+    DivideBy4: [0, "Divider /4"]
+    DivideBy8: [1, "Divider /8"]
+    DivideBy16: [2, "Divider /16"]
+    DivideBy32: [3, "Divider /32"]
+    DivideBy64: [4, "Divider /64"]
+    DivideBy128: [5, "Divider /128"]
+    DivideBy256: [6, "Divider /256"]
+    DivideBy512: [7, "Divider /512"]
+    DivideBy1024: [-1, "Divider /1024"]
+RLR:
+  RL: [0, 4095]
+SR:
+  "*U":
+    Idle: [0, "No update on-going"]
+    Busy: [1, "Update on-going"]
+  "*IF":
+    _read:
+      NotPending: [0, "No pending interrupt"]
+      Pending: [1, "Interrupt pending"]
+  ONF:
+    _read:
+      NotActivated: [0, "IWDG is not activated"]
+      Activated: [1, "IWDG is activated"]
+WINR:
+  WIN: [0, 4095]
