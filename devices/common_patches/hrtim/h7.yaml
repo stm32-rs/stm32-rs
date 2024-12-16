@@ -1,6 +1,8 @@
 _include: v1.yaml
 
 HRTIM_Common:
+  _delete:
+    - DLLCR
   _modify:
     BDTxUPR:
       name: BDTAUPR
@@ -54,3 +56,13 @@ HRTIM_Common:
         description: "External event sampling clock division"
         bitOffset: 30
         bitWidth: 2
+
+  ISR:
+    _delete:
+      - DLLRDY
+  IER:
+    _delete:
+      - DLLRDYIE
+  ICR:
+    _delete:
+      - DLLRDYC

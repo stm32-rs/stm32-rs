@@ -12,7 +12,7 @@ ISR:
     _read:
       NoEvent: [0, "No burst mode period interrupt occurred"]
       Event: [1, "Burst mode period interrupt occured"]
-  DLLRDY:
+  "?~DLLRDY":
     _read:
       NoEvent: [0, "No DLL calibration ready interrupt occurred"]
       Event: [1, "DLL calibration ready interrupt occurred"]
@@ -32,7 +32,7 @@ IER:
   BMPERIE:
     Disabled: [0, "Burst mode period interrupt disabled"]
     Enabled: [1, "Burst mode period interrupt enabled"]
-  DLLRDYIE:
+  "?~DLLRDYIE":
     Disabled: [0, "DLL ready interrupt disabled"]
     Enabled: [1, "DLL Ready interrupt enabled"]
   "SYSFLTIE,FLT?IE":
@@ -209,7 +209,7 @@ EECR3:
   "MC*":
     Disabled: [0, "No generation of ADC trigger on master compare event"]
     Enabled: [1, "Generation of ADC trigger on master compare event"]
-DLLCR:
+"?~DLLCR":
   CALRTE:
     Clk1048576: [0, "1048576*t_HRTIM (6.168 ms for fHRTIM = 170 MHz)"]
     Clk131072: [1, "131072*t_HRTIM (771 µs for f_HRTIM = 170 MHz)"]
