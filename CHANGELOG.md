@@ -9,6 +9,7 @@
 * Fix yaml parsing errors
 * H7: add bit TRBUFF of DMA_SxCR of H747 cm4
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
+* HRTIM H7: delete DLL
 * HRTIM H7 & G4 fixes and enums
 * HRTIM: remove timer block suffixes from register/field names
 * HRTIM: derive identical registers

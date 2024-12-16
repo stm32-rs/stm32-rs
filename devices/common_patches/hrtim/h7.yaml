@@ -1,6 +1,8 @@
 _include: v1.yaml
 
 HRTIM_Common:
+  _delete:
+    - DLLCR
   _modify:
     BDTxUPR:
       name: BDTAUPR
@@ -64,5 +66,3 @@ HRTIM_Common:
   ICR:
     _delete:
       - DLLRDYC
-  _delete:
-    - DLLCR

@@ -601,8 +601,7 @@ TIM1,TIM8:
 
 HRTIM_Common:
   _delete:
-    _registers:
-      - BDMADR
+    - BDMADR
   _add:
     BDMADR:
       description: Burst DMA Data register
