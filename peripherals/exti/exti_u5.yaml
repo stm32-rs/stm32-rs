@@ -3,15 +3,16 @@ _include:
   - "exti_priv.yaml"
 
 EXTI:
-  EXTICR?:
-    EXTI*:
-      PA: [0, "PAx pin"]
-      PB: [1, "PBx pin"]
-      PC: [2, "PCx pin"]
-      PD: [3, "PDx pin"]
-      PE: [4, "PEx pin"]
-      PF: [5, "PFx pin"]
-      PG: [6, "PGx pin"]
-      PH: [7, "PHx pin"]
-      PI: [8, "PIx pin"]
-      PJ: [9, "PJx pin"]
+  _include: derive.yaml
+  EXTICR1:
+    EXTI0:
+      PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
+      PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
+      PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]
+      PD: [3, "Select PDx as the source input for the EXTIx external interrupt"]
+      PE: [4, "Select PEx as the source input for the EXTIx external interrupt"]
+      PF: [5, "Select PFx as the source input for the EXTIx external interrupt"]
+      PG: [6, "Select PGx as the source input for the EXTIx external interrupt"]
+      PH: [7, "Select PHx as the source input for the EXTIx external interrupt"]
+      PI: [8, "Select PIx as the source input for the EXTIx external interrupt"]
+      PJ: [9, "Select PJx as the source input for the EXTIx external interrupt"]

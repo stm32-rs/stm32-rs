@@ -16,6 +16,9 @@ _delete:
   - "SYSCFG_ITLINE"
 
 EXTI:
+  _include:
+    - common_patches/exti/exti_rename.yaml
+    - ../peripherals/exti/exti_g0.yaml
   _delete:
     _interrupts:
       # in v1.5 the PVD interrupt was moved to PWR
@@ -71,7 +74,6 @@ _include:
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
-  - ../peripherals/exti/exti_g0.yaml
   - common_patches/flash/g0.yaml
   - ../peripherals/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml

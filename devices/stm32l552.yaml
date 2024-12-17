@@ -10,6 +10,10 @@ _modify:
     nvicPrioBits: 3
     vendorSystickConfig: "false"
 
+EXTI:
+  _include:
+    - common_patches/exti/exti_rename.yaml
+
 FMC:
   _strip:
     - "FMC_"
@@ -57,22 +61,22 @@ WWDG:
   _include: common_patches/16bit.yaml
 
 _include:
- - collect/dma/dmamux.yaml
- - common_patches/dma/interrupt_names.yaml
- - collect/dma/l5.yaml
- - collect/flash/secbbr.yaml
- - common_patches/icache/l5.yaml
- - collect/icache/crr.yaml
- - ../peripherals/gpio/gpio_l5_u5.yaml
- - ../peripherals/rcc/rcc_l5.yaml
- - common_patches/rtc/alarm.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
- - common_patches/sai/sai_v1.yaml
- - ../peripherals/sai/sai.yaml
- - collect/sai/ch.yaml
- - collect/sai/pdm.yaml
- - common_patches/tim/common.yaml
- - common_patches/tim/v2/l5.yaml
- - ../peripherals/tim/v2/ccm.yaml
- - common_patches/adc/adc_common_group_name.yaml
+  - collect/dma/dmamux.yaml
+  - common_patches/dma/interrupt_names.yaml
+  - collect/dma/l5.yaml
+  - collect/flash/secbbr.yaml
+  - common_patches/icache/l5.yaml
+  - collect/icache/crr.yaml
+  - ../peripherals/gpio/gpio_l5_u5.yaml
+  - ../peripherals/rcc/rcc_l5.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml
+  - common_patches/sai/sai_v1.yaml
+  - ../peripherals/sai/sai.yaml
+  - collect/sai/ch.yaml
+  - collect/sai/pdm.yaml
+  - common_patches/tim/common.yaml
+  - common_patches/tim/v2/l5.yaml
+  - ../peripherals/tim/v2/ccm.yaml
+  - common_patches/adc/adc_common_group_name.yaml
