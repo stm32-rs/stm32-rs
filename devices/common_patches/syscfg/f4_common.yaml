@@ -1,0 +1,9 @@
+_modify:
+  MEMRM:
+    name: MEMRMP
+CMPCR:
+  _modify:
+    READY:
+      access: read-only
+    CMP_PD:
+      access: read-write

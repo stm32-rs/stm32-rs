@@ -94,6 +94,7 @@
 * G0B1: force ARR field width to 16 bit when SVD describes ARR as 32-bit field for 16-bit timer.
 * C0,G0,H5: fix field names in cmmr1_output registers
 * G0: describe USB CHEP?R register
+* doc on `SYSCFG` peripheral for STM32F4 ([#852])
 
 Family-specific:
 
@@ -141,6 +142,7 @@ Family-specific:
       * `USART?`: many changes to `CR1` and `ISR`
       * add `DMA?` interrupts
 
+[#852]: https://github.com/stm32-rs/stm32-rs/pull/852
 [#854]: https://github.com/stm32-rs/stm32-rs/pull/854
 [#857]: https://github.com/stm32-rs/stm32-rs/pull/857
 [#866]: https://github.com/stm32-rs/stm32-rs/pull/866

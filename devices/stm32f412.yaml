@@ -26,8 +26,8 @@ _modify:
     name: FMPI2C1
 
   FSMC:
-     # ST got the base address of the FSMC peripheral wrong
-     baseAddress: "0xA0000000"
+    # ST got the base address of the FSMC peripheral wrong
+    baseAddress: "0xA0000000"
 
 ADC1:
   _include:
@@ -76,8 +76,13 @@ FSMC:
       Enabled: [0, "Write FIFO enabled"]
       Disabled: [1, "Write FIFO disabled"]
     CCLKEN:
-      Enabled: [1, "FSMC_CLK is generated continuously during asynchronous and synchronous access"]
-      Disabled: [0, "FSMC_CLK is only generated during the synchronous memory access"]
+      Enabled:
+        [
+          1,
+          "FSMC_CLK is generated continuously during asynchronous and synchronous access",
+        ]
+      Disabled:
+        [0, "FSMC_CLK is only generated during the synchronous memory access"]
   # Delete WRAPMOD field from BCR1, BCR2, BCR3, BCR4
   "BCR?":
     _delete:
@@ -446,85 +451,114 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+SYSCFG:
+  _include:
+    - common_patches/syscfg/f4_common.yaml
+    - ../peripherals/syscfg/f4/syscfg_f412.yaml
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+  _add:
+    CFGR2:
+      description: ADC Common status register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PVDL:
+          description: PVD lock
+          bitOffset: 2
+          bitWidth: 1
+        CLL:
+          description: core lockup lock
+          bitOffset: 0
+          bitWidth: 1
+  CFGR:
+    _modify:
+      I2C4SDA:
+        name: I2CFMP1_SDA
+      I2C4SCL:
+        name: I2CFMP1_SCL
+
 _include:
- - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
- - ../peripherals/can/can.yaml
- - collect/can/can.yaml
- - collect/can/filter_bank.yaml
- - common_patches/dfsdm/dfsdm_v2.yaml
- - collect/dfsdm/v2.yaml
- - common_patches/i2c/f4_fmpi2c.yaml
- - common_patches/adc/f4_single_csr.yaml
- - common_patches/adc/f4_single_ccr.yaml
- - common_patches/fsmc/fsmc_sramfix_common.yaml
- - ../peripherals/fsmc/fsmc_sram.yaml
- - collect/fsmc/sram.yaml
- - common_patches/rcc/spi5.yaml
- - common_patches/rcc/rename_plli2scfgr.yaml
- - common_patches/rcc/add_plli2sq_usb.yaml
- - common_patches/rcc/add_plli2sm.yaml
- - common_patches/rcc/f4_fmpi2c.yaml
- - common_patches/rcc/f41x_bdcr_lsemod.yaml
- - common_patches/rcc/rcc_merge_sw_sws.yaml
- - common_patches/rcc/rcc_merge_rtcsel.yaml
- - ../peripherals/rcc/rcc_v2.yaml
- - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
- - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
- - ../peripherals/rcc/rcc_v2_i2s.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
- - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
- - ../peripherals/gpio/v2/common.yaml
- - collect/gpio/v2.yaml
- - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/crc/crc_idr_8bit.yaml
- - common_patches/adc/adc_common_group_name.yaml
- - ../peripherals/adc/adc_v2_single.yaml
- - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
- - collect/adc/jofr_jdr.yaml
- - common_patches/dma/dma_v2.yaml
- - ../peripherals/dma/dma_v2.yaml
- - collect/dma/st.yaml
- - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
- - common_patches/tim/common.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
- - ../peripherals/tim/tim_basic_no_opm.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2345_mixed.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - ../peripherals/tim/v1/ccm.yaml
- - collect/tim/ccr.yaml
- - ../peripherals/usart/uart_common.yaml
- - ../peripherals/usart/uart_sample.yaml
- - ../peripherals/usart/uart_usart.yaml
- - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/i2c/i2c_v2_fmp.yaml
- - ../peripherals/exti/exti.yaml
- - ../peripherals/flash/flash_v1.yaml
- - ../peripherals/flash/flash_latency16.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - collect/rtc/alarm.yaml
- - collect/rtc/bkpr.yaml
- - common_patches/usb_otg/fs_remove_prefix.yaml
- - common_patches/usb_otg/fs_v1ext.yaml
- - common_patches/usb_otg/fs_v1.yaml
- - collect/usb_otg/fs.yaml
- - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
- - ../peripherals/sdio/sdio_f4.yaml
- - collect/sdio/resp.yaml
- - common_patches/i2c/v1_fltr.yaml
- - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/pwr/f4.yaml
- - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
+  - common_patches/nvic/4_prio_bits.yaml
+  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+  - ../peripherals/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - common_patches/dfsdm/dfsdm_v2.yaml
+  - collect/dfsdm/v2.yaml
+  - common_patches/i2c/f4_fmpi2c.yaml
+  - common_patches/adc/f4_single_csr.yaml
+  - common_patches/adc/f4_single_ccr.yaml
+  - common_patches/fsmc/fsmc_sramfix_common.yaml
+  - ../peripherals/fsmc/fsmc_sram.yaml
+  - collect/fsmc/sram.yaml
+  - common_patches/rcc/spi5.yaml
+  - common_patches/rcc/rename_plli2scfgr.yaml
+  - common_patches/rcc/add_plli2sq_usb.yaml
+  - common_patches/rcc/add_plli2sm.yaml
+  - common_patches/rcc/f4_fmpi2c.yaml
+  - common_patches/rcc/f41x_bdcr_lsemod.yaml
+  - common_patches/rcc/rcc_merge_sw_sws.yaml
+  - common_patches/rcc/rcc_merge_rtcsel.yaml
+  - ../peripherals/rcc/rcc_v2.yaml
+  - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
+  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
+  - ../peripherals/rcc/rcc_v2_i2s.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
+  - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
+  - ../peripherals/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
+  - ../peripherals/crc/crc_basic.yaml
+  - ../peripherals/crc/crc_idr_8bit.yaml
+  - common_patches/adc/adc_common_group_name.yaml
+  - ../peripherals/adc/adc_v2_single.yaml
+  - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
+  - collect/adc/jofr_jdr.yaml
+  - common_patches/dma/dma_v2.yaml
+  - ../peripherals/dma/dma_v2.yaml
+  - collect/dma/st.yaml
+  - ../peripherals/spi/spi_v1.yaml
+  - common_patches/tim/tim_o24ce.yaml
+  - common_patches/tim/common.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - ../peripherals/tim/tim_basic_no_opm.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim2345_mixed.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - ../peripherals/tim/v1/ccm.yaml
+  - collect/tim/ccr.yaml
+  - ../peripherals/usart/uart_common.yaml
+  - ../peripherals/usart/uart_sample.yaml
+  - ../peripherals/usart/uart_usart.yaml
+  - ../peripherals/i2c/i2c_v1.yaml
+  - ../peripherals/i2c/i2c_v2_fmp.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/flash/flash_v1.yaml
+  - ../peripherals/flash/flash_latency16.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - ../peripherals/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - common_patches/usb_otg/fs_remove_prefix.yaml
+  - common_patches/usb_otg/fs_v1ext.yaml
+  - common_patches/usb_otg/fs_v1.yaml
+  - collect/usb_otg/fs.yaml
+  - common_patches/dbgmcu/dbgmcu.yaml
+  - common_patches/fpu_interrupt.yaml
+  - ../peripherals/sdio/sdio_f4.yaml
+  - collect/sdio/resp.yaml
+  - common_patches/i2c/v1_fltr.yaml
+  - ../peripherals/i2c/i2c_v1_fltr.yaml
+  - common_patches/pwr/f4.yaml
+  - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml

@@ -3,8 +3,8 @@ _modify:
     name: SYSCFG
 
 SYSCFG:
-  _strip:
-    SYSCFG_
+  _include: syscfg/f0_common.yaml
+  _strip: SYSCFG_
   _delete:
     - COMP_CSR
   CFGR1:
@@ -26,8 +26,7 @@ SYSCFG:
         name: I2C2_FMP
 
 _include:
- - ./syscfg/f0_common.yaml
- - ./comp/f0_common.yaml
+  - ./comp/f0_common.yaml
 
 COMP:
   CSR:

@@ -1,0 +1,37 @@
+_include:
+  - ../exti.yaml
+  - cmpcr.yaml
+
+MEMRMP:
+  SWP_FMC:
+    NoSwap: [0, "No FMC memory mapping swap"]
+    Swapped: [1, SDRAM banks and NAND Bank 2/PCCARD mapping are swapped"]
+  FB_MODE: [0, 1]
+  MEM_MODE:
+    MainFlash: [0, "Main Flash memory mapped at 0x0000 0000"]
+    SystemFlash: [1, "System Flash memory mapped at 0x0000 0000"]
+    FSMCBank1: [2, "FSMC Bank1 (NOR/PSRAM 1 and 2) mapped at 0x0000 0000"]
+    EmbeddedSRAM: [3, "Embedded SRAM mapped at 0x0000 0000"]
+    FMCSDRAMBank1: [4, "FMC/SDRAM Bank 1 mapped at 0x0000 0000"]
+
+PMC:
+  MII_RMII_SEL:
+    MII: [0, "MII interface is selected"]
+    RMII_PHY: [1, "RMII PHY interface is selected"]
+  ADC3DC2: [0, 1]
+  ADC2DC2: [0, 1]
+  ADC1DC2: [0, 1]
+
+EXTICR1:
+  EXTI0:
+    PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
+    PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
+    PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]
+    PD: [3, "Select PDx as the source input for the EXTIx external interrupt"]
+    PE: [4, "Select PEx as the source input for the EXTIx external interrupt"]
+    PF: [5, "Select PFx as the source input for the EXTIx external interrupt"]
+    PG: [6, "Select PGx as the source input for the EXTIx external interrupt"]
+    PH: [7, "Select PHx as the source input for the EXTIx external interrupt"]
+    PI: [8, "Select PIx as the source input for the EXTIx external interrupt"]
+    PJ: [9, "Select PJx as the source input for the EXTIx external interrupt"]
+    PK: [10, "Select PKx as the source input for the EXTIx external interrupt"]

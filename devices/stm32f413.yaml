@@ -22,8 +22,8 @@ _modify:
     name: FMPI2C1
 
   FSMC:
-     # ST got the base address of the FSMC peripheral wrong
-     baseAddress: "0xA0000000"
+    # ST got the base address of the FSMC peripheral wrong
+    baseAddress: "0xA0000000"
 
 SPI?:
   _include:
@@ -36,13 +36,13 @@ SPI?:
         name: "FRE"
 
 _add:
-    # I2S*ext are missing
-    I2S2ext:
-        derivedFrom: SPI1
-        baseAddress: "0x40003400"
-    I2S3ext:
-        derivedFrom: SPI1
-        baseAddress: "0x40004000"
+  # I2S*ext are missing
+  I2S2ext:
+    derivedFrom: SPI1
+    baseAddress: "0x40003400"
+  I2S3ext:
+    derivedFrom: SPI1
+    baseAddress: "0x40004000"
 
 ADC1:
   _include:
@@ -316,92 +316,203 @@ IWDG:
     - common_patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
+SYSCFG:
+  _include:
+    - common_patches/syscfg/f4_common.yaml
+    - ../peripherals/syscfg/f4/syscfg_f413_f423.yaml
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+  _add:
+    CFGR2:
+      description: ADC Common status register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PVDL:
+          description: PVD lock
+          bitOffset: 2
+          bitWidth: 1
+        CLL:
+          description: core lockup lock
+          bitOffset: 0
+          bitWidth: 1
+    MCHDLYCR:
+      description: DFSDM Multi-channel delay control register
+      addressOffset: 0x30
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DFSDM2_CKOSEL:
+          description: Source selection for DFSDM2_CKOUT
+          bitOffset: 18
+          bitWidth: 1
+        DFSDM2_CFG:
+          description: CkIn source selection for DFSDM2
+          bitOffset: 17
+          bitWidth: 1
+        DFSDM2_CK37SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC1
+          bitOffset: 16
+          bitWidth: 1
+        DFSDM2_CK26SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC2
+          bitOffset: 15
+          bitWidth: 1
+        DFSDM2_CK15SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC3
+          bitOffset: 14
+          bitWidth: 1
+        DFSDM2_CK04SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC4
+          bitOffset: 13
+          bitWidth: 1
+        DFSDM2_D6SEL:
+          description: Source selection for DatIn6 of DFSDM2
+          bitOffset: 12
+          bitWidth: 1
+        DFSDM2_D4SEL:
+          description: Source selection for DatIn4 of DFSDM2
+          bitOffset: 11
+          bitWidth: 1
+        DFSDM2_D2SEL:
+          description: Source selection for DatIn2 of DFSDM2
+          bitOffset: 10
+          bitWidth: 1
+        DFSDM2_D0SEL:
+          description: Source selection for DatIn0 of DFSDM2
+          bitOffset: 9
+          bitWidth: 1
+        MCHDLYEN2:
+          description: MCHDLY clock enable for DFSDM2
+          bitOffset: 8
+          bitWidth: 1
+        DFSDM1_CKOSEL:
+          description: Source selection for DFSDM1_CKOUT
+          bitOffset: 7
+          bitWidth: 1
+        DFSDM1_CFG:
+          description: CkIn source selection for DFSDM1
+          bitOffset: 6
+          bitWidth: 1
+        DFSDM1_CK13SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC1
+          bitOffset: 5
+          bitWidth: 1
+        DFSDM1_CK02SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC2
+          bitOffset: 4
+          bitWidth: 1
+        DFSDM1_D2SEL:
+          description: Source selection for DatIn2 of DFSDM1
+          bitOffset: 3
+          bitWidth: 1
+        DFSDM1_D0SEL:
+          description: Source selection for DatIn0 of DFSDM1
+          bitOffset: 2
+          bitWidth: 1
+        MCHDLYEN1:
+          description: MCHDLY clock enable for DFSDM1
+          bitOffset: 1
+          bitWidth: 1
+        BSCKSEL:
+          description: Bitstream clock source selection
+          bitOffset: 0
+          bitWidth: 1
+  CFGR:
+    _modify:
+      I2C4SDA:
+        name: I2CFMP1_SDA
+      I2C4SCL:
+        name: I2CFMP1_SCL
+
 WWDG:
   _include:
     - common_patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
- - common_patches/nvic/4_prio_bits.yaml
- - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
- - ../peripherals/can/can.yaml
- - collect/can/can.yaml
- - collect/can/filter_bank.yaml
- - common_patches/sai/sai_v1.yaml
- - ../peripherals/sai/sai.yaml
- - collect/sai/ch.yaml
- - common_patches/dfsdm/dfsdm_v1.yaml
- - collect/dfsdm/v1.yaml
- - common_patches/i2c/f4_fmpi2c.yaml
- - common_patches/adc/f4_single_csr.yaml
- - common_patches/adc/f4_single_ccr.yaml
- - ../peripherals/fsmc/fsmc_sram.yaml
- - collect/fsmc/sram.yaml
- - ../peripherals/dac/dac_wavegen.yaml
- - ../peripherals/dac/dac_f4_2ch.yaml
- - ../peripherals/dac/dac_dmaudr.yaml
- - common_patches/rcc/f4_fmpi2c.yaml
- - common_patches/rcc/rcc_merge_sw_sws.yaml
- - common_patches/rcc/rcc_merge_rtcsel.yaml
- - ../peripherals/rcc/rcc_v2.yaml
- - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
- - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
- - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
- - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
- - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
- - ../peripherals/gpio/v2/common.yaml
- - collect/gpio/v2.yaml
- - ../peripherals/crc/crc_basic.yaml
- - ../peripherals/crc/crc_idr_8bit.yaml
- - common_patches/adc/adc_common_group_name.yaml
- - ../peripherals/adc/adc_v2_single.yaml
- - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
- - collect/adc/jofr_jdr.yaml
- - common_patches/dma/dma_v21.yaml
- - ../peripherals/dma/dma_v21.yaml
- - collect/dma/st.yaml
- - ../peripherals/spi/spi_v1.yaml
- - common_patches/tim/tim_o24ce.yaml
- - common_patches/tim/common.yaml
- - common_patches/tim/tim2345_mixed_l.yaml
- - ../peripherals/tim/tim_basic_no_opm.yaml
- - ../peripherals/tim/tim6.yaml
- - ../peripherals/tim/tim2345_mixed.yaml
- - ../peripherals/tim/tim_advanced.yaml
- - ../peripherals/tim/v1/ccm.yaml
- - collect/tim/ccr.yaml
- - ../peripherals/usart/uart_common.yaml
- - ../peripherals/usart/uart_sample.yaml
- - ../peripherals/usart/uart_uart.yaml
- - ../peripherals/usart/uart_usart.yaml
- - common_patches/usart/f4_add_UART_GTPR.yaml
- - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/i2c/i2c_v2_fmp.yaml
- - ../peripherals/exti/exti.yaml
- - ../peripherals/flash/flash_v1.yaml
- - ../peripherals/flash/flash_latency16.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_cr.yaml
- - ../peripherals/rtc/rtc_common.yaml
- - collect/rtc/alarm.yaml
- - collect/rtc/bkpr.yaml
- - common_patches/usb_otg/fs_remove_prefix.yaml
- - common_patches/usb_otg/fs_v1ext.yaml
- - common_patches/usb_otg/fs_v1.yaml
- - collect/usb_otg/fs.yaml
- - common_patches/dbgmcu/dbgmcu.yaml
- - common_patches/fpu_interrupt.yaml
- - ../peripherals/sdio/sdio_f4.yaml
- - collect/sdio/resp.yaml
- - ../peripherals/i2c/i2c_v1_fltr.yaml
- - common_patches/pwr/f4.yaml
- - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
+  - common_patches/nvic/4_prio_bits.yaml
+  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
+  - ../peripherals/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - common_patches/sai/sai_v1.yaml
+  - ../peripherals/sai/sai.yaml
+  - collect/sai/ch.yaml
+  - common_patches/dfsdm/dfsdm_v1.yaml
+  - collect/dfsdm/v1.yaml
+  - common_patches/i2c/f4_fmpi2c.yaml
+  - common_patches/adc/f4_single_csr.yaml
+  - common_patches/adc/f4_single_ccr.yaml
+  - ../peripherals/fsmc/fsmc_sram.yaml
+  - collect/fsmc/sram.yaml
+  - ../peripherals/dac/dac_wavegen.yaml
+  - ../peripherals/dac/dac_f4_2ch.yaml
+  - ../peripherals/dac/dac_dmaudr.yaml
+  - common_patches/rcc/f4_fmpi2c.yaml
+  - common_patches/rcc/rcc_merge_sw_sws.yaml
+  - common_patches/rcc/rcc_merge_rtcsel.yaml
+  - ../peripherals/rcc/rcc_v2.yaml
+  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllsrc.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllq.yaml
+  - ../peripherals/rcc/rcc_v2_i2s_pllm.yaml
+  - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
+  - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
+  - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
+  - ../peripherals/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
+  - ../peripherals/crc/crc_basic.yaml
+  - ../peripherals/crc/crc_idr_8bit.yaml
+  - common_patches/adc/adc_common_group_name.yaml
+  - ../peripherals/adc/adc_v2_single.yaml
+  - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
+  - collect/adc/jofr_jdr.yaml
+  - common_patches/dma/dma_v21.yaml
+  - ../peripherals/dma/dma_v21.yaml
+  - collect/dma/st.yaml
+  - ../peripherals/spi/spi_v1.yaml
+  - common_patches/tim/tim_o24ce.yaml
+  - common_patches/tim/common.yaml
+  - common_patches/tim/tim2345_mixed_l.yaml
+  - ../peripherals/tim/tim_basic_no_opm.yaml
+  - ../peripherals/tim/tim6.yaml
+  - ../peripherals/tim/tim2345_mixed.yaml
+  - ../peripherals/tim/tim_advanced.yaml
+  - ../peripherals/tim/v1/ccm.yaml
+  - collect/tim/ccr.yaml
+  - ../peripherals/usart/uart_common.yaml
+  - ../peripherals/usart/uart_sample.yaml
+  - ../peripherals/usart/uart_uart.yaml
+  - ../peripherals/usart/uart_usart.yaml
+  - common_patches/usart/f4_add_UART_GTPR.yaml
+  - ../peripherals/i2c/i2c_v1.yaml
+  - ../peripherals/i2c/i2c_v2_fmp.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/flash/flash_v1.yaml
+  - ../peripherals/flash/flash_latency16.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - ../peripherals/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - common_patches/usb_otg/fs_remove_prefix.yaml
+  - common_patches/usb_otg/fs_v1ext.yaml
+  - common_patches/usb_otg/fs_v1.yaml
+  - collect/usb_otg/fs.yaml
+  - common_patches/dbgmcu/dbgmcu.yaml
+  - common_patches/fpu_interrupt.yaml
+  - ../peripherals/sdio/sdio_f4.yaml
+  - collect/sdio/resp.yaml
+  - ../peripherals/i2c/i2c_v1_fltr.yaml
+  - common_patches/pwr/f4.yaml
+  - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
