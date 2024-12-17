@@ -114,6 +114,16 @@ MPU:
   _strip:
     - "MPU_"
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/flash/l0.yaml
@@ -154,7 +164,6 @@ _include:
  - ../peripherals/gpio/gpio_g0_l0.yaml
  - collect/gpio/v2r.yaml
  - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/lptim/lptim_v1.yaml
  - ../peripherals/pwr/pwr_l0.yaml
  - ../peripherals/rcc/rcc_l0_l1_common.yaml
@@ -178,4 +187,3 @@ _include:
  - ../peripherals/usart/lpuart_v2A.yaml
  - ../peripherals/usart/usart_v2B1.yaml
  - ../peripherals/usb/usb_with_LPM.yaml
- - ../peripherals/wwdg/wwdg.yaml

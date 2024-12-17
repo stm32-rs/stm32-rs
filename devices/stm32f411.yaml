@@ -117,7 +117,16 @@ USART1:
       USART6:
         description: "USART6 global interrupt"
         value: 71
+
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
 WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
   _add:
     _interrupts:
       WWDG:
@@ -200,8 +209,6 @@ _include:
  - ../peripherals/usart/uart_sample.yaml
  - ../peripherals/usart/uart_usart.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/flash/flash_v1.yaml
  - ../peripherals/flash/flash_latency16.yaml

@@ -199,7 +199,15 @@ FLASH:
           bitOffset: 0
           bitWidth: 1
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
 
 _include:
   - common_patches/adc/l4_sqr1.yaml
@@ -227,7 +235,6 @@ _include:
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
   - ../peripherals/crc/crc_pol.yaml
-  - ../peripherals/wwdg/wwdg.yaml
   - ../peripherals/rcc/rcc_l4.yaml
   - common_patches/tim/common.yaml
   - common_patches/tim/v2/l4.yaml
@@ -242,7 +249,6 @@ _include:
   - collect/dma/dmamux.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - ../peripherals/iwdg/iwdg_with_WINR.yaml
   - ../peripherals/exti/exti.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/usart/lpuart_v2A.yaml

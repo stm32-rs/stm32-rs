@@ -178,6 +178,16 @@ PWR:
         bitOffset: 10
         bitWidth: 1
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - common_patches/nvic/4_prio_bits.yaml
  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
@@ -245,7 +255,6 @@ _include:
  - ../peripherals/usart/uart_usart.yaml
  - common_patches/usart/f4_add_UART_GTPR.yaml
  - ../peripherals/i2c/i2c_v1.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - common_patches/tim/tim_o24ce.yaml
  - common_patches/tim/tim10_14_missing_opm.yaml
  - common_patches/tim/common.yaml
@@ -257,7 +266,6 @@ _include:
  - ../peripherals/tim/tim_advanced.yaml
  - ../peripherals/tim/v1/ccm.yaml
  - collect/tim/ccr.yaml
- - ../peripherals/iwdg/iwdg.yaml
  - ../peripherals/exti/exti.yaml
  - collect/hash/v2.yaml
  - common_patches/rtc/alarm.yaml

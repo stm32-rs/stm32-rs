@@ -136,6 +136,16 @@ MPU:
   _strip:
     - "MPU_"
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - common_patches/cec/cfgr.yaml
  - ../peripherals/hdmi_cec.yaml
@@ -165,7 +175,6 @@ _include:
  - ../peripherals/crc/crc_idr_8bit.yaml
  - ../peripherals/crc/crc_pol.yaml
  - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/gpio/gpio_with_brr.yaml
  - collect/gpio/v2.yaml
  - ../peripherals/gpio/v2/common.yaml
@@ -187,7 +196,6 @@ _include:
  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
  - ../peripherals/dma/dma_v1.yaml
  - collect/dma/v1.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - common_patches/exti/f3_offset.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml

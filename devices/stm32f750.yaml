@@ -61,6 +61,16 @@ SPI?:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
 
+IWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+
+WWDG:
+  _include:
+    - common_patches/16bit.yaml
+    - ../peripherals/wwdg/wwdg.yaml
+
 _include:
  - ../peripherals/hdmi_cec.yaml
  - common_patches/usart/merge_CR1_DEATx_fields.yaml
@@ -112,7 +122,6 @@ _include:
  - ../peripherals/eth/eth_mac_cstf.yaml
  - ../peripherals/eth/eth_mmc_common.yaml
  - ../peripherals/eth/eth_mmc_mcfhp_mcp.yaml
- - ../peripherals/wwdg/wwdg.yaml
  - ../peripherals/pwr/pwr_f7.yaml
  - ../peripherals/pwr/pwr_v2.yaml
  - ../peripherals/flash/flash_v2.yaml
@@ -132,7 +141,6 @@ _include:
  - ../peripherals/tim/v2/ccm.yaml
  - collect/tim/ccr.yaml
  - common_patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
- - ../peripherals/iwdg/iwdg_with_WINR.yaml
  - ../peripherals/exti/exti.yaml
  - ../peripherals/i2c/i2c_v2.yaml
  - ../peripherals/usart/usart_v2B1.yaml
