@@ -1,62 +1,78 @@
-SYSCFG:
-  CFGR1:
-    MEM_MODE:
-      MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
-      SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
-      MainFlash2: [2, "Main Flash memory mapped at 0x0000_0000"]
-      SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
-    PA11_PA12_RMP:
-      NotRemapped: [0, "Pin pair PA9/PA10 mapped on the pins"]
-      Remapped: [1, "Pin pair PA11/PA12 mapped instead of PA9/PA10"]
-    ADC_DMA_RMP:
-      NotRemapped: [0, "ADC DMA request mapped on DMA channel 1"]
-      Remapped: [1, "ADC DMA request mapped on DMA channel 2"]
-    USART1_TX_DMA_RMP:
-      NotRemapped: [0, "USART1_TX DMA request mapped on DMA channel 2"]
-      Remapped: [1, "USART1_TX DMA request mapped on DMA channel 4"]
-    USART1_RX_DMA_RMP:
-      NotRemapped: [0, "USART1_RX DMA request mapped on DMA channel 3"]
-      Remapped: [1, "USART1_RX DMA request mapped on DMA channel 5"]
-    TIM16_DMA_RMP:
-      NotRemapped: [0, "TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 3"]
-      Remapped: [1, "TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 4"]
-    TIM17_DMA_RMP:
-      NotRemapped: [0, "TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 1"]
-      Remapped: [1, "TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 2"]
-    I2C_PB6_FMP:
-      Standard: [0, "PB6 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
-    I2C_PB7_FMP:
-      Standard: [0, "PB7 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
-    I2C_PB8_FMP:
-      Standard: [0, "PB8 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
-    I2C_PB9_FMP:
-      Standard: [0, "PB9 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
-    I2C1_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C_PA9_FMP:
-      Standard: [0, "PA9 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PA9 and the Speed control is bypassed"]
-    I2C_PA10_FMP:
-      Standard: [0, "PA10 pin operate in standard mode"]
-      FMP: [1, "I2C FM+ mode enabled on PA10 and the Speed control is bypassed"]
-    USART3_DMA_RMP:
-      NotRemapped: [0, "USART3_RX and USART3_TX DMA requests mapped on DMA channel 6 and 7 respectively (or simply disabled on STM32F0x0)"]
-      Remapped: [1, "USART3_RX and USART3_TX DMA requests mapped on DMA channel 3 and 2 respectively"]
-  CFGR2:
-    LOCKUP_LOCK:
-      Disconnected: [0, "Cortex-M0 LOCKUP output disconnected from TIM1/15/16/17 Break input"]
-      Connected: [1, "Cortex-M0 LOCKUP output connected to TIM1/15/16/17 Break input"]
-    SRAM_PARITY_LOCK:
-      Disconnected: [0, "SRAM parity error disconnected from TIM1/15/16/17 Break input"]
-      Connected: [1, "SRAM parity error connected to TIM1/15/16/17 Break input"]
-    SRAM_PEF:
-      _read:
-        NoParityError: [0, "No SRAM parity error detected"]
-        ParityErrorDetected: [1, "SRAM parity error detected"]
-      _write:
-        Clear: [1, "Clear SRAM parity error flag"]
+CFGR1:
+  MEM_MODE:
+    MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
+    SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
+    MainFlash2: [2, "Main Flash memory mapped at 0x0000_0000"]
+    SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
+  PA11_PA12_RMP:
+    NotRemapped: [0, "Pin pair PA9/PA10 mapped on the pins"]
+    Remapped: [1, "Pin pair PA11/PA12 mapped instead of PA9/PA10"]
+  ADC_DMA_RMP:
+    NotRemapped: [0, "ADC DMA request mapped on DMA channel 1"]
+    Remapped: [1, "ADC DMA request mapped on DMA channel 2"]
+  USART1_TX_DMA_RMP:
+    NotRemapped: [0, "USART1_TX DMA request mapped on DMA channel 2"]
+    Remapped: [1, "USART1_TX DMA request mapped on DMA channel 4"]
+  USART1_RX_DMA_RMP:
+    NotRemapped: [0, "USART1_RX DMA request mapped on DMA channel 3"]
+    Remapped: [1, "USART1_RX DMA request mapped on DMA channel 5"]
+  TIM16_DMA_RMP:
+    NotRemapped:
+      [0, "TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 3"]
+    Remapped: [1, "TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 4"]
+  TIM17_DMA_RMP:
+    NotRemapped:
+      [0, "TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 1"]
+    Remapped: [1, "TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 2"]
+  I2C_PB6_FMP:
+    Standard: [0, "PB6 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+  I2C_PB7_FMP:
+    Standard: [0, "PB7 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+  I2C_PB8_FMP:
+    Standard: [0, "PB8 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+  I2C_PB9_FMP:
+    Standard: [0, "PB9 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+  I2C1_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP:
+      [
+        1,
+        "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers",
+      ]
+  I2C_PA9_FMP:
+    Standard: [0, "PA9 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PA9 and the Speed control is bypassed"]
+  I2C_PA10_FMP:
+    Standard: [0, "PA10 pin operate in standard mode"]
+    FMP: [1, "I2C FM+ mode enabled on PA10 and the Speed control is bypassed"]
+  USART3_DMA_RMP:
+    NotRemapped:
+      [
+        0,
+        "USART3_RX and USART3_TX DMA requests mapped on DMA channel 6 and 7 respectively (or simply disabled on STM32F0x0)",
+      ]
+    Remapped:
+      [
+        1,
+        "USART3_RX and USART3_TX DMA requests mapped on DMA channel 3 and 2 respectively",
+      ]
+CFGR2:
+  LOCKUP_LOCK:
+    Disconnected:
+      [0, "Cortex-M0 LOCKUP output disconnected from TIM1/15/16/17 Break input"]
+    Connected:
+      [1, "Cortex-M0 LOCKUP output connected to TIM1/15/16/17 Break input"]
+  SRAM_PARITY_LOCK:
+    Disconnected:
+      [0, "SRAM parity error disconnected from TIM1/15/16/17 Break input"]
+    Connected: [1, "SRAM parity error connected to TIM1/15/16/17 Break input"]
+  SRAM_PEF:
+    _read:
+      NoParityError: [0, "No SRAM parity error detected"]
+      ParityErrorDetected: [1, "SRAM parity error detected"]
+    _write:
+      Clear: [1, "Clear SRAM parity error flag"]
