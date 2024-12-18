@@ -223,6 +223,32 @@ for serie in ${NAMES}
 end
 '''
 
+[tasks.yamls]
+env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
+dependencies = ["patch"]
+script_runner = "@duckscript"
+script = '''
+mkdir yaml
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    patchedpath = set svd/${serie}.svd.patched
+    ymlpath = set yaml/${serie}.yaml
+
+    patched_modified = get_last_modified_time ${patchedpath}
+    if is_path_exists ${ymlpath}
+        mmap_modified = get_last_modified_time ${ymlpath}
+        need_update = less_than ${mmap_modified} ${patched_modified}
+    else
+        need_update = set true
+    end
+    if ${need_update}
+        echo "yaml: ${serie}"
+        command = set ${SVDTOOLS}
+        exec ${command} convert --input-format xml ${patchedpath} ${ymlpath}
+    end
+end
+'''
+
 [tasks.svdconv]
 env = { "NAMES" = "${NAMES}" }
 dependencies = ["patch"]
