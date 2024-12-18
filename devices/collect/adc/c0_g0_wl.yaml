@@ -1,0 +1,28 @@
+CHSELR0:
+  _array:
+    CHSEL*:
+      description: Channel-%s selection
+CHSELR1:
+  _array:
+    SQ?:
+      description: "%s conversion of the sequence"
+ISR:
+  _array:
+    AWD?:
+      description: Analog watchdog %s flag
+IER:
+  _array:
+    AWD?IE:
+      description: Analog watchdog %s interrupt enable
+SMPR:
+  _array:
+    SMP?:
+      description: Sampling time selection %s
+    SMPSEL*:
+      description: Channel-%s sampling time selection
+AWD2CR:
+  _array:
+    AWD2CH*: {}
+AWD3CR:
+  _array:
+    AWD3CH*: {}

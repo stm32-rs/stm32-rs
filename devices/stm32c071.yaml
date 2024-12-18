@@ -5,17 +5,21 @@ _modify:
   TIM*:
     groupName: TIM
 
-SPI1:
-  _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
-
 ADC:
+  _strip: ADC_
+  _include:
+    - ../peripherals/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
   _modify:
     CHSELR:
       name: CHSELR0
     CHSELR_ALTERNATE1:
       name: CHSELR1
+
+SPI1:
+  _include:
+    - common_patches/16bit.yaml
+    - common_patches/spi/dr8.yaml
 
 SPI?:
   _strip:
