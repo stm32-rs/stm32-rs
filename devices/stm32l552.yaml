@@ -29,21 +29,14 @@ RNG:
   _strip:
     - "RNG_"
 
-GTZC_MPCBB1:
-  _strip:
-    - "MPCBB1_"
-
-GTZC_MPCBB2:
-  _strip:
-    - "MPCBB2_"
+GTZC_MPCBB?:
+  _strip: MPCBB?_
 
 GTZC_TZIC:
-  _strip:
-    - "TZIC_"
+  _strip: TZIC_
 
 GTZC_TZSC:
-  _strip:
-    - "TZSC_"
+  _strip: TZSC_
 
 SPI?:
   _include:

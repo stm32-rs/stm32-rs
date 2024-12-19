@@ -5,6 +5,14 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+GTZC1_MPCBB?:
+  _strip: MPCBB?_
+  _include:
+    - collect/gtzc/h5_u5.yaml
+
+GTZC1_TZSC:
+  _strip: TZSC_
+
 IWDG:
   _include: common_patches/16bit.yaml
 
@@ -78,19 +86,19 @@ WWDG:
   _include: common_patches/16bit.yaml
 
 _include:
- - common_patches/u5.yaml
- - common_patches/adc/u5.yaml
- - common_patches/adc/u5_extra_adc12_fields.yaml
- - common_patches/fsmc/fsmc_u5.yaml
- - common_patches/octospi/u5.yaml
- - ../peripherals/adc/adc_u5.yaml
- - ../peripherals/dma/dma2d_v2.yaml
- - ../peripherals/exti/exti_u5.yaml
- - ../peripherals/fsmc/fsmc_nand.yaml
- - ../peripherals/fsmc/fsmc_sram.yaml
- - ../peripherals/gpio/gpio_l5_u5.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
- - ../peripherals/octospi/u5.yaml
- - ../peripherals/pwr/pwr_u5.yaml
- - ../peripherals/rcc/rcc_u5.yaml
+  - common_patches/u5.yaml
+  - common_patches/adc/u5.yaml
+  - common_patches/adc/u5_extra_adc12_fields.yaml
+  - common_patches/fsmc/fsmc_u5.yaml
+  - common_patches/octospi/u5.yaml
+  - ../peripherals/adc/adc_u5.yaml
+  - ../peripherals/dma/dma2d_v2.yaml
+  - ../peripherals/exti/exti_u5.yaml
+  - ../peripherals/fsmc/fsmc_nand.yaml
+  - ../peripherals/fsmc/fsmc_sram.yaml
+  - ../peripherals/gpio/gpio_l5_u5.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+  - ../peripherals/octospi/u5.yaml
+  - ../peripherals/pwr/pwr_u5.yaml
+  - ../peripherals/rcc/rcc_u5.yaml

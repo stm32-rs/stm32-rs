@@ -1,5 +1,13 @@
 _svd: ../svd/stm32h573.svd
 
+GTZC1_MPCBB?:
+  _strip: GTZC1_MPCBB?_
+  _include:
+    - collect/gtzc/h5_u5.yaml
+
+GTZC1_TZIC:
+  _strip: GTZC1_TZIC_
+
 IWDG:
   _include:
     - common_patches/16bit_with_mask.yaml
