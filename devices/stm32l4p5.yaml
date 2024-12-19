@@ -92,7 +92,7 @@ _include:
   - ../peripherals/usart/usart_v2B2.yaml
   - ../peripherals/tsc/tsc.yaml
   - common_patches/fsmc/fsmc_l4+.yaml
-  - common_patches/fsmc/fsmc_nand_v2.yaml
+  - common_patches/fsmc/fsmc_nand.yaml
   - common_patches/hash/hash_l4+.yaml
   - common_patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_advanced.yaml
@@ -128,7 +128,7 @@ _include:
   - collect/sai/ch.yaml
   - common_patches/dfsdm/dfsdm_l4+.yaml
   - ../peripherals/dfsdm/dfsdm.yaml
-  - collect/dfsdm/v1+.yaml
+  - collect/dfsdm/v1.yaml
   - common_patches/dac/dac_l4+.yaml
   - ../peripherals/dac/dac_l4+.yaml
   - common_patches/comp/l4xx_comp_reg_rename.yaml
