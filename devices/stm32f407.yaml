@@ -56,17 +56,24 @@ CRC:
 
 EXTI:
   _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
+
+FSMC:
+  _modify:
+    BWTR3:
+      addressOffset: 0x114
+      alternateRegister: ""
+    BWTR4:
+      _from: BWTR1
+      addressOffset: 0x11C
+      alternateRegister: ""
 
 IWDG:
   _include:
     - common_patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
-
-MPU:
-  _strip:
-    - "MPU_"
 
 PWR:
   CR:
@@ -89,8 +96,9 @@ WWDG:
     - common_patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
-  - common_patches/nvic/4_prio_bits.yaml
   - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/ethernet/mac_regs.yaml
   - common_patches/ethernet/mmc.yaml
@@ -99,14 +107,6 @@ _include:
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
-  - common_patches/ltdc/ltdc.yaml
-  - common_patches/ltdc/f4_f7_ltdc_bccr.yaml
-  - ../peripherals/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
-  - common_patches/sai/sai_v2.yaml
-  - ../peripherals/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - common_patches/fsmc/fsmc_sramfix_v3.yaml
   - common_patches/fsmc/fsmc_nand.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - ../peripherals/fsmc/fsmc_nand.yaml
@@ -134,7 +134,6 @@ _include:
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/tim_o24ce.yaml
   - common_patches/tim/common.yaml
   - common_patches/tim/tim2345_mixed_l.yaml
   - common_patches/tim/tim2_itr1_rmp.yaml
@@ -170,10 +169,9 @@ _include:
   - common_patches/usb_otg/fs_v1.yaml
   - common_patches/usb_otg/fs_v1_novbussens.yaml
   - collect/usb_otg/fs.yaml
-  - common_patches/usb_otg/hs_v1.yaml
+  - common_patches/usb_otg/hs_v1_f4.yaml
   - collect/usb_otg/hs.yaml
   - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/fpu_interrupt.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
   - common_patches/ethernet/f4_f7.yaml

@@ -21,6 +21,7 @@
 * L1 TIM9: add CCER
 * Update STM32F3 source to V1.3
 * F373 GPIOC LCKR, collect GPIO.BRR
+* Update STM32F4 to V2.0 archive source
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv`
 * move `_array` and `_cluster` patches to `devices/collect`

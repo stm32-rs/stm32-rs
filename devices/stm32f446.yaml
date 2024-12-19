@@ -30,6 +30,8 @@ _modify:
   # Remove underscore to be consistent with other parts and RM
   SPDIF_RX:
     name: SPDIFRX
+  FMPI2C:
+    name: FMPI2C1
 
 ADC1:
   _include:
@@ -60,6 +62,7 @@ FLASH:
 
 EXTI:
   _include:
+    - common_patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
@@ -125,418 +128,34 @@ SYSCFG:
     _delete:
       - MII_RMII_SEL
 
-# Add missing FMPI2C1 peripheral
-_add:
-  FMPI2C1:
-    description: fast-mode Inter-integrated circuit
-    groupName: I2C
-    baseAddress: 0x40006000
-    addressBlock:
-      offset: 0x0
-      size: 0x400
-      usage: registers
-    registers:
-      CR1:
-        description: Control register 1
-        addressOffset: 0x0
-        size: 0x20
+FMPI2C1:
+  _modify:
+    ISR:
+      access: ""
+    TXDR:
+      access: read-write
+  CR2:
+    _delete:
+      - "SADD*"
+    _add:
+      SADD:
+        description: Slave address bit (master mode)
+        bitOffset: 0
+        bitWidth: 10
+  OAR1:
+    _delete:
+      - OA1_*
+    _add:
+      OA1:
+        description: Interface address
+        bitOffset: 0
+        bitWidth: 10
+  ISR:
+    _modify:
+      "TXE,TXIS":
         access: read-write
-        resetValue: 0x00000000
-        fields:
-          PE:
-            description: Peripheral enable
-            bitOffset: 0
-            bitWidth: 1
-          TXIE:
-            description: TX Interrupt enable
-            bitOffset: 1
-            bitWidth: 1
-          RXIE:
-            description: RX Interrupt enable
-            bitOffset: 2
-            bitWidth: 1
-          ADDRIE:
-            description: Address match interrupt enable (slave only)
-            bitOffset: 3
-            bitWidth: 1
-          NACKIE:
-            description: Not acknowledge received interrupt enable
-            bitOffset: 4
-            bitWidth: 1
-          STOPIE:
-            description: STOP detection Interrupt enable
-            bitOffset: 5
-            bitWidth: 1
-          TCIE:
-            description: Transfer Complete interrupt enable
-            bitOffset: 6
-            bitWidth: 1
-          ERRIE:
-            description: Error interrupt enable
-            bitOffset: 7
-            bitWidth: 1
-          DNF:
-            description: Digital noise filter
-            bitOffset: 8
-            bitWidth: 4
-          ANFOFF:
-            description: Analog noise filter OFF
-            bitOffset: 12
-            bitWidth: 1
-          TXDMAEN:
-            description: DMA transmission requests enable
-            bitOffset: 14
-            bitWidth: 1
-          RXDMAEN:
-            description: DMA reception requests enable
-            bitOffset: 15
-            bitWidth: 1
-          SBC:
-            description: Slave byte control
-            bitOffset: 16
-            bitWidth: 1
-          NOSTRETCH:
-            description: Clock stretching disable
-            bitOffset: 17
-            bitWidth: 1
-          WUPEN:
-            description: Wakeup from STOP enable
-            bitOffset: 18
-            bitWidth: 1
-          GCEN:
-            description: General call enable
-            bitOffset: 19
-            bitWidth: 1
-          SMBHEN:
-            description: SMBus Host address enable
-            bitOffset: 20
-            bitWidth: 1
-          SMBDEN:
-            description: SMBus Device Default address enable
-            bitOffset: 21
-            bitWidth: 1
-          ALERTEN:
-            description: SMBus alert enable
-            bitOffset: 22
-            bitWidth: 1
-          PECEN:
-            description: PEC enable
-            bitOffset: 23
-            bitWidth: 1
-      CR2:
-        description: Control register 2
-        addressOffset: 0x4
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          SADD:
-            description: Slave address bit (master mode)
-            bitOffset: 0
-            bitWidth: 10
-          RD_WRN:
-            description: Transfer direction (master mode)
-            bitOffset: 10
-            bitWidth: 1
-          ADD10:
-            description: 10-bit addressing mode (master mode)
-            bitOffset: 11
-            bitWidth: 1
-          HEAD10R:
-            description: 10-bit address header only read direction (master receiver mode)
-            bitOffset: 12
-            bitWidth: 1
-          START:
-            description: Start generation
-            bitOffset: 13
-            bitWidth: 1
-          STOP:
-            description: Stop generation (master mode)
-            bitOffset: 14
-            bitWidth: 1
-          NACK:
-            description: NACK generation (slave mode)
-            bitOffset: 15
-            bitWidth: 1
-          NBYTES:
-            description: Number of bytes
-            bitOffset: 16
-            bitWidth: 8
-          RELOAD:
-            description: NBYTES reload mode
-            bitOffset: 24
-            bitWidth: 1
-          AUTOEND:
-            description: Automatic end mode (master mode)
-            bitOffset: 25
-            bitWidth: 1
-          PECBYTE:
-            description: Packet error checking byte
-            bitOffset: 26
-            bitWidth: 1
-      OAR1:
-        description: Own address register 1
-        addressOffset: 0x8
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          OA1:
-            description: Interface address
-            bitOffset: 0
-            bitWidth: 10
-          OA1MODE:
-            description: Own Address 1 10-bit mode
-            bitOffset: 10
-            bitWidth: 1
-          OA1EN:
-            description: Own Address 1 enable
-            bitOffset: 15
-            bitWidth: 1
-      OAR2:
-        description: Own address register 2
-        addressOffset: 0xC
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          OA2:
-            description: Interface address
-            bitOffset: 1
-            bitWidth: 7
-          OA2MSK:
-            description: Own Address 2 masks
-            bitOffset: 8
-            bitWidth: 3
-          OA2EN:
-            description: Own Address 2 enable
-            bitOffset: 15
-            bitWidth: 1
-      TIMINGR:
-        description: Timing register
-        addressOffset: 0x10
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          SCLL:
-            description: SCL low period (master mode)
-            bitOffset: 0
-            bitWidth: 8
-          SCLH:
-            description: SCL high period (master mode)
-            bitOffset: 8
-            bitWidth: 8
-          SDADEL:
-            description: Data hold time
-            bitOffset: 16
-            bitWidth: 4
-          SCLDEL:
-            description: Data setup time
-            bitOffset: 20
-            bitWidth: 4
-          PRESC:
-            description: Timing prescaler
-            bitOffset: 28
-            bitWidth: 4
-      TIMEOUTR:
-        description: Timeout register
-        addressOffset: 0x14
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          TIMEOUTA:
-            description: Bus timeout A
-            bitOffset: 0
-            bitWidth: 12
-          TIDLE:
-            description: Idle clock timeout detection
-            bitOffset: 12
-            bitWidth: 1
-          TIMOUTEN:
-            description: Clock timeout enable
-            bitOffset: 15
-            bitWidth: 1
-          TIMEOUTB:
-            description: Bus timeout B
-            bitOffset: 16
-            bitWidth: 12
-          TEXTEN:
-            description: Extended clock timeout enable
-            bitOffset: 31
-            bitWidth: 1
-      ISR:
-        description: Interrupt and Status register
-        addressOffset: 0x18
-        size: 0x20
-        resetValue: 0x00000001
-        fields:
-          TXE:
-            description: Transmit data register empty (transmitters)
-            bitOffset: 0
-            bitWidth: 1
-            access: read-write
-          TXIS:
-            description: Transmit interrupt status (transmitters)
-            bitOffset: 1
-            bitWidth: 1
-            access: read-write
-          RXNE:
-            description: Receive data register not empty (receivers)
-            bitOffset: 2
-            bitWidth: 1
-            access: read-only
-          ADDR:
-            description: Address matched (slave mode)
-            bitOffset: 3
-            bitWidth: 1
-            access: read-only
-          NACKF:
-            description: Not acknowledge received flag
-            bitOffset: 4
-            bitWidth: 1
-            access: read-only
-          STOPF:
-            description: Stop detection flag
-            bitOffset: 5
-            bitWidth: 1
-            access: read-only
-          TC:
-            description: Transfer Complete (master mode)
-            bitOffset: 6
-            bitWidth: 1
-            access: read-only
-          TCR:
-            description: Transfer Complete Reload
-            bitOffset: 7
-            bitWidth: 1
-            access: read-only
-          BERR:
-            description: Bus error
-            bitOffset: 8
-            bitWidth: 1
-            access: read-only
-          ARLO:
-            description: Arbitration lost
-            bitOffset: 9
-            bitWidth: 1
-            access: read-only
-          OVR:
-            description: Overrun/Underrun (slave mode)
-            bitOffset: 10
-            bitWidth: 1
-            access: read-only
-          PECERR:
-            description: PEC Error in reception
-            bitOffset: 11
-            bitWidth: 1
-            access: read-only
-          TIMEOUT:
-            description: Timeout or t_low detection flag
-            bitOffset: 12
-            bitWidth: 1
-            access: read-only
-          ALERT:
-            description: SMBus alert
-            bitOffset: 13
-            bitWidth: 1
-            access: read-only
-          BUSY:
-            description: Bus busy
-            bitOffset: 15
-            bitWidth: 1
-            access: read-only
-          DIR:
-            description: Transfer direction (Slave mode)
-            bitOffset: 16
-            bitWidth: 1
-            access: read-only
-          ADDCODE:
-            description: Address match code (Slave mode)
-            bitOffset: 17
-            bitWidth: 7
-            access: read-only
-      ICR:
-        description: Interrupt clear register
-        addressOffset: 0x1C
-        size: 0x20
-        access: write-only
-        resetValue: 0x00000000
-        fields:
-          ADDRCF:
-            description: Address Matched flag clear
-            bitOffset: 3
-            bitWidth: 1
-          NACKCF:
-            description: Not Acknowledge flag clear
-            bitOffset: 4
-            bitWidth: 1
-          STOPCF:
-            description: Stop detection flag clear
-            bitOffset: 5
-            bitWidth: 1
-          BERRCF:
-            description: Bus error flag clear
-            bitOffset: 8
-            bitWidth: 1
-          ARLOCF:
-            description: Arbitration lost flag clear
-            bitOffset: 9
-            bitWidth: 1
-          OVRCF:
-            description: Overrun/Underrun flag clear
-            bitOffset: 10
-            bitWidth: 1
-          PECCF:
-            description: PEC Error flag clear
-            bitOffset: 11
-            bitWidth: 1
-          TIMOUTCF:
-            description: Timeout detection flag clear
-            bitOffset: 12
-            bitWidth: 1
-          ALERTCF:
-            description: Alert flag clear
-            bitOffset: 13
-            bitWidth: 1
-      PECR:
-        description: PEC register
-        addressOffset: 0x20
-        size: 0x20
+      "RXNE,ADDR,NACKF,STOPF,TC,TCR,BERR,ARLO,OVR,PECERR,TIMEOUT,ALERT,BUSY,DIR,ADDCODE":
         access: read-only
-        resetValue: 0x00000000
-        fields:
-          PEC:
-            description: Packet error checking register
-            bitOffset: 0
-            bitWidth: 8
-      RXDR:
-        description: Receive data register
-        addressOffset: 0x24
-        size: 0x20
-        access: read-only
-        resetValue: 0x00000000
-        fields:
-          RXDATA:
-            description: 8-bit receive data
-            bitOffset: 0
-            bitWidth: 8
-      TXDR:
-        description: Transmit data register
-        addressOffset: 0x28
-        size: 0x20
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          TXDATA:
-            description: 8-bit transmit data
-            bitOffset: 0
-            bitWidth: 8
-
-MPU:
-  _strip:
-    - "MPU_"
 
 "OTG_HS_*":
   _strip:
@@ -577,8 +196,9 @@ WWDG:
     - common_patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
 _include:
-  - common_patches/nvic/4_prio_bits.yaml
   - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
@@ -620,7 +240,6 @@ _include:
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/tim_o24ce.yaml
   - common_patches/tim/common.yaml
   - common_patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic_no_opm.yaml
@@ -651,7 +270,6 @@ _include:
   - collect/usb_otg/hs.yaml
   - common_patches/usb_otg/hs_fixes_446_469.yaml
   - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/fpu_interrupt.yaml
   - common_patches/fsmc/fsmc_sramfix.yaml
   - common_patches/fsmc/fsmc_nand.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
@@ -661,7 +279,6 @@ _include:
   - collect/fsmc/sram.yaml
   - collect/fsmc/nand_v1.yaml
   - collect/fsmc/sd.yaml
-  - common_patches/sdio_sdmmc/f446.yaml
   - ../peripherals/sdio/sdio_f4_common.yaml
   - collect/sdio/resp.yaml
   - ../peripherals/flash/flash_v1.yaml
