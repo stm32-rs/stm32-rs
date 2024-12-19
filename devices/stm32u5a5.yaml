@@ -3,6 +3,11 @@ _svd: ../svd/stm32u5a5.svd
 IWDG:
   _include: common_patches/16bit.yaml
 
+MDF1:
+  _strip: MDF_
+  _include:
+    - collect/mdf/u5.yaml
+
 PWR:
   CR1:
     _add:
