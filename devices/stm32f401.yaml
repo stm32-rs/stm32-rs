@@ -41,6 +41,13 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - common_patches/i2c/v1_fltr.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+    - ../peripherals/i2c/i2c_v1_fltr.yaml
+
 IWDG:
   _include:
     - common_patches/16bit.yaml
@@ -76,7 +83,6 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/adc/f4_no_csr.yaml
   - common_patches/adc/f4_single_ccr.yaml
   - common_patches/rcc/spi4.yaml
@@ -111,7 +117,6 @@ _include:
   - ../peripherals/usart/uart_common.yaml
   - ../peripherals/usart/uart_sample.yaml
   - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
   - common_patches/rtc/alarm.yaml
