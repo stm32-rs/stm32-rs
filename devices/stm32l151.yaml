@@ -23,6 +23,11 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -43,7 +48,6 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - common_patches/adc/l1_smpr.yaml
   - common_patches/fsmc/fsmc_sramfix_common.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
@@ -66,7 +70,6 @@ _include:
   - ../peripherals/tim/tim2345_16bit.yaml
   - ../peripherals/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - common_patches/rtc/alarm.yaml
   - common_patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

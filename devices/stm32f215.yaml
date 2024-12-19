@@ -23,6 +23,11 @@ EXTI:
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
+I2C?:
+  _include:
+    - common_patches/i2c/v1.yaml
+    - ../peripherals/i2c/i2c_v1.yaml
+
 MPU:
   _strip:
     - "MPU_"
@@ -43,7 +48,6 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - common_patches/i2c/merge_OAR1_ADDx_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
@@ -92,7 +96,6 @@ _include:
   - ../peripherals/usart/uart_sample.yaml
   - ../peripherals/usart/uart_uart.yaml
   - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/i2c/i2c_v1.yaml
   - collect/hash/v1.yaml
   - common_patches/rtc/rtc_cr.yaml
   - collect/rtc/bkpr.yaml
