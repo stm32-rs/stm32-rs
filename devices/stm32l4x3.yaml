@@ -39,6 +39,12 @@ _modify:
   USB:
      baseAddress: "0x40006800"
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - common_patches/aes/l4.yaml
+    - ../peripherals/aes/v2.yaml
+
 USB:
   _add:
     _interrupts:

@@ -24,6 +24,11 @@ ADC:
       SMPR:
         name: SMP
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v1.yaml
+
 FLASH:
   _modify:
     OBR:
@@ -115,7 +120,6 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
- - ./common_patches/cryp/l0_aes.yaml
  - ./common_patches/flash/l0.yaml
  - ./common_patches/firewall/l0.yaml
  - ./common_patches/pwr/l0_wakeup.yaml
@@ -137,7 +141,6 @@ _include:
  - ./common_patches/usb/unprefix_registers.yaml
  - ./common_patches/usb/rename_EPxR_EPTYPE_field.yaml
  - ../peripherals/adc/adc_l0.yaml
- - ../peripherals/aes/aes_l0.yaml
  - common_patches/crc/crc_rename_init.yaml
  - common_patches/crc/crc_rename_pol.yaml
  - ../peripherals/crc/crc_advanced.yaml

@@ -15,6 +15,12 @@ _copy:
   TIM5:
     from: TIM2
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - common_patches/aes/l4+.yaml
+    - ../peripherals/aes/v2.yaml
+
 TIM8:
   _modify:
     OR1:
@@ -97,8 +103,6 @@ _include:
   - common_patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_pol.yaml
-  - common_patches/aes/l4+.yaml
-  - ../peripherals/aes/aes_l4+.yaml
   - common_patches/exti/l4+.yaml
   - ../peripherals/exti/exti.yaml
   - common_patches/firewall/l4+.yaml

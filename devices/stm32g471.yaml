@@ -1,5 +1,10 @@
 _svd: ../svd/stm32g471.svd
 
+AES:
+  _include:
+    - common_patches/aes/fields.yaml
+    - ../peripherals/aes/v2.yaml
+
 OPAMP:
   _copy:
     OPAMP6_CSR:

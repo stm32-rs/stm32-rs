@@ -5,6 +5,14 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+AES:
+  SUSP?R:
+    _modify:
+      SUSP?:
+        name: SUSP
+  _include:
+    - ../peripherals/aes/v3.yaml
+
 GTZC1_MPCBB?:
   _strip: MPCBB?_
   _include:

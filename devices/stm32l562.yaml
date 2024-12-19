@@ -10,6 +10,14 @@ _modify:
     nvicPrioBits: 3
     vendorSystickConfig: "false"
 
+AES:
+  SUSP?R:
+    _modify:
+      AES_SUSP?R:
+        name: SUSP
+  _include:
+    - ../peripherals/aes/v2.yaml
+
 EXTI:
   _include:
     - common_patches/exti/exti_rename.yaml
