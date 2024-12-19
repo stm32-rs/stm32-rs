@@ -56,6 +56,8 @@ WWDG:
 _include:
   - common_patches/h5.yaml
   - common_patches/h56x_h57x.yaml
+  - common_patches/adc/l4+.yaml
+  - ../peripherals/adc/adc_h5.yaml
 
   - common_patches/crc/crc_rename_init.yaml
   - ../peripherals/crc/crc_advanced.yaml

@@ -217,6 +217,10 @@ WWDG:
 
 _include:
   - common_patches/adc/l4_sqr1.yaml
+  - common_patches/adc/l4+.yaml
+  - common_patches/adc/l4+common.yaml
+  - ../peripherals/adc/adc_v3_common_l4+.yaml
+  - ../peripherals/adc/adc_v3_l4+.yaml
   - common_patches/nvic/4_prio_bits.yaml
   - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
   - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
