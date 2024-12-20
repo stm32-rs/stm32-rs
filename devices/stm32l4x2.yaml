@@ -32,6 +32,12 @@ ADC1:
       ADC1:
         name: ADC1_2
 
+AES:
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
+    - fields/aes/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -98,12 +104,6 @@ RCC:
         bitOffset: 19
         bitWidth: 1
         access: read-write
-
-AES:
-  _include:
-    - patches/aes/fields.yaml
-    - patches/aes/l4.yaml
-    - fields/aes/v2.yaml
 
 SPI?:
   _include:

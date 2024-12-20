@@ -6,21 +6,6 @@ _rebase:
   # Make DMA1 the base type
   DMA1: DMA2
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0401
-      TIFRFE:
-        name: FRE
-  _add:
-    _interrupts:
-      SPI5:
-        description: "SPI 5 global interrupt"
-        value: 85
-
 _modify:
   I2C4:
     # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
@@ -36,6 +21,32 @@ CRC:
     _modify:
       CR:
         name: RESET
+
+DAC:
+  CR:
+    _delete:
+      - DMAUDRIE2
+      - DMAEN2
+      - MAMP2
+      - WAVE2
+      - TSEL2
+      - TEN2
+      - BOFF2
+      - EN2
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+  _add:
+    _interrupts:
+      EXTI19:
+        description: "EXTI Line 19 interrupt"
+        value: 62
+      EXTI20:
+        description: "EXTI Line 20 interrupt"
+        value: 76
 
 FLASH:
   ACR:
@@ -53,6 +64,31 @@ I2C?:
     - patches/i2c/v1_fltr.yaml
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+PWR:
+  CR:
+    _add:
+      FISSR:
+        description: Flash Interface Stop while System Run
+        bitOffset: 21
+        bitWidth: 1
+      FMSSR:
+        description: Flash Memory Sleep System Run
+        bitOffset: 20
+        bitWidth: 1
+      MRLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 11
+        bitWidth: 1
+      LPLVDS:
+        description: Low-power regulator Low Voltage in Deep Sleep
+        bitOffset: 10
+        bitWidth: 1
 
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
@@ -80,74 +116,6 @@ RCC:
         name: FMPI2C1SEL
         description: "FMPI2C1 kernel clock source selection"
 
-TIM5:
-  _add:
-    _interrupts:
-      TIM5:
-        description: "TIM5 global interrupt"
-        value: 50
-
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-  _add:
-    _interrupts:
-      EXTI19:
-        description: "EXTI Line 19 interrupt"
-        value: 62
-      EXTI20:
-        description: "EXTI Line 20 interrupt"
-        value: 76
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
-
-WWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/wwdg/wwdg.yaml
-  _add:
-    _interrupts:
-      WWDG:
-        description: "Window watchdog interrupt"
-        value: 0
-
-DAC:
-  CR:
-    _delete:
-      - DMAUDRIE2
-      - DMAEN2
-      - MAMP2
-      - WAVE2
-      - TSEL2
-      - TEN2
-      - BOFF2
-      - EN2
-
-PWR:
-  CR:
-    _add:
-      FISSR:
-        description: Flash Interface Stop while System Run
-        bitOffset: 21
-        bitWidth: 1
-      FMSSR:
-        description: Flash Memory Sleep System Run
-        bitOffset: 20
-        bitWidth: 1
-      MRLVDS:
-        description: Main regulator Low Voltage in Deep Sleep
-        bitOffset: 11
-        bitWidth: 1
-      LPLVDS:
-        description: Low-power regulator Low Voltage in Deep Sleep
-        bitOffset: 10
-        bitWidth: 1
-
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
   CR:
@@ -156,6 +124,21 @@ RNG:
         description: Clock error detection
         bitOffset: 5
         bitWidth: 1
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0401
+      TIFRFE:
+        name: FRE
+  _add:
+    _interrupts:
+      SPI5:
+        description: "SPI 5 global interrupt"
+        value: 85
 
 SYSCFG:
   _include:
@@ -182,6 +165,23 @@ SYSCFG:
         name: FMPI2C4_SDA
       FMPI2C1_SCL:
         name: FMPI2C4_SCL
+
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: "TIM5 global interrupt"
+        value: 50
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+  _add:
+    _interrupts:
+      WWDG:
+        description: "Window watchdog interrupt"
+        value: 0
 
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 

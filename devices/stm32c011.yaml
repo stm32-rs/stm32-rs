@@ -9,6 +9,9 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
+I2C?:
+  _strip: I2C_
+
 IWDG:
   _include: patches/16bit_with_mask.yaml
 
@@ -19,9 +22,6 @@ SPI1:
 
 SPI?:
   _strip: "SPI?_"
-
-I2C?:
-  _strip: I2C_
 
 TIM[123]:
   _strip: "TIM?_"

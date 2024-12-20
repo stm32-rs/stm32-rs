@@ -22,44 +22,35 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
+CRC:
+  _modify:
+    INIT:
+      addressOffset: 0x10
+    POL:
+      addressOffset: 0x14
+
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - "b*"
+  "IV[01][LR]R":
+    _merge:
+      - "IV*"
+
+DFSDM1:
+  _strip: DFSDM1_
+
 DSI:
   _strip: DSI_
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
+Ethernet_DMA:
+  DMABMR:
     _modify:
-      # This field has the wrong name in the SVD compared to RM0410
-      "[_]FRE":
-        name: FRE
-
-"GPIO*":
-  _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
-
-FLASH:
-  OPTKEYR:
-    _modify:
-      OPTKEY:
-        name: OPTKEYR
-
-EXTI:
-  _include:
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-
-RCC:
-  PLLCFGR:
-    _add:
-      PLLR:
-        description: PLL division factor for DSI clock
-        bitOffset: 28
-        bitWidth: 3
-        access: read-write
+      # This field is named incorrectly in the SVD compared to the RM
+      RTPR:
+        name: PM
 
 Ethernet_MAC:
   MACFFR:
@@ -85,54 +76,63 @@ Ethernet_MAC:
       MBCA3L:
         name: MACA3L
 
-Ethernet_DMA:
-  DMABMR:
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
+FLASH:
+  OPTKEYR:
     _modify:
-      # This field is named incorrectly in the SVD compared to the RM
-      RTPR:
-        name: PM
+      OPTKEY:
+        name: OPTKEYR
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
-CRYP:
-  "K[0123][LR]R":
-    _merge:
-      - "b*"
-  "IV[01][LR]R":
-    _merge:
-      - "IV*"
+"GPIO*":
+  _modify:
+    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
+    GPIOB_OSPEEDR:
+      name: OSPEEDR
 
-MPU:
-  _strip: MPU_
-
-DFSDM1:
-  _strip: DFSDM1_
-
-MDIOS:
-  _strip: MDIOS_
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 JPEG:
   _strip: JPEG_
 
+MPU:
+  _strip: MPU_
+
+MDIOS:
+  _strip: MDIOS_
+
 "OTG_HS_*":
   _strip: OTG_HS_
-
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
 
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-IWDG:
+RCC:
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: PLL division factor for DSI clock
+        bitOffset: 28
+        bitWidth: 3
+        access: read-write
+
+SPI?:
   _include:
     - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0410
+      "[_]FRE":
+        name: FRE
 
 WWDG:
   _include:

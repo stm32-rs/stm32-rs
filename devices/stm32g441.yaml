@@ -11,6 +11,11 @@ COMP:
 DAC?:
   _strip: DAC_
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -25,11 +30,6 @@ UCPD1:
 
 VREFBUF:
   _strip: VREFBUF_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

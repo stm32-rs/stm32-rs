@@ -1,5 +1,8 @@
 _svd: ../svd/stm32wle5.svd
 
+_delete:
+  - SYSCFG_continue
+
 _modify:
   name: STM32WLE5
   TIM*:
@@ -100,31 +103,13 @@ HSEM:
       MASTERID:
         name: COREID
 
-RCC:
-  _include:
-    - fields/rcc/rcc_wl.yaml
-
-SPI?:
+IWDG:
+  _delete:
+    - WINR
   _include:
     - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
-TIM1:
-  _modify:
-    CCMR3OutputComparemode:
-      name: CCMR3_Output
-
-TIM2:
-  _strip: TIM2_
-
-TIM1?:
-  _strip: TIM1?_
-  DIER:
-    _delete:
-      - COMDE
-  BDTR:
-    _delete:
-      - BKF
+    - fields/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg_sr.yaml
 
 LPTIM,LPTIM?:
   _strip:
@@ -135,19 +120,6 @@ LPTIM[23]:
   OR:
     _merge:
       - "OR*"
-
-IWDG:
-  _delete:
-    - WINR
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
-    - fields/iwdg/iwdg_sr.yaml
-
-WWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/wwdg/wwdg.yaml
 
 # Rename this so it has the same name as all other STM32 USARTs
 LPUART,USART?:
@@ -174,11 +146,40 @@ LPUART:
     _modify:
       TXFNFIE:
         name: TXEIE
-_delete:
-  - SYSCFG_continue
 
 MPU:
   _strip: MPU_
+
+RCC:
+  _include:
+    - fields/rcc/rcc_wl.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
+TIM1:
+  _modify:
+    CCMR3OutputComparemode:
+      name: CCMR3_Output
+
+TIM2:
+  _strip: TIM2_
+
+TIM1?:
+  _strip: TIM1?_
+  DIER:
+    _delete:
+      - COMDE
+  BDTR:
+    _delete:
+      - BKF
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - ../devices/patches/spi/rename_dff_tifrfe.yaml

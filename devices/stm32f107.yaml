@@ -26,6 +26,12 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+Ethernet_MAC:
+  MACA2LR:
+    _modify:
+      MACA2L:
+        bitWidth: 32
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -41,6 +47,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
+MPU:
+  _strip: MPU_
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -55,15 +64,6 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
-
-MPU:
-  _strip: MPU_
-
-Ethernet_MAC:
-  MACA2LR:
-    _modify:
-      MACA2L:
-        bitWidth: 32
 
 _include:
   - patches/rcc/f1_uart45.yaml

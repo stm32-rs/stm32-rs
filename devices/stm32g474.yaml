@@ -14,11 +14,6 @@ IWDG:
 VREFBUF:
   _strip: VREFBUF_
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
 QUADSPI:
   CCR:
     _add:
@@ -29,6 +24,11 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 UCPD1:
   _include:

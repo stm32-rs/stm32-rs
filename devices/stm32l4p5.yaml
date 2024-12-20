@@ -15,37 +15,26 @@ _copy:
   TIM5:
     from: TIM2
 
-AES:
-  _include:
-    - patches/aes/fields.yaml
-    - patches/aes/l4+.yaml
-    - fields/aes/v2.yaml
-
-TIM8:
-  _modify:
-    OR1:
-      description: "TIM8 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
-
-FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
-
-RCC:
-  CFGR:
-    _modify:
-      MCOSEL:
-        bitWidth: 4
+_delete:
+  - SWPMI1
 
 ADC1:
   JSQR:
     _modify:
       JEXTEN:
         bitWidth: 2
+
+AES:
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4+.yaml
+    - fields/aes/v2.yaml
+
+CRC:
+  INIT:
+    _modify:
+      CRC_INIT:
+        name: INIT
 
 DFSDM1:
   _strip: DFSDM_
@@ -54,14 +43,14 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
-_delete:
-  - SWPMI1
+IWDG:
+  _include: patches/16bit.yaml
 
-CRC:
-  INIT:
+FLASH:
+  ACR:
     _modify:
-      CRC_INIT:
-        name: INIT
+      LATENCY:
+        bitWidth: 4
 
 OCTOSPI1:
   DCR1:
@@ -69,13 +58,24 @@ OCTOSPI1:
       CSHT:
         bitWidth: 6
 
+RCC:
+  CFGR:
+    _modify:
+      MCOSEL:
+        bitWidth: 4
+
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-IWDG:
-  _include: patches/16bit.yaml
+TIM8:
+  _modify:
+    OR1:
+      description: "TIM8 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
 
 WWDG:
   _include:

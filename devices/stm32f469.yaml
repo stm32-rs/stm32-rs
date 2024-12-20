@@ -38,16 +38,6 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0386
-      TIFRFE:
-        name: FRE
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0386
   CR:
@@ -65,11 +55,19 @@ CRYP:
     _merge:
       - "IV*"
 
-FLASH:
-  ACR:
+DSI:
+  _add:
+    _interrupts:
+      DSIHOST:
+        description: DSI host global interrupt
+        value: 92
+  _strip: DSI_
+  VMCR:
     _modify:
-      LATENCY:
-        bitWidth: 4
+      LVAE:
+        name: LPVAE
+      LPHFE:
+        name: LPHFPE
 
 EXTI:
   _include:
@@ -77,11 +75,37 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
 I2C?:
   _include:
     - patches/i2c/v1.yaml
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+"OTG_HS_*":
+  _strip: OTG_HS_
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  CR:
+    _add:
+      ADCDC1:
+        bitOffset: 13
+        bitWidth: 1
 
 # Fix misnamed RCC enable bits
 RCC:
@@ -108,34 +132,6 @@ RCC:
       SDMMCSEL:
         name: SDIOSEL
 
-DSI:
-  _add:
-    _interrupts:
-      DSIHOST:
-        description: DSI host global interrupt
-        value: 92
-  _strip: DSI_
-  VMCR:
-    _modify:
-      LVAE:
-        name: LPVAE
-      LPHFE:
-        name: LPHFPE
-
-"OTG_HS_*":
-  _strip: OTG_HS_
-
-SAI:
-  _delete:
-    - GCR
-
-PWR:
-  CR:
-    _add:
-      ADCDC1:
-        bitOffset: 13
-        bitWidth: 1
-
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
   CR:
@@ -145,10 +141,19 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
-QUADSPI:
+SAI:
+  _delete:
+    - GCR
+
+SPI?:
   _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0386
+      TIFRFE:
+        name: FRE
 
 SYSCFG:
   _include:
@@ -160,11 +165,6 @@ SYSCFG:
   PMC:
     _delete:
       - MII_RMII_SEL
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
 
 WWDG:
   _include:

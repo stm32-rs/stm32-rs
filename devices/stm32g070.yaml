@@ -28,12 +28,42 @@ _delete:
   - TIM7
   - USART3
 
-# After changing the name, remove TIM2 interrupt from TIM3 block (it already has the TIM3 interrupt)
-TIM3:
-  _delete:
+# Remove interrupts from derived Peripherals (after we renamed and moved them to the base peripherals)
+# Since it is not possible to modify a derivedFrom peripheral, we delete it first
+# and then add it again without the interrupts.
+_add:
+  TIM7:
+    derivedFrom: TIM6
+    baseAddress: "0x40001400"
+  USART3:
+    derivedFrom: USART1
+    baseAddress: "0x40004800"
+
+ADC:
+  _modify:
     _interrupts:
-      - TIM2
-  _include: patches/tim/tim_4ch_16bit_l.yaml
+      ADC_COMP:
+        name: ADC
+        description: ADC Interrupt
+  _include:
+    - patches/adc/g0.yaml
+    - fields/adc/c0_g0_wl.yaml
+    - collect/adc/c0_g0_wl.yaml
+
+EXTI:
+  _include:
+    - patches/exti/exti_rename.yaml
+    - fields/exti/exti_g0.yaml
+  _delete:
+    - VERR
+    - IPIDR
+    - SIDR
+
+IWDG:
+  _modify:
+    "KR,PR,RLR,SR,WINR":
+      size: 16
+  _include: fields/iwdg/iwdg_with_WINR.yaml
 
 RCC:
   _include:
@@ -85,28 +115,6 @@ RCC:
       - RNGSEL
       - RNGDIV
 
-EXTI:
-  _include:
-    - patches/exti/exti_rename.yaml
-    - fields/exti/exti_g0.yaml
-  _delete:
-    - VERR
-    - IPIDR
-    - SIDR
-
-# Fix interrupts, see RM454 Rev3 11.3 Table 42
-
-ADC:
-  _modify:
-    _interrupts:
-      ADC_COMP:
-        name: ADC
-        description: ADC Interrupt
-  _include:
-    - patches/adc/g0.yaml
-    - fields/adc/c0_g0_wl.yaml
-    - collect/adc/c0_g0_wl.yaml
-
 SPI?:
   _include: patches/spi/dr8.yaml
   _modify:
@@ -119,6 +127,13 @@ TIM1:
       TIM1_BRK_UP_TRG_COMP:
         name: TIM1_BRK_UP_TRG_COM
         description: TIM1 break, update, trigger and commutation interrupts
+
+# After changing the name, remove TIM2 interrupt from TIM3 block (it already has the TIM3 interrupt)
+TIM3:
+  _delete:
+    _interrupts:
+      - TIM2
+  _include: patches/tim/tim_4ch_16bit_l.yaml
 
 TIM6:
   _modify:
@@ -140,35 +155,18 @@ TIM15:
       OC1M2:
         name: OC1M_3
 
-USART1:
-  _add:
-    _interrupts:
-      USART3_USART4:
-        description: USART3 + USART4 interrupt
-        value: 29
-
 SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart4.yaml
   _delete:
     - VREFBUF_CSR
     - VREFBUF_CCR
 
-# Remove interrupts from derived Peripherals (after we renamed and moved them to the base peripherals)
-# Since it is not possible to modify a derivedFrom peripheral, we delete it first
-# and then add it again without the interrupts.
-_add:
-  TIM7:
-    derivedFrom: TIM6
-    baseAddress: "0x40001400"
-  USART3:
-    derivedFrom: USART1
-    baseAddress: "0x40004800"
-
-IWDG:
-  _modify:
-    "KR,PR,RLR,SR,WINR":
-      size: 16
-  _include: fields/iwdg/iwdg_with_WINR.yaml
+USART1:
+  _add:
+    _interrupts:
+      USART3_USART4:
+        description: USART3 + USART4 interrupt
+        value: 29
 
 WWDG:
   _modify:

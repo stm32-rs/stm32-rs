@@ -13,14 +13,11 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
-SPI1:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  _strip: SPI_
-
 I2C?:
   _strip: I2C_
+
+IWDG:
+  _include: patches/16bit_with_mask.yaml
 
 TIM[123]:
   _strip: "TIM?_"
@@ -61,8 +58,11 @@ TIM3:
     CNT_alternate:
       name: CNT_remap
 
-IWDG:
-  _include: patches/16bit_with_mask.yaml
+SPI1:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  _strip: SPI_
 
 WWDG:
   _include: patches/16bit_with_mask.yaml

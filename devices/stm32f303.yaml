@@ -1,5 +1,19 @@
 _svd: ../svd/stm32f303.svd
 
+_add:
+  # DAC2 exists on F303x6/8 and F328x8 devices, and only has one channel.
+  DAC2:
+    derivedFrom: DAC1
+    baseAddress: "0x40009800"
+
+# TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 _modify:
   # Rename in accordance with other devices and reference manual.
   Flash:
@@ -8,6 +22,15 @@ _modify:
   # Rename DAC to DAC1 in accordance with the reference manual.
   DAC:
     name: DAC1
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 PWR:
   CSR:
@@ -33,16 +56,6 @@ SPI?:
       TIFRFE:
         name: FRE
 
-_add:
-  # DAC2 exists on F303x6/8 and F328x8 devices, and only has one channel.
-  DAC2:
-    derivedFrom: DAC1
-    baseAddress: "0x40009800"
-
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-
 RCC:
   APB1RSTR:
     _add:
@@ -57,24 +70,11 @@ RCC:
       USART5EN:
         name: UART5EN
 
-# TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-
-_derive:
-  TIM4: TIM3
-
 TIM3:
   CNT:
     _modify:
       CNT_or_UIFCPY:
         name: UIFCPY
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

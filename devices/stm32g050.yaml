@@ -11,11 +11,6 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
-EXTI:
-  _include:
-    - patches/exti/exti_rename.yaml
-    - fields/exti/exti_g0.yaml
-
 DMAMUX:
   _delete:
     _interrupts:
@@ -26,6 +21,11 @@ DMAMUX:
     _modify:
       "CSOF*":
         access: write-only
+
+EXTI:
+  _include:
+    - patches/exti/exti_rename.yaml
+    - fields/exti/exti_g0.yaml
 
 IWDG:
   _include:

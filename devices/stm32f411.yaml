@@ -12,16 +12,6 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0383
-      TIFRFE:
-        name: FRE
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0383
   CR:
@@ -29,17 +19,17 @@ CRC:
       CR:
         name: RESET
 
-FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
-
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
 
 I2C?:
   _include:
@@ -48,49 +38,10 @@ I2C?:
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
 
-SYSCFG:
-  _include:
-    - patches/syscfg/f4_common.yaml
-    - fields/syscfg/f4/syscfg_f401_f411.yaml
-
-TIM3:
-  _delete:
-    _interrupts:
-      - DMA2_Stream7
-TIM1:
-  _delete:
-    _interrupts:
-      - TIM1_UP_TIM10
-      - TIM1_TRG_COM_TIM11
-  _add:
-    _interrupts:
-      TIM1_UP_TIM10:
-        value: 25
-        description: TIM1 Update interrupt and TIM10 global interrupt
-      TIM1_TRG_COM_TIM11:
-        value: 26
-        description: TIM1 Trigger and Commutation interrupts and TIM11 global interrupt
-
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
-
-WWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/wwdg/wwdg.yaml
-
-# Add missing reset bit for SPI 4 (enable bits are present)
-RCC:
-  APB2RSTR:
-    _add:
-      SPI4RST:
-        description: SPI4 reset
-        bitOffset: 13
-        bitWidth: 1
-
-# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 PWR:
   CR:
@@ -111,6 +62,56 @@ PWR:
         description: Main regulator Low Voltage in Deep Sleep
         bitOffset: 10
         bitWidth: 1
+
+# Add missing reset bit for SPI 4 (enable bits are present)
+RCC:
+  APB2RSTR:
+    _add:
+      SPI4RST:
+        description: SPI4 reset
+        bitOffset: 13
+        bitWidth: 1
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0383
+      TIFRFE:
+        name: FRE
+
+SYSCFG:
+  _include:
+    - patches/syscfg/f4_common.yaml
+    - fields/syscfg/f4/syscfg_f401_f411.yaml
+
+TIM3:
+  _delete:
+    _interrupts:
+      - DMA2_Stream7
+
+TIM1:
+  _delete:
+    _interrupts:
+      - TIM1_UP_TIM10
+      - TIM1_TRG_COM_TIM11
+  _add:
+    _interrupts:
+      TIM1_UP_TIM10:
+        value: 25
+        description: TIM1 Update interrupt and TIM10 global interrupt
+      TIM1_TRG_COM_TIM11:
+        value: 26
+        description: TIM1 Trigger and Commutation interrupts and TIM11 global interrupt
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
   - patches/adc/f4_no_csr.yaml

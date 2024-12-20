@@ -21,12 +21,6 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
-MPU:
-  _strip: MPU_
-
-"OTG_HS_*":
-  _strip: OTG_HS_
-
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -36,20 +30,26 @@ EXTI:
       MI9:
         name: IM9
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
+
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+"OTG_HS_*":
+  _strip: OTG_HS_
+
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

@@ -17,21 +17,15 @@ ADC_Common:
         bitOffset: 8
         bitWidth: 4
 
+DAC:
+  _strip: DAC_
+
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
 
 FMC:
   _strip: FMC_
-
-DAC:
-  _strip: DAC_
-
-IWDG:
-  _include: patches/16bit.yaml
-
-RNG:
-  _strip: RNG_
 
 GTZC_MPCBB?:
   _strip: MPCBB?_
@@ -41,6 +35,12 @@ GTZC_TZIC:
 
 GTZC_TZSC:
   _strip: TZSC_
+
+IWDG:
+  _include: patches/16bit.yaml
+
+RNG:
+  _strip: RNG_
 
 SPI?:
   _include:

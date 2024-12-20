@@ -10,6 +10,15 @@ _derive:
   TIM13: TIM10
   TIM14: TIM10
 
+_modify:
+  I2C4:
+    # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
+    name: FMPI2C1
+
+  FSMC:
+    # ST got the base address of the FSMC peripheral wrong
+    baseAddress: "0xA0000000"
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -20,24 +29,45 @@ SPI?:
       TIFRFE:
         name: FRE
 
-_modify:
-  I2C4:
-    # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
-    name: FMPI2C1
-
-  FSMC:
-    # ST got the base address of the FSMC peripheral wrong
-    baseAddress: "0xA0000000"
-
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0402
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
 
 FLASH:
   ACR:
     _modify:
       LATENCY:
         bitWidth: 4
+
+FMPI2C1:
+  _add:
+    _interrupts:
+      I2CFMP1_event:
+        description: I2CFMP1 event interrupt
+        value: 95
+  OAR1:
+    _delete: ["OA1", "OA11_7", "OA18_9"]
+    _add:
+      OA1:
+        description: Interface own slave address
+        bitOffset: 0
+        bitWidth: 10
+  _include:
+    - patches/i2c/f4_fmpi2c.yaml
+    - fields/i2c/i2c_v2_base.yaml
 
 # FSMC register fixes
 FSMC:
@@ -93,19 +123,6 @@ FSMC:
       - DATLAT
       - CLKDIV
 
-CRC:
-  # The SVD calls the RESET field "CR", fix per RM0402
-  CR:
-    _modify:
-      CR:
-        name: RESET
-
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-
 I2C?:
   _include:
     - patches/i2c/v1.yaml
@@ -113,29 +130,15 @@ I2C?:
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
 
-# Add missing reset bit for SPI 4 (enable bits are present)
-RCC:
-  APB1ENR:
-    _modify:
-      RTCAPB:
-        name: RTCAPBEN
-  DCKCFGR2:
-    _modify:
-      I2CFMP1SEL:
-        name: FMPI2C1SEL
-        bitWidth: 2
-      CKSDIOSEL:
-        name: SDIOSEL
+I2C3:
+  _delete:
+    _interrupts:
+      - I2CFMP1_event
 
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
-
-WWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/wwdg/wwdg.yaml
 
 QUADSPI:
   _modify:
@@ -145,26 +148,6 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
-I2C3:
-  _delete:
-    _interrupts:
-      - I2CFMP1_event
-FMPI2C1:
-  _add:
-    _interrupts:
-      I2CFMP1_event:
-        description: I2CFMP1 event interrupt
-        value: 95
-  OAR1:
-    _delete: ["OA1", "OA11_7", "OA18_9"]
-    _add:
-      OA1:
-        description: Interface own slave address
-        bitOffset: 0
-        bitWidth: 10
-  _include:
-    - patches/i2c/f4_fmpi2c.yaml
-    - fields/i2c/i2c_v2_base.yaml
 
 PWR:
   CR:
@@ -199,6 +182,20 @@ PWR:
         description: Enable WKUP1 pin (PC1)
         bitOffset: 6
         bitWidth: 1
+
+# Add missing reset bit for SPI 4 (enable bits are present)
+RCC:
+  APB1ENR:
+    _modify:
+      RTCAPB:
+        name: RTCAPBEN
+  DCKCFGR2:
+    _modify:
+      I2CFMP1SEL:
+        name: FMPI2C1SEL
+        bitWidth: 2
+      CKSDIOSEL:
+        name: SDIOSEL
 
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
@@ -239,6 +236,11 @@ SYSCFG:
         name: I2CFMP1_SDA
       I2C4SCL:
         name: I2CFMP1_SCL
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
 
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 

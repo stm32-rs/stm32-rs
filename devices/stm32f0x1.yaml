@@ -1,16 +1,16 @@
 _svd: ../svd/stm32f0x1.svd
 
+# TIM3 is 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
 Flash:
   OBR:
     _modify:
       # The SVD says this field is 0 bits, but RM0091 says it's 1 bit.
       RAM_PARITY_CHECK:
         bitWidth: 1
-
-# TIM3 is 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
 
 IWDG:
   _include:

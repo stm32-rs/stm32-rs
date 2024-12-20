@@ -16,6 +16,12 @@ ADC:
     CHSELR_ALTERNATE1:
       name: CHSELR1
 
+CRS:
+  _strip: CRS_
+
+I2C?:
+  _strip: I2C_
+
 SPI1:
   _include:
     - patches/16bit.yaml
@@ -23,23 +29,6 @@ SPI1:
 
 SPI?:
   _strip: SPI?_
-
-I2C?:
-  _strip: I2C_
-
-USB:
-  _strip: USB_
-
-USART1:
-  _modify:
-    USART_CR1:
-      name: USART_CR1_enabled
-    USART_CR1_ALTERNATE1:
-      name: USART_CR1_disabled
-    USART_ISR:
-      name: USART_ISR_enabled
-    USART_ISR_ALTERNATE1:
-      name: USART_ISR_disabled
 
 TIM[123]:
   _strip: "TIM?_"
@@ -91,13 +80,24 @@ TIM1[467]:
       OC1M_1:
         name: OC1M_3
 
-CRS:
-  _strip: CRS_
-
 TIM[23]:
   _modify:
     CNT_ALTERNATE1:
       name: CNT_remap
+
+USART1:
+  _modify:
+    USART_CR1:
+      name: USART_CR1_enabled
+    USART_CR1_ALTERNATE1:
+      name: USART_CR1_disabled
+    USART_ISR:
+      name: USART_ISR_enabled
+    USART_ISR_ALTERNATE1:
+      name: USART_ISR_disabled
+
+USB:
+  _strip: USB_
 
 _include:
   - patches/c0.yaml

@@ -1,5 +1,8 @@
 _svd: ../svd/stm32wl5x_cm4.svd
 
+_delete:
+  - SYSCFG_continue
+
 _modify:
   name: STM32WL5X_CM4
   TIM*:
@@ -53,6 +56,53 @@ HSEM:
 IPCC:
   _strip: IPCC_
 
+IWDG:
+  _delete:
+    - WINR
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg_sr.yaml
+
+LPTIM,LPTIM?:
+  _strip:
+    - LPTIM_
+    - LPTIM?_
+
+LPTIM[23]:
+  OR:
+    _merge:
+      - "OR*"
+
+# Rename this so it has the same name as all other STM32 USARTs
+LPUART,USART?:
+  ICR:
+    _modify:
+      NECF:
+        name: NCF
+
+# CR1 and ISR have 2 versions depending on whether FIFO is enabled or not
+# The only difference is the addition of 2 bits at the top of the register
+# and some names (e.g. TXEIE - TXFNFIE), but all functionality remains the same
+# so we remove the "disabled" version and leave the "enabled" version as
+# reference
+LPUART:
+  _modify:
+    CR1_enabled:
+      name: CR1
+    ISR_enabled:
+      name: ISR
+  _delete:
+    - CR1_disabled
+    - ISR_disabled
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+
+MPU:
+  _strip: MPU_
+
 RCC:
   _include:
     - fields/rcc/rcc_wl.yaml
@@ -80,62 +130,13 @@ TIM1?:
     _delete:
       - BKF
 
-LPTIM,LPTIM?:
-  _strip:
-    - LPTIM_
-    - LPTIM?_
-
-LPTIM[23]:
-  OR:
-    _merge:
-      - "OR*"
-
-IWDG:
-  _delete:
-    - WINR
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
-    - fields/iwdg/iwdg_sr.yaml
+TZSC:
+  _strip: TZSC_
 
 WWDG:
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg.yaml
-
-# Rename this so it has the same name as all other STM32 USARTs
-LPUART,USART?:
-  ICR:
-    _modify:
-      NECF:
-        name: NCF
-
-# CR1 and ISR have 2 versions depending on whether FIFO is enabled or not
-# The only difference is the addition of 2 bits at the top of the register
-# and some names (e.g. TXEIE - TXFNFIE), but all functionality remains the same
-# so we remove the "disabled" version and leave the "enabled" version as
-# reference
-LPUART:
-  _modify:
-    CR1_enabled:
-      name: CR1
-    ISR_enabled:
-      name: ISR
-  _delete:
-    - CR1_disabled
-    - ISR_disabled
-  CR1:
-    _modify:
-      TXFNFIE:
-        name: TXEIE
-_delete:
-  - SYSCFG_continue
-
-MPU:
-  _strip: MPU_
-
-TZSC:
-  _strip: TZSC_
 
 _include:
   - ../devices/patches/spi/rename_dff_tifrfe.yaml

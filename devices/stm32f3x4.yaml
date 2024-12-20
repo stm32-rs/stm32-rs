@@ -11,6 +11,28 @@ _modify:
 _rebase:
   SPI1: SPI3
 
+ADC1_2:
+  _strip: ADC1_
+
+CAN:
+  _delete:
+    _interrupts:
+      - CAN_SCE
+  _add:
+    _interrupts:
+      CAN_SCE:
+        description: CAN_SCE interrupt
+        value: 22
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 RCC:
   CFGR:
     _delete:
@@ -102,28 +124,6 @@ SYSCFG:
       - PAGE5_WP
       - PAGE6_WP
       - PAGE7_WP
-
-ADC1_2:
-  _strip: ADC1_
-
-CAN:
-  _delete:
-    _interrupts:
-      - CAN_SCE
-  _add:
-    _interrupts:
-      CAN_SCE:
-        description: CAN_SCE interrupt
-        value: 22
-
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include:

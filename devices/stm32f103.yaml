@@ -34,11 +34,6 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
-EXTI:
-  _include:
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-
 DBGMCU:
   CR:
     _modify:
@@ -47,10 +42,23 @@ DBGMCU:
         description: DBG_CAN_STOP
     _delete: DBG_CAN2_STOP
 
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
 I2C?:
   _include:
     - patches/i2c/v1.yaml
     - fields/i2c/i2c_v1.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+MPU:
+  _strip: MPU_
 
 RCC:
   CFGR:
@@ -71,11 +79,6 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
-
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -85,9 +88,6 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
-
-MPU:
-  _strip: MPU_
 
 TIM10:
   CCMR1_Output:

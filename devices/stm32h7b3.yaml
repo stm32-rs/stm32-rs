@@ -5,6 +5,14 @@ _clear_fields: "*"
 _derive:
   I2C3: I2C1
 
+# Fix invalid groupName
+_modify:
+  OctoSPII_O_Manager:
+    groupName: OctoSPII_O_Manager
+
+COMP1:
+  _strip: COMP1_
+
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
@@ -18,15 +26,22 @@ CRYP:
     _merge:
       - "IV*"
 
-# Fix invalid groupName
-_modify:
-  OctoSPII_O_Manager:
-    groupName: OctoSPII_O_Manager
+DBGMCU:
+  APB4FZ1:
+    _delete:
+      - LPTIM4
+      - LPTIM5
+
+DFSDM*:
+  _strip: DFSDM_
 
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
 
 # Remove LPTIM4/5 from RCC
 # Split DAC1/2 REC
@@ -70,21 +85,6 @@ RCC:
     _delete:
       - LPTIM4LPEN
       - LPTIM5LPEN
-
-DBGMCU:
-  APB4FZ1:
-    _delete:
-      - LPTIM4
-      - LPTIM5
-
-MPU:
-  _strip: MPU_
-
-COMP1:
-  _strip: COMP1_
-
-DFSDM*:
-  _strip: DFSDM_
 
 SPI?:
   _include: patches/spi/rxtxdr.yaml

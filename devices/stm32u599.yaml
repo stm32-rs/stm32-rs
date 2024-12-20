@@ -1,5 +1,8 @@
 _svd: ../svd/stm32u599.svd
 
+DSI:
+  _strip: DSI_
+
 GFXMMU:
   _strip: GFXMMU_
 
@@ -19,9 +22,6 @@ IWDG:
 
 LTDC:
   _strip: LTDC_
-
-DSI:
-  _strip: DSI_
 
 MDF1:
   _strip: MDF_

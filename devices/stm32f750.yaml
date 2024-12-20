@@ -19,11 +19,17 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-"GPIO*":
+CRC:
   _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
+    INIT:
+      addressOffset: 0x10
+    POL:
+      addressOffset: 0x14
+
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
 
 FLASH:
   OPTKEYR:
@@ -31,28 +37,22 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
-EXTI:
-  _include:
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
+"GPIO*":
+  _modify:
+    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
+    GPIOB_OSPEEDR:
+      name: OSPEEDR
 
-SYSCFG:
-  "MEMRM,MEMRMP":
-    _delete:
-      - FB_MODE
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 MPU:
   _strip: MPU_
 
 "OTG_HS_*":
   _strip: OTG_HS_
-
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
 
 QUADSPI:
   _include:
@@ -64,10 +64,10 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
+SYSCFG:
+  "MEMRM,MEMRMP":
+    _delete:
+      - FB_MODE
 
 WWDG:
   _include:

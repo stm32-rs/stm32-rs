@@ -10,10 +10,6 @@ _copy:
   ADC3:
     from: ADC2
 
-ADC[23]:
-  _include:
-    - patches/adc/smpx_17.yaml
-
 _modify:
   # Fix case on Ethernet peripherals to match other devices
   ETHERNET_DMA:
@@ -24,6 +20,10 @@ _modify:
     name: Ethernet_MMC
   ETHERNET_PTP:
     name: Ethernet_PTP
+
+ADC[23]:
+  _include:
+    - patches/adc/smpx_17.yaml
 
 AFIO:
   _include:
@@ -40,6 +40,14 @@ I2C?:
     - patches/i2c/v1.yaml
     - fields/i2c/i2c_v1.yaml
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+MPU:
+  _strip: MPU_
+
 RCC:
   APB2RSTR:
     _delete:
@@ -50,10 +58,13 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
+TIM10:
+  CCMR1_Output:
+    _add:
+      OC1FE:
+        description: Output compare 1 fast enable
+        bitOffset: 3
+        bitWidth: 1
 
 WWDG:
   _include:
@@ -64,17 +75,6 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
-
-MPU:
-  _strip: MPU_
-
-TIM10:
-  CCMR1_Output:
-    _add:
-      OC1FE:
-        description: Output compare 1 fast enable
-        bitOffset: 3
-        bitWidth: 1
 
 _include:
   - patches/bkp/bkp.yaml

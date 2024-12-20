@@ -21,22 +21,6 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-I2C?:
-  _include:
-    - patches/i2c/v1.yaml
-    - fields/i2c/i2c_v1.yaml
-    - fields/i2c/i2c_v1_fltr.yaml
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0090
-      TIFRFE:
-        name: FRE
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -53,6 +37,21 @@ CRYP:
   "IV[01][LR]R":
     _merge:
       - "IV*"
+
+DMA2D:
+  _strip: DMA2D_
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
 
 # Offset of BWTR3 and BWTR4 is incorrect
 "FMC,FSMC":
@@ -86,17 +85,28 @@ CRYP:
         bitOffset: 12
         bitWidth: 1
 
-FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
-
-EXTI:
+I2C?:
   _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
+    - patches/i2c/v1.yaml
+    - fields/i2c/i2c_v1.yaml
+    - fields/i2c/i2c_v1_fltr.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+PWR:
+  CR:
+    _add:
+      MRUDS:
+        description: Main regulator in deepsleep under-drive mode
+        bitOffset: 11
+        bitWidth: 1
+      LPUDS:
+        description: Low-power regulator in deepsleep under-drive mode
+        bitOffset: 10
+        bitWidth: 1
 
 # Fix RCC enable bits naming
 RCC:
@@ -115,25 +125,15 @@ RCC:
       SPI6ENR:
         name: SPI6EN
 
-DMA2D:
-  _strip: DMA2D_
-
-PWR:
-  CR:
-    _add:
-      MRUDS:
-        description: Main regulator in deepsleep under-drive mode
-        bitOffset: 11
-        bitWidth: 1
-      LPUDS:
-        description: Low-power regulator in deepsleep under-drive mode
-        bitOffset: 10
-        bitWidth: 1
-
-IWDG:
+SPI?:
   _include:
     - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0090
+      TIFRFE:
+        name: FRE
 
 SYSCFG:
   _include:

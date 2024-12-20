@@ -1,5 +1,12 @@
 _svd: ../svd/stm32l4x5.svd
 
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 _modify:
   # The SVD calls this ADC123_Common and ADC_Common in the rest,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
@@ -24,6 +31,64 @@ ADC_Common:
         bitOffset: 18
         bitWidth: 4
         access: read-write
+
+# Add correct AES interrupt at 79
+AES:
+  _add:
+    _interrupts:
+      AES:
+        description: AES global interrupt
+        value: 79
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
+    - fields/aes/v2.yaml
+
+"FMC,FSMC":
+  BCR1:
+    _add:
+      WRAPMOD:
+        description: WRAPMOD
+        bitOffset: 10
+        bitWidth: 1
+  "BCR[2-4]":
+    _add:
+      WFDIS:
+        description: Write FIFO disable
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+      CCLKEN:
+        description: CCLKEN
+        bitOffset: 20
+        bitWidth: 1
+  BCR?:
+    _add:
+      CPSIZE:
+        description: CRAM page size
+        bitOffset: 16
+        bitWidth: 3
+        access: read-write
+  BWTR?:
+    _add:
+      BUSTURN:
+        description: Bus turnaround phase duration
+        bitOffset: 16
+        bitWidth: 4
+        access: read-write
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 # SVD does not include APB1ENR1 bit 10, RTCAPBEN
@@ -66,39 +131,6 @@ RCC:
       CRCSMEN:
         bitOffset: 12
 
-"FMC,FSMC":
-  BCR1:
-    _add:
-      WRAPMOD:
-        description: WRAPMOD
-        bitOffset: 10
-        bitWidth: 1
-  "BCR[2-4]":
-    _add:
-      WFDIS:
-        description: Write FIFO disable
-        bitOffset: 21
-        bitWidth: 1
-        access: read-write
-      CCLKEN:
-        description: CCLKEN
-        bitOffset: 20
-        bitWidth: 1
-  BCR?:
-    _add:
-      CPSIZE:
-        description: CRAM page size
-        bitOffset: 16
-        bitWidth: 3
-        access: read-write
-  BWTR?:
-    _add:
-      BUSTURN:
-        description: Bus turnaround phase duration
-        bitOffset: 16
-        bitWidth: 4
-        access: read-write
-
 # RNG interrupt is incorrectly listed as 79 instead of 80
 RNG:
   _modify:
@@ -106,42 +138,10 @@ RNG:
       RNG:
         value: 80
 
-# Add correct AES interrupt at 79
-AES:
-  _add:
-    _interrupts:
-      AES:
-        description: AES global interrupt
-        value: 79
-  _include:
-    - patches/aes/fields.yaml
-    - patches/aes/l4.yaml
-    - fields/aes/v2.yaml
-
-_copy:
-  TIM3:
-    from: TIM2
-
-_derive:
-  TIM4: TIM3
-
-MPU:
-  _strip: MPU_
-
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
-
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

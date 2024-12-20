@@ -21,6 +21,22 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+RCC:
+  _modify:
+    PLLSYSCFGR:
+      name: PLLCFGR
+  _include:
+    - patches/rcc/g0b.yaml
+    - fields/rcc/rcc_g0b.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
+SYSCFG:
+  _include: fields/syscfg/syscfg_g0_usart4.yaml
+
 TIM1:
   _modify:
     _interrupts:
@@ -52,22 +68,6 @@ USB:
         name: L1RESUME
       L2RES:
         name: L2RESUME
-
-RCC:
-  _modify:
-    PLLSYSCFGR:
-      name: PLLCFGR
-  _include:
-    - patches/rcc/g0b.yaml
-    - fields/rcc/rcc_g0b.yaml
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
-SYSCFG:
-  _include: fields/syscfg/syscfg_g0_usart4.yaml
 
 VREFBUF:
   _strip: VREFBUF_

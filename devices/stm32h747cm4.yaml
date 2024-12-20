@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h747cm4.svd
 
+_derive:
+  TIM4: TIM3
+  TIM14: TIM13
+
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747
 
@@ -12,10 +16,6 @@ CRYP:
   "IV[01][LR]R":
     _merge:
       - "IV*"
-
-_derive:
-  TIM4: TIM3
-  TIM14: TIM13
 
 IWDG1:
   _include:

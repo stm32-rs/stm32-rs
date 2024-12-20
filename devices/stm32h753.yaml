@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h753.svd
 
+_derive:
+  TIM4: TIM3
+  TIM14: TIM13
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -10,19 +14,10 @@ CRYP:
     _merge:
       - "IV*"
 
-_derive:
-  TIM4: TIM3
-  TIM14: TIM13
-
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-TIM5:
-  _delete:
-    _interrupts:
-      - TIM4
 
 TIM4:
   _add:
@@ -31,16 +26,21 @@ TIM4:
         description: TIM4 global interrupt
         value: 30
 
+TIM5:
+  _delete:
+    _interrupts:
+      - TIM4
+
 MPU:
   _strip: MPU_
-
-SAI4:
-  _strip: SAI_
 
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+SAI4:
+  _strip: SAI_
 
 SPI?:
   _include: patches/spi/rxtxdr.yaml
