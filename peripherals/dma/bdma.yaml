@@ -1,8 +1,8 @@
 # Basic DMA as found on H7, ..
 
 "BDMA*":
-  "ISR":
-    "TCIF?":
+  ISR:
+    TCIF?:
       NotComplete: [0, "No transfer complete event on channel x"]
       Complete: [1, "A transfer complete event occurred on channel x"]
     "HTIF?":
@@ -14,8 +14,8 @@
     "GIF?":
       NoEvent: [0, "No TE, HT or TC event on channel x"]
       Event: [1, "A TE, HT or TC event occurred on channel x"]
-  "IFCR":
-    "CTCIF?":
+  IFCR:
+    CTCIF?:
       Clear: [1, "Clear the corresponding TCIFx flag"]
     "CHTIF?":
       Clear: [1, "Clear the corresponding HTIFx flag"]
@@ -44,7 +44,8 @@
       Bits32: [2, "Word (32-bit)"]
     "[MP]INC":
       Fixed: [0, "Address pointer is fixed"]
-      Incremented: [1, "Address pointer is incremented after each data transfer"]
+      Incremented:
+        [1, "Address pointer is incremented after each data transfer"]
     CIRC:
       Disabled: [0, "Circular mode disabled"]
       Enabled: [1, "Circular mode enabled"]

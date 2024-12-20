@@ -156,10 +156,10 @@ DSI:
 
 _modify:
   # Fix typo in the name of the LTDC peripheral
-  "LTCD":
-    name: "LTDC"
-  "Flash":
-    name: "FLASH"
+  LTCD:
+    name: LTDC
+  Flash:
+    name: FLASH
 
 "GPIO*":
   _modify:
@@ -251,9 +251,9 @@ JPEG:
 CRC:
   _modify:
     INIT:
-      addressOffset: "0x10"
+      addressOffset: 0x10
     POL:
-      addressOffset: "0x14"
+      addressOffset: 0x14
 
 QUADSPI:
   _include:

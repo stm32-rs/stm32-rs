@@ -21,7 +21,7 @@ SPI?:
   _strip: "SPI?_"
 
 I2C?:
-  _strip: "I2C_"
+  _strip: I2C_
 
 TIM[123]:
   _strip: "TIM?_"
@@ -60,7 +60,7 @@ TIM[13]:
 TIM3:
   _modify:
     CNT_alternate:
-      name: "CNT_remap"
+      name: CNT_remap
 
 WWDG:
   _include: common_patches/16bit_with_mask.yaml

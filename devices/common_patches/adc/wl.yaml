@@ -6,11 +6,10 @@ CFGR2:
     - "OVSS*"
     - "OVSR*"
 SMPR:
-  _split:
-    - "SMPSEL"
+  _split: SMPSEL
 AWD2CR:
-  _split: ["AWD2CH"]
+  _split: AWD2CH
 AWD3CR:
-  _split: ["AWD3CH"]
+  _split: AWD3CH
 CHSELR0:
-  _split: ["CHSEL"]
+  _split: CHSEL

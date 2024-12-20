@@ -33,7 +33,7 @@ WWDG1:
       size: 16
 
 _include:
- - common_patches/mpu_unprefix_registers.yaml
- - common_patches/rtc/alarm.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
+  - common_patches/mpu_unprefix_registers.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml

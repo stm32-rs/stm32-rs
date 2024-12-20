@@ -1,4 +1,4 @@
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 ADC,ADC?:
   _strip: ADC_
@@ -108,11 +108,10 @@ WWDG:
   _strip: WWDG_
 
 # TIM3:
-#   _delete:
-#     - CNT
+#   _delete: CNT
 #   _modify:
 #     CNT_alternate:
-#       name: "CNT"
+#       name: CNT
 
 _include:
   - sbs/sbs.yaml

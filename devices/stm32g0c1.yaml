@@ -3,7 +3,7 @@ _svd: ../svd/stm32g0c1.svd
 _modify:
   name: STM32G0C1
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 _copy:
   TIM3:
@@ -27,8 +27,8 @@ EXTI:
     - common_patches/exti/exti_rename.yaml
     - ../peripherals/exti/exti_g0.yaml
 
-"FDCAN?":
-  _strip: "FDCAN_"
+FDCAN?:
+  _strip: FDCAN_
 
 IWDG:
   _include:
@@ -47,7 +47,7 @@ RCC:
     - ../peripherals/rcc/rcc_g0x1_aes.yaml
 
 RNG:
-  _strip: "RNG_"
+  _strip: RNG_
 
 SPI?:
   _include:
@@ -88,7 +88,7 @@ TIM1,TIM15:
         name: OC1M_3
 
 "UCPD*":
-  _strip: "UCPD_"
+  _strip: UCPD_
 
 UCPD?:
   _include:
@@ -96,7 +96,7 @@ UCPD?:
     - ../peripherals/ucpd/ucpd_v2.yaml
 
 USB:
-  _strip: "USB_"
+  _strip: USB_
 
 WWDG:
   _include:

@@ -41,7 +41,8 @@ RCC:
       Enabled: [1, "Interrupt enabled"]
     CSSF:
       _read:
-        NotInterupted: [0, "No clock security interrupt caused by HSE clock failure"]
+        NotInterupted:
+          [0, "No clock security interrupt caused by HSE clock failure"]
         Interupted: [1, "Clock security interrupt caused by HSE clock failure"]
     LSECSSF:
       _read:
@@ -51,7 +52,7 @@ RCC:
       _read:
         NotStable: [0, "Clock is not stable"]
         Stable: [1, "Clock is stable"]
-  "AHBLPENR":
+  AHBLPENR:
     "*EN":
       Disabled: [0, "Clock disabled"]
       Enabled: [1, "Clock enabled"]

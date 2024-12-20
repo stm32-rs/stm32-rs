@@ -6,11 +6,15 @@ _include:
   - usart_v2B1.yaml
 
 # USART3 specific fields
-"USART3":
+USART3:
   CR3:
     TCBGTIE:
       Disabled: [0, "Interrupt is inhibited"]
-      Enabled: [1, "An USART interrupt is generated whenever TCBGT=1 in the ISR register"]
+      Enabled:
+        [
+          1,
+          "An USART interrupt is generated whenever TCBGT=1 in the ISR register",
+        ]
     UCESM:
       Disabled: [0, "USART clock is disabled in STOP mode"]
       Enabled: [1, "USART clock is enabled in STOP mode"]

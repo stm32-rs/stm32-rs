@@ -4,17 +4,17 @@ ADC:
   ISR:
     _modify:
       EOS:
-        name: "EOSEQ"
+        name: EOSEQ
   IER:
     _modify:
       EOSIE:
-        name: "EOSEQIE"
+        name: EOSEQIE
   CFGR1:
     _modify:
       AUTDLY:
-        name: "WAIT"
+        name: WAIT
         description: "Wait conversion mode"
   SMPR:
     _modify:
       SMPR:
-        name: "SMP"
+        name: SMP

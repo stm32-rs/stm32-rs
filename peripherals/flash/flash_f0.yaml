@@ -2,7 +2,7 @@
 # Applicable to STM32F0
 # OBR->BOOT_SEL and OBR->nBOOT0 available only on STM32F04x and STM32F09x
 
-"Flash":
+Flash:
   ACR:
     PRFTBS:
       _read:
@@ -94,7 +94,8 @@
       Level1: [1, "Level 1"]
       Level2: [3, "Level 2"]
     OPTERR:
-      OptionByteError: [1, "The loaded option byte and its complement do not match"]
+      OptionByteError:
+        [1, "The loaded option byte and its complement do not match"]
 
   WRPR:
     WRP: [0, 0xFFFFFFFF]

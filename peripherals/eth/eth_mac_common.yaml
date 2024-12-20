@@ -1,8 +1,9 @@
-"Ethernet_MAC":
+Ethernet_MAC:
   MACCR:
     WD:
       Enabled: [0, "Watchdog enabled, receive frames limited to 2048 bytes"]
-      Disabled: [1, "Watchdog disabled, receive frames may be up to to 16384 bytes"]
+      Disabled:
+        [1, "Watchdog disabled, receive frames may be up to to 16384 bytes"]
     JD:
       Enabled: [0, "Jabber enabled, transmit frames up to 2048 bytes"]
       Disabled: [1, "Jabber disabled, transmit frames up to 16384 bytes"]
@@ -38,7 +39,11 @@
       Disabled: [1, "MAC attempts only 1 transmission"]
     APCS:
       Disabled: [0, "MAC passes all incoming frames unmodified"]
-      Strip: [1, "MAC strips the Pad/FCS field on incoming frames only for lengths less than or equal to 1500 bytes"]
+      Strip:
+        [
+          1,
+          "MAC strips the Pad/FCS field on incoming frames only for lengths less than or equal to 1500 bytes",
+        ]
     BL:
       BL10: [0, "For retransmission n, wait up to 2^min(n, 10) time slots"]
       BL8: [1, "For retransmission n, wait up to 2^min(n, 8) time slots"]
@@ -48,10 +53,18 @@
       Disabled: [0, "MAC defers until CRS signal goes inactive"]
       Enabled: [1, "Deferral check function enabled"]
     TE:
-      Disabled: [0, "MAC transmit state machine is disabled after completion of the transmission of the current frame"]
+      Disabled:
+        [
+          0,
+          "MAC transmit state machine is disabled after completion of the transmission of the current frame",
+        ]
       Enabled: [1, "MAC transmit state machine is enabled"]
     RE:
-      Disabled: [0, "MAC receive state machine is disabled after the completion of the reception of the current frame"]
+      Disabled:
+        [
+          0,
+          "MAC receive state machine is disabled after the completion of the reception of the current frame",
+        ]
       Enabled: [1, "MAC receive state machine is enabled"]
     _modify:
       CSTF:
@@ -89,11 +102,24 @@
 
   MACFFR:
     RA:
-      Disabled: [0, "MAC receiver passes on to the application only those frames that have passed the SA/DA address file"]
-      Enabled: [1, "MAC receiver passes oll received frames on to the application"]
+      Disabled:
+        [
+          0,
+          "MAC receiver passes on to the application only those frames that have passed the SA/DA address file",
+        ]
+      Enabled:
+        [1, "MAC receiver passes oll received frames on to the application"]
     HPF:
-      HashOnly: [0, "If HM or HU is set, only frames that match the Hash filter are passed"]
-      HashOrPerfect: [1, "If HM or HU is set, frames that match either the perfect filter or the hash filter are passed"]
+      HashOnly:
+        [
+          0,
+          "If HM or HU is set, only frames that match the Hash filter are passed",
+        ]
+      HashOrPerfect:
+        [
+          1,
+          "If HM or HU is set, frames that match either the perfect filter or the hash filter are passed",
+        ]
     SAF:
       Disabled: [0, "Source address ignored"]
       Enabled: [1, "MAC drops frames that fail the source address filter"]
@@ -101,28 +127,63 @@
       Normal: [0, "Source address filter operates normally"]
       Invert: [1, "Source address filter operation inverted"]
     PCF:
-      PreventAll: [0, "MAC prevents all control frames from reaching the application"]
-      ForwardAllExceptPause: [1, "MAC forwards all control frames to application except Pause"]
-      ForwardAll: [2, "MAC forwards all control frames to application even if they fail the address filter"]
-      ForwardAllFiltered: [3, "MAC forwards control frames that pass the address filter"]
+      PreventAll:
+        [0, "MAC prevents all control frames from reaching the application"]
+      ForwardAllExceptPause:
+        [1, "MAC forwards all control frames to application except Pause"]
+      ForwardAll:
+        [
+          2,
+          "MAC forwards all control frames to application even if they fail the address filter",
+        ]
+      ForwardAllFiltered:
+        [3, "MAC forwards control frames that pass the address filter"]
     BFD:
       Enabled: [0, "Address filters pass all received broadcast frames"]
       Disabled: [1, "Address filters filter all incoming broadcast frames"]
     PAM:
       Disabled: [0, "Filtering of multicast frames depends on HM"]
-      Enabled: [1, "All received frames with a multicast destination address are passed"]
+      Enabled:
+        [
+          1,
+          "All received frames with a multicast destination address are passed",
+        ]
     DAIF:
       Normal: [0, "Normal filtering of frames"]
-      Invert: [1, "Address check block operates in inverse filtering mode for the DA address comparison"]
+      Invert:
+        [
+          1,
+          "Address check block operates in inverse filtering mode for the DA address comparison",
+        ]
     HM:
-      Perfect: [0, "MAC performs a perfect destination address filtering for multicast frames"]
-      Hash: [1, "MAC performs destination address filtering of received multicast frames according to the hash table"]
+      Perfect:
+        [
+          0,
+          "MAC performs a perfect destination address filtering for multicast frames",
+        ]
+      Hash:
+        [
+          1,
+          "MAC performs destination address filtering of received multicast frames according to the hash table",
+        ]
     HU:
-      Perfect: [0, "MAC performs a perfect destination address filtering for unicast frames"]
-      Hash: [1, "MAC performs destination address filtering of received unicast frames according to the hash table"]
+      Perfect:
+        [
+          0,
+          "MAC performs a perfect destination address filtering for unicast frames",
+        ]
+      Hash:
+        [
+          1,
+          "MAC performs destination address filtering of received unicast frames according to the hash table",
+        ]
     PM:
       Disabled: [0, "Normal address filtering"]
-      Enabled: [1, "Address filters pass all incoming frames regardless of their destination or source address"]
+      Enabled:
+        [
+          1,
+          "Address filters pass all incoming frames regardless of their destination or source address",
+        ]
     _modify:
       RA:
         description: Receive all
@@ -173,7 +234,11 @@
       Read: [0, "Read operation"]
       Write: [1, "Write operation"]
     MB:
-      Busy: [1, "This bit is set to 1 by the application to indicate that a read or write access is in progress"]
+      Busy:
+        [
+          1,
+          "This bit is set to 1 by the application to indicate that a read or write access is in progress",
+        ]
     _modify:
       PA:
         description: PHY address - select which of possible 32 PHYs is being accessed
@@ -195,24 +260,56 @@
   MACFCR:
     PT: [0, 0xFFFF]
     ZQPD:
-      Enabled: [0, "Normal operation with automatic zero-quanta pause control frame generation"]
-      Disabled: [1, "Automatic generation of zero-quanta pause control frames is disabled"]
+      Enabled:
+        [
+          0,
+          "Normal operation with automatic zero-quanta pause control frame generation",
+        ]
+      Disabled:
+        [
+          1,
+          "Automatic generation of zero-quanta pause control frames is disabled",
+        ]
     PLT:
       PLT4: [0, "Pause time minus 4 slot times"]
       PLT28: [1, "Pause time minus 28 slot times"]
       PLT144: [2, "Pause time minus 144 slot times"]
       PLT256: [3, "Pause time minus 256 slot times"]
     UPFD:
-      Disabled: [0, "MAC detects only a Pause frame with the multicast address specified in the 802.3x standard"]
-      Enabled: [1, "MAC additionally detects Pause frames with the station's unicast address"]
+      Disabled:
+        [
+          0,
+          "MAC detects only a Pause frame with the multicast address specified in the 802.3x standard",
+        ]
+      Enabled:
+        [
+          1,
+          "MAC additionally detects Pause frames with the station's unicast address",
+        ]
     RFCE:
       Disabled: [0, "Pause frames are not decoded"]
-      Enabled: [1, "MAC decodes received Pause frames and disables its transmitted for a specified time"]
+      Enabled:
+        [
+          1,
+          "MAC decodes received Pause frames and disables its transmitted for a specified time",
+        ]
     TFCE:
-      Disabled: [0, "In full duplex, flow control is disabled. In half duplex, back pressure is disabled"]
-      Enabled: [1, "In full duplex, flow control is enabled. In half duplex, back pressure is enabled"]
+      Disabled:
+        [
+          0,
+          "In full duplex, flow control is disabled. In half duplex, back pressure is disabled",
+        ]
+      Enabled:
+        [
+          1,
+          "In full duplex, flow control is enabled. In half duplex, back pressure is enabled",
+        ]
     FCB:
-      PauseOrBackPressure: [1, "In full duplex, initiate a Pause control frame. In half duplex, assert back pressure"]
+      PauseOrBackPressure:
+        [
+          1,
+          "In full duplex, initiate a Pause control frame. In half duplex, assert back pressure",
+        ]
       DisableBackPressure: [0, "In half duplex only, deasserts back pressure"]
     _modify:
       PT:
@@ -232,8 +329,13 @@
 
   MACVLANTR:
     VLANTC:
-      VLANTC16: [0, "Full 16 bit VLAN identifiers are used for comparison and filtering"]
-      VLANTC12: [1, "12 bit VLAN identifies are used for comparison and filtering"]
+      VLANTC16:
+        [
+          0,
+          "Full 16 bit VLAN identifiers are used for comparison and filtering",
+        ]
+      VLANTC12:
+        [1, "12 bit VLAN identifies are used for comparison and filtering"]
     VLANTI: [0, 0xFFFF]
     _modify:
       VLANTC:
@@ -243,18 +345,40 @@
 
   MACPMTCSR:
     WFFRPR:
-      Reset: [1, "Reset wakeup frame filter register point to 0b000. Automatically cleared"]
+      Reset:
+        [
+          1,
+          "Reset wakeup frame filter register point to 0b000. Automatically cleared",
+        ]
     GU:
       Disabled: [0, "Normal operation"]
-      Enabled: [1, "Any unicast packet filtered by the MAC address recognition may be a wakeup frame"]
+      Enabled:
+        [
+          1,
+          "Any unicast packet filtered by the MAC address recognition may be a wakeup frame",
+        ]
     WFE:
-      Disabled: [0, "No power management event generated due to wakeup frame reception"]
-      Enabled: [1, "Enable generation of a power management event due to wakeup frame reception"]
+      Disabled:
+        [0, "No power management event generated due to wakeup frame reception"]
+      Enabled:
+        [
+          1,
+          "Enable generation of a power management event due to wakeup frame reception",
+        ]
     MPE:
-      Disabled: [0, "No power management event generated due to Magic Packet reception"]
-      Enabled: [1, "Enable generation of a power management event due to Magic Packet reception"]
+      Disabled:
+        [0, "No power management event generated due to Magic Packet reception"]
+      Enabled:
+        [
+          1,
+          "Enable generation of a power management event due to Magic Packet reception",
+        ]
     PD:
-      Enabled: [1, "All received frames will be dropped. Cleared automatically when a magic packet or wakeup frame is received"]
+      Enabled:
+        [
+          1,
+          "All received frames will be dropped. Cleared automatically when a magic packet or wakeup frame is received",
+        ]
     _modify:
       WFFRPR:
         description: Wakeup frame filter register pointer reset
@@ -308,7 +432,15 @@
       Disabled: [0, "Address filters ignore this address"]
       Enabled: [1, "Address filters use this address"]
     SA:
-      Destination: [0, "This address is used for comparison with DA fields of the received frame"]
-      Source: [1, "This address is used for comparison with SA fields of received frames"]
+      Destination:
+        [
+          0,
+          "This address is used for comparison with DA fields of the received frame",
+        ]
+      Source:
+        [
+          1,
+          "This address is used for comparison with SA fields of received frames",
+        ]
     MBC: [0, 0x3F]
     "MACA?H": [0, 0xFFFF]

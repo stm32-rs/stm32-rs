@@ -45,19 +45,19 @@ GPIOA:
       resetValue: "0x64000000"
 
 GPIOB:
- _modify:
-   MODER:
-     resetValue: "0x00000280"
-   OSPEEDR:
-     resetValue: "0x000000C0"
-   PUPDR:
-     resetValue: "0x00000100"
+  _modify:
+    MODER:
+      resetValue: "0x00000280"
+    OSPEEDR:
+      resetValue: "0x000000C0"
+    PUPDR:
+      resetValue: "0x00000100"
 
 GPIOC:
- _modify:
-   MODER:
-     resetValue: "0x00000000"
-   OSPEEDR:
-     resetValue: "0x00000000"
-   PUPDR:
-     resetValue: "0x00000000"
+  _modify:
+    MODER:
+      resetValue: "0x00000000"
+    OSPEEDR:
+      resetValue: "0x00000000"
+    PUPDR:
+      resetValue: "0x00000000"

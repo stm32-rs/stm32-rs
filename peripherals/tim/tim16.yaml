@@ -3,14 +3,18 @@
 # exists.
 #
 
-"TIM16":
+TIM16:
   CR2:
     CCPC:
       NotPreloaded: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
       Preloaded: [1, "CCxE, CCxNE and OCxM bits are preloaded"]
     CCUS:
       Default: [0, "Capture/compare are updated only by setting the COMG bit"]
-      WithRisingEdge: [1, "Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI"]
+      WithRisingEdge:
+        [
+          1,
+          "Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI",
+        ]
     CCDS:
       OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
       OnUpdate: [1, "CCx DMA request sent when update event occurs"]

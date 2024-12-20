@@ -2,7 +2,7 @@
 
 "ADC,ADC?":
   SMPR0:
-    _delete: ["SMP"]
+    _delete: SMP
     _add:
       SMP31:
         description: Channel 31 sampling time selection
@@ -13,7 +13,7 @@
         bitWidth: 3
         bitOffset: 0
   SMPR1:
-    _delete: ["SMP"]
+    _delete: SMP
     _add:
       SMP29:
         description: Channel 29 sampling time selection
@@ -56,7 +56,7 @@
         bitWidth: 3
         bitOffset: 0
   SMPR2:
-    _delete: ["SMP"]
+    _delete: SMP
     _add:
       SMP19:
         description: Channel 19 sampling time selection
@@ -99,7 +99,7 @@
         bitWidth: 3
         bitOffset: 0
   SMPR3:
-    _delete: ["SMP"]
+    _delete: SMP
     _add:
       SMP9:
         description: Channel 9 sampling time selection

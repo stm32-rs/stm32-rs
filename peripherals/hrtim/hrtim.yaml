@@ -271,7 +271,7 @@ HRTIM_Master:
     DLYPRT:
       Inactive: [0, "Not in delayed idle or balanced idle mode"]
       Active: [1, "Delayed idle or balanced idle mode entry"]
-    "RST":
+    RST:
       NoEvent: [0, "No TIMx counter reset/roll-over interrupt occurred"]
       Event: [1, "TIMx counter reset/roll-over interrupt occurred"]
     "RST[12]":
@@ -353,12 +353,12 @@ HRTIM_Master:
     REP: [0, 0xFF]
   "CMP[1-4]R":
     CMP: [0, 0xFFFF]
-  "CMP1CR":
+  CMP1CR:
     CMP1: [0, 0xFFFF]
     REP: [0, 0xFF]
   "CPT[12]R":
     CPT: [0, 0xFFFF]
-  "DTR":
+  DTR:
     DTFLK:
       Unlocked: [0, "Deadtime falling value and sign is writable"]
       Locked: [1, "Deadtime falling value and sign is read-only"]

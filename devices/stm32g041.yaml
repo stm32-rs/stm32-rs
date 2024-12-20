@@ -13,7 +13,7 @@ _copy:
 _delete:
   # in v1.5 the ITLINE* registers were moved to SYSCFG
   # but for this part they forgot to remove the old SYSCFG_ITLINE
-  - "SYSCFG_ITLINE"
+  - SYSCFG_ITLINE
 
 ADC:
   SMPR:
@@ -49,10 +49,10 @@ EXTI:
       - PVD
 
 "LPTIM*":
-  _strip: "LPTIM_"
+  _strip: LPTIM_
 
 "LPUART*":
-  _strip: "LPUART_"
+  _strip: LPUART_
 
 RCC:
   _include:
@@ -76,7 +76,7 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 VREFBUF:
-  _strip: "VREFBUF_"
+  _strip: VREFBUF_
 
 IWDG:
   _include:

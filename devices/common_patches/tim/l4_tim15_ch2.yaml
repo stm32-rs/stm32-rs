@@ -1,6 +1,5 @@
-
 # TIM15 channel 2 for STM32L4x
-"TIM15":
+TIM15:
   CCER:
     _add:
       CC2E:
@@ -23,11 +22,11 @@
         bitWidth: 2
         bitOffset: 8
       IC2PSC:
-        description:  Input capture 2 prescaler
+        description: Input capture 2 prescaler
         bitWidth: 2
         bitOffset: 10
       IC2F:
-        description:  Input capture 2 filter
+        description: Input capture 2 filter
         bitWidth: 4
         bitOffset: 12
 
@@ -50,7 +49,7 @@
         bitWidth: 3
         bitOffset: 12
       OC2M_3:
-        description:  Output Compare 2 mode - bit 3
+        description: Output Compare 2 mode - bit 3
         bitWidth: 1
         bitOffset: 24
 

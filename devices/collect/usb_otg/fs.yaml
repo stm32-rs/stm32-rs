@@ -13,7 +13,7 @@ OTG_FS_HOST:
 
 OTG_FS_DEVICE:
   _cluster:
-    "DIEP0":
+    DIEP0:
       description: Device IN endpoint 0
       DIEPCTL[0]: { name: CTL }
       DIEPINT[0]: { name: INT }
@@ -25,7 +25,7 @@ OTG_FS_DEVICE:
       DIEPINT[1-5]: { name: INT }
       DIEPTSIZ[1-5]: { name: TSIZ }
       DTXFSTS[1-5]: { name: TXFSTS }
-    "DOEP0":
+    DOEP0:
       description: Device OUT endpoint 0
       DOEPCTL[0]: { name: CTL }
       DOEPINT[0]: { name: INT }

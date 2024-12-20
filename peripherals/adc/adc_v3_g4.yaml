@@ -49,13 +49,17 @@ _include:
     DMAEN:
       Disabled: [0, "DMA disabled"]
       Enabled: [1, "DMA enabled"]
-  "CFGR2":
+  CFGR2:
     SMPTRIG:
       Disabled: [0, Sampling time control trigger mode disabled]
       Enabled: [1, Sampling time control trigger mode enabled]
     BULB:
       Disabled: [0, Bulb sampling mode disabled]
-      Enabled: [1, "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes."]
+      Enabled:
+        [
+          1,
+          "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes.",
+        ]
     SWTRIG:
       Disabled: [0, End sampling period and start conversion]
       Enabled: [1, Start sampling period]
@@ -63,11 +67,24 @@ _include:
       Disabled: [0, Regular ADC operating mode]
       Enabled: [1, Gain compensation enabled and applies to all channels]
     ROVSM:
-      Continued: [0, "Oversampling is temporary stopped and continued after injection sequence"]
-      Resumed: [1, "Oversampling is aborted and resumed from start after injection sequence"]
+      Continued:
+        [
+          0,
+          "Oversampling is temporary stopped and continued after injection sequence",
+        ]
+      Resumed:
+        [
+          1,
+          "Oversampling is aborted and resumed from start after injection sequence",
+        ]
     TROVS:
-      Automatic: [0, "All oversampled conversions for a channel are run following a trigger"]
-      Triggered: [1, "Each oversampled conversion for a channel needs a new trigger"]
+      Automatic:
+        [
+          0,
+          "All oversampled conversions for a channel are run following a trigger",
+        ]
+      Triggered:
+        [1, "Each oversampled conversion for a channel needs a new trigger"]
     OVSS:
       NoShift: [0, "No right shift applied to oversampling result"]
       Shift1: [1, "Shift oversampling result right by 1 bit"]
@@ -93,8 +110,8 @@ _include:
     ROVSE:
       Disabled: [0, "Regular oversampling disabled"]
       Enabled: [1, "Regular oversampling enabled"]
-  "SMPR1":
-    "SMPPLUS":
+  SMPR1:
+    SMPPLUS:
       Normal: [0, "2.5 in SMPR remains 2.5 cycles"]
       Plus1: [1, "2.5 in SMPR becomes 3.5 cycles"]
   "SMPR?":

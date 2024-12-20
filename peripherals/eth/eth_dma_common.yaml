@@ -1,8 +1,12 @@
-"Ethernet_DMA":
+Ethernet_DMA:
   DMABMR:
     AAB:
       Unaligned: [0, "Bursts are not aligned"]
-      Aligned: [1, "Align bursts to start address LS bits. First burst alignment depends on FB bit"]
+      Aligned:
+        [
+          1,
+          "Align bursts to start address LS bits. First burst alignment depends on FB bit",
+        ]
     FPM:
       x1: [0, "PBL values used as-is"]
       x4: [1, "PBL values multiplied by 4"]
@@ -36,7 +40,11 @@
       RoundRobin: [0, "Round-robin with Rx:Tx priority given by PM"]
       RxPriority: [1, "Rx has priority over Tx"]
     SR:
-      Reset: [1, "Reset all MAC subsystem internal registers and logic. Cleared automatically"]
+      Reset:
+        [
+          1,
+          "Reset all MAC subsystem internal registers and logic. Cleared automatically",
+        ]
     _modify:
       MB:
         description: Mixed burst
@@ -93,7 +101,11 @@
       RunningFetching: [1, "Running, fetching transmit transfer descriptor"]
       RunningWaiting: [2, "Running, waiting for status"]
       RunningReading: [3, "Running, reading data from host memory buffer"]
-      Suspended: [6, "Suspended, transmit descriptor unavailable or transmit buffer underflow"]
+      Suspended:
+        [
+          6,
+          "Suspended, transmit descriptor unavailable or transmit buffer underflow",
+        ]
       Running: [7, "Running, closing transmit descriptor"]
     RPS:
       Stopped: [0, "Stopped, reset or Stop Receive command issued"]
@@ -147,17 +159,39 @@
 
   DMAOMR:
     DTCEFD:
-      Enabled: [0, "Drop frames with errors only in the receive checksum offload engine"]
-      Disabled: [1, "Do not drop frames that only have errors in the receive checksum offload engine"]
+      Enabled:
+        [
+          0,
+          "Drop frames with errors only in the receive checksum offload engine",
+        ]
+      Disabled:
+        [
+          1,
+          "Do not drop frames that only have errors in the receive checksum offload engine",
+        ]
     RSF:
-      CutThrough: [0, "Rx FIFO operates in cut-through mode, subject to RTC bits"]
-      StoreForward: [1, "Frames are read from Rx FIFO after complete frame has been written"]
+      CutThrough:
+        [0, "Rx FIFO operates in cut-through mode, subject to RTC bits"]
+      StoreForward:
+        [
+          1,
+          "Frames are read from Rx FIFO after complete frame has been written",
+        ]
     DFRF:
     TSF:
-      CutThrough: [0, "Transmission starts when the frame size in the Tx FIFO exceeds TTC threshold"]
-      StoreForward: [1, "Transmission starts when a full frame is in the Tx FIFO"]
+      CutThrough:
+        [
+          0,
+          "Transmission starts when the frame size in the Tx FIFO exceeds TTC threshold",
+        ]
+      StoreForward:
+        [1, "Transmission starts when a full frame is in the Tx FIFO"]
     FTF:
-      Flush: [1, "Transmit FIFO controller logic is reset to its default values. Cleared automatically"]
+      Flush:
+        [
+          1,
+          "Transmit FIFO controller logic is reset to its default values. Cleared automatically",
+        ]
     TTC:
       TTC64: [0, "64 bytes"]
       TTC128: [1, "128 bytes"]
@@ -172,7 +206,8 @@
       Started: [1, "Transmission is placed in Running state"]
     FEF:
       Drop: [0, "Rx FIFO drops frames with error status"]
-      Forward: [1, "All frames except runt error frames are forwarded to the DMA"]
+      Forward:
+        [1, "All frames except runt error frames are forwarded to the DMA"]
     FUGF:
       Drop: [0, "Rx FIFO drops all frames of less than 64 bytes"]
       Forward: [1, "Rx FIFO forwards undersized frames"]

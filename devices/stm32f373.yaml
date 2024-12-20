@@ -98,15 +98,15 @@ FLASH:
   SR:
     _modify:
       WRPRT:
-        name: "WRPRTERR"
+        name: WRPRTERR
   CR:
     _modify:
       FORCE_OPTLOAD:
-        name: "OBL_LAUNCH"
+        name: OBL_LAUNCH
   OBR:
     _modify:
       BOOT1:
-        name: "nBOOT1"
+        name: nBOOT1
 
 EXTI:
   _include:
