@@ -30,23 +30,19 @@ EXTI:
     - common_patches/exti/exti_rename.yaml
 
 FMC:
-  _strip:
-    - "FMC_"
+  _strip: FMC_
 
 DAC:
-  _strip:
-    - "DAC_"
+  _strip: DAC_
 
 IWDG:
   _include: common_patches/16bit.yaml
 
 RNG:
-  _strip:
-    - "RNG_"
+  _strip: RNG_
 
 PKA:
-  _strip:
-    - "PKA_"
+  _strip: PKA_
 
 "GTZC_MPCBB?":
   _strip: MPCBB?_

@@ -275,8 +275,7 @@ ADC1:
       - ADC3
 
 AXI:
-  _strip:
-    - AXI_
+  _strip: AXI_
 
 "SPI*":
   CR1:
@@ -616,60 +615,46 @@ HRTIM_Common:
           bitWidth: 32
 
 BDMA?:
-  _strip:
-    - BDMA_
+  _strip: BDMA_
 
 CEC:
-  _strip:
-    - CEC_
+  _strip: CEC_
 
 CRS:
-  _strip:
-    - CRS_
+  _strip: CRS_
 
 DAC1:
-  _strip:
-    - DAC_
+  _strip: DAC_
 
 DMA2D:
-  _strip:
-    - DMA2D_
+  _strip: DMA2D_
 
 DMAMUX1:
-  _strip:
-    - DMAMUX1_
+  _strip: DMAMUX1_
 
 DMAMUX2:
-  _strip:
-    - DMAMUX2_
+  _strip: DMAMUX2_
 
 FMC:
-  _strip:
-    - FMC_
+  _strip: FMC_
 
 JPEG:
-  _strip:
-    - JPEG_
+  _strip: JPEG_
 
 HSEM:
-  _strip:
-    - HSEM_
+  _strip: HSEM_
 
 MDMA:
-  _strip:
-    - MDMA_
+  _strip: MDMA_
 
 LPTIM?:
-  _strip:
-    - LPTIM_
+  _strip: LPTIM_
 
 MDIOS:
-  _strip:
-    - MDIOS_
+  _strip: MDIOS_
 
 PWR:
-  _strip:
-    - PWR_
+  _strip: PWR_
   _delete:
     _interrupts: WWDG1_RST # Doesn't exist at all on these parts
 
@@ -681,20 +666,16 @@ RAMECC:
         value: 145
 
 RTC:
-  _strip:
-    - RTC_
+  _strip: RTC_
 
 RNG:
-  _strip:
-    - RNG_
+  _strip: RNG_
 
 I2C3:
-  _strip:
-    - I2C_
+  _strip: I2C_
 
 SAI1:
-  _strip:
-    - SAI_
+  _strip: SAI_
   _add:
     _interrupts:
       SAI1:
@@ -702,8 +683,7 @@ SAI1:
         value: 87
 
 SDMMC?:
-  _strip:
-    - SDMMC_
+  _strip: SDMMC_
 
 SPDIFRX:
   _add:
@@ -713,23 +693,18 @@ SPDIFRX:
         value: 97
 
 VREFBUF:
-  _strip:
-    - VREFBUF_
+  _strip: VREFBUF_
 
 "OTG?_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 "FDCAN?":
-  _strip:
-    - FDCAN_
+  _strip: FDCAN_
 
 WWDG:
-  _strip:
-    - WWDG_
+  _strip: WWDG_
 IWDG:
-  _strip:
-    - IWDG_
+  _strip: IWDG_
 
 USART2:
   _add:

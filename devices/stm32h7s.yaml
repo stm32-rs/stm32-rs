@@ -3,23 +3,19 @@ _svd: ../svd/stm32h7s.svd
 _clear_fields: ["*"]
 
 CRYP:
-  _strip:
-    - CRYP_
+  _strip: CRYP_
 
 IWDG:
   _include: common_patches/16bit_with_mask.yaml
 
 "MCE*":
-  _strip:
-    - MCE_
+  _strip: MCE_
 
 PKA:
-  _strip:
-    - PKA_
+  _strip: PKA_
 
 SAES:
-  _strip:
-    - SAES_
+  _strip: SAES_
 
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml

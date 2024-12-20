@@ -117,7 +117,6 @@ RCC:
     - ../peripherals/rcc/rcc_wb.yaml
     - ../peripherals/rcc/rcc_wx_c2.yaml
 
-
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_wb55.yaml
   _modify:
@@ -238,7 +237,6 @@ TIM17:
       addressOffset: 0x60
       description: TIM17 Alternate function
 
-
 TIM1[67]:
   DIER:
     _add:
@@ -313,8 +311,7 @@ TIM1:
         name: OC6M_3
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 SAI1:
   _delete:
@@ -334,22 +331,22 @@ WWDG:
   _include: common_patches/16bit.yaml
 
 _include:
- - collect/dma/dmamux.yaml
- - common_patches/rtc/alarm.yaml
- - common_patches/rtc/rtc_cr.yaml
- - collect/rtc/alarm.yaml
- - collect/rtc/bkpr.yaml
- - common_patches/sai/sai_v1.yaml
- - ../peripherals/sai/sai.yaml
- - collect/sai/ch.yaml
- - collect/sai/pdm.yaml
- - ../peripherals/tim/v2/ccm_common.yaml
- - ./common_patches/adc/wb_adc_common.yaml
- - ./common_patches/adc/l4_smpr.yaml
- - common_patches/adc/l4+.yaml
- - ../peripherals/adc/adc_v3_l4.yaml
- - common_patches/tim/tim2_32bit.yaml
- - collect/hsem/r.yaml
- - common_patches/spi/rename_dff_tifrfe.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/spi/spi_v2_no_I2S.yaml
+  - collect/dma/dmamux.yaml
+  - common_patches/rtc/alarm.yaml
+  - common_patches/rtc/rtc_cr.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - common_patches/sai/sai_v1.yaml
+  - ../peripherals/sai/sai.yaml
+  - collect/sai/ch.yaml
+  - collect/sai/pdm.yaml
+  - ../peripherals/tim/v2/ccm_common.yaml
+  - ./common_patches/adc/wb_adc_common.yaml
+  - ./common_patches/adc/l4_smpr.yaml
+  - common_patches/adc/l4+.yaml
+  - ../peripherals/adc/adc_v3_l4.yaml
+  - common_patches/tim/tim2_32bit.yaml
+  - collect/hsem/r.yaml
+  - common_patches/spi/rename_dff_tifrfe.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/spi/spi_v2_no_I2S.yaml

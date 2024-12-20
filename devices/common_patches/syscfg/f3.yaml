@@ -5,8 +5,7 @@ _modify:
     description: System configuration controller
 
 SYSCFG:
-  _strip:
-    - SYSCFG_
+  _strip: SYSCFG_
   _delete:
     - OPAMP*
     - COMP*

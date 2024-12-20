@@ -166,8 +166,7 @@ FMPI2C1:
     - ../peripherals/i2c/i2c_v2_base.yaml
 
 "OTG_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 QUADSPI:
   _include:

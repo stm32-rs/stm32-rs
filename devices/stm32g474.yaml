@@ -1,12 +1,10 @@
 _svd: ../svd/stm32g474.svd
 
 COMP:
-  _strip:
-    - "COMP_"
+  _strip: COMP_
 
 DAC?:
-  _strip:
-    - "DAC_"
+  _strip: DAC_
 
 IWDG:
   _include:
@@ -14,8 +12,7 @@ IWDG:
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 VREFBUF:
-  _strip:
-    - "VREFBUF_"
+  _strip: VREFBUF_
 
 SPI?:
   _include:

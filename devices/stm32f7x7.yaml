@@ -152,8 +152,7 @@ ADC1:
     - common_patches/adc/smpx_18.yaml
 
 DSI:
-  _strip:
-    - "DSI_"
+  _strip: DSI_
 
 _modify:
   # Fix typo in the name of the LTDC peripheral
@@ -238,20 +237,16 @@ CRYP:
       - "IV*"
 
 MDIOS:
-  _strip:
-    - "MDIOS_"
+  _strip: MDIOS_
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 JPEG:
-  _strip:
-    - "JPEG_"
+  _strip: JPEG_
 
 "OTG_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 CRC:
   _modify:

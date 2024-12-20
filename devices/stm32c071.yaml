@@ -22,16 +22,13 @@ SPI1:
     - common_patches/spi/dr8.yaml
 
 SPI?:
-  _strip:
-    - "SPI?_"
+  _strip: SPI?_
 
 I2C?:
-  _strip:
-    - "I2C_"
+  _strip: I2C_
 
 USB:
-  _strip:
-    - "USB_"
+  _strip: USB_
 
 USART1:
   _modify:
@@ -95,8 +92,7 @@ TIM1[467]:
         name: OC1M_3
 
 CRS:
-  _strip:
-    - "CRS_"
+  _strip: CRS_
 
 TIM[23]:
   _modify:
