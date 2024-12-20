@@ -1,32 +1,25 @@
 _clear_fields: ["*"]
 
 ADC,ADC?:
-  _strip:
-    - "ADC_"
+  _strip: ADC_
 
 CRC:
-  _strip:
-    - "CRC_"
+  _strip: CRC_
 
 CRS:
-  _strip:
-    - "CRS_"
+  _strip: CRS_
 
 DAC:
-  _strip:
-    - "DAC_"
+  _strip: DAC_
 
 DBGMCU:
-  _strip:
-    - "DBGMCU_"
+  _strip: DBGMCU_
 
 DTS:
-  _strip:
-    - "DTS_"
+  _strip: DTS_
 
 EXTI:
-  _strip:
-    - "EXTI_"
+  _strip: EXTI_
   _modify:
     _interrupts:
       EXTI4_5:
@@ -34,36 +27,28 @@ EXTI:
         description: "EXTI line 4 to 15 interrupt"
 
 FLASH:
-  _strip:
-    - "FLASH_"
+  _strip: FLASH_
 
 FDCAN?:
-  _strip:
-    - "FDCAN?_"
+  _strip: FDCAN?_
 
 GPDMA1:
-  _strip:
-    - "GPDMA_"
+  _strip: GPDMA_
 
 GPIO?:
-  _strip:
-    - "GPIO?_"
+  _strip: GPIO?_
 
 HASH:
-  _strip:
-    - "HASH_"
+  _strip: HASH_
 
 I2C?:
-  _strip:
-    - "I2C_"
+  _strip: I2C_
 
 ICACHE:
-  _strip:
-    - "ICACHE_"
+  _strip: ICACHE_
 
 IWDG:
-  _strip:
-    - "IWDG_"
+  _strip: IWDG_
   SR:
     _add:
       ONF:
@@ -75,36 +60,28 @@ IWDG:
         access: read-only
 
 LPTIM?:
-  _strip:
-    - "LPTIM_"
+  _strip: LPTIM_
 
 LPUART:
-  _strip:
-    - "LPUART_"
+  _strip: LPUART_
 
 PWR:
-  _strip:
-    - "PWR_"
+  _strip: PWR_
 
 RAMCFG:
-  _strip:
-    - "RAMCFG_"
+  _strip: RAMCFG_
 
 RCC:
-  _strip:
-    - "RCC_"
+  _strip: RCC_
 
 RNG:
-  _strip:
-    - "RNG_"
+  _strip: RNG_
 
 RTC:
-  _strip:
-    - "RTC_"
+  _strip: RTC_
 
 SBS:
-  _strip:
-    - "SBS_"
+  _strip: SBS_
   PMCR:
     # Rename these fields on H503 to match other H5 processors
     _modify:
@@ -116,24 +93,19 @@ SBS:
         name: PB8_FMP
 
 SPI?:
-  _strip:
-    - "SPI_"
+  _strip: SPI_
 
 TAMP:
-  _strip:
-    - "TAMP_"
+  _strip: TAMP_
 
 USART?:
-  _strip:
-    - "USART_"
+  _strip: USART_
 
 USB:
-  _strip:
-    - "USB_"
+  _strip: USB_
 
 WWDG:
-  _strip:
-    - "WWDG_"
+  _strip: WWDG_
 
 # TIM3:
 #   _delete:

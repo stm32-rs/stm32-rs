@@ -1,8 +1,7 @@
 _svd: ../svd/stm32l4r9.svd
 
 DSI:
-  _strip:
-    - "DSI_"
+  _strip: DSI_
   _modify:
     _interrupts:
       DSIHSOT:
@@ -34,8 +33,7 @@ AES:
     - ../peripherals/aes/v2.yaml
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 SPI?:
   _include:

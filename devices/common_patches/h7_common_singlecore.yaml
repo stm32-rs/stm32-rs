@@ -7,9 +7,8 @@ _modify:
     groupName: FLASH
 
 "GPIOA":
-  _strip:
-    # The SVD incorrectly names all the GPIO registers compared to RM0433.
-    - GPIOA_
+  # The SVD incorrectly names all the GPIO registers compared to RM0433.
+  _strip: GPIOA_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -483,28 +482,22 @@ Ethernet_MAC:
         bitOffset: 3
 
 HSEM:
-  _strip:
-    - HSEM_
+  _strip: HSEM_
 
 MDMA:
-  _strip:
-    - MDMA_
+  _strip: MDMA_
 
 RTC:
-  _strip:
-    - RTC_
+  _strip: RTC_
 
 AXI:
-  _strip:
-    - AXI_
+  _strip: AXI_
 
 "OTG1_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 "FDCAN?":
-  _strip:
-    - FDCAN_
+  _strip: FDCAN_
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:

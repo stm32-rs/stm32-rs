@@ -1,36 +1,25 @@
 # Cluster bank-specific registers
 
-"FLASH":
+FLASH:
   KEYR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   CR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   SR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   CCR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   PRAR_CUR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   PRAR_PRG1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   SCAR_CUR1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   SCAR_PRG1:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   WPSN_CUR1R:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   WPSN_PRG1R:
-    _strip_end:
-      - '1'
+    _strip_end: "1"
   ECC_FA?R:
-    _strip_end:
-      - '1'
+    _strip_end: "1"

@@ -1,28 +1,22 @@
 _clear_fields: ["*"]
 
 RCC:
-  _strip:
-    - "RCC_"
+  _strip: RCC_
 
 DMA:
-  _strip:
-    - "DMA_"
+  _strip: DMA_
 
 DMAMUX:
-  _strip:
-    - "DMAMUX_"
+  _strip: DMAMUX_
 
 CRC:
-  _strip:
-    - "CRC_"
+  _strip: CRC_
 
 RTC:
-  _strip:
-    - "RTC_"
+  _strip: RTC_
 
 EXTI:
-  _strip:
-    - "EXTI_"
+  _strip: EXTI_
   _modify:
     _interrupts:
       EXTI4_5:
@@ -30,33 +24,25 @@ EXTI:
         description: "EXTI line 4 to 15 interrupt"
 
 GPIO?:
-  _strip:
-    - "GPIO?_"
+  _strip: GPIO?_
 
 USART?:
-  _strip:
-    - "USART_"
+  _strip: USART_
 
 IWDG:
-  _strip:
-    - "IWDG_"
+  _strip: IWDG_
 
 PWR:
-  _strip:
-    - "PWR_"
+  _strip: PWR_
 
 WWDG:
-  _strip:
-    - "WWDG_"
+  _strip: WWDG_
 
 DBG:
-  _strip:
-    - "DBG_"
+  _strip: DBG_
 
 SYSCFG:
-  _strip:
-    - "SYSCFG_"
+  _strip: SYSCFG_
 
 FLASH:
-  _strip:
-    - "FLASH_"
+  _strip: FLASH_

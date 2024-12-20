@@ -14,8 +14,7 @@ _modify:
     name: DSI
 
 DSI:
-  _strip:
-    - "DSI_"
+  _strip: DSI_
 
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml
@@ -39,8 +38,8 @@ WWDG1:
       size: 16
 
 _include:
- - common_patches/mpu_unprefix_registers.yaml
- - collect/dsi/isr.yaml
- - common_patches/rtc/alarm.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
+  - common_patches/mpu_unprefix_registers.yaml
+  - collect/dsi/isr.yaml
+  - common_patches/rtc/alarm.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml

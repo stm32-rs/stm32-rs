@@ -29,8 +29,7 @@ I2C?:
     - ../peripherals/i2c/i2c_v1.yaml
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 SPI?:
   _include:

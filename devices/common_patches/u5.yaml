@@ -5,20 +5,16 @@ _modify:
     name: ICACHE
 
 FLASH:
-  _strip:
-    - FLASH_
+  _strip: FLASH_
 
 ICACHE:
-  _strip:
-    - ICACHE_
+  _strip: ICACHE_
 
 DCACHE,DCACHE?:
-  _strip:
-    - DCACHE_
+  _strip: DCACHE_
 
 PWR:
-  _strip:
-    - PWR_
+  _strip: PWR_
   _add:
     CR5:
       addressOffset: 0xAC
@@ -26,57 +22,43 @@ PWR:
       resetValue: 0x00000000
 
 RCC:
-  _strip:
-    - RCC_
+  _strip: RCC_
 
 GPIO?:
-  _strip:
-    - GPIO_
+  _strip: GPIO_
 
 LPGPIO?:
-  _strip:
-    - LPGPIO_
+  _strip: LPGPIO_
 
 GPDMA?:
-  _strip:
-    - GPDMA_
+  _strip: GPDMA_
 
 LPDMA?:
-  _strip:
-    - LPDMA_
+  _strip: LPDMA_
 
 EXTI:
-  _strip:
-    - EXTI_
+  _strip: EXTI_
 
 DLYBOS,DLYBOS?:
-  _strip:
-    - DLYB_
+  _strip: DLYB_
 
 ADC?:
-  _strip:
-    - ADC_
+  _strip: ADC_
 
 ADC12_Common:
-  _strip:
-    - ADC12_
+  _strip: ADC12_
 
 DAC,DAC?:
-  _strip:
-    - DAC_
+  _strip: DAC_
 
 VREFBUF:
-  _strip:
-    - VREFBUF_
+  _strip: VREFBUF_
 
 ADF?:
-  _strip:
-    - ADF_
+  _strip: ADF_
 
 FDCAN?:
-  _strip:
-    - FDCAN?_
+  _strip: FDCAN?_
 
 TIM?:
-  _strip:
-    - TIM?_
+  _strip: TIM?_

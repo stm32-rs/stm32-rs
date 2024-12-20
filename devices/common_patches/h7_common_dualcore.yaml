@@ -6,9 +6,8 @@ _modify:
     name: FLASH
 
 "GPIO?":
-  _strip:
-    # The SVD incorrectly names all the GPIO registers compared to RM0433.
-    - GPIO_
+  # The SVD incorrectly names all the GPIO registers compared to RM0433.
+  _strip: GPIO_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
@@ -265,8 +264,7 @@ _modify:
         name: AWD1CH
 
 AXI:
-  _strip:
-    - AXI_
+  _strip: AXI_
 
 EXTI:
   _modify:
@@ -633,48 +631,37 @@ Ethernet_MAC:
         bitOffset: 3
 
 CEC:
-  _strip:
-    - CEC_
+  _strip: CEC_
 
 CRS:
-  _strip:
-    - CRS_
+  _strip: CRS_
 
 DAC:
-  _strip:
-    - DAC_
+  _strip: DAC_
 
 DMA2D:
-  _strip:
-    - DMA2D_
+  _strip: DMA2D_
 
 FMC:
-  _strip:
-    - FMC_
+  _strip: FMC_
 
 JPEG:
-  _strip:
-    - JPEG_
+  _strip: JPEG_
 
 HSEM:
-  _strip:
-    - HSEM_
+  _strip: HSEM_
 
 MDMA:
-  _strip:
-    - MDMA_
+  _strip: MDMA_
 
 LPTIM?:
-  _strip:
-    - LPTIM_
+  _strip: LPTIM_
 
 MDIOS:
-  _strip:
-    - MDIOS_
+  _strip: MDIOS_
 
 PWR:
-  _strip:
-    - PWR_
+  _strip: PWR_
   CR3:
     _add:
       SDEXTRDY:
@@ -691,35 +678,27 @@ PWR:
         bitWidth: 1
 
 RTC:
-  _strip:
-    - RTC_
+  _strip: RTC_
 
 RNG:
-  _strip:
-    - RNG_
+  _strip: RNG_
 
 I2C1:
-  _strip:
-    - I2C_
+  _strip: I2C_
 
 SAI4:
-  _strip:
-    - SAI_
+  _strip: SAI_
 
 "OTG?_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 "FDCAN?":
-  _strip:
-    - FDCAN_
+  _strip: FDCAN_
 
 WWDG1,WWDG2:
-  _strip:
-    - WWDG_
+  _strip: WWDG_
 IWDG1,IWDG2:
-  _strip:
-    - IWDG_
+  _strip: IWDG_
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:

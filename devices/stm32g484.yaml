@@ -6,12 +6,10 @@ AES:
     - ../peripherals/aes/v2.yaml
 
 COMP:
-  _strip:
-    - "COMP_"
+  _strip: COMP_
 
 DAC?:
-  _strip:
-    - "DAC_"
+  _strip: DAC_
 
 IWDG:
   _include:
@@ -24,8 +22,7 @@ SPI?:
     - common_patches/spi/dr8.yaml
 
 VREFBUF:
-  _strip:
-    - "VREFBUF_"
+  _strip: VREFBUF_
 
 QUADSPI:
   CCR:

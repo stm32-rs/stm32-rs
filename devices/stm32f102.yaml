@@ -111,8 +111,7 @@ WWDG:
         name: EWIF
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 _include:
   - common_patches/bkp/bkp.yaml

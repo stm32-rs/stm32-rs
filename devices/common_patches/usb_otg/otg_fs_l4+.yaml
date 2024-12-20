@@ -1,6 +1,5 @@
 OTG_FS_*:
-  _strip:
-    - FS_
+  _strip: FS_
 
 OTG_FS_GLOBAL:
   _modify:
@@ -232,9 +231,6 @@ OTG_FS_GLOBAL:
           bitOffset: 27
           bitWidth: 2
 
-
-
-
   GOTGCTL:
     _add:
       VBVALOEN:
@@ -410,7 +406,6 @@ OTG_FS_DEVICE:
         description: NAK interrupt mask
         bitOffset: 13
         bitWidth: 1
-
 
   DOEPMSK:
     _add:

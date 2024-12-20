@@ -40,8 +40,7 @@ RCC:
     APB4LPENR:
       resetValue: "0x0C01E6AA"
 
-  _strip:
-    - RCC_
+  _strip: RCC_
 
   APB1LRSTR:
     _modify:
@@ -78,16 +77,13 @@ DBGMCU:
       - LPTIM5
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 COMP1:
-  _strip:
-    - "COMP1_"
+  _strip: COMP1_
 
 DFSDM*:
-  _strip:
-    - "DFSDM_"
+  _strip: DFSDM_
 
 SPI?:
   _include: common_patches/spi/rxtxdr.yaml

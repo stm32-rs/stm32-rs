@@ -102,12 +102,10 @@ SYSCFG:
 #      - DFSDM1SEL
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 "OTG_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 CRC:
   _modify:

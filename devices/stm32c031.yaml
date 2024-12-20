@@ -17,12 +17,10 @@ SPI1:
   _include:
     - common_patches/16bit.yaml
     - common_patches/spi/dr8.yaml
-  _strip:
-    - "SPI_"
+  _strip: SPI_
 
 I2C?:
-  _strip:
-    - "I2C_"
+  _strip: I2C_
 
 TIM[123]:
   _strip: "TIM?_"

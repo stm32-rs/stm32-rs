@@ -114,8 +114,7 @@ DSI:
       DSIHOST:
         description: DSI host global interrupt
         value: 92
-  _strip:
-    - "DSI_"
+  _strip: DSI_
   VMCR:
     _modify:
       LVAE:
@@ -124,8 +123,7 @@ DSI:
         name: LPHFPE
 
 "OTG_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 SAI:
   _delete:

@@ -47,11 +47,9 @@ DAC:
 EXTI:
   _modify:
     IMR1:
-      name:
-        C1IMR1
+      name: C1IMR1
     IMR2:
-      name:
-        C1IMR2
+      name: C1IMR2
   C1IMR2:
     _modify:
       IM42:
@@ -79,21 +77,16 @@ EXTI:
         access: read-write
 
 HSEM:
-  _strip:
-    - HSEM_
+  _strip: HSEM_
   _modify:
     IER:
-      name:
-        C1IER
+      name: C1IER
     ICR:
-      name:
-        C1ICR
+      name: C1ICR
     ISR:
-      name:
-        C1ISR
+      name: C1ISR
     MISR:
-      name:
-        C1MISR
+      name: C1MISR
   "R[0-9],R1[0-5]":
     _modify:
       MASTERID:
@@ -122,12 +115,10 @@ TIM1:
       name: CCMR3_Output
 
 TIM2:
-  _strip:
-    - TIM2_
+  _strip: TIM2_
 
 TIM1?:
-  _strip:
-    - TIM1?_
+  _strip: TIM1?_
   DIER:
     _delete:
       - COMDE
@@ -187,57 +178,56 @@ _delete:
   - SYSCFG_continue
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 _include:
- - ../devices/common_patches/spi/rename_dff_tifrfe.yaml
- - ../devices/common_patches/crc/crc_rename_init.yaml
- - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
- - ../devices/common_patches/exti/wl.yaml
- - ../devices/common_patches/usart/merge_CR1_DEATx_fields.yaml
- - ../devices/common_patches/usart/merge_CR1_DEDTx_fields.yaml
- - ../devices/common_patches/usart/merge_CR2_ADDx_fields_inverted.yaml
- - ../devices/common_patches/usart/merge_CR2_ABRMODx_fields.yaml
- - ../devices/common_patches/usart/rename_CR1_M0_field.yaml
- - ../devices/common_patches/usart/rename_CR3_SCARCNT_field.yaml
- - ../peripherals/comp/comp_wl.yaml
- - ../peripherals/crc/crc_advanced.yaml
- - ../peripherals/crc/crc_pol.yaml
- - ../peripherals/dac/dac_wl.yaml
- - ../peripherals/dac/dac_wl_12bit.yaml
- - ../peripherals/dac/dac_wl_8bit.yaml
- - ../peripherals/dma/dma_wl.yaml
- - ../peripherals/dma/dmamux_wl.yaml
- - collect/dma/dmamux.yaml
- - ../peripherals/dbg/dbg_wl.yaml
- - ../peripherals/exti/exti.yaml
- - ../peripherals/flash/flash_wl.yaml
- - ../peripherals/gpio/gpio_wl.yaml
- - ../peripherals/hsem/hsem_wl.yaml
- - collect/hsem/r.yaml
- - ../peripherals/i2c/i2c_v2.yaml
- - ../peripherals/lptim/lptim_v1.yaml
- - ../peripherals/lptim/lptim_wl.yaml
- - ../peripherals/usart/lpuart_wl.yaml
- - ../peripherals/pka/pka.yaml
- - ../peripherals/pwr/pwr_wl.yaml
- - common_patches/rtc/wl.yaml
- - ../peripherals/rtc/rtc_wl.yaml
- - ../peripherals/tamp/tamp_wl.yaml
- - collect/rtc/tamp_bkpr.yaml
- - collect/rtc/alarm.yaml
- - ../peripherals/rng/rng_wl.yaml
- - ../peripherals/spi/spi_v2.yaml
- - ../peripherals/syscfg/syscfg_wl.yaml
- - common_patches/tim/tim2_32bit.yaml
- - ../peripherals/tim/tim_basic.yaml
- - ../peripherals/tim/tim12_common_wl.yaml
- - ../peripherals/tim/tim1_wl.yaml
- - ../peripherals/tim/tim2_wl.yaml
- - ../peripherals/tim/tim16_wl.yaml
- - ../peripherals/tim/v2/ccm_common.yaml
- - collect/tim/ccr.yaml
- - ../peripherals/usart/usart_v2C.yaml
- - ../peripherals/usart/usart_wl.yaml
- - ../peripherals/vrefbuf/vrefbuf_wl.yaml
+  - ../devices/common_patches/spi/rename_dff_tifrfe.yaml
+  - ../devices/common_patches/crc/crc_rename_init.yaml
+  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
+  - ../devices/common_patches/exti/wl.yaml
+  - ../devices/common_patches/usart/merge_CR1_DEATx_fields.yaml
+  - ../devices/common_patches/usart/merge_CR1_DEDTx_fields.yaml
+  - ../devices/common_patches/usart/merge_CR2_ADDx_fields_inverted.yaml
+  - ../devices/common_patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - ../devices/common_patches/usart/rename_CR1_M0_field.yaml
+  - ../devices/common_patches/usart/rename_CR3_SCARCNT_field.yaml
+  - ../peripherals/comp/comp_wl.yaml
+  - ../peripherals/crc/crc_advanced.yaml
+  - ../peripherals/crc/crc_pol.yaml
+  - ../peripherals/dac/dac_wl.yaml
+  - ../peripherals/dac/dac_wl_12bit.yaml
+  - ../peripherals/dac/dac_wl_8bit.yaml
+  - ../peripherals/dma/dma_wl.yaml
+  - ../peripherals/dma/dmamux_wl.yaml
+  - collect/dma/dmamux.yaml
+  - ../peripherals/dbg/dbg_wl.yaml
+  - ../peripherals/exti/exti.yaml
+  - ../peripherals/flash/flash_wl.yaml
+  - ../peripherals/gpio/gpio_wl.yaml
+  - ../peripherals/hsem/hsem_wl.yaml
+  - collect/hsem/r.yaml
+  - ../peripherals/i2c/i2c_v2.yaml
+  - ../peripherals/lptim/lptim_v1.yaml
+  - ../peripherals/lptim/lptim_wl.yaml
+  - ../peripherals/usart/lpuart_wl.yaml
+  - ../peripherals/pka/pka.yaml
+  - ../peripherals/pwr/pwr_wl.yaml
+  - common_patches/rtc/wl.yaml
+  - ../peripherals/rtc/rtc_wl.yaml
+  - ../peripherals/tamp/tamp_wl.yaml
+  - collect/rtc/tamp_bkpr.yaml
+  - collect/rtc/alarm.yaml
+  - ../peripherals/rng/rng_wl.yaml
+  - ../peripherals/spi/spi_v2.yaml
+  - ../peripherals/syscfg/syscfg_wl.yaml
+  - common_patches/tim/tim2_32bit.yaml
+  - ../peripherals/tim/tim_basic.yaml
+  - ../peripherals/tim/tim12_common_wl.yaml
+  - ../peripherals/tim/tim1_wl.yaml
+  - ../peripherals/tim/tim2_wl.yaml
+  - ../peripherals/tim/tim16_wl.yaml
+  - ../peripherals/tim/v2/ccm_common.yaml
+  - collect/tim/ccr.yaml
+  - ../peripherals/usart/usart_v2C.yaml
+  - ../peripherals/usart/usart_wl.yaml
+  - ../peripherals/vrefbuf/vrefbuf_wl.yaml

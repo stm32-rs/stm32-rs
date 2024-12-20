@@ -23,8 +23,7 @@ ADC1:
     - common_patches/adc/smpx_18.yaml
 
 DSI:
-  _strip:
-    - "DSI_"
+  _strip: DSI_
 
 SPI?:
   _include:
@@ -104,24 +103,19 @@ CRYP:
       - "IV*"
 
 MPU:
-  _strip:
-    - "MPU_"
+  _strip: MPU_
 
 DFSDM1:
-  _strip:
-    - "DFSDM1_"
+  _strip: DFSDM1_
 
 MDIOS:
-  _strip:
-    - "MDIOS_"
+  _strip: MDIOS_
 
 JPEG:
-  _strip:
-    - "JPEG_"
+  _strip: JPEG_
 
 "OTG_HS_*":
-  _strip:
-    - OTG_HS_
+  _strip: OTG_HS_
 
 CRC:
   _modify:

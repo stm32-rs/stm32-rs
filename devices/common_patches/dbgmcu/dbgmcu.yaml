@@ -1,9 +1,8 @@
 _include:
- - rename.yaml
+  - rename.yaml
 
 DBGMCU:
-  _strip:
-    - DBGMCU_
+  _strip: DBGMCU_
   APB1_FZ:
     _modify:
       DBG_IWDEG_STOP:
