@@ -34,34 +34,24 @@ TIM5:
       - ITR1_RMP
 
 TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M3:
-        name: OC5M_3
-      OC6M3:
-        name: OC6M_3
+  _include: oc5m_bit3.yaml
 
 TIM[1235]:
-  CCMR2_Output:
-    _add:
-      OC3M_3:
-        description: "Output Compare 3 mode, bit 3"
-        bitOffset: 16
-        bitWidth: 1
-      OC4M_3:
-        description: "Output Compare 4 mode, bit 3"
-        bitOffset: 24
-        bitWidth: 1
+  _include: add_ocm_bit3.yaml
 
-TIM[12359]:
+TIM9:
   CCMR1_Output:
     _add:
+      OC1M_3:
+        description: "Output Compare 1 mode, bit 3"
+        bitOffset: 16
+        bitWidth: 1
       OC2M_3:
         description: "Output Compare 2 mode, bit 3"
         bitOffset: 24
         bitWidth: 1
 
-TIM[12359],TIM10:
+TIM10:
   CCMR1_Output:
     _add:
       OC1M_3:
@@ -70,55 +60,4 @@ TIM[12359],TIM10:
         bitWidth: 1
 
 TIM[18]:
-  CR2:
-    _add:
-      OIS5:
-        description: Output Idle state 5 (OC5 output)
-        bitOffset: 16
-        bitWidth: 1
-      OIS6:
-        description: Output Idle state 6 (OC6 output)
-        bitOffset: 18
-        bitWidth: 1
-      MMS2:
-        description: Master mode selection 2
-        bitOffset: 20
-        bitWidth: 4
-  SR:
-    _add:
-      B2IF:
-        description: Break 2 interrupt flag
-        bitOffset: 8
-        bitWidth: 1
-      CC5IF:
-        description: Compare 5 interrupt flag
-        bitOffset: 16
-        bitWidth: 1
-      CC6IF:
-        description: Compare 6 interrupt flag
-        bitOffset: 17
-        bitWidth: 1
-  EGR:
-    _add:
-      B2G:
-        description: Break 2 generation
-        bitOffset: 8
-        bitWidth: 1
-  CCER:
-    _add:
-      CC5E:
-        description: Capture/Compare 5 output enable
-        bitOffset: 16
-        bitWidth: 1
-      CC5P:
-        description: Capture/Compare 5 output polarity
-        bitOffset: 17
-        bitWidth: 1
-      CC6E:
-        description: Capture/Compare 6 output enable
-        bitOffset: 20
-        bitWidth: 1
-      CC6P:
-        description: Capture/Compare 6 output polarity
-        bitOffset: 21
-        bitWidth: 1
+  _include: add_cc5.yaml

@@ -51,6 +51,31 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
+TIM1:
+  _include: patches/tim/v2/oc5m_bit3.yaml
+
+TIM1[0134]:
+  _include: patches/tim/v2/add_uifcpy.yaml
+
+TIM[18]:
+  _include: patches/tim/v2/add_cc5if.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -97,11 +122,8 @@ _include:
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/group.yaml
   - patches/tim/f7.yaml
-  - patches/tim/f730_f7x2_f7x3.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_mixed.yaml

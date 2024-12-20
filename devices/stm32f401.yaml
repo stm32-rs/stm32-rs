@@ -75,6 +75,22 @@ SYSCFG:
     - patches/syscfg/f4_common.yaml
     - fields/syscfg/f4/syscfg_f401_f411.yaml
 
+"TIM1[0134]":
+  _include: patches/tim/tim10_14_missing_opm.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -106,9 +122,7 @@ _include:
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - fields/spi/spi_v1.yaml
-  - patches/tim/tim10_14_missing_opm.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim2345_mixed.yaml
   - fields/tim/tim_advanced.yaml

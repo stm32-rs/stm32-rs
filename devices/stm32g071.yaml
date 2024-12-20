@@ -68,17 +68,14 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart4.yaml
 
 TIM1:
+  _include:
+    - patches/tim/v2/g0_tim1_ccmr_input.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COMP:
         name: TIM1_BRK_UP_TRG_COM
         description: TIM1 break, update, trigger and commutation interrupts
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
 
 TIM2:
   _include: patches/tim/tim2_common_32bit.yaml
@@ -87,16 +84,14 @@ TIM3:
   _include: patches/tim/tim_4ch_16bit_l.yaml
 
 TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-      OC1M2:
-        name: OC1M_3
-      OC2M1:
-        name: OC2M
-      OC2M2:
-        name: OC2M_3
+  _include:
+    - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
 
 UCPD?:
   _include:
@@ -128,8 +123,7 @@ _include:
   - collect/rtc/alarm.yaml
   - patches/spi/g0_rename_registers.yaml
   - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - patches/tim/g0_tim1_ccmr_input.yaml
-  - patches/tim/common.yaml
+  - patches/tim/group.yaml
   - fields/tim/v2/ccm.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim6.yaml

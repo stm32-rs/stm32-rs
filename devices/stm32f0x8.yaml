@@ -19,6 +19,19 @@ SYSCFG:
   _include:
     - fields/syscfg/syscfg_f0x128.yaml
 
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -61,9 +74,8 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/exti/exti.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed_l.yaml
-  - fields/tim/tim_basic_no_opm.yaml
+  - patches/tim/group.yaml
+  - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_mixed.yaml

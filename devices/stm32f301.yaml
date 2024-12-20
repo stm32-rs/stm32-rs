@@ -104,6 +104,20 @@ TIM1:
       OC6M3:
         name: OC6M_3
 
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+TIM2:
+  _include: patches/tim/tim2_common_32bit.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[25]":
+  _include: patches/tim/tim2_common_32bit.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -135,11 +149,8 @@ _include:
   - collect/gpio/v2.yaml
   - fields/gpio/v2/common.yaml
   - patches/gpio/f3_ospeedr.yaml
-  - patches/tim/tim2_32bit.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed.yaml
-  - fields/tim/tim_basic_no_opm.yaml
+  - patches/tim/group.yaml
+  - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2_common.yaml

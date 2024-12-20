@@ -1,5 +1,12 @@
 _svd: ../svd/stm32g473.svd
 
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 AES:
   _include:
     - patches/aes/fields.yaml
@@ -31,6 +38,20 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[123]":
+  _include: patches/tim/v2/oc5m_bit3.yaml
+
+TIM2:
+  _include: patches/tim/v2/tim_32bit.yaml
+
+"TIM[13],TIM15,TIM16":
+  _include: patches/tim/v2/tim_20bit.yaml
 
 UCPD1:
   _include:
@@ -88,8 +109,7 @@ _include:
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/g4.yaml
   - fields/rcc/rcc_g4.yaml
-  - patches/tim/common.yaml
-  - patches/tim/v2/g4.yaml
+  - patches/tim/group.yaml
   - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
   - patches/flash/g4_dual_bank.yaml

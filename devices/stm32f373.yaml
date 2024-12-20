@@ -16,62 +16,6 @@ _modify:
   GPIOD:
     baseAddress: 0x48000C00
 
-RCC:
-  APB2RSTR:
-    _modify:
-      SDAD1RST:
-        name: SDADC1RST
-      SDAD2RST:
-        name: SDADC2RST
-      SDAD3RST:
-        name: SDADC3RST
-  APB2ENR:
-    _delete:
-      - TIM1EN
-    _modify:
-      SDAD1EN:
-        name: SDADC1EN
-      SDAD2EN:
-        name: SDADC2EN
-      SDAD3EN:
-        name: SDADC3EN
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
-SYSCFG:
-  _delete:
-    - SYSCFG_RCR
-    - SYSCFG_CFGR3
-  CFGR1:
-    _delete:
-      - USB_IT_RMP
-      - TIM1_ITR_RMP
-      - DAC_TRIG_RMP
-      - ADC24_DMA_RMP
-      - ENCODER_MODE
-    _add:
-      VBAT_MON:
-        description: VBAT monitoring enable
-        bitOffset: 24
-        bitWidth: 1
-        access: read-write
-      TIM18_DAC2_OUT1_DMA_RMP:
-        description: TIM18 and DAC2_OUT1 DMA request remapping bit
-        bitOffset: 15
-        bitWidth: 1
-        access: read-write
-    _modify:
-      TIM7_DAC2_DMA_RMP:
-        name: TIM7_DAC1_OUT2_DMA_RMP
-      TIM6_DAC1_DMA_RMP:
-        name: TIM6_DAC1_OUT1_DMA_RMP
-  CFGR2:
-    _delete:
-      - BYP_ADD_PAR
-
 COMP:
   _add:
     _interrupts:
@@ -144,6 +88,73 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+RCC:
+  APB2RSTR:
+    _modify:
+      SDAD1RST:
+        name: SDADC1RST
+      SDAD2RST:
+        name: SDADC2RST
+      SDAD3RST:
+        name: SDADC3RST
+  APB2ENR:
+    _delete:
+      - TIM1EN
+    _modify:
+      SDAD1EN:
+        name: SDADC1EN
+      SDAD2EN:
+        name: SDADC2EN
+      SDAD3EN:
+        name: SDADC3EN
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
+SYSCFG:
+  _delete:
+    - SYSCFG_RCR
+    - SYSCFG_CFGR3
+  CFGR1:
+    _delete:
+      - USB_IT_RMP
+      - TIM1_ITR_RMP
+      - DAC_TRIG_RMP
+      - ADC24_DMA_RMP
+      - ENCODER_MODE
+    _add:
+      VBAT_MON:
+        description: VBAT monitoring enable
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
+      TIM18_DAC2_OUT1_DMA_RMP:
+        description: TIM18 and DAC2_OUT1 DMA request remapping bit
+        bitOffset: 15
+        bitWidth: 1
+        access: read-write
+    _modify:
+      TIM7_DAC2_DMA_RMP:
+        name: TIM7_DAC1_OUT2_DMA_RMP
+      TIM6_DAC1_DMA_RMP:
+        name: TIM6_DAC1_OUT1_DMA_RMP
+  CFGR2:
+    _delete:
+      - BYP_ADD_PAR
+
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[25]":
+  _include: patches/tim/tim2_common_32bit.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -179,10 +190,8 @@ _include:
   - fields/gpio/v2/common.yaml
   - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/tim2345_mixed.yaml
-  - patches/tim/common.yaml
-  - fields/tim/tim_basic_no_opm.yaml
+  - patches/tim/group.yaml
+  - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_mixed.yaml

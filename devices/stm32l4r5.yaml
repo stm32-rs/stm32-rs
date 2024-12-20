@@ -209,6 +209,33 @@ TIM8:
     _delete:
       - ETR_ADC3_RMP
 
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[18]":
+  _include:
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
+
+"TIM[23]":
+  _include: patches/tim/v2/add_ocm_bit3.yaml
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -245,9 +272,7 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
-  - patches/tim/common.yaml
-  - patches/tim/v2/l4.yaml
-  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml

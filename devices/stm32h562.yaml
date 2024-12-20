@@ -17,28 +17,37 @@ SPI?:
   _include: patches/spi/rxtxdr.yaml
 
 TIM?:
-  _strip: "TIM?_"
+  _strip: TIM?_
 
 TIM1?:
   _strip:
     - TIM2_
     - TIM1?_
 
-TIM1[2357]:
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-      OC1M2:
-        name: OC1M_3
+"TIM[1346-9],TIM??":
+  _include: patches/tim/add_dither16.yaml
 
-TIM1[25]:
-  CCMR1_Output:
-    _modify:
-      OC2M1:
-        name: OC2M
-      OC2M2:
-        name: OC2M_3
+"TIM[25]":
+  _include:
+    - patches/tim/add_dither32.yaml
+    - patches/tim/tim_uifremap.yaml
+
+"TIM[18]":
+  _include:
+    - patches/tim/tim1_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+
+"TIM[2-5]":
+  _include:
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc3m.yaml
+
+TIM1[2357]:
+  _include:
+    - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
 
 UCPD1:
   _strip: UCPD_
@@ -95,11 +104,6 @@ _include:
   - fields/usart/usart_sync_slave.yaml
   - fields/usart/usart_smartcard.yaml
   - fields/usart/usart_prescalar.yaml
-
-  - patches/tim/tim_ccm_ext.yaml
-  - patches/tim/tim_dither.yaml
-  - patches/tim/tim_mms_ts_sms_ext.yaml
-  - patches/tim/tim_uifremap.yaml
 
   - fields/tim/tim_basic.yaml
   - fields/tim/tim1_advanced.yaml

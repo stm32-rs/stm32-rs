@@ -123,6 +123,18 @@ SYSCFG:
         bitOffset: 13
         bitWidth: 1
 
+TIM*:
+  _include:
+    - patches/tim/size16b.yaml
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[23]":
+  _include: patches/tim/l0.yaml
+
+"TIM[2345]":
+  _include: patches/tim/tim2_common_16bit_l.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -177,13 +189,11 @@ _include:
   - collect/rtc/bkpr.yaml
   - fields/spi/spi_l0.yaml
   - fields/syscfg/syscfg_l0.yaml
-  - patches/tim/l0.yaml
-  - patches/tim/tim2345_16bit_l.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim_l0.yaml
   - fields/tim/tim2345_16bit.yaml
   - fields/tim/tim6.yaml
-  - patches/tim/common.yaml
   - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
   - fields/usart/lpuart_v2A.yaml

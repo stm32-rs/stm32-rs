@@ -25,7 +25,27 @@ SPI?:
   _include: patches/spi/rxtxdr.yaml
 
 TIM?:
-  _strip: "TIM?_"
+  _strip: TIM?_
+
+"TIM[1346-9],TIM??":
+  _include: patches/tim/add_dither16.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/add_dither32.yaml
+    - patches/tim/tim_uifremap.yaml
+
+"TIM[18]":
+  _include:
+    - patches/tim/tim1_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+
+"TIM[2-5]":
+  _include:
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc3m.yaml
 
 WWDG:
   _include:
@@ -57,11 +77,6 @@ _include:
   - fields/usart/usart_prescalar.yaml
   - patches/rcc/h503.yaml
   - fields/rcc/rcc_h503.yaml
-
-  - patches/tim/tim_ccm_ext.yaml
-  - patches/tim/tim_dither.yaml
-  - patches/tim/tim_mms_ts_sms_ext.yaml
-  - patches/tim/tim_uifremap.yaml
 
   - fields/tim/tim_basic.yaml
   - fields/tim/tim1_advanced.yaml

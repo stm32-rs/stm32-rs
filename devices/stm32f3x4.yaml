@@ -131,26 +131,18 @@ SPI?:
     - patches/spi/dr8.yaml
 
 TIM3:
-  CCMR1_Output:
-    _add:
-      OC1M_3:
-        description: "Output Compare 1 mode, bit 3"
-        bitOffset: 16
-        bitWidth: 1
-      OC2M_3:
-        description: "Output Compare 2 mode, bit 3"
-        bitOffset: 24
-        bitWidth: 1
-  CCMR2_Output:
-    _add:
-      OC3M_3:
-        description: "Output Compare 3 mode, bit 3"
-        bitOffset: 16
-        bitWidth: 1
-      OC4M_3:
-        description: "Output Compare 4 mode, bit 3"
-        bitOffset: 24
-        bitWidth: 1
+  _include: patches/tim/v2/add_ocm_bit3.yaml
+
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[25]":
+  _include: patches/tim/tim2_common_32bit.yaml
 
 WWDG:
   _include:
@@ -190,9 +182,7 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/spi/spi_v2.yaml
   - fields/pwr/pwr_v1.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml

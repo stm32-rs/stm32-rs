@@ -61,6 +61,37 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+TIM4:
+  _delete:
+    _interrupts:
+      - TIM5
+
+TIM5:
+  _add:
+    _interrupts:
+      TIM5:
+        description: TIM5 global interrupt
+        value: 48
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_bit3:
+        name: OC1M_3
+
+"TIM[18]":
+  _include:
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+
+"TIM[234]":
+  _include: patches/tim/v2/ocm_bit3.yaml
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -84,8 +115,7 @@ _include:
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
-  - patches/tim/common.yaml
-  - patches/tim/v2/l5.yaml
+  - patches/tim/group.yaml
   - fields/tim/v2/ccm.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml

@@ -1,5 +1,12 @@
 _svd: ../svd/stm32g484.svd
 
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 AES:
   _include:
     - patches/aes/fields.yaml
@@ -31,6 +38,20 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[123]":
+  _include: patches/tim/v2/oc5m_bit3.yaml
+
+TIM2:
+  _include: patches/tim/v2/tim_32bit.yaml
+
+"TIM[13],TIM15,TIM16":
+  _include: patches/tim/v2/tim_20bit.yaml
 
 VREFBUF:
   _strip: VREFBUF_
@@ -92,8 +113,7 @@ _include:
   - fields/hrtim/common_v2.yaml
   - collect/hrtim/v2.yaml
   - fields/rcc/rcc_g4.yaml
-  - patches/tim/common.yaml
-  - patches/tim/v2/g4.yaml
+  - patches/tim/group.yaml
   - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
   - patches/flash/g4_dual_bank.yaml
