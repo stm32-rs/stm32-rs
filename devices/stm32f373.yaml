@@ -153,24 +153,24 @@ _include:
   - patches/cec/cfgr.yaml
   - ../peripherals/hdmi_cec.yaml
   - patches/nvic/4_prio_bits.yaml
-  - ./patches/i2c/merge_CR2_SADDx_fields.yaml
-  - ./patches/i2c/merge_OAR1_OA1x_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_BRR_fields.yaml
-  - ./patches/rcc/f3.yaml
-  - ./patches/rcc/f3_usb.yaml
-  - ./patches/rcc/f3_dac3_dac2.yaml
-  - ./patches/syscfg/f3.yaml
-  - ./patches/syscfg/f3_cfgr2.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/rcc/f3.yaml
+  - patches/rcc/f3_usb.yaml
+  - patches/rcc/f3_dac3_dac2.yaml
+  - patches/syscfg/f3.yaml
+  - patches/syscfg/f3_cfgr2.yaml
   - ../peripherals/syscfg/syscfg_f3.yaml
   - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - ../peripherals/syscfg/syscfg_f37x.yaml
-  - ./patches/comp/f0_common.yaml
+  - patches/comp/f0_common.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
   - patches/usb/merge_add.yaml
-  - ./patches/usb/unprefix_registers.yaml
+  - patches/usb/unprefix_registers.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
   - ../peripherals/crc/crc_pol.yaml

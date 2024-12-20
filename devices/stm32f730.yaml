@@ -57,10 +57,10 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./patches/usart/merge_CR1_DEATx_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ./patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml

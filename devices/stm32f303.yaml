@@ -83,38 +83,38 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - ./patches/i2c/merge_CR2_SADDx_fields.yaml
-  - ./patches/i2c/merge_OAR1_OA1x_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_BRR_fields.yaml
-  - ./patches/adc/f3.yaml
-  - ./patches/adc/f3_multi_dual.yaml
-  - ./patches/gpio/f3_reset_values.yaml
-  - ./patches/rcc/f3.yaml
-  - ./patches/rcc/f3_mco.yaml
-  - ./patches/rcc/f3_usb.yaml
-  - ./patches/rcc/f3_spi4.yaml
-  - ./patches/rcc/f3_tim20.yaml
-  - ./patches/rcc/f3_cfgr3_tim.yaml
-  - ./patches/syscfg/f3.yaml
-  - ./patches/syscfg/f3_cfgr1_mem_mode_3.yaml
-  - ./patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
-  - ./patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
-  - ./patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
-  - ./patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
-  - ./patches/syscfg/f3_cfgr2.yaml
-  - ./patches/syscfg/f3_rcr_page8-15.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/adc/f3.yaml
+  - patches/adc/f3_multi_dual.yaml
+  - patches/gpio/f3_reset_values.yaml
+  - patches/rcc/f3.yaml
+  - patches/rcc/f3_mco.yaml
+  - patches/rcc/f3_usb.yaml
+  - patches/rcc/f3_spi4.yaml
+  - patches/rcc/f3_tim20.yaml
+  - patches/rcc/f3_cfgr3_tim.yaml
+  - patches/syscfg/f3.yaml
+  - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
+  - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
+  - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
+  - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
+  - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
+  - patches/syscfg/f3_cfgr2.yaml
+  - patches/syscfg/f3_rcr_page8-15.yaml
   - ../peripherals/syscfg/syscfg_f3.yaml
   - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - ../peripherals/syscfg/syscfg_f303_3x8.yaml
-  - ./patches/opamp/f3_opamp1234.yaml
-  - ./patches/comp/f3_comp1234567.yaml
+  - patches/opamp/f3_opamp1234.yaml
+  - patches/comp/f3_comp1234567.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
-  - ./patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+  - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/merge_add.yaml
-  - ./patches/usb/unprefix_registers.yaml
+  - patches/usb/unprefix_registers.yaml
   - ../peripherals/dac/dac_wavegen.yaml
   - ../peripherals/dac/dac_common_2ch.yaml
   - ../peripherals/dac/dac_dmaudr.yaml

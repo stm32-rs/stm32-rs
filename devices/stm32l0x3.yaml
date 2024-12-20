@@ -129,26 +129,26 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./patches/flash/l0.yaml
-  - ./patches/firewall/l0.yaml
-  - ./patches/pwr/l0_wakeup.yaml
-  - ./patches/rtc/l0.yaml
-  - ./patches/syscfg/l0_cfgr.yaml
-  - ./patches/nvic/l0_prio_bits.yaml
+  - patches/flash/l0.yaml
+  - patches/firewall/l0.yaml
+  - patches/pwr/l0_wakeup.yaml
+  - patches/rtc/l0.yaml
+  - patches/syscfg/l0_cfgr.yaml
+  - patches/nvic/l0_prio_bits.yaml
   - ./collect/tsc/iogcr.yaml
-  - ./patches/usart/merge_CR1_DEATx_fields.yaml
-  - ./patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ./patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - ./patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - ./patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - ./patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - ./patches/usart/rename_CR2_DATAINV_field.yaml
-  - ./patches/usart/merge_BRR_fields.yaml
-  - ./patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - ./patches/usb/unprefix_registers.yaml
-  - ./patches/usb/rename_EPxR_EPTYPE_field.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
+  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
+  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+  - patches/usb/unprefix_registers.yaml
+  - patches/usb/rename_EPxR_EPTYPE_field.yaml
   - ../peripherals/adc/adc_l0.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml

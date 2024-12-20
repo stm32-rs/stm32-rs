@@ -42,7 +42,7 @@ SPI?:
     - patches/spi/dr8.yaml
 
 _include:
-  - ./patches/rcc/f1_uart45.yaml
+  - patches/rcc/f1_uart45.yaml
   - patches/fsmc/fsmc_sramfix_v3.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml

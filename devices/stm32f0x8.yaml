@@ -27,24 +27,24 @@ WWDG:
 _include:
   - patches/cec/cfgr.yaml
   - ../peripherals/hdmi_cec.yaml
-  - ./patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - ./patches/spi/rename_dff_tifrfe.yaml
-  - ./patches/i2c/merge_CR2_SADDx_fields.yaml
-  - ./patches/i2c/merge_OAR1_OA1x_fields.yaml
-  - ./patches/rcc/f0_v18pwrrstf.yaml
-  - ./patches/adc/f0_cfgr2_ckmode.yaml
-  - ./patches/adc/f0_fixes.yaml
-  - ./patches/rcc/f0_gpioe.yaml
-  - ./patches/rcc/f0_usart3.yaml
-  - ./patches/rcc/f0_usart6.yaml
-  - ./patches/rcc/f0_usart78.yaml
-  - ./patches/dma/f0_dmaen.yaml
-  - ./patches/rcc/f0_usben.yaml
-  - ./patches/rcc/f0_hsi48cal.yaml
+  - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - patches/rcc/f0_v18pwrrstf.yaml
+  - patches/adc/f0_cfgr2_ckmode.yaml
+  - patches/adc/f0_fixes.yaml
+  - patches/rcc/f0_gpioe.yaml
+  - patches/rcc/f0_usart3.yaml
+  - patches/rcc/f0_usart6.yaml
+  - patches/rcc/f0_usart78.yaml
+  - patches/dma/f0_dmaen.yaml
+  - patches/rcc/f0_usben.yaml
+  - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/rename_CR1_M0_field.yaml
-  - ./patches/usart/merge_BRR_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/rename_CR1_M0_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
   - patches/can/can_remove_prefix.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
@@ -83,5 +83,5 @@ _include:
   - ../peripherals/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml
   - ../peripherals/flash/flash_f04x_f09x.yaml
-  - ./patches/nvic/2_prio_bits.yaml
-  - ./patches/crc/f0_init_addr_fix.yaml
+  - patches/nvic/2_prio_bits.yaml
+  - patches/crc/f0_init_addr_fix.yaml

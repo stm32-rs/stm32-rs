@@ -159,25 +159,25 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - ./patches/i2c/merge_CR2_SADDx_fields.yaml
-  - ./patches/i2c/merge_OAR1_OA1x_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_BRR_fields.yaml
-  - ./patches/spi/rename_dff_tifrfe.yaml
-  - ./patches/adc/f3.yaml
-  - ./patches/rcc/f3.yaml
-  - ./patches/rcc/f3_mco.yaml
-  - ./patches/rcc/f3_delete_tim8.yaml
-  - ./patches/syscfg/f3.yaml
-  - ./patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
-  - ./patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
-  - ./patches/syscfg/f3_cfgr2.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
+  - patches/adc/f3.yaml
+  - patches/rcc/f3.yaml
+  - patches/rcc/f3_mco.yaml
+  - patches/rcc/f3_delete_tim8.yaml
+  - patches/syscfg/f3.yaml
+  - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
+  - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
+  - patches/syscfg/f3_cfgr2.yaml
   - ../peripherals/syscfg/syscfg_f3.yaml
   - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - ../peripherals/syscfg/syscfg_f3x4.yaml
-  - ./patches/opamp/f3_opamp2.yaml
-  - ./patches/comp/f3_comp246.yaml
-  - ./patches/comp/f3_comp246_inmsel3.yaml
+  - patches/opamp/f3_opamp2.yaml
+  - patches/comp/f3_comp246.yaml
+  - patches/comp/f3_comp246_inmsel3.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml

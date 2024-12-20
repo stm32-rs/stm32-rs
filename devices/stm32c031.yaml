@@ -68,6 +68,6 @@ WWDG:
   _include: patches/16bit_with_mask.yaml
 
 _include:
-  - ./patches/c0.yaml
-  - ./patches/nvic/2_prio_bits.yaml
+  - patches/c0.yaml
+  - patches/nvic/2_prio_bits.yaml
   - collect/dma/dmamux.yaml

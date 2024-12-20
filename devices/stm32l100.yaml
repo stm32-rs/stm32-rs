@@ -93,13 +93,13 @@ WWDG:
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./patches/rcc/LSECSSC_LSECSSF.yaml
-  - ./patches/gpio/with_OSPEEDER.yaml
+  - patches/rcc/LSECSSC_LSECSSF.yaml
+  - patches/gpio/with_OSPEEDER.yaml
   - patches/adc/l1_smpr.yaml
   - patches/fsmc/fsmc_sramfix_common.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
-  - ./patches/usb/unprefix_registers.yaml
+  - patches/usb/unprefix_registers.yaml
   - ../peripherals/dac/dac_wavegen.yaml
   - ../peripherals/dac/dac_common_2ch.yaml
   - ../peripherals/dac/dac_dmaudr.yaml

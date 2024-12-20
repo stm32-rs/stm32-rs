@@ -49,23 +49,23 @@ WWDG:
 
 _include:
   - patches/usart/merge_BRR_fields.yaml
-  - ./patches/usart/merge_CR1_DEATx_fields.yaml
-  - ./patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ./patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ./patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
   - collect/dma/dmamux.yaml
   - patches/dma/g4_ifcr.yaml
   - collect/dma/v1.yaml
-  - ./patches/rcc/g4.yaml
-  - ./patches/exti/g4.yaml
-  - ./patches/fdcan/fdcan_g4.yaml
+  - patches/rcc/g4.yaml
+  - patches/exti/g4.yaml
+  - patches/fdcan/fdcan_g4.yaml
   - ../peripherals/exti/exti.yaml
   - patches/adc/g4.yaml
   - ../peripherals/adc/adc_v3_g4.yaml
   - ../peripherals/adc/adc_v3_common_g4.yaml
   - collect/comp/csr.yaml
-  - ./patches/cordic/g4.yaml
+  - patches/cordic/g4.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - patches/rtc/rtc_cr.yaml
@@ -85,8 +85,8 @@ _include:
   - ../peripherals/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - ../peripherals/usart/usart_v2C.yaml
-  - ./patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - ./patches/usb/g4.yaml
+  - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+  - patches/usb/g4.yaml
   - ../peripherals/rcc/rcc_g4.yaml
   - patches/tim/common.yaml
   - patches/tim/v2/g4.yaml
