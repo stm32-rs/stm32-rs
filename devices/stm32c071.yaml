@@ -8,7 +8,7 @@ _modify:
 ADC:
   _strip: ADC_
   _include:
-    - ../peripherals/adc/c0_g0_wl.yaml
+    - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
   _modify:
     CHSELR:

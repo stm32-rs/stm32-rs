@@ -23,7 +23,7 @@ AES:
       AES_SUSP?R:
         name: SUSP
   _include:
-    - ../peripherals/aes/v2.yaml
+    - fields/aes/v2.yaml
 
 EXTI:
   _include:
@@ -66,7 +66,7 @@ UCPD1:
     - patches/ucpd/rxordseten_split.yaml
     - patches/ucpd/cfgr_missing_r.yaml
     - patches/ucpd/tx_rx_missing_r.yaml
-    - ../peripherals/ucpd/ucpd_v1.yaml
+    - fields/ucpd/ucpd_v1.yaml
 
 WWDG:
   _include: patches/16bit.yaml
@@ -78,20 +78,20 @@ _include:
   - collect/flash/secbbr.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
-  - ../peripherals/gpio/gpio_l5_u5.yaml
-  - ../peripherals/rcc/rcc_l5.yaml
+  - fields/gpio/gpio_l5_u5.yaml
+  - fields/rcc/rcc_l5.yaml
   - patches/sai/sai_v1.yaml
-  - ../peripherals/sai/sai.yaml
+  - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - patches/tim/common.yaml
   - patches/tim/v2/l5.yaml
-  - ../peripherals/tim/v2/ccm.yaml
+  - fields/tim/v2/ccm.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml
-  - ../peripherals/adc/adc_v3_common_l4+.yaml
-  - ../peripherals/adc/adc_v3_l4.yaml
+  - fields/adc/adc_v3_common_l4+.yaml
+  - fields/adc/adc_v3_l4.yaml

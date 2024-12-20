@@ -51,7 +51,7 @@ AES:
   _include:
     - patches/aes/fields.yaml
     - patches/aes/l4.yaml
-    - ../peripherals/aes/v2.yaml
+    - fields/aes/v2.yaml
 
 IWDG:
   _include: patches/16bit.yaml
@@ -62,7 +62,7 @@ MPU:
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
-    - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
@@ -357,44 +357,44 @@ _include:
   - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - ../peripherals/can/can.yaml
+  - fields/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
-  - ../peripherals/sai/sai.yaml
+  - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_v2.yaml
   - collect/dfsdm/v2.yaml
-  - ../peripherals/gpio/v2/common.yaml
+  - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/crc/crc_pol.yaml
-  - ../peripherals/rcc/rcc_l4.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - fields/crc/crc_pol.yaml
+  - fields/rcc/rcc_l4.yaml
   - patches/tim/common.yaml
   - patches/tim/tim2345_mixed_l.yaml
   - patches/tim/v2/l4.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim16.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim2345_mixed.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/v2/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim16.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim2345_mixed.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/dma/dma_v1_with_remapping.yaml
+  - fields/dma/dma_v1_with_remapping.yaml
   - collect/dma/v1.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/usart/lpuart_v2A.yaml
-  - ../peripherals/usart/usart_v2B2.yaml
+  - fields/exti/exti.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/usart/lpuart_v2A.yaml
+  - fields/usart/usart_v2B2.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
   - patches/fpu_interrupt.yaml
-  - ../peripherals/usb/usb_with_LPM.yaml
+  - fields/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
   - patches/flash/flash_boot0s.yaml
   - patches/adc/l4.yaml
@@ -403,8 +403,8 @@ _include:
   - patches/adc/l4_sqr1.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml
-  - ../peripherals/adc/adc_v3_common_l4+.yaml
-  - ../peripherals/adc/adc_v3_l4.yaml
+  - fields/adc/adc_v3_common_l4+.yaml
+  - fields/adc/adc_v3_l4.yaml
   - patches/spi/rename_dff_tifrfe.yaml
-  - ../peripherals/spi/spi_l4.yaml
-  - ../peripherals/fw/fw_l0_l4.yaml
+  - fields/spi/spi_l4.yaml
+  - fields/fw/fw_l0_l4.yaml

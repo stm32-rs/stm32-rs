@@ -45,7 +45,7 @@ ADC?:
 AES?:
   _include:
     - patches/aes/fields.yaml
-    - ../peripherals/aes/v2.yaml
+    - fields/aes/v2.yaml
 
 EXTI:
   _modify:
@@ -114,11 +114,11 @@ IWDG:
 
 RCC:
   _include:
-    - ../peripherals/rcc/rcc_wb.yaml
-    - ../peripherals/rcc/rcc_wx_c2.yaml
+    - fields/rcc/rcc_wb.yaml
+    - fields/rcc/rcc_wx_c2.yaml
 
 SYSCFG:
-  _include: ../peripherals/syscfg/syscfg_wb55.yaml
+  _include: fields/syscfg/syscfg_wb55.yaml
   _modify:
     IMR1:
       addressOffset: 0x100
@@ -320,7 +320,7 @@ SAI1:
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
-    - ../peripherals/quadspi/quadspi_v1_single_flash.yaml
+    - fields/quadspi/quadspi_v1_single_flash.yaml
 
 SPI?:
   _include:
@@ -337,16 +337,16 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - patches/sai/sai_v1.yaml
-  - ../peripherals/sai/sai.yaml
+  - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
-  - ../peripherals/tim/v2/ccm_common.yaml
+  - fields/tim/v2/ccm_common.yaml
   - patches/adc/wb_adc_common.yaml
   - patches/adc/l4_smpr.yaml
   - patches/adc/l4+.yaml
-  - ../peripherals/adc/adc_v3_l4.yaml
+  - fields/adc/adc_v3_l4.yaml
   - patches/tim/tim2_32bit.yaml
   - collect/hsem/r.yaml
   - patches/spi/rename_dff_tifrfe.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/spi/spi_v2_no_I2S.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/spi/spi_v2_no_I2S.yaml

@@ -19,7 +19,7 @@ GTZC1:
 IWDG:
   _include:
     - patches/16bit_with_mask.yaml
-    - ../peripherals/iwdg/h5.yaml
+    - fields/iwdg/h5.yaml
 
 SPI?:
   _include: patches/spi/rxtxdr.yaml
@@ -30,47 +30,47 @@ TIM?:
 WWDG:
   _include:
     - patches/16bit_with_mask.yaml
-    - ../peripherals/wwdg/wwdg_v2.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/h5.yaml
   - patches/adc/l4+.yaml
-  - ../peripherals/adc/adc_h5.yaml
-  - ../peripherals/crs/crs.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
-  - ../peripherals/sbs/sbs.yaml
-  - ../peripherals/pwr/pwr_h5.yaml
-  - ../peripherals/gpio/v3/common.yaml
-  - ../peripherals/gpio/v3/af0-15.yaml
-  - ../peripherals/gpio/gpio_with_brr.yaml
-  - ../peripherals/gpio/gpio_with_hslvr.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/exti/exti_priv.yaml
-  - ../peripherals/gpdma/gpdma.yaml
-  - ../peripherals/spi/spi_v3_base.yaml
-  - ../peripherals/spi/spi_v3_cfg1_bpass.yaml
-  - ../peripherals/usart/usart_v2B1.yaml
-  - ../peripherals/usart/usart_fifoen.yaml
-  - ../peripherals/usart/usart_sync_slave.yaml
-  - ../peripherals/usart/usart_smartcard.yaml
-  - ../peripherals/usart/usart_prescalar.yaml
+  - fields/adc/adc_h5.yaml
+  - fields/crs/crs.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+  - fields/sbs/sbs.yaml
+  - fields/pwr/pwr_h5.yaml
+  - fields/gpio/v3/common.yaml
+  - fields/gpio/v3/af0-15.yaml
+  - fields/gpio/gpio_with_brr.yaml
+  - fields/gpio/gpio_with_hslvr.yaml
+  - fields/exti/exti.yaml
+  - fields/exti/exti_priv.yaml
+  - fields/gpdma/gpdma.yaml
+  - fields/spi/spi_v3_base.yaml
+  - fields/spi/spi_v3_cfg1_bpass.yaml
+  - fields/usart/usart_v2B1.yaml
+  - fields/usart/usart_fifoen.yaml
+  - fields/usart/usart_sync_slave.yaml
+  - fields/usart/usart_smartcard.yaml
+  - fields/usart/usart_prescalar.yaml
   - patches/rcc/h503.yaml
-  - ../peripherals/rcc/rcc_h503.yaml
+  - fields/rcc/rcc_h503.yaml
 
   - patches/tim/tim_ccm_ext.yaml
   - patches/tim/tim_dither.yaml
   - patches/tim/tim_mms_ts_sms_ext.yaml
   - patches/tim/tim_uifremap.yaml
 
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim1_advanced.yaml
-  - ../peripherals/tim/tim2_common.yaml
-  - ../peripherals/tim/tim6_dither.yaml
-  - ../peripherals/tim/tim_common_ext.yaml
-  - ../peripherals/tim/tim_uifremap.yaml
-  - ../peripherals/tim/tim_dither.yaml
-  - ../peripherals/tim/v2/ccm_1_8.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim1_advanced.yaml
+  - fields/tim/tim2_common.yaml
+  - fields/tim/tim6_dither.yaml
+  - fields/tim/tim_common_ext.yaml
+  - fields/tim/tim_uifremap.yaml
+  - fields/tim/tim_dither.yaml
+  - fields/tim/v2/ccm_1_8.yaml
 
   - collect/usb/chepr.yaml
   - collect/gpio/v2r.yaml

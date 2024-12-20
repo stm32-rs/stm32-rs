@@ -3,7 +3,7 @@ _svd: ../svd/stm32l162.svd
 AES:
   _include:
     - patches/aes/fields.yaml
-    - ../peripherals/aes/v1.yaml
+    - fields/aes/v1.yaml
 
 CRC:
   DR:
@@ -20,13 +20,13 @@ CRC:
 EXTI:
   _include:
     - patches/exti/split.yaml
-    - ../peripherals/exti/common.yaml
+    - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
 I2C?:
   _include:
     - patches/i2c/v1.yaml
-    - ../peripherals/i2c/i2c_v1.yaml
+    - fields/i2c/i2c_v1.yaml
 
 MPU:
   _strip: MPU_
@@ -39,39 +39,39 @@ SPI?:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - patches/adc/l1_smpr.yaml
   - patches/fsmc/fsmc_sramfix_common.yaml
-  - ../peripherals/fsmc/fsmc_sram.yaml
+  - fields/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
   - patches/usb/unprefix_registers.yaml
-  - ../peripherals/dac/dac_wavegen.yaml
-  - ../peripherals/dac/dac_common_2ch.yaml
-  - ../peripherals/dac/dac_dmaudr.yaml
-  - ../peripherals/crc/crc_basic.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/pwr/pwr_v1.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_common_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - fields/pwr/pwr_v1.yaml
   - patches/gpio/with_OSPEEDER.yaml
-  - ../peripherals/gpio/v2/common.yaml
+  - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - patches/tim/rename_TIM2_CCR3_CCR3.yaml
   - patches/tim/tim10_14_missing_opm.yaml
   - patches/tim/common.yaml
   - patches/tim/l1_tim9_ccer.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim2345_16bit.yaml
-  - ../peripherals/tim/v1/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim2345_16bit.yaml
+  - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - ../peripherals/usb/usb.yaml
+  - fields/usb/usb.yaml

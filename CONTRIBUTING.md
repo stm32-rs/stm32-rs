@@ -22,7 +22,7 @@ Next, check where your changes should go:
   `devices/patches/`.
 * Descriptions of fields, which means either enumerated values ("you can write
   1 to this field to mean 'Start'") or write constraints ("this field can take
-  any value from 2 to 30") go in `peripherals/`.
+  any value from 2 to 30") go in `devices/fields/`.
 * Patches which collect registers, clusters and fields in SVD arrays and
   patches which collect registers in clusters should go in `devices/collect/`.
 
@@ -67,7 +67,7 @@ patches to get an idea of how patching works.
 The SVD files supplied by ST do not contain any information on what values may
 be written to fields, but [svd2rust](https://crates.io/crates/svd2rust) uses
 such information to create its safe and user-friendly API in the crates we
-generate. We place this sort of change in the `peripherals/` directory, and
+generate. We place this sort of change in the `devices/fields/` directory, and
 then include them in each device that uses them. Typically it's possible to
 cover a lot of devices, since many share the same peripherals, and someone may
 have already described the peripheral you're interested in for another device,

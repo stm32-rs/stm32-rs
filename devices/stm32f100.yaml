@@ -5,28 +5,28 @@ _derive:
 
 AFIO:
   _include:
-    - ../peripherals/exti/derive.yaml
-    - ../peripherals/exti/abcdefg.yaml
+    - fields/exti/derive.yaml
+    - fields/exti/abcdefg.yaml
 
 EXTI:
   _include:
-    - ../peripherals/exti/common.yaml
+    - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
 I2C?:
   _include:
     - patches/i2c/v1.yaml
-    - ../peripherals/i2c/i2c_v1.yaml
+    - fields/i2c/i2c_v1.yaml
 
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
     _modify:
@@ -44,35 +44,35 @@ SPI?:
 _include:
   - patches/rcc/f1_uart45.yaml
   - patches/fsmc/fsmc_sramfix_v3.yaml
-  - ../peripherals/fsmc/fsmc_sram.yaml
+  - fields/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
   - patches/bkp/bkp.yaml
-  - ../peripherals/bkp/bkp.yaml
+  - fields/bkp/bkp.yaml
   - collect/bkp/dr.yaml
-  - ../peripherals/dac/dac_wavegen.yaml
-  - ../peripherals/dac/dac_common_2ch.yaml
-  - ../peripherals/dac/dac_dmaudr.yaml
-  - ../peripherals/crc/crc_basic.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/pwr/pwr_v1.yaml
-  - ../peripherals/gpio/v1/common.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_common_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - fields/pwr/pwr_v1.yaml
+  - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
-  - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
+  - fields/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
   - patches/tim/tim10_14_missing_opm.yaml
   - patches/tim/common.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim16.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim2345_16bit.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/v1/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim16.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim2345_16bit.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/usart/uart_common.yaml
-  - ../peripherals/usart/uart_uart.yaml
-  - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/rcc/rcc_f1.yaml
-  - ../peripherals/rcc/rcc_cfgr2_prediv.yaml
-  - ../peripherals/dma/dma_v1.yaml
+  - fields/usart/uart_common.yaml
+  - fields/usart/uart_uart.yaml
+  - fields/usart/uart_usart.yaml
+  - fields/rcc/rcc_f1.yaml
+  - fields/rcc/rcc_cfgr2_prediv.yaml
+  - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - patches/dbgmcu/rename.yaml
-  - ../peripherals/adc/adc_f1_common.yaml
+  - fields/adc/adc_f1_common.yaml

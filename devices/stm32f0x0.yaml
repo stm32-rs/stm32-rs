@@ -36,8 +36,8 @@ SPI1:
 SYSCFG:
   _include:
     - patches/syscfg/f0.yaml
-    - ../peripherals/syscfg/syscfg_f0.yaml
-    - ../peripherals/exti/derive.yaml
+    - fields/syscfg/syscfg_f0.yaml
+    - fields/exti/derive.yaml
 
   EXTICR1:
     EXTI0:
@@ -48,17 +48,17 @@ SYSCFG:
       PF: [5, "Select PFx as the source input for the EXTIx external interrupt"]
 
 TIM1[456]:
-  _include: ../peripherals/tim/tim_16bit.yaml
+  _include: fields/tim/tim_16bit.yaml
 
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
@@ -80,30 +80,30 @@ _include:
   - patches/tim/common.yaml
   - patches/tim/tim1_16bit_l.yaml
   - patches/tim/tim2345_16bit_l.yaml
-  - ../peripherals/tim/tim_basic_no_opm.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/tim2345_16bit.yaml
-  - ../peripherals/tim/tim16.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/v1/ccm.yaml
+  - fields/tim/tim_basic_no_opm.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/tim2345_16bit.yaml
+  - fields/tim/tim16.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/gpio/v2/common.yaml
-  - ../peripherals/gpio/gpio_with_brr.yaml
+  - fields/gpio/v2/common.yaml
+  - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/pwr/pwr_v1.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/rcc/rcc_f0x0.yaml
-  - ../peripherals/dma/dma_v1.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - fields/pwr/pwr_v1.yaml
+  - fields/exti/exti.yaml
+  - fields/rcc/rcc_f0x0.yaml
+  - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/usart/usart_v2B1.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/usart/usart_v2B1.yaml
   - collect/rtc/bkpr.yaml
-  - ../peripherals/adc/adc_aditf4_v1_1.yaml
-  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - ../peripherals/usb/usb_with_LPM.yaml
+  - fields/adc/adc_aditf4_v1_1.yaml
+  - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - fields/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml
-  - ../peripherals/flash/flash_f0.yaml
+  - fields/flash/flash_f0.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/crc/f0_init_addr_fix.yaml

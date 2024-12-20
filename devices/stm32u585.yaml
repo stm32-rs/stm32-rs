@@ -11,7 +11,7 @@ AES:
       SUSP?:
         name: SUSP
   _include:
-    - ../peripherals/aes/v3.yaml
+    - fields/aes/v3.yaml
 
 GTZC1_MPCBB?:
   _strip: MPCBB?_
@@ -88,7 +88,7 @@ UCPD1:
   _strip: UCPD_
   _include:
     - patches/ucpd/rxordseten_split.yaml
-    - ../peripherals/ucpd/ucpd_v1.yaml
+    - fields/ucpd/ucpd_v1.yaml
 
 WWDG:
   _include: patches/16bit.yaml
@@ -99,14 +99,14 @@ _include:
   - patches/adc/u5_extra_adc12_fields.yaml
   - patches/fsmc/fsmc_u5.yaml
   - patches/octospi/u5.yaml
-  - ../peripherals/adc/adc_u5.yaml
-  - ../peripherals/dma/dma2d_v2.yaml
-  - ../peripherals/exti/exti_u5.yaml
-  - ../peripherals/fsmc/fsmc_nand.yaml
-  - ../peripherals/fsmc/fsmc_sram.yaml
-  - ../peripherals/gpio/gpio_l5_u5.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
-  - ../peripherals/octospi/u5.yaml
-  - ../peripherals/pwr/pwr_u5.yaml
-  - ../peripherals/rcc/rcc_u5.yaml
+  - fields/adc/adc_u5.yaml
+  - fields/dma/dma2d_v2.yaml
+  - fields/exti/exti_u5.yaml
+  - fields/fsmc/fsmc_nand.yaml
+  - fields/fsmc/fsmc_sram.yaml
+  - fields/gpio/gpio_l5_u5.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
+  - fields/octospi/u5.yaml
+  - fields/pwr/pwr_u5.yaml
+  - fields/rcc/rcc_u5.yaml

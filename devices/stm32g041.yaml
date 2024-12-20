@@ -30,18 +30,18 @@ ADC:
       - AWD3CH
   _include:
     - patches/adc/g0.yaml
-    - ../peripherals/adc/c0_g0_wl.yaml
+    - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 AES:
   _include:
     - patches/aes/fields.yaml
-    - ../peripherals/aes/v2.yaml
+    - fields/aes/v2.yaml
 
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
-    - ../peripherals/exti/exti_g0.yaml
+    - fields/exti/exti_g0.yaml
   _delete:
     _interrupts:
       # in v1.5 the PVD interrupt was moved to PWR
@@ -57,9 +57,9 @@ EXTI:
 RCC:
   _include:
     - patches/rcc/g0.yaml
-    - ../peripherals/rcc/rcc_g0.yaml
-    - ../peripherals/rcc/rcc_g0x1.yaml
-    - ../peripherals/rcc/rcc_g0x1_aes.yaml
+    - fields/rcc/rcc_g0.yaml
+    - fields/rcc/rcc_g0x1.yaml
+    - fields/rcc/rcc_g0x1_aes.yaml
 
 SPI?:
   _include:
@@ -67,7 +67,7 @@ SPI?:
     - patches/spi/dr8.yaml
 
 SYSCFG:
-  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
+  _include: fields/syscfg/syscfg_g0_usart2.yaml
 
 TIM2:
   _include: patches/tim/tim2_common_32bit.yaml
@@ -81,37 +81,37 @@ VREFBUF:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg_v2.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_5ch_only.yaml
-  - ../peripherals/dma/dma_v1.yaml
+  - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
-  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
   - patches/i2c/g0.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
+  - fields/i2c/i2c_v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/spi/g0_rename_registers.yaml
-  - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
+  - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
   - patches/tim/g0_tim1_ccmr_input.yaml
   - patches/tim/v2/g0_1.yaml
   - patches/tim/common.yaml
-  - ../peripherals/tim/v2/ccm_common.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim_advanced.yaml
+  - fields/tim/v2/ccm_common.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim_advanced.yaml
   - collect/tim/ccr.yaml
   - patches/usart/g0.yaml
-  - ../peripherals/usart/usart_v2C.yaml
-  - ../peripherals/usart/usart_wl.yaml
+  - fields/usart/usart_v2C.yaml
+  - fields/usart/usart_wl.yaml
