@@ -1,5 +1,15 @@
 _svd: ../svd/stm32f0x2.svd
 
+# TIM3 is 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 RCC:
   APB1RSTR:
     _add:
@@ -24,16 +34,6 @@ DMA1:
       DMA1_CH4_5_6_7:
         description: "DMA channel 4, 5, 6 and 7 interrupts"
         value: 11
-
-# TIM3 is 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include:

@@ -10,15 +10,24 @@ _copy:
   ADC3:
     from: ADC2
 
-ADC1:
-  _include:
-    - patches/adc/smpx_17.yaml
-
 _derive:
   TIM4: TIM2
   TIM5: TIM2
   TIM10: TIM13
   TIM11: TIM13
+
+_add:
+  USART3:
+    derivedFrom: USART1
+    baseAddress: "0x40004800"
+    interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+
+ADC1:
+  _include:
+    - patches/adc/smpx_17.yaml
 
 AFIO:
   _include:
@@ -29,6 +38,19 @@ EXTI:
   _include:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+I2C?:
+  _include:
+    - patches/i2c/v1.yaml
+    - fields/i2c/i2c_v1.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+MPU:
+  _strip: MPU_
 
 RCC:
   APB1RSTR:
@@ -76,25 +98,6 @@ RCC:
         bitOffset: 2
         bitWidth: 1
 
-_add:
-  USART3:
-    derivedFrom: USART1
-    baseAddress: "0x40004800"
-    interrupts:
-      USART3:
-        description: USART3 global interrupt
-        value: 39
-
-I2C?:
-  _include:
-    - patches/i2c/v1.yaml
-    - fields/i2c/i2c_v1.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
-
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -109,9 +112,6 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
-
-MPU:
-  _strip: MPU_
 
 _include:
   - patches/bkp/bkp.yaml

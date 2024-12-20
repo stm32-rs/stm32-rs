@@ -17,6 +17,10 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
+DBG:
+  APB_FZ1:
+    _delete: DBG_TIM2_STOP
+
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
@@ -27,36 +31,10 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
-
-TIM3:
-  _delete:
-    _interrupts: TIM2
-  _include: patches/tim/tim_4ch_16bit_l.yaml
-
-VREFBUF:
-  _strip: VREFBUF_
-
-SYSCFG:
-  _include: fields/syscfg/syscfg_g0_usart2.yaml
-  _delete:
-    - ITLINE8
-    - ITLINE17
-    - ITLINE18
-    - ITLINE20
-    - ITLINE29
-  ITLINE16:
-    _delete: TIM4
-  ITLINE24:
-    _delete: I2C3
-  ITLINE26:
-    _delete: SPI3
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 RCC:
   _include:
@@ -89,14 +67,36 @@ RCC:
       - TIM15SEL
       - USART3SEL
 
-DBG:
-  APB_FZ1:
-    _delete: DBG_TIM2_STOP
+SYSCFG:
+  _include: fields/syscfg/syscfg_g0_usart2.yaml
+  _delete:
+    - ITLINE8
+    - ITLINE17
+    - ITLINE18
+    - ITLINE20
+    - ITLINE29
+  ITLINE16:
+    _delete: TIM4
+  ITLINE24:
+    _delete: I2C3
+  ITLINE26:
+    _delete: SPI3
 
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
+TIM1:
+  CCMR3_Output:
+    _modify:
+      OC5M_bit3:
+        name: OC5M_3
+      OC6M_bit3:
+        name: OC6M_3
+
+TIM3:
+  _delete:
+    _interrupts: TIM2
+  _include: patches/tim/tim_4ch_16bit_l.yaml
+
+VREFBUF:
+  _strip: VREFBUF_
 
 WWDG:
   _include:

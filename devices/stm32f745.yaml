@@ -49,6 +49,13 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+Ethernet_DMA:
+  DMABMR:
+    _modify:
+      # This field is named incorrectly in the SVD compared to the RM
+      RTPR:
+        name: PM
+
 Ethernet_MAC:
   MACFFR:
     _modify:
@@ -73,12 +80,12 @@ Ethernet_MAC:
       MBCA3L:
         name: MACA3L
 
-Ethernet_DMA:
-  DMABMR:
-    _modify:
-      # This field is named incorrectly in the SVD compared to the RM
-      RTPR:
-        name: PM
+CRC:
+  _modify:
+    INIT:
+      addressOffset: 0x10
+    POL:
+      addressOffset: 0x14
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -90,11 +97,16 @@ CRYP:
     _merge:
       - "IV*"
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 SYSCFG:
   "MEMRM,MEMRMP":
     _delete:
       - FB_MODE
-#
+
 #RCC:
 #  DCKCFGR1:
 #    _delete:
@@ -107,22 +119,10 @@ MPU:
 "OTG_HS_*":
   _strip: OTG_HS_
 
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
-
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

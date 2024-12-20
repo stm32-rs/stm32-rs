@@ -59,14 +59,21 @@ FLASH:
       RDPRT:
         name: RDPROT
 
-"SPI?,I2S?":
+IWDG:
   _include:
     - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      TIFRFE:
-        name: FRE
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
+
+PWR:
+  CR:
+    _add:
+      LPSDSR:
+        description: Low-power deepsleep/Sleep/Low-power run
+        bitOffset: 0
+        bitWidth: 1
 
 RCC:
   _modify:
@@ -99,6 +106,15 @@ RCC:
       TM12RST:
         name: TIM22RST
 
+"SPI?,I2S?":
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+
 SYSCFG:
   CFGR3:
     _add:
@@ -106,22 +122,6 @@ SYSCFG:
         description: VREFINT reference for HSI48 oscillator enable bit
         bitOffset: 13
         bitWidth: 1
-
-PWR:
-  CR:
-    _add:
-      LPSDSR:
-        description: Low-power deepsleep/Sleep/Low-power run
-        bitOffset: 0
-        bitWidth: 1
-
-MPU:
-  _strip: MPU_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

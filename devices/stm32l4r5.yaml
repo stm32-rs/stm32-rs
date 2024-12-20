@@ -1,56 +1,5 @@
 _svd: ../svd/stm32l4r5.svd
 
-# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
-RCC:
-  APB1ENR1:
-    _modify:
-      SP3EN:
-        name: SPI3EN
-        description: SPI peripheral 3 clock enable
-
-  AHB3ENR:
-    _add:
-      OSPI1EN:
-        description: OSPI1 memory interface clock enable
-        bitOffset: 8
-        bitWidth: 1
-
-  AHB3RSTR:
-    _add:
-      OSPI1RST:
-        description: OSPI1 memory interface reset
-        bitOffset: 8
-        bitWidth: 1
-
-  AHB3SMENR:
-    _add:
-      OSPI1SMEN:
-        description: OSPI1 memory interface clock enable during Sleep and Stop modes
-        bitOffset: 8
-        bitWidth: 1
-
-  CFGR:
-    _modify:
-      MCOSEL:
-        bitWidth: 4
-
-  _add:
-    DLYCFGR:
-      description: Delay configuration register
-      addressOffset: 0xA4
-      size: 0x20
-      resetValue: 0x00000000
-      access: read-write
-      fields:
-        OCTOSPI1_DLY:
-          description: Delay sampling configuration on OCTOSPI1
-          bitOffset: 0
-          bitWidth: 4
-        OCTOSPI2_DLY:
-          description: Delay sampling configuration on OCTOSPI2
-          bitOffset: 4
-          bitWidth: 4
-
 _modify:
   ADC:
     name: ADC1
@@ -61,6 +10,11 @@ _copy:
 
 _derive:
   TIM4: TIM3
+
+ADC1:
+  _delete:
+    _interrupts:
+      - ADC3
 
 AES:
   _include:
@@ -83,34 +37,47 @@ DFSDM1:
       addressOffset: 0xF0
       description: CH7DATINR
 
-MPU:
-  _strip: MPU_
-
-ADC1:
-  _delete:
-    _interrupts:
-      - ADC3
-
-SPI?:
+IWDG:
   _include:
     - patches/16bit.yaml
-    - patches/spi/dr8.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
-TIM1:
-  _modify:
-    OR1:
-      description: "TIM1 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+  SR:
+    _add:
+      PEMPTY:
+        description: Program empty
+        bitOffset: 17
+        bitWidth: 1
+        access: read-write
+  ECCR:
+    _modify:
+      ADDR_ECC:
+        bitWidth: 21
+      BK_ECC:
+        bitOffset: 21
+      SYSF_ECC:
+        bitOffset: 22
 
-TIM8:
-  _modify:
-    OR1:
-      description: "TIM8 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
+  _add:
+    CFGR:
+      description: Flash configuration register
+      addressOffset: 0x130
+      resetValue: 0x00000000
+      size: 0x20
+      access: read-write
+      fields:
+        LVEN:
+          description: Low-voltage enable
+          bitOffset: 0
+          bitWidth: 1
+
+MPU:
+  _strip: MPU_
 
 PWR:
   _add:
@@ -170,44 +137,77 @@ PWR:
           bitOffset: 11
           bitWidth: 1
 
-FLASH:
-  ACR:
+# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
+RCC:
+  APB1ENR1:
     _modify:
-      LATENCY:
-        bitWidth: 4
-  SR:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+
+  AHB3ENR:
     _add:
-      PEMPTY:
-        description: Program empty
-        bitOffset: 17
+      OSPI1EN:
+        description: OSPI1 memory interface clock enable
+        bitOffset: 8
         bitWidth: 1
-        access: read-write
-  ECCR:
+
+  AHB3RSTR:
+    _add:
+      OSPI1RST:
+        description: OSPI1 memory interface reset
+        bitOffset: 8
+        bitWidth: 1
+
+  AHB3SMENR:
+    _add:
+      OSPI1SMEN:
+        description: OSPI1 memory interface clock enable during Sleep and Stop modes
+        bitOffset: 8
+        bitWidth: 1
+
+  CFGR:
     _modify:
-      ADDR_ECC:
-        bitWidth: 21
-      BK_ECC:
-        bitOffset: 21
-      SYSF_ECC:
-        bitOffset: 22
+      MCOSEL:
+        bitWidth: 4
 
   _add:
-    CFGR:
-      description: Flash configuration register
-      addressOffset: 0x130
-      resetValue: 0x00000000
+    DLYCFGR:
+      description: Delay configuration register
+      addressOffset: 0xA4
       size: 0x20
+      resetValue: 0x00000000
       access: read-write
       fields:
-        LVEN:
-          description: Low-voltage enable
+        OCTOSPI1_DLY:
+          description: Delay sampling configuration on OCTOSPI1
           bitOffset: 0
-          bitWidth: 1
+          bitWidth: 4
+        OCTOSPI2_DLY:
+          description: Delay sampling configuration on OCTOSPI2
+          bitOffset: 4
+          bitWidth: 4
 
-IWDG:
+SPI?:
   _include:
     - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
+    - patches/spi/dr8.yaml
+
+TIM1:
+  _modify:
+    OR1:
+      description: "TIM1 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+TIM8:
+  _modify:
+    OR1:
+      description: "TIM8 option register 1"
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
 
 WWDG:
   _include:

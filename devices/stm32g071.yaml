@@ -19,6 +19,21 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
+EXTI:
+  _include:
+    - patches/exti/exti_rename.yaml
+    - fields/exti/exti_g0.yaml
+  _delete:
+    - VERR
+    - IPIDR
+    - SIDR
+
+IWDG:
+  _modify:
+    "KR,PR,RLR,SR,WINR":
+      size: 16
+  _include: fields/iwdg/iwdg_with_WINR.yaml
+
 RCC:
   _include:
     - patches/rcc/g0.yaml
@@ -42,21 +57,6 @@ RCC:
     _delete:
       - RNGSEL
       - RNGDIV
-
-EXTI:
-  _include:
-    - patches/exti/exti_rename.yaml
-    - fields/exti/exti_g0.yaml
-  _delete:
-    - VERR
-    - IPIDR
-    - SIDR
-
-IWDG:
-  _modify:
-    "KR,PR,RLR,SR,WINR":
-      size: 16
-  _include: fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include: patches/spi/dr8.yaml

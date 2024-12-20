@@ -26,69 +26,6 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-
-# All of these fields and registers only concern Ethernet.
-# They are present in the SVD for stm32f405, but the stm32f405
-# doesn't actually have ethernet.
-RCC:
-  AHB1ENR:
-    _delete:
-      - ETHMACPTPEN
-      - ETHMACRXEN
-      - ETHMACTXEN
-      - ETHMACEN
-  AHB1LPENR:
-    _delete:
-      - ETHMACPTPLPEN
-      - ETHMACRXLPEN
-      - ETHMACTXLPEN
-      - ETHMACLPEN
-  AHB1RSTR:
-    _delete:
-      - ETHMACRST
-SYSCFG:
-  # The PMC register is used to configure MII or RMII mode
-  # for ethernet, which stm32f405 doesn't have.
-  _delete: PMC
-  _include:
-    - patches/syscfg/f4_common.yaml
-    - fields/syscfg/f4/syscfg_f405.yaml
-
-# We need to patch ITR1_RMP because it contains a
-# PTP variant, but stm32f405 doesn't have PTP.
-TIM2:
-  OR:
-    ITR1_RMP:
-      _replace_enum:
-        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
-        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
-        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0090
-      TIFRFE:
-        name: FRE
-
-"TIM1[01]":
-  CR1:
-    _add:
-      # This field is missing from TIM10 and TIM11 compared to RM0090
-      OPM:
-        description: One-pulse mode
-        bitOffset: 3
-        bitWidth: 1
-        access: read-write
-
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -105,6 +42,12 @@ CRYP:
   "IV[01][LR]R":
     _merge:
       - "IV*"
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
 
 FSMC:
   _modify:
@@ -134,8 +77,66 @@ PWR:
         bitOffset: 14
         bitWidth: 1
 
+# All of these fields and registers only concern Ethernet.
+# They are present in the SVD for stm32f405, but the stm32f405
+# doesn't actually have ethernet.
+RCC:
+  AHB1ENR:
+    _delete:
+      - ETHMACPTPEN
+      - ETHMACRXEN
+      - ETHMACTXEN
+      - ETHMACEN
+  AHB1LPENR:
+    _delete:
+      - ETHMACPTPLPEN
+      - ETHMACRXLPEN
+      - ETHMACTXLPEN
+      - ETHMACLPEN
+  AHB1RSTR:
+    _delete:
+      - ETHMACRST
+
 RNG:
   _include: fields/rng/rng_f4.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0090
+      TIFRFE:
+        name: FRE
+
+SYSCFG:
+  # The PMC register is used to configure MII or RMII mode
+  # for ethernet, which stm32f405 doesn't have.
+  _delete: PMC
+  _include:
+    - patches/syscfg/f4_common.yaml
+    - fields/syscfg/f4/syscfg_f405.yaml
+
+# We need to patch ITR1_RMP because it contains a
+# PTP variant, but stm32f405 doesn't have PTP.
+TIM2:
+  OR:
+    ITR1_RMP:
+      _replace_enum:
+        TIM8_TRGOUT: [0, "TIM8 trigger output is connected to TIM2_ITR1 input"]
+        OTG_FS_SOF: [2, "OTG FS SOF is connected to the TIM2_ITR1 input"]
+        OTG_HS_SOF: [3, "OTG HS SOF is connected to the TIM2_ITR1 input"]
+
+"TIM1[01]":
+  CR1:
+    _add:
+      # This field is missing from TIM10 and TIM11 compared to RM0090
+      OPM:
+        description: One-pulse mode
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
 
 WWDG:
   _include:

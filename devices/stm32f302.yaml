@@ -1,5 +1,18 @@
 _svd: ../svd/stm32f302.svd
 
+_delete:
+  - ADC3
+  - ADC4
+  - ADC3_4
+
+# TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
+_derive:
+  TIM4: TIM3
+
 _modify:
   # Rename in accordance with other devices and reference manual.
   Flash:
@@ -12,6 +25,11 @@ _modify:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include:
@@ -87,29 +105,11 @@ SYSCFG:
     _delete:
       - TIM7_DAC2_DMA_RMP
 
-_delete:
-  - ADC3
-  - ADC4
-  - ADC3_4
-
-# TIM3, TIM4 are 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-
-_derive:
-  TIM4: TIM3
-
 TIM3:
   CNT:
     _modify:
       CNT_or_UIFCPY:
         name: UIFCPY
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

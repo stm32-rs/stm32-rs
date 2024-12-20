@@ -43,6 +43,11 @@ EXTI:
       # but for this part they forgot to remove it from EXTI
       - PVD
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 "LPTIM*":
   _strip: LPTIM_
 
@@ -80,11 +85,6 @@ TIM3:
 
 VREFBUF:
   _strip: VREFBUF_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

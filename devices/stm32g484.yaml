@@ -16,14 +16,6 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
-VREFBUF:
-  _strip: VREFBUF_
-
 QUADSPI:
   CCR:
     _add:
@@ -34,6 +26,14 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
+VREFBUF:
+  _strip: VREFBUF_
 
 UCPD1:
   _include:

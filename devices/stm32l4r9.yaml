@@ -1,20 +1,5 @@
 _svd: ../svd/stm32l4r9.svd
 
-DSI:
-  _strip: DSI_
-  _modify:
-    _interrupts:
-      DSIHSOT:
-        name: DSIHOST
-
-# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
-RCC:
-  APB1ENR1:
-    _modify:
-      SP3EN:
-        name: SPI3EN
-        description: SPI peripheral 3 clock enable
-
 _modify:
   ADC:
     name: ADC1
@@ -32,18 +17,33 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
-MPU:
-  _strip: MPU_
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
+DSI:
+  _strip: DSI_
+  _modify:
+    _interrupts:
+      DSIHSOT:
+        name: DSIHOST
 
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
+
+# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
+RCC:
+  APB1ENR1:
+    _modify:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 WWDG:
   _include:

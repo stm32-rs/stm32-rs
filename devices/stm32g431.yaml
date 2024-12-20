@@ -1,15 +1,20 @@
 _svd: ../svd/stm32g431.svd
 
-COMP:
-  _strip: COMP_
-
 AES:
   _include:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+COMP:
+  _strip: COMP_
+
 DAC?:
   _strip: DAC_
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include:
@@ -25,11 +30,6 @@ UCPD1:
 
 VREFBUF:
   _strip: VREFBUF_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

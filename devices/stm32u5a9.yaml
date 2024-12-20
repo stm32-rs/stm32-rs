@@ -8,6 +8,9 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+DSI:
+  _strip: DSI_
+
 GFXMMU:
   _strip: GFXMMU_
 
@@ -24,9 +27,6 @@ IWDG:
 
 LTDC:
   _strip: LTDC_
-
-DSI:
-  _strip: DSI_
 
 MDF1:
   _strip: MDF_

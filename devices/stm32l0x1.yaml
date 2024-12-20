@@ -26,6 +26,11 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 FLASH:
   _modify:
     OBR:
@@ -45,14 +50,17 @@ FLASH:
       RDPRT:
         name: RDPROT
 
-"SPI?,I2S?":
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      TIFRFE:
-        name: FRE
+PWR:
+  CR:
+    # LPDS only exists in the L0x1 family
+    LPDS:
+      MAIN_MODE:
+        [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
+      LOW_POWER_MODE:
+        [
+          1,
+          "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)",
+        ]
 
 RCC:
   _modify:
@@ -89,29 +97,21 @@ RCC:
       TIM3EN:
         bitOffset: 1
 
+"SPI?,I2S?":
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+
 SYSCFG:
   _modify:
     COMP1_CTRL:
       name: COMP1_CSR
     COMP2_CTRL:
       name: COMP2_CSR
-
-PWR:
-  CR:
-    # LPDS only exists in the L0x1 family
-    LPDS:
-      MAIN_MODE:
-        [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
-      LOW_POWER_MODE:
-        [
-          1,
-          "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)",
-        ]
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

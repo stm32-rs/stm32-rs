@@ -8,6 +8,12 @@ _derive:
     _from: TIM1
     baseAddress: 0x40015000
 
+COMP:
+  _strip: COMP_
+
+DAC?:
+  _strip: DAC_
+
 FDCAN2:
   _add:
     _interrupts:
@@ -17,6 +23,11 @@ FDCAN2:
       FDCAN2_intr1:
         description: FDCAN2_intr1
         value: 87
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 OPAMP:
   _copy:
@@ -28,12 +39,6 @@ OPAMP:
       _from: OPAMP1_TCMR
       addressOffset: 0x2C
       description: OPAMP6 control/status register
-
-COMP:
-  _strip: COMP_
-
-DAC?:
-  _strip: DAC_
 
 SPI?:
   _include:
@@ -49,11 +54,6 @@ UCPD1:
 
 VREFBUF:
   _strip: VREFBUF_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

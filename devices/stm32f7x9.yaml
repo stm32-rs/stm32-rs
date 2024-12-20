@@ -151,9 +151,6 @@ _add:
             bitOffset: 0
             bitWidth: 16
 
-DSI:
-  _strip: DSI_
-
 _modify:
   # Fix typo in the name of the LTDC peripheral
   LTCD:
@@ -165,26 +162,32 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-"GPIO*":
+CRC:
   _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
+    INIT:
+      addressOffset: 0x10
+    POL:
+      addressOffset: 0x14
 
-FLASH:
-  OPTKEYR:
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - "b*"
+  "IV[01][LR]R":
+    _merge:
+      - "IV*"
+
+DSI:
+  _strip: DSI_
+
+Ethernet_DMA:
+  DMABMR:
     _modify:
-      OPTKEY:
-        name: OPTKEYR
-
-RCC:
-  PLLCFGR:
-    _add:
-      PLLR:
-        description: PLL division factor for DSI clock
-        bitOffset: 28
-        bitWidth: 3
-        access: read-write
+      # This field is named incorrectly in the SVD compared to the RM
+      RTPR:
+        name: PM
 
 Ethernet_MAC:
   MACFFR:
@@ -210,27 +213,30 @@ Ethernet_MAC:
       MBCA3L:
         name: MACA3L
 
-Ethernet_DMA:
-  DMABMR:
-    _modify:
-      # This field is named incorrectly in the SVD compared to the RM
-      RTPR:
-        name: PM
-
 EXTI:
   _include:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
-CRYP:
-  "K[0123][LR]R":
-    _merge:
-      - "b*"
-  "IV[01][LR]R":
-    _merge:
-      - "IV*"
+FLASH:
+  OPTKEYR:
+    _modify:
+      OPTKEY:
+        name: OPTKEYR
+
+"GPIO*":
+  _modify:
+    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
+    GPIOB_OSPEEDR:
+      name: OSPEEDR
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+JPEG:
+  _strip: JPEG_
 
 LTDC:
   _add:
@@ -239,6 +245,34 @@ LTDC:
         description: LCD-TFT global error interrupt
         value: 89
 
+MDIOS:
+  _strip: MDIOS_
+
+MPU:
+  _strip: MPU_
+
+"OTG_HS_*":
+  _strip: OTG_HS_
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+RCC:
+  PLLCFGR:
+    _add:
+      PLLR:
+        description: PLL division factor for DSI clock
+        bitOffset: 28
+        bitWidth: 3
+        access: read-write
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
 TIM[1-58],TIM12:
   SMCR:
     _add:
@@ -246,40 +280,6 @@ TIM[1-58],TIM12:
         description: Slave mode selection - bit 3
         bitOffset: 16
         bitWidth: 1
-
-MDIOS:
-  _strip: MDIOS_
-
-MPU:
-  _strip: MPU_
-
-JPEG:
-  _strip: JPEG_
-
-"OTG_HS_*":
-  _strip: OTG_HS_
-
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
-
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

@@ -3,6 +3,46 @@ _svd: ../svd/stm32l4x1.svd
 _derive:
   USART3: USART1
 
+_modify:
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+
+_add:
+  ADC2:
+    derivedFrom: ADC1
+    baseAddress: "0x50040100"
+
+# TIM3 is 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+
+ADC1:
+  _modify:
+    _interrupts:
+      ADC1:
+        name: ADC1_2
+
+AES:
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
+    - fields/aes/v2.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+MPU:
+  _strip: MPU_
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
+
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
 # SVD incorrectly shifts CRCRST 11 bits instead of 12
@@ -45,50 +85,10 @@ RCC:
         bitWidth: 1
         access: read-write
 
-_modify:
-  # The SVD calls ADC1 ADC.
-  ADC:
-    name: ADC1
-
-ADC1:
-  _modify:
-    _interrupts:
-      ADC1:
-        name: ADC1_2
-
-_add:
-  ADC2:
-    derivedFrom: ADC1
-    baseAddress: "0x50040100"
-
-# TIM3 is 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-
-AES:
-  _include:
-    - patches/aes/fields.yaml
-    - patches/aes/l4.yaml
-    - fields/aes/v2.yaml
-
-MPU:
-  _strip: MPU_
-
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
-
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

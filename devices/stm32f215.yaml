@@ -28,6 +28,11 @@ I2C?:
     - patches/i2c/v1.yaml
     - fields/i2c/i2c_v1.yaml
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
 MPU:
   _strip: MPU_
 
@@ -35,11 +40,6 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg.yaml
 
 WWDG:
   _include:

@@ -51,6 +51,11 @@ EXTI:
     IMR2:
       resetValue: "0xFFFFFFFE"
 
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 PWR:
   _add:
     _interrupts:
@@ -98,11 +103,6 @@ TIM1:
         name: OC5M_3
       OC6M3:
         name: OC6M_3
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

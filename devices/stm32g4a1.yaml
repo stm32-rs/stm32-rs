@@ -13,6 +13,17 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+COMP:
+  _strip: COMP_
+
+DAC?:
+  _strip: DAC_
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
 FDCAN2:
   _add:
     _interrupts:
@@ -34,12 +45,6 @@ OPAMP:
       addressOffset: 0x2C
       description: OPAMP6 control/status register
 
-COMP:
-  _strip: COMP_
-
-DAC?:
-  _strip: DAC_
-
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -54,11 +59,6 @@ UCPD1:
 
 VREFBUF:
   _strip: VREFBUF_
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:

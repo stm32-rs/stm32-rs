@@ -8,13 +8,13 @@ GTZC1_MPCBB?:
 GTZC1_TZSC:
   _strip: TZSC_
 
+IWDG:
+  _include: patches/16bit.yaml
+
 MDF1:
   _strip: MDF_
   _include:
     - collect/mdf/u5.yaml
-
-SDMMC:
-  _strip: SDMMC_
 
 PWR:
   _delete: [PUCRF, PUCRI, PUCRJ]
@@ -27,11 +27,11 @@ PWR:
   CR4:
     _delete: SRAM5PDS*
 
+SDMMC:
+  _strip: SDMMC_
+
 SPI?:
   _include: patches/spi/rxtxdr.yaml
-
-IWDG:
-  _include: patches/16bit.yaml
 
 WWDG:
   _include: patches/16bit.yaml

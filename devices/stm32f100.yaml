@@ -23,6 +23,14 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
+MPU:
+  _strip: MPU_
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -32,14 +40,6 @@ WWDG:
     _modify:
       EWI:
         name: EWIF
-
-MPU:
-  _strip: MPU_
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
 
 _include:
   - patches/rcc/f1_uart45.yaml
