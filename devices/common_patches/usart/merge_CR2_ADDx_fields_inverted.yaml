@@ -3,9 +3,9 @@
 "USART*":
   CR2:
     _modify:
-      "ADD3_0":
+      ADD3_0:
         name: ADD0
-      "ADD7_4":
+      ADD7_4:
         name: ADD4
     _merge:
       - "ADD[04]"

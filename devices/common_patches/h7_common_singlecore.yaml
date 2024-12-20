@@ -255,7 +255,7 @@ _modify:
 FLASH:
   _modify:
     PRAR_PRG2:
-      addressOffset: "0x12C"
+      addressOffset: 0x12C
       alternateRegister: ""
     KEYR[12]:
       access: write-only

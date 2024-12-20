@@ -17,14 +17,14 @@ OTG_HS_HOST,OTG1_HS_HOST:
 
 OTG_HS_DEVICE,OTG1_HS_DEVICE:
   _cluster:
-    "DIEP0":
+    DIEP0:
       description: Device IN endpoint 0
       DIEPCTL[0]: { name: CTL }
       DIEPINT[0]: { name: INT }
       DIEPTSIZ[0]: { name: TSIZ }
       DIEPDMA[0]: { name: DMA }
       DTXFSTS[0]: { name: TXFSTS }
-    "DOEP0":
+    DOEP0:
       description: Device OUT endpoint 0
       DOEPCTL[0]: { name: CTL }
       DOEPINT[0]: { name: INT }

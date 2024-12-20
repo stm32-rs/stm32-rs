@@ -41,7 +41,7 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 VREFBUF:
-  _strip: "VREFBUF_"
+  _strip: VREFBUF_
 
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml

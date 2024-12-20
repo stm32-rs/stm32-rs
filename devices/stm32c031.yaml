@@ -59,7 +59,7 @@ TIM[13]:
 TIM3:
   _modify:
     CNT_alternate:
-      name: "CNT_remap"
+      name: CNT_remap
 
 IWDG:
   _include: common_patches/16bit_with_mask.yaml

@@ -130,14 +130,14 @@ BMTRGR:
   "MSTCMP[1-4]":
     NoEffect: [0, "Master timer compare X event has no effect"]
     Trigger: [1, "Master timer compare X event triggers a burst mode entry"]
-  "MSTREP":
+  MSTREP:
     NoEffect: [0, "Master timer repetition event has no effect"]
     Trigger: [1, "Master timer repetition event triggers a burst mode entry"]
-  "MSTRST":
+  MSTRST:
     NoEffect: [0, "Master timer reset/roll-over event has no effect"]
     Trigger:
       [1, "Master timer reset/roll-over event triggers a burst mode entry"]
-  "SW":
+  SW:
     NoEffect: [0, "No effect"]
     Trigger: [1, "Trigger immediate burst mode operation"]
 BMCMPR:

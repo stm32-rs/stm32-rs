@@ -1,6 +1,6 @@
 _svd: ../svd/stm32h7r.svd
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 IWDG:
   _include: common_patches/16bit_with_mask.yaml

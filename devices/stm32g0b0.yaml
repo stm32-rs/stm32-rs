@@ -3,7 +3,7 @@ _svd: ../svd/stm32g0b0.svd
 _modify:
   name: STM32G0B0
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 ADC:
   _include:
@@ -45,7 +45,7 @@ TIM1,TIM15:
         name: OC1M_3
 
 USB:
-  _strip: "USB_"
+  _strip: USB_
   CNTR:
     _modify:
       L1RES:
@@ -70,7 +70,7 @@ SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
 
 VREFBUF:
-  _strip: "VREFBUF_"
+  _strip: VREFBUF_
 
 WWDG:
   _include:

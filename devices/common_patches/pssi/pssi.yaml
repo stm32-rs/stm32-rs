@@ -6,7 +6,7 @@ _add:
     addressBlock:
       offset: 0x0
       size: 0x400
-      usage: "registers"
+      usage: registers
 
     registers:
       CR:
@@ -14,7 +14,7 @@ _add:
         addressOffset: 0x0
         size: 0x20
         access: read-write
-        resetValue:  0x40000000
+        resetValue: 0x40000000
         fields:
           OUTEN:
             description: Data direction selection bit

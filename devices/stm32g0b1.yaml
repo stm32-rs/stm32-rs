@@ -3,7 +3,7 @@ _svd: ../svd/stm32g0b1.svd
 _modify:
   name: STM32G0B1
 
-_clear_fields: ["*"]
+_clear_fields: "*"
 
 _copy:
   TIM3:
@@ -24,8 +24,8 @@ EXTI:
     - common_patches/exti/exti_rename.yaml
     - ../peripherals/exti/exti_g0.yaml
 
-"FDCAN?":
-  _strip: "FDCAN_"
+FDCAN?:
+  _strip: FDCAN_
 
 IWDG:
   _include:
@@ -67,7 +67,7 @@ TIM3:
   _include: common_patches/tim/tim_4ch_16bit_l.yaml
 
 "UCPD*":
-  _strip: "UCPD_"
+  _strip: UCPD_
 
 UCPD?:
   _include:
@@ -75,7 +75,7 @@ UCPD?:
     - ../peripherals/ucpd/ucpd_v2.yaml
 
 USB:
-  _strip: "USB_"
+  _strip: USB_
 
 WWDG:
   _include:

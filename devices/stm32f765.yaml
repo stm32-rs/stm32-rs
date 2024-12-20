@@ -33,7 +33,7 @@ SPI?:
     _modify:
       # This field has the wrong name in the SVD compared to RM0410
       "[_]FRE":
-        name: "FRE"
+        name: FRE
 
 "GPIO*":
   _modify:
@@ -120,9 +120,9 @@ JPEG:
 CRC:
   _modify:
     INIT:
-      addressOffset: "0x10"
+      addressOffset: 0x10
     POL:
-      addressOffset: "0x14"
+      addressOffset: 0x14
 
 QUADSPI:
   _include:

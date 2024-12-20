@@ -1,4 +1,4 @@
-"HSEM":
+HSEM:
   "R[0-9],R1[0-5]":
     LOCK:
       _read:
@@ -25,8 +25,16 @@
       _read:
         NoEffect: [0, "Always reads 0"]
       _write:
-        NoEffect: [0, "Interrupt semaphore x status ISFx and masked status MISFx not affected"]
-        Clear: [1, "Interrupt semaphore x status ISFx and masked status MISFx cleared"]
+        NoEffect:
+          [
+            0,
+            "Interrupt semaphore x status ISFx and masked status MISFx not affected",
+          ]
+        Clear:
+          [
+            1,
+            "Interrupt semaphore x status ISFx and masked status MISFx cleared",
+          ]
   C?ISR:
     "ISF[0-9],ISF1[0-5]":
       NotPending: [0, "No interrupt pending"]

@@ -438,7 +438,7 @@ DMA1:
 RCC:
   _delete:
     - ICSCR
-  _strip: "C1_"
+  _strip: C1_
   _modify:
     CIFR:
       access: read-only

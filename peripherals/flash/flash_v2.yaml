@@ -1,4 +1,4 @@
-"FLASH":
+FLASH:
   SR:
     BSY:
       _read:
@@ -74,7 +74,7 @@
       PSIZE16: [1, "Program x16"]
       PSIZE32: [2, "Program x32"]
       PSIZE64: [3, "Program x64"]
-    SNB: [0, 11]            # TODO: this depends on device
+    SNB: [0, 11] # TODO: this depends on device
     MER:
       MassErase: [1, "Erase activated for all user sectors"]
     SER:
