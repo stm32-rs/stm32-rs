@@ -3,12 +3,12 @@ _svd: ../svd/stm32h735.svd
 IWDG1:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG1:
   _include:
     - patches/wwdg/h7.yaml
-    - ../peripherals/wwdg/wwdg_v2.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -937,7 +937,7 @@ DBGMCU:
 # -----------------------------------------------------------------------------
 
 _include:
-  - ../peripherals/hdmi_cec.yaml
+  - fields/hdmi_cec.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_735.yaml
   - patches/h7_common_singlecore.yaml
@@ -950,15 +950,15 @@ _include:
   - patches/dma/bdma_v2_new.yaml
   - patches/dma/h7_dmacr.yaml
   - patches/dma/h7_dmamux.yaml
-  - ../peripherals/dma/bdma.yaml
-  - ../peripherals/dma/dma_v3.yaml
-  - ../peripherals/dma/dmamux_v1.yaml
+  - fields/dma/bdma.yaml
+  - fields/dma/dma_v3.yaml
+  - fields/dma/dmamux_v1.yaml
   - collect/dma/h7_dmamux.yaml
   - collect/dma/st.yaml
   - collect/dma/bdma.yaml
   - collect/dma/mdma.yaml
   - patches/dma/dma2d_v2.yaml
-  - ../peripherals/dma/dma2d_v2.yaml
+  - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
   - patches/adc/h7.yaml
   - patches/adc/h7_boost_rev_v.yaml
@@ -966,7 +966,7 @@ _include:
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
   - patches/sai/sai_v1.yaml
-  - ../peripherals/sai/sai.yaml
+  - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - patches/dfsdm/h735_747_753.yaml
@@ -983,50 +983,50 @@ _include:
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/tim/tim_o24ce.yaml
-  - ../peripherals/adc/adc_v3_h7.yaml
-  - ../peripherals/adc/adc_v3_common_h7.yaml
-  - ../peripherals/adc/adc_h7_revision_v.yaml
-  - ../peripherals/axi/axi_v1.yaml
+  - fields/adc/adc_v3_h7.yaml
+  - fields/adc/adc_v3_common_h7.yaml
+  - fields/adc/adc_h7_revision_v.yaml
+  - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_idr_32bit.yaml
-  - ../peripherals/crc/crc_pol.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_32bit.yaml
+  - fields/crc/crc_pol.yaml
   - patches/gpio/h7_jk.yaml
-  - ../peripherals/gpio/v2/common.yaml
+  - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/lptim/lptim_v1.yaml
+  - fields/lptim/lptim_v1.yaml
   - patches/ltdc/ltdc.yaml
-  - ../peripherals/ltdc/ltdc.yaml
+  - fields/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
-  - ../peripherals/rcc/rcc_h7.yaml
-  - ../peripherals/rcc/rcc_h7_revision_v.yaml
+  - fields/rcc/rcc_h7.yaml
+  - fields/rcc/rcc_h7_revision_v.yaml
   - patches/rng/h735.yaml
-  - ../peripherals/rng/rng_wl.yaml
-  - ../peripherals/rng/rng_v1.yaml
-  - ../peripherals/rng/rng_v1_ced.yaml
-  - ../peripherals/spi/spi_v3_base.yaml
-  - ../peripherals/spi/spi_v3_tser.yaml
-  - ../peripherals/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+  - fields/rng/rng_wl.yaml
+  - fields/rng/rng_v1.yaml
+  - fields/rng/rng_v1_ced.yaml
+  - fields/spi/spi_v3_base.yaml
+  - fields/spi/spi_v3_tser.yaml
+  - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - patches/tim/v2/h7.yaml
   - patches/tim/common.yaml
   - patches/tim/tim2345_mixed_l.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim16.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim2345_mixed.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/tim_h7.yaml
-  - ../peripherals/tim/v2/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim16.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim2345_mixed.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/tim_h7.yaml
+  - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/exti/exti_h7.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/usart/usart_v2B1.yaml
+  - fields/exti/exti_h7.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
-  - ../peripherals/rtc/rtc_common.yaml
-  - ../peripherals/rtc/rtc_h7.yaml
+  - fields/rtc/rtc_common.yaml
+  - fields/rtc/rtc_h7.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
-  - ../peripherals/cordic/cordic_h7.yaml
+  - fields/cordic/cordic_h7.yaml

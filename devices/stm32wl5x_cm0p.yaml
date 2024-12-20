@@ -9,7 +9,7 @@ ADC:
   _strip: ADC_
   _include:
     - patches/adc/wl.yaml
-    - ../peripherals/adc/c0_g0_wl.yaml
+    - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 AES:
@@ -19,7 +19,7 @@ AES:
         name: CHMOD
   _include:
     - patches/aes/fields.yaml
-    - ../peripherals/aes/v2.yaml
+    - fields/aes/v2.yaml
 
 DAC:
   CR:
@@ -37,8 +37,8 @@ IPCC:
 
 RCC:
   _include:
-    - ../peripherals/rcc/rcc_wl.yaml
-    - ../peripherals/rcc/rcc_wx_c2.yaml
+    - fields/rcc/rcc_wl.yaml
+    - fields/rcc/rcc_wx_c2.yaml
 
 SPI?:
   _include:
@@ -77,13 +77,13 @@ IWDG:
     - WINR
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg.yaml
-    - ../peripherals/iwdg/iwdg_sr.yaml
+    - fields/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg_sr.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
 
 # Rename this so it has the same name as all other STM32 USARTs
 LPUART,USART?:
@@ -130,45 +130,45 @@ _include:
   - ../devices/patches/usart/merge_CR2_ABRMODx_fields.yaml
   - ../devices/patches/usart/rename_CR1_M0_field.yaml
   - ../devices/patches/usart/rename_CR3_SCARCNT_field.yaml
-  - ../peripherals/comp/comp_wl.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_pol.yaml
-  - ../peripherals/dac/dac_wl.yaml
-  - ../peripherals/dac/dac_wl_12bit.yaml
-  - ../peripherals/dac/dac_wl_8bit.yaml
-  - ../peripherals/dma/dma_wl.yaml
-  - ../peripherals/dma/dmamux_wl.yaml
+  - fields/comp/comp_wl.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_pol.yaml
+  - fields/dac/dac_wl.yaml
+  - fields/dac/dac_wl_12bit.yaml
+  - fields/dac/dac_wl_8bit.yaml
+  - fields/dma/dma_wl.yaml
+  - fields/dma/dmamux_wl.yaml
   - collect/dma/dmamux.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/flash/flash_wl.yaml
-  - ../peripherals/flash/flash_wl_c2.yaml
-  - ../peripherals/gpio/gpio_wl.yaml
-  - ../peripherals/hsem/hsem_wl.yaml
+  - fields/exti/exti.yaml
+  - fields/flash/flash_wl.yaml
+  - fields/flash/flash_wl_c2.yaml
+  - fields/gpio/gpio_wl.yaml
+  - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml
-  - ../peripherals/ipcc/ipcc_wl.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/lptim/lptim_v1.yaml
-  - ../peripherals/lptim/lptim_wl.yaml
-  - ../peripherals/usart/lpuart_wl.yaml
-  - ../peripherals/pka/pka.yaml
-  - ../peripherals/pwr/pwr_wl.yaml
-  - ../peripherals/pwr/pwr_wl_c2.yaml
+  - fields/ipcc/ipcc_wl.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/lptim/lptim_v1.yaml
+  - fields/lptim/lptim_wl.yaml
+  - fields/usart/lpuart_wl.yaml
+  - fields/pka/pka.yaml
+  - fields/pwr/pwr_wl.yaml
+  - fields/pwr/pwr_wl_c2.yaml
   - patches/rtc/wl.yaml
-  - ../peripherals/rtc/rtc_wl.yaml
-  - ../peripherals/tamp/tamp_wl.yaml
+  - fields/rtc/rtc_wl.yaml
+  - fields/tamp/tamp_wl.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
-  - ../peripherals/rng/rng_wl.yaml
-  - ../peripherals/spi/spi_v2.yaml
-  - ../peripherals/syscfg/syscfg_wl.yaml
+  - fields/rng/rng_wl.yaml
+  - fields/spi/spi_v2.yaml
+  - fields/syscfg/syscfg_wl.yaml
   - patches/tim/tim2_32bit.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim12_common_wl.yaml
-  - ../peripherals/tim/tim1_wl.yaml
-  - ../peripherals/tim/tim2_wl.yaml
-  - ../peripherals/tim/tim16_wl.yaml
-  - ../peripherals/tim/v2/ccm_common.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim12_common_wl.yaml
+  - fields/tim/tim1_wl.yaml
+  - fields/tim/tim2_wl.yaml
+  - fields/tim/tim16_wl.yaml
+  - fields/tim/v2/ccm_common.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/usart/usart_v2C.yaml
-  - ../peripherals/usart/usart_wl.yaml
-  - ../peripherals/vrefbuf/vrefbuf_wl.yaml
+  - fields/usart/usart_v2C.yaml
+  - fields/usart/usart_wl.yaml
+  - fields/vrefbuf/vrefbuf_wl.yaml

@@ -38,7 +38,7 @@ ADC:
 AES:
   _include:
     - patches/aes/fields.yaml
-    - ../peripherals/aes/v1.yaml
+    - fields/aes/v1.yaml
 
 FLASH:
   _modify:
@@ -121,12 +121,12 @@ MPU:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - patches/flash/l0.yaml
@@ -149,43 +149,43 @@ _include:
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/unprefix_registers.yaml
   - patches/usb/rename_EPxR_EPTYPE_field.yaml
-  - ../peripherals/adc/adc_l0.yaml
+  - fields/adc/adc_l0.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
-  - ../peripherals/crc/crc_pol.yaml
-  - ../peripherals/dbg/dbg_l0.yaml
-  - ../peripherals/dac/dac_common_1ch.yaml
-  - ../peripherals/dac/dac_dmaudr.yaml
-  - ../peripherals/dma/dma_v1_with_remapping.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - fields/crc/crc_pol.yaml
+  - fields/dbg/dbg_l0.yaml
+  - fields/dac/dac_common_1ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - fields/dma/dma_v1_with_remapping.yaml
   - collect/dma/v1.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/flash/flash_l0.yaml
-  - ../peripherals/fw/fw_l0_l4.yaml
-  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - fields/exti/exti.yaml
+  - fields/flash/flash_l0.yaml
+  - fields/fw/fw_l0_l4.yaml
+  - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2r.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/lptim/lptim_v1.yaml
-  - ../peripherals/pwr/pwr_l0.yaml
-  - ../peripherals/rcc/rcc_l0_l1_common.yaml
-  - ../peripherals/rcc/rcc_l0.yaml
-  - ../peripherals/rtc/rtc_common.yaml
-  - ../peripherals/rtc/rtc_l0.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/lptim/lptim_v1.yaml
+  - fields/pwr/pwr_l0.yaml
+  - fields/rcc/rcc_l0_l1_common.yaml
+  - fields/rcc/rcc_l0.yaml
+  - fields/rtc/rtc_common.yaml
+  - fields/rtc/rtc_l0.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - ../peripherals/spi/spi_l0.yaml
-  - ../peripherals/syscfg/syscfg_l0.yaml
+  - fields/spi/spi_l0.yaml
+  - fields/syscfg/syscfg_l0.yaml
   - patches/tim/l0.yaml
   - patches/tim/tim2345_16bit_l.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim_l0.yaml
-  - ../peripherals/tim/tim2345_16bit.yaml
-  - ../peripherals/tim/tim6.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim_l0.yaml
+  - fields/tim/tim2345_16bit.yaml
+  - fields/tim/tim6.yaml
   - patches/tim/common.yaml
-  - ../peripherals/tim/v1/ccm.yaml
+  - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/usart/lpuart_v2A.yaml
-  - ../peripherals/usart/usart_v2B1.yaml
-  - ../peripherals/usb/usb_with_LPM.yaml
+  - fields/usart/lpuart_v2A.yaml
+  - fields/usart/usart_v2B1.yaml
+  - fields/usb/usb_with_LPM.yaml

@@ -123,7 +123,7 @@ EXTI:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 SPI?:
   _include:
@@ -155,7 +155,7 @@ TIM3:
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - patches/nvic/4_prio_bits.yaml
@@ -172,63 +172,63 @@ _include:
   - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
   - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
   - patches/syscfg/f3_cfgr2.yaml
-  - ../peripherals/syscfg/syscfg_f3.yaml
-  - ../peripherals/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
-  - ../peripherals/syscfg/syscfg_f3x4.yaml
+  - fields/syscfg/syscfg_f3.yaml
+  - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+  - fields/syscfg/syscfg_f3x4.yaml
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml
-  - ../peripherals/can/can.yaml
+  - fields/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
   - patches/gpio/f3_ospeedr.yaml
-  - ../peripherals/gpio/v2/common.yaml
-  - ../peripherals/gpio/gpio_with_brr.yaml
+  - fields/gpio/v2/common.yaml
+  - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/crc/crc_advanced.yaml
-  - ../peripherals/crc/crc_idr_32bit.yaml
-  - ../peripherals/crc/crc_pol.yaml
-  - ../peripherals/spi/spi_v2.yaml
-  - ../peripherals/pwr/pwr_v1.yaml
+  - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_32bit.yaml
+  - fields/crc/crc_pol.yaml
+  - fields/spi/spi_v2.yaml
+  - fields/pwr/pwr_v1.yaml
   - patches/tim/tim_o24ce.yaml
   - patches/tim/common.yaml
   - patches/tim/tim2345_mixed.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim16.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim2345_mixed.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/v2/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim16.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim2345_mixed.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/rcc/rcc_f3.yaml
-  - ../peripherals/rcc/rcc_pllsrc_1bit.yaml
-  - ../peripherals/dma/dma_v1.yaml
+  - fields/rcc/rcc_f3.yaml
+  - fields/rcc/rcc_pllsrc_1bit.yaml
+  - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - patches/exti/f3_offset.yaml
-  - ../peripherals/exti/exti.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/usart/usart_v2B.yaml
+  - fields/exti/exti.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/usart/usart_v2B.yaml
   - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
-  - ../peripherals/comp/comp_f3.yaml
-  - ../peripherals/opamp/opamp_f3.yaml
-  - ../peripherals/dac/dac_wavegen.yaml
-  - ../peripherals/dac/dac_common_2ch.yaml
-  - ../peripherals/dac/dac_dmaudr.yaml
-  - ../peripherals/adc/adc_v3_f3.yaml
-  - ../peripherals/adc/adc_v3_common_f3.yaml
+  - fields/comp/comp_f3.yaml
+  - fields/opamp/opamp_f3.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_common_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - fields/adc/adc_v3_f3.yaml
+  - fields/adc/adc_v3_common_f3.yaml
   - patches/hrtim/v1.yaml
   - patches/hrtim/f3_interrupts.yaml
-  - ../peripherals/hrtim/hrtim.yaml
-  - ../peripherals/hrtim/common_f3.yaml
+  - fields/hrtim/hrtim.yaml
+  - fields/hrtim/common_f3.yaml
   - collect/hrtim/f3.yaml
   - patches/flash/f3.yaml
   - patches/flash/f3_obr_rdptr.yaml
-  - ../peripherals/flash/flash_f3_common.yaml
-  - ../peripherals/flash/flash_f3_acr_hlfcya.yaml
+  - fields/flash/flash_f3_common.yaml
+  - fields/flash/flash_f3_acr_hlfcya.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
-  - ../peripherals/rtc/rtc_common.yaml
-  - ../peripherals/rtc/rtc_f3.yaml
+  - fields/rtc/rtc_common.yaml
+  - fields/rtc/rtc_f3.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml

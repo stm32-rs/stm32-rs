@@ -11,7 +11,7 @@ SPI?:
 UCPD:
   _include:
     - patches/ucpd/rxordseten_split.yaml
-    - ../peripherals/ucpd/ucpd_v1.yaml
+    - fields/ucpd/ucpd_v1.yaml
 
 WWDG:
   _include: patches/16bit_with_mask.yaml
@@ -26,7 +26,7 @@ _include:
   - collect/dma/h7rs_gpdma.yaml
   - collect/sdmmc/fifo.yaml
   - collect/gpio/v2r.yaml
-  - ../peripherals/gpio/v3/common.yaml
-  - ../peripherals/gpio/v3/af0-15.yaml
-  - ../peripherals/gpio/gpio_with_brr.yaml
-  - ../peripherals/rcc/rcc_h7rs.yaml
+  - fields/gpio/v3/common.yaml
+  - fields/gpio/v3/af0-15.yaml
+  - fields/gpio/gpio_with_brr.yaml
+  - fields/rcc/rcc_h7rs.yaml

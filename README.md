@@ -128,7 +128,7 @@ the community's STM32 device support in one place.
 This project is still young and there's a lot to do!
 
 * More peripheral patches need to be written, most of all. See what we've got
-  in `peripherals/` and grab a reference manual!
+  in `devices/` and grab a reference manual!
 * Also everything needs testing, and you can't so easily automate finding bugs
   in the SVD files...
 
@@ -180,7 +180,7 @@ Check out the full list of supported devices [here](https://stm32-rs.github.io/s
   peripherals could be cleanly applied to this new SVD. If they look sensible,
   you can include them in your device YAML.  This requires a Python environment with the `pyyaml`
   and `svdtools` dependencies.
-  Example command: `python scripts/matchperipherals.py peripherals/rcc devices/stm32h562.yaml`
+  Example command: `python scripts/matchperipherals.py devices/fields/rcc devices/stm32h562.yaml`
 * Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.

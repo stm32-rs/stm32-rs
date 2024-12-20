@@ -45,14 +45,14 @@ FLASH:
 
 FMPI2C?:
   _include:
-    - ../peripherals/i2c/i2c_v2_base.yaml
+    - fields/i2c/i2c_v2_base.yaml
 
 I2C?:
   _include:
     - patches/i2c/v1.yaml
     - patches/i2c/v1_fltr.yaml
-    - ../peripherals/i2c/i2c_v1.yaml
-    - ../peripherals/i2c/i2c_v1_fltr.yaml
+    - fields/i2c/i2c_v1.yaml
+    - fields/i2c/i2c_v1_fltr.yaml
 
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
@@ -90,7 +90,7 @@ TIM5:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
-    - ../peripherals/exti/common.yaml
+    - fields/exti/common.yaml
     - collect/exti/farray.yaml
   _add:
     _interrupts:
@@ -104,12 +104,12 @@ EXTI:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg.yaml
+    - fields/iwdg/iwdg.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg.yaml
+    - fields/wwdg/wwdg.yaml
   _add:
     _interrupts:
       WWDG:
@@ -149,7 +149,7 @@ PWR:
         bitWidth: 1
 
 RNG:
-  _include: ../peripherals/rng/rng_f4_ced.yaml
+  _include: fields/rng/rng_f4_ced.yaml
   CR:
     _add:
       CED:
@@ -160,7 +160,7 @@ RNG:
 SYSCFG:
   _include:
     - patches/syscfg/f4_common.yaml
-    - ../peripherals/syscfg/f4/syscfg_f410.yaml
+    - fields/syscfg/f4/syscfg_f410.yaml
   _add:
     CFGR2:
       description: ADC Common status register
@@ -188,51 +188,51 @@ SYSCFG:
 _include:
   - patches/adc/f4_single_csr.yaml
   - patches/adc/f4_single_ccr.yaml
-  - ../peripherals/dac/dac_wavegen.yaml
-  - ../peripherals/dac/dac_f410.yaml
-  - ../peripherals/dac/dac_dmaudr.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_f410.yaml
+  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/f4_fmpi2c.yaml
   - patches/rcc/f41x_bdcr_lsemod.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
-  - ../peripherals/rcc/rcc_v2.yaml
-  - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
-  - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - ../peripherals/rcc/rcc_v2_cfgr_mcoen.yaml
-  - ../peripherals/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - ../peripherals/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
-  - ../peripherals/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
-  - ../peripherals/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - ../peripherals/gpio/v2/common.yaml
+  - fields/rcc/rcc_v2.yaml
+  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
+  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
+  - fields/rcc/rcc_v2_cfgr_mcoen.yaml
+  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
+  - fields/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
+  - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
+  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
+  - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/crc/crc_basic.yaml
-  - ../peripherals/crc/crc_idr_8bit.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - ../peripherals/adc/adc_v2_single.yaml
-  - ../peripherals/adc/adc_v2/adc_v2_extsel_a.yaml
+  - fields/adc/adc_v2_single.yaml
+  - fields/adc/adc_v2/adc_v2_extsel_a.yaml
   - collect/adc/jofr_jdr.yaml
   - patches/dma/dma_v2.yaml
-  - ../peripherals/dma/dma_v2.yaml
+  - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
-  - ../peripherals/spi/spi_v1.yaml
+  - fields/spi/spi_v1.yaml
   - patches/tim/common.yaml
   - patches/tim/tim2345_16bit_l.yaml
-  - ../peripherals/tim/tim_basic_no_opm.yaml
-  - ../peripherals/tim/tim2345_16bit.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim_advanced.yaml
-  - ../peripherals/tim/v1/ccm.yaml
+  - fields/tim/tim_basic_no_opm.yaml
+  - fields/tim/tim2345_16bit.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim_advanced.yaml
+  - fields/tim/v1/ccm.yaml
   - collect/tim/ccr.yaml
-  - ../peripherals/usart/uart_common.yaml
-  - ../peripherals/usart/uart_sample.yaml
-  - ../peripherals/usart/uart_usart.yaml
-  - ../peripherals/flash/flash_v1.yaml
-  - ../peripherals/flash/flash_latency16.yaml
+  - fields/usart/uart_common.yaml
+  - fields/usart/uart_sample.yaml
+  - fields/usart/uart_usart.yaml
+  - fields/flash/flash_v1.yaml
+  - fields/flash/flash_latency16.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
-  - ../peripherals/rtc/rtc_common.yaml
+  - fields/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - patches/dbgmcu/dbgmcu.yaml
   - patches/pwr/f4.yaml
-  - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
+  - fields/pwr/pwr_f410_f412_f413_f423.yaml

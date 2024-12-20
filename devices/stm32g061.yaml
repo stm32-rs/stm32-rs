@@ -13,25 +13,25 @@ _copy:
 ADC:
   _include:
     - patches/adc/g0.yaml
-    - ../peripherals/adc/c0_g0_wl.yaml
+    - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
-    - ../peripherals/exti/exti_g0.yaml
+    - fields/exti/exti_g0.yaml
 
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 RCC:
   _include:
     - patches/rcc/g0.yaml
-    - ../peripherals/rcc/rcc_g0.yaml
-    - ../peripherals/rcc/rcc_g0x1.yaml
-    - ../peripherals/rcc/rcc_g0x1_aes.yaml
+    - fields/rcc/rcc_g0.yaml
+    - fields/rcc/rcc_g0x1.yaml
+    - fields/rcc/rcc_g0x1_aes.yaml
 
 # TODO: add SPI
 #SPI?:
@@ -40,7 +40,7 @@ RCC:
 #    - patches/spi/dr8.yaml
 
 SYSCFG:
-  _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
+  _include: fields/syscfg/syscfg_g0_usart2.yaml
 
 TIM1:
   _modify:
@@ -77,31 +77,31 @@ TIM1,TIM15:
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg_v2.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/g0x1_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
-  - ../peripherals/dma/dma_v1.yaml
+  - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
-  - ../peripherals/gpio/gpio_g0_l0.yaml
+  - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
+  - fields/i2c/i2c_v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   # SPI* are missing upstream
   - patches/tim/v2/g0_1.yaml
   - patches/tim/common.yaml
-  - ../peripherals/tim/v2/ccm.yaml
-  - ../peripherals/tim/tim_basic.yaml
-  - ../peripherals/tim/tim6.yaml
-  - ../peripherals/tim/tim_advanced.yaml
+  - fields/tim/v2/ccm.yaml
+  - fields/tim/tim_basic.yaml
+  - fields/tim/tim6.yaml
+  - fields/tim/tim_advanced.yaml
   - collect/tim/ccr.yaml
   - patches/usart/g0_CR1.yaml
   # TODO: fix UART?:ICR:NECF
-  #- ../peripherals/usart/usart_v2C.yaml
-  - ../peripherals/usart/usart_wl.yaml
+  #- fields/usart/usart_v2C.yaml
+  - fields/usart/usart_wl.yaml

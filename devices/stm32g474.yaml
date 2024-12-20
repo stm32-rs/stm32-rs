@@ -9,7 +9,7 @@ DAC?:
 IWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/iwdg/iwdg_with_WINR.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 VREFBUF:
   _strip: VREFBUF_
@@ -28,19 +28,19 @@ QUADSPI:
         bitWidth: 1
   _include:
     - patches/quadspi/dr_multi_access.yaml
-    - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
     - patches/ucpd/cfgr_missing_r.yaml
     - patches/ucpd/tx_rx_missing_r.yaml
-    - ../peripherals/ucpd/ucpd_v1.yaml
+    - fields/ucpd/ucpd_v1.yaml
 
 WWDG:
   _include:
     - patches/16bit.yaml
-    - ../peripherals/wwdg/wwdg_v2.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/usart/merge_BRR_fields.yaml
@@ -55,42 +55,42 @@ _include:
   - patches/rcc/g4.yaml
   - patches/exti/g4.yaml
   - patches/fdcan/fdcan_g4.yaml
-  - ../peripherals/exti/exti.yaml
+  - fields/exti/exti.yaml
   - patches/adc/g4.yaml
-  - ../peripherals/adc/adc_v3_g4.yaml
-  - ../peripherals/adc/adc_v3_common_g4.yaml
+  - fields/adc/adc_v3_g4.yaml
+  - fields/adc/adc_v3_common_g4.yaml
   - collect/comp/csr.yaml
   - patches/cordic/g4.yaml
-  - ../peripherals/cordic/cordic_g4.yaml
+  - fields/cordic/cordic_g4.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - patches/sai/sai_v1.yaml
-  - ../peripherals/sai/sai.yaml
+  - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
-  - ../peripherals/dac/dac_wl.yaml
-  - ../peripherals/dac/dac_wl_12bit.yaml
-  - ../peripherals/dac/dac_wl_8bit.yaml
-  - ../peripherals/opamp/opamp_g4_common.yaml
-  - ../peripherals/opamp/opamp_g4_opamp4_5.yaml
-  - ../peripherals/opamp/opamp_g4_opamp6.yaml
-  - ../peripherals/i2c/i2c_v2.yaml
-  - ../peripherals/gpio/v2/common.yaml
+  - fields/dac/dac_wl.yaml
+  - fields/dac/dac_wl_12bit.yaml
+  - fields/dac/dac_wl_8bit.yaml
+  - fields/opamp/opamp_g4_common.yaml
+  - fields/opamp/opamp_g4_opamp4_5.yaml
+  - fields/opamp/opamp_g4_opamp6.yaml
+  - fields/i2c/i2c_v2.yaml
+  - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - ../peripherals/usart/usart_v2C.yaml
+  - fields/usart/usart_v2C.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/g4.yaml
   - patches/hrtim/v2.yaml
-  - ../peripherals/hrtim/hrtim.yaml
-  - ../peripherals/hrtim/common_v2.yaml
+  - fields/hrtim/hrtim.yaml
+  - fields/hrtim/common_v2.yaml
   - collect/hrtim/v2.yaml
-  - ../peripherals/rcc/rcc_g4.yaml
+  - fields/rcc/rcc_g4.yaml
   - patches/tim/common.yaml
   - patches/tim/v2/g4.yaml
-  - ../peripherals/tim/v2/ccm.yaml
+  - fields/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
   - patches/flash/g4_dual_bank.yaml
-  - ../peripherals/flash/flash_g4.yaml
-  - ../peripherals/flash/flash_g4_dual_bank.yaml
+  - fields/flash/flash_g4.yaml
+  - fields/flash/flash_g4_dual_bank.yaml
