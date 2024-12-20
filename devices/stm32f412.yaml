@@ -12,8 +12,8 @@ _derive:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0402
@@ -31,7 +31,7 @@ _modify:
 
 ADC1:
   _include:
-    - common_patches/adc/smpx_18.yaml
+    - patches/adc/smpx_18.yaml
 
 FLASH:
   ACR:
@@ -102,14 +102,14 @@ CRC:
 
 EXTI:
   _include:
-    - common_patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
 I2C?:
   _include:
-    - common_patches/i2c/v1.yaml
-    - common_patches/i2c/v1_fltr.yaml
+    - patches/i2c/v1.yaml
+    - patches/i2c/v1_fltr.yaml
     - ../peripherals/i2c/i2c_v1.yaml
     - ../peripherals/i2c/i2c_v1_fltr.yaml
 
@@ -129,12 +129,12 @@ RCC:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 QUADSPI:
@@ -143,7 +143,7 @@ QUADSPI:
       Quad_SP:
         name: Quad_SPI
   _include:
-    - common_patches/quadspi/dr_multi_access.yaml
+    - patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 I2C3:
   _delete:
@@ -163,7 +163,7 @@ FMPI2C1:
         bitOffset: 0
         bitWidth: 10
   _include:
-    - common_patches/i2c/f4_fmpi2c.yaml
+    - patches/i2c/f4_fmpi2c.yaml
     - ../peripherals/i2c/i2c_v2_base.yaml
 
 PWR:
@@ -211,7 +211,7 @@ RNG:
 
 SYSCFG:
   _include:
-    - common_patches/syscfg/f4_common.yaml
+    - patches/syscfg/f4_common.yaml
     - ../peripherals/syscfg/f4/syscfg_f412.yaml
   _modify:
     I2C_BUFOUT:
@@ -246,15 +246,15 @@ _include:
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
-  - common_patches/dfsdm/dfsdm_v2.yaml
+  - patches/dfsdm/dfsdm_v2.yaml
   - collect/dfsdm/v2.yaml
-  - common_patches/i2c/f4_fmpi2c.yaml
-  - common_patches/adc/f4_single_csr.yaml
-  - common_patches/adc/f4_single_ccr.yaml
-  - common_patches/fsmc/fsmc_sramfix_common.yaml
+  - patches/i2c/f4_fmpi2c.yaml
+  - patches/adc/f4_single_csr.yaml
+  - patches/adc/f4_single_ccr.yaml
+  - patches/fsmc/fsmc_sramfix_common.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
-  - common_patches/rcc/rcc_merge_rtcsel.yaml
+  - patches/rcc/rcc_merge_rtcsel.yaml
   - ../peripherals/rcc/rcc_v2.yaml
   - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
   - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
@@ -272,16 +272,16 @@ _include:
   - collect/gpio/v2.yaml
   - ../peripherals/crc/crc_basic.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
-  - common_patches/adc/adc_common_group_name.yaml
+  - patches/adc/adc_common_group_name.yaml
   - ../peripherals/adc/adc_v2_single.yaml
   - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
   - collect/adc/jofr_jdr.yaml
-  - common_patches/dma/dma_v2.yaml
+  - patches/dma/dma_v2.yaml
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic_no_opm.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim2345_mixed.yaml
@@ -293,17 +293,17 @@ _include:
   - ../peripherals/usart/uart_usart.yaml
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
   - ../peripherals/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - common_patches/usb_otg/fs_remove_prefix.yaml
-  - common_patches/usb_otg/fs_v1ext.yaml
-  - common_patches/usb_otg/fs_v1.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_v1ext.yaml
+  - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
-  - common_patches/dbgmcu/dbgmcu.yaml
+  - patches/dbgmcu/dbgmcu.yaml
   - ../peripherals/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
-  - common_patches/pwr/f4.yaml
+  - patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml

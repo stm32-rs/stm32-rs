@@ -2,7 +2,7 @@ _svd: ../svd/stm32g441.svd
 
 AES:
   _include:
-    - common_patches/aes/fields.yaml
+    - patches/aes/fields.yaml
     - ../peripherals/aes/v2.yaml
 
 COMP:
@@ -13,14 +13,14 @@ DAC?:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 UCPD1:
   _include:
-    - common_patches/ucpd/rxordseten_split.yaml
-    - common_patches/ucpd/cfgr_missing_r.yaml
-    - common_patches/ucpd/tx_rx_missing_r.yaml
+    - patches/ucpd/rxordseten_split.yaml
+    - patches/ucpd/cfgr_missing_r.yaml
+    - patches/ucpd/tx_rx_missing_r.yaml
     - ../peripherals/ucpd/ucpd_v1.yaml
 
 VREFBUF:
@@ -28,40 +28,40 @@ VREFBUF:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg_v2.yaml
 
 _include:
-  - common_patches/usart/merge_BRR_fields.yaml
-  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
-  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ./common_patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
   - collect/dma/dmamux.yaml
-  - common_patches/dma/g4_ifcr.yaml
+  - patches/dma/g4_ifcr.yaml
   - collect/dma/v1.yaml
-  - ./common_patches/rcc/g4.yaml
-  - ./common_patches/exti/g4.yaml
-  - ./common_patches/fdcan/fdcan_g4.yaml
+  - patches/rcc/g4.yaml
+  - patches/exti/g4.yaml
+  - patches/fdcan/fdcan_g4.yaml
   - ../peripherals/exti/exti.yaml
-  - common_patches/adc/g4.yaml
+  - patches/adc/g4.yaml
   - ../peripherals/adc/adc_v3_g4.yaml
   - ../peripherals/adc/adc_v3_common_g4.yaml
-  - common_patches/comp/g4.yaml
+  - patches/comp/g4.yaml
   - collect/comp/csr.yaml
-  - ./common_patches/cordic/g4.yaml
+  - patches/cordic/g4.yaml
   - ../peripherals/cordic/cordic_g4.yaml
-  - common_patches/rtc/alarm.yaml
+  - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
-  - common_patches/sai/sai_v1.yaml
+  - patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
@@ -73,11 +73,11 @@ _include:
   - ../peripherals/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - ../peripherals/usart/usart_v2C.yaml
-  - ./common_patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - ./common_patches/usb/g4.yaml
+  - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
+  - patches/usb/g4.yaml
   - ../peripherals/rcc/rcc_g4.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/v2/g4.yaml
+  - patches/tim/common.yaml
+  - patches/tim/v2/g4.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - collect/tim/ccr.yaml
   - ../peripherals/flash/flash_g4.yaml

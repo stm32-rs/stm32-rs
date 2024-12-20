@@ -16,7 +16,7 @@ _derive:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 TIM5:
@@ -39,31 +39,31 @@ SAI4:
 
 QUADSPI:
   _include:
-    - common_patches/quadspi/dr_multi_access.yaml
+    - patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
 SPI?:
-  _include: common_patches/spi/rxtxdr.yaml
+  _include: patches/spi/rxtxdr.yaml
 
 WWDG:
   _include:
-    - common_patches/wwdg/h7.yaml
+    - patches/wwdg/h7.yaml
     - ../peripherals/wwdg/wwdg_v2.yaml
 
 _include:
   - ../peripherals/hdmi_cec.yaml
-  - common_patches/h7_common_singlecore.yaml
-  - common_patches/ethernet/h7_dma_mr.yaml
-  - common_patches/fdcan/fdcan_h7.yaml
+  - patches/h7_common_singlecore.yaml
+  - patches/ethernet/h7_dma_mr.yaml
+  - patches/fdcan/fdcan_h7.yaml
   - collect/fsmc/sdram.yaml
-  - common_patches/rcc/h7_src_sel.yaml
-  - common_patches/ethernet/h7_desc.yaml
-  - common_patches/exti/h7_singlecore.yaml
-  - common_patches/dbgmcu/h7.yaml
-  - common_patches/dma/fcr_wo.yaml
-  - common_patches/dma/bdma.yaml
-  - common_patches/dma/h7_dmacr.yaml
-  - common_patches/dma/h7_dmamux.yaml
+  - patches/rcc/h7_src_sel.yaml
+  - patches/ethernet/h7_desc.yaml
+  - patches/exti/h7_singlecore.yaml
+  - patches/dbgmcu/h7.yaml
+  - patches/dma/fcr_wo.yaml
+  - patches/dma/bdma.yaml
+  - patches/dma/h7_dmacr.yaml
+  - patches/dma/h7_dmamux.yaml
   - ../peripherals/dma/bdma.yaml
   - ../peripherals/dma/dma_v3.yaml
   - ../peripherals/dma/dmamux_v1.yaml
@@ -71,50 +71,50 @@ _include:
   - collect/dma/st.yaml
   - collect/dma/bdma.yaml
   - collect/dma/mdma.yaml
-  - common_patches/dma/dma2d_v2.yaml
+  - patches/dma/dma2d_v2.yaml
   - ../peripherals/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
-  - common_patches/adc/h7.yaml
-  - common_patches/adc/h7_boost_rev_v.yaml
-  - common_patches/h7_spdifrx.yaml
-  - common_patches/usb_otg/hs_v2.yaml
+  - patches/adc/h7.yaml
+  - patches/adc/h7_boost_rev_v.yaml
+  - patches/h7_spdifrx.yaml
+  - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - common_patches/flash/flash_dual_bank.yaml
+  - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
-  - common_patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
-  - common_patches/i2c/merge_CR2_SADDx_fields.yaml
-  - common_patches/usart/merge_CR1_DEATx_fields.yaml
-  - common_patches/usart/merge_CR1_DEDTx_fields.yaml
-  - common_patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - common_patches/usart/merge_CR2_ADDx_fields.yaml
-  - common_patches/usart/rename_CR2_DATAINV_field.yaml
-  - common_patches/usart/merge_BRR_fields.yaml
-  - common_patches/sai/h7.yaml
-  - common_patches/sai/sai_v1.yaml
+  - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/sai/h7.yaml
+  - patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
-  - common_patches/dfsdm/h735_747_753.yaml
+  - patches/dfsdm/h735_747_753.yaml
   - collect/dfsdm/v1.yaml
-  - common_patches/ramecc/ramecc_new.yaml
+  - patches/ramecc/ramecc_new.yaml
   - ../peripherals/adc/adc_v3_h7.yaml
   - ../peripherals/adc/adc_v3_common_h7.yaml
   - ../peripherals/adc/adc_h7_revision_v.yaml
   - ../peripherals/axi/axi_v1.yaml
-  - common_patches/crc/crc_rename_init.yaml
+  - patches/crc/crc_rename_init.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_idr_32bit.yaml
   - ../peripherals/crc/crc_pol.yaml
-  - common_patches/gpio/h7_ijk.yaml
+  - patches/gpio/h7_ijk.yaml
   - ../peripherals/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - common_patches/hrtim/h7.yaml
+  - patches/hrtim/h7.yaml
   - ../peripherals/hrtim/hrtim.yaml
   - ../peripherals/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
   - ../peripherals/lptim/lptim_v1.yaml
-  - common_patches/ltdc/ltdc.yaml
+  - patches/ltdc/ltdc.yaml
   - ../peripherals/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
   - ../peripherals/rcc/rcc_h7.yaml
@@ -125,9 +125,9 @@ _include:
   - ../peripherals/spi/spi_v3_base.yaml
   - ../peripherals/spi/spi_v3_tser.yaml
   - ../peripherals/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
-  - common_patches/tim/v2/h7.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/v2/h7.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml
@@ -139,13 +139,13 @@ _include:
   - ../peripherals/exti/exti_h7.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/usart/usart_v2B1.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
   - ../peripherals/rtc/rtc_common.yaml
   - ../peripherals/rtc/rtc_h7.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - common_patches/crc/h7_addr_fix.yaml
-  - common_patches/ethernet/h7_mac.yaml
-  - common_patches/syscfg/h74x_pwrcr.yaml
-  - common_patches/h743_hrtim_common.yaml
+  - patches/crc/h7_addr_fix.yaml
+  - patches/ethernet/h7_mac.yaml
+  - patches/syscfg/h74x_pwrcr.yaml
+  - patches/h743_hrtim_common.yaml

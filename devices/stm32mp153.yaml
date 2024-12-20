@@ -12,7 +12,7 @@ _modify:
     vendorSystickConfig: "false"
 
 SPI?:
-  _include: common_patches/spi/rxtxdr.yaml
+  _include: patches/spi/rxtxdr.yaml
 
 RCC:
   BDCR:
@@ -33,7 +33,7 @@ WWDG1:
       size: 16
 
 _include:
-  - common_patches/mpu_unprefix_registers.yaml
-  - common_patches/rtc/alarm.yaml
+  - patches/mpu_unprefix_registers.yaml
+  - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml

@@ -9,14 +9,14 @@ _modify:
 
 ADC:
   _include:
-    - common_patches/adc/c0.yaml
+    - patches/adc/c0.yaml
     - ../peripherals/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 SPI1:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
   _strip: SPI_
 
 I2C?:
@@ -62,12 +62,12 @@ TIM3:
       name: CNT_remap
 
 IWDG:
-  _include: common_patches/16bit_with_mask.yaml
+  _include: patches/16bit_with_mask.yaml
 
 WWDG:
-  _include: common_patches/16bit_with_mask.yaml
+  _include: patches/16bit_with_mask.yaml
 
 _include:
-  - ./common_patches/c0.yaml
-  - ./common_patches/nvic/2_prio_bits.yaml
+  - patches/c0.yaml
+  - patches/nvic/2_prio_bits.yaml
   - collect/dma/dmamux.yaml

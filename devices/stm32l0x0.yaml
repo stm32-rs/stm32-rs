@@ -16,8 +16,8 @@ ADC:
 
 "SPI?,I2S?":
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
   SR:
     _modify:
       TIFRFE:
@@ -66,36 +66,36 @@ PWR:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./common_patches/firewall/l0.yaml
-  - ./common_patches/pwr/l0_mode.yaml
-  - ./common_patches/pwr/l0_wakeup.yaml
-  - ./common_patches/rtc/l0.yaml
-  - ./common_patches/nvic/l0_prio_bits.yaml
-  - ./common_patches/usart/merge_CR1_DEATx_fields.yaml
-  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./common_patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ./common_patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ./common_patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - ./common_patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - ./common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - ./common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - ./common_patches/usart/rename_CR2_DATAINV_field.yaml
-  - ./common_patches/usart/merge_BRR_fields.yaml
-  - ./common_patches/remove_l0_mpu.yaml
-  - ./common_patches/remove_l0_scb.yaml
-  - ./common_patches/remove_l0_stk.yaml
+  - patches/firewall/l0.yaml
+  - patches/pwr/l0_mode.yaml
+  - patches/pwr/l0_wakeup.yaml
+  - patches/rtc/l0.yaml
+  - patches/nvic/l0_prio_bits.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
+  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
+  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/remove_l0_mpu.yaml
+  - patches/remove_l0_scb.yaml
+  - patches/remove_l0_stk.yaml
   - ../peripherals/adc/adc_l0.yaml
-  - common_patches/crc/crc_rename_init.yaml
-  - common_patches/crc/crc_rename_pol.yaml
+  - patches/crc/crc_rename_init.yaml
+  - patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
   - ../peripherals/crc/crc_pol.yaml
@@ -115,13 +115,13 @@ _include:
   - ../peripherals/rcc/rcc_l0x0.yaml
   - ../peripherals/rtc/rtc_common.yaml
   - ../peripherals/rtc/rtc_l0.yaml
-  - common_patches/rtc/alarm.yaml
+  - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - ../peripherals/spi/spi_l0.yaml
   - ../peripherals/syscfg/syscfg_l0x0.yaml
-  - common_patches/tim/l0.yaml
-  - common_patches/tim/common.yaml
+  - patches/tim/l0.yaml
+  - patches/tim/common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim_l0.yaml
   - ../peripherals/tim/tim2345_16bit.yaml

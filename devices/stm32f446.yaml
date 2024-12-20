@@ -35,12 +35,12 @@ _modify:
 
 ADC1:
   _include:
-    - common_patches/adc/smpx_18.yaml
+    - patches/adc/smpx_18.yaml
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0390
@@ -62,13 +62,13 @@ FLASH:
 
 EXTI:
   _include:
-    - common_patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
 
 I2C?:
   _include:
-    - common_patches/i2c/v1.yaml
+    - patches/i2c/v1.yaml
     - ../peripherals/i2c/i2c_v1.yaml
     - ../peripherals/i2c/i2c_v1_fltr.yaml
 
@@ -107,7 +107,7 @@ RCC:
 
 SYSCFG:
   _include:
-    - common_patches/syscfg/f4_common.yaml
+    - patches/syscfg/f4_common.yaml
     - ../peripherals/syscfg/f4/syscfg_f446.yaml
   _add:
     # Add missing SYSCFG CFGR
@@ -170,7 +170,7 @@ FMPI2C1:
 
 QUADSPI:
   _include:
-    - common_patches/quadspi/dr_multi_access.yaml
+    - patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
 PWR:
@@ -195,12 +195,12 @@ PWR:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
@@ -209,7 +209,7 @@ _include:
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
-  - common_patches/sai/sai_v1.yaml
+  - patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
   - collect/sai/ch.yaml
   - ../peripherals/dac/dac_wavegen.yaml
@@ -217,8 +217,8 @@ _include:
   - ../peripherals/dac/dac_dmaudr.yaml
   - ../peripherals/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - common_patches/rcc/f4_fmpi2c.yaml
-  - common_patches/rcc/rcc_merge_sw_sws.yaml
+  - patches/rcc/f4_fmpi2c.yaml
+  - patches/rcc/rcc_merge_sw_sws.yaml
   - ../peripherals/rcc/rcc_v2.yaml
   - ../peripherals/rcc/rcc_v2_i2s.yaml
   - ../peripherals/rcc/rcc_v2_i2s_pll.yaml
@@ -237,17 +237,17 @@ _include:
   - ../peripherals/rcc/rcc_v2_ckgatenr.yaml
   - ../peripherals/crc/crc_basic.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
-  - common_patches/adc/adc_common_group_name.yaml
+  - patches/adc/adc_common_group_name.yaml
   - ../peripherals/adc/adc_v2_multi.yaml
   - ../peripherals/adc/adc_v2/adc_v2_extsel_c.yaml
   - collect/adc/jofr_jdr.yaml
-  - common_patches/dma/fcr_wo.yaml
-  - common_patches/dma/dma_v2.yaml
+  - patches/dma/fcr_wo.yaml
+  - patches/dma/dma_v2.yaml
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim2345_mixed_l.yaml
   - ../peripherals/tim/tim_basic_no_opm.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim2345_mixed.yaml
@@ -258,24 +258,24 @@ _include:
   - ../peripherals/usart/uart_sample.yaml
   - ../peripherals/usart/uart_uart.yaml
   - ../peripherals/usart/uart_usart.yaml
-  - common_patches/usart/f4_add_UART_GTPR.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/f4_cr.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/usart/f4_add_UART_GTPR.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/f4_cr.yaml
+  - patches/rtc/rtc_cr.yaml
   - ../peripherals/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - common_patches/usb_otg/fs_remove_prefix.yaml
-  - common_patches/usb_otg/fs_host_addr.yaml
-  - common_patches/usb_otg/fs_v2.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_host_addr.yaml
+  - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml
-  - common_patches/usb_otg/fs_fixes_446_469.yaml
-  - common_patches/usb_otg/hs_v2.yaml
+  - patches/usb_otg/fs_fixes_446_469.yaml
+  - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - common_patches/usb_otg/hs_fixes_446_469.yaml
-  - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/fsmc/fsmc_sramfix.yaml
-  - common_patches/fsmc/fsmc_nand.yaml
+  - patches/usb_otg/hs_fixes_446_469.yaml
+  - patches/dbgmcu/dbgmcu.yaml
+  - patches/fsmc/fsmc_sramfix.yaml
+  - patches/fsmc/fsmc_nand.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - ../peripherals/fsmc/fsmc_wfdis.yaml
   - ../peripherals/fsmc/fsmc_nand.yaml
@@ -288,5 +288,5 @@ _include:
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
   - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - common_patches/pwr/f4.yaml
+  - patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f446.yaml

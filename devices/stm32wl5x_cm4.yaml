@@ -7,7 +7,7 @@ _modify:
 
 ADC:
   _include:
-    - common_patches/adc/wl.yaml
+    - patches/adc/wl.yaml
     - ../peripherals/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
@@ -60,8 +60,8 @@ RCC:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 TIM1:
   _modify:
@@ -94,13 +94,13 @@ IWDG:
   _delete:
     - WINR
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
     - ../peripherals/iwdg/iwdg_sr.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 # Rename this so it has the same name as all other STM32 USARTs
@@ -138,16 +138,16 @@ TZSC:
   _strip: TZSC_
 
 _include:
-  - ../devices/common_patches/spi/rename_dff_tifrfe.yaml
-  - ../devices/common_patches/crc/crc_rename_init.yaml
-  - ../devices/common_patches/rtc/rtc_register_descriptions.yaml
-  - ../devices/common_patches/exti/wl.yaml
-  - ../devices/common_patches/usart/merge_CR1_DEATx_fields.yaml
-  - ../devices/common_patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ../devices/common_patches/usart/merge_CR2_ADDx_fields_inverted.yaml
-  - ../devices/common_patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ../devices/common_patches/usart/rename_CR1_M0_field.yaml
-  - ../devices/common_patches/usart/rename_CR3_SCARCNT_field.yaml
+  - ../devices/patches/spi/rename_dff_tifrfe.yaml
+  - ../devices/patches/crc/crc_rename_init.yaml
+  - ../devices/patches/rtc/rtc_register_descriptions.yaml
+  - ../devices/patches/exti/wl.yaml
+  - ../devices/patches/usart/merge_CR1_DEATx_fields.yaml
+  - ../devices/patches/usart/merge_CR1_DEDTx_fields.yaml
+  - ../devices/patches/usart/merge_CR2_ADDx_fields_inverted.yaml
+  - ../devices/patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - ../devices/patches/usart/rename_CR1_M0_field.yaml
+  - ../devices/patches/usart/rename_CR3_SCARCNT_field.yaml
   - ../peripherals/comp/comp_wl.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_pol.yaml
@@ -172,7 +172,7 @@ _include:
   - ../peripherals/pka/pka.yaml
   - ../peripherals/pwr/pwr_wl.yaml
   - ../peripherals/pwr/pwr_wl_c2.yaml
-  - common_patches/rtc/wl.yaml
+  - patches/rtc/wl.yaml
   - ../peripherals/rtc/rtc_wl.yaml
   - ../peripherals/tamp/tamp_wl.yaml
   - collect/rtc/tamp_bkpr.yaml
@@ -180,7 +180,7 @@ _include:
   - ../peripherals/rng/rng_wl.yaml
   - ../peripherals/spi/spi_v2.yaml
   - ../peripherals/syscfg/syscfg_wl.yaml
-  - common_patches/tim/tim2_32bit.yaml
+  - patches/tim/tim2_32bit.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim12_common_wl.yaml
   - ../peripherals/tim/tim1_wl.yaml

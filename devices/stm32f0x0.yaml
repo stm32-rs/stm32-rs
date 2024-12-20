@@ -30,12 +30,12 @@ SPI1:
       - CHSIDE
       - UDR
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 SYSCFG:
   _include:
-    - common_patches/syscfg/f0.yaml
+    - patches/syscfg/f0.yaml
     - ../peripherals/syscfg/syscfg_f0.yaml
     - ../peripherals/exti/derive.yaml
 
@@ -52,34 +52,34 @@ TIM1[456]:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
 
 _include:
-  - ./common_patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - ./common_patches/spi/rename_dff_tifrfe.yaml
-  - ./common_patches/i2c/merge_CR2_SADDx_fields.yaml
-  - ./common_patches/i2c/merge_OAR1_OA1x_fields.yaml
-  - ./common_patches/rcc/f0_no_hdmi_cec.yaml
-  - ./common_patches/rcc/f0_v18pwrrstf.yaml
-  - ./common_patches/adc/f0_cfgr2_ckmode.yaml
-  - ./common_patches/adc/f0_fixes.yaml
-  - ./common_patches/rcc/f0_usart3.yaml
-  - ./common_patches/rcc/f0_usart6.yaml
-  - ./common_patches/dma/f0_dmaen.yaml
-  - ./common_patches/rcc/f0_usben.yaml
-  - ./common_patches/rcc/f0_hsi48cal.yaml
-  - ./common_patches/usart/merge_CR2_ADDx_fields.yaml
-  - ./common_patches/usart/rename_CR1_M0_field.yaml
-  - ./common_patches/usart/merge_BRR_fields.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim1_16bit_l.yaml
-  - common_patches/tim/tim2345_16bit_l.yaml
+  - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
+  - patches/i2c/merge_CR2_SADDx_fields.yaml
+  - patches/i2c/merge_OAR1_OA1x_fields.yaml
+  - patches/rcc/f0_no_hdmi_cec.yaml
+  - patches/rcc/f0_v18pwrrstf.yaml
+  - patches/adc/f0_cfgr2_ckmode.yaml
+  - patches/adc/f0_fixes.yaml
+  - patches/rcc/f0_usart3.yaml
+  - patches/rcc/f0_usart6.yaml
+  - patches/dma/f0_dmaen.yaml
+  - patches/rcc/f0_usben.yaml
+  - patches/rcc/f0_hsi48cal.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/rename_CR1_M0_field.yaml
+  - patches/usart/merge_BRR_fields.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim1_16bit_l.yaml
+  - patches/tim/tim2345_16bit_l.yaml
   - ../peripherals/tim/tim_basic_no_opm.yaml
   - ../peripherals/tim/tim_advanced.yaml
   - ../peripherals/tim/tim2345_16bit.yaml
@@ -103,7 +103,7 @@ _include:
   - ../peripherals/adc/adc_aditf4_v1_1.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
   - ../peripherals/usb/usb_with_LPM.yaml
-  - common_patches/flash/f0_ram_parity_check.yaml
+  - patches/flash/f0_ram_parity_check.yaml
   - ../peripherals/flash/flash_f0.yaml
-  - ./common_patches/nvic/2_prio_bits.yaml
-  - ./common_patches/crc/f0_init_addr_fix.yaml
+  - patches/nvic/2_prio_bits.yaml
+  - patches/crc/f0_init_addr_fix.yaml

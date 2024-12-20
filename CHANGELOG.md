@@ -25,6 +25,7 @@
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv`
 * move `_array` and `_cluster` patches to `devices/collect`
+* rename `devices/common_patches` to just `devices/patches`
 * Replace `makehtml.py` with `svdtools html`
 * Updated to `svd2rust` 0.35.0, `svdtools` 0.3.20, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
@@ -34,7 +35,7 @@
 * Add `cargo make` `yamls` task for easy compare
 * Add `derivePathType` to CMSIS-SVD schema
 * Enable atomic operations on register support, Rust edition 2021 (#846)
-* files in devices/common_patches moved to subdirectories
+* files in devices/patches moved to subdirectories
 * remove excutable file perm bit from yaml file (#854)
 * rename `KEY` field variants of `IWDG_KR` ([#866])
 * DMAMUX: merge registers in arrays
