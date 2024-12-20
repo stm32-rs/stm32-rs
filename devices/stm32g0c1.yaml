@@ -12,19 +12,19 @@ _copy:
 
 ADC:
   _include:
-    - common_patches/adc/g0.yaml
+    - patches/adc/g0.yaml
     - ../peripherals/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 AES:
   _strip: AES_
   _include:
-    - common_patches/aes/fields.yaml
+    - patches/aes/fields.yaml
     - ../peripherals/aes/v2.yaml
 
 EXTI:
   _include:
-    - common_patches/exti/exti_rename.yaml
+    - patches/exti/exti_rename.yaml
     - ../peripherals/exti/exti_g0.yaml
 
 FDCAN?:
@@ -32,7 +32,7 @@ FDCAN?:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 RCC:
@@ -42,7 +42,7 @@ RCC:
         # mistakenly set to 1 upstream
         bitWidth: 2
   _include:
-    - common_patches/rcc/g0b.yaml
+    - patches/rcc/g0b.yaml
     - ../peripherals/rcc/rcc_g0b1.yaml
     - ../peripherals/rcc/rcc_g0x1_aes.yaml
 
@@ -51,8 +51,8 @@ RNG:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart4.yaml
@@ -70,14 +70,14 @@ TIM1:
         name: OC1M
 
 TIM2:
-  _include: common_patches/tim/tim2_common_32bit.yaml
+  _include: patches/tim/tim2_common_32bit.yaml
 
 TIM3:
   CCMR1_Output:
     _modify:
       OC1M1:
         name: OC1M
-  _include: common_patches/tim/tim_4ch_16bit_l.yaml
+  _include: patches/tim/tim_4ch_16bit_l.yaml
 
 TIM1,TIM15:
   CCMR1_Output:
@@ -92,7 +92,7 @@ TIM1,TIM15:
 
 UCPD?:
   _include:
-    - common_patches/ucpd/rxordseten_split.yaml
+    - patches/ucpd/rxordseten_split.yaml
     - ../peripherals/ucpd/ucpd_v2.yaml
 
 USB:
@@ -100,33 +100,33 @@ USB:
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg_v2.yaml
 
 _include:
-  - common_patches/g0x1_strip.yaml
-  - common_patches/nvic/2_prio_bits.yaml
-  - common_patches/dma/g0_dma2_5ch.yaml
+  - patches/g0x1_strip.yaml
+  - patches/nvic/2_prio_bits.yaml
+  - patches/dma/g0_dma2_5ch.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
-  - common_patches/flash/g0.yaml
+  - patches/flash/g0.yaml
   - ../peripherals/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
   - ../peripherals/i2c/i2c_v2.yaml
-  - common_patches/rtc/alarm.yaml
+  - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
   - ../peripherals/spi/spi_I2S_ASTRTEN.yaml
-  - common_patches/tim/v2/g0_1.yaml
-  - common_patches/tim/common.yaml
+  - patches/tim/v2/g0_1.yaml
+  - patches/tim/common.yaml
   - ../peripherals/tim/v2/ccm.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim_advanced.yaml
   - collect/tim/ccr.yaml
-  - common_patches/usart/g0_CR1.yaml
+  - patches/usart/g0_CR1.yaml
   # TODO: fix UART?:ICR:NECF
   #- ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml

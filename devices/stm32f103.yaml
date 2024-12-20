@@ -49,7 +49,7 @@ DBGMCU:
 
 I2C?:
   _include:
-    - common_patches/i2c/v1.yaml
+    - patches/i2c/v1.yaml
     - ../peripherals/i2c/i2c_v1.yaml
 
 RCC:
@@ -68,17 +68,17 @@ SDIO:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -98,14 +98,14 @@ TIM10:
         bitWidth: 1
 
 _include:
-  - common_patches/bkp/bkp.yaml
+  - patches/bkp/bkp.yaml
   - ../peripherals/bkp/bkp.yaml
   - collect/bkp/dr.yaml
-  - common_patches/can/can_remove_prefix.yaml
+  - patches/can/can_remove_prefix.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
-  - common_patches/fsmc/fsmc_sramfix_v3.yaml
+  - patches/fsmc/fsmc_sramfix_v3.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
   - ../peripherals/dac/dac_wavegen.yaml
@@ -116,9 +116,9 @@ _include:
   - ../peripherals/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
   - ../peripherals/spi/spi_v1_without_FRF_FRE.yaml
-  - common_patches/tim/tim_o24ce.yaml
-  - common_patches/tim/tim10_14_missing_opm.yaml
-  - common_patches/tim/common.yaml
+  - patches/tim/tim_o24ce.yaml
+  - patches/tim/tim10_14_missing_opm.yaml
+  - patches/tim/common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim6.yaml
   - ../peripherals/tim/tim2345_16bit.yaml
@@ -138,8 +138,8 @@ _include:
   - collect/adc/jofr_jdr.yaml
   - ../peripherals/usb/usb.yaml
   - collect/usb/epxr.yaml
-  - common_patches/usb_otg/fs_remove_prefix.yaml
-  - common_patches/usb_otg/fs_v1.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
-  - common_patches/dbgmcu/rename.yaml
+  - patches/dbgmcu/rename.yaml
   - ../peripherals/flash/flash_f1.yaml

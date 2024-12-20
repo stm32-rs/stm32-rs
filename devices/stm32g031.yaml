@@ -29,13 +29,13 @@ ADC:
     _split:
       - AWD3CH
   _include:
-    - common_patches/adc/g0.yaml
+    - patches/adc/g0.yaml
     - ../peripherals/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
 EXTI:
   _include:
-    - common_patches/exti/exti_rename.yaml
+    - patches/exti/exti_rename.yaml
     - ../peripherals/exti/exti_g0.yaml
   _delete:
     _interrupts:
@@ -51,15 +51,15 @@ EXTI:
 
 RCC:
   _include:
-    - common_patches/rcc/g0.yaml
-    - common_patches/rcc/g0_no_aes.yaml
+    - patches/rcc/g0.yaml
+    - patches/rcc/g0_no_aes.yaml
     - ../peripherals/rcc/rcc_g0.yaml
     - ../peripherals/rcc/rcc_g0x1.yaml
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 SYSCFG:
   _include: ../peripherals/syscfg/syscfg_g0_usart2.yaml
@@ -73,47 +73,47 @@ TIM1:
         name: OC6M_3
 
 TIM2:
-  _include: common_patches/tim/tim2_common_32bit.yaml
+  _include: patches/tim/tim2_common_32bit.yaml
 
 TIM3:
-  _include: common_patches/tim/tim_4ch_16bit_l.yaml
+  _include: patches/tim/tim_4ch_16bit_l.yaml
 
 VREFBUF:
   _strip: VREFBUF_
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg_with_WINR.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg_v2.yaml
 
 _include:
-  - common_patches/g0_strip.yaml
-  - common_patches/nvic/2_prio_bits.yaml
-  - common_patches/dma/g0_dma1_5ch_only.yaml
+  - patches/g0_strip.yaml
+  - patches/nvic/2_prio_bits.yaml
+  - patches/dma/g0_dma1_5ch_only.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
-  - common_patches/flash/g0.yaml
+  - patches/flash/g0.yaml
   - ../peripherals/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
-  - common_patches/i2c/g0.yaml
+  - patches/i2c/g0.yaml
   - ../peripherals/i2c/i2c_v2.yaml
-  - common_patches/rtc/alarm.yaml
+  - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
-  - common_patches/spi/g0_rename_registers.yaml
+  - patches/spi/g0_rename_registers.yaml
   - ../peripherals/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - common_patches/tim/g0_tim1_ccmr_input.yaml
-  - common_patches/tim/common.yaml
+  - patches/tim/g0_tim1_ccmr_input.yaml
+  - patches/tim/common.yaml
   - ../peripherals/tim/v2/ccm_common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim_advanced.yaml
   - collect/tim/ccr.yaml
-  - common_patches/usart/g0.yaml
+  - patches/usart/g0.yaml
   - ../peripherals/usart/usart_v2C.yaml
   - ../peripherals/usart/usart_wl.yaml

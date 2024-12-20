@@ -49,19 +49,19 @@ ADC1:
 
 AES:
   _include:
-    - common_patches/aes/fields.yaml
-    - common_patches/aes/l4.yaml
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
     - ../peripherals/aes/v2.yaml
 
 IWDG:
-  _include: common_patches/16bit.yaml
+  _include: patches/16bit.yaml
 
 MPU:
   _strip: MPU_
 
 QUADSPI:
   _include:
-    - common_patches/quadspi/dr_multi_access.yaml
+    - patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_dual_flash.yaml
 
 # SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
@@ -331,8 +331,8 @@ RTC:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 USB:
   _add:
@@ -342,40 +342,40 @@ USB:
         value: 67
 
 WWDG:
-  _include: common_patches/16bit.yaml
+  _include: patches/16bit.yaml
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
-  - common_patches/nvic/4_prio_bits.yaml
-  - common_patches/usart/merge_CR1_DEATx_fields.yaml
-  - common_patches/usart/merge_CR2_ADDx_fields.yaml
-  - common_patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - common_patches/usart/merge_CR1_DEDTx_fields.yaml
-  - common_patches/usart/rename_CR2_DATAINV_field.yaml
-  - common_patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - common_patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - common_patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - common_patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - common_patches/usart/merge_BRR_fields.yaml
+  - patches/nvic/4_prio_bits.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
+  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
+  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
+  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
+  - patches/usart/merge_BRR_fields.yaml
   - ../peripherals/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
-  - common_patches/sai/sai_v1.yaml
+  - patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
   - collect/sai/ch.yaml
-  - common_patches/dfsdm/dfsdm_v2.yaml
+  - patches/dfsdm/dfsdm_v2.yaml
   - collect/dfsdm/v2.yaml
   - ../peripherals/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - common_patches/crc/crc_rename_init.yaml
-  - common_patches/crc/crc_rename_pol.yaml
+  - patches/crc/crc_rename_init.yaml
+  - patches/crc/crc_rename_pol.yaml
   - ../peripherals/crc/crc_advanced.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
   - ../peripherals/crc/crc_pol.yaml
   - ../peripherals/rcc/rcc_l4.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim2345_mixed_l.yaml
-  - common_patches/tim/v2/l4.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/v2/l4.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml
@@ -389,22 +389,22 @@ _include:
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/usart/lpuart_v2A.yaml
   - ../peripherals/usart/usart_v2B2.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
-  - common_patches/fpu_interrupt.yaml
+  - patches/fpu_interrupt.yaml
   - ../peripherals/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
-  - common_patches/flash/flash_boot0s.yaml
-  - common_patches/adc/l4.yaml
-  - common_patches/adc/l4_adc_common.yaml
-  - common_patches/adc/l4_smpr.yaml
-  - common_patches/adc/l4_sqr1.yaml
-  - common_patches/adc/l4+.yaml
-  - common_patches/adc/l4+common.yaml
+  - patches/flash/flash_boot0s.yaml
+  - patches/adc/l4.yaml
+  - patches/adc/l4_adc_common.yaml
+  - patches/adc/l4_smpr.yaml
+  - patches/adc/l4_sqr1.yaml
+  - patches/adc/l4+.yaml
+  - patches/adc/l4+common.yaml
   - ../peripherals/adc/adc_v3_common_l4+.yaml
   - ../peripherals/adc/adc_v3_l4.yaml
-  - common_patches/spi/rename_dff_tifrfe.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
   - ../peripherals/spi/spi_l4.yaml
   - ../peripherals/fw/fw_l0_l4.yaml

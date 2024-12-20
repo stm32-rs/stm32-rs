@@ -44,7 +44,7 @@ ADC?:
 
 AES?:
   _include:
-    - common_patches/aes/fields.yaml
+    - patches/aes/fields.yaml
     - ../peripherals/aes/v2.yaml
 
 EXTI:
@@ -110,7 +110,7 @@ IPCC:
       name: C1TOC2SR
 
 IWDG:
-  _include: common_patches/16bit.yaml
+  _include: patches/16bit.yaml
 
 RCC:
   _include:
@@ -319,34 +319,34 @@ SAI1:
 
 QUADSPI:
   _include:
-    - common_patches/quadspi/dr_multi_access.yaml
+    - patches/quadspi/dr_multi_access.yaml
     - ../peripherals/quadspi/quadspi_v1_single_flash.yaml
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 WWDG:
-  _include: common_patches/16bit.yaml
+  _include: patches/16bit.yaml
 
 _include:
   - collect/dma/dmamux.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - common_patches/sai/sai_v1.yaml
+  - patches/sai/sai_v1.yaml
   - ../peripherals/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - ../peripherals/tim/v2/ccm_common.yaml
-  - ./common_patches/adc/wb_adc_common.yaml
-  - ./common_patches/adc/l4_smpr.yaml
-  - common_patches/adc/l4+.yaml
+  - ./patches/adc/wb_adc_common.yaml
+  - ./patches/adc/l4_smpr.yaml
+  - patches/adc/l4+.yaml
   - ../peripherals/adc/adc_v3_l4.yaml
-  - common_patches/tim/tim2_32bit.yaml
+  - patches/tim/tim2_32bit.yaml
   - collect/hsem/r.yaml
-  - common_patches/spi/rename_dff_tifrfe.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
   - ../peripherals/i2c/i2c_v2.yaml
   - ../peripherals/spi/spi_v2_no_I2S.yaml

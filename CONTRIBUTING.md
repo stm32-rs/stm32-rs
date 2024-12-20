@@ -19,10 +19,12 @@ Next, check where your changes should go:
 * Fixes to the structure of an SVD file, such as adding a register, renaming a
   field, or deleting a peripheral, go in `devices/`, either in the
   device-specific file `devices/stm32xxxx.yaml` or the shared patches under
-  `devices/common_patches/`.
+  `devices/patches/`.
 * Descriptions of fields, which means either enumerated values ("you can write
   1 to this field to mean 'Start'") or write constraints ("this field can take
   any value from 2 to 30") go in `peripherals/`.
+* Patches which collect registers, clusters and fields in SVD arrays and
+  patches which collect registers in clusters should go in `devices/collect/`.
 
 ## Fixing bugs in SVD files
 
@@ -33,7 +35,7 @@ patching syntax.
 
 If your fix is only for a specific device, the patch should go into the
 `devices/stm32xxxx.yaml` file. If your fix applies to multiple devices,
-there may already be a suitable file in `devices/common_patches/` which
+there may already be a suitable file in `devices/patches/` which
 you could edit, or otherwise please create a new file in that directory.
 
 As an example, PR [#526](https://github.com/stm32-rs/stm32-rs/pull/526) added

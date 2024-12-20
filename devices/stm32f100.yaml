@@ -15,17 +15,17 @@ EXTI:
 
 I2C?:
   _include:
-    - common_patches/i2c/v1.yaml
+    - patches/i2c/v1.yaml
     - ../peripherals/i2c/i2c_v1.yaml
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
   # EWIF is named incorrectly in the SVD compared to its name in RM0008
   SR:
@@ -38,15 +38,15 @@ MPU:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
 
 _include:
-  - ./common_patches/rcc/f1_uart45.yaml
-  - common_patches/fsmc/fsmc_sramfix_v3.yaml
+  - ./patches/rcc/f1_uart45.yaml
+  - patches/fsmc/fsmc_sramfix_v3.yaml
   - ../peripherals/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
-  - common_patches/bkp/bkp.yaml
+  - patches/bkp/bkp.yaml
   - ../peripherals/bkp/bkp.yaml
   - collect/bkp/dr.yaml
   - ../peripherals/dac/dac_wavegen.yaml
@@ -58,8 +58,8 @@ _include:
   - ../peripherals/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
   - ../peripherals/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
-  - common_patches/tim/tim10_14_missing_opm.yaml
-  - common_patches/tim/common.yaml
+  - patches/tim/tim10_14_missing_opm.yaml
+  - patches/tim/common.yaml
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim16.yaml
   - ../peripherals/tim/tim6.yaml
@@ -74,5 +74,5 @@ _include:
   - ../peripherals/rcc/rcc_cfgr2_prediv.yaml
   - ../peripherals/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - common_patches/dbgmcu/rename.yaml
+  - patches/dbgmcu/rename.yaml
   - ../peripherals/adc/adc_f1_common.yaml

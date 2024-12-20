@@ -18,23 +18,23 @@ GTZC1:
 
 IWDG:
   _include:
-    - common_patches/16bit_with_mask.yaml
+    - patches/16bit_with_mask.yaml
     - ../peripherals/iwdg/h5.yaml
 
 SPI?:
-  _include: common_patches/spi/rxtxdr.yaml
+  _include: patches/spi/rxtxdr.yaml
 
 TIM?:
   _strip: "TIM?_"
 
 WWDG:
   _include:
-    - common_patches/16bit_with_mask.yaml
+    - patches/16bit_with_mask.yaml
     - ../peripherals/wwdg/wwdg_v2.yaml
 
 _include:
-  - common_patches/h5.yaml
-  - common_patches/adc/l4+.yaml
+  - patches/h5.yaml
+  - patches/adc/l4+.yaml
   - ../peripherals/adc/adc_h5.yaml
   - ../peripherals/crs/crs.yaml
   - ../peripherals/i2c/i2c_v2.yaml
@@ -55,13 +55,13 @@ _include:
   - ../peripherals/usart/usart_sync_slave.yaml
   - ../peripherals/usart/usart_smartcard.yaml
   - ../peripherals/usart/usart_prescalar.yaml
-  - common_patches/rcc/h503.yaml
+  - patches/rcc/h503.yaml
   - ../peripherals/rcc/rcc_h503.yaml
 
-  - common_patches/tim/tim_ccm_ext.yaml
-  - common_patches/tim/tim_dither.yaml
-  - common_patches/tim/tim_mms_ts_sms_ext.yaml
-  - common_patches/tim/tim_uifremap.yaml
+  - patches/tim/tim_ccm_ext.yaml
+  - patches/tim/tim_dither.yaml
+  - patches/tim/tim_mms_ts_sms_ext.yaml
+  - patches/tim/tim_uifremap.yaml
 
   - ../peripherals/tim/tim_basic.yaml
   - ../peripherals/tim/tim1_advanced.yaml

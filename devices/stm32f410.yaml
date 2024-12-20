@@ -8,8 +8,8 @@ _rebase:
 
 SPI?:
   _include:
-    - common_patches/16bit.yaml
-    - common_patches/spi/dr8.yaml
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0401
@@ -28,7 +28,7 @@ _modify:
 
 ADC1:
   _include:
-    - common_patches/adc/smpx_18.yaml
+    - patches/adc/smpx_18.yaml
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0401
@@ -49,8 +49,8 @@ FMPI2C?:
 
 I2C?:
   _include:
-    - common_patches/i2c/v1.yaml
-    - common_patches/i2c/v1_fltr.yaml
+    - patches/i2c/v1.yaml
+    - patches/i2c/v1_fltr.yaml
     - ../peripherals/i2c/i2c_v1.yaml
     - ../peripherals/i2c/i2c_v1_fltr.yaml
 
@@ -89,7 +89,7 @@ TIM5:
 
 EXTI:
   _include:
-    - common_patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/add_fpu_interrupt.yaml
     - ../peripherals/exti/common.yaml
     - collect/exti/farray.yaml
   _add:
@@ -103,12 +103,12 @@ EXTI:
 
 IWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/iwdg/iwdg.yaml
 
 WWDG:
   _include:
-    - common_patches/16bit.yaml
+    - patches/16bit.yaml
     - ../peripherals/wwdg/wwdg.yaml
   _add:
     _interrupts:
@@ -159,7 +159,7 @@ RNG:
 
 SYSCFG:
   _include:
-    - common_patches/syscfg/f4_common.yaml
+    - patches/syscfg/f4_common.yaml
     - ../peripherals/syscfg/f4/syscfg_f410.yaml
   _add:
     CFGR2:
@@ -186,15 +186,15 @@ SYSCFG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - common_patches/adc/f4_single_csr.yaml
-  - common_patches/adc/f4_single_ccr.yaml
+  - patches/adc/f4_single_csr.yaml
+  - patches/adc/f4_single_ccr.yaml
   - ../peripherals/dac/dac_wavegen.yaml
   - ../peripherals/dac/dac_f410.yaml
   - ../peripherals/dac/dac_dmaudr.yaml
-  - common_patches/rcc/f4_fmpi2c.yaml
-  - common_patches/rcc/f41x_bdcr_lsemod.yaml
-  - common_patches/rcc/rcc_merge_sw_sws.yaml
-  - common_patches/rcc/rcc_merge_rtcsel.yaml
+  - patches/rcc/f4_fmpi2c.yaml
+  - patches/rcc/f41x_bdcr_lsemod.yaml
+  - patches/rcc/rcc_merge_sw_sws.yaml
+  - patches/rcc/rcc_merge_rtcsel.yaml
   - ../peripherals/rcc/rcc_v2.yaml
   - ../peripherals/rcc/rcc_v2_bdcr_lsemod.yaml
   - ../peripherals/rcc/rcc_v2_pllcfgr_pllr.yaml
@@ -207,16 +207,16 @@ _include:
   - collect/gpio/v2.yaml
   - ../peripherals/crc/crc_basic.yaml
   - ../peripherals/crc/crc_idr_8bit.yaml
-  - common_patches/adc/adc_common_group_name.yaml
+  - patches/adc/adc_common_group_name.yaml
   - ../peripherals/adc/adc_v2_single.yaml
   - ../peripherals/adc/adc_v2/adc_v2_extsel_a.yaml
   - collect/adc/jofr_jdr.yaml
-  - common_patches/dma/dma_v2.yaml
+  - patches/dma/dma_v2.yaml
   - ../peripherals/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - ../peripherals/spi/spi_v1.yaml
-  - common_patches/tim/common.yaml
-  - common_patches/tim/tim2345_16bit_l.yaml
+  - patches/tim/common.yaml
+  - patches/tim/tim2345_16bit_l.yaml
   - ../peripherals/tim/tim_basic_no_opm.yaml
   - ../peripherals/tim/tim2345_16bit.yaml
   - ../peripherals/tim/tim6.yaml
@@ -228,11 +228,11 @@ _include:
   - ../peripherals/usart/uart_usart.yaml
   - ../peripherals/flash/flash_v1.yaml
   - ../peripherals/flash/flash_latency16.yaml
-  - common_patches/rtc/alarm.yaml
-  - common_patches/rtc/rtc_cr.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
   - ../peripherals/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - common_patches/dbgmcu/dbgmcu.yaml
-  - common_patches/pwr/f4.yaml
+  - patches/dbgmcu/dbgmcu.yaml
+  - patches/pwr/f4.yaml
   - ../peripherals/pwr/pwr_f410_f412_f413_f423.yaml
