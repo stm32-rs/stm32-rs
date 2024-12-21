@@ -3,6 +3,13 @@ _svd: ../svd/stm32f7x7.svd
 _rebase:
   USART1: USART6
 
+_derive:
+  TIM4: TIM3
+
+_copy:
+  TIM5:
+    from: TIM2
+
 _add:
   # This SVD is missing the ADC_Common peripheral that most other parts with
   # this ADC contain; consequently it's missing the CSR and CCR and CDR regs
@@ -275,11 +282,21 @@ TIM[1-58],TIM12:
 
 "TIM1[0134]":
   _include: patches/tim/tim10_14_missing_opm.yaml
+  _delete:
+    - SMCR
 
 "TIM*":
   _include:
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
+  CR1:
+    _delete:
+      - UIFREMAP
+    _add:
+      UIFREMAP:
+        description: UIF status bit remapping
+        bitOffset: 11
+        bitWidth: 1
 
 "TIM[34]":
   _include:
@@ -288,18 +305,89 @@ TIM[1-58],TIM12:
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
+  _modify:
+    OR1:
+      name: OR
+  _delete:
+    - OR2
 
 TIM5:
   OR:
     _modify:
       TI4_RMP:
         bitOffset: 6
+    _delete:
+      - ETR1_RMP
+      - ITR1_RMP
 
 TIM[16]:
   _include: patches/tim/v2/add_uifcpy.yaml
 
 TIM[18]:
-  _include: patches/tim/v2/add_cc4np.yaml
+  _include:
+    - patches/tim/v2/add_cc4np.yaml
+    - patches/tim/v2/add_cc5.yaml
+  _modify:
+    "CRR6,CCR6":
+      name: CCR6
+
+TIM[2-579],TIM1[02]:
+  _include: patches/tim/v2/add_uifcpy.yaml
+
+TIM3:
+  _delete:
+    - OR1
+    - OR2
+  CNT:
+    _delete:
+      - CNT_H
+  ARR:
+    _delete:
+      - ARR_H
+  CCR?:
+    _delete:
+      - CCR1_H
+
+TIM9:
+  _include:
+    - patches/tim/v2/add_ocm1_bit3.yaml
+    - patches/tim/v2/add_ocm2_bit3.yaml
+    - patches/tim/v2/add_sms_bit3.yaml
+
+TIM[1-58]:
+  DMAR:
+    _modify:
+      # Self-inconsistency between the register map and the
+      # specific register field documentation in RMs
+      DMAB:
+        bitWidth: 32
+
+"TIM9,TIM1[0-4]":
+  CNT:
+    CNT: [0, 65535]
+  ARR:
+    ARR: [0, 65535]
+  CCR?:
+    "CCR,CCR?": [0, 0xFFFF]
+
+TIM2:
+  OR:
+    _delete:
+      - TI4_RMP
+      - ETR1_RMP
+    _modify:
+      ITR1_RMP:
+        bitOffset: 10
+        bitWidth: 2
+
+TIM1:
+  _include: patches/tim/v2/oc5m_bit3.yaml
+
+TIM[1235]:
+  _include: patches/tim/v2/add_ocm_bit3.yaml
+
+TIM10:
+  _include: patches/tim/v2/add_ocm1_bit3.yaml
 
 WWDG:
   _include:
@@ -382,8 +470,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2_dual_bank.yaml
   - patches/tim/group.yaml
-  - patches/tim/f7.yaml
-  - patches/tim/v2/f7.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_mixed.yaml

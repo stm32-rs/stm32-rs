@@ -1,13 +1,7 @@
-CCMR1_Output:
-  _add:
-    OC1M_3:
-      description: "Output Compare 1 mode, bit 3"
-      bitOffset: 16
-      bitWidth: 1
-    OC2M_3:
-      description: "Output Compare 2 mode, bit 3"
-      bitOffset: 24
-      bitWidth: 1
+_include:
+  - add_ocm1_bit3.yaml
+  - add_ocm2_bit3.yaml
+
 CCMR2_Output:
   _add:
     OC3M_3:
