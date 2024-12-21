@@ -1,5 +1,18 @@
 _svd: ../svd/stm32h735.svd
 
+# TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
+  TIM4:
+    from: TIM2
+  TIM12:
+    from: TIM2
+  TIM13:
+    from: TIM2
+  TIM14:
+    from: TIM2
+
 _delete:
   - HRTIM # RM0468 devices do not have an HRTIM
 
@@ -878,14 +891,20 @@ TIM1:
   _include:
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 "TIM[34]":
   _include:
     - patches/tim/tim2_common_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
+    - fields/tim/tim_32bit.yaml
 
 "TIM1[3467]":
   _include:
@@ -900,7 +919,45 @@ TIM1:
     - CCR[34]
 
 "TIM[18]":
-  _include: patches/tim/v2/oc5m_bit3.yaml
+  _include:
+    - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/tim_advanced.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+TIM16:
+  _include: fields/tim/tim16.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM1[2-7]":
+  _include: fields/tim/tim_h7.yaml
+
+"TIM9,TIM12,TIM15":
+  _include: fields/tim/v2/ccm9_15.yaml
+
+"TIM[12-58],TIM19,TIM20":
+  _include: fields/tim/v2/ccm_extended.yaml
+
+"TIM1[013467]":
+  _include: fields/tim/v2/ccm_common.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
 
 WWDG1:
   _include:
@@ -1038,14 +1095,6 @@ _include:
   - fields/spi/spi_v3_tser.yaml
   - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - patches/tim/group.yaml
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim16.yaml
-  - fields/tim/tim6.yaml
-  - fields/tim/tim2345_mixed.yaml
-  - fields/tim/tim_advanced.yaml
-  - fields/tim/tim_h7.yaml
-  - fields/tim/v2/ccm.yaml
-  - collect/tim/ccr.yaml
   - fields/exti/exti_h7.yaml
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml

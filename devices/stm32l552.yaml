@@ -78,6 +78,15 @@ TIM15:
 "TIM[234]":
   _include: patches/tim/v2/ocm_bit3.yaml
 
+"TIM9,TIM12,TIM15":
+  _include: fields/tim/v2/ccm9_15.yaml
+
+"TIM[12-58],TIM19,TIM20":
+  _include: fields/tim/v2/ccm_extended.yaml
+
+"TIM1[013467]":
+  _include: fields/tim/v2/ccm_common.yaml
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -105,7 +114,6 @@ _include:
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - patches/tim/group.yaml
-  - fields/tim/v2/ccm.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml

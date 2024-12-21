@@ -51,6 +51,21 @@ TIM2:
 "TIM[13],TIM15,TIM16":
   _include: patches/tim/v2/tim_20bit.yaml
 
+"TIM9,TIM12,TIM15":
+  _include: fields/tim/v2/ccm9_15.yaml
+
+"TIM[12-58],TIM19,TIM20":
+  _include: fields/tim/v2/ccm_extended.yaml
+
+"TIM1[013467]":
+  _include: fields/tim/v2/ccm_common.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -109,8 +124,6 @@ _include:
   - collect/hrtim/v2.yaml
   - fields/rcc/rcc_g4.yaml
   - patches/tim/group.yaml
-  - fields/tim/v2/ccm.yaml
-  - collect/tim/ccr.yaml
   - patches/flash/g4_dual_bank.yaml
   - fields/flash/flash_g4.yaml
   - fields/flash/flash_g4_dual_bank.yaml

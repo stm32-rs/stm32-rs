@@ -600,14 +600,6 @@ RCC:
         name: FLASHPREN
         description: "Flash interface clock enable during csleep mode"
 
-TIM1,TIM8:
-  DMAR:
-    _modify:
-      # Amazingly RM0399 Rev 2 is self-inconsistent here, but use the
-      # register definition in 40.4.22 rather than table 350.
-      DMAB:
-        bitWidth: 32
-
 HRTIM_Common:
   _delete:
     - BDMADR
@@ -699,16 +691,3 @@ WWDG1,WWDG2:
   _strip: WWDG_
 IWDG1,IWDG2:
   _strip: IWDG_
-
-# TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-  TIM4:
-    from: TIM2
-  TIM12:
-    from: TIM2
-  TIM13:
-    from: TIM2
-  TIM14:
-    from: TIM2

@@ -51,9 +51,34 @@ SPI?:
   _include:
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 TIM9:
   _include: patches/tim/l1_tim9_ccer.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM[2345]":
+  _include:
+    - fields/tim/tim_16bit.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
 
 WWDG:
   _include:
@@ -76,11 +101,6 @@ _include:
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - patches/tim/group.yaml
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim6.yaml
-  - fields/tim/tim2345_16bit.yaml
-  - fields/tim/v1/ccm.yaml
-  - collect/tim/ccr.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

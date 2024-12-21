@@ -76,6 +76,37 @@ TIM10:
   _include:
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM[2345]":
+  _include:
+    - fields/tim/tim_16bit.yaml
+
+"TIM[18]":
+  _include: fields/tim/tim_advanced.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
 
 WWDG:
   _include:
@@ -103,12 +134,6 @@ _include:
   - collect/gpio/f1.yaml
   - fields/spi/spi_v1_without_FRF_FRE.yaml
   - patches/tim/group.yaml
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim6.yaml
-  - fields/tim/tim2345_16bit.yaml
-  - fields/tim/tim_advanced.yaml
-  - fields/tim/v1/ccm.yaml
-  - collect/tim/ccr.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_uart.yaml
   - fields/usart/uart_usart.yaml

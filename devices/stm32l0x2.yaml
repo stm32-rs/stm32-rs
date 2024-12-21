@@ -118,12 +118,43 @@ TIM*:
     - patches/tim/size16b.yaml
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 "TIM[23]":
-  _include: patches/tim/l0.yaml
+  _include:
+    - patches/tim/l0.yaml
+    - fields/tim/tim2_l0.yaml
 
 "TIM[2345]":
-  _include: patches/tim/tim2_common_16bit_l.yaml
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM2?":
+  _include: fields/tim/tim2x.yaml
+
+TIM21:
+  _include: fields/tim/tim21.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
 
 WWDG:
   _include:
@@ -137,7 +168,7 @@ _include:
   - patches/rtc/l0.yaml
   - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml
-  - ./collect/tsc/iogcr.yaml
+  - collect/tsc/iogcr.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -180,12 +211,6 @@ _include:
   - fields/spi/spi_l0.yaml
   - fields/syscfg/syscfg_l0.yaml
   - patches/tim/group.yaml
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim_l0.yaml
-  - fields/tim/tim2345_16bit.yaml
-  - fields/tim/tim6.yaml
-  - fields/tim/v1/ccm.yaml
-  - collect/tim/ccr.yaml
   - fields/usart/lpuart_v2A.yaml
   - fields/usart/usart_v2B1.yaml
   - fields/usb/usb_with_LPM.yaml

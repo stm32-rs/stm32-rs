@@ -1,0 +1,6 @@
+DMAR:
+  _modify:
+    # Self-inconsistency between the register map and the
+    # specific register field documentation in RMs
+    DMAB:
+      bitWidth: 32

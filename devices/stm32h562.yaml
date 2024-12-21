@@ -31,6 +31,7 @@ TIM1?:
   _include:
     - patches/tim/add_dither32.yaml
     - patches/tim/tim_uifremap.yaml
+    - fields/tim/tim_32bit_dither.yaml
 
 "TIM[18]":
   _include:
@@ -48,6 +49,38 @@ TIM1[2357]:
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_common_ext.yaml
+
+"TIM*":
+  _include:
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+TIM1:
+  _include: fields/tim/tim1_advanced.yaml
+
+"TIM[67]":
+  _include:
+    - fields/tim/tim6_dither.yaml
+
+"TIM[1348]":
+  _include:
+    - fields/tim/tim_16bit_dither.yaml
+
+"TIM[18],TIM[2-5]":
+  _include:
+    - fields/tim/v2/ccm_extended.yaml
 
 UCPD1:
   _strip: UCPD_
@@ -104,15 +137,5 @@ _include:
   - fields/usart/usart_sync_slave.yaml
   - fields/usart/usart_smartcard.yaml
   - fields/usart/usart_prescalar.yaml
-
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim1_advanced.yaml
-  - fields/tim/tim2_common.yaml
-  - fields/tim/tim6_dither.yaml
-  - fields/tim/tim_common_ext.yaml
-  - fields/tim/tim_uifremap.yaml
-  - fields/tim/tim_dither.yaml
-  - fields/tim/v2/ccm_1_8.yaml
-
   - collect/usb/chepr.yaml
   - collect/gpio/v2r.yaml

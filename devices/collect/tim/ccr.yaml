@@ -1,76 +1,62 @@
-"TIM[1-589],TIM1[0-79],TIM2?":
+_modify:
+  "CCR?":
+    description: "capture/compare register"
+"CCR?":
   _modify:
     "CCR?":
-      description: "capture/compare register"
-  "CCR?":
-    _modify:
-      "CCR?":
-        name: CCR
-        description: "Capture/Compare value"
+      name: CCR
+      description: "Capture/Compare value"
 
+_array:
+  "CCR[1-4]":
+    displayName: CCR%s
+CCER:
   _array:
-    "CCR[1-4]":
-      displayName: CCR%s
-  CCER:
-    _array:
-      CC?E:
-        description: Capture/Compare %s output enable
-      CC?P:
-        description: Capture/Compare %s output Polarity
-      "?~CC?NP":
-        description: Capture/Compare %s output Polarity
-      "?~CC?NE":
-        description: Capture/Compare %s complementary output enable
-  "CCMR[12]_Input":
-    _array:
-      CC?S:
-        description: Capture/Compare %s selection
-      IC?PSC:
-        description: Input capture %s prescaler
-      IC?F:
-        description: Input capture %s filter
-  "CCMR[12]_Output":
-    _array:
-      CC?S:
-        description: Capture/Compare %s selection
-  CCMR?_Output:
-    _array:
-      OC?FE:
-        description: Output compare %s fast enable
-      OC?PE:
-        description: Output compare %s preload enable
-      OC?M:
-        description: Output compare %s mode
-      "?~OC?CE":
-        description: Output compare %s clear enable
-      "?~OC?M_3":
-        description: Output compare %s mode, bit 3
-  DIER:
-    _array:
-      CC?IE:
-        description: Capture/Compare %s interrupt enable
-      "?~CC?DE":
-        description: Capture/Compare %s DMA request enable
-  SR:
-    _array:
-      "CC[1-4]IF":
-        description: Capture/compare %s interrupt flag
-      CC?OF:
-        description: Capture/Compare %s overcapture flag
-  EGR:
-    _array:
-      "CC?G":
-        description: Capture/compare %s generation
-
-"?~TIM[18],TIM20":
-  CR2:
-    _array:
-      OIS?:
-        description: Output Idle state (OC%s output)
-      OIS?N:
-        description: Output Idle state (OC%sN output)
-
-  SR:
-    _modify:
-      "?~CC[56]IF":
-        derivedFrom: CC%sIF
+    CC?E:
+      description: Capture/Compare %s output enable
+    CC?P:
+      description: Capture/Compare %s output Polarity
+    "?~CC?NP":
+      description: Capture/Compare %s output Polarity
+    "?~CC?NE":
+      description: Capture/Compare %s complementary output enable
+"CCMR[12]_Input":
+  _array:
+    CC?S:
+      description: Capture/Compare %s selection
+    IC?PSC:
+      description: Input capture %s prescaler
+    IC?F:
+      description: Input capture %s filter
+"CCMR[12]_Output":
+  _array:
+    CC?S:
+      description: Capture/Compare %s selection
+CCMR?_Output:
+  _array:
+    OC?FE:
+      description: Output compare %s fast enable
+    OC?PE:
+      description: Output compare %s preload enable
+    OC?M:
+      description: Output compare %s mode
+    "?~OC?CE":
+      description: Output compare %s clear enable
+    "?~OC?M_3":
+      description: Output compare %s mode, bit 3
+DIER:
+  _array:
+    CC?IE:
+      description: Capture/Compare %s interrupt enable
+    "?~CC?DE":
+      description: Capture/Compare %s DMA request enable
+SR:
+  _array:
+    "CC[1-4]IF":
+      description: Capture/compare %s interrupt flag
+    CC?OF:
+      description: Capture/Compare %s overcapture flag
+EGR:
+  _array:
+    "CC?G":
+      description: Capture/compare %s generation
