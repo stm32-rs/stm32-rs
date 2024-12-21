@@ -34,6 +34,37 @@ QUADSPI:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+"TIM[2-5],TIM1[2-4]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
+"TIM1[3467]":
+  _include: patches/tim/tim_1ch_16bit_l.yaml
+  _delete:
+    - CCR[234]
+
+# Dual channel timers
+"TIM1[25]":
+  _include:
+    - patches/tim/tim_2ch_16bit_l.yaml
+  _delete:
+    - CCR[34]
+
+"TIM[18]":
+  _include: patches/tim/v2/oc5m_bit3.yaml
+
 WWDG1:
   _include:
     - patches/wwdg/h7.yaml
@@ -119,9 +150,7 @@ _include:
   - fields/spi/spi_v3_tser.yaml
   - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - fields/syscfg/syscfg_h747.yaml
-  - patches/tim/v2/h7.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
   - fields/tim/tim6.yaml

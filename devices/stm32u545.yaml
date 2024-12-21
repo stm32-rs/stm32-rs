@@ -41,6 +41,14 @@ SDMMC:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: TIM?_
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
 WWDG:
   _include: patches/16bit.yaml
 
@@ -50,7 +58,7 @@ _include:
   - patches/adc/u5_extra_adc12_fields.yaml
   - patches/adc/u5_vsensesel.yaml
   - patches/octospi/u535_u545.yaml
-  - patches/tim/common.yaml
+  - patches/tim/group.yaml
   - fields/adc/adc_u5.yaml
   - fields/exti/exti_u5.yaml
   - fields/gpio/gpio_l5_u5.yaml

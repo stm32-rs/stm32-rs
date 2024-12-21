@@ -78,6 +78,14 @@ PWR:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: TIM?_
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
 UCPD1:
   _strip: UCPD_
   _include:
@@ -102,5 +110,6 @@ _include:
   - fields/i2c/i2c_v2.yaml
   - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - fields/octospi/u5.yaml
+  - patches/tim/group.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

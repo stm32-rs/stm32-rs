@@ -70,18 +70,20 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
 
 TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
+  _include:
+    - patches/tim/v2/g0_tim1_ccmr_input.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
 
 TIM2:
   _include: patches/tim/tim2_common_32bit.yaml
 
 TIM3:
   _include: patches/tim/tim_4ch_16bit_l.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
 
 VREFBUF:
   _strip: VREFBUF_
@@ -108,8 +110,7 @@ _include:
   - collect/rtc/alarm.yaml
   - patches/spi/g0_rename_registers.yaml
   - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
-  - patches/tim/g0_tim1_ccmr_input.yaml
-  - patches/tim/common.yaml
+  - patches/tim/group.yaml
   - fields/tim/v2/ccm_common.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim_advanced.yaml

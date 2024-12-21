@@ -2,17 +2,16 @@
 # The MSB of the 32-bit CNT register on TIM2 and TIM5 stores a read-only copy of
 # the UIF flag, UIFCPY, if UIFREMAP is set. This adds a field to access it and fix
 # the description of CNT when applied.
-"TIM[25]":
-  CNT:
-    _modify:
-        CNT:
-          description: "Non-dithering mode (DITHEN = 0)\n
-                        The register holds the counter value.\n
-                        Dithering mode (DITHEN = 1)\n
-                        The register holds the non-dithered part. The fractional part is not available."
-    _add:
-      UIFCPY:
-        description: Read-only copy of the UIF bit of the TIMx_ISR register
-        bitOffset: 31
-        bitWidth: 1
-        access: read-only
+CNT:
+  _modify:
+    CNT:
+      description: "Non-dithering mode (DITHEN = 0)\n
+        The register holds the counter value.\n
+        Dithering mode (DITHEN = 1)\n
+        The register holds the non-dithered part. The fractional part is not available."
+  _add:
+    UIFCPY:
+      description: Read-only copy of the UIF bit of the TIMx_ISR register
+      bitOffset: 31
+      bitWidth: 1
+      access: read-only

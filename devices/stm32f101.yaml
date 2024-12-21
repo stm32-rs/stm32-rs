@@ -66,6 +66,17 @@ TIM10:
         bitOffset: 3
         bitWidth: 1
 
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM1[0134]":
+  _include: patches/tim/tim10_14_missing_opm.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -91,9 +102,7 @@ _include:
   - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
   - fields/spi/spi_v1_without_FRF_FRE.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/tim10_14_missing_opm.yaml
-  - patches/tim/common.yaml
+  - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_16bit.yaml

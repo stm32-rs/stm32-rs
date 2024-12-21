@@ -149,14 +149,10 @@ SYSCFG:
       addressOffset: 0x110
 
 TIM1:
-  CCMR3_Output:
-    _modify:
-      OC5M_bit3:
-        name: OC5M_3
-      OC6M_bit3:
-        name: OC6M_3
+  _include: patches/tim/v2/oc5m_bit3.yaml
 
 TIM2:
+  _include: patches/tim/tim2_common_32bit.yaml
   CNT:
     _add:
       UIFREMAP_CNT:
@@ -345,7 +341,6 @@ _include:
   - patches/adc/l4_smpr.yaml
   - patches/adc/l4+.yaml
   - fields/adc/adc_v3_l4.yaml
-  - patches/tim/tim2_32bit.yaml
   - collect/hsem/r.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - fields/i2c/i2c_v2.yaml

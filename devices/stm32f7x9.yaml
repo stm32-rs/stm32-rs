@@ -281,6 +281,40 @@ TIM[1-58],TIM12:
         bitOffset: 16
         bitWidth: 1
 
+"TIM[2-5]":
+  _include: patches/tim/tim_o24ce.yaml
+
+"TIM1[0134]":
+  _include: patches/tim/tim10_14_missing_opm.yaml
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim2_common_16bit_l.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+
+TIM5:
+  OR:
+    _modify:
+      TI4_RMP:
+        bitOffset: 6
+
+TIM[16]:
+  _include: patches/tim/v2/add_uifcpy.yaml
+
+TIM[18]:
+  _include:
+    - patches/tim/v2/add_cc4np.yaml
+    - patches/tim/v2/add_bkf.yaml
+    - patches/tim/v2/add_af.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -362,15 +396,9 @@ _include:
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2_dual_bank.yaml
-  - patches/tim/tim_o24ce.yaml
-  - patches/tim/tim10_14_missing_opm.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_mixed_l.yaml
+  - patches/tim/group.yaml
   - patches/tim/f7.yaml
   - patches/tim/v2/f7.yaml
-  - patches/tim/f745_f750_f765_f7x6_f7x7_f7x9.yaml
-  - patches/tim/f745_f750_f765_f7x6_f7x9.yaml
-  - patches/tim/f765_f7x6_f7x9.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim2345_mixed.yaml

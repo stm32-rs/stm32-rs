@@ -48,6 +48,14 @@ PWR:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+TIM?:
+  _strip: TIM?_
+
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -64,7 +72,7 @@ _include:
   - patches/fsmc/fsmc_u5.yaml
   - collect/gfxmmu/lut.yaml
   - patches/octospi/u5.yaml
-  - patches/tim/common.yaml
+  - patches/tim/group.yaml
   - fields/adc/adc_u5_dual.yaml
   - fields/dma/dma2d_v2.yaml
   - fields/exti/exti_u5.yaml

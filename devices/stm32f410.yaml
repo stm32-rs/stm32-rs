@@ -173,6 +173,14 @@ TIM5:
         description: "TIM5 global interrupt"
         value: 50
 
+"TIM*":
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/icpsc.yaml
+
+"TIM[2345]":
+  _include: patches/tim/tim2_common_16bit_l.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -215,9 +223,8 @@ _include:
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - fields/spi/spi_v1.yaml
-  - patches/tim/common.yaml
-  - patches/tim/tim2345_16bit_l.yaml
-  - fields/tim/tim_basic_no_opm.yaml
+  - patches/tim/group.yaml
+  - fields/tim/tim_basic.yaml
   - fields/tim/tim2345_16bit.yaml
   - fields/tim/tim6.yaml
   - fields/tim/tim_advanced.yaml
