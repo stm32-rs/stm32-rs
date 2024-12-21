@@ -52,6 +52,33 @@ FLASH:
       LATENCY:
         bitWidth: 4
 
+LPTIM?:
+  _add:
+    OR:
+      description: ??
+      addressOffset: 0x20
+      resetValue: 0x0
+      fields:
+        OR_0:
+          description: Option register bit 0
+          bitOffset: 0
+          bitWidth: 1
+        OR_1:
+          description: Option register bit 1
+          bitOffset: 1
+          bitWidth: 1
+
+  CR:
+    _add:
+      COUNTRST:
+        description: Counter reset
+        bitOffset: 3
+        bitWidth: 1
+      RSTARE:
+        description: Reset after read enable
+        bitOffset: 4
+        bitWidth: 1
+
 OCTOSPI1:
   DCR1:
     _modify:
@@ -86,23 +113,352 @@ TIM8:
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/add_ocm_bit3.yaml
+    - patches/tim/v2/add_bkf.yaml
+    - patches/tim/v2/add_cc5.yaml
+
+  _modify:
+    OR1:
+      description: "TIM1 option register 1"
+
+  OR1:
+    _delete:
+      - ETR_ADC3_RMP
+
+  SR:
+    _add:
+      SBIF:
+        description: System Break interrupt flag
+        bitOffset: 13
+        bitWidth: 1
+
+  CCER:
+    _add:
+      CC4NP:
+        description: Capture/Compare 4 output Polarity
+        bitOffset: 15
+        bitWidth: 1
+
+  BDTR:
+    _add:
+      BKDSRM:
+        description: Break Disarm
+        bitOffset: 26
+        bitWidth: 1
+      BK2DSRM:
+        description: Break2 Disarm
+        bitOffset: 27
+        bitWidth: 1
+      BKBID:
+        description: Break Bidirectional
+        bitOffset: 28
+        bitWidth: 1
+      BK2BID:
+        description: Break2 bidirectional
+        bitOffset: 29
+        bitWidth: 1
+
+  DMAR:
+    _modify:
+      DMAB:
+        bitWidth: 32
 
 "TIM[23]":
   _include: patches/tim/v2/add_ocm_bit3.yaml
+  _modify:
+    OR:
+      name: OR1
+      description: option register 1
+
+  _add:
+    OR2:
+      description: option register 2
+      addressOffset: 0x60
+      resetValue: 0x0
+      fields:
+        ETRSEL:
+          description: ETR source selection
+          bitOffset: 14
+          bitWidth: 3
 
 TIM15:
+  _add:
+    SMCR:
+      description: ??
+      addressOffset: 0x8
+      resetValue: 0x0
+      fields:
+        SMS:
+          description: Slave mode selection
+          bitOffset: 0
+          bitWidth: 3
+        TS:
+          description: Trigger selection
+          bitOffset: 5
+          bitWidth: 3
+        MSM:
+          description: Master/Slave mode
+          bitOffset: 8
+          bitWidth: 1
+        SMS_3:
+          description: Slave mode selection
+          bitOffset: 16
+          bitWidth: 1
+    CCR2:
+      description: capture/compare 2 register
+      addressOffset: 0x38
+      resetValue: 0x0
+      fields:
+        CCR:
+          description: Capture/Compare value
+          bitOffset: 0
+          bitWidth: 16
+    OR1:
+      description: TIM15 option register 1
+      addressOffset: 0x50
+      resetValue: 0x0
+      fields:
+        TI1_RMP:
+          description: Input Capture 1 remap
+          bitOffset: 0
+          bitWidth: 1
+        ENCODER_MODE:
+          description: Encoder mode
+          bitOffset: 1
+          bitWidth: 2
+    OR2:
+      description: TIM15 option register 2
+      addressOffset: 0x60
+      resetValue: 0x0
+      fields:
+        BKINE:
+          description: BRK BKIN input enable
+          bitOffset: 0
+          bitWidth: 1
+        BKCMP1E:
+          description: BRK COMP1 enable
+          bitOffset: 1
+          bitWidth: 1
+        BKCMP2E:
+          description: BRK COMP2 enable
+          bitOffset: 2
+          bitWidth: 1
+        BKDF1BK0E:
+          description: BRK dfsdm1_break[0] enable
+          bitOffset: 8
+          bitWidth: 1
+        BKINP:
+          description: BRK BKIN input polarity
+          bitOffset: 9
+          bitWidth: 1
+        BKCMP1P:
+          description: BRK COMP1 input polarity
+          bitOffset: 10
+          bitWidth: 1
+        BKCMP2P:
+          description: BRK COMP2 input polarity
+          bitOffset: 11
+          bitWidth: 1
+
+  CR1:
+    _modify:
+      UIFREMAP:
+        name: UIFREMA
+
+  CR2:
+    _add:
+      OIS2:
+        description: Output idle state 2 (OC2 output)
+        bitOffset: 10
+        bitWidth: 1
+
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
 
+  DIER:
+    _add:
+      CC2IE:
+        description: Capture/Compare 1 interrupt enable
+        bitOffset: 2
+        bitWidth: 1
+
+  SR:
+    _add:
+      CC2IF:
+        description: Capture/Compare 1 interrupt flag
+        bitOffset: 2
+        bitWidth: 1
+      CC2OF:
+        description: Capture/Compare 2 overcapture flag
+        bitOffset: 9
+        bitWidth: 1
+
+  EGR:
+    _add:
+      CC2G:
+        description: Capture/compare 2 generation
+        bitOffset: 2
+        bitWidth: 1
+
+  CCER:
+    _add:
+      CC2E:
+        description: Capture/Compare 2 output enable
+        bitOffset: 4
+        bitWidth: 1
+      CC2P:
+        description: Capture/Compare 2 output Polarity
+        bitOffset: 5
+        bitWidth: 1
+      CC2NP:
+        description: Capture/Compare 2 output Polarity
+        bitOffset: 7
+        bitWidth: 1
+
 "TIM[34]":
   _include:
     - patches/tim/tim2_common_16bit_l.yaml
+  CNT:
+    _modify:
+      CNT:
+        bitWidth: 16
+
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 16
 
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
+
+TIM[1234568]:
+  CR1:
+    _add:
+      UIFREMA:
+        description: UIF status bit remapping
+        bitOffset: 11
+        bitWidth: 1
+
+    UIFREMA:
+      Disabled:
+        [
+          0,
+          "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31",
+        ]
+      Enabled:
+        [
+          1,
+          "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31",
+        ]
+
+TIM[123458]:
+  SMCR:
+    _add:
+      SMS3:
+        description: Bit 3 of Slave mode selection
+        bitOffset: 16
+        bitWidth: 1
+
+TIM[2345]:
+  DIER:
+    _delete:
+      - COMDE
+
+TIM2:
+  OR1:
+    _modify:
+      TI4_RMP:
+        bitOffset: 2
+      ETR_RMP:
+        bitOffset: 1
+        bitWidth: 1
+
+    _add:
+      ITR1_RMP:
+        description: Internal trigger 1 remap
+        bitOffset: 0
+        bitWidth: 1
+
+TIM3:
+  OR1:
+    _delete:
+      - ETR_RMP
+
+    _modify:
+      TI4_RMP:
+        name: TI1_RMP
+        bitOffset: 0
+        bitWidth: 1
+
+TIM[45]:
+  # This delete is not working...
+  _delete:
+    - OR
+    - OR1
+    - OR2
+
+  CCMR1_Output:
+    _add:
+      OC1M_3:
+        description: Bit 3 of Output compare 1 mode
+        bitOffset: 16
+        bitWidth: 1
+      OC2M_3:
+        description: Bit 3 of Output compare 2 mode
+        bitOffset: 24
+        bitWidth: 1
+
+  CCMR2_Output:
+    _add:
+      OC3M_3:
+        description: Bit 3 of Output compare 3 mode
+        bitOffset: 16
+        bitWidth: 1
+      OC4M_3:
+        description: Bit 3 of Output compare 4 mode
+        bitOffset: 24
+        bitWidth: 1
+
+TIM1[567]:
+  BDTR:
+    _delete:
+      - BKF
+
+    _add:
+      BKDSRM:
+        description: Break Disarm
+        bitOffset: 26
+        bitWidth: 1
+      BKBID:
+        description: Break Bidirectional
+        bitOffset: 28
+        bitWidth: 1
+
+TIM1[67]:
+  CR1:
+    _modify:
+      UIFREMAP:
+        name: UIFREMA
+
+  DIER:
+    _delete:
+      - COMDE
+      - TDE
+
+  SR:
+    _delete:
+      - TIF
+
+  EGR:
+    _delete:
+      - TG
+
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 WWDG:
   _include:
@@ -176,7 +532,6 @@ _include:
   - fields/flash/flash_l4+.yaml
   - patches/rcc/l4+.yaml
   - fields/rcc/rcc_l4+.yaml
-  - patches/tim/l4+.yaml
   - patches/tim/group.yaml
   - fields/tim/tim_basic.yaml
   - fields/tim/tim16.yaml
