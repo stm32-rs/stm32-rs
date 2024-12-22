@@ -82,9 +82,6 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-MPU:
-  _strip: MPU_
-
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
@@ -231,8 +228,7 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
+  #  - collect/dfsdm/v2.yaml
   - patches/rcc/l4_crrcr.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml

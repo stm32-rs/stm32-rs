@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Update L4/L4+ source to v1.4
 * AES enums & patches
 * H5: Array gpio registers
 * HRTIM H7 fixe EECR3
