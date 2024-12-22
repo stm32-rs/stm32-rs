@@ -41,9 +41,6 @@ AES:
     - fields/aes/v1.yaml
 
 FLASH:
-  _modify:
-    OBR:
-      name: OPTR
   ACR:
     _modify:
       DESAB_BUF:
@@ -66,14 +63,6 @@ IWDG:
 
 MPU:
   _strip: MPU_
-
-PWR:
-  CR:
-    _add:
-      LPSDSR:
-        description: Low-power deepsleep/Sleep/Low-power run
-        bitOffset: 0
-        bitWidth: 1
 
 RCC:
   _modify:
