@@ -1,5 +1,7 @@
 _svd: ../svd/stm32l4p5.svd
 
+_clear_fields: "*"
+
 _modify:
   DMAMUX1:
     name: DMAMUX
@@ -8,14 +10,6 @@ _modify:
     name: ADC1
   LTCD:
     groupName: LTCD
-
-_copy:
-  TIM3:
-    from: TIM2
-  TIM4:
-    from: TIM2
-  TIM5:
-    from: TIM2
 
 _delete:
   - SWPMI1
@@ -81,6 +75,18 @@ LPTIM?:
         bitOffset: 4
         bitWidth: 1
 
+LPUART?:
+  _strip: LPUART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
+PWR:
+  _strip: PWR_
+
 OCTOSPI1:
   DCR1:
     _modify:
@@ -98,13 +104,44 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-TIM8:
+"TIM?":
+  _strip: TIM?_
+
+"TIM??":
+  _strip:
+    - TIM??_
+    - TIM?_
+
+"TIM[1-589],TIM1[0-79]":
   _modify:
-    OR1:
-      description: "TIM8 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
+    CCMR1:
+      name: CCMR1_Input
+    "CCMR1_ALTERNATE,CCMR1_ALTERNATE1":
+      name: CCMR1_Output
+    "?~CCMR2":
+      name: CCMR2_Input
+    "?~CCMR2_ALTERNATE":
+      name: CCMR2_Output
+    "?~CCMR3":
+      name: CCMR3_Output
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+      OC2M_1:
+        name: OC2M_3
+  "?~CCMR2_Output":
+    _modify:
+      OC3M_1:
+        name: OC3M_3
+      OC4M_1:
+        name: OC4M_3
+  "?~CCMR3_Output":
+    _modify:
+      OC5M_1:
+        name: OC5M_3
+      OC6M_1:
+        name: OC6M_3
 
 "TIM*":
   _include:
@@ -116,206 +153,7 @@ TIM8:
 "TIM[18]":
   _include:
     - patches/tim/dmab_32.yaml
-    - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
-    - patches/tim/v2/add_bkf.yaml
-    - patches/tim/v2/add_cc5.yaml
     - fields/tim/tim_advanced.yaml
-
-  _modify:
-    OR1:
-      description: "TIM1 option register 1"
-
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
-
-  SR:
-    _add:
-      SBIF:
-        description: System Break interrupt flag
-        bitOffset: 13
-        bitWidth: 1
-
-  CCER:
-    _add:
-      CC4NP:
-        description: Capture/Compare 4 output Polarity
-        bitOffset: 15
-        bitWidth: 1
-
-  BDTR:
-    _add:
-      BKDSRM:
-        description: Break Disarm
-        bitOffset: 26
-        bitWidth: 1
-      BK2DSRM:
-        description: Break2 Disarm
-        bitOffset: 27
-        bitWidth: 1
-      BKBID:
-        description: Break Bidirectional
-        bitOffset: 28
-        bitWidth: 1
-      BK2BID:
-        description: Break2 bidirectional
-        bitOffset: 29
-        bitWidth: 1
-
-"TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
-  _modify:
-    OR:
-      name: OR1
-      description: option register 1
-
-  _add:
-    OR2:
-      description: option register 2
-      addressOffset: 0x60
-      resetValue: 0x0
-      fields:
-        ETRSEL:
-          description: ETR source selection
-          bitOffset: 14
-          bitWidth: 3
-
-TIM15:
-  _add:
-    SMCR:
-      description: ??
-      addressOffset: 0x8
-      resetValue: 0x0
-      fields:
-        SMS:
-          description: Slave mode selection
-          bitOffset: 0
-          bitWidth: 3
-        TS:
-          description: Trigger selection
-          bitOffset: 5
-          bitWidth: 3
-        MSM:
-          description: Master/Slave mode
-          bitOffset: 8
-          bitWidth: 1
-        SMS_3:
-          description: Slave mode selection
-          bitOffset: 16
-          bitWidth: 1
-    CCR2:
-      description: capture/compare 2 register
-      addressOffset: 0x38
-      resetValue: 0x0
-      fields:
-        CCR:
-          description: Capture/Compare value
-          bitOffset: 0
-          bitWidth: 16
-    OR1:
-      description: TIM15 option register 1
-      addressOffset: 0x50
-      resetValue: 0x0
-      fields:
-        TI1_RMP:
-          description: Input Capture 1 remap
-          bitOffset: 0
-          bitWidth: 1
-        ENCODER_MODE:
-          description: Encoder mode
-          bitOffset: 1
-          bitWidth: 2
-    OR2:
-      description: TIM15 option register 2
-      addressOffset: 0x60
-      resetValue: 0x0
-      fields:
-        BKINE:
-          description: BRK BKIN input enable
-          bitOffset: 0
-          bitWidth: 1
-        BKCMP1E:
-          description: BRK COMP1 enable
-          bitOffset: 1
-          bitWidth: 1
-        BKCMP2E:
-          description: BRK COMP2 enable
-          bitOffset: 2
-          bitWidth: 1
-        BKDF1BK0E:
-          description: BRK dfsdm1_break[0] enable
-          bitOffset: 8
-          bitWidth: 1
-        BKINP:
-          description: BRK BKIN input polarity
-          bitOffset: 9
-          bitWidth: 1
-        BKCMP1P:
-          description: BRK COMP1 input polarity
-          bitOffset: 10
-          bitWidth: 1
-        BKCMP2P:
-          description: BRK COMP2 input polarity
-          bitOffset: 11
-          bitWidth: 1
-
-  CR1:
-    _modify:
-      UIFREMAP:
-        name: UIFREMA
-
-  CR2:
-    _add:
-      OIS2:
-        description: Output idle state 2 (OC2 output)
-        bitOffset: 10
-        bitWidth: 1
-
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
-
-  DIER:
-    _add:
-      CC2IE:
-        description: Capture/Compare 1 interrupt enable
-        bitOffset: 2
-        bitWidth: 1
-
-  SR:
-    _add:
-      CC2IF:
-        description: Capture/Compare 1 interrupt flag
-        bitOffset: 2
-        bitWidth: 1
-      CC2OF:
-        description: Capture/Compare 2 overcapture flag
-        bitOffset: 9
-        bitWidth: 1
-
-  EGR:
-    _add:
-      CC2G:
-        description: Capture/compare 2 generation
-        bitOffset: 2
-        bitWidth: 1
-
-  CCER:
-    _add:
-      CC2E:
-        description: Capture/Compare 2 output enable
-        bitOffset: 4
-        bitWidth: 1
-      CC2P:
-        description: Capture/Compare 2 output Polarity
-        bitOffset: 5
-        bitWidth: 1
-      CC2NP:
-        description: Capture/Compare 2 output Polarity
-        bitOffset: 7
-        bitWidth: 1
 
 "TIM[34]":
   _include:
@@ -338,13 +176,7 @@ TIM15:
 
 TIM[1234568]:
   CR1:
-    _add:
-      UIFREMA:
-        description: UIF status bit remapping
-        bitOffset: 11
-        bitWidth: 1
-
-    UIFREMA:
+    UIFREMAP:
       Disabled:
         [
           0,
@@ -355,113 +187,6 @@ TIM[1234568]:
           1,
           "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31",
         ]
-
-TIM[123458]:
-  SMCR:
-    _add:
-      SMS3:
-        description: Bit 3 of Slave mode selection
-        bitOffset: 16
-        bitWidth: 1
-
-TIM[2345]:
-  DIER:
-    _delete:
-      - COMDE
-
-TIM2:
-  OR1:
-    _modify:
-      TI4_RMP:
-        bitOffset: 2
-      ETR_RMP:
-        bitOffset: 1
-        bitWidth: 1
-
-    _add:
-      ITR1_RMP:
-        description: Internal trigger 1 remap
-        bitOffset: 0
-        bitWidth: 1
-
-TIM3:
-  OR1:
-    _delete:
-      - ETR_RMP
-
-    _modify:
-      TI4_RMP:
-        name: TI1_RMP
-        bitOffset: 0
-        bitWidth: 1
-
-TIM[45]:
-  # This delete is not working...
-  _delete:
-    - OR
-    - OR1
-    - OR2
-
-  CCMR1_Output:
-    _add:
-      OC1M_3:
-        description: Bit 3 of Output compare 1 mode
-        bitOffset: 16
-        bitWidth: 1
-      OC2M_3:
-        description: Bit 3 of Output compare 2 mode
-        bitOffset: 24
-        bitWidth: 1
-
-  CCMR2_Output:
-    _add:
-      OC3M_3:
-        description: Bit 3 of Output compare 3 mode
-        bitOffset: 16
-        bitWidth: 1
-      OC4M_3:
-        description: Bit 3 of Output compare 4 mode
-        bitOffset: 24
-        bitWidth: 1
-
-TIM1[567]:
-  BDTR:
-    _delete:
-      - BKF
-
-    _add:
-      BKDSRM:
-        description: Break Disarm
-        bitOffset: 26
-        bitWidth: 1
-      BKBID:
-        description: Break Bidirectional
-        bitOffset: 28
-        bitWidth: 1
-
-TIM1[67]:
-  CR1:
-    _modify:
-      UIFREMAP:
-        name: UIFREMA
-
-  DIER:
-    _delete:
-      - COMDE
-      - TDE
-
-  SR:
-    _delete:
-      - TIF
-
-  EGR:
-    _delete:
-      - TG
-
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
 
 "TIM[1-58]":
   _include:
@@ -494,6 +219,15 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _strip: USART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -508,7 +242,6 @@ _include:
   - patches/usart/merge_CR1_DEATx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/l4+.yaml
   - fields/usart/usart_v2B2.yaml
@@ -527,7 +260,6 @@ _include:
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
   - patches/spi/rename_dff_tifrfe.yaml
-  - patches/rtc/l4.yaml
   - patches/rtc/rtc_cr.yaml
   - patches/octospi/l4+.yaml
   - fields//octospi/l4.yaml
@@ -567,7 +299,6 @@ _include:
   - patches/rcc/l4+.yaml
   - fields/rcc/rcc_l4+.yaml
   - patches/tim/group.yaml
-  - patches/pwr/l4+.yaml
   - fields/pwr/pwr_l4+.yaml
   - patches/dcmi/dcmi.yaml
   - fields/dcmi/dcmi.yaml

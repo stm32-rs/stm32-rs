@@ -13,6 +13,10 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -22,9 +26,6 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
-
-MPU:
-  _strip: MPU_
 
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
 RCC:
@@ -193,7 +194,6 @@ _include:
   - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - patches/rcc/l4_crrcr.yaml
   - patches/can/l4x3_missing_regs.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
@@ -228,7 +228,6 @@ _include:
   - patches/dma/interrupt_names.yaml
   - patches/adc/l4.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4_smpr.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml
   - fields/adc/adc_v3_common_l4+.yaml

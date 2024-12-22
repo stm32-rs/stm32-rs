@@ -2,16 +2,12 @@ _svd: ../svd/stm32l4x1.svd
 
 _derive:
   USART3: USART1
+  TIM4: TIM3
 
 _modify:
   # The SVD calls ADC1 ADC.
   ADC:
     name: ADC1
-
-_add:
-  ADC2:
-    derivedFrom: ADC1
-    baseAddress: "0x50040100"
 
 # TIM3 is 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -30,6 +26,17 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+DFSDM:
+  _strip: DFSDM_
+  _modify:
+    FLT1CHGR:
+      name: FLT1JCHGR
+  _include: collect/dfsdm/l4.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -39,9 +46,6 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _include:
@@ -116,7 +120,6 @@ TIM15:
     _modify:
       OC1M_2:
         name: OC1M_3
-  _include: patches/tim/l4_tim15_ch2.yaml
 
 "TIM[34]":
   _include:
@@ -126,7 +129,7 @@ TIM15:
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
-    - fields/tim/tim_32bit.yaml
+  #  - fields/tim/tim_32bit.yaml
 
 "TIM[1-58]":
   _include:
@@ -182,8 +185,6 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
   - patches/gpio/l4_brr.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
@@ -207,12 +208,10 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
-  - patches/fpu_interrupt.yaml
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - patches/adc/l4.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4_smpr.yaml
   - patches/adc/l4_sqr1.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml

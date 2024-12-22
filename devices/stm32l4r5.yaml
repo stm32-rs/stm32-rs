@@ -1,5 +1,7 @@
 _svd: ../svd/stm32l4r5.svd
 
+_clear_fields: "*"
+
 _modify:
   ADC:
     name: ADC1
@@ -49,13 +51,6 @@ FLASH:
     _modify:
       LATENCY:
         bitWidth: 4
-  SR:
-    _add:
-      PEMPTY:
-        description: Program empty
-        bitOffset: 17
-        bitWidth: 1
-        access: read-write
   ECCR:
     _modify:
       ADDR_ECC:
@@ -65,79 +60,20 @@ FLASH:
       SYSF_ECC:
         bitOffset: 22
 
-  _add:
-    CFGR:
-      description: Flash configuration register
-      addressOffset: 0x130
-      resetValue: 0x00000000
-      size: 0x20
-      access: read-write
-      fields:
-        LVEN:
-          description: Low-voltage enable
-          bitOffset: 0
-          bitWidth: 1
-
 MPU:
   _strip: MPU_
 
+LPUART?:
+  _strip: LPUART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
 PWR:
-  _add:
-    PDCRI:
-      description: Power Port I pull-down control register
-      addressOffset: 0x64
-      resetValue: 0x00000000
-      size: 0x20
-      access: read-write
-      fields:
-        PD0:
-          description: Port I pull-down bit 0
-          bitOffset: 0
-          bitWidth: 1
-        PD1:
-          description: Port I pull-down bit 1
-          bitOffset: 1
-          bitWidth: 1
-        PD2:
-          description: Port I pull-down bit 2
-          bitOffset: 2
-          bitWidth: 1
-        PD3:
-          description: Port I pull-down bit 3
-          bitOffset: 3
-          bitWidth: 1
-        PD4:
-          description: Port I pull-down bit 4
-          bitOffset: 4
-          bitWidth: 1
-        PD5:
-          description: Port I pull-down bit 5
-          bitOffset: 5
-          bitWidth: 1
-        PD6:
-          description: Port I pull-down bit 6
-          bitOffset: 6
-          bitWidth: 1
-        PD7:
-          description: Port I pull-down bit 7
-          bitOffset: 7
-          bitWidth: 1
-        PD8:
-          description: Port I pull-down bit 8
-          bitOffset: 8
-          bitWidth: 1
-        PD9:
-          description: Port I pull-down bit 9
-          bitOffset: 9
-          bitWidth: 1
-        PD10:
-          description: Port I pull-down bit 10
-          bitOffset: 10
-          bitWidth: 1
-        PD11:
-          description: Port I pull-down bit 11
-          bitOffset: 11
-          bitWidth: 1
+  _strip: PWR_
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
@@ -195,21 +131,44 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-TIM1:
-  _modify:
-    OR1:
-      description: "TIM1 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
+"TIM?":
+  _strip: TIM?_
 
-TIM8:
+"TIM??":
+  _strip:
+    - TIM??_
+    - TIM?_
+
+"TIM[1-589],TIM1[0-79]":
   _modify:
-    OR1:
-      description: "TIM8 option register 1"
-  OR1:
-    _delete:
-      - ETR_ADC3_RMP
+    CCMR1:
+      name: CCMR1_Input
+    "CCMR1_ALTERNATE,CCMR1_ALTERNATE1":
+      name: CCMR1_Output
+    "?~CCMR2":
+      name: CCMR2_Input
+    "?~CCMR2_ALTERNATE":
+      name: CCMR2_Output
+    "?~CCMR3":
+      name: CCMR3_Output
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+      OC2M_1:
+        name: OC2M_3
+  "?~CCMR2_Output":
+    _modify:
+      OC3M_1:
+        name: OC3M_3
+      OC4M_1:
+        name: OC4M_3
+  "?~CCMR3_Output":
+    _modify:
+      OC5M_1:
+        name: OC5M_3
+      OC6M_1:
+        name: OC6M_3
 
 "TIM*":
   _include:
@@ -220,18 +179,7 @@ TIM8:
 
 "TIM[18]":
   _include:
-    - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/tim_advanced.yaml
-
-"TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
-
-TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
 
 "TIM[34]":
   _include:
@@ -274,6 +222,15 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _strip: USART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -286,7 +243,6 @@ _include:
   - fields/adc/adc_v3_common_l4+.yaml
   - fields/adc/adc_v3_l4+.yaml
   - patches/nvic/4_prio_bits.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -294,7 +250,6 @@ _include:
   - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
   - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
   - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
@@ -321,7 +276,6 @@ _include:
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
-  - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml
   - fields/dma/dma2d_v1.yaml
@@ -330,5 +284,4 @@ _include:
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
-  - patches/usart/l4_lpuart_presc.yaml
   - collect/gfxmmu/lut.yaml
