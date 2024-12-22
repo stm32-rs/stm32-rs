@@ -46,4 +46,6 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
 
 "OTG_HS_GLOBAL,OTG1_HS_GLOBAL":
   _array:
-    DIEPTXF[12345]: {}
+    DIEPTXF[1-8]:
+      displayName: DIEPTXF%s
+      description: OTG_HS device IN endpoint transmit FIFO size register

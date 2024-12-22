@@ -37,12 +37,6 @@ SPI?:
       "[_]FRE":
         name: FRE
 
-"GPIO*":
-  _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
-
 FLASH:
   OPTKEYR:
     _modify:
@@ -51,6 +45,7 @@ FLASH:
 
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
@@ -117,9 +112,6 @@ SYSCFG:
 #    _delete:
 #      - ADFSDM1SEL
 #      - DFSDM1SEL
-
-MPU:
-  _strip: MPU_
 
 "OTG_HS_*":
   _strip: OTG_HS_

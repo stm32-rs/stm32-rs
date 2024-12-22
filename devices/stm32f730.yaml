@@ -23,6 +23,7 @@ AES:
 
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
   IMR:
@@ -34,9 +35,6 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _include:
