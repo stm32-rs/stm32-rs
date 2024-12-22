@@ -4,25 +4,6 @@ _include:
   - ./fdcan_common.yaml
 
 "FDCAN,FDCAN?":
-  RXGFC:
-    _add:
-      LSE:
-        description: List size extended
-        bitOffset: 24
-        bitWidth: 4
-      LSS:
-        description: List size standard
-        bitOffset: 16
-        bitWidth: 5
-      F0OM:
-        description: FIFO 0 operation mode
-        bitOffset: 9
-        bitWidth: 1
-      F1OM:
-        description: FIFO 1 operation mode
-        bitOffset: 8
-        bitWidth: 1
-
   # Interrupt registers are a disaster, start over
   IR:
     _delete:

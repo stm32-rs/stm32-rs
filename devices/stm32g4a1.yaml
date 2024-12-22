@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g4a1.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -23,6 +25,13 @@ COMP:
 
 DAC?:
   _strip: DAC_
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+FDCAN:
+  _strip: FDCAN_
 
 IWDG:
   _include:
@@ -49,6 +58,12 @@ OPAMP:
       _from: OPAMP1_TCMR
       addressOffset: 0x2C
       description: OPAMP6 control/status register
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
 
 SPI?:
   _include:

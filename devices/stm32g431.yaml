@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g431.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -18,10 +20,23 @@ COMP:
 DAC?:
   _strip: DAC_
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+FDCAN:
+  _strip: FDCAN_
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
 
 SPI?:
   _include:
