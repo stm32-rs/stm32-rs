@@ -3,7 +3,7 @@ _include:
   - derive.yaml
 
 EXTICR1:
-  "EXTI*":
+  EXTI0:
     PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
     PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
     PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]

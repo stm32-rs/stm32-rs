@@ -5,4 +5,4 @@ EXTICR1:
 EXTICR[2-4]:
   _modify:
     "EXTI?,EXTI1?":
-      derivedFrom: EXTI.EXTICR1.EXTI0
+      derivedFrom: AFIO.EXTICR1.EXTI0
