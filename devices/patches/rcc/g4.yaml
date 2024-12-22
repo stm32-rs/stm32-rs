@@ -1,12 +1,6 @@
 # Edits required to match RM0440.
 
 RCC:
-  _modify:
-    PLLSYSCFGR:
-      name: PLLCFGR
-    CCIPR1:
-      name: CCIPR
-
   CR:
     _modify:
       PLLSYSRDY:
@@ -152,10 +146,6 @@ RCC:
       - SRAM2SMEN # Actually points to CCMSRAMSEN.
       - SRAM3SMEN # This is the real SRAM2SMEN.
     _add:
-      CCMSRAMSMEN:
-        description: CCM SRAM interface clocks enable during Sleep and Stop modes
-        bitOffset: 9
-        bitWidth: 1
       SRAM2SMEN:
         description: SRAM2 interface clocks enable during Sleep and Stop modes
         bitOffset: 10
@@ -180,10 +170,6 @@ RCC:
       - I2C3SMEN # Actually points to USBSMEN.
       - I2C3SMEN_3 # Correct, except for name.
     _add:
-      USBSMEN:
-        description: USB device clocks enable during Sleep and Stop modes
-        bitOffset: 23
-        bitWidth: 1
       I2C3SMEN:
         description: I2C3 clocks enable during Sleep and Stop modes
         bitOffset: 30

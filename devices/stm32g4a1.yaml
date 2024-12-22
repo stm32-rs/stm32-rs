@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g4a1.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -29,6 +31,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+FDCAN:
+  _strip: FDCAN_
+
 FDCAN2:
   _add:
     _interrupts:
@@ -49,6 +54,9 @@ OPAMP:
       _from: OPAMP1_TCMR
       addressOffset: 0x2C
       description: OPAMP6 control/status register
+
+RCC:
+  _strip: RCC_
 
 SPI?:
   _include:

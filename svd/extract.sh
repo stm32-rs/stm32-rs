@@ -21,17 +21,6 @@ cp stm32h753.svd stm32h753v.svd
 mv stm32mp157x.svd stm32mp157.svd
 mv stm32mp153x.svd stm32mp153.svd
 
-# Rename G4 svd files to remove trailing 'xx'
-mv stm32g4a1xx.svd stm32g4a1.svd
-mv stm32g431xx.svd stm32g431.svd
-mv stm32g441xx.svd stm32g441.svd
-mv stm32g471xx.svd stm32g471.svd
-mv stm32g473xx.svd stm32g473.svd
-mv stm32g474xx.svd stm32g474.svd
-mv stm32g483xx.svd stm32g483.svd
-mv stm32g484xx.svd stm32g484.svd
-mv stm32g491xx.svd stm32g491.svd
-
 # Rename WLE5 file to remove _cm4, since it only has one core.
 mv stm32wle5_cm4.svd stm32wle5.svd
 
