@@ -19,6 +19,7 @@
 * Collent in field arrays: GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
 * ADC: C0+G0+WL field arrays
 * L1 TIM9: add CCER
+* Update STM32H5 source to v1.4
 * Update STM32F3 source to V1.3
 * F373 GPIOC LCKR, collect GPIO.BRR
 * Update STM32F4 to V2.0 archive source
