@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g474.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -12,6 +14,13 @@ COMP:
 
 DAC?:
   _strip: DAC_
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+FDCAN:
+  _strip: FDCAN_
 
 IWDG:
   _include:
@@ -31,6 +40,12 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
 
 SPI?:
   _include:
@@ -125,5 +140,6 @@ _include:
   - fields/rcc/rcc_g4.yaml
   - patches/tim/group.yaml
   - patches/flash/g4_dual_bank.yaml
+  - patches/flash/g4_dual_bank_optr.yaml
   - fields/flash/flash_g4.yaml
   - fields/flash/flash_g4_dual_bank.yaml

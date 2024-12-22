@@ -1,5 +1,7 @@
 _svd: ../svd/stm32g471.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -18,6 +20,13 @@ COMP:
 DAC?:
   _strip: DAC_
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+FDCAN:
+  _strip: FDCAN_
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -33,6 +42,12 @@ OPAMP:
       _from: OPAMP1_TCMR
       addressOffset: 0x2C
       description: OPAMP6 control/status register
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
 
 SPI?:
   _include:
@@ -126,5 +141,6 @@ _include:
   - fields/rcc/rcc_g4.yaml
   - patches/tim/group.yaml
   - patches/flash/g4_dual_bank.yaml
+  - patches/flash/g4_dual_bank_optr.yaml
   - fields/flash/flash_g4.yaml
   - fields/flash/flash_g4_dual_bank.yaml
