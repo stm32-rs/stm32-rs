@@ -26,13 +26,26 @@ CRYP:
     _merge:
       - "IV*"
 
+DMAMUX1:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux1_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+DMAMUX2:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux2_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
 IWDG1:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _strip: QUADSPI_
@@ -40,15 +53,32 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+RCC:
+  _delete:
+    - ICSCR
+  _add:
+    CSICFGR:
+      description: RCC CSI configuration register
+      addressOffset: 0x000C
+      access: read-write
+      fields:
+        CSITRIM:
+          description: CSI clock trimming
+          bitOffset: 24
+          bitWidth: 6
+        CSICAL:
+          description: CSI clock calibration
+          bitOffset: 0
+          bitWidth: 9
+
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
-"TIM[2-5],TIM1[2-4]":
-  _include: patches/tim/tim_o24ce.yaml
+"TIM[1],TIM[23],TIM1[23]":
+  _include: patches/tim/icpsc.yaml
 
 "TIM*":
   _include:
-    - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 
@@ -62,14 +92,14 @@ SPI?:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_32bit.yaml
 
-"TIM1[3467]":
+"TIM1[34]":
   _include:
     - patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[234]
 
 # Dual channel timers
-"TIM1[25]":
+"TIM1[2]":
   _include: patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[34]
@@ -121,7 +151,6 @@ WWDG1:
 
 _include:
   - fields/hdmi_cec.yaml
-  - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
   - patches/h7_common_dualcore.yaml
   - patches/nvic/4_prio_bits.yaml # Specifically for CM4 core
   - patches/fdcan/fdcan_h7.yaml
@@ -133,11 +162,8 @@ _include:
   - patches/dma/fcr_wo.yaml
   - patches/dma/bdma.yaml
   - patches/dma/h7_dmacr.yaml
-  - patches/dma/h7_dmamux.yaml
   - fields/dma/bdma.yaml
   - fields/dma/dma_v3.yaml
-  - fields/dma/dmamux_v1.yaml
-  - collect/dma/h7_dmamux.yaml
   - collect/dma/st.yaml
   - collect/dma/bdma.yaml
   - collect/dma/mdma.yaml
@@ -153,7 +179,6 @@ _include:
   - patches/flash/h7_dualcore.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
-  - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml

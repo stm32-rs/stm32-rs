@@ -7,3 +7,11 @@ Ethernet_MTL:
 Ethernet_MAC:
   _include:
     - h7_desc_mac.yaml
+  MACRWKPFR:
+    _modify:
+      MACRWKPFR:
+        description: Remote wakeup packet filter
+  MACHWF1R:
+    _modify:
+      ADDR64:
+        description: Address width

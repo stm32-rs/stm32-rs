@@ -6,12 +6,6 @@ done
 # Copy and rename H7 files to remove trailing 'x'
 # and provide a second copy of the SVDs to modify
 # for the revision-V hardware.
-mv stm32h7a3x.svd stm32h7a3.svd
-mv stm32h7b0x.svd stm32h7b0.svd
-mv stm32h7b3x.svd stm32h7b3.svd
-mv stm32h73x.svd stm32h735.svd
-mv stm32h742x.svd stm32h742.svd
-mv stm32h750x.svd stm32h750.svd
 mv stm32h757_cm4.svd stm32h747cm4.svd
 mv stm32h757_cm7.svd stm32h747cm7.svd
 cp stm32h743.svd stm32h743v.svd

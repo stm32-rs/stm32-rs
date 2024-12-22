@@ -1,0 +1,214 @@
+_delete:
+  - DIEPDMA0
+  - DIEPDMA6
+  - DIEPDMA7
+  - DIEPDMA8
+  - DOEPDMA0
+  - DOEPDMA1
+  - DOEPDMA2
+  - DOEPDMA3
+  - DOEPDMA4
+  - DOEPDMA5
+  - DOEPDMA6
+  - DOEPDMA7
+  - DOEPDMA8
+_copy:
+  DIEPDMA0:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-0 DMA address register
+    addressOffset: 0x114
+  DIEPDMA6:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-6 DMA address register
+    addressOffset: 0x1D4
+  DIEPDMA7:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-7 DMA address register
+    addressOffset: 0x1F4
+  DIEPCTL8:
+    _from: DIEPCTL1
+    description: OTG_FS device control IN endpoint 8 control register
+    addressOffset: 0x200
+  DIEPINT8:
+    _from: DIEPINT1
+    description: device endpoint-8 interrupt register
+    addressOffset: 0x208
+  DIEPTSIZ8:
+    _from: DIEPTSIZ1
+    description: device endpoint-8 transfer size register
+    addressOffset: 0x210
+  DIEPDMA8:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-8 DMA address register
+    addressOffset: 0x214
+  DTXFSTS8:
+    _from: DTXFSTS1
+    description: OTG_FS device IN endpoint transmit FIFO status register
+    addressOffset: 0x218
+
+  DOEPDMA0:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-0 DMA address register
+    addressOffset: 0x314
+  DOEPDMA1:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-1 DMA address register
+    addressOffset: 0x334
+  DOEPDMA2:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-2 DMA address register
+    addressOffset: 0x354
+  DOEPDMA3:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-3 DMA address register
+    addressOffset: 0x374
+  DOEPDMA4:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-4 DMA address register
+    addressOffset: 0x394
+  DOEPDMA5:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-5 DMA address register
+    addressOffset: 0x3B4
+  DOEPDMA6:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-6 DMA address register
+    addressOffset: 0x3D4
+  DOEPDMA7:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-7 DMA address register
+    addressOffset: 0x3F4
+  DOEPCTL8:
+    _from: DOEPCTL1
+    description: device endpoint-8 control register
+    addressOffset: 0x400
+  DOEPINT8:
+    _from: DOEPINT1
+    description: device endpoint-8 interrupt register
+    addressOffset: 0x408
+  DOEPTSIZ8:
+    _from: DOEPTSIZ1
+    description: OTG_HS device endpoint-8 transfer size register
+    addressOffset: 0x410
+  DOEPDMA8:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-8 DMA address register
+    addressOffset: 0x414
+
+_add:
+  DIEPEACHMSK1:
+    addressOffset: 0x44
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      XFRCM:
+        description: Transfer completed interrupt mask
+        bitOffset: 0
+        bitWidth: 1
+      EPDM:
+        description: Endpoint disabled interrupt mask
+        bitOffset: 1
+        bitWidth: 1
+      AHBERRM:
+        description: AHB error mask
+        bitOffset: 2
+        bitWidth: 1
+      TOM:
+        description: Timeout condition mask (Non-isochronous endpoints)
+        bitOffset: 3
+        bitWidth: 1
+      ITTXFEMSK:
+        description: IN token received when TxFIFO empty mask
+        bitOffset: 4
+        bitWidth: 1
+      INEPNEM:
+        description: IN endpoint NAK effective mask
+        bitOffset: 6
+        bitWidth: 1
+      TXFURM:
+        description: FIFO underrun mask
+        bitOffset: 8
+        bitWidth: 1
+      BNAM:
+        description: BNA interrupt mask
+        bitOffset: 9
+        bitWidth: 1
+      NAKM:
+        description: NAK interrupt mask
+        bitOffset: 13
+        bitWidth: 1
+
+  DOEPEACHMSK1:
+    addressOffset: 0x84
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      XFRCM:
+        description: Transfer completed interrupt mask
+        bitOffset: 0
+        bitWidth: 1
+      EPDM:
+        description: Endpoint disabled interrupt mask
+        bitOffset: 1
+        bitWidth: 1
+      AHBERRM:
+        description: AHB error mask
+        bitOffset: 2
+        bitWidth: 1
+      STUPM:
+        description: SETUP phase done mask
+        bitOffset: 3
+        bitWidth: 1
+      OTEPDM:
+        description: OUT token received when endpoint disabled mask
+        bitOffset: 4
+        bitWidth: 1
+      B2BSTUPM:
+        description: Back-to-back SETUP packets received mask
+        bitOffset: 6
+        bitWidth: 1
+      OUTPKTERRM:
+        description: Out packet error mask
+        bitOffset: 8
+        bitWidth: 1
+      BNAM:
+        description: BNA interrupt mask
+        bitOffset: 9
+        bitWidth: 1
+      BERRM:
+        description: Babble error interrupt mask
+        bitOffset: 12
+        bitWidth: 1
+      NAKMSK:
+        description: NAK interrupt mask
+        bitOffset: 13
+        bitWidth: 1
+      NYETMSK:
+        description: NYET interrupt mask
+        bitOffset: 14
+        bitWidth: 1
+
+_modify:
+  DIEPDMA1:
+    addressOffset: 0x134
+  DIEPDMA2:
+    addressOffset: 0x154
+  DIEPDMA3:
+    addressOffset: 0x174
+  DIEPDMA4:
+    addressOffset: 0x194
+  DIEPDMA5:
+    addressOffset: 0x1B4
+  DIEPTSIZ6:
+    addressOffset: 0x1D0
+  DIEPTSIZ7:
+    addressOffset: 0x1F0
+  DTXFSTS6:
+    addressOffset: 0x1D8
+  DTXFSTS7:
+    addressOffset: 0x1F8
+
+_include:
+  - epena_stall.yaml

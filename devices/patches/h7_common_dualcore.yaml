@@ -219,12 +219,6 @@ _modify:
       AFSEL15:
         name: AFR15
 
-"ADC*_Common":
-  CCR:
-    _modify:
-      TSEN:
-        name: VSENSEEN
-
 "ADC?":
   AWD2CR:
     _merge:
@@ -470,16 +464,6 @@ RCC:
         description: Force allow CPU2 to boot
         bitOffset: 3
         bitWidth: 1
-  PLL2DIVR:
-    _modify:
-      DIVR1:
-        name: DIVR2
-      DIVQ1:
-        name: DIVQ2
-      DIVP1:
-        name: DIVP2
-      DIVN1:
-        name: DIVN2
   APB1LRSTR:
     _modify:
       USART7RST:
@@ -520,10 +504,6 @@ RCC:
         description: UART8 Peripheral Clocks Enable During CSleep Mode
       HDMICECLPEN:
         name: CECLPEN
-  C1_APB1LENR:
-    _modify:
-      HDMICECEN:
-        name: CECEN
   APB3ENR,C1_APB3ENR:
     _add:
       DSIEN:

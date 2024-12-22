@@ -220,12 +220,6 @@ _modify:
       AFSEL15:
         name: AFR15
 
-"ADC*_Common":
-  CCR:
-    _modify:
-      TSEN:
-        name: VSENSEEN
-
 "ADC?":
   CFGR2:
     _modify:
@@ -389,16 +383,6 @@ RCC:
         name: BDRST
       RTCSRC:
         name: RTCSEL
-  PLL2DIVR:
-    _modify:
-      DIVP1:
-        name: DIVP2
-      DIVQ1:
-        name: DIVQ2
-      DIVR1:
-        name: DIVR2
-      DIVN1:
-        name: DIVN2
   APB1LRSTR:
     _modify:
       USART7RST:
@@ -435,16 +419,6 @@ RCC:
     _modify:
       HDMICECEN:
         name: CECEN
-  AHB1ENR,C1_AHB1ENR:
-    _modify:
-      USB1OTGHSEN:
-        name: USB1OTGEN
-      USB2OTGHSEN:
-        name: USB2OTGEN
-      USB1ULPIHSEN:
-        name: USB1ULPIEN
-      USB2ULPIHSEN:
-        name: USB2ULPIEN
   AHB2ENR,C1_AHB2ENR:
     _modify:
       CAMITFEN:
@@ -454,16 +428,6 @@ RCC:
     _modify:
       HDMICECLPEN:
         name: CECLPEN
-  AHB1LPENR,C1_AHB1LPENR:
-    _modify:
-      USB1OTGHSLPEN:
-        name: USB1OTGLPEN
-      USB2OTGHSLPEN:
-        name: USB2OTGLPEN
-      USB1ULPIHSLPEN:
-        name: USB1ULPILPEN
-      USB2ULPIHSLPEN:
-        name: USB2ULPILPEN
   AHB2LPENR,C1_AHB2LPENR:
     _modify:
       CAMITFLPEN:

@@ -1,5 +1,7 @@
 _svd: ../svd/stm32h753v.svd
 
+_clear_fields: "*"
+
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:
@@ -13,6 +15,9 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
+BDMA:
+  _strip: BDMA_
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -23,20 +28,57 @@ CRYP:
     _merge:
       - "IV*"
 
+DMAMUX1:
+  _strip: DMAMUX_
+  _include:
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux1_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+DMAMUX2:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux2_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+FLASH:
+  CR1:
+    _add:
+      # CR2 only. Needed for clusterization
+      SPSS:
+        description: Bank 2 special sector selection bit
+        bitOffset: 14
+        bitWidth: 1
+  SR1:
+    _delete: CRCRDERR1
+  CCR1:
+    _delete: CLR_CRCRDERR1
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-MPU:
-  _strip: MPU_
+"OTG?_HS_*":
+  _strip: OTG_HS_
+
+OTG1_HS_GLOBAL:
+  _include: patches/usb_otg/hsglobal.yaml
+
+OTG1_HS_HOST:
+  _include: patches/usb_otg/hshost_address_12_15.yaml
+
+OTG1_HS_DEVICE:
+  _include: patches/usb_otg/hsdevice.yaml
 
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-SAI4:
+SAI?:
   _strip: SAI_
 
 SPI?:
@@ -57,9 +99,11 @@ TIM5:
 "TIM[2-5],TIM1[2-4]":
   _include: patches/tim/tim_o24ce.yaml
 
+"TIM[1],TIM[23],TIM1[23]":
+  _include: patches/tim/icpsc.yaml
+
 "TIM*":
   _include:
-    - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 
@@ -73,14 +117,14 @@ TIM5:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_32bit.yaml
 
-"TIM1[3467]":
+"TIM1[34]":
   _include:
     - patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[234]
 
 # Dual channel timers
-"TIM1[25]":
+"TIM1[2]":
   _include: patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[34]
@@ -140,13 +184,9 @@ _include:
   - patches/exti/h7_singlecore.yaml
   - patches/dbgmcu/h7.yaml
   - patches/dma/fcr_wo.yaml
-  - patches/dma/bdma.yaml
   - patches/dma/h7_dmacr.yaml
-  - patches/dma/h7_dmamux.yaml
   - fields/dma/bdma.yaml
   - fields/dma/dma_v3.yaml
-  - fields/dma/dmamux_v1.yaml
-  - collect/dma/h7_dmamux.yaml
   - collect/dma/st.yaml
   - collect/dma/bdma.yaml
   - collect/dma/mdma.yaml
@@ -156,7 +196,6 @@ _include:
   - patches/adc/h7.yaml
   - patches/adc/h7_boost_rev_v.yaml
   - patches/h7_spdifrx.yaml
-  - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
@@ -170,13 +209,12 @@ _include:
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/sai/h7.yaml
-  - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - patches/dfsdm/h735_747_753.yaml
   - collect/dfsdm/v1.yaml
-  - patches/ramecc/ramecc_new.yaml
+  - patches/ramecc/ramecc.yaml
   - fields/adc/adc_v3_h7.yaml
   - fields/adc/adc_v3_common_h7.yaml
   - fields/adc/adc_h7_revision_v.yaml
@@ -209,7 +247,6 @@ _include:
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml
   - fields/rtc/rtc_h7.yaml
   - collect/rtc/alarm.yaml

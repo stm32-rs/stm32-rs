@@ -1,0 +1,35 @@
+_copy:
+  DIEPTXF8:
+    _from: DIEPTXF1
+    addressOffset: 0x120
+_modify:
+  HNPTXFSIZ_Host:
+    name: HNPTXFSIZ
+  DIEPTXF0_Device:
+    name: DIEPTXF0
+    alternateRegister: HNPTXFSIZ
+  GNPTXSTS,HNPTXSTS:
+    name: HNPTXSTS
+  GRXSTSR_Device:
+    alternateRegister: GRXSTSR_Host
+  GRXSTSP_Device:
+    alternateRegister: GRXSTSP_Host
+  DIEPTXF2:
+    resetValue: 0x02000600
+  DIEPTXF3:
+    addressOffset: 0x10C
+    resetValue: 0x02000800
+  DIEPTXF4:
+    addressOffset: 0x110
+    resetValue: 0x02000A00
+  DIEPTXF5:
+    addressOffset: 0x114
+    resetValue: 0x02000C00
+  DIEPTXF6:
+    addressOffset: 0x118
+    resetValue: 0x02000E00
+  DIEPTXF7:
+    addressOffset: 0x11C
+    resetValue: 0x02001000
+  DIEPTXF8:
+    resetValue: 0x02001200

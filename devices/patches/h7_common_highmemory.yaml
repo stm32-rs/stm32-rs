@@ -223,12 +223,6 @@ _modify:
       AFSEL15:
         name: AFR15
 
-"ADC*_Common":
-  CCR:
-    _modify:
-      TSEN:
-        name: VSENSEEN
-
 "ADC?":
   AWD2CR:
     _merge:
@@ -394,20 +388,6 @@ _add:
       USART10:
         description: USART10 global interrupt
         value: 141
-  OCTOSPI1:
-    derivedFrom: OCTOSPI2
-    baseAddress: 0x52005000
-    interrupts:
-      OCTOSPI1:
-        description: OCTOSPI global interrupt
-        value: 92
-  DAC2:
-    derivedFrom: DAC1
-    baseAddress: 0x58003400
-    interrupts:
-      DAC2:
-        description: DAC2 underrun interrupt
-        value: 127
 
 DMA1:
   _add:
@@ -436,20 +416,7 @@ DMA1:
       # DMA1_STR7 is correct
 
 RCC:
-  _delete:
-    - ICSCR
   _strip: C1_
-  _modify:
-    CIFR:
-      access: read-only
-    "D1CCIPR,CDCCIPR":
-      name: CDCCIPR
-    "D2CCIP1R,CDCCIP1R":
-      name: CDCCIP1R
-    "D2CCIP2R,CDCCIP2R":
-      name: CDCCIP2R
-    "D3CCIPR,SRDCCIPR":
-      name: SRDCCIPR
 
   _add:
     # This doesn't exist in RM0455 Rev 3, but the WW1RSC field is
@@ -466,96 +433,12 @@ RCC:
           bitOffset: 0
           bitWidth: 1
 
-  CR:
-    _modify:
-      RC48ON:
-        name: HSI48ON
-      RC48RDY:
-        name: HSI48RDY
-  CRRCR:
-    _modify:
-      RC48CAL:
-        name: HSI48CAL
   CFGR:
     _modify:
       MCO1SEL:
         name: MCO1
       MCO2SEL:
         name: MCO2
-  CIER:
-    _modify:
-      RC48RDYIE:
-        name: HSI48RDYIE
-  CIFR:
-    _modify:
-      RC48RDYF:
-        name: HSI48RDYF
-  CICR:
-    _modify:
-      RC48RDYC:
-        name: HSI48RDYC
-  BDCR:
-    _modify:
-      RTCSRC:
-        name: RTCSEL
-  PLL2DIVR:
-    _modify:
-      DIVR1:
-        name: DIVR2
-      DIVQ1:
-        name: DIVQ2
-      DIVP1:
-        name: DIVP2
-      DIVN1:
-        name: DIVN2
-  APB1LRSTR:
-    _modify:
-      USART7RST:
-        name: UART7RST
-        description: UART7 block reset
-      USART8RST:
-        name: UART8RST
-        description: UART8 block reset
-      HDMICECRST:
-        name: CECRST
-  APB1LENR:
-    _modify:
-      USART7EN:
-        name: UART7EN
-        description: UART7 Peripheral Clocks Enable
-      USART8EN:
-        name: UART8EN
-        description: UART8 Peripheral Clocks Enable
-      HDMICECEN:
-        name: CECEN
-  APB1LLPENR:
-    _modify:
-      USART7LPEN:
-        name: UART7LPEN
-        description: UART7 Peripheral Clocks Enable During CSleep Mode
-      USART8LPEN:
-        name: UART8LPEN
-        description: UART8 Peripheral Clocks Enable During CSleep Mode
-      HDMICECLPEN:
-        name: CECLPEN
-  AHB1ENR:
-    _delete: # highmemory only has one USB HS
-      - USB2OTGEN
-      - USB2ULPIEN
-  AHB2ENR:
-    _modify:
-      CAMITFEN:
-        name: DCMIEN
-        description: "DCMI peripheral clock"
-  AHB1LPENR:
-    _delete: # highmemory only has one USB HS
-      - USB2OTGLPEN
-      - USB2ULPILPEN
-  AHB2LPENR:
-    _modify:
-      CAMITFLPEN:
-        name: DCMILPEN
-        description: "DCMI peripheral clock enable during csleep mode"
   AHB3ENR:
     _add:
       DTCM1EN:
@@ -591,20 +474,9 @@ SYSCFG:
       - EPIS
 
 HRTIM_Common:
-  _delete:
-    - BDMADR
-  _add:
+  _modify:
     BDMADR:
-      description: Burst DMA Data register
       addressOffset: 0x70
-      size: 0x20
-      resetValue: 0x00000000
-      access: read-write
-      fields:
-        BDMADR:
-          description: Burst DMA Data register
-          bitOffset: 0
-          bitWidth: 32
 
 BDMA?:
   _strip: BDMA_
@@ -620,12 +492,6 @@ DAC1:
 
 DMA2D:
   _strip: DMA2D_
-
-DMAMUX1:
-  _strip: DMAMUX1_
-
-DMAMUX2:
-  _strip: DMAMUX2_
 
 FMC:
   _strip: FMC_
@@ -667,7 +533,6 @@ I2C3:
   _strip: I2C_
 
 SAI1:
-  _strip: SAI_
   _add:
     _interrupts:
       SAI1:
@@ -676,13 +541,6 @@ SAI1:
 
 SDMMC?:
   _strip: SDMMC_
-
-SPDIFRX:
-  _add:
-    _interrupts:
-      SPDIFRX:
-        description: SPDIFRX global interrupt
-        value: 97
 
 VREFBUF:
   _strip: VREFBUF_
@@ -722,25 +580,13 @@ USART6:
       - "DEAT*"
       - "DEDT*"
   CR2:
-    _modify:
-      TAINV:
-        name: DATAINV
     _merge:
       - "ABRMOD*"
 
 "UART*":
   BRR:
-    _modify:
-      BRR_4_15:
-        name: BRR4
-      BRR_0_3:
-        name: BRR0
-    _merge: ["BRR*"]
-  CR2:
-    _modify:
-      ADD0_3:
-        name: ADD0R
-      ADD4_7:
-        name: ADD4R
     _merge:
-      - "ADD*R"
+      BRR: "BRR*"
+  CR2:
+    _merge:
+      ADD: "ADD0_3,ADD4_7"
