@@ -323,6 +323,12 @@ TIM1[67]:
         bitOffset: 0
         bitWidth: 4
 
+"TIM[12-58],TIM19,TIM20":
+  _include: fields/tim/v2/ccm_extended.yaml
+
+"TIM1[013467]":
+  _include: fields/tim/v2/ccm_common.yaml
+
 WWDG:
   _include: patches/16bit.yaml
 
@@ -336,7 +342,6 @@ _include:
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
-  - fields/tim/v2/ccm_common.yaml
   - patches/adc/wb_adc_common.yaml
   - patches/adc/l4_smpr.yaml
   - patches/adc/l4+.yaml

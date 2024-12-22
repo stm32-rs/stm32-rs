@@ -6,13 +6,13 @@
 
 "TIM[1-58]":
   _include:
-   - tim_gp1.yaml
+    - fields/tim/tim_gp1.yaml
 
 "TIM*":
   _include:
-    - tim_no_opm.yaml
-    - tim_opm.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 "TIM[1-58-9],TIM??":
   _include:
-    - tim_ckd.yaml
+    - fields/tim/tim_ckd.yaml

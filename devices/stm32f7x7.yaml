@@ -290,14 +290,18 @@ TIM[1-58],TIM12:
     - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 "TIM[34]":
   _include:
     - patches/tim/tim2_common_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
   _modify:
     OR1:
       name: OR
@@ -320,6 +324,7 @@ TIM[18]:
   _include:
     - patches/tim/v2/add_cc4np.yaml
     - patches/tim/v2/add_cc5.yaml
+    - fields/tim/tim_advanced.yaml
   _modify:
     "CRR6,CCR6":
       name: CCR6
@@ -347,13 +352,12 @@ TIM9:
     - patches/tim/v2/add_ocm2_bit3.yaml
     - patches/tim/v2/add_sms_bit3.yaml
 
-TIM[1-58]:
-  DMAR:
-    _modify:
-      # Self-inconsistency between the register map and the
-      # specific register field documentation in RMs
-      DMAB:
-        bitWidth: 32
+"TIM[1-58]":
+  _include:
+    - patches/tim/dmab_32.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
 
 "TIM9,TIM1[0-4]":
   CNT:
@@ -381,6 +385,28 @@ TIM[1235]:
 
 TIM10:
   _include: patches/tim/v2/add_ocm1_bit3.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM9,TIM12,TIM15":
+  _include: fields/tim/v2/ccm9_15.yaml
+
+"TIM[12-58],TIM19,TIM20":
+  _include: fields/tim/v2/ccm_extended.yaml
+
+"TIM1[013467]":
+  _include: fields/tim/v2/ccm_common.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
 
 WWDG:
   _include:
@@ -463,12 +489,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2_dual_bank.yaml
   - patches/tim/group.yaml
-  - fields/tim/tim_basic.yaml
-  - fields/tim/tim6.yaml
-  - fields/tim/tim2345_mixed.yaml
-  - fields/tim/tim_advanced.yaml
-  - fields/tim/v2/ccm.yaml
-  - collect/tim/ccr.yaml
   - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/syscfg/f765_f7x7_f7x9.yaml

@@ -2,8 +2,7 @@
 # Present accross all STM32 except STM32F401 and STM32F411 devices.
 # STM32F410 has only TIM6
 
-"TIM[67]":
-  _include:
-    - tim6_base.yaml
-  ARR:
-    ARR: [0, 0xFFFF]
+_include:
+  - tim6_base.yaml
+ARR:
+  ARR: [0, 0xFFFF]
