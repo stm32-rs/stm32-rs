@@ -1,48 +1,34 @@
-_svd: ../svd/stm32f750.svd
-
-_rebase:
-  USART1: USART6
+_svd: ../svd/stm32f722.svd
 
 _derive:
-  SPI2: SPI1
-  TIM4: TIM3
+  USART3: USART1
 
-_copy:
-  TIM5:
-    from: TIM2
+_rebase:
+  SPI1: SPI5
 
 _modify:
   # The SVD calls this C_ADC in some devices and ADC_Common in others,
   # we'll prefer the more sensible (and better for sorting) ADC_Common
   C_ADC:
     name: ADC_Common
-  # Remove underscore to be consistent with other parts and RM
-  SPDIF_RX:
-    name: SPDIFRX
 
-ADC1:
+ADC2:
   _include:
     - patches/adc/smpx_18.yaml
-
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
 
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+  IMR:
+    _modify:
+      MI9:
+        name: IM9
 
 FLASH:
-  _include: patches/flash/erserr.yaml
-  OPTKEYR:
-    _modify:
-      OPTKEY:
-        name: OPTKEYR
+  _include:
+    - patches/flash/latency.yaml
 
 IWDG:
   _include:
@@ -62,18 +48,8 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-SYSCFG:
-  "MEMRM,MEMRMP":
-    _delete:
-      - FB_MODE
-
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
-
-"TIM1[0134]":
-  _include: patches/tim/tim10_14_missing_opm.yaml
-  _delete:
-    - SMCR
 
 "TIM*":
   _include:
@@ -87,36 +63,23 @@ SYSCFG:
   _include:
     - patches/tim/tim2_common_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
   _include:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_32bit.yaml
-    - fields/tim/tim_32bit.yaml
-  _modify:
-    OR1:
-      name: OR
-  _delete:
-    - OR2
 
-TIM5:
-  OR:
-    _modify:
-      TI4_RMP:
-        bitOffset: 6
-    _delete:
-      - ETR1_RMP
-      - ITR1_RMP
+TIM1:
+  _include: patches/tim/v2/oc5m_bit3.yaml
 
-TIM[16]:
+TIM1[0134]:
   _include: patches/tim/v2/add_uifcpy.yaml
+  _delete:
+    - SMCR
 
 TIM[18]:
   _include:
-    - patches/tim/v2/add_cc4np.yaml
-    - patches/tim/v2/add_bkf.yaml
-    - patches/tim/v2/add_cc5.yaml
+    - patches/tim/v2/add_cc5if.yaml
     - fields/tim/tim_advanced.yaml
   _modify:
     "CRR6,CCR6":
@@ -135,34 +98,14 @@ TIM3:
   CCR?:
     _delete:
       - CCR1_H
-  _delete:
-    - OR1
-    - OR2
 
 TIM9:
-  SMCR:
-    _add:
-      SMS_3:
-        description: Slave mode selection - bit 3
-        bitOffset: 16
-        bitWidth: 1
-  CCMR1_Output:
-    _add:
-      OC1M_3:
-        description: "Output Compare 1 mode, bit 3"
-        bitOffset: 16
-        bitWidth: 1
-      OC2M_3:
-        description: "Output Compare 2 mode, bit 3"
-        bitOffset: 24
-        bitWidth: 1
+  _include: patches/tim/v2/add_sms_bit3.yaml
 
 "TIM[1-58]":
   _include:
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
-    - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
 
@@ -173,30 +116,6 @@ TIM9:
     ARR: [0, 65535]
   CCR?:
     "CCR,CCR?": [0, 0xFFFF]
-
-TIM2:
-  OR:
-    _delete:
-      - TI4_RMP
-      - ETR1_RMP
-    _modify:
-      ITR1_RMP:
-        bitOffset: 10
-        bitWidth: 2
-
-TIM1:
-  _include: patches/tim/v2/oc5m_bit3.yaml
-
-TIM[1235]:
-  _include: patches/tim/v2/add_ocm_bit3.yaml
-
-TIM10:
-  CCMR1_Output:
-    _add:
-      OC1M_3:
-        description: "Output Compare 1 mode, bit 3"
-        bitOffset: 16
-        bitWidth: 1
 
 "TIM[1-58-9],TIM??":
   _include:
@@ -226,38 +145,33 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
+  - patches/sai/sai_v1.yaml
+  - fields/sai/sai.yaml
+  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - patches/rcc/pllsai.yaml
-  - patches/rcc/add_plli2sp.yaml
-  - patches/rcc/f7_apbenr.yaml
+  - patches/rcc/f7x23_pllsai.yaml
   - patches/rcc/f7_lsedrv.yaml
-  - patches/rcc/f7_rename_dckcfgr.yaml
   - patches/rcc/f7_dckcfgr.yaml
-  - patches/rcc/f7_dckcfgr_sdmmc1.yaml
-  - patches/rcc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
+  - patches/rcc/f7x23_dckcfgr.yaml
+  - patches/rcc/f730_f7x2_f7x3.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_f7.yaml
-  - fields/rcc/rcc_v2_sai_pllr.yaml
-  - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
-  - patches/crc/f7_polysize_rev_in_rev_out.yaml
   - fields/crc/crc_advanced.yaml
+  - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/spi/spi_v2.yaml
   - patches/adc/adc_common_group_name.yaml
@@ -265,52 +179,33 @@ _include:
   - fields/adc/adc_v2/adc_v2_extsel_d.yaml
   - collect/adc/jofr_jdr.yaml
   - patches/dma/fcr_wo.yaml
-  - fields/dma/dma_v2.yaml
-  - fields/dma/dma2d_v1.yaml
-  - patches/ethernet/mac_regs.yaml
-  - patches/ethernet/mmc.yaml
-  - patches/ethernet/f2_f4.yaml
-  - fields/eth/eth_dma_common.yaml
-  - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
-  - fields/eth/eth_mac_common.yaml
-  - fields/eth/eth_mac_cstf.yaml
-  - fields/eth/eth_mmc_common.yaml
-  - fields/eth/eth_mmc_mcfhp_mcp.yaml
+  - patches/dma/dma_v21.yaml
+  - fields/dma/dma_v21.yaml
+  - collect/dma/st.yaml
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
-  - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/tim/group.yaml
-  - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/usart_v2B1.yaml
+  - patches/syscfg/f730_f7x2_f7x3.yaml
+  - fields/i2c/i2c_v2_without_wakeup.yaml
+  - fields/usart/usart_v2C.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
-  - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml
+  - patches/usb_otg/hs_f73_fixes.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - collect/hash/v2.yaml
-  - patches/dbgmcu/dbgmcu.yaml
-  - patches/fsmc/fsmc_sramfix.yaml
+  - patches/fsmc/fsmc_sdfix.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
   - fields/fsmc/fsmc_wfdis.yaml
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sd.yaml
-  - collect/cryp/v2.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
+  - collect/fsmc/sram.yaml
+  - collect/fsmc/sd.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - patches/ltdc/f7_ltdc_interrupts.yaml
-  - patches/ltdc/ltdc.yaml
-  - patches/ltdc/f4_f7_ltdc_bccr.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
-  - patches/ethernet/f4_f7.yaml
-  - fields/eth/eth_ptp_ppsfreq.yaml
+  - patches/dbgmcu/dbgmcu.yaml

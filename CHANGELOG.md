@@ -25,6 +25,7 @@
 * F373 GPIOC LCKR, collect GPIO.BRR
 * Update STM32L1 source to v1.4
 * Update STM32F4 to V2.0 archive source
+* Update STM32F7 to V2.4 archive source
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv`
 * move `_array` and `_cluster` patches to `devices/collect`
@@ -50,7 +51,7 @@
 * STM32U5xx: Update SVD to version 1.2 and add variants for xx=35,45,95,A5,99,A9 (#844)
 * STM32U5xx: Update SVD to version 1.3 (#890)
 * Fix several array descriptions
-* Fix ADC SMPR fields in L1
+* Fix ADC SMPR fieldFs in L1
 * Fix missing ADC.SMPR.SMPx_x
 * Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
 * Fix ADC SR OVR enums

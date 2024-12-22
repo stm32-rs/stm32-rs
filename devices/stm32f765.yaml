@@ -44,12 +44,6 @@ CRYP:
     _merge:
       - "IV*"
 
-DFSDM1:
-  _strip: DFSDM1_
-
-DSI:
-  _strip: DSI_
-
 Ethernet_DMA:
   DMABMR:
     _modify:
@@ -83,34 +77,22 @@ Ethernet_MAC:
 
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
 FLASH:
+  _include:
+    - patches/flash/f7_dual_bank.yaml
   OPTKEYR:
     _modify:
       OPTKEY:
         name: OPTKEYR
 
-"GPIO*":
-  _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
-
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-JPEG:
-  _strip: JPEG_
-
-MPU:
-  _strip: MPU_
-
-MDIOS:
-  _strip: MDIOS_
 
 "OTG_HS_*":
   _strip: OTG_HS_
@@ -347,7 +329,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - collect/jpeg/ram_f7.yaml
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2_dual_bank.yaml
@@ -380,4 +361,3 @@ _include:
   - collect/fsmc/sd.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
-  - collect/dsi/isr.yaml

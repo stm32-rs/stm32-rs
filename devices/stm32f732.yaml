@@ -1,4 +1,4 @@
-_svd: ../svd/stm32f7x3.svd
+_svd: ../svd/stm32f732.svd
 
 _derive:
   USART3: USART1
@@ -16,13 +16,9 @@ ADC2:
   _include:
     - patches/adc/smpx_18.yaml
 
-AES:
-  _include:
-    - patches/aes/fields.yaml
-    - fields/aes/v2.yaml
-
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
   IMR:
@@ -30,13 +26,14 @@ EXTI:
       MI9:
         name: IM9
 
+FLASH:
+  _include:
+    - patches/flash/latency.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 "OTG_HS_*":
   _strip: OTG_HS_
