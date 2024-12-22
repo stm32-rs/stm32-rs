@@ -32,6 +32,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+PWR:
+  _strip: PWR_
+
 RCC:
   _strip: RCC_
 

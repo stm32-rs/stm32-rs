@@ -41,6 +41,9 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+PWR:
+  _strip: PWR_
+
 RCC:
   _strip: RCC_
 
