@@ -48,13 +48,22 @@ DBGMCU:
 DFSDM*:
   _strip: DFSDM_
 
+FLASH:
+  _strip: FLASH_
+  _modify:
+    WPSGN_CUR1R:
+      name: WPSN_CUR1R
+    WPSGN_PRG1R:
+      name: WPSN_PRG1R
+    WPSGN_CUR2R:
+      name: WPSN_CUR2R
+    WPSGN_PRG2R:
+      name: WPSN_PRG2R
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 # Remove LPTIM4/5 from RCC
 # Split DAC1/2 REC
@@ -182,7 +191,7 @@ WWDG:
 _include:
   - patches/h7_common_highmemory.yaml
   - fields/hdmi_cec.yaml
-  - patches/fdcan/fdcan_h7.yaml
+  #  - patches/fdcan/fdcan_h7.yaml
   - collect/fsmc/sdram.yaml
   - patches/exti/h7_singlecore.yaml
   - patches/dbgmcu/h7.yaml
@@ -213,7 +222,7 @@ _include:
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
   - patches/flash/flash_dual_bank.yaml
-  - collect/flash/bank.yaml
+  #  - collect/flash/bank.yaml
   - collect/hash/v2.yaml
   - patches/i2c/merge_CR2_SADDx_fields.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -254,9 +263,9 @@ _include:
   - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_h7.yaml
+  #  - fields/rtc/rtc_common.yaml
+  #  - fields/rtc/rtc_h7.yaml
   - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
+  #  - collect/rtc/bkpr.yaml
   - patches/crc/h7_addr_fix.yaml
   - collect/dfsdm/v1.yaml
