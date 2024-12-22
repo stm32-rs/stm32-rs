@@ -4,6 +4,7 @@
 
 * AES enums & patches
 * H5: Array gpio registers
+* Update STM32H7 source to v1.9
 * HRTIM H7 fixe EECR3
 * H5: Add RCC defitions for H56x/H573
 * MP15x: Strip prefixes from peripherals

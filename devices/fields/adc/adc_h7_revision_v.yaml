@@ -7,14 +7,22 @@
         bitWidth: 3
     RES:
       SixteenBit: [0, "16-bit resolution"]
-      FourteenBit: [1, "14-bit resolution in legacy mode (not optimized power consumption)"]
-      TwelveBit: [2, "12-bit resolution in legacy mode (not optimized power consumption)"]
+      FourteenBit:
+        [
+          1,
+          "14-bit resolution in legacy mode (not optimized power consumption)",
+        ]
+      TwelveBit:
+        [
+          2,
+          "12-bit resolution in legacy mode (not optimized power consumption)",
+        ]
       TenBit: [3, "10-bit resolution"]
       FourteenBitV: [5, "14-bit resolution"]
       TwelveBitV: [6, "12-bit resolution"]
       EightBit: [7, "8-bit resolution"]
   CR:
-    BOOST:
+    "?~BOOST":
       LT6_25: [0, "Boost mode used when ADC clock ≤ 6.25 MHz"]
       LT12_5: [1, "Boost mode used when 6.25 MHz < ADC clock ≤ 12.5 MHz"]
       LT25: [2, "Boost mode used when 12.5 MHz < ADC clock ≤ 25.0 MHz"]

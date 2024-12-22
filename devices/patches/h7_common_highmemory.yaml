@@ -394,20 +394,6 @@ _add:
       USART10:
         description: USART10 global interrupt
         value: 141
-  OCTOSPI1:
-    derivedFrom: OCTOSPI2
-    baseAddress: 0x52005000
-    interrupts:
-      OCTOSPI1:
-        description: OCTOSPI global interrupt
-        value: 92
-  DAC2:
-    derivedFrom: DAC1
-    baseAddress: 0x58003400
-    interrupts:
-      DAC2:
-        description: DAC2 underrun interrupt
-        value: 127
 
 DMA1:
   _add:
@@ -676,13 +662,6 @@ SAI1:
 
 SDMMC?:
   _strip: SDMMC_
-
-SPDIFRX:
-  _add:
-    _interrupts:
-      SPDIFRX:
-        description: SPDIFRX global interrupt
-        value: 97
 
 VREFBUF:
   _strip: VREFBUF_

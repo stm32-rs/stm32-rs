@@ -21,7 +21,7 @@ _include:
       Div64: [9, "adc_ker_ck_input divided by 64"]
       Div128: [10, "adc_ker_ck_input divided by 128"]
       Div256: [11, "adc_ker_ck_input divided by 256"]
-    DAMDF:
+    "?~DAMDF":
       NoPack: [0, "Without data packing, CDR/CDR2 not used"]
       Format32to10: [2, "CDR formatted for 32-bit down to 10-bit resolution"]
       Format8: [3, "CDR formatted for 8-bit resolution"]
