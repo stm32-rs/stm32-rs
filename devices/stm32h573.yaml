@@ -4,6 +4,9 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+GPIOC:
+  _strip: GPIO_
+
 GTZC1_MPCBB?:
   _strip: GTZC1_MPCBB?_
   _include:
