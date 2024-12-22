@@ -1,4 +1,4 @@
-_svd: ../svd/stm32l162.svd
+_svd: ../svd/stm32l152.svd
 
 AES:
   _include:
@@ -40,9 +40,6 @@ SPI?:
 
 "TIM[23]":
   _include: patches/tim/rename_TIM2_CCR3_CCR3.yaml
-
-"TIM1[0134]":
-  _include: patches/tim/tim10_14_missing_opm.yaml
 
 "TIM*":
   _include:

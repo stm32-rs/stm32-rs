@@ -33,9 +33,6 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
-MPU:
-  _strip: MPU_
-
 RCC:
   CR:
     _merge: ["RTCPRE*"]
