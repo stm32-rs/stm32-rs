@@ -1,165 +1,24 @@
-_svd: ../svd/stm32f7x7.svd
+_svd: ../svd/stm32f746.svd
 
 _rebase:
   USART1: USART6
 
 _derive:
+  SPI2: SPI1
   TIM4: TIM3
 
 _copy:
   TIM5:
     from: TIM2
 
-_add:
-  # This SVD is missing the ADC_Common peripheral that most other parts with
-  # this ADC contain; consequently it's missing the CSR and CCR and CDR regs
-  # from RM0410.
-  ADC_Common:
-    description: ADC common registers
-    groupName: ADC_Common
-    baseAddress: 0x40012300
-    addressBlock:
-      offset: 0x0
-      size: 0x400
-      usage: registers
-    registers:
-      CSR:
-        description: ADC common status register
-        addressOffset: 0x0
-        access: read-only
-        resetValue: 0x00000000
-        fields:
-          OVR3:
-            description: Overrun flag of ADC3
-            bitOffset: 21
-            bitWidth: 1
-          STRT3:
-            description: Regular channel Start flag of ADC3
-            bitOffset: 20
-            bitWidth: 1
-          JSTRT3:
-            description: Injected channel Start flag of ADC3
-            bitOffset: 19
-            bitWidth: 1
-          JEOC3:
-            description: Injected channel end of conversion of ADC3
-            bitOffset: 18
-            bitWidth: 1
-          EOC3:
-            description: End of conversion of ADC3
-            bitOffset: 17
-            bitWidth: 1
-          AWD3:
-            description: Analog watchdog flag of ADC3
-            bitOffset: 16
-            bitWidth: 1
-
-          OVR2:
-            description: Overrun flag of ADC2
-            bitOffset: 13
-            bitWidth: 1
-          STRT2:
-            description: Regular channel Start flag of ADC2
-            bitOffset: 12
-            bitWidth: 1
-          JSTRT2:
-            description: Injected channel Start flag of ADC2
-            bitOffset: 11
-            bitWidth: 1
-          JEOC2:
-            description: Injected channel end of conversion of ADC2
-            bitOffset: 10
-            bitWidth: 1
-          EOC2:
-            description: End of conversion of ADC2
-            bitOffset: 9
-            bitWidth: 1
-          AWD2:
-            description: Analog watchdog flag of ADC2
-            bitOffset: 8
-            bitWidth: 1
-
-          OVR1:
-            description: Overrun flag of ADC1
-            bitOffset: 5
-            bitWidth: 1
-          STRT1:
-            description: Regular channel Start flag of ADC1
-            bitOffset: 4
-            bitWidth: 1
-          JSTRT1:
-            description: Injected channel Start flag of ADC1
-            bitOffset: 3
-            bitWidth: 1
-          JEOC1:
-            description: Injected channel end of conversion of ADC1
-            bitOffset: 2
-            bitWidth: 1
-          EOC1:
-            description: End of conversion of ADC1
-            bitOffset: 1
-            bitWidth: 1
-          AWD1:
-            description: Analog watchdog flag of ADC1
-            bitOffset: 0
-            bitWidth: 1
-
-      CCR:
-        description: ADC common control register
-        addressOffset: 0x04
-        access: read-write
-        resetValue: 0x00000000
-        fields:
-          TSVREFE:
-            description: Temperature sensor and V_REFINT enable
-            bitOffset: 23
-            bitWidth: 1
-          VBATE:
-            description: V_BAT enable
-            bitOffset: 22
-            bitWidth: 1
-          ADCPRE:
-            description: ADC prescaler
-            bitOffset: 16
-            bitWidth: 2
-          DMA:
-            description: Direct memory access mode for multi ADC mode
-            bitOffset: 14
-            bitWidth: 2
-          DDS:
-            description: DMA disable selection (for multi-ADC mode)
-            bitOffset: 13
-            bitWidth: 1
-          DELAY:
-            description: Delay between 2 sampling phases
-            bitOffset: 8
-            bitWidth: 4
-          MULTI:
-            description: Multi ADC mode selection
-            bitOffset: 0
-            bitWidth: 5
-
-      CDR:
-        description: ADC common regular data register for dual and triple modes
-        addressOffset: 0x08
-        access: read-only
-        resetValue: 0x00000000
-        fields:
-          DATA2:
-            description: 2nd data item of a pair of regular conversions
-            bitOffset: 16
-            bitWidth: 16
-          DATA1:
-            description: 1st data item of a pair of regular conversions
-            bitOffset: 0
-            bitWidth: 16
-
 _modify:
-  # Fix typo in the name of the LTDC peripheral
-  LTCD:
-    name: LTDC
-  Flash:
-    name: FLASH
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+  # Remove underscore to be consistent with other parts and RM
+  SPDIF_RX:
+    name: SPDIFRX
 
 ADC1:
   _include:
@@ -181,9 +40,6 @@ CRYP:
   "IV[01][LR]R":
     _merge:
       - "IV*"
-
-DSI:
-  _strip: DSI_
 
 Ethernet_DMA:
   DMABMR:
@@ -218,34 +74,21 @@ Ethernet_MAC:
 
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
 FLASH:
+  _include: patches/flash/erserr.yaml
   OPTKEYR:
     _modify:
       OPTKEY:
         name: OPTKEYR
 
-"GPIO*":
-  _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
-
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-JPEG:
-  _strip: JPEG_
-
-MDIOS:
-  _strip: MDIOS_
-
-MPU:
-  _strip: MPU_
 
 "OTG_HS_*":
   _strip: OTG_HS_
@@ -255,27 +98,15 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-RCC:
-  PLLCFGR:
-    _add:
-      PLLR:
-        description: PLL division factor for DSI clock
-        bitOffset: 28
-        bitWidth: 3
-        access: read-write
-
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-TIM[1-58],TIM12:
-  SMCR:
-    _add:
-      SMS_3:
-        description: Slave mode selection - bit 3
-        bitOffset: 16
-        bitWidth: 1
+SYSCFG:
+  "MEMRM,MEMRMP":
+    _delete:
+      - FB_MODE
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -323,6 +154,8 @@ TIM[16]:
 TIM[18]:
   _include:
     - patches/tim/v2/add_cc4np.yaml
+    - patches/tim/v2/add_bkf.yaml
+    - patches/tim/v2/add_af.yaml
     - patches/tim/v2/add_cc5.yaml
     - fields/tim/tim_advanced.yaml
   _modify:
@@ -415,10 +248,8 @@ WWDG:
 
 _include:
   - fields/hdmi_cec.yaml
-  - patches/dfsdm/f7.yaml
-  - collect/dfsdm/f7.yaml
-  - patches/ltdc/rename.yaml
   - patches/f7_interrupts.yaml
+  - patches/f7_lptim_interrupt.yaml
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
@@ -449,18 +280,13 @@ _include:
   - patches/rcc/f7_rename_dckcfgr.yaml
   - patches/rcc/f7_dckcfgr.yaml
   - patches/rcc/f7_dckcfgr_sdmmc1.yaml
-  - patches/rcc/f7_dckcfgr_RM0410.yaml
-  - patches/rcc/f765_f7x7_f7x9_common.yaml
   - patches/rcc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_f7.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
   - fields/rcc/rcc_v2_i2s_pllp.yaml
   - fields/rcc/rcc_v2_sai_pllr.yaml
   - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
-  - fields/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
-  - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
@@ -470,12 +296,13 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/spi/spi_v2.yaml
+  - patches/adc/adc_common_group_name.yaml
   - fields/adc/adc_v2_multi.yaml
   - fields/adc/adc_v2/adc_v2_extsel_d.yaml
   - collect/adc/jofr_jdr.yaml
   - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v21.yaml
-  - fields/dma/dma_v21.yaml
+  - patches/dma/dma_v2.yaml
+  - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - fields/dma/dma2d_v1.yaml
   - fields/eth/eth_dma_common.yaml
@@ -484,14 +311,12 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - collect/jpeg/ram_f7.yaml
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
-  - fields/flash/flash_v2_dual_bank.yaml
+  - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
   - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
-  - patches/syscfg/f765_f7x7_f7x9.yaml
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
@@ -501,13 +326,12 @@ _include:
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
   - collect/hash/v2.yaml
-  - collect/mdios/dinr_doutr.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - patches/dbgmcu/f7.yaml
+  - patches/dbgmcu/dbgmcu.yaml
   - patches/fsmc/fsmc_sramfix.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
@@ -516,6 +340,3 @@ _include:
   - fields/fsmc/fsmc_sd.yaml
   - collect/fsmc/sram.yaml
   - collect/fsmc/sd.yaml
-  - patches/ethernet/f4_f7.yaml
-  - fields/eth/eth_ptp_ppsfreq.yaml
-  - collect/dsi/isr.yaml

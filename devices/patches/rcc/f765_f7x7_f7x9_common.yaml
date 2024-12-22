@@ -1,10 +1,4 @@
 RCC:
-  APB1RSTR:
-    _add:
-      CAN3RST:
-        description: CAN 3 reset
-        bitOffset: 13
-        bitWidth: 1
   APB2RSTR:
     _add:
       MDIORST:
@@ -28,12 +22,6 @@ RCC:
       JPEGEN:
         description: JPEG enable
         bitOffset: 1
-        bitWidth: 1
-  APB1ENR:
-    _add:
-      CAN3EN:
-        description: CAN 3 enable
-        bitOffset: 13
         bitWidth: 1
   APB2ENR:
     _add:
