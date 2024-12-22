@@ -21,6 +21,10 @@ COMP:
 DAC?:
   _strip: DAC_
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
 FDCAN:
   _strip: FDCAN_
 

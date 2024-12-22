@@ -26,13 +26,17 @@ COMP:
 DAC?:
   _strip: DAC_
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
+FDCAN:
+  _strip: FDCAN_
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-FDCAN:
-  _strip: FDCAN_
 
 FDCAN2:
   _add:
