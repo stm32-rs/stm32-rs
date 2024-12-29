@@ -82,6 +82,11 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LCD:
+  _delete: RAM_COM*
+  _include:
+    - patches/lcd/ram_segment_40.yaml
+
 MPU:
   _strip: MPU_
 

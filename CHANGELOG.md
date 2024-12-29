@@ -111,6 +111,7 @@
 * C0,G0,H5: fix field names in cmmr1_output registers
 * G0: describe USB CHEP?R register
 * doc on `SYSCFG` peripheral for STM32F4 ([#852])
+* LCD: fix and unify RAM registers
 
 Family-specific:
 

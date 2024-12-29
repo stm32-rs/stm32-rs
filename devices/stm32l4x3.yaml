@@ -18,6 +18,11 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LCD:
+  _delete: RAM_COM*
+  _include:
+    - patches/lcd/ram_segment_40.yaml
+
 MPU:
   _strip: MPU_
 
@@ -231,7 +236,6 @@ _include:
   - patches/adc/l4_sqr1.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - fields/spi/spi_l4.yaml
-  - patches/lcd/l4_segment.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4x6.yaml
   - patches/dac/dac_rename_stm32l4xx.yaml
