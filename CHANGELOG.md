@@ -22,6 +22,7 @@
 * Update STM32F3 source to V1.3
 * Update STM32L0 source to v1.4
 * F373 GPIOC LCKR, collect GPIO.BRR
+* Update STM32L1 source to v1.4
 * Update STM32F4 to V2.0 archive source
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv`
