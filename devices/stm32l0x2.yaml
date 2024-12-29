@@ -30,9 +30,6 @@ AES:
     - fields/aes/v1.yaml
 
 FLASH:
-  _modify:
-    OBR:
-      name: OPTR
   ACR:
     _modify:
       DESAB_BUF:
@@ -77,24 +74,11 @@ RCC:
         name: LPWRRSTF
       RMVF:
         bitOffset: 23
-    _add:
-      FWRSTF:
-        description: Firewall reset flag
-        bitOffset: 24
-        bitWidth: 1
 
   APB2RSTR:
     _modify:
       TM12RST:
         name: TIM22RST
-
-PWR:
-  CR:
-    _add:
-      LPSDSR:
-        description: Low-power deepsleep/Sleep/Low-power run
-        bitOffset: 0
-        bitWidth: 1
 
 "SPI?,I2S?":
   _include:

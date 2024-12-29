@@ -32,9 +32,6 @@ IWDG:
     - fields/iwdg/iwdg_with_WINR.yaml
 
 FLASH:
-  _modify:
-    OBR:
-      name: OPTR
   ACR:
     _modify:
       DESAB_BUF:
@@ -106,13 +103,6 @@ RCC:
       TIFRFE:
         name: FRE
 
-SYSCFG:
-  _modify:
-    COMP1_CTRL:
-      name: COMP1_CSR
-    COMP2_CTRL:
-      name: COMP2_CSR
-
 TIM*:
   _include:
     - patches/tim/size16b.yaml
@@ -163,7 +153,6 @@ WWDG:
 _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
-  - patches/pwr/l0_mode.yaml
   - patches/pwr/l0_wakeup.yaml
   - patches/rtc/l0.yaml
   - patches/syscfg/l0_cfgr.yaml
