@@ -1,3 +1,13 @@
 _svd: ../svd/stm32u073.svd
 
 _clear_fields: "*"
+
+_modify:
+  LCD:
+    groupName: LCD
+
+LCD:
+  _delete: LCD_RAM*
+  _strip: LCD_
+  _include:
+    - patches/lcd/ram_segment_48.yaml

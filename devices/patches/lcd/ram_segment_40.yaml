@@ -1,0 +1,45 @@
+# LCD RAM_COM registers are 64 bit wide, not 32.
+_add:
+  RAM_COM0:
+    displayName: RAM_COM0
+    description: LCD display memory
+    addressOffset: 0x14
+    size: 0x40
+    access: read-write
+    resetValue: 0
+    fields:
+      SEGS:
+        description: "Segment states, one bit per segment, LSB: S00, MSB: S39"
+        bitOffset: 0
+        bitWidth: 40
+  RAM_COM4:
+    displayName: RAM_COM4
+    description: LCD display memory
+    addressOffset: 0x34
+    size: 0x40
+    access: read-write
+    resetValue: 0
+    fields:
+      SEGS:
+        description: "Segment states, one bit per segment, LSB: S00, MSB: S43"
+        bitOffset: 0
+        bitWidth: 44
+_derive:
+  RAM_COM1:
+    _from: RAM_COM0
+    addressOffset: 0x1C
+  RAM_COM2:
+    _from: RAM_COM0
+    addressOffset: 0x24
+  RAM_COM3:
+    _from: RAM_COM0
+    addressOffset: 0x2C
+  RAM_COM5:
+    _from: RAM_COM4
+    addressOffset: 0x3C
+  RAM_COM6:
+    _from: RAM_COM4
+    addressOffset: 0x44
+  RAM_COM7:
+    _from: RAM_COM4
+    addressOffset: 0x4C

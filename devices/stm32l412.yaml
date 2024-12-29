@@ -56,6 +56,11 @@ AES:
 IWDG:
   _include: patches/16bit.yaml
 
+LCD:
+  _delete: RAM_COM*
+  _include:
+    - patches/lcd/ram_segment_40.yaml
+
 MPU:
   _strip: MPU_
 

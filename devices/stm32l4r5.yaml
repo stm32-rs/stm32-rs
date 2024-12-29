@@ -3,6 +3,8 @@ _svd: ../svd/stm32l4r5.svd
 _modify:
   ADC:
     name: ADC1
+  LTCD:
+    groupName: LTCD
 
 _copy:
   TIM3:
