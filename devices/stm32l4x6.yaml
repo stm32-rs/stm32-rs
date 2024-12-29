@@ -1,5 +1,7 @@
 _svd: ../svd/stm32l4x6.svd
 
+_clear_fields: "*"
+
 _copy:
   TIM3:
     from: TIM2
@@ -13,18 +15,27 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+DFSDM:
+  _strip: DFSDM_
+  _modify:
+    FLT1CHGR:
+      name: FLT1JCHGR
+  _include: collect/dfsdm/l4.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
 LCD:
-  _delete: RAM_COM*
+  _strip: LCD_
+  _delete: LCD_RAM*
   _include:
     - patches/lcd/ram_segment_40.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _include:
@@ -107,6 +118,17 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+"UART?":
+  CR2:
+    _delete:
+      - ADD0_3
+      - ADD4_7
+    _add:
+      ADD:
+        description: "Address of the USART node"
+        bitOffset: 24
+        bitWidth: 8
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -130,8 +152,6 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
   - patches/rcc/l4_crrcr.yaml
   - fields/gpio/v2/common.yaml
   - fields/gpio/gpio_with_brr.yaml
@@ -157,7 +177,6 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
-  - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml
   - fields/dma/dma2d_v1.yaml

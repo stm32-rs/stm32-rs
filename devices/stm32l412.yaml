@@ -1,6 +1,8 @@
 # This SVD is a copy+paste of l4x2's.
 _svd: ../svd/stm32l412.svd
 
+_clear_fields: "*"
+
 # This module is the same as l4x2, but with the RTC peripheral from L5 and G4.
 # Applies to L412 and L422 MCUs. Note that the RM (RM0394) includes two separate
 # RTC chapters: One that applies to L41x and L42x (Chapter 34), and one that
@@ -18,16 +20,6 @@ _svd: ../svd/stm32l412.svd
 _delete:
   - USB_FS
 
-_add:
-  ADC2:
-    derivedFrom: ADC1
-    baseAddress: "0x50040100"
-
-# TIM3 is 16-bit, whilst TIM2 is 32-bit
-_copy:
-  TIM3:
-    from: TIM2
-
 _derive:
   USART3: USART1
 
@@ -41,28 +33,22 @@ _modify:
   ADC:
     name: ADC1
 
+"ADC*_*":
+  _strip: ADC_
+
 ADC1:
+  _strip: ADC_
   _modify:
     _interrupts:
       ADC1:
         name: ADC1_2
 
-AES:
+EXTI:
   _include:
-    - patches/aes/fields.yaml
-    - patches/aes/l4.yaml
-    - fields/aes/v2.yaml
+    - patches/exti/add_fpu_interrupt.yaml
 
 IWDG:
   _include: patches/16bit.yaml
-
-LCD:
-  _delete: RAM_COM*
-  _include:
-    - patches/lcd/ram_segment_40.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _include:
@@ -112,227 +98,11 @@ RCC:
       USART2SMEN:
         bitOffset: 17
     _add:
-      USART3SMEN:
-        description: USART3 clocks enable during Sleep and Stop modes
-        bitOffset: 18
-        bitWidth: 1
-        access: read-write
       UART4SMEN:
         description: UART4 clocks enable during Sleep and Stop modes
         bitOffset: 19
         bitWidth: 1
         access: read-write
-
-RTC:
-  _delete:
-    - ISR
-    - TAMPCR
-    - OR
-    - BKP*R
-
-  _modify:
-    SSR:
-      addressOffset: 0x08
-
-    CR:
-      addressOffset: 0x18
-
-    CALR:
-      addressOffset: 0x28
-
-    SHIFTR:
-      addressOffset: 0x2c
-
-    ALRMAR:
-      addressOffset: 0x40
-
-    ALRMBR:
-      addressOffset: 0x48
-
-    ALRMBSSR:
-      addressOffset: 0x4c
-
-  WUTR:
-    _add:
-      WUTOCLR:
-        description: Wakeup auto-reload output clear value
-        bitOffset: 16
-        bitWidth: 16
-        access: read-write
-
-  CALR:
-    _add:
-      LPCAL:
-        description: Calibration low-power mode
-        bitOffset: 12
-        bitWidth: 1
-        access: read-write
-
-  CR:
-    _add:
-      TAMPTS:
-        description: Activate timestamp on tamper detection event
-        bitOffset: 25
-        bitWidth: 1
-        access: read-write
-      TAMPOE:
-        description: Tamper detection output enable on TAMPALRM
-        bitOffset: 26
-        bitWidth: 1
-        access: read-write
-      TAMPALRM_PU:
-        description: TAMPALRM pull-up enable
-        bitOffset: 29
-        bitWidth: 1
-        access: read-write
-      TAMPALRM_TYPE:
-        description: TAMPALRM output type
-        bitOffset: 30
-        bitWidth: 1
-        access: read-write
-      OUT2EN:
-        description: RTC_OUT2 output enable
-        bitOffset: 31
-        bitWidth: 1
-        access: read-write
-
-  _add:
-    ICSR:
-      description: RTC initialization control and status register
-      addressOffset: 0x0c
-      size: 0x20
-      access: read-write
-      resetValue: 0x00000007
-      fields:
-        WUTWF:
-          description: Wakeup timer write flag
-          bitOffset: 2
-          bitWidth: 1
-          access: read-only
-        SHPF:
-          description: Shift operation pending
-          bitOffset: 3
-          bitWidth: 1
-          access: read-only
-        INITS:
-          description: Initialization status flag
-          bitOffset: 4
-          bitWidth: 1
-          access: read-only
-        RSF:
-          description: Registers synchronization flag
-          bitOffset: 5
-          bitWidth: 1
-        INITF:
-          description: Initialization flag
-          bitOffset: 6
-          bitWidth: 1
-          access: read-only
-        INIT:
-          description: Initialization mode
-          bitOffset: 7
-          bitWidth: 1
-        RECALPF:
-          description: Recalibration pending Flag
-          bitOffset: 16
-          bitWidth: 1
-          access: read-only
-
-    SR:
-      description: RTC status register
-      addressOffset: 0x50
-      size: 0x20
-      access: read-only
-      resetValue: 0x00000000
-      fields:
-        ALRAF:
-          description: Alarm A flag
-          bitOffset: 0
-          bitWidth: 1
-        ALRBF:
-          description: Alarm B flag
-          bitOffset: 1
-          bitWidth: 1
-        WUTF:
-          description: Wakeup timer flag
-          bitOffset: 2
-          bitWidth: 1
-        TSF:
-          description: Timestamp flag
-          bitOffset: 3
-          bitWidth: 1
-        TSOVF:
-          description: Timestamp overflow flag
-          bitOffset: 4
-          bitWidth: 1
-        ITSF:
-          description: Internal timestamp flag
-          bitOffset: 5
-          bitWidth: 1
-
-    MISR:
-      description: RTC masked interrupt status register
-      addressOffset: 0x54
-      size: 0x20
-      access: read-only
-      resetValue: 0x00000000
-      fields:
-        ALRAMF:
-          description: Alarm A masked flag
-          bitOffset: 0
-          bitWidth: 1
-        ALRBMF:
-          description: Alarm B masked flag
-          bitOffset: 1
-          bitWidth: 1
-        WUTMF:
-          description: Wakeup timer masked flag
-          bitOffset: 2
-          bitWidth: 1
-        TSMF:
-          description: Timestamp masked flag
-          bitOffset: 3
-          bitWidth: 1
-        TSOVMF:
-          description: Timestamp overflow masked flag
-          bitOffset: 4
-          bitWidth: 1
-        ITSMF:
-          description: Internal timestamp masked flag
-          bitOffset: 5
-          bitWidth: 1
-
-    SCR:
-      description: RTC status clear register
-      addressOffset: 0x5c
-      size: 0x20
-      access: write-only
-      resetValue: 0x00000000
-      fields:
-        CALRAF:
-          description: Clear alarm A flag
-          bitOffset: 0
-          bitWidth: 1
-        CALRBF:
-          description: Clear alarm B flag
-          bitOffset: 1
-          bitWidth: 1
-        CWUTF:
-          description: Clear wakeup timer flag
-          bitOffset: 2
-          bitWidth: 1
-        CTSF:
-          description: Clear timestamp flag
-          bitOffset: 3
-          bitWidth: 1
-        CTSOVF:
-          description: Clear timestamp overflow flag
-          bitOffset: 4
-          bitWidth: 1
-        CITSF:
-          description: Clear internal timestamp flag
-          bitOffset: 5
-          bitWidth: 1
 
 SPI?:
   _include:
@@ -348,22 +118,13 @@ SPI?:
 "TIM[18]":
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/tim_advanced.yaml
-
-"TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
 
 TIM15:
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
-
-"TIM[34]":
-  _include:
-    - patches/tim/tim2_common_16bit_l.yaml
-    - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
   _include:
@@ -424,14 +185,6 @@ _include:
   - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
@@ -451,13 +204,10 @@ _include:
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
-  - patches/fpu_interrupt.yaml
   - fields/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
-  - patches/flash/flash_boot0s.yaml
   - patches/adc/l4.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4_smpr.yaml
   - patches/adc/l4_sqr1.yaml
   - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml

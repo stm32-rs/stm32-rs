@@ -1,5 +1,7 @@
 _svd: ../svd/stm32l4r9.svd
 
+_clear_fields: "*"
+
 _modify:
   ADC:
     name: ADC1
@@ -34,6 +36,18 @@ IWDG:
 MPU:
   _strip: MPU_
 
+LPUART?:
+  _strip: LPUART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
+PWR:
+  _strip: PWR_
+
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
   APB1ENR1:
@@ -47,6 +61,45 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
+"TIM?":
+  _strip: TIM?_
+
+"TIM??":
+  _strip:
+    - TIM??_
+    - TIM?_
+
+"TIM[1-589],TIM1[0-79]":
+  _modify:
+    CCMR1:
+      name: CCMR1_Input
+    "CCMR1_ALTERNATE,CCMR1_ALTERNATE1":
+      name: CCMR1_Output
+    "?~CCMR2":
+      name: CCMR2_Input
+    "?~CCMR2_ALTERNATE":
+      name: CCMR2_Output
+    "?~CCMR3":
+      name: CCMR3_Output
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+      OC2M_1:
+        name: OC2M_3
+  "?~CCMR2_Output":
+    _modify:
+      OC3M_1:
+        name: OC3M_3
+      OC4M_1:
+        name: OC4M_3
+  "?~CCMR3_Output":
+    _modify:
+      OC5M_1:
+        name: OC5M_3
+      OC6M_1:
+        name: OC6M_3
+
 "TIM*":
   _include:
     - patches/tim/omp.yaml
@@ -56,12 +109,7 @@ SPI?:
 
 "TIM[18]":
   _include:
-    - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/tim_advanced.yaml
-
-"TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
 
 TIM15:
   CCMR1_Output:
@@ -110,6 +158,15 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _strip: USART_
+  CR1:
+    _modify:
+      TXFNFIE:
+        name: TXEIE
+      RXFNEIE:
+        name: RXNEIE
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -122,7 +179,6 @@ _include:
   - fields/adc/adc_v3_common_l4+.yaml
   - fields/adc/adc_v3_l4+.yaml
   - patches/nvic/4_prio_bits.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -130,7 +186,6 @@ _include:
   - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
   - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
   - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
@@ -169,7 +224,6 @@ _include:
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
-  - patches/usart/l4_lpuart_presc.yaml
   - patches/adc/adc_common_group_name.yaml
   - collect/dsi/isr.yaml
   - collect/gfxmmu/lut.yaml

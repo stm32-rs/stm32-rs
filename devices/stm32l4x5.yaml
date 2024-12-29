@@ -44,6 +44,13 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+DFSDM:
+  _strip: DFSDM_
+  _modify:
+    FLT1CHGR:
+      name: FLT1JCHGR
+  _include: collect/dfsdm/l4.yaml
+
 "FMC,FSMC":
   BCR1:
     _add:
@@ -77,6 +84,10 @@ AES:
         bitWidth: 4
         access: read-write
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -86,9 +97,6 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
-
-MPU:
-  _strip: MPU_
 
 QUADSPI:
   _include:
@@ -236,8 +244,6 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
   - patches/rcc/l4_crrcr.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
