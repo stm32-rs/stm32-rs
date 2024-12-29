@@ -1,4 +1,4 @@
-_svd: ../svd/stm32f7x6.svd
+_svd: ../svd/stm32f756.svd
 
 _rebase:
   USART1: USART6
@@ -74,28 +74,21 @@ Ethernet_MAC:
 
 EXTI:
   _include:
+    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
 FLASH:
+  _include: patches/flash/erserr.yaml
   OPTKEYR:
     _modify:
       OPTKEY:
         name: OPTKEYR
 
-"GPIO*":
-  _modify:
-    # SVD calls call OSPEEDR regs GPIOB_OSPEEDR, so fix that.
-    GPIOB_OSPEEDR:
-      name: OSPEEDR
-
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 "OTG_HS_*":
   _strip: OTG_HS_

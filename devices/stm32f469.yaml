@@ -2,20 +2,20 @@ _svd: ../svd/stm32f469.svd
 
 _copy:
   OTG_FS_GLOBAL:
-    from: ../svd/stm32f7x7.svd:OTG_FS_GLOBAL
+    from: ../svd/stm32f777.svd:OTG_FS_GLOBAL
   OTG_FS_HOST:
-    from: ../svd/stm32f7x7.svd:OTG_FS_HOST
+    from: ../svd/stm32f777.svd:OTG_FS_HOST
   OTG_FS_DEVICE:
-    from: ../svd/stm32f7x7.svd:OTG_FS_DEVICE
+    from: ../svd/stm32f777.svd:OTG_FS_DEVICE
 
   OTG_HS_GLOBAL:
-    from: ../svd/stm32f7x7.svd:OTG_HS_GLOBAL
+    from: ../svd/stm32f777.svd:OTG_HS_GLOBAL
   OTG_HS_HOST:
-    from: ../svd/stm32f7x7.svd:OTG_HS_HOST
+    from: ../svd/stm32f777.svd:OTG_HS_HOST
   OTG_HS_DEVICE:
-    from: ../svd/stm32f7x7.svd:OTG_HS_DEVICE
+    from: ../svd/stm32f777.svd:OTG_HS_DEVICE
   OTG_HS_PWRCLK:
-    from: ../svd/stm32f7x7.svd:OTG_HS_PWRCLK
+    from: ../svd/stm32f777.svd:OTG_HS_PWRCLK
 
 _rebase:
   # Make I2C1 the base type
