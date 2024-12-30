@@ -18,6 +18,20 @@ USB:
     _modify:
       "STATRX,STATTX":
         access: read-write
+    STATTX:
+      _read:
+        Disabled: [0, "All transmission requests addressed to this endpoint/channel are ignored."]
+        Stall: [1, "Device mode: the endpoint is stalled and all transmission requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
+        Nak: [2, "Device mode: the endpoint is NAKed and all transmission requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the transmission request."]
+        Valid: [3, "This endpoint/channel is enabled for transmission."]
+      _W1T:
+        Keep: [0, "Do not change bits"]
+    DTOGTX:
+      _W1T:
+        Toggle: [1, "Flip bit"]
+    VTTX:
+      _W0C:
+        Clear: [0, "Clear flag"]
     UTYPE:
         Bulk: [0, "Bulk endpoint"]
         Control: [1, "Control endpoint"]
@@ -31,14 +45,21 @@ USB:
         Valid: [3, "This endpoint/channel is enabled for reception."]
       _W1T:
         Keep: [0, "Do not change bits"]
-    STATTX:
-      _read:
-        Disabled: [0, "All transmission requests addressed to this endpoint/channel are ignored."]
-        Stall: [1, "Device mode: the endpoint is stalled and all transmission requests result in a STALL handshake.\nHost mode: this indicates that the device has STALLed the channel."]
-        Nak: [2, "Device mode: the endpoint is NAKed and all transmission requests result in a NAK handshake.\nHost mode: this indicates that the device has NAKed the transmission request."]
-        Valid: [3, "This endpoint/channel is enabled for transmission."]
+    DTOGRX:
       _W1T:
-        Keep: [0, "Do not change bits"]
+        Toggle: [1, "Flip bit"]
+    VTRX:
+      _W0C:
+        Clear: [0, "Clear flag"]
+    NAK:
+      _W0C:
+        Clear: [0, "Clear flag"]
+    ERR_TX:
+      _W0C:
+        Clear: [0, "Clear flag"]
+    ERR_RX:
+      _W0C:
+        Clear: [0, "Clear flag"]
   ISTR:
     THR512:
       _read:
