@@ -116,6 +116,9 @@
 * G0: describe USB CHEP?R register
 * doc on `SYSCFG` peripheral for STM32F4 ([#852])
 * LCD: fix and unify RAM registers
+* G0: mark interrupt flags in USB ISTR as W0C
+* G0: mark flags in USB CHEPR as W0C/W1T
+* G0: add value enums for EXTICR[2-4]
 
 Family-specific:
 
