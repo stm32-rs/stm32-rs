@@ -1,8 +1,6 @@
 EXTICR1:
-  _modify:
-    EXTI[1-3]:
-      derivedFrom: EXTI0
+  _derive:
+    EXTI[1-3]: EXTI0
 EXTICR[2-4]:
-  _modify:
-    "EXTI?,EXTI1?":
-      derivedFrom: EXTI.EXTICR1.EXTI0
+  _derive:
+    "EXTI?,EXTI1?": EXTICR1.EXTI0

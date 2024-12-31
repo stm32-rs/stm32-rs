@@ -1,8 +1,0 @@
-EXTICR1:
-  _modify:
-    EXTI[1-3]:
-      derivedFrom: EXTI0
-EXTICR[2-4]:
-  _modify:
-    "EXTI?,EXTI1?":
-      derivedFrom: AFIO.EXTICR1.EXTI0

@@ -30,3 +30,9 @@ HRTIM_Common:
         dimIncrement: 8
       FLT[1-6]CRES:
         dimIncrement: 8
+
+"HRTIM_TIM[B-F]":
+  CR:
+    _derive:
+      INTLVD: HRTIM_TIMA.CR.INTLVD
+      RSYNCU: HRTIM_TIMA.CR.RSYNCU
