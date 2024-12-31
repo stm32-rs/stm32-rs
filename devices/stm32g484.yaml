@@ -54,12 +54,10 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-"TIM*":
+"TIM[123]":
   _include:
     - patches/tim/icpsc.yaml
-
-"TIM[123]":
-  _include: patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
 
 TIM2:
   _include: patches/tim/v2/tim_32bit.yaml

@@ -61,9 +61,8 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-"TIM*":
-  _include:
-    - patches/tim/icpsc.yaml
+"TIM[1],TIM8":
+  _include: patches/tim/icpsc.yaml
 
 TIM4:
   _delete:
