@@ -1,5 +1,10 @@
 _svd: ../svd/stm32h573.svd
 
+ADC?:
+  _strip: ADC_
+  CFGR:
+    _merge: "EXTSEL*"
+
 AES:
   _include:
     - fields/aes/v3.yaml
@@ -52,7 +57,11 @@ TIM1?:
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
 
-TIM1[2357]:
+TIM1[37]:
+  _include:
+    - patches/tim/v2/oc1m.yaml
+
+TIM1[25]:
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
@@ -104,7 +113,6 @@ _include:
   - patches/h5.yaml
   - patches/h56x_h57x.yaml
   - patches/h5_security.yaml
-  - patches/adc/l4+.yaml
   - fields/adc/adc_h5.yaml
   - patches/ethernet/h5.yaml
 
@@ -124,7 +132,6 @@ _include:
   - fields/rcc/rcc_h56x_h57x.yaml
 
   - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
   # - fields/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   # - collect/rtc/bkpr.yaml

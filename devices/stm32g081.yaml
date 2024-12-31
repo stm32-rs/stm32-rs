@@ -12,9 +12,13 @@ _copy:
 
 ADC:
   _include:
-    - patches/adc/g0.yaml
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
+  _modify:
+    CHSELRMOD0:
+      name: CHSELR0
+    CHSELRMOD1:
+      name: CHSELR1
 
 AES:
   _include:
@@ -52,8 +56,6 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
-    - patches/tim/v2/oc2m.yaml
-    - patches/tim/v2/oc3m.yaml
     - patches/tim/v2/oc5m_bit3.yaml
   _modify:
     _interrupts:
@@ -65,10 +67,13 @@ TIM2:
   _include: patches/tim/tim2_common_32bit.yaml
 
 TIM3:
-  _include: patches/tim/tim_4ch_16bit_l.yaml
+  _include: patches/tim/tim_ch_16bit_l.yaml
 
-"TIM1[46]":
-  _include: patches/tim/v2/oc1m.yaml
+TIM16:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 TIM15:
   _include:

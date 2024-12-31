@@ -37,12 +37,7 @@ TIM[13],TIM1[467]:
       name: CCMR1_Input
     CCMR1_output:
       name: CCMR1_Output
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-      OC1M2:
-        name: OC1M_3
+  _include: patches/tim/v2/oc1m.yaml
 
 TIM[13]:
   _modify:
@@ -50,12 +45,7 @@ TIM[13]:
       name: CCMR2_Input
     CCMR2_output:
       name: CCMR2_Output
-  CCMR1_Output:
-    _modify:
-      OC2M1:
-        name: OC2M
-      OC2M2:
-        name: OC2M_3
+  _include: patches/tim/v2/oc2m.yaml
 
 TIM3:
   _modify:

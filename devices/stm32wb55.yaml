@@ -264,6 +264,10 @@ TIM17:
       description: TIM17 Alternate function
 
 TIM1[67]:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
   DIER:
     _add:
       UIE:

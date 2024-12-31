@@ -31,22 +31,6 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-FLASH:
-  ACR:
-    _modify:
-      DESAB_BUF:
-        name: DISAB_BUF
-  PECR:
-    _modify:
-      FTDW:
-        name: FIX
-  OPTR:
-    _modify:
-      SPRMOD:
-        name: WPRMOD
-      RDPRT:
-        name: RDPROT
-
 PWR:
   CR:
     # LPDS only exists in the L0x1 family
@@ -151,7 +135,6 @@ WWDG:
 _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
-  - patches/pwr/l0_wakeup.yaml
   - patches/rtc/l0.yaml
   - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml

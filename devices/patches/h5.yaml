@@ -1,8 +1,5 @@
 _clear_fields: "*"
 
-ADC,ADC?:
-  _strip: ADC_
-
 CRC:
   _strip: CRC_
 
@@ -118,4 +115,3 @@ _include:
   - gpdma/gpdma.yaml
   - usart/merge_CR3_WUS_field.yaml
   - usart/rename_CR1_ISR_enabled_disabled.yaml
-  - ./rcc/h5.yaml

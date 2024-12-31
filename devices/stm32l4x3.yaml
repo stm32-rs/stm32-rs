@@ -104,6 +104,10 @@ TIM15:
 
 TIM16:
   _include: fields/tim/tim16.yaml
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 "TIM[67]":
   _include: fields/tim/tim6.yaml
@@ -233,7 +237,6 @@ _include:
   - patches/adc/l4+common.yaml
   - fields/adc/adc_v3_common_l4+.yaml
   - fields/adc/adc_v3_l4.yaml
-  - patches/adc/l4_sqr1.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - fields/spi/spi_l4.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml

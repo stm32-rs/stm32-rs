@@ -70,6 +70,14 @@ RCC:
       USART5EN:
         name: UART5EN
 
+SYSCFG:
+  CFGR2:
+    _modify:
+      LOCUP_LOCK:
+        name: LOCKUP_LOCK
+      BYP_ADD_PAR:
+        name: BYP_ADDR_PAR
+
 TIM3:
   CNT:
     _modify:
@@ -89,7 +97,7 @@ TIM3:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -157,7 +165,6 @@ _include:
   - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
   - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
   - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
-  - patches/syscfg/f3_cfgr2.yaml
   - patches/syscfg/f3_rcr_page8-15.yaml
   - fields/syscfg/syscfg_f3.yaml
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml

@@ -11,3 +11,11 @@ _include:
   - ./rcc_v2_dckcfgr2_lptimsel.yaml
   - ./rcc_v2_dckcfgr2_i2csel.yaml
   - ./rcc_v2_dckcfgr2_usartsel.yaml
+
+RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
+      UART3RST:
+        name: USART3RST

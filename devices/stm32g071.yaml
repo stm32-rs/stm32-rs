@@ -15,9 +15,13 @@ _delete:
 
 ADC:
   _include:
-    - patches/adc/g0.yaml
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
+  _modify:
+    CHSELRMOD0:
+      name: CHSELR0
+    CHSELRMOD1:
+      name: CHSELR1
 
 EXTI:
   _include:
@@ -81,7 +85,7 @@ TIM2:
   _include: patches/tim/tim2_common_32bit.yaml
 
 TIM3:
-  _include: patches/tim/tim_4ch_16bit_l.yaml
+  _include: patches/tim/tim_ch_16bit_l.yaml
 
 TIM15:
   _include:
@@ -90,6 +94,12 @@ TIM15:
 
 "TIM[1],TIM14":
   _include: patches/tim/icpsc.yaml
+
+TIM16:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 "TIM*":
   _include:

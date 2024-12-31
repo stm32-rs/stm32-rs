@@ -12,9 +12,13 @@ _copy:
 
 ADC:
   _include:
-    - patches/adc/g0.yaml
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
+  _modify:
+    CHSELRMOD0:
+      name: CHSELR0
+    CHSELRMOD1:
+      name: CHSELR1
 
 EXTI:
   _include:
@@ -53,18 +57,14 @@ TIM1:
         description: TIM1 break, update, trigger and commutation interrupts
 
 TIM2:
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-  _include: patches/tim/tim2_common_32bit.yaml
+  _include:
+    - patches/tim/tim2_cnt_32bit.yaml
+    - patches/tim/v2/oc1m1.yaml
 
 TIM3:
-  CCMR1_Output:
-    _modify:
-      OC1M1:
-        name: OC1M
-  _include: patches/tim/tim_4ch_16bit_l.yaml
+  _include:
+    - patches/tim/tim_cnt_16bit_l.yaml
+    - patches/tim/v2/oc1m1.yaml
 
 "TIM1[46]":
   _include: patches/tim/v2/oc1m.yaml
@@ -128,7 +128,6 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
-  - patches/spi/g0_rename_registers.yaml
   - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
   - patches/tim/group.yaml
   - patches/usart/g0_CR1.yaml

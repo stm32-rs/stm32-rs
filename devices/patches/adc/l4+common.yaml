@@ -1,7 +1,7 @@
 ADC_Common:
   CSR:
     _modify:
-      ADDRDY_MST:
+      "ADDRDY_MST,ADRDY_MST":
         name: ADRDY_MST
 
   CCR:

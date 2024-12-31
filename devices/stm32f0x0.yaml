@@ -63,13 +63,10 @@ TIM1[456]:
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 
-"TIM[2345]":
+"TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
-
-TIM1:
-  _include: patches/tim/tim2_common_16bit_l.yaml
 
 "TIM[1-58]":
   _include:

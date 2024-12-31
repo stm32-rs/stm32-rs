@@ -67,7 +67,7 @@ Ethernet_MAC:
         ]
       Enabled: [1, "MAC receive state machine is enabled"]
     _modify:
-      CSTF:
+      "?~CSTF,CSTF": # TODO
         description: CRC stripping for type frames
       WD:
         description: Watchdog disable
@@ -197,7 +197,7 @@ Ethernet_MAC:
         description: Pass control frames
       BFD:
         description: Broadcast frames disable
-      RAM:
+      "RAM,PAM":
         name: PAM
         description: Pass all multicast
       DAIF:

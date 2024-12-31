@@ -27,7 +27,7 @@ HRTIM_Common:
   BDT[A-F]UPR:
     _strip: TIMx
     _modify:
-      DTxR:
+      "DTxR,_DTxR":
         name: DTR
 
 HRTIM_Master:

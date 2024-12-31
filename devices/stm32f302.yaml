@@ -104,6 +104,12 @@ SYSCFG:
   CFGR1:
     _delete:
       - TIM7_DAC2_DMA_RMP
+  CFGR2:
+    _modify:
+      LOCUP_LOCK:
+        name: LOCKUP_LOCK
+      BYP_ADD_PAR:
+        name: BYP_ADDR_PAR
 
 TIM3:
   CNT:
@@ -124,7 +130,7 @@ TIM3:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -190,7 +196,6 @@ _include:
   - patches/syscfg/f3.yaml
   - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
   - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
-  - patches/syscfg/f3_cfgr2.yaml
   - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
   - patches/opamp/f3_opamp12.yaml
   - patches/comp/f3_comp1246.yaml

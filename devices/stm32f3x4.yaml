@@ -106,6 +106,12 @@ SYSCFG:
     _delete:
       - USB_IT_RMP
       - ADC24_DMA_RMP
+  CFGR2:
+    _modify:
+      LOCUP_LOCK:
+        name: LOCKUP_LOCK
+      BYP_ADD_PAR:
+        name: BYP_ADDR_PAR
   CFGR3:
     _delete:
       - ADC2_DMA_RMP*
@@ -129,12 +135,20 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: Frame format error
+SPI2:
+  CR1:
+    _modify:
+      DFF:
+        name: CRCL
+        description: CRC length
 
 TIM3:
   _include: patches/tim/v2/add_ocm_bit3.yaml
-
-"TIM[2-5]":
-  _include: patches/tim/tim_o24ce.yaml
 
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
@@ -198,7 +212,6 @@ _include:
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
   - patches/adc/f3.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_mco.yaml
@@ -206,7 +219,6 @@ _include:
   - patches/syscfg/f3.yaml
   - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
   - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
-  - patches/syscfg/f3_cfgr2.yaml
   - fields/syscfg/syscfg_f3.yaml
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - fields/syscfg/syscfg_f3x4.yaml

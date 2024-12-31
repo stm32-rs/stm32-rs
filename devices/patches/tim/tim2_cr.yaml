@@ -1,0 +1,9 @@
+ARR:
+  # Actualy a 32bit register
+  _modify:
+    "ARRH,ARR_H":
+      name: ARRH
+      description: "Auto-reload value"
+    "ARRL,ARR_L":
+      name: ARRL
+  _merge: "ARR*"

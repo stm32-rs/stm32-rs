@@ -1,4 +1,5 @@
 RCC:
+  _include: h5.yaml
   PLL3CFGR:
     _modify:
       DIVM3:
@@ -83,3 +84,9 @@ RCC:
         bitOffset: 9
         bitWidth: 1
         access: read-write
+
+  CCIPR5:
+    _modify:
+      FDCAN12SEL:
+        name: FDCANSEL
+        description: FDCAN kernel clock source selection

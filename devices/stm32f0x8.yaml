@@ -29,7 +29,7 @@ SYSCFG:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -119,7 +119,6 @@ _include:
   - fields/adc/adc_aditf4_v1_1_RM0091.yaml
   - fields/spi/spi_v2.yaml
   - fields/usb/usb_with_LPM.yaml
-  - patches/flash/f0_ram_parity_check.yaml
   - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/crc/f0_init_addr_fix.yaml

@@ -31,11 +31,6 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0410
-      "[_]FRE":
-        name: FRE
 
 FLASH:
   OPTKEYR:
@@ -138,7 +133,7 @@ QUADSPI:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -307,6 +302,7 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - patches/adc/adc_common_group_name.yaml
+  - patches/adc/multi.yaml
   - fields/adc/adc_v2_multi.yaml
   - fields/adc/adc_v2/adc_v2_extsel_d.yaml
   - collect/adc/jofr_jdr.yaml

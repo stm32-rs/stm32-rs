@@ -76,7 +76,7 @@ ADC?:
     _delete:
       - ALIGN_5
     _modify:
-      AWDCH1CH:
+      "AWDCH1CH,AWD1CH":
         name: AWD1CH
         description: Analog watchdog 1 channel selection
       JAUTO:
@@ -256,7 +256,7 @@ ADC?:
 
   JSQR:
     _modify:
-      SQ4:
+      JSQ4:
         description: 4th conversion in the injected sequence
       JSQ3:
         description: 3rd conversion in the injected sequence
@@ -347,11 +347,6 @@ ADC?:
     _modify:
       AWD3CH:
         description: Analog watchdog 3 channel selection
-
-  DIFSEL:
-    _modify:
-      DIFSEL:
-        description: Differential mode for channels 18 to 0
 
   CALFACT:
     _modify:

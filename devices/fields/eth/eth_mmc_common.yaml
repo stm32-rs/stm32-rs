@@ -17,9 +17,9 @@ Ethernet_MMC:
     CR:
       Reset: [1, "Reset all counters. Cleared automatically"]
     _modify:
-      MCFHP:
+      "?~MCFHP,MCFHP": # TODO
         description: MMC counter Full-Half preset
-      MCP:
+      "?~MCP,MCP": # TODO
         description: MMC counter preset
       MCF:
         description: MMC counter freeze

@@ -1,8 +1,8 @@
 "SAI,SAI?":
+  _include: v1_common.yaml
   _modify:
     "?SR":
       access: read-only
-      resetValue: 8
     "?CLRFR":
       access: write-only
 
@@ -10,25 +10,17 @@
     _modify:
       OutDri:
         name: OUTDRIV
-      SAI?EN:
-        name: SAIEN
-      MCJDIV:
+      "MCKDIV,MCJDIV":
         name: MCKDIV
   "?CR2":
     _modify:
       FTH:
         access: read-write
-      FFLUS:
-        name: FFLUSH
-        access: write-only
       TRIS:
         access: read-write
       MUTE:
         access: read-write
       MUTEVAL:
-        access: read-write
-      MUTECN,MUTECNT:
-        name: MUTECNT
         access: read-write
       CPL:
         access: read-write
@@ -52,7 +44,7 @@
         name: WCKCFGIE
       MUTEDET:
         name: MUTEDETIE
-      LFSDET:
+      "LFSDET,LFSDETIE":
         name: LFSDETIE
   "?CLRFR":
     _modify:

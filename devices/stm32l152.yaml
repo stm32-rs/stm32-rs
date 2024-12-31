@@ -25,8 +25,11 @@ EXTI:
 
 I2C?:
   _include:
-    - patches/i2c/v1.yaml
+    - patches/16bit.yaml
     - fields/i2c/i2c_v1.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD_0,ADD_1_7,ADD_8_9"
 
 IWDG:
   _include:
@@ -46,15 +49,18 @@ SPI?:
 "TIM[23]":
   _include: patches/tim/rename_TIM2_CCR3_CCR3.yaml
 
-"TIM*":
-  _include:
-    - patches/tim/omp.yaml
-    - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+"TIM[29],TIM11":
+  _include: patches/tim/icpsc.yaml
 
 TIM9:
-  _include: patches/tim/l1_tim9_ccer.yaml
+  _include:
+    - patches/tim/omp.yaml
+    - patches/tim/l1_tim9_ccer.yaml
+
+"TIM*":
+  _include:
+    - fields/tim/tim_no_opm.yaml
+    - fields/tim/tim_opm.yaml
 
 "TIM[1-58]":
   _include:

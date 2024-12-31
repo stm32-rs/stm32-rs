@@ -125,7 +125,7 @@ SYSCFG:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -296,6 +296,7 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/spi/spi_v2.yaml
   - patches/adc/adc_common_group_name.yaml
+  - patches/adc/multi.yaml
   - fields/adc/adc_v2_multi.yaml
   - fields/adc/adc_v2/adc_v2_extsel_d.yaml
   - collect/adc/jofr_jdr.yaml
