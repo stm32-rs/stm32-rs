@@ -53,7 +53,6 @@ SPI?:
 
 "TIM*":
   _include:
-    - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - fields/tim/tim_no_opm.yaml
