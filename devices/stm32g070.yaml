@@ -160,10 +160,11 @@ TIM15:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
 
+"TIM[1],TIM14":
+  _include: patches/tim/icpsc.yaml
+
 "TIM*":
   _include:
-    - patches/tim/omp.yaml
-    - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 

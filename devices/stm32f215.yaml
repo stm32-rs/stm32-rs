@@ -44,10 +44,11 @@ SPI?:
 "TIM1[0134]":
   _include: patches/tim/tim10_14_missing_opm.yaml
 
+"TIM[1]":
+  _include: patches/tim/icpsc.yaml
+
 "TIM*":
   _include:
-    - patches/tim/omp.yaml
-    - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 

@@ -44,10 +44,8 @@ SPI?:
 TIM?:
   _strip: TIM?_
 
-"TIM*":
-  _include:
-    - patches/tim/omp.yaml
-    - patches/tim/icpsc.yaml
+"TIM[1]":
+  _include: patches/tim/icpsc.yaml
 
 WWDG:
   _include: patches/16bit.yaml

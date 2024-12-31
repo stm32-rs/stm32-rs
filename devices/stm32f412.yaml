@@ -239,7 +239,6 @@ SYSCFG:
 
 "TIM*":
   _include:
-    - patches/tim/omp.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml

@@ -81,41 +81,22 @@ HRTIM_Master:
     CPT1R: HRTIM_TIMA.CPT1R
 
   CR:
-    _modify:
-      CKPSC:
-        derivedFrom: HRTIM_TIMA.CR.CKPSC
-      CONT:
-        derivedFrom: HRTIM_TIMA.CR.CONT
-      RETRIG:
-        derivedFrom: HRTIM_TIMA.CR.RETRIG
-      HALF:
-        derivedFrom: HRTIM_TIMA.CR.HALF
-      PSHPLL:
-        derivedFrom: HRTIM_TIMA.CR.PSHPLL
-      INTLVD:
-        derivedFrom: HRTIM_TIMA.CR.INTLVD
-      RSYNCU:
-        derivedFrom: HRTIM_TIMA.CR.RSYNCU
-      SYNCRST:
-        derivedFrom: HRTIM_TIMA.CR.SYNCRST
-      SYNCSTRT:
-        derivedFrom: HRTIM_TIMA.CR.SYNCSTRT
-      DELCMP2:
-        derivedFrom: HRTIM_TIMA.CR.DELCMP2
-      DELCMP4:
-        derivedFrom: HRTIM_TIMA.CR.DELCMP4
-      TREPU:
-        derivedFrom: HRTIM_TIMA.CR.TREPU
-      TRSTU:
-        derivedFrom: HRTIM_TIMA.CR.TRSTU
-      MSTU:
-        derivedFrom: HRTIM_TIMA.CR.MSTU
-      DACSYNC:
-        derivedFrom: HRTIM_TIMA.CR.DACSYNC
-      PREEN:
-        derivedFrom: HRTIM_TIMA.CR.PREEN
-      UPDGAT:
-        derivedFrom: HRTIM_TIMA.CR.UPDGAT
+    _derive:
+      CKPSC: HRTIM_TIMA.CR.CKPSC
+      CONT: HRTIM_TIMA.CR.CONT
+      RETRIG: HRTIM_TIMA.CR.RETRIG
+      HALF: HRTIM_TIMA.CR.HALF
+      PSHPLL: HRTIM_TIMA.CR.PSHPLL
+      SYNCRST: HRTIM_TIMA.CR.SYNCRST
+      SYNCSTRT: HRTIM_TIMA.CR.SYNCSTRT
+      DELCMP2: HRTIM_TIMA.CR.DELCMP2
+      DELCMP4: HRTIM_TIMA.CR.DELCMP4
+      TREPU: HRTIM_TIMA.CR.TREPU
+      TRSTU: HRTIM_TIMA.CR.TRSTU
+      MSTU: HRTIM_TIMA.CR.MSTU
+      DACSYNC: HRTIM_TIMA.CR.DACSYNC
+      PREEN: HRTIM_TIMA.CR.PREEN
+      UPDGAT: HRTIM_TIMA.CR.UPDGAT
 
 HRTIM_Common:
   _derive:
