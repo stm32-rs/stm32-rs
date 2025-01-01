@@ -9,7 +9,7 @@ Ethernet_MAC:
         bitOffset: 10
   MACMIIDR:
     _modify:
-      TD:
+      "TD,MD":
         name: MD
   MACDBGR:
     _delete:

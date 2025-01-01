@@ -8,7 +8,7 @@ DOUTR:
       name: DOUT
 "KEYR?":
   _modify:
-    "KEYR?,AES_KEYR?":
+    "KEYR?,AES_KEYR?,KEY":
       name: KEY
 "IVR?":
   _modify:
@@ -16,5 +16,5 @@ DOUTR:
       name: IVI
 "?~SUSP?R":
   _modify:
-    "SUSP?R,AES_SUSP?R":
+    "SUSP?R,AES_SUSP?R,SUSP":
       name: SUSP

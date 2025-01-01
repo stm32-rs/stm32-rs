@@ -46,7 +46,7 @@ Ethernet_DMA:
           "Reset all MAC subsystem internal registers and logic. Cleared automatically",
         ]
     _modify:
-      MB:
+      "?~MB,MB": # TODO
         description: Mixed burst
       AAB:
         description: Address-aligned beats
@@ -62,7 +62,7 @@ Ethernet_DMA:
         description: Rx-Tx priority ratio
       PBL:
         description: Programmable burst length
-      EDFE:
+      "?~EDFE,EDFE": # TODO
         description: Enhanced descriptor format enable
       DSL:
         description: Descriptor skip length
@@ -136,7 +136,7 @@ Ethernet_DMA:
         description: Fatal bus error status
       ETS:
         description: Early transmit status
-      RWTS:
+      "?~RWTS,RWTS": # TODO
         description: Receive watchdog timeout status
       RPSS:
         description: Receive process stopped status

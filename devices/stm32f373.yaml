@@ -143,9 +143,9 @@ SYSCFG:
   CFGR2:
     _delete:
       - BYP_ADD_PAR
-
-"TIM[2-5]":
-  _include: patches/tim/tim_o24ce.yaml
+    _modify:
+      LOCUP_LOCK:
+        name: LOCKUP_LOCK
 
 "TIM*":
   _include:
@@ -197,10 +197,8 @@ _include:
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/rcc/f3.yaml
-  - patches/rcc/f3_usb.yaml
   - patches/rcc/f3_dac3_dac2.yaml
   - patches/syscfg/f3.yaml
-  - patches/syscfg/f3_cfgr2.yaml
   - fields/syscfg/syscfg_f3.yaml
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - fields/syscfg/syscfg_f37x.yaml

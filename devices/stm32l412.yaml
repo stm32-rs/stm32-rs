@@ -43,6 +43,14 @@ ADC1:
       ADC1:
         name: ADC1_2
 
+ADC?:
+  CFGR:
+    _merge: "EXTSEL*"
+
+  DIFSEL:
+    _merge:
+      DIFSEL: "DIFSEL*"
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -67,20 +75,10 @@ QUADSPI:
 RCC:
   APB1ENR1:
     _modify:
-      USART1EN:
-        name: USART3EN
-        description: USART3 clock enable
       USBF:
         name: USBFSEN
         description: USB FS clock enable
-      SPI1EN:
-        name: SPI2EN
-        description: SPI2 clock enable
   APB1RSTR1:
-    _modify:
-      USART1RST:
-        name: USART3RST
-        description: USART3 reset
     _add:
       TIM3RST:
         description: TIM3 timer reset
@@ -122,16 +120,14 @@ SPI?:
     - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/tim_advanced.yaml
 
-TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
-
 "TIM[25]":
   _include:
-    - patches/tim/tim2_common_32bit.yaml
+    - patches/tim/tim2_arr.yaml
+    - patches/tim/tim2_cr.yaml
     - fields/tim/tim_32bit.yaml
+  CNT:
+    _merge:
+      CNT: "CNT*"
 
 "TIM[1-58]":
   _include:
@@ -203,15 +199,11 @@ _include:
   - fields/usart/lpuart_v2A.yaml
   - fields/usart/usart_v2B2.yaml
   - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
   - fields/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
-  - patches/adc/l4.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4_sqr1.yaml
-  - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml
   - fields/adc/adc_v3_common_l4+.yaml
   - fields/adc/adc_v3_l4.yaml

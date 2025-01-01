@@ -62,12 +62,6 @@ DSI:
         description: DSI host global interrupt
         value: 92
   _strip: DSI_
-  VMCR:
-    _modify:
-      LVAE:
-        name: LPVAE
-      LPHFE:
-        name: LPHFPE
 
 EXTI:
   _include:
@@ -83,9 +77,12 @@ FLASH:
 
 I2C?:
   _include:
-    - patches/i2c/v1.yaml
+    - patches/16bit.yaml
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD[07],ADD10"
 
 IWDG:
   _include:
@@ -109,6 +106,12 @@ PWR:
 
 # Fix misnamed RCC enable bits
 RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
+      UART3RST:
+        name: USART3RST
   APB1ENR:
     _modify:
       UART7ENR:
@@ -174,7 +177,7 @@ SYSCFG:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -222,7 +225,6 @@ _include:
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
-  - patches/ltdc/ltdc.yaml
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
   - fields/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
@@ -251,6 +253,7 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
+  - patches/adc/multi.yaml
   - fields/adc/adc_v2_multi.yaml
   - fields/adc/adc_v2/adc_v2_extsel_c.yaml
   - collect/adc/jofr_jdr.yaml

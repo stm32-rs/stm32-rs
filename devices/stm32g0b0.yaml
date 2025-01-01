@@ -7,9 +7,13 @@ _clear_fields: "*"
 
 ADC:
   _include:
-    - patches/adc/g0.yaml
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
+  _modify:
+    CHSELR_0:
+      name: CHSELR0
+    CHSELR_1:
+      name: CHSELR1
 
 EXTI:
   _include:
@@ -49,9 +53,17 @@ TIM1:
         description: TIM1 break, update, trigger and commutation interrupts
 
 TIM3:
-  _include:
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/tim_4ch_16bit_l.yaml
+  _include: patches/tim/v2/oc1m1.yaml
+  CNT:
+    _modify:
+      CNT_L:
+        name: CNT
+        description: Counter value
+    _delete: "CNT_H,CNTH"
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 16
 
 "TIM1[46]":
   _include: patches/tim/v2/oc1m.yaml

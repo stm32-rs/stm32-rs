@@ -260,7 +260,7 @@ DCR:
 
 AF1:
   _modify:
-    ResETRSEL:
+    "ResETRSEL,ETRSEL":
       name: ETRSEL
   ETRSEL:
     Legacy: [0, "ETR legacy mode"]

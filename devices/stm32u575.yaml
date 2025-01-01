@@ -81,8 +81,11 @@ SPI?:
 TIM?:
   _strip: TIM?_
 
-"TIM[1]":
-  _include: patches/tim/icpsc.yaml
+TIM16:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 UCPD1:
   _strip: UCPD_

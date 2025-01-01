@@ -12,14 +12,17 @@ _copy:
 
 ADC:
   _include:
-    - patches/adc/g0.yaml
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
+  _modify:
+    CHSELR:
+      name: CHSELR0
+    CHSELR_1:
+      name: CHSELR1
 
 AES:
   _strip: AES_
   _include:
-    - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
 EXTI:
@@ -70,15 +73,13 @@ TIM1:
 
 TIM2:
   _include:
-    - patches/tim/tim2_common_32bit.yaml
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
+    - patches/tim/tim2_cnt_32bit.yaml
+    - patches/tim/v2/oc1m1.yaml
 
 TIM3:
   _include:
-    - patches/tim/tim_4ch_16bit_l.yaml
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
+    - patches/tim/tim_cnt_16bit_l.yaml
+    - patches/tim/v2/oc1m1.yaml
 
 "TIM1[46]":
   _include: patches/tim/v2/oc1m.yaml

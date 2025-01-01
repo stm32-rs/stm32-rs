@@ -153,7 +153,7 @@ TIM[1-58],TIM12:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -304,7 +304,6 @@ _include:
   - patches/rcc/f7_lsedrv.yaml
   - patches/rcc/f7_rename_dckcfgr.yaml
   - patches/rcc/f7_dckcfgr.yaml
-  - patches/rcc/f7_dckcfgr_sdmmc1.yaml
   - patches/rcc/f7_dckcfgr_RM0410.yaml
   - patches/rcc/f765_f7x7_f7x9_common.yaml
   - patches/rcc/f745_f750_f765_f7x6_f7x7_f7x9.yaml

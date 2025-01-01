@@ -182,7 +182,7 @@ TIM15:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -202,6 +202,10 @@ TIM15:
 
 TIM16:
   _include: fields/tim/tim16.yaml
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 "TIM[67]":
   _include: fields/tim/tim6.yaml

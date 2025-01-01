@@ -33,10 +33,13 @@ FLASH:
 
 I2C?:
   _include:
-    - patches/i2c/v1.yaml
+    - patches/16bit.yaml
     - patches/i2c/v1_fltr.yaml
     - fields/i2c/i2c_v1.yaml
     - fields/i2c/i2c_v1_fltr.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD[07],ADD10"
 
 IWDG:
   _include:
@@ -65,6 +68,10 @@ PWR:
 
 # Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
   APB2RSTR:
     _add:
       SPI4RST:
@@ -117,7 +124,7 @@ TIM1:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":

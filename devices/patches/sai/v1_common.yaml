@@ -1,0 +1,15 @@
+_modify:
+  "?SR":
+    resetValue: 8
+"?CR1":
+  _modify:
+    SAI?EN:
+      name: SAIEN
+"*CR2":
+  _modify:
+    FFLUS:
+      name: FFLUSH
+      access: write-only
+    MUTECN,MUTECNT:
+      name: MUTECNT
+      access: read-write

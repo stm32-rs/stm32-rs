@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-svdtools htmlcompare html/stm32f svd/stm32f{0x8,103,107,217,303,3x4,469,7x9}.svd.patched
+svdtools htmlcompare html/stm32f svd/stm32f{0x8,103,107,217,303,3x4,469,779}.svd.patched
 sed -i 's#<table>#<p>Only a representative member of each family included; click to view entire family</p><table>#' html/stm32f/index.html
 sed -i 's#STM32F0x8#<a href="stm32f0/index.html">STM32F0x8</a>#' html/stm32f/index.html
 sed -i 's#STM32F103#<a href="stm32f1/index.html">STM32F103</a>#' html/stm32f/index.html
@@ -17,7 +17,7 @@ svdtools htmlcompare html/stm32f/stm32f1 svd/stm32f1*.svd.patched
 svdtools htmlcompare html/stm32f/stm32f2 svd/stm32f2*.svd.patched
 svdtools htmlcompare html/stm32f/stm32f3 svd/stm32f3*.svd.patched
 svdtools htmlcompare html/stm32f/stm32f4 svd/stm32f4*.svd.patched
-svdtools htmlcompare html/stm32f/stm32f7 svd/stm32f7{x2,x3,30,45,50,x6,65,x7,x9}.svd.patched
+svdtools htmlcompare html/stm32f/stm32f7 svd/stm32f7{32,33,30,45,50,56,65,77,79}.svd.patched
 
 svdtools htmlcompare html/stm32l svd/stm32l{0x3,162,4x6}.svd.patched
 sed -i 's#<table>#<p>Only a representative member of each family included; click to view entire family<\/p><table>#' html/stm32l/index.html

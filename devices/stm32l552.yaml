@@ -10,6 +10,16 @@ _modify:
     nvicPrioBits: 3
     vendorSystickConfig: "false"
 
+ADC?:
+  CFGR:
+    _merge: "EXTSEL*"
+    _modify:
+      AWDCH1CH:
+        name: AWD1CH
+  DIFSEL:
+    _merge:
+      DIFSEL: "DIFSEL*"
+
 ADC_Common:
   CCR:
     _modify:
@@ -68,6 +78,12 @@ TIM15:
       OC1M_bit3:
         name: OC1M_3
 
+TIM1[67]:
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
 "TIM[18]":
   _include:
     - patches/tim/v2/ocm_bit3.yaml
@@ -113,7 +129,6 @@ _include:
   - collect/sai/pdm.yaml
   - patches/tim/group.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/l4+.yaml
   - patches/adc/l4+common.yaml
   - fields/adc/adc_v3_common_l4+.yaml
   - fields/adc/adc_v3_l4.yaml

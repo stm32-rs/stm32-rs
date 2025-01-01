@@ -1,0 +1,32 @@
+CCR1:
+  _modify:
+    "CCR1H,CCR1_H":
+      name: CCR1H
+      description: "Capture/Compare 1 value"
+    "CCR1L,CCR1_L":
+      name: CCR1L
+  _merge: "CCR1*"
+CCR2:
+  _modify:
+    "CCR2H,CCR2_H":
+      name: CCR2H
+      description: "Capture/Compare 2 value"
+    "CCR2L,CCR2_L":
+      name: CCR2L
+  _merge: "CCR2*"
+CCR3:
+  _modify:
+    "CCR3H,CCR3_H":
+      name: CCR3H
+      description: "Capture/Compare 3 value"
+    "CCR3L,CCR3_L":
+      name: CCR3L
+  _merge: "CCR3*"
+CCR4:
+  _modify:
+    "CCR4H,CCR4_H":
+      name: CCR4H
+      description: "Capture/Compare 4 value"
+    "CCR4L,CCR4_L":
+      name: CCR4L
+  _merge: "CCR4*"

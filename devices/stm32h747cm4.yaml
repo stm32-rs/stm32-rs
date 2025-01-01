@@ -54,7 +54,7 @@ SPI?:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[25]":
@@ -64,13 +64,13 @@ SPI?:
 
 "TIM1[3467]":
   _include:
-    - patches/tim/tim_1ch_16bit_l.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[234]
 
 # Dual channel timers
 "TIM1[25]":
-  _include: patches/tim/tim_2ch_16bit_l.yaml
+  _include: patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[34]
 

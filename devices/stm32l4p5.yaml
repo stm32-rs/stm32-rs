@@ -124,6 +124,8 @@ SPI?:
       name: CCMR2_Output
     "?~CCMR3":
       name: CCMR3_Output
+
+"TIM[1-589],TIM1[0-59]":
   CCMR1_Output:
     _modify:
       OC1M_1:
@@ -143,6 +145,12 @@ SPI?:
       OC6M_1:
         name: OC6M_3
 
+"TIM1[67]":
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+
 "TIM*":
   _include:
     - fields/tim/tim_no_opm.yaml
@@ -155,13 +163,11 @@ SPI?:
 
 "TIM[34]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
   CNT:
     _modify:
       CNT:
         bitWidth: 16
-
   ARR:
     _modify:
       ARR:
@@ -169,7 +175,6 @@ SPI?:
 
 "TIM[25]":
   _include:
-    - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_32bit.yaml
 
 TIM[1234568]:
@@ -236,12 +241,11 @@ _include:
   - fields/gpio/v2/common.yaml
   - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
-  - patches/usart/merge_BRR_fields.yaml
+  #- patches/usart/merge_BRR_fields.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/l4+.yaml
+  #- patches/usart/rename_CR2_DATAINV_field.yaml
   - fields/usart/usart_v2B2.yaml
   - fields/tsc/tsc.yaml
   - patches/fsmc/fsmc_l4+.yaml

@@ -107,9 +107,6 @@ TIM1:
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
 
-TIM2:
-  _include: patches/tim/tim2_common_32bit.yaml
-
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
 
@@ -166,7 +163,6 @@ _include:
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - patches/adc/f3.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_i2c3.yaml
   - patches/rcc/f3_delete_cec.yaml

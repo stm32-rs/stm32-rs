@@ -40,22 +40,6 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
-FLASH:
-  ACR:
-    _modify:
-      DESAB_BUF:
-        name: DISAB_BUF
-  PECR:
-    _modify:
-      FTDW:
-        name: FIX
-  OPTR:
-    _modify:
-      SPRMOD:
-        name: WPRMOD
-      RDPRT:
-        name: RDPROT
-
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -130,7 +114,6 @@ TIM*:
 
 "TIM[2345]":
   _include:
-    - patches/tim/tim2_common_16bit_l.yaml
     - fields/tim/tim_16bit.yaml
 
 "TIM[1-58]":
@@ -166,7 +149,6 @@ WWDG:
 _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
-  - patches/pwr/l0_wakeup.yaml
   - patches/rtc/l0.yaml
   - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml

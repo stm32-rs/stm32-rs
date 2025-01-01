@@ -1,4 +1,5 @@
 RCC:
+  _include: h5.yaml
   _add:
     PRIVCFGR:
       description: RCC privilege configuration register
@@ -10,6 +11,24 @@ RCC:
           bitOffset: 1
           bitWidth: 1
           access: read-write
+
+  APB1HENR:
+    _modify:
+      FDCAN1EN:
+        name: FDCANEN
+        description: FDCAN peripheral clock enable
+
+  APB1HLPENR:
+    _modify:
+      FDCAN1LPEN:
+        name: FDCANLPEN
+        description: FDCAN peripheral clock enable during sleep mode
+
+  APB1HRSTR:
+    _modify:
+      FDCAN1RST:
+        name: FDCANRST
+        description: FDCAN block reset
 
   AHB1ENR:
     _add:
@@ -27,9 +46,28 @@ RCC:
         bitWidth: 1
         access: read-write
 
+  AHB2ENR:
+    _modify:
+      ADC1EN:
+        name: ADCEN
+        description: ADC peripherals clock enabled
+
+  AHB2LPENR:
+    _modify:
+      ADC1LPEN:
+        name: ADCLPEN
+        description: ADC peripherals clock enable during sleep mode
+
+  AHB2RSTR:
+    _modify:
+      ADC1RST:
+        name: ADCRST
+        description: ADC block reset
+
   CCIPR5:
     _modify:
       DACSEL:
         name: DAC1SEL
       FDCAN1SEL:
         name: FDCANSEL
+        description: FDCAN kernel clock source selection
