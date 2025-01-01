@@ -4,6 +4,17 @@ _clear_fields: "*"
 
 CRYP:
   _strip: CRYP_
+  _cluster:
+    "KEY%s":
+      "K?LR": {}
+      "K?RR": {}
+    "INIT%s":
+      "IV?LR": {}
+      "IV?RR": {}
+
+  _array:
+    "CSGCMCCM?R": {}
+    "CSGCM?R": {}
 
 IWDG:
   _include: patches/16bit_with_mask.yaml
@@ -36,7 +47,6 @@ _include:
   - collect/dma/dma2d_clut.yaml
   - collect/tamp/bkp.yaml
   - collect/dma/h7rs_gpdma.yaml
-  - collect/cryp/v2.yaml
   - collect/mce/v1.yaml
   - collect/sdmmc/fifo.yaml
   - collect/gpio/v2r.yaml

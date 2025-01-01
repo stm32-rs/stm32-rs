@@ -39,75 +39,65 @@ CRYP:
     _merge:
       - "IV*"
 
-DBGMCU:
-  APB4FZ1:
-    _delete:
-      - LPTIM4
-      - LPTIM5
-
 DFSDM*:
   _strip: DFSDM_
+
+DMAMUX1:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux1_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+DMAMUX2:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux2_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+FLASH:
+  _strip: FLASH_
+  _modify:
+    WPSGN_CUR1R:
+      name: WPSN_CUR1R
+    WPSGN_PRG1R:
+      name: WPSN_PRG1R
+    WPSGN_CUR2R:
+      name: WPSN_CUR2R
+    WPSGN_PRG2R:
+      name: WPSN_PRG2R
+  ECC_FA2R:
+    _add:
+      # ECC_FA1R only. Needed for clusterization
+      OTP_FAIL_ECC:
+        description: "OTP ECC error bit\nThis bit is set to 1 when one single ECC correction or double ECC detection occurred during the last successful read operation from the read-only/ OTP area. The address of the ECC error is available in FAIL_ECC_ADDR1 bitfield."
+        bitOffset: 31
+        bitWidth: 1
+        access: read-only
 
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-MPU:
-  _strip: MPU_
-
-# Remove LPTIM4/5 from RCC
-# Split DAC1/2 REC
-# TODO: remove LPTIM4/LPTIM5 from EXTI enumerated values
 RCC:
-  _modify:
-    APB1LLPENR:
-      resetValue: "0xE8FFC3FF"
-    APB4ENR:
-      resetValue: "0x00010000"
-    APB4LPENR:
-      resetValue: "0x0C01E6AA"
-
   _strip:
     - RCC_
 
-  APB1LRSTR:
-    _modify:
-      DAC12RST:
-        name: DAC1RST
-        description: DAC1 (containing two converters) reset
-  APB1LENR:
-    _modify:
-      DAC12EN:
-        name: DAC1EN
-        description: DAC1 (containing two converters) peripheral clock enable
-  APB1LLPENR:
-    _modify:
-      DAC12LPEN:
-        name: DAC1LPEN
-        description: DAC1 (containing two converters) peripheral clock enable during CSleep mode
-  APB4RSTR:
-    _delete:
-      - LPTIM4RST
-      - LPTIM5RST
-  APB4ENR:
-    _delete:
-      - LPTIM4EN
-      - LPTIM5EN
-  APB4LPENR:
-    _delete:
-      - LPTIM4LPEN
-      - LPTIM5LPEN
+SAI?:
+  _strip: SAI_
 
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
-"TIM[2-5],TIM1[2-4]":
-  _include: patches/tim/tim_o24ce.yaml
+"TIM[1],TIM[2-48],TIM1[2-4]":
+  _include: patches/tim/icpsc.yaml
 
 "TIM*":
   _include:
-    - patches/tim/icpsc.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 
@@ -121,14 +111,14 @@ SPI?:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_32bit.yaml
 
-"TIM1[3467]":
+"TIM1[34]":
   _include:
     - patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[234]
 
 # Dual channel timers
-"TIM1[25]":
+"TIM1[2]":
   _include: patches/tim/tim_ch_16bit_l.yaml
   _delete:
     - CCR[34]
@@ -188,11 +178,8 @@ _include:
   - patches/dma/fcr_wo.yaml
   - patches/dma/bdma_v2.yaml
   - patches/dma/h7_dmacr.yaml
-  - patches/dma/h7_dmamux.yaml
   - fields/dma/bdma.yaml
   - fields/dma/dma_v3.yaml
-  - fields/dma/dmamux_v1.yaml
-  - collect/dma/h7_dmamux.yaml
   - collect/dma/st.yaml
   - collect/dma/bdma.yaml
   - collect/dma/mdma.yaml
@@ -204,7 +191,6 @@ _include:
   - patches/octospi/h7.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
-  - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
@@ -252,10 +238,7 @@ _include:
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_h7.yaml
+  - fields/rtc/v3.yaml
   - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/crc/h7_addr_fix.yaml
   - collect/dfsdm/v1.yaml

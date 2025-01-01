@@ -250,10 +250,6 @@ MACPCSR:
       description: Magic Packet Enable
     PWRDWN:
       description: Power Down
-MACRWKPFR:
-  _modify:
-    MACRWKPFR:
-      description: Remote wakeup packet filter
 MACLCSR:
   _modify:
     LPITE:
@@ -324,8 +320,6 @@ MACHWF1R:
       description: Split Header Feature Enable
     DCBEN:
       description: DCB Feature Enable
-    ADDR64:
-      description: Address width
     ADVTHWORD:
       description: IEEE 1588 High Word Register Enable
     PTOEN:
@@ -380,8 +374,8 @@ MACMDIODR:
       description: MII Data
 MACARPAR:
   _modify:
-  # TODO - this might actually be at 0xAE0 - the reference manual says it
-  # is, but ST's own HAL and where they locate it in the map disagree.
+    # TODO - this might actually be at 0xAE0 - the reference manual says it
+    # is, but ST's own HAL and where they locate it in the map disagree.
     ARPPA:
       description: ARP Protocol Address
 MACA0HR:

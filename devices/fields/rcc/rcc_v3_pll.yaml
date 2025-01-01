@@ -92,8 +92,8 @@ RCC:
       Div124: [123, "pll_p_ck = vco_ck / 124"]
       Div126: [125, "pll_p_ck = vco_ck / 126"]
       Div128: [127, "pll_p_ck = vco_ck / 128"]
-  PLL2DIVR,PLL3DIVR:
-    DIVP?: [0, 127]
+  #PLL2DIVR,PLL3DIVR:
+  #  DIVP?: [0, 127]
   PLL?DIVR:
     DIVR?,DIVQ?: [0, 127]
     DIVN?: [3, 511]

@@ -147,11 +147,11 @@
       name: CPAR7
   "CCR?":
     _add:
-      CT:
-        description: Current target memory in double-buffer mode
-        bitOffset: 16
-        bitWidth: 1
       DBM:
         description: Double-buffer mode
         bitOffset: 15
+        bitWidth: 1
+      CT:
+        description: Current target memory in double-buffer mode
+        bitOffset: 16
         bitWidth: 1

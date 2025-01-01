@@ -55,11 +55,24 @@ _include:
       Disabled: [0, "Right-shifting disabled"]
       Enabled: [1, "Data is right-shifted 1-bit"]
     ROVSM:
-      Continued: [0, "Oversampling is temporary stopped and continued after injection sequence"]
-      Resumed: [1, "Oversampling is aborted and resumed from start after injection sequence"]
+      Continued:
+        [
+          0,
+          "Oversampling is temporary stopped and continued after injection sequence",
+        ]
+      Resumed:
+        [
+          1,
+          "Oversampling is aborted and resumed from start after injection sequence",
+        ]
     TROVS:
-      Automatic: [0, "All oversampled conversions for a channel are run following a trigger"]
-      Triggered: [1, "Each oversampled conversion for a channel needs a new trigger"]
+      Automatic:
+        [
+          0,
+          "All oversampled conversions for a channel are run following a trigger",
+        ]
+      Triggered:
+        [1, "Each oversampled conversion for a channel needs a new trigger"]
     OVSS: [0, 11]
     JOVSE:
       Disabled: [0, "Injected oversampling disabled"]
@@ -106,8 +119,16 @@ _include:
       LPTIM3_OUT: [20, "LPTIM3_OUT event"]
   "OFR?":
     SSATE:
-      Disabled: [0, "Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)"]
-      Enabled: [1, "Offset is subtracted and result is saturated to maintain result size"]
+      Disabled:
+        [
+          0,
+          "Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)",
+        ]
+      Enabled:
+        [
+          1,
+          "Offset is subtracted and result is saturated to maintain result size",
+        ]
     "OFFSET?_CH": [0, 31]
     "OFFSET?": [0, 0x3FFFFFF]
   PCSEL:
