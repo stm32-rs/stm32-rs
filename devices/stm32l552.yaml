@@ -10,7 +10,20 @@ _modify:
     nvicPrioBits: 3
     vendorSystickConfig: "false"
 
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+    - fields/adc/adc_v3_common.yaml
+  CCR:
+    _modify:
+      DELAY:
+        bitOffset: 8
+        bitWidth: 4
+
 ADC?:
+  _include:
+    - fields/adc/adc_v3_l4.yaml
   CFGR:
     _merge: "EXTSEL*"
     _modify:
@@ -20,12 +33,8 @@ ADC?:
     _merge:
       DIFSEL: "DIFSEL*"
 
-ADC_Common:
-  CCR:
-    _modify:
-      DELAY:
-        bitOffset: 8
-        bitWidth: 4
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 DAC:
   _strip: DAC_
@@ -129,6 +138,3 @@ _include:
   - collect/sai/pdm.yaml
   - patches/tim/group.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4.yaml

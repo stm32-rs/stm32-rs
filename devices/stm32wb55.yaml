@@ -22,12 +22,18 @@ ADC1:
     - CCR # this is part of the ADC_Common block.
 
 ADC?:
+  _include:
+    - patches/adc/l4+.yaml
+    - fields/adc/adc_v3_l4.yaml
   DR:
     _modify:
       RDATA_0_6:
         bitWidth: 7
     _merge:
       RDATA: "RDATA*"
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 AES?:
   _include:
@@ -178,8 +184,6 @@ _include:
   - collect/sai/ch.yaml
   - collect/sai/pdm.yaml
   - patches/adc/wb_adc_common.yaml
-  - patches/adc/l4+.yaml
-  - fields/adc/adc_v3_l4.yaml
   - collect/hsem/r.yaml
   - fields/i2c/i2c_v2.yaml
   - fields/spi/spi_v2_no_I2S.yaml

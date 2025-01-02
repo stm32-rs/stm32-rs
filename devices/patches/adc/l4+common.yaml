@@ -1,14 +1,13 @@
-ADC_Common:
-  CSR:
-    _modify:
-      "ADDRDY_MST,ADRDY_MST":
-        name: ADRDY_MST
+CSR:
+  _modify:
+    "ADDRDY_MST,ADRDY_MST":
+      name: ADRDY_MST
 
-  CCR:
-    _modify:
-      CH18SEL:
-        name: VBATEN
-        description: VBAT selection
-      CH17SEL:
-        name: VSENSEEN
-        description: Temperature sensor selection
+CCR:
+  _modify:
+    CH18SEL:
+      name: VBATEN
+      description: VBAT selection
+    CH17SEL:
+      name: VSENSEEN
+      description: Temperature sensor selection

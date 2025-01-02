@@ -18,6 +18,22 @@ _modify:
   Flash:
     name: FLASH
 
+ADC1_2:
+  _delete:
+    - CDR
+  CCR:
+    _delete:
+      - MDMA
+      - DMACFG
+      - DELAY
+      - DUAL
+      - MULT
+
+"ADC*_*":
+  _include:
+    - fields/adc/adc_v3_common_single.yaml
+    - fields/adc/adc_v3_common_f3_single.yaml
+
 ADC1:
   _delete:
     - CSR
@@ -29,16 +45,8 @@ ADC1:
       JADST:
         name: JADSTP
 
-ADC1_2:
-  _delete:
-    - CDR
-  CCR:
-    _delete:
-      - MDMA
-      - DMACFG
-      - DELAY
-      - DUAL
-      - MULT
+ADC?:
+  _include: fields/adc/adc_v3_f3.yaml
 
 EXTI:
   _include:
@@ -202,9 +210,6 @@ _include:
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - fields/adc/adc_v3_f3.yaml
-  - fields/adc/adc_v3_common_single.yaml
-  - fields/adc/adc_v3_common_f3_single.yaml
   - fields/dac/dac_common_1ch.yaml
   - fields/dac/dac_dmaudr.yaml
   - patches/flash/f3.yaml

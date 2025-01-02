@@ -1,5 +1,10 @@
 _svd: ../svd/stm32l0x1.svd
 
+_delete:
+  - MPU
+  - STK
+  - SCB
+
 _modify:
   Flash:
     name: FLASH
@@ -148,9 +153,6 @@ _include:
   - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - patches/remove_l0_mpu.yaml
-  - patches/remove_l0_scb.yaml
-  - patches/remove_l0_stk.yaml
   - fields/adc/adc_l0.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml

@@ -15,10 +15,24 @@ _copy:
 _derive:
   TIM4: TIM3
 
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+    - fields/adc/adc_v3_common.yaml
+
 ADC1:
   _delete:
     _interrupts:
       - ADC3
+
+ADC?:
+  _include:
+    - patches/adc/l4+.yaml
+    - fields/adc/adc_v3_l4.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 AES:
   _include:
@@ -249,10 +263,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/adc/l4+.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4+.yaml
   - patches/nvic/4_prio_bits.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml

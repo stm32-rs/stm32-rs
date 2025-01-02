@@ -23,6 +23,18 @@ _modify:
   OctoSPII_O_Manager:
     groupName: OctoSPII_O_Manager
 
+"ADC*_Common":
+  _include: fields/adc/adc_v3_common_h7.yaml
+
+ADC?:
+  _include:
+    - patches/adc/h7.yaml
+    - patches/adc/h7_boost_rev_v.yaml
+    - fields/adc/adc_h7_revision_v.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3_h7.yaml
+
 COMP1:
   _strip: COMP1_
 
@@ -186,8 +198,6 @@ _include:
   - patches/dma/dma2d_v2.yaml
   - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
-  - patches/adc/h7.yaml
-  - patches/adc/h7_boost_rev_v.yaml
   - patches/octospi/h7.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
@@ -207,9 +217,6 @@ _include:
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - fields/adc/adc_v3_h7.yaml
-  - fields/adc/adc_v3_common_h7.yaml
-  - fields/adc/adc_h7_revision_v.yaml
   - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

@@ -15,6 +15,16 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
+"ADC*_Common":
+  _include: fields/adc/adc_v3_common_h7.yaml
+
+ADC?:
+  _include:
+    - patches/adc/h7.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3_h7.yaml
+
 BDMA:
   _strip: BDMA_
 
@@ -183,7 +193,6 @@ _include:
   - patches/dma/dma2d_v2.yaml
   - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
-  - patches/adc/h7.yaml
   - patches/h7_spdifrx.yaml
   - collect/usb_otg/hs.yaml
   - patches/flash/flash_dual_bank.yaml
@@ -202,8 +211,6 @@ _include:
   - patches/dfsdm/h743.yaml
   - collect/dfsdm/v1.yaml
   - patches/ramecc/ramecc.yaml
-  - fields/adc/adc_v3_h7.yaml
-  - fields/adc/adc_v3_common_h7.yaml
   - fields/adc/adc_h7_revision_y.yaml
   - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml

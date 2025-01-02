@@ -7,6 +7,23 @@ _modify:
   USB:
     baseAddress: "0x40006800"
 
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+
+"ADC*_*":
+  _include: fields/adc/adc_v3_common.yaml
+
+ADC?:
+  _include:
+    - patches/adc/l4+.yaml
+    - patches/adc/dr_rdata.yaml
+    - fields/adc/adc_v3_l4.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
+
 AES:
   _include:
     - patches/aes/fields.yaml
@@ -231,12 +248,7 @@ _include:
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - patches/dma/interrupt_names.yaml
-  - patches/adc/l4.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4+.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - fields/spi/spi_l4.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml

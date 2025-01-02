@@ -1,153 +1,146 @@
 # ADC v3 with G4 specific fields
 
-_include:
-  - "adc_v3.yaml"
+_include: adc_v3.yaml
+DIFSEL:
+  _merge:
+    DIFSEL: "DIFSEL*"
+CR:
+  ADVREGEN:
+    Disabled: [0, "ADC voltage regulator disabled"]
+    Enabled: [1, "ADC voltage regulator enabled"]
+  DEEPPWD:
+    Disabled: [0, ADC not in Deep-power down]
+    Enabled: [1, ADC in Deep-power-down (default reset state)]
 
-"ADC,ADC?":
-  DIFSEL:
-    _merge:
-      DIFSEL: "DIFSEL*"
-  CR:
-    ADVREGEN:
-      Disabled: [0, "ADC voltage regulator disabled"]
-      Enabled: [1, "ADC voltage regulator enabled"]
-    DEEPPWD:
-      Disabled: [0, ADC not in Deep-power down]
-      Enabled: [1, ADC in Deep-power-down (default reset state)]
+CFGR:
+  JQDIS:
+    Enabled: [0, Injected Queue enabled]
+    Disabled: [1, Injected Queue disabled]
+  AWD1CH: [0, 18]
+  EXTSEL:
+    TIM1_CC1: [0, "Timer 1 CC1 event"]
+    TIM1_CC2: [1, "Timer 1 CC2 event"]
+    TIM1_CC3: [2, "Timer 1 CC3 event"]
+    TIM2_CC2: [3, "Timer 2 CC2 event"]
+    TIM3_TRGO: [4, "Timer 3 TRGO event"]
+    EXTI11: [6, "EXTI line 11"]
+    HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]
+    HRTIM_ADCTRG3: [8, "HRTIM_ADCTRG3 event"]
+    TIM1_TRGO: [9, "Timer 1 TRGO event"]
+    TIM1_TRGO2: [10, "Timer 1 TRGO2 event"]
+    TIM2_TRGO: [11, "Timer 2 TRGO event"]
+    TIM6_TRGO: [13, "Timer 6 TRGO event"]
+    TIM15_TRGO: [14, "Timer 15 TRGO event"]
+    TIM3_CC4: [15, "Timer 3 CC4 event"]
+  ALIGN:
+    Right: [0, "Right alignment"]
+    Left: [1, "Left alignment"]
+  RES:
+    Bits12: [0, "12-bit"]
+    Bits10: [1, "10-bit"]
+    Bits8: [2, "8-bit"]
+    Bits6: [3, "6-bit"]
+  DMACFG:
+    OneShot: [0, "DMA One Shot Mode selected"]
+    Circular: [1, "DMA circular mode selected"]
+  DMAEN:
+    Disabled: [0, "DMA disabled"]
+    Enabled: [1, "DMA enabled"]
+CFGR2:
+  SMPTRIG:
+    Disabled: [0, Sampling time control trigger mode disabled]
+    Enabled: [1, Sampling time control trigger mode enabled]
+  BULB:
+    Disabled: [0, Bulb sampling mode disabled]
+    Enabled:
+      [
+        1,
+        "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes.",
+      ]
+  SWTRIG:
+    Disabled: [0, End sampling period and start conversion]
+    Enabled: [1, Start sampling period]
+  GCOMP:
+    Disabled: [0, Regular ADC operating mode]
+    Enabled: [1, Gain compensation enabled and applies to all channels]
+  ROVSM:
+    Continued:
+      [
+        0,
+        "Oversampling is temporary stopped and continued after injection sequence",
+      ]
+    Resumed:
+      [
+        1,
+        "Oversampling is aborted and resumed from start after injection sequence",
+      ]
+  TROVS:
+    Automatic:
+      [
+        0,
+        "All oversampled conversions for a channel are run following a trigger",
+      ]
+    Triggered:
+      [1, "Each oversampled conversion for a channel needs a new trigger"]
+  OVSS:
+    NoShift: [0, "No right shift applied to oversampling result"]
+    Shift1: [1, "Shift oversampling result right by 1 bit"]
+    Shift2: [2, "Shift oversampling result right by 2 bits"]
+    Shift3: [3, "Shift oversampling result right by 3 bits"]
+    Shift4: [4, "Shift oversampling result right by 4 bits"]
+    Shift5: [5, "Shift oversampling result right by 5 bits"]
+    Shift6: [6, "Shift oversampling result right by 6 bits"]
+    Shift7: [7, "Shift oversampling result right by 7 bits"]
+    Shift8: [8, "Shift oversampling result right by 8 bits"]
+  OVSR:
+    OS2: [0, "Oversampling ratio of 2"]
+    OS4: [1, "Oversampling ratio of 4"]
+    OS8: [2, "Oversampling ratio of 8"]
+    OS16: [3, "Oversampling ratio of 16"]
+    OS32: [4, "Oversampling ratio of 32"]
+    OS64: [5, "Oversampling ratio of 64"]
+    OS128: [6, "Oversampling ratio of 128"]
+    OS256: [7, "Oversampling ratio of 256"]
+  JOVSE:
+    Disabled: [0, "Injected oversampling disabled"]
+    Enabled: [1, "Injected oversampling enabled"]
+  ROVSE:
+    Disabled: [0, "Regular oversampling disabled"]
+    Enabled: [1, "Regular oversampling enabled"]
+"SMPR?":
+  "SMP?,SMP??":
+    Cycles2_5: [0, "2.5 ADC clock cycles"]
+    Cycles6_5: [1, "6.5 ADC clock cycles"]
+    Cycles12_5: [2, "12.5 ADC clock cycles"]
+    Cycles24_5: [3, "24.5 ADC clock cycles"]
+    Cycles47_5: [4, "47.5 ADC clock cycles"]
+    Cycles92_5: [5, "92.5 ADC clock cycles"]
+    Cycles247_5: [6, "247.5 ADC clock cycles"]
+    Cycles640_5: [7, "640.5 ADC clock cycles"]
+TR1:
+  "[HL]T1": [0, 0xFFF]
+"TR[23]":
+  "[HL]T?": [0, 0xFF]
+"OFR?":
+  "OFFSET?_EN":
+    Disabled: [0, "Offset disabled"]
+    Enabled: [1, "Offset enabled"]
+  "OFFSET?_CH": [0, 31]
+  "OFFSET?": [0, 0xFFF]
+CALFACT:
+  "CALFACT_?": [0, 0x7F]
 
-  CFGR:
-    JQDIS:
-      Enabled: [0, Injected Queue enabled]
-      Disabled: [1, Injected Queue disabled]
-    AWD1CH: [0, 18]
-    EXTSEL:
-      TIM1_CC1: [0, "Timer 1 CC1 event"]
-      TIM1_CC2: [1, "Timer 1 CC2 event"]
-      TIM1_CC3: [2, "Timer 1 CC3 event"]
-      TIM2_CC2: [3, "Timer 2 CC2 event"]
-      TIM3_TRGO: [4, "Timer 3 TRGO event"]
-      EXTI11: [6, "EXTI line 11"]
-      HRTIM_ADCTRG1: [7, "HRTIM_ADCTRG1 event"]
-      HRTIM_ADCTRG3: [8, "HRTIM_ADCTRG3 event"]
-      TIM1_TRGO: [9, "Timer 1 TRGO event"]
-      TIM1_TRGO2: [10, "Timer 1 TRGO2 event"]
-      TIM2_TRGO: [11, "Timer 2 TRGO event"]
-      TIM6_TRGO: [13, "Timer 6 TRGO event"]
-      TIM15_TRGO: [14, "Timer 15 TRGO event"]
-      TIM3_CC4: [15, "Timer 3 CC4 event"]
-    ALIGN:
-      Right: [0, "Right alignment"]
-      Left: [1, "Left alignment"]
-    RES:
-      Bits12: [0, "12-bit"]
-      Bits10: [1, "10-bit"]
-      Bits8: [2, "8-bit"]
-      Bits6: [3, "6-bit"]
-    DMACFG:
-      OneShot: [0, "DMA One Shot Mode selected"]
-      Circular: [1, "DMA circular mode selected"]
-    DMAEN:
-      Disabled: [0, "DMA disabled"]
-      Enabled: [1, "DMA enabled"]
-  CFGR2:
-    SMPTRIG:
-      Disabled: [0, Sampling time control trigger mode disabled]
-      Enabled: [1, Sampling time control trigger mode enabled]
-    BULB:
-      Disabled: [0, Bulb sampling mode disabled]
-      Enabled:
-        [
-          1,
-          "Bulb sampling mode enabled. Immediately start sampling after last conversion finishes.",
-        ]
-    SWTRIG:
-      Disabled: [0, End sampling period and start conversion]
-      Enabled: [1, Start sampling period]
-    GCOMP:
-      Disabled: [0, Regular ADC operating mode]
-      Enabled: [1, Gain compensation enabled and applies to all channels]
-    ROVSM:
-      Continued:
-        [
-          0,
-          "Oversampling is temporary stopped and continued after injection sequence",
-        ]
-      Resumed:
-        [
-          1,
-          "Oversampling is aborted and resumed from start after injection sequence",
-        ]
-    TROVS:
-      Automatic:
-        [
-          0,
-          "All oversampled conversions for a channel are run following a trigger",
-        ]
-      Triggered:
-        [1, "Each oversampled conversion for a channel needs a new trigger"]
-    OVSS:
-      NoShift: [0, "No right shift applied to oversampling result"]
-      Shift1: [1, "Shift oversampling result right by 1 bit"]
-      Shift2: [2, "Shift oversampling result right by 2 bits"]
-      Shift3: [3, "Shift oversampling result right by 3 bits"]
-      Shift4: [4, "Shift oversampling result right by 4 bits"]
-      Shift5: [5, "Shift oversampling result right by 5 bits"]
-      Shift6: [6, "Shift oversampling result right by 6 bits"]
-      Shift7: [7, "Shift oversampling result right by 7 bits"]
-      Shift8: [8, "Shift oversampling result right by 8 bits"]
-    OVSR:
-      OS2: [0, "Oversampling ratio of 2"]
-      OS4: [1, "Oversampling ratio of 4"]
-      OS8: [2, "Oversampling ratio of 8"]
-      OS16: [3, "Oversampling ratio of 16"]
-      OS32: [4, "Oversampling ratio of 32"]
-      OS64: [5, "Oversampling ratio of 64"]
-      OS128: [6, "Oversampling ratio of 128"]
-      OS256: [7, "Oversampling ratio of 256"]
-    JOVSE:
-      Disabled: [0, "Injected oversampling disabled"]
-      Enabled: [1, "Injected oversampling enabled"]
-    ROVSE:
-      Disabled: [0, "Regular oversampling disabled"]
-      Enabled: [1, "Regular oversampling enabled"]
-  SMPR1:
-    SMPPLUS:
-      Normal: [0, "2.5 in SMPR remains 2.5 cycles"]
-      Plus1: [1, "2.5 in SMPR becomes 3.5 cycles"]
-  "SMPR?":
-    "SMP?,SMP??":
-      Cycles2_5: [0, "2.5 ADC clock cycles"]
-      Cycles6_5: [1, "6.5 ADC clock cycles"]
-      Cycles12_5: [2, "12.5 ADC clock cycles"]
-      Cycles24_5: [3, "24.5 ADC clock cycles"]
-      Cycles47_5: [4, "47.5 ADC clock cycles"]
-      Cycles92_5: [5, "92.5 ADC clock cycles"]
-      Cycles247_5: [6, "247.5 ADC clock cycles"]
-      Cycles640_5: [7, "640.5 ADC clock cycles"]
-  TR1:
-    "[HL]T1": [0, 0xFFF]
-  "TR[23]":
-    "[HL]T?": [0, 0xFF]
-  "OFR?":
-    "OFFSET?_EN":
-      Disabled: [0, "Offset disabled"]
-      Enabled: [1, "Offset enabled"]
-    "OFFSET?_CH": [0, 31]
-    "OFFSET?": [0, 0xFFF]
-  CALFACT:
-    "CALFACT_?": [0, 0x7F]
-
-  JSQR:
-    JEXTSEL:
-      TIM1_TRGO: [0, "Timer 1 TRGO event"]
-      TIM1_CC4: [1, "Timer 1 CC4 event"]
-      TIM2_TRGO: [2, "Timer 2 TRGO event"]
-      TIM2_CC1: [3, "Timer 2 CC1 event"]
-      TIM3_CC4: [4, "Timer 3 CC4 event"]
-      EXTI15: [6, "EXTI line 15"]
-      TIM1_TRGO2: [8, "Timer 1 TRGO2 event"]
-      TIM3_CC3: [11, "Timer 3 CC3 event"]
-      TIM3_TRGO: [12, "Timer 3 TRGO event"]
-      TIM3_CC1: [13, "Timer 3 CC1 event"]
-      TIM6_TRGO: [14, "Timer 6 TRGO event"]
-      TIM15_TRGO: [15, "Timer 15 TRGO event"]
+JSQR:
+  JEXTSEL:
+    TIM1_TRGO: [0, "Timer 1 TRGO event"]
+    TIM1_CC4: [1, "Timer 1 CC4 event"]
+    TIM2_TRGO: [2, "Timer 2 TRGO event"]
+    TIM2_CC1: [3, "Timer 2 CC1 event"]
+    TIM3_CC4: [4, "Timer 3 CC4 event"]
+    EXTI15: [6, "EXTI line 15"]
+    TIM1_TRGO2: [8, "Timer 1 TRGO2 event"]
+    TIM3_CC3: [11, "Timer 3 CC3 event"]
+    TIM3_TRGO: [12, "Timer 3 TRGO event"]
+    TIM3_CC1: [13, "Timer 3 CC1 event"]
+    TIM6_TRGO: [14, "Timer 6 TRGO event"]
+    TIM15_TRGO: [15, "Timer 15 TRGO event"]
