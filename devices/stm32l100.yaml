@@ -1,5 +1,8 @@
 _svd: ../svd/stm32l100.svd
 
+"ADC,ADC?":
+  _include: patches/adc/l1_smpr.yaml
+
 AES:
   _include:
     - patches/aes/fields.yaml
@@ -140,7 +143,6 @@ WWDG:
 _include:
   - patches/rcc/LSECSSC_LSECSSF.yaml
   - patches/gpio/with_OSPEEDER.yaml
-  - patches/adc/l1_smpr.yaml
   - patches/fsmc/fsmc_sramfix_common.yaml
   - fields/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml

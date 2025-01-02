@@ -5,6 +5,31 @@ _modify:
   ADC12:
     name: ADC12_Common
 
+ADC12_Common:
+  _strip: ADC12_
+  _include:
+    - fields/adc/adc_u5_common.yaml
+  CCR:
+    _delete: [DAMDF, DELAY, DUAL]
+
+ADC[124]:
+  _strip: ADC_
+  _include:
+    - patches/adc/u5_access.yaml
+    - fields/adc/adc_u5.yaml
+
+ADC[12]:
+  _include:
+    - fields/adc/adc_u5_12.yaml
+
+ADC4:
+  _include:
+    - fields/adc/adc_u5_4.yaml
+    - fields/adc/adc_u5_common.yaml
+  _modify:
+    PWR:
+      name: PWRR
+
 AES:
   SUSP?R:
     _modify:
@@ -104,11 +129,8 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - patches/adc/u5.yaml
-  - patches/adc/u5_extra_adc12_fields.yaml
   - patches/fsmc/fsmc_u5.yaml
   - patches/octospi/u5.yaml
-  - fields/adc/adc_u5.yaml
   - fields/dma/dma2d_v2.yaml
   - fields/exti/exti_u5.yaml
   - fields/fsmc/fsmc_nand.yaml

@@ -57,9 +57,28 @@ _add:
     derivedFrom: SPI1
     baseAddress: "0x40004000"
 
+ADC_Common:
+  CSR:
+    _delete:
+      - "*2"
+      - "*3"
+  CCR:
+    _delete:
+      - DMA
+      - DDS
+      - DELAY
+  _include:
+    - fields/adc/adc_v2_common_single.yaml
+
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+"ADC?":
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
 
 AES:
   _include:
@@ -516,8 +535,6 @@ _include:
   - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_v1.yaml
   - collect/dfsdm/v1.yaml
-  - patches/adc/f4_single_csr.yaml
-  - patches/adc/f4_single_ccr.yaml
   - fields/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
   - fields/dac/dac_wavegen.yaml
@@ -546,9 +563,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/adc/adc_v2_single.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_c.yaml
-  - collect/adc/jofr_jdr.yaml
   - fields/dma/dma_v21.yaml
   - collect/dma/st.yaml
   - fields/spi/spi_v1.yaml

@@ -8,6 +8,17 @@ _rebase:
   I2C1: I2C3
   USART1: USART6
 
+ADC_Common:
+  _include:
+    - patches/adc/multi.yaml
+    - fields/adc/adc_v2_multi.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -130,10 +141,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/multi.yaml
-  - fields/adc/adc_v2_multi.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_c.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml

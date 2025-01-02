@@ -3,6 +3,14 @@ _svd: ../svd/stm32f100.svd
 _derive:
   UART5: UART4
 
+"ADC?":
+  _include:
+    - fields/adc/adc_f1_f37x.yaml
+
+"ADC[12]":
+  _include:
+    - fields/adc/adc_f1_common.yaml
+
 AFIO:
   _include:
     - fields/exti/derive.yaml
@@ -113,4 +121,3 @@ _include:
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - patches/dbgmcu/rename.yaml
-  - fields/adc/adc_f1_common.yaml

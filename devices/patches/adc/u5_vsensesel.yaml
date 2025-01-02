@@ -1,7 +1,6 @@
 # Some U5 devices have the VSENSESEL field incorrectly named as TSEN
 
-ADC4:
-  CCR:
-    _modify:
-      TSEN:
-        name: VSENSESEL
+CCR:
+  _modify:
+    TSEN:
+      name: VSENSESEL

@@ -2,8 +2,12 @@ _svd: ../svd/stm32h562.svd
 
 ADC?:
   _strip: ADC_
+  _include: fields/adc/adc_h5.yaml
   CFGR:
     _merge: "EXTSEL*"
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 GPIOC:
   _strip: GPIO_
@@ -110,7 +114,6 @@ WWDG:
 _include:
   - patches/h5.yaml
   - patches/h56x_h57x.yaml
-  - fields/adc/adc_h5.yaml
 
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

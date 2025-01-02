@@ -1,6 +1,5 @@
-ADC_Common:
-  CCR:
-    _modify:
-      # This appears to have the wrong name in every single SVD.
-      MULT:
-        name: MULTI
+CCR:
+  _modify:
+    # This appears to have the wrong name in every single SVD.
+    MULT:
+      name: MULTI

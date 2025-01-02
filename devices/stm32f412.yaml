@@ -19,19 +19,28 @@ _modify:
     # ST got the base address of the FSMC peripheral wrong
     baseAddress: "0xA0000000"
 
-SPI?:
+ADC_Common:
+  CSR:
+    _delete:
+      - "*2"
+      - "*3"
+  CCR:
+    _delete:
+      - DMA
+      - DDS
+      - DELAY
   _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0402
-      TIFRFE:
-        name: FRE
+    - fields/adc/adc_v2_common_single.yaml
 
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+"ADC?":
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0402
@@ -213,6 +222,16 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0402
+      TIFRFE:
+        name: FRE
+
 SYSCFG:
   _include:
     - patches/syscfg/f4_common.yaml
@@ -302,8 +321,6 @@ _include:
   - patches/dfsdm/dfsdm_v2.yaml
   - collect/dfsdm/v2.yaml
   - patches/i2c/f4_fmpi2c.yaml
-  - patches/adc/f4_single_csr.yaml
-  - patches/adc/f4_single_ccr.yaml
   - patches/fsmc/fsmc_sramfix_common.yaml
   - fields/fsmc/fsmc_sram.yaml
   - collect/fsmc/sram.yaml
@@ -326,9 +343,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/adc/adc_v2_single.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_c.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml

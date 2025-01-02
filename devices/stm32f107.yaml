@@ -21,6 +21,21 @@ _modify:
   ETHERNET_PTP:
     name: Ethernet_PTP
 
+"ADC?":
+  _include:
+    - fields/adc/adc_f1_f37x.yaml
+
+"ADC[12]":
+  _include:
+    - fields/adc/adc_f1_common.yaml
+
+ADC1:
+  _include:
+    - fields/adc/adc1_f1.yaml
+ADC3:
+  _include:
+    - fields/adc/adc3_f1.yaml
+
 AFIO:
   _include:
     - fields/exti/derive.yaml
@@ -141,7 +156,6 @@ _include:
   - fields/usb/usb.yaml
   - patches/dbgmcu/rename.yaml
   - fields/flash/flash_f1.yaml
-  - fields/adc/adc_f1.yaml
   - patches/ethernet/f1.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_mac_common.yaml

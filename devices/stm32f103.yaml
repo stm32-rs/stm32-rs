@@ -25,6 +25,22 @@ _modify:
   ETHERNET_PTP:
     name: Ethernet_PTP
 
+"ADC?":
+  _include:
+    - fields/adc/adc_f1_f37x.yaml
+    - collect/adc/jofr_jdr.yaml
+
+"ADC[12]":
+  _include:
+    - fields/adc/adc_f1_common.yaml
+
+ADC1:
+  _include:
+    - fields/adc/adc1_f1.yaml
+ADC3:
+  _include:
+    - fields/adc/adc3_f1.yaml
+
 AFIO:
   MAPR:
     _modify:
@@ -172,8 +188,6 @@ _include:
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - collect/sdio/resp.yaml
-  - fields/adc/adc_f1.yaml
-  - collect/adc/jofr_jdr.yaml
   - fields/usb/usb.yaml
   - collect/usb/epxr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

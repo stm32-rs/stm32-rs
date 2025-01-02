@@ -1,6 +1,10 @@
 _svd: ../svd/stm32f0x0.svd
 
 ADC:
+  _include:
+    - patches/adc/f0_cfgr2_ckmode.yaml
+    - patches/adc/f0_fixes.yaml
+    - fields/adc/adc_aditf4_v1_1.yaml
   CCR:
     _delete:
       - VBATEN
@@ -108,8 +112,6 @@ _include:
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_no_hdmi_cec.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
-  - patches/adc/f0_cfgr2_ckmode.yaml
-  - patches/adc/f0_fixes.yaml
   - patches/rcc/f0_usart3.yaml
   - patches/rcc/f0_usart6.yaml
   - patches/dma/f0_dmaen.yaml
@@ -132,7 +134,6 @@ _include:
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - collect/rtc/bkpr.yaml
-  - fields/adc/adc_aditf4_v1_1.yaml
   - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
   - fields/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml

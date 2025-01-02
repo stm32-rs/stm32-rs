@@ -12,9 +12,20 @@ _modify:
   C_ADC:
     name: ADC_Common
 
+ADC_Common:
+  _include:
+    - patches/adc/multi.yaml
+    - fields/adc/adc_v2_multi.yaml
+
 ADC2:
   _include:
     - patches/adc/smpx_18.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_d.yaml
+    - collect/adc/jofr_jdr.yaml
 
 EXTI:
   _include:
@@ -176,10 +187,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/spi/spi_v2.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/multi.yaml
-  - fields/adc/adc_v2_multi.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_d.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/dma_v21.yaml
   - fields/dma/dma_v21.yaml

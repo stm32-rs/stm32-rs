@@ -11,9 +11,28 @@ _modify:
     # Rename I2C4 to FMPI2C1 to disambiguate from non-FMP I2C
     name: FMPI2C1
 
+ADC_Common:
+  CSR:
+    _delete:
+      - "*2"
+      - "*3"
+  CCR:
+    _delete:
+      - DMA
+      - DDS
+      - DELAY
+  _include:
+    - fields/adc/adc_v2_common_single.yaml
+
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+"ADC?":
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_a.yaml
+    - collect/adc/jofr_jdr.yaml
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0401
@@ -229,8 +248,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/adc/f4_single_csr.yaml
-  - patches/adc/f4_single_ccr.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f410.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -251,9 +268,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/adc/adc_v2_single.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_a.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml

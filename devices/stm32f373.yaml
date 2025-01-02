@@ -19,6 +19,7 @@ _modify:
 ADC?:
   _include:
     - fields/adc/adc_f1_f37x.yaml
+    - collect/adc/jofr_jdr.yaml
 
 ADC1:
   CR2:
@@ -259,7 +260,6 @@ _include:
   - collect/tsc/iogcr.yaml
   - fields/usb/usb.yaml
   - patches/dbgmcu/f3.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/flash/f3_obr_rdptr.yaml
   - fields/flash/flash_f3_common.yaml
   - fields/flash/flash_f3_obr_sram_parity_check.yaml
