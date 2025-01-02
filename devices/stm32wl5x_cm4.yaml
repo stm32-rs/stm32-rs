@@ -1,5 +1,7 @@
 _svd: ../svd/stm32wl5x_cm4.svd
 
+_clear_fields: "*"
+
 _delete:
   - SYSCFG_continue
 
@@ -46,6 +48,9 @@ DAC:
   CR:
     _merge:
       - "TSEL1*"
+
+EXTI:
+  _strip: EXTI_
 
 HSEM:
   _strip: HSEM_
@@ -99,9 +104,6 @@ LPUART:
     _modify:
       TXFNFIE:
         name: TXEIE
-
-MPU:
-  _strip: MPU_
 
 RCC:
   _include:
@@ -174,16 +176,15 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - ../devices/patches/spi/rename_dff_tifrfe.yaml
-  - ../devices/patches/crc/crc_rename_init.yaml
-  - ../devices/patches/rtc/rtc_register_descriptions.yaml
-  - ../devices/patches/exti/wl.yaml
-  - ../devices/patches/usart/merge_CR1_DEATx_fields.yaml
-  - ../devices/patches/usart/merge_CR1_DEDTx_fields.yaml
-  - ../devices/patches/usart/merge_CR2_ADDx_fields_inverted.yaml
-  - ../devices/patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - ../devices/patches/usart/rename_CR1_M0_field.yaml
-  - ../devices/patches/usart/rename_CR3_SCARCNT_field.yaml
+  - patches/spi/rename_dff_tifrfe.yaml
+  - patches/crc/crc_rename_init.yaml
+  - patches/rtc/rtc_register_descriptions.yaml
+  - patches/usart/merge_CR1_DEATx_fields.yaml
+  - patches/usart/merge_CR1_DEDTx_fields.yaml
+  - patches/usart/merge_CR2_ADDx_fields_inverted.yaml
+  - patches/usart/merge_CR2_ABRMODx_fields.yaml
+  - patches/usart/rename_CR1_M0_field.yaml
+  - patches/usart/rename_CR3_SCARCNT_field.yaml
   - fields/comp/comp_wl.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_pol.yaml

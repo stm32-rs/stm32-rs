@@ -30,4 +30,6 @@ mv stm32mp153x.svd stm32mp153.svd
 # Rename WLE5 file to remove _cm4, since it only has one core.
 mv stm32wle5_cm4.svd stm32wle5.svd
 
+mv stm32wb55_cm4.svd stm32wb55.svd
+
 touch .extracted

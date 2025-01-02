@@ -28,6 +28,7 @@
 * Update STM32L1 source to v1.4
 * Update STM32F4 to V2.0 archive source
 * Update STM32F7 to V2.4 archive source
+* Update WL, WB source to v1.2
 * modify `LP_Timer1` interrupt instead of adding new
 * Remove workaround for bug in duckscript's `mv`
 * move `_array` and `_cluster` patches to `devices/collect`
