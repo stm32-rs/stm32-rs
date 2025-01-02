@@ -31,11 +31,17 @@ _modify:
       size: 0x100
       usage: registers
 
+"ADC*_Common":
+  _strip: ADC_
+  #_include: fields/adc/adc_v3_common_h7.yaml
+
 ADC?:
   _strip: ADC_
+  _include:
+    - fields/adc/adc_h7_revision_v.yaml
 
-ADC*_Common:
-  _strip: ADC_
+#"ADC,ADC?":
+#  _include: fields/adc/adc_v3_h7.yaml
 
 CORDIC:
   _strip: CORDIC_
@@ -437,9 +443,6 @@ _include:
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
-  #- fields/adc/adc_v3_h7.yaml
-  #- fields/adc/adc_v3_common_h7.yaml
-  - fields/adc/adc_h7_revision_v.yaml
   - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

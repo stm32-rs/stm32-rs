@@ -1,183 +1,203 @@
 # ADC as used on H7 and F3
 
-"ADC,ADC?":
-  ISR:
-    JQOVF:
-      _read:
-        NoOverflow: [0, "No injected context queue overflow has occurred"]
-        Overflow: [1, "Injected context queue overflow has occurred"]
-      _W1C:
-        Clear: [1, "Clear injected context queue overflow flag"]
-    "AWD?":
-      _read:
-        NoEvent: [0, "No analog watchdog event occurred"]
-        Event: [1, "Analog watchdog event occurred"]
-      _W1C:
-        Clear: [1, "Clear analog watchdog event occurred flag"]
-    OVR:
-      _read:
-        NoOverrun: [0, "No overrun occurred"]
-        Overrun: [1, "Overrun occurred"]
-      _W1C:
-        Clear: [1, "Clear overrun occurred flag"]
-    JEOS:
-      _read:
-        NotComplete: [0, "Injected sequence is not complete"]
-        Complete: [1, "Injected sequence complete"]
-      _W1C:
-        Clear: [1, "Clear Injected sequence complete flag"]
-    EOS:
-      _read:
-        NotComplete: [0, "Regular sequence is not complete"]
-        Complete: [1, "Regular sequence complete"]
-      _W1C:
-        Clear: [1, "Clear regular sequence complete flag"]
-    JEOC:
-      _read:
-        NotComplete: [0, "Injected conversion is not complete"]
-        Complete: [1, "Injected conversion complete"]
-      _W1C:
-        Clear: [1, "Clear injected conversion complete flag"]
-    EOC:
-      _read:
-        NotComplete: [0, "Regular conversion is not complete"]
-        Complete: [1, "Regular conversion complete"]
-      _W1C:
-        Clear: [1, "Clear regular conversion complete flag"]
-    EOSMP:
-      _read:
-        NotEnded: [0, "End of sampling phase no yet reached"]
-        Ended: [1, "End of sampling phase reached"]
-      _W1C:
-        Clear: [1, "Clear end of sampling phase reached flag"]
-    ADRDY:
-      _read:
-        NotReady: [0, "ADC is not ready to start conversion"]
-        Ready: [1, "ADC is ready to start conversion"]
-      _W1C:
-        Clear: [1, "Clear ADC is ready to start conversion flag"]
-  IER:
-    JQOVFIE:
-      Disabled: [0, "Injected context queue overflow interrupt disabled"]
-      Enabled: [1, "Injected context queue overflow interrupt enabled"]
-    "AWD?IE":
-      Disabled: [0, "Analog watchdog interrupt disabled"]
-      Enabled: [1, "Analog watchdog interrupt enabled"]
-    JEOSIE:
-      Disabled: [0, "End of injected sequence interrupt disabled"]
-      Enabled: [1, "End of injected sequence interrupt enabled"]
-    EOSIE:
-      Disabled: [0, "End of regular sequence interrupt disabled"]
-      Enabled: [1, "End of regular sequence interrupt enabled"]
-    JEOCIE:
-      Disabled: [0, "End of injected conversion interrupt disabled"]
-      Enabled: [1, "End of injected conversion interrupt enabled"]
-    EOCIE:
-      Disabled: [0, "End of regular conversion interrupt disabled"]
-      Enabled: [1, "End of regular conversion interrupt enabled"]
-    OVRIE:
-      Disabled: [0, "Overrun interrupt disabled"]
-      Enabled: [1, "Overrun interrupt enabled"]
-    EOSMPIE:
-      Disabled: [0, "End of regular conversion sampling phase interrupt disabled"]
-      Enabled: [1, "End of regular conversion sampling phase interrupt enabled"]
-    ADRDYIE:
-      Disabled: [0, "ADC ready interrupt disabled"]
-      Enabled: [1, "ADC ready interrupt enabled"]
-  CR:
-    ADCAL:
-      _read:
-        NotCalibrating: [0, "ADC calibration either not yet performed or completed"]
-        Calibrating: [1, "ADC calibration in progress"]
-      _W1S:
-        StartCalibration: [1, "Start the ADC calibration sequence"]
-    ADCALDIF:
-      SingleEnded: [0, "Calibration for single-ended mode"]
-      Differential: [1, "Calibration for differential mode"]
-    JADSTP,ADSTP:
-      _read:
-        NotStopping: [0, "No stop command active"]
-        Stopping: [1, "ADC stopping conversion"]
-      _W1S:
-        StopConversion: [1, "Stop the active conversion"]
-    JADSTART,ADSTART:
-      _read:
-        NotActive: [0, "No conversion ongoing"]
-        Active: [1, "ADC operating and may be converting"]
-      _W1S:
-        StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
-    ADDIS:
-      _read:
-        NotDisabling: [0, "No disable command active"]
-        Disabling: [1, "ADC disabling"]
-      _W1S:
-        Disable: [1, "Disable the ADC"]
-    ADEN:
-      _read:
-        Disabled: [0, "ADC disabled"]
-        Enabled: [1, "ADC enabled"]
-      _W1S:
-        Enabled: [1, "Enable the ADC"]
-  CFGR:
-    AWD1CH: [0, 19]
-    JAUTO:
-      Disabled: [0, "Automatic injected group conversion disabled"]
-      Enabled: [1, "Automatic injected group conversion enabled"]
-    JAWD1EN:
-      Disabled: [0, "Analog watchdog 1 disabled on injected channels"]
-      Enabled: [1, "Analog watchdog 1 enabled on injected channels"]
-    AWD1EN:
-      Disabled: [0, "Analog watchdog 1 disabled on regular channels"]
-      Enabled: [1, "Analog watchdog 1 enabled on regular channels"]
-    AWD1SGL:
-      All: [0, "Analog watchdog 1 enabled on all channels"]
-      Single: [1, "Analog watchdog 1 enabled on single channel selected in AWD1CH"]
-    JQM:
-      Mode0: [0, "JSQR Mode 0: Queue maintains the last written configuration into JSQR"]
-      Mode1: [1, "JSQR Mode 1: An empty queue disables software and hardware triggers of the injected sequence"]
-    JDISCEN:
-      Disabled: [0, "Discontinuous mode on injected channels disabled"]
-      Enabled: [1, "Discontinuous mode on injected channels enabled"]
-    DISCNUM: [0, 7]
-    DISCEN:
-      Disabled: [0, "Discontinuous mode on regular channels disabled"]
-      Enabled: [1, "Discontinuous mode on regular channels enabled"]
-    AUTDLY:
-      "Off": [0, "Auto delayed conversion mode off"]
-      "On": [1, "Auto delayed conversion mode on"]
-    CONT:
-      Single: [0, "Single conversion mode"]
-      Continuous: [1, "Continuous conversion mode"]
-    OVRMOD:
-      Preserve: [0, "Preserve DR register when an overrun is detected"]
-      Overwrite: [1, "Overwrite DR register when an overrun is detected"]
-  CFGR,JSQR:
-    EXTEN,JEXTEN:
-      Disabled: [0, "Trigger detection disabled"]
-      RisingEdge: [1, "Trigger detection on the rising edge"]
-      FallingEdge: [2, "Trigger detection on the falling edge"]
-      BothEdges: [3, "Trigger detection on both the rising and falling edges"]
-  JSQR:
-    JL: [0, 3]      # Total number of conversions in injected sequence
-    "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
-  AWD2CR:
-    _split: [AWD2CH]
-    "AWD2CH*":
-      NotMonitored: [0, "Input channel not monitored by AWDx"]
-      Monitored: [1, "Input channel monitored by AWDx"]
-  AWD3CR:
-    _split: [AWD3CH]
-    "AWD3CH*":
-      NotMonitored: [0, "Input channel not monitored by AWDx"]
-      Monitored: [1, "Input channel monitored by AWDx"]
-  # Sequences
-  SQR1:
-    L: [0, 15]       # Total number of conversions in regular sequence
-  SQR?:
-    "SQ*": [0, 19]   # Channel number for Nth item in regular seqeunce
-  # Differential mode
-  DIFSEL:
-    _split: ["DIFSEL*"]
-    "DIFSEL*":
-      SingleEnded: [0, "Input channel is configured in single-ended mode"]
-      Differential: [1, "Input channel is configured in differential mode"]
+ISR:
+  JQOVF:
+    _read:
+      NoOverflow: [0, "No injected context queue overflow has occurred"]
+      Overflow: [1, "Injected context queue overflow has occurred"]
+    _W1C:
+      Clear: [1, "Clear injected context queue overflow flag"]
+  "AWD?":
+    _read:
+      NoEvent: [0, "No analog watchdog event occurred"]
+      Event: [1, "Analog watchdog event occurred"]
+    _W1C:
+      Clear: [1, "Clear analog watchdog event occurred flag"]
+  OVR:
+    _read:
+      NoOverrun: [0, "No overrun occurred"]
+      Overrun: [1, "Overrun occurred"]
+    _W1C:
+      Clear: [1, "Clear overrun occurred flag"]
+  JEOS:
+    _read:
+      NotComplete: [0, "Injected sequence is not complete"]
+      Complete: [1, "Injected sequence complete"]
+    _W1C:
+      Clear: [1, "Clear Injected sequence complete flag"]
+  EOS:
+    _read:
+      NotComplete: [0, "Regular sequence is not complete"]
+      Complete: [1, "Regular sequence complete"]
+    _W1C:
+      Clear: [1, "Clear regular sequence complete flag"]
+  JEOC:
+    _read:
+      NotComplete: [0, "Injected conversion is not complete"]
+      Complete: [1, "Injected conversion complete"]
+    _W1C:
+      Clear: [1, "Clear injected conversion complete flag"]
+  EOC:
+    _read:
+      NotComplete: [0, "Regular conversion is not complete"]
+      Complete: [1, "Regular conversion complete"]
+    _W1C:
+      Clear: [1, "Clear regular conversion complete flag"]
+  EOSMP:
+    _read:
+      NotEnded: [0, "End of sampling phase no yet reached"]
+      Ended: [1, "End of sampling phase reached"]
+    _W1C:
+      Clear: [1, "Clear end of sampling phase reached flag"]
+  ADRDY:
+    _read:
+      NotReady: [0, "ADC is not ready to start conversion"]
+      Ready: [1, "ADC is ready to start conversion"]
+    _W1C:
+      Clear: [1, "Clear ADC is ready to start conversion flag"]
+IER:
+  JQOVFIE:
+    Disabled: [0, "Injected context queue overflow interrupt disabled"]
+    Enabled: [1, "Injected context queue overflow interrupt enabled"]
+  "AWD?IE":
+    Disabled: [0, "Analog watchdog interrupt disabled"]
+    Enabled: [1, "Analog watchdog interrupt enabled"]
+  JEOSIE:
+    Disabled: [0, "End of injected sequence interrupt disabled"]
+    Enabled: [1, "End of injected sequence interrupt enabled"]
+  EOSIE:
+    Disabled: [0, "End of regular sequence interrupt disabled"]
+    Enabled: [1, "End of regular sequence interrupt enabled"]
+  JEOCIE:
+    Disabled: [0, "End of injected conversion interrupt disabled"]
+    Enabled: [1, "End of injected conversion interrupt enabled"]
+  EOCIE:
+    Disabled: [0, "End of regular conversion interrupt disabled"]
+    Enabled: [1, "End of regular conversion interrupt enabled"]
+  OVRIE:
+    Disabled: [0, "Overrun interrupt disabled"]
+    Enabled: [1, "Overrun interrupt enabled"]
+  EOSMPIE:
+    Disabled: [0, "End of regular conversion sampling phase interrupt disabled"]
+    Enabled: [1, "End of regular conversion sampling phase interrupt enabled"]
+  ADRDYIE:
+    Disabled: [0, "ADC ready interrupt disabled"]
+    Enabled: [1, "ADC ready interrupt enabled"]
+CR:
+  ADCAL:
+    _read:
+      NotCalibrating:
+        [0, "ADC calibration either not yet performed or completed"]
+      Calibrating: [1, "ADC calibration in progress"]
+    _W1S:
+      StartCalibration: [1, "Start the ADC calibration sequence"]
+  ADCALDIF:
+    SingleEnded: [0, "Calibration for single-ended mode"]
+    Differential: [1, "Calibration for differential mode"]
+  JADSTP,ADSTP:
+    _read:
+      NotStopping: [0, "No stop command active"]
+      Stopping: [1, "ADC stopping conversion"]
+    _W1S:
+      StopConversion: [1, "Stop the active conversion"]
+  JADSTART,ADSTART:
+    _read:
+      NotActive: [0, "No conversion ongoing"]
+      Active: [1, "ADC operating and may be converting"]
+    _W1S:
+      StartConversion:
+        [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
+  ADDIS:
+    _read:
+      NotDisabling: [0, "No disable command active"]
+      Disabling: [1, "ADC disabling"]
+    _W1S:
+      Disable: [1, "Disable the ADC"]
+  ADEN:
+    _read:
+      Disabled: [0, "ADC disabled"]
+      Enabled: [1, "ADC enabled"]
+    _W1S:
+      Enabled: [1, "Enable the ADC"]
+CFGR:
+  AWD1CH: [0, 19]
+  JAUTO:
+    Disabled: [0, "Automatic injected group conversion disabled"]
+    Enabled: [1, "Automatic injected group conversion enabled"]
+  JAWD1EN:
+    Disabled: [0, "Analog watchdog 1 disabled on injected channels"]
+    Enabled: [1, "Analog watchdog 1 enabled on injected channels"]
+  AWD1EN:
+    Disabled: [0, "Analog watchdog 1 disabled on regular channels"]
+    Enabled: [1, "Analog watchdog 1 enabled on regular channels"]
+  AWD1SGL:
+    All: [0, "Analog watchdog 1 enabled on all channels"]
+    Single:
+      [1, "Analog watchdog 1 enabled on single channel selected in AWD1CH"]
+  JQM:
+    Mode0:
+      [
+        0,
+        "JSQR Mode 0: Queue maintains the last written configuration into JSQR",
+      ]
+    Mode1:
+      [
+        1,
+        "JSQR Mode 1: An empty queue disables software and hardware triggers of the injected sequence",
+      ]
+  JDISCEN:
+    Disabled: [0, "Discontinuous mode on injected channels disabled"]
+    Enabled: [1, "Discontinuous mode on injected channels enabled"]
+  DISCNUM: [0, 7]
+  DISCEN:
+    Disabled: [0, "Discontinuous mode on regular channels disabled"]
+    Enabled: [1, "Discontinuous mode on regular channels enabled"]
+  AUTDLY:
+    "Off": [0, "Auto delayed conversion mode off"]
+    "On": [1, "Auto delayed conversion mode on"]
+  CONT:
+    Single: [0, "Single conversion mode"]
+    Continuous: [1, "Continuous conversion mode"]
+  OVRMOD:
+    Preserve: [0, "Preserve DR register when an overrun is detected"]
+    Overwrite: [1, "Overwrite DR register when an overrun is detected"]
+CFGR,JSQR:
+  EXTEN,JEXTEN:
+    Disabled: [0, "Trigger detection disabled"]
+    RisingEdge: [1, "Trigger detection on the rising edge"]
+    FallingEdge: [2, "Trigger detection on the falling edge"]
+    BothEdges: [3, "Trigger detection on both the rising and falling edges"]
+JSQR:
+  JL: [0, 3] # Total number of conversions in injected sequence
+  "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
+AWD2CR:
+  _split: [AWD2CH]
+  "AWD2CH*":
+    NotMonitored: [0, "Input channel not monitored by AWDx"]
+    Monitored: [1, "Input channel monitored by AWDx"]
+AWD3CR:
+  _split: [AWD3CH]
+  "AWD3CH*":
+    NotMonitored: [0, "Input channel not monitored by AWDx"]
+    Monitored: [1, "Input channel monitored by AWDx"]
+# Sequences
+SQR1:
+  L: [0, 15] # Total number of conversions in regular sequence
+SQR?:
+  "SQ*": [0, 19] # Channel number for Nth item in regular seqeunce
+# Differential mode
+DIFSEL:
+  _split: ["DIFSEL*"]
+  "DIFSEL*":
+    SingleEnded: [0, "Input channel is configured in single-ended mode"]
+    Differential: [1, "Input channel is configured in differential mode"]
+
+SMPR1:
+  "?~SMPPLUS":
+    KeepCycles:
+      [0, "The sampling time remains set to 2.5 ADC clock cycles remains"]
+    Add1Cycle:
+      [
+        1,
+        "2.5 ADC clock cycle sampling time becomes 3.5 ADC clock cycles for the ADC_SMPR1 and ADC_SMPR2 registers",
+      ]

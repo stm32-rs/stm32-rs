@@ -9,6 +9,20 @@ _copy:
 _derive:
   TIM4: TIM3
 
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+    - fields/adc/adc_v3_common.yaml
+
+ADC?:
+  _include:
+    - patches/adc/l4+.yaml
+    - fields/adc/adc_v3_l4.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
+
 AES:
   _include:
     - patches/aes/fields.yaml
@@ -189,10 +203,6 @@ _include:
   - fields/spi/spi_l4.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/l4+.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml

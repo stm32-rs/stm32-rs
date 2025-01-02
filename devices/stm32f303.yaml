@@ -23,6 +23,16 @@ _modify:
   DAC:
     name: DAC1
 
+ADC1_2:
+  _include:
+    - patches/adc/f3_multi_dual.yaml
+    - fields/adc/adc_v3_common_f3.yaml
+
+ADC?:
+  _include:
+    - patches/adc/f3.yaml
+    - fields/adc/adc_v3_f3.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -150,8 +160,6 @@ _include:
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - patches/adc/f3.yaml
-  - patches/adc/f3_multi_dual.yaml
   - patches/gpio/f3_reset_values.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_mco.yaml
@@ -211,8 +219,6 @@ _include:
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - fields/adc/adc_v3_f3.yaml
-  - fields/adc/adc_v3_common_f3.yaml
   - patches/flash/f3.yaml
   - patches/flash/f3_obr_rdptr.yaml
   - fields/flash/flash_f3_common.yaml

@@ -33,8 +33,14 @@ _modify:
   ADC:
     name: ADC1
 
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+
 "ADC*_*":
   _strip: ADC_
+  _include: fields/adc/adc_v3_common.yaml
 
 ADC1:
   _strip: ADC_
@@ -44,12 +50,16 @@ ADC1:
         name: ADC1_2
 
 ADC?:
+  _include: fields/adc/adc_v3_l4.yaml
   CFGR:
     _merge: "EXTSEL*"
 
   DIFSEL:
     _merge:
       DIFSEL: "DIFSEL*"
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 EXTI:
   _include:
@@ -204,9 +214,6 @@ _include:
   - fields/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - fields/spi/spi_l4.yaml
   - fields/fw/fw_l0_l4.yaml

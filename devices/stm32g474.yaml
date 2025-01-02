@@ -9,6 +9,15 @@ _copy:
 _derive:
   TIM4: TIM3
 
+ADC?:
+  _include: patches/adc/g4.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3_g4.yaml
+
+"ADC*_*":
+  _include: fields/adc/adc_v3_common_g4.yaml
+
 COMP:
   _strip: COMP_
 
@@ -103,9 +112,6 @@ _include:
   - fields/rcc/g4.yaml
   - patches/exti/g4.yaml
   - fields/exti/exti.yaml
-  - patches/adc/g4.yaml
-  - fields/adc/adc_v3_g4.yaml
-  - fields/adc/adc_v3_common_g4.yaml
   - collect/comp/csr.yaml
   - patches/cordic/g4.yaml
   - fields/cordic/cordic_g4.yaml

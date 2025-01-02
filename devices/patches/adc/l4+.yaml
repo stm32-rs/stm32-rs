@@ -1,17 +1,16 @@
-ADC?:
-  CFGR:
-    _merge:
-      - "EXTSEL*"
+CFGR:
+  _merge:
+    - "EXTSEL*"
 
-    _modify:
-      AWDCH1CH:
-        name: AWD1CH
+  _modify:
+    AWDCH1CH:
+      name: AWD1CH
 
-  JDR?:
-    _modify:
-      JDATA?:
-        name: JDATA
+JDR?:
+  _modify:
+    JDATA?:
+      name: JDATA
 
-  DIFSEL:
-    _merge:
-      DIFSEL: "DIFSEL*"
+DIFSEL:
+  _merge:
+    DIFSEL: "DIFSEL*"

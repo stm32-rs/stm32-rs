@@ -1,16 +1,29 @@
 # ADC v3 with H5 specific fields
 
-_include:
-  - adc_v3_l4+.yaml
+"ADC,ADC?":
+  _include: adc_v3.yaml
 
 ADC?:
+  _include: adc_v3_l4.yaml
   CFGR2:
     SMPTRIG:
       Disabled: [0, "Sampling time control trigger mode disabled"]
       Enabled: [1, "Sampling time control trigger mode enabled"]
     BULB:
       Disabled: [0, "Bulb sampling mode disabled"]
-      Enabled: [1, "Bulb sampling mode enabled. The sampling period starts just after the previous end of conversion"]
+      Enabled:
+        [
+          1,
+          "Bulb sampling mode enabled. The sampling period starts just after the previous end of conversion",
+        ]
     SWTRIG:
-      Conversion: [0, "Software trigger starts the conversion for sampling time control trigger mode"]
-      Sampling: [1, "Software trigger starts the sampling for sampling time control trigger mode"]
+      Conversion:
+        [
+          0,
+          "Software trigger starts the conversion for sampling time control trigger mode",
+        ]
+      Sampling:
+        [
+          1,
+          "Software trigger starts the sampling for sampling time control trigger mode",
+        ]

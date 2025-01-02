@@ -13,6 +13,18 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
+"ADC*_Common":
+  _include: fields/adc/adc_v3_common_h7.yaml
+
+ADC?:
+  _include:
+    - patches/adc/h7.yaml
+    - patches/adc/h7_boost_rev_v.yaml
+    - fields/adc/adc_h7_revision_v.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3_h7.yaml
+
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747
 
@@ -170,10 +182,8 @@ _include:
   - fields/dma/dma2d_v2.yaml
   - patches/hsem/h7_dual.yaml
   - collect/hsem/r.yaml
-  - patches/adc/h7.yaml
   - patches/dsi/h7.yaml
   - collect/dsi/isr.yaml
-  - patches/adc/h7_boost_rev_v.yaml
   - patches/flash/h7_dualcore.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
@@ -196,9 +206,6 @@ _include:
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/ramecc/ramecc_new.yaml
-  - fields/adc/adc_v3_h7.yaml
-  - fields/adc/adc_v3_common_h7.yaml
-  - fields/adc/adc_h7_revision_v.yaml
   - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

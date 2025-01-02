@@ -14,6 +14,10 @@ _modify:
     name: ADC_Common
 
 ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
   CCR:
     _modify:
       MULT:
@@ -31,6 +35,17 @@ ADC_Common:
         bitOffset: 18
         bitWidth: 4
         access: read-write
+
+ADC?:
+  _include:
+    - patches/adc/l4_smpr.yaml
+    - patches/adc/l4_sqr1.yaml
+    - patches/adc/l4+.yaml
+    - patches/adc/dr_rdata.yaml
+    - fields/adc/adc_v3_l4.yaml
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 # Add correct AES interrupt at 79
 AES:
@@ -284,13 +299,6 @@ _include:
   - fields/fw/fw_l0_l4.yaml
   - patches/dma/interrupt_names.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/l4.yaml
-  - patches/adc/l4_smpr.yaml
-  - patches/adc/l4_sqr1.yaml
-  - patches/adc/l4+.yaml
-  - patches/adc/l4+common.yaml
-  - fields/adc/adc_v3_common_l4+.yaml
-  - fields/adc/adc_v3_l4.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - fields/spi/spi_l4.yaml

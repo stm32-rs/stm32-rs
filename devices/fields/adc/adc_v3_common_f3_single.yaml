@@ -1,11 +1,10 @@
 # ADC_Common with F3 specific fields
 # limited to fields available even on parts with a single ADC
 
-"ADC*_*":
-  CCR:
-    VBATEN:
-      Disabled: [0, "V_BAT channel disabled"]
-      Enabled: [1, "V_BAT channel enabled"]
-    TSEN:
-      Disabled: [0, "Temperature sensor channel disabled"]
-      Enabled: [1, "Temperature sensor channel enabled"]
+CCR:
+  VBATEN:
+    Disabled: [0, "V_BAT channel disabled"]
+    Enabled: [1, "V_BAT channel enabled"]
+  TSEN:
+    Disabled: [0, "Temperature sensor channel disabled"]
+    Enabled: [1, "Temperature sensor channel enabled"]
