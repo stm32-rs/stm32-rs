@@ -18,7 +18,7 @@
 * HRTIM: remove timer block suffixes from register/field names
 * HRTIM: derive identical registers
 * HRTIM: specify TIM events for each block
-* Collent in field arrays: GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
+* Collent in field arrays: ADC, GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
 * ADC: C0+G0+WL field arrays
 * L1 TIM9: add CCER
 * Update STM32H5 source to v1.4

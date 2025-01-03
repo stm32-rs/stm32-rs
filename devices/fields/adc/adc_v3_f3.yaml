@@ -1,6 +1,8 @@
 # ADC v3 with F3 specific fields
 
-_include: adc_v3.yaml
+_include:
+  - ../../patches/adc/split.yaml
+  - adc_v3.yaml
 CR:
   ADVREGEN:
     Intermediate:

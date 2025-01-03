@@ -1,15 +1,11 @@
+_include: jdata.yaml
+
 CFGR:
-  _merge:
-    - "EXTSEL*"
+  _merge: "EXTSEL*"
 
   _modify:
     AWDCH1CH:
       name: AWD1CH
-
-JDR?:
-  _modify:
-    JDATA?:
-      name: JDATA
 
 DIFSEL:
   _merge:

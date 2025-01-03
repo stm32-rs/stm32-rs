@@ -29,11 +29,12 @@ _modify:
 ADC?:
   _include:
     - patches/adc/h7.yaml
+    - patches/adc/h7_2.yaml
     - patches/adc/h7_boost_rev_v.yaml
     - fields/adc/adc_h7_revision_v.yaml
-
-"ADC,ADC?":
-  _include: fields/adc/adc_v3_h7.yaml
+    - fields/adc/adc_v3_h7.yaml
+    - patches/adc/jdata.yaml
+    - collect/adc/v3.yaml
 
 COMP1:
   _strip: COMP1_

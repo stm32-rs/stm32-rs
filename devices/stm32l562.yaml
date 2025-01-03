@@ -34,7 +34,9 @@ ADC?:
       DIFSEL: "DIFSEL*"
 
 "ADC,ADC?":
-  _include: fields/adc/adc_v3.yaml
+  _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
 
 AES:
   SUSP?R:

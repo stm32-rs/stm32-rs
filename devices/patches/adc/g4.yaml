@@ -1,3 +1,5 @@
+_include: jdata.yaml
+
 ISR:
   _modify:
     JQOVF:
@@ -330,12 +332,6 @@ OFR4:
     OFFSET1:
       name: OFFSET4
       description: Data offset 4 for the channel programmed into bits OFFSET4_CH
-
-JDR?:
-  _modify:
-    JDATA?:
-      name: JDATA
-      description: Injected data
 
 AWD2CR:
   _modify:

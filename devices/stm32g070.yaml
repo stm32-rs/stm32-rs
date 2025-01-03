@@ -49,6 +49,7 @@ ADC:
       name: CHSELR0
     CHSELR_1:
       name: CHSELR1
+      alternateRegister: CHSELR0
   _include:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml

@@ -11,7 +11,9 @@ ADC?:
     _merge: "EXTSEL*"
 
 "ADC,ADC?":
-  _include: fields/adc/adc_v3.yaml
+  _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
 
 GPIOC:
   _strip: GPIO_

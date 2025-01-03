@@ -2,6 +2,11 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: "*"
 
+ADC?:
+  _strip: ADC_
+  CFGR:
+    _merge: "EXTSEL*"
+
 IWDG:
   _include: patches/16bit_with_mask.yaml
 

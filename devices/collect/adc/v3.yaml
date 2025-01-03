@@ -1,0 +1,60 @@
+_array:
+  "OFR?":
+    OFFSET: [0, 0x0fff]
+    _modify:
+      OFFSET?:
+        name: OFFSET
+      "?~OFFSET?_EN":
+        name: OFFSET_EN
+      OFFSET?_CH:
+        name: OFFSET_CH
+  "JDR?": {}
+
+# H7 only
+"?~CFGR2":
+  _array:
+    "?~RSHIFT?":
+      description: Right-shift data after Offset %s correction
+CR:
+  _array:
+    "?~LINCALRDYW?":
+      description: Linearity calibration ready Word %s
+
+ISR:
+  _array:
+    AWD?:
+      description: Analog watchdog %s flag
+IER:
+  _array:
+    AWD?IE:
+      description: Analog watchdog %s interrupt enable
+
+AWD2CR:
+  _array:
+    "AWD2CH[0-9],AWD2CH1[0-9]": {}
+AWD3CR:
+  _array:
+    "AWD3CH[0-9],AWD3CH1[0-9]": {}
+
+JSQR:
+  _array:
+    "JSQ?":
+      description: "%s conversion in injected sequence"
+SQR?:
+  _array:
+    "SQ*":
+      description: "%s conversion in regular sequence"
+SMPR?:
+  _array:
+    "SMP?,SMP??":
+      description: "Channel %s sample time selection"
+
+# F3/L4/G4/WB
+DIFSEL:
+  _array:
+    "?~DIFSEL[0-9],DIFSEL1[0-9]":
+      name: DIFSEL%s
+      description: Differential mode for channel %s
+    "?~DIFSEL_1[0-9],DIFSEL_11[0-9]":
+      name: DIFSEL%s
+      description: Differential mode for channel %s

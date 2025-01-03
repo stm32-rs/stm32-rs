@@ -220,12 +220,6 @@ _modify:
       AFSEL15:
         name: AFR15
 
-"ADC*_Common":
-  CCR:
-    _modify:
-      "VSENSEEN,TSEN":
-        name: VSENSEEN
-
 FLASH:
   _modify:
     #PRAR_PRG2:

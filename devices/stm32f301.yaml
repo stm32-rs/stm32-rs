@@ -46,7 +46,9 @@ ADC1:
         name: JADSTP
 
 ADC?:
-  _include: fields/adc/adc_v3_f3.yaml
+  _include:
+    - fields/adc/adc_v3_f3.yaml
+    - collect/adc/v3.yaml
 
 EXTI:
   _include:

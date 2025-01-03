@@ -45,7 +45,10 @@ ADC?:
     - fields/adc/adc_v3_l4.yaml
 
 "ADC,ADC?":
-  _include: fields/adc/adc_v3.yaml
+  _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
+    - collect/adc/v3.yaml
 
 # Add correct AES interrupt at 79
 AES:
@@ -298,6 +301,7 @@ _include:
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - patches/dma/interrupt_names.yaml
+  - patches/adc/adc_common_group_name.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/spi/rename_dff_tifrfe.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml

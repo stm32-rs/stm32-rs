@@ -1,7 +1,9 @@
 _svd: ../svd/stm32l162.svd
 
 "ADC,ADC?":
-  _include: patches/adc/l1_smpr.yaml
+  _include:
+    - patches/adc/l1_smpr.yaml
+    - collect/adc/jofr_jdr.yaml
 
 AES:
   _include:

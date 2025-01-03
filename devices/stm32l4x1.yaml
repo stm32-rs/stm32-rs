@@ -35,7 +35,9 @@ ADC?:
     - fields/adc/adc_v3_l4.yaml
 
 "ADC,ADC?":
-  _include: fields/adc/adc_v3.yaml
+  _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
 
 AES:
   _include:
