@@ -6,8 +6,12 @@ _modify:
 
 ADC?:
   _strip: ADC_
+  _include: fields/adc/adc_h5.yaml
   CFGR:
     _merge: "EXTSEL*"
+
+"ADC,ADC?":
+  _include: fields/adc/adc_v3.yaml
 
 GPIOC:
   _strip: GPIO_
@@ -95,7 +99,6 @@ WWDG:
 
 _include:
   - patches/h5.yaml
-  - fields/adc/adc_h5.yaml
   - fields/crs/crs.yaml
   - fields/i2c/i2c_v2.yaml
   - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml

@@ -5,6 +5,12 @@ _copy:
   TIM3:
     from: TIM2
 
+ADC:
+  _include:
+    - patches/adc/f0_cfgr2_ckmode.yaml
+    - patches/adc/f0_fixes.yaml
+    - fields/adc/adc_aditf4_v1_1_RM0091.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -78,8 +84,6 @@ _include:
   - patches/i2c/merge_CR2_SADDx_fields.yaml
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
-  - patches/adc/f0_cfgr2_ckmode.yaml
-  - patches/adc/f0_fixes.yaml
   - patches/rcc/f0_gpioe.yaml
   - patches/rcc/f0_usart3.yaml
   - patches/rcc/f0_usart6.yaml
@@ -116,7 +120,6 @@ _include:
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
-  - fields/adc/adc_aditf4_v1_1_RM0091.yaml
   - fields/spi/spi_v2.yaml
   - fields/usb/usb_with_LPM.yaml
   - fields/flash/flash_f04x_f09x.yaml

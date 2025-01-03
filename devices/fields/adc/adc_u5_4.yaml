@@ -1,0 +1,117 @@
+# ADC as used on U5
+
+ISR:
+  EOCAL:
+    _read:
+      NotComplete: [0, "Calibration is not complete"]
+      Complete: [1, "Calibration is complete"]
+    _write:
+      Clear: [1, "Clear the end of calibration flag"]
+IER:
+  LDORDYIE:
+    Disabled: [0, "LDO ready interrupt disabled"]
+    Enabled:
+      [
+        1,
+        "LDO ready interrupt enabled. An interrupt is generated when the LDO output is ready.",
+      ]
+  EOCALIE:
+    Disabled: [0, "End of calibration interrupt disabled"]
+    Enabled: [1, "End of calibration interrupt enabled"]
+CFGR1:
+  CHSELRMOD:
+    BitPerInput: [0, "Each bit of the ADC_CHSELR register enables an input"]
+    Sequence: [1, "ADC_CHSELR register is able to sequence up to 8 channels"]
+  WAIT:
+    Disabled: [0, "Wait conversion mode off"]
+    Enabled: [1, "Wait conversion mode on"]
+  EXTSEL:
+    TIM1_TRGO2: [0, "tim1_trgo2"]
+    TIM1_OC4: [1, "tim1_oc4"]
+    TIM2_TRGO: [2, "tim2_trgo"]
+    TIM15_TRGO: [3, "tim15_trgo"]
+    TIM6_TRGO: [4, "tim6_trgo"]
+    LPTIM1_CH1: [5, "lptim1_ch1"]
+    LPTIM3_CH2: [6, "lptim3_ch2"]
+    EXTI15: [7, "exti15"]
+  ALIGN:
+    Right: [0, "Right alignment"]
+    Left: [1, "Left alignment"]
+  SCANDIR:
+    Upward: [0, "Upward scan sequence (from CHSEL0 to CHSEL23)"]
+    Downward: [1, "Downward scan sequence (from CHSEL23 to CHSEL0)"]
+  RES:
+    TwelveBit: [0, "12 bits"]
+    TenBit: [1, "10 bits"]
+    EightBit: [2, "8 bits"]
+    SixBit: [3, "6 bits"]
+  DMACFG:
+    OneShot: [0, "One-shot mode selected"]
+    Circular: [1, "Circular mode selected"]
+  DMAEN:
+    Disabled: [0, "DMA disabled"]
+    Enabled: [1, "DMA enabled"]
+CFGR2:
+  OVSS: [0, 8]
+  OVSR: [0, 7]
+  OVSE:
+    Disabled: [0, "Oversampler disabled"]
+    Enabled: [1, "Oversampler enabled"]
+SMPR:
+  SMPSEL*:
+    SMP1: [0, "Sampling time of channel x uses the setting of SMP1 register."]
+    SMP2: [1, "Sampling time of channel x uses the setting of SMP2 register."]
+  SMP1,SMP2:
+    Cycles1_5: [0, "1.5 ADC clock cycles"]
+    Cycles3_5: [1, "3.5 ADC clock cycles"]
+    Cycles7_5: [2, "7.5 ADC clock cycles"]
+    Cycles12_5: [3, "12.5 ADC clock cycles"]
+    Cycles19_5: [4, "19.5 ADC clock cycles"]
+    Cycles39_5: [5, "39.5 ADC clock cycles"]
+    Cycles79_5: [6, "79.5 ADC clock cycles"]
+    Cycles814_5: [7, "814.5 ADC clock cycles"]
+AWD?TR:
+  HT?: [0, 0xFFF]
+  LT?: [0, 0xFFF]
+CHSELRMOD0:
+  _split: [CHSEL]
+  CHSEL*:
+    Disabled: [0, "Input channel x is not selected for conversion"]
+    Enabled: [1, "Input channel x is selected for conversion"]
+CHSELRMOD1:
+  SQ*:
+    Channel0: [0, "CH0"]
+    Channel1: [1, "CH1"]
+    Channel2: [2, "CH2"]
+    Channel3: [3, "CH3"]
+    Channel4: [4, "CH4"]
+    Channel5: [5, "CH5"]
+    Channel6: [6, "CH6"]
+    Channel7: [7, "CH7"]
+    Channel8: [8, "CH8"]
+    Channel9: [9, "CH9"]
+    Channel10: [10, "CH10"]
+    Channel11: [11, "CH11"]
+    Channel12: [12, "CH12"]
+    Channel13: [13, "CH13"]
+    Channel14: [14, "CH14"]
+    NoChannel: [15, "No channel selected (End of sequence)"]
+PWRR:
+  VREFSECSMP:
+    Disabled: [0, "VREF+ second sample disabled"]
+    Enabled: [1, "VREF+ second sample enabled"]
+  VREFPROT:
+    Disabled: [0, "VREF+ protection disabled"]
+    Enabled: [1, "VREF+ protection enabled"]
+  DPD:
+    Disabled: [0, "Deep-power-down mode disabled"]
+    Enabled: [1, "Deep-power-down mode enabled"]
+  AUTOFF:
+    Disabled: [0, "Auto-off mode disabled"]
+    Enabled: [1, "Auto-off mode enabled"]
+CALFACT:
+  CALFACT: [0, 0x7F]
+OR:
+  CHN21SEL:
+    Out1: [0, "dac1_out1 selected"]
+    Out2: [1, "dac1_out2 selected"]

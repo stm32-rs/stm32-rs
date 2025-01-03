@@ -1,0 +1,311 @@
+# ADC as used on U5
+
+ISR:
+  JEOS:
+    _read:
+      NotComplete:
+        [
+          0,
+          "Injected conversion sequence not complete (or the flag event was already acknowledged and cleared by software)",
+        ]
+      Complete: [1, "Injected conversions sequence complete"]
+    _write:
+      Clear: [1, "Clear the injected conversion sequence flag"]
+  JEOC:
+    _read:
+      NotComplete:
+        [
+          0,
+          "Injected channel conversion not complete (or the flag event was already acknowledged and cleared by software)",
+        ]
+      Complete: [1, "Injected channel conversion complete"]
+    _write:
+      Clear: [1, "Clear the injected channel conversion flag"]
+IER:
+  JEOSIE:
+    Disabled: [0, "JEOS interrupt disabled"]
+    Enabled:
+      [
+        1,
+        "JEOS interrupt enabled. An interrupt is generated when the JEOS bit is set.",
+      ]
+  JEOCIE:
+    Disabled: [0, "JEOC interrupt disable"]
+    Enabled:
+      [
+        1,
+        "JEOC interrupt enabled. An interrupt is generated when the JEOC bit is set.",
+      ]
+CR:
+  DEEPPWD:
+    Disabled: [0, "ADC not in deep-power down"]
+    Enabled: [1, "ADC in deep-power down"]
+  CALINDEX:
+    OffsetCalFactor: [0, "Offset calibration factor"]
+    CalFactor1: [1, "Calibration factor 1"]
+    CalFactor2: [2, "Calibration factor 2"]
+    CalFactor3: [3, "Calibration factor 3"]
+    CalFactor4: [4, "Calibration factor 4"]
+    CalFactor5: [5, "Calibration factor 5"]
+    CalFactor6: [6, "Calibration factor 6"]
+    CalFactor7:
+      [7, "Calibration factor 7 and (write access only) internal offset"]
+    InternalOffset: [8, "Internal offset (read access only)"]
+    CalibrationMode: [9, "Calibration mode selection"]
+  ADCALLIN:
+    Disabled:
+      [
+        0,
+        "Writing ADCAL launches a calibration without the linearity calibration",
+      ]
+    Enabled:
+      [1, "Writing ADCAL launches a calibration with he linearity calibration"]
+  JADSTP:
+    _read:
+      NotStopped: [0, "No ADC stop injected conversion command ongoing"]
+      Stopped: [1, "ADSTP command is in progress"]
+    _write:
+      Stop: [1, "Stop injected conversions ongoing"]
+  JADSTART:
+    _read:
+      NotActive: [0, "No ADC injected conversion is ongoing"]
+      Active:
+        [1, "ADC is operating and eventually converting an injected channel"]
+    _write:
+      Start: [1, "Start injected conversions"]
+CFGR1:
+  JAUTO:
+    Disabled: [0, "Automatic injected group conversion disabled"]
+    Enabled: [1, "Automatic injected group conversion enabled"]
+  JAWD1EN:
+    Disabled: [0, "Analog watchdog 1 disabled on injected channels"]
+    Enabled: [1, "Analog watchdog 1 enabled on injected channels"]
+  JDISCEN:
+    Disabled: [0, "Discontinuous mode on injected channels disabled"]
+    Enabled: [1, "Discontinuous mode on injected channels enabled"]
+  DISCNUM:
+    n1: [0, "1 channel"]
+    n2: [1, "2 channels"]
+    n3: [2, "3 channels"]
+    n4: [3, "4 channels"]
+    n5: [4, "5 channels"]
+    n6: [5, "6 channels"]
+    n7: [6, "7 channels"]
+    n8: [7, "8 channels"]
+  AUTDLY:
+    Disabled: [0, "Auto-delayed conversion mode off"]
+    Enabled: [1, "Auto-delayed conversion mode on"]
+  DMNGT:
+    DR: [0, "Store output data in DR only"]
+    DMA_OneShot: [1, "DMA One Shot Mode selected"]
+    DFSDM: [2, "DFSDM mode selected"]
+    DMA_Circular: [3, "DMA Circular Mode selected"]
+  EXTSEL:
+    TIM1_OC1: [0, "tim1_oc1"]
+    TIM1_OC2: [1, "tim1_oc2"]
+    TIM1_OC3: [2, "tim1_oc3"]
+    TIM2_OC2: [3, "tim2_oc2"]
+    TIM3_TRGO: [4, "tim3_trgo"]
+    TIM4_OC4: [5, "tim4_oc4"]
+    EXTI11: [6, "exti11"]
+    TIM8_TRGO: [7, "tim8_trgo"]
+    TIM8_TRGO2: [8, "tim8_trgo2"]
+    TIM1_TRGO: [9, "tim1_trgo"]
+    TIM1_TRGO2: [10, "tim1_trgo2"]
+    TIM2_TRGO: [11, "tim2_trgo"]
+    TIM4_TRGO: [12, "tim4_trgo"]
+    TIM6_TRGO: [13, "tim6_trgo"]
+    TIM15_TRGO: [14, "tim15_trgo"]
+    TIM3_OC4: [15, "tim3_oc4"]
+    EXTI15: [16, "exti15"]
+    LPTIM1_CH1: [18, "lptim1_ch1"]
+    LPTIM2_CH1: [19, "lptim2_ch1"]
+    LPTIM3_CH1: [20, "lptim3_ch1"]
+    LPTIM4_OUT: [21, "lptim4_out"]
+  RES:
+    FourteenBit: [0, "14 bits"]
+    TwelveBit: [1, "12 bits"]
+    TenBit: [2, "10 bits"]
+    EightBit: [3, "8 bits"]
+CFGR2:
+  LSHIFT: [0, 15]
+  OSR: [0, 1023]
+  SMPTRIG:
+    Disabled: [0, "Sampling time control trigger mode disabled"]
+    Enabled: [1, "Sampling time control trigger mode enabled"]
+  SWTRIG:
+    Disabled:
+      [
+        0,
+        "Software trigger starts the conversion for sampling time control trigger mode",
+      ]
+    Enabled:
+      [
+        1,
+        "Software trigger starts the sampling for sampling time control trigger mode",
+      ]
+  BULB:
+    Disabled: [0, "Bulb sampling mode disabled"]
+    Enabled:
+      [
+        1,
+        "Bulb sampling mode enabled. The sampling period starts just after the previous end of the conversion.",
+      ]
+  ROVSM:
+    Continued:
+      [
+        0,
+        "When injected conversions are triggered, the oversampling is temporary stopped and continued after the injection sequence (oversampling buffer is maintained during injected sequence)",
+      ]
+    Resumed:
+      [
+        1,
+        "When injected conversions are triggered, the current oversampling is aborted and resumed from start after the injection sequence (oversampling buffer is zeroed by injected sequence start)",
+      ]
+  OVSS: [0, 11]
+  JOVSE:
+    Disabled: [0, "Injected oversampling disabled"]
+    Enabled: [1, "Injected oversampling enabled"]
+  ROVSE:
+    Disabled: [0, "Regular oversampling disabled"]
+    Enabled: [1, "Regular oversampling enabled"]
+SMPR?:
+  SMP*:
+    Cycles5: [0, "5 ADC clock cycles"]
+    Cycles6: [1, "6 ADC clock cycles"]
+    Cycles12: [2, "12 ADC clock cycles"]
+    Cycles20: [3, "20 ADC clock cycles"]
+    Cycles36: [4, "36 ADC clock cycles"]
+    Cycles68: [5, "68 ADC clock cycles"]
+    Cycles391: [6, "391 ADC clock cycles"]
+    Cycles814: [7, "814 ADC clock cycles"]
+PCSEL:
+  "PCSEL*":
+    NotPreselected:
+      [
+        0,
+        "Input channel x is not preselected for conversion, the ADC conversion of this channel shows a wrong result.",
+      ]
+    Preselected: [1, "Input channel x is preselected for conversion"]
+SQR?,JSQR:
+  SQ*,JSQ*: [0, 31]
+SQR1:
+  L: [0, 15]
+JSQR:
+  JEXTEN:
+    Disabled:
+      [
+        0,
+        "Hardware trigger detection disabled (conversions can be launched by software)",
+      ]
+    RisingEdge: [1, "Hardware trigger detection on the rising edge"]
+    FallingEdge: [2, "Hardware trigger detection on the falling edge"]
+    BothEdges:
+      [3, "Hardware trigger detection on both the rising and falling edges"]
+  JEXTSEL:
+    TIM1_TRGO: [0, "tim1_trgo"]
+    TIM1_OC4: [1, "tim1_oc4"]
+    TIM2_TRGO: [2, "tim2_trgo"]
+    TIM2_OC1: [3, "tim2_oc1"]
+    TIM3_OC4: [4, "tim3_oc4"]
+    TIM4_TRGO: [5, "tim4_trgo"]
+    EXTI15: [6, "exti15"]
+    TIM8_OC4: [7, "tim8_oc4"]
+    TIM1_TRGO2: [8, "tim1_trgo2"]
+    TIM8_TRGO: [9, "tim8_trgo"]
+    TIM8_TRGO2: [10, "tim8_trgo2"]
+    TIM3_OC3: [11, "tim3_oc3"]
+    TIM3_TRGO: [12, "tim3_trgo"]
+    TIM3_OC1: [13, "tim3_oc1"]
+    TIM6_TRGO: [14, "tim6_trgo"]
+    TIM15_TRGO: [15, "tim15_trgo"]
+    LPTIM1_CH2: [16, "lptim1_ch2"]
+    LPTIM2_CH2: [17, "lptim2_ch2"]
+    LPTIM3_CH1: [18, "lptim3_ch1"]
+    LPTIM4_OUT1: [19, "lptim4_out1"]
+  JL: [0, 3]
+OFR?:
+  OFFSET_CH: [0, 0x1F]
+  SSAT:
+    Disabled:
+      [
+        0,
+        "Offset is subtracted maintaining data integrity and extending converted data size (9-bit and 15-bit signed format)",
+      ]
+    Enabled:
+      [
+        1,
+        "Offset is subtracted and result is saturated to maintain converted data size",
+      ]
+  USAT:
+    Disabled:
+      [
+        0,
+        "Offset is subtracted maintaining data integrity and keeping converted data size",
+      ]
+    Enabled:
+      [
+        1,
+        "Offset is subtracted and result is saturated to maintain converted data size",
+      ]
+  POSOFF:
+    Negative: [0, "Negative offset"]
+    Positive: [1, "Positive offset"]
+  OFFSET: [0, 0xFFFFFF]
+GCOMP:
+  GCOMP:
+    Disabled: [0, Regular ADC operating mode]
+    Enabled: [1, Gain compensation enabled and applied to all channels]
+  GCOMPCOEFF: [0, 0x3FFF]
+JDR?:
+  JDATA: [0, 0xFFFFFFFF]
+LTR?:
+  LTR?: [0, 0x1FFFFFF]
+HTR?:
+  HTR?: [0, 0x1FFFFFF]
+HTR1:
+  AWDFILT1:
+    NoFiltering: [0, "No filtering"]
+    Detections2:
+      [1, "Two consecutive detections generates an AWDx flag or an interrupt"]
+    Detections3:
+      [2, "Three consecutive detections generates an AWDx flag or an interrupt"]
+    Detections4:
+      [3, "Four consecutive detections generates an AWDx flag or an interrupt"]
+    Detections5:
+      [4, "Five consecutive detections generates an AWDx flag or an interrupt"]
+    Detections6:
+      [5, "Six consecutive detections generates an AWDx flag or an interrupt"]
+    Detections7:
+      [6, "Seven consecutive detections generates an AWDx flag or an interrupt"]
+    Detections8:
+      [7, "Eight consecutive detections generates an AWDx flag or an interrupt"]
+DIFSEL:
+  DIFSEL*:
+    SingleEnded:
+      [0, "ADC analog input channel x is configured in single-ended mode"]
+    Differential:
+      [1, "ADC analog input channel x is configured in differential mode"]
+CALFACT:
+  CAPTURE_COEF:
+    Disabled: [0, "Calibration factor not captured"]
+    Enabled:
+      [
+        1,
+        "Calibration factor available in CALFACT[31:0] bits, the calibration factor index being defined by CALINDEX[3:0] bits",
+      ]
+  LATCH_COEF:
+    NoEffect: [0, "No effect"]
+    Latch:
+      [
+        1,
+        "Calibration factor latched in the analog block on LATCH_COEF bit transition from 0 to 1. Prior to latching the calibration factor, CALFACT[31:0] bits must be programmed with the content of CALINDEX[3:0] bits.",
+      ]
+  VALIDITY:
+    _read:
+      InProgress: [0, "Operation still in progress"]
+      Complete: [1, "Operation complete"]
+  I_APB_DATA: [0, 0xFF]
+  I_APB_ADDR: [0, 0xFF]
+CALFACT2:
+  CALFACT: [0, 0xFFFFFFFF]

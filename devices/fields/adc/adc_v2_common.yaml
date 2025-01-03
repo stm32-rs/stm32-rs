@@ -1,0 +1,14 @@
+# ADC as used on F2, F4 and F7
+
+CCR:
+  TSVREFE:
+    Disabled: [0, "Temperature sensor and V_REFINT channel disabled"]
+    Enabled: [1, "Temperature sensor and V_REFINT channel enabled"]
+  VBATE:
+    Disabled: [0, "V_BAT channel disabled"]
+    Enabled: [1, "V_BAT channel enabled"]
+  ADCPRE:
+    Div2: [0, "PCLK2 divided by 2"]
+    Div4: [1, "PCLK2 divided by 4"]
+    Div6: [2, "PCLK2 divided by 6"]
+    Div8: [3, "PCLK2 divided by 8"]

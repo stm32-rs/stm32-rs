@@ -15,6 +15,7 @@ _delete:
   - USB_SRAM
 
 ADC:
+  _include: fields/adc/adc_l0.yaml
   CFGR1:
     _modify:
       AUTDLY:
@@ -166,7 +167,6 @@ _include:
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/unprefix_registers.yaml
   - patches/usb/rename_EPxR_EPTYPE_field.yaml
-  - fields/adc/adc_l0.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

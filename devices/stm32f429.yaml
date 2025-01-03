@@ -15,9 +15,20 @@ _derive:
   UART7: UART4
   UART8: UART4
 
+ADC_Common:
+  _include:
+    - patches/adc/multi.yaml
+    - fields/adc/adc_v2_multi.yaml
+
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
@@ -215,10 +226,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/adc/multi.yaml
-  - fields/adc/adc_v2_multi.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_c.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml

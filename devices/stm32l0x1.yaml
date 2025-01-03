@@ -12,6 +12,7 @@ _modify:
     name: SYSCFG
 
 ADC:
+  _include: fields/adc/adc_l0.yaml
   CFGR1:
     _modify:
       AUTDLY:
@@ -153,7 +154,6 @@ _include:
   - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
   - patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/usart/merge_BRR_fields.yaml
-  - fields/adc/adc_l0.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

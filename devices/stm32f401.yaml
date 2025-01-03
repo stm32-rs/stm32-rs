@@ -8,9 +8,26 @@ _rebase:
   I2C1: I2C3
   SPI1: I2S2ext
 
+ADC_Common:
+  CCR:
+    _delete:
+      - DMA
+      - DDS
+      - DELAY
+  _delete:
+    - CSR
+  _include:
+    - fields/adc/adc_v2_common.yaml
+
 ADC1:
   _include:
     - patches/adc/smpx_18.yaml
+
+"ADC?":
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_b.yaml
+    - collect/adc/jofr_jdr.yaml
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0368
@@ -133,8 +150,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/adc/f4_no_csr.yaml
-  - patches/adc/f4_single_ccr.yaml
   - patches/rcc/spi4.yaml
   - patches/rcc/rename_plli2scfgr.yaml
   - patches/rcc/f4_dckcfgr.yaml
@@ -149,9 +164,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/adc/adc_v2.yaml
-  - fields/adc/adc_v2/adc_v2_extsel_b.yaml
-  - collect/adc/jofr_jdr.yaml
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
