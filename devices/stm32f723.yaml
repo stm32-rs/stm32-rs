@@ -92,6 +92,7 @@ TIM1[0134]:
 
 TIM[18]:
   _include:
+    - patches/tim/dmab_32.yaml
     - patches/tim/v2/add_cc5if.yaml
     - fields/tim/tim_advanced.yaml
   _modify:
@@ -117,7 +118,6 @@ TIM9:
 
 "TIM[1-58]":
   _include:
-    - patches/tim/dmab_32.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml

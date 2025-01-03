@@ -169,6 +169,7 @@ TIM[16]:
 
 TIM[18]:
   _include:
+    - patches/tim/dmab_32.yaml
     - patches/tim/v2/add_cc4np.yaml
     - patches/tim/v2/add_bkf.yaml
     - patches/tim/v2/add_af.yaml
@@ -203,7 +204,6 @@ TIM9:
 
 "TIM[1-58]":
   _include:
-    - patches/tim/dmab_32.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
