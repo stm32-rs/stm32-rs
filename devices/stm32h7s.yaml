@@ -2,6 +2,11 @@ _svd: ../svd/stm32h7s.svd
 
 _clear_fields: "*"
 
+ADC?:
+  _strip: ADC_
+  CFGR:
+    _merge: "EXTSEL*"
+
 CRYP:
   _strip: CRYP_
   _cluster:

@@ -1,0 +1,24 @@
+CFGR2:
+  _modify:
+    OSR:
+      name: OSVR
+SQR1:
+  _modify:
+    L3:
+      name: L
+SMPR1:
+  _add:
+    SMP0:
+      description: ADC channel 0 sampling time selection
+      bitOffset: 0
+      bitWidth: 3
+      access: read-write
+SMPR2:
+  _modify:
+    SMP19:
+      description: ADC channel 19 sampling time selection
+
+CFGR:
+  _modify:
+    AWDCH1CH:
+      name: AWD1CH

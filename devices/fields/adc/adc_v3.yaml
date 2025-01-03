@@ -171,12 +171,10 @@ JSQR:
   JL: [0, 3] # Total number of conversions in injected sequence
   "JSQ?": [0, 19] # Channel number for Nth item in injected sequence
 AWD2CR:
-  _split: [AWD2CH]
   "AWD2CH*":
     NotMonitored: [0, "Input channel not monitored by AWDx"]
     Monitored: [1, "Input channel monitored by AWDx"]
 AWD3CR:
-  _split: [AWD3CH]
   "AWD3CH*":
     NotMonitored: [0, "Input channel not monitored by AWDx"]
     Monitored: [1, "Input channel monitored by AWDx"]
@@ -187,7 +185,6 @@ SQR?:
   "SQ*": [0, 19] # Channel number for Nth item in regular seqeunce
 # Differential mode
 DIFSEL:
-  _split: ["DIFSEL*"]
   "DIFSEL*":
     SingleEnded: [0, "Input channel is configured in single-ended mode"]
     Differential: [1, "Input channel is configured in differential mode"]

@@ -1,6 +1,8 @@
 # ADC v3 with H7 specific fields
 
-_include: adc_v3.yaml
+_include:
+  - ../../patches/adc/split.yaml
+  - adc_v3.yaml
 CR:
   ADVREGEN:
     Disabled: [0, "ADC voltage regulator disabled"]
