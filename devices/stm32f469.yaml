@@ -277,11 +277,12 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
+  - patches/usart/v1.yaml
+  - patches/usart/f4_add_UART_GTPR.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_sample.yaml
   - fields/usart/uart_uart.yaml
   - fields/usart/uart_usart.yaml
-  - patches/usart/f4_add_UART_GTPR.yaml
   - patches/fsmc/fsmc_sramfix.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml

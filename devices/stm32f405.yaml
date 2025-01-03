@@ -238,11 +238,12 @@ _include:
   - fields/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
   - patches/tim/group.yaml
+  - patches/usart/v1.yaml
+  - patches/usart/f4_add_UART_GTPR.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_sample.yaml
   - fields/usart/uart_uart.yaml
   - fields/usart/uart_usart.yaml
-  - patches/usart/f4_add_UART_GTPR.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency8.yaml
   - collect/hash/v2.yaml
