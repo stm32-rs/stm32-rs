@@ -210,11 +210,12 @@ _include:
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency8.yaml
+  - patches/usart/v1.yaml
+  - patches/usart/f4_add_UART_GTPR.yaml
   - fields/usart/uart_usart.yaml
   - fields/usart/uart_sample.yaml
   - fields/usart/uart_uart.yaml
   - fields/usart/uart_common.yaml
-  - patches/usart/f4_add_UART_GTPR.yaml
   - collect/hash/v2.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/f4_cr.yaml
