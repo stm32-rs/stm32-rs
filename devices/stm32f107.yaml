@@ -82,6 +82,7 @@ SPI?:
 
 "TIM*":
   _include:
+    - patches/16bit.yaml
     - fields/tim/tim_no_opm.yaml
     - fields/tim/tim_opm.yaml
 

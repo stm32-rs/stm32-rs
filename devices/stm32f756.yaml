@@ -127,7 +127,20 @@ SYSCFG:
   _delete:
     - SMCR
 
+"TIM[1346-9],TIM1?,TIM20":
+  _modify:
+    "ARR,RCR,CCR?":
+      size: 16
+
+"TIM[2-79],TIM1?":
+  _modify:
+    "CR2,SR,CCER,DMAR,TIM?_OR":
+      size: 16
+
 "TIM*":
+  _modify:
+    "CR1,DIER,EGR,CCMR?_Input,PSC,DCR":
+      size: 16
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
