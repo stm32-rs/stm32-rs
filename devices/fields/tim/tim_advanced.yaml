@@ -13,30 +13,29 @@ CR2:
     Set: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
 BDTR:
   MOE:
-    DisabledIdle: [0, "OC/OCN are disabled or forced idle depending on OSSI"]
-    Enabled: [1, "OC/OCN are enabled if CCxE/CCxNE are set"]
+    DisabledIdle: [0, OC/OCN are disabled or forced idle depending on OSSI]
+    Enabled: [1, OC/OCN are enabled if CCxE/CCxNE are set]
   AOE:
-    Manual: [0, "MOE can be set only by software"]
+    Manual: [0, MOE can be set only by software]
     Automatic:
       [
         1,
-        "MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active)",
+        MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active),
       ]
   "BKP,BK2P":
-    ActiveLow: [0, "Break input BRKx is active low"]
-    ActiveHigh: [1, "Break input BRKx is active high"]
+    ActiveLow: [0, Break input BRKx is active low]
+    ActiveHigh: [1, Break input BRKx is active high]
   "BKE,BK2E":
-    Disabled: [0, "Break function x disabled"]
-    Enabled: [1, "Break function x disabled"]
+    Disabled: [0, Break function x disabled]
+    Enabled: [1, Break function x disabled]
   OSSR:
     Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
-    IdleLevel:
-      [1, "When inactive, OC/OCN outputs are enabled with their inactive level"]
+    IdleLevel: [1, "When inactive, OC/OCN outputs are enabled with their inactive level"]
   OSSI:
     Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
     IdleLevel: [1, "When inactive, OC/OCN outputs are forced to idle level"]
   LOCK:
-    "Off": [0, "No bit is write protected"]
+    "Off": [0, No bit is write protected]
     Level1:
       [
         1,

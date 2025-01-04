@@ -1,6 +1,6 @@
 _cluster:
-  "CH%s":
-    description: "DFSDM channel configuration cluster"
+  CH%s:
+    description: DFSDM channel configuration cluster
     CHCFG?R1:
       name: CFGR1
     CHCFG?R2:
@@ -12,7 +12,7 @@ _cluster:
     CHDATIN?R:
       name: DATINR
 
-  "FLT%s":
+  FLT%s:
     description: "DFSDM cluster: CR1, CR2, ISR, ICR, JCHGR, FCR, JDATAR, RDATAR, AWHTR, AWLTR, AWSR, AWCFR, EXMAX, EXMIN, CNVTIMR registers"
     "DFSDM[0123]_CR1":
       name: CR1

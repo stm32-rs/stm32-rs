@@ -1,13 +1,13 @@
 _include: common.yaml
 CR1:
-  "AD?USRC":
-    Master: [0, "ADC trigger update from master timer"]
-    TimerA: [1, "ADC trigger update from timer A"]
-    TimerB: [2, "ADC trigger update from timer B"]
-    TimerC: [3, "ADC trigger update from timer C"]
-    TimerD: [4, "ADC trigger update from timer D"]
-    TimerE: [5, "ADC trigger update from timer E"]
+  AD?USRC:
+    Master: [0, ADC trigger update from master timer]
+    TimerA: [1, ADC trigger update from timer A]
+    TimerB: [2, ADC trigger update from timer B]
+    TimerC: [3, ADC trigger update from timer C]
+    TimerD: [4, ADC trigger update from timer D]
+    TimerE: [5, ADC trigger update from timer E]
 "FLTINR[12]":
   "FLT[1-6]SRC":
-    Input: [0, "Fault input is FLTx input pin"]
-    Internal: [1, "Fault input is FLTn_Int signal"]
+    Input: [0, Fault input is FLTx input pin]
+    Internal: [1, Fault input is FLTn_Int signal]

@@ -1,32 +1,28 @@
 CCMR1_Input:
   IC2PSC: [0, 3]
   IC1PSC:
-    NoPrescaler:
-      [
-        0,
-        "no prescaler, capture is done each time an edge is detected on the capture input",
-      ]
-    Two_Events: [1, "Capture is done once every 2 events"]
-    Four_Events: [2, "Capture is done once every 4 events"]
-    Eight_Events: [3, "Capture is done once every 8 events"]
+    NoPrescaler: [0, "no prescaler, capture is done each time an edge is detected on the capture input"]
+    Two_Events: [1, Capture is done once every 2 events]
+    Four_Events: [2, Capture is done once every 4 events]
+    Eight_Events: [3, Capture is done once every 8 events]
 CCER:
-  "CC?NP":
-    Negative: [0, "Negative polarity"]
-    Positive: [1, "Positive polarity"]
-  "CC?P":
-    RisingEdge: [0, "Noninverted/rising edge"]
-    FallingEdge: [1, "Inverted/falling edge"]
-  "CC?E":
-    Disabled: [0, "Capture disabled"]
-    Enabled: [1, "Capture enabled"]
+  CC?NP:
+    Negative: [0, Negative polarity]
+    Positive: [1, Positive polarity]
+  CC?P:
+    RisingEdge: [0, Noninverted/rising edge]
+    FallingEdge: [1, Inverted/falling edge]
+  CC?E:
+    Disabled: [0, Capture disabled]
+    Enabled: [1, Capture enabled]
 DMAR:
   DMAB: [0, 0xFFFF]
 OR:
   TI4_RMP:
-    COMP2_OUT: [1, "TIM2 TI4 input connected to COMP2_OUT"]
-    COMP1_OUT: [2, "TIM2 TI4 input connected to COMP1_OUT"]
+    COMP2_OUT: [1, TIM2 TI4 input connected to COMP2_OUT]
+    COMP1_OUT: [2, TIM2 TI4 input connected to COMP1_OUT]
   ETR_RMP:
-    COMP1_OUT: [7, "TIM2 ETR input is connected to COMP1_OUT"]
-    COMP2_OUT: [6, "TIM2 ETR input is connected to COMP2_OUT"]
-    LSE: [5, "TIM2 ETR input is connected to LSE"]
-    HSI: [3, "TIM2 ETR input is connected to HSI16 when HSI16OUTEN bit is set"]
+    COMP1_OUT: [7, TIM2 ETR input is connected to COMP1_OUT]
+    COMP2_OUT: [6, TIM2 ETR input is connected to COMP2_OUT]
+    LSE: [5, TIM2 ETR input is connected to LSE]
+    HSI: [3, TIM2 ETR input is connected to HSI16 when HSI16OUTEN bit is set]

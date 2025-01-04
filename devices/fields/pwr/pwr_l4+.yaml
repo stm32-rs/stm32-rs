@@ -1,148 +1,164 @@
 PWR:
   CR1:
     LPR:
-      MainMode: [ 0, "Main Mode" ]
-      LowPowerMode: [ 1, "Low Power Mode" ]
+      MainMode: [0, Main Mode]
+      LowPowerMode: [1, Low Power Mode]
     VOS:
-      Range1: [ 1, "Range 1" ]
-      Range2: [ 2, "Range 1" ]
+      Range1: [1, Range 1]
+      Range2: [2, Range 1]
     DBP:
-      Disabled: [ 0, "Access to RTC and Backup registers disabled" ]
-      Enabled: [ 1, "Access to RTC and Backup registers enabled" ]
+      Disabled: [0, Access to RTC and Backup registers disabled]
+      Enabled: [1, Access to RTC and Backup registers enabled]
     RRSTP:
-      Disabled: [ 0, "SRAM3 is powered off in Stop 2 mode (SRAM3 content is lost)" ]
-      Enabled: [ 1, "SRAM3 is powered in Stop 2 mode (RAM3 content is kept)" ]
+      Disabled: [0, SRAM3 is powered off in Stop 2 mode (SRAM3 content is lost)]
+      Enabled: [1, SRAM3 is powered in Stop 2 mode (RAM3 content is kept)]
     LPMS:
-      Stop0: [ 0, "Stop 0 mode" ]
-      Stop1: [ 1, "Stop 1 mode" ]
-      Stop2: [ 2, "Stop 2 mode" ]
-      Standby: [ 3, "Standby mode" ]
-      Shutdown: [ 4, "Shutdown mode" ]
+      Stop0: [0, Stop 0 mode]
+      Stop1: [1, Stop 1 mode]
+      Stop2: [2, Stop 2 mode]
+      Standby: [3, Standby mode]
+      Shutdown: [4, Shutdown mode]
 
   CR2:
     USV:
-      NotPresent: [ 0, "VDDUSB is not present. Logical and electrical isolation is applied to ignore this supply" ]
-      Valid: [ 1, "VDDUSB is valid" ]
+      NotPresent: [0, VDDUSB is not present. Logical and electrical isolation is applied to ignore this supply]
+      Valid: [1, VDDUSB is valid]
     IOSV:
-      NotPresent: [ 0, "VDDIO2 is not present. Logical and electrical isolation is applied to ignore this supply" ]
-      Valid: [ 1, "VDDIO2 is valid" ]
+      NotPresent: [0, VDDIO2 is not present. Logical and electrical isolation is applied to ignore this supply]
+      Valid: [1, VDDIO2 is valid]
     PVME4:
-      Disabled: [ 0, "PVM4 (VDDA monitoring vs. 2.2V threshold) disable" ]
-      Enabled: [ 1, "PVM4 (VDDA monitoring vs. 2.2V threshold) enable" ]
+      Disabled: [0, PVM4 (VDDA monitoring vs. 2.2V threshold) disable]
+      Enabled: [1, PVM4 (VDDA monitoring vs. 2.2V threshold) enable]
     PVME3:
-      Disabled: [ 0, "PVM3 (VDDA monitoring vs. 1.62V threshold) disable" ]
-      Enabled: [ 1, "PVM3 (VDDA monitoring vs. 1.62V threshold) enable" ]
+      Disabled: [0, PVM3 (VDDA monitoring vs. 1.62V threshold) disable]
+      Enabled: [1, PVM3 (VDDA monitoring vs. 1.62V threshold) enable]
     PVME2:
-      Disabled: [ 0, "PVM2 (VDDIO2 monitoring vs. 0.9V threshold) disable" ]
-      Enabled: [ 1, "PVM2 (VDDIO2 monitoring vs. 0.9V threshold) enable" ]
+      Disabled: [0, PVM2 (VDDIO2 monitoring vs. 0.9V threshold) disable]
+      Enabled: [1, PVM2 (VDDIO2 monitoring vs. 0.9V threshold) enable]
     PVME1:
-      Disabled: [ 0, "PVM2 (VDDUSB monitoring vs. 1.2V threshold) disable" ]
-      Enabled: [ 1, "PVM2 (VDDUSB monitoring vs. 1.2V threshold) enable" ]
+      Disabled: [0, PVM2 (VDDUSB monitoring vs. 1.2V threshold) disable]
+      Enabled: [1, PVM2 (VDDUSB monitoring vs. 1.2V threshold) enable]
     PLS:
-      VPVD0: [ 0, "VPVD0 around 2.0 V" ]
-      VPVD1: [ 1, "VPVD1 around 2.2 V" ]
-      VPVD2: [ 2, "VPVD2 around 2.4 V" ]
-      VPVD3: [ 3, "VPVD3 around 2.5 V" ]
-      VPVD4: [ 4, "VPVD4 around 2.6 V" ]
-      VPVD5: [ 5, "VPVD5 around 2.8 V" ]
-      VPVD6: [ 6, "VPVD6 around 2.9 V" ]
-      PVDIN: [ 7, "External input analog voltage PVD_IN (compared internally to VREFINT)" ]
+      VPVD0: [0, VPVD0 around 2.0 V]
+      VPVD1: [1, VPVD1 around 2.2 V]
+      VPVD2: [2, VPVD2 around 2.4 V]
+      VPVD3: [3, VPVD3 around 2.5 V]
+      VPVD4: [4, VPVD4 around 2.6 V]
+      VPVD5: [5, VPVD5 around 2.8 V]
+      VPVD6: [6, VPVD6 around 2.9 V]
+      PVDIN: [7, External input analog voltage PVD_IN (compared internally to VREFINT)]
     PVDE:
-      Disabled: [ 0, "Power voltage detector disabled" ]
-      Enabled: [ 1, "Power voltage detector enabled" ]
+      Disabled: [0, Power voltage detector disabled]
+      Enabled: [1, Power voltage detector enabled]
 
   CR3:
     EIWUL:
-      Disabled: [ 0, "Internal wakeup line disable" ]
-      Enabled: [ 1, "Internal wakeup line enable" ]
+      Disabled: [0, Internal wakeup line disable]
+      Enabled: [1, Internal wakeup line enable]
     DSIPDEN:
-      Disabled: [ 0, "Pull-Down is disabled on DSI pins" ]
-      Enabled: [ 1, "Pull-Down is enabled on DSI pins" ]
+      Disabled: [0, Pull-Down is disabled on DSI pins]
+      Enabled: [1, Pull-Down is enabled on DSI pins]
     ENULP:
-      Disabled: [ 0, "Sampling disabled" ]
-      Enabled: [ 1, "When this bit is set, the BORL, BORH and PVD are periodically sampled instead continuous monitoring to reduce power consumption. Fast supply drop between two sample/compare phases is not detected in this mode. This bit has impact only on STOP2, Standby and shutdown low power modes" ]
+      Disabled: [0, Sampling disabled]
+      Enabled:
+        [
+          1,
+          "When this bit is set, the BORL, BORH and PVD are periodically sampled instead continuous monitoring to reduce power consumption. Fast supply drop between two sample/compare phases is not detected in this mode. This bit has impact only on STOP2, Standby and shutdown low power modes",
+        ]
     APC:
-      Disabled: [ 0, "Configurations are not applied" ]
-      Enabled: [ 1, "When this bit is set, the I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied. When this bit is cleared, the PWR_PUCRx and PWR_PDCRx registers are not applied to the I/Os, instead the I/Os will be in floating mode during Standby or configured according GPIO controller GPIOx_PUPDR register during Run mode" ]
+      Disabled: [0, Configurations are not applied]
+      Enabled:
+        [
+          1,
+          "When this bit is set, the I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied. When this bit is cleared, the PWR_PUCRx and PWR_PDCRx registers are not applied to the I/Os, instead the I/Os will be in floating mode during Standby or configured according GPIO controller GPIOx_PUPDR register during Run mode",
+        ]
     RRS:
-      PoweredOff: [ 0, "SRAM2 is powered off in Standby mode (SRAM2 content is lost)" ]
-      PoweredOn: [ 1, "Full SRAM2 is powered by the low-power regulator in Standby mode (SRAM2 full content is kept)" ]
-      PartialPoweredOn: [ 2, "Only 4 Kbytes of SRAM2 is powered by the low-power regulator in Standby mode (4 Kbytes of SRAM2 content is kept)" ]
+      PoweredOff: [0, SRAM2 is powered off in Standby mode (SRAM2 content is lost)]
+      PoweredOn: [1, Full SRAM2 is powered by the low-power regulator in Standby mode (SRAM2 full content is kept)]
+      PartialPoweredOn:
+        [
+          2,
+          Only 4 Kbytes of SRAM2 is powered by the low-power regulator in Standby mode (4 Kbytes of SRAM2 content is kept),
+        ]
     EWUP?:
-      Disabled: [ 0, "External Wakeup pin WKUPx is disabled" ]
-      Enabled: [ 1, "When this bit is set, the external wakeup pin WKUPx is enabled and triggers a wakeup from Standby or Shutdown event when a rising or a falling edge occurs. The active edge is configured via the WPx bit in the PWR_CR4 register" ]
+      Disabled: [0, External Wakeup pin WKUPx is disabled]
+      Enabled:
+        [
+          1,
+          "When this bit is set, the external wakeup pin WKUPx is enabled and triggers a wakeup from Standby or Shutdown event when a rising or a falling edge occurs. The active edge is configured via the WPx bit in the PWR_CR4 register",
+        ]
 
   CR4:
     EXT_SMPS_ON:
-      Disabled: [ 0, "The external SMPS switch is open" ]
-      Enabled: [ 1, "The external SMPS switch is closed, internal regulator output is set to 0.95 V" ]
+      Disabled: [0, The external SMPS switch is open]
+      Enabled: [1, "The external SMPS switch is closed, internal regulator output is set to 0.95 V"]
     VBRS:
-      R5k: [ 0, "Charge VBAT through a 5 kOhms resistor" ]
-      R1k5: [ 1, "Charge VBAT through a 1.5 kOhms resistor" ]
+      R5k: [0, Charge VBAT through a 5 kOhms resistor]
+      R1k5: [1, Charge VBAT through a 1.5 kOhms resistor]
     VBE:
-      Disabled: [ 0, "VBAT battery charging disable" ]
-      Enabled: [ 1, "VBAT battery charging enable" ]
+      Disabled: [0, VBAT battery charging disable]
+      Enabled: [1, VBAT battery charging enable]
     WP?:
-      RisingEdge: [ 0, "Detection on high level (rising edge)" ]
-      FallingEdge: [ 1, "Detection on low level (falling edge)" ]
+      RisingEdge: [0, Detection on high level (rising edge)]
+      FallingEdge: [1, Detection on low level (falling edge)]
 
   SR1:
     WUFI:
-      Set: [ 0, "This bit is set when a wakeup is detected on the internal wakeup line" ]
-      Cleared: [ 1, "It is cleared when all internal wakeup sources are cleared" ]
+      Set: [0, This bit is set when a wakeup is detected on the internal wakeup line]
+      Cleared: [1, It is cleared when all internal wakeup sources are cleared]
     EXT_SMPS_RDY:
-      NotReady: [ 0, "Internal regulator not ready in Range 2, the external SMPS cannot be connected" ]
-      Ready: [ 1, "Internal regulator ready in Range 2, the external SMPS can be connected" ]
+      NotReady: [0, "Internal regulator not ready in Range 2, the external SMPS cannot be connected"]
+      Ready: [1, "Internal regulator ready in Range 2, the external SMPS can be connected"]
     SBF:
-      Set: [ 0, "The device did not enter the Standby mode" ]
-      Cleared: [ 1, "The device entered the Standby mode" ]
+      Set: [0, The device did not enter the Standby mode]
+      Cleared: [1, The device entered the Standby mode]
     "WUF[12345]":
-      Set: [ 0, "This bit is set when a wakeup event is detected on wakeup pin, WKUPx" ]
-      Cleared: [ 1, "No wakeup event detected on WKUPx" ]
+      Set: [0, "This bit is set when a wakeup event is detected on wakeup pin, WKUPx"]
+      Cleared: [1, No wakeup event detected on WKUPx]
 
   SR2:
     PVMO4:
-      Above: [ 0, "VDDA voltage is above PVM4 threshold (around 2.2 V)" ]
-      Below: [ 1, "VDDA voltage is below PVM4 threshold (around 2.2 V)" ]
+      Above: [0, VDDA voltage is above PVM4 threshold (around 2.2 V)]
+      Below: [1, VDDA voltage is below PVM4 threshold (around 2.2 V)]
     PVMO3:
-      Above: [ 0, "VDDA voltage is above PVM3 threshold (around 1.62 V)" ]
-      Below: [ 1, "VDDA voltage is below PVM3 threshold (around 1.62 V)" ]
+      Above: [0, VDDA voltage is above PVM3 threshold (around 1.62 V)]
+      Below: [1, VDDA voltage is below PVM3 threshold (around 1.62 V)]
     PVMO2:
-      Above: [ 0, "VDDIO2 voltage is above PVM2 threshold (around 0.9 V)" ]
-      Below: [ 1, "VDDIO2 voltage is below PVM2 threshold (around 0.9 V)" ]
+      Above: [0, VDDIO2 voltage is above PVM2 threshold (around 0.9 V)]
+      Below: [1, VDDIO2 voltage is below PVM2 threshold (around 0.9 V)]
     PVMO1:
-      Above: [ 0, "VDDUSB voltage is above PVM1 threshold (around 1.2 V)" ]
-      Below: [ 1, "VDDUSB voltage is below PVM1 threshold (around 1.2 V)" ]
+      Above: [0, VDDUSB voltage is above PVM1 threshold (around 1.2 V)]
+      Below: [1, VDDUSB voltage is below PVM1 threshold (around 1.2 V)]
     PVDO:
-      Above: [ 0, "VDD is above the selected PVD threshold" ]
-      Below: [ 1, "VDD is below the selected PVD threshold" ]
+      Above: [0, VDD is above the selected PVD threshold]
+      Below: [1, VDD is below the selected PVD threshold]
     VOSF:
-      Ready: [ 0, "The regulator is ready in the selected voltage range" ]
-      NotReady: [ 1, "The regulator output voltage is changing to the required voltage level" ]
+      Ready: [0, The regulator is ready in the selected voltage range]
+      NotReady: [1, The regulator output voltage is changing to the required voltage level]
     REGLPF:
-      MR: [ 0, "The regulator is ready in main mode (MR)" ]
-      LPR: [ 1, "The regulator is in low-power mode (LPR)" ]
+      MR: [0, The regulator is ready in main mode (MR)]
+      LPR: [1, The regulator is in low-power mode (LPR)]
     REGLPS:
-      NotReady: [ 0, "The low-power regulator is not ready" ]
-      Ready: [ 1, "The low-power regulator is ready" ]
+      NotReady: [0, The low-power regulator is not ready]
+      Ready: [1, The low-power regulator is ready]
 
   SCR:
     CSBF:
-      Clear: [ 1, "Setting this bit clears the SBF flag in the PWR_SR1 register" ]
+      Clear: [1, Setting this bit clears the SBF flag in the PWR_SR1 register]
     CWUF?:
-      Clear: [ 1, "Setting this bit clears the WUFx flag in the PWR_SR1 register" ]
+      Clear: [1, Setting this bit clears the WUFx flag in the PWR_SR1 register]
 
   PUCR?:
     PU*:
-      Disabled: [ 0, "Pull-Up on Pxx is disabled" ]
-      Enabled: [ 1, "Pull-Up on Pxx is enabled" ]
+      Disabled: [0, Pull-Up on Pxx is disabled]
+      Enabled: [1, Pull-Up on Pxx is enabled]
 
   PDCR?:
     PD*:
-      Disabled: [ 0, "Pull-Down on Pxx is disabled" ]
-      Enabled: [ 1, "Pull-Down on Pxx is enabled" ]
+      Disabled: [0, Pull-Down on Pxx is disabled]
+      Enabled: [1, Pull-Down on Pxx is enabled]
 
   CR5:
     R1MODE:
-      BoostMode: [ 0, "Main regulator in Range 1 boost mode" ]
-      NormalMode: [ 1, "Main regulator in Range 1 normal mode" ]
+      BoostMode: [0, Main regulator in Range 1 boost mode]
+      NormalMode: [1, Main regulator in Range 1 normal mode]

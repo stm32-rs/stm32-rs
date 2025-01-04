@@ -21,8 +21,8 @@ SAI?:
           0,
           "No synchronization output signals. SYNCOUT[1:0] should be configured as “No synchronization output signals” when audio block is configured as SPDIF",
         ]
-      BlockA: [1, "Block A used for further synchronization for others SAI"]
-      BlockB: [2, "Block B used for further synchronization for others SAI"]
+      BlockA: [1, Block A used for further synchronization for others SAI]
+      BlockB: [2, Block B used for further synchronization for others SAI]
 
   ?CR1:
     _add:
@@ -45,11 +45,11 @@ SAI?:
       Multiplier512: [1, "Master clock frequency = FFS x 512"]
     MCKDIV: [0, 0x3F]
     NOMCK:
-      Enabled: [0, "Master clock generator is enabled"]
+      Enabled: [0, Master clock generator is enabled]
       Disabled:
         [
           1,
-          "Master clock generator is disabled. The clock divider controlled by MCKDIV can still be used to generate the bit clock",
+          Master clock generator is disabled. The clock divider controlled by MCKDIV can still be used to generate the bit clock,
         ]
 
   ?CR2:
@@ -59,10 +59,9 @@ SAI?:
 
     MUTECNT: [0, 0x3F]
     TRIS:
-      DrivenWhileInactive:
-        [0, "SD output line is still driven by the SAI when a slot is inactive"]
+      DrivenWhileInactive: [0, SD output line is still driven by the SAI when a slot is inactive]
       HighZ:
         [
           1,
-          "SD output line is released (HI-Z) at the end of the last data bit of the last active slot if the next one is inactive",
+          SD output line is released (HI-Z) at the end of the last data bit of the last active slot if the next one is inactive,
         ]

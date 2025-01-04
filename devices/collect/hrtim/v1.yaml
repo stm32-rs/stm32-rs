@@ -55,16 +55,16 @@ HRTIM_Master:
       FLT[1-6]EN: {}
   EEFR[12]:
     _array:
-      "EE*LTCH": {}
-      "EE*FLTR": {}
+      EE*LTCH: {}
+      EE*FLTR: {}
   "SET1R,RST1R":
     _array:
-      "EXTEVNT*": {}
+      EXTEVNT*: {}
       "MSTCMP[1-4]": {}
       "CMP[1-4]": {}
   CPT1CR:
     _array:
-      "EXEV*CPT": {}
+      EXEV*CPT: {}
 
 "HRTIM_TIM[B-F]":
   _derive:

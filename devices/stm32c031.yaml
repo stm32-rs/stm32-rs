@@ -20,12 +20,12 @@ IWDG:
   _include: patches/16bit_with_mask.yaml
 
 TIM[123]:
-  _strip: "TIM?_"
+  _strip: TIM?_
 
 TIM*:
   _strip:
-    - "TIM*__"
-    - "TIM?*_"
+    - TIM*__
+    - TIM?*_
 
 TIM[13],TIM1[467]:
   _modify:

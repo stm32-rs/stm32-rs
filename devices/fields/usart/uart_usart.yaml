@@ -1,33 +1,33 @@
-"USART*":
+USART*:
   CR2:
     STOP:
-      Stop1: [0, "1 stop bit"]
-      Stop0p5: [1, "0.5 stop bits"]
-      Stop2: [2, "2 stop bits"]
-      Stop1p5: [3, "1.5 stop bits"]
+      Stop1: [0, 1 stop bit]
+      Stop0p5: [1, 0.5 stop bits]
+      Stop2: [2, 2 stop bits]
+      Stop1p5: [3, 1.5 stop bits]
     CLKEN:
-      Disabled: [0, "CK pin disabled"]
-      Enabled: [1, "CK pin enabled"]
+      Disabled: [0, CK pin disabled]
+      Enabled: [1, CK pin enabled]
     CPOL:
-      Low: [0, "Steady low value on CK pin outside transmission window"]
-      High: [1, "Steady high value on CK pin outside transmission window"]
+      Low: [0, Steady low value on CK pin outside transmission window]
+      High: [1, Steady high value on CK pin outside transmission window]
     CPHA:
-      First: [0, "The first clock transition is the first data capture edge"]
-      Second: [1, "The second clock transition is the first data capture edge"]
+      First: [0, The first clock transition is the first data capture edge]
+      Second: [1, The second clock transition is the first data capture edge]
 
   CR3:
     CTSIE:
-      Disabled: [0, "CTS interrupt disabled"]
-      Enabled: [1, "CTS interrupt enabled"]
+      Disabled: [0, CTS interrupt disabled]
+      Enabled: [1, CTS interrupt enabled]
     CTSE:
-      Disabled: [0, "CTS hardware flow control disabled"]
-      Enabled: [1, "CTS hardware flow control enabled"]
+      Disabled: [0, CTS hardware flow control disabled]
+      Enabled: [1, CTS hardware flow control enabled]
     RTSE:
-      Disabled: [0, "RTS hardware flow control disabled"]
-      Enabled: [1, "RTS hardware flow control enabled"]
+      Disabled: [0, RTS hardware flow control disabled]
+      Enabled: [1, RTS hardware flow control enabled]
     SCEN:
-      Disabled: [0, "Smartcard mode disabled"]
-      Enabled: [1, "Smartcard mode enabled"]
+      Disabled: [0, Smartcard mode disabled]
+      Enabled: [1, Smartcard mode enabled]
     NACK:
-      Disabled: [0, "NACK transmission in case of parity error is disabled"]
-      Enabled: [1, "NACK transmission during parity error is enabled"]
+      Disabled: [0, NACK transmission in case of parity error is disabled]
+      Enabled: [1, NACK transmission during parity error is enabled]

@@ -1,12 +1,12 @@
 CR2:
   DIS_NSS:
-    Disabled: [0, "SPI slave selection depends on NSS input pin"]
-    Enabled:  [1, "SPI slave is always selected and NSS input pin is ignored"]
+    Disabled: [0, SPI slave selection depends on NSS input pin]
+    Enabled: [1, SPI slave is always selected and NSS input pin is ignored]
   SLVEN:
-    Disabled: [0, "Slave mode disabled"]
-    Enabled:  [1, "Slave mode enabled"]
+    Disabled: [0, Slave mode disabled]
+    Enabled: [1, Slave mode enabled]
 ISR:
   UDR:
 ICR:
   UDRCF:
-    Clear: [1, "Clear the UDR flag in the ISR register"]
+    Clear: [1, Clear the UDR flag in the ISR register]

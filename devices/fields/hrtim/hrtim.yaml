@@ -3,116 +3,80 @@
 HRTIM_Master:
   CR:
     BRSTDMA:
-      Independent:
-        [0, "Update done independently from the DMA burst transfer completion"]
-      Completion: [1, "Update done when the DMA burst transfer is completed"]
-      Rollover:
-        [
-          2,
-          "Update done on master timer roll-over following a DMA burst transfer completion",
-        ]
+      Independent: [0, Update done independently from the DMA burst transfer completion]
+      Completion: [1, Update done when the DMA burst transfer is completed]
+      Rollover: [2, Update done on master timer roll-over following a DMA burst transfer completion]
     MREPU:
-      Disabled: [0, "Update on repetition disabled"]
-      Enabled: [1, "Update on repetition enabled"]
+      Disabled: [0, Update on repetition disabled]
+      Enabled: [1, Update on repetition enabled]
     PREEN:
-      Disabled:
-        [
-          0,
-          "Preload disabled: the write access is directly done into the active register",
-        ]
-      Enabled:
-        [
-          1,
-          "Preload enabled: the write access is done into the preload register",
-        ]
+      Disabled: [0, "Preload disabled: the write access is directly done into the active register"]
+      Enabled: [1, "Preload enabled: the write access is done into the preload register"]
     DACSYNC:
-      Disabled: [0, "No DAC trigger generated"]
-      DACSync1: [1, "Trigger generated on DACSync1"]
-      DACSync2: [2, "Trigger generated on DACSync2"]
-      DACSync3: [3, "Trigger generated on DACSync3"]
+      Disabled: [0, No DAC trigger generated]
+      DACSync1: [1, Trigger generated on DACSync1]
+      DACSync2: [2, Trigger generated on DACSync2]
+      DACSync3: [3, Trigger generated on DACSync3]
     "T[A-F]CEN":
-      Disabled: [0, "Timer counter disabled"]
-      Enabled: [1, "Timer counter enabled"]
+      Disabled: [0, Timer counter disabled]
+      Enabled: [1, Timer counter enabled]
     MCEN:
-      Disabled: [0, "Master timer counter disabled"]
-      Enabled: [1, "Master timer counter enabled"]
+      Disabled: [0, Master timer counter disabled]
+      Enabled: [1, Master timer counter enabled]
     SYNCSRC:
-      MasterStart: [0, "Master timer Start"]
-      MasterCompare1: [1, "Master timer Compare 1 event"]
-      TimerAStart: [2, "Timer A start/reset"]
-      TimerACompare1: [3, "Timer A Compare 1 event"]
+      MasterStart: [0, Master timer Start]
+      MasterCompare1: [1, Master timer Compare 1 event]
+      TimerAStart: [2, Timer A start/reset]
+      TimerACompare1: [3, Timer A Compare 1 event]
     SYNCOUT:
-      Disabled: [0, "Disabled"]
-      PositivePulse:
-        [2, "Positive pulse on SCOUT output (16x f_HRTIM clock cycles)"]
-      NegativePulse:
-        [3, "Negative pulse on SCOUT output (16x f_HRTIM clock cycles)"]
+      Disabled: [0, Disabled]
+      PositivePulse: [2, Positive pulse on SCOUT output (16x f_HRTIM clock cycles)]
+      NegativePulse: [3, Negative pulse on SCOUT output (16x f_HRTIM clock cycles)]
     SYNCSTRT:
-      Disabled: [0, "No effect on the master timer"]
-      Start: [1, "A synchroniation input event starts the master timer"]
+      Disabled: [0, No effect on the master timer]
+      Start: [1, A synchroniation input event starts the master timer]
     SYNCRST:
-      Disabled: [0, "No effect on the master timer"]
-      Reset: [1, "A synchroniation input event resets the master timer"]
+      Disabled: [0, No effect on the master timer]
+      Reset: [1, A synchroniation input event resets the master timer]
     SYNCIN:
-      Disabled:
-        [0, "Disabled. HRTIM is not synchronized and runs in standalone mode"]
-      Internal:
-        [2, "Internal event: the HRTIM is synchronized with the on-chip timer"]
-      External:
-        [
-          3,
-          "External event: a positive pulse on HRTIM_SCIN input triggers the HRTIM",
-        ]
+      Disabled: [0, Disabled. HRTIM is not synchronized and runs in standalone mode]
+      Internal: [2, "Internal event: the HRTIM is synchronized with the on-chip timer"]
+      External: [3, "External event: a positive pulse on HRTIM_SCIN input triggers the HRTIM"]
     HALF:
-      Disabled: [0, "Half mode disabled"]
-      Enabled: [1, "Half mode enabled"]
+      Disabled: [0, Half mode disabled]
+      Enabled: [1, Half mode enabled]
     RETRIG:
-      Disabled:
-        [
-          0,
-          "The timer is not re-triggerable: a counter reset can be done only if the counter is stopped",
-        ]
-      Enabled:
-        [
-          1,
-          "The timer is retriggerable: a counter reset is done whatever the counter state",
-        ]
+      Disabled: [0, "The timer is not re-triggerable: a counter reset can be done only if the counter is stopped"]
+      Enabled: [1, "The timer is retriggerable: a counter reset is done whatever the counter state"]
     CONT:
-      SingleShot:
-        [
-          0,
-          "The timer operates in single-shot mode and stops when it reaches the MPER value",
-        ]
+      SingleShot: [0, The timer operates in single-shot mode and stops when it reaches the MPER value]
       Continuous:
-        [
-          1,
-          "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the MPER value",
-        ]
+        [1, The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the MPER value]
     CKPSC: [0, 7]
   ISR:
     UPD:
-      NoEvent: [0, "No master update interrupt occurred"]
-      Event: [1, "Master update interrupt occurred"]
+      NoEvent: [0, No master update interrupt occurred]
+      Event: [1, Master update interrupt occurred]
     SYNC:
-      NoEvent: [0, "No sync input interrupt occurred"]
-      Event: [1, "Sync input interrupt occurred"]
+      NoEvent: [0, No sync input interrupt occurred]
+      Event: [1, Sync input interrupt occurred]
     REP:
-      NoEvent: [0, "No master repetition interrupt occurred"]
-      Event: [1, "Master repetition interrupt occurred"]
+      NoEvent: [0, No master repetition interrupt occurred]
+      Event: [1, Master repetition interrupt occurred]
     "CMP[1-4]":
-      NoEvent: [0, "No master compare interrupt occurred"]
-      Event: [1, "Master compare interrupt occurred"]
+      NoEvent: [0, No master compare interrupt occurred]
+      Event: [1, Master compare interrupt occurred]
   ICR:
     "*C":
       _W1C:
-        Clear: [1, "Clears associated flag in ISR register"]
+        Clear: [1, Clears associated flag in ISR register]
   DIER:
     "M*DE,SYNCDE":
-      Disabled: [0, "DMA request disabled"]
-      Enabled: [1, "DMA request enabled"]
+      Disabled: [0, DMA request disabled]
+      Enabled: [1, DMA request enabled]
     "M*IE,SYNCIE":
-      Disabled: [0, "Interrupt disabled"]
-      Enabled: [1, "Interrupt enabled"]
+      Disabled: [0, Interrupt disabled]
+      Enabled: [1, Interrupt enabled]
   CNTR:
     CNT: [0, 0xFFFF]
   PERR:
@@ -125,226 +89,158 @@ HRTIM_Master:
 "HRTIM_TIM[A-F]":
   CR:
     UPDGAT:
-      Independent:
-        [0, "Update occurs independently from the DMA burst transfer"]
-      DMABurst: [1, "Update occurs when the DMA burst transfer is completed"]
-      DMABurst_Update:
-        [
-          2,
-          "Update occurs on the update event following DMA burst transfer completion",
-        ]
-      Input1:
-        [3, "Update occurs on a rising edge of HRTIM update enable input 1"]
-      Input2:
-        [4, "Update occurs on a rising edge of HRTIM update enable input 2"]
-      Input3:
-        [5, "Update occurs on a rising edge of HRTIM update enable input 3"]
-      Input1_Update:
-        [
-          6,
-          "Update occurs on the update event following a rising edge of HRTIM update enable input 1",
-        ]
-      Input2_Update:
-        [
-          7,
-          "Update occurs on the update event following a rising edge of HRTIM update enable input 2",
-        ]
-      Input3_Update:
-        [
-          8,
-          "Update occurs on the update event following a rising edge of HRTIM update enable input 3",
-        ]
+      Independent: [0, Update occurs independently from the DMA burst transfer]
+      DMABurst: [1, Update occurs when the DMA burst transfer is completed]
+      DMABurst_Update: [2, Update occurs on the update event following DMA burst transfer completion]
+      Input1: [3, Update occurs on a rising edge of HRTIM update enable input 1]
+      Input2: [4, Update occurs on a rising edge of HRTIM update enable input 2]
+      Input3: [5, Update occurs on a rising edge of HRTIM update enable input 3]
+      Input1_Update: [6, Update occurs on the update event following a rising edge of HRTIM update enable input 1]
+      Input2_Update: [7, Update occurs on the update event following a rising edge of HRTIM update enable input 2]
+      Input3_Update: [8, Update occurs on the update event following a rising edge of HRTIM update enable input 3]
     PREEN:
-      Disabled:
-        [
-          0,
-          "Preload disabled: the write access is directly done into the active register",
-        ]
-      Enabled:
-        [
-          1,
-          "Preload enabled: the write access is done into the preload register",
-        ]
+      Disabled: [0, "Preload disabled: the write access is directly done into the active register"]
+      Enabled: [1, "Preload enabled: the write access is done into the preload register"]
     DACSYNC:
-      Disabled: [0, "No DAC trigger generated"]
-      DACSync1: [1, "Trigger generated on DACSync1"]
-      DACSync2: [2, "Trigger generated on DACSync2"]
-      DACSync3: [3, "Trigger generated on DACSync3"]
+      Disabled: [0, No DAC trigger generated]
+      DACSync1: [1, Trigger generated on DACSync1]
+      DACSync2: [2, Trigger generated on DACSync2]
+      DACSync3: [3, Trigger generated on DACSync3]
     MSTU:
-      Disabled: [0, "Update by master timer disabled"]
-      Enabled: [1, "Update by master timer enabled"]
+      Disabled: [0, Update by master timer disabled]
+      Enabled: [1, Update by master timer enabled]
     "T[A-F]U":
-      Disabled: [0, "Update by timer x disabled"]
-      Enabled: [1, "Update by timer x enabled"]
+      Disabled: [0, Update by timer x disabled]
+      Enabled: [1, Update by timer x enabled]
     TRSTU:
-      Disabled: [0, "Update by timer x reset/roll-over disabled"]
-      Enabled: [1, "Update by timer x reset/roll-over enabled"]
+      Disabled: [0, Update by timer x reset/roll-over disabled]
+      Enabled: [1, Update by timer x reset/roll-over enabled]
     TREPU:
-      Disabled: [0, "Update by timer x repetition disabled"]
-      Enabled: [1, "Update by timer x repetition enabled"]
+      Disabled: [0, Update by timer x repetition disabled]
+      Enabled: [1, Update by timer x repetition enabled]
     DELCMP4:
-      Standard: [0, "CMP4 register is always active (standard compare mode)"]
-      Capture2:
-        [1, "CMP4 is recomputed and is active following a capture 2 event"]
-      Capture2_Compare1:
-        [
-          2,
-          "CMP4 is recomputed and is active following a capture 2 event or a Compare 1 match",
-        ]
-      Capture_Compare3:
-        [
-          3,
-          "CMP4 is recomputed and is active following a capture event or a Compare 3 match",
-        ]
+      Standard: [0, CMP4 register is always active (standard compare mode)]
+      Capture2: [1, CMP4 is recomputed and is active following a capture 2 event]
+      Capture2_Compare1: [2, CMP4 is recomputed and is active following a capture 2 event or a Compare 1 match]
+      Capture_Compare3: [3, CMP4 is recomputed and is active following a capture event or a Compare 3 match]
     DELCMP2:
-      Standard: [0, "CMP2 register is always active (standard compare mode)"]
-      Capture1:
-        [1, "CMP2 is recomputed and is active following a capture 1 event"]
-      Capture1_Compare1:
-        [
-          2,
-          "CMP2 is recomputed and is active following a capture 1 event or a Compare 1 match",
-        ]
-      Capture1_Compare3:
-        [
-          3,
-          "CMP2 is recomputed and is active following a capture 1 event or a Compare 3 match",
-        ]
+      Standard: [0, CMP2 register is always active (standard compare mode)]
+      Capture1: [1, CMP2 is recomputed and is active following a capture 1 event]
+      Capture1_Compare1: [2, CMP2 is recomputed and is active following a capture 1 event or a Compare 1 match]
+      Capture1_Compare3: [3, CMP2 is recomputed and is active following a capture 1 event or a Compare 3 match]
     SYNCSTRT:
-      Disabled: [0, "Synchronization event has no effect on Timer x"]
-      Start: [1, "Synchronization event starts Timer x"]
+      Disabled: [0, Synchronization event has no effect on Timer x]
+      Start: [1, Synchronization event starts Timer x]
     SYNCRST:
-      Disabled: [0, "Synchronization event has no effect on Timer x"]
-      Reset: [1, "Synchronization event resets Timer x"]
+      Disabled: [0, Synchronization event has no effect on Timer x]
+      Reset: [1, Synchronization event resets Timer x]
     PSHPLL:
-      Disabled: [0, "Push-pull mode disabled"]
-      Enabled: [1, "Push-pull mode enabled"]
+      Disabled: [0, Push-pull mode disabled]
+      Enabled: [1, Push-pull mode enabled]
     HALF:
-      Disabled: [0, "Half mode disabled"]
-      Enabled: [1, "Half mode enabled"]
+      Disabled: [0, Half mode disabled]
+      Enabled: [1, Half mode enabled]
     RETRIG:
-      Disabled:
-        [
-          0,
-          "The timer is not re-triggerable: a counter reset can be done only if the counter is stopped",
-        ]
-      Enabled:
-        [
-          1,
-          "The timer is retriggerable: a counter reset is done whatever the counter state",
-        ]
+      Disabled: [0, "The timer is not re-triggerable: a counter reset can be done only if the counter is stopped"]
+      Enabled: [1, "The timer is retriggerable: a counter reset is done whatever the counter state"]
     CONT:
-      SingleShot:
-        [
-          0,
-          "The timer operates in single-shot mode and stops when it reaches the TIMxPER value",
-        ]
+      SingleShot: [0, The timer operates in single-shot mode and stops when it reaches the TIMxPER value]
       Continuous:
         [
           1,
-          "The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the TIMxPER value",
+          The timer operates in continuous (free-running) mode and rolls over to zero when it reaches the TIMxPER value,
         ]
     CKPSC: [0, 7]
   ISR:
     "?~O[12]CPY":
-      Inactive: [0, "Output is inactive"]
-      Active: [1, "Output is active"]
+      Inactive: [0, Output is inactive]
+      Active: [1, Output is active]
     "O[12]STAT":
-      Inactive: [0, "Output was inactive"]
-      Active: [1, "Output was active"]
+      Inactive: [0, Output was inactive]
+      Active: [1, Output was active]
     IPPSTAT:
-      Output1Active:
-        [
-          0,
-          "Protection occurred when the output 1 was active and output 2 forced inactive",
-        ]
-      Output2Active:
-        [
-          1,
-          "Protection occurred when the output 2 was active and output 1 forced inactive",
-        ]
+      Output1Active: [0, Protection occurred when the output 1 was active and output 2 forced inactive]
+      Output2Active: [1, Protection occurred when the output 2 was active and output 1 forced inactive]
     CPPSTAT:
-      Output1Active:
-        [0, "Signal applied on output 1 and output 2 forced inactive"]
-      Output2Active:
-        [1, "Signal applied on output 2 and output 1 forced inactive"]
+      Output1Active: [0, Signal applied on output 1 and output 2 forced inactive]
+      Output2Active: [1, Signal applied on output 2 and output 1 forced inactive]
     DLYPRT:
-      Inactive: [0, "Not in delayed idle or balanced idle mode"]
-      Active: [1, "Delayed idle or balanced idle mode entry"]
+      Inactive: [0, Not in delayed idle or balanced idle mode]
+      Active: [1, Delayed idle or balanced idle mode entry]
     RST:
-      NoEvent: [0, "No TIMx counter reset/roll-over interrupt occurred"]
-      Event: [1, "TIMx counter reset/roll-over interrupt occurred"]
+      NoEvent: [0, No TIMx counter reset/roll-over interrupt occurred]
+      Event: [1, TIMx counter reset/roll-over interrupt occurred]
     "RST[12]":
-      NoEvent: [0, "No Tx output reset interrupt occurred"]
-      Event: [1, "Tx output reset interrupt occurred"]
+      NoEvent: [0, No Tx output reset interrupt occurred]
+      Event: [1, Tx output reset interrupt occurred]
     "SET[12]":
-      NoEvent: [0, "No Tx output set interrupt occurred"]
-      Event: [1, "Tx output set interrupt occurred"]
+      NoEvent: [0, No Tx output set interrupt occurred]
+      Event: [1, Tx output set interrupt occurred]
     "CPT[12]":
-      NoEvent: [0, "No timer x capture reset interrupt occurred"]
-      Event: [1, "Timer x capture reset interrupt occurred"]
+      NoEvent: [0, No timer x capture reset interrupt occurred]
+      Event: [1, Timer x capture reset interrupt occurred]
     UPD:
-      NoEvent: [0, "No timer update interrupt occurred"]
-      Event: [1, "Timer update interrupt occurred"]
+      NoEvent: [0, No timer update interrupt occurred]
+      Event: [1, Timer update interrupt occurred]
     REP:
-      NoEvent: [0, "No timer repetition interrupt occurred"]
-      Event: [1, "Timer repetition interrupt occurred"]
+      NoEvent: [0, No timer repetition interrupt occurred]
+      Event: [1, Timer repetition interrupt occurred]
     "CMP[1-4]":
-      NoEvent: [0, "No compare interrupt occurred"]
-      Event: [1, "Compare interrupt occurred"]
+      NoEvent: [0, No compare interrupt occurred]
+      Event: [1, Compare interrupt occurred]
   ICR:
     "*C":
       _W1C:
-        Clear: [1, "Clears associated flag in ISR register"]
+        Clear: [1, Clears associated flag in ISR register]
   DIER:
     DLYPRTDE:
-      Disabled: [0, "Delayed protection DMA request disabled"]
-      Enabled: [1, "Delayed protection DMA request enabled"]
+      Disabled: [0, Delayed protection DMA request disabled]
+      Enabled: [1, Delayed protection DMA request enabled]
     RSTDE:
-      Disabled: [0, "Timer x counter reset/roll-over DMA request disabled"]
-      Enabled: [1, "Timer x counter reset/roll-over DMA request enabled"]
+      Disabled: [0, Timer x counter reset/roll-over DMA request disabled]
+      Enabled: [1, Timer x counter reset/roll-over DMA request enabled]
     "RST[12]DE":
-      Disabled: [0, "Tx output reset DMA request disabled"]
-      Enabled: [1, "Tx output reset DMA request enabled"]
+      Disabled: [0, Tx output reset DMA request disabled]
+      Enabled: [1, Tx output reset DMA request enabled]
     "SET[12]DE":
-      Disabled: [0, "Tx output set DMA request disabled"]
-      Enabled: [1, "Tx output set DMA request enabled"]
+      Disabled: [0, Tx output set DMA request disabled]
+      Enabled: [1, Tx output set DMA request enabled]
     "CPT[12]DE":
-      Disabled: [0, "Capture DMA request disabled"]
-      Enabled: [1, "Capture DMA request enabled"]
+      Disabled: [0, Capture DMA request disabled]
+      Enabled: [1, Capture DMA request enabled]
     UPDDE:
-      Disabled: [0, "Update DMA request disabled"]
-      Enabled: [1, "Update DMA request enabled"]
+      Disabled: [0, Update DMA request disabled]
+      Enabled: [1, Update DMA request enabled]
     REPDE:
-      Disabled: [0, "Repetition DMA request disabled"]
-      Enabled: [1, "Repetition DMA request enabled"]
+      Disabled: [0, Repetition DMA request disabled]
+      Enabled: [1, Repetition DMA request enabled]
     "CMP[1-4]DE":
-      Disabled: [0, "Compare DMA request disabled"]
-      Enabled: [1, "Compare DMA request enabled"]
+      Disabled: [0, Compare DMA request disabled]
+      Enabled: [1, Compare DMA request enabled]
     DLYPRTIE:
-      Disabled: [0, "Delayed protection interrupt disabled"]
-      Enabled: [1, "Delayed protection interrupt enabled"]
+      Disabled: [0, Delayed protection interrupt disabled]
+      Enabled: [1, Delayed protection interrupt enabled]
     RSTIE:
-      Disabled: [0, "Timer x counter/reset roll-over interrupt disabled"]
-      Enabled: [1, "Timer x counter/reset roll-over interrupt enabled"]
+      Disabled: [0, Timer x counter/reset roll-over interrupt disabled]
+      Enabled: [1, Timer x counter/reset roll-over interrupt enabled]
     "RST[12]IE":
-      Disabled: [0, "Tx output reset interrupt disabled"]
-      Enabled: [1, "Tx output reset interrupt enabled"]
+      Disabled: [0, Tx output reset interrupt disabled]
+      Enabled: [1, Tx output reset interrupt enabled]
     "SET[12]IE":
-      Disabled: [0, "Tx output set interrupt disabled"]
-      Enabled: [1, "Tx output set interrupt enabled"]
+      Disabled: [0, Tx output set interrupt disabled]
+      Enabled: [1, Tx output set interrupt enabled]
     "CPT[12]IE":
-      Disabled: [0, "Capture interrupt disabled"]
-      Enabled: [1, "Capture interrupt enabled"]
+      Disabled: [0, Capture interrupt disabled]
+      Enabled: [1, Capture interrupt enabled]
     UPDIE:
-      Disabled: [0, "Update interrupt disabled"]
-      Enabled: [1, "Update interrupt enabled"]
+      Disabled: [0, Update interrupt disabled]
+      Enabled: [1, Update interrupt enabled]
     REPIE:
-      Disabled: [0, "Repetition interrupt disabled"]
-      Enabled: [1, "Repetition interrupt enabled"]
+      Disabled: [0, Repetition interrupt disabled]
+      Enabled: [1, Repetition interrupt enabled]
     "CMP[1-4]IE":
-      Disabled: [0, "Compare interrupt disabled"]
-      Enabled: [1, "Compare interrupt enabled"]
+      Disabled: [0, Compare interrupt disabled]
+      Enabled: [1, Compare interrupt enabled]
   CNTR:
     CNT: [0, 0xFFFF]
   PERR:
@@ -360,127 +256,91 @@ HRTIM_Master:
     CPT: [0, 0xFFFF]
   DTR:
     DTFLK:
-      Unlocked: [0, "Deadtime falling value and sign is writable"]
-      Locked: [1, "Deadtime falling value and sign is read-only"]
+      Unlocked: [0, Deadtime falling value and sign is writable]
+      Locked: [1, Deadtime falling value and sign is read-only]
     DTFSLK:
-      Unlocked: [0, "Deadtime falling sign is writable"]
-      Locked: [1, "Deadtime falling sign is read-only"]
+      Unlocked: [0, Deadtime falling sign is writable]
+      Locked: [1, Deadtime falling sign is read-only]
     SDTF:
-      Positive: [0, "Positive deadtime on falling edge"]
-      Negative: [1, "Negative deadtime on falling edge"]
+      Positive: [0, Positive deadtime on falling edge]
+      Negative: [1, Negative deadtime on falling edge]
     DTF: [0, 0x1FF]
     DTRLK:
-      Unlocked: [0, "Deadtime rising value and sign is writable"]
-      Locked: [1, "Deadtime rising value and sign is read-only"]
+      Unlocked: [0, Deadtime rising value and sign is writable]
+      Locked: [1, Deadtime rising value and sign is read-only]
     DTRSLK:
-      Unlocked: [0, "Deadtime rising sign is writable"]
-      Locked: [1, "Deadtime rising sign is read-only"]
+      Unlocked: [0, Deadtime rising sign is writable]
+      Locked: [1, Deadtime rising sign is read-only]
     DTPRSC: [0, 7]
     SDTR:
-      Positive: [0, "Positive deadtime on rising edge"]
-      Negative: [1, "Negative deadtime on rising edge"]
+      Positive: [0, Positive deadtime on rising edge]
+      Negative: [1, Negative deadtime on rising edge]
     DTR: [0, 0x1FF]
   "SET[12]R":
     UPDATE:
-      NoEffect: [0, "Register update event has no effect"]
-      SetActive:
-        [1, "Register update event forces the output to its active state"]
-    "EXTEVNT*":
-      NoEffect: [0, "External event has no effect"]
-      SetActive: [1, "External event forces the output to its active state"]
+      NoEffect: [0, Register update event has no effect]
+      SetActive: [1, Register update event forces the output to its active state]
+    EXTEVNT*:
+      NoEffect: [0, External event has no effect]
+      SetActive: [1, External event forces the output to its active state]
     "TIM[A-F]CMP[1-4]":
-      NoEffect: [0, "Timer event has no effect"]
-      SetActive: [1, "Timer event forces the output to its active state"]
+      NoEffect: [0, Timer event has no effect]
+      SetActive: [1, Timer event forces the output to its active state]
     "MSTCMP[1-4]":
-      NoEffect: [0, "Master timer compare event has no effect"]
-      SetActive:
-        [1, "Master timer compare event forces the output to its active state"]
+      NoEffect: [0, Master timer compare event has no effect]
+      SetActive: [1, Master timer compare event forces the output to its active state]
     MSTPER:
-      NoEffect: [0, "Master timer counter roll-over/reset has no effect"]
-      SetActive:
-        [
-          1,
-          "Master timer counter roll-over/reset forces the output to its active state",
-        ]
+      NoEffect: [0, Master timer counter roll-over/reset has no effect]
+      SetActive: [1, Master timer counter roll-over/reset forces the output to its active state]
     "CMP[1-4]":
-      NoEffect: [0, "Timer compare event has no effect"]
-      SetActive:
-        [1, "Timer compare event forces the output to its active state"]
+      NoEffect: [0, Timer compare event has no effect]
+      SetActive: [1, Timer compare event forces the output to its active state]
     PER:
-      NoEffect: [0, "Timer period event has no effect"]
-      SetActive: [1, "Timer period event forces the output to its active state"]
+      NoEffect: [0, Timer period event has no effect]
+      SetActive: [1, Timer period event forces the output to its active state]
     RESYNC:
-      NoEffect:
-        [
-          0,
-          "Timer reset event coming solely from software or SYNC input event has no effect",
-        ]
+      NoEffect: [0, Timer reset event coming solely from software or SYNC input event has no effect]
       SetActive:
-        [
-          1,
-          "Timer reset event coming solely from software or SYNC input event forces the output to its active state",
-        ]
+        [1, Timer reset event coming solely from software or SYNC input event forces the output to its active state]
     SST:
-      NoEffect: [0, "No effect"]
-      SetActive: [1, "Force output to its active state"]
+      NoEffect: [0, No effect]
+      SetActive: [1, Force output to its active state]
   "RST[12]R":
     UPDATE:
-      NoEffect: [0, "Register update event has no effect"]
-      SetInactive:
-        [1, "Register update event forces the output to its inactive state"]
-    "EXTEVNT*":
-      NoEffect: [0, "External event has no effect"]
-      SetInactive: [1, "External event forces the output to its inactive state"]
+      NoEffect: [0, Register update event has no effect]
+      SetInactive: [1, Register update event forces the output to its inactive state]
+    EXTEVNT*:
+      NoEffect: [0, External event has no effect]
+      SetInactive: [1, External event forces the output to its inactive state]
     "TIM[A-F]CMP[1-4]":
-      NoEffect: [0, "Timer event has no effect"]
-      SetInactive: [1, "Timer event forces the output to its inactive state"]
+      NoEffect: [0, Timer event has no effect]
+      SetInactive: [1, Timer event forces the output to its inactive state]
     "MSTCMP[1-4]":
-      NoEffect: [0, "Master timer compare event has no effect"]
-      SetInactive:
-        [
-          1,
-          "Master timer compare event forces the output to its inactive state",
-        ]
+      NoEffect: [0, Master timer compare event has no effect]
+      SetInactive: [1, Master timer compare event forces the output to its inactive state]
     MSTPER:
-      NoEffect: [0, "Master timer counter roll-over/reset has no effect"]
-      SetInactive:
-        [
-          1,
-          "Master timer counter roll-over/reset forces the output to its inactive state",
-        ]
+      NoEffect: [0, Master timer counter roll-over/reset has no effect]
+      SetInactive: [1, Master timer counter roll-over/reset forces the output to its inactive state]
     "CMP[1-4]":
-      NoEffect: [0, "Timer compare event has no effect"]
-      SetInactive:
-        [1, "Timer compare event forces the output to its inactive state"]
+      NoEffect: [0, Timer compare event has no effect]
+      SetInactive: [1, Timer compare event forces the output to its inactive state]
     PER:
-      NoEffect: [0, "Timer period event has no effect"]
-      SetInactive:
-        [1, "Timer period event forces the output to its inactive state"]
+      NoEffect: [0, Timer period event has no effect]
+      SetInactive: [1, Timer period event forces the output to its inactive state]
     RESYNC:
-      NoEffect:
-        [
-          0,
-          "Timer reset event coming solely from software or SYNC input event has no effect",
-        ]
+      NoEffect: [0, Timer reset event coming solely from software or SYNC input event has no effect]
       SetInactive:
-        [
-          1,
-          "Timer reset event coming solely from software or SYNC input event forces the output to its inactive state",
-        ]
+        [1, Timer reset event coming solely from software or SYNC input event forces the output to its inactive state]
     SRT:
-      NoEffect: [0, "No effect"]
-      SetInactive: [1, "Force output to its inactive state"]
+      NoEffect: [0, No effect]
+      SetInactive: [1, Force output to its inactive state]
   "EEFR[12]":
-    "EE*FLTR":
-      Disabled: [0, "No filtering"]
-      BlankResetToCompare1:
-        [1, "Blanking from counter reset/roll-over to Compare 1"]
-      BlankResetToCompare2:
-        [2, "Blanking from counter reset/roll-over to Compare 2"]
-      BlankResetToCompare3:
-        [3, "Blanking from counter reset/roll-over to Compare 3"]
-      BlankResetToCompare4:
-        [4, "Blanking from counter reset/roll-over to Compare 4"]
+    EE*FLTR:
+      Disabled: [0, No filtering]
+      BlankResetToCompare1: [1, Blanking from counter reset/roll-over to Compare 1]
+      BlankResetToCompare2: [2, Blanking from counter reset/roll-over to Compare 2]
+      BlankResetToCompare3: [3, Blanking from counter reset/roll-over to Compare 3]
+      BlankResetToCompare4: [4, Blanking from counter reset/roll-over to Compare 4]
       BlankTIMFLTR1: [5, "Blanking from another timing unit: TIMFLTR1 source"]
       BlankTIMFLTR2: [6, "Blanking from another timing unit: TIMFLTR2 source"]
       BlankTIMFLTR3: [7, "Blanking from another timing unit: TIMFLTR3 source"]
@@ -489,139 +349,109 @@ HRTIM_Master:
       BlankTIMFLTR6: [10, "Blanking from another timing unit: TIMFLTR6 source"]
       BlankTIMFLTR7: [11, "Blanking from another timing unit: TIMFLTR7 source"]
       BlankTIMFLTR8: [12, "Blanking from another timing unit: TIMFLTR8 source"]
-      WindowResetToCompare2:
-        [13, "Windowing from counter reset/roll-over to compare 2"]
-      WindowResetToCompare3:
-        [14, "Windowing from counter reset/roll-over to compare 3"]
+      WindowResetToCompare2: [13, Windowing from counter reset/roll-over to compare 2]
+      WindowResetToCompare3: [14, Windowing from counter reset/roll-over to compare 3]
       WindowTIMWIN: [15, "Windowing from another timing unit: TIMWIN source"]
-    "EE*LTCH":
-      Disabled:
-        [
-          0,
-          "Event is ignored if it happens during a blank, or passed through during a window",
-        ]
-      Enabled:
-        [
-          1,
-          "Event is latched and delayed till the end of the blanking or windowing period",
-        ]
+    EE*LTCH:
+      Disabled: [0, "Event is ignored if it happens during a blank, or passed through during a window"]
+      Enabled: [1, Event is latched and delayed till the end of the blanking or windowing period]
   RSTR:
     "TIM[A-F]CMP[1-4]":
-      NoEffect: [0, "Timer Y compare Z event has no effect"]
-      ResetCounter: [1, "Timer X counter is reset upon timer Y compare Z event"]
-    "EXTEVNT*":
-      NoEffect: [0, "External event Z has no effect"]
-      ResetCounter: [1, "Timer X counter is reset upon external event Z"]
+      NoEffect: [0, Timer Y compare Z event has no effect]
+      ResetCounter: [1, Timer X counter is reset upon timer Y compare Z event]
+    EXTEVNT*:
+      NoEffect: [0, External event Z has no effect]
+      ResetCounter: [1, Timer X counter is reset upon external event Z]
     "MSTCMP[1-4]":
-      NoEffect: [0, "Master timer compare Z event has no effect"]
-      ResetCounter:
-        [1, "Timer X counter is reset upon master timer compare Z event"]
+      NoEffect: [0, Master timer compare Z event has no effect]
+      ResetCounter: [1, Timer X counter is reset upon master timer compare Z event]
     MSTPER:
-      NoEffect: [0, "Master timer period event has no effect"]
-      ResetCounter:
-        [1, "Timer X counter is reset upon master timer period event"]
+      NoEffect: [0, Master timer period event has no effect]
+      ResetCounter: [1, Timer X counter is reset upon master timer period event]
     "CMP[24]":
-      NoEffect: [0, "Timer X compare Z event has no effect"]
-      ResetCounter: [1, "Timer X counter is reset upon timer X compare Z event"]
+      NoEffect: [0, Timer X compare Z event has no effect]
+      ResetCounter: [1, Timer X counter is reset upon timer X compare Z event]
     UPDT:
-      NoEffect: [0, "Update event has no effect"]
-      ResetCounter: [1, "Timer X counter is reset upon update event"]
+      NoEffect: [0, Update event has no effect]
+      ResetCounter: [1, Timer X counter is reset upon update event]
   CHPR:
     STRTPW: [0, 0xF]
     CARDTY: [0, 7]
     CARFRQ: [0, 0xF]
   "CPT[12]CR":
     "T[A-F]CMP[12]":
-      NoEffect: [0, "Timer X compare Y has no effect"]
-      TriggerCapture: [1, "Timer X compare Y triggers capture Z"]
+      NoEffect: [0, Timer X compare Y has no effect]
+      TriggerCapture: [1, Timer X compare Y triggers capture Z]
     "T[A-F]1RST":
-      NoEffect:
-        [0, "Timer X output Y active to inactive transition has no effect"]
-      TriggerCapture:
-        [1, "Timer X output Y active to inactive transition triggers capture Z"]
+      NoEffect: [0, Timer X output Y active to inactive transition has no effect]
+      TriggerCapture: [1, Timer X output Y active to inactive transition triggers capture Z]
     "T[A-F]1SET":
-      NoEffect:
-        [0, "Timer X output Y inactive to active transition has no effect"]
-      TriggerCapture:
-        [1, "Timer X output Y inactive to active transition triggers capture Z"]
-    "EXEV*CPT":
-      NoEffect: [0, "External event Y has no effect"]
-      TriggerCapture: [1, "External event Y triggers capture Z"]
+      NoEffect: [0, Timer X output Y inactive to active transition has no effect]
+      TriggerCapture: [1, Timer X output Y inactive to active transition triggers capture Z]
+    EXEV*CPT:
+      NoEffect: [0, External event Y has no effect]
+      TriggerCapture: [1, External event Y triggers capture Z]
     UPDCPT:
-      NoEffect: [0, "Update event has no effect"]
-      TriggerCapture: [1, "Update event triggers capture Z"]
+      NoEffect: [0, Update event has no effect]
+      TriggerCapture: [1, Update event triggers capture Z]
     SWCPT:
-      NoEffect: [0, "No effect"]
-      TriggerCapture: [1, "Force capture Z"]
+      NoEffect: [0, No effect]
+      TriggerCapture: [1, Force capture Z]
   OUTR:
     "DIDL[12]":
-      Disabled:
-        [0, "The programmed idle state is applied immediately to the output"]
-      Enabled:
-        [
-          1,
-          "Deadtime (inactive level) is inserted on output before entering the idle mode",
-        ]
+      Disabled: [0, The programmed idle state is applied immediately to the output]
+      Enabled: [1, Deadtime (inactive level) is inserted on output before entering the idle mode]
     "CHP[12]":
-      Disabled: [0, "Output signal not altered"]
-      Enabled: [1, "Output signal is chopped by a carrier signal"]
+      Disabled: [0, Output signal not altered]
+      Enabled: [1, Output signal is chopped by a carrier signal]
     "FAULT[12]":
-      Disabled:
-        [
-          0,
-          "No action: the output is not affected by the fault input and stays in run mode",
-        ]
-      SetActive: [1, "Output goes to active state after a fault event"]
-      SetInactive: [2, "Output goes to inactive state after a fault event"]
-      SetHighZ: [3, "Output goes to high-z state after a fault event"]
+      Disabled: [0, "No action: the output is not affected by the fault input and stays in run mode"]
+      SetActive: [1, Output goes to active state after a fault event]
+      SetInactive: [2, Output goes to inactive state after a fault event]
+      SetHighZ: [3, Output goes to high-z state after a fault event]
     "IDLES[12]":
-      Inactive: [0, "Output idle state is inactive"]
-      Active: [1, "Output idle state is active"]
+      Inactive: [0, Output idle state is inactive]
+      Active: [1, Output idle state is active]
     "IDLEM[12]":
-      NoEffect:
-        [0, "No action: the output is not affected by the burst mode operation"]
-      SetIdle:
-        [
-          1,
-          "The output is in idle state when requested by the burst mode controller",
-        ]
+      NoEffect: [0, "No action: the output is not affected by the burst mode operation"]
+      SetIdle: [1, The output is in idle state when requested by the burst mode controller]
     "POL[12]":
-      ActiveHigh: [0, "Positive polarity (output active high)"]
-      ActiveLow: [1, "Negative polarity (output active low)"]
+      ActiveHigh: [0, Positive polarity (output active high)]
+      ActiveLow: [1, Negative polarity (output active low)]
     DLYPRTEN:
-      Disabled: [0, "No action"]
+      Disabled: [0, No action]
       Enabled: [1, "Delayed protection is enabled, as per DLYPRT bits"]
     DTEN:
-      Disabled: [0, "Output 1 and 2 signals are independent"]
-      Enabled: [1, "Deadtime is inserted between output 1 and output 2"]
+      Disabled: [0, Output 1 and 2 signals are independent]
+      Enabled: [1, Deadtime is inserted between output 1 and output 2]
   FLTR:
     FLTLCK:
-      Unlocked: [0, "FLT1EN..FLT5EN bits are read/write"]
-      Locked: [1, "FLT1EN..FLT5EN bits are read only"]
+      Unlocked: [0, FLT1EN..FLT5EN bits are read/write]
+      Locked: [1, FLT1EN..FLT5EN bits are read only]
     "FLT[123456]EN":
-      Ignored: [0, "Fault input ignored"]
-      Active: [1, "Fault input is active and can disable HRTIM outputs"]
+      Ignored: [0, Fault input ignored]
+      Active: [1, Fault input is active and can disable HRTIM outputs]
 
 "HRTIM_TIM[ABC]":
   OUTR:
     DLYPRT:
-      Output1_EE6: [0, "Output 1 delayed idle on external event 6"]
-      Output2_EE6: [1, "Output 2 delayed idle on external event 6"]
-      Output1_2_EE6: [2, "Output 1 and 2 delayed idle on external event 6"]
-      Balanced_EE6: [3, "Balanced idle on external event 6"]
-      Output1_EE7: [4, "Output 1 delayed idle on external event 7"]
-      Output2_EE7: [5, "Output 2 delayed idle on external event 7"]
-      Output1_2_EE7: [6, "Output 1 and 2 delayed idle on external event 7"]
-      Balanced_EE7: [7, "Balanced idle on external event 7"]
+      Output1_EE6: [0, Output 1 delayed idle on external event 6]
+      Output2_EE6: [1, Output 2 delayed idle on external event 6]
+      Output1_2_EE6: [2, Output 1 and 2 delayed idle on external event 6]
+      Balanced_EE6: [3, Balanced idle on external event 6]
+      Output1_EE7: [4, Output 1 delayed idle on external event 7]
+      Output2_EE7: [5, Output 2 delayed idle on external event 7]
+      Output1_2_EE7: [6, Output 1 and 2 delayed idle on external event 7]
+      Balanced_EE7: [7, Balanced idle on external event 7]
 
 "HRTIM_TIM[DE]":
   OUTR:
     DLYPRT:
-      Output1_EE8: [0, "Output 1 delayed idle on external event 8"]
-      Output2_EE8: [1, "Output 2 delayed idle on external event 8"]
-      Output1_2_EE8: [2, "Output 1 and 2 delayed idle on external event 8"]
-      Balanced_EE8: [3, "Balanced idle on external event 8"]
-      Output1_EE9: [4, "Output 1 delayed idle on external event 9"]
-      Output2_EE9: [5, "Output 2 delayed idle on external event 9"]
-      Output1_2_EE9: [6, "Output 1 and 2 delayed idle on external event 9"]
-      Balanced_EE9: [7, "Balanced idle on external event 9"]
+      Output1_EE8: [0, Output 1 delayed idle on external event 8]
+      Output2_EE8: [1, Output 2 delayed idle on external event 8]
+      Output1_2_EE8: [2, Output 1 and 2 delayed idle on external event 8]
+      Balanced_EE8: [3, Balanced idle on external event 8]
+      Output1_EE9: [4, Output 1 delayed idle on external event 9]
+      Output2_EE9: [5, Output 2 delayed idle on external event 9]
+      Output1_2_EE9: [6, Output 1 and 2 delayed idle on external event 9]
+      Balanced_EE9: [7, Balanced idle on external event 9]

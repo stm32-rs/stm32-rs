@@ -5,7 +5,7 @@ _clear_fields: "*"
 ADC?:
   _strip: ADC_
   CFGR:
-    _merge: "EXTSEL*"
+    _merge: EXTSEL*
 
 IWDG:
   _include: patches/16bit_with_mask.yaml

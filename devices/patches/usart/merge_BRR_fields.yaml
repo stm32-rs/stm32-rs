@@ -1,5 +1,5 @@
 # Merge BRR fields together
-"USART*":
+USART*:
   BRR:
     _modify:
       BRR_0_3,DIV_Mantissa:
@@ -7,4 +7,4 @@
       BRR_4_15,DIV_Fraction:
         name: BRR1
     _merge:
-      - "BRR*"
+      - BRR*

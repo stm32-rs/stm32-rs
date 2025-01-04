@@ -4,10 +4,18 @@ PWR:
     - f4.yaml
   CR:
     VOS:
-      Scale2: [0, "Scale 2 mode"]
-      Scale1: [1, "Scale 1 mode (default value at reset)"]
+      Scale2: [0, Scale 2 mode]
+      Scale1: [1, Scale 1 mode (default value at reset)]
 
   CSR:
     EWUP:
-      GPIO: [0, "WKUP1 pin is used for general purpose I/O. An event on the WKUP1 pin does not wakeup the device from Standby mode"]
-      WakeUp: [1, "WKUP1 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge or falling on WKUP pin wakes-up the system from Standby mode)"]
+      GPIO:
+        [
+          0,
+          WKUP1 pin is used for general purpose I/O. An event on the WKUP1 pin does not wakeup the device from Standby mode,
+        ]
+      WakeUp:
+        [
+          1,
+          WKUP1 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge or falling on WKUP pin wakes-up the system from Standby mode),
+        ]

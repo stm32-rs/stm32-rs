@@ -1,19 +1,19 @@
 JPEG:
   _cluster:
-    "HUFFMIN%s":
+    HUFFMIN%s:
       description: "HUFFMIN cluster: 100-bit minimum Huffman value"
-      "HUFFMIN?_0":
+      HUFFMIN?_0:
         name: HUFFMIN_0
-        description: "Bits 0-31 of the minimum Huffman value"
-      "HUFFMIN?_1":
+        description: Bits 0-31 of the minimum Huffman value
+      HUFFMIN?_1:
         name: HUFFMIN_1
-        description: "Bits 32-63 of the minimum Huffman value"
-      "HUFFMIN?_2":
+        description: Bits 32-63 of the minimum Huffman value
+      HUFFMIN?_2:
         name: HUFFMIN_2
-        description: "Bits 64-95 of the minimum Huffman value"
-      "HUFFMIN?_3":
+        description: Bits 64-95 of the minimum Huffman value
+      HUFFMIN?_3:
         name: HUFFMIN_3
-        description: "Bits 96-99 of the minimum Huffman value"
+        description: Bits 96-99 of the minimum Huffman value
 
 _include:
   - ram_common.yaml

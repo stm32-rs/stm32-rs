@@ -1,6 +1,6 @@
 # Merge LPUART CR1 DEATx fields
 
-"LPUART*":
+LPUART*:
   CR1:
     _merge:
-      - "DEAT*"
+      - DEAT*

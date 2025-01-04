@@ -1,17 +1,9 @@
 CR1:
   UIFREMAP:
-    Disabled:
-      [
-        0,
-        "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31",
-      ]
-    Enabled:
-      [
-        1,
-        "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31",
-      ]
+    Disabled: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31]
+    Enabled: [1, Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31]
 CNT:
   UIFCPY:
     _read:
-      NoUpdateOccurred: [0, "No update occurred"]
-      UpdatePending: [1, "Update interrupt pending"]
+      NoUpdateOccurred: [0, No update occurred]
+      UpdatePending: [1, Update interrupt pending]

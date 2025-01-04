@@ -1,183 +1,165 @@
 CR1:
   "T?UDIS,MUDIS":
-    Enabled: [0, "Timer update enabled"]
-    Disabled: [1, "Timer update disabled"]
+    Enabled: [0, Timer update enabled]
+    Disabled: [1, Timer update disabled]
 CR2:
   "T?RST,MRST":
-    Reset: [1, "Reset timer"]
+    Reset: [1, Reset timer]
   "T?SWU,MSWU":
-    Update: [1, "Force immediate update"]
+    Update: [1, Force immediate update]
 ISR:
   BMPER:
     _read:
-      NoEvent: [0, "No burst mode period interrupt occurred"]
-      Event: [1, "Burst mode period interrupt occured"]
+      NoEvent: [0, No burst mode period interrupt occurred]
+      Event: [1, Burst mode period interrupt occured]
   "?~DLLRDY":
     _read:
-      NoEvent: [0, "No DLL calibration ready interrupt occurred"]
-      Event: [1, "DLL calibration ready interrupt occurred"]
+      NoEvent: [0, No DLL calibration ready interrupt occurred]
+      Event: [1, DLL calibration ready interrupt occurred]
   SYSFLT:
     _read:
-      NoEvent: [0, "No fault interrupt occurred"]
-      Event: [1, "Fault interrupt occurred"]
+      NoEvent: [0, No fault interrupt occurred]
+      Event: [1, Fault interrupt occurred]
   "FLT[1-6]":
     _read:
-      NoEvent: [0, "No fault interrupt occurred"]
-      Event: [1, "Fault interrupt occurred"]
+      NoEvent: [0, No fault interrupt occurred]
+      Event: [1, Fault interrupt occurred]
 ICR:
   "*C":
     _W1C:
-      Clear: [1, "Clears associated flag in ISR register"]
+      Clear: [1, Clears associated flag in ISR register]
 IER:
   BMPERIE:
-    Disabled: [0, "Burst mode period interrupt disabled"]
-    Enabled: [1, "Burst mode period interrupt enabled"]
+    Disabled: [0, Burst mode period interrupt disabled]
+    Enabled: [1, Burst mode period interrupt enabled]
   "?~DLLRDYIE":
-    Disabled: [0, "DLL ready interrupt disabled"]
-    Enabled: [1, "DLL Ready interrupt enabled"]
+    Disabled: [0, DLL ready interrupt disabled]
+    Enabled: [1, DLL Ready interrupt enabled]
   "SYSFLTIE,FLT?IE":
-    Disabled: [0, "Fault interrupt disabled"]
-    Enabled: [1, "Fault interrupt enabled"]
+    Disabled: [0, Fault interrupt disabled]
+    Enabled: [1, Fault interrupt enabled]
 OENR:
   "T[A-F][12]OEN":
     _read:
       _name: TOENR
-      Disabled: [0, "Output disabled"]
-      Enabled: [1, "Output enabled"]
+      Disabled: [0, Output disabled]
+      Enabled: [1, Output enabled]
     _W1S:
       _name: TORNW
-      Enable: [1, "Enable output"]
+      Enable: [1, Enable output]
 ODISR:
   "T[A-F][12]ODIS":
     _W1S:
       _name: TODIS
-      Disable: [1, "Disable output"]
+      Disable: [1, Disable output]
 ODSR:
   "T[A-F][12]ODS":
     _name: TODS
-    Idle: [0, "Output disabled in idle state"]
-    Fault: [1, "Output disabled in fault state"]
+    Idle: [0, Output disabled in idle state]
+    Fault: [1, Output disabled in fault state]
 BMCR:
   BMSTAT:
     _read:
-      Normal: [0, "Normal operation"]
-      Burst: [1, "Burst operation ongoing"]
+      Normal: [0, Normal operation]
+      Burst: [1, Burst operation ongoing]
     _W0C:
-      Cancel: [0, "Terminate burst mode"]
+      Cancel: [0, Terminate burst mode]
   "T[A-F]BM,MTBM":
-    Normal: [0, "Counter clock is maintained and timer operates normally"]
-    Stopped: [1, "Counter clock is stopped and counter is reset"]
+    Normal: [0, Counter clock is maintained and timer operates normally]
+    Stopped: [1, Counter clock is stopped and counter is reset]
   BMPREN:
-    Disabled:
-      [
-        0,
-        "Preload disabled: the write access is directly done into active registers",
-      ]
-    Enabled:
-      [1, "Preload enabled: the write access is done into preload registers"]
+    Disabled: [0, "Preload disabled: the write access is directly done into active registers"]
+    Enabled: [1, "Preload enabled: the write access is done into preload registers"]
   BMPRSC:
-    Div1: [0, "Clock not divided"]
-    Div2: [1, "Division by 2"]
-    Div4: [2, "Division by 4"]
-    Div8: [3, "Division by 8"]
-    Div16: [4, "Division by 16"]
-    Div32: [5, "Division by 32"]
-    Div64: [6, "Division by 64"]
-    Div128: [7, "Division by 128"]
-    Div256: [8, "Division by 256"]
-    Div512: [9, "Division by 512"]
-    Div1024: [10, "Division by 1024"]
-    Div2048: [11, "Division by 2048"]
-    Div4096: [12, "Division by 4096"]
-    Div8192: [13, "Division by 8192"]
-    Div16384: [14, "Division by 16384"]
-    Div32768: [15, "Division by 32768"]
+    Div1: [0, Clock not divided]
+    Div2: [1, Division by 2]
+    Div4: [2, Division by 4]
+    Div8: [3, Division by 8]
+    Div16: [4, Division by 16]
+    Div32: [5, Division by 32]
+    Div64: [6, Division by 64]
+    Div128: [7, Division by 128]
+    Div256: [8, Division by 256]
+    Div512: [9, Division by 512]
+    Div1024: [10, Division by 1024]
+    Div2048: [11, Division by 2048]
+    Div4096: [12, Division by 4096]
+    Div8192: [13, Division by 8192]
+    Div16384: [14, Division by 16384]
+    Div32768: [15, Division by 32768]
   BMCLK:
-    Master: [0, "Master timer reset/roll-over"]
-    TimerA: [1, "Timer A counter reset/roll-over"]
-    TimerB: [2, "Timer B counter reset/roll-over"]
-    TimerC: [3, "Timer C counter reset/roll-over"]
-    TimerD: [4, "Timer D counter reset/roll-over"]
-    TimerE: [5, "Timer E counter reset/roll-over"]
-    Event1:
-      [6, "On-chip Event 1 (BMClk[1]), acting as a burst mode counter clock"]
-    Event2:
-      [7, "On-chip Event 2 (BMClk[2]), acting as a burst mode counter clock"]
-    Event3:
-      [8, "On-chip Event 3 (BMClk[3]), acting as a burst mode counter clock"]
-    Event4:
-      [9, "On-chip Event 4 (BMClk[4]), acting as a burst mode counter clock"]
+    Master: [0, Master timer reset/roll-over]
+    TimerA: [1, Timer A counter reset/roll-over]
+    TimerB: [2, Timer B counter reset/roll-over]
+    TimerC: [3, Timer C counter reset/roll-over]
+    TimerD: [4, Timer D counter reset/roll-over]
+    TimerE: [5, Timer E counter reset/roll-over]
+    Event1: [6, "On-chip Event 1 (BMClk[1]), acting as a burst mode counter clock"]
+    Event2: [7, "On-chip Event 2 (BMClk[2]), acting as a burst mode counter clock"]
+    Event3: [8, "On-chip Event 3 (BMClk[3]), acting as a burst mode counter clock"]
+    Event4: [9, "On-chip Event 4 (BMClk[4]), acting as a burst mode counter clock"]
     Clock: [10, "Prescaled f_HRTIM clock (as per BMPRSC[3:0] setting"]
   BMOM:
-    SingleShot: [0, "Single-shot mode"]
-    Continuous: [1, "Continuous operation"]
+    SingleShot: [0, Single-shot mode]
+    Continuous: [1, Continuous operation]
   BME:
-    Disabled: [0, "Burst mode disabled"]
-    Enabled: [1, "Burst mode enabled"]
+    Disabled: [0, Burst mode disabled]
+    Enabled: [1, Burst mode enabled]
 BMTRGR:
   OCHPEV:
-    NoEffect: [0, "Rising edge on an on-chip event has no effect"]
-    Trigger: [1, "Rising edge on an on-chip event triggers a burst mode entry"]
+    NoEffect: [0, Rising edge on an on-chip event has no effect]
+    Trigger: [1, Rising edge on an on-chip event triggers a burst mode entry]
   "T[A-F]CMP[12]":
-    NoEffect: [0, "Timer X compare Y event has no effect"]
-    Trigger: [1, "Timer X compare Y event triggers a burst mode entry"]
+    NoEffect: [0, Timer X compare Y event has no effect]
+    Trigger: [1, Timer X compare Y event triggers a burst mode entry]
   "T[A-F]REP":
-    NoEffect: [0, "Timer X repetition event has no effect"]
-    Trigger: [1, "Timer X repetition event triggers a burst mode entry"]
+    NoEffect: [0, Timer X repetition event has no effect]
+    Trigger: [1, Timer X repetition event triggers a burst mode entry]
   "T[A-F]RST":
-    NoEffect: [0, "Timer X reset/roll-over event has no effect"]
-    Trigger: [1, "Timer X reset/roll-over event triggers a burst mode entry"]
+    NoEffect: [0, Timer X reset/roll-over event has no effect]
+    Trigger: [1, Timer X reset/roll-over event triggers a burst mode entry]
   "MSTCMP[1-4]":
-    NoEffect: [0, "Master timer compare X event has no effect"]
-    Trigger: [1, "Master timer compare X event triggers a burst mode entry"]
+    NoEffect: [0, Master timer compare X event has no effect]
+    Trigger: [1, Master timer compare X event triggers a burst mode entry]
   MSTREP:
-    NoEffect: [0, "Master timer repetition event has no effect"]
-    Trigger: [1, "Master timer repetition event triggers a burst mode entry"]
+    NoEffect: [0, Master timer repetition event has no effect]
+    Trigger: [1, Master timer repetition event triggers a burst mode entry]
   MSTRST:
-    NoEffect: [0, "Master timer reset/roll-over event has no effect"]
-    Trigger:
-      [1, "Master timer reset/roll-over event triggers a burst mode entry"]
+    NoEffect: [0, Master timer reset/roll-over event has no effect]
+    Trigger: [1, Master timer reset/roll-over event triggers a burst mode entry]
   SW:
-    NoEffect: [0, "No effect"]
-    Trigger: [1, "Trigger immediate burst mode operation"]
+    NoEffect: [0, No effect]
+    Trigger: [1, Trigger immediate burst mode operation]
 BMCMPR:
   BMCMP: [0, 0xFFFF]
 BMPER:
   BMPER: [0, 0xFFFF]
 EECR1:
-  "EE*FAST":
-    Resynchronized:
-      [
-        0,
-        "External event is re-synchronised by the HRTIM logic before acting on outputs",
-      ]
-    Asynchronous:
-      [
-        1,
-        "External event is acting asynchronously on outputs (low-latency mode)",
-      ]
+  EE*FAST:
+    Resynchronized: [0, External event is re-synchronised by the HRTIM logic before acting on outputs]
+    Asynchronous: [1, External event is acting asynchronously on outputs (low-latency mode)]
 "EECR[12]":
-  "EE*SNS":
-    Active: [0, "On active level defined by EExPOL bit"]
-    Rising: [1, "Rising edge"]
-    Falling: [2, "Falling edge"]
-    Both: [3, "Both edges"]
-  "EE*POL":
-    ActiveHigh: [0, "External event is active high"]
-    ActiveLow: [1, "External event is active low"]
-  "EE*SRC":
-    Src1: [0, "Source 1"]
-    Src2: [1, "Source 2"]
-    Src3: [2, "Source 3"]
-    Src4: [3, "Source 4"]
+  EE*SNS:
+    Active: [0, On active level defined by EExPOL bit]
+    Rising: [1, Rising edge]
+    Falling: [2, Falling edge]
+    Both: [3, Both edges]
+  EE*POL:
+    ActiveHigh: [0, External event is active high]
+    ActiveLow: [1, External event is active low]
+  EE*SRC:
+    Src1: [0, Source 1]
+    Src2: [1, Source 2]
+    Src3: [2, Source 3]
+    Src4: [3, Source 4]
 EECR3:
   EEVSD:
     Div1: [0, "f_EEVS=f_HRTIM"]
     Div2: [1, "f_EEVS=f_HRTIM/2"]
     Div4: [2, "f_EEVS=f_HRTIM/4"]
     Div8: [3, "f_EEVS=f_HRTIM/8"]
-  "EE*F":
-    Disabled: [0, "Filter disabled"]
+  EE*F:
+    Disabled: [0, Filter disabled]
     Div1_N2: [1, "f_SAMPLING=f_HRTIM, N=2"]
     Div1_N4: [2, "f_SAMPLING=f_HRTIM, N=4"]
     Div1_N8: [3, "f_SAMPLING=f_HRTIM, N=8"]
@@ -195,38 +177,38 @@ EECR3:
     Div32_N8: [15, "f_SAMPLING=f_EEVS/32, N=8"]
 "ADC[1234]R":
   "*RST":
-    Disabled: [0, "No generation of ADC trigger on timer reset and roll-over"]
-    Enabled: [1, "Generation of ADC trigger on timer reset and roll-over"]
+    Disabled: [0, No generation of ADC trigger on timer reset and roll-over]
+    Enabled: [1, Generation of ADC trigger on timer reset and roll-over]
   "*PER":
-    Disabled: [0, "No generation of ADC trigger on timer period event"]
-    Enabled: [1, "Generation of ADC trigger on timer period event"]
+    Disabled: [0, No generation of ADC trigger on timer period event]
+    Enabled: [1, Generation of ADC trigger on timer period event]
   "[A-F]C[234]":
-    Disabled: [0, "No generation of ADC trigger on timer compare event"]
-    Enabled: [1, "Generation of ADC trigger on timer compare event"]
-  "EEV*":
-    Disabled: [0, "No generation of ADC trigger on external event"]
-    Enabled: [1, "Generation of ADC trigger on external event"]
-  "MC*":
-    Disabled: [0, "No generation of ADC trigger on master compare event"]
-    Enabled: [1, "Generation of ADC trigger on master compare event"]
+    Disabled: [0, No generation of ADC trigger on timer compare event]
+    Enabled: [1, Generation of ADC trigger on timer compare event]
+  EEV*:
+    Disabled: [0, No generation of ADC trigger on external event]
+    Enabled: [1, Generation of ADC trigger on external event]
+  MC*:
+    Disabled: [0, No generation of ADC trigger on master compare event]
+    Enabled: [1, Generation of ADC trigger on master compare event]
 "?~DLLCR":
   CALRTE:
-    Clk1048576: [0, "1048576*t_HRTIM (6.168 ms for fHRTIM = 170 MHz)"]
-    Clk131072: [1, "131072*t_HRTIM (771 µs for f_HRTIM = 170 MHz)"]
-    Clk16384: [2, "16384*t_HRTIM (96 µs for f_HRTIM = 170 MHz)"]
-    Clk2048: [3, "2048*t_HRTIM (12 µs for f_HRTIM = 170 MHz)"]
+    Clk1048576: [0, 1048576*t_HRTIM (6.168 ms for fHRTIM = 170 MHz)]
+    Clk131072: [1, 131072*t_HRTIM (771 µs for f_HRTIM = 170 MHz)]
+    Clk16384: [2, 16384*t_HRTIM (96 µs for f_HRTIM = 170 MHz)]
+    Clk2048: [3, 2048*t_HRTIM (12 µs for f_HRTIM = 170 MHz)]
   CALEN:
-    Disabled: [0, "Periodic calibration disabled"]
+    Disabled: [0, Periodic calibration disabled]
     Enabled: [1, "Calibration is performed periodically, as per CALRTE setting"]
   CAL:
-    Start: [1, "Calibration start"]
+    Start: [1, Calibration start]
 "FLTINR[12]":
   "FLT[123456]LCK":
     _read:
-      Unlocked: [0, "Fault bits are read/write"]
-      Locked: [1, "Fault bits are read-only"]
+      Unlocked: [0, Fault bits are read/write]
+      Locked: [1, Fault bits are read-only]
     _write:
-      Lock: [1, "Lock corresponding fault bits"]
+      Lock: [1, Lock corresponding fault bits]
   "FLT[123456]F":
     Disabled: [0, "No filter, FLTx acts asynchronously"]
     Div1_N2: [1, "f_SAMPLING=f_HRTIM, N=2"]
@@ -245,11 +227,11 @@ EECR3:
     Div32_N6: [14, "f_SAMPLING=f_HRTIM/32, N=6"]
     Div32_N8: [15, "f_SAMPLING=f_HRTIM/32, N=8"]
   "FLT[123456]P":
-    ActiveLow: [0, "Fault input is active low"]
-    ActiveHigh: [1, "Fault input is active high"]
+    ActiveLow: [0, Fault input is active low]
+    ActiveHigh: [1, Fault input is active high]
   "FLT[123456]E":
-    Disabled: [0, "Fault input disabled"]
-    Enabled: [1, "Fault input enabled"]
+    Disabled: [0, Fault input disabled]
+    Enabled: [1, Fault input enabled]
 FLTINR2:
   FLTSD:
     Div1: [0, "f_FLTS=f_HRTIM"]
@@ -257,12 +239,12 @@ FLTINR2:
     Div4: [2, "f_FLTS=f_HRTIM/4"]
     Div8: [3, "f_FLTS=f_HRTIM/8"]
 BDMUPR:
-  "M*":
-    NotUpdated: [0, "Register not updated by burst DMA access"]
-    Updated: [1, "Register updated by burst DMA access"]
+  M*:
+    NotUpdated: [0, Register not updated by burst DMA access]
+    Updated: [1, Register updated by burst DMA access]
 "BDT[A-F]UPR":
   "*":
-    NotUpdated: [0, "Register not updated by burst DMA access"]
-    Updated: [1, "Register updated by burst DMA access"]
+    NotUpdated: [0, Register not updated by burst DMA access]
+    Updated: [1, Register updated by burst DMA access]
 BDMADR:
   BDMADR: [0, 0xFFFFFFFF]

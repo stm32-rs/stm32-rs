@@ -52,7 +52,7 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-"OTG_HS_*":
+OTG_HS_*:
   _strip: OTG_HS_
 
 SAI,SAI?:
@@ -63,12 +63,11 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

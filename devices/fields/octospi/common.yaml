@@ -1,280 +1,330 @@
 CR:
   FMODE:
-    IndirectWrite: [ 0, "Indirect-write mode" ]
-    IndirectRead: [ 1, "Indirect-read mode" ]
-    AutomaticPolling: [ 2, "Automatic status-polling mode" ]
-    MemoryMapped: [ 3, "Memory-mapped mode" ]
+    IndirectWrite: [0, Indirect-write mode]
+    IndirectRead: [1, Indirect-read mode]
+    AutomaticPolling: [2, Automatic status-polling mode]
+    MemoryMapped: [3, Memory-mapped mode]
   PMM:
-    ANDMatchMode: [ 0, "AND-match mode, SMF is set if all the unmasked bits received from the device match the corresponding bits in the match register" ]
-    ORMatchmode: [ 1, "OR-match mode, SMF is set if any of the unmasked bits received from the device matches its corresponding bit in the match register" ]
+    ANDMatchMode:
+      [
+        0,
+        "AND-match mode, SMF is set if all the unmasked bits received from the device match the corresponding bits in the match register",
+      ]
+    ORMatchmode:
+      [
+        1,
+        "OR-match mode, SMF is set if any of the unmasked bits received from the device matches its corresponding bit in the match register",
+      ]
   APMS:
-    Running: [ 0, "Automatic status-polling mode is stopped only by abort or by disabling the OCTOSPI" ]
-    StopMatch: [ 1, "Automatic status-polling mode stops as soon as there is a match" ]
+    Running: [0, Automatic status-polling mode is stopped only by abort or by disabling the OCTOSPI]
+    StopMatch: [1, Automatic status-polling mode stops as soon as there is a match]
   TOIE,SMIE,FTIE,TCIE,TEIE:
-    Disabled: [ 0, "Interrupt disabled" ]
-    Enabled: [ 1, "Interrupt enabled" ]
-  FTHRES: [ 0, 0x1F ]
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
+  FTHRES: [0, 0x1F]
   TCEN:
-    Disabled: [ 0, "Timeout counter is disabled, and thus the chip-select (NCS) remains active indefinitely after an access in Memory-mapped mode" ]
-    Enabled: [ 1, "Timeout counter is enabled, and thus the chip-select is released in the Memory-mapped mode after TIMEOUT[15:0] cycles of external device inactivity" ]
+    Disabled:
+      [
+        0,
+        "Timeout counter is disabled, and thus the chip-select (NCS) remains active indefinitely after an access in Memory-mapped mode",
+      ]
+    Enabled:
+      [
+        1,
+        "Timeout counter is enabled, and thus the chip-select is released in the Memory-mapped mode after TIMEOUT[15:0] cycles of external device inactivity",
+      ]
   DMAEN:
-    Disabled: [ 0, "DMA disabled for Indirect mode" ]
-    Enabled: [ 1, "DMA enabled for Indirect mode" ]
+    Disabled: [0, DMA disabled for Indirect mode]
+    Enabled: [1, DMA enabled for Indirect mode]
   ABORT:
-    NotRequested: [ 0, "No abort requested" ]
-    Requested: [ 1, "Abort requested" ]
+    NotRequested: [0, No abort requested]
+    Requested: [1, Abort requested]
   EN:
-    Disabled: [ 0, "OCTOSPI disabled" ]
-    Enabled: [ 1, "OCTOSPI enabled" ]
+    Disabled: [0, OCTOSPI disabled]
+    Enabled: [1, OCTOSPI enabled]
 
 DCR1:
   MTYP:
-    MicronMode: [ 0, "Micron mode, D0/D1 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes" ]
-    MacronixMode: [ 1, "Macronix mode, D1/D0 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes" ]
-    StandardMode: [ 2, "Standard Mode" ]
-    MacronixRamMode: [ 3, "Macronix RAM mode, D1/D0 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes with dedicated address mapping" ]
-    HyperBusMemoryMode: [ 4, "HyperBus memory mode, the protocol follows the HyperBus specification. 8-data-bit DTR mode must be selected" ]
-    HyperBusMode: [ 5, "HyperBus register mode, addressing register space. The memory-mapped accesses in this mode must be non-cacheable, or Indirect read/write modes must be used" ]
-  DEVSIZE: [ 0, 0x1F ]
-  CSHT: [ 0, 0x3F ]
+    MicronMode:
+      [
+        0,
+        "Micron mode, D0/D1 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes",
+      ]
+    MacronixMode:
+      [
+        1,
+        "Macronix mode, D1/D0 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes",
+      ]
+    StandardMode: [2, Standard Mode]
+    MacronixRamMode:
+      [
+        3,
+        "Macronix RAM mode, D1/D0 ordering in DTR 8-data-bit mode. Regular-command protocol in Single-, Dual-, Quad- and Octal-SPI modes with dedicated address mapping",
+      ]
+    HyperBusMemoryMode:
+      [4, "HyperBus memory mode, the protocol follows the HyperBus specification. 8-data-bit DTR mode must be selected"]
+    HyperBusMode:
+      [
+        5,
+        "HyperBus register mode, addressing register space. The memory-mapped accesses in this mode must be non-cacheable, or Indirect read/write modes must be used",
+      ]
+  DEVSIZE: [0, 0x1F]
+  CSHT: [0, 0x3F]
   DLYBYP:
-    DelayBlockEnabled: [ 0, "The internal sampling clock (called feedback clock) or the DQS data strobe external signal is delayed by the delay block (for more details on this block, refer to the dedicated section of the reference manual as it is not part of the OCTOSPI peripheral)" ]
-    DelayBlockBypassed: [ 1, "The delay block is bypassed, so the internal sampling clock or the DQS data strobe external signal is not affected by the delay block. The delay is shorter than when the delay block is not bypassed, even with the delay value set to minimum value in delay block" ]
+    DelayBlockEnabled:
+      [
+        0,
+        "The internal sampling clock (called feedback clock) or the DQS data strobe external signal is delayed by the delay block (for more details on this block, refer to the dedicated section of the reference manual as it is not part of the OCTOSPI peripheral)",
+      ]
+    DelayBlockBypassed:
+      [
+        1,
+        "The delay block is bypassed, so the internal sampling clock or the DQS data strobe external signal is not affected by the delay block. The delay is shorter than when the delay block is not bypassed, even with the delay value set to minimum value in delay block",
+      ]
   FRCK:
-    Disabled: [ 0, "CLK is not free running" ]
-    Enabled: [ 1, "CLK is free running (always provided)" ]
+    Disabled: [0, CLK is not free running]
+    Enabled: [1, CLK is free running (always provided)]
   CKMODE:
-    Mode0: [ 0, "CLK must stay low while NCS is high (chip-select released). This is referred to as Mode 0" ]
-    Mode3: [ 1, "CLK must stay high while NCS is high (chip-select released). This is referred to as Mode 3" ]
+    Mode0: [0, CLK must stay low while NCS is high (chip-select released). This is referred to as Mode 0]
+    Mode3: [1, CLK must stay high while NCS is high (chip-select released). This is referred to as Mode 3]
 
 DCR2:
   WRAPSIZE:
-    NoWrappingSupport: [ 0, "Wrapped reads are not supported by the memory" ]
-    WrappingSize16: [ 2, "External memory supports wrap size of 16 bytes" ]
-    WrappingSize32: [ 3, "External memory supports wrap size of 32 bytes" ]
-    WrappingSize64: [ 4, "External memory supports wrap size of 64 bytes" ]
-    WrappingSize128: [ 5, "External memory supports wrap size of 128 bytes" ]
-  PRESCALER: [ 0, 0xFF ]
+    NoWrappingSupport: [0, Wrapped reads are not supported by the memory]
+    WrappingSize16: [2, External memory supports wrap size of 16 bytes]
+    WrappingSize32: [3, External memory supports wrap size of 32 bytes]
+    WrappingSize64: [4, External memory supports wrap size of 64 bytes]
+    WrappingSize128: [5, External memory supports wrap size of 128 bytes]
+  PRESCALER: [0, 0xFF]
 
 DCR3:
-  CSBOUND: [ 0, 0x1F ]
-  MAXTRAN: [ 0, 0xFF ]
+  CSBOUND: [0, 0x1F]
+  MAXTRAN: [0, 0xFF]
 
 DCR4:
-  REFRESH: [ 0, 0xFFFFFFFF ]
+  REFRESH: [0, 0xFFFFFFFF]
 
 SR:
-  FLEVEL: [ 0, 0x3F ]
+  FLEVEL: [0, 0x3F]
   BUSY:
-    Cleared: [ 0, "This bit is cleared automatically when the operation with the external device is finished and the FIFO is empty" ]
-    Busy: [ 1, "This bit is set when an operation is ongoing" ]
+    Cleared:
+      [
+        0,
+        This bit is cleared automatically when the operation with the external device is finished and the FIFO is empty,
+      ]
+    Busy: [1, This bit is set when an operation is ongoing]
   TOF:
-    Cleared: [ 0, "This bit is cleared by writing 1 to CTOF" ]
-    Timeout: [ 1, "This bit is set when timeout occurs" ]
+    Cleared: [0, This bit is cleared by writing 1 to CTOF]
+    Timeout: [1, This bit is set when timeout occurs]
   SMF:
-    Cleared: [ 0, "It is cleared by writing 1 to CSMF" ]
-    Matched: [ 1, "This bit is set in Automatic status-polling mode when the unmasked received data matches the corresponding bits in the match register (OCTOSPI_PSMAR)" ]
+    Cleared: [0, It is cleared by writing 1 to CSMF]
+    Matched:
+      [
+        1,
+        This bit is set in Automatic status-polling mode when the unmasked received data matches the corresponding bits in the match register (OCTOSPI_PSMAR),
+      ]
   FTF:
-    ThresholdReached: [ 1, "This bit is set when the FIFO threshold has been reached" ]
-    Cleared: [ 0, "It is cleared automatically as soon as the threshold condition is no longer true" ]
+    ThresholdReached: [1, This bit is set when the FIFO threshold has been reached]
+    Cleared: [0, It is cleared automatically as soon as the threshold condition is no longer true]
   TCF:
-    TransferCompleted: [ 1, "This bit is set when the programmed number of data has been transferred" ]
-    Cleared: [ 0, "This bit is cleared by writing 1 to CTCF" ]
+    TransferCompleted: [1, This bit is set when the programmed number of data has been transferred]
+    Cleared: [0, This bit is cleared by writing 1 to CTCF]
   TEF:
-    InvalidAddressAccessed: [ 1, "This bit is set in Indirect mode when an invalid address is being accessed in Indirect mode" ]
-    Cleared: [ 0, "This bit is cleared by writing 1 to CTEF" ]
+    InvalidAddressAccessed:
+      [1, This bit is set in Indirect mode when an invalid address is being accessed in Indirect mode]
+    Cleared: [0, This bit is cleared by writing 1 to CTEF]
 
 FCR:
   CTOF:
-    Clear: [ 1, "Writing 1 clears the TOF flag in the OCTOSPI_SR register" ]
+    Clear: [1, Writing 1 clears the TOF flag in the OCTOSPI_SR register]
   CSMF:
-    Clear: [ 1, "Writing 1 clears the SMF flag in the OCTOSPI_SR register" ]
+    Clear: [1, Writing 1 clears the SMF flag in the OCTOSPI_SR register]
   CTCF:
-    Clear: [ 1, "Writing 1 clears the TCF flag in the OCTOSPI_SR register" ]
+    Clear: [1, Writing 1 clears the TCF flag in the OCTOSPI_SR register]
   CTEF:
-    Clear: [ 1, "Writing 1 clears the TEF flag in the OCTOSPI_SR register" ]
+    Clear: [1, Writing 1 clears the TEF flag in the OCTOSPI_SR register]
 
 DLR:
-  DL: [ 0, 0xFFFFFFFF ]
+  DL: [0, 0xFFFFFFFF]
 
 AR:
-  ADDRESS: [ 0, 0xFFFFFFFF ]
+  ADDRESS: [0, 0xFFFFFFFF]
 
 DR:
-  DATA: [ 0, 0xFFFFFFFF ]
+  DATA: [0, 0xFFFFFFFF]
 
 PSMKR:
-  MASK: [ 0, 0xFFFFFFFF ]
+  MASK: [0, 0xFFFFFFFF]
 
 PSMAR:
-  MATCH: [ 0, 0xFFFFFFFF ]
+  MATCH: [0, 0xFFFFFFFF]
 
 PIR:
-  INTERVAL: [ 0, 0xFFFF ]
+  INTERVAL: [0, 0xFFFF]
 
 CCR:
   SIOO:
-    SendEveryTransaction: [ 0, "Send instruction on every transaction" ]
-    SendOnlyFirstCmd: [ 1, "Send instruction only for the first command" ]
+    SendEveryTransaction: [0, Send instruction on every transaction]
+    SendOnlyFirstCmd: [1, Send instruction only for the first command]
   DQSE:
-    Disabled: [ 0, "DQS disabled" ]
-    Enabled: [ 1, "DQS enabled" ]
+    Disabled: [0, DQS disabled]
+    Enabled: [1, DQS enabled]
   DDTR:
-    Disabled: [ 0, "DTR mode disabled for data phase" ]
-    Enabled: [ 1, "DTR mode enabled for data phase" ]
+    Disabled: [0, DTR mode disabled for data phase]
+    Enabled: [1, DTR mode enabled for data phase]
   DMODE:
-    NoData: [ 0, "No data" ]
-    SingleLine: [ 1, "Data on a single line" ]
-    TwoLines: [ 2, "Data on two lines" ]
-    FourLines: [ 3, "Data on four lines" ]
-    EightLines: [ 4, "Data on eight lines" ]
+    NoData: [0, No data]
+    SingleLine: [1, Data on a single line]
+    TwoLines: [2, Data on two lines]
+    FourLines: [3, Data on four lines]
+    EightLines: [4, Data on eight lines]
   ABSIZE:
-    Bits8: [ 0, "8-bit alternate bytes" ]
-    Bits16: [ 1, "16-bit alternate bytes" ]
-    Bits24: [ 2, "24-bit alternate bytes" ]
-    Bits32: [ 3, "32-bit alternate bytes" ]
+    Bits8: [0, 8-bit alternate bytes]
+    Bits16: [1, 16-bit alternate bytes]
+    Bits24: [2, 24-bit alternate bytes]
+    Bits32: [3, 32-bit alternate bytes]
   ABDTR:
-    Disabled: [ 0, "DTR mode disabled for alternate bytes phase" ]
-    Enabled: [ 1, "DTR mode enabled for alternate bytes phase" ]
+    Disabled: [0, DTR mode disabled for alternate bytes phase]
+    Enabled: [1, DTR mode enabled for alternate bytes phase]
   ABMODE:
-    NoAlternateBytes: [ 0, "No alternate bytes" ]
-    SingleLine: [ 1, "Alternate bytes on a single line" ]
-    TwoLines: [ 2, "Alternate bytes on two lines" ]
-    FourLines: [ 3, "Alternate bytes on four lines" ]
-    EightLines: [ 4, "Alternate bytes on eight lines" ]
+    NoAlternateBytes: [0, No alternate bytes]
+    SingleLine: [1, Alternate bytes on a single line]
+    TwoLines: [2, Alternate bytes on two lines]
+    FourLines: [3, Alternate bytes on four lines]
+    EightLines: [4, Alternate bytes on eight lines]
   ADSIZE:
-    Bits8: [ 0, "8-bit address" ]
-    Bits16: [ 1, "16-bit address" ]
-    Bits24: [ 2, "24-bit address" ]
-    Bits32: [ 3, "32-bit address" ]
+    Bits8: [0, 8-bit address]
+    Bits16: [1, 16-bit address]
+    Bits24: [2, 24-bit address]
+    Bits32: [3, 32-bit address]
   ADDTR:
-    Disabled: [ 0, "DTR mode disabled for address phase" ]
-    Enabled: [ 1, "DTR mode enabled for address phase" ]
+    Disabled: [0, DTR mode disabled for address phase]
+    Enabled: [1, DTR mode enabled for address phase]
   ADMODE:
-    NoAddress: [ 0, "No address" ]
-    SingleLine: [ 1, "Address on a single line" ]
-    TwoLines: [ 2, "Address on two lines" ]
-    FourLines: [ 3, "Address on four lines" ]
-    EightLines: [ 4, "Address on eight lines" ]
+    NoAddress: [0, No address]
+    SingleLine: [1, Address on a single line]
+    TwoLines: [2, Address on two lines]
+    FourLines: [3, Address on four lines]
+    EightLines: [4, Address on eight lines]
   ISIZE:
-    Bits8: [ 0, "8-bit instruction" ]
-    Bits16: [ 1, "16-bit instruction" ]
-    Bits24: [ 2, "24-bit instruction" ]
-    Bits32: [ 3, "32-bit instruction" ]
+    Bits8: [0, 8-bit instruction]
+    Bits16: [1, 16-bit instruction]
+    Bits24: [2, 24-bit instruction]
+    Bits32: [3, 32-bit instruction]
   IDTR:
-    Disabled: [ 0, "DTR mode disabled for instruction phase" ]
-    Enabled: [ 1, "DTR mode enabled for instruction phase" ]
+    Disabled: [0, DTR mode disabled for instruction phase]
+    Enabled: [1, DTR mode enabled for instruction phase]
   IMODE:
-    NoInstruction: [ 0, "No instruction" ]
-    SingleLine: [ 1, "Instruction on a single line" ]
-    TwoLines: [ 2, "Instruction on two lines" ]
-    FourLines: [ 3, "Instruction on four lines" ]
-    EightLines: [ 4, "Instruction on eight lines" ]
+    NoInstruction: [0, No instruction]
+    SingleLine: [1, Instruction on a single line]
+    TwoLines: [2, Instruction on two lines]
+    FourLines: [3, Instruction on four lines]
+    EightLines: [4, Instruction on eight lines]
 
 TCR:
   SSHIFT:
-    NoShift: [ 0, "No shift" ]
-    HalfCycleShift: [ 1, "1/2 cycle shift" ]
+    NoShift: [0, No shift]
+    HalfCycleShift: [1, 1/2 cycle shift]
   DHQC:
-    NoDelay: [ 0, "No delay hold" ]
-    QuarterCycleHold: [ 1, "1/4 cycle hold" ]
-  DCYC: [ 0, 0x1F ]
+    NoDelay: [0, No delay hold]
+    QuarterCycleHold: [1, 1/4 cycle hold]
+  DCYC: [0, 0x1F]
 
 IR:
-  INSTRUCTION: [ 0, 0xFFFFFFFF ]
+  INSTRUCTION: [0, 0xFFFFFFFF]
 
 ABR:
-  ALTERNATE: [ 0, 0xFFFFFFFF ]
+  ALTERNATE: [0, 0xFFFFFFFF]
 
 LPTR:
-  TIMEOUT: [ 0, 0xFFFF ]
+  TIMEOUT: [0, 0xFFFF]
 
 W*CCR:
   DQSE:
-    Disabled: [ 0, "DQS disabled" ]
-    Enabled: [ 1, "DQS enabled" ]
+    Disabled: [0, DQS disabled]
+    Enabled: [1, DQS enabled]
   DDTR:
-    Disabled: [ 0, "DTR mode disabled for data phase" ]
-    Enabled: [ 1, "DTR mode enabled for data phase" ]
+    Disabled: [0, DTR mode disabled for data phase]
+    Enabled: [1, DTR mode enabled for data phase]
   DMODE:
-    NoData: [ 0, "No data" ]
-    SingleLine: [ 1, "Data on a single line" ]
-    TwoLines: [ 2, "Data on two lines" ]
-    FourLines: [ 3, "Data on four lines" ]
-    EightLines: [ 4, "Data on eight lines" ]
+    NoData: [0, No data]
+    SingleLine: [1, Data on a single line]
+    TwoLines: [2, Data on two lines]
+    FourLines: [3, Data on four lines]
+    EightLines: [4, Data on eight lines]
   ABSIZE:
-    Bits8: [ 0, "8-bit alternate bytes" ]
-    Bits16: [ 1, "16-bit alternate bytes" ]
-    Bits24: [ 2, "24-bit alternate bytes" ]
-    Bits32: [ 3, "32-bit alternate bytes" ]
+    Bits8: [0, 8-bit alternate bytes]
+    Bits16: [1, 16-bit alternate bytes]
+    Bits24: [2, 24-bit alternate bytes]
+    Bits32: [3, 32-bit alternate bytes]
   ABDTR:
-    Disabled: [ 0, "DTR mode disabled for alternate bytes phase" ]
-    Enabled: [ 1, "DTR mode enabled for alternate bytes phase" ]
+    Disabled: [0, DTR mode disabled for alternate bytes phase]
+    Enabled: [1, DTR mode enabled for alternate bytes phase]
   ABMODE:
-    NoAlternateBytes: [ 0, "No alternate bytes" ]
-    SingleLine: [ 1, "Alternate bytes on a single line" ]
-    TwoLines: [ 2, "Alternate bytes on two lines" ]
-    FourLines: [ 3, "Alternate bytes on four lines" ]
-    EightLines: [ 4, "Alternate bytes on eight lines" ]
+    NoAlternateBytes: [0, No alternate bytes]
+    SingleLine: [1, Alternate bytes on a single line]
+    TwoLines: [2, Alternate bytes on two lines]
+    FourLines: [3, Alternate bytes on four lines]
+    EightLines: [4, Alternate bytes on eight lines]
   ADSIZE:
-    Bits8: [ 0, "8-bit address" ]
-    Bits16: [ 1, "16-bit address" ]
-    Bits24: [ 2, "24-bit address" ]
-    Bits32: [ 3, "32-bit address" ]
+    Bits8: [0, 8-bit address]
+    Bits16: [1, 16-bit address]
+    Bits24: [2, 24-bit address]
+    Bits32: [3, 32-bit address]
   ADDTR:
-    Disabled: [ 0, "DTR mode disabled for address phase" ]
-    Enabled: [ 1, "DTR mode enabled for address phase" ]
+    Disabled: [0, DTR mode disabled for address phase]
+    Enabled: [1, DTR mode enabled for address phase]
   ADMODE:
-    NoAddress: [ 0, "No address" ]
-    SingleLine: [ 1, "Address on a single line" ]
-    TwoLines: [ 2, "Address on two lines" ]
-    FourLines: [ 3, "Address on four lines" ]
-    EightLines: [ 4, "Address on eight lines" ]
+    NoAddress: [0, No address]
+    SingleLine: [1, Address on a single line]
+    TwoLines: [2, Address on two lines]
+    FourLines: [3, Address on four lines]
+    EightLines: [4, Address on eight lines]
   ISIZE:
-    Bits8: [ 0, "8-bit instruction" ]
-    Bits16: [ 1, "16-bit instruction" ]
-    Bits24: [ 2, "24-bit instruction" ]
-    Bits32: [ 3, "32-bit instruction" ]
+    Bits8: [0, 8-bit instruction]
+    Bits16: [1, 16-bit instruction]
+    Bits24: [2, 24-bit instruction]
+    Bits32: [3, 32-bit instruction]
   IDTR:
-    Disabled: [ 0, "DTR mode disabled for instruction phase" ]
-    Enabled: [ 1, "DTR mode enabled for instruction phase" ]
+    Disabled: [0, DTR mode disabled for instruction phase]
+    Enabled: [1, DTR mode enabled for instruction phase]
   IMODE:
-    NoInstruction: [ 0, "No instruction" ]
-    SingleLine: [ 1, "Instruction on a single line" ]
-    TwoLines: [ 2, "Instruction on two lines" ]
-    FourLines: [ 3, "Instruction on four lines" ]
-    EightLines: [ 4, "Instruction on eight lines" ]
+    NoInstruction: [0, No instruction]
+    SingleLine: [1, Instruction on a single line]
+    TwoLines: [2, Instruction on two lines]
+    FourLines: [3, Instruction on four lines]
+    EightLines: [4, Instruction on eight lines]
 
 WPTCR:
   SSHIFT:
-    NoShift: [ 0, "No shift" ]
-    HalfCycleShift: [ 1, "1/2 cycle shift" ]
+    NoShift: [0, No shift]
+    HalfCycleShift: [1, 1/2 cycle shift]
   DHQC:
-    NoDelay: [ 0, "No delay hold" ]
-    QuarterCycleHold: [ 1, "1/4 cycle hold" ]
-  DCYC: [ 0, 0x1F ]
+    NoDelay: [0, No delay hold]
+    QuarterCycleHold: [1, 1/4 cycle hold]
+  DCYC: [0, 0x1F]
 
 WPIR:
-  INSTRUCTION: [ 0, 0xFFFFFFFF ]
+  INSTRUCTION: [0, 0xFFFFFFFF]
 
 WPABR:
-  ALTERNATE: [ 0, 0xFFFFFFFF ]
+  ALTERNATE: [0, 0xFFFFFFFF]
 
 WTCR:
-  DCYC: [ 0, 0x1F ]
+  DCYC: [0, 0x1F]
 
 WIR:
-  INSTRUCTION: [ 0, 0xFFFFFFFF ]
+  INSTRUCTION: [0, 0xFFFFFFFF]
 
 WABR:
-  ALTERNATE: [ 0, 0xFFFFFFFF ]
+  ALTERNATE: [0, 0xFFFFFFFF]
 
 HLCR:
-  TRWR: [ 0, 0xFF ]
-  TACC: [ 0, 0xFF ]
+  TRWR: [0, 0xFF]
+  TACC: [0, 0xFF]
   WZL:
-    Disabled: [ 0, "Latency on write accesses" ]
-    Enabled: [ 1, "No latency on write accesses" ]
+    Disabled: [0, Latency on write accesses]
+    Enabled: [1, No latency on write accesses]
   LM:
-    Variable: [ 0, "Variable initial latency" ]
-    Fixed: [ 1, "Fixed latency" ]
+    Variable: [0, Variable initial latency]
+    Fixed: [1, Fixed latency]

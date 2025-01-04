@@ -2,47 +2,39 @@ HSEM:
   "R[0-9],R1[0-5]":
     LOCK:
       _read:
-        Free: [0, "Semaphore is free"]
-        Locked: [1, "Semaphore is locked"]
+        Free: [0, Semaphore is free]
+        Locked: [1, Semaphore is locked]
       _write:
-        Free: [0, "Free semaphore"]
-        TryLock: [1, "Try to lock semaphore"]
+        Free: [0, Free semaphore]
+        TryLock: [1, Try to lock semaphore]
     COREID: [0, 0xF]
     PROCID: [0, 0xFF]
   "RLR[0-9],RLR1[0-5]":
     LOCK:
       _read:
-        Free: [0, "Semaphore is free"]
-        Locked: [1, "Semaphore is locked"]
+        Free: [0, Semaphore is free]
+        Locked: [1, Semaphore is locked]
     COREID: [0, 0xF]
     PROCID: [0, 0xFF]
   C?IER:
     "ISE[0-9],ISE1[0-5]":
-      Disabled: [0, "Interrupt generation disabled"]
-      Enabled: [1, "Interrupt generation enabled"]
+      Disabled: [0, Interrupt generation disabled]
+      Enabled: [1, Interrupt generation enabled]
   C?ICR:
     "ISC[0-9],ISC1[0-5]":
       _read:
-        NoEffect: [0, "Always reads 0"]
+        NoEffect: [0, Always reads 0]
       _write:
-        NoEffect:
-          [
-            0,
-            "Interrupt semaphore x status ISFx and masked status MISFx not affected",
-          ]
-        Clear:
-          [
-            1,
-            "Interrupt semaphore x status ISFx and masked status MISFx cleared",
-          ]
+        NoEffect: [0, Interrupt semaphore x status ISFx and masked status MISFx not affected]
+        Clear: [1, Interrupt semaphore x status ISFx and masked status MISFx cleared]
   C?ISR:
     "ISF[0-9],ISF1[0-5]":
-      NotPending: [0, "No interrupt pending"]
-      Pending: [1, "Interrupt pending"]
+      NotPending: [0, No interrupt pending]
+      Pending: [1, Interrupt pending]
   C?MISR:
     "MISF[0-9],MISF1[0-5]":
-      NotPending: [0, "No interrupt pending after masking"]
-      Pending: [1, "Interrupt pending after masking"]
+      NotPending: [0, No interrupt pending after masking]
+      Pending: [1, Interrupt pending after masking]
   CR:
     KEY: [0, 0xFFFF]
     COREID: [0, 0xF]

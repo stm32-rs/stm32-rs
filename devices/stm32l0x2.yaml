@@ -48,11 +48,11 @@ RCC:
         name: CSSHSEON
   CCIPR:
     _merge:
-      - "LPTIM1SEL*"
-      - "I2C1SEL*"
-      - "LPUART1SEL*"
-      - "USART2SEL*"
-      - "USART1SEL*"
+      - LPTIM1SEL*
+      - I2C1SEL*
+      - LPUART1SEL*
+      - USART2SEL*
+      - USART1SEL*
   CSR:
     _modify:
       LPWRSTF:
@@ -85,8 +85,7 @@ SYSCFG:
 TIM*:
   _include:
     - patches/tim/size16b.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[23]":
   _include:
@@ -110,7 +109,7 @@ TIM*:
 "TIM[67]":
   _include: fields/tim/tim6.yaml
 
-"TIM2?":
+TIM2?:
   _include: fields/tim/tim2x.yaml
 
 TIM21:

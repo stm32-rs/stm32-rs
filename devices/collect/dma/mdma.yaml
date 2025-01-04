@@ -1,6 +1,6 @@
-"MDMA*":
+MDMA*:
   _cluster:
-    "CH%s":
+    CH%s:
       description: "Channel cluster: C?ISR, C?IFCR, C?ESR, C?CR, C?TCR, C?BNDTR, C?SAR, C?DAR, C?BRUR, C?LAR, C?TBR, C?MAR and C?MDR registers"
       "C[1][0-5]ISR,C?ISR":
         name: ISR
@@ -54,4 +54,4 @@
         name: MDR
   GISR0:
     _array:
-      "GIF*": {}
+      GIF*: {}

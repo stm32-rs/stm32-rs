@@ -41,11 +41,9 @@ CRC:
 # crypt key/iv registers.
 CRYP:
   "K[0123][LR]R":
-    _merge:
-      - "b*"
+    _merge: b*
   "IV[01][LR]R":
-    _merge:
-      - "IV*"
+    _merge: IV*
 
 EXTI:
   _include:
@@ -71,11 +69,11 @@ FMC:
   SDCR2:
     _add:
       RPIPE:
-        description: "Read pipe"
+        description: Read pipe
         bitOffset: 13
         bitWidth: 2
       RBURST:
-        description: "Burst read"
+        description: Burst read
         bitOffset: 12
         bitWidth: 1
 
@@ -140,11 +138,10 @@ SYSCFG:
 "TIM1[0134]":
   _include: patches/tim/tim10_14_missing_opm.yaml
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

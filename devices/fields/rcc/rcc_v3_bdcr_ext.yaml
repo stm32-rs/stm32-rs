@@ -4,14 +4,14 @@ RCC:
   BDCR:
     LSIRDY:
       _read:
-        NotReady: [0, "Clock not ready"]
-        Ready: [1, "Clock ready"]
+        NotReady: [0, Clock not ready]
+        Ready: [1, Clock ready]
     LSION:
-      Disabled: [0, "Oscillator disabled"]
-      Enabled: [1, "Oscillator enabled"]
+      Disabled: [0, Oscillator disabled]
+      Enabled: [1, Oscillator enabled]
     LSCOSEL:
-      LSI: [0, "LSI clock selected"]
-      LSE: [1, "LSE clock selected"]
+      LSI: [0, LSI clock selected]
+      LSE: [1, LSE clock selected]
     LSEEXT:
-      Analog: [0, "HSE in analog mode"]
-      Digital: [1, "HSE in digital mode"]
+      Analog: [0, HSE in analog mode]
+      Digital: [1, HSE in digital mode]

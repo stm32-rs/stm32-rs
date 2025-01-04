@@ -1,4 +1,4 @@
-"GPIO*":
+GPIO*:
   _add:
     ASCR:
       description: GPIO port analog switch control register
@@ -13,5 +13,5 @@
     _split: [ASC]
     ASC*:
       _write:
-          NoAction: [0, "Disconnect analog switch to the ADC input"]
-          Reset: [1, " Connect analog switch to the ADC input"]
+        NoAction: [0, Disconnect analog switch to the ADC input]
+        Reset: [1, " Connect analog switch to the ADC input"]

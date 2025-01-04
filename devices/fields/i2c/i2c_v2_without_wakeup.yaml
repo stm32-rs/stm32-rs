@@ -1,6 +1,6 @@
 # I2C peripheral without wakup used in stm32f7x{2,3} families
 # It has no CR1 WUPEN field.
 
-"I2C*":
+I2C*:
   _include:
     - i2c_v2_base.yaml

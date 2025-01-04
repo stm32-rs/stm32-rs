@@ -25,7 +25,7 @@ ADC[23]:
   _include:
     - patches/adc/smpx_17.yaml
 
-"ADC?":
+ADC?:
   _include:
     - fields/adc/adc_f1_f37x.yaml
 
@@ -94,10 +94,9 @@ TIM10:
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

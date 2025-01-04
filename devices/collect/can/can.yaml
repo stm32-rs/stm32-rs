@@ -1,24 +1,24 @@
 "CAN,CAN?":
   "TDL?R,TDH?R,RDL?R,RDH?R":
     _array:
-      "DATA?":
+      DATA?:
         description: DATA%s
 
   _cluster:
-    "TX%s":
-      description: "CAN Transmit cluster"
-      "TI?R": {}
-      "TDT?R": {}
-      "TDL?R": {}
-      "TDH?R": {}
-    "RX%s":
-      description: "CAN Receive cluster"
-      "RI?R": {}
-      "RDT?R": {}
-      "RDL?R": {}
-      "RDH?R": {}
+    TX%s:
+      description: CAN Transmit cluster
+      TI?R: {}
+      TDT?R: {}
+      TDL?R: {}
+      TDH?R: {}
+    RX%s:
+      description: CAN Receive cluster
+      RI?R: {}
+      RDT?R: {}
+      RDL?R: {}
+      RDH?R: {}
   _array:
-    "RF?R":
+    RF?R:
       _modify:
         RFOM0:
           name: RFOM

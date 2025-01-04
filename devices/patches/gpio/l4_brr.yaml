@@ -1,4 +1,4 @@
-"GPIO*":
+GPIO*:
   _add:
     BRR:
       description: GPIO port bit reset register
@@ -13,5 +13,5 @@
     _split: [BR]
     BR*:
       _write:
-          NoAction: [0, "No action on the corresponding ODx bit"]
-          Reset: [1, "Reset the corresponding ODx bit"]
+        NoAction: [0, No action on the corresponding ODx bit]
+        Reset: [1, Reset the corresponding ODx bit]

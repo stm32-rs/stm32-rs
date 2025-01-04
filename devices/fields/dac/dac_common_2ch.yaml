@@ -1,16 +1,16 @@
 # The DAC is widely used. This is the common subset for two-channel devices.
 
 _include:
-  - "dac_common_1ch.yaml"
+  - dac_common_1ch.yaml
 
 DAC,DAC?:
   CR:
     TSEL2:
-      TIM6_TRGO: [0, "Timer 6 TRGO event"]
-      TIM8_TRGO: [1, "Timer 8 TRGO event"]
-      TIM7_TRGO: [2, "Timer 7 TRGO event"]
-      TIM5_TRGO: [3, "Timer 5 TRGO event"]
-      TIM2_TRGO: [4, "Timer 2 TRGO event"]
-      TIM4_TRGO: [5, "Timer 4 TRGO event"]
-      EXTI9: [6, "EXTI line9"]
-      SOFTWARE: [7, "Software trigger"]
+      TIM6_TRGO: [0, Timer 6 TRGO event]
+      TIM8_TRGO: [1, Timer 8 TRGO event]
+      TIM7_TRGO: [2, Timer 7 TRGO event]
+      TIM5_TRGO: [3, Timer 5 TRGO event]
+      TIM2_TRGO: [4, Timer 2 TRGO event]
+      TIM4_TRGO: [5, Timer 4 TRGO event]
+      EXTI9: [6, EXTI line9]
+      SOFTWARE: [7, Software trigger]

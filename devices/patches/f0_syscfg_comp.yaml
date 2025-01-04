@@ -10,15 +10,15 @@ SYSCFG:
   CFGR1:
     _add:
       IR_MOD:
-        description: "IR Modulation Envelope signal selection"
+        description: IR Modulation Envelope signal selection
         bitOffset: 6
         bitWidth: 2
       TIM16_DMA_RMP2:
-        description: "TIM16 alternate DMA request remapping bit"
+        description: TIM16 alternate DMA request remapping bit
         bitOffset: 13
         bitWidth: 1
       TIM17_DMA_RMP2:
-        description: "TIM17 alternate DMA request remapping bit"
+        description: TIM17 alternate DMA request remapping bit
         bitOffset: 14
         bitWidth: 1
     _modify:

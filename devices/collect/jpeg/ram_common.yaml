@@ -1,25 +1,25 @@
 JPEG:
   _array:
-    "QMEM0_*":
+    QMEM0_*:
       name: QMEM0%s
-    "QMEM1_*":
+    QMEM1_*:
       name: QMEM1%s
-    "QMEM2_*":
+    QMEM2_*:
       name: QMEM2%s
-    "QMEM3_*":
+    QMEM3_*:
       name: QMEM3%s
-    "HUFFBASE*": {}
-    "HUFFSYMB*": {}
-    "DHTMEM*": {}
-    "HUFFENC_AC0_*":
+    HUFFBASE*: {}
+    HUFFSYMB*: {}
+    DHTMEM*: {}
+    HUFFENC_AC0_*:
       name: HUFFENC_AC0%s
       description: JPEG encoder, AC Huffman table 0
-    "HUFFENC_AC1_*":
+    HUFFENC_AC1_*:
       description: JPEG encoder, AC Huffman table 1
       name: HUFFENC_AC1%s
-    "HUFFENC_DC0_*":
+    HUFFENC_DC0_*:
       name: HUFFENC_DC0%s
       description: JPEG encoder, DC Huffman table 0
-    "HUFFENC_DC1_*":
+    HUFFENC_DC1_*:
       name: HUFFENC_DC1%s
       description: JPEG encoder, DC Huffman table 1

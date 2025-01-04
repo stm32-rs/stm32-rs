@@ -177,10 +177,9 @@ SPI?:
 "TIM[1],TIM8":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[18]":
   _include:

@@ -1,14 +1,14 @@
 "DMA,DMA[12]":
   _cluster:
-    "CH%s":
+    CH%s:
       description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
-      "CCR?":
+      CCR?:
         name: CR
-      "CNDTR?":
+      CNDTR?:
         name: NDTR
-      "CPAR?":
+      CPAR?:
         name: PAR
-      "CMAR?":
+      CMAR?:
         name: MAR
 
   _include:

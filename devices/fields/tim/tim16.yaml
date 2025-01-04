@@ -3,15 +3,11 @@ CR2:
     NotPreloaded: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
     Preloaded: [1, "CCxE, CCxNE and OCxM bits are preloaded"]
   CCUS:
-    Default: [0, "Capture/compare are updated only by setting the COMG bit"]
-    WithRisingEdge:
-      [
-        1,
-        "Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI",
-      ]
+    Default: [0, Capture/compare are updated only by setting the COMG bit]
+    WithRisingEdge: [1, Capture/compare are updated by setting the COMG bit or when an rising edge occurs on TRGI]
   CCDS:
-    OnCompare: [0, "CCx DMA request sent when CCx event occurs"]
-    OnUpdate: [1, "CCx DMA request sent when update event occurs"]
+    OnCompare: [0, CCx DMA request sent when CCx event occurs]
+    OnUpdate: [1, CCx DMA request sent when update event occurs]
   OIS1N:
     Reset: [0, "OC1N=0 after a dead-time when MOE=0"]
     Set: [1, "OC1N=1 after a dead-time when MOE=0"]
@@ -20,14 +16,14 @@ CR2:
     Set: [1, "OC1=1 (after a dead-time if OC1N is implemented) when MOE=0"]
 DIER:
   CC1IE:
-    Disabled: [0, "CC1 interrupt disabled"]
-    Enabled: [1, "CC1 interrupt enabled"]
+    Disabled: [0, CC1 interrupt disabled]
+    Enabled: [1, CC1 interrupt enabled]
   COMIE:
-    Disabled: [0, "COM interrupt disabled"]
-    Enabled: [1, "COM interrupt enabled"]
+    Disabled: [0, COM interrupt disabled]
+    Enabled: [1, COM interrupt enabled]
   BIE:
-    Disabled: [0, "Break interrupt disabled"]
-    Enabled: [1, "Break interrupt enabled"]
+    Disabled: [0, Break interrupt disabled]
+    Enabled: [1, Break interrupt enabled]
   CC1DE:
-    Disabled: [0, "CC1 DMA request disabled"]
-    Enabled: [1, "CC1 DMA request enabled"]
+    Disabled: [0, CC1 DMA request disabled]
+    Enabled: [1, CC1 DMA request enabled]

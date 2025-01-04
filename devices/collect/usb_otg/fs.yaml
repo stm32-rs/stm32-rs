@@ -1,7 +1,7 @@
 OTG_FS_HOST:
   _cluster:
-    "HC%s":
-      description: "Host channel"
+    HC%s:
+      description: Host channel
       HCCHAR?,HCCHAR??:
         name: CHAR
       HCINT?,HCINT??:
@@ -19,7 +19,7 @@ OTG_FS_DEVICE:
       DIEPINT[0]: { name: INT }
       DIEPTSIZ[0]: { name: TSIZ }
       DTXFSTS[0]: { name: TXFSTS }
-    "DIEP%s":
+    DIEP%s:
       description: Device IN endpoint X
       DIEPCTL[1-5]: { name: CTL }
       DIEPINT[1-5]: { name: INT }
@@ -30,7 +30,7 @@ OTG_FS_DEVICE:
       DOEPCTL[0]: { name: CTL }
       DOEPINT[0]: { name: INT }
       DOEPTSIZ[0]: { name: TSIZ }
-    "DOEP%s":
+    DOEP%s:
       description: Device IN endpoint X
       DOEPCTL[1-5]: { name: CTL }
       DOEPINT[1-5]: { name: INT }

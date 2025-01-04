@@ -1,19 +1,19 @@
-"DMA?":
+DMA?:
   S?CR:
     _delete:
       - ACK
   _cluster:
-    "ST%s":
+    ST%s:
       description: "Stream cluster: S?CR, S?NDTR, S?M0AR, S?M1AR and S?FCR registers"
-      "S?CR":
+      S?CR:
         name: CR
-      "S?NDTR":
+      S?NDTR:
         name: NDTR
-      "S?PAR":
+      S?PAR:
         name: PAR
-      "S?M0AR":
+      S?M0AR:
         name: M0AR
-      "S?M1AR":
+      S?M1AR:
         name: M1AR
-      "S?FCR":
+      S?FCR:
         name: FCR

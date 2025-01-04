@@ -29,7 +29,7 @@ ADC1_2:
       - DUAL
       - MULT
 
-"ADC*_*":
+ADC*_*:
   _include:
     - fields/adc/adc_v3_common_single.yaml
     - fields/adc/adc_v3_common_f3_single.yaml
@@ -70,7 +70,7 @@ PWR:
   _add:
     _interrupts:
       PVD:
-        description: "PVD through EXTI line detection interrupt"
+        description: PVD through EXTI line detection interrupt
         value: 1
 
 SPI?:
@@ -120,10 +120,9 @@ TIM1:
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[25]":
   _include: patches/tim/tim2_common_32bit.yaml

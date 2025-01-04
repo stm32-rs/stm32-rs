@@ -31,7 +31,7 @@ _modify:
       size: 0x100
       usage: registers
 
-"ADC*_Common":
+ADC*_Common:
   _strip: ADC_
   #_include: fields/adc/adc_v3_common_h7.yaml
   CCR:
@@ -60,11 +60,9 @@ CORDIC:
 # crypt key/iv registers.
 CRYP:
   "K[0123][LR]R":
-    _merge:
-      - "k*"
+    _merge: k*
   "IV[01][LR]R":
-    _merge:
-      - "IV*"
+    _merge: IV*
 
 DMAMUX1:
   _strip: DMAMUX_
@@ -126,7 +124,7 @@ OCTOSPI?:
       ADRESS:
         name: ADDRESS
 
-"OTG?_HS_*":
+OTG?_HS_*:
   _strip: OTG_HS_
 
 OTG1_HS_GLOBAL:
@@ -342,10 +340,9 @@ TIM1:
 "TIM[1],TIM[2-4],TIM1[2-4]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

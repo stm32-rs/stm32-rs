@@ -33,15 +33,7 @@ CCMR1_Input:
     TRC: [3, "CC2 channel is configured as input, IC2 is mapped on TRC"]
 CCMR1_Output:
   OC?PE:
-    Disabled:
-      [
-        0,
-        "Preload register on CCRx disabled. New values written to CCRx are taken into account immediately",
-      ]
-    Enabled:
-      [
-        1,
-        "Preload register on CCRx enabled. Preload value is loaded into active register on each update event",
-      ]
+    Disabled: [0, Preload register on CCRx disabled. New values written to CCRx are taken into account immediately]
+    Enabled: [1, Preload register on CCRx enabled. Preload value is loaded into active register on each update event]
   CC?S:
-    Output: [0, "CCx channel is configured as output"]
+    Output: [0, CCx channel is configured as output]

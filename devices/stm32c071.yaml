@@ -32,7 +32,7 @@ SPI?:
   _strip: SPI?_
 
 TIM[123]:
-  _strip: "TIM?_"
+  _strip: TIM?_
   _modify:
     CCMR1:
       name: CCMR1_Input
@@ -67,8 +67,8 @@ TIM[123]:
 
 TIM*:
   _strip:
-    - "TIM*__"
-    - "TIM?*_"
+    - TIM*__
+    - TIM?*_
 
 TIM1[467]:
   _modify:

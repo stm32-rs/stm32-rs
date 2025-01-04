@@ -53,10 +53,10 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-"LPTIM*":
+LPTIM*:
   _strip: LPTIM_
 
-"LPUART*":
+LPUART*:
   _strip: LPUART_
 
 RCC:
@@ -94,10 +94,9 @@ TIM16:
 "TIM[1],TIM14":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

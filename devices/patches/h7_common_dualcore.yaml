@@ -5,13 +5,13 @@ _modify:
   Flash:
     name: FLASH
 
-"GPIO?":
+GPIO?:
   # The SVD incorrectly names all the GPIO registers compared to RM0433.
   _strip: GPIO_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
-"GPIO*":
+GPIO*:
   MODER:
     _modify:
       MODE0:
@@ -243,7 +243,7 @@ EXTI:
     CPUPR3:
       name: C1PR3
 
-"SPI*":
+SPI*:
   CR1:
     _modify:
       IOLOCK:
@@ -500,7 +500,7 @@ RCC:
     _modify:
       CAMITFEN:
         name: DCMIEN
-        description: "DCMI peripheral clock"
+        description: DCMI peripheral clock
   AHB1LPENR:
     _add:
       ARTLPEN:
@@ -517,7 +517,7 @@ RCC:
     _modify:
       CAMITFLPEN:
         name: DCMILPEN
-        description: "DCMI peripheral clock enable during csleep mode"
+        description: DCMI peripheral clock enable during csleep mode
   AHB3ENR:
     _add:
       DTCM1EN:
@@ -540,7 +540,7 @@ RCC:
     _modify:
       FLITFLPEN:
         name: FLASHPREN
-        description: "Flash interface clock enable during csleep mode"
+        description: Flash interface clock enable during csleep mode
 
 HRTIM_Common:
   _delete:
@@ -623,10 +623,10 @@ I2C1:
 SAI4:
   _strip: SAI_
 
-"OTG?_HS_*":
+OTG?_HS_*:
   _strip: OTG_HS_
 
-"FDCAN?":
+FDCAN?:
   _strip: FDCAN_
 
 WWDG1,WWDG2:

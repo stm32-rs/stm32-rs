@@ -5,26 +5,26 @@ _clear_fields: "*"
 ADC?:
   _strip: ADC_
   CFGR:
-    _merge: "EXTSEL*"
+    _merge: EXTSEL*
 
 CRYP:
   _strip: CRYP_
   _cluster:
-    "KEY%s":
-      "K?LR": {}
-      "K?RR": {}
-    "INIT%s":
-      "IV?LR": {}
-      "IV?RR": {}
+    KEY%s:
+      K?LR: {}
+      K?RR: {}
+    INIT%s:
+      IV?LR: {}
+      IV?RR: {}
 
   _array:
-    "CSGCMCCM?R": {}
-    "CSGCM?R": {}
+    CSGCMCCM?R: {}
+    CSGCM?R: {}
 
 IWDG:
   _include: patches/16bit_with_mask.yaml
 
-"MCE*":
+MCE*:
   _strip: MCE_
 
 PKA:

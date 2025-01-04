@@ -2,12 +2,8 @@ HRTIM_Common:
   _include: common_v1.yaml
   BMTRGR:
     "EEV[78]":
-      NoEffect: [0, "External event X has no effect"]
-      Trigger: [1, "External event X triggers a burst mode entry"]
+      NoEffect: [0, External event X has no effect]
+      Trigger: [1, External event X triggers a burst mode entry]
     "TDEEV8,TAEEV7":
-      NoEffect: [0, "Timer X period following external event Y has no effect"]
-      Trigger:
-        [
-          1,
-          "Timer X period following external event Y triggers a burst mode entry",
-        ]
+      NoEffect: [0, Timer X period following external event Y has no effect]
+      Trigger: [1, Timer X period following external event Y triggers a burst mode entry]

@@ -14,7 +14,7 @@ CNT:
       description: Counter value
     "CNTL,CNT_L":
       name: CNTL
-  _merge: "CNT*"
+  _merge: CNT*
 
 _include:
   - tim2_arr.yaml

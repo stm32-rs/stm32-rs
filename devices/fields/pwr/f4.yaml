@@ -1,48 +1,51 @@
 CR:
   FPDS:
-    Idle: [0, "Flash memory not in power-down when the device is in Stop mode"]
-    PowerDown: [1, "Flash memory in power-down when the device is in Stop mode"]
+    Idle: [0, Flash memory not in power-down when the device is in Stop mode]
+    PowerDown: [1, Flash memory in power-down when the device is in Stop mode]
   DBP:
-    Protected: [0, "Access to RTC and RTC Backup registers and backup SRAM disabled"]
-    Writable: [1, "Access to RTC and RTC Backup registers and backup SRAM enabled"]
-  PLS:
-    [0, 7]
+    Protected: [0, Access to RTC and RTC Backup registers and backup SRAM disabled]
+    Writable: [1, Access to RTC and RTC Backup registers and backup SRAM enabled]
+  PLS: [0, 7]
   PVDE:
-    Disabled: [0, "PVD disabled"]
-    Enabled: [1, "PVD enabled"]
+    Disabled: [0, PVD disabled]
+    Enabled: [1, PVD enabled]
   CSBF:
     _read:
-      Zero: [0, "This bit is always read as 0"]
+      Zero: [0, This bit is always read as 0]
     _write:
-      Clear: [1, "Clear the SBF Standby Flag"]
+      Clear: [1, Clear the SBF Standby Flag]
   CWUF:
     _read:
-      Zero: [0, "This bit is always read as 0"]
+      Zero: [0, This bit is always read as 0]
     _write:
-      Clear: [1, "Clear the WUPF Wakeup Flag **after 2 System clock cycles**"]
+      Clear: [1, Clear the WUPF Wakeup Flag **after 2 System clock cycles**]
   PDDS:
-    EnterStop: [0, "Enter Stop mode when the CPU enters deepsleep. The regulator status depends on the LPDS bit"]
-    EnterStandby: [1, "Enter Standby mode when the CPU enters deepsleep"]
+    EnterStop: [0, Enter Stop mode when the CPU enters deepsleep. The regulator status depends on the LPDS bit]
+    EnterStandby: [1, Enter Standby mode when the CPU enters deepsleep]
   LPDS:
-    Main: [0, "Main voltage regulator ON during Stop mode"]
-    LowPower: [1, "Low-power voltage regulator ON during Stop mode"]
+    Main: [0, Main voltage regulator ON during Stop mode]
+    LowPower: [1, Low-power voltage regulator ON during Stop mode]
 
 CSR:
   VOSRDY:
-    NotReady: [0, "Not ready"]
-    Ready: [1, "Ready"]
+    NotReady: [0, Not ready]
+    Ready: [1, Ready]
   BRE:
-    Disabled: [0, "Backup regulator disabled"]
-    Enabled: [1, "Backup regulator enabled"]
+    Disabled: [0, Backup regulator disabled]
+    Enabled: [1, Backup regulator enabled]
   BRR:
-    NotReady: [0, "Backup Regulator not ready"]
-    Ready: [1, "Backup Regulator ready"]
+    NotReady: [0, Backup Regulator not ready]
+    Ready: [1, Backup Regulator ready]
   PVDO:
     Higher: [0, "Vdd is higher than the PVD threshold selected with the PLS[2:0] bits"]
     Lower: [1, "Vdd is lower than the PVD threshold selected with the PLS[2:0] bits"]
   SBF:
-    InStandby: [0, "Device has not been in Standby mode"]
-    NotInStandby: [1, "Device has been in Standby mode"]
+    InStandby: [0, Device has not been in Standby mode]
+    NotInStandby: [1, Device has been in Standby mode]
   WUF:
-    NotOccurred: [0, "No wakeup event occurred"]
-    Occurred: [1, "A wakeup event was received from the WKUP pin or from the RTC alarm (Alarm A or Alarm B), RTC Tamper event, RTC TimeStamp event or RTC Wakeup)"]
+    NotOccurred: [0, No wakeup event occurred]
+    Occurred:
+      [
+        1,
+        "A wakeup event was received from the WKUP pin or from the RTC alarm (Alarm A or Alarm B), RTC Tamper event, RTC TimeStamp event or RTC Wakeup)",
+      ]

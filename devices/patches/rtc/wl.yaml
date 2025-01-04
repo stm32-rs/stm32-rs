@@ -1,13 +1,13 @@
 RTC:
   _modify:
-    "ALRM?R":
+    ALRM?R:
       description: Alarm register
-    "ALRM?SSR":
+    ALRM?SSR:
       description: Alarm sub-second register
     ALRBBINR:
       description: Alarm binary mode register
 
-  "ALRM?R":
+  ALRM?R:
     _modify:
       SU:
         description: Second units in BCD format

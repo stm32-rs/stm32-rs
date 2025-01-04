@@ -1,37 +1,40 @@
 FLASH:
   ACR:
     EMPTY:
-      Programmed: [0, "User Flash programmend"]
-      Empty: [1, "User Flash empty"]
+      Programmed: [0, User Flash programmend]
+      Empty: [1, User Flash empty]
     PES:
-      Granted: [0, "Flash program and erase operations granted"]
-      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. The PESD bit in FLASH_SR is set when PES bit in FLASH_ACR is set"]
+      Granted: [0, Flash program and erase operations granted]
+      Suspended:
+        [
+          1,
+          Any new Flash program and erase operation is suspended until this bit is cleared. The PESD bit in FLASH_SR is set when PES bit in FLASH_ACR is set,
+        ]
     DCRST:
-      NotReset: [0, "Data cache is not reset"]
-      Reset: [1, "Data cache is reset"]
+      NotReset: [0, Data cache is not reset]
+      Reset: [1, Data cache is reset]
     ICRST:
-      NotReset: [0, "Instruction cache is not reset"]
-      Reset: [1, "Instruction cache is reset"]
+      NotReset: [0, Instruction cache is not reset]
+      Reset: [1, Instruction cache is reset]
     DCEN:
-      Disabled: [0, "Data cache is disabled"]
-      Enabled: [1, "Data cache is enabled"]
+      Disabled: [0, Data cache is disabled]
+      Enabled: [1, Data cache is enabled]
     ICEN:
-      Disabled: [0, "Instruction cache is disabled"]
-      Enabled: [1, "Instruction cache is enabled"]
+      Disabled: [0, Instruction cache is disabled]
+      Enabled: [1, Instruction cache is enabled]
     PRFTEN:
-      Disabled: [0, "Prefetch is disabled"]
-      Enabled: [1, "Prefetch is enabled"]
+      Disabled: [0, Prefetch is disabled]
+      Enabled: [1, Prefetch is enabled]
     LATENCY:
-      WS0: [0, "0 wait states"]
-      WS1: [1, "1 wait states"]
-      WS2: [2, "2 wait states"]
+      WS0: [0, 0 wait states]
+      WS1: [1, 1 wait states]
+      WS2: [2, 2 wait states]
 
   KEYR:
     KEY: [0, 0xFFFFFFFF]
 
   OPTKEYR:
     OPTKEY: [0, 0xFFFFFFFF]
-
 
   SR:
     _modify:
@@ -40,205 +43,209 @@ FLASH:
       MISERR:
         name: MISSERR
     PESD:
-      Granted: [0, "Flash program and erase operations granted"]
-      Suspended: [1, "Any new Flash program and erase operation is suspended until this bit is cleared. This bit is set when the PES bit in FLASH_ACR is set"]
+      Granted: [0, Flash program and erase operations granted]
+      Suspended:
+        [
+          1,
+          Any new Flash program and erase operation is suspended until this bit is cleared. This bit is set when the PES bit in FLASH_ACR is set,
+        ]
     CFGBSY:
       Free: [0, "PG, PNB, PER, MER bits available for writing"]
       Busy: [1, "PG, PNB, PER, MER bits not available for writing (operation ongoing)"]
     BSY:
-      Inactive: [0, "No write/erase operation is in progress"]
-      Active: [1, "No write/erase operation is in progress"]
+      Inactive: [0, No write/erase operation is in progress]
+      Active: [1, No write/erase operation is in progress]
     OPTVERR:
       _read:
-        NoError: [0, "No error in option and engineering bits"]
-        Error: [1, "Error in option and engineering bits"]
+        NoError: [0, No error in option and engineering bits]
+        Error: [1, Error in option and engineering bits]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     RDERR:
       _read:
-        NoError: [0, "No read-only error happened"]
-        Error: [1, "Read-only error happened"]
+        NoError: [0, No read-only error happened]
+        Error: [1, Read-only error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     OPTNV:
-      Valid: [0, "The OBL user option OPTVAL indicates \"valid\""]
-      Invalid: [1, "The OBL user option OPTVAL indicates \"invalid\""]
+      Valid: [0, 'The OBL user option OPTVAL indicates "valid"']
+      Invalid: [1, 'The OBL user option OPTVAL indicates "invalid"']
     FASTERR:
       _read:
-        NoError: [0, "No fast programming error happened"]
-        Error: [1, "Fast programming error happened"]
+        NoError: [0, No fast programming error happened]
+        Error: [1, Fast programming error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     MISSERR:
       _read:
-        NoError: [0, "No fast programming data miss error happened"]
-        Error: [1, "Fast programming data miss error happened"]
+        NoError: [0, No fast programming data miss error happened]
+        Error: [1, Fast programming data miss error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     PGSERR:
       _read:
-        NoError: [0, "No fast programming sequence error happened"]
-        Error: [1, "Fast programming sequence error happened"]
+        NoError: [0, No fast programming sequence error happened]
+        Error: [1, Fast programming sequence error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     SIZERR:
       _read:
-        NoError: [0, "No size error happened"]
-        Error: [1, "Size error happened"]
+        NoError: [0, No size error happened]
+        Error: [1, Size error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     PGAERR:
       _read:
-        NoError: [0, "No programming alignment error happened"]
-        Error: [1, "Programming alignment error happened"]
+        NoError: [0, No programming alignment error happened]
+        Error: [1, Programming alignment error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     WRPERR:
       _read:
-        NoError: [0, "No write protection error happened"]
-        Error: [1, "Write protection error happened"]
+        NoError: [0, No write protection error happened]
+        Error: [1, Write protection error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     PROGERR:
       _read:
-        NoError: [0, "No size programming error happened"]
-        Error: [1, "Programming error happened"]
+        NoError: [0, No size programming error happened]
+        Error: [1, Programming error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     OPERR:
       _read:
-        NoError: [0, "No memory opreation error happened"]
-        Error: [1, "Memory operation error happened"]
+        NoError: [0, No memory opreation error happened]
+        Error: [1, Memory operation error happened]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     EOP:
       _read:
-        NoEvent: [0, "No EOP operation occurred"]
-        Event: [1, "An EOP event occurred"]
+        NoEvent: [0, No EOP operation occurred]
+        Event: [1, An EOP event occurred]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
   CR:
     LOCK:
       _read:
-        Unlocked: [0, "FLASH_CR is unlocked"]
+        Unlocked: [0, FLASH_CR is unlocked]
       _write:
-        Locked: [1, "FLASH_CR is locked"]
+        Locked: [1, FLASH_CR is locked]
     OPTLOCK:
       _read:
-        Unlocked: [0, "FLASH_CR options are unlocked"]
+        Unlocked: [0, FLASH_CR options are unlocked]
       _write:
-        Locked: [1, "FLASH_CR options are locked"]
+        Locked: [1, FLASH_CR options are locked]
     OBL_LAUNCH:
       _read:
-        Complete: [0, "Option byte loaded"]
-        NotComplete: [1, "Option byte loading to be done"]
+        Complete: [0, Option byte loaded]
+        NotComplete: [1, Option byte loading to be done]
       _write:
-        Reload: [1, "Reload option byte"]
+        Reload: [1, Reload option byte]
     RDERRIE:
-      Disabled: [0, "PCROP read error interrupt disable"]
-      Enabled: [1, "PCROP read error interrupt enable"]
+      Disabled: [0, PCROP read error interrupt disable]
+      Enabled: [1, PCROP read error interrupt enable]
     ERRIE:
-      Disabled: [0, "OPERR Error interrupt disable"]
-      Enabled: [1, "OPERR Error interrupt enable"]
+      Disabled: [0, OPERR Error interrupt disable]
+      Enabled: [1, OPERR Error interrupt enable]
     EOPIE:
-      Disabled: [0, "End of program interrupt disable"]
-      Enabled: [1, "End of program interrupt enable"]
+      Disabled: [0, End of program interrupt disable]
+      Enabled: [1, End of program interrupt enable]
     FSTPG:
-      Disabled: [0, "Fast programming disabled"]
-      Enabled: [1, "Fast programming enabled"]
+      Disabled: [0, Fast programming disabled]
+      Enabled: [1, Fast programming enabled]
     OPTSTRT:
       _read:
-        Done: [0, "Options modification completed or idle"]
+        Done: [0, Options modification completed or idle]
       _write:
-        Start: [1, "Trigger options programming operation"]
+        Start: [1, Trigger options programming operation]
     STRT:
       _read:
-        Done: [0, "Options modification completed or idle"]
+        Done: [0, Options modification completed or idle]
       _write:
-        Start: [1, "Trigger options programming operation"]
+        Start: [1, Trigger options programming operation]
     PNB: [0, 0x7F]
     MER:
-      NoErase: [0, "No mass erase"]
-      MassErase: [1, "Trigger mass erase"]
+      NoErase: [0, No mass erase]
+      MassErase: [1, Trigger mass erase]
     PER:
-      Disabled: [0, "Page erase disabled"]
-      Enabled: [1, "Page erase enabled"]
+      Disabled: [0, Page erase disabled]
+      Enabled: [1, Page erase enabled]
     PG:
-      Disabled: [0, "Flash programming disabled"]
-      Enabled: [1, "Flash programming enabled"]
+      Disabled: [0, Flash programming disabled]
+      Enabled: [1, Flash programming enabled]
 
   ECCR:
     ECCD:
       _read:
-        NoEvent: [0, "Two ECC errors detected"]
-        Event: [1, "No two ECC errors detected"]
+        NoEvent: [0, Two ECC errors detected]
+        Event: [1, No two ECC errors detected]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     ECCC:
       _read:
-        NoEvent: [0, "ECC error corrected"]
-        Event: [1, "No ECC error corrected"]
+        NoEvent: [0, ECC error corrected]
+        Event: [1, No ECC error corrected]
       _write:
-        Clear: [1, "Clear the flag"]
+        Clear: [1, Clear the flag]
     ECCCIE:
-      Disabled: [0, "ECCC interrupt disabled"]
-      Enabled: [1, "ECCC interrupt enabled"]
+      Disabled: [0, ECCC interrupt disabled]
+      Enabled: [1, ECCC interrupt enabled]
     SYSF_ECC:
-      NotInFlash: [0, "No System Flash memory ECC fail"]
-      InFlash: [1, "System Flash memory ECC fail"]
+      NotInFlash: [0, No System Flash memory ECC fail]
+      InFlash: [1, System Flash memory ECC fail]
     ADDR_ECC: [0, 0x1FFFF]
   OPTR:
     _modify:
       SRAM2_RST:
         name: SRAM_RST
     BOOT_LOCK:
-      Disabled: [0, "Boot lock is disabled"]
-      Enabled: [1, "Boot lock is enabled"]
+      Disabled: [0, Boot lock is disabled]
+      Enabled: [1, Boot lock is enabled]
     nBOOT0:
       Clear: [0, "When nSWBOOT0 is cleared, select boot mode together with nBOOT1"]
       Set: [1, "When nSWBOOT0 is cleared, select boot mode together with nBOOT1"]
     nSWBOOT0:
-      Bit: [0, "BOOT0 taken from nBOOT0 in this register"]
-      Pin: [1, "BOOT0 taken from GPIO PH3/BOOT0"]
+      Bit: [0, BOOT0 taken from nBOOT0 in this register]
+      Pin: [1, BOOT0 taken from GPIO PH3/BOOT0]
     SRAM_RST:
-      Reset: [0, "SRAM1 and SRAM2 erased when a system reset occurs"]
-      NotReset: [1, "SRAM1 and SRAM2 not erased when a system reset occurs"]
+      Reset: [0, SRAM1 and SRAM2 erased when a system reset occurs]
+      NotReset: [1, SRAM1 and SRAM2 not erased when a system reset occurs]
     SRAM2_PE:
-      Enabled: [0, "SRAM2 Parity check enabled"]
-      Disabled: [1, "SRAM2 Parity check disabled"]
+      Enabled: [0, SRAM2 Parity check enabled]
+      Disabled: [1, SRAM2 Parity check disabled]
     nBOOT1:
       Clear: [0, "When nSWBOOT0 is cleared, select boot mode together with nBOOT0"]
       Set: [1, "When nSWBOOT0 is cleared, select boot mode together with nBOOT0"]
     WWDG_SW:
-      Hardware: [0, "Hardware window watchdog"]
-      Software: [1, "Software window watchdog"]
+      Hardware: [0, Hardware window watchdog]
+      Software: [1, Software window watchdog]
     IWDG_STDBY:
-      Frozen: [0, "Independent watchdog counter frozen in Standby mode"]
-      Running: [1, "Independent watchdog counter running in Standby mode"]
+      Frozen: [0, Independent watchdog counter frozen in Standby mode]
+      Running: [1, Independent watchdog counter running in Standby mode]
     IWDG_STOP:
-      Frozen: [0, "Independent watchdog counter frozen in Stop mode"]
-      Running: [1, "Independent watchdog counter running in Stop mode"]
+      Frozen: [0, Independent watchdog counter frozen in Stop mode]
+      Running: [1, Independent watchdog counter running in Stop mode]
     IWDG_SW:
-      Hardware: [0, "Hardware independent watchdog"]
-      Software: [1, "Software independent watchdog"]
+      Hardware: [0, Hardware independent watchdog]
+      Software: [1, Software independent watchdog]
     nRST_SHDW:
-      Enabled: [0, "Reset generated when entering the Shutdown mode"]
-      Disabled: [1, "No reset generated when entering the Shutdown mode"]
+      Enabled: [0, Reset generated when entering the Shutdown mode]
+      Disabled: [1, No reset generated when entering the Shutdown mode]
     nRST_STDBY:
-      Enabled: [0, "Reset generated when entering the Standby mode"]
-      Disabled: [1, "No reset generated when entering the Standby mode"]
+      Enabled: [0, Reset generated when entering the Standby mode]
+      Disabled: [1, No reset generated when entering the Standby mode]
     nRST_STOP:
-      Enabled: [0, "Reset generated when entering the Standby mode"]
-      Disabled: [1, "No reset generated when entering the Standby mode"]
+      Enabled: [0, Reset generated when entering the Standby mode]
+      Disabled: [1, No reset generated when entering the Standby mode]
     BOR_LEV:
-      Level0: [0, "BOR level 0. Reset level threshold is around 1.7 V"]
-      Level1: [1, "BOR level 1. Reset level threshold is around 2.0 V"]
-      Level2: [2, "BOR level 2. Reset level threshold is around 2.2 V"]
-      Level3: [3, "BOR level 3. Reset level threshold is around 2.5 V"]
-      Level4: [4, "BOR level 4. Reset level threshold is around 2.8 V"]
+      Level0: [0, BOR level 0. Reset level threshold is around 1.7 V]
+      Level1: [1, BOR level 1. Reset level threshold is around 2.0 V]
+      Level2: [2, BOR level 2. Reset level threshold is around 2.2 V]
+      Level3: [3, BOR level 3. Reset level threshold is around 2.5 V]
+      Level4: [4, BOR level 4. Reset level threshold is around 2.8 V]
     ESE:
-      Disabled: [0, "Security disabled"]
-      Enabled: [1, "Security enabled"]
+      Disabled: [0, Security disabled]
+      Enabled: [1, Security enabled]
     RDP:
       Level0: [0xAA, "Level 0, readout protection not active"]
       Level2: [0xCC, "Level 2, chip readout protection active"]
@@ -247,10 +254,10 @@ FLASH:
       # so there is no conflict reading other values (unless unsafe is used)
       Level1: [0x88, "Level 1, memories readout protection active (writes 0x88)"]
 
-  "PCROP1?SR":
-    "PCROP1?_STRT": [0, 0xFF]
-  "PCROP1?ER":
-    "PCROP1?_END": [0, 0xFF]
-  "WRP1?R":
-    "WRP1?_END": [0, 0x7F]
-    "WRP1?_STRT": [0, 0x7F]
+  PCROP1?SR:
+    PCROP1?_STRT: [0, 0xFF]
+  PCROP1?ER:
+    PCROP1?_END: [0, 0xFF]
+  WRP1?R:
+    WRP1?_END: [0, 0x7F]
+    WRP1?_STRT: [0, 0x7F]

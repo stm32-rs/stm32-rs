@@ -4,9 +4,8 @@ _include: adc_v3_common_single.yaml
 CCR:
   DELAY: [0, 15]
   DUAL:
-    Independent: [0, "Independent mode"]
-    DualRJ:
-      [1, "Dual, combined regular simultaneous + injected simultaneous mode"]
+    Independent: [0, Independent mode]
+    DualRJ: [1, "Dual, combined regular simultaneous + injected simultaneous mode"]
     DualRA: [2, "Dual, combined regular simultaneous + alternate trigger mode"]
     DualIJ: [3, "Dual, combined interleaved mode + injected simultaneous mode"]
     DualJ: [5, "Dual, injected simultaneous mode only"]

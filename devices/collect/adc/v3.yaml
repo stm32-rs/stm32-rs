@@ -1,5 +1,5 @@
 _array:
-  "OFR?":
+  OFR?:
     OFFSET: [0, 0x0fff]
     _modify:
       OFFSET?:
@@ -8,7 +8,7 @@ _array:
         name: OFFSET_EN
       OFFSET?_CH:
         name: OFFSET_CH
-  "JDR?": {}
+  JDR?: {}
 
 # H7 only
 "?~CFGR2":
@@ -38,16 +38,16 @@ AWD3CR:
 
 JSQR:
   _array:
-    "JSQ?":
+    JSQ?:
       description: "%s conversion in injected sequence"
 SQR?:
   _array:
-    "SQ*":
+    SQ*:
       description: "%s conversion in regular sequence"
 SMPR?:
   _array:
     "SMP?,SMP??":
-      description: "Channel %s sample time selection"
+      description: Channel %s sample time selection
 
 # F3/L4/G4/WB
 DIFSEL:

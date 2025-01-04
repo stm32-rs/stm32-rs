@@ -1,21 +1,21 @@
 ISR:
   _array:
-    "TEIF*":
+    TEIF*:
       description: Channel %s Transfer Error flag
-    "HTIF*":
+    HTIF*:
       description: Channel %s Half Transfer Complete flag
-    "TCIF*":
+    TCIF*:
       description: Channel %s Transfer Complete flag
-    "GIF*":
+    GIF*:
       description: Channel %s Global interrupt flag
 
 IFCR:
   _array:
-    "CTEIF*":
+    CTEIF*:
       description: Channel %s Transfer Error clear
-    "CHTIF*":
+    CHTIF*:
       description: Channel %s Half Transfer clear
-    "CTCIF*":
+    CTCIF*:
       description: Channel %s Transfer Complete clear
-    "CGIF*":
+    CGIF*:
       description: Channel %s Global interrupt clear

@@ -36,7 +36,7 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-"ADC?":
+ADC?:
   _include:
     - fields/adc/adc_v2.yaml
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
@@ -68,7 +68,7 @@ FMPI2C1:
         description: I2CFMP1 event interrupt
         value: 95
   OAR1:
-    _delete: ["OA1", "OA11_7", "OA18_9"]
+    _delete: [OA1, OA11_7, OA18_9]
     _add:
       OA1:
         description: Interface own slave address
@@ -90,44 +90,39 @@ FSMC:
       resetValue: "0x000030D2"
     BCR4:
       resetValue: "0x000030D2"
-    "BTR?":
+    BTR?:
       resetValue: "0x0fffffff"
   # Delete registers not present on the STM32F412
   _delete:
-    - "PCR?"
-    - "SR?"
-    - "PMEM?"
-    - "PATT?"
-    - "ECCR?"
+    - PCR?
+    - SR?
+    - PMEM?
+    - PATT?
+    - ECCR?
     - PIO4
   BCR1:
     # Extra fields in BCR1
     _add:
       WFDIS:
-        description: "Write FIFO disable"
+        description: Write FIFO disable
         bitOffset: 21
         bitWidth: 1
       CCLKEN:
-        description: "Continuous clock enable"
+        description: Continuous clock enable
         bitOffset: 20
         bitWidth: 1
     WFDIS:
-      Enabled: [0, "Write FIFO enabled"]
-      Disabled: [1, "Write FIFO disabled"]
+      Enabled: [0, Write FIFO enabled]
+      Disabled: [1, Write FIFO disabled]
     CCLKEN:
-      Enabled:
-        [
-          1,
-          "FSMC_CLK is generated continuously during asynchronous and synchronous access",
-        ]
-      Disabled:
-        [0, "FSMC_CLK is only generated during the synchronous memory access"]
+      Enabled: [1, FSMC_CLK is generated continuously during asynchronous and synchronous access]
+      Disabled: [0, FSMC_CLK is only generated during the synchronous memory access]
   # Delete WRAPMOD field from BCR1, BCR2, BCR3, BCR4
-  "BCR?":
+  BCR?:
     _delete:
       - WRAPMOD
   # Delete DATLAT and CLKDIV fields from BWTR1, BWTR2, BWTR3, BWTR4
-  "BWTR?":
+  BWTR?:
     _delete:
       - DATLAT
       - CLKDIV
@@ -267,10 +262,9 @@ SYSCFG:
   _include:
     - patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

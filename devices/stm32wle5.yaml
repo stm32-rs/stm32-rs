@@ -29,25 +29,24 @@ AES:
     _modify:
       AES_DOUTR:
         name: DOUT
-  "KEYR?":
+  KEYR?:
     _modify:
-      "AES_KEYR?":
+      AES_KEYR?:
         name: KEY
-  "IVR?":
+  IVR?:
     _modify:
-      "AES_IVR?":
+      AES_IVR?:
         name: IVI
-  "SUSP?R":
+  SUSP?R:
     _modify:
-      "AES_SUSP?R":
+      AES_SUSP?R:
         name: SUSP
   _include:
     - fields/aes/v2.yaml
 
 DAC:
   CR:
-    _merge:
-      - "TSEL1*"
+    _merge: TSEL1*
 
 EXTI:
   _modify:
@@ -120,8 +119,7 @@ LPTIM,LPTIM?:
 
 LPTIM[23]:
   OR:
-    _merge:
-      - "OR*"
+    _merge: OR*
 
 # Rename this so it has the same name as all other STM32 USARTs
 LPUART,USART?:
@@ -183,10 +181,9 @@ TIM1?:
   _include:
     - fields/tim/tim_gp1.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58-9],TIM??":
   _include:

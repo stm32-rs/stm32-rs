@@ -60,11 +60,9 @@ CRC:
 # crypt key/iv registers.
 CRYP:
   "K[0123][LR]R":
-    _merge:
-      - "b*"
+    _merge: b*
   "IV[01][LR]R":
-    _merge:
-      - "IV*"
+    _merge: IV*
 
 DSI:
   _add:
@@ -100,7 +98,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
-"OTG_HS_*":
+OTG_HS_*:
   _strip: OTG_HS_
 
 QUADSPI:
@@ -180,11 +178,10 @@ SYSCFG:
     _delete:
       - MII_RMII_SEL
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

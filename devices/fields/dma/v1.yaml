@@ -1,58 +1,58 @@
 ISR:
-  "TEIF*":
-    NoError: [0, "No transfer error"]
-    Error: [1, "A transfer error has occured"]
-  "HTIF*":
-    NotHalf: [0, "No half transfer event"]
-    Half: [1, "A half transfer event has occured"]
-  "TCIF*":
-    NotComplete: [0, "No transfer complete event"]
-    Complete: [1, "A transfer complete event has occured"]
-  "GIF*":
+  TEIF*:
+    NoError: [0, No transfer error]
+    Error: [1, A transfer error has occured]
+  HTIF*:
+    NotHalf: [0, No half transfer event]
+    Half: [1, A half transfer event has occured]
+  TCIF*:
+    NotComplete: [0, No transfer complete event]
+    Complete: [1, A transfer complete event has occured]
+  GIF*:
     NoEvent: [0, "No transfer error, half event, complete event"]
     Event: [1, "A transfer error, half event or complete event has occured"]
 IFCR:
-  "CTEIF*":
-    Clear: [1, "Clears the TEIF flag in the ISR register"]
-  "CHTIF*":
-    Clear: [1, "Clears the HTIF flag in the ISR register"]
-  "CTCIF*":
-    Clear: [1, "Clears the TCIF flag in the ISR register"]
-  "CGIF*":
+  CTEIF*:
+    Clear: [1, Clears the TEIF flag in the ISR register]
+  CHTIF*:
+    Clear: [1, Clears the HTIF flag in the ISR register]
+  CTCIF*:
+    Clear: [1, Clears the TCIF flag in the ISR register]
+  CGIF*:
     Clear: [1, "Clears the GIF, TEIF, HTIF, TCIF flags in the ISR register"]
-"CCR*":
+CCR*:
   MEM2MEM:
-    Disabled: [0, "Memory to memory mode disabled"]
-    Enabled: [1, "Memory to memory mode enabled"]
+    Disabled: [0, Memory to memory mode disabled]
+    Enabled: [1, Memory to memory mode enabled]
   PL:
-    Low: [0, "Low priority"]
-    Medium: [1, "Medium priority"]
-    High: [2, "High priority"]
-    VeryHigh: [3, "Very high priority"]
+    Low: [0, Low priority]
+    Medium: [1, Medium priority]
+    High: [2, High priority]
+    VeryHigh: [3, Very high priority]
   "[MP]SIZE":
-    Bits8: [0, "8-bit size"] # or Byte
-    Bits16: [1, "16-bit size"] # or HalfWord
-    Bits32: [2, "32-bit size"] # or Word
+    Bits8: [0, 8-bit size] # or Byte
+    Bits16: [1, 16-bit size] # or HalfWord
+    Bits32: [2, 32-bit size] # or Word
   "[MP]INC":
-    Disabled: [0, "Increment mode disabled"]
-    Enabled: [1, "Increment mode enabled"]
+    Disabled: [0, Increment mode disabled]
+    Enabled: [1, Increment mode enabled]
   CIRC:
-    Disabled: [0, "Circular buffer disabled"]
-    Enabled: [1, "Circular buffer enabled"]
+    Disabled: [0, Circular buffer disabled]
+    Enabled: [1, Circular buffer enabled]
   DIR:
-    FromPeripheral: [0, "Read from peripheral"]
-    FromMemory: [1, "Read from memory"]
+    FromPeripheral: [0, Read from peripheral]
+    FromMemory: [1, Read from memory]
   TEIE:
-    Disabled: [0, "Transfer Error interrupt disabled"]
-    Enabled: [1, "Transfer Error interrupt enabled"]
+    Disabled: [0, Transfer Error interrupt disabled]
+    Enabled: [1, Transfer Error interrupt enabled]
   HTIE:
-    Disabled: [0, "Half Transfer interrupt disabled"]
-    Enabled: [1, "Half Transfer interrupt enabled"]
+    Disabled: [0, Half Transfer interrupt disabled]
+    Enabled: [1, Half Transfer interrupt enabled]
   TCIE:
-    Disabled: [0, "Transfer Complete interrupt disabled"]
-    Enabled: [1, "Transfer Complete interrupt enabled"]
+    Disabled: [0, Transfer Complete interrupt disabled]
+    Enabled: [1, Transfer Complete interrupt enabled]
   EN:
-    Disabled: [0, "Channel disabled"]
-    Enabled: [1, "Channel enabled"]
-"CNDTR*":
+    Disabled: [0, Channel disabled]
+    Enabled: [1, Channel enabled]
+CNDTR*:
   NDT: [0, 65535]

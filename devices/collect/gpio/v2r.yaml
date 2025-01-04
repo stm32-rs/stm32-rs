@@ -1,11 +1,11 @@
-"GPIO*":
+GPIO*:
   MODER:
     _array:
       "MODE[0-9],MODE1[0-5]":
         description: Port x configuration pin %s
   OTYPER:
     _array:
-      "OT*":
+      OT*:
         description: Port x configuration pin %s
   OSPEEDR:
     _array:
@@ -25,13 +25,13 @@
         description: Port output data pin %s
   BSRR:
     _array:
-      "BR*":
+      BR*:
         description: Port x reset pin %s
-      "BS*":
+      BS*:
         description: Port x set pin %s
   BRR:
     _array:
-      "BR*":
+      BR*:
         description: Port x reset pin %s
   LCKR:
     _array:

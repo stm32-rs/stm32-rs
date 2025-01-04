@@ -6,13 +6,13 @@ _modify:
     name: FLASH
     groupName: FLASH
 
-"GPIOA":
+GPIOA:
   # The SVD incorrectly names all the GPIO registers compared to RM0433.
   _strip: GPIOA_
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
-"GPIO*":
+GPIO*:
   MODER:
     _modify:
       MODE0:
@@ -232,7 +232,7 @@ FLASH:
     #BOOT_PRGR:
     #  access: read-write
 
-"SPI*":
+SPI*:
   CR1:
     _modify:
       CSTART:
@@ -392,8 +392,8 @@ RTC:
 AXI:
   _strip: AXI_
 
-"OTG1_HS_*":
+OTG1_HS_*:
   _strip: OTG_HS_
 
-"FDCAN?":
+FDCAN?:
   _strip: FDCAN_
