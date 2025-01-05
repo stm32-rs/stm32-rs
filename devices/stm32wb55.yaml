@@ -23,20 +23,19 @@ ADC1:
 
 ADC?:
   _include:
+    - patches/adc/split.yaml
     - patches/adc/l4+.yaml
+    - fields/adc/adc_v3.yaml
     - fields/adc/adc_v3_l4.yaml
+    - collect/adc/v3.yaml
   DR:
     _modify:
       RDATA_0_6:
         bitWidth: 7
     _merge:
       RDATA: RDATA*
-
-"ADC,ADC?":
-  _include:
-    - patches/adc/split.yaml
-    - fields/adc/adc_v3.yaml
-    - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [0, 18]
 
 AES?:
   _include:

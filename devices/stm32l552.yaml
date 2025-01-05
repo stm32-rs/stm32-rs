@@ -23,6 +23,8 @@ ADC_Common:
 
 ADC?:
   _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
     - fields/adc/adc_v3_l4.yaml
   CFGR:
     _merge: EXTSEL*
@@ -32,11 +34,8 @@ ADC?:
   DIFSEL:
     _merge:
       DIFSEL: DIFSEL*
-
-"ADC,ADC?":
-  _include:
-    - patches/adc/split.yaml
-    - fields/adc/adc_v3.yaml
+  SQR?:
+    SQ*: [0, 18]
 
 DAC:
   _strip: DAC_

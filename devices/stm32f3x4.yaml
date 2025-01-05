@@ -21,6 +21,8 @@ ADC?:
     - fields/adc/adc_v3_f3.yaml
     - patches/adc/jdata.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [1, 18]
 
 CAN:
   _delete:
