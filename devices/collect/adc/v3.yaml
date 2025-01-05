@@ -2,11 +2,11 @@ _array:
   OFR?:
     OFFSET: [0, 0x0fff]
     _modify:
-      OFFSET?:
+      "OFFSET?,OFFSET":
         name: OFFSET
-      "?~OFFSET?_EN":
+      "?~OFFSET?_EN,OFFSET_EN":
         name: OFFSET_EN
-      OFFSET?_CH:
+      "OFFSET?_CH,OFFSET_CH":
         name: OFFSET_CH
   JDR?: {}
 
