@@ -5,10 +5,10 @@ _include:
 
 RCC:
   PLLCFGR:
-    _merge: ["PLLM*", "PLLN*", "PLLP*", "PLLQ*"]
+    _merge: [PLLM*, PLLN*, PLLP*, PLLQ*]
     PLLSRC:
-      HSI: [0, "HSI clock selected as PLL and PLLI2S clock entry"]
-      HSE: [1, "HSE oscillator clock selected as PLL and PLLI2S clock entry"]
+      HSI: [0, HSI clock selected as PLL and PLLI2S clock entry]
+      HSE: [1, HSE oscillator clock selected as PLL and PLLI2S clock entry]
     PLLQ: [2, 15]
     PLLP:
       Div2: [0, "PLLP=2"]
@@ -20,40 +20,40 @@ RCC:
   CFGR:
     SWS:
       _read:
-        HSI: [0, "HSI oscillator used as system clock"]
-        HSE: [1, "HSE oscillator used as system clock"]
-        PLL: [2, "PLL used as system clock"]
+        HSI: [0, HSI oscillator used as system clock]
+        HSE: [1, HSE oscillator used as system clock]
+        PLL: [2, PLL used as system clock]
     SW:
-      HSI: [0, "HSI selected as system clock"]
-      HSE: [1, "HSE selected as system clock"]
-      PLL: [2, "PLL selected as system clock"]
+      HSI: [0, HSI selected as system clock]
+      HSE: [1, HSE selected as system clock]
+      PLL: [2, PLL selected as system clock]
     MCO2:
-      SYSCLK: [0, "System clock (SYSCLK) selected"]
-      PLLI2S: [1, "PLLI2S clock selected"]
-      HSE: [2, "HSE oscillator clock selected"]
-      PLL: [3, "PLL clock selected"]
-    "MCO?PRE":
-      Div1: [-1, "No division"]
-      Div2: [4, "Division by 2"]
-      Div3: [5, "Division by 3"]
-      Div4: [6, "Division by 4"]
-      Div5: [7, "Division by 5"]
+      SYSCLK: [0, System clock (SYSCLK) selected]
+      PLLI2S: [1, PLLI2S clock selected]
+      HSE: [2, HSE oscillator clock selected]
+      PLL: [3, PLL clock selected]
+    MCO?PRE:
+      Div1: [-1, No division]
+      Div2: [4, Division by 2]
+      Div3: [5, Division by 3]
+      Div4: [6, Division by 4]
+      Div5: [7, Division by 5]
     MCO1:
-      HSI: [0, "HSI clock selected"]
-      LSE: [1, "LSE oscillator selected"]
-      HSE: [2, "HSE oscillator clock selected"]
-      PLL: [3, "PLL clock selected"]
+      HSI: [0, HSI clock selected]
+      LSE: [1, LSE oscillator selected]
+      HSE: [2, HSE oscillator clock selected]
+      PLL: [3, PLL clock selected]
     RTCPRE: [0, 31]
-  "A?B?LPENR":
+  A?B?LPENR:
     "*LPEN":
-      DisabledInSleep: [0, "Selected module is disabled during Sleep mode"]
-      EnabledInSleep: [1, "Selected module is enabled during Sleep mode"]
+      DisabledInSleep: [0, Selected module is disabled during Sleep mode]
+      EnabledInSleep: [1, Selected module is enabled during Sleep mode]
   SSCGR:
     SSCGEN:
-      Disabled: [0, "Spread spectrum modulation disabled"]
-      Enabled: [1, "Spread spectrum modulation enabled"]
+      Disabled: [0, Spread spectrum modulation disabled]
+      Enabled: [1, Spread spectrum modulation enabled]
     SPREADSEL:
-      Center: [0, "Center spread"]
-      Down: [1, "Down spread"]
+      Center: [0, Center spread]
+      Down: [1, Down spread]
     INCSTEP: [0, 32767]
     MODPER: [0, 8191]

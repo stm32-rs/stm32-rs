@@ -1,181 +1,222 @@
 PWR:
   CR1:
     LPR:
-      MainMode: [0, "Voltage regulator in Main mode in Low-power run mode"]
-      LowPowerMode: [1, "Voltage regulator in low-power mode in Low-power run mode"]
+      MainMode: [0, Voltage regulator in Main mode in Low-power run mode]
+      LowPowerMode: [1, Voltage regulator in low-power mode in Low-power run mode]
     VOS:
-      V1_2: [1, "1.2 V (range 1)"]
-      V1_0: [2, "1.0 V (range 2)"]
+      V1_2: [1, 1.2 V (range 1)]
+      V1_0: [2, 1.0 V (range 2)]
     DBP:
-      Disabled: [0, "Access to RTC and backup registers disabled"]
-      Enabled: [1, "Access to RTC and backup registers enabled"]
+      Disabled: [0, Access to RTC and backup registers disabled]
+      Enabled: [1, Access to RTC and backup registers enabled]
     FPDS:
-      Idle: [0, "Flash memory in Idle mode when system is in LPSleep mode"]
-      PowerDown: [1, "Flash memory in Power-down mode when system is in LPSleep mode"]
+      Idle: [0, Flash memory in Idle mode when system is in LPSleep mode]
+      PowerDown: [1, Flash memory in Power-down mode when system is in LPSleep mode]
     FPDR:
-      Idle: [0, "Flash memory in Idle mode when system is in LPRun mode"]
-      PowerDown: [1, "Flash memory in Power-down mode when system is in LPRun mode"]
+      Idle: [0, Flash memory in Idle mode when system is in LPRun mode]
+      PowerDown: [1, Flash memory in Power-down mode when system is in LPRun mode]
     SUBGHZSPINSSSEL:
-      SUBGHZSPICR: [0, "sub-GHz SPI NSS signal driven from PWR_SUBGHZSPICR.NSS (RFBUSYMS functionality enabled)"]
-      LPTIM3: [1, "sub-GHz SPI NSS signal driven from LPTIM3_OUT (RFBUSYMS functionality disabled)"]
+      SUBGHZSPICR: [0, sub-GHz SPI NSS signal driven from PWR_SUBGHZSPICR.NSS (RFBUSYMS functionality enabled)]
+      LPTIM3: [1, sub-GHz SPI NSS signal driven from LPTIM3_OUT (RFBUSYMS functionality disabled)]
     LPMS:
-      Stop0: [0, "Stop 0 mode"]
-      Stop1: [1, "Stop 1 mode"]
-      Stop2: [2, "Stop 2 mode"]
-      Standby: [3, "Standby mode"]
-      Shutdown: [4, "Shutdown mode"]
+      Stop0: [0, Stop 0 mode]
+      Stop1: [1, Stop 1 mode]
+      Stop2: [2, Stop 2 mode]
+      Standby: [3, Standby mode]
+      Shutdown: [4, Shutdown mode]
   CR2:
     PVME3:
-      Disabled: [0, "PVM3 (VDDA monitoring versus 1.62 V threshold) disable"]
-      Enabled: [1, "PVM3 (VDDA monitoring versus 1.62 V threshold) enable"]
+      Disabled: [0, PVM3 (VDDA monitoring versus 1.62 V threshold) disable]
+      Enabled: [1, PVM3 (VDDA monitoring versus 1.62 V threshold) enable]
     PLS:
-      V2_0: [0, "2.0V"]
-      V2_2: [1, "2.2V"]
-      V2_4: [2, "2.4V"]
-      V2_5: [3, "2.5V"]
-      V2_6: [4, "2.6V"]
-      V2_8: [5, "2.8V"]
-      V2_9: [6, "2.9V"]
-      External: [7, "External input analog voltage PVD_IN (compared internally to VREFINT)"]
+      V2_0: [0, 2.0V]
+      V2_2: [1, 2.2V]
+      V2_4: [2, 2.4V]
+      V2_5: [3, 2.5V]
+      V2_6: [4, 2.6V]
+      V2_8: [5, 2.8V]
+      V2_9: [6, 2.9V]
+      External: [7, External input analog voltage PVD_IN (compared internally to VREFINT)]
     PVDE:
-      Disabled: [0, "PVD Disabled"]
-      Enabled: [1, "PVD Enabled"]
+      Disabled: [0, PVD Disabled]
+      Enabled: [1, PVD Enabled]
   CR3:
     EIWUL:
-      Disabled: [0, "Internal wakeup line interrupt to CPU1 disabled"]
-      Enabled: [1, "Internal wakeup line interrupt to CPU1 enabled"]
+      Disabled: [0, Internal wakeup line interrupt to CPU1 disabled]
+      Enabled: [1, Internal wakeup line interrupt to CPU1 enabled]
     EWRFIRQ:
       Disabled: [0, "Radio IRQ[2:0] is disabled and does not trigger a wakeup from Standby event to CPU1."]
       Enabled: [1, "Radio IRQ[2:0] is enabled and triggers a wakeup from Standby event to CPU1."]
     EWRFBUSY:
-      Disabled: [0, "Radio Busy is disabled and does not trigger a wakeup from Standby event to CPU1 when a rising or a falling edge occurs"]
-      Enabled: [1, "Radio Busy is enabled and triggers a wakeup from Standby event to CPU1 when a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4"]
+      Disabled:
+        [
+          0,
+          Radio Busy is disabled and does not trigger a wakeup from Standby event to CPU1 when a rising or a falling edge occurs,
+        ]
+      Enabled:
+        [
+          1,
+          Radio Busy is enabled and triggers a wakeup from Standby event to CPU1 when a rising or a falling edge occurs. The active edge is configured via the WRFBUSYP bit in PWR_CR4,
+        ]
     APC:
-      Disabled: [0, "I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied"]
-      Enabled: [1, "PWR_PUCRx and PWR_PDCRx registers are NOT applied to the I/Os"]
+      Disabled:
+        [0, I/O pull-up and pull-down configurations defined in the PWR_PUCRx and PWR_PDCRx registers are applied]
+      Enabled: [1, PWR_PUCRx and PWR_PDCRx registers are NOT applied to the I/Os]
     RRS:
-      PowerOff: [0, "SRAM2 powered off in Standby mode (SRAM2 content lost)"]
-      OnLPR: [1, "SRAM2 powered by the low-power regulator in Standby mode (SRAM2 content kept)"]
+      PowerOff: [0, SRAM2 powered off in Standby mode (SRAM2 content lost)]
+      OnLPR: [1, SRAM2 powered by the low-power regulator in Standby mode (SRAM2 content kept)]
     EWPVD:
-      Disabled: [0, "PVD not enabled by the sub-GHz radio active state"]
-      Enabled: [1, "PVD enabled while the sub-GHz radio is active"]
+      Disabled: [0, PVD not enabled by the sub-GHz radio active state]
+      Enabled: [1, PVD enabled while the sub-GHz radio is active]
     EULPEN:
-      Disabled: [0, "Disable (the supply voltage is monitored continuously)"]
+      Disabled: [0, Disable (the supply voltage is monitored continuously)]
       Enabled: [1, "Enable, when set, the supply voltage is sampled for PDR/BOR reset condition only periodically"]
     EWUP3:
-      Disabled: [0, "WKUP pin 3 is used for general purpose I/Os. An event on the WKUP pin 3 does not wakeup the device from Standby mode"]
-      Enabled: [1, "WKUP pin 3 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 3wakes-up the system from Standby mode)"]
+      Disabled:
+        [
+          0,
+          WKUP pin 3 is used for general purpose I/Os. An event on the WKUP pin 3 does not wakeup the device from Standby mode,
+        ]
+      Enabled:
+        [
+          1,
+          WKUP pin 3 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 3wakes-up the system from Standby mode),
+        ]
     EWUP2:
-      Disabled: [0, "WKUP pin 2 is used for general purpose I/Os. An event on the WKUP pin 2 does not wakeup the device from Standby mode"]
-      Enabled: [1, "WKUP pin 2 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 2 wakes-up the system from Standby mode)"]
+      Disabled:
+        [
+          0,
+          WKUP pin 2 is used for general purpose I/Os. An event on the WKUP pin 2 does not wakeup the device from Standby mode,
+        ]
+      Enabled:
+        [
+          1,
+          WKUP pin 2 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 2 wakes-up the system from Standby mode),
+        ]
     EWUP1:
-      Disabled: [0, "WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode"]
-      Enabled: [1, "WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode)"]
+      Disabled:
+        [
+          0,
+          WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode,
+        ]
+      Enabled:
+        [
+          1,
+          WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode),
+        ]
   CR4:
     WRFBUSYP:
-      RisingEdge: [0, "Detection on high level (rising edge)"]
-      FallingEdge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, Detection on high level (rising edge)]
+      FallingEdge: [1, Detection on low level (falling edge)]
     VBRS:
-      R5k: [0, "VBAT charging through a 5 kΩ resistor"]
-      R1_5k: [1, "VBAT charging through a 1.5 kΩ resistor"]
+      R5k: [0, VBAT charging through a 5 kΩ resistor]
+      R1_5k: [1, VBAT charging through a 1.5 kΩ resistor]
     VBE:
-      Disabled: [0, "VBAT battery charging disabled"]
-      Enabled: [1, "VBAT battery charging enabled"]
+      Disabled: [0, VBAT battery charging disabled]
+      Enabled: [1, VBAT battery charging enabled]
     WP3:
-      RisingEdge: [0, "Detection on high level (rising edge)"]
-      FallingEdge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, Detection on high level (rising edge)]
+      FallingEdge: [1, Detection on low level (falling edge)]
     WP2:
-      RisingEdge: [0, "Detection on high level (rising edge)"]
-      FallingEdge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, Detection on high level (rising edge)]
+      FallingEdge: [1, Detection on low level (falling edge)]
     WP1:
-      RisingEdge: [0, "Detection on high level (rising edge)"]
-      FallingEdge: [1, "Detection on low level (falling edge)"]
+      RisingEdge: [0, Detection on high level (rising edge)]
+      FallingEdge: [1, Detection on low level (falling edge)]
   SR1:
     WUFI:
-      Clear: [0, "All internal wakeup sources are cleared"]
-      Wakeup: [1, "wakeup is detected on the internal wakeup line"]
+      Clear: [0, All internal wakeup sources are cleared]
+      Wakeup: [1, wakeup is detected on the internal wakeup line]
     WRFBUSYF:
-      Clear: [0, "No wakeup event detected on radio busy"]
-      Wakeup: [1, "Wakeup event detected on radio busy"]
+      Clear: [0, No wakeup event detected on radio busy]
+      Wakeup: [1, Wakeup event detected on radio busy]
     WPVDF:
-      Clear: [0, "No wakeup event detected on PVD"]
-      Wakeup: [1, "Wakeup event detected on PVD"]
+      Clear: [0, No wakeup event detected on PVD]
+      Wakeup: [1, Wakeup event detected on PVD]
     WUF3:
-      Clear: [0, "No wakeup event detected on WKUP3"]
-      Wakeup: [1, "Wakeup event detected on WKUP3"]
+      Clear: [0, No wakeup event detected on WKUP3]
+      Wakeup: [1, Wakeup event detected on WKUP3]
     WUF2:
-      Clear: [0, "No wakeup event detected on WKUP2"]
-      Wakeup: [1, "Wakeup event detected on WKUP2"]
+      Clear: [0, No wakeup event detected on WKUP2]
+      Wakeup: [1, Wakeup event detected on WKUP2]
     WUF1:
-      Clear: [0, "No wakeup event detected on WKUP1"]
-      Wakeup: [1, "Wakeup event detected on WKUP1"]
+      Clear: [0, No wakeup event detected on WKUP1]
+      Wakeup: [1, Wakeup event detected on WKUP1]
   SR2:
     PVMO3:
-      Above: [0, "VDDA voltage above PVM3 threshold (around 1.62 V)"]
-      Below: [1, "VDDA voltage below PVM3 threshold (around 1.62 V)"]
+      Above: [0, VDDA voltage above PVM3 threshold (around 1.62 V)]
+      Below: [1, VDDA voltage below PVM3 threshold (around 1.62 V)]
     PVDO:
-      Above: [0, "VDD or voltage level on PVD_IN above the selected PVD threshold"]
-      Below: [1, "VDD or voltage level on PVD_IN below the selected PVD threshold"]
+      Above: [0, VDD or voltage level on PVD_IN above the selected PVD threshold]
+      Below: [1, VDD or voltage level on PVD_IN below the selected PVD threshold]
     VOSF:
-      Ready: [0, "Regulator ready in the selected voltage range"]
-      Change: [1, "Regulator output voltage changed to the required voltage level"]
+      Ready: [0, Regulator ready in the selected voltage range]
+      Change: [1, Regulator output voltage changed to the required voltage level]
     REGLPF:
-      Main: [0, "Main regulator (MR) ready and used"]
-      LowPower: [1, "Low-power regulator (LPR) used"]
+      Main: [0, Main regulator (MR) ready and used]
+      LowPower: [1, Low-power regulator (LPR) used]
     REGLPS:
-      NotReady: [0, "LPR not ready"]
-      Ready: [1, "LPR ready"]
+      NotReady: [0, LPR not ready]
+      Ready: [1, LPR ready]
     FLASHRDY:
-      NotReady: [0, "Flash memory not ready to be accessed"]
-      Ready: [1, "Flash memory ready to be accessed"]
+      NotReady: [0, Flash memory not ready to be accessed]
+      Ready: [1, Flash memory ready to be accessed]
     REGMRS:
-      V_DD: [0, "Main regulator supplied directly from VDD"]
-      LDO_SMPS: [1, "Main regulator supplied through LDO or SMPS"]
+      V_DD: [0, Main regulator supplied directly from VDD]
+      LDO_SMPS: [1, Main regulator supplied through LDO or SMPS]
     RFEOLF:
-      Above: [0, "Supply voltage above radio end-of-life operating low level"]
-      Below: [1, "Supply voltage below radio end-of-life operating low level"]
+      Above: [0, Supply voltage above radio end-of-life operating low level]
+      Below: [1, Supply voltage below radio end-of-life operating low level]
     LDORDY:
-      NotReady: [0, "LDO not ready or off"]
-      Ready: [1, "LDO ready"]
+      NotReady: [0, LDO not ready or off]
+      Ready: [1, LDO ready]
     SMPSRDY:
-      NotReady: [0, "SMPS step-down converter not ready or off"]
-      Ready: [1, "SMPS step-down converter ready"]
+      NotReady: [0, SMPS step-down converter not ready or off]
+      Ready: [1, SMPS step-down converter ready]
     RFBUSYMS:
-      NotBusy: [0, "radio busy masked signal low (not busy)"]
-      Busy: [1, "radio busy masked signal high (busy)"]
+      NotBusy: [0, radio busy masked signal low (not busy)]
+      Busy: [1, radio busy masked signal high (busy)]
     RFBUSYS:
-      NotBusy: [0, "radio busy signal low (not busy)"]
-      Busy: [1, "radio busy signal high (busy)"]
+      NotBusy: [0, radio busy signal low (not busy)]
+      Busy: [1, radio busy signal high (busy)]
   SCR:
     CWRFBUSYF:
       _write:
-        Clear: [1, "Setting this bit clears the WRFBUSYF flag in the PWR_SR1. This bit is always read 0."]
+        Clear: [1, Setting this bit clears the WRFBUSYF flag in the PWR_SR1. This bit is always read 0.]
     CWPVDF:
       _write:
-        Clear: [1, "Setting this bit clears the WPVDF flag in the PWR_SR1. This bit is always read as 0."]
+        Clear: [1, Setting this bit clears the WPVDF flag in the PWR_SR1. This bit is always read as 0.]
     CWUF3:
       _write:
-        Clear: [1, "Setting this bit clears the WUF3 flag in the PWR_SR1 register. This bit is always read as 0."]
+        Clear: [1, Setting this bit clears the WUF3 flag in the PWR_SR1 register. This bit is always read as 0.]
     CWUF2:
       _write:
-        Clear: [1, "Setting this bit clears the WUF2 flag in the PWR_SR1 register. This bit is always read as 0."]
+        Clear: [1, Setting this bit clears the WUF2 flag in the PWR_SR1 register. This bit is always read as 0.]
     CWUF1:
       _write:
-        Clear: [1, "Setting this bit clears the WUF1 flag in the PWR_SR1 register. This bit is always read as 0."]
+        Clear: [1, Setting this bit clears the WUF1 flag in the PWR_SR1 register. This bit is always read as 0.]
   CR5:
     SMPSEN:
-      Disabled: [0, "SMPS step-down converter SMPS mode disabled (LDO mode enabled)"]
-      Enabled: [1, "SMPS step-down converter SMPS mode enabled"]
+      Disabled: [0, SMPS step-down converter SMPS mode disabled (LDO mode enabled)]
+      Enabled: [1, SMPS step-down converter SMPS mode enabled]
     RFEOLEN:
-      Disabled: [0, "Radio end-of-life detector disabled"]
-      Enabled: [1, "Radio end-of-life detector enabled"]
+      Disabled: [0, Radio end-of-life detector disabled]
+      Enabled: [1, Radio end-of-life detector enabled]
   PUCRA:
     "PU1[012345]":
       Disabled: [0, "Disable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set",
+        ]
     "PU[0123456789]":
       Disabled: [0, "Disable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PA[y] bit is also set",
+        ]
   PDCRA:
     "PD1[012345]":
       Disabled: [0, "Disable the pull-down on PA[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
@@ -186,10 +227,18 @@ PWR:
   PUCRB:
     "PU1[012345]":
       Disabled: [0, "Disable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set",
+        ]
     "PU[0123456789]":
       Disabled: [0, "Disable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PB[y] bit is also set",
+        ]
   PDCRB:
     "PD1[012345]":
       Disabled: [0, "Disable the pull-down on PB[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
@@ -200,10 +249,18 @@ PWR:
   PUCRC:
     "PU1[345]":
       Disabled: [0, "Disable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set",
+        ]
     "PU[0123456]":
       Disabled: [0, "Disable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PC[y] bit is also set",
+        ]
   PDCRC:
     "PD1[345]":
       Disabled: [0, "Disable the pull-down on PC[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
@@ -214,28 +271,32 @@ PWR:
   PUCRH:
     PU3:
       Disabled: [0, "Disable pull-up on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
-      Enabled: [1, "Enable pull-up on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PH[y] bit is also set"]
+      Enabled:
+        [
+          1,
+          "Enable pull-up on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3). The pull-up is not activated if the corresponding PH[y] bit is also set",
+        ]
   PDCRH:
     PD3:
       Disabled: [0, "Disable the pull-down on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
       Enabled: [1, "Enable the pull-down on PH[y] when both APC bits are set in PWR control register 3 (PWR_CR3)"]
   EXTSCR:
     C1DS:
-      RunningOrSleep: [0, "CPU is running or in sleep"]
-      DeepSleep: [1, "CPU is in Deep-Sleep"]
+      RunningOrSleep: [0, CPU is running or in sleep]
+      DeepSleep: [1, CPU is in Deep-Sleep]
     C1STOPF:
-      NoStop: [0, "System has not been in Stop 0 or 1 mode"]
-      Stop: [1, "System has been in Stop 0 or 1 mode"]
+      NoStop: [0, System has not been in Stop 0 or 1 mode]
+      Stop: [1, System has been in Stop 0 or 1 mode]
     C1STOP2F:
-      NoStop: [0, "System has not been in Stop 2 mode"]
-      Stop: [1, "System has been in Stop 2 mode"]
+      NoStop: [0, System has not been in Stop 2 mode]
+      Stop: [1, System has been in Stop 2 mode]
     C1SBF:
-      NoStandby: [0, "System has not been in Standby mode"]
-      Standby: [1, "System has been in Standby mode"]
+      NoStandby: [0, System has not been in Standby mode]
+      Standby: [1, System has been in Standby mode]
     C1CSSF:
       _write:
-        Clear: [1, "Setting this bit clears the C1STOPF and C1SBF bits"]
+        Clear: [1, Setting this bit clears the C1STOPF and C1SBF bits]
   SUBGHZSPICR:
     NSS:
-      Low: [0, "Sub-GHz SPI NSS signal at level low"]
-      High: [1, "Sub-GHz SPI NSS signal is at level high"]
+      Low: [0, Sub-GHz SPI NSS signal at level low]
+      High: [1, Sub-GHz SPI NSS signal is at level high]

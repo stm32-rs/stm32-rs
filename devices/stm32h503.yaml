@@ -8,7 +8,7 @@ ADC?:
   _strip: ADC_
   _include: fields/adc/adc_h5.yaml
   CFGR:
-    _merge: "EXTSEL*"
+    _merge: EXTSEL*
 
 "ADC,ADC?":
   _include:
@@ -68,10 +68,9 @@ TIM?:
     - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_uifremap.yaml
     - fields/tim/dithen.yaml
 

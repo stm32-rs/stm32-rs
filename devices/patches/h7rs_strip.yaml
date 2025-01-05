@@ -1,7 +1,7 @@
 # All registers start with the peripheral name
 # Strip these to follow the same naming convention as other STM32H7 devices
 
-"ADC*":
+ADC*:
   _strip: ADC_
 
 ADF:
@@ -25,7 +25,7 @@ DBGMCU:
 DCMIPP:
   _strip: DCMIPP_
 
-"DLYB*":
+DLYB*:
   _strip: DLYB_
 
 DMA2D:
@@ -40,7 +40,7 @@ ETH:
 EXTI:
   _strip: EXTI_
 
-"FDCAN*":
+FDCAN*:
   _strip: FDCAN_
 
 FLASH:
@@ -58,8 +58,8 @@ GFXTIM:
 GPDMA:
   _strip: GPDMA_
 
-"GPIO*":
-  _strip: "GPIO*_"
+GPIO*:
+  _strip: GPIO*_
 
 HASH:
   _strip: HASH_
@@ -73,7 +73,7 @@ ICACHE:
 IWDG:
   _strip: IWDG_
 
-"I2C*":
+I2C*:
   _strip: I2C_
 
 JPEG:
@@ -85,7 +85,7 @@ LPTIM1:
 LPTIM4:
   _strip: LPTIM4_
 
-"LPUART*":
+LPUART*:
   _strip: LPUART_
 
 LTDC:
@@ -115,19 +115,19 @@ RNG:
 RTC:
   _strip: RTC_
 
-"SAI*":
+SAI*:
   _strip: SAI_
 
 SBS:
   _strip: SBS_
 
-"SDMMC*":
+SDMMC*:
   _strip: SDMMC_
 
 SPDIFRX:
   _strip: SPDIFRX_
 
-"SPI*":
+SPI*:
   _strip: SPI_
 
 TAMP:
@@ -157,7 +157,7 @@ TIM16:
 UCPD:
   _strip: UCPD_
 
-"USART*":
+USART*:
   _strip: USART_
 
 VREFBUF:
@@ -166,8 +166,8 @@ VREFBUF:
 WWDG:
   _strip: WWDG_
 
-"XSPI*":
+XSPI*:
   _strip: XSPI_
 
-"XSPIM*":
+XSPIM*:
   _strip: XSPIM_

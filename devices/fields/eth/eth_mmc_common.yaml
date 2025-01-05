@@ -1,21 +1,16 @@
 Ethernet_MMC:
   MMCCR:
     MCF:
-      Unfrozen: [0, "All MMC counters update normally"]
-      Frozen: [1, "All MMC counters frozen to their current value"]
+      Unfrozen: [0, All MMC counters update normally]
+      Frozen: [1, All MMC counters frozen to their current value]
     ROR:
-      Disabled: [0, "MMC counters do not reset on read"]
-      Enabled: [1, "MMC counters reset to zero after read"]
+      Disabled: [0, MMC counters do not reset on read]
+      Enabled: [1, MMC counters reset to zero after read]
     CSR:
-      Disabled:
-        [0, "Counters roll over to zero after reaching the maximum value"]
-      Enabled:
-        [
-          1,
-          "Counters do not roll over to zero after reaching the maximum value",
-        ]
+      Disabled: [0, Counters roll over to zero after reaching the maximum value]
+      Enabled: [1, Counters do not roll over to zero after reaching the maximum value]
     CR:
-      Reset: [1, "Reset all counters. Cleared automatically"]
+      Reset: [1, Reset all counters. Cleared automatically]
     _modify:
       "?~MCFHP,MCFHP": # TODO
         description: MMC counter Full-Half preset
@@ -50,16 +45,14 @@ Ethernet_MMC:
 
   MMCRIMR:
     RGUFM:
-      Unmasked: [0, "Received-good-unicast counter half-full interrupt enabled"]
-      Masked: [1, "Received-good-unicast counter half-full interrupt disabled"]
+      Unmasked: [0, Received-good-unicast counter half-full interrupt enabled]
+      Masked: [1, Received-good-unicast counter half-full interrupt disabled]
     RFAEM:
-      Unmasked:
-        [0, "Received-alignment-error counter half-full interrupt enabled"]
-      Masked:
-        [1, "Received-alignment-error counter half-full interrupt disabled"]
+      Unmasked: [0, Received-alignment-error counter half-full interrupt enabled]
+      Masked: [1, Received-alignment-error counter half-full interrupt disabled]
     RFCEM:
-      Unmasked: [0, "Received-crc-error counter half-full interrupt enabled"]
-      Masked: [1, "Received-crc-error counter half-full interrupt disabled"]
+      Unmasked: [0, Received-crc-error counter half-full interrupt enabled]
+      Masked: [1, Received-crc-error counter half-full interrupt disabled]
     _modify:
       RGUFM:
         description: Received good Unicast frames mask
@@ -70,18 +63,14 @@ Ethernet_MMC:
 
   MMCTIMR:
     TGFM:
-      Unmasked: [0, "Transmitted-good counter half-full interrupt enabled"]
-      Masked: [1, "Transmitted-good counter half-full interrupt disabled"]
+      Unmasked: [0, Transmitted-good counter half-full interrupt enabled]
+      Masked: [1, Transmitted-good counter half-full interrupt disabled]
     TGFMSCM:
-      Unmasked:
-        [0, "Transmitted-good-multiple-collision half-full interrupt enabled"]
-      Masked:
-        [1, "Transmitted-good-multiple-collision half-full interrupt disabled"]
+      Unmasked: [0, Transmitted-good-multiple-collision half-full interrupt enabled]
+      Masked: [1, Transmitted-good-multiple-collision half-full interrupt disabled]
     TGFSCM:
-      Unmasked:
-        [0, "Transmitted-good-single-collision half-full interrupt enabled"]
-      Masked:
-        [1, "Transmitted-good-single-collision half-full interrupt disabled"]
+      Unmasked: [0, Transmitted-good-single-collision half-full interrupt enabled]
+      Masked: [1, Transmitted-good-single-collision half-full interrupt disabled]
     _modify:
       TGFM:
         description: Transmitted good frames mask

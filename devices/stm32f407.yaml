@@ -33,10 +33,10 @@ ADC?:
 CRYP:
   "K[0123][LR]R":
     _merge:
-      - "b*"
+      - b*
   "IV[01][LR]R":
     _merge:
-      - "IV*"
+      - IV*
 
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
@@ -118,11 +118,10 @@ SYSCFG:
         bitWidth: 1
         access: read-write
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

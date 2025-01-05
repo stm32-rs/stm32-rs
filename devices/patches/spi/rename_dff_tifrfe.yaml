@@ -1,7 +1,7 @@
 # Rename SPI fields
 # CR1.CRCL field is documented, but in SVD as DFF.
 # SR.FRE field is documented, but in SVD as TIFRFE.
-"SPI*":
+SPI*:
   CR1:
     _modify:
       DFF:

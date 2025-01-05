@@ -1,63 +1,63 @@
 COMP:
   COMP?_CSR:
     # LOCK:
-    #   Unlocked: [0, "Comparator CSR bits are read-write"]
-    #   Locked: [1, "Comparator CSR bits are read-only"]
+    #   Unlocked: [0, Comparator CSR bits are read-write]
+    #   Locked: [1, Comparator CSR bits are read-only]
     #COMP?_VALUE:
     VALUE:
-      Low: [0, "Comparator output is low"]
-      High: [1, "Comparator output is high"]
+      Low: [0, Comparator output is low]
+      High: [1, Comparator output is high]
     SCALEN:
-      Disabled: [0, "Voltage scaler disabled"]
-      Enabled: [1, "Voltage scaler enabled"]
+      Disabled: [0, Voltage scaler disabled]
+      Enabled: [1, Voltage scaler enabled]
     BRGEN:
-      Disabled: [0, "Scaler resistor bridge disabled"]
-      Enabled: [1, "Scaler resistor bridge enabled"]
+      Disabled: [0, Scaler resistor bridge disabled]
+      Enabled: [1, Scaler resistor bridge enabled]
     BLANKING:
-      NoBlanking: [0, "No blanking"]
-      TIM1OC5: [4, "TIM15 OC1 selected as blanking source"]
+      NoBlanking: [0, No blanking]
+      TIM1OC5: [4, TIM15 OC1 selected as blanking source]
     HYST:
-      NoHysteresis: [0, "No hysteresis"]
-      LowHysteresis: [1, "Low hysteresis"]
-      MediumHysteresis: [2, "Medium hysteresis"]
-      HighHysteresis: [3, "High hysteresis"]
+      NoHysteresis: [0, No hysteresis]
+      LowHysteresis: [1, Low hysteresis]
+      MediumHysteresis: [2, Medium hysteresis]
+      HighHysteresis: [3, High hysteresis]
     POLARITY:
-      NotInverted: [0, "Output is not inverted"]
-      Inverted: [1, "Output is inverted"]
+      NotInverted: [0, Output is not inverted]
+      Inverted: [1, Output is inverted]
     PWRMODE:
-      HighSpeed: [0, "High speed / full power"]
-      MediumSpeed: [1, "Medium speed / medium power"]
-      LowSpeed: [3, "Low speed / ultra-low power"]
+      HighSpeed: [0, High speed / full power]
+      MediumSpeed: [1, Medium speed / medium power]
+      LowSpeed: [3, Low speed / ultra-low power]
     EN:
-      Disabled: [0, "Comparator 1 disabled"]
-      Enabled: [1, "Comparator 1 enabled"]
+      Disabled: [0, Comparator 1 disabled]
+      Enabled: [1, Comparator 1 enabled]
 
   COMP1_CSR:
     INPSEL:
-      PC5: [0, "PC5 connected to input plus"]
-      PB2: [1, "PB2 connected to input plus"]
+      PC5: [0, PC5 connected to input plus]
+      PB2: [1, PB2 connected to input plus]
     INMSEL:
-      OneQuarterVRef: [0, "1/4 of VRefint"]
-      OneHalfVRef: [1, "1/2 of VRefint"]
-      ThreeQuarterVRef: [2, "3/4 of VRefint"]
-      VRef: [3, "VRefint"]
-      DAC_CH1: [4, "DAC Channel 1"]
-      DAC_CH2: [5, "DAC Channel 2"]
-      PC4: [6, "PC4"]
+      OneQuarterVRef: [0, 1/4 of VRefint]
+      OneHalfVRef: [1, 1/2 of VRefint]
+      ThreeQuarterVRef: [2, 3/4 of VRefint]
+      VRef: [3, VRefint]
+      DAC_CH1: [4, DAC Channel 1]
+      DAC_CH2: [5, DAC Channel 2]
+      PC4: [6, PC4]
 
   COMP2_CSR:
     WINMODE:
-      Disabled: [0, "COMP2 input plus is not connected to COMP1"]
-      Enabled: [1, "COMP2 input plus is connected to COMP1 plus"]
+      Disabled: [0, COMP2 input plus is not connected to COMP1]
+      Enabled: [1, COMP2 input plus is connected to COMP1 plus]
     INPSEL:
-      PB4: [0, "PB4 connected to input plus"]
-      PB6: [1, "PB6 connected to input plus"]
+      PB4: [0, PB4 connected to input plus]
+      PB6: [1, PB6 connected to input plus]
     INMSEL:
-      OneQuarterVRef: [0, "1/4 of VRefint"]
-      OneHalfVRef: [1, "1/2 of VRefint"]
-      ThreeQuarterVRef: [2, "3/4 of VRefint"]
-      VRef: [3, "VRefint"]
-      DAC_CH1: [4, "DAC Channel 1"]
-      DAC_CH2: [5, "DAC Channel 2"]
-      PB3: [6, "PB3"]
-      PB7: [7, "PB7"]
+      OneQuarterVRef: [0, 1/4 of VRefint]
+      OneHalfVRef: [1, 1/2 of VRefint]
+      ThreeQuarterVRef: [2, 3/4 of VRefint]
+      VRef: [3, VRefint]
+      DAC_CH1: [4, DAC Channel 1]
+      DAC_CH2: [5, DAC Channel 2]
+      PB3: [6, PB3]
+      PB7: [7, PB7]

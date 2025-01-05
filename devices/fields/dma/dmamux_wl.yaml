@@ -1,5 +1,5 @@
 DMAMUX:
-  "C?CR":
+  C?CR:
     SYNC_ID:
       exti0: [0, "Signal `EXTIx` selected as synchronization input"]
       exti1: [1, "Signal `EXTIx` selected as synchronization input"]
@@ -25,20 +25,20 @@ DMAMUX:
     NBREQ: [0, 31]
     SPOL:
       NoEdge: [0, "No event, i.e. no synchronization nor detection"]
-      RisingEdge: [1, "Rising edge"]
-      FallingEdge: [2, "Falling edge"]
-      BothEdges: [3, "Rising and falling edges"]
+      RisingEdge: [1, Rising edge]
+      FallingEdge: [2, Falling edge]
+      BothEdges: [3, Rising and falling edges]
     SE:
-      Disabled: [0, "Synchronization disabled"]
-      Enabled: [1, "Synchronization enabled"]
+      Disabled: [0, Synchronization disabled]
+      Enabled: [1, Synchronization enabled]
     EGE:
-      Disabled: [0, "Event generation disabled"]
-      Enabled: [1, "Event generation enabled"]
+      Disabled: [0, Event generation disabled]
+      Enabled: [1, Event generation enabled]
     SOIE:
-      Disabled: [0, "Synchronization overrun interrupt disabled"]
-      Enabled: [1, "Synchronization overrun interrupt enabled"]
+      Disabled: [0, Synchronization overrun interrupt disabled]
+      Enabled: [1, Synchronization overrun interrupt enabled]
     DMAREQ_ID:
-      none: [0, "No signal selected as request input"]
+      none: [0, No signal selected as request input]
       dmamux1_req_gen0: [1, "Signal `dmamux1_req_gen0` selected as request input"]
       dmamux1_req_gen1: [2, "Signal `dmamux1_req_gen1` selected as request input"]
       dmamux1_req_gen2: [3, "Signal `dmamux1_req_gen2` selected as request input"]
@@ -81,19 +81,19 @@ DMAMUX:
       aes_out: [40, "Signal `aes_out` selected as request input"]
       subghzspi_rx: [41, "Signal `subghzspi_rx` selected as request input"]
       subghzspi_tx: [42, "Signal `subghzspi_tx` selected as request input"]
-  "RG?CR":
+  RG?CR:
     GNBREQ: [0, 31]
     GPOL:
       NoEdge: [0, "No event, i.e. no detection nor generation"]
-      RisingEdge: [1, "Rising edge"]
-      FallingEdge: [2, "Falling edge"]
-      BothEdges: [3, "Rising and falling edges"]
+      RisingEdge: [1, Rising edge]
+      FallingEdge: [2, Falling edge]
+      BothEdges: [3, Rising and falling edges]
     GE:
-      Disabled: [0, "DMA request generation disabled"]
-      Enabled: [1, "DMA request enabled"]
+      Disabled: [0, DMA request generation disabled]
+      Enabled: [1, DMA request enabled]
     OIE:
-      Disabled: [0, "Trigger overrun interrupt disabled"]
-      Enabled: [1, "Trigger overrun interrupt enabled"]
+      Disabled: [0, Trigger overrun interrupt disabled]
+      Enabled: [1, Trigger overrun interrupt enabled]
     SIG_ID:
       exti0: [0, "Signal `EXTIx` selected as synchronization input"]
       exti1: [1, "Signal `EXTIx` selected as synchronization input"]
@@ -117,16 +117,25 @@ DMAMUX:
       lptim2_out: [19, "Signal `lptim2_out` selected as synchronization input"]
       lptim3_out: [20, "Signal `lptim3_out` selected as synchronization input"]
   CSR:
-    "SOF*":
-      NoSyncEvent: [0, "No synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
-      SyncEvent: [1, "Synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ"]
+    SOF*:
+      NoSyncEvent:
+        [
+          0,
+          "No synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ",
+        ]
+      SyncEvent:
+        [
+          1,
+          "Synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ",
+        ]
   "CFR,CCFR":
-    "CSOF*":
-      Clear: [1, "Clear synchronization flag"]
+    CSOF*:
+      Clear: [1, Clear synchronization flag]
   RGSR:
     "OF[0123]":
-      NoTrigger: [0, "No new trigger event occured on DMA request generator channel x, before the request counter underrun"]
+      NoTrigger:
+        [0, "No new trigger event occured on DMA request generator channel x, before the request counter underrun"]
       Trigger: [1, "New trigger event occured on DMA request generator channel x, before the request counter underrun"]
   RGCFR:
     "COF[0123]":
-      Clear: [1, "Clear overrun flag"]
+      Clear: [1, Clear overrun flag]

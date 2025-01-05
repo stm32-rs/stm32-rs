@@ -1,22 +1,22 @@
 _array:
-  "JOFR?":
+  JOFR?:
     JOFFSET: [0, 4095]
     description: injected channel data offset register %s
     _modify:
       JOFFSET1:
         name: JOFFSET
         description: Data offset for injected channel
-  "JDR?": {}
+  JDR?: {}
 
 JSQR:
   _array:
-    "JSQ?":
+    JSQ?:
       description: "%s conversion in injected sequence"
 SQR?:
   _array:
-    "SQ*":
+    SQ*:
       description: "%s conversion in regular sequence"
 SMPR?:
   _array:
     "SMP?,SMP??":
-      description: "Channel %s sample time selection"
+      description: Channel %s sample time selection

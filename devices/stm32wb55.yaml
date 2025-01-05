@@ -30,7 +30,7 @@ ADC?:
       RDATA_0_6:
         bitWidth: 7
     _merge:
-      RDATA: "RDATA*"
+      RDATA: RDATA*
 
 "ADC,ADC?":
   _include:

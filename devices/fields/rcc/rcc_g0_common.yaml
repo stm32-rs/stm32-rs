@@ -1,168 +1,168 @@
 CR:
   PLLRDY:
-    Unlocked: [0, "PLL unlocked"]
-    Locked:   [1, "PLL locked"]
+    Unlocked: [0, PLL unlocked]
+    Locked: [1, PLL locked]
   PLLON:
-    Disabled: [0, "PLL powered off"]
-    Enabled:  [1, "PLL enabled"]
+    Disabled: [0, PLL powered off]
+    Enabled: [1, PLL enabled]
   CSSON:
-    Disabled: [0, "HSE clock is not monitored"]
-    Enabled:  [1, "HSE clock monitor enabled when HSE is ready, otherwise disabled"]
+    Disabled: [0, HSE clock is not monitored]
+    Enabled: [1, "HSE clock monitor enabled when HSE is ready, otherwise disabled"]
   HSEBYP:
-    Crystal:  [0, "HSE is a crystal oscillator or ceramic resonator"]
-    ExtClock: [1, "HSE is driven by an external clock"]
+    Crystal: [0, HSE is a crystal oscillator or ceramic resonator]
+    ExtClock: [1, HSE is driven by an external clock]
   HSERDY:
-    NotReady: [0, "HSE oscillator not ready"]
-    Ready:    [1, "HSE oscillator ready"]
+    NotReady: [0, HSE oscillator not ready]
+    Ready: [1, HSE oscillator ready]
   HSEON:
-    Disabled: [0, "HSE oscillator powered off"]
-    Enabled:  [1, "HSE oscillator enabled"]
+    Disabled: [0, HSE oscillator powered off]
+    Enabled: [1, HSE oscillator enabled]
   HSIDIV:
-    Div1:   [0b000, "Divide HSI16 by 1"]
-    Div2:   [0b001, "Divide HSI16 by 2"]
-    Div4:   [0b010, "Divide HSI16 by 4"]
-    Div8:   [0b011, "Divide HSI16 by 8"]
-    Div16:  [0b100, "Divide HSI16 by 16"]
-    Div32:  [0b101, "Divide HSI16 by 32"]
-    Div64:  [0b110, "Divide HSI16 by 64"]
-    Div128: [0b111, "Divide HSI16 by 128"]
+    Div1: [0b000, Divide HSI16 by 1]
+    Div2: [0b001, Divide HSI16 by 2]
+    Div4: [0b010, Divide HSI16 by 4]
+    Div8: [0b011, Divide HSI16 by 8]
+    Div16: [0b100, Divide HSI16 by 16]
+    Div32: [0b101, Divide HSI16 by 32]
+    Div64: [0b110, Divide HSI16 by 64]
+    Div128: [0b111, Divide HSI16 by 128]
   HSIRDY:
-    NotReady: [0, "HSI oscillator not ready"]
-    Ready:    [1, "HSI oscillator ready"]
+    NotReady: [0, HSI oscillator not ready]
+    Ready: [1, HSI oscillator ready]
   HSIKERON:
-    NotForce: [0, "No effect on HSI16 oscillator"]
-    Forced:   [1, "HSI16 oscillator forced on even in Stop modes"]
+    NotForce: [0, No effect on HSI16 oscillator]
+    Forced: [1, HSI16 oscillator forced on even in Stop modes]
   HSION:
-    Disabled: [0, "HSI oscillator powered off"]
-    Enabled:  [1, "HSI oscillator enabled"]
+    Disabled: [0, HSI oscillator powered off]
+    Enabled: [1, HSI oscillator enabled]
 ICSCR:
   HSITRIM: [0, 0x7F]
   HSICAL: [0, 0xFF]
 CFGR:
   # MCOPRE and MCOSEL handled in rcc_g0.yaml or rcc_g0b.yaml
   PPRE:
-    Div1:  [-1, "Divide by 1"]
-    Div2:  [0b100, "Divide by 2"]
-    Div4:  [0b101, "Divide by 4"]
-    Div8:  [0b110, "Divide by 8"]
-    Div16: [0b111, "Divide by 16"]
+    Div1: [-1, Divide by 1]
+    Div2: [0b100, Divide by 2]
+    Div4: [0b101, Divide by 4]
+    Div8: [0b110, Divide by 8]
+    Div16: [0b111, Divide by 16]
   HPRE:
-    Div1:   [-1, "Divide by 1"]
-    Div2:   [0b1000, "Divide by 2"]
-    Div4:   [0b1001, "Divide by 4"]
-    Div8:   [0b1010, "Divide by 8"]
-    Div16:  [0b1011, "Divide by 16"]
-    Div64:  [0b1100, "Divide by 64"]
-    Div128: [0b1101, "Divide by 128"]
-    Div256: [0b1110, "Divide by 256"]
-    Div512: [0b1111, "Divide by 512"]
+    Div1: [-1, Divide by 1]
+    Div2: [0b1000, Divide by 2]
+    Div4: [0b1001, Divide by 4]
+    Div8: [0b1010, Divide by 8]
+    Div16: [0b1011, Divide by 16]
+    Div64: [0b1100, Divide by 64]
+    Div128: [0b1101, Divide by 128]
+    Div256: [0b1110, Divide by 256]
+    Div512: [0b1111, Divide by 512]
   SWS:
-    HSISYS: [0b000, "HSISYS clock selected"]
-    HSE:    [0b001, "HSE clock selected"]
-    PLLR:   [0b010, "PLLRCLK clock selected"]
-    LSI:    [0b011, "LSI clock selected"]
-    LSE:    [0b100, "LSE clock selected"]
+    HSISYS: [0b000, HSISYS clock selected]
+    HSE: [0b001, HSE clock selected]
+    PLLR: [0b010, PLLRCLK clock selected]
+    LSI: [0b011, LSI clock selected]
+    LSE: [0b100, LSE clock selected]
   SW:
-    HSISYS: [0b000, "HSISYS clock selected"]
-    HSE:    [0b001, "HSE clock selected"]
-    PLLR:   [0b010, "PLLRCLK clock selected"]
-    LSI:    [0b011, "LSI clock selected"]
-    LSE:    [0b100, "LSE clock selected"]
+    HSISYS: [0b000, HSISYS clock selected]
+    HSE: [0b001, HSE clock selected]
+    PLLR: [0b010, PLLRCLK clock selected]
+    LSI: [0b011, LSI clock selected]
+    LSE: [0b100, LSE clock selected]
 PLLCFGR:
   "PLL[RQ]": [1, 7]
   PLLP: [1, 31]
   "PLL[PRQ]EN":
-    Disabled: [0, "PLL output disabled (saves power)"]
-    Enabled:  [1, "PLL output enabled"]
+    Disabled: [0, PLL output disabled (saves power)]
+    Enabled: [1, PLL output enabled]
   PLLN: [8, 86]
   PLLM: [0, 7]
   PLLSRC:
-    NoClock: [0b00, "No clock selected (saves power)"]
-    HSI16:   [0b10, "HSI16 clock selected"]
-    HSE:     [0b11, "HSE clock selected"]
+    NoClock: [0b00, No clock selected (saves power)]
+    HSI16: [0b10, HSI16 clock selected]
+    HSE: [0b11, HSE clock selected]
 CIER:
   "*":
-    Disabled: [0, "Interrupt disabled"]
-    Enabled:  [1, "Interrupt enabled"]
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
 CIFR:
   "*":
-    NotInterrupted: [0, "Interrupt not triggered"]
-    Interrupted:    [1, "Interrup triggered"]
+    NotInterrupted: [0, Interrupt not triggered]
+    Interrupted: [1, Interrup triggered]
 CICR:
   "*":
-    Clear: [1, "Clear interrupt flag"]
+    Clear: [1, Clear interrupt flag]
 "*RSTR*":
   "*":
-    Reset: [1, "Reset peripheral"]
+    Reset: [1, Reset peripheral]
 "*ENR*":
   "*":
-    Disabled: [0, "Peripheral disabled (typically saves power)"]
-    Enabled:  [1, "Peripheral enabled"]
+    Disabled: [0, Peripheral disabled (typically saves power)]
+    Enabled: [1, Peripheral enabled]
 CCIPR:
   ADCSEL:
-    SYSCLK: [0b00, "System clock selected"]
-    PLLP:   [0b01, "PLLPCLK clock selected"]
-    HSI16:  [0b10, "HSI16 clock selected"]
+    SYSCLK: [0b00, System clock selected]
+    PLLP: [0b01, PLLPCLK clock selected]
+    HSI16: [0b10, HSI16 clock selected]
   "TIM15SEL,TIM1SEL":
-    TIMP: [0, "TIMPCLK clock selected"]
-    PLLQ: [1, "PLLQCLK clock selected"]
+    TIMP: [0, TIMPCLK clock selected]
+    PLLQ: [1, PLLQCLK clock selected]
   # I2C2I2S1SEL handled in rcc_g0.yaml or rcc_g0b.yaml
   I2C1SEL:
-    PCLK:   [0b00, "PCLK clock selected"]
-    SYSCLK: [0b01, "SYSCLK clock selected"]
-    HSI16:  [0b10, "HSI16 clock selected"]
+    PCLK: [0b00, PCLK clock selected]
+    SYSCLK: [0b01, SYSCLK clock selected]
+    HSI16: [0b10, HSI16 clock selected]
   "USART[123]SEL":
-    PCLK:   [0b00, "PCLK clock selected"]
-    SYSCLK: [0b01, "SYSCLK clock selected"]
-    HSI16:  [0b10, "HSI16 clock selected"]
-    LSE:    [0b11, "LSE clock selected"]
+    PCLK: [0b00, PCLK clock selected]
+    SYSCLK: [0b01, SYSCLK clock selected]
+    HSI16: [0b10, HSI16 clock selected]
+    LSE: [0b11, LSE clock selected]
 # CCIPR2 handled in rcc_g0b.yaml
 BDCR:
   LSCOSEL:
-    LSI: [0, "LSI clock selected"]
-    LSE: [1, "LSE clock selected"]
+    LSI: [0, LSI clock selected]
+    LSE: [1, LSE clock selected]
   LSCOEN:
-    Disabled: [0, "Low-speed clock output disabled"]
-    Enabled:  [1, "Low-speed clock output enabled"]
+    Disabled: [0, Low-speed clock output disabled]
+    Enabled: [1, Low-speed clock output enabled]
   BDRST:
-    Reset: [1, "RTC domain software reset"]
+    Reset: [1, RTC domain software reset]
   RTCEN:
-    Disabled: [0, "RTC disabled (saves power)"]
-    Enabled:  [1, "RTC enabled"]
+    Disabled: [0, RTC disabled (saves power)]
+    Enabled: [1, RTC enabled]
   RTCSEL:
-    NoClock: [0b00, "No clock selected"]
-    LSE:     [0b01, "LSE clock selected"]
-    LSI:     [0b10, "LSI clock selected"]
-    HSE32:   [0b11, "HSI clock divided by 32 selected"]
+    NoClock: [0b00, No clock selected]
+    LSE: [0b01, LSE clock selected]
+    LSI: [0b10, LSI clock selected]
+    HSE32: [0b11, HSI clock divided by 32 selected]
   LSECSSD:
-    NoFailure: [0, "No failure detected"]
-    Failure:   [1, "Failure detected"]
+    NoFailure: [0, No failure detected]
+    Failure: [1, Failure detected]
   LSECSSON:
-    Disabled: [0, "LSE clock is not monitored"]
-    Enabled:  [1, "LSE clock monitor enabled"]
+    Disabled: [0, LSE clock is not monitored]
+    Enabled: [1, LSE clock monitor enabled]
   LSEDRV:
-    Low:     [0, "Xtal mode lower driving capability"]
-    MedLow:  [1, "Xtal mode medium-low driving capability"]
-    MedHigh: [2, "Xtal mode medium-high driving capability"]
-    High:    [3, "Xtal mode higher driving capability"]
+    Low: [0, Xtal mode lower driving capability]
+    MedLow: [1, Xtal mode medium-low driving capability]
+    MedHigh: [2, Xtal mode medium-high driving capability]
+    High: [3, Xtal mode higher driving capability]
   LSEBYP:
-    Crystal:  [0, "LSE is a crystal oscillator or ceramic resonator"]
-    ExtClock: [1, "LSE is driven by an external clock"]
+    Crystal: [0, LSE is a crystal oscillator or ceramic resonator]
+    ExtClock: [1, LSE is driven by an external clock]
   LSERDY:
-    NotReady: [0, "LSE oscillator not ready"]
-    Ready:    [1, "LSE oscillator ready"]
+    NotReady: [0, LSE oscillator not ready]
+    Ready: [1, LSE oscillator ready]
   LSEON:
-    Disabled: [0, "LSE oscillator powered off"]
-    Enabled:  [1, "LSE oscillator enabled"]
+    Disabled: [0, LSE oscillator powered off]
+    Enabled: [1, LSE oscillator enabled]
 CSR:
   "*RSTF":
-    NoReset: [0, "This reset type has not occurred"]
-    Reset:   [1, "This reset type has occurred"]
+    NoReset: [0, This reset type has not occurred]
+    Reset: [1, This reset type has occurred]
   RMVF:
-    Clear: [1, "Clear reset flags"]
+    Clear: [1, Clear reset flags]
   LSIRDY:
-    NotReady: [0, "LSI oscillator not ready"]
-    Ready:    [1, "LSI oscillator ready"]
+    NotReady: [0, LSI oscillator not ready]
+    Ready: [1, LSI oscillator ready]
   LSION:
-    Disabled: [0, "LSI oscillator powered off"]
-    Enabled:  [1, "LSI oscillator enabled"]
+    Disabled: [0, LSI oscillator powered off]
+    Enabled: [1, LSI oscillator enabled]

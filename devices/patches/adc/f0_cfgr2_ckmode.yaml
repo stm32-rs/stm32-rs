@@ -7,6 +7,5 @@ CFGR2:
       name: CKMODE0
     JITOFF_D4:
       name: CKMODE1
-      description: "ADC clock mode"
-  _merge:
-    - "CKMODE*"
+      description: ADC clock mode
+  _merge: CKMODE*

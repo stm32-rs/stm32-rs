@@ -1,10 +1,10 @@
 RCC:
   CFGR3:
-    "U*ART*SW":
-      PCLK: [0, "PCLK selected as USART clock source"]
-      SYSCLK: [1, "SYSCLK selected as USART clock source"]
-      LSE: [2, "LSE selected as USART clock source"]
-      HSI: [3, "HSI selected as USART clock source"]
-    "I2C*SW":
-      HSI: [0, "HSI clock selected as I2C clock source"]
-      SYSCLK: [1, "SYSCLK clock selected as I2C clock source"]
+    U*ART*SW:
+      PCLK: [0, PCLK selected as USART clock source]
+      SYSCLK: [1, SYSCLK selected as USART clock source]
+      LSE: [2, LSE selected as USART clock source]
+      HSI: [3, HSI selected as USART clock source]
+    I2C*SW:
+      HSI: [0, HSI clock selected as I2C clock source]
+      SYSCLK: [1, SYSCLK clock selected as I2C clock source]

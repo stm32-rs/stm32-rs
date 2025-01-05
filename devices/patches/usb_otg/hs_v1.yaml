@@ -15,7 +15,7 @@ OTG_HS_GLOBAL:
     GNPTXFSIZ_Host:
       name: HNPTXFSIZ
       displayName: HNPTXFSIZ
-    
+
     GNPTXSTS:
       name: HNPTXSTS
 
@@ -33,11 +33,11 @@ OTG_HS_GLOBAL:
       alternateRegister: GRXSTSP_Host
 
     DIEPTXF3:
-      addressOffset: '0x10C'
+      addressOffset: 0x10C
     DIEPTXF4:
-      addressOffset: '0x110'
+      addressOffset: 0x110
     DIEPTXF5:
-      addressOffset: '0x114'
+      addressOffset: 0x114
 
 OTG_HS_DEVICE:
   _delete:

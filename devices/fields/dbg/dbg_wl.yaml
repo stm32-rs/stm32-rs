@@ -1,10 +1,10 @@
 # Debug registers for WL
 
 _include:
-  - "dbg_common.yaml"
+  - dbg_common.yaml
 
 DBGMCU:
   APB1FZR1:
-    "DBG_I2C*_STOP":
-      NormalMode: [ 0, "Same behavior as in normal mode" ]
-      SMBusTimeoutFrozen: [ 1, "I2Cx SMBUS timeout is frozen" ]
+    DBG_I2C*_STOP:
+      NormalMode: [0, Same behavior as in normal mode]
+      SMBusTimeoutFrozen: [1, I2Cx SMBUS timeout is frozen]

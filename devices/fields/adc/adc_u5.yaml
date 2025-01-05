@@ -3,190 +3,138 @@
 ISR:
   LDORDY:
     _read:
-      Disabled: [0, "ADC voltage regulator disabled"]
-      Enabled: [1, "ADC voltage regulator enabled"]
+      Disabled: [0, ADC voltage regulator disabled]
+      Enabled: [1, ADC voltage regulator enabled]
   AWD?:
     _read:
       NoEvent:
-        [
-          0,
-          "No analog watchdog x event occurred (or the flag event was already acknowledged and cleared by software)",
-        ]
-      Event: [1, "Analog watchdog x event occurred"]
+        [0, No analog watchdog x event occurred (or the flag event was already acknowledged and cleared by software)]
+      Event: [1, Analog watchdog x event occurred]
     _write:
-      Clear: [1, "Clear the analog watchdog x event flag"]
+      Clear: [1, Clear the analog watchdog x event flag]
   OVR:
     _read:
-      NoOverrun:
-        [
-          0,
-          "No overrun occurred (or the flag event was already acknowledged and cleared by software)",
-        ]
-      Overrun: [1, "Overrun has occurred"]
+      NoOverrun: [0, No overrun occurred (or the flag event was already acknowledged and cleared by software)]
+      Overrun: [1, Overrun has occurred]
     _write:
-      Clear: [1, "Clear the overrun flag"]
+      Clear: [1, Clear the overrun flag]
   EOS:
     _read:
       NotComplete:
         [
           0,
-          "Regular conversions sequence not complete (or the flag event was already acknowledged and cleared by software)",
+          Regular conversions sequence not complete (or the flag event was already acknowledged and cleared by software),
         ]
-      Complete: [1, "Regular conversions sequence complete"]
+      Complete: [1, Regular conversions sequence complete]
     _write:
-      Clear: [1, "Clear the regular conversion sequence flag"]
+      Clear: [1, Clear the regular conversion sequence flag]
   EOC:
     _read:
       NotComplete:
         [
           0,
-          "Regular channel conversion not complete (or the flag event was already acknowledged and cleared by software)",
+          Regular channel conversion not complete (or the flag event was already acknowledged and cleared by software),
         ]
-      Complete: [1, "Regular channel conversion complete"]
+      Complete: [1, Regular channel conversion complete]
     _write:
-      Clear: [1, "Clear the regular channel conversion flag"]
+      Clear: [1, Clear the regular channel conversion flag]
   EOSMP:
     _read:
       NotAtEnd:
-        [
-          0,
-          "Not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)",
-        ]
-      AtEnd: [1, "End of sampling phase reached"]
+        [0, Not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)]
+      AtEnd: [1, End of sampling phase reached]
     _write:
-      Clear: [1, "Clear the sampling phase flag"]
+      Clear: [1, Clear the sampling phase flag]
   ADRDY:
     _read:
       NotReady:
-        [
-          0,
-          "ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)",
-        ]
-      Ready: [1, "ADC is ready to start conversion"]
+        [0, ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)]
+      Ready: [1, ADC is ready to start conversion]
     _write:
-      Clear: [1, "Clear the ADC ready flag"]
+      Clear: [1, Clear the ADC ready flag]
 IER:
   AWD?IE:
-    Disabled: [0, "Analog watchdog x interrupt disabled"]
-    Enabled: [1, "Analog watchdog x interrupt enabled"]
+    Disabled: [0, Analog watchdog x interrupt disabled]
+    Enabled: [1, Analog watchdog x interrupt enabled]
   OVRIE:
-    Disabled: [0, "Overrun interrupt disabled"]
-    Enabled:
-      [
-        1,
-        "Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.",
-      ]
+    Disabled: [0, Overrun interrupt disabled]
+    Enabled: [1, Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.]
   EOSIE:
-    Disabled: [0, "EOS interrupt disabled"]
-    Enabled:
-      [
-        1,
-        "EOS interrupt enabled. An interrupt is generated when the EOS bit is set.",
-      ]
+    Disabled: [0, EOS interrupt disabled]
+    Enabled: [1, EOS interrupt enabled. An interrupt is generated when the EOS bit is set.]
   EOCIE:
-    Disabled: [0, "EOC interrupt disabled"]
-    Enabled:
-      [
-        1,
-        "EOC interrupt enabled. An interrupt is generated when the EOC bit is set.",
-      ]
+    Disabled: [0, EOC interrupt disabled]
+    Enabled: [1, EOC interrupt enabled. An interrupt is generated when the EOC bit is set.]
   EOSMPIE:
-    Disabled: [0, "EOSMP interrupt disabled"]
-    Enabled:
-      [
-        1,
-        "EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.",
-      ]
+    Disabled: [0, EOSMP interrupt disabled]
+    Enabled: [1, EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.]
   ADRDYIE:
-    Disabled: [0, "ADRDY interrupt disabled"]
-    Enabled:
-      [
-        1,
-        "ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.",
-      ]
+    Disabled: [0, ADRDY interrupt disabled]
+    Enabled: [1, ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.]
 CR:
   ADCAL:
     _read:
-      NotCalibrating: [0, "Calibration complete"]
-      Calibrating: [1, "Calibration in progress"]
+      NotCalibrating: [0, Calibration complete]
+      Calibrating: [1, Calibration in progress]
     _write:
-      StartCalibration: [1, "Calibrate the ADC"]
+      StartCalibration: [1, Calibrate the ADC]
   ADVREGEN:
-    Disabled: [0, "ADC voltage regulator disabled"]
-    Enabled: [1, "ADC voltage regulator enabled"]
+    Disabled: [0, ADC voltage regulator disabled]
+    Enabled: [1, ADC voltage regulator enabled]
   ADSTP:
     _read:
-      NotStopping: [0, "No ADC stop regular conversion command ongoing"]
-      Stopping: [1, "ADSTP command is in progress"]
+      NotStopping: [0, No ADC stop regular conversion command ongoing]
+      Stopping: [1, ADSTP command is in progress]
     _write:
-      StopConversion: [1, "Stop regular conversions ongoing"]
+      StopConversion: [1, Stop regular conversions ongoing]
   ADSTART:
     _read:
-      NotActive: [0, "No ADC regular conversion is ongoing"]
-      Active:
-        [1, "ADC is operating and eventually converting a regular channel"]
+      NotActive: [0, No ADC regular conversion is ongoing]
+      Active: [1, ADC is operating and eventually converting a regular channel]
     _write:
-      Start: [1, "Start regular conversions"]
+      Start: [1, Start regular conversions]
   ADDIS:
     _read:
-      NotOngoing: [0, "No ADDIS command ongoing"]
-      InProgress: [1, "An ADDIS command is in progress"]
+      NotOngoing: [0, No ADDIS command ongoing]
+      InProgress: [1, An ADDIS command is in progress]
     _write:
-      Disable: [1, "Disable the ADC"]
+      Disable: [1, Disable the ADC]
   ADEN:
     _read:
-      Disabled: [0, "ADC is disabled"]
-      Enabled: [1, "ADC is enabled"]
+      Disabled: [0, ADC is disabled]
+      Enabled: [1, ADC is enabled]
     _write:
-      Enabled: [1, "Enable the ADC"]
+      Enabled: [1, Enable the ADC]
 CFGR1:
   AWD1CH: [0, 19]
   AWD1EN:
-    Disabled: [0, "Analog watchdog 1 disabled on regular channels"]
-    Enabled: [1, "Analog watchdog 1 enabled on regular channels"]
+    Disabled: [0, Analog watchdog 1 disabled on regular channels]
+    Enabled: [1, Analog watchdog 1 enabled on regular channels]
   AWD1SGL:
-    AllChannels: [0, "Analog watchdog 1 enabled on all channels"]
-    SingleChannel: [1, "Analog watchdog 1 enabled on a single channel"]
+    AllChannels: [0, Analog watchdog 1 enabled on all channels]
+    SingleChannel: [1, Analog watchdog 1 enabled on a single channel]
   DISCEN:
-    Disabled: [0, "Discontinuous mode for regular channels disabled"]
-    Enabled: [1, "Discontinuous mode for regular channels enabled"]
+    Disabled: [0, Discontinuous mode for regular channels disabled]
+    Enabled: [1, Discontinuous mode for regular channels enabled]
   CONT:
-    Single: [0, "Single conversion mode"]
-    Continuous: [1, "Continuous conversion mode"]
+    Single: [0, Single conversion mode]
+    Continuous: [1, Continuous conversion mode]
   OVRMOD:
-    Preserve:
-      [
-        0,
-        "ADC_DR register is preserved with the old data when an overrun is detected",
-      ]
-    Overwrite:
-      [
-        1,
-        "ADC_DR register is overwritten with the last conversion result when an overrun is detected",
-      ]
+    Preserve: [0, ADC_DR register is preserved with the old data when an overrun is detected]
+    Overwrite: [1, ADC_DR register is overwritten with the last conversion result when an overrun is detected]
   EXTEN:
-    Disabled:
-      [
-        0,
-        "Hardware trigger detection disabled (conversions can be launched by software)",
-      ]
-    RisingEdge: [1, "Hardware trigger detection on the rising edge"]
-    FallingEdge: [2, "Hardware trigger detection on the falling edge"]
-    BothEdges:
-      [3, "Hardware trigger detection on both the rising and falling edges"]
+    Disabled: [0, Hardware trigger detection disabled (conversions can be launched by software)]
+    RisingEdge: [1, Hardware trigger detection on the rising edge]
+    FallingEdge: [2, Hardware trigger detection on the falling edge]
+    BothEdges: [3, Hardware trigger detection on both the rising and falling edges]
 CFGR2:
   LFTRIG:
-    Disabled: [0, "Low-frequency trigger mode disabled"]
-    Enabled: [1, "Low-frequency trigger mode enabled"]
+    Disabled: [0, Low-frequency trigger mode disabled]
+    Enabled: [1, Low-frequency trigger mode enabled]
   TROVS,TOVS:
-    Automatic:
-      [
-        0,
-        "All oversampled conversions for a channel are done consecutively following a trigger",
-      ]
-    Triggered:
-      [1, "Each oversampled conversion for a channel needs a new trigger"]
+    Automatic: [0, All oversampled conversions for a channel are done consecutively following a trigger]
+    Triggered: [1, Each oversampled conversion for a channel needs a new trigger]
 AWD?CR:
   AWD?CH*:
-    Disabled: [0, "ADC analog input channel x is not monitored by AWDy"]
-    Enabled: [1, "ADC analog input channel x is monitored by AWDy"]
+    Disabled: [0, ADC analog input channel x is not monitored by AWDy]
+    Enabled: [1, ADC analog input channel x is monitored by AWDy]

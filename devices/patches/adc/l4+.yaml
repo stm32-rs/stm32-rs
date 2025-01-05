@@ -1,7 +1,7 @@
 _include: jdata.yaml
 
 CFGR:
-  _merge: "EXTSEL*"
+  _merge: EXTSEL*
 
   _modify:
     AWDCH1CH:
@@ -9,4 +9,4 @@ CFGR:
 
 DIFSEL:
   _merge:
-    DIFSEL: "DIFSEL*"
+    DIFSEL: DIFSEL*

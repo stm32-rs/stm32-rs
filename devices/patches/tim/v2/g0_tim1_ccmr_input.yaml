@@ -1,5 +1,5 @@
 CCMR1_Input:
-  _delete: "OC*"
+  _delete: OC*
   _add:
     IC1PCS:
       description: Input capture 1 prescaler
@@ -18,7 +18,7 @@ CCMR1_Input:
       bitOffset: 12
       bitWidth: 4
 CCMR2_Input:
-  _delete: "OC*"
+  _delete: OC*
   _add:
     IC3PSC:
       description: Input capture 3 prescaler

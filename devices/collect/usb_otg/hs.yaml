@@ -1,7 +1,7 @@
 OTG_HS_HOST,OTG1_HS_HOST:
   _cluster:
-    "HC%s":
-      description: "Host channel"
+    HC%s:
+      description: Host channel
       HCCHAR?,HCCHAR??:
         name: CHAR
       HCSPLT?,HCSPLT??:
@@ -30,14 +30,14 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
       DOEPINT[0]: { name: INT }
       DOEPTSIZ[0]: { name: TSIZ }
       DOEPDMA[0]: { name: DMA }
-    "DIEP%s":
+    DIEP%s:
       description: Device IN endpoint X
       DIEPCTL[1-8]: { name: CTL }
       DIEPINT[1-8]: { name: INT }
       DIEPTSIZ[1-8]: { name: TSIZ }
       DIEPDMA[1-8]: { name: DMA }
       DTXFSTS[1-8]: { name: TXFSTS }
-    "DOEP%s":
+    DOEP%s:
       description: Device IN endpoint X
       DOEPCTL[1-8]: { name: CTL }
       DOEPINT[1-8]: { name: INT }

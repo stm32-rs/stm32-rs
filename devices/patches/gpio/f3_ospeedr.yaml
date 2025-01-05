@@ -7,10 +7,10 @@
 # | 0b10  | Low    | High      |
 # | 0b11  | High   | Very high |
 
-"GPIO*":
+GPIO*:
   OSPEEDR:
-    "OSPEEDR*":
+    OSPEEDR*:
       _replace_enum:
-        LowSpeed: [0, "Low speed"]
-        MediumSpeed: [1, "Medium speed"]
-        HighSpeed: [3, "High speed"]
+        LowSpeed: [0, Low speed]
+        MediumSpeed: [1, Medium speed]
+        HighSpeed: [3, High speed]

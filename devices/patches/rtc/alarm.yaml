@@ -1,9 +1,9 @@
 # remove reference to "Alarm A" and "Alarm B" from descriptions
 RTC:
   _modify:
-    "ALRM?R":
+    ALRM?R:
       description: Alarm register
-    "ALRM?SSR":
+    ALRM?SSR:
       description: Alarm sub-second register
 
   _derive:
@@ -11,7 +11,7 @@ RTC:
     TSDR: DR
     TSSSR: SSR
 
-  "ALRM?R":
+  ALRM?R:
     _modify:
       SU:
         description: Second units in BCD format

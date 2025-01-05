@@ -48,47 +48,47 @@ LCD:
 
 RCC:
   CR:
-    _merge: ["RTCPRE*"]
+    _merge: RTCPRE*
   AHBLPENR:
     _add:
       FSMCLPEN:
-        description: "FSMC clock enable during Sleep mode"
+        description: FSMC clock enable during Sleep mode
         bitOffset: 30
         bitWidth: 1
       AESLPEN:
-        description: "AES clock enable during Sleep mode"
+        description: AES clock enable during Sleep mode
         bitOffset: 27
         bitWidth: 1
   APB1LPENR:
     _add:
       UART5LPEN:
-        description: "USART 5 clock enable during Sleep mode"
+        description: USART 5 clock enable during Sleep mode
         bitOffset: 20
         bitWidth: 1
       UART4LPEN:
-        description: "USART 4 clock enable during Sleep mode"
+        description: USART 4 clock enable during Sleep mode
         bitOffset: 19
         bitWidth: 1
       SPI3LPEN:
-        description: "SPI 3 clock enable during Sleep mode"
+        description: SPI 3 clock enable during Sleep mode
         bitOffset: 15
         bitWidth: 1
       TIM5LPEN:
-        description: "Timer 5 clock enable during Sleep mode"
+        description: Timer 5 clock enable during Sleep mode
         bitOffset: 3
         bitWidth: 1
   CSR:
     _add:
       OBLRSTF:
-        description: "Options bytes loading reset flag"
+        description: Options bytes loading reset flag
         bitOffset: 25
         bitWidth: 1
       LSECSSD:
-        description: "CSS on LSE failure Detection"
+        description: CSS on LSE failure Detection
         bitOffset: 12
         bitWidth: 1
       LSECSSON:
-        description: "CSS on LSE enable"
+        description: CSS on LSE enable
         bitOffset: 11
         bitWidth: 1
 
@@ -108,11 +108,10 @@ TIM9:
     - patches/tim/omp.yaml
     - patches/tim/l1_tim9_ccer.yaml
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

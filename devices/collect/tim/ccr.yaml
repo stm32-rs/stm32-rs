@@ -1,11 +1,11 @@
 _modify:
-  "CCR?":
-    description: "capture/compare register"
-"CCR?":
+  CCR?:
+    description: capture/compare register
+CCR?:
   _modify:
     "?~CCR?,CCR?": # TODO
       name: CCR
-      description: "Capture/Compare value"
+      description: Capture/Compare value
 
 _array:
   "CCR[1-4]":
@@ -58,5 +58,5 @@ SR:
       description: Capture/Compare %s overcapture flag
 EGR:
   _array:
-    "CC?G":
+    CC?G:
       description: Capture/compare %s generation

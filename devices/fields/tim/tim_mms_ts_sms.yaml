@@ -1,65 +1,48 @@
 CR2:
   MMS:
-    Reset:
-      [0, "The UG bit from the TIMx_EGR register is used as trigger output"]
+    Reset: [0, The UG bit from the TIMx_EGR register is used as trigger output]
     Enable: [1, "The counter enable signal, CNT_EN, is used as trigger output"]
-    Update: [2, "The update event is selected as trigger output"]
+    Update: [2, The update event is selected as trigger output]
     ComparePulse:
       [
         3,
         "The trigger output send a positive pulse when the CC1IF flag it to be set, as soon as a capture or a compare match occurred",
       ]
-    CompareOC1: [4, "OC1REF signal is used as trigger output"]
-    CompareOC2: [5, "OC2REF signal is used as trigger output"]
-    CompareOC3: [6, "OC3REF signal is used as trigger output"]
-    CompareOC4: [7, "OC4REF signal is used as trigger output"]
+    CompareOC1: [4, OC1REF signal is used as trigger output]
+    CompareOC2: [5, OC2REF signal is used as trigger output]
+    CompareOC3: [6, OC3REF signal is used as trigger output]
+    CompareOC4: [7, OC4REF signal is used as trigger output]
 SMCR:
   TS:
-    ITR0: [0, "Internal Trigger 0 (ITR0)"]
-    ITR1: [1, "Internal Trigger 1 (ITR1)"]
-    ITR2: [2, "Internal Trigger 2 (ITR2)"]
-    TI1F_ED: [4, "TI1 Edge Detector (TI1F_ED)"]
-    TI1FP1: [5, "Filtered Timer Input 1 (TI1FP1)"]
-    TI2FP2: [6, "Filtered Timer Input 2 (TI2FP2)"]
-    ETRF: [7, "External Trigger input (ETRF)"]
+    ITR0: [0, Internal Trigger 0 (ITR0)]
+    ITR1: [1, Internal Trigger 1 (ITR1)]
+    ITR2: [2, Internal Trigger 2 (ITR2)]
+    TI1F_ED: [4, TI1 Edge Detector (TI1F_ED)]
+    TI1FP1: [5, Filtered Timer Input 1 (TI1FP1)]
+    TI2FP2: [6, Filtered Timer Input 2 (TI2FP2)]
+    ETRF: [7, External Trigger input (ETRF)]
   SMS:
-    Disabled:
-      [
-        0,
-        "Slave mode disabled - if CEN = ‘1 then the prescaler is clocked directly by the internal clock.",
-      ]
-    Encoder_Mode_1:
-      [
-        1,
-        "Encoder mode 1 - Counter counts up/down on TI2FP1 edge depending on TI1FP2 level.",
-      ]
-    Encoder_Mode_2:
-      [
-        2,
-        "Encoder mode 2 - Counter counts up/down on TI1FP2 edge depending on TI2FP1 level.",
-      ]
+    Disabled: [0, "Slave mode disabled - if CEN = ‘1 then the prescaler is clocked directly by the internal clock."]
+    Encoder_Mode_1: [1, Encoder mode 1 - Counter counts up/down on TI2FP1 edge depending on TI1FP2 level.]
+    Encoder_Mode_2: [2, Encoder mode 2 - Counter counts up/down on TI1FP2 edge depending on TI2FP1 level.]
     Encoder_Mode_3:
       [
         3,
-        "Encoder mode 3 - Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input.",
+        Encoder mode 3 - Counter counts up/down on both TI1FP1 and TI2FP2 edges depending on the level of the other input.,
       ]
     Reset_Mode:
       [
         4,
-        "Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers.",
+        Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers.,
       ]
     Gated_Mode:
       [
         5,
-        "Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled.",
+        Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled.,
       ]
     Trigger_Mode:
       [
         6,
-        "Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled.",
+        Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled.,
       ]
-    Ext_Clock_Mode:
-      [
-        7,
-        "External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.",
-      ]
+    Ext_Clock_Mode: [7, External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.]

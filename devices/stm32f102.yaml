@@ -31,7 +31,7 @@ ADC1:
     - fields/adc/adc1_f1.yaml
     - collect/adc/jofr_jdr.yaml
 
-"ADC?":
+ADC?:
   _include:
     - fields/adc/adc_f1_f37x.yaml
 
@@ -73,45 +73,45 @@ RCC:
   APB1RSTR:
     _add:
       USBRST:
-        description: "USB reset"
+        description: USB reset
         bitOffset: 23
         bitWidth: 1
       I2C2RST:
-        description: "I2C2 reset"
+        description: I2C2 reset
         bitOffset: 22
         bitWidth: 1
       USART3RST:
-        description: "USART3 reset"
+        description: USART3 reset
         bitOffset: 18
         bitWidth: 1
       SPI2RST:
-        description: "SPI2 reset"
+        description: SPI2 reset
         bitOffset: 14
         bitWidth: 1
       TIM4RST:
-        description: "TIM4 timer reset"
+        description: TIM4 timer reset
         bitOffset: 2
         bitWidth: 1
   APB1ENR:
     _add:
       USBEN:
-        description: "USB clock enable"
+        description: USB clock enable
         bitOffset: 23
         bitWidth: 1
       I2C2EN:
-        description: "I2C2 clock enable"
+        description: I2C2 clock enable
         bitOffset: 22
         bitWidth: 1
       USART3EN:
-        description: "USART3 clock enable"
+        description: USART3 clock enable
         bitOffset: 18
         bitWidth: 1
       SPI2EN:
-        description: "SPI2 clock enable"
+        description: SPI2 clock enable
         bitOffset: 14
         bitWidth: 1
       TIM4EN:
-        description: "TIM4 Timer clock enable"
+        description: TIM4 Timer clock enable
         bitOffset: 2
         bitWidth: 1
 
@@ -129,10 +129,9 @@ SPI?:
 "TIM[1],TIM8":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

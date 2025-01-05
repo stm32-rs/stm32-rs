@@ -24,8 +24,8 @@ ADC:
   CCR:
     # VLCDEN is only available on l0x1 and l0x3
     VLCDEN:
-      Disabled: [0, "VLCD reading circuitry disabled"]
-      Enabled: [1, "VLCD reading circuitry enabled"]
+      Disabled: [0, VLCD reading circuitry disabled]
+      Enabled: [1, VLCD reading circuitry enabled]
 
 AES:
   _include:
@@ -41,13 +41,8 @@ PWR:
   CR:
     # LPDS only exists in the L0x1 family
     LPDS:
-      MAIN_MODE:
-        [0, "Voltage regulator in Main mode during Deepsleep mode (Stop mode)"]
-      LOW_POWER_MODE:
-        [
-          1,
-          "Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)",
-        ]
+      MAIN_MODE: [0, Voltage regulator in Main mode during Deepsleep mode (Stop mode)]
+      LOW_POWER_MODE: [1, Voltage regulator switches to low-power mode when the CPU enters Deepsleep mode (Stop mode)]
 
 RCC:
   _modify:
@@ -63,12 +58,12 @@ RCC:
         name: I2C3RST
   CCIPR:
     _merge:
-      - "LPTIM1SEL*"
-      - "I2C3SEL*"
-      - "I2C1SEL*"
-      - "LPUART1SEL*"
-      - "USART2SEL*"
-      - "USART1SEL*"
+      - LPTIM1SEL*
+      - I2C3SEL*
+      - I2C1SEL*
+      - LPUART1SEL*
+      - USART2SEL*
+      - USART1SEL*
   CSR:
     _modify:
       LPWRSTF:
@@ -96,8 +91,7 @@ RCC:
 TIM*:
   _include:
     - patches/tim/size16b.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[23]":
   _include:
@@ -117,7 +111,7 @@ TIM*:
 "TIM[67]":
   _include: fields/tim/tim6.yaml
 
-"TIM2?":
+TIM2?:
   _include: fields/tim/tim2x.yaml
 
 TIM21:

@@ -4,33 +4,18 @@ _include:
   - adc_v2_common_single.yaml
 CCR:
   DMA:
-    Disabled: [0, "DMA mode disabled"]
-    Mode1:
-      [1, "DMA mode 1 enabled (2 / 3 half-words one by one - 1 then 2 then 3)"]
-    Mode2:
-      [
-        2,
-        "DMA mode 2 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)",
-      ]
-    Mode3:
-      [
-        3,
-        "DMA mode 3 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)",
-      ]
+    Disabled: [0, DMA mode disabled]
+    Mode1: [1, DMA mode 1 enabled (2 / 3 half-words one by one - 1 then 2 then 3)]
+    Mode2: [2, "DMA mode 2 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)"]
+    Mode3: [3, "DMA mode 3 enabled (2 / 3 half-words by pairs - 2&1 then 1&3 then 3&2)"]
   DDS:
-    Single: [0, "No new DMA request is issued after the last transfer"]
-    Continuous:
-      [
-        1,
-        "DMA requests are issued as long as data are converted and DMA=01, 10 or 11",
-      ]
+    Single: [0, No new DMA request is issued after the last transfer]
+    Continuous: [1, "DMA requests are issued as long as data are converted and DMA=01, 10 or 11"]
   DELAY: [0, 15]
   MULTI:
     Independent: [0, "All the ADCs independent: independent mode"]
-    DualRJ:
-      [1, "Dual ADC1 and ADC2, combined regular and injected simultaneous mode"]
-    DualRA:
-      [2, "Dual ADC1 and ADC2, combined regular and alternate trigger mode"]
+    DualRJ: [1, "Dual ADC1 and ADC2, combined regular and injected simultaneous mode"]
+    DualRA: [2, "Dual ADC1 and ADC2, combined regular and alternate trigger mode"]
     DualJ: [5, "Dual ADC1 and ADC2, injected simultaneous mode only"]
     DualR: [6, "Dual ADC1 and ADC2, regular simultaneous mode only"]
     DualI: [7, "Dual ADC1 and ADC2, interleaved mode only"]

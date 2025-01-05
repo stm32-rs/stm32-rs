@@ -1,27 +1,19 @@
 CR2:
   EXTSEL:
-    Tim1Cc1: [0, "Timer 1 CC1 event"]
-    Tim1Cc2: [1, "Timer 1 CC2 event"]
-    Tim1Cc3: [2, "Timer 1 CC3 event"]
-    Tim2Cc2: [3, "Timer 2 CC2 event"]
-    Tim3Trgo: [4, "Timer 3 TRGO event"]
-    Tim4Cc4: [5, "Timer 4 CC4 event"]
-    Exti11:
-      [
-        6,
-        "EXTI line 11/TIM8_TRGO event (TIM8_TRGO is available only in high-density and XL-density devices)",
-      ]
-    Swstart: [7, "SWSTART"]
+    Tim1Cc1: [0, Timer 1 CC1 event]
+    Tim1Cc2: [1, Timer 1 CC2 event]
+    Tim1Cc3: [2, Timer 1 CC3 event]
+    Tim2Cc2: [3, Timer 2 CC2 event]
+    Tim3Trgo: [4, Timer 3 TRGO event]
+    Tim4Cc4: [5, Timer 4 CC4 event]
+    Exti11: [6, EXTI line 11/TIM8_TRGO event (TIM8_TRGO is available only in high-density and XL-density devices)]
+    Swstart: [7, SWSTART]
   JEXTSEL:
-    Tim1Trgo: [0, "Timer 1 TRGO event"]
-    Tim1Cc4: [1, "Timer 1 CC4 event"]
-    Tim2Trgo: [2, "Timer 2 TRGO event"]
-    Tim2Cc1: [3, "Timer 2 CC1 event"]
-    Tim3Cc4: [4, "Timer 3 CC4 event"]
-    Tim4Trgo: [5, "Timer 4 TRGO event"]
-    Exti15:
-      [
-        6,
-        "EXTI line15/TIM8_CC4 event (TIM8_CC4 is available only in high-density and XL-density devices)",
-      ]
-    Jswstart: [7, "JSWSTART"]
+    Tim1Trgo: [0, Timer 1 TRGO event]
+    Tim1Cc4: [1, Timer 1 CC4 event]
+    Tim2Trgo: [2, Timer 2 TRGO event]
+    Tim2Cc1: [3, Timer 2 CC1 event]
+    Tim3Cc4: [4, Timer 3 CC4 event]
+    Tim4Trgo: [5, Timer 4 TRGO event]
+    Exti15: [6, EXTI line15/TIM8_CC4 event (TIM8_CC4 is available only in high-density and XL-density devices)]
+    Jswstart: [7, JSWSTART]

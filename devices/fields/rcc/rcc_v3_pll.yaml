@@ -6,25 +6,25 @@ RCC:
   PLLCKSELR:
     DIVM?: [0, 63]
     PLLSRC:
-      HSI: [0, "HSI selected as PLL clock"]
-      CSI: [1, "CSI selected as PLL clock"]
-      HSE: [2, "HSE selected as PLL clock"]
-      None: [3, "No clock sent to DIVMx dividers and PLLs"]
+      HSI: [0, HSI selected as PLL clock]
+      CSI: [1, CSI selected as PLL clock]
+      HSE: [2, HSE selected as PLL clock]
+      None: [3, No clock sent to DIVMx dividers and PLLs]
   PLLCFGR:
     DIV??EN:
-      Disabled: [0, "Clock ouput is disabled"]
-      Enabled: [1, "Clock output is enabled"]
+      Disabled: [0, Clock ouput is disabled]
+      Enabled: [1, Clock output is enabled]
     PLL?RGE:
-      Range1: [0, "Frequency is between 1 and 2 MHz"]
-      Range2: [1, "Frequency is between 2 and 4 MHz"]
-      Range4: [2, "Frequency is between 4 and 8 MHz"]
-      Range8: [3, "Frequency is between 8 and 16 MHz"]
+      Range1: [0, Frequency is between 1 and 2 MHz]
+      Range2: [1, Frequency is between 2 and 4 MHz]
+      Range4: [2, Frequency is between 4 and 8 MHz]
+      Range8: [3, Frequency is between 8 and 16 MHz]
     PLL?VCOSEL:
-      WideVCO: [0, "VCO frequency range 192 to 836 MHz"]
-      MediumVCO: [1, "VCO frequency range 150 to 420 MHz"]
+      WideVCO: [0, VCO frequency range 192 to 836 MHz]
+      MediumVCO: [1, VCO frequency range 150 to 420 MHz]
     PLL?FRACEN:
-      Reset: [0, "Reset latch to tranfer FRACN to the Sigma-Delta modulator"]
-      Set: [1, "Set latch to tranfer FRACN to the Sigma-Delta modulator"]
+      Reset: [0, Reset latch to tranfer FRACN to the Sigma-Delta modulator]
+      Set: [1, Set latch to tranfer FRACN to the Sigma-Delta modulator]
   PLL1DIVR:
     DIVP1:
       Div1: [0, "pll_p_ck = vco_ck"]

@@ -1,9 +1,9 @@
 # I2C peripheral used in STM32F0, F3, F7, L0, L4, G4 and U5 families
 
-"I2C*":
+I2C*:
   _include:
     - i2c_v2_base.yaml
   CR1:
     WUPEN:
-      Disabled: [0, "Wakeup from Stop mode disabled"]
-      Enabled: [1, "Wakeup from Stop mode enabled"]
+      Disabled: [0, Wakeup from Stop mode disabled]
+      Enabled: [1, Wakeup from Stop mode enabled]

@@ -2,28 +2,28 @@ C*CR:
   NBREQ: [0, 31]
   SPOL:
     NoEdge: [0, "No event, i.e. no synchronization nor detection"]
-    RisingEdge: [1, "Rising edge"]
-    FallingEdge: [2, "Falling edge"]
-    BothEdges: [3, "Rising and falling edges"]
+    RisingEdge: [1, Rising edge]
+    FallingEdge: [2, Falling edge]
+    BothEdges: [3, Rising and falling edges]
   SE:
-    Disabled: [0, "Synchronization disabled"]
-    Enabled: [1, "Synchronization enabled"]
+    Disabled: [0, Synchronization disabled]
+    Enabled: [1, Synchronization enabled]
   EGE:
-    Disabled: [0, "Event generation disabled"]
-    Enabled: [1, "Event generation enabled"]
+    Disabled: [0, Event generation disabled]
+    Enabled: [1, Event generation enabled]
   SOIE:
-    Disabled: [0, "Synchronization overrun interrupt disabled"]
-    Enabled: [1, "Synchronization overrun interrupt enabled"]
+    Disabled: [0, Synchronization overrun interrupt disabled]
+    Enabled: [1, Synchronization overrun interrupt enabled]
 RG*CR:
   GNBREQ: [0, 31]
   GPOL:
     NoEdge: [0, "No event, i.e. no detection nor generation"]
-    RisingEdge: [1, "Rising edge"]
-    FallingEdge: [2, "Falling edge"]
-    BothEdges: [3, "Rising and falling edges"]
+    RisingEdge: [1, Rising edge]
+    FallingEdge: [2, Falling edge]
+    BothEdges: [3, Rising and falling edges]
   GE:
-    Disabled: [0, "DMA request generation disabled"]
-    Enabled: [1, "DMA request enabled"]
+    Disabled: [0, DMA request generation disabled]
+    Enabled: [1, DMA request enabled]
   OIE:
-    Disabled: [0, "Trigger overrun interrupt disabled"]
-    Enabled: [1, "Trigger overrun interrupt enabled"]
+    Disabled: [0, Trigger overrun interrupt disabled]
+    Enabled: [1, Trigger overrun interrupt enabled]

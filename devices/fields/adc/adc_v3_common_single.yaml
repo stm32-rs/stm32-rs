@@ -3,46 +3,38 @@
 
 CSR:
   JQOVF_MST,JQOVF_SLV:
-    NoOverflow: [0, "No injected context queue overflow has occurred"]
-    Overflow: [1, "Injected context queue overflow has occurred"]
+    NoOverflow: [0, No injected context queue overflow has occurred]
+    Overflow: [1, Injected context queue overflow has occurred]
   "AWD?_MST,AWD?_SLV":
-    NoEvent: [0, "No analog watchdog event occurred"]
-    Event: [1, "Analog watchdog event occurred"]
+    NoEvent: [0, No analog watchdog event occurred]
+    Event: [1, Analog watchdog event occurred]
   OVR_MST,OVR_SLV:
-    NoOverrun: [0, "No overrun occurred"]
-    Overrun: [1, "Overrun occurred"]
+    NoOverrun: [0, No overrun occurred]
+    Overrun: [1, Overrun occurred]
   JEOS_MST,JEOS_SLV:
-    NotComplete: [0, "Injected sequence is not complete"]
-    Complete: [1, "Injected sequence complete"]
+    NotComplete: [0, Injected sequence is not complete]
+    Complete: [1, Injected sequence complete]
   EOS_MST,EOS_SLV:
-    NotComplete: [0, "Regular sequence is not complete"]
-    Complete: [1, "Regular sequence complete"]
+    NotComplete: [0, Regular sequence is not complete]
+    Complete: [1, Regular sequence complete]
   JEOC_MST,JEOC_SLV:
-    NotComplete: [0, "Injected conversion is not complete"]
-    Complete: [1, "Injected conversion complete"]
+    NotComplete: [0, Injected conversion is not complete]
+    Complete: [1, Injected conversion complete]
   EOC_MST,EOC_SLV:
-    NotComplete: [0, "Regular conversion is not complete"]
-    Complete: [1, "Regular conversion complete"]
+    NotComplete: [0, Regular conversion is not complete]
+    Complete: [1, Regular conversion complete]
   EOSMP_MST,EOSMP_SLV:
-    NotEnded: [0, "End of sampling phase no yet reached"]
-    Ended: [1, "End of sampling phase reached"]
+    NotEnded: [0, End of sampling phase no yet reached]
+    Ended: [1, End of sampling phase reached]
   ADRDY_MST,ADRDY_SLV:
-    NotReady: [0, "ADC is not ready to start conversion"]
-    Ready: [1, "ADC is ready to start conversion"]
+    NotReady: [0, ADC is not ready to start conversion]
+    Ready: [1, ADC is ready to start conversion]
 CCR:
   VREFEN:
-    Disabled: [0, "V_REFINT channel disabled"]
-    Enabled: [1, "V_REFINT channel enabled"]
+    Disabled: [0, V_REFINT channel disabled]
+    Enabled: [1, V_REFINT channel enabled]
   CKMODE:
-    Asynchronous:
-      [
-        0,
-        "Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock",
-      ]
-    SyncDiv1:
-      [
-        1,
-        "Use AHB clock rcc_hclk3. In this case rcc_hclk must equal sys_d1cpre_ck",
-      ]
-    SyncDiv2: [2, "Use AHB clock rcc_hclk3 divided by 2"]
-    SyncDiv4: [3, "Use AHB clock rcc_hclk3 divided by 4"]
+    Asynchronous: [0, Use Kernel Clock adc_ker_ck_input divided by PRESC. Asynchronous to AHB clock]
+    SyncDiv1: [1, Use AHB clock rcc_hclk3. In this case rcc_hclk must equal sys_d1cpre_ck]
+    SyncDiv2: [2, Use AHB clock rcc_hclk3 divided by 2]
+    SyncDiv4: [3, Use AHB clock rcc_hclk3 divided by 4]

@@ -13,7 +13,7 @@ CCMR?_Output:
     InactiveOnMatch:
       [
         2,
-        "Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register / Reserved",
+        Set channel to inactive level on match. OCyREF signal is forced low when the counter matches the capture/compare register / Reserved,
       ]
     Toggle: [3, "OCyREF toggles when TIMx_CNT=TIMx_CCRy / Reserved"]
     ForceInactive:
@@ -31,7 +31,7 @@ CCMR?_Output:
         6,
         "In upcounting, channel is active as long as TIMx_CNT<TIMx_CCRy else inactive. In downcounting, channel is inactive as long as TIMx_CNT>TIMx_CCRy else active / Reserved",
       ]
-    PwmMode2: [7, "Inversely to PwmMode1 / Reserved"]
+    PwmMode2: [7, Inversely to PwmMode1 / Reserved]
   OC?M_3:
-    Normal: [0, "Normal output compare mode (modes 0-7)"]
-    Extended: [1, "Extended output compare mode (modes 7-15)"]
+    Normal: [0, Normal output compare mode (modes 0-7)]
+    Extended: [1, Extended output compare mode (modes 7-15)]

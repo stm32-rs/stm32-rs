@@ -2,7 +2,7 @@
 # Strip all monitor registers of their fields, then add the correct fields
 
 "RAMECC,RAMECC?":
-  "M?CR":
+  M?CR:
     _delete: ?*
     _add:
       ECCELEN:
@@ -25,7 +25,7 @@
         bitOffset: 2
         bitWidth: 1
         access: read-write
-  "M?SR":
+  M?SR:
     _delete: ?*
     _add:
       DEBWDF:
@@ -43,7 +43,7 @@
         bitOffset: 0
         bitWidth: 1
         access: read-write
-  "M?FAR":
+  M?FAR:
     _delete: ?*
     _add:
       FADD:
@@ -51,7 +51,7 @@
         bitOffset: 0
         bitWidth: 32
         access: read-only
-  "M?FDRL":
+  M?FDRL:
     _delete: ?*
     _add:
       FDATAL:
@@ -59,7 +59,7 @@
         bitOffset: 0
         bitWidth: 32
         access: read-only
-  "M?FDRH":
+  M?FDRH:
     _delete: ?*
     _add:
       FDATAH:
@@ -67,7 +67,7 @@
         bitOffset: 0
         bitWidth: 32
         access: read-only
-  "M?FECR":
+  M?FECR:
     _delete: ?*
     _add:
       FEC:

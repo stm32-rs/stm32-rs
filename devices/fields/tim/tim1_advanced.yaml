@@ -6,11 +6,7 @@ CR2:
     Reset: [0, "OCx=0 (after a dead-time if OCx(N) is implemented) when MOE=0"]
     Set: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
   CCUS:
-    Bit:
-      [
-        0,
-        "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only",
-      ]
+    Bit: [0, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only"]
     BitOrEdge:
       [
         1,
@@ -22,52 +18,52 @@ CR2:
 
 DIER:
   COMDE:
-    Disabled: [0, "COM DMA request disabled"]
-    Enabled: [1, "COM DMA request enabled"]
+    Disabled: [0, COM DMA request disabled]
+    Enabled: [1, COM DMA request enabled]
   BIE:
-    Disabled: [0, "Break interrupt disabled"]
-    Enabled: [1, "Break interrupt enabled"]
+    Disabled: [0, Break interrupt disabled]
+    Enabled: [1, Break interrupt enabled]
   COMIE:
-    Disabled: [0, "COM interrupt disabled"]
-    Enabled: [1, "COM interrupt enabled"]
+    Disabled: [0, COM interrupt disabled]
+    Enabled: [1, COM interrupt enabled]
 
 SR:
   SBIF:
     _read:
-      NoTrigger: [0, "No break event occurred"]
+      NoTrigger: [0, No break event occurred]
       Trigger:
         [
           1,
           "An active level has been detected on the system break input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
         ]
     _W0C:
-      Clear: [0, "Clear flag"]
+      Clear: [0, Clear flag]
   B2IF:
     _read:
-      NoTrigger: [0, "No break event occurred"]
+      NoTrigger: [0, No break event occurred]
       Trigger:
         [
           1,
           "An active level has been detected on the break 2 input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
         ]
     _W0C:
-      Clear: [0, "Clear flag"]
+      Clear: [0, Clear flag]
   BIF:
     _read:
-      NoTrigger: [0, "No break event occurred"]
+      NoTrigger: [0, No break event occurred]
       Trigger:
         [
           1,
           "An active level has been detected on the break input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
         ]
     _W0C:
-      Clear: [0, "Clear flag"]
+      Clear: [0, Clear flag]
   COMIF:
     _read:
-      NoCOM: [0, "No COM event occurred"]
-      COM: [1, "COM interrupt pending"]
+      NoCOM: [0, No COM event occurred]
+      COM: [1, COM interrupt pending]
     _W0C:
-      Clear: [0, "Clear flag"]
+      Clear: [0, Clear flag]
 
 EGR:
   B2G:
@@ -75,73 +71,69 @@ EGR:
       Trigger:
         [
           1,
-          "A break 2 event is generated. MOE bit is cleared and B2IF flag is set. Related interrupt can occur if enabled",
+          A break 2 event is generated. MOE bit is cleared and B2IF flag is set. Related interrupt can occur if enabled,
         ]
   BG:
     _write:
       Trigger:
         [
           1,
-          "A break event is generated. MOE bit is cleared and BIF flag is set. Related interrupt or DMA transfer can occur if enabled",
+          A break event is generated. MOE bit is cleared and BIF flag is set. Related interrupt or DMA transfer can occur if enabled,
         ]
   COMG:
     _write:
-      Trigger:
-        [
-          1,
-          "When CCPC bit is set, it allows CCxE, CCxNE and OCxM bits to be updated",
-        ]
+      Trigger: [1, "When CCPC bit is set, it allows CCxE, CCxNE and OCxM bits to be updated"]
 
 RCR:
   REP: [0, 65535]
 
 AF1:
   BKCMP?P:
-    NotInverted: [0, "Input polarity not inverted"]
-    Inverted: [1, "Input polarity inverted"]
+    NotInverted: [0, Input polarity not inverted]
+    Inverted: [1, Input polarity inverted]
   BKINP:
-    NotInverted: [0, "Input polarity not inverted"]
-    Inverted: [1, "Input polarity inverted"]
+    NotInverted: [0, Input polarity not inverted]
+    Inverted: [1, Input polarity inverted]
   BKCMP?E:
-    Disabled: [0, "Input disabled"]
-    Enabled: [1, "Input enabled"]
+    Disabled: [0, Input disabled]
+    Enabled: [1, Input enabled]
   BKINE:
-    Disabled: [0, "BKIN input disabled"]
-    Enabled: [1, "BKIN input enabled"]
+    Disabled: [0, BKIN input disabled]
+    Enabled: [1, BKIN input enabled]
 
 AF2:
   BK2CMP?P:
-    NotInverted: [0, "Input polarity not inverted"]
-    Inverted: [1, "Input polarity inverted"]
+    NotInverted: [0, Input polarity not inverted]
+    Inverted: [1, Input polarity inverted]
   BK2INP:
-    NotInverted: [0, "Input polarity not inverted"]
-    Inverted: [1, "Input polarity inverted"]
+    NotInverted: [0, Input polarity not inverted]
+    Inverted: [1, Input polarity inverted]
   BK2CMP?E:
-    Disabled: [0, "Input disabled"]
-    Enabled: [1, "Input enabled"]
+    Disabled: [0, Input disabled]
+    Enabled: [1, Input enabled]
   BK2INE:
-    Disabled: [0, "BKIN input disabled"]
-    Enabled: [1, "BKIN input enabled"]
+    Disabled: [0, BKIN input disabled]
+    Enabled: [1, BKIN input enabled]
 
 BDTR:
   BK2BID:
-    Input: [0, "Break input BRK2 in input mode"]
-    Bidirectional: [1, "Break input BRK2 in bidirectional mode"]
+    Input: [0, Break input BRK2 in input mode]
+    Bidirectional: [1, Break input BRK2 in bidirectional mode]
   BKBID:
-    Input: [0, "Break input BRK in input mode"]
-    Bidirectional: [1, "Break input BRK in bidirectional mode"]
+    Input: [0, Break input BRK in input mode]
+    Bidirectional: [1, Break input BRK in bidirectional mode]
   BK2DSRM:
-    Armed: [0, "Break input BRK2 is armed"]
-    Disarmed: [1, "Break input BRK2 is disarmed"]
+    Armed: [0, Break input BRK2 is armed]
+    Disarmed: [1, Break input BRK2 is disarmed]
   BKDSRM:
-    Armed: [0, "Break input BRK is armed"]
-    Disarmed: [1, "Break input BRK is disarmed"]
+    Armed: [0, Break input BRK is armed]
+    Disarmed: [1, Break input BRK is disarmed]
   BK2P:
-    Low: [0, "Break input BRK2 is active low"]
-    High: [1, "Break input BRK2 is active high"]
+    Low: [0, Break input BRK2 is active low]
+    High: [1, Break input BRK2 is active high]
   BK2E:
-    Disabled: [0, "Break function disabled"]
-    Enabled: [1, "Break function enabled"]
+    Disabled: [0, Break function disabled]
+    Enabled: [1, Break function enabled]
   BK2F:
     NoFilter: [0, "No filter, sampling is done at fDTS"]
     FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
@@ -180,49 +172,39 @@ BDTR:
     Disabled:
       [
         0,
-        "In response to a break 2 event OC and OCN outputs are disabled - In response to a break event or if MOE is written to 0 OC and OCN outputs are disabled or forced to idle state depending on the OSSI bit",
+        In response to a break 2 event OC and OCN outputs are disabled - In response to a break event or if MOE is written to 0 OC and OCN outputs are disabled or forced to idle state depending on the OSSI bit,
       ]
     Enabled:
-      [
-        1,
-        "OC and OCN outputs are enabled if their respective enable bits are set (CCxE, CCxNE in TIMx_CCER register)",
-      ]
+      [1, "OC and OCN outputs are enabled if their respective enable bits are set (CCxE, CCxNE in TIMx_CCER register)"]
   AOE:
-    Disabled: [0, "MOE can be set only by software"]
+    Disabled: [0, MOE can be set only by software]
     Enabled:
       [
         1,
-        "MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active)",
+        MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active),
       ]
   BKP:
-    ActiveLow: [0, "Break input BRK is active low"]
-    ActiveHigh: [1, "Break input BRK is active high"]
+    ActiveLow: [0, Break input BRK is active low]
+    ActiveHigh: [1, Break input BRK is active high]
   BKE:
-    Disabled: [0, "Break function disabled"]
-    Enabled: [1, "Break function enabled"]
+    Disabled: [0, Break function disabled]
+    Enabled: [1, Break function enabled]
   OSSR:
-    Disabled: [0, "OC/OCN outputs are disabled when inactive"]
-    Enabled:
-      [
-        1,
-        "OC/OCN outputs are enabled with their inactive level as soon as CCxE=1 or CCxNE=1",
-      ]
+    Disabled: [0, OC/OCN outputs are disabled when inactive]
+    Enabled: [1, "OC/OCN outputs are enabled with their inactive level as soon as CCxE=1 or CCxNE=1"]
   OSSI:
-    Disabled: [0, "OC/OCN outputs are disabled when inactive"]
+    Disabled: [0, OC/OCN outputs are disabled when inactive]
     Enabled:
-      [
-        1,
-        "OC/OCN outputs are first forced with their inactive level then forced to their idle level after the deadtime",
-      ]
+      [1, OC/OCN outputs are first forced with their inactive level then forced to their idle level after the deadtime]
   LOCK:
-    "Off": [0, "No write protection"]
-    Level1: [1, "Level 1 write protection"]
-    Level2: [2, "Level 2 write protection"]
-    Level3: [3, "Level 3 write protection"]
+    "Off": [0, No write protection]
+    Level1: [1, Level 1 write protection]
+    Level2: [2, Level 2 write protection]
+    Level3: [3, Level 3 write protection]
   DTG: [0, 0xFF]
 CCER:
-  "CC?NE":
-    Disabled: [0, "Complementary output disabled"]
-    Enabled: [1, "Complementary output enabled"]
+  CC?NE:
+    Disabled: [0, Complementary output disabled]
+    Enabled: [1, Complementary output enabled]
 DMAR:
   DMAB: [0, 0xFFFF]

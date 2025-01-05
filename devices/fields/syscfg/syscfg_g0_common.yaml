@@ -1,34 +1,34 @@
 CFGR1:
-  "I2C*_FMP":
-    Disabled: [0, "Uses normal GPIO drive"]
-    Enabled:  [1, "Uses I2C FastMode+ drive"]
-  "UCPD*_STROBE":
-    Disconnect: [1, "Disconnect the UCPD pull-down resistors"]
+  I2C*_FMP:
+    Disabled: [0, Uses normal GPIO drive]
+    Enabled: [1, "Uses I2C FastMode+ drive"]
+  UCPD*_STROBE:
+    Disconnect: [1, Disconnect the UCPD pull-down resistors]
   BOOSTEN:
-    VDD:   [0, "supply analog switches from VDD"]
-    BOOST: [1, "supply analog switches from dedicated voltage booster"]
+    VDD: [0, supply analog switches from VDD]
+    BOOST: [1, supply analog switches from dedicated voltage booster]
   # TODO: IR_MOD
   IR_POL:
-    Normal:   [0, "Output of IRTIM is not inverted"]
-    Inverted: [1, "Output of IRTIM is inverted"]
+    Normal: [0, Output of IRTIM is not inverted]
+    Inverted: [1, Output of IRTIM is inverted]
   PA12_RMP:
-    Normal: [0, "PA12 pin connected to PA12 GPIO"]
-    Remap:  [1, "PA12 pin connected to PA10 GPIO"]
+    Normal: [0, PA12 pin connected to PA12 GPIO]
+    Remap: [1, PA12 pin connected to PA10 GPIO]
   PA11_RMP:
-    Normal: [0, "PA11 pin connected to PA11 GPIO"]
-    Remap:  [1, "PA11 pin connected to PA9 GPIO"]
+    Normal: [0, PA11 pin connected to PA11 GPIO]
+    Remap: [1, PA11 pin connected to PA9 GPIO]
   MEM_MODE:
-    MainFlash:   [0b00, "Main flash memory mapped at zero address"] # accepts 0x10
-    SystemFlash: [0b10, "System flash memory mapped at zero address"]
-    SRAM:        [0b11, "Embedded SRAM mapped at zero address"]
+    MainFlash: [0b00, Main flash memory mapped at zero address] # accepts 0x10
+    SystemFlash: [0b10, System flash memory mapped at zero address]
+    SRAM: [0b11, Embedded SRAM mapped at zero address]
 CFGR2:
   SRAM_PEF:
-    Normal: [0, "No SRAM parity error detected"]
-    Error:  [1, "SRAM parity error detected"]
+    Normal: [0, No SRAM parity error detected]
+    Error: [1, SRAM parity error detected]
   "*_LOCK":
-    Disabled: [0, "error not connected to timers"]
-    Enabled:  [1, "error triggers TIM1/15/16/17 break input"]
-"ITLINE*":
+    Disabled: [0, error not connected to timers]
+    Enabled: [1, error triggers TIM1/15/16/17 break input]
+ITLINE*:
   "*":
-    NotInterrupted: [0, "Interrupt not triggered"]
-    Interrupted:    [1, "Interrup triggered"]
+    NotInterrupted: [0, Interrupt not triggered]
+    Interrupted: [1, Interrup triggered]

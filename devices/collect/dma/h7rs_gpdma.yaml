@@ -1,7 +1,7 @@
-"GPDMA*":
+GPDMA*:
   _cluster:
-    "CH%s":
-      description: "Channel cluster"
+    CH%s:
+      description: Channel cluster
       "C[1][0-1]LBAR,C?LBAR":
         name: LBAR
       "C[1][0-1]FCR,C?FCR":
@@ -23,8 +23,8 @@
       "C[1][0-1]LLR,C?LLR":
         name: LLR
 
-    "ECH%s":
-      description: "Extended channel cluster"
+    ECH%s:
+      description: Extended channel cluster
       "C[1][2-5]LBAR":
         name: LBAR
       "C[1][2-5]FCR":

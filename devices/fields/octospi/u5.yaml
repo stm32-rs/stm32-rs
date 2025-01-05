@@ -3,8 +3,8 @@ OCTOSPI[12]:
     - common.yaml
   CR:
     MSEL:
-      EXT1: [ 0, "External memory 1 selected (data exchanged over IO[3:0])" ]
-      EXT2: [ 1, "External memory 2 selected (data exchanged over IO[7:4])" ]
+      EXT1: [0, "External memory 1 selected (data exchanged over IO[3:0])"]
+      EXT2: [1, "External memory 2 selected (data exchanged over IO[7:4])"]
     DMM:
-      Disabled: [ 0, "Dual-memory configuration disabled" ]
-      Enabled: [ 1, "Dual-memory configuration enabled" ]
+      Disabled: [0, Dual-memory configuration disabled]
+      Enabled: [1, Dual-memory configuration enabled]

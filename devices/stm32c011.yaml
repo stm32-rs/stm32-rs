@@ -21,15 +21,15 @@ SPI1:
     - patches/spi/dr8.yaml
 
 SPI?:
-  _strip: "SPI?_"
+  _strip: SPI?_
 
 TIM[123]:
-  _strip: "TIM?_"
+  _strip: TIM?_
 
 TIM*:
   _strip:
-    - "TIM*__"
-    - "TIM?*_"
+    - TIM*__
+    - TIM?*_
 
 TIM[13],TIM1[467]:
   _modify:

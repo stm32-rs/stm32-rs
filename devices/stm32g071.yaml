@@ -102,10 +102,9 @@ TIM16:
       OC1M_2:
         name: OC1M_3
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

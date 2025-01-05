@@ -15,13 +15,13 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
-"ADC*_Common":
+ADC*_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
 ADC3:
   _include: patches/adc/jdata.yaml
 
-"ADC?":
+ADC?:
   _include:
     - patches/adc/h7.yaml
     - patches/adc/h7_1.yaml
@@ -66,7 +66,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-"OTG?_HS_*":
+OTG?_HS_*:
   _strip: OTG_HS_
 
 OTG1_HS_GLOBAL:
@@ -107,10 +107,9 @@ TIM5:
 "TIM[1],TIM[23],TIM1[23]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

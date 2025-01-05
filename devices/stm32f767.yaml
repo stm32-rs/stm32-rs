@@ -41,11 +41,9 @@ CRC:
 # crypt key/iv registers.
 CRYP:
   "K[0123][LR]R":
-    _merge:
-      - "b*"
+    _merge: b*
   "IV[01][LR]R":
-    _merge:
-      - "IV*"
+    _merge: IV*
 
 DFSDM:
   _strip: DFSDM_
@@ -115,7 +113,7 @@ JPEG:
 MDIOS:
   _strip: MDIOS_
 
-"OTG_HS_*":
+OTG_HS_*:
   _strip: OTG_HS_
 
 QUADSPI:
@@ -153,12 +151,11 @@ TIM[1-58],TIM12:
   _delete:
     - SMCR
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

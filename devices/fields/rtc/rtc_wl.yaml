@@ -3,8 +3,8 @@ _include: v3.yaml
 RTC:
   CR:
     SSRUIE:
-      Disabled: [0, "SSR underflow interrupt disabled"]
-      Enabled: [1, "SSR underflow interrupt enabled"]
+      Disabled: [0, SSR underflow interrupt disabled]
+      Enabled: [1, SSR underflow interrupt enabled]
 
   ICSR:
     BCDU:
@@ -17,10 +17,10 @@ RTC:
       Bit13: [6, "1s increment each time SS[13:0]=0"]
       Bit14: [7, "1s increment each time SS[14:0]=0"]
     BIN:
-      BCD: [0, "Free running BCD calendar mode (Binary mode disabled)"]
-      Binary: [1, "Free running Binary mode (BCD mode disabled)"]
-      BinBCD: [2, "Free running BCD calendar and Binary modes"]
-      BinBCD2: [3, "Free running BCD calendar and Binary modes"]
+      BCD: [0, Free running BCD calendar mode (Binary mode disabled)]
+      Binary: [1, Free running Binary mode (BCD mode disabled)]
+      BinBCD: [2, Free running BCD calendar and Binary modes]
+      BinBCD2: [3, Free running BCD calendar and Binary modes]
 
   WUTR:
     WUTOCLR: [0, 0xFFFF]
@@ -32,17 +32,10 @@ RTC:
           "Calibration window is 220 RTCCLK, which is a high-consumption mode. This mode should be set only when less than 32s calibration window is required",
         ]
       CkApre:
-        [
-          1,
-          "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode",
-        ]
-  "ALRM?SSR":
+        [1, "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode"]
+  ALRM?SSR:
     SSCLR:
-      FreeRunning:
-        [
-          0,
-          "The synchronous binary counter (SS[31:0] in RTC_SSR) is free-running",
-        ]
+      FreeRunning: [0, "The synchronous binary counter (SS[31:0] in RTC_SSR) is free-running"]
       ALRMBINR:
         [
           1,
@@ -52,19 +45,11 @@ RTC:
 
   SR:
     SSRUF:
-      Underflow:
-        [
-          1,
-          "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1",
-        ]
+      Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
 
   MISR:
     SSRUMF:
-      Underflow:
-        [
-          1,
-          "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1",
-        ]
+      Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
 
-  "ALR?BINR":
+  ALR?BINR:
     SS: [0, 0xFFFFFFFF]

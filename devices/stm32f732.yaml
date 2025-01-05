@@ -46,7 +46,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-"OTG_HS_*":
+OTG_HS_*:
   _strip: OTG_HS_
 
 QUADSPI:
@@ -65,12 +65,11 @@ SPI?:
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

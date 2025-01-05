@@ -1,18 +1,18 @@
-"GPIO*":
+GPIO*:
   IDR:
     _array:
-      "IDR*": {}
+      IDR*: {}
   ODR:
     _array:
-      "ODR*": {}
+      ODR*: {}
   BSRR:
     _array:
-      "BR*": {}
-      "BS*":
+      BR*: {}
+      BS*:
         description: Set bit %s
   BRR:
     _array:
-      "BR*":
+      BR*:
         description: Reset bit %s
   LCKR:
     _array:

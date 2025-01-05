@@ -4,91 +4,45 @@ _include:
 
 CFGR1:
   IR_MOD:
-    TIM16: [0, "TIM16 selected"]
-    USART1: [1, "USART1 selected"]
-    USART4: [2, "USART4 selected"]
+    TIM16: [0, TIM16 selected]
+    USART1: [1, USART1 selected]
+    USART4: [2, USART4 selected]
   TIM16_DMA_RMP2:
-    NotAlternateRemapped:
-      [0, "TIM16 DMA request mapped according to TIM16_DMA_RMP bit"]
-    AlternateRemapped:
-      [1, "TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 6"]
+    NotAlternateRemapped: [0, TIM16 DMA request mapped according to TIM16_DMA_RMP bit]
+    AlternateRemapped: [1, TIM16_CH1 and TIM16_UP DMA request mapped on DMA channel 6]
   TIM17_DMA_RMP2:
-    NotAlternateRemapped:
-      [0, "TIM17 DMA request mapped according to TIM16_DMA_RMP bit"]
-    AlternateRemapped:
-      [1, "TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 7"]
+    NotAlternateRemapped: [0, TIM17 DMA request mapped according to TIM16_DMA_RMP bit]
+    AlternateRemapped: [1, TIM17_CH1 and TIM17_UP DMA request mapped on DMA channel 7]
   I2C2_FMP:
     Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-    FMP:
-      [
-        1,
-        "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers",
-      ]
+    FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
   SPI2_DMA_RMP:
-    NotRemapped:
-      [
-        0,
-        "SPI2_RX and SPI2_TX DMA requests mapped on DMA channel 4 and 5 respectively",
-      ]
-    Remapped:
-      [
-        1,
-        "SPI2_RX and SPI2_TX DMA requests mapped on DMA channel 6 and 7 respectively",
-      ]
+    NotRemapped: [0, SPI2_RX and SPI2_TX DMA requests mapped on DMA channel 4 and 5 respectively]
+    Remapped: [1, SPI2_RX and SPI2_TX DMA requests mapped on DMA channel 6 and 7 respectively]
   USART2_DMA_RMP:
-    NotRemapped:
-      [
-        0,
-        "USART2_RX and USART2_TX DMA requests mapped on DMA channel 5 and 4 respectively",
-      ]
-    Remapped:
-      [
-        1,
-        "USART2_RX and USART2_TX DMA requests mapped on DMA channel 6 and 7 respectively",
-      ]
+    NotRemapped: [0, USART2_RX and USART2_TX DMA requests mapped on DMA channel 5 and 4 respectively]
+    Remapped: [1, USART2_RX and USART2_TX DMA requests mapped on DMA channel 6 and 7 respectively]
   I2C1_DMA_RMP:
-    NotRemapped:
-      [
-        0,
-        "I2C1_RX and I2C1_TX DMA requests mapped on DMA channel 3 and 2 respectively",
-      ]
-    Remapped:
-      [
-        1,
-        "I2C1_RX and I2C1_TX DMA requests mapped on DMA channel 7 and 6 respectively",
-      ]
+    NotRemapped: [0, I2C1_RX and I2C1_TX DMA requests mapped on DMA channel 3 and 2 respectively]
+    Remapped: [1, I2C1_RX and I2C1_TX DMA requests mapped on DMA channel 7 and 6 respectively]
   TIM1_DMA_RMP:
-    NotRemapped:
-      [
-        0,
-        "TIM1_CH1, TIM1_CH2 and TIM1_CH3 DMA requests mapped on DMA channel 2, 3 and 4 respectively",
-      ]
-    Remapped:
-      [
-        1,
-        "TIM1_CH1, TIM1_CH2 and TIM1_CH3 DMA requests mapped on DMA channel 6",
-      ]
+    NotRemapped: [0, "TIM1_CH1, TIM1_CH2 and TIM1_CH3 DMA requests mapped on DMA channel 2, 3 and 4 respectively"]
+    Remapped: [1, "TIM1_CH1, TIM1_CH2 and TIM1_CH3 DMA requests mapped on DMA channel 6"]
   TIM2_DMA_RMP:
-    NotRemapped:
-      [
-        0,
-        "TIM2_CH2 and TIM2_CH4 DMA requests mapped on DMA channel 3 and 4 respectively",
-      ]
-    Remapped: [1, "TIM2_CH2 and TIM2_CH4 DMA requests mapped on DMA channel 7"]
+    NotRemapped: [0, TIM2_CH2 and TIM2_CH4 DMA requests mapped on DMA channel 3 and 4 respectively]
+    Remapped: [1, TIM2_CH2 and TIM2_CH4 DMA requests mapped on DMA channel 7]
   TIM3_DMA_RMP:
-    NotRemapped:
-      [0, "TIM3_CH1 and TIM3_TRIG DMA requests mapped on DMA channel 4"]
-    Remapped: [1, "TIM3_CH1 and TIM3_TRIG DMA requests mapped on DMA channel 6"]
+    NotRemapped: [0, TIM3_CH1 and TIM3_TRIG DMA requests mapped on DMA channel 4]
+    Remapped: [1, TIM3_CH1 and TIM3_TRIG DMA requests mapped on DMA channel 6]
 CFGR2:
   PVD_LOCK:
-    Disconnected:
-      [0, "PVD interrupt disconnected from TIM1/15/16/17 Break input"]
-    Connected: [1, "PVD interrupt connected to TIM1/15/16/17 Break input"]
+    Disconnected: [0, PVD interrupt disconnected from TIM1/15/16/17 Break input]
+    Connected: [1, PVD interrupt connected to TIM1/15/16/17 Break input]
 EXTICR1:
   EXTI0:
-    PA: [0, "Select PAx as the source input for the EXTIx external interrupt"]
-    PB: [1, "Select PBx as the source input for the EXTIx external interrupt"]
-    PC: [2, "Select PCx as the source input for the EXTIx external interrupt"]
-    PD: [3, "Select PDx as the source input for the EXTIx external interrupt"]
-    PE: [4, "Select PEx as the source input for the EXTIx external interrupt"]
-    PF: [5, "Select PFx as the source input for the EXTIX external interrupt"]
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PF: [5, Select PFx as the source input for the EXTIX external interrupt]

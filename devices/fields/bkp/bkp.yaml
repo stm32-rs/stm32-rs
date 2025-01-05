@@ -1,27 +1,30 @@
 BKP:
   RTCCR:
     ASOS:
-      Alarm: [0, "RTC Alarm pulse output selected"]
-      Second: [1, "RTC Second pulse output selected"]
+      Alarm: [0, RTC Alarm pulse output selected]
+      Second: [1, RTC Second pulse output selected]
     ASOE:
-      Disabled: [0, "Disabled"]
-      Enabled: [1, "Setting this bit outputs either the RTC Alarm pulse signal or the Second pulse signal on the TAMPER pin depending on the ASOS bit"]
+      Disabled: [0, Disabled]
+      Enabled:
+        [
+          1,
+          Setting this bit outputs either the RTC Alarm pulse signal or the Second pulse signal on the TAMPER pin depending on the ASOS bit,
+        ]
     CAL: [0, 121]
   CR:
     TPAL:
-      High: [0, "A high level on the TAMPER pin resets all data backup registers (if TPE bit is set)"]
-      Low: [1, "A low level on the TAMPER pin resets all data backup registers (if TPE bit is set)"]
+      High: [0, A high level on the TAMPER pin resets all data backup registers (if TPE bit is set)]
+      Low: [1, A low level on the TAMPER pin resets all data backup registers (if TPE bit is set)]
     TPE:
-      General: [0, "The TAMPER pin is free for general purpose I/O"]
-      Alternate: [1, "Tamper alternate I/O function is activated"]
+      General: [0, The TAMPER pin is free for general purpose I/O]
+      Alternate: [1, Tamper alternate I/O function is activated]
   CSR:
     TPIE:
-      Disabled: [0, "Tamper interrupt disabled"]
-      Enabled: [1, "Tamper interrupt enabled (the TPE bit must also be set in the BKP_CR register"]
+      Disabled: [0, Tamper interrupt disabled]
+      Enabled: [1, Tamper interrupt enabled (the TPE bit must also be set in the BKP_CR register]
     CTI:
       _write:
-        Clear: [1, "Clear the Tamper interrupt and the TIF Tamper interrupt flag"]
+        Clear: [1, Clear the Tamper interrupt and the TIF Tamper interrupt flag]
     CTE:
       _write:
-        Reset: [1, "Reset the TEF Tamper event flag (and the Tamper detector)"]
-
+        Reset: [1, Reset the TEF Tamper event flag (and the Tamper detector)]

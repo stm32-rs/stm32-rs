@@ -76,10 +76,9 @@ TIM15:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[1-58]":
   _include:

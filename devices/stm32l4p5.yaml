@@ -121,10 +121,10 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-"TIM?":
+TIM?:
   _strip: TIM?_
 
-"TIM??":
+TIM??:
   _strip:
     - TIM??_
     - TIM?_
@@ -168,10 +168,9 @@ SPI?:
       OC1M_1:
         name: OC1M_3
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[18]":
   _include:
@@ -197,16 +196,8 @@ SPI?:
 TIM[1234568]:
   CR1:
     UIFREMAP:
-      Disabled:
-        [
-          0,
-          "No remapping. UIF status bit is not copied to TIMx_CNT register bit 31",
-        ]
-      Enabled:
-        [
-          1,
-          "Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31",
-        ]
+      Disabled: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31]
+      Enabled: [1, Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31]
 
 "TIM[1-58]":
   _include:

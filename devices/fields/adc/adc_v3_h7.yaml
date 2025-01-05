@@ -5,135 +5,115 @@ _include:
   - adc_v3.yaml
 CR:
   ADVREGEN:
-    Disabled: [0, "ADC voltage regulator disabled"]
-    Enabled: [1, "ADC voltage regulator enabled"]
+    Disabled: [0, ADC voltage regulator disabled]
+    Enabled: [1, ADC voltage regulator enabled]
   DEEPPWD:
-    PowerUp: [0, "ADC not in deep power down"]
-    PowerDown: [1, "ADC in deep power down"]
-  "LINCALRDYW?":
-    Reset: [0, "LINCALFACT Word Read"]
-    Set: [1, "LINCALFACT Word Write"]
+    PowerUp: [0, ADC not in deep power down]
+    PowerDown: [1, ADC in deep power down]
+  LINCALRDYW?:
+    Reset: [0, LINCALFACT Word Read]
+    Set: [1, LINCALFACT Word Write]
   ADCALLIN:
-    NoLinearity: [0, "ADC calibration without linearaity calibration"]
-    Linearity: [1, "ADC calibration with linearaity calibration"]
+    NoLinearity: [0, ADC calibration without linearaity calibration]
+    Linearity: [1, ADC calibration with linearaity calibration]
 CFGR:
   EXTSEL:
-    TIM1_CC1: [0, "Timer 1 CC1 event"]
-    TIM1_CC2: [1, "Timer 1 CC2 event"]
-    TIM1_CC3: [2, "Timer 1 CC3 event"]
-    TIM2_CC2: [3, "Timer 2 CC2 event"]
-    TIM3_TRGO: [4, "Timer 3 TRGO event"]
-    TIM4_CC4: [5, "Timer 4 CC4 event"]
-    EXTI11: [6, "EXTI line 11"]
-    TIM8_TRGO: [7, "Timer 8 TRGO event"]
-    TIM8_TRGO2: [8, "Timer 8 TRGO2 event"]
-    TIM1_TRGO: [9, "Timer 1 TRGO event"]
-    TIM1_TRGO2: [10, "Timer 1 TRGO2 event"]
-    TIM2_TRGO: [11, "Timer 2 TRGO event"]
-    TIM4_TRGO: [12, "Timer 4 TRGO event"]
-    TIM6_TRGO: [13, "Timer 6 TRGO event"]
-    TIM15_TRGO: [14, "Timer 15 TRGO event"]
-    TIM3_CC4: [15, "Timer 3 CC4 event"]
-    HRTIM1_ADCTRG1: [16, "HRTIM1_ADCTRG1 event"]
-    HRTIM1_ADCTRG3: [17, "HRTIM1_ADCTRG3 event"]
-    LPTIM1_OUT: [18, "LPTIM1_OUT event"]
-    LPTIM2_OUT: [19, "LPTIM2_OUT event"]
-    LPTIM3_OUT: [20, "LPTIM3_OUT event"]
+    TIM1_CC1: [0, Timer 1 CC1 event]
+    TIM1_CC2: [1, Timer 1 CC2 event]
+    TIM1_CC3: [2, Timer 1 CC3 event]
+    TIM2_CC2: [3, Timer 2 CC2 event]
+    TIM3_TRGO: [4, Timer 3 TRGO event]
+    TIM4_CC4: [5, Timer 4 CC4 event]
+    EXTI11: [6, EXTI line 11]
+    TIM8_TRGO: [7, Timer 8 TRGO event]
+    TIM8_TRGO2: [8, Timer 8 TRGO2 event]
+    TIM1_TRGO: [9, Timer 1 TRGO event]
+    TIM1_TRGO2: [10, Timer 1 TRGO2 event]
+    TIM2_TRGO: [11, Timer 2 TRGO event]
+    TIM4_TRGO: [12, Timer 4 TRGO event]
+    TIM6_TRGO: [13, Timer 6 TRGO event]
+    TIM15_TRGO: [14, Timer 15 TRGO event]
+    TIM3_CC4: [15, Timer 3 CC4 event]
+    HRTIM1_ADCTRG1: [16, HRTIM1_ADCTRG1 event]
+    HRTIM1_ADCTRG3: [17, HRTIM1_ADCTRG3 event]
+    LPTIM1_OUT: [18, LPTIM1_OUT event]
+    LPTIM2_OUT: [19, LPTIM2_OUT event]
+    LPTIM3_OUT: [20, LPTIM3_OUT event]
   JQDIS:
-    Enabled: [0, "Injected Queue enabled"]
-    Disabled: [1, "Injected Queue disabled"]
+    Enabled: [0, Injected Queue enabled]
+    Disabled: [1, Injected Queue disabled]
   DMNGT:
-    DR: [0, "Store output data in DR only"]
-    DMA_OneShot: [1, "DMA One Shot Mode selected"]
-    DFSDM: [2, "DFSDM mode selected"]
-    DMA_Circular: [3, "DMA Circular Mode selected"]
+    DR: [0, Store output data in DR only]
+    DMA_OneShot: [1, DMA One Shot Mode selected]
+    DFSDM: [2, DFSDM mode selected]
+    DMA_Circular: [3, DMA Circular Mode selected]
 CFGR2:
   LSHIFT: [0, 15]
   OSVR: [0, 1023]
-  "RSHIFT?":
-    Disabled: [0, "Right-shifting disabled"]
-    Enabled: [1, "Data is right-shifted 1-bit"]
+  RSHIFT?:
+    Disabled: [0, Right-shifting disabled]
+    Enabled: [1, Data is right-shifted 1-bit]
   ROVSM:
-    Continued:
-      [
-        0,
-        "Oversampling is temporary stopped and continued after injection sequence",
-      ]
-    Resumed:
-      [
-        1,
-        "Oversampling is aborted and resumed from start after injection sequence",
-      ]
+    Continued: [0, Oversampling is temporary stopped and continued after injection sequence]
+    Resumed: [1, Oversampling is aborted and resumed from start after injection sequence]
   TROVS:
-    Automatic:
-      [
-        0,
-        "All oversampled conversions for a channel are run following a trigger",
-      ]
-    Triggered:
-      [1, "Each oversampled conversion for a channel needs a new trigger"]
+    Automatic: [0, All oversampled conversions for a channel are run following a trigger]
+    Triggered: [1, Each oversampled conversion for a channel needs a new trigger]
   OVSS: [0, 11]
   JOVSE:
-    Disabled: [0, "Injected oversampling disabled"]
-    Enabled: [1, "Injected oversampling enabled"]
+    Disabled: [0, Injected oversampling disabled]
+    Enabled: [1, Injected oversampling enabled]
   ROVSE:
-    Disabled: [0, "Regular oversampling disabled"]
-    Enabled: [1, "Regular oversampling enabled"]
-"SMPR?":
-  "SMP*":
-    Cycles1_5: [0, "1.5 ADC clock cycles"]
-    Cycles2_5: [1, "2.5 ADC clock cycles"]
-    Cycles8_5: [2, "8.5 ADC clock cycles"]
-    Cycles16_5: [3, "16.5 ADC clock cycles"]
-    Cycles32_5: [4, "32.5 ADC clock cycles"]
-    Cycles64_5: [5, "64.5 ADC clock cycles"]
-    Cycles387_5: [6, "387.5 ADC clock cycles"]
-    Cycles810_5: [7, "810.5 ADC clock cycles"]
-"HTR?":
-  "HTR?": [0, 0x03FF_FFFF]
-"LTR?":
-  "LTR?": [0, 0x03FF_FFFF]
+    Disabled: [0, Regular oversampling disabled]
+    Enabled: [1, Regular oversampling enabled]
+SMPR?:
+  SMP*:
+    Cycles1_5: [0, 1.5 ADC clock cycles]
+    Cycles2_5: [1, 2.5 ADC clock cycles]
+    Cycles8_5: [2, 8.5 ADC clock cycles]
+    Cycles16_5: [3, 16.5 ADC clock cycles]
+    Cycles32_5: [4, 32.5 ADC clock cycles]
+    Cycles64_5: [5, 64.5 ADC clock cycles]
+    Cycles387_5: [6, 387.5 ADC clock cycles]
+    Cycles810_5: [7, 810.5 ADC clock cycles]
+HTR?:
+  HTR?: [0, 0x03FF_FFFF]
+LTR?:
+  LTR?: [0, 0x03FF_FFFF]
 JSQR:
   JEXTSEL:
-    TIM1_TRGO: [0, "Timer 1 TRGO event"]
-    TIM1_CC4: [1, "Timer 1 CC4 event"]
-    TIM2_TRGO: [2, "Timer 2 TRGO event"]
-    TIM2_CC1: [3, "Timer 2 CC1 event"]
-    TIM3_CC4: [4, "Timer 3 CC4 event"]
-    TIM4_TRGO: [5, "Timer 4 TRGO event"]
-    EXTI15: [6, "EXTI line 15"]
-    TIM8_CC4: [7, "Timer 8 CC4 event"]
-    TIM1_TRGO2: [8, "Timer 1 TRGO2 event"]
-    TIM8_TRGO: [9, "Timer 8 TRGO event"]
-    TIM8_TRGO2: [10, "Timer 8 TRGO2 event"]
-    TIM3_CC3: [11, "Timer 3 CC3 event"]
-    TIM3_TRGO: [12, "Timer 3 TRGO event"]
-    TIM3_CC1: [13, "Timer 3 CC1 event"]
-    TIM6_TRGO: [14, "Timer 6 TRGO event"]
-    TIM15_TRGO: [15, "Timer 15 TRGO event"]
-    HRTIM1_ADCTRG2: [16, "HRTIM1_ADCTRG2 event"]
-    HRTIM1_ADCTRG4: [17, "HRTIM1_ADCTRG4 event"]
-    LPTIM1_OUT: [18, "LPTIM1_OUT event"]
-    LPTIM2_OUT: [19, "LPTIM2_OUT event"]
-    LPTIM3_OUT: [20, "LPTIM3_OUT event"]
-"OFR?":
+    TIM1_TRGO: [0, Timer 1 TRGO event]
+    TIM1_CC4: [1, Timer 1 CC4 event]
+    TIM2_TRGO: [2, Timer 2 TRGO event]
+    TIM2_CC1: [3, Timer 2 CC1 event]
+    TIM3_CC4: [4, Timer 3 CC4 event]
+    TIM4_TRGO: [5, Timer 4 TRGO event]
+    EXTI15: [6, EXTI line 15]
+    TIM8_CC4: [7, Timer 8 CC4 event]
+    TIM1_TRGO2: [8, Timer 1 TRGO2 event]
+    TIM8_TRGO: [9, Timer 8 TRGO event]
+    TIM8_TRGO2: [10, Timer 8 TRGO2 event]
+    TIM3_CC3: [11, Timer 3 CC3 event]
+    TIM3_TRGO: [12, Timer 3 TRGO event]
+    TIM3_CC1: [13, Timer 3 CC1 event]
+    TIM6_TRGO: [14, Timer 6 TRGO event]
+    TIM15_TRGO: [15, Timer 15 TRGO event]
+    HRTIM1_ADCTRG2: [16, HRTIM1_ADCTRG2 event]
+    HRTIM1_ADCTRG4: [17, HRTIM1_ADCTRG4 event]
+    LPTIM1_OUT: [18, LPTIM1_OUT event]
+    LPTIM2_OUT: [19, LPTIM2_OUT event]
+    LPTIM3_OUT: [20, LPTIM3_OUT event]
+OFR?:
   SSATE:
     Disabled:
-      [
-        0,
-        "Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)",
-      ]
-    Enabled:
-      [
-        1,
-        "Offset is subtracted and result is saturated to maintain result size",
-      ]
-  "OFFSET?_CH": [0, 31]
-  "OFFSET?": [0, 0x3FFFFFF]
+      [0, Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format)]
+    Enabled: [1, Offset is subtracted and result is saturated to maintain result size]
+  OFFSET?_CH: [0, 31]
+  OFFSET?: [0, 0x3FFFFFF]
 PCSEL:
-  "PCSEL*":
-    NotPreselected: [0, "Input channel x is not pre-selected"]
-    Preselected: [1, "Pre-select input channel x"]
+  PCSEL*:
+    NotPreselected: [0, Input channel x is not pre-selected]
+    Preselected: [1, Pre-select input channel x]
 CALFACT:
   CALFACT_?: [0, 2047]
 CALFACT2:

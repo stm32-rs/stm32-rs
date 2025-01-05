@@ -6,22 +6,18 @@ C*CR:
     dmamux2_evt3: [3, "Signal `dmamux2_evt3` selected as synchronization input"]
     dmamux2_evt4: [4, "Signal `dmamux2_evt4` selected as synchronization input"]
     dmamux2_evt5: [5, "Signal `dmamux2_evt5` selected as synchronization input"]
-    lpuart1_rx_wkup:
-      [6, "Signal `lpuart1_rx_wkup` selected as synchronization input"]
-    lpuart1_tx_wkup:
-      [7, "Signal `lpuart1_tx_wkup` selected as synchronization input"]
+    lpuart1_rx_wkup: [6, "Signal `lpuart1_rx_wkup` selected as synchronization input"]
+    lpuart1_tx_wkup: [7, "Signal `lpuart1_tx_wkup` selected as synchronization input"]
     lptim2_out: [8, "Signal `lptim2_out` selected as synchronization input"]
     lptim3_out: [9, "Signal `lptim3_out` selected as synchronization input"]
     i2c4_wkup: [10, "Signal `i2c4_wkup` selected as synchronization input"]
     spi6_wkup: [11, "Signal `spi6_wkup` selected as synchronization input"]
     comp1_out: [12, "Signal `comp1_out` selected as synchronization input"]
     rtc_wkup: [13, "Signal `rtc_wkup` selected as synchronization input"]
-    syscfg_exti0_mux:
-      [14, "Signal `syscfg_exti0_mux` selected as synchronization input"]
-    syscfg_exti2_mux:
-      [15, "Signal `syscfg_exti2_mux` selected as synchronization input"]
+    syscfg_exti0_mux: [14, "Signal `syscfg_exti0_mux` selected as synchronization input"]
+    syscfg_exti2_mux: [15, "Signal `syscfg_exti2_mux` selected as synchronization input"]
   DMAREQ_ID:
-    none: [0, "No signal selected as request input"]
+    none: [0, No signal selected as request input]
     dmamux2_req_gen0: [1, "Signal `dmamux2_req_gen0` selected as request input"]
     dmamux2_req_gen1: [2, "Signal `dmamux2_req_gen1` selected as request input"]
     dmamux2_req_gen2: [3, "Signal `dmamux2_req_gen2` selected as request input"]
@@ -61,10 +57,8 @@ RG*CR:
     comp1_out: [17, "Signal `comp1_out` selected as trigger input"]
     comp2_out: [18, "Signal `comp2_out` selected as trigger input"]
     rtc_wkup: [19, "Signal `rtc_wkup` selected as trigger input"]
-    syscfg_exti0_mux:
-      [20, "Signal `syscfg_exti0_mux` selected as trigger input"]
-    syscfg_exti2_mux:
-      [21, "Signal `syscfg_exti2_mux` selected as trigger input"]
+    syscfg_exti0_mux: [20, "Signal `syscfg_exti0_mux` selected as trigger input"]
+    syscfg_exti2_mux: [21, "Signal `syscfg_exti2_mux` selected as trigger input"]
     i2c4_event_it: [22, "Signal `i2c4_event_it` selected as trigger input"]
     spi6_it: [23, "Signal `spi6_it` selected as trigger input"]
     lpuart1_it_t: [24, "Signal `lpuart1_it_t` selected as trigger input"]

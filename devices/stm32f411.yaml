@@ -23,7 +23,7 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-"ADC?":
+ADC?:
   _include:
     - fields/adc/adc_v2.yaml
     - fields/adc/adc_v2/adc_v2_extsel_b.yaml
@@ -133,11 +133,10 @@ TIM1:
 "TIM1[0134]":
   _include: patches/tim/tim10_14_missing_opm.yaml
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

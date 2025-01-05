@@ -20,7 +20,7 @@ _add:
             access: read-write
 
 OPAMP:
-  "OPAMP*_CSR":
+  OPAMP*_CSR:
     _add:
       FORCE_VP:
         description: FORCE_VP

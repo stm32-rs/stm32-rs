@@ -12,7 +12,7 @@ ARR:
   _modify:
     "ARR_L,ARRL":
       name: ARR
-      description: "Auto-reload value"
+      description: Auto-reload value
     ARR:
       bitWidth: 16
   _delete: "ARR_H,ARRH"
@@ -20,5 +20,5 @@ CCR?:
   _modify:
     "CCR?,CCR?_L,CCR?L":
       name: CCR
-      description: "Capture/Compare value"
+      description: Capture/Compare value
   _delete: "CCR?_H,CCR?H"

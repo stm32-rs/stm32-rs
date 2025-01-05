@@ -1,16 +1,16 @@
 # Debug registers for L4+ series
 
 _include:
-  - "dbg_trace.yaml"
-  - "dbg_common.yaml"
+  - dbg_trace.yaml
+  - dbg_common.yaml
 
 DBGMCU:
   APB1FZR1:
     DBG_CAN1_STOP:
-      NormalMode: [ 0, "Same behavior as in normal mode" ]
-      ReceiveRegistersFrozen: [ 1, "The bxCAN1 receive registers are frozen" ]
+      NormalMode: [0, Same behavior as in normal mode]
+      ReceiveRegistersFrozen: [1, The bxCAN1 receive registers are frozen]
 
   APB1FZR?:
-    "DBG_I2C*_STOP":
-      NormalMode: [ 0, "Same behavior as in normal mode" ]
-      SMBusTimeoutFrozen: [ 1, "I2Cx SMBUS timeout is frozen" ]
+    DBG_I2C*_STOP:
+      NormalMode: [0, Same behavior as in normal mode]
+      SMBusTimeoutFrozen: [1, I2Cx SMBUS timeout is frozen]

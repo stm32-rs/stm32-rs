@@ -15,7 +15,7 @@ _modify:
 
 # The SVD is just quite different to the RM for all these registers.
 # We'll go with the RM convention even though it is inconsistent too.
-"GPIO*":
+GPIO*:
   MODER:
     _modify:
       MODE0:
@@ -233,7 +233,7 @@ ADC1:
 AXI:
   _strip: AXI_
 
-"SPI*":
+SPI*:
   CR1:
     _modify:
       IOLOCK:
@@ -423,7 +423,7 @@ RCC:
     _modify:
       FLITFLPEN:
         name: FLASHPREN
-        description: "Flash interface clock enable during csleep mode"
+        description: Flash interface clock enable during csleep mode
 
 SYSCFG:
   _modify:
@@ -507,10 +507,10 @@ SDMMC?:
 VREFBUF:
   _strip: VREFBUF_
 
-"OTG?_HS_*":
+OTG?_HS_*:
   _strip: OTG_HS_
 
-"FDCAN?":
+FDCAN?:
   _strip: FDCAN_
 
 WWDG:
@@ -539,16 +539,16 @@ USART6:
 "USART*,UART*":
   CR1:
     _merge:
-      - "DEAT*"
-      - "DEDT*"
+      - DEAT*
+      - DEDT*
   CR2:
     _merge:
-      - "ABRMOD*"
+      - ABRMOD*
 
-"UART*":
+UART*:
   BRR:
     _merge:
-      BRR: "BRR*"
+      BRR: BRR*
   CR2:
     _merge:
       ADD: "ADD0_3,ADD4_7"

@@ -28,7 +28,7 @@ ADC1:
   _include:
     - patches/adc/smpx_18.yaml
 
-"ADC?":
+ADC?:
   _include:
     - fields/adc/adc_v2.yaml
     - fields/adc/adc_v2/adc_v2_extsel_a.yaml
@@ -61,10 +61,10 @@ EXTI:
   _add:
     _interrupts:
       EXTI19:
-        description: "EXTI Line 19 interrupt"
+        description: EXTI Line 19 interrupt
         value: 62
       EXTI20:
-        description: "EXTI Line 20 interrupt"
+        description: EXTI Line 20 interrupt
         value: 76
 
 FLASH:
@@ -116,10 +116,10 @@ PWR:
 RCC:
   PLLCFGR:
     _merge:
-      - "PLLR*"
+      - PLLR*
     _modify:
-      "PLLR*":
-        description: "PLL division factor for I2S and System clocks"
+      PLLR*:
+        description: PLL division factor for I2S and System clocks
   APB1RSTR:
     _modify:
       UART2RST:
@@ -127,20 +127,20 @@ RCC:
   APB2RSTR:
     _add:
       SPI5RST:
-        description: "SPI5 reset"
+        description: SPI5 reset
         bitOffset: 20
         bitWidth: 1
   APB2LPENR:
     _add:
       SPI5LPEN:
-        description: "SPI5 clock enable during Sleep mode"
+        description: SPI5 clock enable during Sleep mode
         bitOffset: 20
         bitWidth: 1
   DCKCFGR2:
     _modify:
       I2C4SEL:
         name: FMPI2C1SEL
-        description: "FMPI2C1 kernel clock source selection"
+        description: FMPI2C1 kernel clock source selection
 
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
@@ -163,7 +163,7 @@ SPI?:
   _add:
     _interrupts:
       SPI5:
-        description: "SPI 5 global interrupt"
+        description: SPI 5 global interrupt
         value: 85
 
 SYSCFG:
@@ -196,14 +196,13 @@ TIM5:
   _add:
     _interrupts:
       TIM5:
-        description: "TIM5 global interrupt"
+        description: TIM5 global interrupt
         value: 50
 
-"TIM*":
+TIM*:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[2345]":
   _include:
@@ -242,7 +241,7 @@ WWDG:
   _add:
     _interrupts:
       WWDG:
-        description: "Window watchdog interrupt"
+        description: Window watchdog interrupt
         value: 0
 
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted

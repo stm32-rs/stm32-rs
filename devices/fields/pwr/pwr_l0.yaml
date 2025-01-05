@@ -5,127 +5,102 @@ _include:
 PWR:
   CR:
     LPRUN:
-      MAIN_MODE: [0, "Voltage regulator in Main mode in Low-power run mode"]
-      LOW_POWER_MODE:
-        [1, "Voltage regulator in low-power mode in Low-power run mode"]
+      MAIN_MODE: [0, Voltage regulator in Main mode in Low-power run mode]
+      LOW_POWER_MODE: [1, Voltage regulator in low-power mode in Low-power run mode]
     DS_EE_KOFF:
-      NVMWakeUp:
-        [
-          0,
-          "NVM woken up when exiting from Deepsleep mode even if the bit RUN_PD is set",
-        ]
-      NVMSleep:
-        [
-          1,
-          "NVM not woken up when exiting from low-power mode (if the bit RUN_PD is set)",
-        ]
+      NVMWakeUp: [0, NVM woken up when exiting from Deepsleep mode even if the bit RUN_PD is set]
+      NVMSleep: [1, NVM not woken up when exiting from low-power mode (if the bit RUN_PD is set)]
     VOS:
-      V1_8: [1, "1.8 V (range 1)"]
-      V1_5: [2, "1.5 V (range 2)"]
-      V1_2: [3, "1.2 V (range 3)"]
+      V1_8: [1, 1.8 V (range 1)]
+      V1_5: [2, 1.5 V (range 2)]
+      V1_2: [3, 1.2 V (range 3)]
     FWU:
-      Disabled: [0, "Low-power modes exit occurs only when VREFINT is ready"]
-      Enabled:
-        [1, "VREFINT start up time is ignored when exiting low-power modes"]
+      Disabled: [0, Low-power modes exit occurs only when VREFINT is ready]
+      Enabled: [1, VREFINT start up time is ignored when exiting low-power modes]
     ULP:
-      Enabled: [0, "VREFINT is on in low-power mode"]
-      Disabled: [1, "VREFINT is off in low-power mode"]
+      Enabled: [0, VREFINT is on in low-power mode]
+      Disabled: [1, VREFINT is off in low-power mode]
     DBP:
       Disabled: [0, "Access to RTC, RTC Backup and RCC CSR registers disabled"]
       Enabled: [1, "Access to RTC, RTC Backup and RCC CSR registers enabled"]
     "?~PLS":
-      V1_9: [0, "1.9 V"]
-      V2_1: [1, "2.1 V"]
-      V2_3: [2, "2.3 V"]
-      V2_5: [3, "2.5 V"]
-      V2_7: [4, "2.7 V"]
-      V2_9: [5, "2.9 V"]
-      V3_1: [6, "3.1 V"]
-      External:
-        [7, "External input analog voltage (Compare internally to VREFINT)"]
+      V1_9: [0, 1.9 V]
+      V2_1: [1, 2.1 V]
+      V2_3: [2, 2.3 V]
+      V2_5: [3, 2.5 V]
+      V2_7: [4, 2.7 V]
+      V2_9: [5, 2.9 V]
+      V3_1: [6, 3.1 V]
+      External: [7, External input analog voltage (Compare internally to VREFINT)]
     "?~PVDE":
-      Disabled: [0, "PVD Disabled"]
-      Enabled: [1, "PVD Enabled"]
+      Disabled: [0, PVD Disabled]
+      Enabled: [1, PVD Enabled]
     CSBF:
       _write:
-        Clear: [1, "Clear the SBF Standby flag"]
+        Clear: [1, Clear the SBF Standby flag]
     CWUF:
       _write:
-        Clear: [1, "Clear the WUF Wakeup flag after 2 system clock cycles"]
+        Clear: [1, Clear the WUF Wakeup flag after 2 system clock cycles]
     LPSDSR:
-      MAIN_MODE:
-        [0, "Voltage regulator on during Deepsleep/Sleep/Low-power run mode"]
-      LOW_POWER_MODE:
-        [
-          1,
-          "Voltage regulator in low-power mode during Deepsleep/Sleep/Low-power run mode",
-        ]
+      MAIN_MODE: [0, Voltage regulator on during Deepsleep/Sleep/Low-power run mode]
+      LOW_POWER_MODE: [1, Voltage regulator in low-power mode during Deepsleep/Sleep/Low-power run mode]
   CSR:
     EWUP3:
       Disabled:
         [
           0,
-          "WKUP pin 3 is used for general purpose I/Os. An event on the WKUP pin 3 does not wakeup the device from Standby mode",
+          WKUP pin 3 is used for general purpose I/Os. An event on the WKUP pin 3 does not wakeup the device from Standby mode,
         ]
       Enabled:
         [
           1,
-          "WKUP pin 3 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 3wakes-up the system from Standby mode)",
+          WKUP pin 3 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 3wakes-up the system from Standby mode),
         ]
     EWUP2:
       Disabled:
         [
           0,
-          "WKUP pin 2 is used for general purpose I/Os. An event on the WKUP pin 2 does not wakeup the device from Standby mode",
+          WKUP pin 2 is used for general purpose I/Os. An event on the WKUP pin 2 does not wakeup the device from Standby mode,
         ]
       Enabled:
         [
           1,
-          "WKUP pin 2 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 2 wakes-up the system from Standby mode)",
+          WKUP pin 2 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 2 wakes-up the system from Standby mode),
         ]
     EWUP1:
       Disabled:
         [
           0,
-          "WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode",
+          WKUP pin 1 is used for general purpose I/Os. An event on the WKUP pin 1 does not wakeup the device from Standby mode,
         ]
       Enabled:
         [
           1,
-          "WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode)",
+          WKUP pin 1 is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP pin 1 wakes-up the system from Standby mode),
         ]
     REGLPF:
       _read:
-        Ready: [0, "Regulator is ready in Main mode"]
-        NotReady: [1, "Regulator voltage is in low-power mode"]
+        Ready: [0, Regulator is ready in Main mode]
+        NotReady: [1, Regulator voltage is in low-power mode]
     VOSF:
       _read:
-        Ready: [0, "Regulator is ready in the selected voltage range"]
-        NotReady:
-          [1, "Regulator voltage output is changing to the required VOS level"]
+        Ready: [0, Regulator is ready in the selected voltage range]
+        NotReady: [1, Regulator voltage output is changing to the required VOS level]
     VREFINTRDYF:
       _read:
-        NotReady: [0, "VREFINT is OFF"]
-        Ready: [1, "VREFINT is ready"]
+        NotReady: [0, VREFINT is OFF]
+        Ready: [1, VREFINT is ready]
     "?~PVDO":
       _read:
-        AboveThreshold:
-          [
-            0,
-            "VDD is higher than the PVD threshold selected with the PLS[2:0] bits",
-          ]
-        BelowThreshold:
-          [
-            1,
-            "VDD is lower than the PVD threshold selected with the PLS[2:0] bits",
-          ]
+        AboveThreshold: [0, "VDD is higher than the PVD threshold selected with the PLS[2:0] bits"]
+        BelowThreshold: [1, "VDD is lower than the PVD threshold selected with the PLS[2:0] bits"]
     SBF:
       _read:
-        NoStandbyEvent: [0, "Device has not been in Standby mode"]
-        StandbyEvent: [1, "Device has been in Standby mode"]
+        NoStandbyEvent: [0, Device has not been in Standby mode]
+        StandbyEvent: [1, Device has been in Standby mode]
     WUF:
       _read:
-        NoWakeupEvent: [0, "No wakeup event occurred"]
+        NoWakeupEvent: [0, No wakeup event occurred]
         WakeupEvent:
           [
             1,

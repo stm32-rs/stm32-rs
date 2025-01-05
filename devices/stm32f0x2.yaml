@@ -20,13 +20,13 @@ RCC:
   APB1RSTR:
     _add:
       USART5RST:
-        description: "USART5 reset"
+        description: USART5 reset
         bitOffset: 20
         bitWidth: 1
   APB1ENR:
     _add:
       USART5EN:
-        description: "USART5 clock enable"
+        description: USART5 clock enable
         bitOffset: 20
         bitWidth: 1
 
@@ -34,7 +34,7 @@ DMA1:
   _add:
     _interrupts:
       DMA1_CH2_3:
-        description: "DMA channel 2 and 3 interrupts"
+        description: DMA channel 2 and 3 interrupts
         value: 10
 
       DMA1_CH4_5_6_7:
@@ -53,10 +53,9 @@ SYSCFG:
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[34]":
   _include:

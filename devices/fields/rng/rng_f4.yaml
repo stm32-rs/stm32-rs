@@ -1,14 +1,14 @@
 CR:
   IE:
-    Disabled: [0, "RNG interrupt is disabled"]
-    Enabled: [1, "RNG interrupt is enabled"]
+    Disabled: [0, RNG interrupt is disabled]
+    Enabled: [1, RNG interrupt is enabled]
   RNGEN:
-    Disabled: [0, "Random number generator is disabled"]
-    Enabled: [1, "Random number generator is enabled"]
+    Disabled: [0, Random number generator is disabled]
+    Enabled: [1, Random number generator is enabled]
 
 SR:
   SEIS:
-    NoFaulty: [0, "No faulty sequence detected"]
+    NoFaulty: [0, No faulty sequence detected]
     Faulty:
       [
         1,
@@ -40,8 +40,7 @@ SR:
       ]
     TooSlow: [1, "The RNG clock is too slow (fRNGCLK< fHCLK/16)"]
   DRDY:
-    NotValid:
-      [0, "The RNG_DR register is not yet valid, no random data is available"]
+    NotValid: [0, "The RNG_DR register is not yet valid, no random data is available"]
     Valid:
       [
         1,

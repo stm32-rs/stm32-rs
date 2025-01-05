@@ -38,7 +38,7 @@ ADC_Common:
     - patches/adc/l4+common.yaml
     - fields/adc/adc_v3_common_l4+.yaml
 
-"ADC*_*":
+ADC*_*:
   _strip: ADC_
   _include: fields/adc/adc_v3_common.yaml
 
@@ -52,11 +52,11 @@ ADC1:
 ADC?:
   _include: fields/adc/adc_v3_l4.yaml
   CFGR:
-    _merge: "EXTSEL*"
+    _merge: EXTSEL*
 
   DIFSEL:
     _merge:
-      DIFSEL: "DIFSEL*"
+      DIFSEL: DIFSEL*
 
 "ADC,ADC?":
   _include:
@@ -123,10 +123,9 @@ SPI?:
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
 
-"TIM*":
+TIM*:
   _include:
-    - fields/tim/tim_no_opm.yaml
-    - fields/tim/tim_opm.yaml
+    - fields/tim/basic.yaml
 
 "TIM[18]":
   _include:
@@ -140,7 +139,7 @@ SPI?:
     - fields/tim/tim_32bit.yaml
   CNT:
     _merge:
-      CNT: "CNT*"
+      CNT: CNT*
 
 "TIM[1-58]":
   _include:
