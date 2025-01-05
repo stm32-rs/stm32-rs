@@ -4,8 +4,7 @@ CR2:
       description: Output Idle state (OC%s output)
     OIS?N:
       description: Output Idle state (OC%sN output)
-
-SR:
-  _modify:
-    "?~CC[56]IF":
-      derivedFrom: CC%sIF
+#SR:
+#  _modify:
+#    "?~CC[56]IF":
+#      derivedFrom: CC%sIF
