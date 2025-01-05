@@ -2,14 +2,15 @@ _svd: ../svd/stm32h573.svd
 
 ADC?:
   _strip: ADC_
-  _include: fields/adc/adc_h5.yaml
-  CFGR:
-    _merge: EXTSEL*
-
-"ADC,ADC?":
   _include:
     - patches/adc/split.yaml
     - fields/adc/adc_v3.yaml
+    - fields/adc/adc_h5.yaml
+    - collect/adc/v3.yaml
+  CFGR:
+    _merge: EXTSEL*
+  SQR?:
+    SQ*: [0, 19]
 
 AES:
   _include:
@@ -42,14 +43,14 @@ TIM1?:
     - TIM2_
     - TIM1?_
 
-"TIM[1346-9],TIM??":
-  _include: patches/tim/add_dither16.yaml
+#"TIM[1346-9],TIM??":
+#  _include: patches/tim/add_dither16.yaml
 
 "TIM[25]":
   _include:
-    - patches/tim/add_dither32.yaml
+    #  - patches/tim/add_dither32.yaml
     - patches/tim/tim_uifremap.yaml
-    - fields/tim/tim_32bit_dither.yaml
+    - fields/tim/tim_32bit.yaml
 
 "TIM[18]":
   _include:

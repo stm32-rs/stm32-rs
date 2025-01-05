@@ -69,10 +69,10 @@ TR1:
 "TR[23]":
   "[HL]T?": [0, 0xFF]
 OFR?:
-  OFFSET?_EN:
+  OFFSET_EN:
     Disabled: [0, Offset disabled]
     Enabled: [1, Offset enabled]
-  OFFSET?_CH: [0, 31]
-  OFFSET?: [0, 0xFFF]
+  OFFSET_CH: [0, 31]
+  OFFSET: [0, 0xFFF]
 CALFACT:
   CALFACT_?: [0, 0x7F]

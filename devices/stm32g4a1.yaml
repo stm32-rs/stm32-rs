@@ -16,12 +16,13 @@ _derive:
     baseAddress: 0x40015000
 
 ADC?:
-  _include: patches/adc/g4.yaml
-
-"ADC,ADC?":
   _include:
+    - patches/adc/g4.yaml
     - fields/adc/adc_v3_g4.yaml
     - fields/adc/adc_v3.yaml
+    - collect/adc/v3.yaml
+  SQR*:
+    SQ*: [0, 18]
 
 ADC*_*:
   _include: fields/adc/adc_v3_common_g4.yaml

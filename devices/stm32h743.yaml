@@ -23,11 +23,14 @@ ADC3:
 
 ADC?:
   _include:
+    - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_1.yaml
     - fields/adc/adc_h7_revision_y.yaml
     - fields/adc/adc_v3_h7.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [0, 19]
 
 BDMA:
   _strip: BDMA_

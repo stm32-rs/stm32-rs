@@ -38,17 +38,17 @@ ADC_Common:
 
 ADC?:
   _include:
+    - patches/adc/split.yaml
+    - patches/adc/offset_en.yaml
     - patches/adc/l4_smpr.yaml
     - patches/adc/l4_sqr1.yaml
     - patches/adc/l4+.yaml
     - patches/adc/dr_rdata.yaml
-    - fields/adc/adc_v3_l4.yaml
-
-"ADC,ADC?":
-  _include:
-    - patches/adc/split.yaml
     - fields/adc/adc_v3.yaml
+    - fields/adc/adc_v3_l4.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [0, 18]
 
 # Add correct AES interrupt at 79
 AES:

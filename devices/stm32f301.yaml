@@ -47,8 +47,11 @@ ADC1:
 
 ADC?:
   _include:
+    - patches/adc/offset_en.yaml
     - fields/adc/adc_v3_f3.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [1, 18]
 
 EXTI:
   _include:

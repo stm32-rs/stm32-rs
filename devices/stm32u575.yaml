@@ -20,15 +20,23 @@ ADC[124]:
 
 ADC[12]:
   _include:
+    - patches/adc/split.yaml
     - fields/adc/adc_u5_12.yaml
+    - collect/adc/v3.yaml
 
 ADC4:
   _include:
     - fields/adc/adc_u5_4.yaml
     - fields/adc/adc_u5_common.yaml
+    - collect/adc/c0_g0_wl.yaml
   _modify:
     PWR:
       name: PWRR
+    CHSELRMOD0:
+      name: CHSELR0
+    CHSELRMOD1:
+      name: CHSELR1
+      alternateRegister: CHSELR0
 
 GTZC1_MPCBB?:
   _strip: MPCBB?_

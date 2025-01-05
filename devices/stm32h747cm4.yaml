@@ -21,12 +21,15 @@ ADC3:
 
 ADC?:
   _include:
+    - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_2.yaml
     - patches/adc/h7_boost_rev_v.yaml
     - fields/adc/adc_h7_revision_v.yaml
     - fields/adc/adc_v3_h7.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [0, 19]
 
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747

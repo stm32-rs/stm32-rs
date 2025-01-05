@@ -17,10 +17,13 @@ ADC1_2:
 
 ADC?:
   _include:
+    - patches/adc/offset_en.yaml
     - patches/adc/f3.yaml
-    - fields/adc/adc_v3_f3.yaml
     - patches/adc/jdata.yaml
+    - fields/adc/adc_v3_f3.yaml
     - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [1, 18]
 
 CAN:
   _delete:
