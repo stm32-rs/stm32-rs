@@ -18,6 +18,7 @@ ADC*_*:
 ADC?:
   _include:
     - patches/adc/split.yaml
+    - patches/adc/offset_en.yaml
     - patches/adc/l4+.yaml
     - patches/adc/dr_rdata.yaml
     - fields/adc/adc_v3.yaml

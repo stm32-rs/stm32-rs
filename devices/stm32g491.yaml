@@ -20,7 +20,8 @@ ADC?:
     - patches/adc/g4.yaml
     - fields/adc/adc_v3_g4.yaml
     - fields/adc/adc_v3.yaml
-  SQR?:
+    - collect/adc/v3.yaml
+  SQR*:
     SQ*: [0, 18]
 
 ADC*_*:

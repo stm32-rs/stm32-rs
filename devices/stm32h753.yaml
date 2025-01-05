@@ -23,6 +23,7 @@ ADC3:
 
 ADC?:
   _include:
+    - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_1.yaml
     - fields/adc/adc_h7_revision_y.yaml

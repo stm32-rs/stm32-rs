@@ -12,7 +12,9 @@ _modify:
     name: SYSCFG
 
 ADC:
-  _include: fields/adc/adc_l0.yaml
+  _include:
+    - fields/adc/adc_l0.yaml
+    - collect/adc/f0_l0.yaml
   CFGR1:
     _modify:
       AUTDLY:

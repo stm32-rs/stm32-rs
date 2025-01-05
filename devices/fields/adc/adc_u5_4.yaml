@@ -69,12 +69,12 @@ SMPR:
 AWD?TR:
   HT?: [0, 0xFFF]
   LT?: [0, 0xFFF]
-CHSELRMOD0:
+CHSELR0:
   _split: [CHSEL]
   CHSEL*:
     Disabled: [0, Input channel x is not selected for conversion]
     Enabled: [1, Input channel x is selected for conversion]
-CHSELRMOD1:
+CHSELR1:
   SQ*:
     Channel0: [0, CH0]
     Channel1: [1, CH1]

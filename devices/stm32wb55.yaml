@@ -23,6 +23,7 @@ ADC1:
 
 ADC?:
   _include:
+    - patches/adc/offset_en.yaml
     - patches/adc/split.yaml
     - patches/adc/l4+.yaml
     - fields/adc/adc_v3.yaml

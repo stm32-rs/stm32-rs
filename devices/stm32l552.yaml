@@ -24,8 +24,10 @@ ADC_Common:
 ADC?:
   _include:
     - patches/adc/split.yaml
+    - patches/adc/offset_en.yaml
     - fields/adc/adc_v3.yaml
     - fields/adc/adc_v3_l4.yaml
+    - collect/adc/v3.yaml
   CFGR:
     _merge: EXTSEL*
     _modify:

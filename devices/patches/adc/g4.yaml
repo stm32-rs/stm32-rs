@@ -1,4 +1,6 @@
-_include: jdata.yaml
+_include:
+  - jdata.yaml
+  - offset_en.yaml
 
 ISR:
   _modify:
@@ -272,66 +274,12 @@ JSQR:
     JL:
       description: Injected channel sequence length
 
-OFR1:
+OFR?:
   _modify:
-    OFFSET1_EN:
-      description: Offset 1 Enable
-    OFFSET1_CH:
-      description: Channel selection for the data offset 1
     SATEN:
       description: Saturation enable
     OFFSETPOS:
       description: Positive offset
-    OFFSET1:
-      description: Data offset 1 for the channel programmed into bits OFFSET1_CH
-
-OFR2:
-  _modify:
-    OFFSET1_EN:
-      name: OFFSET2_EN
-      description: Offset 2 Enable
-    OFFSET1_CH:
-      name: OFFSET2_CH
-      description: Channel selection for the data offset 2
-    SATEN:
-      description: Saturation enable
-    OFFSETPOS:
-      description: Positive offset
-    OFFSET1:
-      name: OFFSET2
-      description: Data offset 2 for the channel programmed into bits OFFSET2_CH
-
-OFR3:
-  _modify:
-    OFFSET1_EN:
-      name: OFFSET3_EN
-      description: Offset 3 Enable
-    OFFSET1_CH:
-      name: OFFSET3_CH
-      description: Channel selection for the data offset 3
-    SATEN:
-      description: Saturation enable
-    OFFSETPOS:
-      description: Positive offset
-    OFFSET1:
-      name: OFFSET3
-      description: Data offset 3 for the channel programmed into bits OFFSET3_CH
-
-OFR4:
-  _modify:
-    OFFSET1_EN:
-      name: OFFSET4_EN
-      description: Offset 4 Enable
-    OFFSET1_CH:
-      name: OFFSET4_CH
-      description: Channel selection for the data offset 4
-    SATEN:
-      description: Saturation enable
-    OFFSETPOS:
-      description: Positive offset
-    OFFSET1:
-      name: OFFSET4
-      description: Data offset 4 for the channel programmed into bits OFFSET4_CH
 
 AWD2CR:
   _modify:

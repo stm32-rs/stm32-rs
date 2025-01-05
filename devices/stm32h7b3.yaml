@@ -28,6 +28,7 @@ ADC*_Common:
 
 ADC?:
   _include:
+    - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_2.yaml
     - patches/adc/h7_boost_rev_v.yaml
