@@ -97,7 +97,12 @@ SAI?:
   _strip: SAI_
 
 SPI?:
-  _include: patches/spi/rxtxdr.yaml
+  _include:
+    - patches/spi/rxtxdr.yaml
+    - patches/spi/h7.yaml
+    - fields/spi/spi_v3_base.yaml
+    - fields/spi/spi_v3_tser.yaml
+    - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
 
 TIM4:
   _add:
@@ -247,9 +252,6 @@ _include:
   - fields/rcc/rcc_h7_revision_y.yaml
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
-  - fields/spi/spi_v3_base.yaml
-  - fields/spi/spi_v3_tser.yaml
-  - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
   - patches/tim/group.yaml
   - fields/exti/exti_h7.yaml
   - fields/i2c/i2c_v2.yaml

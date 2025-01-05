@@ -142,21 +142,23 @@ SYSCFG:
       - PAGE6_WP
       - PAGE7_WP
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      TIFRFE:
-        name: FRE
-        description: Frame format error
 SPI2:
   CR1:
     _modify:
       DFF:
         name: CRCL
         description: CRC length
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: Frame format error
 
 TIM3:
   _include: patches/tim/v2/add_ocm_bit3.yaml
@@ -244,7 +246,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_32bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/spi/spi_v2.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml

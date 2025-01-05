@@ -124,6 +124,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0090
@@ -227,7 +228,6 @@ _include:
   - patches/dma/dma_v2.yaml
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
-  - fields/spi/spi_v1.yaml
   - patches/tim/group.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml

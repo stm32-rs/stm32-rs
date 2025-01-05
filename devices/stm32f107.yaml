@@ -73,6 +73,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v1_without_FRF_FRE.yaml
 
 "TIM1[0134]":
   _include: patches/tim/tim10_14_missing_opm.yaml
@@ -139,7 +140,6 @@ _include:
   - fields/pwr/pwr_v1.yaml
   - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
-  - fields/spi/spi_v1_without_FRF_FRE.yaml
   - patches/tim/group.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_uart.yaml

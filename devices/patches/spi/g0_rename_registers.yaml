@@ -1,7 +1,5 @@
 _include: rename_dff_tifrfe.yaml
-
-SPI*:
-  I2SCFGR:
-    _modify:
-      SE2:
-        name: I2SE
+I2SCFGR:
+  _modify:
+    SE2:
+      name: I2SE

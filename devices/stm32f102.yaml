@@ -119,6 +119,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/dff.yaml
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -187,7 +189,6 @@ _include:
   - fields/pwr/pwr_v1.yaml
   - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
-  - fields/spi/spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
   - patches/tim/group.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_uart.yaml

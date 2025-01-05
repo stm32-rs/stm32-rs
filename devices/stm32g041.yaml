@@ -67,9 +67,12 @@ RCC:
     - fields/rcc/rcc_g0x1_aes.yaml
 
 SPI?:
+  _strip: SPI_
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/g0_rename_registers.yaml
+    - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
 
 SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
@@ -145,8 +148,6 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
-  - patches/spi/g0_rename_registers.yaml
-  - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
   - patches/tim/group.yaml
   - patches/usart/g0.yaml
   - fields/usart/usart_v2C.yaml

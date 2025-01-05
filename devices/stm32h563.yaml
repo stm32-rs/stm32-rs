@@ -29,7 +29,10 @@ IWDG:
     - fields/iwdg/h5.yaml
 
 SPI?:
-  _include: patches/spi/rxtxdr.yaml
+  _include:
+    - patches/spi/rxtxdr.yaml
+    - fields/spi/spi_v3_base.yaml
+    - fields/spi/spi_v3_cfg1_bpass.yaml
 
 TIM?:
   _strip: TIM?_
@@ -144,8 +147,6 @@ _include:
   - fields/exti/exti.yaml
   - fields/exti/exti_priv.yaml
   - fields/gpdma/gpdma.yaml
-  - fields/spi/spi_v3_base.yaml
-  - fields/spi/spi_v3_cfg1_bpass.yaml
   - fields/usart/usart_v2B1.yaml
   - fields/usart/usart_fifoen.yaml
   - fields/usart/usart_sync_slave.yaml

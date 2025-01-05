@@ -71,6 +71,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_common.yaml
 
 "TIM[1],TIM8":
   _include: patches/tim/icpsc.yaml
@@ -201,8 +203,6 @@ _include:
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml
   - fields/dma/dma2d_v1.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
-  - fields/spi/spi_l4.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml

@@ -1,11 +1,10 @@
-SPI*:
-  CR2:
-    TSER: [0, 65535]
-  IER:
-    TSERFIE:
-      Masked: [0, TSER loaded interrupt masked]
-      NotMasked: [1, TSER loaded interrupt not masked]
-  SR:
-    TSERF:
-      NotLoaded: [0, Additional number of SPI data to be transacted not yet loaded]
-      Loaded: [1, Additional number of SPI data to be transacted was reloaded]
+CR2:
+  TSER: [0, 65535]
+IER:
+  TSERFIE:
+    Masked: [0, TSER loaded interrupt masked]
+    NotMasked: [1, TSER loaded interrupt not masked]
+SR:
+  TSERF:
+    NotLoaded: [0, Additional number of SPI data to be transacted not yet loaded]
+    Loaded: [1, Additional number of SPI data to be transacted was reloaded]

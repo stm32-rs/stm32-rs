@@ -63,10 +63,12 @@ RCC:
     _delete:
       - TIM3EN
 
-"SPI?,I2S?":
+SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/dff.yaml
   SR:
     _modify:
       TIFRFE:
@@ -151,7 +153,6 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - fields/spi/spi_l0.yaml
   - fields/syscfg/syscfg_l0x0.yaml
   - patches/tim/group.yaml
   - fields/usart/lpuart_v2A.yaml

@@ -295,6 +295,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0430
@@ -564,7 +565,6 @@ _include:
   - patches/adc/adc_common_group_name.yaml
   - fields/dma/dma_v21.yaml
   - collect/dma/st.yaml
-  - fields/spi/spi_v1.yaml
   - patches/tim/group.yaml
   - fields/usart/uart_common.yaml
   - fields/usart/uart_sample.yaml

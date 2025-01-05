@@ -38,11 +38,6 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-
 FLASH:
   OPTKEYR:
     _modify:
@@ -105,6 +100,12 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSCFG:
   "MEMRM,MEMRMP":
@@ -315,7 +316,6 @@ _include:
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - fields/dma/dma2d_v1.yaml
-  - fields/spi/spi_v2.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
   - fields/eth/eth_mac_common.yaml

@@ -1,0 +1,10 @@
+_include: h7.yaml
+
+CR1:
+  _modify:
+    IOLOCK:
+      access: read-write
+CR2:
+  _modify:
+    TSER:
+      access: read-write
