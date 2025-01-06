@@ -2,9 +2,9 @@
 
 # FIXME workaround separated M0 and M1 fields
 CR1:
-  M0:
+  "M,M0":
     Bit8: [0, "1 start bit, 8 data bits, n stop bits"]
     Bit9: [1, "1 start bit, 9 data bits, n stop bits"]
-  M1:
+  "?~M1":
     M0: [0, Use M0 to set the data bits]
     Bit7: [1, "1 start bit, 7 data bits, n stop bits"]

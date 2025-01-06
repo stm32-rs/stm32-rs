@@ -80,8 +80,7 @@ FMC:
 I2C?:
   _include:
     - patches/16bit.yaml
-    - fields/i2c/i2c_v1.yaml
-    - fields/i2c/i2c_v1_fltr.yaml
+    - fields/i2c/v1.yaml
   OAR1:
     _merge:
       ADD: "ADD[07],ADD10"
@@ -182,6 +181,19 @@ TIM2:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+UART*:
+  _include:
+    - patches/usart/f4_add_UART_GTPR.yaml
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -235,11 +247,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - fields/usart/uart_common.yaml
-  - fields/usart/uart_sample.yaml
-  - fields/usart/uart_uart.yaml
-  - fields/usart/uart_usart.yaml
-  - patches/usart/f4_add_UART_GTPR.yaml
   - collect/hash/v2.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/f4_cr.yaml

@@ -1,22 +1,21 @@
-USART?:
-  CR2:
-    _delete:
-      - ADD0_3
-      - ADD4_7
-    _add:
-      ADD:
-        description: Address of the USART node
-        bitOffset: 24
-        bitWidth: 8
-    _modify:
-      TAINV:
-        name: DATAINV
-  BRR:
-    _delete:
-      - BRR_0_3
-      - BRR_4_15
-    _add:
-      BRR:
-        description: Baud rate
-        bitOffset: 0
-        bitWidth: 16
+CR2:
+  _delete:
+    - ADD0_3
+    - ADD4_7
+  _add:
+    ADD:
+      description: Address of the USART node
+      bitOffset: 24
+      bitWidth: 8
+  _modify:
+    TAINV:
+      name: DATAINV
+BRR:
+  _delete:
+    - BRR_0_3
+    - BRR_4_15
+  _add:
+    BRR:
+      description: Baud rate
+      bitOffset: 0
+      bitWidth: 16

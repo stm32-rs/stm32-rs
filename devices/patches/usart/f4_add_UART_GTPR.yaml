@@ -1,11 +1,10 @@
-UART*:
-  _add:
-    GTPR:
-      description: Guard Time and Prescaler Register
-      addressOffset: 0x18
-      access: read-write
-      fields:
-        PSC:
-          description: IrDA Low-Power pulse width peripheral clock prescaler
-          bitOffset: 0
-          bitWidth: 8
+_add:
+  GTPR:
+    description: Guard Time and Prescaler Register
+    addressOffset: 0x18
+    access: read-write
+    fields:
+      PSC:
+        description: IrDA Low-Power pulse width peripheral clock prescaler
+        bitOffset: 0
+        bitWidth: 8

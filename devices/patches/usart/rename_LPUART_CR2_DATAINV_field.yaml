@@ -1,8 +1,0 @@
-# Rename LPUART CR2 DATAINV field
-# Other families has it.
-
-LPUART*:
-  CR2:
-    _modify:
-      TAINV:
-        name: DATAINV

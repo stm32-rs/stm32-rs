@@ -1,8 +1,7 @@
-# USART v2B found on F3 family
+# USART v2B found on F3, F0, F7, L0 and L4 family
 
-USART*:
-  _include:
-    - _v2_ABC_common.yaml
-    - _v2_AB_common.yaml
-    - _v2_BC_common.yaml
-    - _v2_without_7bit_data.yaml
+_include:
+  - v2/ABC_common.yaml
+  - v2/AB_common.yaml
+  - v2/BC_common.yaml
+  - v2/m.yaml

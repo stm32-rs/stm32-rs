@@ -506,19 +506,3 @@ USART6:
       USART6:
         description: USART6 global interrupt
         value: 71
-"USART*,UART*":
-  CR1:
-    _merge:
-      - DEAT*
-      - DEDT*
-  CR2:
-    _merge:
-      - ABRMOD*
-
-UART*:
-  BRR:
-    _merge:
-      BRR: BRR*
-  CR2:
-    _merge:
-      ADD: "ADD0_3,ADD4_7"

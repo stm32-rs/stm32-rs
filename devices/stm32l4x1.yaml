@@ -57,6 +57,10 @@ EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -66,6 +70,14 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
+
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/lpuart_v2A.yaml
 
 QUADSPI:
   _include:
@@ -185,6 +197,20 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
+USART3:
+  _include:
+    - fields/usart/usart3_v2B2.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -192,16 +218,6 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
@@ -223,9 +239,6 @@ _include:
   - fields/dma/dma_v1_with_remapping.yaml
   - collect/dma/v1.yaml
   - fields/exti/exti.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/lpuart_v2A.yaml
-  - fields/usart/usart_v2B2.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

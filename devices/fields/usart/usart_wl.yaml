@@ -1,8 +1,7 @@
-USART*:
-  _include:
-    - fifoen_common.yaml
-    - fifoen_usart.yaml
-    - _v2_AB_common.yaml
-    - sync_slave.yaml
-    - smartcard.yaml
-    - prescalar.yaml
+_include:
+  - fifoen_common.yaml
+  - fifoen_usart.yaml
+  - v2/AB_common.yaml
+  - sync_slave.yaml
+  - smartcard.yaml
+  - prescalar.yaml

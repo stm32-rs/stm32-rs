@@ -80,6 +80,10 @@ CR1:
   PE:
     Disabled: [0, Peripheral disabled]
     Enabled: [1, Peripheral enabled]
+  "?~WUPEN":
+    Disabled: [0, Wakeup from Stop mode disabled]
+    Enabled: [1, Wakeup from Stop mode enabled]
+
 CR2:
   PECBYTE:
     _read:

@@ -96,6 +96,10 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -255,6 +259,16 @@ TIM10:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -267,12 +281,6 @@ _include:
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
   - collect/can/filter_bank.yaml
@@ -332,8 +340,6 @@ _include:
   - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/syscfg/f765_f7x7_f7x9.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/usart_v2B1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml

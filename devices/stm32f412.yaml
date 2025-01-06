@@ -76,7 +76,7 @@ FMPI2C1:
         bitWidth: 10
   _include:
     - patches/i2c/f4_fmpi2c.yaml
-    - fields/i2c/i2c_v2_base.yaml
+    - fields/i2c/v2.yaml
 
 # FSMC register fixes
 FSMC:
@@ -131,8 +131,7 @@ I2C?:
   _include:
     - patches/16bit.yaml
     - patches/i2c/v1_fltr.yaml
-    - fields/i2c/i2c_v1.yaml
-    - fields/i2c/i2c_v1_fltr.yaml
+    - fields/i2c/v1.yaml
   OAR1:
     _merge:
       ADD: "ADD[07],ADD10"
@@ -302,6 +301,12 @@ TIM*:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -342,9 +347,6 @@ _include:
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - patches/tim/group.yaml
-  - fields/usart/uart_common.yaml
-  - fields/usart/uart_sample.yaml
-  - fields/usart/uart_usart.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
   - patches/rtc/alarm.yaml

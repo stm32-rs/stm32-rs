@@ -39,6 +39,10 @@ EXTI:
 FDCAN:
   _strip: FDCAN_
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -88,6 +92,16 @@ UCPD1:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v1.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2C.yaml
+
 VREFBUF:
   _strip: VREFBUF_
 
@@ -97,12 +111,6 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/usart/merge_BRR_fields.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
   - collect/dma/dmamux.yaml
   - patches/dma/g4_ifcr.yaml
   - collect/dma/v1.yaml
@@ -125,10 +133,8 @@ _include:
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml
   - fields/opamp/opamp_g4_common.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
-  - fields/usart/usart_v2C.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/g4.yaml
   - fields/rcc/rcc_g4.yaml

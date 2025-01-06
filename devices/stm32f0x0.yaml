@@ -16,6 +16,12 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - patches/i2c/merge_OAR1_OA1x_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -102,6 +108,13 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/rename_CR1_M0_field.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -109,8 +122,6 @@ WWDG:
 
 _include:
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
-  - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_no_hdmi_cec.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
   - patches/rcc/f0_usart3.yaml
@@ -118,9 +129,6 @@ _include:
   - patches/dma/f0_dmaen.yaml
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR1_M0_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - patches/tim/group.yaml
   - fields/gpio/v2/common.yaml
   - fields/gpio/gpio_with_brr.yaml
@@ -132,8 +140,6 @@ _include:
   - fields/rcc/rcc_f0x0.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/usart_v2B1.yaml
   - collect/rtc/bkpr.yaml
   - fields/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml

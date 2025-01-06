@@ -59,6 +59,10 @@ DFSDM1:
       addressOffset: 0xF0
       description: CH7DATINR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -81,7 +85,7 @@ FLASH:
 MPU:
   _strip: MPU_
 
-LPUART?:
+LPUART1:
   _strip: LPUART_
   CR1:
     _modify:
@@ -89,6 +93,10 @@ LPUART?:
         name: TXEIE
       RXFNEIE:
         name: RXNEIE
+  _include:
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - fields/usart/lpuart_v2A.yaml
 
 PWR:
   _strip: PWR_
@@ -259,6 +267,11 @@ USART?:
         name: TXEIE
       RXFNEIE:
         name: RXNEIE
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - fields/usart/usart_v2B.yaml
 
 WWDG:
   _include:
@@ -267,12 +280,7 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
   #- patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
   #- patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   #- patches/usart/merge_BRR_fields.yaml
   - fields/can/can.yaml
@@ -294,9 +302,6 @@ _include:
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - fields/exti/exti.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/lpuart_v2A.yaml
-  - fields/usart/usart_v2B1.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml

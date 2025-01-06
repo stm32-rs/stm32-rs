@@ -22,10 +22,22 @@ ADC:
       SMPR:
         name: SMP
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/lpuart_v2A.yaml
 
 PWR:
   CR:
@@ -110,6 +122,16 @@ TIM21:
 "TIM[1-589],TIM1[0-79],TIM2?":
   _include: collect/tim/ccr.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -119,16 +141,6 @@ _include:
   - patches/firewall/l0.yaml
   - patches/rtc/l0.yaml
   - patches/nvic/l0_prio_bits.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml
@@ -142,7 +154,6 @@ _include:
   - fields/fw/fw_l0_l4.yaml
   - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2r.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/lptim/lptim_v1.yaml
   - fields/nvic/nvic_v1.yaml
   - fields/pwr/pwr_l0.yaml
@@ -155,5 +166,3 @@ _include:
   - collect/rtc/bkpr.yaml
   - fields/syscfg/syscfg_l0x0.yaml
   - patches/tim/group.yaml
-  - fields/usart/lpuart_v2A.yaml
-  - fields/usart/usart_v2B1.yaml

@@ -1,7 +1,6 @@
 # Rename USART CR1 M to M0
 
-USART*:
-  CR1:
-    _modify:
-      M:
-        name: M0
+CR1:
+  _modify:
+    M:
+      name: M0

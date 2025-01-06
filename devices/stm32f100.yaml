@@ -25,7 +25,7 @@ EXTI:
 I2C?:
   _include:
     - patches/16bit.yaml
-    - fields/i2c/i2c_v1.yaml
+    - fields/i2c/v1.yaml
   OAR1:
     _merge:
       ADD: "ADD[07],ADD10"
@@ -87,6 +87,16 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+UART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_usart.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -114,9 +124,6 @@ _include:
   - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
   - patches/tim/group.yaml
-  - fields/usart/uart_common.yaml
-  - fields/usart/uart_uart.yaml
-  - fields/usart/uart_usart.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_cfgr2_prediv.yaml
   - fields/dma/dma_v1.yaml

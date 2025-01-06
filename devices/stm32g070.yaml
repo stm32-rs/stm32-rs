@@ -63,6 +63,11 @@ EXTI:
     - IPIDR
     - SIDR
 
+I2C?:
+  _include:
+    - patches/i2c/g0.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _modify:
     "KR,PR,RLR,SR,WINR":
@@ -219,6 +224,12 @@ USART1:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0.yaml
+    - fields/usart/usart_v2C.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _modify:
     "CR,CFR,SR":
@@ -235,12 +246,7 @@ _include:
   - patches/flash/g0.yaml
   - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
-  - patches/i2c/g0.yaml
-  - fields/i2c/i2c_v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - patches/usart/g0.yaml
-  - fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml

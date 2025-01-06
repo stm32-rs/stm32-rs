@@ -23,6 +23,10 @@ GTZC1_MPCBB?:
 GTZC1_TZIC:
   _strip: GTZC1_TZIC_
 
+I2C?:
+  _include:
+    - fields/i2c/v3.yaml
+
 IWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -109,6 +113,17 @@ UCPD1:
     - patches/ucpd/rxordseten_split.yaml
     - fields/ucpd/ucpd_v1.yaml
 
+USART?:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/usart_v2B.yaml
+    - fields/usart/usart_fifoen.yaml
+    - fields/usart/sync_slave.yaml
+    - fields/usart/smartcard.yaml
+    - fields/usart/prescalar.yaml
+
 WWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -141,16 +156,9 @@ _include:
 
   - fields/sai/sai.yaml
   - fields/crs/crs.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - fields/pwr/pwr_h5.yaml
   - fields/exti/exti.yaml
   - fields/exti/exti_priv.yaml
   - fields/gpdma/gpdma.yaml
-  - fields/usart/usart_v2B1.yaml
-  - fields/usart/usart_fifoen.yaml
-  - fields/usart/usart_sync_slave.yaml
-  - fields/usart/usart_smartcard.yaml
-  - fields/usart/usart_prescalar.yaml
   - collect/usb/chepr.yaml
   - collect/gpio/v2r.yaml

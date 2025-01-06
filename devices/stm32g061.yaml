@@ -26,6 +26,10 @@ EXTI:
     - patches/exti/exti_rename.yaml
     - fields/exti/exti_g0.yaml
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -110,6 +114,11 @@ TIM*:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0_CR1.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -125,13 +134,10 @@ _include:
   - patches/flash/g0.yaml
   - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
-  - fields/i2c/i2c_v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   # SPI* are missing upstream
   - patches/tim/group.yaml
-  - patches/usart/g0_CR1.yaml
   # TODO: fix UART?:ICR:NECF
   #- fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml

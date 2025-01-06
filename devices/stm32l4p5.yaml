@@ -57,6 +57,10 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include: patches/16bit.yaml
 
@@ -240,6 +244,15 @@ USART?:
         name: TXEIE
       RXFNEIE:
         name: RXNEIE
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
+USART3:
+  _include:
+    - fields/usart/usart3_v2B2.yaml
 
 WWDG:
   _include:
@@ -252,11 +265,7 @@ _include:
   - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
   #- patches/usart/merge_BRR_fields.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
   #- patches/usart/rename_CR2_DATAINV_field.yaml
-  - fields/usart/usart_v2B2.yaml
   - fields/tsc/tsc.yaml
   - patches/fsmc/fsmc_l4+.yaml
   - patches/fsmc/fsmc_nand.yaml
@@ -298,7 +307,6 @@ _include:
   - collect/dma/v1.yaml
   - fields/dma/dmamux_wl.yaml
   - collect/dma/dmamux.yaml
-  - fields/i2c/i2c_v2.yaml
   - patches/syscfg/l4+.yaml
   - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml

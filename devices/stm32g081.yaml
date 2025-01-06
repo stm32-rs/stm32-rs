@@ -31,6 +31,11 @@ EXTI:
     - patches/exti/exti_rename.yaml
     - fields/exti/exti_g0.yaml
 
+I2C?:
+  _include:
+    - patches/i2c/g0.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _modify:
     "KR,PR,RLR,SR,WINR":
@@ -126,6 +131,12 @@ UCPD?:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v2.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0.yaml
+    - fields/usart/usart_v2C.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _modify:
     "CR,CFR,SR":
@@ -142,12 +153,7 @@ _include:
   - patches/flash/g0.yaml
   - fields/gpio/gpio_g0_l0.yaml
   - collect/gpio/v2.yaml
-  - patches/i2c/g0.yaml
-  - fields/i2c/i2c_v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - patches/usart/g0.yaml
-  - fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml

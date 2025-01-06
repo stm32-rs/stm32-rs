@@ -58,6 +58,11 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG1:
   _include:
     - patches/16bit.yaml
@@ -164,6 +169,16 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG1:
   _include:
     - patches/wwdg/h7.yaml
@@ -208,13 +223,6 @@ _include:
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - patches/ramecc/ramecc_new.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml
@@ -242,8 +250,6 @@ _include:
   - fields/syscfg/syscfg_h747.yaml
   - patches/tim/group.yaml
   - fields/exti/exti_h7.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/usart/usart_v2B1.yaml
   - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
   - patches/syscfg/h74x_pwrcr.yaml
