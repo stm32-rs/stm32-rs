@@ -72,6 +72,11 @@ FLASH:
   CCR1:
     _delete: CLR_CRCRDERR1
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -219,7 +224,6 @@ _include:
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
   - patches/usart/merge_CR1_DEDTx_fields.yaml
   - patches/usart/merge_CR2_ABRMODx_fields.yaml
@@ -256,7 +260,6 @@ _include:
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
   - fields/exti/exti_h7.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
   - fields/rtc/rtc_common.yaml

@@ -50,6 +50,10 @@ GTZC1_TZSC:
 HSPI?:
   _strip: HSPI?_
 
+I2C?:
+  _include:
+    - fields/i2c/v3.yaml
+
 IWDG:
   _include: patches/16bit.yaml
 
@@ -107,8 +111,6 @@ _include:
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
   - fields/gpio/gpio_l5_u5.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

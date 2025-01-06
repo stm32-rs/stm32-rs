@@ -42,6 +42,10 @@ EXTI:
       MI9:
         name: IM9
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -192,7 +196,6 @@ _include:
   - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
   - patches/syscfg/f730_f7x2_f7x3.yaml
-  - fields/i2c/i2c_v2_without_wakeup.yaml
   - fields/usart/usart_v2C.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v2.yaml

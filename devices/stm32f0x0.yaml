@@ -16,6 +16,12 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - patches/i2c/merge_OAR1_OA1x_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -109,8 +115,6 @@ WWDG:
 
 _include:
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
-  - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_no_hdmi_cec.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
   - patches/rcc/f0_usart3.yaml
@@ -132,7 +136,6 @@ _include:
   - fields/rcc/rcc_f0x0.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - collect/rtc/bkpr.yaml
   - fields/usb/usb_with_LPM.yaml

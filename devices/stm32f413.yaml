@@ -109,7 +109,7 @@ FMPI2C1:
         bitWidth: 10
   _include:
     - patches/i2c/f4_fmpi2c.yaml
-    - fields/i2c/i2c_v2_base.yaml
+    - fields/i2c/v2.yaml
 
 EXTI:
   _include:
@@ -120,8 +120,7 @@ EXTI:
 I2C?:
   _include:
     - patches/16bit.yaml
-    - fields/i2c/i2c_v1.yaml
-    - fields/i2c/i2c_v1_fltr.yaml
+    - fields/i2c/v1.yaml
   OAR1:
     _merge:
       ADD: "ADD[07],ADD10"

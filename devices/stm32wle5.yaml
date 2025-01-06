@@ -104,6 +104,10 @@ HSEM:
       MASTERID:
         name: COREID
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _delete:
     - WINR
@@ -239,7 +243,6 @@ _include:
   - fields/gpio/gpio_wl.yaml
   - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/lptim/lptim_v1.yaml
   - fields/lptim/lptim_wl.yaml
   - fields/usart/lpuart_wl.yaml

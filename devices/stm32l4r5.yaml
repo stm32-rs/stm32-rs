@@ -59,6 +59,10 @@ DFSDM1:
       addressOffset: 0xF0
       description: CH7DATINR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -294,7 +298,6 @@ _include:
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - fields/exti/exti.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/lpuart_v2A.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/rtc/rtc_cr.yaml

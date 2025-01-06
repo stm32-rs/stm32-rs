@@ -109,6 +109,12 @@ GPIOD:
     PUPDR:
       resetValue: "0x00000000"
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - patches/i2c/merge_OAR1_OA1x_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -218,8 +224,6 @@ _include:
   - patches/cec/cfgr.yaml
   - fields/hdmi_cec.yaml
   - patches/nvic/4_prio_bits.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
-  - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/rcc/f3.yaml
@@ -248,7 +252,6 @@ _include:
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
   - fields/exti/exti.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml

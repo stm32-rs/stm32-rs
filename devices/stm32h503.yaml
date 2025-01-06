@@ -31,6 +31,10 @@ GTZC1:
       _array:
         PRIV*: {}
 
+I2C?:
+  _include:
+    - fields/i2c/v3.yaml
+
 IWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -105,8 +109,6 @@ WWDG:
 _include:
   - patches/h5.yaml
   - fields/crs/crs.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - fields/sbs/sbs.yaml
   - fields/pwr/pwr_h5.yaml
   - fields/gpio/v3/common.yaml

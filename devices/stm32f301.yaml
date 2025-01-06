@@ -64,6 +64,12 @@ EXTI:
     IMR2:
       resetValue: "0xFFFFFFFE"
 
+I2C?:
+  _include:
+    - patches/i2c/merge_CR2_SADDx_fields.yaml
+    - patches/i2c/merge_OAR1_OA1x_fields.yaml
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -177,8 +183,6 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/i2c/merge_CR2_SADDx_fields.yaml
-  - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/usart/merge_CR2_ADDx_fields.yaml
   - patches/usart/merge_BRR_fields.yaml
   - patches/rcc/f3.yaml
@@ -207,7 +211,6 @@ _include:
   - collect/dma/v1.yaml
   - patches/exti/f3_offset.yaml
   - fields/exti/exti.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml

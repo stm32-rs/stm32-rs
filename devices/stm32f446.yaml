@@ -89,7 +89,7 @@ FMPI2C1:
       "RXNE,ADDR,NACKF,STOPF,TC,TCR,BERR,ARLO,OVR,PECERR,TIMEOUT,ALERT,BUSY,DIR,ADDCODE":
         access: read-only
   _include:
-    - fields/i2c/i2c_v2_base.yaml
+    - fields/i2c/v2.yaml
 
 EXTI:
   _include:
@@ -100,8 +100,7 @@ EXTI:
 I2C?:
   _include:
     - patches/16bit.yaml
-    - fields/i2c/i2c_v1.yaml
-    - fields/i2c/i2c_v1_fltr.yaml
+    - fields/i2c/v1.yaml
   OAR1:
     _merge:
       ADD: "ADD[07],ADD10"

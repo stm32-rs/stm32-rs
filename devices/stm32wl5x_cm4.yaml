@@ -57,6 +57,10 @@ HSEM:
     C2ICR:
       access: read-write
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IPCC:
   _strip: IPCC_
 
@@ -200,7 +204,6 @@ _include:
   - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml
   - fields/ipcc/ipcc_wl.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/lptim/lptim_v1.yaml
   - fields/lptim/lptim_wl.yaml
   - fields/usart/lpuart_wl.yaml

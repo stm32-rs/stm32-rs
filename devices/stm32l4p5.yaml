@@ -57,6 +57,10 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include: patches/16bit.yaml
 
@@ -298,7 +302,6 @@ _include:
   - collect/dma/v1.yaml
   - fields/dma/dmamux_wl.yaml
   - collect/dma/dmamux.yaml
-  - fields/i2c/i2c_v2.yaml
   - patches/syscfg/l4+.yaml
   - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml

@@ -105,6 +105,10 @@ IPCC:
     C1TO2SR:
       name: C1TOC2SR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include: patches/16bit.yaml
 
@@ -191,4 +195,3 @@ _include:
   - collect/sai/pdm.yaml
   - patches/adc/wb_adc_common.yaml
   - collect/hsem/r.yaml
-  - fields/i2c/i2c_v2.yaml

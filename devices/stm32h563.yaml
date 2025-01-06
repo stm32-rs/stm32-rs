@@ -23,6 +23,10 @@ GTZC1_MPCBB?:
 GTZC1_TZIC:
   _strip: GTZC1_TZIC_
 
+I2C?:
+  _include:
+    - fields/i2c/v3.yaml
+
 IWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -141,8 +145,6 @@ _include:
 
   - fields/sai/sai.yaml
   - fields/crs/crs.yaml
-  - fields/i2c/i2c_v2.yaml
-  - fields/i2c/i2c_v2_cr1_fmp_addraclr_stopfaclr.yaml
   - fields/pwr/pwr_h5.yaml
   - fields/exti/exti.yaml
   - fields/exti/exti_priv.yaml

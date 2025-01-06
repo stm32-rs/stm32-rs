@@ -39,6 +39,10 @@ EXTI:
 FDCAN:
   _strip: FDCAN_
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -137,7 +141,6 @@ _include:
   - fields/opamp/opamp_g4_common.yaml
   - fields/opamp/opamp_g4_opamp4_5.yaml
   - fields/opamp/opamp_g4_opamp6.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml
   - fields/usart/usart_v2C.yaml

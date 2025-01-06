@@ -104,6 +104,10 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
 IWDG:
   _include:
     - patches/16bit.yaml
@@ -362,7 +366,6 @@ _include:
   - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/syscfg/f765_f7x7_f7x9.yaml
-  - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
