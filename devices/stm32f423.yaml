@@ -1,0 +1,596 @@
+_svd: ../svd/stm32f423.svd
+
+_rebase:
+  # Make I2C1 the base type
+  I2C1: I2C2
+  SPI1: SPI5
+  USART1: USART3
+
+_derive:
+  TIM9: TIM12
+  TIM13: TIM10
+  TIM14: TIM10
+  UART5: UART4
+  UART7: UART4
+  UART8: UART4
+  UART9: UART4
+  UART10: UART4
+
+# The UART peripherals are erroneously derived from a fully-featured USART
+# (with extra features, and register fields which UARTs lack).  They also have
+# incorrect interrupt definitions.
+_delete:
+  - UART4
+  - UART5
+  - UART7
+  - UART8
+
+_copy:
+  UART4:
+    from: ../svd/stm32f469.svd:UART4
+  UART5:
+    from: ../svd/stm32f469.svd:UART5
+  UART7:
+    from: ../svd/stm32f469.svd:UART7
+  UART8:
+    from: ../svd/stm32f469.svd:UART8
+  UART9:
+    from: UART8
+  UART10:
+    from: UART8
+
+_modify:
+  FMPI2C:
+    # Rename FMPI2C to FMPI2C1
+    name: FMPI2C1
+
+  FSMC:
+    # ST got the base address of the FSMC peripheral wrong
+    baseAddress: "0xA0000000"
+
+_add:
+  # I2S*ext are missing
+  I2S2ext:
+    derivedFrom: SPI1
+    baseAddress: "0x40003400"
+  I2S3ext:
+    derivedFrom: SPI1
+    baseAddress: "0x40004000"
+
+ADC_Common:
+  CSR:
+    _delete:
+      - "*2"
+      - "*3"
+  CCR:
+    _delete:
+      - DMA
+      - DDS
+      - DELAY
+  _include:
+    - fields/adc/adc_v2_common_single.yaml
+
+ADC1:
+  _include:
+    - patches/adc/smpx_18.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
+
+AES:
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
+    - fields/aes/v2.yaml
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0430
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
+FMPI2C1:
+  OAR1:
+    _delete: [OA1, OA11_7, OA18_9]
+    _add:
+      OA1:
+        description: Interface own slave address
+        bitOffset: 0
+        bitWidth: 10
+  _include:
+    - patches/i2c/f4_fmpi2c.yaml
+    - fields/i2c/v2.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
+I2C?:
+  _include:
+    - patches/16bit.yaml
+    - fields/i2c/v1.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD[07],ADD10"
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+# Add missing RCC reset/enable bits
+RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
+      USART4RST:
+        name: UART4RST
+        description: UART4 reset
+      USART5RST:
+        name: UART5RST
+        description: UART5 reset
+  APB2RSTR:
+    _modify:
+      USART9RST:
+        name: UART9RST
+        description: UART9 reset
+      SART10RST:
+        name: UART10RST
+        description: UART10 reset
+  APB1ENR:
+    _modify:
+      RTCAPB:
+        name: RTCAPBEN
+  APB2ENR:
+    _add:
+      UART9EN:
+        description: UART9 clock enable
+        bitOffset: 6
+        bitWidth: 1
+      UART10EN:
+        description: UART10 clock enable
+        bitOffset: 7
+        bitWidth: 1
+  APB1LPENR:
+    _modify:
+      RTCAPBEN:
+        name: RTCAPBLPEN
+      USART4LPEN:
+        name: UART4LPEN
+        description: UART4 clock enable during Sleep mode
+      USART5LPEN:
+        name: UART5LPEN
+        description: UART5 clock enable during Sleep mode
+  APB2LPENR:
+    _modify:
+      EXTITEN:
+        name: EXTITLPEN
+      USART9LPEN:
+        name: UART9LPEN
+        description: UART9 clock enable during Sleep mode
+      USART10LPEN:
+        name: UART10LPEN
+        description: UART10 clock enable during Sleep mode
+  DCKCFGR:
+    _delete:
+      - LPTIMER1SEL
+    _add:
+      PLLI2SDIVR:
+        description: PLLI2S division factor for SAI1 A/B clock
+        bitOffset: 0
+        bitWidth: 5
+      PLLDIVR:
+        description: PLL division factor for SAI1 A/B clock
+        bitOffset: 8
+        bitWidth: 5
+      CKDFSDM2ASEL:
+        description: DFSDM2 audio clock selection
+        bitOffset: 14
+        bitWidth: 1
+      SAI1ASRC:
+        description: SAI1-A clock source selection
+        bitOffset: 20
+        bitWidth: 2
+      SAI1BSRC:
+        description: SAI1-B clock source selection
+        bitOffset: 22
+        bitWidth: 2
+      CKDFSDM1SEL:
+        description: DFSDM1 Kernel clock selection
+        bitOffset: 31
+        bitWidth: 1
+  DCKCFGR2:
+    _add:
+      LPTIM1SEL:
+        description: LPTIM1 kernel clock source selection
+        bitOffset: 30
+        bitWidth: 2
+    _modify:
+      I2CFMP1SEL:
+        name: FMPI2C1SEL
+        bitWidth: 2
+      CKSDIOSEL:
+        name: SDIOSEL
+
+# Fix invalid formatting on this alternateRegister field
+OTG_FS_GLOBAL*:
+  _modify:
+    FS_GNPTXFSIZ_Host:
+      alternateRegister: GNPTXFSIZ_Device
+  _add:
+    _interrupts:
+      OTG_FS:
+        description: USB OTG FS Interrupt
+        value: 67
+
+OTG_FS_PWRCLK*:
+  _delete:
+    _interrupts:
+      - USART9
+
+OTG_FS_DEVICE*:
+  _delete:
+    _interrupts:
+      - USART10
+
+QUADSPI:
+  _add:
+    _interrupts:
+      QuadSPI:
+        value: 92
+        description: Quad-SPI global interrupt
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  CR:
+    _add:
+      FISSR:
+        description: Flash Interface Stop while System Run
+        bitOffset: 21
+        bitWidth: 1
+      FMSSR:
+        description: Flash Memory Sleep System Run
+        bitOffset: 20
+        bitWidth: 1
+      MRLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 11
+        bitWidth: 1
+      LPLVDS:
+        description: Main regulator Low Voltage in Deep Sleep
+        bitOffset: 10
+        bitWidth: 1
+  CSR:
+    _modify:
+      EWUP:
+        name: EWUP1
+        description: Enable WKUP1 pin (PA0)
+    _add:
+      EWUP2:
+        description: Enable WKUP1 pin (PC0)
+        bitOffset: 7
+        bitWidth: 1
+      EWUP3:
+        description: Enable WKUP1 pin (PC1)
+        bitOffset: 6
+        bitWidth: 1
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0430
+      TIFRFE:
+        name: FRE
+
+SYSCFG:
+  _include:
+    - patches/syscfg/f4_common.yaml
+    - fields/syscfg/f4/syscfg_f413_f423.yaml
+  _modify:
+    I2C_BUFOUT:
+      name: CFGR
+      displayName: CFGR
+      description: Configuration register
+  _add:
+    CFGR2:
+      description: ADC Common status register
+      addressOffset: 0x1C
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        PVDL:
+          description: PVD lock
+          bitOffset: 2
+          bitWidth: 1
+        CLL:
+          description: core lockup lock
+          bitOffset: 0
+          bitWidth: 1
+    MCHDLYCR:
+      description: DFSDM Multi-channel delay control register
+      addressOffset: 0x30
+      access: read-write
+      resetValue: 0x00000000
+      fields:
+        DFSDM2_CKOSEL:
+          description: Source selection for DFSDM2_CKOUT
+          bitOffset: 18
+          bitWidth: 1
+        DFSDM2_CFG:
+          description: CkIn source selection for DFSDM2
+          bitOffset: 17
+          bitWidth: 1
+        DFSDM2_CK37SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC1
+          bitOffset: 16
+          bitWidth: 1
+        DFSDM2_CK26SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC2
+          bitOffset: 15
+          bitWidth: 1
+        DFSDM2_CK15SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC3
+          bitOffset: 14
+          bitWidth: 1
+        DFSDM2_CK04SEL:
+          description: Distribution of the DFSDM2 bitstream clock gated by TIM3 OC4
+          bitOffset: 13
+          bitWidth: 1
+        DFSDM2_D6SEL:
+          description: Source selection for DatIn6 of DFSDM2
+          bitOffset: 12
+          bitWidth: 1
+        DFSDM2_D4SEL:
+          description: Source selection for DatIn4 of DFSDM2
+          bitOffset: 11
+          bitWidth: 1
+        DFSDM2_D2SEL:
+          description: Source selection for DatIn2 of DFSDM2
+          bitOffset: 10
+          bitWidth: 1
+        DFSDM2_D0SEL:
+          description: Source selection for DatIn0 of DFSDM2
+          bitOffset: 9
+          bitWidth: 1
+        MCHDLYEN2:
+          description: MCHDLY clock enable for DFSDM2
+          bitOffset: 8
+          bitWidth: 1
+        DFSDM1_CKOSEL:
+          description: Source selection for DFSDM1_CKOUT
+          bitOffset: 7
+          bitWidth: 1
+        DFSDM1_CFG:
+          description: CkIn source selection for DFSDM1
+          bitOffset: 6
+          bitWidth: 1
+        DFSDM1_CK13SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC1
+          bitOffset: 5
+          bitWidth: 1
+        DFSDM1_CK02SEL:
+          description: Distribution of the DFSDM1 bitstream clock gated by TIM4 OC2
+          bitOffset: 4
+          bitWidth: 1
+        DFSDM1_D2SEL:
+          description: Source selection for DatIn2 of DFSDM1
+          bitOffset: 3
+          bitWidth: 1
+        DFSDM1_D0SEL:
+          description: Source selection for DatIn0 of DFSDM1
+          bitOffset: 2
+          bitWidth: 1
+        MCHDLYEN1:
+          description: MCHDLY clock enable for DFSDM1
+          bitOffset: 1
+          bitWidth: 1
+        BSCKSEL:
+          description: Bitstream clock source selection
+          bitOffset: 0
+          bitWidth: 1
+  CFGR:
+    _modify:
+      I2C4SDA:
+        name: I2CFMP1_SDA
+      I2C4SCL:
+        name: I2CFMP1_SCL
+
+TIM7:
+  CR1:
+    _delete: UIFREMAP
+  CNT:
+    _delete: UIFCPY
+
+"TIM[1],TIM[235],TIM1[01]":
+  _include: patches/tim/icpsc.yaml
+
+TIM*:
+  _include:
+    - fields/tim/basic.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM[18]":
+  _include: fields/tim/tim_advanced.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
+
+# The USART peripheral definitions in the svd have a random array of unrelated
+# incorrect interrupt definitions.
+USART1:
+  _add:
+    _interrupts:
+      USART1:
+        description: USART 1 global interrupt
+        value: 37
+  _delete:
+    _interrupts:
+      - USART7
+
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART 2 global interrupt
+        value: 38
+  _delete:
+    _interrupts:
+      - USART3
+
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART 3 global interrupt
+        value: 39
+
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART 6 global interrupt
+        value: 71
+
+UART9:
+  _add:
+    _interrupts:
+      UART9:
+        description: UART 9 global interrupt
+        value: 88
+  _delete:
+    _interrupts:
+      - USART8
+
+UART10:
+  _add:
+    _interrupts:
+      UART10:
+        description: UART 10 global interrupt
+        value: 89
+  _delete:
+    _interrupts:
+      - UART5
+
+UART*:
+  _include:
+    - patches/usart/f4_add_UART_GTPR.yaml
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
+_include:
+  - fields/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - patches/sai/sai_v1.yaml
+  - fields/sai/sai.yaml
+  - collect/sai/ch.yaml
+  - patches/dfsdm/dfsdm_v1.yaml
+  - collect/dfsdm/v1.yaml
+  - fields/fsmc/fsmc_sram.yaml
+  - collect/fsmc/sram.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_f4_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - patches/rcc/f4_fmpi2c.yaml
+  - patches/rcc/rcc_merge_sw_sws.yaml
+  - patches/rcc/rcc_merge_rtcsel.yaml
+  - fields/rcc/rcc_v2.yaml
+  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
+  - fields/rcc/rcc_v2_i2s_pll.yaml
+  - fields/rcc/rcc_v2_i2s_pllsrc.yaml
+  - fields/rcc/rcc_v2_i2s_pllq.yaml
+  - fields/rcc/rcc_v2_i2s_pllm.yaml
+  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
+  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
+  - fields/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
+  - fields/rcc/rcc_v2_dckcfgr_i2s12src.yaml
+  - fields/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
+  - fields/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
+  - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
+  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
+  - fields/rcc/rcc_v2_ckgatenr.yaml
+  - fields/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - patches/adc/adc_common_group_name.yaml
+  - fields/dma/dma_v21.yaml
+  - collect/dma/st.yaml
+  - patches/tim/group.yaml
+  - fields/flash/flash_v1.yaml
+  - fields/flash/flash_latency16.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/rtc_cr.yaml
+  - fields/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_v1ext.yaml
+  - patches/usb_otg/fs_v1.yaml
+  - collect/usb_otg/fs.yaml
+  - patches/dbgmcu/dbgmcu.yaml
+  - fields/sdio/sdio_f4.yaml
+  - collect/sdio/resp.yaml
+  - patches/pwr/f4.yaml
+  - fields/pwr/pwr_f410_f412_f413_f423.yaml

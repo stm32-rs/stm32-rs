@@ -1,0 +1,263 @@
+_svd: ../svd/stm32f415.svd
+
+_delete:
+  - UART7
+  - UART8
+  # STM32F405 doesn't have ethernet, but the SVD does
+  - Ethernet_MAC
+  - Ethernet_MMC
+  - Ethernet_DMA
+  - Ethernet_PTP
+
+_rebase:
+  # Make I2C1 the base type
+  I2C1: I2C3
+  USART1: USART6
+
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+  SAI1:
+    groupName: SAI
+
+ADC_Common:
+  _include:
+    - patches/adc/multi.yaml
+    - fields/adc/adc_v2_multi.yaml
+
+ADC1:
+  _include:
+    - patches/adc/smpx_18.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0090
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge:
+      - b*
+  "IV[01][LR]R":
+    _merge:
+      - IV*
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
+FSMC:
+  _modify:
+    BWTR3:
+      addressOffset: 0x114
+      alternateRegister: ""
+    BWTR4:
+      _from: BWTR1
+      addressOffset: 0x11C
+      alternateRegister: ""
+
+I2C?:
+  _include:
+    - patches/16bit.yaml
+    - fields/i2c/v1.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD[07],ADD10"
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+# All of these fields and registers only concern Ethernet.
+# They are present in the SVD for stm32f405, but the stm32f405
+# doesn't actually have ethernet.
+RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
+      UART3RST:
+        name: USART3RST
+  AHB1ENR:
+    _delete:
+      - ETHMACPTPEN
+      - ETHMACRXEN
+      - ETHMACTXEN
+      - ETHMACEN
+  AHB1LPENR:
+    _delete:
+      - ETHMACPTPLPEN
+      - ETHMACRXLPEN
+      - ETHMACTXLPEN
+      - ETHMACLPEN
+  AHB1RSTR:
+    _delete:
+      - ETHMACRST
+
+RNG:
+  _include: fields/rng/rng_f4.yaml
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0090
+      TIFRFE:
+        name: FRE
+
+SYSCFG:
+  # The PMC register is used to configure MII or RMII mode
+  # for ethernet, which stm32f405 doesn't have.
+  _delete: PMC
+  _include:
+    - patches/syscfg/f4_common.yaml
+    - fields/syscfg/f4/syscfg_f405.yaml
+
+# We need to patch ITR1_RMP because it contains a
+# PTP variant, but stm32f405 doesn't have PTP.
+TIM2:
+  OR:
+    ITR1_RMP:
+      _replace_enum:
+        TIM8_TRGOUT: [0, TIM8 trigger output is connected to TIM2_ITR1 input]
+        OTG_FS_SOF: [2, OTG FS SOF is connected to the TIM2_ITR1 input]
+        OTG_HS_SOF: [3, OTG HS SOF is connected to the TIM2_ITR1 input]
+
+"TIM1[01]":
+  CR1:
+    _add:
+      # This field is missing from TIM10 and TIM11 compared to RM0090
+      OPM:
+        description: One-pulse mode
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write
+
+TIM*:
+  _include:
+    - patches/tim/icpsc.yaml
+    - fields/tim/basic.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM[18]":
+  _include: fields/tim/tim_advanced.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
+
+UART*:
+  _include:
+    - patches/usart/f4_add_UART_GTPR.yaml
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
+_include:
+  - fields/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - collect/cryp/v2.yaml
+  - patches/fsmc/fsmc_nand.yaml
+  - fields/fsmc/fsmc_sram.yaml
+  - fields/fsmc/fsmc_nand.yaml
+  - collect/fsmc/sram.yaml
+  - collect/fsmc/nand_v1.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_common_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - patches/rcc/rename_plli2scfgr.yaml
+  - patches/rcc/rcc_merge_sw_sws.yaml
+  - patches/rcc/rcc_merge_rtcsel.yaml
+  - fields/rcc/rcc_v2.yaml
+  - fields/rcc/rcc_v2_i2s.yaml
+  - fields/rcc/rcc_v2_i2s_pll.yaml
+  - fields/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - patches/adc/adc_common_group_name.yaml
+  - patches/dma/fcr_wo.yaml
+  - patches/dma/dma_v2.yaml
+  - fields/dma/dma_v2.yaml
+  - collect/dma/st.yaml
+  - fields/sdio/sdio_f4.yaml
+  - collect/sdio/resp.yaml
+  - patches/tim/group.yaml
+  - fields/flash/flash_v1.yaml
+  - fields/flash/flash_latency8.yaml
+  - collect/hash/v2.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/f4_cr.yaml
+  - patches/rtc/rtc_cr.yaml
+  - fields/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_v1ext.yaml
+  - patches/usb_otg/fs_v1.yaml
+  - patches/usb_otg/fs_v1_novbussens.yaml
+  - collect/usb_otg/fs.yaml
+  #- patches/usb_otg/hs_v1_f4.yaml
+  #- collect/usb_otg/hs.yaml
+  - patches/dbgmcu/dbgmcu.yaml
+  - patches/pwr/f4.yaml
+  - fields/pwr/pwr_f405_f415_f407_f417.yaml

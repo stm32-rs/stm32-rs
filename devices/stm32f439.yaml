@@ -1,0 +1,272 @@
+_svd: ../svd/stm32f439.svd
+
+_rebase:
+  # Make I2C1 the base type
+  I2C1: I2C3
+  USART1: USART6
+
+_modify:
+  # The SVD calls this C_ADC in some devices and ADC_Common in others,
+  # we'll prefer the more sensible (and better for sorting) ADC_Common
+  C_ADC:
+    name: ADC_Common
+
+_derive:
+  UART7: UART4
+  UART8: UART4
+
+ADC_Common:
+  _include:
+    - patches/adc/multi.yaml
+    - fields/adc/adc_v2_multi.yaml
+
+ADC1:
+  _include:
+    - patches/adc/smpx_18.yaml
+
+ADC?:
+  _include:
+    - fields/adc/adc_v2.yaml
+    - fields/adc/adc_v2/adc_v2_extsel_c.yaml
+    - collect/adc/jofr_jdr.yaml
+
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0090
+  CR:
+    _modify:
+      CR:
+        name: RESET
+
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge: b*
+  "IV[01][LR]R":
+    _merge: IV*
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
+
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
+# Offset of BWTR3 and BWTR4 is incorrect
+FMC:
+  _modify:
+    BWTR3:
+      addressOffset: 0x114
+      alternateRegister: ""
+    BWTR4:
+      addressOffset: 0x11C
+      alternateRegister: ""
+  SDCR2:
+    _add:
+      RPIPE:
+        description: Read pipe
+        bitOffset: 13
+        bitWidth: 2
+      RBURST:
+        description: Burst read
+        bitOffset: 12
+        bitWidth: 1
+
+I2C?:
+  _include:
+    - patches/16bit.yaml
+    - fields/i2c/v1.yaml
+  OAR1:
+    _merge:
+      ADD: "ADD[07],ADD10"
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg.yaml
+
+PWR:
+  CR:
+    _add:
+      ADCDC1:
+        bitOffset: 13
+        bitWidth: 1
+      MRUDS:
+        bitOffset: 11
+        bitWidth: 1
+      LPUDS:
+        description: Low-power regulator in deepsleep under-drive mode
+        bitOffset: 10
+        bitWidth: 1
+
+# Add missing RCC reset/enable bits
+RCC:
+  APB1RSTR:
+    _modify:
+      UART2RST:
+        name: USART2RST
+      UART3RST:
+        name: USART3RST
+  APB1ENR:
+    _modify:
+      UART7ENR:
+        name: UART7EN
+      UART8ENR:
+        name: UART8EN
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0090
+      TIFRFE:
+        name: FRE
+
+SYSCFG:
+  _include:
+    - patches/syscfg/f4_common.yaml
+    - fields/syscfg/f4/syscfg_f427_f437_f429_f439.yaml
+
+"TIM1[0134]":
+  _include: patches/tim/tim10_14_missing_opm.yaml
+
+TIM*:
+  _include:
+    - patches/tim/icpsc.yaml
+    - fields/tim/basic.yaml
+
+"TIM[34]":
+  _include:
+    - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/tim_16bit.yaml
+
+"TIM[25]":
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
+
+TIM2:
+  _include: patches/tim/tim2_itr1_rmp.yaml
+
+"TIM[1-58]":
+  _include:
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+
+"TIM[1-58-9],TIM??":
+  _include:
+    - fields/tim/tim_ckd.yaml
+
+"TIM[67]":
+  _include: fields/tim/tim6.yaml
+
+"TIM[18]":
+  _include: fields/tim/tim_advanced.yaml
+
+"TIM[1-589],TIM??":
+  _include: fields/tim/v1/ccm.yaml
+
+"TIM[1-589],TIM1[0-79],TIM2?":
+  _include: collect/tim/ccr.yaml
+
+"TIM[18],TIM20":
+  _include: collect/tim/ccr_advanced.yaml
+
+UART*:
+  _include:
+    - patches/usart/f4_add_UART_GTPR.yaml
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+
+# NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
+
+_include:
+  - patches/ethernet/mac_regs.yaml
+  - patches/ethernet/mmc.yaml
+  - patches/ethernet/f2_f4.yaml
+  - fields/can/can.yaml
+  - collect/can/can.yaml
+  - collect/can/filter_bank.yaml
+  - collect/cryp/v2.yaml
+  - patches/ltdc/f4_f7_ltdc_bccr.yaml
+  - fields/ltdc/ltdc.yaml
+  - collect/ltdc/layer.yaml
+  - fields/dac/dac_wavegen.yaml
+  - fields/dac/dac_f4_2ch.yaml
+  - fields/dac/dac_dmaudr.yaml
+  - patches/rcc/dma2d_ltdc.yaml
+  - patches/rcc/add_gpiojk.yaml
+  - patches/rcc/rcc_merge_sw_sws.yaml
+  - patches/rcc/rcc_merge_rtcsel.yaml
+  - patches/rcc/rename_plli2scfgr.yaml
+  - fields/rcc/rcc_v2.yaml
+  - fields/rcc/rcc_v2_i2s.yaml
+  - fields/rcc/rcc_v2_i2s_pll.yaml
+  - fields/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
+  - fields/crc/crc_basic.yaml
+  - fields/crc/crc_idr_8bit.yaml
+  - patches/adc/adc_common_group_name.yaml
+  - patches/dma/fcr_wo.yaml
+  - patches/dma/dma_v2.yaml
+  - fields/dma/dma_v2.yaml
+  - collect/dma/st.yaml
+  - patches/tim/group.yaml
+  - fields/eth/eth_dma_common.yaml
+  - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
+  - fields/eth/eth_mac_common.yaml
+  - fields/eth/eth_mac_cstf.yaml
+  - fields/eth/eth_mmc_common.yaml
+  - fields/eth/eth_mmc_mcfhp_mcp.yaml
+  - collect/hash/v2.yaml
+  - patches/rtc/alarm.yaml
+  - patches/rtc/f4_cr.yaml
+  - patches/rtc/rtc_cr.yaml
+  - fields/rtc/rtc_common.yaml
+  - collect/rtc/alarm.yaml
+  - collect/rtc/bkpr.yaml
+  - patches/usb_otg/fs_remove_prefix.yaml
+  - patches/usb_otg/fs_v1ext.yaml
+  - patches/usb_otg/fs_v1.yaml
+  - patches/usb_otg/fs_v1_novbussens.yaml
+  - collect/usb_otg/fs.yaml
+  #- patches/usb_otg/hs_v1_f4.yaml
+  #- collect/usb_otg/hs.yaml
+  - patches/dbgmcu/dbgmcu.yaml
+  - patches/fsmc/fsmc_nand.yaml
+  - fields/fsmc/fsmc_sram.yaml
+  - fields/fsmc/fsmc_nand.yaml
+  - fields/fsmc/fsmc_sd.yaml
+  - collect/fsmc/sram.yaml
+  - collect/fsmc/nand_v1.yaml
+  - collect/fsmc/sd.yaml
+  - fields/rng/rng_v1.yaml
+  - fields/flash/flash_v1.yaml
+  - fields/flash/flash_latency16.yaml
+  - fields/sdio/sdio_f4.yaml
+  - collect/sdio/resp.yaml
+  - patches/ethernet/f4_f7.yaml
+  - fields/eth/eth_ptp_ppsfreq.yaml
+  - patches/pwr/f4.yaml
+  - fields/pwr/pwr_f427_f437_f429_f439.yaml
