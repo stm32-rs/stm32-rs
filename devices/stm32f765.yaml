@@ -122,6 +122,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -318,7 +319,6 @@ _include:
   - fields/dma/dma_v21.yaml
   - collect/dma/st.yaml
   - fields/dma/dma2d_v1.yaml
-  - fields/spi/spi_v2.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
   - fields/eth/eth_mac_common.yaml

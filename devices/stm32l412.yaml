@@ -118,6 +118,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_common.yaml
 
 "TIM[1]":
   _include: patches/tim/icpsc.yaml
@@ -215,6 +217,4 @@ _include:
   - fields/usb/usb_with_LPM.yaml
   - collect/usb/epxr.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
-  - fields/spi/spi_l4.yaml
   - fields/fw/fw_l0_l4.yaml

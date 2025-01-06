@@ -121,6 +121,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
 
 TIM?:
   _strip: TIM?_
@@ -270,7 +271,6 @@ _include:
   - fields/ltdc/ltdc.yaml
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
   - patches/rtc/rtc_cr.yaml
   - patches/octospi/l4+.yaml
   - fields//octospi/l4.yaml

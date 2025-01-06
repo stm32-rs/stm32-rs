@@ -94,6 +94,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_v2.yaml
 
 TIM1:
   _modify:
@@ -155,7 +157,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/spi/rename_dff_tifrfe.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/rtc/rtc_register_descriptions.yaml
   - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -193,7 +194,6 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - fields/rng/rng_wl.yaml
-  - fields/spi/spi_v2.yaml
   - fields/syscfg/syscfg_wl.yaml
   - fields/usart/usart_v2C.yaml
   - fields/usart/usart_wl.yaml

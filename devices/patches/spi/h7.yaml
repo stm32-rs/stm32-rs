@@ -1,0 +1,23 @@
+_modify:
+  "CGFR,I2SCFGR":
+    name: I2SCFGR
+
+CR1:
+  _modify:
+    CSTART:
+      access: read-write
+    TCRCI:
+      name: TCRCINI
+    RCRCI:
+      name: RCRCINI
+IER:
+  _modify:
+    DPXPIE:
+      name: DXPIE
+      access: read-write
+    TXPIE:
+      access: read-write
+CFG1:
+  _modify:
+    FTHVL:
+      name: FTHLV

@@ -80,11 +80,17 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
   SR:
     _modify:
       # This field has the wrong name in the SVD compared to RM0366
       TIFRFE:
         name: FRE
+
+I2S*:
+  _include:
+    - fields/spi/spi_v2_i2s.yaml
+    - fields/spi/spi_SR_UDR_CHSIDE.yaml
 
 RCC:
   CFGR3:
@@ -189,7 +195,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/spi/spi_v2.yaml
   - fields/gpio/gpio_with_brr.yaml
   - collect/gpio/v2.yaml
   - fields/gpio/v2/common.yaml

@@ -46,16 +46,6 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0365
-      TIFRFE:
-        name: FRE
-
 RCC:
   APB1RSTR:
     _delete:
@@ -111,6 +101,22 @@ RCC:
   CFGR2:
     _delete:
       - ADC34PRES
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0365
+      TIFRFE:
+        name: FRE
+
+I2S*:
+  _include:
+    - fields/spi/spi_v2_i2s.yaml
+    - fields/spi/spi_SR_UDR_CHSIDE.yaml
 
 SYSCFG:
   _delete:
@@ -231,7 +237,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/spi/spi_v2.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_f3_i2s.yaml

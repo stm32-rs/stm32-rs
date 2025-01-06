@@ -131,6 +131,9 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/spi_FRF_FRE.yaml
+    - fields/spi/spi_v2_spi.yaml
 
 SYSCFG:
   _strip: SYSCFG_
@@ -189,4 +192,3 @@ _include:
   - patches/adc/wb_adc_common.yaml
   - collect/hsem/r.yaml
   - fields/i2c/i2c_v2.yaml
-  - fields/spi/spi_v2_no_I2S.yaml

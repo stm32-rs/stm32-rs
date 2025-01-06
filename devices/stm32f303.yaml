@@ -61,16 +61,6 @@ PWR:
         bitWidth: 1
         access: read-write
 
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0316
-      TIFRFE:
-        name: FRE
-
 RCC:
   APB1RSTR:
     _add:
@@ -84,6 +74,22 @@ RCC:
         name: UART4EN
       USART5EN:
         name: UART5EN
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0316
+      TIFRFE:
+        name: FRE
+
+I2S*:
+  _include:
+    - fields/spi/spi_v2_i2s.yaml
+    - fields/spi/spi_SR_UDR_CHSIDE.yaml
 
 SYSCFG:
   CFGR2:
@@ -200,7 +206,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/spi/spi_v2.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_f3_i2s.yaml

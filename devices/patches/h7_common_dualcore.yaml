@@ -243,36 +243,6 @@ EXTI:
     CPUPR3:
       name: C1PR3
 
-SPI*:
-  CR1:
-    _modify:
-      IOLOCK:
-        access: read-write
-      CSTART:
-        access: read-write
-      TCRCI:
-        name: TCRCINI
-      RCRCI:
-        name: RCRCINI
-  CR2:
-    _modify:
-      TSER:
-        access: read-write
-  IER:
-    _modify:
-      DPXPIE:
-        name: DXPIE
-        access: read-write
-      TXPIE:
-        access: read-write
-  _modify:
-    CGFR:
-      name: I2SCFGR
-  CFG1:
-    _modify:
-      FTHVL:
-        name: FTHLV
-
 # Work around the DMA_STR? interrupt mess in the SVD.
 # Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
 # the numeral.

@@ -138,6 +138,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSCFG:
   _delete:
@@ -236,7 +237,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/spi/spi_v2.yaml
   - patches/gpio/f3_ospeedr.yaml
   - fields/gpio/v2/common.yaml
   - fields/gpio/gpio_with_brr.yaml

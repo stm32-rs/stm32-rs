@@ -28,6 +28,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSCFG:
   _include:
@@ -88,7 +90,6 @@ _include:
   - patches/cec/cfgr.yaml
   - fields/hdmi_cec.yaml
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
   - patches/i2c/merge_CR2_SADDx_fields.yaml
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
@@ -128,7 +129,6 @@ _include:
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
-  - fields/spi/spi_v2.yaml
   - fields/usb/usb_with_LPM.yaml
   - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml

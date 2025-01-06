@@ -96,6 +96,7 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
 
 "TIM[23]":
   _include: patches/tim/rename_TIM2_CCR3_CCR3.yaml
@@ -153,7 +154,6 @@ _include:
   - fields/dac/dac_dmaudr.yaml
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
-  - fields/spi/spi_v1.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/gpio/v2/common.yaml
   - collect/gpio/v2.yaml

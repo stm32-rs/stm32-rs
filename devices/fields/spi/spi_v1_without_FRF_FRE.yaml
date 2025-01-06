@@ -1,6 +1,7 @@
 # SPIv1 is used on F1 and F4
 
 _include:
-  - spi_v1_without_FRF_FRE_UDR_CHSIDE.yaml
+  - spi_common.yaml
+  - dff.yaml
   - spi_SR_UDR_CHSIDE.yaml
   - spi_I2S.yaml

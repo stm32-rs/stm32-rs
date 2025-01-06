@@ -42,6 +42,8 @@ SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
 
 SYSCFG:
   _include:
@@ -107,7 +109,6 @@ WWDG:
 
 _include:
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
   - patches/i2c/merge_CR2_SADDx_fields.yaml
   - patches/i2c/merge_OAR1_OA1x_fields.yaml
   - patches/rcc/f0_no_hdmi_cec.yaml
@@ -134,7 +135,6 @@ _include:
   - fields/i2c/i2c_v2.yaml
   - fields/usart/usart_v2B1.yaml
   - collect/rtc/bkpr.yaml
-  - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
   - fields/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml
   - fields/flash/flash_f0.yaml

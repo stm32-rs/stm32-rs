@@ -83,6 +83,8 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_common.yaml
 
 TIM2:
   _include:
@@ -251,8 +253,6 @@ _include:
   - fields/fw/fw_l0_l4.yaml
   - patches/dma/interrupt_names.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/spi/rename_dff_tifrfe.yaml
-  - fields/spi/spi_l4.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4x6.yaml
   - patches/dac/dac_rename_stm32l4xx.yaml
