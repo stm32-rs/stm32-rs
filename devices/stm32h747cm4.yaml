@@ -31,17 +31,6 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
-# Applies to the H745/H747/H755/H757
-# CRYP and HASH are unavailable on the H745/H747
-
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
-CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
-
 DMAMUX1:
   _strip: DMAMUX?_
   _include:
@@ -193,7 +182,6 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/exti/h7_dualcore.yaml
-  - patches/dbgmcu/h7_dualcore.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/bdma.yaml
   - patches/dma/h7_dmacr.yaml
@@ -222,7 +210,6 @@ _include:
   - collect/dfsdm/v1.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
-  - collect/hash/v2.yaml
   - patches/ramecc/ramecc_new.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

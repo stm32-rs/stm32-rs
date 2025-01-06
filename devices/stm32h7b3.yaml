@@ -106,6 +106,13 @@ RCC:
   _strip:
     - RCC_
 
+SAI1:
+  _add:
+    _interrupts:
+      SAI1:
+        description: SAI1 global interrupt
+        value: 87
+
 SAI?:
   _strip: SAI_
 
@@ -185,6 +192,25 @@ TIM16:
 
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
+
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
 
 "USART*,UART*":
   _include:

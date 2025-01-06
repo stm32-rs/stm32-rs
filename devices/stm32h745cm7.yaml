@@ -1,4 +1,4 @@
-_svd: ../svd/stm32h747cm7.svd
+_svd: ../svd/stm32h745cm7.svd
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -181,7 +181,6 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/exti/h7_dualcore.yaml
-  - patches/dbgmcu/h7_dualcore.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/bdma.yaml
   - patches/dma/h7_dmacr.yaml
