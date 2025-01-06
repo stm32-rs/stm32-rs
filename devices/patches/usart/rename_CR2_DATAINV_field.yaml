@@ -1,8 +1,7 @@
 # Rename USART CR2 DATAINV field
 # Other families has it.
 
-USART*:
-  CR2:
-    _modify:
-      TAINV:
-        name: DATAINV
+CR2:
+  _modify:
+    TAINV:
+      name: DATAINV

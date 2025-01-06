@@ -219,6 +219,12 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -226,8 +232,6 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_mco.yaml
   - patches/rcc/f3_delete_tim8.yaml
@@ -258,7 +262,6 @@ _include:
   - collect/dma/v1.yaml
   - patches/exti/f3_offset.yaml
   - fields/exti/exti.yaml
-  - fields/usart/usart_v2B.yaml
   - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml

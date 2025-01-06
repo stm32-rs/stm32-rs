@@ -1,0 +1,11 @@
+CR3:
+  TCBGTIE:
+    Disabled: [0, Interrupt is inhibited]
+    Enabled: [1, "An USART interrupt is generated whenever TCBGT=1 in the ISR register"]
+  UCESM:
+    Disabled: [0, USART clock is disabled in STOP mode]
+    Enabled: [1, USART clock is enabled in STOP mode]
+ISR:
+  TCBGT:
+    NotCompleted: [0, Transmission not completed]
+    Completed: [1, Transmission has completed]

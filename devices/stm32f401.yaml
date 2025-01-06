@@ -141,6 +141,12 @@ TIM*:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_sample.yaml
+    - fields/usart/uart_usart.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -167,9 +173,6 @@ _include:
   - fields/dma/dma_v2.yaml
   - collect/dma/st.yaml
   - patches/tim/group.yaml
-  - fields/usart/uart_common.yaml
-  - fields/usart/uart_sample.yaml
-  - fields/usart/uart_usart.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
   - patches/rtc/alarm.yaml

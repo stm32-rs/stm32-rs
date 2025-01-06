@@ -129,6 +129,11 @@ UCPD?:
     - patches/ucpd/rxordseten_split.yaml
     - fields/ucpd/ucpd_v2.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0_CR1.yaml
+    - fields/usart/usart_wl.yaml
+
 USB:
   _strip: USB_
 
@@ -151,9 +156,7 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - patches/usart/g0_CR1.yaml
   # TODO: fix UART?:ICR:NECF
   #- fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml
   - fields/usb/g0_usb.yaml
   - collect/usb/chepr.yaml

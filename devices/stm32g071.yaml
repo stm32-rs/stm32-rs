@@ -152,6 +152,12 @@ UCPD?:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v2.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0.yaml
+    - fields/usart/usart_v2C.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _modify:
     "CR,CFR,SR":
@@ -172,6 +178,3 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - patches/usart/g0.yaml
-  - fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml

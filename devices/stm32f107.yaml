@@ -114,6 +114,16 @@ TIM*:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+UART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_uart.yaml
+
+USART*:
+  _include:
+    - fields/usart/uart_common.yaml
+    - fields/usart/uart_usart.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -141,9 +151,6 @@ _include:
   - fields/gpio/v1/common.yaml
   - collect/gpio/f1.yaml
   - patches/tim/group.yaml
-  - fields/usart/uart_common.yaml
-  - fields/usart/uart_uart.yaml
-  - fields/usart/uart_usart.yaml
   - fields/rcc/rcc_f107.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/rcc/rcc_cfgr2_f107.yaml

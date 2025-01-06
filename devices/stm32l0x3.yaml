@@ -57,6 +57,14 @@ LCD:
   _include:
     - patches/lcd/ram_segment_48.yaml
 
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/lpuart_v2A.yaml
+
 MPU:
   _strip: MPU_
 
@@ -149,6 +157,16 @@ TIM21:
 "TIM[1-589],TIM1[0-79],TIM2?":
   _include: collect/tim/ccr.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -161,16 +179,6 @@ _include:
   - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml
   - ./collect/tsc/iogcr.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEATx_fields.yaml
-  - patches/usart/merge_LPUART_CR1_DEDTx_fields.yaml
-  - patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
-  - patches/usart/merge_LPUART_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/unprefix_registers.yaml
   - patches/usb/rename_EPxR_EPTYPE_field.yaml
@@ -200,6 +208,4 @@ _include:
   - collect/rtc/bkpr.yaml
   - fields/syscfg/syscfg_l0.yaml
   - patches/tim/group.yaml
-  - fields/usart/lpuart_v2A.yaml
-  - fields/usart/usart_v2B1.yaml
   - fields/usb/usb_with_LPM.yaml

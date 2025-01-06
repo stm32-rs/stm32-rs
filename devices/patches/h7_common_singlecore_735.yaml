@@ -232,30 +232,6 @@ FLASH:
     #BOOT_PRGR:
     #  access: read-write
 
-SPI*:
-  CR1:
-    _modify:
-      CSTART:
-        access: read-write
-      TCRCI:
-        name: TCRCINI
-      RCRCI:
-        name: RCRCINI
-  IER:
-    _modify:
-      DPXPIE:
-        name: DXPIE
-        access: read-write
-      TXPIE:
-        access: read-write
-  _modify:
-    "CGFR,I2SCFGR":
-      name: I2SCFGR
-  CFG1:
-    _modify:
-      FTHVL:
-        name: FTHLV
-
 # Work around the DMA_STR? interrupt mess in the SVD.
 # Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
 # the numeral.

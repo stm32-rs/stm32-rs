@@ -186,6 +186,16 @@ TIM16:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+"USART*,UART*":
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/usart_v2B.yaml
+
 WWDG:
   _include:
     - patches/wwdg/h7.yaml
@@ -221,12 +231,6 @@ _include:
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields.yaml
-  - patches/usart/rename_CR2_DATAINV_field.yaml
-  - patches/usart/merge_BRR_fields.yaml
   - fields/axi/axi_v1.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml
@@ -249,7 +253,6 @@ _include:
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
   - fields/exti/exti_h7.yaml
-  - fields/usart/usart_v2B1.yaml
   - patches/rtc/alarm.yaml
   - fields/rtc/v3.yaml
   - collect/rtc/alarm.yaml

@@ -150,6 +150,8 @@ LPUART:
     _modify:
       TXFNFIE:
         name: TXEIE
+  _include:
+    - fields/usart/lpuart_wl.yaml
 
 RCC:
   _include:
@@ -213,6 +215,17 @@ TIM1[67]:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART*:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/rename_CR1_M0_field.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR3_SCARCNT_field.yaml
+    - fields/usart/usart_v2C.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -222,12 +235,6 @@ _include:
   - patches/crc/crc_rename_init.yaml
   - patches/rtc/rtc_register_descriptions.yaml
   - patches/exti/wl.yaml
-  - patches/usart/merge_CR1_DEATx_fields.yaml
-  - patches/usart/merge_CR1_DEDTx_fields.yaml
-  - patches/usart/merge_CR2_ADDx_fields_inverted.yaml
-  - patches/usart/merge_CR2_ABRMODx_fields.yaml
-  - patches/usart/rename_CR1_M0_field.yaml
-  - patches/usart/rename_CR3_SCARCNT_field.yaml
   - fields/comp/comp_wl.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_pol.yaml
@@ -245,7 +252,6 @@ _include:
   - collect/hsem/r.yaml
   - fields/lptim/lptim_v1.yaml
   - fields/lptim/lptim_wl.yaml
-  - fields/usart/lpuart_wl.yaml
   - fields/pka/pka.yaml
   - fields/pwr/pwr_wl.yaml
   - patches/rtc/wl.yaml
@@ -255,6 +261,4 @@ _include:
   - collect/rtc/alarm.yaml
   - fields/rng/rng_wl.yaml
   - fields/syscfg/syscfg_wl.yaml
-  - fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml
   - fields/vrefbuf/vrefbuf_wl.yaml

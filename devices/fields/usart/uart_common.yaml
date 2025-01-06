@@ -1,83 +1,82 @@
-"UART*,USART*":
-  DR:
-    DR: [0, 0x1FF]
+DR:
+  DR: [0, 0x1FF]
 
-  BRR:
-    DIV_Mantissa: [0, 0xFFF]
-    DIV_Fraction: [0, 0xF]
+BRR:
+  DIV_Mantissa: [0, 0xFFF]
+  DIV_Fraction: [0, 0xF]
 
-  CR1:
-    UE:
-      Disabled: [0, USART prescaler and outputs disabled]
-      Enabled: [1, USART enabled]
-    M:
-      M8: [0, 8 data bits]
-      M9: [1, 9 data bits]
-    WAKE:
-      IdleLine: [0, USART wakeup on idle line]
-      AddressMark: [1, USART wakeup on address mark]
-    PCE:
-      Disabled: [0, Parity control disabled]
-      Enabled: [1, Parity control enabled]
-    PS:
-      Even: [0, Even parity]
-      Odd: [1, Odd parity]
-    PEIE:
-      Disabled: [0, PE interrupt disabled]
-      Enabled: [1, PE interrupt enabled]
-    TXEIE:
-      Disabled: [0, TXE interrupt disabled]
-      Enabled: [1, TXE interrupt enabled]
-    TCIE:
-      Disabled: [0, TC interrupt disabled]
-      Enabled: [1, TC interrupt enabled]
-    RXNEIE:
-      Disabled: [0, RXNE interrupt disabled]
-      Enabled: [1, RXNE interrupt enabled]
-    IDLEIE:
-      Disabled: [0, IDLE interrupt disabled]
-      Enabled: [1, IDLE interrupt enabled]
-    TE:
-      Disabled: [0, Transmitter disabled]
-      Enabled: [1, Transmitter enabled]
-    RE:
-      Disabled: [0, Receiver disabled]
-      Enabled: [1, Receiver enabled]
-    RWU:
-      Active: [0, Receiver in active mode]
-      Mute: [1, Receiver in mute mode]
-    SBK:
-      NoBreak: [0, No break character is transmitted]
-      Break: [1, Break character transmitted]
+CR1:
+  UE:
+    Disabled: [0, USART prescaler and outputs disabled]
+    Enabled: [1, USART enabled]
+  M:
+    M8: [0, 8 data bits]
+    M9: [1, 9 data bits]
+  WAKE:
+    IdleLine: [0, USART wakeup on idle line]
+    AddressMark: [1, USART wakeup on address mark]
+  PCE:
+    Disabled: [0, Parity control disabled]
+    Enabled: [1, Parity control enabled]
+  PS:
+    Even: [0, Even parity]
+    Odd: [1, Odd parity]
+  PEIE:
+    Disabled: [0, PE interrupt disabled]
+    Enabled: [1, PE interrupt enabled]
+  TXEIE:
+    Disabled: [0, TXE interrupt disabled]
+    Enabled: [1, TXE interrupt enabled]
+  TCIE:
+    Disabled: [0, TC interrupt disabled]
+    Enabled: [1, TC interrupt enabled]
+  RXNEIE:
+    Disabled: [0, RXNE interrupt disabled]
+    Enabled: [1, RXNE interrupt enabled]
+  IDLEIE:
+    Disabled: [0, IDLE interrupt disabled]
+    Enabled: [1, IDLE interrupt enabled]
+  TE:
+    Disabled: [0, Transmitter disabled]
+    Enabled: [1, Transmitter enabled]
+  RE:
+    Disabled: [0, Receiver disabled]
+    Enabled: [1, Receiver enabled]
+  RWU:
+    Active: [0, Receiver in active mode]
+    Mute: [1, Receiver in mute mode]
+  SBK:
+    NoBreak: [0, No break character is transmitted]
+    Break: [1, Break character transmitted]
 
-  CR2:
-    LINEN:
-      Disabled: [0, LIN mode disabled]
-      Enabled: [1, LIN mode enabled]
-    LBDIE:
-      Disabled: [0, LIN break detection interrupt disabled]
-      Enabled: [1, LIN break detection interrupt enabled]
-    LBDL:
-      LBDL10: [0, 10-bit break detection]
-      LBDL11: [1, 11-bit break detection]
-    ADD: [0, 0xF]
+CR2:
+  LINEN:
+    Disabled: [0, LIN mode disabled]
+    Enabled: [1, LIN mode enabled]
+  LBDIE:
+    Disabled: [0, LIN break detection interrupt disabled]
+    Enabled: [1, LIN break detection interrupt enabled]
+  LBDL:
+    LBDL10: [0, 10-bit break detection]
+    LBDL11: [1, 11-bit break detection]
+  ADD: [0, 0xF]
 
-  CR3:
-    DMAT:
-      Disabled: [0, DMA mode is disabled for transmission]
-      Enabled: [1, DMA mode is enabled for transmission]
-    DMAR:
-      Disabled: [0, DMA mode is disabled for reception]
-      Enabled: [1, DMA mode is enabled for reception]
-    HDSEL:
-      FullDuplex: [0, Half duplex mode is not selected]
-      HalfDuplex: [1, Half duplex mode is selected]
-    IRLP:
-      Normal: [0, Normal mode]
-      LowPower: [1, Low-power mode]
-    IREN:
-      Disabled: [0, IrDA disabled]
-      Enabled: [1, IrDA enabled]
-    EIE:
-      Disabled: [0, Error interrupt disabled]
-      Enabled: [1, Error interrupt enabled]
+CR3:
+  DMAT:
+    Disabled: [0, DMA mode is disabled for transmission]
+    Enabled: [1, DMA mode is enabled for transmission]
+  DMAR:
+    Disabled: [0, DMA mode is disabled for reception]
+    Enabled: [1, DMA mode is enabled for reception]
+  HDSEL:
+    FullDuplex: [0, Half duplex mode is not selected]
+    HalfDuplex: [1, Half duplex mode is selected]
+  IRLP:
+    Normal: [0, Normal mode]
+    LowPower: [1, Low-power mode]
+  IREN:
+    Disabled: [0, IrDA disabled]
+    Enabled: [1, IrDA enabled]
+  EIE:
+    Disabled: [0, Error interrupt disabled]
+    Enabled: [1, Error interrupt enabled]

@@ -1,15 +1,16 @@
-USART*:
+_modify:
+  CR1_enabled:
+    name: CR1
+  ISR_enabled:
+    name: ISR
+_delete:
+  - CR1_disabled
+  - USART_CR1_disabled
+  - ISR_disabled
+  - USART_ISR_disabled
+CR1:
   _modify:
-    CR1_enabled:
-      name: CR1
-    ISR_enabled:
-      name: ISR
-  _delete:
-    - CR1_disabled
-    - ISR_disabled
-  CR1:
-    _modify:
-      TXFNFIE:
-        name: TXEIE
-      RXFNEIE:
-        name: RXNEIE
+    TXFNFIE:
+      name: TXEIE
+    RXFNEIE:
+      name: RXNEIE

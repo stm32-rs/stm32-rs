@@ -1,6 +1,5 @@
 # Merge USART CR2 ABRMODx fields
 
-USART*:
-  CR2:
-    _merge:
-      - ABRMOD*
+CR2:
+  _merge:
+    ABRMOD: ABRMOD*

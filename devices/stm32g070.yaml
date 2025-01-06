@@ -224,6 +224,12 @@ USART1:
 "TIM[18],TIM20":
   _include: collect/tim/ccr_advanced.yaml
 
+USART?:
+  _include:
+    - patches/usart/g0.yaml
+    - fields/usart/usart_v2C.yaml
+    - fields/usart/usart_wl.yaml
+
 WWDG:
   _modify:
     "CR,CFR,SR":
@@ -244,6 +250,3 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - patches/usart/g0.yaml
-  - fields/usart/usart_v2C.yaml
-  - fields/usart/usart_wl.yaml
