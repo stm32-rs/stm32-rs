@@ -36,7 +36,7 @@
 * rename `devices/common_patches` to just `devices/patches`
 * move field related patches from `peripherals` to `devices/fields`
 * Replace `makehtml.py` with `svdtools html`
-* Updated to `svd2rust` 0.35.0, `svdtools` 0.3.21, `form` 0.12.1, use tools binaries for CI
+* Updated to `svd2rust` 0.35.0, `svdtools` 0.4.0, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Show avaliable device features if no one selected (#998)

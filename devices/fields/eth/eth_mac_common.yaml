@@ -54,7 +54,7 @@ Ethernet_MAC:
       Disabled: [0, MAC receive state machine is disabled after the completion of the reception of the current frame]
       Enabled: [1, MAC receive state machine is enabled]
     _modify:
-      "?~CSTF,CSTF": # TODO
+      "?~CSTF":
         description: CRC stripping for type frames
       WD:
         description: Watchdog disable
