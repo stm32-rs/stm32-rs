@@ -11,7 +11,7 @@ SYSCFG:
     - COMP*
   CFGR1:
     _modify:
-      "?~TIM1_ITR_RMP,TIM1_ITR_RMP": # TODO
+      "?~TIM1_ITR_RMP":
         name: TIM1_ITR3_RMP
       I2C_PB6_FM:
         name: I2C_PB6_FMP

@@ -3,7 +3,7 @@ _modify:
     description: capture/compare register
 CCR?:
   _modify:
-    "?~CCR?,CCR?": # TODO
+    "?~CCR?":
       name: CCR
       description: Capture/Compare value
 
