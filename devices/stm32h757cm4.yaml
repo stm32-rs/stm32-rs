@@ -1,4 +1,4 @@
-_svd: ../svd/stm32h747cm7.svd
+_svd: ../svd/stm32h757cm4.svd
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -44,6 +44,11 @@ CRC:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
+
+# Applies to the H745/H747/H755/H757
+# CRYP and HASH are unavailable on the H745/H747
+CRYP:
+  _include: patches/cryp/merge_fields.yaml
 
 DMA2D:
   _include:
@@ -140,8 +145,6 @@ RCC:
 RTC:
   _include:
     - patches/rtc/alarm.yaml
-    - fields/rtc/rtc_common.yaml
-    - fields/rtc/rtc_h7.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
@@ -277,17 +280,18 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/hsem/h7_dual.yaml
+  - patches/hsem/h7_dual_cm4.yaml
   - collect/hsem/r.yaml
   - patches/flash/h7_dualcore.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
+  - patches/dfsdm/h735_747_753.yaml
+  - collect/dfsdm/v1.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
+  - collect/hash/v2.yaml
   - patches/ramecc/ramecc_new.yaml
-  - fields/axi/axi_v1.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml

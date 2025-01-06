@@ -45,11 +45,6 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-# Applies to the H745/H747/H755/H757
-# CRYP and HASH are unavailable on the H745/H747
-CRYP:
-  _include: patches/cryp/merge_fields.yaml
-
 DMA2D:
   _include:
     - patches/dma/dma2d_v2.yaml
@@ -290,7 +285,6 @@ _include:
   - collect/dfsdm/v1.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
-  - collect/hash/v2.yaml
   - patches/ramecc/ramecc_new.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml

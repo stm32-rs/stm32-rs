@@ -155,6 +155,14 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
+
+SAI1:
+  _add:
+    _interrupts:
+      SAI1:
+        description: SAI1 global interrupt
+        value: 87
+
 SAI?:
   _strip: SAI_
   _include:
@@ -258,6 +266,25 @@ TIM1[67]:
     - fields/tim/tim_h7.yaml
     - fields/tim/v2/ccm_common.yaml
     - collect/tim/ccr.yaml
+
+USART2:
+  _add:
+    _interrupts:
+      USART2:
+        description: USART2 global interrupt
+        value: 38
+USART3:
+  _add:
+    _interrupts:
+      USART3:
+        description: USART3 global interrupt
+        value: 39
+USART6:
+  _add:
+    _interrupts:
+      USART6:
+        description: USART6 global interrupt
+        value: 71
 
 "USART*,UART*":
   _include:

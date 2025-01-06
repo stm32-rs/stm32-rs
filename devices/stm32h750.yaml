@@ -1,4 +1,6 @@
-_svd: ../svd/stm32h747cm7.svd
+_svd: ../svd/stm32h750.svd
+
+_clear_fields: "*"
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -23,19 +25,20 @@ ADC?:
   _include:
     - patches/adc/offset.yaml
     - patches/adc/h7.yaml
-    - patches/adc/h7_2.yaml
-    - patches/adc/h7_boost_rev_v.yaml
-    - fields/adc/adc_h7_revision_v.yaml
+    - patches/adc/h7_1.yaml
     - fields/adc/adc_v3_h7.yaml
     - collect/adc/v3.yaml
   SQR?:
     SQ*: [0, 19]
 
 BDMA:
+  _strip: BDMA_
   _include:
-    - patches/dma/bdma.yaml
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
+
+CEC:
+  _strip: CEC_
 
 CRC:
   _include:
@@ -46,6 +49,7 @@ CRC:
     - fields/crc/crc_pol.yaml
 
 DMA2D:
+  _strip: DMA2D_
   _include:
     - patches/dma/dma2d_v2.yaml
     - fields/dma/dma2d_v2.yaml
@@ -58,9 +62,8 @@ DMA?:
     - collect/dma/st.yaml
 
 DMAMUX1:
-  _strip: DMAMUX?_
+  _strip: DMAMUX_
   _include:
-    - patches/dma/h7_dmamux.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux1_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -73,22 +76,30 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
-DSIHOST:
-  _strip: DSI_
-  _include:
-    - patches/dsi/h7-desc.yaml
-    - collect/dsi/isr.yaml
-
 EXTI:
   _include:
-    - patches/exti/h7_dualcore.yaml
+    - patches/exti/h7_singlecore.yaml
     - fields/exti/exti_h7.yaml
 
 FDCAN?:
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
+FLASH:
+  CR1:
+    _add:
+      # CR2 only. Needed for clusterization
+      SPSS:
+        description: Bank 2 special sector selection bit
+        bitOffset: 14
+        bitWidth: 1
+  SR1:
+    _delete: CRCRDERR1
+  CCR1:
+    _delete: CLR_CRCRDERR1
+
 FMC:
+  _strip: FMC_
   _include:
     - collect/fsmc/sdram.yaml
 
@@ -100,11 +111,13 @@ GPIO?:
     - collect/gpio/v2.yaml
 
 I2C?:
+  _strip: I2C_
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - fields/i2c/v2.yaml
 
-IWDG1:
+IWDG:
+  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
@@ -113,29 +126,26 @@ MDMA:
   _include:
     - collect/dma/mdma.yaml
 
+OTG?_HS_*:
+  _strip: OTG_HS_
+
+OTG1_HS_GLOBAL:
+  _include: patches/usb_otg/hsglobal.yaml
+
+OTG1_HS_HOST:
+  _include: patches/usb_otg/hshost_address_12_15.yaml
+
+OTG1_HS_DEVICE:
+  _include: patches/usb_otg/hsdevice.yaml
+
 QUADSPI:
   _strip: QUADSPI_
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-RCC:
-  _delete:
-    - ICSCR
-  _add:
-    CSICFGR:
-      description: RCC CSI configuration register
-      addressOffset: 0x000C
-      access: read-write
-      fields:
-        CSITRIM:
-          description: CSI clock trimming
-          bitOffset: 24
-          bitWidth: 6
-        CSICAL:
-          description: CSI clock calibration
-          bitOffset: 0
-          bitWidth: 9
+RNG:
+  _strip: RNG_
 
 RTC:
   _include:
@@ -145,13 +155,10 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI4:
-  _strip: SAI_
-
 SAI?:
+  _strip: SAI_
   _include:
     - patches/sai/h7.yaml
-    - patches/sai/h7_mcken.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
@@ -159,22 +166,16 @@ SAI?:
 SPI?:
   _include:
     - patches/spi/rxtxdr.yaml
-    - patches/spi/h7_2.yaml
+    - patches/spi/h7.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
 
-SYSCFG:
-  _include:
-    - patches/syscfg/h74x_pwrcr.yaml
-    - fields/syscfg/syscfg_h747.yaml
-
 TIM1:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/dmab_32.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_advanced.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
@@ -187,8 +188,8 @@ TIM1:
 TIM2:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
     - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_32bit.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
@@ -200,8 +201,8 @@ TIM2:
 TIM3:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
     - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_16bit.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
@@ -218,8 +219,8 @@ TIM6:
 TIM12:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
     - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/tim_h7.yaml
     - fields/tim/v2/ccm9_15.yaml
@@ -230,8 +231,8 @@ TIM12:
 TIM13:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
     - patches/tim/tim_ch_16bit_l.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/tim_h7.yaml
     - fields/tim/v2/ccm_common.yaml
@@ -266,27 +267,26 @@ USART*:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2B.yaml
 
-WWDG1:
+WWDG:
+  _strip: WWDG_
   _include:
     - patches/wwdg/h7.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - fields/hdmi_cec.yaml
-  - patches/h7_common_dualcore.yaml
+  - patches/h7_common_singlecore.yaml
   - patches/rcc/h7_src_sel.yaml
-  - patches/ethernet/h7_combined_desc.yaml
-  - patches/hsem/h7_dual.yaml
+  - patches/dbgmcu/h7.yaml
   - collect/hsem/r.yaml
-  - patches/flash/h7_dualcore.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - patches/h7_spdifrx.yaml
-  - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
-  - patches/ramecc/ramecc_new.yaml
+  - collect/hash/v2.yaml
+  - patches/dfsdm/h735_747_753.yaml
+  - collect/dfsdm/v1.yaml
+  - patches/ramecc/ramecc.yaml
   - fields/axi/axi_v1.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
@@ -299,9 +299,8 @@ _include:
   - collect/ltdc/layer.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_v3_hrtim.yaml
-  - fields/rcc/rcc_h7_revision_v.yaml
+  - fields/rcc/rcc_h7_revision_y.yaml
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - patches/ethernet/h7_mac.yaml
-  - patches/pwr/h7_dual.yaml
+  - patches/h743_hrtim_common.yaml
