@@ -21,6 +21,7 @@
 * HRTIM: specify TIM events for each block
 * Collent in field arrays: ADC, GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
 * ADC: C0+G0+WL field arrays
+* Derive SYSCFG EXTI fields
 * L1 TIM9: add CCER
 * Update STM32H5 source to v1.4
 * Update STM32F3 source to V1.3
