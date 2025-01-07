@@ -71,6 +71,15 @@ FLASH:
   CCR1:
     _delete: CLR_CRCRDERR1
 
+GPIOA:
+  _strip: GPIOA_
+
+GPIO?:
+  _include:
+    - patches/gpio/add_r_suffix.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -245,8 +254,6 @@ _include:
   - fields/crc/crc_idr_32bit.yaml
   - fields/crc/crc_pol.yaml
   - patches/gpio/h7_ijk.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml

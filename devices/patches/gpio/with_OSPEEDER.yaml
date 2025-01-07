@@ -1,7 +1,6 @@
 # This is a GPIO patch for the OSPEEDER typo
 
-GPIO*:
-  _modify:
-    OSPEEDER:
-      name: OSPEEDR
-      displayName: OSPEEDR
+_modify:
+  OSPEEDER:
+    name: OSPEEDR
+    displayName: OSPEEDR

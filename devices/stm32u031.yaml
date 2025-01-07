@@ -1,3 +1,9 @@
 _svd: ../svd/stm32u031.svd
 
 _clear_fields: "*"
+
+GPIO?:
+  _strip: GPIO?_
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml

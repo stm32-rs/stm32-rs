@@ -42,6 +42,11 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
 GTZC1_MPCBB?:
   _strip: MPCBB?_
   _include:
@@ -99,7 +104,6 @@ _include:
   - patches/octospi/u535_u545.yaml
   - patches/tim/group.yaml
   - fields/exti/exti_u5.yaml
-  - fields/gpio/gpio_l5_u5.yaml
   - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

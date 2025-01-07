@@ -12,6 +12,11 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -111,9 +116,6 @@ _include:
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - fields/gpio/v2/common.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_add_pol.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml

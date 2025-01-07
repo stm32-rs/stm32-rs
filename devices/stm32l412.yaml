@@ -67,6 +67,19 @@ EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
 
+GPIO?:
+  BRR:
+    _add:
+      BR:
+        description: These bits are write-only. A read to these bits returns the value 0x0000
+        access: write-only
+        bitOffset: 0
+        bitWidth: 16
+    _split: [BR]
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -212,8 +225,6 @@ WWDG:
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

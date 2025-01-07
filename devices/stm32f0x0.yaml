@@ -16,6 +16,11 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -130,9 +135,6 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/tim/group.yaml
-  - fields/gpio/v2/common.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - collect/gpio/v2.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml

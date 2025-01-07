@@ -31,6 +31,11 @@ EXTI:
     - patches/exti/exti_rename.yaml
     - fields/exti/exti_g0.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_g0_l0.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/g0.yaml
@@ -151,8 +156,6 @@ _include:
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
-  - fields/gpio/gpio_g0_l0.yaml
-  - collect/gpio/v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml

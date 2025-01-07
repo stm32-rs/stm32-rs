@@ -4,6 +4,8 @@ _modify:
   name: STM32C071
   TIM*:
     groupName: TIM
+  GPIO?:
+    groupName: GPIO
 
 ADC:
   _strip: ADC_
@@ -19,6 +21,11 @@ ADC:
 
 CRS:
   _strip: CRS_
+
+GPIO?:
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
 
 I2C?:
   _strip: I2C_

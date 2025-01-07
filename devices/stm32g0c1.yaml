@@ -34,6 +34,11 @@ EXTI:
 FDCAN?:
   _strip: FDCAN_
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_g0_l0.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -142,6 +147,7 @@ UCPD?:
 USART?:
   _include:
     - patches/usart/g0_CR1.yaml
+    - fields/usart/usart_v2C.yaml
     - fields/usart/usart_wl.yaml
 
 USB:
@@ -160,13 +166,9 @@ _include:
   - collect/dma/v1.yaml
   - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
-  - fields/gpio/gpio_g0_l0.yaml
-  - collect/gpio/v2.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  # TODO: fix UART?:ICR:NECF
-  #- fields/usart/usart_v2C.yaml
   - fields/usb/g0_usb.yaml
   - collect/usb/chepr.yaml

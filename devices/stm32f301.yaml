@@ -64,6 +64,11 @@ EXTI:
     IMR2:
       resetValue: "0xFFFFFFFE"
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/f3.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -203,10 +208,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - collect/gpio/v2.yaml
-  - fields/gpio/v2/common.yaml
-  - patches/gpio/f3_ospeedr.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_f3_i2s.yaml

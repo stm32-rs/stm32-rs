@@ -80,6 +80,13 @@ EXTI:
         bitWidth: 1
         access: read-write
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+GPIO[AB]:
+  _include:
+    - collect/gpio/v2.yaml
+
 HSEM:
   _strip: HSEM_
   _modify:
@@ -247,7 +254,6 @@ _include:
   - fields/dbg/dbg_wl.yaml
   - fields/exti/exti.yaml
   - fields/flash/flash_wl.yaml
-  - fields/gpio/gpio_wl.yaml
   - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml
   - fields/lptim/lptim_v1.yaml

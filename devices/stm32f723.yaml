@@ -41,6 +41,11 @@ FLASH:
   _include:
     - patches/flash/latency.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -186,8 +191,6 @@ _include:
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_f7.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml

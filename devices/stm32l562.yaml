@@ -57,6 +57,11 @@ EXTI:
 FMC:
   _strip: FMC_
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2.yaml
+
 GTZC_MPCBB?:
   _strip: MPCBB?_
   _array:
@@ -144,7 +149,6 @@ _include:
   - collect/flash/secbbr.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
-  - fields/gpio/gpio_l5_u5.yaml
   - fields/rcc/rcc_l5.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml

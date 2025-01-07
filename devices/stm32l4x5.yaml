@@ -106,6 +106,13 @@ EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
 
+GPIO?:
+  _include:
+    - patches/gpio/l4_ascr.yaml
+    - patches/gpio/l4_brr.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -286,10 +293,6 @@ _include:
   - fields/fsmc/fsmc_wfdis.yaml
   - fields/fsmc/fsmc_nand.yaml
   - collect/fsmc/sram.yaml
-  - patches/gpio/l4_ascr.yaml
-  - patches/gpio/l4_brr.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

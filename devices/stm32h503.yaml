@@ -19,6 +19,11 @@ ADC?:
 GPIOC:
   _strip: GPIO_
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
 GTZC1:
   _strip: GTZC1_
   _array:
@@ -122,14 +127,9 @@ _include:
   - fields/crs/crs.yaml
   - fields/sbs/sbs.yaml
   - fields/pwr/pwr_h5.yaml
-  - fields/gpio/v3/common.yaml
-  - fields/gpio/v3/af0-15.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - fields/gpio/gpio_with_hslvr.yaml
   - fields/exti/exti.yaml
   - fields/exti/exti_priv.yaml
   - fields/gpdma/gpdma.yaml
   - patches/rcc/h503.yaml
   - fields/rcc/rcc_h503.yaml
   - collect/usb/chepr.yaml
-  - collect/gpio/v2r.yaml

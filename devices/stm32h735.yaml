@@ -105,6 +105,15 @@ DCMI:
         name: DCMI_PSSI
         description: DCMI/PSSI global interrupt
 
+GPIOA:
+  _strip: GPIOA_
+
+GPIO?:
+  _include:
+    - patches/gpio/add_r_suffix.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -472,8 +481,6 @@ _include:
   - fields/crc/crc_idr_32bit.yaml
   - fields/crc/crc_pol.yaml
   - patches/gpio/h7_jk.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - fields/lptim/lptim_v1.yaml
   - patches/ltdc/ltdc.yaml
   - fields/ltdc/ltdc.yaml

@@ -1,42 +1,41 @@
-GPIO*:
-  MODER:
-    _array:
-      MODER*:
-        description: Port x configuration pin %s
-  OTYPER:
-    _array:
-      OT*:
-        description: Port x configuration pin %s
-  OSPEEDR:
-    _array:
-      OSPEEDR*:
-        description: Port x configuration pin %s
-  PUPDR:
-    _array:
-      PUPDR*:
-        description: Port x configuration pin %s
-  IDR:
-    _array:
-      IDR*:
-        description: Port input data pin %s
-  ODR:
-    _array:
-      ODR*:
-        description: Port output data pin %s
-  BSRR:
-    _array:
-      BR*:
-        description: Port x reset pin %s
-      BS*:
-        description: Port x set pin %s
-  "?~BRR":
-    _array:
-      BR*:
-        description: Port x reset pin %s
-  "?~LCKR":
-    _array:
-      "LCK[0-9],LCK1[0-5]":
-        description: Port x lock pin %s
-  AFR[LH]:
-    _array:
-      "AFR*,AFSEL*": {}
+MODER:
+  _array:
+    MODER*:
+      description: Port x configuration pin %s
+OTYPER:
+  _array:
+    OT*:
+      description: Port x configuration pin %s
+OSPEEDR:
+  _array:
+    OSPEEDR*:
+      description: Port x configuration pin %s
+PUPDR:
+  _array:
+    PUPDR*:
+      description: Port x configuration pin %s
+IDR:
+  _array:
+    IDR*:
+      description: Port input data pin %s
+ODR:
+  _array:
+    ODR*:
+      description: Port output data pin %s
+BSRR:
+  _array:
+    BR*:
+      description: Port x reset pin %s
+    BS*:
+      description: Port x set pin %s
+"?~BRR":
+  _array:
+    BR*:
+      description: Port x reset pin %s
+"?~LCKR":
+  _array:
+    "LCK[0-9],LCK1[0-5]":
+      description: Port x lock pin %s
+AFR[LH]:
+  _array:
+    "AFR*,AFSEL*": {}

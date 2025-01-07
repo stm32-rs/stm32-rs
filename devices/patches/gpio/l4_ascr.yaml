@@ -1,17 +1,16 @@
-GPIO*:
-  _add:
-    ASCR:
-      description: GPIO port analog switch control register
-      addressOffset: 0x2C
-      fields:
-        ASC:
-          description: These bits are written by software to configure the analog connection of the IOs.
-          access: read-write
-          bitOffset: 0
-          bitWidth: 16
+_add:
   ASCR:
-    _split: [ASC]
-    ASC*:
-      _write:
-        NoAction: [0, Disconnect analog switch to the ADC input]
-        Reset: [1, " Connect analog switch to the ADC input"]
+    description: GPIO port analog switch control register
+    addressOffset: 0x2C
+    fields:
+      ASC:
+        description: These bits are written by software to configure the analog connection of the IOs.
+        access: read-write
+        bitOffset: 0
+        bitWidth: 16
+ASCR:
+  _split: [ASC]
+  ASC*:
+    _write:
+      NoAction: [0, Disconnect analog switch to the ADC input]
+      Reset: [1, " Connect analog switch to the ADC input"]
