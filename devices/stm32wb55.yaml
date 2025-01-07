@@ -93,6 +93,13 @@ EXTI:
   C2IMR2:
     _split: [IM]
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+GPIO[A-E]:
+  _include:
+    - collect/gpio/v2.yaml
+
 HSEM:
   _modify:
     C1IER0:

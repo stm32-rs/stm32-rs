@@ -77,6 +77,11 @@ FMPI2C?:
   _include:
     - fields/i2c/v2.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -268,8 +273,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
   - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml

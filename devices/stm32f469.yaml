@@ -84,6 +84,11 @@ FLASH:
       LATENCY:
         bitWidth: 4
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -269,8 +274,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
   - fields/rcc/rcc_v2_dckcfgr_48m_sd.yaml
   - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml

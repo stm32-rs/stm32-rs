@@ -1,8 +1,0 @@
-# Some GPIO appear to have BRR registers
-
-GPIO*:
-  BRR:
-    BR*:
-      _write:
-        NoAction: [0, No action on the corresponding ODx bit]
-        Reset: [1, Reset the ODx bit]

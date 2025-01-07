@@ -57,6 +57,11 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -260,10 +265,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/gpio/gpio_with_brr.yaml
-  - fields/gpio/v2/common.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - collect/gpio/v2.yaml
   #- patches/usart/merge_BRR_fields.yaml
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   - fields/tsc/tsc.yaml

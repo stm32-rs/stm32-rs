@@ -6,15 +6,6 @@ _modify:
     name: FLASH
     groupName: FLASH
 
-GPIOA:
-  # The SVD incorrectly names all the GPIO registers compared to RM0433.
-  _strip: GPIOA_
-
-# The SVD is just quite different to the RM for all these registers.
-# We'll go with the RM convention even though it is inconsistent too.
-GPIO*:
-  _include: gpio/add_r_suffix.yaml
-
 FLASH:
   _modify:
     PRAR_PRG2:

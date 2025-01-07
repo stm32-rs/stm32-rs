@@ -3,4 +3,12 @@
 _include:
   - v3/common.yaml
   - v3/af0-15.yaml
-  - gpio_with_brr.yaml
+
+"?~HSLVR":
+  HSLV*:
+    Disabled: [0, I/O speed optimization disabled]
+    Enabled: [1, I/O speed optimization enabled]
+"?~SECCFGR":
+  SEC*:
+    NonSecure: [0, The I/O pin is non-secure]
+    Secure: [1, The I/O pin is non-secure]

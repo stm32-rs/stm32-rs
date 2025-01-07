@@ -39,6 +39,11 @@ EXTI:
 FDCAN:
   _strip: FDCAN_
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -133,8 +138,6 @@ _include:
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml
   - fields/opamp/opamp_g4_common.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/g4.yaml
   - fields/rcc/rcc_g4.yaml

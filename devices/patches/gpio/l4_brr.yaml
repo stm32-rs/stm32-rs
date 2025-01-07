@@ -1,17 +1,12 @@
-GPIO*:
-  _add:
-    BRR:
-      description: GPIO port bit reset register
-      addressOffset: 0x28
-      fields:
-        BR:
-          description: These bits are write-only. A read to these bits returns the value 0x0000
-          access: write-only
-          bitOffset: 0
-          bitWidth: 16
+_add:
   BRR:
-    _split: [BR]
-    BR*:
-      _write:
-        NoAction: [0, No action on the corresponding ODx bit]
-        Reset: [1, Reset the corresponding ODx bit]
+    description: GPIO port bit reset register
+    addressOffset: 0x28
+    fields:
+      BR:
+        description: These bits are write-only. A read to these bits returns the value 0x0000
+        access: write-only
+        bitOffset: 0
+        bitWidth: 16
+BRR:
+  _split: [BR]

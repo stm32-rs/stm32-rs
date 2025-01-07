@@ -1,3 +1,5 @@
+# This GPIO is used on the STM32F3 family.
+
 # F3 mcus does not support very high speed mode.
 #
 # | value | F3     | others    |
@@ -7,10 +9,9 @@
 # | 0b10  | Low    | High      |
 # | 0b11  | High   | Very high |
 
-GPIO*:
-  OSPEEDR:
-    OSPEEDR*:
-      _replace_enum:
-        LowSpeed: [0, Low speed]
-        MediumSpeed: [1, Medium speed]
-        HighSpeed: [3, High speed]
+_include: no_speed.yaml
+OSPEEDR:
+  OSPEEDR*:
+    LowSpeed: [0, Low speed]
+    MediumSpeed: [1, Medium speed]
+    HighSpeed: [3, High speed]

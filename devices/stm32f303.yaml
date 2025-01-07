@@ -42,6 +42,11 @@ EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/f3.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -207,10 +212,6 @@ _include:
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
   - fields/pwr/pwr_v1.yaml
-  - patches/gpio/f3_ospeedr.yaml
-  - fields/gpio/v2/common.yaml
-  - fields/gpio/gpio_with_brr.yaml
-  - collect/gpio/v2.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml

@@ -33,6 +33,11 @@ ADC4:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
 GTZC1_MPCBB?:
   _strip: MPCBB?_
   _include:
@@ -100,7 +105,6 @@ _include:
   - fields/exti/exti_u5.yaml
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
-  - fields/gpio/gpio_l5_u5.yaml
   - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

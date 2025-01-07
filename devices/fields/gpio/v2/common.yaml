@@ -1,13 +1,10 @@
-# This GPIO is used on the STM32F0, F3, F4, F7 and WL families.
+# This GPIO is used on the STM32F0, F4, F7 and WL families.
 
-_include:
-  - base.yaml
+_include: no_speed.yaml
 
-GPIO*:
-  "?~LCKR":
-    "LCK[0-9],LCK1[0-5]":
-      Unlocked: [0, Port configuration not locked]
-      Locked: [1, Port configuration locked]
-    LCKK:
-      NotActive: [0, Port configuration lock key not active]
-      Active: [1, Port configuration lock key active]
+OSPEEDR:
+  OSPEEDR*:
+    LowSpeed: [0, Low speed]
+    MediumSpeed: [1, Medium speed]
+    HighSpeed: [2, High speed]
+    VeryHighSpeed: [3, Very high speed]

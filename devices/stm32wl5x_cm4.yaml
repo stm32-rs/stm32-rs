@@ -51,6 +51,13 @@ DAC:
 EXTI:
   _strip: EXTI_
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+GPIO[AB]:
+  _include:
+    - collect/gpio/v2.yaml
+
 HSEM:
   _strip: HSEM_
   _modify:
@@ -207,7 +214,6 @@ _include:
   - fields/exti/exti.yaml
   - fields/flash/flash_wl.yaml
   - fields/flash/flash_wl_c2.yaml
-  - fields/gpio/gpio_wl.yaml
   - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml
   - fields/ipcc/ipcc_wl.yaml

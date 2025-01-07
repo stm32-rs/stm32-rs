@@ -34,6 +34,11 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
+GPIO?:
+  _include:
+    - fields/gpio/gpio_g0_l0.yaml
+    - collect/gpio/v2r.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -175,8 +180,6 @@ _include:
   - fields/exti/exti.yaml
   - fields/flash/flash_l0.yaml
   - fields/fw/fw_l0_l4.yaml
-  - fields/gpio/gpio_g0_l0.yaml
-  - collect/gpio/v2r.yaml
   - fields/lptim/lptim_v1.yaml
   - fields/nvic/nvic_v1.yaml
   - fields/pwr/pwr_l0.yaml

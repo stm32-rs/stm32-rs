@@ -104,6 +104,11 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -344,8 +349,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
   - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/f7_polysize_rev_in_rev_out.yaml
   - fields/crc/crc_advanced.yaml

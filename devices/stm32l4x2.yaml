@@ -70,6 +70,12 @@ EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
 
+GPIO?:
+  _include:
+    - patches/gpio/l4_brr.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -248,7 +254,6 @@ WWDG:
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:
-  - patches/gpio/l4_brr.yaml
   - patches/nvic/4_prio_bits.yaml
   - fields/can/can.yaml
   - collect/can/can.yaml
@@ -256,8 +261,6 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

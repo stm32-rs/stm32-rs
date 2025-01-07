@@ -28,6 +28,12 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+GPIO?:
+  _include:
+    - patches/gpio/with_OSPEEDER.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -105,9 +111,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
-  - patches/gpio/with_OSPEEDER.yaml
-  - fields/gpio/v2/common.yaml
-  - collect/gpio/v2.yaml
   - patches/tim/group.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml

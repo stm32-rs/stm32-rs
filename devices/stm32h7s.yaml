@@ -21,6 +21,13 @@ CRYP:
     CSGCMCCM?R: {}
     CSGCM?R: {}
 
+GPIO?:
+  _strip: GPIO?_
+  _include:
+    - fields/gpio/v3/common.yaml
+    - fields/gpio/v3/af0-15.yaml
+    - collect/gpio/v2r.yaml
+
 IWDG:
   _include: patches/16bit_with_mask.yaml
 
@@ -54,8 +61,4 @@ _include:
   - collect/dma/h7rs_gpdma.yaml
   - collect/mce/v1.yaml
   - collect/sdmmc/fifo.yaml
-  - collect/gpio/v2r.yaml
-  - fields/gpio/v3/common.yaml
-  - fields/gpio/v3/af0-15.yaml
-  - fields/gpio/gpio_with_brr.yaml
   - fields/rcc/rcc_h7rs.yaml

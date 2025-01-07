@@ -5,15 +5,6 @@ _modify:
   Flash:
     name: FLASH
 
-GPIO?:
-  # The SVD incorrectly names all the GPIO registers compared to RM0433.
-  _strip: GPIO_
-
-# The SVD is just quite different to the RM for all these registers.
-# We'll go with the RM convention even though it is inconsistent too.
-GPIO*:
-  _include: gpio/add_r_suffix.yaml
-
 AXI:
   _strip: AXI_
 
