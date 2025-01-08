@@ -49,6 +49,11 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 Ethernet_MAC:
   MACA2LR:
     _modify:
@@ -161,8 +166,6 @@ _include:
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/rcc/rcc_cfgr2_f107.yaml
   - fields/rtc/rtc_f1.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - patches/usb_otg/fs_fixes_107.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

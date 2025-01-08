@@ -66,6 +66,11 @@ DBGMCU:
         description: DBG_CAN_STOP
     _delete: DBG_CAN2_STOP
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -198,8 +203,6 @@ _include:
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/rtc/rtc_f1.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - collect/sdio/resp.yaml
   - fields/usb/usb.yaml
   - collect/usb/epxr.yaml

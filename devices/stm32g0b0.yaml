@@ -21,6 +21,22 @@ EXTI:
     - patches/exti/exti_rename.yaml
     - fields/exti/exti_g0.yaml
 
+DMA*:
+  _strip: DMA_
+
+DMA2:
+  _include:
+    - patches/dma/g0_5ch.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX:
+  _include:
+    - collect/dma/dmamux.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
@@ -147,9 +163,6 @@ _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma2_5ch.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml

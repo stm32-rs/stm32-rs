@@ -6,10 +6,6 @@ _copy:
   DMA2:
     from: DMA1
 
-DMA2:
-  _include:
-   - g0_5ch.yaml
-
 DMA1:
   _interrupts:
     DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5:

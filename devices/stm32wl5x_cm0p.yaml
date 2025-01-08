@@ -30,6 +30,15 @@ DAC:
   CR:
     _merge: TSEL1*
 
+DMA?:
+  _include:
+    - fields/dma/dma_wl.yaml
+
+DMAMUX:
+  _include:
+    - fields/dma/dmamux_wl.yaml
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _strip: EXTI_
   _include:
@@ -191,9 +200,6 @@ _include:
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml
-  - fields/dma/dma_wl.yaml
-  - fields/dma/dmamux_wl.yaml
-  - collect/dma/dmamux.yaml
   - fields/flash/flash_wl.yaml
   - fields/flash/flash_wl_c2.yaml
   - fields/hsem/hsem_wl.yaml

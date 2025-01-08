@@ -31,6 +31,12 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+BDMA:
+  _include:
+    - patches/dma/bdma.yaml
+    - fields/dma/bdma.yaml
+    - collect/dma/bdma.yaml
+
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747
 
@@ -41,6 +47,18 @@ CRYP:
     _merge: b*
   "IV[01][LR]R":
     _merge: IV*
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
 
 DMAMUX1:
   _strip: DMAMUX?_
@@ -83,6 +101,10 @@ IWDG1:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MDMA:
+  _include:
+    - collect/dma/mdma.yaml
 
 QUADSPI:
   _strip: QUADSPI_
@@ -207,16 +229,6 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/dbgmcu/h7_dualcore.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/bdma.yaml
-  - patches/dma/h7_dmacr.yaml
-  - fields/dma/bdma.yaml
-  - fields/dma/dma_v3.yaml
-  - collect/dma/st.yaml
-  - collect/dma/bdma.yaml
-  - collect/dma/mdma.yaml
-  - patches/dma/dma2d_v2.yaml
-  - fields/dma/dma2d_v2.yaml
   - patches/hsem/h7_dual.yaml
   - collect/hsem/r.yaml
   - patches/dsi/h7.yaml

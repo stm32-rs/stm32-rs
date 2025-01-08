@@ -72,6 +72,11 @@ DFSDM:
       name: FLT1JCHGR
   _include: collect/dfsdm/l4.yaml
 
+DMA?:
+  _include:
+    - fields/dma/dma_v1_with_remapping.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -272,8 +277,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - fields/dma/dma_v1_with_remapping.yaml
-  - collect/dma/v1.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

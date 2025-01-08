@@ -63,6 +63,11 @@ ADC?:
   SQR?:
     SQ*: [0, 18]
 
+DMA?:
+  _include:
+    - fields/dma/dma_v1_with_remapping.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -233,8 +238,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - fields/dma/dma_v1_with_remapping.yaml
-  - collect/dma/v1.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml

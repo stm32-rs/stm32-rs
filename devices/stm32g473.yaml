@@ -32,6 +32,15 @@ COMP:
 DAC?:
   _strip: DAC_
 
+DMA1:
+  _include:
+    - patches/dma/g4_ifcr.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX:
+  _include:
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -129,9 +138,6 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - collect/dma/dmamux.yaml
-  - patches/dma/g4_ifcr.yaml
-  - collect/dma/v1.yaml
   - fields/rcc/g4.yaml
   - collect/comp/csr.yaml
   - patches/cordic/g4.yaml

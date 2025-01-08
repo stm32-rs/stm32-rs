@@ -63,6 +63,20 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
+DMA2D:
+  _include:
+    - patches/dma/dma2d_l4+.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX:
+  _include:
+    - fields/dma/dmamux_wl.yaml
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _include:
     - patches/exti/l4+.yaml
@@ -297,7 +311,6 @@ _include:
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
-  - patches/dma/dma2d_l4+.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
   - patches/sai/sai_l4+.yaml
   - patches/sai/sai_v1.yaml
@@ -310,10 +323,6 @@ _include:
   - fields/dac/dac_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - fields/dma/dmamux_wl.yaml
-  - collect/dma/dmamux.yaml
   - patches/syscfg/l4+.yaml
   - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml

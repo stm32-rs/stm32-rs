@@ -39,6 +39,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -262,8 +267,6 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml

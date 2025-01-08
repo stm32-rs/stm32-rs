@@ -16,6 +16,11 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -135,7 +140,7 @@ _include:
   - patches/rcc/f0_v18pwrrstf.yaml
   - patches/rcc/f0_usart3.yaml
   - patches/rcc/f0_usart6.yaml
-  - patches/dma/f0_dmaen.yaml
+  - patches/rcc/f0_dmaen.yaml
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/tim/group.yaml
@@ -143,8 +148,6 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x0.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - collect/rtc/bkpr.yaml
   - fields/usb/usb_with_LPM.yaml
   - patches/flash/f0_ram_parity_check.yaml

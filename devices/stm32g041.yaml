@@ -38,6 +38,22 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+DMA*:
+  _strip: DMA_
+
+DMA1:
+  _include:
+    - patches/dma/g0_5ch.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX:
+  _include:
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
@@ -153,9 +169,6 @@ _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_5ch_only.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml

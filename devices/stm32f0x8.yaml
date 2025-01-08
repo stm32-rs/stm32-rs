@@ -19,6 +19,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -116,7 +121,7 @@ _include:
   - patches/rcc/f0_usart3.yaml
   - patches/rcc/f0_usart6.yaml
   - patches/rcc/f0_usart78.yaml
-  - patches/dma/f0_dmaen.yaml
+  - patches/rcc/f0_dmaen.yaml
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
@@ -130,8 +135,6 @@ _include:
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f0x128.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml

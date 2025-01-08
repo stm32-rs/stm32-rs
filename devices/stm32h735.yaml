@@ -56,6 +56,12 @@ ADC[12]:
   SQR?:
     SQ*: [0, 19]
 
+BDMA:
+  _include:
+    - patches/dma/bdma_v2_new.yaml
+    - fields/dma/bdma.yaml
+    - collect/dma/bdma.yaml
+
 CORDIC:
   _strip: CORDIC_
 
@@ -66,6 +72,18 @@ CRYP:
     _merge: k*
   "IV[01][LR]R":
     _merge: IV*
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
 
 DMAMUX1:
   _strip: DMAMUX_
@@ -142,6 +160,10 @@ LTDC:
 
 MDIOS:
   _strip: MDIOS_
+
+MDMA:
+  _include:
+    - collect/dma/mdma.yaml
 
 # OCTOSPI blocks
 OCTOSPI?:
@@ -463,16 +485,6 @@ _include:
   - patches/h7_common_singlecore_735.yaml
   - collect/fsmc/sdram.yaml
   - patches/ethernet/h7_combined_desc.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/bdma_v2_new.yaml
-  - patches/dma/h7_dmacr.yaml
-  - fields/dma/bdma.yaml
-  - fields/dma/dma_v3.yaml
-  - collect/dma/st.yaml
-  - collect/dma/bdma.yaml
-  - collect/dma/mdma.yaml
-  - patches/dma/dma2d_v2.yaml
-  - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml

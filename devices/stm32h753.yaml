@@ -34,6 +34,9 @@ ADC?:
 
 BDMA:
   _strip: BDMA_
+  _include:
+    - fields/dma/bdma.yaml
+    - collect/dma/bdma.yaml
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
@@ -42,6 +45,18 @@ CRYP:
     _merge: K*
   "IV[01][LR]R":
     _merge: IV*
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
 
 DMAMUX1:
   _strip: DMAMUX_
@@ -98,6 +113,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MDMA:
+  _include:
+    - collect/dma/mdma.yaml
 
 OTG?_HS_*:
   _strip: OTG_HS_
@@ -233,15 +252,6 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml
   - patches/dbgmcu/h7.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/h7_dmacr.yaml
-  - fields/dma/bdma.yaml
-  - fields/dma/dma_v3.yaml
-  - collect/dma/st.yaml
-  - collect/dma/bdma.yaml
-  - collect/dma/mdma.yaml
-  - patches/dma/dma2d_v2.yaml
-  - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
   - patches/h7_spdifrx.yaml
   - collect/usb_otg/hs.yaml

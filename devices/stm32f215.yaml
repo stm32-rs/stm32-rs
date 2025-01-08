@@ -35,6 +35,13 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/dma_v2.yaml
+    - fields/dma/dma_v2.yaml
+    - collect/dma/st.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -159,10 +166,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v2.yaml
-  - fields/dma/dma_v2.yaml
-  - collect/dma/st.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - collect/hash/v1.yaml

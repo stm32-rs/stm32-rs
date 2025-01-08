@@ -65,6 +65,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 FLASH:
   _modify:
     OBR:
@@ -256,8 +261,6 @@ _include:
   - fields/rcc/rcc_f373.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

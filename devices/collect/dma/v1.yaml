@@ -1,15 +1,14 @@
-"DMA,DMA[12]":
-  _cluster:
-    CH%s:
-      description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
-      CCR?:
-        name: CR
-      CNDTR?:
-        name: NDTR
-      CPAR?:
-        name: PAR
-      CMAR?:
-        name: MAR
+_cluster:
+  CH%s:
+    description: "Channel cluster: CCR?, CNDTR?, CPAR?, and CMAR? registers"
+    CCR?:
+      name: CR
+    CNDTR?:
+      name: NDTR
+    CPAR?:
+      name: PAR
+    CMAR?:
+      name: MAR
 
-  _include:
-    - isr_array.yaml
+_include:
+  - isr_array.yaml

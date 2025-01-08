@@ -5,8 +5,6 @@ _delete:
   - DMA2
 
 DMA1:
-  _include:
-   - g0_5ch.yaml
   _modify:
     _interrupts:
       DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5:
@@ -18,4 +16,3 @@ SYSCFG:
     _delete:
       - "DMA1_CH[67]"
       - "DMA2_CH*"
-

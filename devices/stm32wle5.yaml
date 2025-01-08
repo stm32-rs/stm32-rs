@@ -48,6 +48,15 @@ DAC:
   CR:
     _merge: TSEL1*
 
+DMA?:
+  _include:
+    - fields/dma/dma_wl.yaml
+
+DMAMUX:
+  _include:
+    - fields/dma/dmamux_wl.yaml
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _include:
     - patches/exti/wl.yaml
@@ -250,9 +259,6 @@ _include:
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml
-  - fields/dma/dma_wl.yaml
-  - fields/dma/dmamux_wl.yaml
-  - collect/dma/dmamux.yaml
   - fields/dbg/dbg_wl.yaml
   - fields/flash/flash_wl.yaml
   - fields/hsem/hsem_wl.yaml

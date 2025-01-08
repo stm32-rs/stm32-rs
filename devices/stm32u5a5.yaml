@@ -41,6 +41,10 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v2.yaml
+
 EXTI:
   _strip: EXTI_
   _include:
@@ -114,7 +118,6 @@ _include:
   - patches/fsmc/fsmc_u5.yaml
   - patches/octospi/u5.yaml
   - patches/tim/group.yaml
-  - fields/dma/dma2d_v2.yaml
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
   - fields/octospi/u5.yaml

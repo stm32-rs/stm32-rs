@@ -45,6 +45,19 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX1:
+  _include:
+    - collect/dma/dmamux.yaml
+
 DSI:
   _strip: DSI_
   _modify:
@@ -238,9 +251,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - collect/dma/dmamux.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
@@ -249,7 +259,6 @@ _include:
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml
-  - fields/dma/dma2d_v1.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml

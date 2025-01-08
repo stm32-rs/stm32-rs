@@ -43,6 +43,10 @@ AES?:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+DMAMUX1:
+  _include:
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _modify:
     C1IMR1:
@@ -191,7 +195,6 @@ WWDG:
   _include: patches/16bit.yaml
 
 _include:
-  - collect/dma/dmamux.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

@@ -44,6 +44,32 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  _modify:
+    INIT:
+      addressOffset: 0x10
+    POL:
+      addressOffset: 0x14
+
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+CRYP:
+  "K[0123][LR]R":
+    _merge: b*
+  "IV[01][LR]R":
+    _merge: IV*
+
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/dma_v2.yaml
+    - fields/dma/dma_v2.yaml
+    - collect/dma/st.yaml
+
 FLASH:
   OPTKEYR:
     _modify:
@@ -91,21 +117,6 @@ Ethernet_MAC:
     _modify:
       MBCA3L:
         name: MACA3L
-
-CRC:
-  _modify:
-    INIT:
-      addressOffset: 0x10
-    POL:
-      addressOffset: 0x14
-
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
-CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
 
 GPIO?:
   _include:
@@ -330,11 +341,6 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v2.yaml
-  - fields/dma/dma_v2.yaml
-  - collect/dma/st.yaml
-  - fields/dma/dma2d_v1.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
   - fields/eth/eth_mac_common.yaml

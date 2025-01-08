@@ -99,6 +99,11 @@ CRC:
       CR:
         name: RESET
 
+DMA?:
+  _include:
+    - fields/dma/dma_v21.yaml
+    - collect/dma/st.yaml
+
 FLASH:
   ACR:
     _modify:
@@ -581,8 +586,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/dma/dma_v21.yaml
-  - collect/dma/st.yaml
   - patches/tim/group.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
