@@ -122,15 +122,13 @@ IWDG:
 
 PWR:
   CR:
-    _add:
-      MRUDS:
+    _modify:
+      MRLVDS:
+        name: MRUDS
         description: Main regulator in deepsleep under-drive mode
-        bitOffset: 11
-        bitWidth: 1
-      LPUDS:
+      LPLVDS:
+        name: LPUDS
         description: Low-power regulator in deepsleep under-drive mode
-        bitOffset: 10
-        bitWidth: 1
 
 # Fix RCC enable bits naming
 RCC:

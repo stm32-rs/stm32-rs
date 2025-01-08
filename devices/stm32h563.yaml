@@ -12,6 +12,9 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+ETH:
+  _strip: ETH_
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -142,7 +145,6 @@ WWDG:
 _include:
   - patches/h5.yaml
   - patches/h56x_h57x.yaml
-  - patches/ethernet/h5.yaml
 
   - patches/crc/crc_rename_init.yaml
   - fields/crc/crc_advanced.yaml

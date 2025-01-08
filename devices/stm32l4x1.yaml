@@ -164,11 +164,11 @@ TIM*:
 "TIM[18]":
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_advanced.yaml
 
 "TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
+  _include: patches/tim/v2/ocm_bit3.yaml
 
 "TIM[34]":
   _include:

@@ -30,12 +30,10 @@ SAI?:
         description: Oversampling ratio for master clock
         bitOffset: 26
         bitWidth: 1
-      NOMCK:
-        description: No divider
-        bitOffset: 19
-        bitWidth: 1
 
     _modify:
+      NODIV:
+        name: NOMCK
       MCJDIV:
         name: MCKDIV
         bitWidth: 6
@@ -44,13 +42,6 @@ SAI?:
       Multiplier256: [0, "Master clock frequency = FFS x 256"]
       Multiplier512: [1, "Master clock frequency = FFS x 512"]
     MCKDIV: [0, 0x3F]
-    NOMCK:
-      Enabled: [0, Master clock generator is enabled]
-      Disabled:
-        [
-          1,
-          Master clock generator is disabled. The clock divider controlled by MCKDIV can still be used to generate the bit clock,
-        ]
 
   ?CR2:
     _modify:

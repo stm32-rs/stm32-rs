@@ -1,7 +1,7 @@
 "SAI,SAI?":
   "*CR1":
     #MCKDIV:
-    NODIV:
+    "NODIV,NOMCK":
       MasterClock:
         [0, MCLK output is enabled. Forces the ratio between FS and MCLK to 256 or 512 according to the OSR value]
       NoDiv:

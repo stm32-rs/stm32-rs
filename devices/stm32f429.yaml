@@ -109,13 +109,13 @@ PWR:
       ADCDC1:
         bitOffset: 13
         bitWidth: 1
-      MRUDS:
-        bitOffset: 11
-        bitWidth: 1
-      LPUDS:
+    _modify:
+      MRLVDS:
+        name: MRUDS
+        description: Main regulator in deepsleep under-drive mode
+      LPLVDS:
+        name: LPUDS
         description: Low-power regulator in deepsleep under-drive mode
-        bitOffset: 10
-        bitWidth: 1
 
 # Add missing RCC reset/enable bits
 RCC:
