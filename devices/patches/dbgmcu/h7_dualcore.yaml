@@ -1,8 +1,0 @@
-# Patches for H7 DBGMCU periperal
-
-# Remove registers not present in RM0399 Rev 3
-DBGMCU:
-  CR:
-    _delete:
-      - DBGSTOP_D3
-      - DBGSTBY_D3

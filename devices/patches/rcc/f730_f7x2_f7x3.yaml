@@ -1,9 +1,6 @@
 RCC:
   APB1RSTR:
     _delete:
-      - SPDIFRXRST
-      - I2C4RST
-      - CAN2RST
       - CECRST
   AHB1LPENR:
     _delete:

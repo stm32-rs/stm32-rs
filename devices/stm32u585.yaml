@@ -9,8 +9,6 @@ ADC12_Common:
   _strip: ADC12_
   _include:
     - fields/adc/adc_u5_common.yaml
-  CCR:
-    _delete: [DAMDF, DELAY, DUAL]
 
 ADC[124]:
   _strip: ADC_

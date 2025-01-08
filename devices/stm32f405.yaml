@@ -1,8 +1,6 @@
 _svd: ../svd/stm32f405.svd
 
 _delete:
-  - UART7
-  - UART8
   # STM32F405 doesn't have ethernet, but the SVD does
   - Ethernet_MAC
   - Ethernet_MMC

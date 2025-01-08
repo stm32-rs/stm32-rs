@@ -66,11 +66,9 @@ RCC:
       - USART[34]RST
   APBENR1:
     _delete:
-      - TIM4EN
       - USART[34]EN
   APBSMENR1:
     _delete:
-      - TIM4SMEN
       - USART[34]SMEN
   CCIPR:
     _delete:

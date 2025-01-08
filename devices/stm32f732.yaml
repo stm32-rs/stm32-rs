@@ -123,17 +123,6 @@ TIM[18]:
 TIM[2-579],TIM1[02]:
   _include: patches/tim/v2/add_uifcpy.yaml
 
-TIM3:
-  CNT:
-    _delete:
-      - CNT_H
-  ARR:
-    _delete:
-      - ARR_H
-  CCR?:
-    _delete:
-      - CCR1_H
-
 TIM9:
   _include: patches/tim/v2/add_sms_bit3.yaml
 

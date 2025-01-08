@@ -10,9 +10,6 @@ _copy:
     from: TIM2
     baseAddress: 0x40000400
 
-_delete:
-  - RNG
-
 ADC:
   _include:
     - fields/adc/c0_g0_wl.yaml
@@ -78,10 +75,6 @@ RCC:
     _delete:
       - AESSMEN
       - RNGSMEN
-  CCIPR:
-    _delete:
-      - RNGSEL
-      - RNGDIV
 
 SPI?:
   _strip: SPI_
