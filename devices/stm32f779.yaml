@@ -109,6 +109,16 @@ GPIO?:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
 
+I2C2:
+  _add:
+    _interrupts:
+      I2C2_EV:
+        description: I2C2 event interrupt
+        value: 33
+      I2C2_ER:
+        description: I2C2 error interrupt
+        value: 34
+
 I2C?:
   _include:
     - fields/i2c/v2.yaml
@@ -311,7 +321,6 @@ WWDG:
 _include:
   - fields/hdmi_cec.yaml
   - patches/ltdc/rename.yaml
-  - patches/f7_interrupts.yaml
   - patches/f7_lptim_interrupt.yaml
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml

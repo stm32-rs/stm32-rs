@@ -30,6 +30,13 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+CEC:
+  _add:
+    _interrupts:
+      HDMI_CEC:
+        description: HDMI-CEC global interrupt
+        value: 94
+
 CRC:
   _modify:
     INIT:
@@ -300,7 +307,6 @@ WWDG:
 _include:
   - fields/hdmi_cec.yaml
   - patches/ltdc/rename.yaml
-  - patches/f7_interrupts.yaml
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml

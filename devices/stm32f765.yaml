@@ -87,6 +87,11 @@ EXTI:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+  _add:
+    _interrupts:
+      PVD:
+        description: PVD through EXTI line detection interrupt
+        value: 1
 
 FLASH:
   _include:
