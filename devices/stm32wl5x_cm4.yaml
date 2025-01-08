@@ -50,6 +50,8 @@ DAC:
 
 EXTI:
   _strip: EXTI_
+  _include:
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -211,7 +213,6 @@ _include:
   - fields/dma/dmamux_wl.yaml
   - collect/dma/dmamux.yaml
   - fields/dbg/dbg_wl.yaml
-  - fields/exti/exti.yaml
   - fields/flash/flash_wl.yaml
   - fields/flash/flash_wl_c2.yaml
   - fields/hsem/hsem_wl.yaml

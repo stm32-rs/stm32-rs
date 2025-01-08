@@ -38,6 +38,8 @@ CAN:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/f3_offset.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -261,8 +263,6 @@ _include:
   - fields/rcc/rcc_pllsrc_1bit.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - patches/exti/f3_offset.yaml
-  - fields/exti/exti.yaml
   - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml

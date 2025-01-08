@@ -1,5 +1,4 @@
-EXTI:
-  PRIVCFGR?:
-    PRIV*:
-      Unprivileged: [0, Event privilege disabled]
-      Privileged: [1, Event privilege enabled]
+PRIVCFGR?:
+  PRIV*:
+    Unprivileged: [0, Event privilege disabled]
+    Privileged: [1, Event privilege enabled]

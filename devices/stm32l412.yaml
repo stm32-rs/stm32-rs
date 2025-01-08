@@ -66,6 +66,7 @@ ADC?:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   BRR:
@@ -234,7 +235,6 @@ _include:
   - patches/tim/group.yaml
   - fields/dma/dma_v1_with_remapping.yaml
   - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml

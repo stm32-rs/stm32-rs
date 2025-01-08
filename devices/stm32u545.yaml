@@ -42,6 +42,11 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+EXTI:
+  _strip: EXTI_
+  _include:
+    - fields/exti/exti_u5.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
@@ -103,7 +108,6 @@ _include:
   - patches/u5.yaml
   - patches/octospi/u535_u545.yaml
   - patches/tim/group.yaml
-  - fields/exti/exti_u5.yaml
   - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

@@ -44,6 +44,11 @@ AES:
 DSI:
   _strip: DSI_
 
+EXTI:
+  _strip: EXTI_
+  _include:
+    - fields/exti/exti_u5.yaml
+
 GFXMMU:
   _strip: GFXMMU_
 
@@ -118,7 +123,6 @@ _include:
   - patches/octospi/u5.yaml
   - patches/tim/group.yaml
   - fields/dma/dma2d_v2.yaml
-  - fields/exti/exti_u5.yaml
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
   - fields/octospi/u5.yaml

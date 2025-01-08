@@ -46,6 +46,10 @@ DSI:
       DSIHSOT:
         name: DSIHOST
 
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -234,7 +238,6 @@ _include:
   - collect/dma/dmamux.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

@@ -57,6 +57,11 @@ DFSDM1:
     FLT1CHGR:
       name: FLT1JCHGR
 
+EXTI:
+  _include:
+    - patches/exti/l4+.yaml
+    - fields/exti/common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -274,8 +279,6 @@ _include:
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_pol.yaml
-  - patches/exti/l4+.yaml
-  - fields/exti/exti.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
   - fields/ltdc/ltdc.yaml

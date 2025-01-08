@@ -41,6 +41,8 @@ ADC?:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/f3_offset.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -222,8 +224,6 @@ _include:
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
-  - patches/exti/f3_offset.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

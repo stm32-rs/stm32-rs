@@ -50,6 +50,11 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
+EXTI:
+  _include:
+    - patches/exti/h7_singlecore.yaml
+    - fields/exti/exti_h7.yaml
+
 FLASH:
   CR1:
     _add:
@@ -215,7 +220,6 @@ _include:
   - collect/fsmc/sdram.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml
-  - patches/exti/h7_singlecore.yaml
   - patches/dbgmcu/h7.yaml
   - patches/ethernet/h7_dma_mr.yaml
   - patches/dma/fcr_wo.yaml
@@ -259,7 +263,6 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - fields/exti/exti_h7.yaml
   - patches/rtc/alarm.yaml
   - fields/rtc/rtc_common.yaml
   - fields/rtc/rtc_h7.yaml

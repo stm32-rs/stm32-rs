@@ -12,6 +12,10 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+
 Flash:
   OBR:
     _modify:
@@ -130,7 +134,6 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/pwr/pwr_v1.yaml
-  - fields/exti/exti.yaml
   - fields/rcc/rcc_f0x128.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml

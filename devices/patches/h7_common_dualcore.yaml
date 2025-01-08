@@ -8,27 +8,6 @@ _modify:
 AXI:
   _strip: AXI_
 
-EXTI:
-  _modify:
-    CPUIMR1:
-      name: C1IMR1
-    CPUEMR1:
-      name: C1EMR1
-    CPUPR1:
-      name: C1PR1
-    CPUIMR2:
-      name: C1IMR2
-    CPUEMR2:
-      name: C1EMR2
-    CPUPR2:
-      name: C1PR2
-    CPUIMR3:
-      name: C1IMR3
-    CPUEMR3:
-      name: C1EMR3
-    CPUPR3:
-      name: C1PR3
-
 _delete:
   - RAMECC? # RAMECC definitions are so terrible
 

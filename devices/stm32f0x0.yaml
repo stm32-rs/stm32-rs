@@ -16,6 +16,10 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -138,7 +142,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
-  - fields/exti/exti.yaml
   - fields/rcc/rcc_f0x0.yaml
   - fields/dma/dma_v1.yaml
   - collect/dma/v1.yaml
