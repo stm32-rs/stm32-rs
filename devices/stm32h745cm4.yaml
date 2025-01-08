@@ -1,4 +1,4 @@
-_svd: ../svd/stm32h747cm4.svd
+_svd: ../svd/stm32h745cm4.svd
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -46,13 +46,6 @@ DMAMUX2:
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
-
-GPIO?:
-  _strip: GPIO_
-  _include:
-    - patches/gpio/add_r_suffix.yaml
-    - fields/gpio/v2/common.yaml
-    - collect/gpio/v2.yaml
 
 I2C?:
   _include:
@@ -189,6 +182,7 @@ _include:
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/exti/h7_dualcore.yaml
+  - patches/dbgmcu/h7_dualcore.yaml
   - patches/dma/fcr_wo.yaml
   - patches/dma/bdma.yaml
   - patches/dma/h7_dmacr.yaml
@@ -223,6 +217,8 @@ _include:
   - fields/crc/crc_idr_32bit.yaml
   - fields/crc/crc_pol.yaml
   - patches/gpio/h7_ijk.yaml
+  - fields/gpio/v2/common.yaml
+  - collect/gpio/v2.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
