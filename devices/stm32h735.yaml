@@ -263,15 +263,6 @@ RCC:
     _delete:
       - JPGDECLPEN
       - QSPILPEN
-    _add:
-      OCTOSPI1LPEN:
-        description: OCTOSPI1 and OCTOSPI1 delay block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 14
-      OCTOSPI2LPEN:
-        description: OCTOSPI2 and OCTOSPI2 delay block enable during CSleep Mode
-        bitWidth: 1
-        bitOffset: 19
 
 SAI?:
   _strip: SAI_

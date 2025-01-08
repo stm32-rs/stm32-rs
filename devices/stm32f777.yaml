@@ -74,6 +74,8 @@ DMA?:
 
 DSI:
   _strip: DSI_
+  _include:
+    - collect/dsi/isr.yaml
 
 Ethernet_DMA:
   DMABMR:
@@ -394,4 +396,3 @@ _include:
   - collect/fsmc/sd.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
-  - collect/dsi/isr.yaml

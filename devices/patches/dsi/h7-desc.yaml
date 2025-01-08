@@ -1,0 +1,606 @@
+# H7 MIPI DSI Host Peripheral
+
+_add:
+  _interrupts:
+    DSI:
+      description: DSI Host global interrupt
+      value: 123
+
+VR:
+  _modify:
+    VERSION:
+      description: Version of the DSI Host
+CR:
+  _modify:
+    EN:
+      description: Enable
+CCR:
+  _modify:
+    TOCKDIV:
+      description: Timeout clock division
+    TXECKDIV:
+      description: TX escape clock division
+LVCIDR:
+  _modify:
+    VCID:
+      description: Virtual channel ID
+LCOLCR:
+  _modify:
+    LPE:
+      description: Loosely packet enable
+    COLC:
+      description: Color coding
+LPCR:
+  _modify:
+    HSP:
+      description: HSYNC polarity
+    VSP:
+      description: VSYNC polarity
+    DEP:
+      description: Data enable polarity
+LPMCR:
+  _modify:
+    LPSIZE:
+      description: Largest packet size
+    VLPSIZE:
+      description: VACT largest packet size
+PCR:
+  _modify:
+    CRCRXE:
+      description: CRC reception enable
+    ECCRXE:
+      description: ECC reception enable
+    BTAE:
+      description: Bus
+    ETRXE:
+      description: EoTp reception enable
+    ETTXE:
+      description: EoTp transmission enable
+GVCIDR:
+  _modify:
+    VCID:
+      description: Virtual channel ID
+MCR:
+  _modify:
+    CMDM:
+      description: Command mode
+VMCR:
+  _modify:
+    PGO:
+      description: Pattern generator orientation
+    PGM:
+      description: Pattern generator mode
+    PGE:
+      description: Pattern generator enable
+    LPCE:
+      description: Low-power command enable
+    FBTAAE:
+      description: Frame bus-turn-around acknowledge enable
+    LPHFPE:
+      description: Low-power horizontal front-porch enable
+    LPHBPE:
+      description: Low-power horizontal back-porch enable
+    LPVAE:
+      description: Low-power vertical active enable
+    LPVFPE:
+      description: Low-power vertical front-porch enable
+    LPVBPE:
+      description: Low-power vertical back-porch enable
+    LPVSAE:
+      description: Low-power vertical sync active enable
+    VMT:
+      description: Video mode type
+VPCR:
+  _modify:
+    VPSIZE:
+      description: Video packet size
+VCCR:
+  _modify:
+    NUMC:
+      description: Number of chunks
+VNPCR:
+  _modify:
+    NPSIZE:
+      description: Null packet size
+VHSACR:
+  _modify:
+    HSA:
+      description: Horizontal synchronism active duration
+VHBPCR:
+  _modify:
+    HBP:
+      description: Horizontal back-porch duration
+VLCR:
+  _modify:
+    HLINE:
+      description: Horizontal line duration
+VVSACR:
+  _modify:
+    VSA:
+      description: Vertical synchronism active duration
+VVBPCR:
+  _modify:
+    VBP:
+      description: Vertical back-porch duration
+VVFPCR:
+  _modify:
+    VFP:
+      description: Vertical front-porch duration
+VVACR:
+  _modify:
+    VA:
+      description: Vertical active duration
+LCCR:
+  _modify:
+    CMDSIZE:
+      description: Command size
+CMCR:
+  _modify:
+    MRDPS:
+      description: Maximum read packet size
+    DLWTX:
+      description: DCS long write transmission
+    DSR0TX:
+      description: DCS short read zero parameter transmission
+    DSW1TX:
+      description: DCS short read one parameter transmission
+    DSW0TX:
+      description: DCS short write zero parameter transmission
+    GLWTX:
+      description: Generic long write transmission
+    GSR2TX:
+      description: Generic short read two parameters transmission
+    GSR1TX:
+      description: Generic short read one parameters transmission
+    GSR0TX:
+      description: Generic short read zero parameters transmission
+    GSW2TX:
+      description: Generic short write two parameters transmission
+    GSW1TX:
+      description: Generic short write one parameters transmission
+    GSW0TX:
+      description: Generic short write zero parameters transmission
+    ARE:
+      description: Acknowledge request enable
+    TEARE:
+      description: Tearing effect acknowledge request enable
+GHCR:
+  _modify:
+    WCMSB:
+      description: WordCount MSB
+    WCLSB:
+      description: WordCount LSB
+    VCID:
+      description: Channel
+    DT:
+      description: Type
+GPDR:
+  _modify:
+    DATA4:
+      description: Payload byte 4
+    DATA3:
+      description: Payload byte 3
+    DATA2:
+      description: Payload byte 2
+    DATA1:
+      description: Payload byte 1
+GPSR:
+  _modify:
+    RCB:
+      description: Read command busy
+    PRDFF:
+      description: Payload read FIFO full
+    PRDFE:
+      description: Payload read FIFO empty
+    PWRFF:
+      description: Payload write FIFO full
+    PWRFE:
+      description: Payload write FIFO empty
+    CMDFF:
+      description: Command FIFO full
+    CMDFE:
+      description: Command FIFO empty
+TCCR0:
+  _modify:
+    HSTX_TOCNT:
+      description: High-speed transmission timeout counter
+    LPRX_TOCNT:
+      description: Low-power reception timeout counter
+TCCR1:
+  _modify:
+    HSRD_TOCNT:
+      description: High-speed read timeout counter
+TCCR2:
+  _modify:
+    LPRD_TOCNT:
+      description: Low-power read timeout counter
+TCCR3:
+  _modify:
+    PM:
+      description: Presp mode
+    HSWR_TOCNT:
+      description: High-speed write timeout counter
+TCCR4:
+  _modify:
+    LPWR_TOCNT:
+      description: Low-power write timeout counter
+TCCR5:
+  _modify:
+    BTA_TOCNT:
+      description: Bus-turn-around timeout counter
+CLCR:
+  _modify:
+    ACR:
+      description: Automatic clock lane control
+    DPCC:
+      description: D-PHY clock control
+CLTCR:
+  _modify:
+    HS2LP_TIME:
+      description: High-speed to low-power time
+    LP2HS_TIME:
+      description: Low-power to high-speed time
+DLTCR:
+  _modify:
+    HS2LP_TIME:
+      description: High-speed to low-power time
+    LP2HS_TIME:
+      description: Low-power to high-speed time
+    MRD_TIME:
+      description: Maximum read time
+PCTLR:
+  _modify:
+    CKE:
+      description: Clock enable
+    DEN:
+      description: Digital enable
+PCONFR:
+  _modify:
+    SW_TIME:
+      description: Stop wait time
+    NL:
+      description: Number of lanes
+PUCR:
+  _modify:
+    UEDL:
+      description: ULPS exit on data lane
+    URDL:
+      description: ULPS request on data lane
+    UECL:
+      description: ULPS exit on clock lane
+    URCL:
+      description: ULPS request on clock lane
+PTTCR:
+  _modify:
+    TX_TRIG:
+      description: Transmission trigger
+PSR:
+  _modify:
+    UAN1:
+      description: ULPS active not lane 1
+    PSS1:
+      description: PHY stop state lane 1
+    RUE0:
+      description: RX ULPS escape lane 0
+    UAN0:
+      description: ULPS active not lane 1
+    PSS0:
+      description: PHY stop state lane 0
+    UANC:
+      description: ULPS active not clock lane
+    PSSC:
+      description: PHY stop state clock lane
+    PD:
+      description: PHY direction
+ISR1:
+  _modify:
+    GPRXE:
+      description: Generic payload receive error
+    GPRDE:
+      description: Generic payload read error
+    GPTXE:
+      description: Generic payload transmit error
+    GPWRE:
+      description: Generic payload write error
+    GCWRE:
+      description: Generic command write error
+    LPWRE:
+      description: LTDC payload write error
+    EOTPE:
+      description: EoTp error
+    PSE:
+      description: Packet size error
+    CRCE:
+      description: CRC error
+    ECCME:
+      description: ECC multi
+    ECCSE:
+      description: ECC single
+    TOLPRX:
+      description: Timeout low
+    TOHSTX:
+      description: Timeout high
+IER1:
+  _modify:
+    GPRXEIE:
+      description: Generic payload receive error interrupt enable
+    GPRDEIE:
+      description: Generic payload read error interrupt enable
+    GPTXEIE:
+      description: Generic payload transmit error interrupt enable
+    GPWREIE:
+      description: Generic payload write error interrupt enable
+    GCWREIE:
+      description: Generic command write error interrupt enable
+    LPWREIE:
+      description: LTDC payload write error interrupt enable
+    EOTPEIE:
+      description: EoTp error interrupt enable
+    PSEIE:
+      description: Packet size error interrupt enable
+    CRCEIE:
+      description: CRC error interrupt enable
+    ECCMEIE:
+      description: ECC multi
+    ECCSEIE:
+      description: ECC single
+    TOLPRXIE:
+      description: Timeout low
+    TOHSTXIE:
+      description: Timeout high
+FIR1:
+  _modify:
+    FGPRXE:
+      description: Force generic payload receive error
+    FGPRDE:
+      description: Force generic payload read error
+    FGPTXE:
+      description: Force generic payload transmit error
+    FGPWRE:
+      description: Force generic payload write error
+    FGCWRE:
+      description: Force generic command write error
+    FLPWRE:
+      description: Force LTDC payload write error
+    FEOTPE:
+      description: Force EoTp error
+    FPSE:
+      description: Force packet size error
+    FCRCE:
+      description: Force CRC error
+    FECCME:
+      description: Force ECC multi
+    FECCSE:
+      description: Force ECC single
+    FTOLPRX:
+      description: Force timeout low
+    FTOHSTX:
+      description: Force timeout high
+VSCR:
+  _modify:
+    UR:
+      description: Update register
+    EN:
+      description: Enable
+LCVCIDR:
+  _modify:
+    VCID:
+      description: Virtual channel ID
+LCCCR:
+  _modify:
+    LPE:
+      description: Loosely packed enable
+    COLC:
+      description: Color coding
+LPMCCR:
+  _modify:
+    LPSIZE:
+      description: Largest packet size
+    VLPSIZE:
+      description: VACT largest packet size
+VMCCR:
+  _modify:
+    LPCE:
+      description: Low-power command enable
+    FBTAAE:
+      description: Frame BTA acknowledge enable
+    LPHFE:
+      description: Low-power horizontal front-porch enable
+    LPHBPE:
+      description: Low-power horizontal back-porch enable
+    LPVAE:
+      description: Low-power vertical active enable
+    LPVFPE:
+      description: Low-power vertical front-porch enable
+    LPVBPE:
+      description: Low-power vertical back-porch enable
+    LPVSAE:
+      description: Low-power vertical sync time enable
+    VMT:
+      description: Video mode type
+VPCCR:
+  _modify:
+    VPSIZE:
+      description: Video packet size
+VCCCR:
+  _modify:
+    NUMC:
+      description: Number of chunks
+VNPCCR:
+  _modify:
+    NPSIZE:
+      description: Null packet size
+VHSACCR:
+  _modify:
+    HSA:
+      description: Horizontal synchronism active duration
+VHBPCCR:
+  _modify:
+    HBP:
+      description: Horizontal back
+VLCCR:
+  _modify:
+    HLINE:
+      description: Horizontal line duration
+VVSACCR:
+  _modify:
+    VSA:
+      description: Vertical synchronism active duration
+VVBPCCR:
+  _modify:
+    VBP:
+      description: Vertical back
+VVFPCCR:
+  _modify:
+    VFP:
+      description: Vertical front
+VVACCR:
+  _modify:
+    VA:
+      description: Vertical active duration
+WCFGR:
+  _modify:
+    VSPOL:
+      description: VSync polarity
+    AR:
+      description: Automatic refresh
+    TEPOL:
+      description: TE polarity
+    TESRC:
+      description: TE source
+    COLMUX:
+      description: Color multiplexing
+    DSIM:
+      description: DSI mode
+WCR:
+  _modify:
+    DSIEN:
+      description: DSI enable
+    LTDCEN:
+      description: LTDC enable
+    SHTDN:
+      description: Shutdown
+    COLM:
+      description: Color mode
+WIER:
+  _modify:
+    RRIE:
+      description: Regulator ready interrupt enable
+    PLLUIE:
+      description: PLL unlock interrupt enable
+    PLLLIE:
+      description: PLL lock interrupt enable
+    ERIE:
+      description: End of refresh interrupt enable
+    TEIE:
+      description: Tearing effect interrupt enable
+WISR:
+  _modify:
+    RRIF:
+      description: Regulator ready interrupt flag
+    RRS:
+      description: Regulator ready status
+    PLLUIF:
+      description: PLL unlock interrupt flag
+    PLLLIF:
+      description: PLL lock interrupt flag
+    PLLLS:
+      description: PLL lock status
+    BUSY:
+      description: Busy flag
+    ERIF:
+      description: End of refresh interrupt flag
+    TEIF:
+      description: Tearing effect interrupt flag
+WIFCR:
+  _modify:
+    CRRIF:
+      description: Clear regulator ready interrupt flag
+    CPLLUIF:
+      description: Clear PLL unlock interrupt flag
+    CPLLLIF:
+      description: Clear PLL lock interrupt flag
+    CERIF:
+      description: Clear end of refresh interrupt flag
+    CTEIF:
+      description: Clear tearing effect interrupt flag
+WPCR0:
+  _modify:
+    TCLKPOSTEN:
+      description: Custom time for tCLK
+    TLPXCEN:
+      description: Custom time for tLPX for clock lane enable
+    THSEXITEN:
+      description: Custom time for tHS
+    TLPXDEN:
+      description: Custom time for tLPX for data lanes enable
+    THSZEROEN:
+      description: Custom time for tHS
+    THSTRAILEN:
+      description: Custom time for tHS
+    THSPREPEN:
+      description: Custom time for tHS
+    TCLKZEROEN:
+      description: Custom time for tCLK
+    TCLKPREPEN:
+      description: Custom time for tCLK
+    PDEN:
+      description: Pull-down enable
+    TDDL:
+      description: Turn disable data lanes
+    CDOFFDL:
+      description: Contention detection OFF on data lanes
+    FTXSMDL:
+      description: Force in TX Stop mode the data lanes
+    FTXSMCL:
+      description: Force in TX Stop mode the clock lane
+    HSIDL1:
+      description: Invert the high-speed data signal on data lane 1
+    HSIDL0:
+      description: Invert the high-speed data signal on data lane 0
+    HSICL:
+      description: Invert high
+    SWDL1:
+      description: Swap data lane 1 pins
+    SWDL0:
+      description: Swap data lane 0 pins
+    SWCL:
+      description: Swap clock lane pins
+    UIX4:
+      description: Unit interval multiplied by 4
+WPCR2:
+  _modify:
+    THSTRAIL:
+      description: tHSTRAIL
+    THSPREP:
+      description: tHS-PREPARE
+    TCLKZERO:
+      description: tCLK-ZERO
+    TCLKPREP:
+      description: tCLK-PREPARE
+WPCR3:
+  _modify:
+    TLPXC:
+      description: tLPXC for clock lane
+    THSEXIT:
+      description: tHSEXIT
+    TLPXD:
+      description: tLPX for data lanes
+    THSZERO:
+      description: tHS-ZERO
+WPCR4:
+  _modify:
+    TCLKPOST:
+      description: tCLK-POST
+WRPCR:
+  _modify:
+    REGEN:
+      description: Regulator enable
+    ODF:
+      description: PLL output division factor
+    IDF:
+      description: PLL input division factor
+    NDIV:
+      description: PLL loop division factor
+    PLLEN:
+      description: PLL enable

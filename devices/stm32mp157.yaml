@@ -15,6 +15,8 @@ _modify:
 
 DSI:
   _strip: DSI_
+  _include:
+    - collect/dsi/isr.yaml
 
 IWDG1:
   _strip: IWDG_
@@ -39,7 +41,6 @@ WWDG1:
 
 _include:
   - patches/mpu_unprefix_registers.yaml
-  - collect/dsi/isr.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml

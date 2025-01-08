@@ -1,3 +1,16 @@
+_add:
+  HSECR_KEY:
+    alternateRegister: HSECR
+    addressOffset: 0x9C
+    access: write-only
+    fields:
+      KEY:
+        bitOffset: 0
+        bitWidth: 32
+HSECR_KEY:
+  KEY:
+    Unlock: [0xcafecafe, Write enable key]
+
 CR:
   PLLSAI1RDY:
     Unlocked: [0, PLLSAI1 unlocked]
@@ -412,13 +425,6 @@ HSECR:
   _modify:
     HSETUNE:
       access: read-write
-  _add:
-    KEY:
-      bitOffset: 0
-      bitWidth: 32
-      access: write-only
-  KEY:
-    Unlock: [0xcafecafe, Write enable key]
   HSEGMC:
     Max0_18: [0, Current max limit 0.18 mA/V]
     Max0_57: [1, Current max limit 0.57 mA/V]

@@ -77,22 +77,22 @@ GPDMA?:
         Word: [2, Word (4 bytes)]
         Error: [3, User setting error]
     PAM: [0, 3]
-    PAM_1:
-      RightAlignedZeroPadded:
-        [0, "Source data is transferred as right aligned, padded with 0s up to the destination data width"]
-      RightAlignedSignExtended:
-        [1, "Source data is transferred as right aligned, sign extended up to the destination data width"]
-      Fifo:
-        [
-          2,
-          "Source data are FIFO queued and packed at the destination data width, in little endian order, before a destination transfer",
-        ]
-    PAM_2:
-      RightAlignedLeftTruncated:
-        [0, "Source data is transferred as right aligned, left-truncated down to the destination data width"]
-      LeftAlignedRightTruncated:
-        [1, "Source data is transferred as left-aligned, right-truncated down to the destination data width"]
-      Fifo: [2, "Source data are FIFO queued and unpacked at the destination data width, in little endian order"]
+    #PAM_1:
+    #  RightAlignedZeroPadded:
+    #    [0, "Source data is transferred as right aligned, padded with 0s up to the destination data width"]
+    #  RightAlignedSignExtended:
+    #    [1, "Source data is transferred as right aligned, sign extended up to the destination data width"]
+    #  Fifo:
+    #    [
+    #      2,
+    #      "Source data are FIFO queued and packed at the destination data width, in little endian order, before a destination transfer",
+    #    ]
+    #PAM_2:
+    #  RightAlignedLeftTruncated:
+    #    [0, "Source data is transferred as right aligned, left-truncated down to the destination data width"]
+    #  LeftAlignedRightTruncated:
+    #    [1, "Source data is transferred as left-aligned, right-truncated down to the destination data width"]
+    #  Fifo: [2, "Source data are FIFO queued and unpacked at the destination data width, in little endian order"]
 
   C[0-5]TR2:
     TCEM:

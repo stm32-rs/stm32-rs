@@ -70,6 +70,12 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
+DSIHOST:
+  _strip: DSI_
+  _include:
+    - patches/dsi/h7-desc.yaml
+    - collect/dsi/isr.yaml
+
 EXTI:
   _include:
     - patches/exti/h7_dualcore.yaml
@@ -225,8 +231,6 @@ _include:
   - patches/dbgmcu/h7_dualcore.yaml
   - patches/hsem/h7_dual.yaml
   - collect/hsem/r.yaml
-  - patches/dsi/h7.yaml
-  - collect/dsi/isr.yaml
   - patches/flash/h7_dualcore.yaml
   - patches/sai/h7.yaml
   - patches/sai/h7_mcken.yaml
