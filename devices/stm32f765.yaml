@@ -209,15 +209,6 @@ TIM3:
   _delete:
     - OR1
     - OR2
-  CNT:
-    _delete:
-      - CNT_H
-  ARR:
-    _delete:
-      - ARR_H
-  CCR?:
-    _delete:
-      - CCR1_H
 
 TIM9:
   _include:

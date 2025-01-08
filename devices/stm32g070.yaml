@@ -22,7 +22,6 @@ _delete:
   - LPUART
   - UCPD1
   - UCPD2
-  - RNG
   - HDMI_CEC
   # deleted so we can re-add them without interrupts
   - TIM7
@@ -94,50 +93,6 @@ RCC:
     - patches/rcc/g0x0_delete.yaml
     - patches/rcc/g0.yaml
     - fields/rcc/rcc_g0.yaml
-  AHBRSTR:
-    _delete:
-      - AESRST
-      - RNGRST
-  APBRSTR1:
-    _delete:
-      - TIM2RST
-      - LPUART1RST
-      - CECRST
-      - UCPD1RST
-      - UCPD2RST
-      - DAC1RST
-      - LPTIM[12]RST
-  AHBENR:
-    _delete:
-      - AESEN
-      - RNGEN
-  APBENR1:
-    _delete:
-      - TIM2EN
-      - LPUART1EN
-      - CECEN
-      - UCPD[12]EN
-      - DAC1EN
-      - LPTIM[12]EN
-  AHBSMENR:
-    _delete:
-      - AESSMEN
-      - RNGSMEN
-  APBSMENR1:
-    _delete:
-      - TIM2SMEN
-      - LPUART1SMEN
-      - CECSMEN
-      - UCPD[12]SMEN
-      - DAC1SMEN
-      - LPTIM[12]SMEN
-  CCIPR:
-    _delete:
-      - CECSEL
-      - LPUART1SEL
-      - LPTIM[12]SEL
-      - RNGSEL
-      - RNGDIV
 
 SPI?:
   _strip: SPI_

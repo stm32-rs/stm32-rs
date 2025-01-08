@@ -17,9 +17,6 @@ _clear_fields: "*"
 # ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
 # SCR, MISR, SR, ICSR added
 
-_delete:
-  - USB_FS
-
 _derive:
   USART3: USART1
 
@@ -133,8 +130,6 @@ RCC:
       CRCRST:
         bitOffset: 12
   APB1SMENR1:
-    _delete:
-      - USART1SMEN
     _modify:
       USART2SMEN:
         bitOffset: 17

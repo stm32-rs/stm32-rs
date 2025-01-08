@@ -76,8 +76,6 @@ CR:
       description: ADC enable control
 
 CFGR:
-  _delete:
-    - ALIGN_5
   _modify:
     "AWDCH1CH,AWD1CH":
       name: AWD1CH

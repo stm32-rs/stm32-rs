@@ -15,9 +15,6 @@ _copy:
   TIM14:
     from: TIM2
 
-_delete:
-  - HRTIM # RM0468 devices do not have an HRTIM
-
 # Fix invalid groupName
 _modify:
   OctoSPII_O_Manager:
@@ -251,18 +248,6 @@ RCC:
       resetValue: "0x00010000"
     C1_APB4LPENR:
       resetValue: "0x0421DEAA"
-  AHB3RSTR:
-    _delete:
-      - JPGDECRST
-      - QSPIRST
-  AHB3ENR:
-    _delete:
-      - JPGDECEN
-      - QSPIEN
-  AHB3LPENR,C1_AHB3LPENR:
-    _delete:
-      - JPGDECLPEN
-      - QSPILPEN
 
 SAI?:
   _strip: SAI_
