@@ -32,6 +32,12 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -173,9 +179,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml

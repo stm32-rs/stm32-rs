@@ -64,6 +64,10 @@ EXTI:
     - patches/exti/h7_singlecore.yaml
     - fields/exti/exti_h7.yaml
 
+FDCAN?:
+  _include:
+    - patches/fdcan/fdcan_h7.yaml
+
 FLASH:
   CR1:
     _add:
@@ -226,7 +230,6 @@ _include:
   - fields/hdmi_cec.yaml
   - patches/h7_common_singlecore.yaml
   - patches/ethernet/h7_dma_mr.yaml
-  - patches/fdcan/fdcan_h7.yaml
   - collect/fsmc/sdram.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml

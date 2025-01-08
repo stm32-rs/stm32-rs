@@ -12,6 +12,13 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
+CAN:
+  _strip: CAN_
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -113,10 +120,6 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
-  - patches/can/can_remove_prefix.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

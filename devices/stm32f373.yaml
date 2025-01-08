@@ -60,6 +60,10 @@ CAN:
   _delete:
     _interrupts:
       - COMP1_2
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
 
 FLASH:
   _modify:
@@ -243,9 +247,6 @@ _include:
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - fields/syscfg/syscfg_f37x.yaml
   - patches/comp/f0_common.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml
   - fields/crc/crc_advanced.yaml

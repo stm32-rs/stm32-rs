@@ -28,6 +28,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -191,9 +197,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml

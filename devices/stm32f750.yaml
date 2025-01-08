@@ -35,6 +35,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   _modify:
     INIT:
@@ -256,9 +262,6 @@ WWDG:
 
 _include:
   - fields/hdmi_cec.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

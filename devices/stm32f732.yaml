@@ -27,6 +27,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -175,9 +181,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml

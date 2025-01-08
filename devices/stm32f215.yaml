@@ -29,6 +29,12 @@ CRYP:
     _merge:
       - IV*
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -132,9 +138,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v1.yaml
   - patches/fsmc/fsmc_sramfix_v3.yaml
   - patches/fsmc/fsmc_nand.yaml

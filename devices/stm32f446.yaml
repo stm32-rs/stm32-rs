@@ -48,6 +48,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0390
   CR:
@@ -283,9 +289,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml

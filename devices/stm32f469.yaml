@@ -49,6 +49,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0386
   CR:
@@ -247,9 +253,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
   - fields/ltdc/ltdc.yaml

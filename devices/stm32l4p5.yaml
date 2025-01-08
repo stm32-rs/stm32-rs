@@ -44,6 +44,12 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   INIT:
     _modify:
@@ -292,9 +298,6 @@ _include:
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
   - patches/dma/dma2d_l4+.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
   - patches/sai/sai_l4+.yaml
   - patches/sai/sai_v1.yaml

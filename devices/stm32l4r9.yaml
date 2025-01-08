@@ -39,6 +39,12 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 DSI:
   _strip: DSI_
   _modify:
@@ -222,9 +228,6 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   #- patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   #- patches/usart/merge_BRR_fields.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml

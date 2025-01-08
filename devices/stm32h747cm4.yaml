@@ -63,6 +63,10 @@ EXTI:
     - patches/exti/h7_dualcore.yaml
     - fields/exti/exti_h7.yaml
 
+FDCAN?:
+  _include:
+    - patches/fdcan/fdcan_h7.yaml
+
 GPIO?:
   _strip: GPIO_
   _include:
@@ -199,8 +203,7 @@ WWDG1:
 _include:
   - fields/hdmi_cec.yaml
   - patches/h7_common_dualcore.yaml
-  - patches/nvic/4_prio_bits.yaml # Specifically for CM4 core
-  - patches/fdcan/fdcan_h7.yaml
+  - patches/nvic/4_prio_bits.yaml # Spec
   - collect/fsmc/sdram.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml

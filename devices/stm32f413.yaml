@@ -86,6 +86,12 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0430
   CR:
@@ -544,9 +550,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml

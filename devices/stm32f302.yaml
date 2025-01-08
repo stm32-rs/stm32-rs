@@ -37,6 +37,12 @@ ADC?:
   SQR?:
     SQ*: [1, 18]
 
+CAN:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -236,9 +242,6 @@ _include:
   - fields/syscfg/syscfg_f3.yaml
   - fields/syscfg/syscfg_f302.yaml
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml

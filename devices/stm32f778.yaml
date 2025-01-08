@@ -32,6 +32,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   _modify:
     INIT:
@@ -325,9 +331,6 @@ _include:
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
   - patches/ltdc/ltdc.yaml
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
