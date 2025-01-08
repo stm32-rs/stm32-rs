@@ -1,11 +1,10 @@
-DMA?:
-  S?CR:
-    _add:
-      TRBUFF:
-        description: Enable the DMA to handle bufferable transfers
-        bitOffset: 20
-        bitWidth: 1
-        access: read-write
+S?CR:
+  _add:
     TRBUFF:
-      Disabled: [0, Bufferable transfers not enabled]
-      Enabled: [1, Bufferable transfers enabled]
+      description: Enable the DMA to handle bufferable transfers
+      bitOffset: 20
+      bitWidth: 1
+      access: read-write
+  TRBUFF:
+    Disabled: [0, Bufferable transfers not enabled]
+    Enabled: [1, Bufferable transfers enabled]

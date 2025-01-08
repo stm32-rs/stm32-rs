@@ -17,6 +17,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -129,6 +134,4 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_cfgr2_prediv.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - patches/dbgmcu/rename.yaml

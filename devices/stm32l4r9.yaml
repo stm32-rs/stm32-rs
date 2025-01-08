@@ -39,12 +39,35 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX1:
+  _include:
+    - collect/dma/dmamux.yaml
+
 DSI:
   _strip: DSI_
   _modify:
     _interrupts:
       DSIHSOT:
         name: DSIHOST
+
+EXTI:
+  _include:
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -218,9 +241,6 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   #- patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   #- patches/usart/merge_BRR_fields.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
@@ -231,10 +251,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - collect/dma/dmamux.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
@@ -243,7 +259,6 @@ _include:
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml
-  - fields/dma/dma2d_v1.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml

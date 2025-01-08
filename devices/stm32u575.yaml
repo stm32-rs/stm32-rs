@@ -38,6 +38,15 @@ ADC4:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v2.yaml
+
+EXTI:
+  _strip: EXTI_
+  _include:
+    - fields/exti/exti_u5.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
@@ -142,8 +151,6 @@ _include:
   - patches/u5.yaml
   - patches/fsmc/fsmc_u5.yaml
   - patches/octospi/u5.yaml
-  - fields/dma/dma2d_v2.yaml
-  - fields/exti/exti_u5.yaml
   - fields/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
   - fields/octospi/u5.yaml

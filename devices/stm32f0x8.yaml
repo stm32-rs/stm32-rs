@@ -12,6 +12,22 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
+CAN:
+  _strip: CAN_
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -105,14 +121,10 @@ _include:
   - patches/rcc/f0_usart3.yaml
   - patches/rcc/f0_usart6.yaml
   - patches/rcc/f0_usart78.yaml
-  - patches/dma/f0_dmaen.yaml
+  - patches/rcc/f0_dmaen.yaml
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
-  - patches/can/can_remove_prefix.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -121,11 +133,8 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/pwr/pwr_v1.yaml
-  - fields/exti/exti.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f0x128.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml

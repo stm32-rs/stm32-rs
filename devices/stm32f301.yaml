@@ -53,9 +53,16 @@ ADC?:
   SQR?:
     SQ*: [1, 18]
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/f3_offset.yaml
+    - fields/exti/common.yaml
   _delete:
     _interrupts:
       - UART4_EXTI34
@@ -212,10 +219,6 @@ _include:
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_f3_i2s.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - patches/exti/f3_offset.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

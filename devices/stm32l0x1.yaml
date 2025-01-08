@@ -34,6 +34,15 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
+DMA?:
+  _include:
+    - fields/dma/dma_v1_with_remapping.yaml
+    - collect/dma/v1.yaml
+
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
@@ -175,9 +184,6 @@ _include:
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
   - fields/dbg/dbg_l0.yaml
-  - fields/dma/dma_v1_with_remapping.yaml
-  - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - fields/flash/flash_l0.yaml
   - fields/fw/fw_l0_l4.yaml
   - fields/lptim/lptim_v1.yaml

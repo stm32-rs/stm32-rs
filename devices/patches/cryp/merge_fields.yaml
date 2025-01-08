@@ -1,0 +1,9 @@
+# Merge the hundreds of individual bit fields into single fields for the
+# crypt key/iv registers.
+
+"K[0123][LR]R":
+  _merge:
+    - b*
+"IV[01][LR]R":
+  _merge:
+    - IV*

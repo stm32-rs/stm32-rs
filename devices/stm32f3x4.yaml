@@ -34,10 +34,21 @@ CAN:
       CAN_SCE:
         description: CAN_SCE interrupt
         value: 22
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/f3_offset.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -249,9 +260,6 @@ _include:
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_32bit.yaml
   - fields/crc/crc_pol.yaml
@@ -259,10 +267,6 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - patches/exti/f3_offset.yaml
-  - fields/exti/exti.yaml
   - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml

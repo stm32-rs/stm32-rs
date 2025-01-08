@@ -60,6 +60,15 @@ CAN:
   _delete:
     _interrupts:
       - COMP1_2
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 FLASH:
   _modify:
@@ -81,6 +90,7 @@ FLASH:
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
 
 GPIOA:
   _modify:
@@ -242,9 +252,6 @@ _include:
   - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - fields/syscfg/syscfg_f37x.yaml
   - patches/comp/f0_common.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml
   - fields/crc/crc_advanced.yaml
@@ -254,9 +261,6 @@ _include:
   - fields/rcc/rcc_f373.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

@@ -3,43 +3,42 @@
 _include:
   - ./fdcan_common.yaml
 
-"FDCAN,FDCAN?":
-  RXF0C:
-    _modify:
-      "F0S,F0WM":
-        bitWidth: 7
-    _add:
-      F0OM:
-        description: FIFO 0 operation mode
-        bitOffset: 31
-        bitWidth: 1
-  RXF0S:
-    _modify:
-      F0G:
-        name: F0GI
-      F0P:
-        name: F0PI
-  RXF0A:
-    _modify:
-      FA01:
-        name: F0AI
-  RXF1C:
-    _add:
-      F1OM:
-        description: FIFO 1 operation mode
-        bitOffset: 31
-        bitWidth: 1
-  TTOST:
-    _modify:
-      GTP:
-        name: QGTP
-  TTCPT:
-    _modify:
-      CT:
-        name: CCV
-
+RXF0C:
   _modify:
-    TEST:
-      access: read-write
-    CAN_TTGTP:
-      name: TTGTP
+    "F0S,F0WM":
+      bitWidth: 7
+  _add:
+    F0OM:
+      description: FIFO 0 operation mode
+      bitOffset: 31
+      bitWidth: 1
+RXF0S:
+  _modify:
+    F0G:
+      name: F0GI
+    F0P:
+      name: F0PI
+RXF0A:
+  _modify:
+    FA01:
+      name: F0AI
+RXF1C:
+  _add:
+    F1OM:
+      description: FIFO 1 operation mode
+      bitOffset: 31
+      bitWidth: 1
+TTOST:
+  _modify:
+    GTP:
+      name: QGTP
+TTCPT:
+  _modify:
+    CT:
+      name: CCV
+
+_modify:
+  TEST:
+    access: read-write
+  CAN_TTGTP:
+    name: TTGTP

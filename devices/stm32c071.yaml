@@ -22,6 +22,10 @@ ADC:
 CRS:
   _strip: CRS_
 
+DMAMUX:
+  _include:
+    - collect/dma/dmamux.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
@@ -110,5 +114,4 @@ USB:
 _include:
   - patches/c0.yaml
   - patches/nvic/2_prio_bits.yaml
-  - collect/dma/dmamux.yaml
   - collect/usb/chepr.yaml

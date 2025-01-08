@@ -39,22 +39,35 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+BDMA?:
+  _include:
+    - patches/dma/bdma_v2.yaml
+    - fields/dma/bdma.yaml
+    - collect/dma/bdma.yaml
+
 COMP1:
   _strip: COMP1_
 
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
 CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
+  _include: patches/cryp/merge_fields.yaml
 
 DFSDM*:
   _strip: DFSDM_
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
 
 DMAMUX1:
   _strip: DMAMUX?_
@@ -71,6 +84,15 @@ DMAMUX2:
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
+
+EXTI:
+  _include:
+    - patches/exti/h7_singlecore.yaml
+    - fields/exti/exti_h7.yaml
+
+FDCAN?:
+  _include:
+    - patches/fdcan/fdcan_h7.yaml
 
 FLASH:
   _strip: FLASH_
@@ -107,6 +129,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MDMA:
+  _include:
+    - collect/dma/mdma.yaml
 
 RCC:
   _strip:
@@ -210,20 +236,8 @@ WWDG:
 _include:
   - patches/h7_common_highmemory.yaml
   - fields/hdmi_cec.yaml
-  - patches/fdcan/fdcan_h7.yaml
   - collect/fsmc/sdram.yaml
-  - patches/exti/h7_singlecore.yaml
   - patches/dbgmcu/h7.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/bdma_v2.yaml
-  - patches/dma/h7_dmacr.yaml
-  - fields/dma/bdma.yaml
-  - fields/dma/dma_v3.yaml
-  - collect/dma/st.yaml
-  - collect/dma/bdma.yaml
-  - collect/dma/mdma.yaml
-  - patches/dma/dma2d_v2.yaml
-  - fields/dma/dma2d_v2.yaml
   - collect/hsem/r.yaml
   - patches/octospi/h7.yaml
   - patches/sai/h7.yaml
@@ -256,7 +270,6 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - fields/exti/exti_h7.yaml
   - patches/rtc/alarm.yaml
   - fields/rtc/v3.yaml
   - collect/rtc/alarm.yaml

@@ -48,7 +48,19 @@ DAC:
   CR:
     _merge: TSEL1*
 
+DMA?:
+  _include:
+    - fields/dma/dma_wl.yaml
+
+DMAMUX:
+  _include:
+    - fields/dma/dmamux_wl.yaml
+    - collect/dma/dmamux.yaml
+
 EXTI:
+  _include:
+    - patches/exti/wl.yaml
+    - fields/exti/common.yaml
   _modify:
     IMR1:
       name: C1IMR1
@@ -241,18 +253,13 @@ WWDG:
 _include:
   - patches/crc/crc_rename_init.yaml
   - patches/rtc/rtc_register_descriptions.yaml
-  - patches/exti/wl.yaml
   - fields/comp/comp_wl.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_pol.yaml
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml
-  - fields/dma/dma_wl.yaml
-  - fields/dma/dmamux_wl.yaml
-  - collect/dma/dmamux.yaml
   - fields/dbg/dbg_wl.yaml
-  - fields/exti/exti.yaml
   - fields/flash/flash_wl.yaml
   - fields/hsem/hsem_wl.yaml
   - collect/hsem/r.yaml

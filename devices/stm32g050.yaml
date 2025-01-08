@@ -16,6 +16,14 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+DMA*:
+  _strip: DMA_
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 DMAMUX:
   _delete:
     _interrupts:
@@ -26,6 +34,8 @@ DMAMUX:
     _modify:
       CSOF*:
         access: write-only
+  _include:
+    - collect/dma/dmamux.yaml
 
 EXTI:
   _include:
@@ -153,9 +163,6 @@ _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - collect/dma/dmamux.yaml
   - patches/flash/g0.yaml
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml

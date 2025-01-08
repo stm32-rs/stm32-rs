@@ -42,6 +42,14 @@ ADC?:
 DAC:
   _strip: DAC_
 
+DMA?:
+  _include:
+    - collect/dma/l5.yaml
+
+DMAMUX1:
+  _include:
+    - collect/dma/dmamux.yaml
+
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml
@@ -129,9 +137,7 @@ WWDG:
   _include: patches/16bit.yaml
 
 _include:
-  - collect/dma/dmamux.yaml
   - patches/dma/interrupt_names.yaml
-  - collect/dma/l5.yaml
   - collect/flash/secbbr.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml

@@ -12,6 +12,11 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+EXTI:
+  _include:
+    - fields/exti/common.yaml
+    - fields/exti/exti_priv.yaml
+
 GPIOC:
   _strip: GPIO_
 
@@ -158,7 +163,5 @@ _include:
   - fields/sai/sai.yaml
   - fields/crs/crs.yaml
   - fields/pwr/pwr_h5.yaml
-  - fields/exti/exti.yaml
-  - fields/exti/exti_priv.yaml
   - fields/gpdma/gpdma.yaml
   - collect/usb/chepr.yaml

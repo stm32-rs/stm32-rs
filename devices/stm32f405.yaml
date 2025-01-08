@@ -37,6 +37,12 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   # The SVD calls the RESET field "CR", fix per RM0090
   CR:
@@ -44,15 +50,15 @@ CRC:
       CR:
         name: RESET
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
 CRYP:
-  "K[0123][LR]R":
-    _merge:
-      - b*
-  "IV[01][LR]R":
-    _merge:
-      - IV*
+  _include: patches/cryp/merge_fields.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/dma_v2.yaml
+    - fields/dma/dma_v2.yaml
+    - collect/dma/st.yaml
 
 EXTI:
   _include:
@@ -225,9 +231,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
   - patches/fsmc/fsmc_nand.yaml
   - fields/fsmc/fsmc_sram.yaml
@@ -246,10 +249,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v2.yaml
-  - fields/dma/dma_v2.yaml
-  - collect/dma/st.yaml
   - fields/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml
   - patches/tim/group.yaml

@@ -42,6 +42,18 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+CAN?:
+  _strip: CAN_
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 Ethernet_MAC:
   MACA2LR:
     _modify:
@@ -144,10 +156,6 @@ _include:
   - patches/bkp/bkp.yaml
   - fields/bkp/bkp.yaml
   - collect/bkp/dr.yaml
-  - patches/can/can_remove_prefix.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/crc/crc_basic.yaml
@@ -158,8 +166,6 @@ _include:
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/rcc/rcc_cfgr2_f107.yaml
   - fields/rtc/rtc_f1.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - patches/usb_otg/fs_fixes_107.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

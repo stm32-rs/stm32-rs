@@ -59,6 +59,12 @@ AES:
     - patches/aes/l4.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 DFSDM:
   _strip: DFSDM_
   _modify:
@@ -66,9 +72,15 @@ DFSDM:
       name: FLT1JCHGR
   _include: collect/dfsdm/l4.yaml
 
+DMA?:
+  _include:
+    - fields/dma/dma_v1_with_remapping.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -255,9 +267,6 @@ WWDG:
 # so update the common patch file below instead.
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
@@ -268,9 +277,6 @@ _include:
   - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - fields/dma/dma_v1_with_remapping.yaml
-  - collect/dma/v1.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml

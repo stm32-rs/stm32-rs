@@ -1,270 +1,269 @@
-"CAN,CAN1":
-  _add:
-    FMR:
-      displayName: FMR
-      description: filter master register
-      addressOffset: 512
-      size: 32
-      access: read-write
-      resetValue: 706481665
-      fields:
-        FINIT:
-          description: Filter initialization mode
-          bitOffset: 0
-          bitWidth: 1
-    FM1R:
-      displayName: FM1R
-      description: filter mode register
-      addressOffset: 516
-      size: 32
-      access: read-write
-      resetValue: 0
-      fields:
-        FBM0:
-          description: Filter mode
-          bitOffset: 0
-          bitWidth: 1
-        FBM1:
-          description: Filter mode
-          bitOffset: 1
-          bitWidth: 1
-        FBM2:
-          description: Filter mode
-          bitOffset: 2
-          bitWidth: 1
-        FBM3:
-          description: Filter mode
-          bitOffset: 3
-          bitWidth: 1
-        FBM4:
-          description: Filter mode
-          bitOffset: 4
-          bitWidth: 1
-        FBM5:
-          description: Filter mode
-          bitOffset: 5
-          bitWidth: 1
-        FBM6:
-          description: Filter mode
-          bitOffset: 6
-          bitWidth: 1
-        FBM7:
-          description: Filter mode
-          bitOffset: 7
-          bitWidth: 1
-        FBM8:
-          description: Filter mode
-          bitOffset: 8
-          bitWidth: 1
-        FBM9:
-          description: Filter mode
-          bitOffset: 9
-          bitWidth: 1
-        FBM10:
-          description: Filter mode
-          bitOffset: 10
-          bitWidth: 1
-        FBM11:
-          description: Filter mode
-          bitOffset: 11
-          bitWidth: 1
-        FBM12:
-          description: Filter mode
-          bitOffset: 12
-          bitWidth: 1
-        FBM13:
-          description: Filter mode
-          bitOffset: 13
-          bitWidth: 1
-    FS1R:
-      displayName: FS1R
-      description: filter scale register
-      addressOffset: 524
-      size: 32
-      access: read-write
-      resetValue: 0
-      fields:
-        FSC0:
-          description: Filter scale configuration
-          bitOffset: 0
-          bitWidth: 1
-        FSC1:
-          description: Filter scale configuration
-          bitOffset: 1
-          bitWidth: 1
-        FSC2:
-          description: Filter scale configuration
-          bitOffset: 2
-          bitWidth: 1
-        FSC3:
-          description: Filter scale configuration
-          bitOffset: 3
-          bitWidth: 1
-        FSC4:
-          description: Filter scale configuration
-          bitOffset: 4
-          bitWidth: 1
-        FSC5:
-          description: Filter scale configuration
-          bitOffset: 5
-          bitWidth: 1
-        FSC6:
-          description: Filter scale configuration
-          bitOffset: 6
-          bitWidth: 1
-        FSC7:
-          description: Filter scale configuration
-          bitOffset: 7
-          bitWidth: 1
-        FSC8:
-          description: Filter scale configuration
-          bitOffset: 8
-          bitWidth: 1
-        FSC9:
-          description: Filter scale configuration
-          bitOffset: 9
-          bitWidth: 1
-        FSC10:
-          description: Filter scale configuration
-          bitOffset: 10
-          bitWidth: 1
-        FSC11:
-          description: Filter scale configuration
-          bitOffset: 11
-          bitWidth: 1
-        FSC12:
-          description: Filter scale configuration
-          bitOffset: 12
-          bitWidth: 1
-        FSC13:
-          description: Filter scale configuration
-          bitOffset: 13
-          bitWidth: 1
-    FFA1R:
-      displayName: FFA1R
-      description: "filter FIFO assignment\n          register"
-      addressOffset: 532
-      size: 32
-      access: read-write
-      resetValue: 0
-      fields:
-        FFA0:
-          description: Filter FIFO assignment for filter 0
-          bitOffset: 0
-          bitWidth: 1
-        FFA1:
-          description: Filter FIFO assignment for filter 1
-          bitOffset: 1
-          bitWidth: 1
-        FFA2:
-          description: Filter FIFO assignment for filter 2
-          bitOffset: 2
-          bitWidth: 1
-        FFA3:
-          description: Filter FIFO assignment for filter 3
-          bitOffset: 3
-          bitWidth: 1
-        FFA4:
-          description: Filter FIFO assignment for filter 4
-          bitOffset: 4
-          bitWidth: 1
-        FFA5:
-          description: Filter FIFO assignment for filter 5
-          bitOffset: 5
-          bitWidth: 1
-        FFA6:
-          description: Filter FIFO assignment for filter 6
-          bitOffset: 6
-          bitWidth: 1
-        FFA7:
-          description: Filter FIFO assignment for filter 7
-          bitOffset: 7
-          bitWidth: 1
-        FFA8:
-          description: Filter FIFO assignment for filter 8
-          bitOffset: 8
-          bitWidth: 1
-        FFA9:
-          description: Filter FIFO assignment for filter 9
-          bitOffset: 9
-          bitWidth: 1
-        FFA10:
-          description: Filter FIFO assignment for filter 10
-          bitOffset: 10
-          bitWidth: 1
-        FFA11:
-          description: Filter FIFO assignment for filter 11
-          bitOffset: 11
-          bitWidth: 1
-        FFA12:
-          description: Filter FIFO assignment for filter 12
-          bitOffset: 12
-          bitWidth: 1
-        FFA13:
-          description: Filter FIFO assignment for filter 13
-          bitOffset: 13
-          bitWidth: 1
-    FA1R:
-      displayName: FA1R
-      description: filter activation register
-      addressOffset: 540
-      size: 32
-      access: read-write
-      resetValue: 0
-      fields:
-        FACT0:
-          description: Filter active
-          bitOffset: 0
-          bitWidth: 1
-        FACT1:
-          description: Filter active
-          bitOffset: 1
-          bitWidth: 1
-        FACT2:
-          description: Filter active
-          bitOffset: 2
-          bitWidth: 1
-        FACT3:
-          description: Filter active
-          bitOffset: 3
-          bitWidth: 1
-        FACT4:
-          description: Filter active
-          bitOffset: 4
-          bitWidth: 1
-        FACT5:
-          description: Filter active
-          bitOffset: 5
-          bitWidth: 1
-        FACT6:
-          description: Filter active
-          bitOffset: 6
-          bitWidth: 1
-        FACT7:
-          description: Filter active
-          bitOffset: 7
-          bitWidth: 1
-        FACT8:
-          description: Filter active
-          bitOffset: 8
-          bitWidth: 1
-        FACT9:
-          description: Filter active
-          bitOffset: 9
-          bitWidth: 1
-        FACT10:
-          description: Filter active
-          bitOffset: 10
-          bitWidth: 1
-        FACT11:
-          description: Filter active
-          bitOffset: 11
-          bitWidth: 1
-        FACT12:
-          description: Filter active
-          bitOffset: 12
-          bitWidth: 1
-        FACT13:
-          description: Filter active
-          bitOffset: 13
-          bitWidth: 1
+_add:
+  FMR:
+    displayName: FMR
+    description: filter master register
+    addressOffset: 512
+    size: 32
+    access: read-write
+    resetValue: 706481665
+    fields:
+      FINIT:
+        description: Filter initialization mode
+        bitOffset: 0
+        bitWidth: 1
+  FM1R:
+    displayName: FM1R
+    description: filter mode register
+    addressOffset: 516
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      FBM0:
+        description: Filter mode
+        bitOffset: 0
+        bitWidth: 1
+      FBM1:
+        description: Filter mode
+        bitOffset: 1
+        bitWidth: 1
+      FBM2:
+        description: Filter mode
+        bitOffset: 2
+        bitWidth: 1
+      FBM3:
+        description: Filter mode
+        bitOffset: 3
+        bitWidth: 1
+      FBM4:
+        description: Filter mode
+        bitOffset: 4
+        bitWidth: 1
+      FBM5:
+        description: Filter mode
+        bitOffset: 5
+        bitWidth: 1
+      FBM6:
+        description: Filter mode
+        bitOffset: 6
+        bitWidth: 1
+      FBM7:
+        description: Filter mode
+        bitOffset: 7
+        bitWidth: 1
+      FBM8:
+        description: Filter mode
+        bitOffset: 8
+        bitWidth: 1
+      FBM9:
+        description: Filter mode
+        bitOffset: 9
+        bitWidth: 1
+      FBM10:
+        description: Filter mode
+        bitOffset: 10
+        bitWidth: 1
+      FBM11:
+        description: Filter mode
+        bitOffset: 11
+        bitWidth: 1
+      FBM12:
+        description: Filter mode
+        bitOffset: 12
+        bitWidth: 1
+      FBM13:
+        description: Filter mode
+        bitOffset: 13
+        bitWidth: 1
+  FS1R:
+    displayName: FS1R
+    description: filter scale register
+    addressOffset: 524
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      FSC0:
+        description: Filter scale configuration
+        bitOffset: 0
+        bitWidth: 1
+      FSC1:
+        description: Filter scale configuration
+        bitOffset: 1
+        bitWidth: 1
+      FSC2:
+        description: Filter scale configuration
+        bitOffset: 2
+        bitWidth: 1
+      FSC3:
+        description: Filter scale configuration
+        bitOffset: 3
+        bitWidth: 1
+      FSC4:
+        description: Filter scale configuration
+        bitOffset: 4
+        bitWidth: 1
+      FSC5:
+        description: Filter scale configuration
+        bitOffset: 5
+        bitWidth: 1
+      FSC6:
+        description: Filter scale configuration
+        bitOffset: 6
+        bitWidth: 1
+      FSC7:
+        description: Filter scale configuration
+        bitOffset: 7
+        bitWidth: 1
+      FSC8:
+        description: Filter scale configuration
+        bitOffset: 8
+        bitWidth: 1
+      FSC9:
+        description: Filter scale configuration
+        bitOffset: 9
+        bitWidth: 1
+      FSC10:
+        description: Filter scale configuration
+        bitOffset: 10
+        bitWidth: 1
+      FSC11:
+        description: Filter scale configuration
+        bitOffset: 11
+        bitWidth: 1
+      FSC12:
+        description: Filter scale configuration
+        bitOffset: 12
+        bitWidth: 1
+      FSC13:
+        description: Filter scale configuration
+        bitOffset: 13
+        bitWidth: 1
+  FFA1R:
+    displayName: FFA1R
+    description: "filter FIFO assignment\n          register"
+    addressOffset: 532
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      FFA0:
+        description: Filter FIFO assignment for filter 0
+        bitOffset: 0
+        bitWidth: 1
+      FFA1:
+        description: Filter FIFO assignment for filter 1
+        bitOffset: 1
+        bitWidth: 1
+      FFA2:
+        description: Filter FIFO assignment for filter 2
+        bitOffset: 2
+        bitWidth: 1
+      FFA3:
+        description: Filter FIFO assignment for filter 3
+        bitOffset: 3
+        bitWidth: 1
+      FFA4:
+        description: Filter FIFO assignment for filter 4
+        bitOffset: 4
+        bitWidth: 1
+      FFA5:
+        description: Filter FIFO assignment for filter 5
+        bitOffset: 5
+        bitWidth: 1
+      FFA6:
+        description: Filter FIFO assignment for filter 6
+        bitOffset: 6
+        bitWidth: 1
+      FFA7:
+        description: Filter FIFO assignment for filter 7
+        bitOffset: 7
+        bitWidth: 1
+      FFA8:
+        description: Filter FIFO assignment for filter 8
+        bitOffset: 8
+        bitWidth: 1
+      FFA9:
+        description: Filter FIFO assignment for filter 9
+        bitOffset: 9
+        bitWidth: 1
+      FFA10:
+        description: Filter FIFO assignment for filter 10
+        bitOffset: 10
+        bitWidth: 1
+      FFA11:
+        description: Filter FIFO assignment for filter 11
+        bitOffset: 11
+        bitWidth: 1
+      FFA12:
+        description: Filter FIFO assignment for filter 12
+        bitOffset: 12
+        bitWidth: 1
+      FFA13:
+        description: Filter FIFO assignment for filter 13
+        bitOffset: 13
+        bitWidth: 1
+  FA1R:
+    displayName: FA1R
+    description: filter activation register
+    addressOffset: 540
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      FACT0:
+        description: Filter active
+        bitOffset: 0
+        bitWidth: 1
+      FACT1:
+        description: Filter active
+        bitOffset: 1
+        bitWidth: 1
+      FACT2:
+        description: Filter active
+        bitOffset: 2
+        bitWidth: 1
+      FACT3:
+        description: Filter active
+        bitOffset: 3
+        bitWidth: 1
+      FACT4:
+        description: Filter active
+        bitOffset: 4
+        bitWidth: 1
+      FACT5:
+        description: Filter active
+        bitOffset: 5
+        bitWidth: 1
+      FACT6:
+        description: Filter active
+        bitOffset: 6
+        bitWidth: 1
+      FACT7:
+        description: Filter active
+        bitOffset: 7
+        bitWidth: 1
+      FACT8:
+        description: Filter active
+        bitOffset: 8
+        bitWidth: 1
+      FACT9:
+        description: Filter active
+        bitOffset: 9
+        bitWidth: 1
+      FACT10:
+        description: Filter active
+        bitOffset: 10
+        bitWidth: 1
+      FACT11:
+        description: Filter active
+        bitOffset: 11
+        bitWidth: 1
+      FACT12:
+        description: Filter active
+        bitOffset: 12
+        bitWidth: 1
+      FACT13:
+        description: Filter active
+        bitOffset: 13
+        bitWidth: 1

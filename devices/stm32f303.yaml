@@ -38,9 +38,22 @@ ADC?:
   SQR?:
     SQ*: [1, 18]
 
+CAN:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
+    - patches/exti/f3_offset.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -202,9 +215,6 @@ _include:
   - fields/syscfg/syscfg_f303_3x8.yaml
   - patches/opamp/f3_opamp1234.yaml
   - patches/comp/f3_comp1234567.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml
@@ -220,10 +230,6 @@ _include:
   - fields/rcc/rcc_f3_i2s.yaml
   - fields/rcc/rcc_pllsrc_2bit.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - patches/exti/f3_offset.yaml
-  - fields/exti/exti.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

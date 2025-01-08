@@ -31,16 +31,28 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+BDMA:
+  _include:
+    - patches/dma/bdma.yaml
+    - fields/dma/bdma.yaml
+    - collect/dma/bdma.yaml
+
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747
-
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
 CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
+  _include: patches/cryp/merge_fields.yaml
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
 
 DMAMUX1:
   _strip: DMAMUX?_
@@ -58,6 +70,15 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
+EXTI:
+  _include:
+    - patches/exti/h7_dualcore.yaml
+    - fields/exti/exti_h7.yaml
+
+FDCAN?:
+  _include:
+    - patches/fdcan/fdcan_h7.yaml
+
 GPIO?:
   _strip: GPIO_
   _include:
@@ -74,6 +95,10 @@ IWDG1:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+MDMA:
+  _include:
+    - collect/dma/mdma.yaml
 
 QUADSPI:
   _strip: QUADSPI_
@@ -194,22 +219,10 @@ WWDG1:
 _include:
   - fields/hdmi_cec.yaml
   - patches/h7_common_dualcore.yaml
-  - patches/fdcan/fdcan_h7.yaml
   - collect/fsmc/sdram.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
-  - patches/exti/h7_dualcore.yaml
   - patches/dbgmcu/h7_dualcore.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/bdma.yaml
-  - patches/dma/h7_dmacr.yaml
-  - fields/dma/bdma.yaml
-  - fields/dma/dma_v3.yaml
-  - collect/dma/st.yaml
-  - collect/dma/bdma.yaml
-  - collect/dma/mdma.yaml
-  - patches/dma/dma2d_v2.yaml
-  - fields/dma/dma2d_v2.yaml
   - patches/hsem/h7_dual.yaml
   - collect/hsem/r.yaml
   - patches/dsi/h7.yaml
@@ -250,7 +263,6 @@ _include:
   - fields/rng/rng_v1_ced.yaml
   - fields/syscfg/syscfg_h747.yaml
   - patches/tim/group.yaml
-  - fields/exti/exti_h7.yaml
   - patches/rtc/alarm.yaml
   - fields/rtc/rtc_common.yaml
   - fields/rtc/rtc_h7.yaml

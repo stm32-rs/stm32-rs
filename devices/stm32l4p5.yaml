@@ -44,6 +44,12 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRC:
   INIT:
     _modify:
@@ -56,6 +62,25 @@ DFSDM1:
   _modify:
     FLT1CHGR:
       name: FLT1JCHGR
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_l4+.yaml
+
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
+DMAMUX:
+  _include:
+    - fields/dma/dmamux_wl.yaml
+    - collect/dma/dmamux.yaml
+
+EXTI:
+  _include:
+    - patches/exti/l4+.yaml
+    - fields/exti/common.yaml
 
 GPIO?:
   _include:
@@ -274,8 +299,6 @@ _include:
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_pol.yaml
-  - patches/exti/l4+.yaml
-  - fields/exti/exti.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
   - fields/ltdc/ltdc.yaml
@@ -288,10 +311,6 @@ _include:
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
-  - patches/dma/dma2d_l4+.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
   - patches/sai/sai_l4+.yaml
   - patches/sai/sai_v1.yaml
@@ -304,10 +323,6 @@ _include:
   - fields/dac/dac_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
-  - fields/dma/dmamux_wl.yaml
-  - collect/dma/dmamux.yaml
   - patches/syscfg/l4+.yaml
   - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml

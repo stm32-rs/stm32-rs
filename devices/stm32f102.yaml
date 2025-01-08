@@ -48,6 +48,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+DMA?:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 EXTI:
   _include:
     - fields/exti/common.yaml
@@ -205,8 +210,6 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rtc/rtc_f1.yaml
-  - fields/dma/dma_v1.yaml
-  - collect/dma/v1.yaml
   - fields/usb/usb.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml

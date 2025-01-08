@@ -19,15 +19,21 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 CRYP:
-  "K[0123][LR]R":
-    _merge:
-      - b*
-  "IV[01][LR]R":
-    _merge:
-      - IV*
+  _include: patches/cryp/merge_fields.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/dma_v2.yaml
+    - fields/dma/dma_v2.yaml
+    - collect/dma/st.yaml
 
 EXTI:
   _include:
@@ -132,9 +138,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v1.yaml
   - patches/fsmc/fsmc_sramfix_v3.yaml
   - patches/fsmc/fsmc_nand.yaml
@@ -156,10 +159,6 @@ _include:
   - fields/crc/crc_basic.yaml
   - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v2.yaml
-  - fields/dma/dma_v2.yaml
-  - collect/dma/st.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - collect/hash/v1.yaml

@@ -30,6 +30,19 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+CAN?:
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+CEC:
+  _add:
+    _interrupts:
+      HDMI_CEC:
+        description: HDMI-CEC global interrupt
+        value: 94
+
 CRC:
   _modify:
     INIT:
@@ -37,13 +50,8 @@ CRC:
     POL:
       addressOffset: 0x14
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
 CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
+  _include: patches/cryp/merge_fields.yaml
 
 DFSDM:
   _strip: DFSDM_
@@ -52,6 +60,17 @@ DFSDM:
       addressOffset: 0x280
   _include:
     - collect/dfsdm/f7.yaml
+
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
+
+DMA?:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/dma_v21.yaml
+    - fields/dma/dma_v21.yaml
+    - collect/dma/st.yaml
 
 DSI:
   _strip: DSI_
@@ -300,13 +319,9 @@ WWDG:
 _include:
   - fields/hdmi_cec.yaml
   - patches/ltdc/rename.yaml
-  - patches/f7_interrupts.yaml
   - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
-  - fields/can/can.yaml
-  - collect/can/can.yaml
-  - collect/can/filter_bank.yaml
   - collect/cryp/v2.yaml
   - patches/ltdc/ltdc.yaml
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
@@ -342,11 +357,6 @@ _include:
   - fields/crc/crc_advanced.yaml
   - fields/crc/crc_idr_8bit.yaml
   - fields/crc/crc_pol.yaml
-  - patches/dma/fcr_wo.yaml
-  - patches/dma/dma_v21.yaml
-  - fields/dma/dma_v21.yaml
-  - collect/dma/st.yaml
-  - fields/dma/dma2d_v1.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
   - fields/eth/eth_mac_common.yaml
