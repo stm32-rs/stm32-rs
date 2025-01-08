@@ -51,13 +51,8 @@ COMP1:
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
 
-# Merge the hundreds of individual bit fields into single fields for the
-# crypt key/iv registers.
 CRYP:
-  "K[0123][LR]R":
-    _merge: b*
-  "IV[01][LR]R":
-    _merge: IV*
+  _include: patches/cryp/merge_fields.yaml
 
 DFSDM*:
   _strip: DFSDM_
