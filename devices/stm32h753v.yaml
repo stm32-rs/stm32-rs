@@ -96,6 +96,10 @@ FLASH:
   CCR1:
     _delete: CLR_CRCRDERR1
 
+FMC:
+  _include:
+    - collect/fsmc/sdram.yaml
+
 GPIOA:
   _strip: GPIOA_
 
@@ -249,7 +253,6 @@ _include:
   - fields/hdmi_cec.yaml
   - patches/h7_common_singlecore.yaml
   - patches/ethernet/h7_dma_mr.yaml
-  - collect/fsmc/sdram.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml
   - patches/dbgmcu/h7.yaml

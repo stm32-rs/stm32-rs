@@ -114,6 +114,10 @@ FLASH:
         bitWidth: 1
         access: read-only
 
+FMC:
+  _include:
+    - collect/fsmc/sdram.yaml
+
 GPIO?:
   _include:
     - patches/gpio/add_r_suffix.yaml
@@ -236,7 +240,6 @@ WWDG:
 _include:
   - patches/h7_common_highmemory.yaml
   - fields/hdmi_cec.yaml
-  - collect/fsmc/sdram.yaml
   - collect/hsem/r.yaml
   - patches/octospi/h7.yaml
   - patches/sai/h7.yaml

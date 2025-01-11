@@ -40,6 +40,15 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FSMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix_v3.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -139,12 +148,6 @@ WWDG:
 
 _include:
   - collect/cryp/v1.yaml
-  - patches/fsmc/fsmc_sramfix_v3.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/nand_v1.yaml
   - patches/ethernet/f2_f4.yaml
   - patches/ethernet/mmc.yaml
   - fields/dac/dac_wavegen.yaml

@@ -28,6 +28,12 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FSMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix_common.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - collect/fsmc/sram.yaml
+
 GPIO?:
   _include:
     - patches/gpio/with_OSPEEDER.yaml
@@ -102,9 +108,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/fsmc/fsmc_sramfix_common.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - collect/fsmc/sram.yaml
   - patches/usb/unprefix_registers.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml

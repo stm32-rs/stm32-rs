@@ -1,25 +1,24 @@
-"FMC,FSMC":
-  "PMEM,PMEM?":
-    _modify:
-      MEMHIZx:
-        name: MEMHIZ
-      MEMHOLDx:
-        name: MEMHOLD
-      MEMWAITx:
-        name: MEMWAIT
-      MEMSETx:
-        name: MEMSET
-  "PATT,PATT?":
-    _modify:
-      ATTHIZx:
-        name: ATTHIZ
-      ATTHOLDx:
-        name: ATTHOLD
-      ATTWAITx:
-        name: ATTWAIT
-      ATTSETx:
-        name: ATTSET
-  "ECCR,ECCR?":
-    _modify:
-      ECCx:
-        name: ECC
+PMEM*:
+  _modify:
+    MEMHIZx:
+      name: MEMHIZ
+    MEMHOLDx:
+      name: MEMHOLD
+    MEMWAITx:
+      name: MEMWAIT
+    MEMSETx:
+      name: MEMSET
+PATT*:
+  _modify:
+    ATTHIZx:
+      name: ATTHIZ
+    ATTHOLDx:
+      name: ATTHOLD
+    ATTWAITx:
+      name: ATTWAIT
+    ATTSETx:
+      name: ATTSET
+ECCR*:
+  _modify:
+    ECCx:
+      name: ECC

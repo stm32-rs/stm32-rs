@@ -76,6 +76,12 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FSMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix_v3.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - collect/fsmc/sram.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v1/common.yaml
@@ -191,9 +197,6 @@ _include:
   - patches/bkp/bkp.yaml
   - fields/bkp/bkp.yaml
   - collect/bkp/dr.yaml
-  - patches/fsmc/fsmc_sramfix_v3.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - collect/fsmc/sram.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/crc/crc_basic.yaml

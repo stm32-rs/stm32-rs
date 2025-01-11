@@ -84,6 +84,14 @@ FMC:
         description: Burst read
         bitOffset: 12
         bitWidth: 1
+  _include:
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
+    - collect/fsmc/sd.yaml
 
 GPIO?:
   _include:
@@ -266,13 +274,6 @@ _include:
   - patches/usb_otg/hs_v1_f4.yaml
   - collect/usb_otg/hs.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/nand_v1.yaml
-  - collect/fsmc/sd.yaml
   - fields/rng/rng_v1.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml

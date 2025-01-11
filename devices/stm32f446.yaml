@@ -74,6 +74,18 @@ FLASH:
       LATENCY:
         bitWidth: 4
 
+FMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
+    - collect/fsmc/sd.yaml
+
 FMPI2C1:
   _modify:
     ISR:
@@ -339,15 +351,6 @@ _include:
   - collect/usb_otg/hs.yaml
   - patches/usb_otg/hs_fixes_446_469.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - patches/fsmc/fsmc_sramfix.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/nand_v1.yaml
-  - collect/fsmc/sd.yaml
   - fields/sdio/sdio_f4_common.yaml
   - collect/sdio/resp.yaml
   - fields/flash/flash_v1.yaml

@@ -73,6 +73,12 @@ FSMC:
       _from: BWTR1
       addressOffset: 0x11C
       alternateRegister: ""
+  _include:
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
 
 GPIO?:
   _include:
@@ -230,11 +236,6 @@ WWDG:
 
 _include:
   - collect/cryp/v2.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/nand_v1.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

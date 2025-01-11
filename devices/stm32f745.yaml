@@ -65,12 +65,6 @@ DMA?:
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
 
-FLASH:
-  OPTKEYR:
-    _modify:
-      OPTKEY:
-        name: OPTKEYR
-
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -112,6 +106,23 @@ Ethernet_MAC:
     _modify:
       MBCA3L:
         name: MACA3L
+
+FLASH:
+  OPTKEYR:
+    _modify:
+      OPTKEY:
+        name: OPTKEYR
+
+FMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
 
 GPIO?:
   _include:
@@ -352,13 +363,5 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - patches/fsmc/fsmc_sramfix.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/sd.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
