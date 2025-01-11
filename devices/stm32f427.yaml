@@ -71,7 +71,7 @@ FLASH:
         bitWidth: 4
 
 # Offset of BWTR3 and BWTR4 is incorrect
-"FMC,FSMC":
+FSMC:
   _modify:
     BWTR3:
       addressOffset: 0x114
@@ -101,6 +101,14 @@ FLASH:
         description: Burst read
         bitOffset: 12
         bitWidth: 1
+  _include:
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
+    - collect/fsmc/sd.yaml
 
 GPIO?:
   _include:
@@ -233,13 +241,6 @@ _include:
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/nand_v1.yaml
-  - collect/fsmc/sd.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f4_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

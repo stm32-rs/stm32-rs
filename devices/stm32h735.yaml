@@ -129,6 +129,10 @@ FDCAN?:
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
+FMC:
+  _include:
+    - collect/fsmc/sdram.yaml
+
 GPIOA:
   _strip: GPIOA_
 
@@ -459,7 +463,6 @@ _include:
   - fields/hdmi_cec.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_735.yaml
   - patches/h7_common_singlecore_735.yaml
-  - collect/fsmc/sdram.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - collect/hsem/r.yaml
   - patches/sai/h7.yaml

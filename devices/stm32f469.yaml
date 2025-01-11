@@ -98,6 +98,17 @@ FLASH:
       LATENCY:
         bitWidth: 4
 
+FMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -295,14 +306,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - patches/fsmc/fsmc_sramfix.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/sd.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
   - collect/hash/v2.yaml

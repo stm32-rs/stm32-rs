@@ -55,6 +55,17 @@ EXTI:
       MI9:
         name: IM9
 
+FMC:
+  _include:
+    - patches/fsmc/fsmc_sdfix.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -204,14 +215,6 @@ _include:
   - patches/usb_otg/hs_f73_fixes.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/fsmc/fsmc_sdfix.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/sd.yaml
   - patches/rtc/alarm.yaml
   - patches/rtc/rtc_cr.yaml
   - fields/rtc/rtc_common.yaml

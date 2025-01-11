@@ -82,6 +82,17 @@ EXTI:
     - patches/exti/l4+.yaml
     - fields/exti/common.yaml
 
+FLASH:
+  ACR:
+    _modify:
+      LATENCY:
+        bitWidth: 4
+
+FMC:
+  _include:
+    - patches/fsmc/fsmc_l4+.yaml
+    - patches/fsmc/fsmc_nand.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -93,12 +104,6 @@ I2C?:
 
 IWDG:
   _include: patches/16bit.yaml
-
-FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
 
 LPTIM?:
   _add:
@@ -293,8 +298,6 @@ _include:
   #- patches/usart/merge_BRR_fields.yaml
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   - fields/tsc/tsc.yaml
-  - patches/fsmc/fsmc_l4+.yaml
-  - patches/fsmc/fsmc_nand.yaml
   - patches/hash/hash_l4+.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

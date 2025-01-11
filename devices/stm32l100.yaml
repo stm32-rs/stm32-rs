@@ -22,6 +22,12 @@ CRC:
       Independent_data_register:
         name: IDR
 
+FSMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix_common.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - collect/fsmc/sram.yaml
+
 EXTI:
   _include:
     - patches/exti/split.yaml
@@ -150,9 +156,6 @@ WWDG:
 
 _include:
   - patches/rcc/LSECSSC_LSECSSF.yaml
-  - patches/fsmc/fsmc_sramfix_common.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - collect/fsmc/sram.yaml
   - patches/usb/unprefix_registers.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml

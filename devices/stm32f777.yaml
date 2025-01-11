@@ -123,6 +123,17 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
 
+FMC:
+  _include:
+    - patches/fsmc/fsmc_sramfix.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -377,13 +388,5 @@ _include:
   - fields/rtc/rtc_common.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - patches/fsmc/fsmc_sramfix.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sd.yaml
-  - collect/fsmc/sram.yaml
-  - collect/fsmc/sd.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml

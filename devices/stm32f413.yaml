@@ -122,6 +122,11 @@ FMPI2C1:
     - patches/i2c/f4_fmpi2c.yaml
     - fields/i2c/v2.yaml
 
+FSMC:
+  _include:
+    - fields/fsmc/fsmc_sram.yaml
+    - collect/fsmc/sram.yaml
+
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
@@ -560,8 +565,6 @@ _include:
   - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_v1.yaml
   - collect/dfsdm/v1.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - collect/fsmc/sram.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f4_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

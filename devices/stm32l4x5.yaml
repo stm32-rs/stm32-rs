@@ -81,7 +81,7 @@ DMA?:
     - fields/dma/dma_v1_with_remapping.yaml
     - collect/dma/v1.yaml
 
-"FMC,FSMC":
+FMC:
   BCR1:
     _add:
       WRAPMOD:
@@ -113,6 +113,12 @@ DMA?:
         bitOffset: 16
         bitWidth: 4
         access: read-write
+  _include:
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
 
 EXTI:
   _include:
@@ -292,16 +298,10 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/nvic/4_prio_bits.yaml
   - patches/sai/sai_v1.yaml
   - fields/sai/sai.yaml
   - collect/sai/ch.yaml
   - patches/rcc/l4_crrcr.yaml
-  - patches/fsmc/fsmc_nand.yaml
-  - fields/fsmc/fsmc_sram.yaml
-  - fields/fsmc/fsmc_wfdis.yaml
-  - fields/fsmc/fsmc_nand.yaml
-  - collect/fsmc/sram.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

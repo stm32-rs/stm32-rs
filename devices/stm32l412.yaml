@@ -225,7 +225,6 @@ WWDG:
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
-  - patches/nvic/4_prio_bits.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml
