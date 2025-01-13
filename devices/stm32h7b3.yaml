@@ -144,6 +144,12 @@ RCC:
 
 SAI?:
   _strip: SAI_
+  _include:
+    - patches/sai/h7.yaml
+    - patches/sai/h7_mcken.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
 
 SPI?:
   _include:
@@ -242,11 +248,6 @@ _include:
   - fields/hdmi_cec.yaml
   - collect/hsem/r.yaml
   - patches/octospi/h7.yaml
-  - patches/sai/h7.yaml
-  - patches/sai/h7_mcken.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml

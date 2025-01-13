@@ -1,188 +1,186 @@
-SYSCFG:
-  _add:
-    SWPR2:
-      description: write protection register 2
-      addressOffset: 0x28
-      resetValue: 0x0
-      fields:
-        P63WP:
-          description: SRAM2 page x write protection
-          bitOffset: 31
-          bitWidth: 1
-        P62WP:
-          description: SRAM2 page x write protection
-          bitOffset: 30
-          bitWidth: 1
-        P61WP:
-          description: SRAM2 page x write protection
-          bitOffset: 29
-          bitWidth: 1
-        P60WP:
-          description: SRAM2 page x write protection
-          bitOffset: 28
-          bitWidth: 1
-        P59WP:
-          description: SRAM2 page x write protection
-          bitOffset: 27
-          bitWidth: 1
-        P58WP:
-          description: SRAM2 page x write protection
-          bitOffset: 26
-          bitWidth: 1
-        P57WP:
-          description: SRAM2 page x write protection
-          bitOffset: 25
-          bitWidth: 1
-        P56WP:
-          description: SRAM2 page x write protection
-          bitOffset: 24
-          bitWidth: 1
-        P55WP:
-          description: SRAM2 page x write protection
-          bitOffset: 23
-          bitWidth: 1
-        P54WP:
-          description: SRAM2 page x write protection
-          bitOffset: 22
-          bitWidth: 1
-        P53WP:
-          description: SRAM2 page x write protection
-          bitOffset: 21
-          bitWidth: 1
-        P52WP:
-          description: SRAM2 page x write protection
-          bitOffset: 20
-          bitWidth: 1
-        P51WP:
-          description: SRAM2 page x write protection
-          bitOffset: 19
-          bitWidth: 1
-        P50WP:
-          description: SRAM2 page x write protection
-          bitOffset: 18
-          bitWidth: 1
-        P49WP:
-          description: SRAM2 page x write protection
-          bitOffset: 17
-          bitWidth: 1
-        P48WP:
-          description: SRAM2 page x write protection
-          bitOffset: 16
-          bitWidth: 1
-        P47WP:
-          description: SRAM2 page x write protection
-          bitOffset: 15
-          bitWidth: 1
-        P46WP:
-          description: SRAM2 page x write protection
-          bitOffset: 14
-          bitWidth: 1
-        P45WP:
-          description: SRAM2 page x write protection
-          bitOffset: 13
-          bitWidth: 1
-        P44WP:
-          description: SRAM2 page x write protection
-          bitOffset: 12
-          bitWidth: 1
-        P43WP:
-          description: SRAM2 page x write protection
-          bitOffset: 11
-          bitWidth: 1
-        P42WP:
-          description: SRAM2 page x write protection
-          bitOffset: 10
-          bitWidth: 1
-        P41WP:
-          description: SRAM2 page x write protection
-          bitOffset: 9
-          bitWidth: 1
-        P40WP:
-          description: SRAM2 page x write protection
-          bitOffset: 8
-          bitWidth: 1
-        P39WP:
-          description: SRAM2 page x write protection
-          bitOffset: 7
-          bitWidth: 1
-        P38WP:
-          description: SRAM2 page x write protection
-          bitOffset: 6
-          bitWidth: 1
-        P37WP:
-          description: SRAM2 page x write protection
-          bitOffset: 5
-          bitWidth: 1
-        P36WP:
-          description: SRAM2 page x write protection
-          bitOffset: 4
-          bitWidth: 1
-        P35WP:
-          description: SRAM2 page x write protection
-          bitOffset: 3
-          bitWidth: 1
-        P34WP:
-          description: SRAM2 page x write protection
-          bitOffset: 2
-          bitWidth: 1
-        P33WP:
-          description: SRAM2 page x write protection
-          bitOffset: 1
-          bitWidth: 1
-        P32WP:
-          description: SRAM2 page x write protection
-          bitOffset: 0
-          bitWidth: 1
-
-  MEMRMP:
-    _delete:
-      - QFS
-
-  CFGR1:
-    _delete:
-      - FPU_IE
-
-    _add:
-      FPU_IE5:
-        description: Inexact interrupt enable
+_add:
+  SWPR2:
+    description: write protection register 2
+    addressOffset: 0x28
+    resetValue: 0x0
+    fields:
+      P63WP:
+        description: SRAM2 page x write protection
         bitOffset: 31
         bitWidth: 1
-      FPU_IE4:
-        description: Input denormal interrupt enable
+      P62WP:
+        description: SRAM2 page x write protection
         bitOffset: 30
         bitWidth: 1
-      FPU_IE3:
-        description: Overflow interrupt enable
+      P61WP:
+        description: SRAM2 page x write protection
         bitOffset: 29
         bitWidth: 1
-      FPU_IE2:
-        description: Underflow interrupt enable
+      P60WP:
+        description: SRAM2 page x write protection
         bitOffset: 28
         bitWidth: 1
-      FPU_IE1:
-        description: Divide-by-zero interrupt enable
+      P59WP:
+        description: SRAM2 page x write protection
         bitOffset: 27
         bitWidth: 1
-      FPU_IE0:
-        description: Invalid operation interrupt enable
+      P58WP:
+        description: SRAM2 page x write protection
         bitOffset: 26
         bitWidth: 1
-      ANASWVDD:
-        description: GPIO analog switch control voltage selection when at least one analog peripheral supplied by VDDA is enabled (COMP, OPAMP, VREFBUF, ADC,...)
-        bitOffset: 9
+      P57WP:
+        description: SRAM2 page x write protection
+        bitOffset: 25
         bitWidth: 1
-      I2C4_FMP:
-        description: I2C3 Fast-mode Plus driving capability activation
+      P56WP:
+        description: SRAM2 page x write protection
+        bitOffset: 24
+        bitWidth: 1
+      P55WP:
+        description: SRAM2 page x write protection
         bitOffset: 23
         bitWidth: 1
+      P54WP:
+        description: SRAM2 page x write protection
+        bitOffset: 22
+        bitWidth: 1
+      P53WP:
+        description: SRAM2 page x write protection
+        bitOffset: 21
+        bitWidth: 1
+      P52WP:
+        description: SRAM2 page x write protection
+        bitOffset: 20
+        bitWidth: 1
+      P51WP:
+        description: SRAM2 page x write protection
+        bitOffset: 19
+        bitWidth: 1
+      P50WP:
+        description: SRAM2 page x write protection
+        bitOffset: 18
+        bitWidth: 1
+      P49WP:
+        description: SRAM2 page x write protection
+        bitOffset: 17
+        bitWidth: 1
+      P48WP:
+        description: SRAM2 page x write protection
+        bitOffset: 16
+        bitWidth: 1
+      P47WP:
+        description: SRAM2 page x write protection
+        bitOffset: 15
+        bitWidth: 1
+      P46WP:
+        description: SRAM2 page x write protection
+        bitOffset: 14
+        bitWidth: 1
+      P45WP:
+        description: SRAM2 page x write protection
+        bitOffset: 13
+        bitWidth: 1
+      P44WP:
+        description: SRAM2 page x write protection
+        bitOffset: 12
+        bitWidth: 1
+      P43WP:
+        description: SRAM2 page x write protection
+        bitOffset: 11
+        bitWidth: 1
+      P42WP:
+        description: SRAM2 page x write protection
+        bitOffset: 10
+        bitWidth: 1
+      P41WP:
+        description: SRAM2 page x write protection
+        bitOffset: 9
+        bitWidth: 1
+      P40WP:
+        description: SRAM2 page x write protection
+        bitOffset: 8
+        bitWidth: 1
+      P39WP:
+        description: SRAM2 page x write protection
+        bitOffset: 7
+        bitWidth: 1
+      P38WP:
+        description: SRAM2 page x write protection
+        bitOffset: 6
+        bitWidth: 1
+      P37WP:
+        description: SRAM2 page x write protection
+        bitOffset: 5
+        bitWidth: 1
+      P36WP:
+        description: SRAM2 page x write protection
+        bitOffset: 4
+        bitWidth: 1
+      P35WP:
+        description: SRAM2 page x write protection
+        bitOffset: 3
+        bitWidth: 1
+      P34WP:
+        description: SRAM2 page x write protection
+        bitOffset: 2
+        bitWidth: 1
+      P33WP:
+        description: SRAM2 page x write protection
+        bitOffset: 1
+        bitWidth: 1
+      P32WP:
+        description: SRAM2 page x write protection
+        bitOffset: 0
+        bitWidth: 1
 
+MEMRMP:
+  _delete:
+    - QFS
 
-  EXTICR?:
-    _modify:
-      EXTI*:
-        bitWidth: 4
+CFGR1:
+  _delete:
+    - FPU_IE
 
-  SCSR:
-    _modify:
-      SRAM2BSY:
-        name: SRAM2BS
+  _add:
+    FPU_IE5:
+      description: Inexact interrupt enable
+      bitOffset: 31
+      bitWidth: 1
+    FPU_IE4:
+      description: Input denormal interrupt enable
+      bitOffset: 30
+      bitWidth: 1
+    FPU_IE3:
+      description: Overflow interrupt enable
+      bitOffset: 29
+      bitWidth: 1
+    FPU_IE2:
+      description: Underflow interrupt enable
+      bitOffset: 28
+      bitWidth: 1
+    FPU_IE1:
+      description: Divide-by-zero interrupt enable
+      bitOffset: 27
+      bitWidth: 1
+    FPU_IE0:
+      description: Invalid operation interrupt enable
+      bitOffset: 26
+      bitWidth: 1
+    ANASWVDD:
+      description: GPIO analog switch control voltage selection when at least one analog peripheral supplied by VDDA is enabled (COMP, OPAMP, VREFBUF, ADC,...)
+      bitOffset: 9
+      bitWidth: 1
+    I2C4_FMP:
+      description: I2C3 Fast-mode Plus driving capability activation
+      bitOffset: 23
+      bitWidth: 1
+
+EXTICR?:
+  _modify:
+    EXTI*:
+      bitWidth: 4
+
+SCSR:
+  _modify:
+    SRAM2BSY:
+      name: SRAM2BS

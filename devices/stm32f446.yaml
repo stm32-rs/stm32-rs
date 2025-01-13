@@ -207,6 +207,12 @@ RCC:
         bitOffset: 28
         bitWidth: 3
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SYSCFG:
   _include:
     - patches/syscfg/f4_common.yaml
@@ -308,9 +314,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f4_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

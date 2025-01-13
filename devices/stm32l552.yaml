@@ -77,6 +77,13 @@ IWDG:
 RNG:
   _strip: RNG_
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -145,8 +152,4 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/adc/adc_common_group_name.yaml

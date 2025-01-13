@@ -131,6 +131,12 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -141,6 +147,8 @@ SYSCFG:
   "MEMRM,MEMRMP":
     _delete:
       - FB_MODE
+  _include:
+    - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -290,9 +298,6 @@ _include:
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
   - fields/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -327,7 +332,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
-  - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml

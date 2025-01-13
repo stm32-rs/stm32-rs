@@ -97,6 +97,13 @@ PWR:
 RCC:
   _strip: RCC_
 
+SAI:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -163,10 +170,6 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml

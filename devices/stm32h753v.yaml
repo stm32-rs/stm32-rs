@@ -142,6 +142,11 @@ QUADSPI:
 
 SAI?:
   _strip: SAI_
+  _include:
+    - patches/sai/h7.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
 
 SPI?:
   _include:
@@ -150,6 +155,10 @@ SPI?:
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+SYSCFG:
+  _include:
+    - patches/syscfg/h74x_pwrcr.yaml
 
 TIM4:
   _add:
@@ -263,10 +272,6 @@ _include:
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
-  - patches/sai/h7.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/dfsdm/h735_747_753.yaml
   - collect/dfsdm/v1.yaml
   - patches/ramecc/ramecc.yaml
@@ -297,5 +302,4 @@ _include:
   - collect/rtc/bkpr.yaml
   - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
-  - patches/syscfg/h74x_pwrcr.yaml
   - patches/h743_hrtim_common.yaml

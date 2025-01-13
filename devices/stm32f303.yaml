@@ -22,6 +22,10 @@ _modify:
   # Rename DAC to DAC1 in accordance with the reference manual.
   DAC:
     name: DAC1
+  SYSCFG_COMP_OPAMP:
+    name: SYSCFG
+    groupName: SYSCFG
+    description: System configuration controller
 
 ADC1_2:
   _include:
@@ -122,6 +126,17 @@ SYSCFG:
         name: LOCKUP_LOCK
       BYP_ADD_PAR:
         name: BYP_ADDR_PAR
+  _include:
+    - patches/syscfg/f3.yaml
+    - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
+    - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
+    - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
+    - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
+    - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
+    - patches/syscfg/f3_rcr_page8-15.yaml
+    - fields/syscfg/syscfg_f3.yaml
+    - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+    - fields/syscfg/syscfg_f303_3x8.yaml
 
 TIM3:
   CNT:
@@ -203,16 +218,6 @@ _include:
   - patches/rcc/f3_spi4.yaml
   - patches/rcc/f3_tim20.yaml
   - patches/rcc/f3_cfgr3_tim.yaml
-  - patches/syscfg/f3.yaml
-  - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
-  - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
-  - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
-  - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
-  - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
-  - patches/syscfg/f3_rcr_page8-15.yaml
-  - fields/syscfg/syscfg_f3.yaml
-  - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
-  - fields/syscfg/syscfg_f303_3x8.yaml
   - patches/opamp/f3_opamp1234.yaml
   - patches/comp/f3_comp1234567.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml

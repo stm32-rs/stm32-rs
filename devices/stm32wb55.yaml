@@ -141,6 +141,11 @@ RCC:
 SAI1:
   _delete:
     - GCR
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
 
 SPI?:
   _include:
@@ -199,9 +204,5 @@ _include:
   - patches/rtc/rtc_cr.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/adc/wb_adc_common.yaml
   - collect/hsem/r.yaml

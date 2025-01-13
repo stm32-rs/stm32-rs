@@ -156,11 +156,23 @@ RCC:
       MCOSEL:
         bitWidth: 4
 
+SAI?:
+  _include:
+    - patches/sai/sai_l4+.yaml
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
+
+SYSCFG:
+  _include:
+    - patches/syscfg/l4+.yaml
+    - fields/syscfg/syscfg_l4+.yaml
 
 TIM?:
   _strip: TIM?_
@@ -315,10 +327,6 @@ _include:
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
-  - patches/sai/sai_l4+.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_l4+.yaml
   - fields/dfsdm/dfsdm.yaml
   - collect/dfsdm/v1.yaml
@@ -326,8 +334,6 @@ _include:
   - fields/dac/dac_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - patches/syscfg/l4+.yaml
-  - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml
   - fields/flash/flash_l4+.yaml
   - patches/rcc/l4+.yaml

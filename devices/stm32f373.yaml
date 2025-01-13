@@ -15,6 +15,10 @@ _modify:
     name: FLASH
   GPIOD:
     baseAddress: 0x48000C00
+  SYSCFG_COMP_OPAMP:
+    name: SYSCFG
+    groupName: SYSCFG
+    description: System configuration controller
 
 ADC?:
   _include:
@@ -194,6 +198,11 @@ SYSCFG:
     _modify:
       LOCUP_LOCK:
         name: LOCKUP_LOCK
+  _include:
+    - patches/syscfg/f3.yaml
+    - fields/syscfg/syscfg_f3.yaml
+    - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+    - fields/syscfg/syscfg_f37x.yaml
 
 TIM*:
   _include:
@@ -247,10 +256,6 @@ _include:
   - patches/nvic/4_prio_bits.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_dac3_dac2.yaml
-  - patches/syscfg/f3.yaml
-  - fields/syscfg/syscfg_f3.yaml
-  - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
-  - fields/syscfg/syscfg_f37x.yaml
   - patches/comp/f0_common.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml

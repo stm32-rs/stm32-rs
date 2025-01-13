@@ -87,14 +87,21 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-SAI,SAI?:
-  _include: patches/sai/v1_common.yaml
+SAI?:
+  _include:
+    - patches/sai/v1_common.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
 
 SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - fields/spi/spi_v2.yaml
+
+SYSCFG:
+  _include:
+    - patches/syscfg/f730_f7x2_f7x3.yaml
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -188,8 +195,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -210,7 +215,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
-  - patches/syscfg/f730_f7x2_f7x3.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml

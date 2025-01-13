@@ -21,6 +21,10 @@ _modify:
   # Rename DAC to DAC1 in accordance with the reference manual.
   DAC:
     name: DAC1
+  SYSCFG_COMP_OPAMP:
+    name: SYSCFG
+    groupName: SYSCFG
+    description: System configuration controller
 
 ADC1_2:
   _include:
@@ -155,6 +159,14 @@ SYSCFG:
         name: LOCKUP_LOCK
       BYP_ADD_PAR:
         name: BYP_ADDR_PAR
+  _include:
+    - patches/syscfg/f3.yaml
+    - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
+    - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
+    - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
+    - fields/syscfg/syscfg_f3.yaml
+    - fields/syscfg/syscfg_f302.yaml
+    - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
 
 TIM3:
   CNT:
@@ -237,16 +249,9 @@ _include:
   - patches/rcc/f3_spi4.yaml
   - patches/rcc/f3_delete_tim8.yaml
   - patches/rcc/f3_cfgr3_tim.yaml
-  - patches/syscfg/f3.yaml
-  - patches/syscfg/f3_cfgr1_mem_mode_3.yaml
-  - patches/syscfg/f3_cfgr1_i2c3_fmp.yaml
-  - patches/syscfg/f3_cfgr1_adc2_dac1_rmp.yaml
   - patches/opamp/f3_opamp12.yaml
   - patches/comp/f3_comp1246.yaml
   - patches/comp/f3_comp2_inp_dac.yaml
-  - fields/syscfg/syscfg_f3.yaml
-  - fields/syscfg/syscfg_f302.yaml
-  - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/merge_add.yaml
   - patches/usb/unprefix_registers.yaml

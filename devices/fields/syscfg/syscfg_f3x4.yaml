@@ -1,118 +1,117 @@
-SYSCFG:
-  CFGR1:
-    ENCODER_MODE:
-      NoRedirection: [0, No redirection]
-      MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
-      MapTim3Tim15: [2, TIM3 IC1 and TIM3 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
-    DAC2_CH1_DMA_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, DAC2_CH1 DMA requests mapped on DMA1 channel 5]
-    TIM7_DAC1_CH2_DMA_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, TIM7_UP and DAC_CH2 DMA requests mapped on DMA1 channel 4]
-    TIM6_DAC1_CH1_DMA_RMP:
-      NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
-      Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
-    DAC_TRIG_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, DAC trigger is TIM3_TRGO]
-    TIM1_ITR3_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-  RCR:
-    PAGE*_WP:
-      Disabled: [0, Write protection of pagex is disabled]
-      Enabled: [1, Write protection of pagex is enabled]
-  EXTICR1:
-    _derive:
-      EXTI1: EXTI0
-      EXTI2: EXTI0
-    EXTI0:
-      _name: ExtiAbcdef
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-      PF: [5, Select PFx as the source input for the EXTIx external interrupt]
-    EXTI3:
-      _name: ExtiAbcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI4: EXTICR1.EXTI0
-      EXTI5: EXTICR1.EXTI0
-      EXTI6: EXTICR1.EXTI0
-      EXTI7: EXTICR1.EXTI3
-  EXTICR3:
-    _derive:
-      EXTI8: EXTICR1.EXTI3
-      EXTI9: EXTICR1.EXTI0
-      EXTI10: EXTICR1.EXTI0
-      EXTI11: EXTICR1.EXTI3
-  EXTICR4:
-    _derive:
-      EXTI12: EXTICR1.EXTI3
-      EXTI13: EXTICR1.EXTI0
-      EXTI14: EXTICR1.EXTI0
-      EXTI15: EXTICR1.EXTI0
-  CFGR2:
-    SRAM_PEF:
-      _read:
-        NoParityError: [0, No SRAM parity error detected]
-        ParityErrorDetected: [1, SRAM parity error detected]
-      _write:
-        Clear: [1, Clear SRAM parity error flag]
-    BYP_ADDR_PAR:
-      NoBypass:
-        [
-          0,
-          The ramload operation is performed taking into consideration bit 29 of the address when the parity is calculated,
-        ]
-      Bypass:
-        [
-          1,
-          The ramload operation is performed without taking into consideration bit 29 of the address when the parity is calculated,
-        ]
-    SRAM_PARITY_LOCK:
-      Disconnected: [0, SRAM parity error signal disconnected from TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
-      Connected: [1, SRAM parity error signal connected to TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
-    LOCKUP_LOCK:
-      Disconnected: [0, Cortex-M4 LOCKUP output disconnected from TIM1/15/16/17 Break inputs and HRTIM1 SYSFLT.]
-      Connected: [1, Cortex-M4 LOCKUP output connected to TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
-  CFGR3:
-    DAC1_TRIG5_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, DAC trigger is HRTIM1_DAC1_TRIG2]
-    DAC1_TRIG3_RMP:
-      Tim15: [0, DAC trigger is TIM15_TRGO]
-      HrTim1: [1, DAC trigger is HRTIM1_DAC1_TRIG1]
-    ADC2_DMA_RMP:
-      MapDma2: [0, ADC2 mapped on DMA2]
-      MapDma1Ch2: [2, ADC2 mapped on DMA1 channel 2]
-      MapDma1Ch4: [3, ADC2 mapped on DMA1 channel 4]
-    I2C1_TX_DMA_RMP:
-      MapDma1Ch6: [0, I2C1_TX mapped on DMA1 CH6]
-      MapDma1Ch2: [1, I2C1_TX mapped on DMA1 CH2]
-      MapDma1Ch4: [2, I2C1_TX mapped on DMA1 CH4]
-    I2C1_RX_DMA_RMP:
-      MapDma1Ch7: [0, I2C1_RX mapped on DMA1 CH7]
-      MapDma1Ch3: [1, I2C1_RX mapped on DMA1 CH3]
-      MapDma1Ch5: [2, I2C1_RX mapped on DMA1 CH5]
-    SPI1_TX_DMA_RMP:
-      MapDma1Ch3: [0, SPI1_TX mapped on DMA1 CH3]
-      MapDma1Ch5: [1, SPI1_TX mapped on DMA1 CH5]
-      MapDma1Ch7: [2, SPI1_TX mapped on DMA1 CH7]
-    SPI1_RX_DMA_RMP:
-      MapDma1Ch3: [0, SPI1_RX mapped on DMA1 CH2]
-      MapDma1Ch5: [1, SPI1_RX mapped on DMA1 CH4]
-      MapDma1Ch7: [2, SPI1_RX mapped on DMA1 CH6]
+CFGR1:
+  ENCODER_MODE:
+    NoRedirection: [0, No redirection]
+    MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
+    MapTim3Tim15: [2, TIM3 IC1 and TIM3 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
+  DAC2_CH1_DMA_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, DAC2_CH1 DMA requests mapped on DMA1 channel 5]
+  TIM7_DAC1_CH2_DMA_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, TIM7_UP and DAC_CH2 DMA requests mapped on DMA1 channel 4]
+  TIM6_DAC1_CH1_DMA_RMP:
+    NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
+    Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
+  DAC_TRIG_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, DAC trigger is TIM3_TRGO]
+  TIM1_ITR3_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+RCR:
+  PAGE*_WP:
+    Disabled: [0, Write protection of pagex is disabled]
+    Enabled: [1, Write protection of pagex is enabled]
+EXTICR1:
+  _derive:
+    EXTI1: EXTI0
+    EXTI2: EXTI0
+  EXTI0:
+    _name: ExtiAbcdef
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PF: [5, Select PFx as the source input for the EXTIx external interrupt]
+  EXTI3:
+    _name: ExtiAbcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI4: EXTICR1.EXTI0
+    EXTI5: EXTICR1.EXTI0
+    EXTI6: EXTICR1.EXTI0
+    EXTI7: EXTICR1.EXTI3
+EXTICR3:
+  _derive:
+    EXTI8: EXTICR1.EXTI3
+    EXTI9: EXTICR1.EXTI0
+    EXTI10: EXTICR1.EXTI0
+    EXTI11: EXTICR1.EXTI3
+EXTICR4:
+  _derive:
+    EXTI12: EXTICR1.EXTI3
+    EXTI13: EXTICR1.EXTI0
+    EXTI14: EXTICR1.EXTI0
+    EXTI15: EXTICR1.EXTI0
+CFGR2:
+  SRAM_PEF:
+    _read:
+      NoParityError: [0, No SRAM parity error detected]
+      ParityErrorDetected: [1, SRAM parity error detected]
+    _write:
+      Clear: [1, Clear SRAM parity error flag]
+  BYP_ADDR_PAR:
+    NoBypass:
+      [
+        0,
+        The ramload operation is performed taking into consideration bit 29 of the address when the parity is calculated,
+      ]
+    Bypass:
+      [
+        1,
+        The ramload operation is performed without taking into consideration bit 29 of the address when the parity is calculated,
+      ]
+  SRAM_PARITY_LOCK:
+    Disconnected: [0, SRAM parity error signal disconnected from TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
+    Connected: [1, SRAM parity error signal connected to TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
+  LOCKUP_LOCK:
+    Disconnected: [0, Cortex-M4 LOCKUP output disconnected from TIM1/15/16/17 Break inputs and HRTIM1 SYSFLT.]
+    Connected: [1, Cortex-M4 LOCKUP output connected to TIM1/15/16/17 and HRTIM1 SYSFLT Break inputs]
+CFGR3:
+  DAC1_TRIG5_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, DAC trigger is HRTIM1_DAC1_TRIG2]
+  DAC1_TRIG3_RMP:
+    Tim15: [0, DAC trigger is TIM15_TRGO]
+    HrTim1: [1, DAC trigger is HRTIM1_DAC1_TRIG1]
+  ADC2_DMA_RMP:
+    MapDma2: [0, ADC2 mapped on DMA2]
+    MapDma1Ch2: [2, ADC2 mapped on DMA1 channel 2]
+    MapDma1Ch4: [3, ADC2 mapped on DMA1 channel 4]
+  I2C1_TX_DMA_RMP:
+    MapDma1Ch6: [0, I2C1_TX mapped on DMA1 CH6]
+    MapDma1Ch2: [1, I2C1_TX mapped on DMA1 CH2]
+    MapDma1Ch4: [2, I2C1_TX mapped on DMA1 CH4]
+  I2C1_RX_DMA_RMP:
+    MapDma1Ch7: [0, I2C1_RX mapped on DMA1 CH7]
+    MapDma1Ch3: [1, I2C1_RX mapped on DMA1 CH3]
+    MapDma1Ch5: [2, I2C1_RX mapped on DMA1 CH5]
+  SPI1_TX_DMA_RMP:
+    MapDma1Ch3: [0, SPI1_TX mapped on DMA1 CH3]
+    MapDma1Ch5: [1, SPI1_TX mapped on DMA1 CH5]
+    MapDma1Ch7: [2, SPI1_TX mapped on DMA1 CH7]
+  SPI1_RX_DMA_RMP:
+    MapDma1Ch3: [0, SPI1_RX mapped on DMA1 CH2]
+    MapDma1Ch5: [1, SPI1_RX mapped on DMA1 CH4]
+    MapDma1Ch7: [2, SPI1_RX mapped on DMA1 CH6]

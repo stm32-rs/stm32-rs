@@ -1,51 +1,50 @@
 # Add SYSCFG registers
-SYSCFG:
-  CFGR1:
-    _add:
-      UFB:
-        description: User bank swapping
-        bitOffset: 3
-        bitWidth: 1
-  CFGR2:
-    _add:
-      I2C3_FMP:
-        description: I2C3 Fm+ drive capability enable bit
-        bitOffset: 14
-        bitWidth: 1
-      FWDIS:
-        description: Firewall disable bit
-        bitOffset: 0
-        bitWidth: 1
-    _delete:
-      - CAPA
-      - FWDISEN
-  CFGR3:
-    _delete:
-      - REF_LOCK
-      - VREFINT_COMP_RDYF
-      - VREFINT_ADC_RDYF
-      - SENSOR_ADC_RDYF
-      - REF_RC48MHz_RDYF
-      - ENREF_RC48MHz
-      - ENBUF_VREFINT_COMP
-      - ENBUF_BGAP_ADC
-      - EN_BGAP
-    _add:
-      # REF_LOCK is wrongly marked as write-only, but it's "rs" - read/set
-      REF_LOCK:
-        description: SYSCFG_CFGR3 lock bit
-        bitOffset: 31
-        bitWidth: 1
-        access: read-write
-      ENBUF_VREFINT_COMP2:
-        description: VREFINT reference for COMP2 scaler enable bit
-        bitOffset: 12
-        bitWidth: 1
-      ENBUF_VREFINT_ADC:
-        description: VREFINT reference for ADC enable bit
-        bitOffset: 8
-        bitWidth: 1
-      EN_VREFINT:
-        description: VREFINT enable and scaler control for COMP2 enable bit
-        bitOffset: 0
-        bitWidth: 1
+CFGR1:
+  _add:
+    UFB:
+      description: User bank swapping
+      bitOffset: 3
+      bitWidth: 1
+CFGR2:
+  _add:
+    I2C3_FMP:
+      description: I2C3 Fm+ drive capability enable bit
+      bitOffset: 14
+      bitWidth: 1
+    FWDIS:
+      description: Firewall disable bit
+      bitOffset: 0
+      bitWidth: 1
+  _delete:
+    - CAPA
+    - FWDISEN
+CFGR3:
+  _delete:
+    - REF_LOCK
+    - VREFINT_COMP_RDYF
+    - VREFINT_ADC_RDYF
+    - SENSOR_ADC_RDYF
+    - REF_RC48MHz_RDYF
+    - ENREF_RC48MHz
+    - ENBUF_VREFINT_COMP
+    - ENBUF_BGAP_ADC
+    - EN_BGAP
+  _add:
+    # REF_LOCK is wrongly marked as write-only, but it's "rs" - read/set
+    REF_LOCK:
+      description: SYSCFG_CFGR3 lock bit
+      bitOffset: 31
+      bitWidth: 1
+      access: read-write
+    ENBUF_VREFINT_COMP2:
+      description: VREFINT reference for COMP2 scaler enable bit
+      bitOffset: 12
+      bitWidth: 1
+    ENBUF_VREFINT_ADC:
+      description: VREFINT reference for ADC enable bit
+      bitOffset: 8
+      bitWidth: 1
+    EN_VREFINT:
+      description: VREFINT enable and scaler control for COMP2 enable bit
+      bitOffset: 0
+      bitWidth: 1

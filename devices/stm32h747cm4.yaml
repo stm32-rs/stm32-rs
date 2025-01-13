@@ -134,6 +134,17 @@ RCC:
           bitOffset: 0
           bitWidth: 9
 
+SAI4:
+  _strip: SAI_
+
+SAI?:
+  _include:
+    - patches/sai/h7.yaml
+    - patches/sai/h7_mcken.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
+
 SPI?:
   _include:
     - patches/spi/rxtxdr.yaml
@@ -141,6 +152,11 @@ SPI?:
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+SYSCFG:
+  _include:
+    - patches/syscfg/h74x_pwrcr.yaml
+    - fields/syscfg/syscfg_h747.yaml
 
 "TIM[1],TIM[23],TIM1[23]":
   _include: patches/tim/icpsc.yaml
@@ -235,11 +251,6 @@ _include:
   - patches/hsem/h7_dual_cm4.yaml
   - collect/hsem/r.yaml
   - patches/flash/h7_dualcore.yaml
-  - patches/sai/h7.yaml
-  - patches/sai/h7_mcken.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
@@ -270,9 +281,7 @@ _include:
   - collect/rtc/bkpr.yaml
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
-  - fields/syscfg/syscfg_h747.yaml
   - patches/tim/group.yaml
   - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
-  - patches/syscfg/h74x_pwrcr.yaml
   - patches/pwr/h7_dual.yaml

@@ -1,14 +1,13 @@
-SAI*:
-  "?CR1":
-    _modify:
-      SAI?EN:
-        name: SAIEN
-      MCKDIV:
-        bitWidth: 6
-    _delete:
-      - NOMCK
-    _add:
-      NODIV:
-        description: No fixed divider between MCLK and FS
-        bitOffset: 19
-        bitWidth: 1
+"?CR1":
+  _modify:
+    SAI?EN:
+      name: SAIEN
+    MCKDIV:
+      bitWidth: 6
+  _delete:
+    - NOMCK
+  _add:
+    NODIV:
+      description: No fixed divider between MCLK and FS
+      bitOffset: 19
+      bitWidth: 1
