@@ -118,6 +118,11 @@ SPI?:
       TIFRFE:
         name: FRE
 
+SYSCFG:
+  _include:
+    - patches/syscfg/l0_cfgr.yaml
+    - fields/syscfg/syscfg_l0.yaml
+
 TIM*:
   _include:
     - patches/tim/size16b.yaml
@@ -176,7 +181,6 @@ _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
   - patches/rtc/l0.yaml
-  - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
@@ -196,5 +200,4 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - fields/syscfg/syscfg_l0.yaml
   - patches/tim/group.yaml

@@ -1,60 +1,53 @@
-_modify:
-  SYSCFG_COMP_OPAMP:
-    name: SYSCFG
-    groupName: SYSCFG
-    description: System configuration controller
-
-SYSCFG:
-  _strip: SYSCFG_
+_strip: SYSCFG_
+_delete:
+  - OPAMP*
+  - COMP*
+CFGR1:
+  _modify:
+    "?~TIM1_ITR_RMP":
+      name: TIM1_ITR3_RMP
+    I2C_PB6_FM:
+      name: I2C_PB6_FMP
+    I2C_PB7_FM:
+      name: I2C_PB7_FMP
+    I2C_PB8_FM:
+      name: I2C_PB8_FMP
+    I2C_PB9_FM:
+      name: I2C_PB9_FMP
+    I2C1_FM:
+      name: I2C1_FMP
+    I2C2_FM:
+      name: I2C2_FMP
   _delete:
-    - OPAMP*
-    - COMP*
-  CFGR1:
-    _modify:
-      "?~TIM1_ITR_RMP":
-        name: TIM1_ITR3_RMP
-      I2C_PB6_FM:
-        name: I2C_PB6_FMP
-      I2C_PB7_FM:
-        name: I2C_PB7_FMP
-      I2C_PB8_FM:
-        name: I2C_PB8_FMP
-      I2C_PB9_FM:
-        name: I2C_PB9_FMP
-      I2C1_FM:
-        name: I2C1_FMP
-      I2C2_FM:
-        name: I2C2_FMP
-    _delete:
-      - FPU_IT
-    _add:
-      FPU_IE5:
-        description: Inexact interrupt enable
-        bitOffset: 31
-        bitWidth: 1
-        access: read-write
-      FPU_IE4:
-        description: Input denormal interrupt enable
-        bitOffset: 30
-        bitWidth: 1
-        access: read-write
-      FPU_IE3:
-        description: Overflow interrupt enable
-        bitOffset: 29
-        bitWidth: 1
-        access: read-write
-      FPU_IE2:
-        description: Underflow interrupt enable
-        bitOffset: 28
-        bitWidth: 1
-        access: read-write
-      FPU_IE1:
-        description: Devide-by-zero interrupt enable
-        bitOffset: 27
-        bitWidth: 1
-        access: read-write
-      FPU_IE0:
-        description: Invalid operation interrupt enable
-        bitOffset: 26
-        bitWidth: 1
-        access: read-write
+    - FPU_IT
+  _add:
+    FPU_IE5:
+      description: Inexact interrupt enable
+      bitOffset: 31
+      bitWidth: 1
+      access: read-write
+    FPU_IE4:
+      description: Input denormal interrupt enable
+      bitOffset: 30
+      bitWidth: 1
+      access: read-write
+    FPU_IE3:
+      description: Overflow interrupt enable
+      bitOffset: 29
+      bitWidth: 1
+      access: read-write
+    FPU_IE2:
+      description: Underflow interrupt enable
+      bitOffset: 28
+      bitWidth: 1
+      access: read-write
+    FPU_IE1:
+      description: Devide-by-zero interrupt enable
+      bitOffset: 27
+      bitWidth: 1
+      access: read-write
+    FPU_IE0:
+      description: Invalid operation interrupt enable
+      bitOffset: 26
+      bitWidth: 1
+      access: read-write

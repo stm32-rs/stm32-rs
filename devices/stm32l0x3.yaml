@@ -131,6 +131,9 @@ SYSCFG:
         description: VREFINT reference for HSI48 oscillator enable bit
         bitOffset: 13
         bitWidth: 1
+  _include:
+    - patches/syscfg/l0_cfgr.yaml
+    - fields/syscfg/syscfg_l0.yaml
 
 TIM*:
   _include:
@@ -190,9 +193,8 @@ _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
   - patches/rtc/l0.yaml
-  - patches/syscfg/l0_cfgr.yaml
   - patches/nvic/l0_prio_bits.yaml
-  - ./collect/tsc/iogcr.yaml
+  - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/usb/unprefix_registers.yaml
   - patches/usb/rename_EPxR_EPTYPE_field.yaml
@@ -215,6 +217,5 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
-  - fields/syscfg/syscfg_l0.yaml
   - patches/tim/group.yaml
   - fields/usb/usb_with_LPM.yaml

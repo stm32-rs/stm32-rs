@@ -1,56 +1,55 @@
-SYSCFG:
-  CFGR1:
-    I2C3_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP:
-        [
-          1,
-          "FM+ mode is enabled on all I2C3 pins selected through selection trhough IOPORT control registers AF selection bits",
-        ]
-    ENCODER_MODE:
-      NoRedirection: [0, No redirection]
-      MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
-    TIM6_DAC1_DMA_RMP:
-      NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
-      Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
-    TIM1_ITR3_RMP:
-      NotRemapped: [0, Not remapped]
-      Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-  EXTICR1:
-    _derive:
-      EXTI1: EXTI0
-      EXTI2: EXTI0
-    EXTI0:
-      _name: ExtiAbcf
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PF: [5, Select PFx as the source input for the EXTIX external interrupt]
-    EXTI3:
-      _name: ExtiAbc
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI4: EXTICR1.EXTI3
-      EXTI5: EXTICR1.EXTI3
-      EXTI6: EXTICR1.EXTI3
-      EXTI7: EXTICR1.EXTI3
-  EXTICR3:
-    _derive:
-      EXTI8: EXTICR1.EXTI3
-      EXTI9: EXTICR1.EXTI3
-      EXTI10: EXTICR1.EXTI3
-      EXTI11: EXTICR1.EXTI3
-  EXTICR4:
-    _derive:
-      EXTI12: EXTICR1.EXTI3
-      EXTI13: EXTICR1.EXTI3
-      EXTI14: EXTICR1.EXTI3
-      EXTI15: EXTICR1.EXTI3
+CFGR1:
+  I2C3_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP:
+      [
+        1,
+        "FM+ mode is enabled on all I2C3 pins selected through selection trhough IOPORT control registers AF selection bits",
+      ]
+  ENCODER_MODE:
+    NoRedirection: [0, No redirection]
+    MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
+  TIM6_DAC1_DMA_RMP:
+    NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
+    Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
+  TIM1_ITR3_RMP:
+    NotRemapped: [0, Not remapped]
+    Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+EXTICR1:
+  _derive:
+    EXTI1: EXTI0
+    EXTI2: EXTI0
+  EXTI0:
+    _name: ExtiAbcf
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PF: [5, Select PFx as the source input for the EXTIX external interrupt]
+  EXTI3:
+    _name: ExtiAbc
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI4: EXTICR1.EXTI3
+    EXTI5: EXTICR1.EXTI3
+    EXTI6: EXTICR1.EXTI3
+    EXTI7: EXTICR1.EXTI3
+EXTICR3:
+  _derive:
+    EXTI8: EXTICR1.EXTI3
+    EXTI9: EXTICR1.EXTI3
+    EXTI10: EXTICR1.EXTI3
+    EXTI11: EXTICR1.EXTI3
+EXTICR4:
+  _derive:
+    EXTI12: EXTICR1.EXTI3
+    EXTI13: EXTICR1.EXTI3
+    EXTI14: EXTICR1.EXTI3
+    EXTI15: EXTICR1.EXTI3

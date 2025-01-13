@@ -169,6 +169,11 @@ SPI?:
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
 
+SYSCFG:
+  _include:
+    - patches/syscfg/l4+.yaml
+    - fields/syscfg/syscfg_l4+.yaml
+
 TIM?:
   _strip: TIM?_
 
@@ -329,8 +334,6 @@ _include:
   - fields/dac/dac_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - patches/syscfg/l4+.yaml
-  - fields/syscfg/syscfg_l4+.yaml
   - patches/flash/l4+.yaml
   - fields/flash/flash_l4+.yaml
   - patches/rcc/l4+.yaml

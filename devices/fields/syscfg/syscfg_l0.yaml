@@ -1,162 +1,161 @@
 # System configuration controller and COMP registers for L0 family
-SYSCFG:
-  CFGR1:
-    BOOT_MODE:
-      MainFlash: [0, Main Flash memory boot mode]
-      SystemFlash: [1, System Flash memory boot mode]
-      SRAM: [3, Embedded SRAM boot mode]
-    UFB:
-      Bank1:
-        [
-          0,
-          "Flash Program memory Bank 1 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 1 at 0x0808 0000 (aliased at 0x0008 0000 if MEM_MODE=00)",
-        ]
-      Bank2:
-        [
-          1,
-          "Flash Program memory Bank 2 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 2 at 0x0808 0000 (and aliased at 0x0008 0000 if MEM_MODE=00)",
-        ]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-  CFGR2:
-    I2C3_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C2_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C1_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C_PB9_FMP:
-      Standard: [0, PB9 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
-    I2C_PB8_FMP:
-      Standard: [0, PB8 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
-    I2C_PB7_FMP:
-      Standard: [0, PB7 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
-    I2C_PB6_FMP:
-      Standard: [0, PB6 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
-    FWDIS:
-      Enabled: [0, Firewall access enabled]
-      Disabled: [1, Firewall access disabled]
-  CFGR3:
-    REF_LOCK:
-      ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
-      ReadOnly: [1, "SYSCFG_CFGR3[31:0] bits are read-only"]
-    VREFINT_RDYF:
-      NotReady: [0, VREFINT OFF]
-      Ready: [1, VREFINT ready]
-    ENBUF_VREFINT_COMP2:
-      Disabled: [0, Disables the buffer used to generate VREFINT references for COMP2]
-      Enabled: [1, Enables the buffer used to generate VREFINT references for COMP2]
-    ENBUF_SENSOR_ADC:
-      Disabled: [0, Disables the buffer used to generate VREFINT reference for the temperature sensor]
-      Enabled: [1, Enables the buffer used to generate VREFINT reference for the temperature sensor]
-    ENBUF_VREFINT_ADC:
-      Disabled: [0, Disables the buffer used to generate VREFINT reference for the ADC]
-      Enabled: [1, Enables the buffer used to generate VREFINT reference for the ADC]
-    SEL_VREF_OUT:
-      NoConnection: [0, no pad connected]
-      PB0: [1, PB0 connected]
-      PB1: [2, PB1 connected]
-      Both: [3, PB0 and PB1 connected]
-    EN_VREFINT:
-      Disabled: [0, "VREFINT voltage disabled in low-power mode (if ULP=1) and scaler for COMP2 disabled"]
-      Enabled: [1, VREFINT voltage enabled in low-power mode and scaler for COMP2 enabled]
-  EXTICR1:
-    _derive:
-      EXTI[123]: EXTI0
-    EXTI0:
-      _name: ExtiAbcdeh
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-      PH: [5, Select PHx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI[567]: EXTI4
-    EXTI4:
-      _name: ExtiAbcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR3:
-    _derive:
-      EXTI*: EXTICR1.EXTI0
-  EXTICR4:
-    _derive:
-      EXTI*: EXTICR2.EXTI4
-  COMP1_CSR:
-    COMP1LOCK:
-      ReadWrite: [0, "COMP1_CSR[31:0] for comparator 1 are read/write"]
-      ReadOnly: [1, "COMP1_CSR[31:0] for comparator 1 are read-only"]
-    COMP1VALUE:
-      _read:
-        NotEqual: [0, Comparator values are not equal]
-        Equal: [1, Comparator values are equal]
-    COMP1POLARITY:
-      NotInverted: [0, Comparator 1 output value not inverted]
-      Inverted: [1, Comparator 1 output value inverted]
-    COMP1LPTIMIN1:
-      Gated: [0, Comparator 1 output gated]
-      NotGated: [1, Comparator 1 output sent to LPTIM input 1]
-    COMP1WM:
-      PA1: [0, Plus input of comparator 1 connected to PA1]
-      Comp2Plus: [1, Plus input of comparator 1 shorted with Plus input of comparator 2 (see COMP1_CSR)]
-    COMP1INNSEL:
-      VREFINT: [0, VREFINT]
-      PA0: [1, PA0]
-      PA4: [2, PA4]
-      PA5: [3, PA5]
-    COMP1EN:
-      Disabled: [0, Comparator 1 switched OFF]
-      Enabled: [1, Comparator 1 switched ON]
-  COMP2_CSR:
-    COMP2LOCK:
-      ReadWrite: [0, "COMP2_CSR[31:0] for comparator 2 are read/write"]
-      ReadOnly: [1, "COMP2_CSR[31:0] for comparator 2 are read-only"]
-    COMP2VALUE:
-      _read:
-        NotEqual: [0, Comparator values are not equal]
-        Equal: [1, Comparator values are equal]
-    COMP2POLARITY:
-      NotInverted: [0, Comparator 2 output value not inverted]
-      Inverted: [1, Comparator 2 output value inverted]
-    COMP2LPTIMIN1:
-      Gated: [0, Comparator 2 output gated]
-      NotGated: [1, Comparator 2 output sent to LPTIM input 1]
-    COMP2LPTIMIN2:
-      Gated: [0, Comparator 2 output gated]
-      NotGated: [1, Comparator 2 output sent to LPTIM input 2]
-    COMP2INPSEL:
-      PA3: [0, PA3]
-      PB4: [1, PB4]
-      PB5: [2, PB5]
-      PB6: [3, PB6]
-      PB7: [4, PB7]
-      PA7: [5, PA7]
-    COMP2INNSEL:
-      VREFINT: [0, VREFINT]
-      PA2: [1, PA2]
-      PA4: [2, PA4]
-      PA5: [3, PA5]
-      VREFINT_Div4: [4, 1/4 VREFINT]
-      VREFINT_Div2: [5, 1/2 VREFINT]
-      VREFINT_Div3_4: [6, 3/4 VREFINT]
-      PB3: [7, PB3]
-    COMP2SPEED:
-      Slow: [0, Slow speed]
-      Fast: [1, Fast speed]
-    COMP2EN:
-      Disabled: [0, Comparator 2 switched OFF]
-      Enabled: [1, Comparator 2 switched ON]
+CFGR1:
+  BOOT_MODE:
+    MainFlash: [0, Main Flash memory boot mode]
+    SystemFlash: [1, System Flash memory boot mode]
+    SRAM: [3, Embedded SRAM boot mode]
+  UFB:
+    Bank1:
+      [
+        0,
+        "Flash Program memory Bank 1 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 1 at 0x0808 0000 (aliased at 0x0008 0000 if MEM_MODE=00)",
+      ]
+    Bank2:
+      [
+        1,
+        "Flash Program memory Bank 2 is mapped at 0x0800 0000 (and aliased at 0x0000 0000 if MEM_MODE=00) and Data EEPROM Bank 2 at 0x0808 0000 (and aliased at 0x0008 0000 if MEM_MODE=00)",
+      ]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+CFGR2:
+  I2C3_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C2_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C1_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C_PB9_FMP:
+    Standard: [0, PB9 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+  I2C_PB8_FMP:
+    Standard: [0, PB8 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+  I2C_PB7_FMP:
+    Standard: [0, PB7 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+  I2C_PB6_FMP:
+    Standard: [0, PB6 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+  FWDIS:
+    Enabled: [0, Firewall access enabled]
+    Disabled: [1, Firewall access disabled]
+CFGR3:
+  REF_LOCK:
+    ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
+    ReadOnly: [1, "SYSCFG_CFGR3[31:0] bits are read-only"]
+  VREFINT_RDYF:
+    NotReady: [0, VREFINT OFF]
+    Ready: [1, VREFINT ready]
+  ENBUF_VREFINT_COMP2:
+    Disabled: [0, Disables the buffer used to generate VREFINT references for COMP2]
+    Enabled: [1, Enables the buffer used to generate VREFINT references for COMP2]
+  ENBUF_SENSOR_ADC:
+    Disabled: [0, Disables the buffer used to generate VREFINT reference for the temperature sensor]
+    Enabled: [1, Enables the buffer used to generate VREFINT reference for the temperature sensor]
+  ENBUF_VREFINT_ADC:
+    Disabled: [0, Disables the buffer used to generate VREFINT reference for the ADC]
+    Enabled: [1, Enables the buffer used to generate VREFINT reference for the ADC]
+  SEL_VREF_OUT:
+    NoConnection: [0, no pad connected]
+    PB0: [1, PB0 connected]
+    PB1: [2, PB1 connected]
+    Both: [3, PB0 and PB1 connected]
+  EN_VREFINT:
+    Disabled: [0, "VREFINT voltage disabled in low-power mode (if ULP=1) and scaler for COMP2 disabled"]
+    Enabled: [1, VREFINT voltage enabled in low-power mode and scaler for COMP2 enabled]
+EXTICR1:
+  _derive:
+    EXTI[123]: EXTI0
+  EXTI0:
+    _name: ExtiAbcdeh
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PH: [5, Select PHx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI[567]: EXTI4
+  EXTI4:
+    _name: ExtiAbcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR3:
+  _derive:
+    EXTI*: EXTICR1.EXTI0
+EXTICR4:
+  _derive:
+    EXTI*: EXTICR2.EXTI4
+COMP1_CSR:
+  COMP1LOCK:
+    ReadWrite: [0, "COMP1_CSR[31:0] for comparator 1 are read/write"]
+    ReadOnly: [1, "COMP1_CSR[31:0] for comparator 1 are read-only"]
+  COMP1VALUE:
+    _read:
+      NotEqual: [0, Comparator values are not equal]
+      Equal: [1, Comparator values are equal]
+  COMP1POLARITY:
+    NotInverted: [0, Comparator 1 output value not inverted]
+    Inverted: [1, Comparator 1 output value inverted]
+  COMP1LPTIMIN1:
+    Gated: [0, Comparator 1 output gated]
+    NotGated: [1, Comparator 1 output sent to LPTIM input 1]
+  COMP1WM:
+    PA1: [0, Plus input of comparator 1 connected to PA1]
+    Comp2Plus: [1, Plus input of comparator 1 shorted with Plus input of comparator 2 (see COMP1_CSR)]
+  COMP1INNSEL:
+    VREFINT: [0, VREFINT]
+    PA0: [1, PA0]
+    PA4: [2, PA4]
+    PA5: [3, PA5]
+  COMP1EN:
+    Disabled: [0, Comparator 1 switched OFF]
+    Enabled: [1, Comparator 1 switched ON]
+COMP2_CSR:
+  COMP2LOCK:
+    ReadWrite: [0, "COMP2_CSR[31:0] for comparator 2 are read/write"]
+    ReadOnly: [1, "COMP2_CSR[31:0] for comparator 2 are read-only"]
+  COMP2VALUE:
+    _read:
+      NotEqual: [0, Comparator values are not equal]
+      Equal: [1, Comparator values are equal]
+  COMP2POLARITY:
+    NotInverted: [0, Comparator 2 output value not inverted]
+    Inverted: [1, Comparator 2 output value inverted]
+  COMP2LPTIMIN1:
+    Gated: [0, Comparator 2 output gated]
+    NotGated: [1, Comparator 2 output sent to LPTIM input 1]
+  COMP2LPTIMIN2:
+    Gated: [0, Comparator 2 output gated]
+    NotGated: [1, Comparator 2 output sent to LPTIM input 2]
+  COMP2INPSEL:
+    PA3: [0, PA3]
+    PB4: [1, PB4]
+    PB5: [2, PB5]
+    PB6: [3, PB6]
+    PB7: [4, PB7]
+    PA7: [5, PA7]
+  COMP2INNSEL:
+    VREFINT: [0, VREFINT]
+    PA2: [1, PA2]
+    PA4: [2, PA4]
+    PA5: [3, PA5]
+    VREFINT_Div4: [4, 1/4 VREFINT]
+    VREFINT_Div2: [5, 1/2 VREFINT]
+    VREFINT_Div3_4: [6, 3/4 VREFINT]
+    PB3: [7, PB3]
+  COMP2SPEED:
+    Slow: [0, Slow speed]
+    Fast: [1, Fast speed]
+  COMP2EN:
+    Disabled: [0, Comparator 2 switched OFF]
+    Enabled: [1, Comparator 2 switched ON]

@@ -139,6 +139,10 @@ SPI?:
     - patches/spi/rename_dff_tifrfe.yaml
     - fields/spi/spi_v2.yaml
 
+SYSCFG:
+  _include:
+    - fields/syscfg/syscfg_wl.yaml
+
 TIM1:
   _modify:
     CCMR3OutputComparemode:
@@ -235,5 +239,4 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - fields/rng/rng_wl.yaml
-  - fields/syscfg/syscfg_wl.yaml
   - fields/vrefbuf/vrefbuf_wl.yaml

@@ -7,6 +7,10 @@ _modify:
 
   ADC_Common:
     name: ADC1_2
+  SYSCFG_COMP_OPAMP:
+    name: SYSCFG
+    groupName: SYSCFG
+    description: System configuration controller
 
 _rebase:
   SPI1: SPI3
@@ -132,6 +136,24 @@ RCC:
       - UART4SW
       - UART5SW
 
+SPI2:
+  CR1:
+    _modify:
+      DFF:
+        name: CRCL
+        description: CRC length
+
+SPI?:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+        description: Frame format error
+
 SYSCFG:
   CFGR1:
     _delete:
@@ -157,28 +179,14 @@ SYSCFG:
         bitWidth: 2
   RCR:
     _delete:
-      - PAGE4_WP
-      - PAGE5_WP
-      - PAGE6_WP
-      - PAGE7_WP
-
-SPI2:
-  CR1:
-    _modify:
-      DFF:
-        name: CRCL
-        description: CRC length
-
-SPI?:
+      - PAGE[4-7]_WP
   _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-    - fields/spi/spi_v2.yaml
-  SR:
-    _modify:
-      TIFRFE:
-        name: FRE
-        description: Frame format error
+    - patches/syscfg/f3.yaml
+    - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
+    - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
+    - fields/syscfg/syscfg_f3.yaml
+    - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
+    - fields/syscfg/syscfg_f3x4.yaml
 
 TIM3:
   _include: patches/tim/v2/add_ocm_bit3.yaml
@@ -249,12 +257,6 @@ _include:
   - patches/rcc/f3.yaml
   - patches/rcc/f3_mco.yaml
   - patches/rcc/f3_delete_tim8.yaml
-  - patches/syscfg/f3.yaml
-  - patches/syscfg/f3_cfgr1_dac2_ch1_dma_rmp.yaml
-  - patches/syscfg/f3_cfgr1_timx_dacx_chx_dma_rmp.yaml
-  - fields/syscfg/syscfg_f3.yaml
-  - fields/syscfg/syscfg_f3_cfgr2_pvd_lock.yaml
-  - fields/syscfg/syscfg_f3x4.yaml
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml

@@ -1,138 +1,137 @@
-SYSCFG:
-  MEMRMP:
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+MEMRMP:
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
 
-  CFGR1:
-    I2C3_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C2_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C1_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
-    I2C_PB9_FMP:
-      Standard: [0, PB9 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
-    I2C_PB8_FMP:
-      Standard: [0, PB8 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
-    I2C_PB7_FMP:
-      Standard: [0, PB7 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
-    I2C_PB6_FMP:
-      Standard: [0, PB6 pin operate in standard mode]
-      FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
-    BOOSTEN:
-      Disabled:
+CFGR1:
+  I2C3_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C3 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C2_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C2 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C1_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP: [1, "FM+ mode is enabled on all I2C1 pins selected through selection bits in GPIOx_AFR registers"]
+  I2C_PB9_FMP:
+    Standard: [0, PB9 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB9 and the Speed control is bypassed"]
+  I2C_PB8_FMP:
+    Standard: [0, PB8 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB8 and the Speed control is bypassed"]
+  I2C_PB7_FMP:
+    Standard: [0, PB7 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB7 and the Speed control is bypassed"]
+  I2C_PB6_FMP:
+    Standard: [0, PB6 pin operate in standard mode]
+    FMP: [1, "I2C FM+ mode enabled on PB6 and the Speed control is bypassed"]
+  BOOSTEN:
+    Disabled:
+      [
+        0,
+        I/O analog switches are supplied by VDDA voltage. This is the recommended configuration when using the ADC in high VDDA voltage operation,
+      ]
+    Enabled:
+      [
+        1,
+        I/O analog switches are supplied by a dedicated voltage booster (supplied by VDD). This is the recommended configuration when using the ADC in low VDDA voltage operation,
+      ]
+
+EXTICR1:
+  _derive:
+    EXTI[12]: EXTI0
+  EXTI0:
+    _name: ExtiAbc
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+  EXTI3:
+    _name: ExtiAbch
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PH: [7, Select PHx as the source input for the EXTIx external interrupt]
+
+EXTICR2:
+  _derive:
+    EXTI[456]: EXTICR1.EXTI0
+  EXTI7:
+    _name: ExtiAb
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+
+EXTICR3:
+  _derive:
+    EXTI*: EXTICR2.EXTI7
+
+EXTICR4:
+  _derive:
+    EXTI12: EXTICR2.EXTI7
+    EXTI1[345]: EXTICR1.EXTI0
+
+SCSR:
+  PKASRAMBSY:
+    Idle: [0, No PKA SRAM erase operation is ongoing]
+    Busy: [1, PKA SRAM erase operation is ongoing]
+  SRAMBSY:
+    Idle: [0, No SRAM1 or SRAM2 erase operation is ongoing]
+    Busy: [1, SRAM1 or SRAM2 erase operation is ongoing]
+  SRAM2ER:
+    _write:
+      Erase: [1, Start SRAM2 erase operation]
+
+CFGR2:
+  SPF:
+    _read:
+      Nominal: [0, No SRAM2 parity error detected]
+      Error: [1, SRAM2 parity error detected]
+    _write:
+      Clear: [1, Clear SRAM2 parity error flag]
+  ECCL:
+    _read:
+      Disconnected: [0, ECC error disconnected from TIM1/16/17 break input]
+      Connected: [1, ECC error connected to TIM1/16/17 break input]
+    _write:
+      Connect: [1, Connect ECC error to TIM1/16/17 break input]
+  PVDL:
+    _read:
+      Disconnected:
         [
           0,
-          I/O analog switches are supplied by VDDA voltage. This is the recommended configuration when using the ADC in high VDDA voltage operation,
+          "PVD interrupt disconnected from TIM1/16/17 break input. PVDE and PLS[2:0] bits can be programmed by the application",
         ]
-      Enabled:
-        [
-          1,
-          I/O analog switches are supplied by a dedicated voltage booster (supplied by VDD). This is the recommended configuration when using the ADC in low VDDA voltage operation,
-        ]
+      Connected: [1, "PVD interrupt connected to TIM1/16/17 break input. PVDE and PLS[2:0] bits are read only"]
+    _write:
+      Connect: [1, Connect PVD interretup to TIM1/16/17 break input]
+  SPL:
+    _read:
+      Disconnected: [0, SRAM2 parity error signal disconnected from TIM1/16/17 break input]
+      Connected: [1, SRAM2 parity error signal connected to TIM1/16/17 break input]
+    _write:
+      Connect: [1, Connect SRAM2 parity error signal to TIM1/16/17 break input]
+  CLL:
+    _read:
+      Disconnected: [0, CPU LOCKUP output disconnected from TIM1/16/17 break input]
+      Connected: [1, CPU LOCKUP output connected to TIM1/16/17 break input]
+    _write:
+      Connect: [1, Connect CPU LOCKUP output to TIM1/16/17 break input]
 
-  EXTICR1:
-    _derive:
-      EXTI[12]: EXTI0
-    EXTI0:
-      _name: ExtiAbc
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-    EXTI3:
-      _name: ExtiAbch
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PH: [7, Select PHx as the source input for the EXTIx external interrupt]
+SWPR:
+  P??WP:
+    Disabled: [0, SRAM2 1 KB page protection disabled]
+    Enabled: [1, SRAM2 1 KB page protection enabled]
+  P?WP:
+    Disabled: [0, SRAM2 1 KB page protection disabled]
+    Enabled: [1, SRAM2 1 KB page protection enabled]
 
-  EXTICR2:
-    _derive:
-      EXTI[456]: EXTICR1.EXTI0
-    EXTI7:
-      _name: ExtiAb
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+SKR:
+  KEY:
+    Step1: [0xCA, Step 1 to remove SRAM2ER bits write protection]
+    Step2: [0x53, Step 2 to remove SRAM2ER bits write protection]
+    WriteProtect: [0x11, Activate SRAM2ER bits write protection]
 
-  EXTICR3:
-    _derive:
-      EXTI*: EXTICR2.EXTI7
-
-  EXTICR4:
-    _derive:
-      EXTI12: EXTICR2.EXTI7
-      EXTI1[345]: EXTICR1.EXTI0
-
-  SCSR:
-    PKASRAMBSY:
-      Idle: [0, No PKA SRAM erase operation is ongoing]
-      Busy: [1, PKA SRAM erase operation is ongoing]
-    SRAMBSY:
-      Idle: [0, No SRAM1 or SRAM2 erase operation is ongoing]
-      Busy: [1, SRAM1 or SRAM2 erase operation is ongoing]
-    SRAM2ER:
-      _write:
-        Erase: [1, Start SRAM2 erase operation]
-
-  CFGR2:
-    SPF:
-      _read:
-        Nominal: [0, No SRAM2 parity error detected]
-        Error: [1, SRAM2 parity error detected]
-      _write:
-        Clear: [1, Clear SRAM2 parity error flag]
-    ECCL:
-      _read:
-        Disconnected: [0, ECC error disconnected from TIM1/16/17 break input]
-        Connected: [1, ECC error connected to TIM1/16/17 break input]
-      _write:
-        Connect: [1, Connect ECC error to TIM1/16/17 break input]
-    PVDL:
-      _read:
-        Disconnected:
-          [
-            0,
-            "PVD interrupt disconnected from TIM1/16/17 break input. PVDE and PLS[2:0] bits can be programmed by the application",
-          ]
-        Connected: [1, "PVD interrupt connected to TIM1/16/17 break input. PVDE and PLS[2:0] bits are read only"]
-      _write:
-        Connect: [1, Connect PVD interretup to TIM1/16/17 break input]
-    SPL:
-      _read:
-        Disconnected: [0, SRAM2 parity error signal disconnected from TIM1/16/17 break input]
-        Connected: [1, SRAM2 parity error signal connected to TIM1/16/17 break input]
-      _write:
-        Connect: [1, Connect SRAM2 parity error signal to TIM1/16/17 break input]
-    CLL:
-      _read:
-        Disconnected: [0, CPU LOCKUP output disconnected from TIM1/16/17 break input]
-        Connected: [1, CPU LOCKUP output connected to TIM1/16/17 break input]
-      _write:
-        Connect: [1, Connect CPU LOCKUP output to TIM1/16/17 break input]
-
-  SWPR:
-    P??WP:
-      Disabled: [0, SRAM2 1 KB page protection disabled]
-      Enabled: [1, SRAM2 1 KB page protection enabled]
-    P?WP:
-      Disabled: [0, SRAM2 1 KB page protection disabled]
-      Enabled: [1, SRAM2 1 KB page protection enabled]
-
-  SKR:
-    KEY:
-      Step1: [0xCA, Step 1 to remove SRAM2ER bits write protection]
-      Step2: [0x53, Step 2 to remove SRAM2ER bits write protection]
-      WriteProtect: [0x11, Activate SRAM2ER bits write protection]
-
-  RFDCR:
-    RFTBSEL:
-      Digital: [0, "Digital test bus selected on RF_ADTB[3:0]"]
-      Analog: [1, "Analog test bus selected on RF_ADTB[3:0]"]
+RFDCR:
+  RFTBSEL:
+    Digital: [0, "Digital test bus selected on RF_ADTB[3:0]"]
+    Analog: [1, "Analog test bus selected on RF_ADTB[3:0]"]

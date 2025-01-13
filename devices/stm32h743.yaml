@@ -147,6 +147,10 @@ SPI?:
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
 
+SYSCFG:
+  _include:
+    - patches/syscfg/h74x_pwrcr.yaml
+
 TIM4:
   _add:
     _interrupts:
@@ -287,5 +291,4 @@ _include:
   - collect/rtc/bkpr.yaml
   - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
-  - patches/syscfg/h74x_pwrcr.yaml
   - patches/h743_hrtim_common.yaml

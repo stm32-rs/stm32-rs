@@ -1,74 +1,73 @@
-SYSCFG:
-  CFGR1:
-    VBAT_MON:
-      Disable: [0, Disable the power switch to not deliver VBAT voltage on ADC channel 18 input]
-      Enable: [1, Enable the power switch to deliver VBAT voltage on ADC channel 18 input]
-    TIM18_DAC2_OUT1_DMA_RMP:
-      NotRemapped: [0, TIM18 and DAC2_OUT1 DMA requests mapped on DMA2 channel 5]
-      Remapped: [1, TIM18 and DAC2_OUT1 DMA requests mapped on DMA1 channel 5]
-    TIM7_DAC1_OUT2_DMA_RMP:
-      NotRemapped: [0, TIM7 and DAC1_OUT2 DMA requests mapped on DMA2 channel 4]
-      Remapped: [1, TIM7 and DAC1_OUT2 DMA requests mapped on DMA1 channel 4]
-    TIM6_DAC1_OUT1_DMA_RMP:
-      NotRemapped: [0, TIM7 and DAC1_OUT1 DMA requests mapped on DMA2 channel 3]
-      Remapped: [1, TIM7 and DAC1_OUT1 DMA requests mapped on DMA1 channel 3]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-  EXTICR1:
-    _derive:
-      EXTI1: EXTI0
-      EXTI2: EXTI0
-    EXTI0:
-      _name: ExtiAbcdef
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-      PF: [5, Select PFx as the source input for the EXTIx external interrupt]
-    EXTI3:
-      _name: ExtiAbcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI4: EXTICR1.EXTI0
-      EXTI5: EXTICR1.EXTI3
-      EXTI6: EXTICR1.EXTI0
-      EXTI7: EXTICR1.EXTI0
-  EXTICR3:
-    _derive:
-      EXTI8: EXTICR1.EXTI3
-      EXTI9: EXTICR1.EXTI0
-      EXTI10: EXTICR1.EXTI0
-    EXTI11:
-      _name: ExtiAcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR4:
-    _derive:
-      EXTI12: EXTICR3.EXTI11
-      EXTI13: EXTICR3.EXTI11
-      EXTI14: EXTICR1.EXTI3
-      EXTI15: EXTICR1.EXTI3
-  CFGR2:
-    SRAM_PEF:
-      _read:
-        NoParityError: [0, No SRAM parity error detected]
-        ParityErrorDetected: [1, SRAM parity error detected]
-      _write:
-        Clear: [1, Clear SRAM parity error flag]
-    SRAM_PARITY_LOCK:
-      Disconnected: [0, SRAM parity error disconnected from TIM1/15/16/17 Break input]
-      Connected: [1, SRAM parity error connected to TIM1/15/16/17 Break input]
-    LOCKUP_LOCK:
-      Disconnected: [0, Cortex-M4F LOCKUP output disconnected from TIM1/15/16/17 Break input]
-      Connected: [1, Cortex-M4F LOCKUP output connected to TIM1/15/16/17 Break input]
+CFGR1:
+  VBAT_MON:
+    Disable: [0, Disable the power switch to not deliver VBAT voltage on ADC channel 18 input]
+    Enable: [1, Enable the power switch to deliver VBAT voltage on ADC channel 18 input]
+  TIM18_DAC2_OUT1_DMA_RMP:
+    NotRemapped: [0, TIM18 and DAC2_OUT1 DMA requests mapped on DMA2 channel 5]
+    Remapped: [1, TIM18 and DAC2_OUT1 DMA requests mapped on DMA1 channel 5]
+  TIM7_DAC1_OUT2_DMA_RMP:
+    NotRemapped: [0, TIM7 and DAC1_OUT2 DMA requests mapped on DMA2 channel 4]
+    Remapped: [1, TIM7 and DAC1_OUT2 DMA requests mapped on DMA1 channel 4]
+  TIM6_DAC1_OUT1_DMA_RMP:
+    NotRemapped: [0, TIM7 and DAC1_OUT1 DMA requests mapped on DMA2 channel 3]
+    Remapped: [1, TIM7 and DAC1_OUT1 DMA requests mapped on DMA1 channel 3]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    MainFlash2: [2, Main Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+EXTICR1:
+  _derive:
+    EXTI1: EXTI0
+    EXTI2: EXTI0
+  EXTI0:
+    _name: ExtiAbcdef
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PF: [5, Select PFx as the source input for the EXTIx external interrupt]
+  EXTI3:
+    _name: ExtiAbcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI4: EXTICR1.EXTI0
+    EXTI5: EXTICR1.EXTI3
+    EXTI6: EXTICR1.EXTI0
+    EXTI7: EXTICR1.EXTI0
+EXTICR3:
+  _derive:
+    EXTI8: EXTICR1.EXTI3
+    EXTI9: EXTICR1.EXTI0
+    EXTI10: EXTICR1.EXTI0
+  EXTI11:
+    _name: ExtiAcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR4:
+  _derive:
+    EXTI12: EXTICR3.EXTI11
+    EXTI13: EXTICR3.EXTI11
+    EXTI14: EXTICR1.EXTI3
+    EXTI15: EXTICR1.EXTI3
+CFGR2:
+  SRAM_PEF:
+    _read:
+      NoParityError: [0, No SRAM parity error detected]
+      ParityErrorDetected: [1, SRAM parity error detected]
+    _write:
+      Clear: [1, Clear SRAM parity error flag]
+  SRAM_PARITY_LOCK:
+    Disconnected: [0, SRAM parity error disconnected from TIM1/15/16/17 Break input]
+    Connected: [1, SRAM parity error connected to TIM1/15/16/17 Break input]
+  LOCKUP_LOCK:
+    Disconnected: [0, Cortex-M4F LOCKUP output disconnected from TIM1/15/16/17 Break input]
+    Connected: [1, Cortex-M4F LOCKUP output connected to TIM1/15/16/17 Break input]

@@ -1,98 +1,97 @@
-SYSCFG:
-  CFGR1:
-    I2C3_FMP:
-      Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
-      FMP:
-        [
-          1,
-          "FM+ mode is enabled on all I2C3 pins selected through selection trhough IOPORT control registers AF selection bits",
-        ]
-    ENCODER_MODE:
-      NoRedirection: [0, No redirection]
-      MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
-      MapTim3Tim15: [2, TIM3 IC1 and TIM3 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
-      MapTim4Tim15:
-        [3, TIM4 IC1 and TIM4 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively (STM32F302xB/C devices only)]
-    TIM6_DAC1_DMA_RMP:
-      NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
-      Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
-    ADC2_DMA_RMP:
-      NotRemapped: [0, ADC24 DMA requests mapped on DMA2 channels 1 and 2]
-      Remapped: [1, ADC24 DMA requests mapped on DMA2 channels 3 and 4]
-    DAC1_TRIG_RMP:
-      NotRemapped: [0, DAC trigger is TIM8_TRGO in STM32F303xB/C and STM32F358xC devices]
-      Remapped: [1, DAC trigger is TIM3_TRGO]
-    TIM1_ITR3_RMP:
-      NotRemapped: [0, "TIM1_ITR3 = TIM4_TRGO in STM32F303xB/C and STM32F358xC devices"]
-      Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
-    # Is documented as reserverd but appears in register table (RM0365 p.172) and register map
-    USB_IT_RMP:
-      NotRemapped:
-        [0, "USB_HP, USB_LP and USB_WAKEUP interrupts are mapped on interrupt lines 19, 20 and 42 respectively"]
-      Remapped: [1, "USB_HP, USB_LP and USB_WAKEUP interrupts are mapped on interrupt lines 74, 75 and 76 respectively"]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-      FMC: [4, FMC Bank (Only the first  two banks) (Available on STM32F302xD/E only)]
-  EXTICR1:
-    _derive:
-      EXTI1: EXTI0
-      EXTI2: EXTI0
-    EXTI0:
-      _name: ExtiAbcdef
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-      PF: [5, Select PFx as the source input for the EXTIx external interrupt]
-    EXTI3:
-      _name: ExtiAbcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI4: EXTICR1.EXTI0
-      EXTI5: EXTICR1.EXTI0
-      EXTI6: EXTICR1.EXTI0
-      EXTI7: EXTICR1.EXTI3
-  EXTICR3:
-    _derive:
-      EXTI8: EXTICR1.EXTI3
-      EXTI9: EXTICR1.EXTI0
-      EXTI10: EXTICR1.EXTI0
-      EXTI11: EXTICR1.EXTI3
-  EXTICR4:
-    _derive:
-      EXTI12: EXTICR1.EXTI3
-      EXTI13: EXTICR1.EXTI3
-      EXTI14: EXTICR1.EXTI3
-      EXTI15: EXTICR1.EXTI3
-  CFGR2:
-    SRAM_PEF:
-      _read:
-        NoParityError: [0, No SRAM parity error detected]
-        ParityErrorDetected: [1, SRAM parity error detected]
-      _write:
-        Clear: [1, Clear SRAM parity error flag]
-    BYP_ADDR_PAR:
-      NoBypass:
-        [
-          0,
-          The ramload operation is performed taking into consideration bit 29 of the address when the parity is calculated,
-        ]
-      Bypass:
-        [
-          1,
-          The ramload operation is performed without taking into consideration bit 29 of the address when the parity is calculated,
-        ]
-    SRAM_PARITY_LOCK:
-      Disconnected: [0, SRAM parity error disconnected from TIM1/15/16/17 Break input]
-      Connected: [1, SRAM parity error connected to TIM1/15/16/17 Break input]
-    LOCKUP_LOCK:
-      Disconnected: [0, Cortex-M4 LOCKUP output disconnected from TIM1/15/16/17 Break input]
-      Connected: [1, Cortex-M4 LOCKUP output connected to TIM1/15/16/17 Break input]
+CFGR1:
+  I2C3_FMP:
+    Standard: [0, "FM+ mode is controlled by I2C_Pxx_FMP bits only"]
+    FMP:
+      [
+        1,
+        "FM+ mode is enabled on all I2C3 pins selected through selection trhough IOPORT control registers AF selection bits",
+      ]
+  ENCODER_MODE:
+    NoRedirection: [0, No redirection]
+    MapTim2Tim15: [1, TIM2 IC1 and TIM2 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
+    MapTim3Tim15: [2, TIM3 IC1 and TIM3 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively]
+    MapTim4Tim15:
+      [3, TIM4 IC1 and TIM4 IC2 are connected to TIM15 IC1 and TIM15 IC2 respectively (STM32F302xB/C devices only)]
+  TIM6_DAC1_DMA_RMP:
+    NotRemapped: [0, TIM6_UP and DAC_CH1 DMA requests mapped on DMA2 channel 3]
+    Remapped: [1, TIM6_UP and DAC_CH1 DMA requests mapped on DMA1 channel 3]
+  ADC2_DMA_RMP:
+    NotRemapped: [0, ADC24 DMA requests mapped on DMA2 channels 1 and 2]
+    Remapped: [1, ADC24 DMA requests mapped on DMA2 channels 3 and 4]
+  DAC1_TRIG_RMP:
+    NotRemapped: [0, DAC trigger is TIM8_TRGO in STM32F303xB/C and STM32F358xC devices]
+    Remapped: [1, DAC trigger is TIM3_TRGO]
+  TIM1_ITR3_RMP:
+    NotRemapped: [0, "TIM1_ITR3 = TIM4_TRGO in STM32F303xB/C and STM32F358xC devices"]
+    Remapped: [1, "TIM1_ITR3 = TIM17_OC"]
+  # Is documented as reserverd but appears in register table (RM0365 p.172) and register map
+  USB_IT_RMP:
+    NotRemapped:
+      [0, "USB_HP, USB_LP and USB_WAKEUP interrupts are mapped on interrupt lines 19, 20 and 42 respectively"]
+    Remapped: [1, "USB_HP, USB_LP and USB_WAKEUP interrupts are mapped on interrupt lines 74, 75 and 76 respectively"]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+    FMC: [4, FMC Bank (Only the first  two banks) (Available on STM32F302xD/E only)]
+EXTICR1:
+  _derive:
+    EXTI1: EXTI0
+    EXTI2: EXTI0
+  EXTI0:
+    _name: ExtiAbcdef
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PF: [5, Select PFx as the source input for the EXTIx external interrupt]
+  EXTI3:
+    _name: ExtiAbcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI4: EXTICR1.EXTI0
+    EXTI5: EXTICR1.EXTI0
+    EXTI6: EXTICR1.EXTI0
+    EXTI7: EXTICR1.EXTI3
+EXTICR3:
+  _derive:
+    EXTI8: EXTICR1.EXTI3
+    EXTI9: EXTICR1.EXTI0
+    EXTI10: EXTICR1.EXTI0
+    EXTI11: EXTICR1.EXTI3
+EXTICR4:
+  _derive:
+    EXTI12: EXTICR1.EXTI3
+    EXTI13: EXTICR1.EXTI3
+    EXTI14: EXTICR1.EXTI3
+    EXTI15: EXTICR1.EXTI3
+CFGR2:
+  SRAM_PEF:
+    _read:
+      NoParityError: [0, No SRAM parity error detected]
+      ParityErrorDetected: [1, SRAM parity error detected]
+    _write:
+      Clear: [1, Clear SRAM parity error flag]
+  BYP_ADDR_PAR:
+    NoBypass:
+      [
+        0,
+        The ramload operation is performed taking into consideration bit 29 of the address when the parity is calculated,
+      ]
+    Bypass:
+      [
+        1,
+        The ramload operation is performed without taking into consideration bit 29 of the address when the parity is calculated,
+      ]
+  SRAM_PARITY_LOCK:
+    Disconnected: [0, SRAM parity error disconnected from TIM1/15/16/17 Break input]
+    Connected: [1, SRAM parity error connected to TIM1/15/16/17 Break input]
+  LOCKUP_LOCK:
+    Disconnected: [0, Cortex-M4 LOCKUP output disconnected from TIM1/15/16/17 Break input]
+    Connected: [1, Cortex-M4 LOCKUP output connected to TIM1/15/16/17 Break input]

@@ -100,6 +100,10 @@ SPI?:
     - patches/spi/dr8.yaml
     - fields/spi/spi_v2.yaml
 
+SYSCFG:
+  _include:
+    - patches/syscfg/f730_f7x2_f7x3.yaml
+
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
 
@@ -212,7 +216,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
-  - patches/syscfg/f730_f7x2_f7x3.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml

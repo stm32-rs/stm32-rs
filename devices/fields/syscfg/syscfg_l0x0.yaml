@@ -1,61 +1,60 @@
 # System configuration controller and COMP registers for L0 family
-SYSCFG:
-  CFGR1:
-    BOOT_MODE:
-      MainFlash: [0, Main Flash memory boot mode]
-      SystemFlash: [1, System Flash memory boot mode]
-      SRAM: [3, Embedded SRAM boot mode]
-    MEM_MODE:
-      MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
-      SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
-      SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
-  CFGR2:
-    _delete: CAPA
-    _modify:
-      FWDISEN:
-        name: FWDIS
-  CFGR3:
-    REF_LOCK:
-      ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
-      ReadOnly: [1, "SYSCFG_CFGR3[31:0] bits are read-only"]
-    VREFINT_RDYF:
-      NotReady: [0, VREFINT OFF]
-      Ready: [1, VREFINT ready]
-    ENBUF_SENSOR_ADC:
-      Disabled: [0, Disables the buffer used to generate VREFINT reference for the temperature sensor]
-      Enabled: [1, Enables the buffer used to generate VREFINT reference for the temperature sensor]
-    SEL_VREF_OUT:
-      NoConnection: [0, no pad connected]
-      PB0: [1, PB0 connected]
-      PB1: [2, PB1 connected]
-      Both: [3, PB0 and PB1 connected]
-  EXTICR1:
-    _derive:
-      EXTI1: EXTI0
-      EXTI3: EXTI2
-    EXTI0:
-      _name: ExtiAbcdeh
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-      PH: [5, Select PHx as the source input for the EXTIx external interrupt]
-    EXTI2:
-      _name: ExtiAbcde
-      PA: [0, Select PAx as the source input for the EXTIx external interrupt]
-      PB: [1, Select PBx as the source input for the EXTIx external interrupt]
-      PC: [2, Select PCx as the source input for the EXTIx external interrupt]
-      PD: [3, Select PDx as the source input for the EXTIx external interrupt]
-      PE: [4, Select PEx as the source input for the EXTIx external interrupt]
-  EXTICR2:
-    _derive:
-      EXTI*: EXTICR1.EXTI2
-  EXTICR3:
-    _derive:
-      EXTI8: EXTICR1.EXTI2
-      EXTI9: EXTICR1.EXTI0
-      EXTI1[01]: EXTICR1.EXTI0
-  EXTICR4:
-    _derive:
-      EXTI*: EXTICR1.EXTI2
+CFGR1:
+  BOOT_MODE:
+    MainFlash: [0, Main Flash memory boot mode]
+    SystemFlash: [1, System Flash memory boot mode]
+    SRAM: [3, Embedded SRAM boot mode]
+  MEM_MODE:
+    MainFlash: [0, Main Flash memory mapped at 0x0000_0000]
+    SystemFlash: [1, System Flash memory mapped at 0x0000_0000]
+    SRAM: [3, Embedded SRAM mapped at 0x0000_0000]
+CFGR2:
+  _delete: CAPA
+  _modify:
+    FWDISEN:
+      name: FWDIS
+CFGR3:
+  REF_LOCK:
+    ReadWrite: [0, "SYSCFG_CFGR3[31:0] bits are read/write"]
+    ReadOnly: [1, "SYSCFG_CFGR3[31:0] bits are read-only"]
+  VREFINT_RDYF:
+    NotReady: [0, VREFINT OFF]
+    Ready: [1, VREFINT ready]
+  ENBUF_SENSOR_ADC:
+    Disabled: [0, Disables the buffer used to generate VREFINT reference for the temperature sensor]
+    Enabled: [1, Enables the buffer used to generate VREFINT reference for the temperature sensor]
+  SEL_VREF_OUT:
+    NoConnection: [0, no pad connected]
+    PB0: [1, PB0 connected]
+    PB1: [2, PB1 connected]
+    Both: [3, PB0 and PB1 connected]
+EXTICR1:
+  _derive:
+    EXTI1: EXTI0
+    EXTI3: EXTI2
+  EXTI0:
+    _name: ExtiAbcdeh
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+    PH: [5, Select PHx as the source input for the EXTIx external interrupt]
+  EXTI2:
+    _name: ExtiAbcde
+    PA: [0, Select PAx as the source input for the EXTIx external interrupt]
+    PB: [1, Select PBx as the source input for the EXTIx external interrupt]
+    PC: [2, Select PCx as the source input for the EXTIx external interrupt]
+    PD: [3, Select PDx as the source input for the EXTIx external interrupt]
+    PE: [4, Select PEx as the source input for the EXTIx external interrupt]
+EXTICR2:
+  _derive:
+    EXTI*: EXTICR1.EXTI2
+EXTICR3:
+  _derive:
+    EXTI8: EXTICR1.EXTI2
+    EXTI9: EXTICR1.EXTI0
+    EXTI1[01]: EXTICR1.EXTI0
+EXTICR4:
+  _derive:
+    EXTI*: EXTICR1.EXTI2

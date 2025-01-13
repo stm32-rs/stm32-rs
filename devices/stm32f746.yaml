@@ -147,6 +147,8 @@ SYSCFG:
   "MEMRM,MEMRMP":
     _delete:
       - FB_MODE
+  _include:
+    - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
 "TIM[2-5]":
   _include: patches/tim/tim_o24ce.yaml
@@ -330,7 +332,6 @@ _include:
   - fields/pwr/pwr_v2.yaml
   - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
-  - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
