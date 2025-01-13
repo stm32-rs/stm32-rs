@@ -141,6 +141,11 @@ QUADSPI:
 
 SAI?:
   _strip: SAI_
+  _include:
+    - patches/sai/h7.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+    - collect/sai/pdm.yaml
 
 SPI?:
   _include:
@@ -261,10 +266,6 @@ _include:
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
-  - patches/sai/h7.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
-  - collect/sai/pdm.yaml
   - patches/dfsdm/h735_747_753.yaml
   - collect/dfsdm/v1.yaml
   - patches/ramecc/ramecc.yaml

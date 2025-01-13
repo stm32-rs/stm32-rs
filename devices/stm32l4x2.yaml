@@ -169,6 +169,12 @@ RCC:
         bitWidth: 1
         access: read-write
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -266,9 +272,6 @@ WWDG:
 # Most of the patches and includes for this device are shared with the L412,
 # so update the common patch file below instead.
 _include:
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml

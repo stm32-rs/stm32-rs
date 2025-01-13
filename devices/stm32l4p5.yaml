@@ -156,6 +156,13 @@ RCC:
       MCOSEL:
         bitWidth: 4
 
+SAI?:
+  _include:
+    - patches/sai/sai_l4+.yaml
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -315,10 +322,6 @@ _include:
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
-  - patches/sai/sai_l4+.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_l4+.yaml
   - fields/dfsdm/dfsdm.yaml
   - collect/dfsdm/v1.yaml

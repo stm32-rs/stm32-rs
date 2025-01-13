@@ -207,6 +207,12 @@ RNG:
       RNG:
         value: 80
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -298,9 +304,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - patches/rcc/l4_crrcr.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml

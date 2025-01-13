@@ -311,6 +311,12 @@ PWR:
         bitOffset: 6
         bitWidth: 1
 
+SAI:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -560,9 +566,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - patches/dfsdm/dfsdm_v1.yaml
   - collect/dfsdm/v1.yaml
   - fields/dac/dac_wavegen.yaml

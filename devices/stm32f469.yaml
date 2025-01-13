@@ -185,6 +185,10 @@ RNG:
 SAI:
   _delete:
     - GCR
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
 
 SPI?:
   _include:
@@ -276,9 +280,6 @@ _include:
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
   - fields/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f4_2ch.yaml
   - fields/dac/dac_dmaudr.yaml

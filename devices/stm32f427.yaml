@@ -153,6 +153,12 @@ RCC:
       UART8ENR:
         name: UART8EN
 
+SAI?:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -238,9 +244,6 @@ _include:
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
   - collect/cryp/v2.yaml
-  - patches/sai/sai_v1.yaml
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_f4_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -268,7 +271,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - fields/wwdg/wwdg.yaml
   - patches/tim/group.yaml
   - collect/hash/v2.yaml
   - patches/rtc/alarm.yaml

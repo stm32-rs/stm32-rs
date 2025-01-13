@@ -42,6 +42,10 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+SAI?:
+  _include:
+    - fields/sai/sai.yaml
+
 SPI?:
   _include:
     - patches/spi/rxtxdr.yaml
@@ -160,7 +164,6 @@ _include:
   - collect/rtc/alarm.yaml
   # - collect/rtc/bkpr.yaml
 
-  - fields/sai/sai.yaml
   - fields/crs/crs.yaml
   - fields/pwr/pwr_h5.yaml
   - fields/gpdma/gpdma.yaml

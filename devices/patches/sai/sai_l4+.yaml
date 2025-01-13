@@ -1,58 +1,57 @@
-SAI?:
-  _add:
-    GCR:
-      description: Global configuration register
-      addressOffset: 0x0
-      resetValue: 0x0
-      fields:
-        SYNCOUT:
-          description: Synchronization outputs
-          bitOffset: 4
-          bitWidth: 2
-        SYNCIN:
-          description: Synchronization inputs
-          bitOffset: 0
-          bitWidth: 2
-
+_add:
   GCR:
-    SYNCOUT:
-      Disabled:
-        [
-          0,
-          "No synchronization output signals. SYNCOUT[1:0] should be configured as “No synchronization output signals” when audio block is configured as SPDIF",
-        ]
-      BlockA: [1, Block A used for further synchronization for others SAI]
-      BlockB: [2, Block B used for further synchronization for others SAI]
+    description: Global configuration register
+    addressOffset: 0x0
+    resetValue: 0x0
+    fields:
+      SYNCOUT:
+        description: Synchronization outputs
+        bitOffset: 4
+        bitWidth: 2
+      SYNCIN:
+        description: Synchronization inputs
+        bitOffset: 0
+        bitWidth: 2
 
-  ?CR1:
-    _add:
-      OSR:
-        description: Oversampling ratio for master clock
-        bitOffset: 26
-        bitWidth: 1
+GCR:
+  SYNCOUT:
+    Disabled:
+      [
+        0,
+        "No synchronization output signals. SYNCOUT[1:0] should be configured as “No synchronization output signals” when audio block is configured as SPDIF",
+      ]
+    BlockA: [1, Block A used for further synchronization for others SAI]
+    BlockB: [2, Block B used for further synchronization for others SAI]
 
-    _modify:
-      NODIV:
-        name: NOMCK
-      MCJDIV:
-        name: MCKDIV
-        bitWidth: 6
-
+?CR1:
+  _add:
     OSR:
-      Multiplier256: [0, "Master clock frequency = FFS x 256"]
-      Multiplier512: [1, "Master clock frequency = FFS x 512"]
-    MCKDIV: [0, 0x3F]
+      description: Oversampling ratio for master clock
+      bitOffset: 26
+      bitWidth: 1
 
-  ?CR2:
-    _modify:
-      MUTECN:
-        name: MUTECNT
+  _modify:
+    NODIV:
+      name: NOMCK
+    MCJDIV:
+      name: MCKDIV
+      bitWidth: 6
 
-    MUTECNT: [0, 0x3F]
-    TRIS:
-      DrivenWhileInactive: [0, SD output line is still driven by the SAI when a slot is inactive]
-      HighZ:
-        [
-          1,
-          SD output line is released (HI-Z) at the end of the last data bit of the last active slot if the next one is inactive,
-        ]
+  OSR:
+    Multiplier256: [0, "Master clock frequency = FFS x 256"]
+    Multiplier512: [1, "Master clock frequency = FFS x 512"]
+  MCKDIV: [0, 0x3F]
+
+?CR2:
+  _modify:
+    MUTECN:
+      name: MUTECNT
+
+  MUTECNT: [0, 0x3F]
+  TRIS:
+    DrivenWhileInactive: [0, SD output line is still driven by the SAI when a slot is inactive]
+    HighZ:
+      [
+        1,
+        SD output line is released (HI-Z) at the end of the last data bit of the last active slot if the next one is inactive,
+      ]

@@ -1,60 +1,59 @@
-"SAI,SAI?":
-  _include: v1_common.yaml
-  _modify:
-    "?SR":
-      access: read-only
-    "?CLRFR":
-      access: write-only
-
-  "?CR1":
-    _modify:
-      OutDri:
-        name: OUTDRIV
-      "MCKDIV,MCJDIV":
-        name: MCKDIV
-  "?CR2":
-    _modify:
-      FTH:
-        access: read-write
-      TRIS:
-        access: read-write
-      MUTE:
-        access: read-write
-      MUTEVAL:
-        access: read-write
-      CPL:
-        access: read-write
-      COMP:
-        access: read-write
-  "?FRCR":
-    _modify:
-      FRL:
-        access: read-write
-      FSALL:
-        access: read-write
-      FSDEF:
-        access: read-write
-      FSPOL:
-        access: read-write
-      FSOFF:
-        access: read-write
-  "?IM":
-    _modify:
-      WCKCFG:
-        name: WCKCFGIE
-      MUTEDET:
-        name: MUTEDETIE
-      "LFSDET,LFSDETIE":
-        name: LFSDETIE
+_include: v1_common.yaml
+_modify:
+  "?SR":
+    access: read-only
   "?CLRFR":
-    _modify:
-      LFSDET:
-        name: CLFSDET
-      CNRDY:
-        name: CCNRDY
-      WCKCFG:
-        name: CWCKCFG
-      MUTEDET:
-        name: CMUTEDET
-      OVRUDR:
-        name: COVRUDR
+    access: write-only
+
+"?CR1":
+  _modify:
+    OutDri:
+      name: OUTDRIV
+    "MCKDIV,MCJDIV":
+      name: MCKDIV
+"?CR2":
+  _modify:
+    FTH:
+      access: read-write
+    TRIS:
+      access: read-write
+    MUTE:
+      access: read-write
+    MUTEVAL:
+      access: read-write
+    CPL:
+      access: read-write
+    COMP:
+      access: read-write
+"?FRCR":
+  _modify:
+    FRL:
+      access: read-write
+    FSALL:
+      access: read-write
+    FSDEF:
+      access: read-write
+    FSPOL:
+      access: read-write
+    FSOFF:
+      access: read-write
+"?IM":
+  _modify:
+    WCKCFG:
+      name: WCKCFGIE
+    MUTEDET:
+      name: MUTEDETIE
+    "LFSDET,LFSDETIE":
+      name: LFSDETIE
+"?CLRFR":
+  _modify:
+    LFSDET:
+      name: CLFSDET
+    CNRDY:
+      name: CCNRDY
+    WCKCFG:
+      name: CWCKCFG
+    MUTEDET:
+      name: CMUTEDET
+    OVRUDR:
+      name: COVRUDR

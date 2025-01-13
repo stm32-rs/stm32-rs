@@ -88,8 +88,11 @@ QUADSPI:
 OTG_HS_*:
   _strip: OTG_HS_
 
-SAI,SAI?:
-  _include: patches/sai/v1_common.yaml
+SAI?:
+  _include:
+    - patches/sai/v1_common.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
 
 SPI?:
   _include:
@@ -186,8 +189,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/sai/sai.yaml
-  - collect/sai/ch.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
