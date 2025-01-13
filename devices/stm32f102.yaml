@@ -190,6 +190,10 @@ USART*:
     - fields/usart/uart_common.yaml
     - fields/usart/uart_usart.yaml
 
+USB:
+  _include:
+    - fields/usb/usb.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -213,7 +217,6 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rtc/rtc_f1.yaml
-  - fields/usb/usb.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

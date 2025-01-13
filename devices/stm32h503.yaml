@@ -122,6 +122,10 @@ USART?:
     - fields/usart/smartcard.yaml
     - fields/usart/prescalar.yaml
 
+USB:
+  _include:
+    - collect/usb/chepr.yaml
+
 WWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -135,4 +139,3 @@ _include:
   - fields/gpdma/gpdma.yaml
   - patches/rcc/h503.yaml
   - fields/rcc/rcc_h503.yaml
-  - collect/usb/chepr.yaml

@@ -115,6 +115,10 @@ USART*:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2B.yaml
 
+USB:
+  _include:
+    - fields/usb/usb_with_LPM.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -146,7 +150,6 @@ _include:
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
-  - fields/usb/usb_with_LPM.yaml
   - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/crc/f0_init_addr_fix.yaml

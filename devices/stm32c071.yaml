@@ -110,8 +110,9 @@ USART1:
 
 USB:
   _strip: USB_
+  _include:
+    - collect/usb/chepr.yaml
 
 _include:
   - patches/c0.yaml
   - patches/nvic/2_prio_bits.yaml
-  - collect/usb/chepr.yaml

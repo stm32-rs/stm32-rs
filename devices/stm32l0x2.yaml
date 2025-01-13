@@ -164,6 +164,12 @@ USART*:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2B.yaml
 
+USB:
+  _strip: USB_
+  _include:
+    - patches/usb/rename_EPxR_EPTYPE_field.yaml
+    - fields/usb/usb_with_LPM.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -176,8 +182,6 @@ _include:
   - patches/nvic/l0_prio_bits.yaml
   - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - patches/usb/unprefix_registers.yaml
-  - patches/usb/rename_EPxR_EPTYPE_field.yaml
   - patches/crc/crc_rename_init.yaml
   - patches/crc/crc_rename_pol.yaml
   - fields/crc/crc_advanced.yaml
@@ -198,4 +202,3 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - patches/tim/group.yaml
-  - fields/usb/usb_with_LPM.yaml

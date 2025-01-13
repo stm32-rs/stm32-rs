@@ -204,6 +204,12 @@ USART*:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2B.yaml
 
+USB:
+  _strip: USB_
+  _include:
+    - patches/usb/merge_add.yaml
+    - fields/usb/usb.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -221,8 +227,6 @@ _include:
   - patches/opamp/f3_opamp1234.yaml
   - patches/comp/f3_comp1234567.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - patches/usb/merge_add.yaml
-  - patches/usb/unprefix_registers.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
@@ -242,7 +246,6 @@ _include:
   - collect/rtc/alarm.yaml
   - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
-  - fields/usb/usb.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml

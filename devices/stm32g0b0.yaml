@@ -144,6 +144,9 @@ USB:
         name: L1RESUME
       L2RES:
         name: L2RESUME
+  _include:
+    - fields/usb/g0_usb.yaml
+    - collect/usb/chepr.yaml
 
 USART?:
   _include:
@@ -168,5 +171,3 @@ _include:
   - collect/rtc/tamp_bkpr.yaml
   - collect/rtc/alarm.yaml
   - patches/tim/group.yaml
-  - fields/usb/g0_usb.yaml
-  - collect/usb/chepr.yaml

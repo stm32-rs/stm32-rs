@@ -134,6 +134,10 @@ USART*:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2C.yaml
 
+USB:
+  _include:
+    - patches/usb/g4.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -155,7 +159,6 @@ _include:
   - fields/opamp/opamp_g4_opamp4_5.yaml
   - fields/opamp/opamp_g4_opamp6.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - patches/usb/g4.yaml
   - patches/hrtim/v2.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_v2.yaml

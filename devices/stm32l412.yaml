@@ -219,6 +219,9 @@ USB:
       USB_FS:
         description: USB event interrupt through EXTI
         value: 67
+  _include:
+    - fields/usb/usb_with_LPM.yaml
+    - collect/usb/epxr.yaml
 
 WWDG:
   _include: patches/16bit.yaml
@@ -235,7 +238,5 @@ _include:
   - patches/rtc/alarm.yaml
   - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
-  - fields/usb/usb_with_LPM.yaml
-  - collect/usb/epxr.yaml
   - patches/adc/l4_adc_common.yaml
   - fields/fw/fw_l0_l4.yaml
