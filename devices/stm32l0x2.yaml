@@ -101,6 +101,15 @@ RCC:
       TM12RST:
         name: TIM22RST
 
+RTC:
+  _include:
+    - patches/rtc/l0.yaml
+    - patches/rtc/alarm.yaml
+    - fields/rtc/rtc_common.yaml
+    - fields/rtc/rtc_l0.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -186,7 +195,6 @@ WWDG:
 _include:
   - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
-  - patches/rtc/l0.yaml
   - patches/nvic/l0_prio_bits.yaml
   - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
@@ -199,9 +207,4 @@ _include:
   - fields/pwr/pwr_l0.yaml
   - fields/rcc/rcc_l0_l1_common.yaml
   - fields/rcc/rcc_l0.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_l0.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/tim/group.yaml

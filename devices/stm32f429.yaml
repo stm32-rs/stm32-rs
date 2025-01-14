@@ -143,6 +143,15 @@ RCC:
       UART8ENR:
         name: UART8EN
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/f4_cr.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI:
   _include:
     - patches/sai/sai_v1.yaml
@@ -264,12 +273,6 @@ _include:
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
   - collect/hash/v2.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/f4_cr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml

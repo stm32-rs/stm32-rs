@@ -138,6 +138,13 @@ RCC:
     - fields/rcc/rcc_wb.yaml
     - fields/rcc/rcc_wx_c2.yaml
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI1:
   _delete:
     - GCR
@@ -200,9 +207,5 @@ WWDG:
   _include: patches/16bit.yaml
 
 _include:
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/adc/wb_adc_common.yaml
   - collect/hsem/r.yaml

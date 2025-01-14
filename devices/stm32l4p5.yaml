@@ -160,6 +160,10 @@ RCC:
       MCOSEL:
         bitWidth: 4
 
+RTC:
+  _include:
+    - patches/rtc/rtc_cr.yaml
+
 SAI?:
   _include:
     - patches/sai/sai_l4+.yaml
@@ -320,7 +324,6 @@ _include:
   - fields/ltdc/ltdc.yaml
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
-  - patches/rtc/rtc_cr.yaml
   - patches/octospi/l4+.yaml
   - fields/octospi/l4.yaml
   - patches/octospim/l4+.yaml

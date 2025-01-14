@@ -1,55 +1,53 @@
 _include: v3.yaml
 
-RTC:
-  CR:
-    SSRUIE:
-      Disabled: [0, SSR underflow interrupt disabled]
-      Enabled: [1, SSR underflow interrupt enabled]
+CR:
+  SSRUIE:
+    Disabled: [0, SSR underflow interrupt disabled]
+    Enabled: [1, SSR underflow interrupt enabled]
 
-  ICSR:
-    BCDU:
-      Bit7: [0, "1s increment each time SS[7:0]=0"]
-      Bit8: [1, "1s increment each time SS[8:0]=0"]
-      Bit9: [2, "1s increment each time SS[9:0]=0"]
-      Bit10: [3, "1s increment each time SS[10:0]=0"]
-      Bit11: [4, "1s increment each time SS[11:0]=0"]
-      Bit12: [5, "1s increment each time SS[12:0]=0"]
-      Bit13: [6, "1s increment each time SS[13:0]=0"]
-      Bit14: [7, "1s increment each time SS[14:0]=0"]
-    BIN:
-      BCD: [0, Free running BCD calendar mode (Binary mode disabled)]
-      Binary: [1, Free running Binary mode (BCD mode disabled)]
-      BinBCD: [2, Free running BCD calendar and Binary modes]
-      BinBCD2: [3, Free running BCD calendar and Binary modes]
+ICSR:
+  BCDU:
+    Bit7: [0, "1s increment each time SS[7:0]=0"]
+    Bit8: [1, "1s increment each time SS[8:0]=0"]
+    Bit9: [2, "1s increment each time SS[9:0]=0"]
+    Bit10: [3, "1s increment each time SS[10:0]=0"]
+    Bit11: [4, "1s increment each time SS[11:0]=0"]
+    Bit12: [5, "1s increment each time SS[12:0]=0"]
+    Bit13: [6, "1s increment each time SS[13:0]=0"]
+    Bit14: [7, "1s increment each time SS[14:0]=0"]
+  BIN:
+    BCD: [0, Free running BCD calendar mode (Binary mode disabled)]
+    Binary: [1, Free running Binary mode (BCD mode disabled)]
+    BinBCD: [2, Free running BCD calendar and Binary modes]
+    BinBCD2: [3, Free running BCD calendar and Binary modes]
 
-  WUTR:
-    WUTOCLR: [0, 0xFFFF]
-  CALR:
-    LPCAL:
-      RTCCLK:
-        [
-          0,
-          "Calibration window is 220 RTCCLK, which is a high-consumption mode. This mode should be set only when less than 32s calibration window is required",
-        ]
-      CkApre:
-        [1, "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode"]
-  ALRM?SSR:
-    SSCLR:
-      FreeRunning: [0, "The synchronous binary counter (SS[31:0] in RTC_SSR) is free-running"]
-      ALRMBINR:
-        [
-          1,
-          "The synchronous binary counter (SS[31:0] in RTC_SSR) is running from 0xFFFF FFFF to RTC_ALRMABINR → SS[31:0] value and is automatically reloaded with 0xFFFF FFFF when reaching RTC_ALRMABINR → SS[31:0]",
-        ]
-    MASKSS: [0, 0x3F]
+WUTR:
+  WUTOCLR: [0, 0xFFFF]
+CALR:
+  LPCAL:
+    RTCCLK:
+      [
+        0,
+        "Calibration window is 220 RTCCLK, which is a high-consumption mode. This mode should be set only when less than 32s calibration window is required",
+      ]
+    CkApre: [1, "Calibration window is 220 ck_apre, which is the required configuration for ultra-low consumption mode"]
+ALRM?SSR:
+  SSCLR:
+    FreeRunning: [0, "The synchronous binary counter (SS[31:0] in RTC_SSR) is free-running"]
+    ALRMBINR:
+      [
+        1,
+        "The synchronous binary counter (SS[31:0] in RTC_SSR) is running from 0xFFFF FFFF to RTC_ALRMABINR → SS[31:0] value and is automatically reloaded with 0xFFFF FFFF when reaching RTC_ALRMABINR → SS[31:0]",
+      ]
+  MASKSS: [0, 0x3F]
 
-  SR:
-    SSRUF:
-      Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
+SR:
+  SSRUF:
+    Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
 
-  MISR:
-    SSRUMF:
-      Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
+MISR:
+  SSRUMF:
+    Underflow: [1, "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1"]
 
-  ALR?BINR:
-    SS: [0, 0xFFFFFFFF]
+ALR?BINR:
+  SS: [0, 0xFFFFFFFF]

@@ -188,6 +188,11 @@ RCC:
           bitOffset: 4
           bitWidth: 4
 
+RTC:
+  _include:
+    - patches/rtc/rtc_cr.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI?:
   _include:
     - patches/sai/sai_v1.yaml
@@ -326,8 +331,6 @@ _include:
   #- patches/usart/merge_BRR_fields.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - patches/rtc/rtc_cr.yaml
-  - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/fw/fw_l0_l4.yaml
   - collect/hash/v2.yaml

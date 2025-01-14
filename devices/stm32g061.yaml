@@ -57,6 +57,11 @@ RCC:
     - fields/rcc/rcc_g0x1.yaml
     - fields/rcc/rcc_g0x1_aes.yaml
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - collect/rtc/alarm.yaml
+
 # TODO: add SPI
 #SPI?:
 #  _include:
@@ -65,6 +70,10 @@ RCC:
 
 SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
+
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _include:
@@ -145,8 +154,5 @@ _include:
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
   - patches/flash/g0.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - collect/rtc/alarm.yaml
   # SPI* are missing upstream
   - patches/tim/group.yaml

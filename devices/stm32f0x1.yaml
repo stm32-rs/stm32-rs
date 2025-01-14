@@ -59,6 +59,10 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+RTC:
+  _include:
+    - collect/rtc/bkpr.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -151,7 +155,6 @@ _include:
   - fields/dac/dac_dmaudr.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x128.yaml
-  - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
   - fields/flash/flash_f04x_f09x.yaml

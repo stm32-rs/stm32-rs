@@ -95,6 +95,14 @@ QUADSPI:
 OTG_HS_*:
   _strip: OTG_HS_
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI?:
   _include:
     - patches/sai/v1_common.yaml
@@ -222,9 +230,4 @@ _include:
   - patches/usb_otg/hs_f73_fixes.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/dbgmcu/dbgmcu.yaml

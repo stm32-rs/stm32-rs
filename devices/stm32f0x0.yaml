@@ -60,6 +60,10 @@ RCC:
         bitOffset: 16
         bitWidth: 1
 
+RTC:
+  _include:
+    - collect/rtc/bkpr.yaml
+
 SPI1:
   SR:
     _delete:
@@ -156,7 +160,6 @@ _include:
   - patches/tim/group.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x0.yaml
-  - collect/rtc/bkpr.yaml
   - patches/flash/f0_ram_parity_check.yaml
   - fields/flash/flash_f0.yaml
   - patches/nvic/2_prio_bits.yaml

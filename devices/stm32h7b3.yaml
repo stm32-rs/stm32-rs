@@ -149,6 +149,12 @@ RCC:
   _strip:
     - RCC_
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
+    - collect/rtc/alarm.yaml
+
 SAI?:
   _strip: SAI_
   _include:
@@ -276,7 +282,4 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - fields/rtc/v3.yaml
-  - collect/rtc/alarm.yaml
   - collect/dfsdm/v1.yaml

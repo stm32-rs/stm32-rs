@@ -136,6 +136,10 @@ RCC:
         bitOffset: 2
         bitWidth: 1
 
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -219,7 +223,6 @@ _include:
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
-  - fields/rtc/rtc_f1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

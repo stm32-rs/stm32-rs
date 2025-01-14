@@ -70,6 +70,13 @@ PWR:
 RCC:
   _strip: RCC_
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - patches/rtc/rtc_cr.yaml
+    - collect/rtc/alarm.yaml
+
 SAI:
   _include:
     - patches/sai/sai_v1.yaml
@@ -81,6 +88,10 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 "TIM[123]":
   _include:
@@ -143,11 +154,6 @@ _include:
   - collect/comp/csr.yaml
   - patches/cordic/g4.yaml
   - fields/cordic/cordic_g4.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - collect/rtc/alarm.yaml
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml

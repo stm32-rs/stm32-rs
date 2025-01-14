@@ -116,6 +116,10 @@ RCC:
         name: USBPRE
         description: USB prescaler
 
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
+
 SDIO:
   _modify:
     RESPI1:
@@ -213,7 +217,6 @@ _include:
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/rtc/rtc_f1.yaml
   - collect/sdio/resp.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml

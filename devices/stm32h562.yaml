@@ -49,6 +49,13 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    # - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    # - collect/rtc/bkpr.yaml
+
 SAI?:
   _include:
     - fields/sai/sai.yaml
@@ -164,11 +171,6 @@ _include:
 
   - patches/rcc/h56x_h57x.yaml
   - fields/rcc/rcc_h56x_h57x.yaml
-
-  - patches/rtc/alarm.yaml
-  # - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  # - collect/rtc/bkpr.yaml
 
   - fields/crs/crs.yaml
   - fields/pwr/pwr_h5.yaml

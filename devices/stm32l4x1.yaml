@@ -152,6 +152,13 @@ RCC:
         bitWidth: 1
         access: read-write
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI?:
   _include:
     - patches/sai/sai_v1.yaml
@@ -253,10 +260,6 @@ _include:
   - fields/rcc/rcc_l4_usart2_3.yaml
   - fields/rcc/rcc_l4_uart4.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - collect/tsc/iogcr.yaml
   - patches/flash/flash_boot0s.yaml
   - fields/fw/fw_l0_l4.yaml

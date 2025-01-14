@@ -185,6 +185,15 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/f4_cr.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI:
   _delete:
     - GCR
@@ -311,12 +320,6 @@ _include:
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
   - collect/hash/v2.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/f4_cr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml

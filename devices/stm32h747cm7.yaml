@@ -142,6 +142,14 @@ RCC:
           bitOffset: 0
           bitWidth: 9
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/rtc_common.yaml
+    - fields/rtc/rtc_h7.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI4:
   _strip: SAI_
 
@@ -283,10 +291,5 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_h7.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/ethernet/h7_mac.yaml
   - patches/pwr/h7_dual.yaml

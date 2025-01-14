@@ -91,6 +91,10 @@ IWDG:
 MPU:
   _strip: MPU_
 
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -172,7 +176,6 @@ _include:
   - fields/rcc/rcc_f107.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
   - fields/rcc/rcc_cfgr2_f107.yaml
-  - fields/rtc/rtc_f1.yaml
   - patches/usb_otg/fs_fixes_107.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

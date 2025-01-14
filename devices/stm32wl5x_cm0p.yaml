@@ -120,6 +120,13 @@ RCC:
     - fields/rcc/rcc_wl.yaml
     - fields/rcc/rcc_wx_c2.yaml
 
+RTC:
+  _include:
+    - patches/rtc/rtc_register_descriptions.yaml
+    - patches/rtc/wl.yaml
+    - fields/rtc/rtc_wl.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -130,6 +137,11 @@ SPI?:
 SYSCFG:
   _include:
     - fields/syscfg/syscfg_wl.yaml
+
+TAMP:
+  _include:
+    - patches/rtc/tamp_wl.yaml
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _modify:
@@ -202,7 +214,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rtc/rtc_register_descriptions.yaml
   - fields/comp/comp_wl.yaml
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
@@ -217,10 +228,6 @@ _include:
   - fields/pka/pka.yaml
   - fields/pwr/pwr_wl.yaml
   - fields/pwr/pwr_wl_c2.yaml
-  - patches/rtc/wl.yaml
-  - fields/rtc/rtc_wl.yaml
   - fields/tamp/tamp_wl.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - collect/rtc/alarm.yaml
   - fields/rng/rng_wl.yaml
   - fields/vrefbuf/vrefbuf_wl.yaml

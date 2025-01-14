@@ -1,70 +1,69 @@
 # Real Time Clock for L0 Family
 
-RTC:
-  TAMPCR:
-    TAMP*MF:
-      NotMasked:
-        [
-          0,
-          Tamper x event generates a trigger event and TAMPxF must be cleared by software to allow next tamper event detection,
-        ]
-      Masked:
-        [
-          1,
-          Tamper x event generates a trigger event. TAMPxF is masked and internally cleared by hardware. The backup registers are not erased.,
-        ]
-    TAMP*NOERASE:
-      Erase: [0, Tamper x event erases the backup registers]
-      NoErase: [1, Tamper x event does not erase the backup registers]
-    "TAMP[123]IE":
-      Disabled: [0, "Tamper x interrupt is disabled if TAMPIE = 0"]
-      Enabled: [1, Tamper x interrupt enabled]
-    TAMPPUDIS:
-      Enabled: [0, Precharge RTC_TAMPx pins before sampling (enable internal pull-up)]
-      Disabled: [1, Disable precharge of RTC_TAMPx pins]
-    TAMPPRCH:
-      Cycles1: [0, 1 RTCCLK cycle]
-      Cycles2: [1, 2 RTCCLK cycles]
-      Cycles4: [2, 4 RTCCLK cycles]
-      Cycles8: [3, 8 RTCCLK cycles]
-    TAMPFLT:
-      Immediate:
-        [
-          0,
-          Tamper event is activated on edge of RTC_TAMPx input transitions to the active level (no internal pull-up on RTC_TAMPx input),
-        ]
-      Samples2: [1, Tamper event is activated after 2 consecutive samples at the active level]
-      Samples4: [2, Tamper event is activated after 4 consecutive samples at the active level]
-      Samples8: [3, Tamper event is activated after 8 consecutive samples at the active level]
-    TAMPFREQ:
-      Div32768: [0, "RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)"]
-      Div16384: [1, "RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)"]
-      Div8192: [2, "RTCCLK / 8192 (4 Hz when RTCCLK = 32768 Hz)"]
-      Div4096: [3, "RTCCLK / 4096 (8 Hz when RTCCLK = 32768 Hz)"]
-      Div2048: [4, "RTCCLK / 2048 (16 Hz when RTCCLK = 32768 Hz)"]
-      Div1024: [5, "RTCCLK / 1024 (32 Hz when RTCCLK = 32768 Hz)"]
-      Div512: [6, "RTCCLK / 512 (64 Hz when RTCCLK = 32768 Hz)"]
-      Div256: [7, "RTCCLK / 256 (128 Hz when RTCCLK = 32768 Hz)"]
-    TAMPTS:
-      NoSave: [0, Tamper detection event does not cause a timestamp to be saved]
-      Save: [1, Save timestamp on tamper detection event]
-    TAMP*TRG:
-      RisingEdge:
-        [
-          0,
-          "If TAMPFLT = 00: RTC_TAMPx input rising edge triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input staying low triggers a tamper detection event.",
-        ]
-      FallingEdge:
-        [
-          1,
-          "If TAMPFLT = 00: RTC_TAMPx input staying high triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input falling edge triggers a tamper detection event",
-        ]
-    "TAMP[123]E":
-      Disabled: [0, RTC_TAMPx input detection disabled]
-      Enabled: [1, RTC_TAMPx input detection enabled]
-    TAMPIE:
-      Disabled: [0, Tamper interrupt disabled]
-      Enabled: [1, Tamper interrupt enabled]
-  OR:
-    RTC_OUT_RMP: [0, 1]
-    RTC_ALARM_TYPE: [0, 1]
+TAMPCR:
+  TAMP*MF:
+    NotMasked:
+      [
+        0,
+        Tamper x event generates a trigger event and TAMPxF must be cleared by software to allow next tamper event detection,
+      ]
+    Masked:
+      [
+        1,
+        Tamper x event generates a trigger event. TAMPxF is masked and internally cleared by hardware. The backup registers are not erased.,
+      ]
+  TAMP*NOERASE:
+    Erase: [0, Tamper x event erases the backup registers]
+    NoErase: [1, Tamper x event does not erase the backup registers]
+  "TAMP[123]IE":
+    Disabled: [0, "Tamper x interrupt is disabled if TAMPIE = 0"]
+    Enabled: [1, Tamper x interrupt enabled]
+  TAMPPUDIS:
+    Enabled: [0, Precharge RTC_TAMPx pins before sampling (enable internal pull-up)]
+    Disabled: [1, Disable precharge of RTC_TAMPx pins]
+  TAMPPRCH:
+    Cycles1: [0, 1 RTCCLK cycle]
+    Cycles2: [1, 2 RTCCLK cycles]
+    Cycles4: [2, 4 RTCCLK cycles]
+    Cycles8: [3, 8 RTCCLK cycles]
+  TAMPFLT:
+    Immediate:
+      [
+        0,
+        Tamper event is activated on edge of RTC_TAMPx input transitions to the active level (no internal pull-up on RTC_TAMPx input),
+      ]
+    Samples2: [1, Tamper event is activated after 2 consecutive samples at the active level]
+    Samples4: [2, Tamper event is activated after 4 consecutive samples at the active level]
+    Samples8: [3, Tamper event is activated after 8 consecutive samples at the active level]
+  TAMPFREQ:
+    Div32768: [0, "RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)"]
+    Div16384: [1, "RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)"]
+    Div8192: [2, "RTCCLK / 8192 (4 Hz when RTCCLK = 32768 Hz)"]
+    Div4096: [3, "RTCCLK / 4096 (8 Hz when RTCCLK = 32768 Hz)"]
+    Div2048: [4, "RTCCLK / 2048 (16 Hz when RTCCLK = 32768 Hz)"]
+    Div1024: [5, "RTCCLK / 1024 (32 Hz when RTCCLK = 32768 Hz)"]
+    Div512: [6, "RTCCLK / 512 (64 Hz when RTCCLK = 32768 Hz)"]
+    Div256: [7, "RTCCLK / 256 (128 Hz when RTCCLK = 32768 Hz)"]
+  TAMPTS:
+    NoSave: [0, Tamper detection event does not cause a timestamp to be saved]
+    Save: [1, Save timestamp on tamper detection event]
+  TAMP*TRG:
+    RisingEdge:
+      [
+        0,
+        "If TAMPFLT = 00: RTC_TAMPx input rising edge triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input staying low triggers a tamper detection event.",
+      ]
+    FallingEdge:
+      [
+        1,
+        "If TAMPFLT = 00: RTC_TAMPx input staying high triggers a tamper detection event. If TAMPFLT ≠ 00: RTC_TAMPx input falling edge triggers a tamper detection event",
+      ]
+  "TAMP[123]E":
+    Disabled: [0, RTC_TAMPx input detection disabled]
+    Enabled: [1, RTC_TAMPx input detection enabled]
+  TAMPIE:
+    Disabled: [0, Tamper interrupt disabled]
+    Enabled: [1, Tamper interrupt enabled]
+OR:
+  RTC_OUT_RMP: [0, 1]
+  RTC_ALARM_TYPE: [0, 1]
