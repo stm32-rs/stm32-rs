@@ -60,6 +60,14 @@ ADC?:
   SQR?:
     SQ*: [0, 18]
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/crc_rename_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
@@ -228,11 +236,6 @@ WWDG:
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
-  - patches/crc/crc_rename_init.yaml
-  - patches/crc/crc_rename_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
   - patches/rtc/alarm.yaml

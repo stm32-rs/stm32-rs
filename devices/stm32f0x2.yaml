@@ -19,6 +19,14 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  _include:
+    - patches/crc/f0_init_addr_fix.yaml
+    - patches/crc/crc_add_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -157,10 +165,6 @@ _include:
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - patches/crc/crc_add_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f0x128.yaml
@@ -169,4 +173,3 @@ _include:
   - fields/comp/comp_f0.yaml
   - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml
-  - patches/crc/f0_init_addr_fix.yaml

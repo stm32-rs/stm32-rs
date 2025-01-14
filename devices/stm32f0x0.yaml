@@ -16,6 +16,12 @@ ADC:
       TIM3_TRGO: [3, Timer 3 TRGO event]
       TIM15_TRGO: [4, Timer 15 TRGO event]
 
+CRC:
+  _include:
+    - patches/crc/f0_init_addr_fix.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -148,12 +154,9 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/tim/group.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x0.yaml
   - collect/rtc/bkpr.yaml
   - patches/flash/f0_ram_parity_check.yaml
   - fields/flash/flash_f0.yaml
   - patches/nvic/2_prio_bits.yaml
-  - patches/crc/f0_init_addr_fix.yaml

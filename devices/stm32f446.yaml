@@ -60,6 +60,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 DMA?:
   _include:
@@ -335,8 +338,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_spdifrxsel.yaml
   - fields/rcc/rcc_v2_ckgatenr.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/rtc/alarm.yaml

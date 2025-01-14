@@ -26,6 +26,12 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_pol.yaml
+
 DAC:
   CR:
     _merge: TSEL1*
@@ -196,11 +202,8 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/crc/crc_rename_init.yaml
   - patches/rtc/rtc_register_descriptions.yaml
   - fields/comp/comp_wl.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_pol.yaml
   - fields/dac/dac_wl.yaml
   - fields/dac/dac_wl_12bit.yaml
   - fields/dac/dac_wl_8bit.yaml

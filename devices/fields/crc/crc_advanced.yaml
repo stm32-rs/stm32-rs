@@ -3,41 +3,39 @@
 # Additionally use crc_idr_8bit.yaml or crc_idr_32bit.yaml as appropriate.
 
 _include:
- - ./crc_basic.yaml
- - ./crc_rev.yaml
-
-CRC:
-  _add:
-    DR8:
-      description: Data register - byte sized
-      addressOffset: 0x0
-      size: 0x8
-      access: read-write
-      resetValue: 0xFF
-      alternateRegister: DR
-      fields:
-        DR8:
-          description: Data register bits
-          bitOffset: 0
-          bitWidth: 8
-    DR16:
-      description: Data register - half-word sized
-      addressOffset: 0x0
-      size: 0x10
-      access: read-write
-      resetValue: 0xFFFF
-      alternateRegister: DR
-      fields:
-        DR16:
-          description: Data register bits
-          bitOffset: 0
-          bitWidth: 16
-
+  - crc_basic.yaml
+  - crc_rev.yaml
+_add:
   DR8:
-    DR8: [0, 255]
-
+    description: Data register - byte sized
+    addressOffset: 0x0
+    size: 0x8
+    access: read-write
+    resetValue: 0xFF
+    alternateRegister: DR
+    fields:
+      DR8:
+        description: Data register bits
+        bitOffset: 0
+        bitWidth: 8
   DR16:
-    DR16: [0, 65535]
+    description: Data register - half-word sized
+    addressOffset: 0x0
+    size: 0x10
+    access: read-write
+    resetValue: 0xFFFF
+    alternateRegister: DR
+    fields:
+      DR16:
+        description: Data register bits
+        bitOffset: 0
+        bitWidth: 16
 
-  INIT:
-    INIT: [0, 4294967295]
+DR8:
+  DR8: [0, 255]
+
+DR16:
+  DR16: [0, 65535]
+
+INIT:
+  INIT: [0, 4294967295]

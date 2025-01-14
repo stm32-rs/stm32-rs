@@ -47,6 +47,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
   _include: patches/cryp/merge_fields.yaml
@@ -245,8 +248,6 @@ _include:
   - fields/rcc/rcc_v2.yaml
   - fields/rcc/rcc_v2_i2s.yaml
   - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - fields/sdio/sdio_f4.yaml
   - collect/sdio/resp.yaml

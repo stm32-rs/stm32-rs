@@ -55,6 +55,10 @@ CRC:
     _modify:
       CRC_INIT:
         name: INIT
+  _include:
+    - patches/crc/crc_rename_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_pol.yaml
 
 DFSDM1:
   _strip: DFSDM_
@@ -311,9 +315,6 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   - fields/tsc/tsc.yaml
   - patches/hash/hash_l4+.yaml
-  - patches/crc/crc_rename_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_pol.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
   - fields/ltdc/ltdc.yaml

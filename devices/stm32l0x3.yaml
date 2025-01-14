@@ -43,6 +43,14 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/crc_rename_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
@@ -202,11 +210,6 @@ _include:
   - patches/nvic/l0_prio_bits.yaml
   - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
-  - patches/crc/crc_rename_init.yaml
-  - patches/crc/crc_rename_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/dbg/dbg_l0.yaml
   - fields/dac/dac_common_1ch.yaml
   - fields/dac/dac_dmaudr.yaml

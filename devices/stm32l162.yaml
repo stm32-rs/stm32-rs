@@ -21,6 +21,9 @@ CRC:
     _modify:
       Independent_data_register:
         name: IDR
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 EXTI:
   _include:
@@ -116,8 +119,6 @@ _include:
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - patches/rtc/alarm.yaml

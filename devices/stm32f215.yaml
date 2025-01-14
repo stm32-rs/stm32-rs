@@ -19,14 +19,19 @@ ADC?:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
-CRYP:
-  _include: patches/cryp/merge_fields.yaml
-
 CAN?:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
+
+CRC:
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
+
+CRYP:
+  _include: patches/cryp/merge_fields.yaml
 
 DMA?:
   _include:
@@ -159,8 +164,6 @@ _include:
   - fields/rcc/rcc_v2.yaml
   - fields/rcc/rcc_v2_i2s.yaml
   - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml

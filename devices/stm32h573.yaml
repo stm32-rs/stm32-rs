@@ -16,6 +16,13 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - fields/crc/crc_advanced.yaml
+    # - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
+
 ETH:
   _strip: ETH_
 
@@ -158,11 +165,6 @@ _include:
   - patches/h5.yaml
   - patches/h56x_h57x.yaml
   - patches/h5_security.yaml
-
-  - patches/crc/crc_rename_init.yaml
-  - fields/crc/crc_advanced.yaml
-  # - fields/crc/crc_idr_32bit.yaml
-  - fields/crc/crc_pol.yaml
 
   # - collect/flash/secbbr.yaml
 

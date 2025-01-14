@@ -48,9 +48,16 @@ BDMA?:
 COMP1:
   _strip: COMP1_
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/h7_addr_fix.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
+
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3
-
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
@@ -255,10 +262,6 @@ _include:
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
   - fields/axi/axi_v1.yaml
-  - patches/crc/crc_rename_init.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_32bit.yaml
-  - fields/crc/crc_pol.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
@@ -276,5 +279,4 @@ _include:
   - patches/rtc/alarm.yaml
   - fields/rtc/v3.yaml
   - collect/rtc/alarm.yaml
-  - patches/crc/h7_addr_fix.yaml
   - collect/dfsdm/v1.yaml

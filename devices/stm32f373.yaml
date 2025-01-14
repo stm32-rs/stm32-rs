@@ -46,6 +46,15 @@ ADC1:
       Exti15: [6, EXTI line15]
       Jswstart: [7, JSWSTART]
 
+CAN:
+  _delete:
+    _interrupts:
+      - COMP1_2
+  _include:
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
 COMP:
   _add:
     _interrupts:
@@ -60,14 +69,11 @@ COMP:
         bitWidth: 1
         access: read-write
 
-CAN:
-  _delete:
-    _interrupts:
-      - COMP1_2
+CRC:
   _include:
-    - fields/can/can.yaml
-    - collect/can/can.yaml
-    - collect/can/filter_bank.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
 
 DMA?:
   _include:
@@ -263,9 +269,6 @@ _include:
   - patches/rcc/f3.yaml
   - patches/rcc/f3_dac3_dac2.yaml
   - patches/comp/f0_common.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f373.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml

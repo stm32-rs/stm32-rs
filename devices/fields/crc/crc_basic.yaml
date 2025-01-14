@@ -3,10 +3,9 @@
 # CRC available on some STM32s, use crc_advanced.yaml.
 # Additionally use crc_idr_8bit.yaml or crc_idr_32bit.yaml as appropriate.
 
-CRC:
-  DR:
-    DR: [0, 4294967295]
-  CR:
-    RESET:
-      _write:
-        Reset: [1, Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF]
+DR:
+  DR: [0, 4294967295]
+CR:
+  RESET:
+    _write:
+      Reset: [1, Resets the CRC calculation unit and sets the data register to 0xFFFF FFFF]

@@ -40,6 +40,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 DAC:
   CR:
@@ -279,8 +282,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
   - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/flash/flash_v1.yaml

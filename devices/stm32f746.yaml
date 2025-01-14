@@ -47,6 +47,12 @@ CRC:
       addressOffset: 0x10
     POL:
       addressOffset: 0x14
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/f7_polysize_rev_in_rev_out.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
 
 CRYP:
   _include: patches/cryp/merge_fields.yaml
@@ -316,11 +322,6 @@ _include:
   - fields/rcc/rcc_v2_sai_pllr.yaml
   - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
   - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
-  - patches/crc/crc_rename_init.yaml
-  - patches/crc/f7_polysize_rev_in_rev_out.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - patches/adc/adc_common_group_name.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
