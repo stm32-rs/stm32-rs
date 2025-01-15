@@ -48,6 +48,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+CRC:
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -131,6 +136,10 @@ RCC:
         bitOffset: 2
         bitWidth: 1
 
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -190,6 +199,10 @@ USART*:
     - fields/usart/uart_common.yaml
     - fields/usart/uart_usart.yaml
 
+USB:
+  _include:
+    - fields/usb/usb.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -207,13 +220,9 @@ _include:
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
-  - fields/rtc/rtc_f1.yaml
-  - fields/usb/usb.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

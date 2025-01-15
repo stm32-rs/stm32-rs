@@ -55,6 +55,10 @@ CRC:
     _modify:
       CRC_INIT:
         name: INIT
+  _include:
+    - patches/crc/crc_rename_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_pol.yaml
 
 DFSDM1:
   _strip: DFSDM_
@@ -155,6 +159,10 @@ RCC:
     _modify:
       MCOSEL:
         bitWidth: 4
+
+RTC:
+  _include:
+    - patches/rtc/rtc_cr.yaml
 
 SAI?:
   _include:
@@ -311,15 +319,11 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   - fields/tsc/tsc.yaml
   - patches/hash/hash_l4+.yaml
-  - patches/crc/crc_rename_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_pol.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
   - fields/ltdc/ltdc.yaml
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
-  - patches/rtc/rtc_cr.yaml
   - patches/octospi/l4+.yaml
   - fields/octospi/l4.yaml
   - patches/octospim/l4+.yaml

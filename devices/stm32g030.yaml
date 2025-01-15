@@ -93,6 +93,11 @@ RCC:
       - TIM15SEL
       - USART3SEL
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _strip: SPI_
   _include:
@@ -115,6 +120,10 @@ SYSCFG:
     _delete: I2C3
   ITLINE26:
     _delete: SPI3
+
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _include:
@@ -182,7 +191,4 @@ _include:
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_5ch_only.yaml
   - patches/flash/g0.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - collect/rtc/alarm.yaml
   - patches/tim/group.yaml

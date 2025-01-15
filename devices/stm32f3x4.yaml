@@ -43,6 +43,12 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  _include:
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -135,6 +141,15 @@ RCC:
       - USART3SW
       - UART4SW
       - UART5SW
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - fields/rtc/rtc_f3.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SPI2:
   CR1:
@@ -260,9 +275,6 @@ _include:
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_32bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
@@ -283,9 +295,3 @@ _include:
   - patches/flash/f3_obr_rdptr.yaml
   - fields/flash/flash_f3_common.yaml
   - fields/flash/flash_f3_acr_hlfcya.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_f3.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml

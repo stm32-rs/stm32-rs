@@ -16,6 +16,13 @@ AES:
   _include:
     - fields/aes/v3.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - fields/crc/crc_advanced.yaml
+    # - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
+
 ETH:
   _strip: ETH_
 
@@ -48,6 +55,13 @@ IWDG:
   _include:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    # - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    # - collect/rtc/bkpr.yaml
 
 SAI?:
   _include:
@@ -145,6 +159,10 @@ USART?:
     - fields/usart/smartcard.yaml
     - fields/usart/prescalar.yaml
 
+USB:
+  _include:
+    - collect/usb/chepr.yaml
+
 WWDG:
   _include:
     - patches/16bit_with_mask.yaml
@@ -155,22 +173,11 @@ _include:
   - patches/h56x_h57x.yaml
   - patches/h5_security.yaml
 
-  - patches/crc/crc_rename_init.yaml
-  - fields/crc/crc_advanced.yaml
-  # - fields/crc/crc_idr_32bit.yaml
-  - fields/crc/crc_pol.yaml
-
   # - collect/flash/secbbr.yaml
 
   - patches/rcc/h56x_h57x.yaml
   - fields/rcc/rcc_h56x_h57x.yaml
 
-  - patches/rtc/alarm.yaml
-  # - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  # - collect/rtc/bkpr.yaml
-
   - fields/crs/crs.yaml
   - fields/pwr/pwr_h5.yaml
   - fields/gpdma/gpdma.yaml
-  - collect/usb/chepr.yaml

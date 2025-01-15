@@ -77,6 +77,11 @@ IWDG:
 RNG:
   _strip: RNG_
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - collect/rtc/alarm.yaml
+
 SAI?:
   _include:
     - patches/sai/sai_v1.yaml
@@ -88,6 +93,10 @@ SPI?:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 "TIM[1],TIM8":
   _include: patches/tim/icpsc.yaml
@@ -149,7 +158,4 @@ _include:
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
   - fields/rcc/rcc_l5.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - collect/rtc/alarm.yaml
   - patches/adc/adc_common_group_name.yaml

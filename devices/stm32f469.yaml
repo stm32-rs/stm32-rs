@@ -61,6 +61,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
   _include: patches/cryp/merge_fields.yaml
@@ -182,6 +185,15 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/f4_cr.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SAI:
   _delete:
     - GCR
@@ -297,8 +309,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
   - fields/rcc/rcc_v2_dckcfgr_48m_sd.yaml
   - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/eth/eth_dma_common.yaml
@@ -310,12 +320,6 @@ _include:
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
   - collect/hash/v2.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/f4_cr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml

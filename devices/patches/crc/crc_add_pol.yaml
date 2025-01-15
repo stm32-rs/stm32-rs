@@ -1,16 +1,15 @@
-CRC:
-  # The SVD is missing the programmable polynomial register "POL"
-  _add:
-    POL:
-      displayName: POL
-      description: CRC polynomial
-      addressOffset: 0x14
-      size: 0x20
-      access: read-write
-      resetValue: 0x04C11DB7
-      fields:
-        POL:
-          description: Programmable polynomial
-          bitOffset: 0
-          bitWidth: 32
-          access: read-write
+# The SVD is missing the programmable polynomial register "POL"
+_add:
+  POL:
+    displayName: POL
+    description: CRC polynomial
+    addressOffset: 0x14
+    size: 0x20
+    access: read-write
+    resetValue: 0x04C11DB7
+    fields:
+      POL:
+        description: Programmable polynomial
+        bitOffset: 0
+        bitWidth: 32
+        access: read-write

@@ -40,6 +40,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 DAC:
   CR:
@@ -161,6 +164,14 @@ RNG:
         bitOffset: 5
         bitWidth: 1
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -279,17 +290,10 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
   - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/dbgmcu/dbgmcu.yaml
   - patches/pwr/f4.yaml
   - fields/pwr/pwr_f410_f412_f413_f423.yaml

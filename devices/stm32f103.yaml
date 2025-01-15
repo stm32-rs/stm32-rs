@@ -58,6 +58,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
+
 DBGMCU:
   CR:
     _modify:
@@ -110,6 +115,10 @@ RCC:
       OTGFSPRE:
         name: USBPRE
         description: USB prescaler
+
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
 
 SDIO:
   _modify:
@@ -183,6 +192,11 @@ USART*:
     - fields/usart/uart_common.yaml
     - fields/usart/uart_usart.yaml
 
+USB:
+  _include:
+    - fields/usb/usb.yaml
+    - collect/usb/epxr.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -199,16 +213,11 @@ _include:
   - collect/bkp/dr.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/rtc/rtc_f1.yaml
   - collect/sdio/resp.yaml
-  - fields/usb/usb.yaml
-  - collect/usb/epxr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

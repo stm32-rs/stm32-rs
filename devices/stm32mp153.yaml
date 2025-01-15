@@ -23,8 +23,17 @@ RCC:
       DIGBYP:
         access: read-write
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _include: patches/spi/rxtxdr.yaml
+
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 WWDG1:
   _strip: WWDG_
@@ -34,6 +43,3 @@ WWDG1:
 
 _include:
   - patches/mpu_unprefix_registers.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/tamp_bkpr.yaml
-  - collect/rtc/alarm.yaml

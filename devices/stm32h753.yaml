@@ -38,6 +38,14 @@ BDMA:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/h7_addr_fix.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -138,6 +146,14 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/rtc_common.yaml
+    - fields/rtc/rtc_h7.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SAI?:
   _strip: SAI_
@@ -274,10 +290,6 @@ _include:
   - collect/dfsdm/v1.yaml
   - patches/ramecc/ramecc.yaml
   - fields/axi/axi_v1.yaml
-  - patches/crc/crc_rename_init.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_32bit.yaml
-  - fields/crc/crc_pol.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
@@ -293,11 +305,5 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - fields/rtc/rtc_common.yaml
-  - fields/rtc/rtc_h7.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
-  - patches/crc/h7_addr_fix.yaml
   - patches/ethernet/h7_mac.yaml
   - patches/h743_hrtim_common.yaml

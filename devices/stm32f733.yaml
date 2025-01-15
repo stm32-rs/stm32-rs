@@ -33,6 +33,13 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - patches/dma/fcr_wo.yaml
@@ -86,6 +93,14 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SAI?:
   _include:
@@ -206,10 +221,6 @@ _include:
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_f7.yaml
-  - patches/crc/crc_rename_init.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - patches/adc/adc_common_group_name.yaml
   - fields/pwr/pwr_f7.yaml
   - fields/pwr/pwr_v2.yaml
@@ -221,9 +232,4 @@ _include:
   - patches/usb_otg/hs_f73_fixes.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/dbgmcu/dbgmcu.yaml

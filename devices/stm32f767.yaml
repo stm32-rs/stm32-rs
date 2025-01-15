@@ -49,6 +49,12 @@ CRC:
       addressOffset: 0x10
     POL:
       addressOffset: 0x14
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/f7_polysize_rev_in_rev_out.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
 
 CRYP:
   _include: patches/cryp/merge_fields.yaml
@@ -170,6 +176,14 @@ RCC:
         bitOffset: 28
         bitWidth: 3
         access: read-write
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SAI?:
   _include:
@@ -364,11 +378,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_dfsdm_f7.yaml
   - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
   - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
-  - patches/crc/crc_rename_init.yaml
-  - patches/crc/f7_polysize_rev_in_rev_out.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml
   - fields/eth/eth_mac_common.yaml
@@ -389,10 +398,5 @@ _include:
   - collect/usb_otg/hs.yaml
   - collect/hash/v2.yaml
   - collect/mdios/dinr_doutr.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml

@@ -1,7 +1,6 @@
 # Rename EPTYPE to EP_TYPE
 
-USB:
-  EP*R:
-    _modify:
-      EPTYPE:
-        name: EP_TYPE
+EP*R:
+  _modify:
+    EPTYPE:
+      name: EP_TYPE

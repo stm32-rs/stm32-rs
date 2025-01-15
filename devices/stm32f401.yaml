@@ -35,6 +35,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 DMA?:
   _include:
@@ -95,6 +98,14 @@ RCC:
     _modify:
       UART2RST:
         name: USART2RST
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SPI?:
   _include:
@@ -175,17 +186,10 @@ _include:
   - fields/rcc/rcc_v2_i2s.yaml
   - fields/rcc/rcc_v2_i2s_pll.yaml
   - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/flash/flash_v1.yaml
   - fields/flash/flash_latency16.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - patches/usb_otg/fs_v1_novbussens.yaml

@@ -60,6 +60,14 @@ ADC?:
   SQR?:
     SQ*: [0, 18]
 
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/crc_rename_pol.yaml
+    - fields/crc/crc_advanced.yaml
+    - fields/crc/crc_idr_8bit.yaml
+    - fields/crc/crc_pol.yaml
+
 DMA?:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
@@ -140,6 +148,11 @@ RCC:
         bitWidth: 1
         access: read-write
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml
@@ -219,23 +232,17 @@ USB:
       USB_FS:
         description: USB event interrupt through EXTI
         value: 67
+  _include:
+    - fields/usb/usb_with_LPM.yaml
+    - collect/usb/epxr.yaml
 
 WWDG:
   _include: patches/16bit.yaml
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
-  - patches/crc/crc_rename_init.yaml
-  - patches/crc/crc_rename_pol.yaml
-  - fields/crc/crc_advanced.yaml
-  - fields/crc/crc_idr_8bit.yaml
-  - fields/crc/crc_pol.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - collect/rtc/alarm.yaml
   - collect/tsc/iogcr.yaml
-  - fields/usb/usb_with_LPM.yaml
-  - collect/usb/epxr.yaml
   - patches/adc/l4_adc_common.yaml
   - fields/fw/fw_l0_l4.yaml

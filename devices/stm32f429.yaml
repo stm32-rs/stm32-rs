@@ -42,6 +42,9 @@ CRC:
     _modify:
       CR:
         name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
   _include: patches/cryp/merge_fields.yaml
@@ -139,6 +142,15 @@ RCC:
         name: UART7EN
       UART8ENR:
         name: UART8EN
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/f4_cr.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/rtc_common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SAI:
   _include:
@@ -252,8 +264,6 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
   - fields/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
   - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/eth/eth_dma_common.yaml
@@ -263,12 +273,6 @@ _include:
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
   - collect/hash/v2.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/f4_cr.yaml
-  - patches/rtc/rtc_cr.yaml
-  - fields/rtc/rtc_common.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml

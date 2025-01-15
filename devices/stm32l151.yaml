@@ -21,6 +21,9 @@ CRC:
     _modify:
       Independent_data_register:
         name: IDR
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
 
 EXTI:
   _include:
@@ -57,6 +60,13 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
 
 SPI?:
   _include:
@@ -101,22 +111,19 @@ TIM*:
 "TIM[1-589],TIM1[0-79],TIM2?":
   _include: collect/tim/ccr.yaml
 
+USB:
+  _strip: USB_
+  _include:
+    - fields/usb/usb.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/usb/unprefix_registers.yaml
   - fields/dac/dac_wavegen.yaml
   - fields/dac/dac_common_2ch.yaml
   - fields/dac/dac_dmaudr.yaml
-  - fields/crc/crc_basic.yaml
-  - fields/crc/crc_idr_8bit.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
-  - patches/rtc/alarm.yaml
-  - patches/rtc/rtc_cr.yaml
-  - collect/rtc/alarm.yaml
-  - collect/rtc/bkpr.yaml
-  - fields/usb/usb.yaml
