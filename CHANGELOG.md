@@ -126,6 +126,7 @@
 * G0: mark interrupt flags in USB ISTR as W0C
 * G0: mark flags in USB CHEPR as W0C/W1T
 * G0: add value enums for EXTICR[2-4]
+* H5: Add cluster definitions for H5 GPDMA channels
 
 Family-specific:
 
