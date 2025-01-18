@@ -91,17 +91,10 @@ TIM1:
         description: TIM1 break, update, trigger and commutation interrupts
 
 TIM3:
-  _include: patches/tim/v2/oc1m1.yaml
-  CNT:
-    _modify:
-      CNT_L:
-        name: CNT
-        description: Counter value
-    _delete: "CNT_H,CNTH"
-  ARR:
-    _modify:
-      ARR:
-        bitWidth: 16
+  _include: 
+    - patches/tim/tim_cnt_16bit_l.yaml
+    - patches/tim/tim_ccrx_16bit.yaml
+    - patches/tim/v2/oc1m1.yaml
 
 "TIM1[46]":
   _include: patches/tim/v2/oc1m.yaml
