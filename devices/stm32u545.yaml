@@ -47,6 +47,12 @@ EXTI:
   _include:
     - fields/exti/exti_u5.yaml
 
+GPDMA?:
+  _strip: GPDMA_
+  _include:
+    - patches/dma/gpdma_u5_tr1.yaml
+    - collect/dma/gpdma/h7rs_u5.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
