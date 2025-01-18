@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* TIM3's CCRx is 16-bit for G0Bx and G0C0
 * Format yamls: remove unneeded quotes
 * Update L4/L4+ source to v1.4
 * AES enums & patches
