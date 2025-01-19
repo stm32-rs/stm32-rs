@@ -34,6 +34,12 @@ GPIO?:
 I2C?:
   _strip: I2C_
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    #- fields/rtc/v3.yaml
+    #- collect/rtc/alarm.yaml
+
 SPI1:
   _include:
     - patches/16bit.yaml

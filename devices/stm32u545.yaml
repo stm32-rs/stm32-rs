@@ -83,6 +83,12 @@ PWR:
   CR4:
     _delete: SRAM5PDS*
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
+    - collect/rtc/alarm.yaml
+
 SDMMC:
   _strip: SDMMC_
 

@@ -59,6 +59,10 @@ IWDG:
 MPU:
   _strip: MPU_
 
+RTC:
+  _include:
+    - fields/rtc/rtc_f1.yaml
+
 SPI?:
   _include:
     - patches/16bit.yaml

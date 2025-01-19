@@ -60,7 +60,12 @@ IWDG:
     - fields/iwdg/iwdg_with_WINR.yaml
 
 RTC:
+  _derive:
+    TSTR: TR
+    TSDR: DR
   _include:
+    - fields/rtc/v2_basic.yaml
+    #- collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
 SPI?:

@@ -161,8 +161,15 @@ RCC:
         bitWidth: 4
 
 RTC:
+  MISR:
+    _modify:
+      ALRMF:
+        name: ALRAMF
   _include:
+    - patches/rtc/alarm.yaml
     - patches/rtc/rtc_cr.yaml
+    - fields/rtc/v3.yaml
+  #  - collect/rtc/alarm.yaml
 
 SAI?:
   _include:

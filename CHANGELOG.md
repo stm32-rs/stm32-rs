@@ -4,6 +4,7 @@
 
 * TIM3's CCRx is 16-bit for G0Bx and G0C0
 * Format yamls: remove unneeded quotes
+* Apply existing RTC patches for new families, RTC alarm arrays
 * Update L4/L4+ source to v1.4
 * AES enums & patches
 * H5: Array gpio registers

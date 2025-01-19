@@ -24,6 +24,12 @@ I2C?:
 IWDG:
   _include: patches/16bit_with_mask.yaml
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    #- fields/rtc/v3.yaml
+    #- collect/rtc/alarm.yaml
+
 SPI1:
   _include:
     - patches/16bit.yaml
