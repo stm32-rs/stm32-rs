@@ -102,6 +102,12 @@ PWR:
         bitOffset: 21
         bitWidth: 1
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 

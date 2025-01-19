@@ -17,3 +17,10 @@ LCD:
   _strip: LCD_
   _include:
     - patches/lcd/ram_segment_48.yaml
+
+RTC:
+  _strip: RTC_
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
+    - collect/rtc/alarm.yaml

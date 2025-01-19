@@ -68,6 +68,7 @@ RCC:
 RTC:
   _include:
     - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
 SPI?:

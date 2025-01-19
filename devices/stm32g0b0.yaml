@@ -62,6 +62,7 @@ RCC:
 RTC:
   _include:
     - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
 SPI?:
@@ -91,7 +92,7 @@ TIM1:
         description: TIM1 break, update, trigger and commutation interrupts
 
 TIM3:
-  _include: 
+  _include:
     - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/tim_ccrx_16bit.yaml
     - patches/tim/v2/oc1m1.yaml

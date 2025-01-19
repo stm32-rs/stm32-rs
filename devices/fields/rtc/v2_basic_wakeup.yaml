@@ -1,0 +1,30 @@
+# Real Time Clock
+
+_include: v2_basic.yaml
+
+CR:
+  WUTIE:
+    Disabled: [0, Wakeup timer interrupt disabled]
+    Enabled: [1, Wakeup timer interrupt enabled]
+  WUTE:
+    Disabled: [0, Wakeup timer disabled]
+    Enabled: [1, Wakeup timer enabled]
+  WUCKSEL:
+    Div16: [0, RTC/16 clock is selected]
+    Div8: [1, RTC/8 clock is selected]
+    Div4: [2, RTC/4 clock is selected]
+    Div2: [3, RTC/2 clock is selected]
+    ClockSpare: [4, ck_spre (usually 1 Hz) clock is selected]
+    ClockSpareWithOffset: [6, ck_spre (usually 1 Hz) clock is selected and 2^16 is added to the WUT counter value]
+ISR:
+  WUTF:
+    _read:
+      Zero: [1, This flag is set by hardware when the wakeup auto-reload counter reaches 0]
+    _W0C:
+      Clear: [0, This flag is cleared by software by writing 0]
+  WUTWF:
+    _read:
+      UpdateNotAllowed: [0, Wakeup timer configuration update not allowed]
+      UpdateAllowed: [1, Wakeup timer configuration update allowed]
+WUTR:
+  WUT: [0, 0xFFFF]

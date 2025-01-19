@@ -50,6 +50,12 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3.yaml
+    - collect/rtc/alarm.yaml
+
 SPI?:
   _include:
     - patches/spi/rxtxdr.yaml
