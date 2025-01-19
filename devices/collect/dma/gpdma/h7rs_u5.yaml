@@ -1,28 +1,30 @@
+_include: fields.yaml
+
 _cluster:
   CH%s:
     description: Channel cluster
-    "C[1][0-1]LBAR,C?LBAR":
+    "C?LBAR,C[1][01]LBAR":
       name: LBAR
-    "C[1][0-1]FCR,C?FCR":
+    "C?FCR,C[1][01]FCR":
       name: FCR
-    "C[1][0-1]SR,C?SR":
+    "C?SR,C[1][01]SR":
       name: SR
-    "C[1][0-1]CR,C?CR":
+    "C?CR,C[1][01]CR":
       name: CR
-    "C[1][0-1]TR1,C?TR1":
+    "C?TR1,C[1][01]TR1":
       name: TR1
-    "C[1][0-1]TR2,C?TR2":
+    "C?TR2,C[1][01]TR2":
       name: TR2
-    "C[1][0-1]BR1,C?BR1":
+    "C?BR1,C[1][01]BR1":
       name: BR1
-    "C[1][0-1]SAR,C?SAR":
+    "C?SAR,C[1][01]SAR":
       name: SAR
-    "C[1][0-1]DAR,C?DAR":
+    "C?DAR,C[1][01]DAR":
       name: DAR
-    "C[1][0-1]LLR,C?LLR":
+    "C?LLR,C[1][01]LLR":
       name: LLR
 
-  ECH%s:
+  CH2D%s:
     description: Extended channel cluster
     "C[1][2-5]LBAR":
       name: LBAR

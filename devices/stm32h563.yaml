@@ -27,6 +27,12 @@ EXTI:
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
+GPDMA?:
+  _strip: GPDMA_
+  _include:
+    - fields/dma/gpdma/h5.yaml
+    - collect/dma/gpdma/h5.yaml
+
 GPIOC:
   _strip: GPIO_
 
@@ -174,4 +180,3 @@ _include:
 
   - fields/crs/crs.yaml
   - fields/pwr/pwr_h5.yaml
-  - fields/gpdma/gpdma.yaml

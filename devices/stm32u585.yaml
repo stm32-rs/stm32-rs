@@ -60,6 +60,11 @@ FMC:
     - fields/fsmc/fsmc_sram.yaml
     - fields/fsmc/fsmc_nand.yaml
 
+GPDMA?:
+  _strip: GPDMA_
+  _include:
+    - collect/dma/gpdma/h7rs_u5.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
