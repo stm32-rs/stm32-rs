@@ -53,6 +53,7 @@ I2C?:
 
 IWDG:
   _include:
+    - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 

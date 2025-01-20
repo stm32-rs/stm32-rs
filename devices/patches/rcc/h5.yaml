@@ -16,11 +16,6 @@ APB2RSTR:
       name: USBRST
       description: USB block reset
 
-_modify:
-  CFGR: # There are 2 CFGR registers on the H5
-    name: CFGR1
-    displayName: CFGR1
-
 CFGR1:
   _modify:
     SW:
@@ -28,15 +23,15 @@ CFGR1:
     SWS:
       bitWidth: 2
 
-PLL1CFGR:
-  _modify:
-    DIVM1:
-      name: PLL1M
+#PLL1CFGR:
+#  _modify:
+#    DIVM1:
+#      name: PLL1M
 
-PLL2CFGR:
-  _modify:
-    DIVM2:
-      name: PLL2M
+#PLL2CFGR:
+#  _modify:
+#    DIVM2:
+#      name: PLL2M
 
 CCIPR4:
   _modify:

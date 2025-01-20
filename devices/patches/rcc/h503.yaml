@@ -66,8 +66,6 @@ RCC:
 
   CCIPR5:
     _modify:
-      DACSEL:
-        name: DAC1SEL
       FDCAN1SEL:
         name: FDCANSEL
         description: FDCAN kernel clock source selection

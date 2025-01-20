@@ -1,6 +1,6 @@
 _svd: ../svd/stm32h573.svd
 
-ADC?:
+"ADC[12]":
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -59,6 +59,7 @@ I2C?:
 
 IWDG:
   _include:
+    - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 

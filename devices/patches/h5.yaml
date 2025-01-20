@@ -43,15 +43,6 @@ ICACHE:
 
 IWDG:
   _strip: IWDG_
-  SR:
-    _add:
-      ONF:
-        description: "Watchdog enable status bit.
-          Set to ‘1’ by hardware as soon as the IWDG is started. In software mode, it remains to '1' until
-          the IWDG is reset. In hardware mode, this bit is always set to '1'."
-        bitOffset: 8
-        bitWidth: 1
-        access: read-only
 
 LPTIM?:
   _strip: LPTIM_
