@@ -152,44 +152,40 @@ SYSCFG:
     - patches/syscfg/l0_cfgr.yaml
     - fields/syscfg/syscfg_l0.yaml
 
-TIM*:
+TIM2:
+  _modify:
+    CCR?:
+      size: 16
   _include:
     - patches/tim/size16b.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/basic.yaml
-
-"TIM[23]":
-  _include:
-    - patches/tim/l0.yaml
     - fields/tim/tim2_l0.yaml
-
-"TIM[2345]":
-  _include:
-    - fields/tim/tim_16bit.yaml
-
-"TIM[1-58]":
-  _include:
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
     - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
+TIM6:
+  _include:
+    - patches/tim/size16b.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
 
-TIM2?:
-  _include: fields/tim/tim2x.yaml
+TIM2[12]:
+  _include:
+    - patches/tim/size16b.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim2x.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
 TIM21:
   _include: fields/tim/tim21.yaml
-
-"TIM[1-589],TIM??":
-  _include: fields/tim/v1/ccm.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
 
 USART*:
   _include:

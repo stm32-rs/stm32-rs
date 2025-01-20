@@ -104,31 +104,45 @@ TAMP:
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
-"TIM[123]":
+TIM1:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/tim_20bit.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
 
 TIM2:
-  _include: patches/tim/v2/tim_32bit.yaml
+  _include:
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/tim_32bit.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[13],TIM15,TIM16":
-  _include: patches/tim/v2/tim_20bit.yaml
+TIM3:
+  _include:
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/tim_20bit.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
 
-"TIM9,TIM12,TIM15":
-  _include: fields/tim/v2/ccm9_15.yaml
+TIM6: {}
 
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
+TIM15:
+  _include:
+    - patches/tim/v2/tim_20bit.yaml
+    - fields/tim/v2/ccm9_15.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
 
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
+TIM16:
+  _include:
+    - patches/tim/v2/tim_20bit.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
 
 VREFBUF:
   _strip: VREFBUF_

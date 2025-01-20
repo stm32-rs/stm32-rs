@@ -120,8 +120,15 @@ SPI?:
 TIM?:
   _strip: TIM?_
 
-"TIM[1]":
-  _include: patches/tim/icpsc.yaml
+TIM1:
+  _include:
+    - patches/tim/icpsc.yaml
+
+TIM2: {}
+
+TIM6: {}
+
+TIM15: {}
 
 TIM16:
   CCMR1_Output:

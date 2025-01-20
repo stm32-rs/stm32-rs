@@ -236,73 +236,78 @@ SPI?:
     - patches/spi/rename_dff_tifrfe.yaml
     - fields/spi/spi_common.yaml
 
-"TIM[1],TIM8":
-  _include: patches/tim/icpsc.yaml
-
-TIM*:
+TIM[18]:
   _include:
+    - patches/tim/icpsc.yaml
     - fields/tim/basic.yaml
-
-"TIM[18]":
-  _include:
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/tim_advanced.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
 
-"TIM[23]":
-  _include: patches/tim/v2/add_ocm_bit3.yaml
+TIM2:
+  _include:
+    - fields/tim/basic.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_32bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+
+TIM3:
+  _include:
+    - patches/tim/tim_ch_16bit_l.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+
+TIM6:
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
 
 TIM15:
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
-  _include: patches/tim/l4_tim15_ch2.yaml
-
-"TIM[34]":
   _include:
-    - patches/tim/tim_ch_16bit_l.yaml
-    - fields/tim/tim_16bit.yaml
-
-"TIM[25]":
-  _include:
-    - patches/tim/tim2_common_32bit.yaml
-    - fields/tim/tim_32bit.yaml
-
-"TIM[1-58]":
-  _include:
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
-    - fields/tim/tim_mms_ts_sms.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
+    - patches/tim/l4_tim15_ch2.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm9_15.yaml
+
+TIM1[5]:
+  _include:
+    - collect/tim/ccr.yaml
 
 TIM16:
-  _include: fields/tim/tim16.yaml
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim16.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
-
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
-
-"TIM9,TIM12,TIM15":
-  _include: fields/tim/v2/ccm9_15.yaml
-
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
 
 USART*:
   _include:

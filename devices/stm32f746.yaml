@@ -164,86 +164,53 @@ SYSCFG:
   _include:
     - patches/syscfg/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
-"TIM[2-5]":
-  _include: patches/tim/tim_o24ce.yaml
-
-"TIM1[0134]":
-  _include: patches/tim/tim10_14_missing_opm.yaml
-  _delete:
-    - SMCR
-
-TIM*:
+TIM1:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/v2/add_cc4np.yaml
+    - patches/tim/v2/add_bkf.yaml
+    - patches/tim/v2/add_af.yaml
+    - patches/tim/v2/add_cc5.yaml
+    - patches/tim/dmab_32.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/basic.yaml
+    - fields/tim/tim_advanced.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
+  _modify:
+    CRR6:
+      name: CCR6
 
-"TIM[34]":
+TIM[25]:
   _include:
-    - patches/tim/tim_ch_16bit_l.yaml
-    - fields/tim/tim_16bit.yaml
-
-"TIM[25]":
-  _include:
+    - patches/tim/tim_o24ce.yaml
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/tim2_common_32bit.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/dmab_32.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
+    - fields/tim/basic.yaml
     - fields/tim/tim_32bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
   _modify:
     OR1:
       name: OR
   _delete:
     - OR2
-
-TIM5:
-  OR:
-    _modify:
-      TI4_RMP:
-        bitOffset: 6
-    _delete:
-      - ETR1_RMP
-      - ITR1_RMP
-
-TIM[16]:
-  _include: patches/tim/v2/add_uifcpy.yaml
-
-TIM[18]:
-  _include:
-    - patches/tim/v2/add_cc4np.yaml
-    - patches/tim/v2/add_bkf.yaml
-    - patches/tim/v2/add_af.yaml
-    - patches/tim/v2/add_cc5.yaml
-    - fields/tim/tim_advanced.yaml
-  _modify:
-    "CRR6,CCR6":
-      name: CCR6
-
-TIM[2-579],TIM1[02]:
-  _include: patches/tim/v2/add_uifcpy.yaml
-
-TIM3:
-  _delete:
-    - OR1
-    - OR2
-
-TIM9:
-  _include:
-    - patches/tim/v2/add_ocm1_bit3.yaml
-    - patches/tim/v2/add_ocm2_bit3.yaml
-    - patches/tim/v2/add_sms_bit3.yaml
-
-"TIM[1-58]":
-  _include:
-    - patches/tim/dmab_32.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
-    - fields/tim/tim_mms_ts_sms.yaml
-
-"TIM9,TIM1[0-4]":
-  CNT:
-    CNT: [0, 65535]
-  ARR:
-    ARR: [0, 65535]
-  CCR?:
-    "CCR,CCR?": [0, 0xFFFF]
 
 TIM2:
   OR:
@@ -255,36 +222,72 @@ TIM2:
         bitOffset: 10
         bitWidth: 2
 
-TIM1:
-  _include: patches/tim/v2/oc5m_bit3.yaml
+TIM5:
+  OR:
+    _modify:
+      TI4_RMP:
+        bitOffset: 6
+    _delete:
+      - ETR1_RMP
+      - ITR1_RMP
 
-TIM[1235]:
-  _include: patches/tim/v2/add_ocm_bit3.yaml
+TIM3:
+  _include:
+    - patches/tim/tim_o24ce.yaml
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/uifremap_fix.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/dmab_32.yaml
+    - patches/tim/v2/add_ocm_bit3.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+  _delete:
+    - OR1
+    - OR2
+
+TIM6:
+  _include:
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/uifremap_fix.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
+
+TIM9:
+  _include:
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/uifremap_fix.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/v2/add_ocm1_bit3.yaml
+    - patches/tim/v2/add_ocm2_bit3.yaml
+    - patches/tim/v2/add_sms_bit3.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm9_15.yaml
+    - collect/tim/ccr.yaml
 
 TIM10:
-  _include: patches/tim/v2/add_ocm1_bit3.yaml
-
-"TIM[1-58-9],TIM??":
   _include:
+    - patches/tim/tim10_14_missing_opm.yaml
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/uifremap_fix.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/v2/add_ocm1_bit3.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_16bit.yaml
     - fields/tim/tim_ckd.yaml
-
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
-
-"TIM9,TIM12,TIM15":
-  _include: fields/tim/v2/ccm9_15.yaml
-
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
+  _delete:
+    - SMCR
 
 USART*:
   _include:

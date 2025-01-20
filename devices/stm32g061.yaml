@@ -82,6 +82,13 @@ TIM1:
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
     - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_advanced.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COM:
@@ -91,53 +98,51 @@ TIM2:
   _include:
     - patches/tim/tim2_cnt_32bit.yaml
     - patches/tim/v2/oc1m1.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
 
 TIM3:
   _include:
     - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/v2/oc1m1.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
 
-"TIM1[46]":
-  _include: patches/tim/v2/oc1m.yaml
+TIM6:
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
+
+TIM14:
+  _include:
+    - patches/tim/v2/oc1m.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
 
 TIM15:
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
-
-TIM*:
-  _include:
     - fields/tim/basic.yaml
-
-"TIM[1-58]":
-  _include:
-    - fields/tim/tim_gp1.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
     - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm9_15.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
-
-"TIM[18]":
+TIM16:
   _include:
-    - fields/tim/tim_advanced.yaml
-
-"TIM9,TIM12,TIM15":
-  _include: fields/tim/v2/ccm9_15.yaml
-
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
+    - patches/tim/v2/oc1m.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
 
 USART?:
   _include:

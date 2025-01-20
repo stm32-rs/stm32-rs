@@ -68,34 +68,34 @@ EXTI:
     _modify:
       RT_31:
         name: RT31
-    _split: [RT]
+    _split: RT
 
   FTSR1:
     _modify:
       FT_31:
         name: FT31
-    _split: [FT]
+    _split: FT
 
   SWIER1:
     _modify:
       SWI_31:
         name: SWI31
-    _split: [SWI]
+    _split: SWI
 
   PR1:
     _modify:
       PIF_31:
         name: PIF31
-    _split: [PIF]
+    _split: PIF
 
   IMR1:
-    _split: [IM]
+    _split: IM
   IMR2:
-    _split: [IM]
+    _split: IM
   C2IMR1:
-    _split: [IM]
+    _split: IM
   C2IMR2:
-    _split: [IM]
+    _split: IM
 
 GPIO?:
   _include:
@@ -179,10 +179,14 @@ SYSCFG:
       addressOffset: 0x110
 
 TIM1:
-  _include: patches/tim/v2/oc5m_bit3.yaml
+  _include:
+    - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
 TIM2:
-  _include: patches/tim/tim2_common_32bit.yaml
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/v2/ccm_extended.yaml
   CNT:
     _add:
       UIFREMAP_CNT:
@@ -198,11 +202,9 @@ TIM2:
       CNT_L:
         bitOffset: 0
 
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
+TIM1[67]:
+  _include:
+    - fields/tim/v2/ccm_common.yaml
 
 WWDG:
   _include: patches/16bit.yaml
