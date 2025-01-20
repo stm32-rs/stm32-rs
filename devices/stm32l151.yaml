@@ -74,43 +74,44 @@ SPI?:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-"TIM[23]":
-  _include: patches/tim/rename_TIM2_CCR3_CCR3.yaml
+TIM2:
+  _include:
+    - patches/tim/rename_TIM2_CCR3_CCR3.yaml
+    - patches/tim/icpsc.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_16bit.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
+
+TIM6:
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
 
 TIM9:
   _include:
     - patches/tim/omp.yaml
     - patches/tim/l1_tim9_ccer.yaml
+    - patches/tim/icpsc.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[29],TIM11":
-  _include: patches/tim/icpsc.yaml
+TIM11:
+  _include:
+    - patches/tim/icpsc.yaml
 
-TIM*:
+TIM1[01]:
   _include:
     - fields/tim/basic.yaml
-
-"TIM[1-58]":
-  _include:
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
-    - fields/tim/tim_mms_ts_sms.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
     - fields/tim/tim_ckd.yaml
-
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
-
-"TIM[2345]":
-  _include:
-    - fields/tim/tim_16bit.yaml
-
-"TIM[1-589],TIM??":
-  _include: fields/tim/v1/ccm.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
 USB:
   _strip: USB_

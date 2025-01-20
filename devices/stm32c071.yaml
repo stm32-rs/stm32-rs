@@ -87,7 +87,19 @@ TIM*:
     - TIM*__
     - TIM?*_
 
-TIM1[467]:
+TIM1: {}
+
+TIM2:
+  _modify:
+    CNT_ALTERNATE1:
+      name: CNT_remap
+
+TIM3:
+  _modify:
+    CNT_ALTERNATE1:
+      name: CNT_remap
+
+TIM14:
   _modify:
     CCMR1:
       name: CCMR1_Input
@@ -98,10 +110,16 @@ TIM1[467]:
       OC1M_1:
         name: OC1M_3
 
-TIM[23]:
+TIM1[67]:
   _modify:
-    CNT_ALTERNATE1:
-      name: CNT_remap
+    CCMR1:
+      name: CCMR1_Input
+    CCMR1_ALTERNATE1:
+      name: CCMR1_Output
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
 
 USART1:
   _modify:

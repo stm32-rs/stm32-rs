@@ -71,57 +71,60 @@ SPI?:
 TIM?:
   _strip: TIM?_
 
-#"TIM[1346-9],TIM??":
-#  _include: patches/tim/add_dither16.yaml
-
-"TIM[25]":
-  _include:
-    #  - patches/tim/add_dither32.yaml
-    - patches/tim/tim_uifremap.yaml
-    - fields/tim/tim_32bit.yaml
-
-"TIM[18]":
+TIM1:
   _include:
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim1_advanced.yaml
+    - fields/tim/tim_16bit_dither.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
-"TIM[2-5]":
+TIM2:
+  _include:
+    - patches/tim/tim_uifremap.yaml
+    - fields/tim/tim_32bit.yaml
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc3m.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
+
+TIM3:
   _include:
     - patches/tim/tim2_mms_ts_sms.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
-
-"TIM[1-58]":
-  _include:
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_16bit_dither.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
-TIM*:
+TIM[67]:
   _include:
     - fields/tim/basic.yaml
     - fields/tim/tim_uifremap.yaml
     - fields/tim/dithen.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
-    - fields/tim/tim_ckd.yaml
-
-"TIM[67]":
-  _include:
     - fields/tim/tim6_dither.yaml
-
-TIM1:
-  _include: fields/tim/tim1_advanced.yaml
-
-"TIM[1348]":
-  _include:
-    - fields/tim/tim_16bit_dither.yaml
-
-"TIM[18],TIM[2-5]":
-  _include:
-    - fields/tim/v2/ccm_extended.yaml
 
 USART?:
   _strip: USART_

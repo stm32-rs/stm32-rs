@@ -46,7 +46,37 @@ TIM*:
     - TIM*__
     - TIM?*_
 
-TIM[13],TIM1[467]:
+TIM1:
+  _modify:
+    CCMR1_input:
+      name: CCMR1_Input
+    CCMR1_output:
+      name: CCMR1_Output
+    CCMR2_input:
+      name: CCMR2_Input
+    CCMR2_output:
+      name: CCMR2_Output
+  _include:
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc1m.yaml
+
+TIM3:
+  _modify:
+    CNT_alternate:
+      name: CNT_remap
+    CCMR1_input:
+      name: CCMR1_Input
+    CCMR1_output:
+      name: CCMR1_Output
+    CCMR2_input:
+      name: CCMR2_Input
+    CCMR2_output:
+      name: CCMR2_Output
+  _include:
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc1m.yaml
+
+TIM14:
   _modify:
     CCMR1_input:
       name: CCMR1_Input
@@ -54,18 +84,13 @@ TIM[13],TIM1[467]:
       name: CCMR1_Output
   _include: patches/tim/v2/oc1m.yaml
 
-TIM[13]:
+TIM1[67]:
   _modify:
-    CCMR2_input:
-      name: CCMR2_Input
-    CCMR2_output:
-      name: CCMR2_Output
-  _include: patches/tim/v2/oc2m.yaml
-
-TIM3:
-  _modify:
-    CNT_alternate:
-      name: CNT_remap
+    CCMR1_input:
+      name: CCMR1_Input
+    CCMR1_output:
+      name: CCMR1_Output
+  _include: patches/tim/v2/oc1m.yaml
 
 WWDG:
   _include: patches/16bit_with_mask.yaml

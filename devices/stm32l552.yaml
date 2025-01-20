@@ -99,13 +99,17 @@ TAMP:
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
-"TIM[1],TIM8":
-  _include: patches/tim/icpsc.yaml
+TIM[18]:
+  _include:
+    - patches/tim/icpsc.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
-TIM4:
-  _delete:
-    _interrupts:
-      - TIM5
+TIM2:
+  _include:
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
 TIM5:
   _add:
@@ -114,34 +118,33 @@ TIM5:
         description: TIM5 global interrupt
         value: 48
 
+TIM[34]:
+  _include:
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v2/ccm_extended.yaml
+
+TIM4:
+  _delete:
+    _interrupts:
+      - TIM5
+
+TIM[67]: {}
+
 TIM15:
   CCMR1_Output:
     _modify:
       OC1M_bit3:
         name: OC1M_3
+  _include:
+    - fields/tim/v2/ccm9_15.yaml
 
 TIM1[67]:
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
-
-"TIM[18]":
   _include:
-    - patches/tim/v2/ocm_bit3.yaml
-    - patches/tim/v2/oc5m_bit3.yaml
-
-"TIM[234]":
-  _include: patches/tim/v2/ocm_bit3.yaml
-
-"TIM9,TIM12,TIM15":
-  _include: fields/tim/v2/ccm9_15.yaml
-
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/ccm_common.yaml
 
 UCPD1:
   _include:

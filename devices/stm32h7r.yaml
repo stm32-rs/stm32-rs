@@ -34,6 +34,20 @@ RTC:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+TIM1: {}
+
+TIM2: {}
+
+TIM6: {}
+
+TIM9: {}
+
+TIM13: {}
+
+TIM15: {}
+
+TIM16: {}
+
 UCPD:
   _include:
     - patches/ucpd/rxordseten_split.yaml

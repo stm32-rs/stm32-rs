@@ -147,47 +147,50 @@ SPI?:
     - fields/spi/spi_common.yaml
     - fields/spi/dff.yaml
 
-"TIM[2-5]":
-  _include: patches/tim/tim_o24ce.yaml
-
-"TIM1[0134]":
-  _include: patches/tim/tim10_14_missing_opm.yaml
-
-"TIM[1],TIM8":
-  _include: patches/tim/icpsc.yaml
-
-TIM*:
+TIM8:
   _include:
+    - patches/tim/icpsc.yaml
     - fields/tim/basic.yaml
-
-"TIM[1-58]":
-  _include:
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
     - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_advanced.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
 
-"TIM[67]":
-  _include: fields/tim/tim6.yaml
-
-"TIM[2345]":
+TIM2:
   _include:
+    - patches/tim/tim_o24ce.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/tim_ckd.yaml
     - fields/tim/tim_16bit.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[18]":
-  _include: fields/tim/tim_advanced.yaml
+TIM6:
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim6.yaml
 
-"TIM[1-589],TIM??":
-  _include: fields/tim/v1/ccm.yaml
+TIM9:
+  _include:
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
+TIM13:
+  _include:
+    - patches/tim/tim10_14_missing_opm.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v1/ccm.yaml
+    - collect/tim/ccr.yaml
 
 UART*:
   _include:

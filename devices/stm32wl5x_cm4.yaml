@@ -165,15 +165,29 @@ TIM1:
   _modify:
     CCMR3OutputComparemode:
       name: CCMR3_Output
-  _include: fields/tim/tim1_wl.yaml
+  _include:
+    - fields/tim/tim1_wl.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim12_common_wl.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+    - collect/tim/ccr_advanced.yaml
 
 TIM2:
+  _strip: TIM2_
   _include:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim2_wl.yaml
-  _strip: TIM2_
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim12_common_wl.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
 
-TIM1?:
+TIM1[67]:
   _strip: TIM1?_
   DIER:
     _delete:
@@ -181,36 +195,12 @@ TIM1?:
   BDTR:
     _delete:
       - BKF
-
-"TIM[1-58]":
-  _include:
-    - fields/tim/tim_gp1.yaml
-
-TIM*:
   _include:
     - fields/tim/basic.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
     - fields/tim/tim_ckd.yaml
-
-"TIM[12]":
-  _include: fields/tim/tim12_common_wl.yaml
-
-TIM1[67]:
-  _include: fields/tim/tim16_wl.yaml
-
-"TIM[12-58],TIM19,TIM20":
-  _include: fields/tim/v2/ccm_extended.yaml
-
-"TIM1[013467]":
-  _include: fields/tim/v2/ccm_common.yaml
-
-"TIM[1-589],TIM1[0-79],TIM2?":
-  _include: collect/tim/ccr.yaml
-
-"TIM[18],TIM20":
-  _include: collect/tim/ccr_advanced.yaml
+    - fields/tim/tim16_wl.yaml
+    - fields/tim/v2/ccm_common.yaml
+    - collect/tim/ccr.yaml
 
 TZSC:
   _strip: TZSC_
