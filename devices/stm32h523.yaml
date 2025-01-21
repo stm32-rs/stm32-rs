@@ -1,5 +1,12 @@
 _svd: ../svd/stm32h523.svd
 
+_modify:
+  size: 0x20
+  UCPD:
+    name: UCPD1
+  SDMMC:
+    name: SDMMC1
+
 "ADC[12]":
   _strip: ADC_
   _include:
@@ -175,12 +182,6 @@ TIM1:
 "TIM[18],TIM[2-5]":
   _include:
     - fields/tim/v2/ccm_extended.yaml
-
-_modify:
-  UCPD:
-    name: UCPD1
-  SDMMC:
-    name: SDMMC1
 
 UCPD1:
   _strip: UCPD_
