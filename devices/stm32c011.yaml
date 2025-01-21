@@ -38,59 +38,36 @@ SPI1:
 SPI?:
   _strip: SPI?_
 
-TIM[123]:
-  _strip: TIM?_
-
-TIM*:
-  _strip:
-    - TIM*__
-    - TIM?*_
-
 TIM1:
-  _modify:
-    CCMR1_input:
-      name: CCMR1_Input
-    CCMR1_output:
-      name: CCMR1_Output
-    CCMR2_input:
-      name: CCMR2_Input
-    CCMR2_output:
-      name: CCMR2_Output
+  _strip: TIM1_
   _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc1m.yaml
 
 TIM3:
+  _strip: TIM3_
   _modify:
     CNT_alternate:
       name: CNT_remap
-    CCMR1_input:
-      name: CCMR1_Input
-    CCMR1_output:
-      name: CCMR1_Output
-    CCMR2_input:
-      name: CCMR2_Input
-    CCMR2_output:
-      name: CCMR2_Output
   _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc1m.yaml
 
 TIM14:
-  _modify:
-    CCMR1_input:
-      name: CCMR1_Input
-    CCMR1_output:
-      name: CCMR1_Output
-  _include: patches/tim/v2/oc1m.yaml
+  _strip: TIM14_
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/oc1m.yaml
 
 TIM1[67]:
-  _modify:
-    CCMR1_input:
-      name: CCMR1_Input
-    CCMR1_output:
-      name: CCMR1_Output
-  _include: patches/tim/v2/oc1m.yaml
+  _strip: [TIM16_, TIM17_]
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/oc1m.yaml
 
 WWDG:
   _include: patches/16bit_with_mask.yaml
