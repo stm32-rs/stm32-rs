@@ -50,27 +50,10 @@ SPI?:
 
 TIM[123]:
   _strip: TIM?_
-  _modify:
-    CCMR1:
-      name: CCMR1_Input
-    CCMR1_ALTERNATE1:
-      name: CCMR1_Output
-    CCMR2:
-      name: CCMR2_Input
-    CCMR2_ALTERNATE1:
-      name: CCMR2_Output
-  CCMR2_Output:
-    _modify:
-      OC3M_1:
-        name: OC3M_3
-      OC4M_1:
-        name: OC4M_3
-  CCMR1_Output:
-    _modify:
-      OC1M_1:
-        name: OC1M_3
-      OC2M_1:
-        name: OC2M_3
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
   SMCR:
     _modify:
       TS:
@@ -82,12 +65,12 @@ TIM[123]:
       SMS_1:
         name: SMS2
 
+TIM1: {}
+
 TIM*:
   _strip:
     - TIM*__
     - TIM?*_
-
-TIM1: {}
 
 TIM2:
   _modify:
@@ -100,11 +83,8 @@ TIM3:
       name: CNT_remap
 
 TIM14:
-  _modify:
-    CCMR1:
-      name: CCMR1_Input
-    CCMR1_ALTERNATE1:
-      name: CCMR1_Output
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
   CCMR1_Output:
     _modify:
       OC1M_1:
