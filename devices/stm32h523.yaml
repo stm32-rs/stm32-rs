@@ -1,10 +1,13 @@
-_svd: ../svd/stm32h503.svd
+_svd: ../svd/stm32h523.svd
 
 _modify:
-  ADC:
-    name: ADC1
+  size: 0x20
+  UCPD:
+    name: UCPD1
+  SDMMC:
+    name: SDMMC1
 
-ADC?:
+ADC[12]:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -15,6 +18,16 @@ ADC?:
     _merge: EXTSEL*
   SQR?:
     SQ*: [0, 19]
+
+ADCC:
+  _strip: ADC_
+
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - fields/crc/crc_advanced.yaml
+    # - fields/crc/crc_idr_32bit.yaml
+    - fields/crc/crc_pol.yaml
 
 EXTI:
   _include:
@@ -35,17 +48,13 @@ GPIO?:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
 
-GTZC1:
-  _strip: GTZC1_
-  _array:
-    MPCBB1_PRIVCFGR*:
-      description: SRAM1 MPCBB privileged configuration for super-block %s register
-      _array:
-        PRIV*: {}
-    MPCBB2_PRIVCFGR*:
-      description: SRAM2 MPCBB privileged configuration for super-block %s register
-      _array:
-        PRIV*: {}
+#GTZC1_MPCBB?: # Seems to be completely missing from svd
+#  _strip: GTZC1_MPCBB?_
+#  _include:
+#    - collect/gtzc/h5_u5.yaml
+
+GTZC1_TZIC:
+  _strip: GTZC1_TZIC_
 
 I2C?:
   _include:
@@ -53,7 +62,6 @@ I2C?:
 
 IWDG:
   _include:
-    - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
@@ -72,8 +80,13 @@ SPI?:
 TIM?:
   _strip: TIM?_
 
-TIM1:
+TIM1?:
+  _strip: TIM1?_
+
+TIM[18]:
   _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_gp1.yaml
@@ -87,14 +100,14 @@ TIM1:
     - fields/tim/tim_16bit_dither.yaml
     - fields/tim/v2/ccm_extended.yaml
 
-TIM2:
+TIM[25]:
   _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim_uifremap.yaml
     - fields/tim/tim_32bit.yaml
     - patches/tim/tim2_mms_ts_sms.yaml
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
-    - patches/tim/v2/oc3m.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
@@ -103,13 +116,18 @@ TIM2:
     - fields/tim/dithen.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/v2/ccm_extended.yaml
+  CNT:
+    _modify:
+      CNT:
+        bitOffset: 0
+        bitWidth: 32
 
-TIM3:
+TIM[34]:
   _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim2_mms_ts_sms.yaml
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
-    - patches/tim/v2/oc3m.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
@@ -126,6 +144,26 @@ TIM[67]:
     - fields/tim/tim_uifremap.yaml
     - fields/tim/dithen.yaml
     - fields/tim/tim6_dither.yaml
+
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+      OC2M_1:
+        name: OC2M_3
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+
+UCPD1:
+  _strip: UCPD_
+  _include:
+    - patches/ucpd/rxordseten_split.yaml
+    #- fields/ucpd/ucpd_v1.yaml
 
 USART?:
   _strip: USART_
@@ -147,10 +185,26 @@ WWDG:
     - patches/16bit_with_mask.yaml
     - fields/wwdg/wwdg_v2.yaml
 
+SBS: # TODO: Dont do this, this will be undone by patches/h5.yaml
+  PMCR:
+    _modify:
+      PB6_FMP:
+        name: PB6_FMPLUS
+      PB7_FMP:
+        name: PB7_FMPLUS
+      PB8_FMP:
+        name: PB8_FMPLUS
+
+# todo: Once tested, apply these to the other H5 variants as applicable, or possibly
+# todo place them in the common/h5.yaml
 _include:
   - patches/h5.yaml
+  - patches/h523_h533.yaml
+
+  # - collect/flash/secbbr.yaml
+
+  #- patches/rcc/h56x_h57x.yaml
+  - fields/rcc/rcc_h56x_h57x.yaml
+
   - fields/crs/crs.yaml
-  - fields/sbs/sbs.yaml
   - fields/pwr/pwr_h5.yaml
-  - patches/rcc/h503.yaml
-  - fields/rcc/rcc_h503.yaml

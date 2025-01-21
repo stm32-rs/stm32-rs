@@ -1,38 +1,8 @@
-DLYBOS?:
-  _strip: DLYB_
-
-DCACHE:
-  _strip: DCACHE_
-
-DCMI:
-  _strip: DCMI_
+_include:
+  ./h523_h533.yaml
 
 FMAC:
   _strip: FMAC_
 
-FMC:
-  _strip: FMC_
-
-GTZC1_TZSC:
-  _strip: GTZC1_TZSC_
-
-I3C:
-  _strip: I3C_
-
-OCTOSPI:
-  _strip: OCTOSPI_
-
-PSSI:
-  _strip: PSSI_
-
 SAI?:
   _strip: SAI_
-
-SDMMC?:
-  _strip: SDMMC_
-
-UCPD?:
-  _strip: UCPD_
-
-VREFBUF:
-  _strip: VREFBUF_

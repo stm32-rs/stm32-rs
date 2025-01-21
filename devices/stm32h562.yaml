@@ -1,6 +1,6 @@
 _svd: ../svd/stm32h562.svd
 
-ADC?:
+ADC[12]:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -11,6 +11,9 @@ ADC?:
     _merge: EXTSEL*
   SQR?:
     SQ*: [0, 19]
+
+ADCC:
+  _strip: ADC_
 
 CRC:
   _include:
@@ -52,6 +55,7 @@ I2C?:
 
 IWDG:
   _include:
+    - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
@@ -79,7 +83,7 @@ TIM1?:
     - TIM2_
     - TIM1?_
 
-TIM1:
+TIM[18]:
   _include:
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
@@ -143,7 +147,7 @@ TIM12:
     - fields/tim/dithen.yaml
     - fields/tim/tim_ckd.yaml
 
-TIM13:
+TIM1[34]:
   _include:
     - patches/tim/v2/oc1m.yaml
     - fields/tim/basic.yaml

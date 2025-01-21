@@ -2,19 +2,20 @@
 # The MMS, TS, SMS fields in the CR2 and SMCR registers are
 # extended in the general purpose and advanced timers
 
+
 CR2:
   _modify:
-    MMS1:
+    "MMS,MMS1":
       name: MMS_L
-    MMS2:
+    "MMS_1,MMS2":
       name: MMS_H
 SMCR:
   _modify:
-    TS1:
+    TS:
       name: TS_L
-    TS2:
+    "TS_[12]":
       name: TS_H
-    SMS1:
+    SMS:
       name: SMS_L
-    SMS2:
+    "SMS_[12]":
       name: SMS_H
