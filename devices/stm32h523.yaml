@@ -7,7 +7,7 @@ _modify:
   SDMMC:
     name: SDMMC1
 
-"ADC[12]":
+ADC[12]:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -18,6 +18,9 @@ _modify:
     _merge: EXTSEL*
   SQR?:
     SQ*: [0, 19]
+
+ADCC:
+  _strip: ADC_
 
 CRC:
   _include:
@@ -75,113 +78,86 @@ SPI?:
     - fields/spi/spi_v3_cfg1_bpass.yaml
 
 TIM?:
-  _strip: TIM*_
+  _strip: TIM?_
 
 TIM1?:
-  _strip:
-    - TIM2_
-    - TIM1?_
+  _strip: TIM1?_
 
-"TIM[1-5],TIM8,TIM12,TIM13,TIM14,TIM15,TIM16,TIM17":
-  _modify:
-    CCMR1:
-      name: CCMR1_Input
-    CCMR1_ALTERNATE1:
-      name: CCMR1_Output
-"TIM[1-5],TIM8,TIM12,TIM13,TIM14,TIM16,TIM17":
-  _modify:
-    CCMR2:
-      name: CCMR2_Input
-    CCMR2_ALTERNATE1:
-      name: CCMR2_Output
-
-#"TIM[1346-9],TIM??":
-#  _include: patches/tim/add_dither16.yaml
-
-TIM[2345],TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M:
-        name: OC1M1
-      OC1M_1:
-        name: OC1M2
-      
-      OC2M:
-        name: OC2M1
-      OC2M_1:
-        name: OC2M2
-TIM[2345]:
-  CCMR2_Output:
-    _modify:
-      OC3M:
-        name: OC3M1
-      OC3M_1:
-        name: OC3M2
-
-      OC4M:
-        name: OC4M1
-      OC4M_1:
-        name: OC4M2
-
-
-"TIM[25]":
+TIM[18]:
   _include:
-    #  - patches/tim/add_dither32.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/tim1_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim1_advanced.yaml
+    - fields/tim/tim_16bit_dither.yaml
+    - fields/tim/v2/ccm_extended.yaml
+
+TIM[25]:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim_uifremap.yaml
     - fields/tim/tim_32bit.yaml
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/generic.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/v2/ccm_extended.yaml
   CNT:
     _modify:
       CNT:
         bitOffset: 0
         bitWidth: 32
 
-"TIM[18]":
+TIM[34]:
   _include:
-    - patches/tim/tim1_mms_ts_sms.yaml
-    - patches/tim/v2/ocm_bit3.yaml
-
-"TIM[2-5]":
-  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim2_mms_ts_sms.yaml
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
-    - patches/tim/v2/oc3m.yaml
-
-TIM1[25]:
-  _include:
-    - patches/tim/v2/oc1m.yaml
-    - patches/tim/v2/oc2m.yaml
-
-"TIM[1-58]":
-  _include:
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_gp1.yaml
     - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/tim_16bit_dither.yaml
+    - fields/tim/v2/ccm_extended.yaml
 
-TIM*:
+TIM[67]:
   _include:
     - fields/tim/basic.yaml
     - fields/tim/tim_uifremap.yaml
     - fields/tim/dithen.yaml
-
-"TIM[1-58-9],TIM??":
-  _include:
-    - fields/tim/tim_ckd.yaml
-
-TIM1:
-  _include: fields/tim/tim1_advanced.yaml
-
-"TIM[67]":
-  _include:
     - fields/tim/tim6_dither.yaml
 
-"TIM[1348]":
+TIM15:
+  CCMR1_Output:
+    _modify:
+      OC1M_1:
+        name: OC1M_3
+      OC2M_1:
+        name: OC2M_3
   _include:
-    - fields/tim/tim_16bit_dither.yaml
-
-"TIM[18],TIM[2-5]":
-  _include:
-    - fields/tim/v2/ccm_extended.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_uifremap.yaml
+    - fields/tim/dithen.yaml
+    - fields/tim/tim_ckd.yaml
 
 UCPD1:
   _strip: UCPD_

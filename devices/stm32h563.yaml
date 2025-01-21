@@ -1,6 +1,6 @@
 _svd: ../svd/stm32h563.svd
 
-"ADC[12]":
+ADC[12]:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -11,6 +11,9 @@ _svd: ../svd/stm32h563.svd
     _merge: EXTSEL*
   SQR?:
     SQ*: [0, 19]
+
+ADCC:
+  _strip: ADC_
 
 CRC:
   _include:
@@ -83,7 +86,7 @@ TIM1?:
     - TIM2_
     - TIM1?_
 
-TIM1:
+TIM[18]:
   _include:
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
@@ -147,7 +150,7 @@ TIM12:
     - fields/tim/dithen.yaml
     - fields/tim/tim_ckd.yaml
 
-TIM13:
+TIM1[34]:
   _include:
     - patches/tim/v2/oc1m.yaml
     - fields/tim/basic.yaml
