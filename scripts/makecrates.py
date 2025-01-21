@@ -27,7 +27,7 @@ CRATE_DOC_FEATURES = {
     "stm32f3": ["atomics", "critical-section", "defmt", "rt", "stm32f302", "stm32f303", "stm32f373"],
     "stm32f4": ["atomics", "critical-section", "defmt", "rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
     "stm32f7": ["atomics", "critical-section", "defmt", "rt", "stm32f733", "stm32f779"],
-    "stm32h5": ["atomics", "critical-section", "defmt", "rt", "stm32h503", "stm32h562", "stm32h563", "stm32h573"],
+    "stm32h5": ["atomics", "critical-section", "defmt", "rt", "stm32h503", "stm32h523", "stm32h562", "stm32h573"],
     "stm32h7": ["atomics", "critical-section", "defmt", "rt", "stm32h743", "stm32h743v", "stm32h747cm7"],
     "stm32l0": ["atomics", "critical-section", "defmt", "rt", "stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
     "stm32l1": ["atomics", "critical-section", "defmt", "rt", "stm32l100", "stm32l151", "stm32l162"],
