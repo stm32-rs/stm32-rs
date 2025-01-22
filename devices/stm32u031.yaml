@@ -15,14 +15,46 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-TIM1: {}
+TIM?:
+  _strip: TIM?_
 
-TIM2: {}
+TIM??:
+  _strip: TIM??_
 
-TIM3: {}
+TIM1:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v2/tim1.yaml
 
-TIM[67]: {}
+TIM2:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v2/tim2.yaml
 
-TIM15: {}
+TIM3:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v2/tim3.yaml
 
-TIM16: {}
+TIM[67]:
+  _include:
+    - fields/tim/v2/tim6.yaml
+
+TIM15:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/ocm1_bit3.yaml
+    - fields/tim/v2/tim15.yaml
+    - collect/tim/ccr.yaml
+
+TIM16:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml

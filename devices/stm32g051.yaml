@@ -83,13 +83,8 @@ TIM1:
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
     - patches/tim/v2/oc5m_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim_advanced.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
   _modify:
     _interrupts:
       TIM1_BRK_UP_TRG_COM:
@@ -99,50 +94,37 @@ TIM2:
   _include:
     - patches/tim/tim2_cnt_32bit.yaml
     - patches/tim/v2/oc1m1.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM3:
   _include:
     - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/v2/oc1m1.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
 
 TIM6:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim6.yaml
+    - fields/tim/v2/tim6.yaml
 
 TIM14:
   _include:
     - patches/tim/v2/oc1m.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm9_15.yaml
+    - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
     - patches/tim/v2/oc1m.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
 USART?:

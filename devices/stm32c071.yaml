@@ -65,26 +65,37 @@ TIM[123]:
       SMS_1:
         name: SMS2
 
-TIM1: {}
-
 TIM*:
   _strip:
     - TIM*__
     - TIM?*_
 
+TIM1:
+  _include:
+    - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
+
 TIM2:
   _modify:
     CNT_ALTERNATE1:
       name: CNT_remap
+  _include:
+    - fields/tim/v2/tim2.yaml
+    - collect/tim/ccr.yaml
 
 TIM3:
   _modify:
     CNT_ALTERNATE1:
       name: CNT_remap
+  _include:
+    - fields/tim/basic.yaml
+    - collect/tim/ccr.yaml
 
 TIM14:
   _include:
     - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v2/tim13.yaml
+    - collect/tim/ccr.yaml
   CCMR1_Output:
     _modify:
       OC1M_1:
@@ -100,6 +111,9 @@ TIM1[67]:
     _modify:
       OC1M_1:
         name: OC1M_3
+  _include:
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
 USART1:
   _modify:

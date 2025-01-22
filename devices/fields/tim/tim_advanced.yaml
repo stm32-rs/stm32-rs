@@ -1,54 +1,42 @@
 # Advanced-control timers TIM1,TIM8.
 
-# Common features with 16-bit General-purpose timers
 _include:
-  - ./tim_16bit.yaml
+  - ccpc.yaml
+  - bdtr_common.yaml
+
 # Various features not present in other timers
-CR2:
-  OIS?N:
-    Reset: [0, "OCxN=0 after a dead-time when MOE=0"]
-    Set: [1, "OCxN=1 after a dead-time when MOE=0"]
-  OIS?:
-    Reset: [0, "OCx=0 (after a dead-time if OCx(N) is implemented) when MOE=0"]
-    Set: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
-BDTR:
-  MOE:
-    DisabledIdle: [0, OC/OCN are disabled or forced idle depending on OSSI]
-    Enabled: [1, OC/OCN are enabled if CCxE/CCxNE are set]
-  AOE:
-    Manual: [0, MOE can be set only by software]
-    Automatic:
-      [
-        1,
-        MOE can be set by software or automatically at the next update event (if none of the break inputs BRK and BRK2 is active),
-      ]
-  "BKP,BK2P":
-    ActiveLow: [0, Break input BRKx is active low]
-    ActiveHigh: [1, Break input BRKx is active high]
-  "BKE,BK2E":
-    Disabled: [0, Break function x disabled]
-    Enabled: [1, Break function x disabled]
-  OSSR:
-    Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
-    IdleLevel: [1, "When inactive, OC/OCN outputs are enabled with their inactive level"]
-  OSSI:
-    Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
-    IdleLevel: [1, "When inactive, OC/OCN outputs are forced to idle level"]
-  LOCK:
-    "Off": [0, No bit is write protected]
-    Level1:
-      [
-        1,
-        "Any bits except MOE, OSSR, OSSI and LOCK in TIMx_BDTR register, OISx and OISxN bits in TIMx_CR2 register can no longer be written",
-      ]
-    Level2:
-      [
-        2,
-        "LOCK Level 1 + CC Polarity bits (CCxP/CCxNP bits in TIMx_CCER register, as long as the related channel is configured in output through the CCxS bits) as well as OSSR and OSSI bits can no longer be written",
-      ]
-    Level3:
-      [
-        3,
-        "LOCK Level 2 + CC Control bits (OCxM and OCxPE bits in TIMx_CCMRx registers, as long as the related channel is configured in output through the CCxS bits) can no longer be written",
-      ]
-  DTG: [0, 0xFF]
+DIER:
+  COMDE:
+    Disabled: [0, COM DMA request disabled]
+    Enabled: [1, COM DMA request enabled]
+
+SR:
+  "?~SBIF":
+    _read:
+      NoTrigger: [0, No break event occurred]
+      Trigger:
+        [
+          1,
+          "An active level has been detected on the system break input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
+        ]
+    _W0C:
+      Clear: [0, Clear flag]
+  "?~B2IF":
+    _read:
+      NoTrigger: [0, No break event occurred]
+      Trigger:
+        [
+          1,
+          "An active level has been detected on the break 2 input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
+        ]
+    _W0C:
+      Clear: [0, Clear flag]
+
+EGR:
+  "?~B2G":
+    _write:
+      Trigger:
+        [
+          1,
+          A break 2 event is generated. MOE bit is cleared and B2IF flag is set. Related interrupt can occur if enabled,
+        ]

@@ -213,15 +213,10 @@ TIM1:
     - patches/tim/dmab_32.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/add_ocm_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_advanced.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
+    - patches/tim/rep_16b.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
   _modify:
     CRR6:
       name: CCR6
@@ -236,13 +231,8 @@ TIM[25]:
     - patches/tim/v2/add_uifcpy.yaml
     - patches/tim/dmab_32.yaml
     - patches/tim/v2/add_ocm_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_32bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
   _modify:
     OR1:
@@ -279,13 +269,8 @@ TIM3:
     - patches/tim/v2/add_uifcpy.yaml
     - patches/tim/dmab_32.yaml
     - patches/tim/v2/add_ocm_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
   _delete:
     - OR1
@@ -293,11 +278,9 @@ TIM3:
 
 TIM6:
   _include:
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim6.yaml
+    - fields/tim/v2/tim6.yaml
 
 TIM9:
   _include:
@@ -307,10 +290,8 @@ TIM9:
     - patches/tim/v2/add_ocm1_bit3.yaml
     - patches/tim/v2/add_ocm2_bit3.yaml
     - patches/tim/v2/add_sms_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm9_15.yaml
+    - patches/tim/tim9_ic1f.yaml
+    - fields/tim/v2/tim9.yaml
     - collect/tim/ccr.yaml
 
 TIM10:
@@ -320,10 +301,7 @@ TIM10:
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - patches/tim/v2/add_ocm1_bit3.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim10.yaml
     - collect/tim/ccr.yaml
   _delete:
     - SMCR

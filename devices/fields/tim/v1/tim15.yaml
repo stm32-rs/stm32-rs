@@ -1,0 +1,22 @@
+_include:
+  - ../basic.yaml
+  - ../tim_16bit.yaml
+  - ../tim_ckd.yaml
+  - ../ccds.yaml
+  - ../ccpc.yaml
+  - ../trigger.yaml
+  - ../com_break.yaml
+  - ../ccr.yaml
+  - ../ccxnp.yaml
+  - ccm.yaml
+
+DIER:
+  UDE:
+    Disabled: [0, Update DMA request disabled]
+    Enabled: [1, Update DMA request enabled]
+  TDE:
+    Disabled: [0, Trigger DMA request disabled]
+    Enabled: [1, Trigger DMA request enabled]
+
+RCR:
+  REP: [0, 0xFF]

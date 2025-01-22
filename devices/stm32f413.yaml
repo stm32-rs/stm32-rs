@@ -455,46 +455,29 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim_advanced.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
 
 TIM[25]:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/tim2_common_32bit.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_32bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM3:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim3.yaml
     - collect/tim/ccr.yaml
 
 TIM7:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim6.yaml
+    - fields/tim/v1/tim6.yaml
   CR1:
     _delete: UIFREMAP
   CNT:
@@ -502,17 +485,14 @@ TIM7:
 
 TIM12:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v1/ccm.yaml
+    - patches/tim/tim9_ic1f.yaml
+    - fields/tim/v1/tim9.yaml
     - collect/tim/ccr.yaml
 
 TIM1[01]:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
 
 # The USART peripheral definitions in the svd have a random array of unrelated

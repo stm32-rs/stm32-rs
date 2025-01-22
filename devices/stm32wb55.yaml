@@ -179,13 +179,22 @@ SYSCFG:
       addressOffset: 0x110
 
 TIM1:
+  CCMR1_Input:
+    _modify:
+      C1F:
+        name: IC1F
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim1.yaml
 
 TIM2:
   _include:
     - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_32bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/ccr.yaml
     - fields/tim/v2/ccm_extended.yaml
   CNT:
     _add:
@@ -204,7 +213,8 @@ TIM2:
 
 TIM1[67]:
   _include:
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
 WWDG:
   _include: patches/16bit.yaml

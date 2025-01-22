@@ -170,10 +170,10 @@ TIM1:
     - fields/tim/tim_gp1.yaml
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
+    - fields/tim/ccr.yaml
     - fields/tim/tim12_common_wl.yaml
     - fields/tim/v2/ccm_extended.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
 
 TIM2:
   _strip: TIM2_
@@ -183,6 +183,7 @@ TIM2:
     - fields/tim/tim_gp1.yaml
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
+    - fields/tim/ccr.yaml
     - fields/tim/tim12_common_wl.yaml
     - fields/tim/v2/ccm_extended.yaml
     - collect/tim/ccr.yaml
@@ -198,6 +199,7 @@ TIM1[67]:
   _include:
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
+    - fields/tim/ccr.yaml
     - fields/tim/tim16_wl.yaml
     - fields/tim/v2/ccm_common.yaml
     - collect/tim/ccr.yaml
