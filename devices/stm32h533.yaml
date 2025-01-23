@@ -6,6 +6,8 @@ _modify:
     name: UCPD1
   SDMMC:
     name: SDMMC1
+  OTFDEC:
+    name: OTFDEC1
 
 ADC[12]:
   _strip: ADC_
@@ -200,6 +202,7 @@ SBS: # TODO: Dont do this, this will be undone by patches/h5.yaml
 _include:
   - patches/h5.yaml
   - patches/h523_h533.yaml
+  - patches/h5_security.yaml
 
   # - collect/flash/secbbr.yaml
 
