@@ -1,5 +1,13 @@
 RCC:
   _include: h5.yaml
+  PLL1CFGR:
+    _modify:
+      DIVM1:
+        name: PLL1M
+  PLL2CFGR:
+    _modify:
+      DIVM2:
+        name: PLL2M
   PLL3CFGR:
     _modify:
       DIVM3:
