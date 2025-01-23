@@ -229,13 +229,6 @@ RNG:
 I2C3:
   _strip: I2C_
 
-SAI1:
-  _add:
-    _interrupts:
-      SAI1:
-        description: SAI1 global interrupt
-        value: 87
-
 SDMMC?:
   _strip: SDMMC_
 
@@ -252,22 +245,3 @@ WWDG:
   _strip: WWDG_
 IWDG:
   _strip: IWDG_
-
-USART2:
-  _add:
-    _interrupts:
-      USART2:
-        description: USART2 global interrupt
-        value: 38
-USART3:
-  _add:
-    _interrupts:
-      USART3:
-        description: USART3 global interrupt
-        value: 39
-USART6:
-  _add:
-    _interrupts:
-      USART6:
-        description: USART6 global interrupt
-        value: 71

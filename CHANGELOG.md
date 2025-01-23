@@ -17,6 +17,7 @@
 * MP15x: Fix DIGBYP bit access in RCC_BDCR
 * Fix yaml parsing errors
 * H7: add bit TRBUFF of DMA_SxCR of H747 cm4
+* H7: add H723/25/30/33/42/50/55/A3/B0
 * Fix inconsistencies for HRTIM_TIMF - stm32g4x4
 * HRTIM H7: delete DLL
 * HRTIM H7 & G4 fixes and enums
