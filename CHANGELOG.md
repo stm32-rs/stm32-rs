@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* STM32H5xx: Add H533 (#1129)
 * G4: Fix swapped reset values for SPI4 CR1 and CR2 by deriving SPI4 from SPI1 (#957)
 * STM32H5xx: Update SVD to version 1.7 and add H523 (#1124)
 * TIM3's CCRx is 16-bit for G0Bx and G0C0
