@@ -9,7 +9,7 @@ jobs:
   compare:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
-      pull-requests: write  # add PR comment
+      pull-requests: write # add PR comment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout mmaps
@@ -19,7 +19,7 @@ jobs:
           ssh-key: ${{ secrets.MMAPS_KEY }}
 
       - name: Download new mmaps
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v8
         with:
           name: mmaps
           run_id: ${{ github.event.workflow_run.id }}
@@ -44,5 +44,5 @@ jobs:
           message: |
             [Memory map comparison](https://github.com/stm32-rs/stm32-rs-mmaps/compare/${{ env.BRANCH }})
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]'
+          repo-token-user-login: "github-actions[bot]"
           issue: ${{ github.event.workflow_run.pull_requests[0].number }}
