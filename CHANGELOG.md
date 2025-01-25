@@ -51,6 +51,7 @@
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Show avaliable device features if no one selected (#998)
+* Add `download.sh` for fast source archives update
 * Add Open-CMSIS `svdconv` to for more checks
 * Add `cargo make` `yamls` task for easy compare
 * Add `derivePathType` to CMSIS-SVD schema
