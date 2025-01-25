@@ -128,14 +128,9 @@ TIM2:
   _include:
     - patches/tim/size16b.yaml
     - patches/tim/tim_ch_16bit_l.yaml
-    - fields/tim/basic.yaml
     - fields/tim/tim2_l0.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim3.yaml
     - collect/tim/ccr.yaml
 
 TIM2[12]:
@@ -144,6 +139,7 @@ TIM2[12]:
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/tim2x.yaml
+    - fields/tim/ccr.yaml
     - fields/tim/v1/ccm.yaml
     - collect/tim/ccr.yaml
 

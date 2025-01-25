@@ -161,15 +161,9 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/icpsc.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim_advanced.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
   CCMR3_Output:
     _modify:
       OC5M3:
@@ -181,32 +175,36 @@ TIM2:
   _include:
     - patches/tim/tim_o24ce.yaml
     - patches/tim/tim2_common_32bit.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM6:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim6.yaml
+    - fields/tim/v2/tim6.yaml
 
 TIM15:
+  DIER:
+    _add:
+      COMDE:
+        description: COM DMA request enable
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm9_15.yaml
+    - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
+  DIER:
+    _add:
+      COMDE:
+        description: COM DMA request enable
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim16.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
 USART*:

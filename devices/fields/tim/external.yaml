@@ -1,0 +1,29 @@
+SMCR:
+  ETP:
+    NotInverted: [0, "ETR is noninverted, active at high level or rising edge"]
+    Inverted: [1, "ETR is inverted, active at low level or falling edge"]
+  ECE:
+    Disabled: [0, External clock mode 2 disabled]
+    Enabled: [1, External clock mode 2 enabled. The counter is clocked by any active edge on the ETRF signal.]
+  ETPS:
+    Div1: [0, Prescaler OFF]
+    Div2: [1, ETRP frequency divided by 2]
+    Div4: [2, ETRP frequency divided by 4]
+    Div8: [3, ETRP frequency divided by 8]
+  ETF:
+    NoFilter: [0, "No filter, sampling is done at fDTS"]
+    FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
+    FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
+    FCK_INT_N8: [3, "fSAMPLING=fCK_INT, N=8"]
+    FDTS_Div2_N6: [4, "fSAMPLING=fDTS/2, N=6"]
+    FDTS_Div2_N8: [5, "fSAMPLING=fDTS/2, N=8"]
+    FDTS_Div4_N6: [6, "fSAMPLING=fDTS/4, N=6"]
+    FDTS_Div4_N8: [7, "fSAMPLING=fDTS/4, N=8"]
+    FDTS_Div8_N6: [8, "fSAMPLING=fDTS/8, N=6"]
+    FDTS_Div8_N8: [9, "fSAMPLING=fDTS/8, N=8"]
+    FDTS_Div16_N5: [10, "fSAMPLING=fDTS/16, N=5"]
+    FDTS_Div16_N6: [11, "fSAMPLING=fDTS/16, N=6"]
+    FDTS_Div16_N8: [12, "fSAMPLING=fDTS/16, N=8"]
+    FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
+    FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
+    FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]

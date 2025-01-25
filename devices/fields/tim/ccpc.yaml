@@ -1,0 +1,11 @@
+CR2:
+  CCPC:
+    NotPreloaded: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
+    Preloaded: [1, "CCxE, CCxNE and OCxM bits are preloaded"]
+  CCUS:
+    Sw: [0, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only"]
+    SwOrEdge:
+      [
+        1,
+        "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit or when an rising edge occurs on TRGI",
+      ]

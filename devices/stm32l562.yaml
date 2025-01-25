@@ -118,12 +118,14 @@ TIM[18]:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/basic.yaml
     - fields/tim/v2/ccm_extended.yaml
 
 TIM2:
   _include:
     - patches/tim/v2/ocm_bit3.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/v2/tim2.yaml
 
 TIM5:
   _add:
@@ -131,18 +133,32 @@ TIM5:
       TIM5:
         description: TIM5 global interrupt
         value: 48
+  _include:
+    - fields/tim/basic.yaml
 
 TIM[34]:
   _include:
+    - patches/tim/v2/add_uifcpy.yaml
+    - patches/tim/tim_ch_16bit_l.yaml
     - patches/tim/v2/ocm_bit3.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim3.yaml
 
 TIM4:
   _delete:
     _interrupts:
       - TIM5
 
-TIM[67]: {}
+TIM[67]:
+  CNT:
+    _modify:
+      CNT_bit0:
+        name: CNT
+  ARR:
+    _modify:
+      ARR_bit0:
+        name: ARR
+  _include:
+    - fields/tim/v2/tim6.yaml
 
 TIM15:
   CCMR1_Output:
@@ -150,7 +166,8 @@ TIM15:
       OC1M_bit3:
         name: OC1M_3
   _include:
-    - fields/tim/v2/ccm9_15.yaml
+    - fields/tim/v2/tim15.yaml
+    - collect/tim/ccr.yaml
 
 TIM1[67]:
   CCMR1_Output:
@@ -158,7 +175,8 @@ TIM1[67]:
       OC1M_2:
         name: OC1M_3
   _include:
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
 UCPD1:
   _include:

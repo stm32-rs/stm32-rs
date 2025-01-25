@@ -34,19 +34,58 @@ RTC:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
-TIM1: {}
+TIM1:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v3/tim1.yaml
+    - collect/tim/ccr.yaml
 
-TIM2: {}
+TIM2:
+  CNT:
+    _modify:
+      UIFCPY_CNT:
+        name: UIFCPY
+      CNT:
+        bitWidth: 32
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/v3/tim2.yaml
+    - collect/tim/ccr.yaml
 
-TIM6: {}
+TIM6:
+  _include:
+    - fields/tim/v3/tim6.yaml
 
-TIM9: {}
+TIM9:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/ocm1_bit3.yaml
+    - fields/tim/v3/tim9.yaml
+    - collect/tim/ccr.yaml
 
-TIM13: {}
+TIM13:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v3/tim13.yaml
+    - collect/tim/ccr.yaml
 
-TIM15: {}
+TIM15:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/ocm1_bit3.yaml
+    - fields/tim/v3/tim15.yaml
+    - collect/tim/ccr.yaml
 
-TIM16: {}
+TIM16:
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v3/tim16.yaml
+    - fields/tim/v3/occe.yaml
+    - collect/tim/ccr.yaml
 
 UCPD:
   _include:

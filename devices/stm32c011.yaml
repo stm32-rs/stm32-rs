@@ -43,8 +43,11 @@ TIM1:
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
-    - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc3m.yaml
+    - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM3:
   _strip: TIM3_
@@ -54,20 +57,27 @@ TIM3:
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
-    - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc1m.yaml
+    - patches/tim/v2/oc2m.yaml
+    - patches/tim/v2/oc3m.yaml
+    - fields/tim/basic.yaml
+    - collect/tim/ccr.yaml
 
 TIM14:
   _strip: TIM14_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/oc1m.yaml
+    - fields/tim/v2/tim13.yaml
+    - collect/tim/ccr.yaml
 
 TIM1[67]:
   _strip: [TIM16_, TIM17_]
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/oc1m.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
 WWDG:
   _include: patches/16bit_with_mask.yaml

@@ -1,9 +1,5 @@
-CCMR1_Output:
-  _modify:
-    "OC1M_bit3,OC1M_1":
-      name: OC1M_3
-    "OC2M_bit3,OC2M_1":
-      name: OC2M_3
+_include: ocm1_bit3.yaml
+
 CCMR2_Output:
   _modify:
     "OC3M_bit3,OC3M_1":

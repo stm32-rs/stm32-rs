@@ -1,20 +1,7 @@
-CCMR1_Input:
-  IC2PSC: [0, 3]
-  IC1PSC:
-    NoPrescaler: [0, "no prescaler, capture is done each time an edge is detected on the capture input"]
-    Two_Events: [1, Capture is done once every 2 events]
-    Four_Events: [2, Capture is done once every 4 events]
-    Eight_Events: [3, Capture is done once every 8 events]
 CCER:
   CC?NP:
     Negative: [0, Negative polarity]
     Positive: [1, Positive polarity]
-  CC?P:
-    RisingEdge: [0, Noninverted/rising edge]
-    FallingEdge: [1, Inverted/falling edge]
-  CC?E:
-    Disabled: [0, Capture disabled]
-    Enabled: [1, Capture enabled]
 DMAR:
   DMAB: [0, 0xFFFF]
 OR:

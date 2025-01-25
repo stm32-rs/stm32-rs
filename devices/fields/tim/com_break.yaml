@@ -1,0 +1,37 @@
+DIER:
+  COMIE:
+    Disabled: [0, COM interrupt disabled]
+    Enabled: [1, COM interrupt enabled]
+  BIE:
+    Disabled: [0, Break interrupt disabled]
+    Enabled: [1, Break interrupt enabled]
+
+SR:
+  BIF:
+    _read:
+      NoTrigger: [0, No break event occurred]
+      Trigger:
+        [
+          1,
+          "An active level has been detected on the break input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
+        ]
+    _W0C:
+      Clear: [0, Clear flag]
+  COMIF:
+    _read:
+      NoCOM: [0, No COM event occurred]
+      COM: [1, COM interrupt pending]
+    _W0C:
+      Clear: [0, Clear flag]
+
+EGR:
+  BG:
+    _write:
+      Trigger:
+        [
+          1,
+          A break event is generated. MOE bit is cleared and BIF flag is set. Related interrupt or DMA transfer can occur if enabled,
+        ]
+  COMG:
+    _write:
+      Trigger: [1, "When CCPC bit is set, it allows CCxE, CCxNE and OCxM bits to be updated"]

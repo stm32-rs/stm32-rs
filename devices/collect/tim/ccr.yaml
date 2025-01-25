@@ -10,6 +10,14 @@ CCR?:
 _array:
   "CCR[1-4]":
     displayName: CCR%s
+
+"?~CR2":
+  _array:
+    "?~OIS?":
+      description: Output Idle state (OC%s output)
+    "?~OIS?N":
+      description: Output Idle state (OC%sN output)
+
 CCER:
   _array:
     CC?E:
@@ -20,14 +28,16 @@ CCER:
       description: Capture/Compare %s output Polarity
     "?~CC?NE":
       description: Capture/Compare %s complementary output enable
-"CCMR[12]_Input":
+"CCMR?_Input":
   _array:
-    CC?S:
-      description: Capture/Compare %s selection
     IC?PSC:
       description: Input capture %s prescaler
     IC?F:
       description: Input capture %s filter
+"?~CCMR2_Input*":
+  _derive:
+    IC%sF: CCMR1_Input.IC%sF
+    IC%sPSC: CCMR1_Input.IC%sPSC
 "CCMR[12]_Output":
   _array:
     CC?S:
@@ -44,6 +54,16 @@ CCMR?_Output:
       description: Output compare %s clear enable
     "?~OC?M_3":
       description: Output compare %s mode, bit 3
+"?~CCMR[23]_Output*":
+  _derive:
+    OC%sFE: CCMR1_Output.OC%sFE
+    OC%sPE: CCMR1_Output.OC%sPE
+    OC%sM: CCMR1_Output.OC%sM
+    "?~OC%sCE": CCMR1_Output.OC%sCE
+    "?~OC%sM_3": CCMR1_Output.OC%sM_3
+"?~CCMR2_Output*":
+  _derive:
+    CC%sS: CCMR1_Output.CC%sS
 DIER:
   _array:
     CC?IE:

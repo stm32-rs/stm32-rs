@@ -125,16 +125,15 @@ TIM1:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
 
 TIM2:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_32bit.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM3:
@@ -142,22 +141,24 @@ TIM3:
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim3.yaml
     - collect/tim/ccr.yaml
 
-TIM6: {}
+TIM6:
+  _include:
+    - patches/tim/v2/arr_20bit.yaml
+    - fields/tim/v3/tim6.yaml
 
 TIM15:
   _include:
     - patches/tim/v2/tim_20bit.yaml
-    - fields/tim/v2/ccm9_15.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v3/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
     - patches/tim/v2/tim_20bit.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v3/tim16.yaml
     - collect/tim/ccr.yaml
 
 UCPD1:

@@ -91,33 +91,20 @@ TIM[18]:
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_uifremap.yaml
-    - fields/tim/dithen.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim1_advanced.yaml
-    - fields/tim/tim_16bit_dither.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM[25]:
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim_uifremap.yaml
-    - fields/tim/tim_32bit.yaml
     - patches/tim/tim2_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_uifremap.yaml
-    - fields/tim/dithen.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim2.yaml
+    - collect/tim/ccr.yaml
   CNT:
     _modify:
       CNT:
@@ -130,36 +117,20 @@ TIM[34]:
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/tim2_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_common_ext.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_uifremap.yaml
-    - fields/tim/dithen.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim_16bit_dither.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v3/tim3.yaml
+    - collect/tim/ccr.yaml
 
 TIM[67]:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_uifremap.yaml
-    - fields/tim/dithen.yaml
-    - fields/tim/tim6_dither.yaml
+    - fields/tim/v3/tim6.yaml
 
 TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M_1:
-        name: OC1M_3
-      OC2M_1:
-        name: OC2M_3
   _include:
     - patches/tim/ccmr1_alternate.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_uifremap.yaml
-    - fields/tim/dithen.yaml
-    - fields/tim/tim_ckd.yaml
+    - patches/tim/v2/ocm1_bit3.yaml
+    - fields/tim/v3/tim9.yaml
+    - collect/tim/ccr.yaml
 
 UCPD1:
   _strip: UCPD_

@@ -1,0 +1,15 @@
+DIER:
+  TIE:
+    Disabled: [0, Trigger interrupt disabled]
+    Enabled: [1, Trigger interrupt enabled]
+SR:
+  TIF:
+    _read:
+      NoTrigger: [0, No trigger event occurred]
+      Trigger: [1, Trigger interrupt pending]
+    _W0C:
+      Clear: [0, Clear flag]
+EGR:
+  TG:
+    _write:
+      Trigger: [1, The TIF flag is set in TIMx_SR register. Related interrupt or DMA transfer can occur if enabled.]

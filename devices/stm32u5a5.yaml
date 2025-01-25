@@ -114,20 +114,50 @@ TIM?:
   _strip: TIM?_
 
 TIM1:
+  CCMR2_Output:
+    _modify:
+      CC3S_1_0:
+        name: CC3S
+      CC4S_1_0:
+        name: CC4S
+      OC3M_2_0:
+        name: OC3M
+      OC4M_3_0:
+        name: OC4M
+      OC4M_bit3:
+        name: OC4M_3
   _include:
+    - patches/tim/v2/ocm1_bit3.yaml
     - patches/tim/icpsc.yaml
+    - fields/tim/v3/tim1.yaml
 
-TIM2: {}
+TIM2:
+  _include:
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/tim2_common_32bit.yaml
+    - patches/tim/v2/add_uifcpy.yaml
+    - fields/tim/v3/tim2.yaml
 
-TIM6: {}
+TIM6:
+  _include:
+    - fields/tim/v3/tim6.yaml
 
-TIM15: {}
+TIM15:
+  _include:
+    - patches/tim/v2/ocm1_bit3.yaml
+    - fields/tim/v3/tim15.yaml
+    - collect/tim/ccr.yaml
 
 TIM16:
   CCMR1_Output:
     _modify:
       OC1M_2:
         name: OC1M_3
+  _include:
+    - patches/tim/v3/add_dithen.yaml
+    - fields/tim/v3/tim16.yaml
+    - fields/tim/v3/occe.yaml
+    - collect/tim/ccr.yaml
 
 UCPD1:
   _include:

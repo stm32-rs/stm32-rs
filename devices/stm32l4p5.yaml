@@ -232,16 +232,10 @@ TIM??:
 
 TIM[18]:
   _include:
-    - fields/tim/basic.yaml
     - patches/tim/dmab_32.yaml
-    - fields/tim/tim_advanced.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-    - collect/tim/ccr_advanced.yaml
   CR1:
     UIFREMAP:
       Disabled: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31]
@@ -249,13 +243,8 @@ TIM[18]:
 
 TIM[25]:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_32bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
   CR1:
     UIFREMAP:
@@ -264,13 +253,8 @@ TIM[25]:
 
 TIM[34]:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_16bit.yaml
-    - fields/tim/tim_gp1.yaml
-    - fields/tim/generic.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm_extended.yaml
+    - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
   CNT:
     _modify:
@@ -287,8 +271,7 @@ TIM[34]:
 
 TIM[67]:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim6.yaml
+    - fields/tim/v2/tim6.yaml
   CR1:
     UIFREMAP:
       Disabled: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31]
@@ -296,17 +279,12 @@ TIM[67]:
 
 TIM15:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/v2/ccm9_15.yaml
+    - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM1[67]:
   _include:
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/tim16.yaml
-    - fields/tim/v2/ccm_common.yaml
+    - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
   CCMR1_Output:
     _modify:

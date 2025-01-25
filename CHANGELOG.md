@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Refactor timers, add enums
 * STM32H5xx: Add H533 (#1129)
 * G4: Fix swapped reset values for SPI4 CR1 and CR2 by deriving SPI4 from SPI1 (#957)
 * STM32H5xx: Update SVD to version 1.7 and add H523 (#1124)
@@ -43,7 +44,7 @@
 * rename `devices/common_patches` to just `devices/patches`
 * move field related patches from `peripherals` to `devices/fields`
 * Replace `makehtml.py` with `svdtools html`
-* Updated to `svd2rust` 0.35.0, `svdtools` 0.4.1, `form` 0.12.1, use tools binaries for CI
+* Updated to `svd2rust` 0.35.0, `svdtools` 0.4.2, `form` 0.12.1, use tools binaries for CI
 * Use `svd2rust.toml` config, use custom ident suffixes
 * Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
 * Show avaliable device features if no one selected (#998)
