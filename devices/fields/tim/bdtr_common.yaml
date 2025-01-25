@@ -16,10 +16,10 @@ BDTR:
     Disabled: [0, Break function x disabled]
     Enabled: [1, Break function x enabled]
   OSSR:
-    Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
+    HiZ: [0, "When inactive, OC/OCN outputs are disabled"]
     IdleLevel: [1, "When inactive, OC/OCN outputs are enabled with their inactive level"]
   OSSI:
-    Disabled: [0, "When inactive, OC/OCN outputs are disabled"]
+    HiZ: [0, "When inactive, OC/OCN outputs are disabled"]
     IdleLevel: [1, "When inactive, OC/OCN outputs are forced to idle level"]
   LOCK:
     "Off": [0, No bit is write protected]
