@@ -154,11 +154,8 @@ TIM[67]:
     - fields/tim/v2/tim6.yaml
 
 TIM15:
-  CCMR1_Output:
-    _modify:
-      OC1M_bit3:
-        name: OC1M_3
   _include:
+    - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
