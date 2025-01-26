@@ -21,6 +21,9 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+AES:
+  _strip: AES_
+
 DMA?:
   _strip: DMA_
   _include:
@@ -56,6 +59,9 @@ RCC:
     - fields/rcc/rcc_g0.yaml
     - fields/rcc/rcc_g0x1.yaml
     - fields/rcc/rcc_g0x1_aes.yaml
+
+RNG:
+  _strip: RNG_
 
 RTC:
   _include:

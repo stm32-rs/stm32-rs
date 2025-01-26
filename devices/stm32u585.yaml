@@ -151,6 +151,9 @@ RTC:
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
+TAMP:
+  _strip: TAMP_
+
 TIM?:
   _strip: TIM?_
 

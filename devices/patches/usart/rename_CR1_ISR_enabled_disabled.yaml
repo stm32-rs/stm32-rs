@@ -1,13 +1,15 @@
 _modify:
-  CR1_enabled:
+  "CR1_enabled,CR1":
     name: CR1
-  ISR_enabled:
+  "ISR_enabled,ISR":
     name: ISR
 _delete:
   - CR1_disabled
   - USART_CR1_disabled
+  - CR1_ALTERNATE1
   - ISR_disabled
   - USART_ISR_disabled
+  - ISR_ALTERNATE1
 CR1:
   _modify:
     TXFNFIE:
