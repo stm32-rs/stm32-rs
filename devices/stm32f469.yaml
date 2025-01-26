@@ -80,6 +80,7 @@ DMA?:
     - collect/dma/st.yaml
 
 DSI:
+  _clear_fields: "*"
   _add:
     _interrupts:
       DSIHOST:
@@ -87,6 +88,7 @@ DSI:
         value: 92
   _strip: DSI_
   _include:
+    - fields/dsi/dsi.yaml
     - collect/dsi/isr.yaml
 
 EXTI:
