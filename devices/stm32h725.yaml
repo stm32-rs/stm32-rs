@@ -54,8 +54,8 @@ ADC[12]:
     SQ*: [0, 19]
 
 BDMA:
+  _strip: BDMA_
   _include:
-    - patches/dma/bdma_v2_new.yaml
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
@@ -128,6 +128,9 @@ EXTI:
 FDCAN?:
   _include:
     - patches/fdcan/fdcan_h7.yaml
+
+FMAC:
+  _strip: FMAC_
 
 FMC:
   _include:
@@ -239,6 +242,9 @@ PWR:
     _delete:
       - WKUPF3
       - WKUPF5
+
+PSSI:
+  _strip: PSSI_
 
 # RCC block
 RCC:

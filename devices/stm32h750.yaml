@@ -48,6 +48,12 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS:
+  _strip: CRS_
+
+DAC:
+  _strip: DAC_
+
 DMA2D:
   _strip: DMA2D_
   _include:
@@ -75,6 +81,9 @@ DMAMUX2:
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
+
+ETH:
+  _strip: ETH_
 
 EXTI:
   _include:
@@ -122,6 +131,12 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+JPEG:
+  _strip: JPEG_
+
+MDIOS:
+  _strip: MDIOS_
+
 MDMA:
   _include:
     - collect/dma/mdma.yaml
@@ -137,6 +152,9 @@ OTG1_HS_HOST:
 
 OTG1_HS_DEVICE:
   _include: patches/usb_otg/hsdevice.yaml
+
+PWR:
+  _strip: PWR_
 
 QUADSPI:
   _strip: QUADSPI_
@@ -238,6 +256,9 @@ USART*:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/usart_v2B.yaml
+
+VREFBUF:
+  _strip: VREFBUF_
 
 WWDG:
   _strip: WWDG_

@@ -2,12 +2,46 @@ _svd: ../svd/stm32h533.svd
 
 _modify:
   size: 0x20
-  UCPD:
-    name: UCPD1
-  SDMMC:
-    name: SDMMC1
   OTFDEC:
     name: OTFDEC1
+  OTFDEC_S:
+    name: OTFDEC1_S
+  ADC:
+    name: ADC1
+  ADC_S:
+    name: ADC1_S
+  FDCAN:
+    name: FDCAN1
+  FDCAN_S:
+    name: FDCAN1_S
+  GPDMA:
+    name: GPDMA1
+  GPDMA_S:
+    name: GPDMA1_S
+  I2C:
+    name: I2C1
+  I2C_S:
+    name: I2C1_S
+  I3C:
+    name: I3C1
+  I3C_S:
+    name: I3C1_S
+  SDMMC:
+    name: SDMMC1
+  SDMMC_S:
+    name: SDMMC1_S
+  SPI:
+    name: SPI1
+  SPI_S:
+    name: SPI1_S
+  UCPD:
+    name: UCPD1
+  UCPD_S:
+    name: UCPD1_S
+  USART:
+    name: USART1
+  USART_S:
+    name: USART1_S
 
 ADC[12]:
   _strip: ADC_
@@ -66,6 +100,10 @@ IWDG:
   _include:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
+
+LPTIM?:
+  _strip:
+    - LPTIM?_
 
 RTC:
   _include:
@@ -152,6 +190,9 @@ USART?:
 USB:
   _include:
     - collect/usb/chepr.yaml
+
+USBSRAM:
+  _strip: USBSRAM_CHEP_
 
 WWDG:
   _include:

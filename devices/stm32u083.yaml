@@ -6,11 +6,41 @@ _modify:
   LCD:
     groupName: LCD
 
+ADC:
+  _strip: ADC_
+
+AES:
+  _strip: AES_
+
+CRC:
+  _strip: CRC_
+
+CRS:
+  _strip: CRS_
+
+DAC:
+  _strip: DAC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DMAMUX:
+  _strip: DMAMUX_
+
+EXTI:
+  _strip: EXTI_
+
+FLASH:
+  _strip: FLASH_
+
 GPIO?:
   _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
+
+IWDG:
+  _strip: IWDG_
 
 LCD:
   _delete: LCD_RAM*
@@ -18,12 +48,30 @@ LCD:
   _include:
     - patches/lcd/ram_segment_48.yaml
 
+LPTIM?:
+  _strip: LPTIM?_
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
+
+RNG:
+  _strip: RNG_
+
 RTC:
   _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
+
+SYSCFG:
+  _strip: SYSCFG_
+
+TAMP:
+  _strip: TAMP_
 
 TIM?:
   _strip: TIM?_
@@ -71,3 +119,15 @@ TIM16:
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
+
+TSC:
+  _strip: TSC_
+
+USB:
+  _strip: USB_
+
+VREFBUF:
+  _strip: VREFBUF_
+
+WWDG:
+  _strip: WWDG_

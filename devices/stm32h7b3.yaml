@@ -145,6 +145,9 @@ MDMA:
   _include:
     - collect/dma/mdma.yaml
 
+PSSI:
+  _strip: PSSI_
+
 RCC:
   _strip:
     - RCC_
@@ -178,6 +181,9 @@ SPI?:
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+TAMP:
+  _strip: TAMP_
 
 TIM[18]:
   _include:
