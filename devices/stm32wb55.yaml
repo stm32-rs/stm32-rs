@@ -186,6 +186,7 @@ TIM1:
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM2:
   _include:
@@ -196,6 +197,7 @@ TIM2:
     - fields/tim/tim_ckd.yaml
     - fields/tim/ccr.yaml
     - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
   CNT:
     _add:
       UIFREMAP_CNT:
