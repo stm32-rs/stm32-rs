@@ -27,6 +27,7 @@ TIM1:
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM2:
   _include:
@@ -34,6 +35,7 @@ TIM2:
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/v2/tim2.yaml
+    - collect/tim/ccr.yaml
 
 TIM3:
   _include:
@@ -41,6 +43,7 @@ TIM3:
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/v2/tim3.yaml
+    - collect/tim/ccr.yaml
 
 TIM[67]:
   _include:

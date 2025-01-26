@@ -130,6 +130,7 @@ TIM1:
     - patches/tim/v2/ocm1_bit3.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/v3/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM2:
   _include:
@@ -137,6 +138,7 @@ TIM2:
     - patches/tim/tim2_common_32bit.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - fields/tim/v3/tim2.yaml
+    - collect/tim/ccr.yaml
 
 TIM6:
   _include:
