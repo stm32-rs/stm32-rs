@@ -1,0 +1,1219 @@
+---
+BDMA:
+  BDMA_ISR:
+    GIF0:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF0:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF0:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF0:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF1:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF1:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF1:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF1:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF2:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF2:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF2:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF2:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF3:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF3:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF3:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF3:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF4:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF4:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF4:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF4:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF5:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF5:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF5:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF5:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF6:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF6:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF6:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF6:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF7:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF7:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF7:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF7:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+  BDMA_CCR0:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR1:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR2:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR3:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR4:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR5:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR6:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR7:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+DMAMUX1:
+  DMAMUX_C0CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C1CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C2CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C3CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C4CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C5CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C6CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C7CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C8CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C9CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C10CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C11CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C12CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C13CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C14CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C15CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG0CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG1CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG2CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG3CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG4CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG5CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG6CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG7CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+ETH:
+  ETH_MACCR:
+    PRELEN:
+      B_0x0: [0, 7 bytes of preamble]
+      B_0x1: [1, 5 bytes of preamble]
+      B_0x2: [2, 3 bytes of preamble]
+      B_0x3: [3, "Reserved, must not be used"]
+    BL:
+      B_0x0: [0, "k= min (n, 10)"]
+      B_0x1: [1, "k = min (n, 8)"]
+      B_0x2: [2, "k = min (n, 4)"]
+      B_0x3: [3, "k = min (n, 1)"]
+    FES:
+      B_0x0: [0, 10 Mbps]
+      B_0x1: [1, 100 Mbps]
+    IPG:
+      B_0x0: [0, 96 bit times]
+      B_0x1: [1, 88 bit times]
+      B_0x2: [2, 80 bit times]
+      B_0x7: [7, 40 bit times]
+    SARC:
+      B_0x2: [2, the MAC inserts the content of the MAC Address 0 registers (MAC Address 0 high register (ETH_MACA0HR) and ) in the SA field of all transmitted packets.]
+      B_0x3: [3, the MAC replaces the content of the MAC Address 0 registers (MAC Address 0 high register (ETH_MACA0HR) and ) in the SA field of all transmitted packets.]
+      B_0x6: [6, the MAC inserts the content of the MAC Address 1 registers (MAC Address x high register (ETH_MACAxHR) and ) in the SA field of all transmitted packets]
+      B_0x7: [7, the MAC replaces the content of the MAC Address 1 registers (MAC Address x high register (ETH_MACAxHR) and ) in the SA field of all transmitted packets.]
+  ETH_MACPFR:
+    PCF:
+      B_0x0: [0, The MAC filters all control packets from reaching the application.]
+      B_0x1: [1, The MAC forwards all control packets except Pause packets to the application even if they fail the Address filter.]
+      B_0x2: [2, The MAC forwards all control packets to the application even if they fail the Address filter.]
+      B_0x3: [3, The MAC forwards the control packets that pass the Address filter.]
+  ETH_MACWTR:
+    WTO:
+      B_0x0: [0, 2 Kbytes]
+      B_0x1: [1, 3 Kbytes]
+      B_0x2: [2, 4 Kbytes]
+      B_0x3: [3, 5 Kbytes]
+      B_0xC: [12, 14 Kbytes]
+      B_0xD: [13, 15 Kbytes]
+      B_0xE: [14, 16383 Bytes]
+      B_0xF: [15, "Reserved, must not be used"]
+  ETH_MACVTR:
+    EVLS:
+      B_0x0: [0, Do not strip]
+      B_0x1: [1, Strip if VLAN filter passes]
+      B_0x2: [2, Strip if VLAN filter fails]
+      B_0x3: [3, Always strip]
+    EIVLS:
+      B_0x0: [0, Do not strip]
+      B_0x1: [1, Strip if VLAN filter passes]
+      B_0x2: [2, Strip if VLAN filter fails]
+      B_0x3: [3, Always strip]
+  ETH_MACVIR:
+    VLC:
+      B_0x0: [0, "No VLAN tag deletion, insertion, or replacement"]
+      B_0x1: [1, VLAN tag deletion. The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted packets with VLAN tags.]
+      B_0x2: [2, "VLAN tag insertion. The MAC inserts VLT in bytes 15 and 16 of the packet after inserting the Type value (0x8100 or 0x88a8) in bytes 13 and 14. This operation is performed on all transmitted packets, irrespective of whether they already have a VLAN tag."]
+      B_0x3: [3, VLAN tag replacement. The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted packets (Bytes 13 and 14 are 0x8100 or 0x88a8).]
+    CSVL:
+      B_0x0: [0, C-LAN]
+      B_0x1: [1, S-LAN]
+    ADDR:
+      B_0x0: [0, VLAN tag for insertion in the Transmit packets from Tx Queue 0]
+      B_0x1: [1, VLAN tag for insertion in the Transmit packets from Tx Queue 1]
+  ETH_MACVIRALTERNATE:
+    CSVL:
+      B_0x0: [0, C-LAN]
+      B_0x1: [1, S-LAN]
+  ETH_MACIVIR:
+    VLC:
+      B_0x0: [0, "No VLAN tag deletion, insertion, or replacement"]
+      B_0x1: [1, VLAN tag deletion]
+      B_0x2: [2, VLAN tag insertion]
+      B_0x3: [3, VLAN tag replacement]
+    CSVL:
+      B_0x0: [0, C-LAN]
+      B_0x1: [1, S-LAN]
+  ETH_MACQTXFCR:
+    PLT:
+      B_0x0: [0, Pause Time minus 4 Slot Times (PT -4 slot times)]
+      B_0x1: [1, Pause Time minus 28 Slot Times (PT -28 slot times)]
+      B_0x2: [2, Pause Time minus 36 Slot Times (PT -36 slot times)]
+      B_0x3: [3, Pause Time minus 144 Slot Times (PT -144 slot times)]
+      B_0x4: [4, Pause Time minus 256 Slot Times (PT -256 slot times)]
+      B_0x5: [5, Pause Time minus 512 Slot Times (PT -512 slot times)]
+      B_0x6: [6, "Reserved, must not be used"]
+      B_0x7: [7, "Reserved, must not be used"]
+  ETH_MACDR:
+    TFCSTS:
+      B_0x0: [0, Idle state]
+      B_0x1: [1, "Waiting for one of the following:"]
+      B_0x2: [2, Generating and transmitting a Pause control packet (in full-duplex mode)]
+      B_0x3: [3, Transferring input packet for transmission]
+  ETH_MACHWF0R:
+    TSSTSSEL:
+      B_0x1: [1, Internal]
+      B_0x2: [2, External]
+      B_0x3: [3, Both]
+      B_0x0: [0, "Reserved, must not be used"]
+    ACTPHYSEL:
+      B_0x0: [0, GMII or MII]
+      B_0x1: [1, RGMII]
+      B_0x2: [2, SGMII]
+      B_0x3: [3, TBI]
+      B_0x4: [4, RMII]
+      B_0x5: [5, RTBI]
+      B_0x6: [6, SMII]
+  ETH_MACHWF1R:
+    RXFIFOSIZE:
+      B_0x0: [0, 128 bytes]
+      B_0x1: [1, 256 bytes]
+      B_0x2: [2, 512 bytes]
+      B_0x3: [3, "1,024 bytes"]
+      B_0x4: [4, "2,048 bytes"]
+      B_0x5: [5, "4,096 bytes"]
+      B_0x6: [6, "8,192 bytes"]
+      B_0x7: [7, "16,384 bytes"]
+      B_0x8: [8, 32 Kbytes]
+      B_0x9: [9, 64 Kbytes]
+      B_0xA: [10, 128 Kbytes]
+      B_0xB: [11, 256 Kbytes]
+      B_0xc: [12, "Reserved, must not be used"]
+      B_0xd: [13, "Reserved, must not be used"]
+      B_0xe: [14, "Reserved, must not be used"]
+      B_0xf: [15, "Reserved, must not be used"]
+      B_0x10: [16, "Reserved, must not be used"]
+      B_0x11: [17, "Reserved, must not be used"]
+      B_0x12: [18, "Reserved, must not be used"]
+      B_0x13: [19, "Reserved, must not be used"]
+      B_0x14: [20, "Reserved, must not be used"]
+      B_0x15: [21, "Reserved, must not be used"]
+      B_0x16: [22, "Reserved, must not be used"]
+      B_0x17: [23, "Reserved, must not be used"]
+      B_0x18: [24, "Reserved, must not be used"]
+      B_0x19: [25, "Reserved, must not be used"]
+      B_0x1a: [26, "Reserved, must not be used"]
+      B_0x1b: [27, "Reserved, must not be used"]
+      B_0x1c: [28, "Reserved, must not be used"]
+      B_0x1d: [29, "Reserved, must not be used"]
+      B_0x1e: [30, "Reserved, must not be used"]
+      B_0x1f: [31, "Reserved, must not be used"]
+    TXFIFOSIZE:
+      B_0x0: [0, 128 bytes]
+      B_0x1: [1, 256 bytes]
+      B_0x2: [2, 512 bytes]
+      B_0x3: [3, "1,024 bytes"]
+      B_0x4: [4, "2,048 bytes"]
+      B_0x5: [5, "4,096 bytes"]
+      B_0x6: [6, "8,192 bytes"]
+      B_0x7: [7, "16,384 bytes"]
+      B_0x8: [8, 32 Kbytes]
+      B_0x9: [9, 64 Kbytes]
+      B_0xA: [10, 128 Kbytes]
+      B_0xb: [11, "Reserved, must not be used"]
+      B_0xc: [12, "Reserved, must not be used"]
+      B_0xd: [13, "Reserved, must not be used"]
+      B_0xe: [14, "Reserved, must not be used"]
+      B_0xf: [15, "Reserved, must not be used"]
+      B_0x10: [16, "Reserved, must not be used"]
+      B_0x11: [17, "Reserved, must not be used"]
+      B_0x12: [18, "Reserved, must not be used"]
+      B_0x13: [19, "Reserved, must not be used"]
+      B_0x14: [20, "Reserved, must not be used"]
+      B_0x15: [21, "Reserved, must not be used"]
+      B_0x16: [22, "Reserved, must not be used"]
+      B_0x17: [23, "Reserved, must not be used"]
+      B_0x18: [24, "Reserved, must not be used"]
+      B_0x19: [25, "Reserved, must not be used"]
+      B_0x1a: [26, "Reserved, must not be used"]
+      B_0x1b: [27, "Reserved, must not be used"]
+      B_0x1c: [28, "Reserved, must not be used"]
+      B_0x1d: [29, "Reserved, must not be used"]
+      B_0x1e: [30, "Reserved, must not be used"]
+      B_0x1f: [31, "Reserved, must not be used"]
+    ADDR64:
+      B_0x0: [0, 32 bits]
+    HASHTBLSZ:
+      B_0x0: [0, No Hash table]
+      B_0x1: [1, "64"]
+      B_0x2: [2, "128"]
+      B_0x3: [3, "256"]
+    L3L4FNUM:
+      B_0x0: [0, No L3 or L4 Filter]
+      B_0x1: [1, 1 L3 or L4 Filter]
+      B_0x2: [2, 2 L3 or L4 Filters]
+      B_0x8: [8, 8 L3 or L4]
+  ETH_MACHWF2R:
+    RXQCNT:
+      B_0x0: [0, 1 MTL Rx queue]
+      B_0x1: [1, 2 MTL Rx queues]
+      B_0x7: [7, 8 MTL Rx]
+    TXQCNT:
+      B_0x0: [0, 1 MTL Tx queue]
+      B_0x1: [1, 2 MTL Tx queues]
+      B_0x7: [7, 8 MTL Tx]
+    RXCHCNT:
+      B_0x0: [0, 1 DMA Rx Channel]
+      B_0x1: [1, 2 DMA Rx Channels]
+      B_0x7: [7, 8 DMA Rx]
+    RDCSZ:
+      B_0x0: [0, Cache not configured]
+      B_0x1: [1, Four 16-byte descriptors]
+      B_0x2: [2, Eight 16-byte descriptors]
+      B_0x3: [3, Sixteen 16-byte descriptors]
+    TXCHCNT:
+      B_0x0: [0, 1 DMA Tx Channel]
+      B_0x1: [1, 2 DMA Tx Channels]
+      B_0x7: [7, 8 DMA Tx]
+    TDCSZ:
+      B_0x0: [0, Cache not configured]
+      B_0x1: [1, Four 16-byte descriptors]
+      B_0x2: [2, Eight 16-byte descriptors]
+      B_0x3: [3, Sixteen 16-byte descriptors]
+    PPSOUTNUM:
+      B_0x0: [0, No PPS output]
+      B_0x1: [1, 1 PPS output]
+      B_0x2: [2, 2 PPS outputs]
+      B_0x3: [3, 3 PPS outputs]
+      B_0x4: [4, 4 PPS outputs]
+      B_0x5: [5, "Reserved, must not be used"]
+      B_0x6: [6, "Reserved, must not be used"]
+      B_0x7: [7, "Reserved, must not be used"]
+    AUXSNAPNUM:
+      B_0x0: [0, No auxiliary input]
+      B_0x1: [1, 1 auxiliary input]
+      B_0x2: [2, 2 auxiliary inputs]
+      B_0x3: [3, 3 auxiliary inputs]
+      B_0x4: [4, 4 auxiliary inputs]
+      B_0x5: [5, "Reserved, must not be used"]
+      B_0x6: [6, "Reserved, must not be used"]
+      B_0x7: [7, "Reserved, must not be used"]
+  ETH_MACHWF3R:
+    NRVF:
+      B_0x0: [0, No Extended Rx VLAN Filters]
+      B_0x1: [1, 4 Extended Rx VLAN Filters]
+      B_0x2: [2, 8 Extended Rx VLAN Filters]
+      B_0x3: [3, 16 Extended Rx VLAN Filters]
+      B_0x4: [4, 24 Extended Rx VLAN Filters]
+      B_0x5: [5, 32 Extended Rx VLAN Filters]
+      B_0x6: [6, "Reserved, must not be used"]
+      B_0x7: [7, "Reserved, must not be used"]
+  ETH_MACMDIOAR:
+    GOC:
+      B_0x0: [0, "Reserved, must not be used"]
+      B_0x1: [1, Write]
+      B_0x2: [2, Post Read Increment Address for Clause 45 PHY]
+      B_0x3: [3, Read]
+    CR:
+      B_0x0: [0, CSR clock = 60-100 MHz; MDC clock = CSR clock/42]
+      B_0x1: [1, CSR clock = 100-150 MHz; MDC clock = CSR clock/62]
+      B_0x2: [2, CSR clock = 20-35 MHz; MDC clock = CSR clock/16]
+      B_0x3: [3, CSR clock = 35-60 MHz; MDC clock = CSR clock/26]
+      B_0x4: [4, CSR clock = 150-250 MHz; MDC clock = CSR clock/102]
+      B_0x5: [5, CSR clock = 250-300 MHz; MDC clock = CSR clock/124]
+      B_0x6: [6, "Reserved, must not be used"]
+      B_0x7: [7, "Reserved, must not be used"]
+      B_0x8: [8, CSR clock/4]
+      B_0x9: [9, CSR clock/6]
+      B_0xA: [10, CSR clock/8]
+      B_0xB: [11, CSR clock/10]
+      B_0xC: [12, CSR clock/12]
+      B_0xD: [13, CSR clock/14]
+      B_0xE: [14, CSR clock/16]
+      B_0xF: [15, CSR clock/18]
+  ETH_MACA1HR:
+    SA:
+      B_0x0: [0, DA]
+      B_0x1: [1, SA]
+  ETH_MACA2HR:
+    SA:
+      B_0x0: [0, DA]
+      B_0x1: [1, SA]
+  ETH_MACA3HR:
+    SA:
+      B_0x0: [0, DA]
+      B_0x1: [1, SA]
+  ETH_MACL3L4C0R:
+    L3HSBM0:
+      B_0x0_IPV4_PACKETS: [0, No bits are masked.]
+      B_0x1_IPV4_PACKETS: [1, "LSb[0] is masked"]
+    L3HDBM0:
+      B_0x0_IPV4_PACKETS: [0, No bits are masked.]
+      B_0x1_IPV4_PACKETS: [1, "LSb[0] is masked"]
+      B_0x0_IPV6_PACKETS: [0, No bits are masked.]
+      B_0x1_IPV6_PACKETS: [1, "LSb[0] is masked"]
+  ETH_MACL3L4C1R:
+    L3HSBM1:
+      B_0x0_IPV4_PACKETS: [0, No bits are masked.]
+      B_0x1_IPV4_PACKETS: [1, "LSb[0] is masked"]
+    L3HDBM1:
+      B_0x0_IPV4_PACKETS: [0, No bits are masked.]
+      B_0x1_IPV4_PACKETS: [1, "LSb[0] is masked"]
+      B_0x0_IPV6_PACKETS: [0, No bits are masked]
+      B_0x1_IPV6_PACKETS: [1, "LSb[0] is masked"]
+  ETH_MACPPSCR:
+    PPSCTRL:
+      B_0x1: [1, "The binary rollover is 2 Hz, and the digital rollover is 1 Hz."]
+      B_0x2: [2, "The binary rollover is 4 Hz, and the digital rollover is 2 Hz."]
+      B_0x3: [3, "The binary rollover is 8 Hz, and the digital rollover is 4 Hz."]
+      B_0x4: [4, "The binary rollover is 16 Hz, and the digital rollover is 8 Hz."]
+      B_0xF: [15, The binary rollover is 32.768 KHz and the digital rollover is 16.384 KHz.]
+    TRGTMODSEL0:
+      B_0x0: [0, Target Time registers are programmed only for generating the interrupt event.]
+      B_0x1: [1, "Reserved, must not be used"]
+      B_0x2: [2, Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS output signal generation.]
+      B_0x3: [3, Target Time registers are programmed only for starting or stopping the PPS output signal generation. No interrupt is asserted.]
+  ETH_MACPPSCRALTERNATE:
+    PPSCMD:
+      B_0x0: [0, No Command]
+      B_0x1: [1, START Single Pulse.]
+      B_0x2: [2, START Pulse Train.]
+      B_0x3: [3, Cancel START.]
+      B_0x4: [4, STOP Pulse Train at time.]
+      B_0x5: [5, STOP Pulse Train immediately.]
+      B_0x6: [6, Cancel STOP Pulse train.]
+      B_0x7: [7, "Reserved, must not be used"]
+      B_0x8: [8, "Reserved, must not be used"]
+      B_0x9: [9, "Reserved, must not be used"]
+      B_0xa: [10, "Reserved, must not be used"]
+      B_0xb: [11, "Reserved, must not be used"]
+      B_0xc: [12, "Reserved, must not be used"]
+      B_0xd: [13, "Reserved, must not be used"]
+      B_0xe: [14, "Reserved, must not be used"]
+      B_0xf: [15, "Reserved, must not be used"]
+    TRGTMODSEL0:
+      B_0x0: [0, Target Time registers are programmed only for generating the interrupt event.]
+      B_0x1: [1, "Reserved, must not be used"]
+      B_0x2: [2, Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS output signal generation.]
+      B_0x3: [3, Target Time registers are programmed only for starting or stopping the PPS output signal generation. No interrupt is asserted.]
+  ETH_MACLMIR:
+    DRSYNCR:
+      B_0x0: [0, DelayReq generated for every received SYNC]
+      B_0x1: [1, DelayReq generated every alternate reception of SYNC]
+  ETH_MTLTXQOMR:
+    TXQEN:
+      B_0x0: [0, Not enabled]
+      B_0x2: [2, Enabled]
+    TTC:
+      B_0x0: [0, "32"]
+      B_0x1: [1, "64"]
+      B_0x2: [2, "96"]
+      B_0x3: [3, "128"]
+      B_0x4: [4, "192"]
+      B_0x5: [5, "256"]
+      B_0x6: [6, "384"]
+      B_0x7: [7, "512"]
+  ETH_MTLTXQDR:
+    TRCSTS:
+      B_0x0: [0, Idle state]
+      B_0x1: [1, Read state (transferring data to the MAC transmitter)]
+      B_0x2: [2, Waiting for pending Tx Status from the MAC transmitter]
+      B_0x3: [3, Flushing the Tx queue because of the Packet Abort request from the MAC]
+  ETH_MTLRXQOMR:
+    RTC:
+      B_0x0: [0, "64"]
+      B_0x1: [1, "32"]
+      B_0x2: [2, "96"]
+      B_0x3: [3, "128"]
+  ETH_MTLRXQDR:
+    RRCSTS:
+      B_0x0: [0, Idle state]
+      B_0x1: [1, Reading packet data]
+      B_0x2: [2, Reading packet status (or timestamp)]
+      B_0x3: [3, Flushing the packet data and status]
+    RXQSTS:
+      B_0x0: [0, Rx queue empty]
+      B_0x1: [1, Rx queue fill-level below flow-control deactivate threshold]
+      B_0x2: [2, Rx queue fill-level above flow-control activate threshold]
+      B_0x3: [3, Rx queue full]
+  ETH_DMAMR:
+    DA:
+      B_0x0: [0, "Weighted Round-Robin with Rx:Tx or Tx:Rx"]
+      B_0x1: [1, Fixed priority]
+    PR:
+      B_0x0: [0, "The priority ratio is 1:1"]
+      B_0x1: [1, "The priority ratio is 2:1"]
+      B_0x2: [2, "The priority ratio is 3:1"]
+      B_0x3: [3, "The priority ratio is 4:1"]
+      B_0x4: [4, "The priority ratio is 5:1"]
+      B_0x5: [5, "The priority ratio is 6:1"]
+      B_0x6: [6, "The priority ratio is 7:1"]
+      B_0x7: [7, "The priority ratio is 8:1"]
+  ETH_DMADSR:
+    RPS0:
+      B_0x0: [0, Stopped (Reset or Stop Receive Command issued)]
+      B_0x1: [1, Running (Fetching Rx Transfer Descriptor)]
+      B_0x2: [2, Reserved for future use]
+      B_0x3: [3, Running (Waiting for Rx packet)]
+      B_0x4: [4, Suspended (Rx Descriptor Unavailable)]
+      B_0x5: [5, Running (Closing the Rx Descriptor)]
+      B_0x6: [6, Timestamp write state]
+      B_0x7: [7, Running (Transferring the received packet data from the Rx buffer to the system memory)]
+    TPS0:
+      B_0x0: [0, Stopped (Reset or Stop Transmit Command issued)]
+      B_0x1: [1, Running (Fetching Tx Transfer Descriptor)]
+      B_0x2: [2, Running (Waiting for status)]
+      B_0x3: [3, Running (Reading Data from system memory buffer and queuing it to the Tx buffer (Tx FIFO))]
+      B_0x4: [4, Timestamp write state]
+      B_0x5: [5, Reserved for future use]
+      B_0x6: [6, Suspended (Tx Descriptor Unavailable or Tx Buffer Underflow)]
+      B_0x7: [7, Running (Closing Tx Descriptor)]
+  ETH_DMACRXIWTR:
+    RWTU:
+      B_0x0: [0, "256"]
+      B_0x1: [1, "512"]
+      B_0x2: [2, "1024"]
+      B_0x3: [3, "2048"]

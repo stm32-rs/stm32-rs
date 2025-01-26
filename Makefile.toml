@@ -350,6 +350,25 @@ for serie in ${NAMES}
 end
 '''
 
+
+[tasks.enums]
+env = { "SVDTOOLS" = "${SVDTOOLS}", "NAMES" = "${NAMES}" }
+dependencies = ["extracted"]
+script_runner = "@duckscript"
+script = '''
+mkdir enums
+NAMES = array %{NAMES}
+for serie in ${NAMES}
+    svdpath = set svd/${serie}.svd
+    enumpath = set enums/${serie}.yaml
+
+    echo "enums: ${serie}"
+    command = set ${SVDTOOLS}
+    exec ${command} extract-enums ${svdpath} ${enumpath}
+end
+'''
+
+
 [tasks.extracted]
 private = true
 script_runner = "@duckscript"
