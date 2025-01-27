@@ -46,6 +46,10 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_l4xx.yaml
+
 DFSDM:
   _strip: DFSDM_
   _modify:
@@ -224,5 +228,4 @@ _include:
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - fields/comp/comp_l4x6.yaml
-  - fields/dac/dac_l4xx.yaml
   - fields/opamp/opamp_l4.yaml

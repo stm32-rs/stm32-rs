@@ -50,6 +50,11 @@ CRC:
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
+DFSDM:
+  _include:
+    - patches/dfsdm/h735_747_753.yaml
+    - collect/dfsdm/v1.yaml
+
 DMA2D:
   _include:
     - patches/dma/dma2d_v2.yaml
@@ -258,8 +263,6 @@ _include:
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - patches/flash/flash_dual_bank.yaml
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml

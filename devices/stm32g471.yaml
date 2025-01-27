@@ -32,6 +32,10 @@ COMP:
 
 DAC?:
   _strip: DAC_
+  _include:
+    - fields/dac/dac_wl.yaml
+    - fields/dac/dac_wl_12bit.yaml
+    - fields/dac/dac_wl_8bit.yaml
 
 DMA1:
   _include:
@@ -181,9 +185,6 @@ _include:
   - collect/comp/csr.yaml
   - patches/cordic/g4.yaml
   - fields/cordic/cordic_g4.yaml
-  - fields/dac/dac_wl.yaml
-  - fields/dac/dac_wl_12bit.yaml
-  - fields/dac/dac_wl_8bit.yaml
   - fields/opamp/opamp_g4_common.yaml
   - fields/opamp/opamp_g4_opamp6.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml

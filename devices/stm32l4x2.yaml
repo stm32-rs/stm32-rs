@@ -22,6 +22,8 @@ _modify:
   # The SVD calls ADC1 ADC.
   ADC:
     name: ADC1
+  DAC1:
+    name: DAC
 
 ADC_Common:
   _include:
@@ -72,6 +74,10 @@ CRC:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
+
+DAC:
+  _include:
+    - fields/dac/dac_l4xx.yaml
 
 DFSDM:
   _strip: DFSDM_
@@ -283,6 +289,4 @@ _include:
   - fields/rcc/rcc_l4_uart4.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4x1.yaml
-  - patches/dac/dac_rename_stm32l4xx.yaml
-  - fields/dac/dac_l4xx.yaml
   - fields/opamp/opamp_l4.yaml

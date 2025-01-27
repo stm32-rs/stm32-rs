@@ -55,6 +55,11 @@ CRYP:
   "IV[01][LR]R":
     _merge: IV*
 
+DFSDM:
+  _include:
+    - patches/dfsdm/h735_747_753.yaml
+    - collect/dfsdm/v1.yaml
+
 DMA2D:
   _include:
     - patches/dma/dma2d_v2.yaml
@@ -279,8 +284,6 @@ _include:
   - collect/flash/bank.yaml
   - collect/hash/v2.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - patches/ramecc/ramecc.yaml
   - fields/axi/axi_v1.yaml
   - patches/gpio/h7_ijk.yaml

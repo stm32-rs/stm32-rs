@@ -45,6 +45,11 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+DFSDM:
+  _include:
+    - patches/dfsdm/h735_747_753.yaml
+    - collect/dfsdm/v1.yaml
+
 DMA2D:
   _include:
     - patches/dma/dma2d_v2.yaml
@@ -251,8 +256,6 @@ _include:
   - patches/hsem/h7_dual.yaml
   - collect/hsem/r.yaml
   - patches/flash/h7_dualcore.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml

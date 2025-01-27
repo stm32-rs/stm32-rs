@@ -128,6 +128,11 @@ DCMI:
         name: DCMI_PSSI
         description: DCMI/PSSI global interrupt
 
+DFSDM:
+  _include:
+    - patches/dfsdm/h735_747_753.yaml
+    - collect/dfsdm/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/h7_singlecore.yaml
@@ -477,8 +482,6 @@ _include:
   - patches/h7_common_singlecore_735.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - collect/hsem/r.yaml
-  - patches/dfsdm/h735_747_753.yaml
-  - collect/dfsdm/v1.yaml
   - collect/usb_otg/hs.yaml
   - fields/axi/axi_v1.yaml
   - patches/gpio/h7_jk.yaml

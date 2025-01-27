@@ -40,6 +40,12 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - patches/dma/fcr_wo.yaml
@@ -193,9 +199,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/f7x23_pllsai.yaml
   - patches/rcc/f7_lsedrv.yaml
   - patches/rcc/f7_dckcfgr.yaml

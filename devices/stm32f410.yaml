@@ -55,6 +55,10 @@ DAC:
       - TEN2
       - BOFF2
       - EN2
+  _include:
+    - fields/dac/dac_f410.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
 
 DMA?:
   _include:
@@ -270,9 +274,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_f410.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/f4_fmpi2c.yaml
   - patches/rcc/f41x_bdcr_lsemod.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml

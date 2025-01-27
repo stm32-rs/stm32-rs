@@ -27,6 +27,12 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA1:
   _add:
     _interrupts:
@@ -166,9 +172,6 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f0x128.yaml

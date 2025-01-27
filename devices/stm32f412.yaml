@@ -58,6 +58,11 @@ CRC:
     - fields/crc/crc_basic.yaml
     - fields/crc/crc_idr_8bit.yaml
 
+DFSDM:
+  _include:
+    - patches/dfsdm/dfsdm_v2.yaml
+    - collect/dfsdm/v2.yaml
+
 DMA?:
   _include:
     - patches/dma/dma_v2.yaml
@@ -343,8 +348,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/dfsdm/dfsdm_v2.yaml
-  - collect/dfsdm/v2.yaml
   - patches/i2c/f4_fmpi2c.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_v2.yaml
