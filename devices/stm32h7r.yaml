@@ -22,6 +22,10 @@ GPIO?:
     - fields/gpio/v3/af0-15.yaml
     - collect/gpio/v2r.yaml
 
+HPDMA:
+  _include:
+    - collect/dma/hpdma.yaml
+
 IWDG:
   _include: patches/16bit_with_mask.yaml
 
