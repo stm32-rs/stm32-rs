@@ -33,6 +33,12 @@ CRC:
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - patches/dma/fcr_wo.yaml
@@ -157,9 +163,6 @@ _include:
   - collect/cryp/v1.yaml
   - patches/ethernet/f2_f4.yaml
   - patches/ethernet/mmc.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/f2.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml

@@ -63,6 +63,11 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC1:
+  _include:
+    - fields/dac/dac_common_1ch.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -234,8 +239,6 @@ _include:
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - fields/dac/dac_common_1ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/flash/f3.yaml
   - fields/flash/flash_f3_common.yaml
   - fields/flash/flash_f3_acr_hlfcya.yaml

@@ -63,6 +63,11 @@ CRC:
     - fields/crc/crc_basic.yaml
     - fields/crc/crc_idr_8bit.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+
 DBGMCU:
   CR:
     _modify:
@@ -196,8 +201,6 @@ _include:
   - patches/bkp/bkp.yaml
   - fields/bkp/bkp.yaml
   - collect/bkp/dr.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
   - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml

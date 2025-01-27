@@ -57,6 +57,12 @@ CRC:
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA2D:
   _include:
     - fields/dma/dma2d_v1.yaml
@@ -301,9 +307,6 @@ _include:
   - patches/ltdc/f4_f7_ltdc_bccr.yaml
   - fields/ltdc/ltdc.yaml
   - collect/ltdc/layer.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/pllsai.yaml
   - patches/rcc/add_plli2sp.yaml
   - patches/rcc/f7_apbenr.yaml

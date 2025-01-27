@@ -53,6 +53,10 @@ CRC:
 DAC:
   CR:
     _merge: TSEL1*
+  _include:
+    - fields/dac/dac_wl.yaml
+    - fields/dac/dac_wl_12bit.yaml
+    - fields/dac/dac_wl_8bit.yaml
 
 DMA?:
   _include:
@@ -266,9 +270,6 @@ WWDG:
 
 _include:
   - fields/comp/comp_wl.yaml
-  - fields/dac/dac_wl.yaml
-  - fields/dac/dac_wl_12bit.yaml
-  - fields/dac/dac_wl_8bit.yaml
   - fields/dbg/dbg_wl.yaml
   - fields/flash/flash_wl.yaml
   - fields/hsem/hsem_wl.yaml

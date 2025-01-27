@@ -37,6 +37,12 @@ CAN?:
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - patches/dma/fcr_wo.yaml
@@ -214,9 +220,6 @@ _include:
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
   - collect/cryp/v2.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/rename_plli2scfgr.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml

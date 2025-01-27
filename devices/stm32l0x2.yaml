@@ -40,6 +40,11 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_1ch.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
@@ -190,8 +195,6 @@ _include:
   - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - fields/dbg/dbg_l0.yaml
-  - fields/dac/dac_common_1ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - fields/flash/flash_l0.yaml
   - fields/fw/fw_l0_l4.yaml
   - fields/lptim/lptim_v1.yaml

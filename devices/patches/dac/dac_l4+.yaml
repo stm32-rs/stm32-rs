@@ -1,22 +1,21 @@
-DAC:
-  _modify:
-    CR:
-      description: DAC control register
-
+_modify:
   CR:
-    _modify:
-      TSEL2:
-        bitOffset: 18
-        bitWidth: 4
-      TEN2:
-        bitOffset: 17
-      TSEL1:
-        bitOffset: 2
-        bitWidth: 4
-      TEN1:
-        bitOffset: 1
-    _add:
-      HFSEL:
-        description: High frequency interface mode enable
-        bitOffset: 15
-        bitWidth: 1
+    description: DAC control register
+
+CR:
+  _modify:
+    TSEL2:
+      bitOffset: 18
+      bitWidth: 4
+    TEN2:
+      bitOffset: 17
+    TSEL1:
+      bitOffset: 2
+      bitWidth: 4
+    TEN1:
+      bitOffset: 1
+  _add:
+    HFSEL:
+      description: High frequency interface mode enable
+      bitOffset: 15
+      bitWidth: 1

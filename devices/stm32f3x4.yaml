@@ -49,6 +49,12 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+DAC?:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA?:
   _include:
     - fields/dma/v1.yaml
@@ -265,9 +271,6 @@ _include:
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/hrtim/v1.yaml
   - patches/hrtim/f3_interrupts.yaml
   - fields/hrtim/hrtim.yaml

@@ -53,6 +53,12 @@ CRC:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_pol.yaml
 
+DAC:
+  _include:
+    - fields/dac/dac_common_2ch.yaml
+    - fields/dac/dac_wavegen.yaml
+    - fields/dac/dac_dmaudr.yaml
+
 DMA2D:
   _include:
     - fields/dma/dma2d_v1.yaml
@@ -252,9 +258,6 @@ WWDG:
 
 _include:
   - fields/hdmi_cec.yaml
-  - fields/dac/dac_wavegen.yaml
-  - fields/dac/dac_common_2ch.yaml
-  - fields/dac/dac_dmaudr.yaml
   - patches/rcc/pllsai.yaml
   - patches/rcc/add_plli2sp.yaml
   - patches/rcc/f7_apbenr.yaml
