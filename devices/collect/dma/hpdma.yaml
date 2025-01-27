@@ -1,0 +1,62 @@
+PRIVCFGR:
+  _array:
+    PRIV*: {}
+
+RCFGLOCKR:
+  _array:
+    LOCK*: {}
+
+MISR:
+  _array:
+    MIS*: {}
+
+_cluster:
+  CH%s:
+    description: Channel cluster
+    "C?LBAR,C[1][01]LBAR":
+      name: LBAR
+    "C?FCR,C[1][01]FCR":
+      name: FCR
+    "C?SR,C[1][01]SR":
+      name: SR
+    "C?CR,C[1][01]CR":
+      name: CR
+    "C?TR1,C[1][01]TR1":
+      name: TR1
+    "C?TR2,C[1][01]TR2":
+      name: TR2
+    "C?BR1,C[1][01]BR1":
+      name: BR1
+    "C?SAR,C[1][01]SAR":
+      name: SAR
+    "C?DAR,C[1][01]DAR":
+      name: DAR
+    "C?LLR,C[1][01]LLR":
+      name: LLR
+
+  CH2D%s:
+    description: Extended channel cluster
+    "C[1][2-5]LBAR":
+      name: LBAR
+    "C[1][2-5]FCR":
+      name: FCR
+    "C[1][2-5]SR":
+      name: SR
+    "C[1][2-5]CR":
+      name: CR
+    "C[1][2-5]TR1":
+      name: TR1
+    "C[1][2-5]TR2":
+      name: TR2
+    "C[1][2-5]BR1":
+      name: BR1
+    "C[1][2-5]SAR":
+      name: SAR
+    "C[1][2-5]DAR":
+      name: DAR
+    "C[1][2-5]TR3":
+      name: TR3
+    "C[1][2-5]BR2":
+      name: BR2
+    "C[1][2-5]LLR":
+      name: LLR
