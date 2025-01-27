@@ -71,6 +71,10 @@ DFSDM1:
   _modify:
     FLT1CHGR:
       name: FLT1JCHGR
+  _include:
+    - patches/dfsdm/dfsdm_l4+.yaml
+    - fields/dfsdm/dfsdm.yaml
+    - collect/dfsdm/v1.yaml
 
 DMA2D:
   _include:
@@ -339,9 +343,6 @@ _include:
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
   - patches/usb_otg/otg_fs_l4+.yaml
-  - patches/dfsdm/dfsdm_l4+.yaml
-  - fields/dfsdm/dfsdm.yaml
-  - collect/dfsdm/v1.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
   - patches/flash/l4+.yaml

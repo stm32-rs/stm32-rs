@@ -108,6 +108,11 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
+DFSDM[12]:
+  _include:
+    - patches/dfsdm/dfsdm_v1.yaml
+    - collect/dfsdm/v1.yaml
+
 DMA?:
   _include:
     - fields/dma/dma_v21.yaml
@@ -578,8 +583,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/dfsdm/dfsdm_v1.yaml
-  - collect/dfsdm/v1.yaml
   - patches/rcc/f4_fmpi2c.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml

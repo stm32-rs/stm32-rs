@@ -1,90 +1,11 @@
-DFSDM*:
-  _modify:
-    FLT1CHGR:
-      name: FLT1JCHGR
+_include: dfsdm_v1.yaml
 
-  # Remove non-existant DLYR fields.
-  _delete:
-    - "CH*DLYR"
+_modify:
+  FLT1CHGR:
+    name: FLT1JCHGR
 
-  # Add fake DFSDMEN and CKOUTSRC fields to channel registers beyond 0
-  # to permit them to be clustered.
-  CH1CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH2CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH3CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH4CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH5CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH6CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
-  CH7CFGR1:
-    _add:
-      DFSDMEN:
-        bitWidth: 1
-        bitOffset: 31
-      CKOUTSRC:
-        bitWidth: 1
-        bitOffset: 30
-      CKOUTDIV:
-        bitWidth: 8
-        bitOffset: 16
+# Remove non-existant DLYR fields.
+_delete:
+  - "CH*DLYR"
 
-  _strip: DFSDM_
+_strip: DFSDM_

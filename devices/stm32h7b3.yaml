@@ -63,6 +63,8 @@ CRYP:
 
 DFSDM*:
   _strip: DFSDM_
+  _include:
+    - collect/dfsdm/v1.yaml
 
 DMA2D:
   _include:
@@ -304,4 +306,3 @@ _include:
   - fields/rng/rng_v1.yaml
   - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
-  - collect/dfsdm/v1.yaml
