@@ -1,0 +1,20 @@
+_include: derive.yaml
+
+_derive:
+  OTYPER: GPIOA.OTYPER
+  AFRL: GPIOA.AFRL
+  "?~AFRH": GPIOA.AFRH
+  "?~HSLVR": GPIOA.HSLVR
+
+MODER:
+  _derive:
+    MODE%s: GPIOA.MODER.MODE%s
+OSPEEDR:
+  _derive:
+    OSPEED%s: GPIOA.OSPEEDR.OSPEED%s
+PUPDR:
+  _derive:
+    PUPD%s: GPIOA.PUPDR.PUPD%s
+"?~SECCFGR":
+  _derive:
+    SEC%s: GPIOA.SECCFGR.SEC%s

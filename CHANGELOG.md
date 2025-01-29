@@ -13,6 +13,7 @@
 * Manual enum names for EXRI & GPIO
 * AES enums & patches
 * HPDMA: clusters
+* Derive GPIO registers
 * H5: Array gpio registers
 * Update STM32H7 source to v1.9
 * HRTIM H7 fixe EECR3

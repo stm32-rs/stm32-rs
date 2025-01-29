@@ -146,6 +146,11 @@ GPIO?:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
 
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BD]:
+  _include: collect/gpio/v2_derive.yaml
+
 I2C2:
   _add:
     _interrupts:

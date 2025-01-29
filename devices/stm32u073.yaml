@@ -36,6 +36,11 @@ GPIO?:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
 
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCDEF]:
+  _include: collect/gpio/v2r_derive.yaml
+
 IWDG:
   _strip: IWDG_
 

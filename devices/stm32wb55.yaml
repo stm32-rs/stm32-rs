@@ -100,9 +100,13 @@ EXTI:
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
-GPIO[A-E]:
-  _include:
-    - collect/gpio/v2.yaml
+
+GPIO[A-E]: #H
+  _include: collect/gpio/v2.yaml
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCE]:
+  _include: collect/gpio/v2_derive.yaml
 
 HSEM:
   _modify:

@@ -52,6 +52,11 @@ GPIO?:
     - fields/gpio/gpio_g0_l0.yaml
     - collect/gpio/v2.yaml
 
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[B]:
+  _include: collect/gpio/v2_derive.yaml
+
 I2C?:
   _include:
     - patches/i2c/g0.yaml
