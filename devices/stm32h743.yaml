@@ -123,6 +123,12 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LTDC:
+  _include:
+    - patches/ltdc/ltdc.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
+
 MDMA:
   _include:
     - collect/dma/mdma.yaml
@@ -281,9 +287,6 @@ _include:
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
   - fields/lptim/lptim_v1.yaml
-  - patches/ltdc/ltdc.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_v3_hrtim.yaml
   - fields/rcc/rcc_h7_revision_y.yaml

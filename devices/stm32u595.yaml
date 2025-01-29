@@ -79,6 +79,11 @@ MDF1:
   _include:
     - collect/mdf/u5.yaml
 
+OCTOSPI[12]:
+  _include:
+    - patches/octospi/u5.yaml
+    - fields/octospi/u5.yaml
+
 PWR:
   CR1:
     _add:
@@ -164,7 +169,5 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - patches/octospi/u5.yaml
-  - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

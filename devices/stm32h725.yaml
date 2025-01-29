@@ -166,6 +166,10 @@ LTDC:
       LTDC_ERR:
         value: 89
         description: LCD-TFT global Error interrupt
+  _include:
+    - patches/ltdc/ltdc.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
 MDIOS:
   _strip: MDIOS_
@@ -478,9 +482,6 @@ _include:
   - fields/axi/axi_v1.yaml
   - patches/gpio/h7_jk.yaml
   - fields/lptim/lptim_v1.yaml
-  - patches/ltdc/ltdc.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_h7_revision_v.yaml
   - patches/rng/h735.yaml

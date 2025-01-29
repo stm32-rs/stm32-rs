@@ -65,6 +65,11 @@ DAC:
     - patches/dac/dac_l4+.yaml
     - fields/dac/dac_l4+.yaml
 
+DCMI:
+  _include:
+    - patches/dcmi/dcmi.yaml
+    - fields/dcmi/dcmi.yaml
+
 DFSDM1:
   _strip: DFSDM_
 
@@ -154,6 +159,10 @@ LPUART?:
       RXFNEIE:
         name: RXNEIE
 
+LTDC:
+  _include:
+    - fields/ltdc/ltdc.yaml
+
 MPU:
   _strip: MPU_
 
@@ -165,6 +174,9 @@ OCTOSPI1:
     _modify:
       CSHT:
         bitWidth: 6
+  _include:
+    - patches/octospi/l4+.yaml
+    - fields/octospi/l4.yaml
 
 RCC:
   CFGR:
@@ -333,11 +345,8 @@ _include:
   - patches/hash/hash_l4+.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
-  - fields/ltdc/ltdc.yaml
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
-  - patches/octospi/l4+.yaml
-  - fields/octospi/l4.yaml
   - patches/octospim/l4+.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/dbgmcu/l4+.yaml
@@ -351,7 +360,5 @@ _include:
   - fields/rcc/rcc_l4+.yaml
   - patches/tim/group.yaml
   - fields/pwr/pwr_l4+.yaml
-  - patches/dcmi/dcmi.yaml
-  - fields/dcmi/dcmi.yaml
   - patches/pssi/pssi.yaml
   - fields/pssi/pssi.yaml

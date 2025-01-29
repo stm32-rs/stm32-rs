@@ -143,9 +143,19 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LTDC:
+  _include:
+    - patches/ltdc/ltdc.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
+
 MDMA:
   _include:
     - collect/dma/mdma.yaml
+
+OCTOSPI?:
+  _include:
+    - patches/octospi/h7.yaml
 
 PSSI:
   _strip: PSSI_
@@ -258,7 +268,6 @@ _include:
   - patches/h7_common_highmemory.yaml
   - fields/hdmi_cec.yaml
   - collect/hsem/r.yaml
-  - patches/octospi/h7.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
@@ -272,9 +281,6 @@ _include:
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
   - fields/lptim/lptim_v1.yaml
-  - patches/ltdc/ltdc.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_h7_revision_v.yaml
   - fields/rng/rng_v1.yaml

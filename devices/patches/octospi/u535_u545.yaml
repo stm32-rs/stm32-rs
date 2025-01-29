@@ -1,10 +1,9 @@
 _include:
- - u5.yaml
+  - u5.yaml
 
-OCTOSPI[12]:
-  "*CCR":
-    _add:
-      ADSIZE:
-        description: Address size
-        bitOffset: 12
-        bitWidth: 2
+"*CCR":
+  _add:
+    ADSIZE:
+      description: Address size
+      bitOffset: 12
+      bitWidth: 2

@@ -163,6 +163,14 @@ IWDG:
 JPEG:
   _strip: JPEG_
 
+LTDC:
+  _include:
+    - patches/ltdc/f7_ltdc_interrupts.yaml
+    - patches/ltdc/ltdc.yaml
+    - patches/ltdc/f4_f7_ltdc_bccr.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
+
 MDIOS:
   _strip: MDIOS_
 
@@ -330,14 +338,9 @@ WWDG:
 _include:
   - fields/hdmi_cec.yaml
   - patches/ltdc/rename.yaml
-  - patches/ltdc/f7_ltdc_interrupts.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - collect/cryp/v2.yaml
-  - patches/ltdc/ltdc.yaml
-  - patches/ltdc/f4_f7_ltdc_bccr.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - patches/rcc/pllsai.yaml
   - patches/rcc/add_plli2sp.yaml
   - patches/rcc/f7_apbenr.yaml

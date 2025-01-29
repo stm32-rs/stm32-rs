@@ -61,6 +61,8 @@ FMC:
 
 GFXMMU:
   _strip: GFXMMU_
+  _include:
+    - collect/gfxmmu/lut.yaml
 
 GPDMA?:
   _strip: GPDMA_
@@ -95,6 +97,11 @@ MDF1:
   _strip: MDF_
   _include:
     - collect/mdf/u5.yaml
+
+OCTOSPI[12]:
+  _include:
+    - patches/octospi/u5.yaml
+    - fields/octospi/u5.yaml
 
 PWR:
   CR1:
@@ -179,8 +186,5 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - collect/gfxmmu/lut.yaml
-  - patches/octospi/u5.yaml
-  - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

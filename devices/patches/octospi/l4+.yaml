@@ -1,135 +1,132 @@
-OCTOSPI[12]:
-  _delete:
-    - HWCFGR
-    - VER
-    - ID
-    - MID
+_delete:
+  - HWCFGR
+  - VER
+  - ID
+  - MID
 
-  _add:
-    DCR4:
-      description: Device configuration register 4
-      addressOffset: 0x14
-      resetValue: 0x00000000
-      fields:
-        REFRESH:
-          description: Refresh rate
-          bitOffset: 0
-          bitWidth: 32
+_add:
+  DCR4:
+    description: Device configuration register 4
+    addressOffset: 0x14
+    resetValue: 0x00000000
+    fields:
+      REFRESH:
+        description: Refresh rate
+        bitOffset: 0
+        bitWidth: 32
 
-    WPCCR:
-      description: wrap communication configuration register
-      addressOffset: 0x140
-      resetValue: 0x00000000
-      fields:
-        DQSE:
-          description: DQS enable
-          bitOffset: 29
-          bitWidth: 1
-        DDTR:
-          description: Data double transfer rate
-          bitOffset: 27
-          bitWidth: 1
-        DMODE:
-          description: Data mode
-          bitOffset: 24
-          bitWidth: 3
-        ABSIZE:
-          description: Alternate bytes size
-          bitOffset: 20
-          bitWidth: 2
-        ABDTR:
-          description: Alternate bytes double transfer rate
-          bitOffset: 19
-          bitWidth: 1
-        ABMODE:
-          description: Alternate-byte mode
-          bitOffset: 16
-          bitWidth: 3
-        ADSIZE:
-          description: Address size
-          bitOffset: 12
-          bitWidth: 2
-        ADDTR:
-          description: Address double transfer rate
-          bitOffset: 11
-          bitWidth: 1
-        ADMODE:
-          description: Address mode
-          bitOffset: 8
-          bitWidth: 3
-        ISIZE:
-          description: Instruction size
-          bitOffset: 4
-          bitWidth: 2
-        IDTR:
-          description: Instruction double transfer rate
-          bitOffset: 3
-          bitWidth: 1
-        IMODE:
-          description: Instruction mode
-          bitOffset: 0
-          bitWidth: 3
-
-    WPTCR:
-      description: Wrap timing configuration register
-      addressOffset: 0x148
-      resetValue: 0x00000000
-      fields:
-        SSHIFT:
-          description: Sample shift
-          bitOffset: 30
-          bitWidth: 1
-        DHQC:
-          description: Delay hold quarter cycle
-          bitOffset: 28
-          bitWidth: 1
-        DCYC:
-          description: Number of dummy cycles
-          bitOffset: 0
-          bitWidth: 5
-
-    WPIR:
-      description: Wrap instruction register
-      addressOffset: 0x150
-      resetValue: 0x00000000
-      fields:
-        INSTRUCTION:
-          description: Instruction
-          bitOffset: 0
-          bitWidth: 32
-
-    WPABR:
-      description: Wrap alternate bytes register
-      addressOffset: 0x160
-      resetValue: 0x00000000
-      fields:
-        ALTERNATE:
-          description: Alternate bytes
-          bitOffset: 0
-          bitWidth: 32
-
-
-
-  CR:
-    _modify:
-      DQM:
-        name: DMM
-        description: Dual-memory configuration
-
-  DCR1:
-    _modify:
-      MTYP:
+  WPCCR:
+    description: wrap communication configuration register
+    addressOffset: 0x140
+    resetValue: 0x00000000
+    fields:
+      DQSE:
+        description: DQS enable
+        bitOffset: 29
+        bitWidth: 1
+      DDTR:
+        description: Data double transfer rate
+        bitOffset: 27
+        bitWidth: 1
+      DMODE:
+        description: Data mode
+        bitOffset: 24
         bitWidth: 3
-
-    _add:
-      DLYBYP:
-        description: Delay block bypass
+      ABSIZE:
+        description: Alternate bytes size
+        bitOffset: 20
+        bitWidth: 2
+      ABDTR:
+        description: Alternate bytes double transfer rate
+        bitOffset: 19
+        bitWidth: 1
+      ABMODE:
+        description: Alternate-byte mode
+        bitOffset: 16
+        bitWidth: 3
+      ADSIZE:
+        description: Address size
+        bitOffset: 12
+        bitWidth: 2
+      ADDTR:
+        description: Address double transfer rate
+        bitOffset: 11
+        bitWidth: 1
+      ADMODE:
+        description: Address mode
+        bitOffset: 8
+        bitWidth: 3
+      ISIZE:
+        description: Instruction size
+        bitOffset: 4
+        bitWidth: 2
+      IDTR:
+        description: Instruction double transfer rate
         bitOffset: 3
         bitWidth: 1
-
-  DCR3:
-    _add:
-      MAXTRAN:
-        description: Maximum transfer
+      IMODE:
+        description: Instruction mode
         bitOffset: 0
-        bitWidth: 8
+        bitWidth: 3
+
+  WPTCR:
+    description: Wrap timing configuration register
+    addressOffset: 0x148
+    resetValue: 0x00000000
+    fields:
+      SSHIFT:
+        description: Sample shift
+        bitOffset: 30
+        bitWidth: 1
+      DHQC:
+        description: Delay hold quarter cycle
+        bitOffset: 28
+        bitWidth: 1
+      DCYC:
+        description: Number of dummy cycles
+        bitOffset: 0
+        bitWidth: 5
+
+  WPIR:
+    description: Wrap instruction register
+    addressOffset: 0x150
+    resetValue: 0x00000000
+    fields:
+      INSTRUCTION:
+        description: Instruction
+        bitOffset: 0
+        bitWidth: 32
+
+  WPABR:
+    description: Wrap alternate bytes register
+    addressOffset: 0x160
+    resetValue: 0x00000000
+    fields:
+      ALTERNATE:
+        description: Alternate bytes
+        bitOffset: 0
+        bitWidth: 32
+
+CR:
+  _modify:
+    DQM:
+      name: DMM
+      description: Dual-memory configuration
+
+DCR1:
+  _modify:
+    MTYP:
+      bitWidth: 3
+
+  _add:
+    DLYBYP:
+      description: Delay block bypass
+      bitOffset: 3
+      bitWidth: 1
+
+DCR3:
+  _add:
+    MAXTRAN:
+      description: Maximum transfer
+      bitOffset: 0
+      bitWidth: 8

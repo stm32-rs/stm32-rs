@@ -104,6 +104,14 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LTDC:
+  _include:
+    - patches/ltdc/f7_ltdc_interrupts.yaml
+    - patches/ltdc/ltdc.yaml
+    - patches/ltdc/f4_f7_ltdc_bccr.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
+
 OTG_HS_*:
   _strip: OTG_HS_
 
@@ -296,10 +304,5 @@ _include:
   - collect/hash/v2.yaml
   - patches/dbgmcu/dbgmcu.yaml
   - collect/cryp/v2.yaml
-  - patches/ltdc/f7_ltdc_interrupts.yaml
-  - patches/ltdc/ltdc.yaml
-  - patches/ltdc/f4_f7_ltdc_bccr.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
