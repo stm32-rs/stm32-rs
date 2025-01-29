@@ -1,22 +1,27 @@
 IMR,IMR?,CPUIMR?,C?IMR?,D3PMR?:
   "MR*,IM*":
+    _name: InterruptMask
     Masked: [0, Interrupt request line is masked]
     Unmasked: [1, Interrupt request line is unmasked]
 EMR,EMR?,CPUEMR?,C?EMR?:
   "MR*,EM*":
-    Masked: [0, Interrupt request line is masked]
-    Unmasked: [1, Interrupt request line is unmasked]
+    _name: EventMask
+    Masked: [0, Event request line is masked]
+    Unmasked: [1, Event request line is unmasked]
 RTSR,RTSR?:
   "TR*,RT*":
+    _name: RisingTrigger
     Disabled: [0, Rising edge trigger is disabled]
     Enabled: [1, Rising edge trigger is enabled]
 FTSR,FTSR?:
   "TR*,FT*":
+    _name: FallingTrigger
     Disabled: [0, Falling edge trigger is disabled]
     Enabled: [1, Falling edge trigger is enabled]
 SWIER,SWIER?:
   "SWIER*,SWI*":
     _write:
+      _name: SoftwareInterrupt
       Pend: [1, Generates an interrupt request]
 PR,PR?,?PR?,CPUPR?,C?PR?:
   "PR*,PIF*,?PIF*":

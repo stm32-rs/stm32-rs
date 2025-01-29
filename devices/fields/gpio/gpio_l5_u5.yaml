@@ -6,9 +6,11 @@ _include:
 
 "?~HSLVR":
   HSLV*:
+    _name: HighSpeedLowVoltage
     Disabled: [0, I/O speed optimization disabled]
     Enabled: [1, I/O speed optimization enabled]
 "?~SECCFGR":
   SEC*:
+    _name: SecurePin
     NonSecure: [0, The I/O pin is non-secure]
     Secure: [1, The I/O pin is non-secure]
