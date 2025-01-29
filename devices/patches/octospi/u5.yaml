@@ -1,11 +1,10 @@
-OCTOSPI[12]:
-  CR:
-    _modify:
-      FTHRES:
-        description: FIFO threshold level
-      FSEL:
-        name: MSEL
-        description: External memory select
-      DQM:
-        name: DMM
-        description: Dual-memory configuration
+CR:
+  _modify:
+    FTHRES:
+      description: FIFO threshold level
+    FSEL:
+      name: MSEL
+      description: External memory select
+    DQM:
+      name: DMM
+      description: Dual-memory configuration

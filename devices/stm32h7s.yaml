@@ -25,6 +25,10 @@ DMA2D:
   _include:
     - collect/dma/dma2d_clut.yaml
 
+GFXMMU:
+  _include:
+    - collect/gfxmmu/lut.yaml
+
 GPDMA:
   _include:
     - collect/dma/gpdma/h7rs_u5.yaml
@@ -126,7 +130,6 @@ _include:
   - patches/h7_common_bootflash.yaml
   - collect/jpeg/ram_h7rs.yaml
   - collect/hash/v3.yaml
-  - collect/gfxmmu/lut.yaml
   - collect/tamp/bkp.yaml
   - collect/mce/v1.yaml
   - collect/sdmmc/fifo.yaml

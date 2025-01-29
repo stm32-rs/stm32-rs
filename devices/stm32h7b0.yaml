@@ -153,6 +153,10 @@ MDMA:
   _include:
     - collect/dma/mdma.yaml
 
+OCTOSPI?:
+  _include:
+    - patches/octospi/h7.yaml
+
 PSSI:
   _strip: PSSI_
 
@@ -264,7 +268,6 @@ _include:
   - patches/h7_common_highmemory.yaml
   - fields/hdmi_cec.yaml
   - collect/hsem/r.yaml
-  - patches/octospi/h7.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml

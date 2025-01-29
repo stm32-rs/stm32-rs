@@ -1,10 +1,9 @@
-OCTOSPI[12]:
-  _include:
-    - common.yaml
-  CR:
-    FSEL:
-      FLASH1: [0, "FLASH 1 selected (data exchanged over IO[3:0])"]
-      FLASH2: [1, "FLASH 2 selected (data exchanged over IO[7:4])"]
-    DMM:
-      Disabled: [0, Dual-quad configuration disabled]
-      Enabled: [1, Dual-quad configuration enabled]
+_include:
+  - common.yaml
+CR:
+  FSEL:
+    FLASH1: [0, "FLASH 1 selected (data exchanged over IO[3:0])"]
+    FLASH2: [1, "FLASH 2 selected (data exchanged over IO[7:4])"]
+  DMM:
+    Disabled: [0, Dual-quad configuration disabled]
+    Enabled: [1, Dual-quad configuration enabled]

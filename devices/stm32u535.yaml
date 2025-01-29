@@ -70,6 +70,11 @@ MDF1:
   _include:
     - collect/mdf/u5.yaml
 
+OCTOSPI[12]:
+  _include:
+    - patches/octospi/u535_u545.yaml
+    - fields/octospi/u5.yaml
+
 PWR:
   _delete: [PUCRF, PUCRI, PUCRJ]
   CR1:
@@ -149,7 +154,5 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - patches/octospi/u535_u545.yaml
-  - fields/octospi/u5.yaml
   - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml
