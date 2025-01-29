@@ -120,6 +120,12 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
+LTDC:
+  _include:
+    - patches/ltdc/f4_f7_ltdc_bccr.yaml
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
+
 PWR:
   CR:
     _add:
@@ -249,9 +255,6 @@ _include:
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
   - collect/cryp/v2.yaml
-  - patches/ltdc/f4_f7_ltdc_bccr.yaml
-  - fields/ltdc/ltdc.yaml
-  - collect/ltdc/layer.yaml
   - patches/rcc/sai.yaml
   - patches/rcc/dma2d_ltdc.yaml
   - patches/rcc/add_gpiojk.yaml

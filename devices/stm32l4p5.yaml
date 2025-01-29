@@ -154,6 +154,10 @@ LPUART?:
       RXFNEIE:
         name: RXNEIE
 
+LTDC:
+  _include:
+    - fields/ltdc/ltdc.yaml
+
 MPU:
   _strip: MPU_
 
@@ -333,7 +337,6 @@ _include:
   - patches/hash/hash_l4+.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
-  - fields/ltdc/ltdc.yaml
   - patches/rng/l4+.yaml
   - fields/rng/rng_wl.yaml
   - patches/octospi/l4+.yaml
