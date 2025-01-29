@@ -59,6 +59,11 @@ GPIO?:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
 
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCHIJ]:
+  _include: collect/gpio/v2r_derive.yaml
+
 GTZC1_MPCBB?:
   _strip: MPCBB?_
   _include:

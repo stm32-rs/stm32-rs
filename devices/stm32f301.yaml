@@ -91,6 +91,11 @@ GPIO?:
     - fields/gpio/v2/f3.yaml
     - collect/gpio/v2.yaml
 
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BC]:
+  _include: collect/gpio/v2_derive.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml

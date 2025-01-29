@@ -92,10 +92,11 @@ FSMC:
     - fields/fsmc/fsmc_sram.yaml
     - collect/fsmc/sram.yaml
 
-GPIO?:
+GPIOA:
   _include:
     - fields/gpio/v1/common.yaml
     - collect/gpio/f1.yaml
+    - collect/gpio/f1_derive.yaml
 
 I2C?:
   _include:

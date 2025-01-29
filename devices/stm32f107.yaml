@@ -75,10 +75,11 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
-GPIO?:
+GPIOA:
   _include:
     - fields/gpio/v1/common.yaml
     - collect/gpio/f1.yaml
+    - collect/gpio/f1_derive.yaml
 
 I2C?:
   _include:
