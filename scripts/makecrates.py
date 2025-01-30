@@ -16,7 +16,9 @@ import argparse
 import re
 import yaml
 
-VERSION = "0.15.1"
+VERSION = {
+    "default": "0.16.0",
+}
 SVD2RUST_VERSION = "0.35.0"
 
 CRATE_DOC_FEATURES = {
@@ -261,19 +263,24 @@ def main(devices_path, yes, families):
     for family in devices:
         devices[family] = sorted(devices[family])
         crate = family.lower()
+        crate_name = crate;
         features = make_features(devices[family])
         feature_list = make_feature_list(devices[family])
         mods = make_mods(devices[family])
         ufamily = family.upper()
+        if crate in VERSION:
+            version = VERSION[crate]
+        else:
+            version = VERSION["default"]
         cargo_toml = CARGO_TOML_TPL.format(
-            family=ufamily, crate=crate, version=VERSION, features=features,
+            family=ufamily, crate=crate_name, version=version, features=features,
             docs_features=str(CRATE_DOC_FEATURES[crate]),
             doc_target=CRATE_DOC_TARGETS[crate])
         readme = README_TPL.format(
-            family=ufamily, crate=crate, device=devices[family][0],
-            version=VERSION, svd2rust_version=SVD2RUST_VERSION,
+            family=ufamily, crate=crate_name, device=devices[family][0],
+            version=version, svd2rust_version=SVD2RUST_VERSION,
             devices=make_device_rows(table, family))
-        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods, crate=crate,
+        lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods, crate=crate_name,
                                        svd2rust_version=SVD2RUST_VERSION)
         build_rs = BUILD_TPL.format(devices=feature_list)
 

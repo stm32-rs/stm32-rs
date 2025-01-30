@@ -55,6 +55,7 @@
 * Add Open-CMSIS `svdconv` to for more checks
 * Add `cargo make` `yamls` task for easy compare
 * Add `derivePathType` to CMSIS-SVD schema
+* Add possibility to publish crates with different versions
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/patches moved to subdirectories
 * remove excutable file perm bit from yaml file (#854)
