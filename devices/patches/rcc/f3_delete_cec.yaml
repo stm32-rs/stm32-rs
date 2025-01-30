@@ -1,10 +1,9 @@
-RCC:
-  APB1RSTR:
-    _delete:
-      - CECRST
-  APB1ENR:
-    _delete:
-      - CECEN
-  CFGR3:
-    _delete:
-      - CECSW
+APB1RSTR:
+  _delete:
+    - CECRST
+APB1ENR:
+  _delete:
+    - CECEN
+CFGR3:
+  _delete:
+    - CECSW

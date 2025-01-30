@@ -1,0 +1,92 @@
+_modify:
+  CIFR:
+    access: read-only
+CR:
+  _modify:
+    RC48ON:
+      name: HSI48ON
+    RC48RDY:
+      name: HSI48RDY
+CRRCR:
+  _modify:
+    RC48CAL:
+      name: HSI48CAL
+CFGR:
+  _modify:
+    MCO1SEL:
+      name: MCO1
+    MCO2SEL:
+      name: MCO2
+CIER:
+  _modify:
+    RC48RDYIE:
+      name: HSI48RDYIE
+CIFR:
+  _modify:
+    RC48RDYF:
+      name: HSI48RDYF
+CICR:
+  _modify:
+    RC48RDYC:
+      name: HSI48RDYC
+BDCR:
+  _modify:
+    VSWRST:
+      name: BDRST
+    RTCSRC:
+      name: RTCSEL
+APB1LRSTR:
+  _modify:
+    USART7RST:
+      name: UART7RST
+      description: UART7 block reset
+    USART8RST:
+      name: UART8RST
+      description: UART8 block reset
+APB1LENR,C1_APB1LENR:
+  _modify:
+    USART7EN:
+      name: UART7EN
+      description: UART7 Peripheral Clocks Enable
+    USART8EN:
+      name: UART8EN
+      description: UART8 Peripheral Clocks Enable
+APB1LLPENR:
+  _modify:
+    USART7LPEN:
+      name: UART7LPEN
+      description: UART7 Peripheral Clocks Enable During CSleep Mode
+    USART8LPEN:
+      name: UART8LPEN
+      description: UART8 Peripheral Clocks Enable During CSleep Mode
+C1_APB1LLPENR:
+  _modify:
+    USART7LPEN:
+      name: UART7LPEN
+      description: UART7 Peripheral Clocks Enable During CSleep Mode
+    USART8LPEN:
+      name: UART8LPEN
+      description: UART8 Peripheral Clocks Enable During CSleep Mode
+C1_APB1LENR:
+  _modify:
+    HDMICECEN:
+      name: CECEN
+AHB2ENR,C1_AHB2ENR:
+  _modify:
+    CAMITFEN:
+      name: DCMIEN
+      description: DCMI peripheral clock
+APB1LLPENR,C1_APB1LLPENR:
+  _modify:
+    HDMICECLPEN:
+      name: CECLPEN
+AHB2LPENR,C1_AHB2LPENR:
+  _modify:
+    CAMITFLPEN:
+      name: DCMILPEN
+      description: DCMI peripheral clock enable during csleep mode
+C1_AHB3LPENR:
+  _modify:
+    FLITFLPEN:
+      name: FLASHPREN
+      description: Flash interface clock enable during csleep mode

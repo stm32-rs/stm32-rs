@@ -1,9 +1,8 @@
-RCC:
-  APB1RSTR:
-    _modify:
-      DAC3RST:
-        name: DAC2RST
-  APB1ENR:
-    _modify:
-      DAC3EN:
-        name: DAC2EN
+APB1RSTR:
+  _modify:
+    DAC3RST:
+      name: DAC2RST
+APB1ENR:
+  _modify:
+    DAC3EN:
+      name: DAC2EN

@@ -106,6 +106,16 @@ RCC:
     _modify:
       UART2RST:
         name: USART2RST
+  _include:
+    - patches/rcc/spi4.yaml
+    - patches/rcc/rename_plli2scfgr.yaml
+    - patches/rcc/f4_dckcfgr.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
 
 RTC:
   _include:
@@ -187,15 +197,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/rcc/spi4.yaml
-  - patches/rcc/rename_plli2scfgr.yaml
-  - patches/rcc/f4_dckcfgr.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

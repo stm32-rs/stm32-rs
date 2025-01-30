@@ -223,6 +223,26 @@ RCC:
         description: Main PLL division factor for I2Ss, SAIs, SYSTEM and SPDIF-Rx clocks
         bitOffset: 28
         bitWidth: 3
+  _include:
+    - patches/rcc/f4_fmpi2c.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/i2s_pllp.yaml
+    - fields/rcc/v2/i2s_pllq.yaml
+    - fields/rcc/v2/i2s_pllm.yaml
+    - fields/rcc/v2/sai_pllp.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
+    - fields/rcc/v2/dckcfgr_i2s_sai_f446.yaml
+    - fields/rcc/v2/dckcfgr_i2s12src.yaml
+    - fields/rcc/v2/dckcfgr2_48m_sd.yaml
+    - fields/rcc/v2/dckcfgr2_cecsel.yaml
+    - fields/rcc/v2/dckcfgr2_i2csel.yaml
+    - fields/rcc/v2/dckcfgr2_spdifrxsel.yaml
+    - fields/rcc/v2/ckgatenr.yaml
+    - fields/rcc/v2/pllcfgr_pllr.yaml
 
 RTC:
   _include:
@@ -345,24 +365,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/rcc/f4_fmpi2c.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_i2s_pllp.yaml
-  - fields/rcc/rcc_v2_i2s_pllq.yaml
-  - fields/rcc/rcc_v2_i2s_pllm.yaml
-  - fields/rcc/rcc_v2_sai_pllp.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s_sai_f446.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s12src.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_spdifrxsel.yaml
-  - fields/rcc/rcc_v2_ckgatenr.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
@@ -374,4 +376,3 @@ _include:
   - collect/usb_otg/hs.yaml
   - patches/usb_otg/hs_fixes_446_469.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml

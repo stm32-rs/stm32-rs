@@ -163,6 +163,12 @@ RCC:
       - USART3SW
       - UART4SW
       - UART5SW
+  _include:
+    - patches/rcc/f3.yaml
+    - patches/rcc/f3_mco.yaml
+    - patches/rcc/f3_delete_tim8.yaml
+    - fields/rcc/rcc_f3.yaml
+    - fields/rcc/rcc_pllsrc_1bit.yaml
 
 RTC:
   _include:
@@ -277,15 +283,10 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/rcc/f3.yaml
-  - patches/rcc/f3_mco.yaml
-  - patches/rcc/f3_delete_tim8.yaml
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f3.yaml
-  - fields/rcc/rcc_pllsrc_1bit.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml

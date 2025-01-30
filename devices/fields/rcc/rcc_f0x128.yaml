@@ -2,14 +2,13 @@ _include:
   - rcc_f0.yaml
   - rcc_cfgr3_cecsw.yaml
 
-RCC:
-  CFGR:
-    PLLSRC:
-      HSI_Div2: [0, HSI divided by 2 selected as PLL input clock]
-      HSI_Div_PREDIV: [1, HSI divided by PREDIV selected as PLL input clock]
-      HSE_Div_PREDIV: [2, HSE divided by PREDIV selected as PLL input clock]
-      HSI48_Div_PREDIV: [3, HSI48 divided by PREDIV selected as PLL input clock]
-  CFGR3:
-    USBSW:
-      HSI48: [0, HSI48 selected as USB clock source]
-      PLLCLK: [1, PLL clock selected as USB clock source]
+CFGR:
+  PLLSRC:
+    HSI_Div2: [0, HSI divided by 2 selected as PLL input clock]
+    HSI_Div_PREDIV: [1, HSI divided by PREDIV selected as PLL input clock]
+    HSE_Div_PREDIV: [2, HSE divided by PREDIV selected as PLL input clock]
+    HSI48_Div_PREDIV: [3, HSI48 divided by PREDIV selected as PLL input clock]
+CFGR3:
+  USBSW:
+    HSI48: [0, HSI48 selected as USB clock source]
+    PLLCLK: [1, PLL clock selected as USB clock source]

@@ -81,6 +81,19 @@ PWR:
   _include:
     - fields/pwr/pwr_v1.yaml
 
+RCC:
+  _include:
+    - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
+    - patches/rcc/f0_v18pwrrstf.yaml
+    - patches/rcc/f0_gpioe.yaml
+    - patches/rcc/f0_usart3.yaml
+    - patches/rcc/f0_usart6.yaml
+    - patches/rcc/f0_usart78.yaml
+    - patches/rcc/f0_dmaen.yaml
+    - patches/rcc/f0_usben.yaml
+    - patches/rcc/f0_hsi48cal.yaml
+    - fields/rcc/rcc_f0x128.yaml
+
 RTC:
   _derive:
     TSTR: TR
@@ -162,17 +175,7 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/rcc/f0_v18pwrrstf.yaml
-  - patches/rcc/f0_gpioe.yaml
-  - patches/rcc/f0_usart3.yaml
-  - patches/rcc/f0_usart6.yaml
-  - patches/rcc/f0_usart78.yaml
-  - patches/rcc/f0_dmaen.yaml
-  - patches/rcc/f0_usben.yaml
-  - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f0x128.yaml
   - fields/comp/comp_f0.yaml
   - patches/nvic/2_prio_bits.yaml

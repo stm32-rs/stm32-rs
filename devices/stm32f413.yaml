@@ -170,6 +170,44 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
+# Fix invalid formatting on this alternateRegister field
+OTG_FS_GLOBAL*:
+  _modify:
+    FS_GNPTXFSIZ_Host:
+      alternateRegister: GNPTXFSIZ_Device
+  _add:
+    _interrupts:
+      OTG_FS:
+        description: USB OTG FS Interrupt
+        value: 67
+
+OTG_FS_PWRCLK*:
+  _delete:
+    _interrupts:
+      - USART9
+
+OTG_FS_DEVICE*:
+  _delete:
+    _interrupts:
+      - USART10
+
+QUADSPI:
+  _add:
+    _interrupts:
+      QuadSPI:
+        value: 92
+        description: Quad-SPI global interrupt
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  _include:
+    - patches/pwr/f4.yaml
+    - patches/pwr/add_sleep.yaml
+    - patches/pwr/add_ewup.yaml
+    - fields/pwr/pwr_f410_f412_f413_f423.yaml
+
 # Add missing RCC reset/enable bits
 RCC:
   APB1RSTR:
@@ -264,44 +302,25 @@ RCC:
         bitWidth: 2
       CKSDIOSEL:
         name: SDIOSEL
-
-# Fix invalid formatting on this alternateRegister field
-OTG_FS_GLOBAL*:
-  _modify:
-    FS_GNPTXFSIZ_Host:
-      alternateRegister: GNPTXFSIZ_Device
-  _add:
-    _interrupts:
-      OTG_FS:
-        description: USB OTG FS Interrupt
-        value: 67
-
-OTG_FS_PWRCLK*:
-  _delete:
-    _interrupts:
-      - USART9
-
-OTG_FS_DEVICE*:
-  _delete:
-    _interrupts:
-      - USART10
-
-QUADSPI:
-  _add:
-    _interrupts:
-      QuadSPI:
-        value: 92
-        description: Quad-SPI global interrupt
   _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
-
-PWR:
-  _include:
-    - patches/pwr/f4.yaml
-    - patches/pwr/add_sleep.yaml
-    - patches/pwr/add_ewup.yaml
-    - fields/pwr/pwr_f410_f412_f413_f423.yaml
+    - patches/rcc/f4_fmpi2c.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/pllcfgr_pllr.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/i2s_pllsrc.yaml
+    - fields/rcc/v2/i2s_pllq.yaml
+    - fields/rcc/v2/i2s_pllm.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
+    - fields/rcc/v2/dckcfgr_i2s_sai_f4.yaml
+    - fields/rcc/v2/dckcfgr_i2s12src.yaml
+    - fields/rcc/v2/dckcfgr_dfsdm_f4.yaml
+    - fields/rcc/v2/dckcfgr2_48m_sd.yaml
+    - fields/rcc/v2/dckcfgr2_lptimsel.yaml
+    - fields/rcc/v2/dckcfgr2_i2csel.yaml
+    - fields/rcc/v2/ckgatenr.yaml
 
 RTC:
   _include:
@@ -566,24 +585,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/rcc/f4_fmpi2c.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_i2s_pllsrc.yaml
-  - fields/rcc/rcc_v2_i2s_pllq.yaml
-  - fields/rcc/rcc_v2_i2s_pllm.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s12src.yaml
-  - fields/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/rcc/rcc_v2_ckgatenr.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

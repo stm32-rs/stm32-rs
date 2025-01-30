@@ -1,0 +1,53 @@
+CFGR1:
+  MCO2SEL:
+    SYSCLK: [0, System clock selected (sys_ck)]
+    PLL2_P: [1, PLL2 oscillator clock selected (pll2_p_ck)]
+    HSE: [2, HSE clock selected (hse_ck)]
+    PLL1_P: [3, PLL1 clock selected (pll1_p_ck)]
+    CSI: [4, CSI clock selected (csi_ck)]
+    LSI: [5, LSI clock selected (lsi_ck)]
+  MCO1SEL:
+    HSI: [0, HSI clock selected (hsi_ck)]
+    LSE: [1, LSE clock selected (lse_ck)]
+    HSE: [2, HSE clock selected (hse_ck)]
+    PLL1_Q: [3, PLL1 clock selected (pll1_q_ck)]
+    HSI48: [4, HSI48 clock selected (hsi48_ck)]
+  MCO?PRE: [0, 15]
+  TIMPRE:
+    DefaultX2: [0, Timer kernel clock equal to 2x pclk by default]
+    DefaultX4: [1, Timer kernel clock equal to 4x pclk by default]
+  RTCPRE: [0, 63]
+  STOPWUCK,STOPKERWUCK:
+    HSI: [0, HSI selected as wake up clock from system Stop]
+    CSI: [1, CSI selected as wake up clock from system Stop]
+  SWS:
+    _read:
+      HSI: [0, HSI oscillator used as system clock]
+      CSI: [1, CSI oscillator used as system clock]
+      HSE: [2, HSE oscillator used as system clock]
+      PLL1: [3, PLL1 used as system clock]
+  SW:
+    HSI: [0, HSI selected as system clock]
+    CSI: [1, CSI selected as system clock]
+    HSE: [2, HSE selected as system clock]
+    PLL1: [3, PLL1 selected as system clock]
+CFGR2:
+  A?B?DIS:
+    Enabled: [0, The selected clock is enabled]
+    Disabled: [1, The selected clock is disabled]
+  PPRE*:
+    Div1: [-1, HCLK not divided]
+    Div2: [4, HCLK divided by 2]
+    Div4: [5, HCLK divided by 4]
+    Div8: [6, HCLK divided by 8]
+    Div16: [7, HCLK divided by 16]
+  HPRE:
+    Div1: [-1, SYSCLK not divided]
+    Div2: [8, SYSCLK divided by 2]
+    Div4: [9, SYSCLK divided by 4]
+    Div8: [10, SYSCLK divided by 8]
+    Div16: [11, SYSCLK divided by 16]
+    Div64: [12, SYSCLK divided by 64]
+    Div128: [13, SYSCLK divided by 128]
+    Div256: [14, SYSCLK divided by 256]
+    Div512: [15, SYSCLK divided by 512]

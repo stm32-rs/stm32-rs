@@ -97,6 +97,10 @@ IWDG:
 PKA:
   _strip: PKA_
 
+RCC:
+  _include:
+    - fields/rcc/rcc_l5.yaml
+
 RNG:
   _strip: RNG_
 
@@ -207,5 +211,4 @@ _include:
   - patches/dma/interrupt_names.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
-  - fields/rcc/rcc_l5.yaml
   - patches/adc/adc_common_group_name.yaml

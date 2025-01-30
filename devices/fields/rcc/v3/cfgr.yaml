@@ -1,0 +1,33 @@
+CFGR:
+  MCO2:
+    SYSCLK: [0, System clock selected for micro-controller clock output]
+    PLL2_P: [1, pll2_p selected for micro-controller clock output]
+    HSE: [2, HSE selected for micro-controller clock output]
+    PLL1_P: [3, pll1_p selected for micro-controller clock output]
+    CSI: [4, CSI selected for micro-controller clock output]
+    LSI: [5, LSI selected for micro-controller clock output]
+  MCO1:
+    HSI: [0, HSI selected for micro-controller clock output]
+    LSE: [1, LSE selected for micro-controller clock output]
+    HSE: [2, HSE selected for micro-controller clock output]
+    PLL1_Q: [3, pll1_q selected for micro-controller clock output]
+    HSI48: [4, HSI48 selected for micro-controller clock output]
+  MCO?PRE: [0, 15]
+  TIMPRE:
+    DefaultX2: [0, Timer kernel clock equal to 2x pclk by default]
+    DefaultX4: [1, Timer kernel clock equal to 4x pclk by default]
+  RTCPRE: [0, 63]
+  STOPWUCK,STOPKERWUCK:
+    HSI: [0, HSI selected as wake up clock from system Stop]
+    CSI: [1, CSI selected as wake up clock from system Stop]
+  SWS:
+    _read:
+      HSI: [0, HSI oscillator used as system clock]
+      CSI: [1, CSI oscillator used as system clock]
+      HSE: [2, HSE oscillator used as system clock]
+      PLL1: [3, PLL1 used as system clock]
+  SW:
+    HSI: [0, HSI selected as system clock]
+    CSI: [1, CSI selected as system clock]
+    HSE: [2, HSE selected as system clock]
+    PLL1: [3, PLL1 selected as system clock]

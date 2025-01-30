@@ -110,6 +110,13 @@ PWR:
   _include:
     - fields/pwr/pwr_v1.yaml
 
+RCC:
+  _include:
+    - patches/rcc/f1_uart45.yaml
+    - fields/rcc/rcc_f107.yaml
+    - fields/rcc/rcc_f1_f3_usb.yaml
+    - fields/rcc/rcc_cfgr2_f107.yaml
+
 RTC:
   _include:
     - fields/rtc/rtc_f1.yaml
@@ -173,12 +180,8 @@ WWDG:
         name: EWIF
 
 _include:
-  - patches/rcc/f1_uart45.yaml
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f107.yaml
-  - fields/rcc/rcc_f1_f3_usb.yaml
-  - fields/rcc/rcc_cfgr2_f107.yaml
   - patches/usb_otg/fs_fixes_107.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

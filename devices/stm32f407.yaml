@@ -134,6 +134,13 @@ RCC:
         name: USART2RST
       UART3RST:
         name: USART3RST
+  _include:
+    - patches/rcc/rename_plli2scfgr.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
 
 RNG:
   _include: fields/rng/rng_f4.yaml
@@ -243,12 +250,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - patches/rcc/rename_plli2scfgr.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/eth/eth_dma_common.yaml

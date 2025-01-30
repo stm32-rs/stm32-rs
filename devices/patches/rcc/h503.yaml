@@ -1,71 +1,70 @@
-RCC:
-  _include: h5.yaml
+_include: h5.yaml
+_add:
+  PRIVCFGR:
+    description: RCC privilege configuration register
+    addressOffset: 0x114
+    access: read-write
+    fields:
+      PRIV:
+        description: RCC functions privilege configuration
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+
+APB1HENR:
+  _modify:
+    FDCAN1EN:
+      name: FDCANEN
+      description: FDCAN peripheral clock enable
+
+APB1HLPENR:
+  _modify:
+    FDCAN1LPEN:
+      name: FDCANLPEN
+      description: FDCAN peripheral clock enable during sleep mode
+
+APB1HRSTR:
+  _modify:
+    FDCAN1RST:
+      name: FDCANRST
+      description: FDCAN block reset
+
+AHB1ENR:
   _add:
-    PRIVCFGR:
-      description: RCC privilege configuration register
-      addressOffset: 0x114
+    GTZC1EN:
+      description: GTZC1 clock enable
+      bitOffset: 24
+      bitWidth: 1
       access: read-write
-      fields:
-        PRIV:
-          description: RCC functions privilege configuration
-          bitOffset: 1
-          bitWidth: 1
-          access: read-write
 
-  APB1HENR:
-    _modify:
-      FDCAN1EN:
-        name: FDCANEN
-        description: FDCAN peripheral clock enable
+AHB1LPENR:
+  _add:
+    GTZC1LPEN:
+      description: GTZC1 clock enable during sleep mode
+      bitOffset: 24
+      bitWidth: 1
+      access: read-write
 
-  APB1HLPENR:
-    _modify:
-      FDCAN1LPEN:
-        name: FDCANLPEN
-        description: FDCAN peripheral clock enable during sleep mode
+AHB2ENR:
+  _modify:
+    ADC1EN:
+      name: ADCEN
+      description: ADC peripherals clock enabled
 
-  APB1HRSTR:
-    _modify:
-      FDCAN1RST:
-        name: FDCANRST
-        description: FDCAN block reset
+AHB2LPENR:
+  _modify:
+    ADC1LPEN:
+      name: ADCLPEN
+      description: ADC peripherals clock enable during sleep mode
 
-  AHB1ENR:
-    _add:
-      GTZC1EN:
-        description: GTZC1 clock enable
-        bitOffset: 24
-        bitWidth: 1
-        access: read-write
+AHB2RSTR:
+  _modify:
+    ADC1RST:
+      name: ADCRST
+      description: ADC block reset
 
-  AHB1LPENR:
-    _add:
-      GTZC1LPEN:
-        description: GTZC1 clock enable during sleep mode
-        bitOffset: 24
-        bitWidth: 1
-        access: read-write
-
-  AHB2ENR:
-    _modify:
-      ADC1EN:
-        name: ADCEN
-        description: ADC peripherals clock enabled
-
-  AHB2LPENR:
-    _modify:
-      ADC1LPEN:
-        name: ADCLPEN
-        description: ADC peripherals clock enable during sleep mode
-
-  AHB2RSTR:
-    _modify:
-      ADC1RST:
-        name: ADCRST
-        description: ADC block reset
-
-  CCIPR5:
-    _modify:
-      FDCAN1SEL:
-        name: FDCANSEL
-        description: FDCAN kernel clock source selection
+CCIPR5:
+  _modify:
+    FDCAN1SEL:
+      name: FDCANSEL
+      description: FDCAN kernel clock source selection

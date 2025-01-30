@@ -155,6 +155,8 @@ RCC:
         description: TIM4 Timer clock enable
         bitOffset: 2
         bitWidth: 1
+  _include:
+    - fields/rcc/rcc_f1.yaml
 
 RTC:
   _include:
@@ -223,7 +225,6 @@ WWDG:
 _include:
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

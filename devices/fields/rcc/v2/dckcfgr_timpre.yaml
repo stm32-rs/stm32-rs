@@ -1,0 +1,4 @@
+DCKCFGR,DCKCFGR1:
+  TIMPRE:
+    Mul1Or2: [0, "If the APB prescaler is configured 1, TIMxCLK = PCLKx. Otherwise, TIMxCLK = 2xPCLKx"]
+    Mul1Or4: [1, "If the APB prescaler is configured 1, 2 or 4, TIMxCLK = HCLK. Otherwise, TIMxCLK = 4xPCLKx"]

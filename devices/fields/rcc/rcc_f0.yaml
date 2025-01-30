@@ -3,67 +3,66 @@
 # PLLSRC[0] available only on STM32F04x, STM32F07x and STM32F09x
 
 _include:
-  - ./rcc_f0_f1_f3_common.yaml
-  - ./rcc_f0_f3_common.yaml
-  - ./rcc_cfgr_mcopre.yaml
-  - ./rcc_cfgr_pllnodiv.yaml
-  - ./rcc_v2_bdcr_lsedrv.yaml
-  - ./rcc_cfgr2_prediv.yaml
+  - rcc_f0_f1_f3_common.yaml
+  - rcc_f0_f3_common.yaml
+  - rcc_cfgr_mcopre.yaml
+  - rcc_cfgr_pllnodiv.yaml
+  - v2/bdcr_lsedrv.yaml
+  - rcc_cfgr2_prediv.yaml
 
-RCC:
-  CFGR:
-    _modify:
-      PLLXTPRE:
-        description: "HSE divider for PLL entry. Same bit as PREDIC[0] from CFGR2 register. Refer to it for its meaning"
-      ADCPRE:
-        description: ADCPRE is deprecated. See ADC field in CFGR2 register.
-      MCO:
-        bitWidth: 4
-
+CFGR:
+  _modify:
+    PLLXTPRE:
+      description: "HSE divider for PLL entry. Same bit as PREDIC[0] from CFGR2 register. Refer to it for its meaning"
+    ADCPRE:
+      description: ADCPRE is deprecated. See ADC field in CFGR2 register.
     MCO:
-      NoMCO: [0, "MCO output disabled, no clock on MCO"]
-      HSI14: [1, Internal RC 14 MHz (HSI14) oscillator clock selected]
-      LSI: [2, Internal low speed (LSI) oscillator clock selected]
-      LSE: [3, External low speed (LSE) oscillator clock selected]
-      SYSCLK: [4, System clock selected]
-      HSI: [5, Internal RC 8 MHz (HSI) oscillator clock selected]
-      HSE: [6, External 4-32 MHz (HSE) oscillator clock selected]
-      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
-      HSI48: [8, Internal RC 48 MHz (HSI48) oscillator clock selected]
-    SWS:
-      _read:
-        HSI: [0, HSI oscillator used as system clock]
-        HSE: [1, HSE oscillator used as system clock]
-        PLL: [2, PLL used as system clock]
-        HSI48: [3, HSI48 used as system clock (when avaiable)]
-    SW:
-      HSI: [0, HSI selected as system clock]
-      HSE: [1, HSE selected as system clock]
-      PLL: [2, PLL selected as system clock]
-      HSI48: [3, HSI48 selected as system clock (when available)]
-  CFGR3:
-    _modify:
-      ADCSW:
-        description: ADCSW is deprecated. See ADC field in CFGR2 register.
+      bitWidth: 4
 
-  CR2:
-    HSI48CAL: [0, 255]
-    HSI48RDY:
-      _read:
-        NotReady: [0, HSI48 oscillator ready]
-        Ready: [1, HSI48 oscillator ready]
-    HSI48ON:
-      "Off": [0, HSI48 oscillator off]
-      "On": [1, HSI48 oscillator on]
-    HSI14CAL: [0, 255]
-    HSI14TRIM: [0, 31]
-    HSI14DIS:
-      Allow: [0, ADC can turn on the HSI14 oscillator]
-      Disallow: [1, ADC can not turn on the HSI14 oscillator]
-    HSI14RDY:
-      _read:
-        NotReady: [0, HSI14 oscillator not ready]
-        Ready: [1, HSI14 oscillator ready]
-    HSI14ON:
-      "Off": [0, HSI14 oscillator off]
-      "On": [1, HSI14 oscillator on]
+  MCO:
+    NoMCO: [0, "MCO output disabled, no clock on MCO"]
+    HSI14: [1, Internal RC 14 MHz (HSI14) oscillator clock selected]
+    LSI: [2, Internal low speed (LSI) oscillator clock selected]
+    LSE: [3, External low speed (LSE) oscillator clock selected]
+    SYSCLK: [4, System clock selected]
+    HSI: [5, Internal RC 8 MHz (HSI) oscillator clock selected]
+    HSE: [6, External 4-32 MHz (HSE) oscillator clock selected]
+    PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+    HSI48: [8, Internal RC 48 MHz (HSI48) oscillator clock selected]
+  SWS:
+    _read:
+      HSI: [0, HSI oscillator used as system clock]
+      HSE: [1, HSE oscillator used as system clock]
+      PLL: [2, PLL used as system clock]
+      HSI48: [3, HSI48 used as system clock (when avaiable)]
+  SW:
+    HSI: [0, HSI selected as system clock]
+    HSE: [1, HSE selected as system clock]
+    PLL: [2, PLL selected as system clock]
+    HSI48: [3, HSI48 selected as system clock (when available)]
+CFGR3:
+  _modify:
+    ADCSW:
+      description: ADCSW is deprecated. See ADC field in CFGR2 register.
+
+CR2:
+  HSI48CAL: [0, 255]
+  HSI48RDY:
+    _read:
+      NotReady: [0, HSI48 oscillator ready]
+      Ready: [1, HSI48 oscillator ready]
+  HSI48ON:
+    "Off": [0, HSI48 oscillator off]
+    "On": [1, HSI48 oscillator on]
+  HSI14CAL: [0, 255]
+  HSI14TRIM: [0, 31]
+  HSI14DIS:
+    Allow: [0, ADC can turn on the HSI14 oscillator]
+    Disallow: [1, ADC can not turn on the HSI14 oscillator]
+  HSI14RDY:
+    _read:
+      NotReady: [0, HSI14 oscillator not ready]
+      Ready: [1, HSI14 oscillator ready]
+  HSI14ON:
+    "Off": [0, HSI14 oscillator off]
+    "On": [1, HSI14 oscillator on]

@@ -226,6 +226,12 @@ RCC:
     _modify:
       CRCSMEN:
         bitOffset: 12
+  _include:
+    - patches/rcc/l4_crrcr.yaml
+    - fields/rcc/rcc_l4.yaml
+    - fields/rcc/rcc_l4_usart2_3.yaml
+    - fields/rcc/rcc_l4_uart4.yaml
+    - fields/rcc/rcc_l4_uart5.yaml
 
 # RNG interrupt is incorrectly listed as 79 instead of 80
 RNG:
@@ -326,11 +332,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rcc/l4_crrcr.yaml
-  - fields/rcc/rcc_l4.yaml
-  - fields/rcc/rcc_l4_usart2_3.yaml
-  - fields/rcc/rcc_l4_uart4.yaml
-  - fields/rcc/rcc_l4_uart5.yaml
   - patches/tim/group.yaml
   - patches/dma/interrupt_names.yaml
   - patches/adc/adc_common_group_name.yaml

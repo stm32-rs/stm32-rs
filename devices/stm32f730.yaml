@@ -114,6 +114,17 @@ PWR:
   _include:
     - fields/pwr/pwr_f7.yaml
 
+RCC:
+  _include:
+    - patches/rcc/f7x23_pllsai.yaml
+    - patches/rcc/f7_lsedrv.yaml
+    - patches/rcc/f7_dckcfgr.yaml
+    - patches/rcc/f7x23_dckcfgr.yaml
+    - patches/rcc/f730_f7x2_f7x3.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/f7.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -211,14 +222,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rcc/f7x23_pllsai.yaml
-  - patches/rcc/f7_lsedrv.yaml
-  - patches/rcc/f7_dckcfgr.yaml
-  - patches/rcc/f7x23_dckcfgr.yaml
-  - patches/rcc/f730_f7x2_f7x3.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_f7.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

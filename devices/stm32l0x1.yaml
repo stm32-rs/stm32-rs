@@ -132,6 +132,9 @@ RCC:
     _modify:
       TIM3EN:
         bitOffset: 1
+  _include:
+    - fields/rcc/rcc_l0_l1_common.yaml
+    - fields/rcc/rcc_l0.yaml
 
 RTC:
   _include:
@@ -209,6 +212,4 @@ _include:
   - fields/dbg/dbg_l0.yaml
   - fields/nvic/nvic_v1.yaml
   - fields/pwr/pwr_l0.yaml
-  - fields/rcc/rcc_l0_l1_common.yaml
-  - fields/rcc/rcc_l0.yaml
   - patches/tim/group.yaml

@@ -134,6 +134,9 @@ RCC:
       OTGFSPRE:
         name: USBPRE
         description: USB prescaler
+  _include:
+    - fields/rcc/rcc_f1.yaml
+    - fields/rcc/rcc_f1_f3_usb.yaml
 
 RTC:
   _include:
@@ -216,8 +219,6 @@ WWDG:
 _include:
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f1.yaml
-  - fields/rcc/rcc_f1_f3_usb.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

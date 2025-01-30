@@ -1,100 +1,99 @@
-RCC:
-  _include: h5.yaml
-  PLL1CFGR:
-    _modify:
-      DIVM1:
-        name: PLL1M
-  PLL2CFGR:
-    _modify:
-      DIVM2:
-        name: PLL2M
-  PLL3CFGR:
-    _modify:
-      DIVM3:
-        name: PLL3M
-  CCIPR2:
-    _modify:
-      USART12SEL:
-        name: UART12SEL
-  CCIPR4:
-    _add:
-      I3C2SEL:
-        description: I3C2 kernel clock source selection
-        bitOffset: 26
-        bitWidth: 2
-        access: read-write
-  AHB2ENR:
-    _modify:
-      DAC12EN:
-        name: DAC1EN
-        description: DAC clock enable
-      ADC12EN:
-        name: ADCEN
-        description: ADC1 and 2 peripherals clock enable
-  AHB2LPENR:
-    _modify:
-      DAC12LPEN:
-        name: DAC1LPEN
-        description: DAC clock enable during sleep mode
-      ADC12LPEN:
-        name: ADCLPEN
-        description: ADC1 and 2 peripherals clock enable during sleep mode
-  AHB2RSTR:
-    _modify:
-      DAC12RST:
-        name: DAC1RST
-        description: DAC block reset
-      ADC12RST:
-        name: ADCRST
-        description: ADC1 and 2 blocks reset
-  APB1HENR:
-    _modify:
-      UCPDEN:
-        name: UCPD1EN
-        description: UCPD1 clock enable
-      FDCAN12EN:
-        name: FDCANEN
-        description: FDCAN1 and FDCAN2 peripheral clock enable
-  APB1HLPENR:
-    _modify:
-      UCPDLPEN:
-        name: UCPD1LPEN
-        description: UCPD1 clock enable during sleep mode
-      FDCAN12LPEN:
-        name: FDCANLPEN
-        description: FDCAN1 and FDCAN2 peripheral clock enable during sleep mode
-  APB1HRSTR:
-    _modify:
-      UCPDRST:
-        name: UCPD1RST
-        description: UCPD1 block reset
-      FDCAN12RST:
-        name: FDCANRST
-        description: FDCAN1 and FDCAN2 blocks reset
-  APB3ENR:
-    _add:
-      I3C2EN:
-        description: I3C2 clock enable
-        bitOffset: 9
-        bitWidth: 1
-        access: read-write
-  APB3LPENR:
-    _add:
-      I3C2LPEN:
-        description: I3C2 clock enable during sleep mode
-        bitOffset: 9
-        bitWidth: 1
-        access: read-write
-  APB3RSTR:
-    _add:
-      I3C2RST:
-        description: I3C2 block reset
-        bitOffset: 9
-        bitWidth: 1
-        access: read-write
+_include: h5.yaml
+PLL1CFGR:
+  _modify:
+    DIVM1:
+      name: PLL1M
+PLL2CFGR:
+  _modify:
+    DIVM2:
+      name: PLL2M
+PLL3CFGR:
+  _modify:
+    DIVM3:
+      name: PLL3M
+CCIPR2:
+  _modify:
+    USART12SEL:
+      name: UART12SEL
+CCIPR4:
+  _add:
+    I3C2SEL:
+      description: I3C2 kernel clock source selection
+      bitOffset: 26
+      bitWidth: 2
+      access: read-write
+AHB2ENR:
+  _modify:
+    DAC12EN:
+      name: DAC1EN
+      description: DAC clock enable
+    ADC12EN:
+      name: ADCEN
+      description: ADC1 and 2 peripherals clock enable
+AHB2LPENR:
+  _modify:
+    DAC12LPEN:
+      name: DAC1LPEN
+      description: DAC clock enable during sleep mode
+    ADC12LPEN:
+      name: ADCLPEN
+      description: ADC1 and 2 peripherals clock enable during sleep mode
+AHB2RSTR:
+  _modify:
+    DAC12RST:
+      name: DAC1RST
+      description: DAC block reset
+    ADC12RST:
+      name: ADCRST
+      description: ADC1 and 2 blocks reset
+APB1HENR:
+  _modify:
+    UCPDEN:
+      name: UCPD1EN
+      description: UCPD1 clock enable
+    FDCAN12EN:
+      name: FDCANEN
+      description: FDCAN1 and FDCAN2 peripheral clock enable
+APB1HLPENR:
+  _modify:
+    UCPDLPEN:
+      name: UCPD1LPEN
+      description: UCPD1 clock enable during sleep mode
+    FDCAN12LPEN:
+      name: FDCANLPEN
+      description: FDCAN1 and FDCAN2 peripheral clock enable during sleep mode
+APB1HRSTR:
+  _modify:
+    UCPDRST:
+      name: UCPD1RST
+      description: UCPD1 block reset
+    FDCAN12RST:
+      name: FDCANRST
+      description: FDCAN1 and FDCAN2 blocks reset
+APB3ENR:
+  _add:
+    I3C2EN:
+      description: I3C2 clock enable
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+APB3LPENR:
+  _add:
+    I3C2LPEN:
+      description: I3C2 clock enable during sleep mode
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+APB3RSTR:
+  _add:
+    I3C2RST:
+      description: I3C2 block reset
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
 
-  CCIPR5:
-    _modify:
-      FDCAN12SEL:
-        name: FDCANSEL
-        description: FDCAN kernel clock source selection
+CCIPR5:
+  _modify:
+    FDCAN12SEL:
+      name: FDCANSEL
+      description: FDCAN kernel clock source selection

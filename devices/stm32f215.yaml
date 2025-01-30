@@ -103,6 +103,13 @@ RCC:
         name: USART2RST
       UART3RST:
         name: USART3RST
+  _include:
+    - patches/rcc/f2.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
 
 RTC:
   _derive:
@@ -177,12 +184,6 @@ WWDG:
 _include:
   - patches/ethernet/f2_f4.yaml
   - patches/ethernet/mmc.yaml
-  - patches/rcc/f2.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

@@ -1,0 +1,9 @@
+# Revision V of H7 has HSICFGR / CSICFGR instead of ICSCR.
+
+# Does not apply to Revsion Y of H7
+
+_include:
+  - hsicfgr.yaml
+
+CSICFGR:
+  CSITRIM: [0, 0x3F]

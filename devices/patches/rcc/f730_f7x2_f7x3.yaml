@@ -1,18 +1,17 @@
-RCC:
-  APB1RSTR:
-    _delete:
-      - CECRST
-  AHB1LPENR:
-    _delete:
-      - ETH*
-      - DMA2DLPEN
-      - GPIOKLPEN
-      - GPIOJLPEN
-  APB1LPENR:
-    _delete:
-      - CAN2LPEN
-    _add:
-      RTCAPBLPEN:
-        description: RTCAPB clock enable during Sleep mode
-        bitOffset: 10
-        bitWidth: 1
+APB1RSTR:
+  _delete:
+    - CECRST
+AHB1LPENR:
+  _delete:
+    - ETH*
+    - DMA2DLPEN
+    - GPIOKLPEN
+    - GPIOJLPEN
+APB1LPENR:
+  _delete:
+    - CAN2LPEN
+  _add:
+    RTCAPBLPEN:
+      description: RTCAPB clock enable during Sleep mode
+      bitOffset: 10
+      bitWidth: 1

@@ -1,57 +1,56 @@
 # RCC peripheral
 # Applicable to STM32L1xx
 
-RCC:
-  CFGR:
-    MCOSEL:
-      NoClock: [0, No clock]
-      SYSCLK: [1, SYSCLK clock selected]
-      HSI: [2, HSI oscillator clock selected]
-      MSI: [3, MSI oscillator clock selected]
-      HSE: [4, HSE oscillator clock selected]
-      PLL: [5, PLL clock selected]
-      LSI: [6, LSI oscillator clock selected]
-      LSE: [7, LSE oscillator clock selected]
-    PLLSRC:
-      HSI: [0, HSI selected as PLL input clock]
-      HSE: [1, HSE selected as PLL input clock]
-    SWS:
-      _read:
-        HSI: [0, MSI oscillator used as system clock]
-        MSI: [1, HSI oscillator used as system clock]
-        HSE: [2, HSE oscillator used as system clock]
-        PLL: [3, PLL used as system clock]
-    SW:
+CFGR:
+  MCOSEL:
+    NoClock: [0, No clock]
+    SYSCLK: [1, SYSCLK clock selected]
+    HSI: [2, HSI oscillator clock selected]
+    MSI: [3, MSI oscillator clock selected]
+    HSE: [4, HSE oscillator clock selected]
+    PLL: [5, PLL clock selected]
+    LSI: [6, LSI oscillator clock selected]
+    LSE: [7, LSE oscillator clock selected]
+  PLLSRC:
+    HSI: [0, HSI selected as PLL input clock]
+    HSE: [1, HSE selected as PLL input clock]
+  SWS:
+    _read:
       HSI: [0, MSI oscillator used as system clock]
       MSI: [1, HSI oscillator used as system clock]
       HSE: [2, HSE oscillator used as system clock]
       PLL: [3, PLL used as system clock]
-  CIR:
-    "*CSSC":
-      _write:
-        Clear: [1, Clear interrupt]
-    "*RDYC":
-      _write:
-        Clear: [1, Clear interrupt]
-    LSECSSIE:
-      Disabled: [0, LSE CSS interrupt disabled]
-      Enabled: [1, LSE CSS interrupt enabled]
-    "*RDYIE":
-      Disabled: [0, Interrupt disabled]
-      Enabled: [1, Interrupt enabled]
-    CSSF:
-      _read:
-        NotInterupted: [0, No clock security interrupt caused by HSE clock failure]
-        Interupted: [1, Clock security interrupt caused by HSE clock failure]
-    LSECSSF:
-      _read:
-        NoFailure: [0, No failure detected on the external 32 KHz oscillator]
-        Failure: [1, A failure is detected on the external 32 kHz oscillator]
-    "*RDYF":
-      _read:
-        NotStable: [0, Clock is not stable]
-        Stable: [1, Clock is stable]
-  AHBLPENR:
-    "*EN":
-      Disabled: [0, Clock disabled]
-      Enabled: [1, Clock enabled]
+  SW:
+    HSI: [0, MSI oscillator used as system clock]
+    MSI: [1, HSI oscillator used as system clock]
+    HSE: [2, HSE oscillator used as system clock]
+    PLL: [3, PLL used as system clock]
+CIR:
+  "*CSSC":
+    _write:
+      Clear: [1, Clear interrupt]
+  "*RDYC":
+    _write:
+      Clear: [1, Clear interrupt]
+  LSECSSIE:
+    Disabled: [0, LSE CSS interrupt disabled]
+    Enabled: [1, LSE CSS interrupt enabled]
+  "*RDYIE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
+  CSSF:
+    _read:
+      NotInterupted: [0, No clock security interrupt caused by HSE clock failure]
+      Interupted: [1, Clock security interrupt caused by HSE clock failure]
+  LSECSSF:
+    _read:
+      NoFailure: [0, No failure detected on the external 32 KHz oscillator]
+      Failure: [1, A failure is detected on the external 32 kHz oscillator]
+  "*RDYF":
+    _read:
+      NotStable: [0, Clock is not stable]
+      Stable: [1, Clock is stable]
+AHBLPENR:
+  "*EN":
+    Disabled: [0, Clock disabled]
+    Enabled: [1, Clock enabled]

@@ -2,28 +2,27 @@
 # Applicable to STM32F1
 
 _include:
-  - ./rcc_f0_f1_f3_common.yaml
-  - ./rcc_pllsrc_1bit.yaml
+  - rcc_f0_f1_f3_common.yaml
+  - rcc_pllsrc_1bit.yaml
 
-RCC:
-  CFGR:
-    SWS:
-      _read:
-        HSI: [0, HSI oscillator used as system clock]
-        HSE: [1, HSE oscillator used as system clock]
-        PLL: [2, PLL used as system clock]
-    SW:
-      HSI: [0, HSI selected as system clock]
-      HSE: [1, HSE selected as system clock]
-      PLL: [2, PLL selected as system clock]
-    MCO:
-      NoMCO: [0, "MCO output disabled, no clock on MCO"]
-      SYSCLK: [4, System clock selected]
-      HSI: [5, HSI oscillator clock selected]
-      HSE: [6, HSE oscillator clock selected]
-      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
-    ADCPRE:
-      Div2: [0, PCLK2 divided by 2]
-      Div4: [1, PCLK2 divided by 4]
-      Div6: [2, PCLK2 divided by 8]
-      Div8: [3, PCLK2 divided by 16]
+CFGR:
+  SWS:
+    _read:
+      HSI: [0, HSI oscillator used as system clock]
+      HSE: [1, HSE oscillator used as system clock]
+      PLL: [2, PLL used as system clock]
+  SW:
+    HSI: [0, HSI selected as system clock]
+    HSE: [1, HSE selected as system clock]
+    PLL: [2, PLL selected as system clock]
+  MCO:
+    NoMCO: [0, "MCO output disabled, no clock on MCO"]
+    SYSCLK: [4, System clock selected]
+    HSI: [5, HSI oscillator clock selected]
+    HSE: [6, HSE oscillator clock selected]
+    PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+  ADCPRE:
+    Div2: [0, PCLK2 divided by 2]
+    Div4: [1, PCLK2 divided by 4]
+    Div6: [2, PCLK2 divided by 8]
+    Div8: [3, PCLK2 divided by 16]

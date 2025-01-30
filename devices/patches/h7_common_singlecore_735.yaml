@@ -18,61 +18,6 @@ FLASH:
     #BOOT_PRGR:
     #  access: read-write
 
-RCC:
-  _modify:
-    CIFR:
-      access: read-only
-  CR:
-    _modify:
-      RC48ON:
-        name: HSI48ON
-      RC48RDY:
-        name: HSI48RDY
-  CIER:
-    _modify:
-      RC48RDYIE:
-        name: HSI48RDYIE
-  CIFR:
-    _modify:
-      RC48RDYF:
-        name: HSI48RDYF
-  CICR:
-    _modify:
-      RC48RDYC:
-        name: HSI48RDYC
-  APB1LRSTR:
-    _modify:
-      USART7RST:
-        name: UART7RST
-        description: UART7 block reset
-      USART8RST:
-        name: UART8RST
-        description: UART8 block reset
-  APB1LLPENR:
-    _modify:
-      USART7LPEN:
-        name: UART7LPEN
-        description: UART7 Peripheral Clocks Enable During CSleep Mode
-      USART8LPEN:
-        name: UART8LPEN
-        description: UART8 Peripheral Clocks Enable During CSleep Mode
-  C1_APB1LLPENR:
-    _modify:
-      USART7LPEN:
-        name: UART7LPEN
-        description: UART7 Peripheral Clocks Enable During CSleep Mode
-      USART8LPEN:
-        name: UART8LPEN
-        description: UART8 Peripheral Clocks Enable During CSleep Mode
-  AHB1ENR,C1_AHB1ENR:
-    _modify:
-      USB1OTGHSEN:
-        name: USB1OTGEN
-  AHB1LPENR,C1_AHB1LPENR:
-    _modify:
-      USB1OTGHSLPEN:
-        name: USB1OTGLPEN
-
 Ethernet_MAC:
   MACLETR:
     _modify:

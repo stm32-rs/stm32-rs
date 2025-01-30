@@ -180,6 +180,24 @@ PWR:
   _include:
     - fields/pwr/pwr_f7.yaml
 
+RCC:
+  _include:
+    - patches/rcc/pllsai.yaml
+    - patches/rcc/add_plli2sp.yaml
+    - patches/rcc/f7_apbenr.yaml
+    - patches/rcc/f7_lsedrv.yaml
+    - patches/rcc/f7_rename_dckcfgr.yaml
+    - patches/rcc/f7_dckcfgr.yaml
+    - patches/rcc/f7_dckcfgr_sdmmc1.yaml
+    - patches/rcc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/f7.yaml
+    - fields/rcc/v2/i2s_pllp.yaml
+    - fields/rcc/v2/sai_pllr.yaml
+    - fields/rcc/v2/dckcfgr_saidivr.yaml
+    - fields/rcc/v2/dckcfgr2_cecsel.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -333,21 +351,6 @@ _include:
   - patches/f7_lptim_interrupt.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
-  - patches/rcc/pllsai.yaml
-  - patches/rcc/add_plli2sp.yaml
-  - patches/rcc/f7_apbenr.yaml
-  - patches/rcc/f7_lsedrv.yaml
-  - patches/rcc/f7_rename_dckcfgr.yaml
-  - patches/rcc/f7_dckcfgr.yaml
-  - patches/rcc/f7_dckcfgr_sdmmc1.yaml
-  - patches/rcc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_f7.yaml
-  - fields/rcc/rcc_v2_i2s_pllp.yaml
-  - fields/rcc/rcc_v2_sai_pllr.yaml
-  - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_cecsel.yaml
   - patches/adc/adc_common_group_name.yaml
   - fields/eth/eth_dma_common.yaml
   - fields/eth/eth_dma_mb_edfe_dmarswtr.yaml

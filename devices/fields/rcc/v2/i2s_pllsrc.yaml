@@ -1,0 +1,6 @@
+# Applicable at least to some STM32F4
+
+PLLI2SCFGR:
+  PLLI2SSRC:
+    HSE_HSI: [0, HSE or HSI depending on PLLSRC of PLLCFGR]
+    External: [1, External AFI clock (CK_PLLI2S_EXT) selected as PLL clock entry]

@@ -2,8 +2,7 @@ _include:
   - rcc_f0.yaml
   - rcc_pllsrc_1bit.yaml
 
-RCC:
-  CFGR3:
-    USBSW:
-      Disabled: [0, USB clock disabled]
-      PLLCLK: [1, PLL clock selected as USB clock source]
+CFGR3:
+  USBSW:
+    Disabled: [0, USB clock disabled]
+    PLLCLK: [1, PLL clock selected as USB clock source]

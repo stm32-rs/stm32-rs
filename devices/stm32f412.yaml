@@ -213,6 +213,21 @@ RCC:
         bitWidth: 2
       CKSDIOSEL:
         name: SDIOSEL
+  _include:
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/pllcfgr_pllr.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/i2s_pllsrc.yaml
+    - fields/rcc/v2/i2s_pllq.yaml
+    - fields/rcc/v2/i2s_pllm.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
+    - fields/rcc/v2/dckcfgr_i2s12src.yaml
+    - fields/rcc/v2/dckcfgr_dfsdm_f4.yaml
+    - fields/rcc/v2/dckcfgr2_48m_sd.yaml
+    - fields/rcc/v2/dckcfgr2_i2csel.yaml
+    - fields/rcc/v2/ckgatenr.yaml
 
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
@@ -332,20 +347,6 @@ WWDG:
 
 _include:
   - patches/i2c/f4_fmpi2c.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_i2s_pllsrc.yaml
-  - fields/rcc/rcc_v2_i2s_pllq.yaml
-  - fields/rcc/rcc_v2_i2s_pllm.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s12src.yaml
-  - fields/rcc/rcc_v2_dckcfgr_dfsdm_f4.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_48m_sd.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
-  - fields/rcc/rcc_v2_ckgatenr.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

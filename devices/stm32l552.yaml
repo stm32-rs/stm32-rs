@@ -86,6 +86,10 @@ IWDG:
 RNG:
   _strip: RNG_
 
+RCC:
+  _include:
+    - fields/rcc/rcc_l5.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -191,5 +195,4 @@ _include:
   - patches/dma/interrupt_names.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
-  - fields/rcc/rcc_l5.yaml
   - patches/adc/adc_common_group_name.yaml
