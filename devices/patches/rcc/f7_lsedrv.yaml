@@ -1,8 +1,7 @@
-RCC:
-  BDCR:
-    _add:
-      LSEDRV:
-        description: LSE oscillator drive capability
-        bitOffset: 3
-        bitWidth: 2
-        access: read-write
+BDCR:
+  _add:
+    LSEDRV:
+      description: LSE oscillator drive capability
+      bitOffset: 3
+      bitWidth: 2
+      access: read-write

@@ -111,6 +111,8 @@ RCC:
   APB2RSTR:
     _delete:
       - ADC2RST
+  _include:
+    - fields/rcc/rcc_f1.yaml
 
 RTC:
   _include:
@@ -187,7 +189,6 @@ WWDG:
 _include:
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

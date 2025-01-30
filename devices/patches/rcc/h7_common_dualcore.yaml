@@ -1,0 +1,185 @@
+_modify:
+  CIFR:
+    access: read-only
+
+D3CFGR:
+  _delete: "*"
+  _add:
+    D3PPRE:
+      description: D3 domain APB4 prescaler
+      bitOffset: 4
+      bitWidth: 3
+D1CCIPR:
+  _add:
+    DSISEL:
+      description: kernel clock source selection
+      bitOffset: 8
+      bitWidth: 1
+
+CSICFGR:
+  _modify:
+    CSICAL:
+      bitWidth: 10
+CR:
+  _modify:
+    RC48ON:
+      name: HSI48ON
+    RC48RDY:
+      name: HSI48RDY
+CRRCR:
+  _modify:
+    RC48CAL:
+      name: HSI48CAL
+CFGR:
+  _modify:
+    MCO1SEL:
+      name: MCO1
+    MCO2SEL:
+      name: MCO2
+CIER:
+  _modify:
+    RC48RDYIE:
+      name: HSI48RDYIE
+CIFR:
+  _modify:
+    RC48RDYF:
+      name: HSI48RDYF
+CICR:
+  _modify:
+    RC48RDYC:
+      name: HSI48RDYC
+BDCR:
+  _modify:
+    VSWRST:
+      name: BDRST
+    RTCSRC:
+      name: RTCSEL
+GCR:
+  _add:
+    WW2RSC:
+      description: WWDG2 reset scope control
+      bitOffset: 1
+      bitWidth: 1
+    BOOT_C1:
+      description: Force allow CPU1 to boot
+      bitOffset: 2
+      bitWidth: 1
+    BOOT_C2:
+      description: Force allow CPU2 to boot
+      bitOffset: 3
+      bitWidth: 1
+APB1LRSTR:
+  _modify:
+    USART7RST:
+      name: UART7RST
+      description: UART7 block reset
+    USART8RST:
+      name: UART8RST
+      description: UART8 block reset
+    HDMICECRST:
+      name: CECRST
+APB1LENR,C1_APB1LENR:
+  _add:
+    WWDG2EN:
+      description: WWDG2 peripheral clock enable
+      bitOffset: 11
+      bitWidth: 1
+  _modify:
+    USART7EN:
+      name: UART7EN
+      description: UART7 Peripheral Clocks Enable
+    USART8EN:
+      name: UART8EN
+      description: UART8 Peripheral Clocks Enable
+    HDMICECEN:
+      name: CECEN
+APB1LLPENR,C1_APB1LLPENR:
+  _add:
+    WWDG2LPEN:
+      description: WWDG2 peripheral Clocks Enable During CSleep Mode
+      bitOffset: 11
+      bitWidth: 1
+  _modify:
+    USART7LPEN:
+      name: UART7LPEN
+      description: UART7 Peripheral Clocks Enable During CSleep Mode
+    USART8LPEN:
+      name: UART8LPEN
+      description: UART8 Peripheral Clocks Enable During CSleep Mode
+    HDMICECLPEN:
+      name: CECLPEN
+APB3ENR,C1_APB3ENR:
+  _add:
+    DSIEN:
+      description: DSI Peripheral clocks enable
+      bitOffset: 4
+      bitWidth: 1
+APB3LPENR,C1_APB3LPENR:
+  _add:
+    DSILPEN:
+      description: DSI Peripheral Clock Enable During CSleep Mode
+      bitOffset: 4
+      bitWidth: 1
+APB3RSTR:
+  _add:
+    DSIRST:
+      description: DSI block reset
+      bitOffset: 4
+      bitWidth: 1
+AHB1RSTR:
+  _add:
+    ARTRST:
+      description: ART block reset
+      bitOffset: 14
+      bitWidth: 1
+AHB1ENR,C1_AHB1ENR:
+  _add:
+    ARTEN:
+      description: ART Clock Enable
+      bitOffset: 14
+      bitWidth: 1
+AHB2ENR,C1_AHB2ENR:
+  _modify:
+    CAMITFEN:
+      name: DCMIEN
+      description: DCMI peripheral clock
+AHB1LPENR:
+  _add:
+    ARTLPEN:
+      description: ART Clock Enable During CSleep Mode
+      bitOffset: 14
+      bitWidth: 1
+C1_AHB1LPENR:
+  _add:
+    ARTLPEN:
+      description: ART Clock Enable During CSleep Mode
+      bitOffset: 14
+      bitWidth: 1
+AHB2LPENR,C1_AHB2LPENR:
+  _modify:
+    CAMITFLPEN:
+      name: DCMILPEN
+      description: DCMI peripheral clock enable during csleep mode
+AHB3ENR:
+  _add:
+    DTCM1EN:
+      description: D1 DTCM1 block enable
+      bitOffset: 28
+      bitWidth: 1
+    DTCM2EN:
+      description: D1 DTCM2 block enable
+      bitOffset: 29
+      bitWidth: 1
+    ITCM1EN:
+      description: D1 ITCM block enable
+      bitOffset: 30
+      bitWidth: 1
+    AXISRAMEN:
+      description: AXISRAM block enable
+      bitOffset: 31
+      bitWidth: 1
+C1_AHB3LPENR:
+  _modify:
+    FLITFLPEN:
+      name: FLASHPREN
+      description: Flash interface clock enable during csleep mode

@@ -156,6 +156,8 @@ RCC:
         bitOffset: 19
         bitWidth: 1
         access: read-write
+  _include:
+    - fields/rcc/rcc_l4.yaml
 
 RTC:
   _include:
@@ -237,6 +239,5 @@ WWDG:
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:
-  - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
   - patches/adc/l4_adc_common.yaml

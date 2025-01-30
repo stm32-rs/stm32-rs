@@ -99,6 +99,20 @@ RCC:
         description: SPI4 reset
         bitOffset: 13
         bitWidth: 1
+  _include:
+    - patches/rcc/spi5.yaml
+    - patches/rcc/rename_plli2scfgr.yaml
+    - patches/rcc/add_plli2sm.yaml
+    - patches/rcc/f4_dckcfgr.yaml
+    - patches/rcc/f41x_bdcr_lsemod.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/i2s_pllm.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
 
 RTC:
   _include:
@@ -194,19 +208,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/rcc/spi5.yaml
-  - patches/rcc/rename_plli2scfgr.yaml
-  - patches/rcc/add_plli2sm.yaml
-  - patches/rcc/f4_dckcfgr.yaml
-  - patches/rcc/f41x_bdcr_lsemod.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_i2s_pllm.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

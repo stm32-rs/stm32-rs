@@ -1,7 +1,0 @@
-RCC:
-  DCKCFGR:
-    I2S?SRC:
-      PLLI2SR: [0, "I2Sx clock frequency = f(PLLI2S_R)"]
-      I2S_CKIN: [1, "I2Sx clock frequency = I2S_CKIN Alternate function input frequency"]
-      PLLR: [2, "I2Sx clock frequency = f(PLL_R)"]
-      HSI_HSE: [3, "I2Sx clock frequency = HSI/HSE depends on PLLSRC bit (PLLCFGR[22])"]

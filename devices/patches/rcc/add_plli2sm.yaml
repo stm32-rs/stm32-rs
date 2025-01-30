@@ -1,7 +1,6 @@
-RCC:
-  PLLI2SCFGR:
-    _add:
-      PLLI2SM:
-        description: Division factor for the audio PLL (PLLI2S) input clock
-        bitOffset: 0
-        bitWidth: 6
+PLLI2SCFGR:
+  _add:
+    PLLI2SM:
+      description: Division factor for the audio PLL (PLLI2S) input clock
+      bitOffset: 0
+      bitWidth: 6

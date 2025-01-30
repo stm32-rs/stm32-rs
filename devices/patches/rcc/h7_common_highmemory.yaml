@@ -1,0 +1,46 @@
+_strip: C1_
+
+_add:
+  # This doesn't exist in RM0455 Rev 3, but the WW1RSC field is
+  # referenced in Section 8.7.42. So we assume it does exist in the same
+  # place as the other parts in the family.
+  GCR:
+    description: Global Control Register
+    addressOffset: 0x00A0
+    resetValue: 0x00000000
+    access: read-write
+    fields:
+      WW1RSC:
+        description: WWDG1 reset scope control
+        bitOffset: 0
+        bitWidth: 1
+
+CFGR:
+  _modify:
+    MCO1SEL:
+      name: MCO1
+    MCO2SEL:
+      name: MCO2
+AHB3ENR:
+  _add:
+    DTCM1EN:
+      description: D1 DTCM1 block enable
+      bitOffset: 28
+      bitWidth: 1
+    DTCM2EN:
+      description: D1 DTCM2 block enable
+      bitOffset: 29
+      bitWidth: 1
+    ITCM1EN:
+      description: D1 ITCM block enable
+      bitOffset: 30
+      bitWidth: 1
+    AXISRAMEN:
+      description: AXISRAM block enable
+      bitOffset: 31
+      bitWidth: 1
+AHB3LPENR:
+  _modify:
+    FLITFLPEN:
+      name: FLASHPREN
+      description: Flash interface clock enable during csleep mode

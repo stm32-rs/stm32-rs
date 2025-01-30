@@ -197,6 +197,9 @@ RCC:
     _modify:
       MCOSEL:
         bitWidth: 4
+  _include:
+    - patches/rcc/l4+.yaml
+    - fields/rcc/rcc_l4+.yaml
 
 RNG:
   _include:
@@ -374,8 +377,6 @@ _include:
   - patches/usb_otg/otg_fs_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - patches/rcc/l4+.yaml
-  - fields/rcc/rcc_l4+.yaml
   - patches/tim/group.yaml
   - patches/pssi/pssi.yaml
   - fields/pssi/pssi.yaml

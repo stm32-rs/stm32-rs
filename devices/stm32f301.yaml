@@ -141,6 +141,13 @@ RCC:
     _modify:
       TIM17SW:
         bitWidth: 1
+  _include:
+    - patches/rcc/f3.yaml
+    - patches/rcc/f3_i2c3.yaml
+    - patches/rcc/f3_delete_cec.yaml
+    - fields/rcc/rcc_f3.yaml
+    - fields/rcc/rcc_f3_i2s.yaml
+    - fields/rcc/rcc_pllsrc_1bit.yaml
 
 RTC:
   _include:
@@ -240,16 +247,10 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/rcc/f3.yaml
-  - patches/rcc/f3_i2c3.yaml
-  - patches/rcc/f3_delete_cec.yaml
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp2_inp_dac.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f3.yaml
-  - fields/rcc/rcc_f3_i2s.yaml
-  - fields/rcc/rcc_pllsrc_1bit.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml

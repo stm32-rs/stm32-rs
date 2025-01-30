@@ -68,6 +68,11 @@ PWR:
   _include:
     - fields/pwr/pwr_h5.yaml
 
+RCC:
+  _include:
+    - patches/rcc/h56x_h57x.yaml
+    - fields/rcc/v3/h56x_h57x.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -186,8 +191,5 @@ _include:
   - patches/h56x_h57x.yaml
 
   # - collect/flash/secbbr.yaml
-
-  - patches/rcc/h56x_h57x.yaml
-  - fields/rcc/rcc_h56x_h57x.yaml
 
   - fields/crs/crs.yaml

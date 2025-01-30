@@ -201,6 +201,21 @@ RCC:
         name: CK48MSEL
       SDMMCSEL:
         name: SDIOSEL
+  _include:
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/pllcfgr_pllr.yaml
+    - fields/rcc/v2/i2s.yaml
+    - fields/rcc/v2/i2s_pll.yaml
+    - fields/rcc/v2/i2s_pllq.yaml
+    - fields/rcc/v2/sai_pllp.yaml
+    - fields/rcc/v2/sai_pllr.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
+    - fields/rcc/v2/dckcfgr_i2s_sai_f4.yaml
+    - fields/rcc/v2/dckcfgr_saidivr.yaml
+    - fields/rcc/v2/dckcfgr_48m_sd.yaml
+    - fields/rcc/v2/dckcfgr_dsisel.yaml
 
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
@@ -319,20 +334,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - fields/rcc/rcc_v2_i2s.yaml
-  - fields/rcc/rcc_v2_i2s_pll.yaml
-  - fields/rcc/rcc_v2_i2s_pllq.yaml
-  - fields/rcc/rcc_v2_sai_pllp.yaml
-  - fields/rcc/rcc_v2_sai_pllr.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2s_sai_f4.yaml
-  - fields/rcc/rcc_v2_dckcfgr_saidivr.yaml
-  - fields/rcc/rcc_v2_dckcfgr_48m_sd.yaml
-  - fields/rcc/rcc_v2_dckcfgr_dsisel.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - fields/eth/eth_dma_common.yaml

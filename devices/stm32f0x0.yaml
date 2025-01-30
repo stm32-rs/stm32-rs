@@ -76,6 +76,16 @@ RCC:
       PLLSRC:
         bitOffset: 16
         bitWidth: 1
+  _include:
+    - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
+    - patches/rcc/f0_no_hdmi_cec.yaml
+    - patches/rcc/f0_v18pwrrstf.yaml
+    - patches/rcc/f0_usart3.yaml
+    - patches/rcc/f0_usart6.yaml
+    - patches/rcc/f0_dmaen.yaml
+    - patches/rcc/f0_usben.yaml
+    - patches/rcc/f0_hsi48cal.yaml
+    - fields/rcc/rcc_f0x0.yaml
 
 RTC:
   _derive:
@@ -161,14 +171,5 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
-  - patches/rcc/f0_no_hdmi_cec.yaml
-  - patches/rcc/f0_v18pwrrstf.yaml
-  - patches/rcc/f0_usart3.yaml
-  - patches/rcc/f0_usart6.yaml
-  - patches/rcc/f0_dmaen.yaml
-  - patches/rcc/f0_usben.yaml
-  - patches/rcc/f0_hsi48cal.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f0x0.yaml
   - patches/nvic/2_prio_bits.yaml

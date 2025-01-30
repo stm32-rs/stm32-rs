@@ -1,0 +1,80 @@
+# Common RCC patches for H5 chips
+# The H562/3 and H573 chips are typically a superset of H503, so additional fields
+# need to be specified for those chips. Some registers (notably CCIPRx) because of
+# difference in available clocks between H503 and (H562/3 and H573 family)
+
+_include:
+  - common.yaml
+  - cr_hseext.yaml
+  - hsicfgr.yaml
+  - cfgr1_cfgr2.yaml
+  - bdcr_ext.yaml
+
+CSICFGR:
+  CSITRIM: [0, 0x3F]
+PLL?CFGR:
+  PLL??EN:
+    Disabled: [0, Clock output is disabled]
+    Enabled: [1, Clock output is enabled]
+  PLL?M: [0, 0, 0x3F]
+  PLL?VCOSEL:
+    WideVCO: [0, VCO frequency range 192 to 836 MHz]
+    MediumVCO: [1, VCO frequency range 150 to 420 MHz]
+  PLL?FRACEN:
+    Reset: [0, Reset latch to transfer FRACN to the Sigma-Delta modulator]
+    Set: [1, Set latch to transfer FRACN to the Sigma-Delta modulator]
+  PLL?RGE:
+    Range1: [0, Frequency is between 1 and 2 MHz]
+    Range2: [1, Frequency is between 2 and 4 MHz]
+    Range4: [2, Frequency is between 4 and 8 MHz]
+    Range8: [3, Frequency is between 8 and 16 MHz]
+  PLL?SRC:
+    None: [0, No clock sent to DIVMx dividers and PLLs]
+    HSI: [1, HSI selected as PLL clock]
+    CSI: [2, CSI selected as PLL clock]
+    HSE: [3, HSE selected as PLL clock]
+PLL?DIVR:
+  PLL?[PQR]: [0, 0x7F]
+  PLL?N: [3, 0x1FF]
+PLL?FRACR:
+  PLL?FRACN: [0, 0x1FFF]
+CIFR:
+  HSECSSF:
+    _read:
+      NoInterrupt: [0, No clock security interrupt caused by HSE clock failure]
+      Interrupt: [1, Clock security interrupt caused by HSE clock failure]
+CCIPR1:
+  TIMICSEL:
+    Disabled: [0, No internal clock available for timers input capture]
+    Enabled: [1, "hsi_ker_ck/1024, hsi_ker_ck/8 and csi_ker_ck/128 selected for timers input capture"]
+CCIPR4:
+  USBSEL:
+    DISABLE: [0, Disable the clock]
+    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
+    PLL2_Q: [2, PLL2 Q clock selected as clock source (pll2_q_ck)]
+    HSI48: [3, HSI48 clock selected as clock source (hsi48_ker_ck)]
+  SYSTICKSEL:
+    HCLK_DIV8: [0, RCC HLCK divided by 8 selected as clock source (rcc_hclk / 8)]
+    LSI_KER: [1, LSI kernel selected as clock source (lsi_ker_ck)]
+    LSE: [2, LSE selected as clock source (lse_ck)]
+CCIPR5:
+  CKPERSEL:
+    HSI_KER: [0, HSI kernel clock selected as clock source (hsi_ker_ck)]
+    CSI_KER: [1, CSI kernel clock selected as clock source (csi_ker_ck)]
+    HSE: [2, HSE clock selected as clock source (hse_ck)]
+  FDCANSEL:
+    HSE: [0, HSE clock selected as clock source (hse_ck)]
+    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
+    PLL2_Q: [2, PLL2 Q clock selected as clock source (pll2_q_ck)]
+  RNGSEL:
+    HSI48_KER: [0, HSI48 kernel clock selected as clock source (hsi48_ker_ck)]
+    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
+    LSE: [2, LSE clock selected as clock source (lse_ck)]
+    LSI: [3, LSI kernel clock selected as clock source (lsi_ker_ck)]
+  ADCDACSEL:
+    HCLK: [0, HLCK clock selected as clock source (rcc_hclk)]
+    SYS: [1, System clock selected as pclock source (sys_ck)]
+    PLL2_R: [2, PLL2 R clock selected as clock source (pll2_r_ck)]
+    HSE: [3, HSE clock selected as clock source (hse_ck)]
+    HSI_KER: [4, HSI kernel clock selected as clock source (hsi_ker_ck)]
+    CSI_KER: [5, CSI kernel clock selected as clock source (csi_ker_ck)]

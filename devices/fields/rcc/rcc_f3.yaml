@@ -6,47 +6,46 @@ _include:
   - rcc_f0_f3_common.yaml
   - rcc_cfgr_mcopre.yaml
   - rcc_cfgr_pllnodiv.yaml
-  - rcc_v2_bdcr_lsedrv.yaml
+  - v2/bdcr_lsedrv.yaml
   - rcc_cfgr2_prediv.yaml
 
-RCC:
-  CFGR:
-    MCO:
-      NoMCO: [0, "MCO output disabled, no clock on MCO"]
-      LSI: [2, Internal low speed (LSI) oscillator clock selected]
-      LSE: [3, External low speed (LSE) oscillator clock selected]
-      SYSCLK: [4, System clock selected]
-      HSI: [5, Internal RC 8 MHz (HSI) oscillator clock selected]
-      HSE: [6, External 4-32 MHz (HSE) oscillator clock selected]
-      PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
-    SWS:
-      _read:
-        HSI: [0, HSI oscillator used as system clock]
-        HSE: [1, HSE oscillator used as system clock]
-        PLL: [2, PLL used as system clock]
-    SW:
-      HSI: [0, HSI selected as system clock]
-      HSE: [1, HSE selected as system clock]
-      PLL: [2, PLL selected as system clock]
-  CFGR2:
-    _modify:
-      ADC*PRES:
-        bitWidth: 5
+CFGR:
+  MCO:
+    NoMCO: [0, "MCO output disabled, no clock on MCO"]
+    LSI: [2, Internal low speed (LSI) oscillator clock selected]
+    LSE: [3, External low speed (LSE) oscillator clock selected]
+    SYSCLK: [4, System clock selected]
+    HSI: [5, Internal RC 8 MHz (HSI) oscillator clock selected]
+    HSE: [6, External 4-32 MHz (HSE) oscillator clock selected]
+    PLL: [7, "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)"]
+  SWS:
+    _read:
+      HSI: [0, HSI oscillator used as system clock]
+      HSE: [1, HSE oscillator used as system clock]
+      PLL: [2, PLL used as system clock]
+  SW:
+    HSI: [0, HSI selected as system clock]
+    HSE: [1, HSE selected as system clock]
+    PLL: [2, PLL selected as system clock]
+CFGR2:
+  _modify:
     ADC*PRES:
-      NoClock: [0, No clock] # Same for [0, 15]
-      Div1: [16, PLL clock not divided]
-      Div2: [17, PLL clock divided by 2]
-      Div4: [18, PLL clock divided by 4]
-      Div6: [19, PLL clock divided by 6]
-      Div8: [20, PLL clock divided by 8]
-      Div10: [21, PLL clock divided by 10]
-      Div12: [22, PLL clock divided by 12]
-      Div16: [23, PLL clock divided by 16]
-      Div32: [24, PLL clock divided by 32]
-      Div64: [25, PLL clock divided by 64]
-      Div128: [26, PLL clock divided by 128]
-      Div256: [27, PLL clock divided by 256] # Same for [27, 31]
-  CFGR3:
-    "TIM*SW,HRTIM*SW":
-      PCLK2: [0, PCLK2 clock (doubled frequency when prescaled)]
-      PLL: [1, PLL vco output (running up to 144 MHz)]
+      bitWidth: 5
+  ADC*PRES:
+    NoClock: [0, No clock] # Same for [0, 15]
+    Div1: [16, PLL clock not divided]
+    Div2: [17, PLL clock divided by 2]
+    Div4: [18, PLL clock divided by 4]
+    Div6: [19, PLL clock divided by 6]
+    Div8: [20, PLL clock divided by 8]
+    Div10: [21, PLL clock divided by 10]
+    Div12: [22, PLL clock divided by 12]
+    Div16: [23, PLL clock divided by 16]
+    Div32: [24, PLL clock divided by 32]
+    Div64: [25, PLL clock divided by 64]
+    Div128: [26, PLL clock divided by 128]
+    Div256: [27, PLL clock divided by 256] # Same for [27, 31]
+CFGR3:
+  "TIM*SW,HRTIM*SW":
+    PCLK2: [0, PCLK2 clock (doubled frequency when prescaled)]
+    PLL: [1, PLL vco output (running up to 144 MHz)]

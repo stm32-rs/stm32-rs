@@ -149,6 +149,19 @@ RCC:
       I2C4SEL:
         name: FMPI2C1SEL
         description: FMPI2C1 kernel clock source selection
+  _include:
+    - patches/rcc/f4_fmpi2c.yaml
+    - patches/rcc/f41x_bdcr_lsemod.yaml
+    - patches/rcc/rcc_merge_sw_sws.yaml
+    - patches/rcc/rcc_merge_rtcsel.yaml
+    - fields/rcc/v2/common.yaml
+    - fields/rcc/v2/bdcr_lsemod.yaml
+    - fields/rcc/v2/pllcfgr_pllr.yaml
+    - fields/rcc/v2/cfgr_mcoen.yaml
+    - fields/rcc/v2/dckcfgr_timpre.yaml
+    - fields/rcc/v2/dckcfgr_i2ssrc.yaml
+    - fields/rcc/v2/dckcfgr2_lptimsel.yaml
+    - fields/rcc/v2/dckcfgr2_i2csel.yaml
 
 RNG:
   _include: fields/rng/rng_f4_ced.yaml
@@ -265,18 +278,6 @@ WWDG:
 # NOTE: Core peripherals (NVIC, MPU, FPU, SCB, etc.) were deleted
 
 _include:
-  - patches/rcc/f4_fmpi2c.yaml
-  - patches/rcc/f41x_bdcr_lsemod.yaml
-  - patches/rcc/rcc_merge_sw_sws.yaml
-  - patches/rcc/rcc_merge_rtcsel.yaml
-  - fields/rcc/rcc_v2.yaml
-  - fields/rcc/rcc_v2_bdcr_lsemod.yaml
-  - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - fields/rcc/rcc_v2_cfgr_mcoen.yaml
-  - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
-  - fields/rcc/rcc_v2_dckcfgr_i2ssrc.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_lptimsel.yaml
-  - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/dbgmcu.yaml

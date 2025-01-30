@@ -46,6 +46,10 @@ JPEG:
   _include:
     - collect/jpeg/ram_h7rs.yaml
 
+RCC:
+  _include:
+    - fields/rcc/v3/h7rs.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -127,4 +131,3 @@ WWDG:
 
 _include:
   - patches/h7_common_bootflash.yaml
-  - fields/rcc/rcc_h7rs.yaml

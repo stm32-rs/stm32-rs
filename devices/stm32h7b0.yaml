@@ -191,6 +191,10 @@ PSSI:
 RCC:
   _strip:
     - RCC_
+  _include:
+    - patches/rcc/h7_common_highmemory.yaml
+    - fields/rcc/v3/h7.yaml
+    - fields/rcc/v3/h7_revision_v.yaml
 
 RNG:
   _include:
@@ -307,6 +311,4 @@ _include:
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
-  - fields/rcc/rcc_h7.yaml
-  - fields/rcc/rcc_h7_revision_v.yaml
   - patches/tim/group.yaml

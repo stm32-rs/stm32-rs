@@ -5,18 +5,17 @@
 _include:
   - h7_src_sel_common.yaml
 
-RCC:
-  D1CCIPR:
-    _modify:
-      QSPISRC:
-          name: QSPISEL
-  D2CCIP1R:
-    _modify:
-      SWPSRC:
-          name: SWPSEL
-  D2CCIP2R:
-    _modify:
-      I2C123SRC:
-          name: I2C123SEL
-      USART16SRC:
-          name: USART16SEL
+D1CCIPR:
+  _modify:
+    QSPISRC:
+      name: QSPISEL
+D2CCIP1R:
+  _modify:
+    SWPSRC:
+      name: SWPSEL
+D2CCIP2R:
+  _modify:
+    I2C123SRC:
+      name: I2C123SEL
+    USART16SRC:
+      name: USART16SEL

@@ -66,6 +66,10 @@ MCE*:
 PKA:
   _strip: PKA_
 
+RCC:
+  _include:
+    - fields/rcc/v3/h7rs.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -151,4 +155,3 @@ WWDG:
 _include:
   - patches/h7_common_bootflash.yaml
   - collect/mce/v1.yaml
-  - fields/rcc/rcc_h7rs.yaml

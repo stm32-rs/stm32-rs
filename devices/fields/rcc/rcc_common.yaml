@@ -1,98 +1,97 @@
 # Common bits of RCC peripheral
 
-RCC:
-  CR:
-    CSSON:
-      "Off": [0, Clock security system disabled (clock detector OFF)]
-      "On": [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
-    HSEBYP:
-      NotBypassed: [0, HSE crystal oscillator not bypassed]
-      Bypassed: [1, HSE crystal oscillator bypassed with external clock]
-    HSICAL: [0, 255]
-    HSITRIM: [0, 31]
-    "*RDY":
-      _read:
-        NotReady: [0, Clock not ready]
-        Ready: [1, Clock ready]
-    HSION,HSEON,PLLON,PLLI2SON,PLLSAION:
-      "Off": [0, Clock Off]
-      "On": [1, Clock On]
-  CFGR:
-    PPRE*:
-      Div1: [-1, HCLK not divided]
-      Div2: [4, HCLK divided by 2]
-      Div4: [5, HCLK divided by 4]
-      Div8: [6, HCLK divided by 8]
-      Div16: [7, HCLK divided by 16]
-    HPRE:
-      Div1: [-1, SYSCLK not divided]
-      Div2: [8, SYSCLK divided by 2]
-      Div4: [9, SYSCLK divided by 4]
-      Div8: [10, SYSCLK divided by 8]
-      Div16: [11, SYSCLK divided by 16]
-      Div64: [12, SYSCLK divided by 64]
-      Div128: [13, SYSCLK divided by 128]
-      Div256: [14, SYSCLK divided by 256]
-      Div512: [15, SYSCLK divided by 512]
-  CIR:
-    CSSC:
-      _write:
-        Clear: [1, Clear CSSF flag]
-    "*RDYC":
-      _write:
-        Clear: [1, Clear interrupt flag]
-    "*RDYIE":
-      Disabled: [0, Interrupt disabled]
-      Enabled: [1, Interrupt enabled]
-    CSSF:
-      _read:
-        NotInterrupted: [0, No clock security interrupt caused by HSE clock failure]
-        Interrupted: [1, Clock security interrupt caused by HSE clock failure]
-    "*RDYF":
-      _read:
-        NotInterrupted: [0, No clock ready interrupt]
-        Interrupted: [1, Clock ready interrupt]
-  "A?B?RSTR,A?BRSTR":
-    "*RST":
-      Reset: [1, Reset the selected module]
-  "A?B?ENR,A?BENR":
-    "*EN":
-      Disabled: [0, The selected clock is disabled]
-      Enabled: [1, The selected clock is enabled]
-  BDCR:
-    BDRST:
-      Disabled: [0, Reset not activated]
-      Enabled: [1, Reset the entire RTC domain]
-    RTCEN:
-      Disabled: [0, RTC clock disabled]
-      Enabled: [1, RTC clock enabled]
-    RTCSEL:
-      NoClock: [0, No clock]
-      LSE: [1, LSE oscillator clock used as RTC clock]
-      LSI: [2, LSI oscillator clock used as RTC clock]
-      HSE: [3, HSE oscillator clock divided by a prescaler used as RTC clock]
-    LSEBYP:
-      NotBypassed: [0, LSE crystal oscillator not bypassed]
-      Bypassed: [1, LSE crystal oscillator bypassed with external clock]
-    LSERDY:
-      _read:
-        NotReady: [0, LSE oscillator not ready]
-        Ready: [1, LSE oscillator ready]
-    LSEON:
-      "Off": [0, LSE oscillator Off]
-      "On": [1, LSE oscillator On]
-  CSR:
-    "*RSTF":
-      _read:
-        NoReset: [0, No reset has occured]
-        Reset: [1, A reset has occured]
-    RMVF:
-      _write:
-        Clear: [1, Clears the reset flag]
-    LSIRDY:
-      _read:
-        NotReady: [0, LSI oscillator not ready]
-        Ready: [1, LSI oscillator ready]
-    LSION:
-      "Off": [0, LSI oscillator Off]
-      "On": [1, LSI oscillator On]
+CR:
+  CSSON:
+    "Off": [0, Clock security system disabled (clock detector OFF)]
+    "On": [1, "Clock security system enable (clock detector ON if the HSE is ready, OFF if not)"]
+  HSEBYP:
+    NotBypassed: [0, HSE crystal oscillator not bypassed]
+    Bypassed: [1, HSE crystal oscillator bypassed with external clock]
+  HSICAL: [0, 255]
+  HSITRIM: [0, 31]
+  "*RDY":
+    _read:
+      NotReady: [0, Clock not ready]
+      Ready: [1, Clock ready]
+  HSION,HSEON,PLLON,PLLI2SON,PLLSAION:
+    "Off": [0, Clock Off]
+    "On": [1, Clock On]
+CFGR:
+  PPRE*:
+    Div1: [-1, HCLK not divided]
+    Div2: [4, HCLK divided by 2]
+    Div4: [5, HCLK divided by 4]
+    Div8: [6, HCLK divided by 8]
+    Div16: [7, HCLK divided by 16]
+  HPRE:
+    Div1: [-1, SYSCLK not divided]
+    Div2: [8, SYSCLK divided by 2]
+    Div4: [9, SYSCLK divided by 4]
+    Div8: [10, SYSCLK divided by 8]
+    Div16: [11, SYSCLK divided by 16]
+    Div64: [12, SYSCLK divided by 64]
+    Div128: [13, SYSCLK divided by 128]
+    Div256: [14, SYSCLK divided by 256]
+    Div512: [15, SYSCLK divided by 512]
+CIR:
+  CSSC:
+    _write:
+      Clear: [1, Clear CSSF flag]
+  "*RDYC":
+    _write:
+      Clear: [1, Clear interrupt flag]
+  "*RDYIE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
+  CSSF:
+    _read:
+      NotInterrupted: [0, No clock security interrupt caused by HSE clock failure]
+      Interrupted: [1, Clock security interrupt caused by HSE clock failure]
+  "*RDYF":
+    _read:
+      NotInterrupted: [0, No clock ready interrupt]
+      Interrupted: [1, Clock ready interrupt]
+"A?B?RSTR,A?BRSTR":
+  "*RST":
+    Reset: [1, Reset the selected module]
+"A?B?ENR,A?BENR":
+  "*EN":
+    Disabled: [0, The selected clock is disabled]
+    Enabled: [1, The selected clock is enabled]
+BDCR:
+  BDRST:
+    Disabled: [0, Reset not activated]
+    Enabled: [1, Reset the entire RTC domain]
+  RTCEN:
+    Disabled: [0, RTC clock disabled]
+    Enabled: [1, RTC clock enabled]
+  RTCSEL:
+    NoClock: [0, No clock]
+    LSE: [1, LSE oscillator clock used as RTC clock]
+    LSI: [2, LSI oscillator clock used as RTC clock]
+    HSE: [3, HSE oscillator clock divided by a prescaler used as RTC clock]
+  LSEBYP:
+    NotBypassed: [0, LSE crystal oscillator not bypassed]
+    Bypassed: [1, LSE crystal oscillator bypassed with external clock]
+  LSERDY:
+    _read:
+      NotReady: [0, LSE oscillator not ready]
+      Ready: [1, LSE oscillator ready]
+  LSEON:
+    "Off": [0, LSE oscillator Off]
+    "On": [1, LSE oscillator On]
+CSR:
+  "*RSTF":
+    _read:
+      NoReset: [0, No reset has occured]
+      Reset: [1, A reset has occured]
+  RMVF:
+    _write:
+      Clear: [1, Clears the reset flag]
+  LSIRDY:
+    _read:
+      NotReady: [0, LSI oscillator not ready]
+      Ready: [1, LSI oscillator ready]
+  LSION:
+    "Off": [0, LSI oscillator Off]
+    "On": [1, LSI oscillator On]

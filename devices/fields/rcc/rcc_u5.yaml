@@ -1,743 +1,742 @@
 # RCC peripheral
 # Applicable to STM32U5
 
-RCC:
-  CR:
-    PLL3RDY:
-      _read:
-        Unlocked: [0, PLL3 unlocked]
-        Locked: [1, PLL3 locked]
-    PLL3ON:
-      Disabled: [0, PLL3 OFF]
-      Enabled: [1, PLL3 ON]
-    PLL2RDY:
-      _read:
-        Unlocked: [0, PLL2 unlocked]
-        Locked: [1, PLL2 locked]
-    PLL2ON:
-      Disabled: [0, PLL2 OFF]
-      Enabled: [1, PLL2 ON]
-    PLL1RDY:
-      _read:
-        Unlocked: [0, PLL1 unlocked]
-        Locked: [1, PLL1 locked]
-    PLL1ON:
-      Disabled: [0, PLL1 OFF]
-      Enabled: [1, PLL1 ON]
-    HSEEXT:
-      Analog: [0, external HSE clock analog mode]
-      Digital: [1, external HSE clock digital mode (through I/O Schmitt trigger)]
-    CSSON:
-      Disabled: [0, Clock security system OFF (clock detector OFF)]
-      Enabled: [1, "Clock security system ON (Clock detector ON if the HSE oscillator is stable, OFF if not)"]
-    HSEBYP:
-      NotBypassed: [0, HSE crystal oscillator not bypassed]
-      Bypassed: [1, HSE crystal oscillator bypassed with external clock]
-    HSERDY:
-      _read:
-        NotReady: [0, HSE oscillator not ready]
-        Ready: [1, HSE oscillator ready]
-    HSEON:
-      Disabled: [0, HSE oscillator off]
-      Enabled: [1, HSE oscillator on]
-    SHSIRDY:
-      _read:
-        NotReady: [0, SHSI oscillator not ready]
-        Ready: [1, SHSI oscillator ready]
-    SHSION:
-      Disabled: [0, SHSI oscillator off]
-      Enabled: [1, SHSI oscillator on]
-    HSI48RDY:
-      _read:
-        NotReady: [0, HSI48 oscillator not ready]
-        Ready: [1, HSI48 oscillator ready]
-    HSI48ON:
-      Disabled: [0, HSI48 oscillator off]
-      Enabled: [1, HSI48 oscillator on]
-    HSIRDY:
-      _read:
-        NotReady: [0, HSI16 oscillator not ready]
-        Ready: [1, HSI16 oscillator ready]
-    HSIKERON:
-      NotForced: [0, No effect on HSI16 oscillator]
-      Forced: [1, HSI16 oscillator forced on even in Stop mode]
-    HSION:
-      Disabled: [0, HSI16 oscillator off]
-      Enabled: [1, HSI16 oscillator on]
-    MSIPLLFAST:
-      Normal: [0, MSI PLL normal start-up]
-      Fast: [1, MSI PLL fast start-up]
-    MSIPLLSEL:
-      MSIK: [0, PLL mode applied to MSIK (MSI kernel) clock output]
-      MSIS: [1, PLL mode applied to MSIS (MSI system) clock output]
-    MSIKRDY:
-      _read:
-        NotReady: [0, MSIK (MSI kernel) oscillator not ready]
-        Ready: [1, MSIK (MSI kernel) oscillator ready]
-    MSIKON:
-      Disabled: [0, MSIK (MSI kernel) oscillator disabled]
-      Enabled: [1, MSIK (MSI kernel) oscillator enabled]
-    MSIPLLEN:
-      Disabled: [0, MSI PLL-mode OFF]
-      Enabled: [1, MSI PLL-mode ON]
-    MSISRDY:
-      _read:
-        NotReady: [0, MSIS (MSI system) oscillator not ready]
-        Ready: [1, MSIS (MSI system) oscillator ready]
-    MSIKERON:
-      NotForced: [0, No effect on MSI oscillator]
-      Forced: [1, MSI oscillator forced ON even in Stop mode]
-    MSISON:
-      Disabled: [0, MSIS (MSI system) oscillator off]
-      Enabled: [1, MSIS (MSI system) oscillator on]
-  ICSCR1:
-    MSI?RANGE:
-      f_48MHz: [0, Range 0 around 48 MHz]
-      f_24MHz: [1, Range 1 around 24 MHz]
-      f_16MHz: [2, Range 2 around 16 MHz]
-      f_12MHz: [3, Range 3 around 12 MHz]
-      f_4MHz: [4, Range 4 around 4 MHz]
-      f_2MHz: [5, Range 5 around 2 MHz]
-      f_1_333MHz: [6, Range 6 around 1.33 MHz]
-      f_1MHz: [7, Range 7 around 1 MHz]
-      f_3_072MHz: [8, Range 8 around 3.072 MHz]
-      f_1_536MHz: [9, Range 9 around 1.536 MHz]
-      f_1_024MHz: [10, Range 10 around 1.024 MHz]
-      f_768kHz: [11, Range 11 around 768 kHz]
-      f_400kHz: [12, Range 12 around 400 kHz]
-      f_200kHz: [13, Range 13 around 200 kHz]
-      f_133kHz: [14, Range 14 around 133 kHz]
-      f_100kHz: [15, Range 15 around 100 kHz]
-    MSIRGSEL:
-      CSR: [0, "MSIS/MSIK ranges provided by MSISSRANGE[3:0] and MSIKSRANGE[3:0] in RCC_CSR"]
-      ICSCR1: [1, "MSIS/MSIK ranges provided by MSISRANGE[3:0] and MSIKRANGE[3:0] in RCC_ICSCR1"]
-    MSIBIAS:
-      Continuous: [0, MSI bias continuous mode (clock accuracy fast settling time)]
-      Sampling:
-        [
-          1,
-          "MSI bias sampling mode when the regulator is in range 4, or when the device is in Stop 1 or Stop 2 (ultra-low-power mode)",
-        ]
-    MSICAL?: [0, 0x1F]
-  ICSCR2:
-    MSITRIM?: [0, 0x1F]
-  ICSCR3:
-    HSITRIM: [0, 0x1F]
-    HSICAL: [0, 0xFFF]
-  CRRCR:
-    HSI48CAL: [0, 0x1FF]
-  CFGR1:
-    MCOPRE:
-      Div1: [0, MCO divided by 1]
-      Div2: [1, MCO divided by 2]
-      Div4: [2, MCO divided by 4]
-      Div8: [3, MCO divided by 8]
-      Div16: [4, MCO divided by 16]
-    MCOSEL:
-      None: [0, "MCO output disabled, no clock on MCO"]
-      SYSCLK: [1, SYSCLK system clock selected]
-      MSIS: [2, MSIS clock selected]
-      HSI16: [3, HSI16 clock selected]
-      HSE: [4, HSE clock selected]
-      PLL: [5, Main PLL clock pll1_r_ck selected]
-      LSI: [6, LSI clock selected]
-      LSE: [7, LSE clock selected]
-      HSI48: [8, Internal HSI48 clock selected]
-      MSIK: [9, MSIK clock selected]
-    STOPKERWUCK:
-      MSIK: [0, MSIK oscillator automatically enabled when exiting Stop mode or when a CSS on HSE event occurs.]
-      HSI16: [1, HSI16 oscillator automatically enabled when exiting Stop mode or when a CSS on HSE event occurs.]
-    STOPWUCK:
-      MSIS: [0, MSIS oscillator selected as wake-up from stop clock and CSS backup clock]
-      HSI16: [1, HSI16 oscillator selected as wake-up from stop clock and CSS backup clock]
-    SWS:
-      _read:
-        MSIS: [0, MSIS oscillator used as system clock]
-        HSI16: [1, HSI16 oscillator used as system clock]
-        HSE: [2, HSE used as system clock]
-        PLL: [3, PLL pll1_r_ck used as system clock]
-    SW:
-      MSIS: [0, MSIS selected as system clock]
-      HSI16: [1, HSI16 selected as system clock]
-      HSE: [2, HSE selected as system clock]
-      PLL: [3, PLL pll1_r_ck selected as system clock]
-  CFGR2:
-    APB2DIS:
-      Enabled:
-        [0, "APB2 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, APB2 clock disabled]
-    APB1DIS:
-      Enabled:
-        [0, "APB1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, APB1 clock disabled]
-    AHB2DIS2:
-      Enabled:
-        [0, "AHB2_2 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, AHB2_2 clock disabled]
-    AHB2DIS1:
-      Enabled:
-        [0, "AHB2_1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, AHB2_1 clock disabled]
-    AHB1DIS:
-      Enabled:
-        [0, "AHB1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, AHB1 clock disabled]
-    DPRE:
-      Div1: [-1, DCLK not divided]
-      Div2: [4, DCLK divided by 2]
-      Div4: [5, DCLK divided by 4]
-      Div8: [6, DCLK divided by 8]
-      Div16: [7, DCLK divided by 16]
-    PPRE?:
-      Div1: [-1, PCLK not divided]
-      Div2: [4, PCLK divided by 2]
-      Div4: [5, PCLK divided by 4]
-      Div8: [6, PCLK divided by 8]
-      Div16: [7, PCLK divided by 16]
-    HPRE:
-      Div1: [-1, HCLK not divided]
-      Div2: [8, HCLK divided by 2]
-      Div4: [9, HCLK divided by 4]
-      Div8: [10, HCLK divided by 8]
-      Div16: [11, HCLK divided by 16]
-      Div64: [12, HCLK divided by 64]
-      Div128: [13, HCLK divided by 128]
-      Div256: [14, HCLK divided by 256]
-      Div512: [15, HCLK divided by 512]
-  CFGR3:
-    APB3DIS:
-      Enabled:
-        [0, "APB3 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, APB3 clock disabled]
-    AHB3DIS:
-      Enabled:
-        [0, "AHB3 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
-      Disabled: [1, AHB3 clock disabled]
-    PPRE3:
-      Div1: [-1, PCLK not divided]
-      Div2: [4, PCLK divided by 2]
-      Div4: [5, PCLK divided by 4]
-      Div8: [6, PCLK divided by 8]
-      Div16: [7, PCLK divided by 16]
-  PLL?CFGR:
-    PLL?REN:
-      Disabled: [0, pllx_r_ck ready interrupt disabled]
-      Enabled: [1, pllx_r_ck ready interrupt enabled]
-    PLL?QEN:
-      Disabled: [0, pllx_q_ck output disabled]
-      Enabled: [1, pllx_q_ck output enabled]
-    PLL?PEN:
-      Disabled: [0, pllx_p_ck output disabled]
-      Enabled: [1, pllx_p_ck output enabled]
-    PLL?M:
-      Div1: [0, division by 1 (bypass)]
-      Div2: [1, division by 2]
-      Div3: [2, division by 3]
-      Div4: [3, division by 4]
-      Div5: [4, division by 5]
-      Div6: [5, division by 6]
-      Div7: [6, division by 7]
-      Div8: [7, division by 8]
-      Div9: [8, division by 9]
-      Div10: [9, division by 10]
-      Div11: [10, division by 11]
-      Div12: [11, division by 12]
-      Div13: [12, division by 13]
-      Div14: [13, division by 14]
-      Div15: [14, division by 15]
-      Div16: [15, division by 16]
-    PLL?FRACEN:
-      NoEffect: [0, No effect]
-      Latch: [1, Content of PLLxFRACN latched in the Σ∆ modulator on PLLxFRACEN transition from 0 to 1]
-    PLL?RGE:
-      Range1: [-1, PLLx input (refx_ck) clock range frequency between 4 and 8 MHz]
-      Range2: [3, PLLx input (refx_ck) clock range frequency between 8 and 16 MHz]
-    PLL?SRC:
-      NoClock: [0, No clock sent to PLLx]
-      MSIS: [1, MSIS clock selected as PLLx clock entry]
-      HSI16: [2, HSI16 clock selected as PLLx clock entry]
-      HSE: [3, HSE clock selected as PLLx clock entry]
-  PLL1CFGR:
-    PLL1MBOOST:
-      Div1: [0, division by 1 (bypass)]
-      Div2: [1, division by 2]
-      Div4: [2, division by 4]
-      Div6: [3, division by 6]
-      Div8: [4, division by 8]
-      Div10: [5, division by 10]
-      Div12: [6, division by 12]
-      Div14: [7, division by 14]
-      Div16: [8, division by 16]
-  PLL?DIVR:
-    PLL?R:
-      Div1: [0, "pllx_r_ck = vcox_ck"]
-      Div2: [1, "pllx_r_ck = vcox_ck / 2"]
-      Div4: [3, "pllx_r_ck = vcox_ck / 4"]
-      Div6: [5, "pllx_r_ck = vcox_ck / 6"]
-      Div8: [7, "pllx_r_ck = vcox_ck / 8"]
-      Div10: [9, "pllx_r_ck = vcox_ck / 10"]
-      Div12: [11, "pllx_r_ck = vcox_ck / 12"]
-      Div14: [13, "pllx_r_ck = vcox_ck / 14"]
-      Div16: [15, "pllx_r_ck = vcox_ck / 16"]
-      Div18: [17, "pllx_r_ck = vcox_ck / 18"]
-      Div20: [19, "pllx_r_ck = vcox_ck / 20"]
-      Div22: [21, "pllx_r_ck = vcox_ck / 22"]
-      Div24: [23, "pllx_r_ck = vcox_ck / 24"]
-      Div26: [25, "pllx_r_ck = vcox_ck / 26"]
-      Div28: [27, "pllx_r_ck = vcox_ck / 28"]
-      Div30: [29, "pllx_r_ck = vcox_ck / 30"]
-      Div32: [31, "pllx_r_ck = vcox_ck / 32"]
-      Div34: [33, "pllx_r_ck = vcox_ck / 34"]
-      Div36: [35, "pllx_r_ck = vcox_ck / 36"]
-      Div38: [37, "pllx_r_ck = vcox_ck / 38"]
-      Div40: [39, "pllx_r_ck = vcox_ck / 40"]
-      Div42: [41, "pllx_r_ck = vcox_ck / 42"]
-      Div44: [43, "pllx_r_ck = vcox_ck / 44"]
-      Div46: [45, "pllx_r_ck = vcox_ck / 46"]
-      Div48: [47, "pllx_r_ck = vcox_ck / 48"]
-      Div50: [49, "pllx_r_ck = vcox_ck / 50"]
-      Div52: [51, "pllx_r_ck = vcox_ck / 52"]
-      Div54: [53, "pllx_r_ck = vcox_ck / 54"]
-      Div56: [55, "pllx_r_ck = vcox_ck / 56"]
-      Div58: [57, "pllx_r_ck = vcox_ck / 58"]
-      Div60: [59, "pllx_r_ck = vcox_ck / 60"]
-      Div62: [61, "pllx_r_ck = vcox_ck / 62"]
-      Div64: [63, "pllx_r_ck = vcox_ck / 64"]
-      Div66: [65, "pllx_r_ck = vcox_ck / 66"]
-      Div68: [67, "pllx_r_ck = vcox_ck / 68"]
-      Div70: [69, "pllx_r_ck = vcox_ck / 70"]
-      Div72: [71, "pllx_r_ck = vcox_ck / 72"]
-      Div74: [73, "pllx_r_ck = vcox_ck / 74"]
-      Div76: [75, "pllx_r_ck = vcox_ck / 76"]
-      Div78: [77, "pllx_r_ck = vcox_ck / 78"]
-      Div80: [79, "pllx_r_ck = vcox_ck / 80"]
-      Div82: [81, "pllx_r_ck = vcox_ck / 82"]
-      Div84: [83, "pllx_r_ck = vcox_ck / 84"]
-      Div86: [85, "pllx_r_ck = vcox_ck / 86"]
-      Div88: [87, "pllx_r_ck = vcox_ck / 88"]
-      Div90: [89, "pllx_r_ck = vcox_ck / 90"]
-      Div92: [91, "pllx_r_ck = vcox_ck / 92"]
-      Div94: [93, "pllx_r_ck = vcox_ck / 94"]
-      Div96: [95, "pllx_r_ck = vcox_ck / 96"]
-      Div98: [97, "pllx_r_ck = vcox_ck / 98"]
-      Div100: [99, "pllx_r_ck = vcox_ck / 100"]
-      Div102: [101, "pllx_r_ck = vcox_ck / 102"]
-      Div104: [103, "pllx_r_ck = vcox_ck / 104"]
-      Div106: [105, "pllx_r_ck = vcox_ck / 106"]
-      Div108: [107, "pllx_r_ck = vcox_ck / 108"]
-      Div110: [109, "pllx_r_ck = vcox_ck / 110"]
-      Div112: [111, "pllx_r_ck = vcox_ck / 112"]
-      Div114: [113, "pllx_r_ck = vcox_ck / 114"]
-      Div116: [115, "pllx_r_ck = vcox_ck / 116"]
-      Div118: [117, "pllx_r_ck = vcox_ck / 118"]
-      Div120: [119, "pllx_r_ck = vcox_ck / 120"]
-      Div122: [121, "pllx_r_ck = vcox_ck / 122"]
-      Div124: [123, "pllx_r_ck = vcox_ck / 124"]
-      Div126: [125, "pllx_r_ck = vcox_ck / 126"]
-      Div128: [127, "pllx_r_ck = vcox_ck / 128"]
-    PLL?Q:
-      Div1: [0, "pllx_q_ck = vcox_ck"]
-      Div2: [1, "pllx_q_ck = vcox_ck / 2"]
-      Div4: [3, "pllx_q_ck = vcox_ck / 4"]
-      Div6: [5, "pllx_q_ck = vcox_ck / 6"]
-      Div8: [7, "pllx_q_ck = vcox_ck / 8"]
-      Div10: [9, "pllx_q_ck = vcox_ck / 10"]
-      Div12: [11, "pllx_q_ck = vcox_ck / 12"]
-      Div14: [13, "pllx_q_ck = vcox_ck / 14"]
-      Div16: [15, "pllx_q_ck = vcox_ck / 16"]
-      Div18: [17, "pllx_q_ck = vcox_ck / 18"]
-      Div20: [19, "pllx_q_ck = vcox_ck / 20"]
-      Div22: [21, "pllx_q_ck = vcox_ck / 22"]
-      Div24: [23, "pllx_q_ck = vcox_ck / 24"]
-      Div26: [25, "pllx_q_ck = vcox_ck / 26"]
-      Div28: [27, "pllx_q_ck = vcox_ck / 28"]
-      Div30: [29, "pllx_q_ck = vcox_ck / 30"]
-      Div32: [31, "pllx_q_ck = vcox_ck / 32"]
-      Div34: [33, "pllx_q_ck = vcox_ck / 34"]
-      Div36: [35, "pllx_q_ck = vcox_ck / 36"]
-      Div38: [37, "pllx_q_ck = vcox_ck / 38"]
-      Div40: [39, "pllx_q_ck = vcox_ck / 40"]
-      Div42: [41, "pllx_q_ck = vcox_ck / 42"]
-      Div44: [43, "pllx_q_ck = vcox_ck / 44"]
-      Div46: [45, "pllx_q_ck = vcox_ck / 46"]
-      Div48: [47, "pllx_q_ck = vcox_ck / 48"]
-      Div50: [49, "pllx_q_ck = vcox_ck / 50"]
-      Div52: [51, "pllx_q_ck = vcox_ck / 52"]
-      Div54: [53, "pllx_q_ck = vcox_ck / 54"]
-      Div56: [55, "pllx_q_ck = vcox_ck / 56"]
-      Div58: [57, "pllx_q_ck = vcox_ck / 58"]
-      Div60: [59, "pllx_q_ck = vcox_ck / 60"]
-      Div62: [61, "pllx_q_ck = vcox_ck / 62"]
-      Div64: [63, "pllx_q_ck = vcox_ck / 64"]
-      Div66: [65, "pllx_q_ck = vcox_ck / 66"]
-      Div68: [67, "pllx_q_ck = vcox_ck / 68"]
-      Div70: [69, "pllx_q_ck = vcox_ck / 70"]
-      Div72: [71, "pllx_q_ck = vcox_ck / 72"]
-      Div74: [73, "pllx_q_ck = vcox_ck / 74"]
-      Div76: [75, "pllx_q_ck = vcox_ck / 76"]
-      Div78: [77, "pllx_q_ck = vcox_ck / 78"]
-      Div80: [79, "pllx_q_ck = vcox_ck / 80"]
-      Div82: [81, "pllx_q_ck = vcox_ck / 82"]
-      Div84: [83, "pllx_q_ck = vcox_ck / 84"]
-      Div86: [85, "pllx_q_ck = vcox_ck / 86"]
-      Div88: [87, "pllx_q_ck = vcox_ck / 88"]
-      Div90: [89, "pllx_q_ck = vcox_ck / 90"]
-      Div92: [91, "pllx_q_ck = vcox_ck / 92"]
-      Div94: [93, "pllx_q_ck = vcox_ck / 94"]
-      Div96: [95, "pllx_q_ck = vcox_ck / 96"]
-      Div98: [97, "pllx_q_ck = vcox_ck / 98"]
-      Div100: [99, "pllx_q_ck = vcox_ck / 100"]
-      Div102: [101, "pllx_q_ck = vcox_ck / 102"]
-      Div104: [103, "pllx_q_ck = vcox_ck / 104"]
-      Div106: [105, "pllx_q_ck = vcox_ck / 106"]
-      Div108: [107, "pllx_q_ck = vcox_ck / 108"]
-      Div110: [109, "pllx_q_ck = vcox_ck / 110"]
-      Div112: [111, "pllx_q_ck = vcox_ck / 112"]
-      Div114: [113, "pllx_q_ck = vcox_ck / 114"]
-      Div116: [115, "pllx_q_ck = vcox_ck / 116"]
-      Div118: [117, "pllx_q_ck = vcox_ck / 118"]
-      Div120: [119, "pllx_q_ck = vcox_ck / 120"]
-      Div122: [121, "pllx_q_ck = vcox_ck / 122"]
-      Div124: [123, "pllx_q_ck = vcox_ck / 124"]
-      Div126: [125, "pllx_q_ck = vcox_ck / 126"]
-      Div128: [127, "pllx_q_ck = vcox_ck / 128"]
-    PLL?P:
-      Div1: [0, "pllx_p_ck = vcox_ck"]
-      Div2: [1, "pllx_p_ck = vcox_ck / 2"]
-      Div4: [3, "pllx_p_ck = vcox_ck / 4"]
-      Div6: [5, "pllx_p_ck = vcox_ck / 6"]
-      Div8: [7, "pllx_p_ck = vcox_ck / 8"]
-      Div10: [9, "pllx_p_ck = vcox_ck / 10"]
-      Div12: [11, "pllx_p_ck = vcox_ck / 12"]
-      Div14: [13, "pllx_p_ck = vcox_ck / 14"]
-      Div16: [15, "pllx_p_ck = vcox_ck / 16"]
-      Div18: [17, "pllx_p_ck = vcox_ck / 18"]
-      Div20: [19, "pllx_p_ck = vcox_ck / 20"]
-      Div22: [21, "pllx_p_ck = vcox_ck / 22"]
-      Div24: [23, "pllx_p_ck = vcox_ck / 24"]
-      Div26: [25, "pllx_p_ck = vcox_ck / 26"]
-      Div28: [27, "pllx_p_ck = vcox_ck / 28"]
-      Div30: [29, "pllx_p_ck = vcox_ck / 30"]
-      Div32: [31, "pllx_p_ck = vcox_ck / 32"]
-      Div34: [33, "pllx_p_ck = vcox_ck / 34"]
-      Div36: [35, "pllx_p_ck = vcox_ck / 36"]
-      Div38: [37, "pllx_p_ck = vcox_ck / 38"]
-      Div40: [39, "pllx_p_ck = vcox_ck / 40"]
-      Div42: [41, "pllx_p_ck = vcox_ck / 42"]
-      Div44: [43, "pllx_p_ck = vcox_ck / 44"]
-      Div46: [45, "pllx_p_ck = vcox_ck / 46"]
-      Div48: [47, "pllx_p_ck = vcox_ck / 48"]
-      Div50: [49, "pllx_p_ck = vcox_ck / 50"]
-      Div52: [51, "pllx_p_ck = vcox_ck / 52"]
-      Div54: [53, "pllx_p_ck = vcox_ck / 54"]
-      Div56: [55, "pllx_p_ck = vcox_ck / 56"]
-      Div58: [57, "pllx_p_ck = vcox_ck / 58"]
-      Div60: [59, "pllx_p_ck = vcox_ck / 60"]
-      Div62: [61, "pllx_p_ck = vcox_ck / 62"]
-      Div64: [63, "pllx_p_ck = vcox_ck / 64"]
-      Div66: [65, "pllx_p_ck = vcox_ck / 66"]
-      Div68: [67, "pllx_p_ck = vcox_ck / 68"]
-      Div70: [69, "pllx_p_ck = vcox_ck / 70"]
-      Div72: [71, "pllx_p_ck = vcox_ck / 72"]
-      Div74: [73, "pllx_p_ck = vcox_ck / 74"]
-      Div76: [75, "pllx_p_ck = vcox_ck / 76"]
-      Div78: [77, "pllx_p_ck = vcox_ck / 78"]
-      Div80: [79, "pllx_p_ck = vcox_ck / 80"]
-      Div82: [81, "pllx_p_ck = vcox_ck / 82"]
-      Div84: [83, "pllx_p_ck = vcox_ck / 84"]
-      Div86: [85, "pllx_p_ck = vcox_ck / 86"]
-      Div88: [87, "pllx_p_ck = vcox_ck / 88"]
-      Div90: [89, "pllx_p_ck = vcox_ck / 90"]
-      Div92: [91, "pllx_p_ck = vcox_ck / 92"]
-      Div94: [93, "pllx_p_ck = vcox_ck / 94"]
-      Div96: [95, "pllx_p_ck = vcox_ck / 96"]
-      Div98: [97, "pllx_p_ck = vcox_ck / 98"]
-      Div100: [99, "pllx_p_ck = vcox_ck / 100"]
-      Div102: [101, "pllx_p_ck = vcox_ck / 102"]
-      Div104: [103, "pllx_p_ck = vcox_ck / 104"]
-      Div106: [105, "pllx_p_ck = vcox_ck / 106"]
-      Div108: [107, "pllx_p_ck = vcox_ck / 108"]
-      Div110: [109, "pllx_p_ck = vcox_ck / 110"]
-      Div112: [111, "pllx_p_ck = vcox_ck / 112"]
-      Div114: [113, "pllx_p_ck = vcox_ck / 114"]
-      Div116: [115, "pllx_p_ck = vcox_ck / 116"]
-      Div118: [117, "pllx_p_ck = vcox_ck / 118"]
-      Div120: [119, "pllx_p_ck = vcox_ck / 120"]
-      Div122: [121, "pllx_p_ck = vcox_ck / 122"]
-      Div124: [123, "pllx_p_ck = vcox_ck / 124"]
-      Div126: [125, "pllx_p_ck = vcox_ck / 126"]
-      Div128: [127, "pllx_p_ck = vcox_ck / 128"]
-    PLL?N: [3, 0x1FF]
-  PLL?FRACR:
-    PLL?FRACN: [0, 0x1FF]
-  CIER:
-    "*RDYIE":
-      Disabled: [0, Interrupt disabled]
-      Enabled: [1, Interrupt enabled]
-  CIFR:
-    "*RDYF":
-      _read:
-        NotInterrupted: [0, No clock ready interrupt]
-        Interrupted: [1, Clock ready interrupt]
-  CICR:
-    "*RDYC":
-      _write:
-        Clear: [1, Clear flag]
-  A[HP]B?RSTR*:
-    "*RST":
-      NoEffect: [0, No effect]
-      Reset: [1, Reset peripheral]
-  A[HP]B?ENR*:
-    "*EN":
-      Disabled: [0, Peripheral clock disabled]
-      Enabled: [1, Peripheral clock enabled]
-  A[HP]B?SMENR*:
-    "*SMEN":
-      Disabled: [0, Peripheral clocks disabled by the clock gating during Sleep and Stop modes]
-      Enabled: [1, Peripheral clocks enabled by the clock gating during Sleep and Stop modes]
-  SRDAMR:
-    "*AMEN":
-      Disabled: [0, Peripheral autonomous mode disabled during Stop 0/1/2 mode]
-      Enabled: [1, Peripheral autonomous mode enabled during Stop 0/1/2 mode]
-  CCIPR1:
-    TIMICSEL:
-      Disabled: [-1, "HSI, MSIK and MSIS dividers disabled"]
-      HsiMsisMsis:
-        [
-          4,
-          "HSI/256, MSIS/1024 and MSIS/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
-        ]
-      HsiMsisMsik:
-        [
-          5,
-          "HSI/256, MSIS/1024 and MSIK/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
-        ]
-      HsiMsikMsis:
-        [
-          6,
-          "HSI/256, MSIK/1024 and MSIS/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
-        ]
-      HsiMsikMsik:
-        [
-          7,
-          "HSI/256, MSIK/1024 and MSIK/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
-        ]
-    ICLKSEL:
-      HSI: [0, HSI48 clock selected]
-      PLL2Q: [1, 'PLL2 "Q" (pll2_q_ck) selected']
-      PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected']
-      MSIK: [3, MSIK clock selected]
-    FDCAN1SEL:
-      HSE: [0, HSE clock selected]
-      PLL1Q: [1, 'PLL1 "Q" (pll2_q_ck) selected']
-      PLL2P: [2, 'PLL2 "P" (pll1_p_ck) selected']
-    SYSTICKSEL:
-      HCLK_Div8: [0, HCLK/8 selected]
-      LSI: [1, LSI selected]
-      LSE: [2, LSE selected]
-    LPTIM2SEL:
-      PCLK1: [0, PCLK1 selected]
-      LSI: [1, LSI selected]
-      HSI16: [2, HSI16 selected]
-      MSIK: [3, MSIK selected]
-    SPI?SEL,I2C[124]SEL,UART[45]SEL,USART?SEL:
-      PCLK: [0, PCLKx selected]
-      SYSCLK: [1, SYSCLK selected]
-      HSI16: [2, HSI16 selected]
-      MSIK: [3, MSIK selected]
-  CCIPR2:
-    OTGHSSEL:
-      HSE: [0, HSE selected]
-      PLL1P: [1, 'PLL1 "Q" (pll1_q_ck) selected']
-      HSE2: [2, HSE/2 selected]
-      PLL1P_Div2: [3, 'PLL1 "P" divided by 2 (pll1_p_ck/2) selected']
-    I2C[56]SEL,USART6SEL:
-      PCLK1: [0, PCLK1 selected]
-      SYSCLK: [1, SYSCLK selected]
-      HSI16: [2, HSI16 selected]
-      MSIK: [3, MSIK selected]
-    HSPI1SEL:
-      SYSCLK: [0, SYSCLK selected]
-      PLL1Q: [1, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
-      PLL2Q: [2, 'PLL2 "Q" (pll2_q_ck) selected, can be up to 200 MHz']
-      PLL3R: [3, 'PLL3 "R" (pll3_r_ck) selected, can be up to 200 MHz']
-    OCTOSPISEL:
-      SYSCLK: [0, SYSCLK selected]
-      MSIK: [1, MSIK selected]
-      PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
-      PLL2Q: [3, 'PLL2 "Q" (pll2_q_ck) selected, can be up to 200 MHz']
-    LTDCSEL:
-      PLL3R: [0, 'PLL3 "R" (pll3_r_ck) selected']
-      PLL2R: [1, 'PLL2 "R" (pll2_r_ck) selected']
-    DSISEL:
-      PLL3P: [0, 'PLL3 "P" (pll3_p_ck) selected']
-      DSI_PHY_PLL: [1, DSI PHY PLL output selected]
-    SDMMCSEL:
-      ICLK: [0, ICLK clock selected]
-      PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected, in case higher than 48 MHz is needed (for SDR50 mode)']
-    RNGSEL:
-      HSI48: [0, HSI48 clock selected]
-      HSI48_Div2: [1, "HSI48 / 2 selected, can be used in range 4"]
-      HSI16: [2, HSI16 selected]
-    SAESSEL:
-      SHSI: [0, SHSI selected]
-      SHSI_Div2: [1, "SHSI / 2 selected, can be used in range 4"]
-    SAI?SEL:
-      PLL2P: [0, 'PLL2 "P" (pll2_p_ck) selected']
-      PLL3P: [1, 'PLL3 "P" (pll3_p_ck) selected']
-      PLL1P: [2, 'PLL1 "P" (pll1_p_ck) selected']
-      AUDIOCLK: [3, input pin AUDIOCLK selected]
-      HSI16: [4, HSI16 clock selected]
-    MDF1SEL:
-      HCLK: [0, HCLK selected]
-      PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected']
-      PLL3Q: [2, 'PLL3 "Q" (pll3_q_ck) selected']
-      AUDIOCLK: [3, input pin AUDIOCLK selected]
-      MSIK: [4, MSIK clock selected]
-  CCIPR3:
-    ADF1SEL:
-      HCLK: [0, HCLK selected]
-      PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected']
-      PLL3Q: [2, 'PLL3 "Q" (pll3_q_ck) selected']
-      AUDIOCLK: [3, input pin AUDIOCLK selected]
-      MSIK: [4, MSIK clock selected]
-    DAC1SEL:
-      LSE: [0, LSE selected]
-      LSI: [1, LSI selected]
-    ADCDACSEL:
-      HCLK: [0, HCLK clock selected]
-      SYSCLK: [1, SYSCLK selected]
-      PLL2R: [2, 'PLL2 "R" (pll2_r_ck) selected']
-      HSE: [3, HSE clock selected]
-      HSI16: [4, HSI16 clock selected]
-      MSIK: [5, MSIK clock selected]
-    LPTIM1SEL:
-      MSIK: [0, MSIK clock selected]
-      LSI: [1, LSI selected]
-      HSI16: [2, HSI16 selected]
-      LSE: [3, LSE selected]
-    LPTIM34SEL:
-      MSIK: [0, MSIK clock selected]
-      LSI: [1, LSI selected]
-      HSI: [2, HSI selected]
-      LSE: [3, LSE selected]
-    I2C3SEL,SPI3SEL:
-      PCLK3: [0, PCLK3 selected]
-      SYSCLK: [1, SYSCLK selected]
-      HSI16: [2, HSI16 selected]
-      MSIK: [3, MSIK selected]
-    LPUART1SEL:
-      PCLK3: [0, PCLK3 selected]
-      SYSCLK: [1, SYSCLK selected]
-      HSI16: [2, HSI16 selected]
-      LSE: [3, LSE selected]
-      MSIK: [4, MSIK selected]
-  BDCR:
-    LSIPREDIV:
-      Div1: [0, LSI not divided]
-      Div128: [1, LSI divided by 128]
-    LSIRDY:
-      _read:
-        NotReady: [0, LSI oscillator not ready]
-        Ready: [1, LSI oscillator ready]
-    LSION:
-      Disabled: [0, LSI oscillator OFF]
-      Enabled: [1, LSI oscillator ON]
-    LSCOSEL:
-      LSI: [0, LSI clock selected]
-      LSE: [1, LSE clock selected]
-    LSCOEN:
-      Disabled: [0, LSCO disabled]
-      Enabled: [1, LSCO enabled]
-    BDRST:
-      NoReset: [0, Reset not activated]
-      Reset: [1, Reset the entire backup domain]
-    RTCEN:
-      Disabled: [0, RTC and TAMP clock disabled]
-      Enabled: [1, RTC and TAMP clock enabled]
-    LSEGFON:
-      Disabled: [0, LSE glitch filter disabled]
-      Enabled: [1, LSE glitch filter enabled]
-    LSESYSRDY:
-      _read:
-        NotReady: [0, LSESYS clock not ready]
-        Ready: [1, LSESYS clock ready]
-    RTCSEL:
-      NoClock: [0, No clock selected]
-      LSE: [1, LSE oscillator clock selected]
-      LSI: [2, LSI oscillator clock selected]
-      HSE_Div32: [3, HSE oscillator clock divided by 32 selected]
-    LSESYSEN:
-      Disabled: [0, "LSE can be used only for RTC, TAMP, and CSS on LSE"]
-      Enabled: [1, LSE can be used by any other peripheral or function]
-    LSECSSD:
-      _read:
-        NoFailure: [0, No failure detected on LSE]
-        Failure: [1, Failure detected on LSE]
-    LSECSSON:
-      Disabled: [0, CSS on LSE OFF]
-      Enabled: [1, CSS on LSE ON]
-    LSEDRV:
-      Lower: [0, "'Xtal mode' lower driving capability"]
-      MediumLow: [1, "'Xtal mode' medium-low driving capability"]
-      MediumHigh: [2, "'Xtal mode' medium-high driving capability"]
-      Higher: [3, "'Xtal mode' higher driving capability"]
-    LSEBYP:
-      NotBypassed: [0, LSE oscillator not bypassed]
-      Bypassed: [1, LSE oscillator bypassed]
-    LSERDY:
-      _read:
-        NotReady: [0, LSE oscillator not ready]
-        Ready: [1, LSE oscillator ready]
-    LSEON:
-      Disabled: [0, LSE oscillator off]
-      Enabled: [1, LSE oscillator on]
-  CSR:
-    LPWRRSTF:
-      _read:
-        NotOccured: [0, No illegal low-power mode reset occurred]
-        Occured: [1, Illegal low-power mode reset occurred]
-    WWDGRSTF:
-      _read:
-        NotOccured: [0, No window watchdog reset occurred]
-        Occured: [1, Window watchdog reset occurred]
-    IWDGRSTF:
-      _read:
-        NotOccured: [0, No independent watchdog reset occurred]
-        Occured: [1, Independent watchdog reset occurred]
-    SFTRSTF:
-      _read:
-        NotOccured: [0, No software reset occurred]
-        Occured: [1, Software reset occurred]
-    BORRSTF:
-      _read:
-        NotOccured: [0, No BOR/exit from Shutdown mode reset occurred]
-        Occured: [1, BOR/exit from Shutdown mode reset occurred]
-    PINRSTF:
-      _read:
-        NotOccured: [0, No reset from NRST pin occurred]
-        Occured: [1, Reset from NRST pin occurred]
-    OBLRSTF:
-      _read:
-        NotOccured: [0, No reset from option-byte loading occurred]
-        Occured: [1, Reset from option-byte loading occurred]
-    RMVF:
-      _write:
-        Clear: [1, Clear the reset flags]
-    MSI?SRANGE:
-      f_4MHz: [4, Range 4 around 4 MHz]
-      f_2MHz: [5, Range 5 around 2 MHz]
-      f_1_33MHz: [6, Range 6 around 1.33 MHz]
-      f_1MHz: [7, Range 7 around 1 MHz]
-      f_3_072MHz: [8, Range 8 around 3.072 MHz]
-  SECCFGR:
-    "*SEC":
-      NonSecure: [0, Nonsecure]
-      Secure: [1, Secure]
-  PRIVCFGR:
-    NSPRIV:
-      Unprivileged: [0, Read and write to RCC nonsecure functions can be done by privileged or unprivileged access]
-      Privileged: [1, Read and write to RCC nonsecure functions can be done by privileged access only]
-    SPRIV:
-      Unprivileged: [0, Read and write to RCC secure functions can be done by privileged or unprivileged access]
-      Privileged: [1, Read and write to RCC secure functions can be done by privileged access only]
+CR:
+  PLL3RDY:
+    _read:
+      Unlocked: [0, PLL3 unlocked]
+      Locked: [1, PLL3 locked]
+  PLL3ON:
+    Disabled: [0, PLL3 OFF]
+    Enabled: [1, PLL3 ON]
+  PLL2RDY:
+    _read:
+      Unlocked: [0, PLL2 unlocked]
+      Locked: [1, PLL2 locked]
+  PLL2ON:
+    Disabled: [0, PLL2 OFF]
+    Enabled: [1, PLL2 ON]
+  PLL1RDY:
+    _read:
+      Unlocked: [0, PLL1 unlocked]
+      Locked: [1, PLL1 locked]
+  PLL1ON:
+    Disabled: [0, PLL1 OFF]
+    Enabled: [1, PLL1 ON]
+  HSEEXT:
+    Analog: [0, external HSE clock analog mode]
+    Digital: [1, external HSE clock digital mode (through I/O Schmitt trigger)]
+  CSSON:
+    Disabled: [0, Clock security system OFF (clock detector OFF)]
+    Enabled: [1, "Clock security system ON (Clock detector ON if the HSE oscillator is stable, OFF if not)"]
+  HSEBYP:
+    NotBypassed: [0, HSE crystal oscillator not bypassed]
+    Bypassed: [1, HSE crystal oscillator bypassed with external clock]
+  HSERDY:
+    _read:
+      NotReady: [0, HSE oscillator not ready]
+      Ready: [1, HSE oscillator ready]
+  HSEON:
+    Disabled: [0, HSE oscillator off]
+    Enabled: [1, HSE oscillator on]
+  SHSIRDY:
+    _read:
+      NotReady: [0, SHSI oscillator not ready]
+      Ready: [1, SHSI oscillator ready]
+  SHSION:
+    Disabled: [0, SHSI oscillator off]
+    Enabled: [1, SHSI oscillator on]
+  HSI48RDY:
+    _read:
+      NotReady: [0, HSI48 oscillator not ready]
+      Ready: [1, HSI48 oscillator ready]
+  HSI48ON:
+    Disabled: [0, HSI48 oscillator off]
+    Enabled: [1, HSI48 oscillator on]
+  HSIRDY:
+    _read:
+      NotReady: [0, HSI16 oscillator not ready]
+      Ready: [1, HSI16 oscillator ready]
+  HSIKERON:
+    NotForced: [0, No effect on HSI16 oscillator]
+    Forced: [1, HSI16 oscillator forced on even in Stop mode]
+  HSION:
+    Disabled: [0, HSI16 oscillator off]
+    Enabled: [1, HSI16 oscillator on]
+  MSIPLLFAST:
+    Normal: [0, MSI PLL normal start-up]
+    Fast: [1, MSI PLL fast start-up]
+  MSIPLLSEL:
+    MSIK: [0, PLL mode applied to MSIK (MSI kernel) clock output]
+    MSIS: [1, PLL mode applied to MSIS (MSI system) clock output]
+  MSIKRDY:
+    _read:
+      NotReady: [0, MSIK (MSI kernel) oscillator not ready]
+      Ready: [1, MSIK (MSI kernel) oscillator ready]
+  MSIKON:
+    Disabled: [0, MSIK (MSI kernel) oscillator disabled]
+    Enabled: [1, MSIK (MSI kernel) oscillator enabled]
+  MSIPLLEN:
+    Disabled: [0, MSI PLL-mode OFF]
+    Enabled: [1, MSI PLL-mode ON]
+  MSISRDY:
+    _read:
+      NotReady: [0, MSIS (MSI system) oscillator not ready]
+      Ready: [1, MSIS (MSI system) oscillator ready]
+  MSIKERON:
+    NotForced: [0, No effect on MSI oscillator]
+    Forced: [1, MSI oscillator forced ON even in Stop mode]
+  MSISON:
+    Disabled: [0, MSIS (MSI system) oscillator off]
+    Enabled: [1, MSIS (MSI system) oscillator on]
+ICSCR1:
+  MSI?RANGE:
+    f_48MHz: [0, Range 0 around 48 MHz]
+    f_24MHz: [1, Range 1 around 24 MHz]
+    f_16MHz: [2, Range 2 around 16 MHz]
+    f_12MHz: [3, Range 3 around 12 MHz]
+    f_4MHz: [4, Range 4 around 4 MHz]
+    f_2MHz: [5, Range 5 around 2 MHz]
+    f_1_333MHz: [6, Range 6 around 1.33 MHz]
+    f_1MHz: [7, Range 7 around 1 MHz]
+    f_3_072MHz: [8, Range 8 around 3.072 MHz]
+    f_1_536MHz: [9, Range 9 around 1.536 MHz]
+    f_1_024MHz: [10, Range 10 around 1.024 MHz]
+    f_768kHz: [11, Range 11 around 768 kHz]
+    f_400kHz: [12, Range 12 around 400 kHz]
+    f_200kHz: [13, Range 13 around 200 kHz]
+    f_133kHz: [14, Range 14 around 133 kHz]
+    f_100kHz: [15, Range 15 around 100 kHz]
+  MSIRGSEL:
+    CSR: [0, "MSIS/MSIK ranges provided by MSISSRANGE[3:0] and MSIKSRANGE[3:0] in RCC_CSR"]
+    ICSCR1: [1, "MSIS/MSIK ranges provided by MSISRANGE[3:0] and MSIKRANGE[3:0] in RCC_ICSCR1"]
+  MSIBIAS:
+    Continuous: [0, MSI bias continuous mode (clock accuracy fast settling time)]
+    Sampling:
+      [
+        1,
+        "MSI bias sampling mode when the regulator is in range 4, or when the device is in Stop 1 or Stop 2 (ultra-low-power mode)",
+      ]
+  MSICAL?: [0, 0x1F]
+ICSCR2:
+  MSITRIM?: [0, 0x1F]
+ICSCR3:
+  HSITRIM: [0, 0x1F]
+  HSICAL: [0, 0xFFF]
+CRRCR:
+  HSI48CAL: [0, 0x1FF]
+CFGR1:
+  MCOPRE:
+    Div1: [0, MCO divided by 1]
+    Div2: [1, MCO divided by 2]
+    Div4: [2, MCO divided by 4]
+    Div8: [3, MCO divided by 8]
+    Div16: [4, MCO divided by 16]
+  MCOSEL:
+    None: [0, "MCO output disabled, no clock on MCO"]
+    SYSCLK: [1, SYSCLK system clock selected]
+    MSIS: [2, MSIS clock selected]
+    HSI16: [3, HSI16 clock selected]
+    HSE: [4, HSE clock selected]
+    PLL: [5, Main PLL clock pll1_r_ck selected]
+    LSI: [6, LSI clock selected]
+    LSE: [7, LSE clock selected]
+    HSI48: [8, Internal HSI48 clock selected]
+    MSIK: [9, MSIK clock selected]
+  STOPKERWUCK:
+    MSIK: [0, MSIK oscillator automatically enabled when exiting Stop mode or when a CSS on HSE event occurs.]
+    HSI16: [1, HSI16 oscillator automatically enabled when exiting Stop mode or when a CSS on HSE event occurs.]
+  STOPWUCK:
+    MSIS: [0, MSIS oscillator selected as wake-up from stop clock and CSS backup clock]
+    HSI16: [1, HSI16 oscillator selected as wake-up from stop clock and CSS backup clock]
+  SWS:
+    _read:
+      MSIS: [0, MSIS oscillator used as system clock]
+      HSI16: [1, HSI16 oscillator used as system clock]
+      HSE: [2, HSE used as system clock]
+      PLL: [3, PLL pll1_r_ck used as system clock]
+  SW:
+    MSIS: [0, MSIS selected as system clock]
+    HSI16: [1, HSI16 selected as system clock]
+    HSE: [2, HSE selected as system clock]
+    PLL: [3, PLL pll1_r_ck selected as system clock]
+CFGR2:
+  APB2DIS:
+    Enabled:
+      [0, "APB2 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, APB2 clock disabled]
+  APB1DIS:
+    Enabled:
+      [0, "APB1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, APB1 clock disabled]
+  AHB2DIS2:
+    Enabled:
+      [0, "AHB2_2 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, AHB2_2 clock disabled]
+  AHB2DIS1:
+    Enabled:
+      [0, "AHB2_1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, AHB2_1 clock disabled]
+  AHB1DIS:
+    Enabled:
+      [0, "AHB1 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, AHB1 clock disabled]
+  DPRE:
+    Div1: [-1, DCLK not divided]
+    Div2: [4, DCLK divided by 2]
+    Div4: [5, DCLK divided by 4]
+    Div8: [6, DCLK divided by 8]
+    Div16: [7, DCLK divided by 16]
+  PPRE?:
+    Div1: [-1, PCLK not divided]
+    Div2: [4, PCLK divided by 2]
+    Div4: [5, PCLK divided by 4]
+    Div8: [6, PCLK divided by 8]
+    Div16: [7, PCLK divided by 16]
+  HPRE:
+    Div1: [-1, HCLK not divided]
+    Div2: [8, HCLK divided by 2]
+    Div4: [9, HCLK divided by 4]
+    Div8: [10, HCLK divided by 8]
+    Div16: [11, HCLK divided by 16]
+    Div64: [12, HCLK divided by 64]
+    Div128: [13, HCLK divided by 128]
+    Div256: [14, HCLK divided by 256]
+    Div512: [15, HCLK divided by 512]
+CFGR3:
+  APB3DIS:
+    Enabled:
+      [0, "APB3 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, APB3 clock disabled]
+  AHB3DIS:
+    Enabled:
+      [0, "AHB3 clock enabled, distributed to peripherals according to their dedicated clock enable control bits"]
+    Disabled: [1, AHB3 clock disabled]
+  PPRE3:
+    Div1: [-1, PCLK not divided]
+    Div2: [4, PCLK divided by 2]
+    Div4: [5, PCLK divided by 4]
+    Div8: [6, PCLK divided by 8]
+    Div16: [7, PCLK divided by 16]
+PLL?CFGR:
+  PLL?REN:
+    Disabled: [0, pllx_r_ck ready interrupt disabled]
+    Enabled: [1, pllx_r_ck ready interrupt enabled]
+  PLL?QEN:
+    Disabled: [0, pllx_q_ck output disabled]
+    Enabled: [1, pllx_q_ck output enabled]
+  PLL?PEN:
+    Disabled: [0, pllx_p_ck output disabled]
+    Enabled: [1, pllx_p_ck output enabled]
+  PLL?M:
+    Div1: [0, division by 1 (bypass)]
+    Div2: [1, division by 2]
+    Div3: [2, division by 3]
+    Div4: [3, division by 4]
+    Div5: [4, division by 5]
+    Div6: [5, division by 6]
+    Div7: [6, division by 7]
+    Div8: [7, division by 8]
+    Div9: [8, division by 9]
+    Div10: [9, division by 10]
+    Div11: [10, division by 11]
+    Div12: [11, division by 12]
+    Div13: [12, division by 13]
+    Div14: [13, division by 14]
+    Div15: [14, division by 15]
+    Div16: [15, division by 16]
+  PLL?FRACEN:
+    NoEffect: [0, No effect]
+    Latch: [1, Content of PLLxFRACN latched in the Σ∆ modulator on PLLxFRACEN transition from 0 to 1]
+  PLL?RGE:
+    Range1: [-1, PLLx input (refx_ck) clock range frequency between 4 and 8 MHz]
+    Range2: [3, PLLx input (refx_ck) clock range frequency between 8 and 16 MHz]
+  PLL?SRC:
+    NoClock: [0, No clock sent to PLLx]
+    MSIS: [1, MSIS clock selected as PLLx clock entry]
+    HSI16: [2, HSI16 clock selected as PLLx clock entry]
+    HSE: [3, HSE clock selected as PLLx clock entry]
+PLL1CFGR:
+  PLL1MBOOST:
+    Div1: [0, division by 1 (bypass)]
+    Div2: [1, division by 2]
+    Div4: [2, division by 4]
+    Div6: [3, division by 6]
+    Div8: [4, division by 8]
+    Div10: [5, division by 10]
+    Div12: [6, division by 12]
+    Div14: [7, division by 14]
+    Div16: [8, division by 16]
+PLL?DIVR:
+  PLL?R:
+    Div1: [0, "pllx_r_ck = vcox_ck"]
+    Div2: [1, "pllx_r_ck = vcox_ck / 2"]
+    Div4: [3, "pllx_r_ck = vcox_ck / 4"]
+    Div6: [5, "pllx_r_ck = vcox_ck / 6"]
+    Div8: [7, "pllx_r_ck = vcox_ck / 8"]
+    Div10: [9, "pllx_r_ck = vcox_ck / 10"]
+    Div12: [11, "pllx_r_ck = vcox_ck / 12"]
+    Div14: [13, "pllx_r_ck = vcox_ck / 14"]
+    Div16: [15, "pllx_r_ck = vcox_ck / 16"]
+    Div18: [17, "pllx_r_ck = vcox_ck / 18"]
+    Div20: [19, "pllx_r_ck = vcox_ck / 20"]
+    Div22: [21, "pllx_r_ck = vcox_ck / 22"]
+    Div24: [23, "pllx_r_ck = vcox_ck / 24"]
+    Div26: [25, "pllx_r_ck = vcox_ck / 26"]
+    Div28: [27, "pllx_r_ck = vcox_ck / 28"]
+    Div30: [29, "pllx_r_ck = vcox_ck / 30"]
+    Div32: [31, "pllx_r_ck = vcox_ck / 32"]
+    Div34: [33, "pllx_r_ck = vcox_ck / 34"]
+    Div36: [35, "pllx_r_ck = vcox_ck / 36"]
+    Div38: [37, "pllx_r_ck = vcox_ck / 38"]
+    Div40: [39, "pllx_r_ck = vcox_ck / 40"]
+    Div42: [41, "pllx_r_ck = vcox_ck / 42"]
+    Div44: [43, "pllx_r_ck = vcox_ck / 44"]
+    Div46: [45, "pllx_r_ck = vcox_ck / 46"]
+    Div48: [47, "pllx_r_ck = vcox_ck / 48"]
+    Div50: [49, "pllx_r_ck = vcox_ck / 50"]
+    Div52: [51, "pllx_r_ck = vcox_ck / 52"]
+    Div54: [53, "pllx_r_ck = vcox_ck / 54"]
+    Div56: [55, "pllx_r_ck = vcox_ck / 56"]
+    Div58: [57, "pllx_r_ck = vcox_ck / 58"]
+    Div60: [59, "pllx_r_ck = vcox_ck / 60"]
+    Div62: [61, "pllx_r_ck = vcox_ck / 62"]
+    Div64: [63, "pllx_r_ck = vcox_ck / 64"]
+    Div66: [65, "pllx_r_ck = vcox_ck / 66"]
+    Div68: [67, "pllx_r_ck = vcox_ck / 68"]
+    Div70: [69, "pllx_r_ck = vcox_ck / 70"]
+    Div72: [71, "pllx_r_ck = vcox_ck / 72"]
+    Div74: [73, "pllx_r_ck = vcox_ck / 74"]
+    Div76: [75, "pllx_r_ck = vcox_ck / 76"]
+    Div78: [77, "pllx_r_ck = vcox_ck / 78"]
+    Div80: [79, "pllx_r_ck = vcox_ck / 80"]
+    Div82: [81, "pllx_r_ck = vcox_ck / 82"]
+    Div84: [83, "pllx_r_ck = vcox_ck / 84"]
+    Div86: [85, "pllx_r_ck = vcox_ck / 86"]
+    Div88: [87, "pllx_r_ck = vcox_ck / 88"]
+    Div90: [89, "pllx_r_ck = vcox_ck / 90"]
+    Div92: [91, "pllx_r_ck = vcox_ck / 92"]
+    Div94: [93, "pllx_r_ck = vcox_ck / 94"]
+    Div96: [95, "pllx_r_ck = vcox_ck / 96"]
+    Div98: [97, "pllx_r_ck = vcox_ck / 98"]
+    Div100: [99, "pllx_r_ck = vcox_ck / 100"]
+    Div102: [101, "pllx_r_ck = vcox_ck / 102"]
+    Div104: [103, "pllx_r_ck = vcox_ck / 104"]
+    Div106: [105, "pllx_r_ck = vcox_ck / 106"]
+    Div108: [107, "pllx_r_ck = vcox_ck / 108"]
+    Div110: [109, "pllx_r_ck = vcox_ck / 110"]
+    Div112: [111, "pllx_r_ck = vcox_ck / 112"]
+    Div114: [113, "pllx_r_ck = vcox_ck / 114"]
+    Div116: [115, "pllx_r_ck = vcox_ck / 116"]
+    Div118: [117, "pllx_r_ck = vcox_ck / 118"]
+    Div120: [119, "pllx_r_ck = vcox_ck / 120"]
+    Div122: [121, "pllx_r_ck = vcox_ck / 122"]
+    Div124: [123, "pllx_r_ck = vcox_ck / 124"]
+    Div126: [125, "pllx_r_ck = vcox_ck / 126"]
+    Div128: [127, "pllx_r_ck = vcox_ck / 128"]
+  PLL?Q:
+    Div1: [0, "pllx_q_ck = vcox_ck"]
+    Div2: [1, "pllx_q_ck = vcox_ck / 2"]
+    Div4: [3, "pllx_q_ck = vcox_ck / 4"]
+    Div6: [5, "pllx_q_ck = vcox_ck / 6"]
+    Div8: [7, "pllx_q_ck = vcox_ck / 8"]
+    Div10: [9, "pllx_q_ck = vcox_ck / 10"]
+    Div12: [11, "pllx_q_ck = vcox_ck / 12"]
+    Div14: [13, "pllx_q_ck = vcox_ck / 14"]
+    Div16: [15, "pllx_q_ck = vcox_ck / 16"]
+    Div18: [17, "pllx_q_ck = vcox_ck / 18"]
+    Div20: [19, "pllx_q_ck = vcox_ck / 20"]
+    Div22: [21, "pllx_q_ck = vcox_ck / 22"]
+    Div24: [23, "pllx_q_ck = vcox_ck / 24"]
+    Div26: [25, "pllx_q_ck = vcox_ck / 26"]
+    Div28: [27, "pllx_q_ck = vcox_ck / 28"]
+    Div30: [29, "pllx_q_ck = vcox_ck / 30"]
+    Div32: [31, "pllx_q_ck = vcox_ck / 32"]
+    Div34: [33, "pllx_q_ck = vcox_ck / 34"]
+    Div36: [35, "pllx_q_ck = vcox_ck / 36"]
+    Div38: [37, "pllx_q_ck = vcox_ck / 38"]
+    Div40: [39, "pllx_q_ck = vcox_ck / 40"]
+    Div42: [41, "pllx_q_ck = vcox_ck / 42"]
+    Div44: [43, "pllx_q_ck = vcox_ck / 44"]
+    Div46: [45, "pllx_q_ck = vcox_ck / 46"]
+    Div48: [47, "pllx_q_ck = vcox_ck / 48"]
+    Div50: [49, "pllx_q_ck = vcox_ck / 50"]
+    Div52: [51, "pllx_q_ck = vcox_ck / 52"]
+    Div54: [53, "pllx_q_ck = vcox_ck / 54"]
+    Div56: [55, "pllx_q_ck = vcox_ck / 56"]
+    Div58: [57, "pllx_q_ck = vcox_ck / 58"]
+    Div60: [59, "pllx_q_ck = vcox_ck / 60"]
+    Div62: [61, "pllx_q_ck = vcox_ck / 62"]
+    Div64: [63, "pllx_q_ck = vcox_ck / 64"]
+    Div66: [65, "pllx_q_ck = vcox_ck / 66"]
+    Div68: [67, "pllx_q_ck = vcox_ck / 68"]
+    Div70: [69, "pllx_q_ck = vcox_ck / 70"]
+    Div72: [71, "pllx_q_ck = vcox_ck / 72"]
+    Div74: [73, "pllx_q_ck = vcox_ck / 74"]
+    Div76: [75, "pllx_q_ck = vcox_ck / 76"]
+    Div78: [77, "pllx_q_ck = vcox_ck / 78"]
+    Div80: [79, "pllx_q_ck = vcox_ck / 80"]
+    Div82: [81, "pllx_q_ck = vcox_ck / 82"]
+    Div84: [83, "pllx_q_ck = vcox_ck / 84"]
+    Div86: [85, "pllx_q_ck = vcox_ck / 86"]
+    Div88: [87, "pllx_q_ck = vcox_ck / 88"]
+    Div90: [89, "pllx_q_ck = vcox_ck / 90"]
+    Div92: [91, "pllx_q_ck = vcox_ck / 92"]
+    Div94: [93, "pllx_q_ck = vcox_ck / 94"]
+    Div96: [95, "pllx_q_ck = vcox_ck / 96"]
+    Div98: [97, "pllx_q_ck = vcox_ck / 98"]
+    Div100: [99, "pllx_q_ck = vcox_ck / 100"]
+    Div102: [101, "pllx_q_ck = vcox_ck / 102"]
+    Div104: [103, "pllx_q_ck = vcox_ck / 104"]
+    Div106: [105, "pllx_q_ck = vcox_ck / 106"]
+    Div108: [107, "pllx_q_ck = vcox_ck / 108"]
+    Div110: [109, "pllx_q_ck = vcox_ck / 110"]
+    Div112: [111, "pllx_q_ck = vcox_ck / 112"]
+    Div114: [113, "pllx_q_ck = vcox_ck / 114"]
+    Div116: [115, "pllx_q_ck = vcox_ck / 116"]
+    Div118: [117, "pllx_q_ck = vcox_ck / 118"]
+    Div120: [119, "pllx_q_ck = vcox_ck / 120"]
+    Div122: [121, "pllx_q_ck = vcox_ck / 122"]
+    Div124: [123, "pllx_q_ck = vcox_ck / 124"]
+    Div126: [125, "pllx_q_ck = vcox_ck / 126"]
+    Div128: [127, "pllx_q_ck = vcox_ck / 128"]
+  PLL?P:
+    Div1: [0, "pllx_p_ck = vcox_ck"]
+    Div2: [1, "pllx_p_ck = vcox_ck / 2"]
+    Div4: [3, "pllx_p_ck = vcox_ck / 4"]
+    Div6: [5, "pllx_p_ck = vcox_ck / 6"]
+    Div8: [7, "pllx_p_ck = vcox_ck / 8"]
+    Div10: [9, "pllx_p_ck = vcox_ck / 10"]
+    Div12: [11, "pllx_p_ck = vcox_ck / 12"]
+    Div14: [13, "pllx_p_ck = vcox_ck / 14"]
+    Div16: [15, "pllx_p_ck = vcox_ck / 16"]
+    Div18: [17, "pllx_p_ck = vcox_ck / 18"]
+    Div20: [19, "pllx_p_ck = vcox_ck / 20"]
+    Div22: [21, "pllx_p_ck = vcox_ck / 22"]
+    Div24: [23, "pllx_p_ck = vcox_ck / 24"]
+    Div26: [25, "pllx_p_ck = vcox_ck / 26"]
+    Div28: [27, "pllx_p_ck = vcox_ck / 28"]
+    Div30: [29, "pllx_p_ck = vcox_ck / 30"]
+    Div32: [31, "pllx_p_ck = vcox_ck / 32"]
+    Div34: [33, "pllx_p_ck = vcox_ck / 34"]
+    Div36: [35, "pllx_p_ck = vcox_ck / 36"]
+    Div38: [37, "pllx_p_ck = vcox_ck / 38"]
+    Div40: [39, "pllx_p_ck = vcox_ck / 40"]
+    Div42: [41, "pllx_p_ck = vcox_ck / 42"]
+    Div44: [43, "pllx_p_ck = vcox_ck / 44"]
+    Div46: [45, "pllx_p_ck = vcox_ck / 46"]
+    Div48: [47, "pllx_p_ck = vcox_ck / 48"]
+    Div50: [49, "pllx_p_ck = vcox_ck / 50"]
+    Div52: [51, "pllx_p_ck = vcox_ck / 52"]
+    Div54: [53, "pllx_p_ck = vcox_ck / 54"]
+    Div56: [55, "pllx_p_ck = vcox_ck / 56"]
+    Div58: [57, "pllx_p_ck = vcox_ck / 58"]
+    Div60: [59, "pllx_p_ck = vcox_ck / 60"]
+    Div62: [61, "pllx_p_ck = vcox_ck / 62"]
+    Div64: [63, "pllx_p_ck = vcox_ck / 64"]
+    Div66: [65, "pllx_p_ck = vcox_ck / 66"]
+    Div68: [67, "pllx_p_ck = vcox_ck / 68"]
+    Div70: [69, "pllx_p_ck = vcox_ck / 70"]
+    Div72: [71, "pllx_p_ck = vcox_ck / 72"]
+    Div74: [73, "pllx_p_ck = vcox_ck / 74"]
+    Div76: [75, "pllx_p_ck = vcox_ck / 76"]
+    Div78: [77, "pllx_p_ck = vcox_ck / 78"]
+    Div80: [79, "pllx_p_ck = vcox_ck / 80"]
+    Div82: [81, "pllx_p_ck = vcox_ck / 82"]
+    Div84: [83, "pllx_p_ck = vcox_ck / 84"]
+    Div86: [85, "pllx_p_ck = vcox_ck / 86"]
+    Div88: [87, "pllx_p_ck = vcox_ck / 88"]
+    Div90: [89, "pllx_p_ck = vcox_ck / 90"]
+    Div92: [91, "pllx_p_ck = vcox_ck / 92"]
+    Div94: [93, "pllx_p_ck = vcox_ck / 94"]
+    Div96: [95, "pllx_p_ck = vcox_ck / 96"]
+    Div98: [97, "pllx_p_ck = vcox_ck / 98"]
+    Div100: [99, "pllx_p_ck = vcox_ck / 100"]
+    Div102: [101, "pllx_p_ck = vcox_ck / 102"]
+    Div104: [103, "pllx_p_ck = vcox_ck / 104"]
+    Div106: [105, "pllx_p_ck = vcox_ck / 106"]
+    Div108: [107, "pllx_p_ck = vcox_ck / 108"]
+    Div110: [109, "pllx_p_ck = vcox_ck / 110"]
+    Div112: [111, "pllx_p_ck = vcox_ck / 112"]
+    Div114: [113, "pllx_p_ck = vcox_ck / 114"]
+    Div116: [115, "pllx_p_ck = vcox_ck / 116"]
+    Div118: [117, "pllx_p_ck = vcox_ck / 118"]
+    Div120: [119, "pllx_p_ck = vcox_ck / 120"]
+    Div122: [121, "pllx_p_ck = vcox_ck / 122"]
+    Div124: [123, "pllx_p_ck = vcox_ck / 124"]
+    Div126: [125, "pllx_p_ck = vcox_ck / 126"]
+    Div128: [127, "pllx_p_ck = vcox_ck / 128"]
+  PLL?N: [3, 0x1FF]
+PLL?FRACR:
+  PLL?FRACN: [0, 0x1FF]
+CIER:
+  "*RDYIE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
+CIFR:
+  "*RDYF":
+    _read:
+      NotInterrupted: [0, No clock ready interrupt]
+      Interrupted: [1, Clock ready interrupt]
+CICR:
+  "*RDYC":
+    _write:
+      Clear: [1, Clear flag]
+A[HP]B?RSTR*:
+  "*RST":
+    NoEffect: [0, No effect]
+    Reset: [1, Reset peripheral]
+A[HP]B?ENR*:
+  "*EN":
+    Disabled: [0, Peripheral clock disabled]
+    Enabled: [1, Peripheral clock enabled]
+A[HP]B?SMENR*:
+  "*SMEN":
+    Disabled: [0, Peripheral clocks disabled by the clock gating during Sleep and Stop modes]
+    Enabled: [1, Peripheral clocks enabled by the clock gating during Sleep and Stop modes]
+SRDAMR:
+  "*AMEN":
+    Disabled: [0, Peripheral autonomous mode disabled during Stop 0/1/2 mode]
+    Enabled: [1, Peripheral autonomous mode enabled during Stop 0/1/2 mode]
+CCIPR1:
+  TIMICSEL:
+    Disabled: [-1, "HSI, MSIK and MSIS dividers disabled"]
+    HsiMsisMsis:
+      [
+        4,
+        "HSI/256, MSIS/1024 and MSIS/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
+      ]
+    HsiMsisMsik:
+      [
+        5,
+        "HSI/256, MSIS/1024 and MSIK/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
+      ]
+    HsiMsikMsis:
+      [
+        6,
+        "HSI/256, MSIK/1024 and MSIS/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
+      ]
+    HsiMsikMsik:
+      [
+        7,
+        "HSI/256, MSIK/1024 and MSIK/4 generated and can be selected by TIM16, TIM17, and LPTIM2 as internal input capture",
+      ]
+  ICLKSEL:
+    HSI: [0, HSI48 clock selected]
+    PLL2Q: [1, 'PLL2 "Q" (pll2_q_ck) selected']
+    PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected']
+    MSIK: [3, MSIK clock selected]
+  FDCAN1SEL:
+    HSE: [0, HSE clock selected]
+    PLL1Q: [1, 'PLL1 "Q" (pll2_q_ck) selected']
+    PLL2P: [2, 'PLL2 "P" (pll1_p_ck) selected']
+  SYSTICKSEL:
+    HCLK_Div8: [0, HCLK/8 selected]
+    LSI: [1, LSI selected]
+    LSE: [2, LSE selected]
+  LPTIM2SEL:
+    PCLK1: [0, PCLK1 selected]
+    LSI: [1, LSI selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+  SPI?SEL,I2C[124]SEL,UART[45]SEL,USART?SEL:
+    PCLK: [0, PCLKx selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+CCIPR2:
+  OTGHSSEL:
+    HSE: [0, HSE selected]
+    PLL1P: [1, 'PLL1 "Q" (pll1_q_ck) selected']
+    HSE2: [2, HSE/2 selected]
+    PLL1P_Div2: [3, 'PLL1 "P" divided by 2 (pll1_p_ck/2) selected']
+  I2C[56]SEL,USART6SEL:
+    PCLK1: [0, PCLK1 selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+  HSPI1SEL:
+    SYSCLK: [0, SYSCLK selected]
+    PLL1Q: [1, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
+    PLL2Q: [2, 'PLL2 "Q" (pll2_q_ck) selected, can be up to 200 MHz']
+    PLL3R: [3, 'PLL3 "R" (pll3_r_ck) selected, can be up to 200 MHz']
+  OCTOSPISEL:
+    SYSCLK: [0, SYSCLK selected]
+    MSIK: [1, MSIK selected]
+    PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
+    PLL2Q: [3, 'PLL2 "Q" (pll2_q_ck) selected, can be up to 200 MHz']
+  LTDCSEL:
+    PLL3R: [0, 'PLL3 "R" (pll3_r_ck) selected']
+    PLL2R: [1, 'PLL2 "R" (pll2_r_ck) selected']
+  DSISEL:
+    PLL3P: [0, 'PLL3 "P" (pll3_p_ck) selected']
+    DSI_PHY_PLL: [1, DSI PHY PLL output selected]
+  SDMMCSEL:
+    ICLK: [0, ICLK clock selected]
+    PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected, in case higher than 48 MHz is needed (for SDR50 mode)']
+  RNGSEL:
+    HSI48: [0, HSI48 clock selected]
+    HSI48_Div2: [1, "HSI48 / 2 selected, can be used in range 4"]
+    HSI16: [2, HSI16 selected]
+  SAESSEL:
+    SHSI: [0, SHSI selected]
+    SHSI_Div2: [1, "SHSI / 2 selected, can be used in range 4"]
+  SAI?SEL:
+    PLL2P: [0, 'PLL2 "P" (pll2_p_ck) selected']
+    PLL3P: [1, 'PLL3 "P" (pll3_p_ck) selected']
+    PLL1P: [2, 'PLL1 "P" (pll1_p_ck) selected']
+    AUDIOCLK: [3, input pin AUDIOCLK selected]
+    HSI16: [4, HSI16 clock selected]
+  MDF1SEL:
+    HCLK: [0, HCLK selected]
+    PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected']
+    PLL3Q: [2, 'PLL3 "Q" (pll3_q_ck) selected']
+    AUDIOCLK: [3, input pin AUDIOCLK selected]
+    MSIK: [4, MSIK clock selected]
+CCIPR3:
+  ADF1SEL:
+    HCLK: [0, HCLK selected]
+    PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected']
+    PLL3Q: [2, 'PLL3 "Q" (pll3_q_ck) selected']
+    AUDIOCLK: [3, input pin AUDIOCLK selected]
+    MSIK: [4, MSIK clock selected]
+  DAC1SEL:
+    LSE: [0, LSE selected]
+    LSI: [1, LSI selected]
+  ADCDACSEL:
+    HCLK: [0, HCLK clock selected]
+    SYSCLK: [1, SYSCLK selected]
+    PLL2R: [2, 'PLL2 "R" (pll2_r_ck) selected']
+    HSE: [3, HSE clock selected]
+    HSI16: [4, HSI16 clock selected]
+    MSIK: [5, MSIK clock selected]
+  LPTIM1SEL:
+    MSIK: [0, MSIK clock selected]
+    LSI: [1, LSI selected]
+    HSI16: [2, HSI16 selected]
+    LSE: [3, LSE selected]
+  LPTIM34SEL:
+    MSIK: [0, MSIK clock selected]
+    LSI: [1, LSI selected]
+    HSI: [2, HSI selected]
+    LSE: [3, LSE selected]
+  I2C3SEL,SPI3SEL:
+    PCLK3: [0, PCLK3 selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+  LPUART1SEL:
+    PCLK3: [0, PCLK3 selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    LSE: [3, LSE selected]
+    MSIK: [4, MSIK selected]
+BDCR:
+  LSIPREDIV:
+    Div1: [0, LSI not divided]
+    Div128: [1, LSI divided by 128]
+  LSIRDY:
+    _read:
+      NotReady: [0, LSI oscillator not ready]
+      Ready: [1, LSI oscillator ready]
+  LSION:
+    Disabled: [0, LSI oscillator OFF]
+    Enabled: [1, LSI oscillator ON]
+  LSCOSEL:
+    LSI: [0, LSI clock selected]
+    LSE: [1, LSE clock selected]
+  LSCOEN:
+    Disabled: [0, LSCO disabled]
+    Enabled: [1, LSCO enabled]
+  BDRST:
+    NoReset: [0, Reset not activated]
+    Reset: [1, Reset the entire backup domain]
+  RTCEN:
+    Disabled: [0, RTC and TAMP clock disabled]
+    Enabled: [1, RTC and TAMP clock enabled]
+  LSEGFON:
+    Disabled: [0, LSE glitch filter disabled]
+    Enabled: [1, LSE glitch filter enabled]
+  LSESYSRDY:
+    _read:
+      NotReady: [0, LSESYS clock not ready]
+      Ready: [1, LSESYS clock ready]
+  RTCSEL:
+    NoClock: [0, No clock selected]
+    LSE: [1, LSE oscillator clock selected]
+    LSI: [2, LSI oscillator clock selected]
+    HSE_Div32: [3, HSE oscillator clock divided by 32 selected]
+  LSESYSEN:
+    Disabled: [0, "LSE can be used only for RTC, TAMP, and CSS on LSE"]
+    Enabled: [1, LSE can be used by any other peripheral or function]
+  LSECSSD:
+    _read:
+      NoFailure: [0, No failure detected on LSE]
+      Failure: [1, Failure detected on LSE]
+  LSECSSON:
+    Disabled: [0, CSS on LSE OFF]
+    Enabled: [1, CSS on LSE ON]
+  LSEDRV:
+    Lower: [0, "'Xtal mode' lower driving capability"]
+    MediumLow: [1, "'Xtal mode' medium-low driving capability"]
+    MediumHigh: [2, "'Xtal mode' medium-high driving capability"]
+    Higher: [3, "'Xtal mode' higher driving capability"]
+  LSEBYP:
+    NotBypassed: [0, LSE oscillator not bypassed]
+    Bypassed: [1, LSE oscillator bypassed]
+  LSERDY:
+    _read:
+      NotReady: [0, LSE oscillator not ready]
+      Ready: [1, LSE oscillator ready]
+  LSEON:
+    Disabled: [0, LSE oscillator off]
+    Enabled: [1, LSE oscillator on]
+CSR:
+  LPWRRSTF:
+    _read:
+      NotOccured: [0, No illegal low-power mode reset occurred]
+      Occured: [1, Illegal low-power mode reset occurred]
+  WWDGRSTF:
+    _read:
+      NotOccured: [0, No window watchdog reset occurred]
+      Occured: [1, Window watchdog reset occurred]
+  IWDGRSTF:
+    _read:
+      NotOccured: [0, No independent watchdog reset occurred]
+      Occured: [1, Independent watchdog reset occurred]
+  SFTRSTF:
+    _read:
+      NotOccured: [0, No software reset occurred]
+      Occured: [1, Software reset occurred]
+  BORRSTF:
+    _read:
+      NotOccured: [0, No BOR/exit from Shutdown mode reset occurred]
+      Occured: [1, BOR/exit from Shutdown mode reset occurred]
+  PINRSTF:
+    _read:
+      NotOccured: [0, No reset from NRST pin occurred]
+      Occured: [1, Reset from NRST pin occurred]
+  OBLRSTF:
+    _read:
+      NotOccured: [0, No reset from option-byte loading occurred]
+      Occured: [1, Reset from option-byte loading occurred]
+  RMVF:
+    _write:
+      Clear: [1, Clear the reset flags]
+  MSI?SRANGE:
+    f_4MHz: [4, Range 4 around 4 MHz]
+    f_2MHz: [5, Range 5 around 2 MHz]
+    f_1_33MHz: [6, Range 6 around 1.33 MHz]
+    f_1MHz: [7, Range 7 around 1 MHz]
+    f_3_072MHz: [8, Range 8 around 3.072 MHz]
+SECCFGR:
+  "*SEC":
+    NonSecure: [0, Nonsecure]
+    Secure: [1, Secure]
+PRIVCFGR:
+  NSPRIV:
+    Unprivileged: [0, Read and write to RCC nonsecure functions can be done by privileged or unprivileged access]
+    Privileged: [1, Read and write to RCC nonsecure functions can be done by privileged access only]
+  SPRIV:
+    Unprivileged: [0, Read and write to RCC secure functions can be done by privileged or unprivileged access]
+    Privileged: [1, Read and write to RCC secure functions can be done by privileged access only]

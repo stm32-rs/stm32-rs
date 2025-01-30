@@ -66,6 +66,11 @@ PWR:
   _include:
     - fields/pwr/pwr_h5.yaml
 
+RCC:
+  _include:
+    - patches/rcc/h503.yaml
+    - fields/rcc/v3/h503.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -139,5 +144,3 @@ _include:
   - patches/h5.yaml
   - fields/crs/crs.yaml
   - fields/sbs/sbs.yaml
-  - patches/rcc/h503.yaml
-  - fields/rcc/rcc_h503.yaml

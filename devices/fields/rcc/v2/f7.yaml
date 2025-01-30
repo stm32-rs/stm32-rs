@@ -1,0 +1,20 @@
+_include:
+  - common.yaml
+  - i2s.yaml
+  - i2s_pll.yaml
+  - i2s_pllq.yaml
+  - sai_pllp.yaml
+  - bdcr_lsedrv.yaml
+  - dckcfgr_timpre.yaml
+  - dckcfgr_i2s_sai_f7.yaml
+  - dckcfgr2_48m_sd.yaml
+  - dckcfgr2_lptimsel.yaml
+  - dckcfgr2_i2csel.yaml
+  - dckcfgr2_usartsel.yaml
+
+APB1RSTR:
+  _modify:
+    UART2RST:
+      name: USART2RST
+    UART3RST:
+      name: USART3RST

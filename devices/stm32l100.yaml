@@ -121,6 +121,10 @@ RCC:
         description: CSS on LSE enable
         bitOffset: 11
         bitWidth: 1
+  _include:
+    - patches/rcc/LSECSSC_LSECSSF.yaml
+    - fields/rcc/rcc_l0_l1_common.yaml
+    - fields/rcc/rcc_l1.yaml
 
 RTC:
   _include:
@@ -176,7 +180,4 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/rcc/LSECSSC_LSECSSF.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_l0_l1_common.yaml
-  - fields/rcc/rcc_l1.yaml

@@ -129,6 +129,17 @@ RCC:
         name: UART4EN
       USART5EN:
         name: UART5EN
+  _include:
+    - patches/rcc/f3.yaml
+    - patches/rcc/f3_mco.yaml
+    - patches/rcc/f3_usb.yaml
+    - patches/rcc/f3_spi4.yaml
+    - patches/rcc/f3_tim20.yaml
+    - patches/rcc/f3_cfgr3_tim.yaml
+    - fields/rcc/rcc_f3.yaml
+    - fields/rcc/rcc_f3_i2s.yaml
+    - fields/rcc/rcc_pllsrc_2bit.yaml
+    - fields/rcc/rcc_f1_f3_usb.yaml
 
 RTC:
   _include:
@@ -239,20 +250,10 @@ WWDG:
 _include:
   - patches/nvic/4_prio_bits.yaml
   - patches/gpio/f3_reset_values.yaml
-  - patches/rcc/f3.yaml
-  - patches/rcc/f3_mco.yaml
-  - patches/rcc/f3_usb.yaml
-  - patches/rcc/f3_spi4.yaml
-  - patches/rcc/f3_tim20.yaml
-  - patches/rcc/f3_cfgr3_tim.yaml
   - patches/opamp/f3_opamp1234.yaml
   - patches/comp/f3_comp1234567.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f3.yaml
-  - fields/rcc/rcc_f3_i2s.yaml
-  - fields/rcc/rcc_pllsrc_2bit.yaml
-  - fields/rcc/rcc_f1_f3_usb.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml

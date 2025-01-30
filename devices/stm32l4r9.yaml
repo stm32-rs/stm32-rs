@@ -140,6 +140,8 @@ RCC:
       SP3EN:
         name: SPI3EN
         description: SPI peripheral 3 clock enable
+  _include:
+    - fields/rcc/rcc_l4.yaml
 
 RTC:
   _include:
@@ -272,7 +274,6 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   #- patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   #- patches/usart/merge_BRR_fields.yaml
-  - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

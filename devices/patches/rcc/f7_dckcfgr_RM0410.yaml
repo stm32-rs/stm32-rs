@@ -1,11 +1,10 @@
-RCC:
-  DCKCFGR1:
-    _add:
-      DFSDM1SEL:
-        description: DFSDM1 clock source selection
-        bitOffset: 25
-        bitWidth: 1
-      ADFSDM1SEL:
-        description: DFSDM1 AUDIO clock source selection
-        bitOffset: 26
-        bitWidth: 1
+DCKCFGR1:
+  _add:
+    DFSDM1SEL:
+      description: DFSDM1 clock source selection
+      bitOffset: 25
+      bitWidth: 1
+    ADFSDM1SEL:
+      description: DFSDM1 AUDIO clock source selection
+      bitOffset: 26
+      bitWidth: 1

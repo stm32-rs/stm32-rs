@@ -75,6 +75,12 @@ PWR:
   _include:
     - fields/pwr/pwr_v1.yaml
 
+RCC:
+  _include:
+    - patches/rcc/f1_uart45.yaml
+    - fields/rcc/rcc_f1.yaml
+    - fields/rcc/rcc_cfgr2_prediv.yaml
+
 RTC:
   _include:
     - fields/rtc/rtc_f1.yaml
@@ -146,9 +152,6 @@ WWDG:
         name: EWIF
 
 _include:
-  - patches/rcc/f1_uart45.yaml
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f1.yaml
-  - fields/rcc/rcc_cfgr2_prediv.yaml
   - patches/dbgmcu/rename.yaml

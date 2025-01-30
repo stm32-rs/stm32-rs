@@ -1,133 +1,132 @@
-RCC:
+_add:
+  DLYCFGR:
+    description: delay configuration register
+    addressOffset: 0xA4
+    resetValue: 0x0
+    fields:
+      OCTOSPI2_DLY:
+        description: Delay sampling configuration on OCTOSPI2 to be used for internal sampling clock (called feedback clock) or for DQS data strobe
+        bitOffset: 4
+        bitWidth: 4
+      OCTOSPI1_DLY:
+        description: Delay sampling configuration on OCTOSPI1 to be used for internal sampling clock (called feedback clock) or for DQS data strobe
+        bitOffset: 0
+        bitWidth: 4
+
+_modify:
+  APB1ENR1:
+    resetValue: 0x00000400
+  AHB1SMENR:
+    resetValue: 0x00071307
+  AHB2SMENR:
+    resetValue: 0x005777FF
+  AHB3SMENR:
+    resetValue: 0x00000301
+  APB1SMENR1:
+    resetValue: 0xF3FECC3F
+  APB1SMENR2:
+    resetValue: 0x00000023
+  APB2SMENR:
+    resetValue: 0x0D677801
+
+AHB1RSTR:
   _add:
-    DLYCFGR:
-      description: delay configuration register
-      addressOffset: 0xA4
-      resetValue: 0x0
-      fields:
-        OCTOSPI2_DLY:
-          description: Delay sampling configuration on OCTOSPI2 to be used for internal sampling clock (called feedback clock) or for DQS data strobe
-          bitOffset: 4
-          bitWidth: 4
-        OCTOSPI1_DLY:
-          description: Delay sampling configuration on OCTOSPI1 to be used for internal sampling clock (called feedback clock) or for DQS data strobe
-          bitOffset: 0
-          bitWidth: 4
+    GFXMMURST:
+      description: GFXMMU reset
+      bitOffset: 18
+      bitWidth: 1
+
+AHB2RSTR:
+  _add:
+    SDMMC2RST:
+      description: SDMMC2 reset
+      bitOffset: 23
+      bitWidth: 1
+    PKARST:
+      description: PKA reset
+      bitOffset: 15
+      bitWidth: 1
+
+AHB3RSTR:
+  _add:
+    OSPI1RST:
+      description: OctoSPI1 memory interface reset
+      bitOffset: 8
+      bitWidth: 1
+
+AHB1ENR:
+  _add:
+    GFXMMUEN:
+      description: Graphic MMU clock enable
+      bitOffset: 18
+      bitWidth: 1
+
+AHB2ENR:
+  _add:
+    SDMMC2EN:
+      description: SDMMC2 clock enable
+      bitOffset: 23
+      bitWidth: 1
+    PKAEN:
+      description: PKA clock enable
+      bitOffset: 15
+      bitWidth: 1
+
+AHB3ENR:
+  _add:
+    OSPI1EN:
+      description: OctoSPI1 memory interface clock enable
+      bitOffset: 8
+      bitWidth: 1
+
+APB1ENR1:
+  _modify:
+    SP3EN:
+      name: SPI3EN
+
+AHB1SMENR:
+  _add:
+    GFXMMUSMEN:
+      description: GFXMMU clock enable during Sleep and Stop modes
+      bitOffset: 18
+      bitWidth: 1
+
+AHB2SMENR:
+  _add:
+    SDMMC2SMEN:
+      description: SDMMC2 clocks enable during Sleep and Stop modes
+      bitOffset: 23
+      bitWidth: 1
+    PKASMEN:
+      description: PKA clocks enable during Sleep and Stop modes
+      bitOffset: 15
+      bitWidth: 1
 
   _modify:
-    APB1ENR1:
-      resetValue: 0x00000400
-    AHB1SMENR:
-      resetValue: 0x00071307
-    AHB2SMENR:
-      resetValue: 0x005777FF
-    AHB3SMENR:
-      resetValue: 0x00000301
-    APB1SMENR1:
-      resetValue: 0xF3FECC3F
-    APB1SMENR2:
-      resetValue: 0x00000023
-    APB2SMENR:
-      resetValue: 0x0D677801
+    ADCFSSMEN:
+      name: ADCSMEN
 
-  AHB1RSTR:
-    _add:
-      GFXMMURST:
-        description: GFXMMU reset
-        bitOffset: 18
-        bitWidth: 1
+AHB3SMENR:
+  _add:
+    OSPI1SMEN:
+      description: OctoSPI1 memory interface clocks enable during Sleep and Stop modes
+      bitOffset: 8
+      bitWidth: 1
 
-  AHB2RSTR:
-    _add:
-      SDMMC2RST:
-        description: SDMMC2 reset
-        bitOffset: 23
-        bitWidth: 1
-      PKARST:
-        description: PKA reset
-        bitOffset: 15
-        bitWidth: 1
+BDCR:
+  _add:
+    LSESYSDIS:
+      description: Disable the Clock LSE propagation to the system
+      bitOffset: 7
+      bitWidth: 1
 
-  AHB3RSTR:
-    _add:
-      OSPI1RST:
-        description: OctoSPI1 memory interface reset
-        bitOffset: 8
-        bitWidth: 1
+CSR:
+  _add:
+    LSIPREDIV:
+      description: Internal low-speed oscillator predivided by 128
+      bitOffset: 4
+      bitWidth: 1
 
-  AHB1ENR:
-    _add:
-      GFXMMUEN:
-        description: Graphic MMU clock enable
-        bitOffset: 18
-        bitWidth: 1
-
-  AHB2ENR:
-    _add:
-      SDMMC2EN:
-        description: SDMMC2 clock enable
-        bitOffset: 23
-        bitWidth: 1
-      PKAEN:
-        description: PKA clock enable
-        bitOffset: 15
-        bitWidth: 1
-
-  AHB3ENR:
-    _add:
-      OSPI1EN:
-        description: OctoSPI1 memory interface clock enable
-        bitOffset: 8
-        bitWidth: 1
-
-  APB1ENR1:
-    _modify:
-      SP3EN:
-        name: SPI3EN
-
-  AHB1SMENR:
-    _add:
-      GFXMMUSMEN:
-        description: GFXMMU clock enable during Sleep and Stop modes
-        bitOffset: 18
-        bitWidth: 1
-
-  AHB2SMENR:
-    _add:
-      SDMMC2SMEN:
-        description: SDMMC2 clocks enable during Sleep and Stop modes
-        bitOffset: 23
-        bitWidth: 1
-      PKASMEN:
-        description: PKA clocks enable during Sleep and Stop modes
-        bitOffset: 15
-        bitWidth: 1
-
-    _modify:
-      ADCFSSMEN:
-        name: ADCSMEN
-
-  AHB3SMENR:
-    _add:
-      OSPI1SMEN:
-        description: OctoSPI1 memory interface clocks enable during Sleep and Stop modes
-        bitOffset: 8
-        bitWidth: 1
-
-  BDCR:
-    _add:
-      LSESYSDIS:
-        description: Disable the Clock LSE propagation to the system
-        bitOffset: 7
-        bitWidth: 1
-
-  CSR:
-    _add:
-      LSIPREDIV:
-        description: Internal low-speed oscillator predivided by 128
-        bitOffset: 4
-        bitWidth: 1
-
-    _modify:
-      LPWRSTF:
-        name: LPWRRSTF
+  _modify:
+    LPWRSTF:
+      name: LPWRRSTF

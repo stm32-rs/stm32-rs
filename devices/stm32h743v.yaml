@@ -175,6 +175,15 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+RCC:
+  _include:
+    - patches/rcc/h7_common_singlecore.yaml
+    - patches/rcc/h7_src_sel.yaml
+    - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
+    - fields/rcc/v3/h7.yaml
+    - fields/rcc/v3/hrtim.yaml
+    - fields/rcc/v3/h7_revision_v.yaml
+
 RNG:
   _include:
     - fields/rng/rng_v1.yaml
@@ -300,21 +309,16 @@ WWDG:
 _include:
   - patches/h7_common_singlecore.yaml
   - patches/ethernet/h7_dma_mr.yaml
-  - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml
   - patches/dbgmcu/h7.yaml
   - patches/h7_spdifrx.yaml
   - collect/usb_otg/hs.yaml
-  - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml
   - patches/ramecc/ramecc.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
-  - fields/rcc/rcc_h7.yaml
-  - fields/rcc/rcc_v3_hrtim.yaml
-  - fields/rcc/rcc_h7_revision_v.yaml
   - patches/tim/group.yaml
   - patches/ethernet/h7_mac.yaml
   - patches/h743_hrtim_common.yaml

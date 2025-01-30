@@ -1,16 +1,15 @@
-RCC:
-  CIR:
-    _add:
-      LSECSSC:
-        description: LSE Clock security system interrupt clear
-        bitOffset: 22
-        bitWidth: 1
-        access: write-only
-      LSECSSF:
-        description: LSE Clock security system interrupt flag
-        bitOffset: 6
-        bitWidth: 1
-      LSECSSIE:
-        description: LSE clock security system interrupt enable
-        bitOffset: 14
-        bitWidth: 1
+CIR:
+  _add:
+    LSECSSC:
+      description: LSE Clock security system interrupt clear
+      bitOffset: 22
+      bitWidth: 1
+      access: write-only
+    LSECSSF:
+      description: LSE Clock security system interrupt flag
+      bitOffset: 6
+      bitWidth: 1
+    LSECSSIE:
+      description: LSE clock security system interrupt enable
+      bitOffset: 14
+      bitWidth: 1

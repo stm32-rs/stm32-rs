@@ -122,6 +122,10 @@ PWR:
   _include:
     - fields/pwr/pwr_u5.yaml
 
+RCC:
+  _include:
+    - fields/rcc/rcc_u5.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -193,4 +197,3 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - fields/rcc/rcc_u5.yaml

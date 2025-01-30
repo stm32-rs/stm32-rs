@@ -179,6 +179,12 @@ RCC:
         name: SDADC2EN
       SDAD3EN:
         name: SDADC3EN
+  _include:
+    - patches/rcc/f3.yaml
+    - patches/rcc/f3_dac3_dac2.yaml
+    - fields/rcc/rcc_f373.yaml
+    - fields/rcc/rcc_pllsrc_1bit.yaml
+    - fields/rcc/rcc_f1_f3_usb.yaml
 
 RTC:
   _include:
@@ -295,11 +301,6 @@ WWDG:
 
 _include:
   - patches/nvic/4_prio_bits.yaml
-  - patches/rcc/f3.yaml
-  - patches/rcc/f3_dac3_dac2.yaml
   - patches/comp/f0_common.yaml
   - patches/tim/group.yaml
-  - fields/rcc/rcc_f373.yaml
-  - fields/rcc/rcc_pllsrc_1bit.yaml
-  - fields/rcc/rcc_f1_f3_usb.yaml
   - patches/dbgmcu/f3.yaml

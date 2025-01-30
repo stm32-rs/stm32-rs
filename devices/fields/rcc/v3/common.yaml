@@ -1,0 +1,89 @@
+# Applicable at least to H7
+
+# Fresh start - even fields from rcc_common are quite different
+
+CR:
+  HSIDIVF:
+    _read:
+      NotPropagated: [0, New HSIDIV ratio has not yet propagated to hsi_ck]
+      Propagated: [1, HSIDIV ratio has propagated to hsi_ck]
+  HSEBYP:
+    NotBypassed: [0, HSE crystal oscillator not bypassed]
+    Bypassed: [1, HSE crystal oscillator bypassed with external clock]
+  HSIDIV:
+    Div1: [0, No division]
+    Div2: [1, Division by 2]
+    Div4: [2, Division by 4]
+    Div8: [3, Division by 8]
+  "*RDY":
+    _read:
+      NotReady: [0, Clock not ready]
+      Ready: [1, Clock ready]
+  "*ON":
+    "Off": [0, Clock Off]
+    "On": [1, Clock On]
+CIER:
+  "*IE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
+CIFR:
+  "*RDYF":
+    _read:
+      NotInterrupted: [0, No clock ready interrupt]
+      Interrupted: [1, Clock ready interrupt]
+CICR:
+  "*C":
+    Clear: [1, Clear interrupt flag]
+BDCR:
+  BDRST,VSWRST:
+    NotActivated: [0, Reset not activated]
+    Reset: [1, Resets the entire VSW domain]
+  RTCEN:
+    Disabled: [0, RTC clock disabled]
+    Enabled: [1, RTC clock enabled]
+  RTCSEL:
+    NoClock: [0, No clock]
+    LSE: [1, LSE oscillator clock used as RTC clock]
+    LSI: [2, LSI oscillator clock used as RTC clock]
+    HSE: [3, HSE oscillator clock divided by a prescaler used as RTC clock]
+  LSECSSD:
+    _read:
+      NoFailure: [0, No failure detected on 32 kHz oscillator]
+      Failure: [1, Failure detected on 32 kHz oscillator]
+  LSECSSON:
+    SecurityOff: [0, Clock security system on 32 kHz oscillator off]
+    SecurityOn: [1, Clock security system on 32 kHz oscillator on]
+  LSEDRV:
+    Lowest: [0, Lowest LSE oscillator driving capability]
+    MediumLow: [1, Medium low LSE oscillator driving capability]
+    MediumHigh: [2, Medium high LSE oscillator driving capability]
+    Highest: [3, Highest LSE oscillator driving capability]
+  LSEBYP:
+    NotBypassed: [0, LSE crystal oscillator not bypassed]
+    Bypassed: [1, LSE crystal oscillator bypassed with external clock]
+  LSERDY:
+    _read:
+      NotReady: [0, LSE oscillator not ready]
+      Ready: [1, LSE oscillator ready]
+  LSEON:
+    "Off": [0, LSE oscillator Off]
+    "On": [1, LSE oscillator On]
+"A?B?RSTR,A?B??RSTR":
+  "*RST":
+    Reset: [1, Reset the selected module]
+RSR,C1_RSR:
+  "*RSTF":
+    _read:
+      NoResetOccurred: [0, No reset occurred for block]
+      ResetOccurred: [1, Reset occurred for block]
+  RMVF:
+    NotActivated: [0, Reset not activated]
+    Reset: [1, Reset the reset status flags]
+"A?B?ENR,A?B??ENR,C1_A?B?ENR,C1_A?B??ENR":
+  "*EN":
+    Disabled: [0, The selected clock is disabled]
+    Enabled: [1, The selected clock is enabled]
+"A?B?LPENR,A?B??LPENR,C1_A?B?LPENR,C1_A?B??LPENR":
+  "*LPEN":
+    Disabled: [0, The selected clock is disabled during csleep mode]
+    Enabled: [1, The selected clock is enabled during csleep mode]
