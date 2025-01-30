@@ -30,6 +30,7 @@ EXTI:
 GPDMA?:
   _strip: GPDMA_
   _include:
+    - patches/dma/gpdma/h5.yaml
     - fields/dma/gpdma/h5.yaml
     - collect/dma/gpdma/h5.yaml
 

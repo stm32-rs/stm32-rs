@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* H5: gpdma: Restore PAM_1, PAM_2 enums
 * Refactor timers, add enums
 * STM32H5xx: Add H533 (#1129)
 * G4: Fix swapped reset values for SPI4 CR1 and CR2 by deriving SPI4 from SPI1 (#957)
