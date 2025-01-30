@@ -32,11 +32,19 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+AXI:
+  _include:
+    - fields/axi/axi_v1.yaml
+
 BDMA:
   _strip: BDMA_
   _include:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
+
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
 
 CRC:
   _include:
@@ -107,6 +115,9 @@ FLASH:
     _delete: CRCRDERR1
   CCR1:
     _delete: CLR_CRCRDERR1
+  _include:
+    - patches/flash/flash_dual_bank.yaml
+    - collect/flash/bank.yaml
 
 FMC:
   _include:
@@ -126,6 +137,14 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v2.yaml
+
+HSEM:
+  _include:
+    - collect/hsem/r.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -135,6 +154,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIM?:
+  _include:
+    - fields/lptim/lptim_v1.yaml
 
 LTDC:
   _include:
@@ -162,6 +185,11 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+RNG:
+  _include:
+    - fields/rng/rng_v1.yaml
+    - fields/rng/rng_v1_ced.yaml
 
 RTC:
   _include:
@@ -281,31 +309,22 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/h7_common_singlecore.yaml
   - patches/ethernet/h7_dma_mr.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_desc.yaml
   - patches/dbgmcu/h7.yaml
-  - collect/hsem/r.yaml
   - patches/h7_spdifrx.yaml
   - collect/usb_otg/hs.yaml
-  - patches/flash/flash_dual_bank.yaml
-  - collect/flash/bank.yaml
-  - collect/hash/v2.yaml
   - patches/ramecc/ramecc.yaml
-  - fields/axi/axi_v1.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
-  - fields/lptim/lptim_v1.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_v3_hrtim.yaml
   - fields/rcc/rcc_h7_revision_y.yaml
-  - fields/rng/rng_v1.yaml
-  - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
   - patches/ethernet/h7_mac.yaml
   - patches/h743_hrtim_common.yaml

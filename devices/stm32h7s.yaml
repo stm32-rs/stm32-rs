@@ -45,12 +45,20 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2r_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v3.yaml
+
 HPDMA:
   _include:
     - collect/dma/hpdma.yaml
 
 IWDG:
   _include: patches/16bit_with_mask.yaml
+
+JPEG:
+  _include:
+    - collect/jpeg/ram_h7rs.yaml
 
 MCE*:
   _strip: MCE_
@@ -63,6 +71,15 @@ RTC:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
+
+SDMMC?:
+  _strip: SDMMC_
+  _include:
+    - collect/sdmmc/fifo.yaml
+
+TAMP:
+  _include:
+    - collect/tamp/bkp.yaml
 
 TIM1:
   _include:
@@ -133,9 +150,5 @@ WWDG:
 
 _include:
   - patches/h7_common_bootflash.yaml
-  - collect/jpeg/ram_h7rs.yaml
-  - collect/hash/v3.yaml
-  - collect/tamp/bkp.yaml
   - collect/mce/v1.yaml
-  - collect/sdmmc/fifo.yaml
   - fields/rcc/rcc_h7rs.yaml

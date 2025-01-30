@@ -78,6 +78,10 @@ EXTI:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
 
+FIREWALL:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
+
 GPIO?:
   BRR:
     _add:
@@ -200,6 +204,10 @@ TIM16:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -231,6 +239,4 @@ WWDG:
 _include:
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - collect/tsc/iogcr.yaml
   - patches/adc/l4_adc_common.yaml
-  - fields/fw/fw_l0_l4.yaml

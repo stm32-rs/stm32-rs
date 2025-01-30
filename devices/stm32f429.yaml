@@ -47,7 +47,9 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
-  _include: patches/cryp/merge_fields.yaml
+  _include:
+    - patches/cryp/merge_fields.yaml
+    - collect/cryp/v2.yaml
 
 DAC:
   _include:
@@ -69,10 +71,10 @@ EXTI:
     - collect/exti/farray.yaml
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 # Offset of BWTR3 and BWTR4 is incorrect
 FMC:
@@ -112,6 +114,10 @@ GPIO[A]:
 GPIO[BK]:
   _include: collect/gpio/v2_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v2.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -144,6 +150,9 @@ PWR:
       LPLVDS:
         name: LPUDS
         description: Low-power regulator in deepsleep under-drive mode
+  _include:
+    - patches/pwr/f4.yaml
+    - fields/pwr/pwr_f427_f437_f429_f439.yaml
 
 # Add missing RCC reset/enable bits
 RCC:
@@ -160,6 +169,10 @@ RCC:
       UART8ENR:
         name: UART8EN
 
+RNG:
+  _include:
+    - fields/rng/rng_v1.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -174,6 +187,11 @@ SAI:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4.yaml
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -259,7 +277,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - collect/cryp/v2.yaml
   - patches/rcc/sai.yaml
   - patches/rcc/dma2d_ltdc.yaml
   - patches/rcc/add_gpiojk.yaml
@@ -281,7 +298,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - collect/hash/v2.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
@@ -290,12 +306,5 @@ _include:
   - patches/usb_otg/hs_v1_f4.yaml
   - collect/usb_otg/hs.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/rng/rng_v1.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
-  - fields/sdio/sdio_f4.yaml
-  - collect/sdio/resp.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f427_f437_f429_f439.yaml

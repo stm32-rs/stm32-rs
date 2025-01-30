@@ -1,174 +1,173 @@
-PWR:
-  PMCR:
-    SRAM1SO:
-      Kept: [0, AHB RAM1 content is kept in Stop mode]
-      Lost: [1, AHB RAM1 content is lost in Stop mode]
-    SRAM2*:
-      Kept: [0, AHB RAM2 content is kept in Stop mode]
-      Lost: [1, AHB RAM2 content is lost in Stop mode]
-    AVD_READY:
-      NotReady: [0, Peripheral analog voltage VDDA not ready (default)]
-      Ready: [1, Peripheral analog voltage VDDA ready]
-    BOOSTE:
-      Disabled: [0, Booster disabled]
-      Enabled: [1, "Booster enabled if analog voltage ready (AVD_READY = 1)"]
-    FLPS:
-      NormalMode: [0, Flash memory remains in normal mode when the system enters Stop mode]
-      LowPowerMode: [1, Flash memory enters low-power mode when the system enters Stop mode]
-    CSSF:
-      Clear: [1, STOPF and SBF flags cleared]
-    SVOS:
-      Scale5: [1, SVOS5 scale 5]
-      Scale4: [2, SVOS4 scale 4]
-      Scale3: [3, SVOS3 scale 3]
-    LPMS:
-      StopMode: [0, Keeps Stop mode when entering DeepSleep]
-      StandbyMode: [1, Allows Standby mode when entering DeepSleep]
+PMCR:
+  SRAM1SO:
+    Kept: [0, AHB RAM1 content is kept in Stop mode]
+    Lost: [1, AHB RAM1 content is lost in Stop mode]
+  SRAM2*:
+    Kept: [0, AHB RAM2 content is kept in Stop mode]
+    Lost: [1, AHB RAM2 content is lost in Stop mode]
+  AVD_READY:
+    NotReady: [0, Peripheral analog voltage VDDA not ready (default)]
+    Ready: [1, Peripheral analog voltage VDDA ready]
+  BOOSTE:
+    Disabled: [0, Booster disabled]
+    Enabled: [1, "Booster enabled if analog voltage ready (AVD_READY = 1)"]
+  FLPS:
+    NormalMode: [0, Flash memory remains in normal mode when the system enters Stop mode]
+    LowPowerMode: [1, Flash memory enters low-power mode when the system enters Stop mode]
+  CSSF:
+    Clear: [1, STOPF and SBF flags cleared]
+  SVOS:
+    Scale5: [1, SVOS5 scale 5]
+    Scale4: [2, SVOS4 scale 4]
+    Scale3: [3, SVOS3 scale 3]
+  LPMS:
+    StopMode: [0, Keeps Stop mode when entering DeepSleep]
+    StandbyMode: [1, Allows Standby mode when entering DeepSleep]
 
-  PMSR:
-    SBF:
-      _read:
-        NoStandbyMode: [0, System has not been in standby mode]
-        StandbyModePreviouslyEntered: [1, System has been in Standby mode]
-    STOPF:
-      _read:
-        NoStopMode: [0, System has not been in stop mode]
-        StopModePreviouslyEntered: [1, System has been in Stop mode]
+PMSR:
+  SBF:
+    _read:
+      NoStandbyMode: [0, System has not been in standby mode]
+      StandbyModePreviouslyEntered: [1, System has been in Standby mode]
+  STOPF:
+    _read:
+      NoStopMode: [0, System has not been in stop mode]
+      StopModePreviouslyEntered: [1, System has been in Stop mode]
 
-  VOSCR:
-    VOS:
-      VOS3: [0, Scale 3 (default)]
-      VOS2: [2, Scale 2]
-      VOS1: [1, Scale 1]
-      VOS0: [3, Scale 0]
+VOSCR:
+  VOS:
+    VOS3: [0, Scale 3 (default)]
+    VOS2: [2, Scale 2]
+    VOS1: [1, Scale 1]
+    VOS0: [3, Scale 0]
 
-  VOSSR:
-    ACTVOS:
-      _read:
-        VOS3: [0, VOS3 (lowest power)]
-        VOS2: [1, VOS2]
-        VOS1: [2, VOS1]
-        VOS0: [3, VOS0 (highest frequency)]
-    ACTVOSRDY:
-      _read:
-        NotReady: [0, "VCORE is above or below the current voltage scaling provided by ACTVOS[1:0]"]
-        Ready: [1, "VCORE is equal to the current voltage scaling provided by ACTVOS[1:0]"]
-    VOSRDY:
-      _read:
-        NotReady: [0, "Not ready, voltage level below VOS selected level"]
-        Ready: [1, "Ready, voltage level at or above VOS selected level"]
+VOSSR:
+  ACTVOS:
+    _read:
+      VOS3: [0, VOS3 (lowest power)]
+      VOS2: [1, VOS2]
+      VOS1: [2, VOS1]
+      VOS0: [3, VOS0 (highest frequency)]
+  ACTVOSRDY:
+    _read:
+      NotReady: [0, "VCORE is above or below the current voltage scaling provided by ACTVOS[1:0]"]
+      Ready: [1, "VCORE is equal to the current voltage scaling provided by ACTVOS[1:0]"]
+  VOSRDY:
+    _read:
+      NotReady: [0, "Not ready, voltage level below VOS selected level"]
+      Ready: [1, "Ready, voltage level at or above VOS selected level"]
 
-  BDCR:
-    VBRS:
-      Charge5k: [0, Charge VBAT through a 5 kΩ resistor]
-      Charge1k5: [1, Charge VBAT through a 1.5 kΩ resistor]
-    VBE:
-      Disabled: [0, VBAT battery charging disabled]
-      Enabled: [1, VBAT battery charging enabled]
-    MONEN:
-      Disabled: [0, Backup domain voltage and temperature monitoring disabled]
-      Enabled: [1, " Backup domain voltage and temperature monitoring enabled"]
-    BREN:
-      Disabled: [0, "Backup regulator enabled; backup RAM content lost in Standby and VBAT modes"]
-      Enabled: [1, "Backup regulator disabled; backup RAM content preserved in Standby and VBAT modes"]
+BDCR:
+  VBRS:
+    Charge5k: [0, Charge VBAT through a 5 kΩ resistor]
+    Charge1k5: [1, Charge VBAT through a 1.5 kΩ resistor]
+  VBE:
+    Disabled: [0, VBAT battery charging disabled]
+    Enabled: [1, VBAT battery charging enabled]
+  MONEN:
+    Disabled: [0, Backup domain voltage and temperature monitoring disabled]
+    Enabled: [1, " Backup domain voltage and temperature monitoring enabled"]
+  BREN:
+    Disabled: [0, "Backup regulator enabled; backup RAM content lost in Standby and VBAT modes"]
+    Enabled: [1, "Backup regulator disabled; backup RAM content preserved in Standby and VBAT modes"]
 
-  DBPCR:
-    DBP:
-      Disabled: [0, Write access to backup domain disabled]
-      Enabled: [1, Write access to backup domain enabled]
+DBPCR:
+  DBP:
+    Disabled: [0, Write access to backup domain disabled]
+    Enabled: [1, Write access to backup domain enabled]
 
-  BDSR:
-    "*H":
-      _read:
-        BelowThreshold: [0, Below high threshold level]
-        AboveThreshold: [1, Equal to or Above high threshold level]
-    "*L":
-      _read:
-        AboveThreshold: [0, Above low threshold level]
-        BelowThreshold: [1, Equal to or below low threshold level]
+BDSR:
+  "*H":
+    _read:
+      BelowThreshold: [0, Below high threshold level]
+      AboveThreshold: [1, Equal to or Above high threshold level]
+  "*L":
+    _read:
+      AboveThreshold: [0, Above low threshold level]
+      BelowThreshold: [1, Equal to or below low threshold level]
 
-    BRRDY:
-      _read:
-        NotReady: [0, Backup regulator not ready]
-        Ready: [1, Backup regulator ready]
+  BRRDY:
+    _read:
+      NotReady: [0, Backup regulator not ready]
+      Ready: [1, Backup regulator ready]
 
-  SCCR:
-    LDOEN:
-      _read:
-        Disabled: [0, Package does not use LDO regulator]
-        Enabled: [1, Package uses LDO regulator]
-    BYPASS:
-      InternalRegulator: [0, Power management unit normal operation. Use the internal regulator.]
-      Bypassed: [1, Power management unit bypassed. Use the external power.]
+SCCR:
+  LDOEN:
+    _read:
+      Disabled: [0, Package does not use LDO regulator]
+      Enabled: [1, Package uses LDO regulator]
+  BYPASS:
+    InternalRegulator: [0, Power management unit normal operation. Use the internal regulator.]
+    Bypassed: [1, Power management unit bypassed. Use the external power.]
 
-  VMCR:
-    ALS:
-      AvdLevel0: [0, AVD level0 (VAVD0 around 1.7 V)]
-      AvdLevel1: [1, AVD level1 (VAVD1 around 2.1 V)]
-      AvdLevel2: [2, AVD level2 (VAVD2 around 2.5 V)]
-      AvdLevel3: [3, AVD level3 (VAVD3 around 2.8 V)]
-    AVDEN:
-      Disabled: [0, Peripheral voltage monitor on VDDA disabled]
-      Enabled: [1, Peripheral voltage monitor on VDDA enabled]
-    PLS:
-      PvdLevel0: [0b000, PVD level0 (VPVD0 around 1.95 V)]
-      PvdLevel1: [0b001, PVD level1 (VPVD1 around 2.1 V)]
-      PvdLevel2: [0b010, PVD level2 (VPVD2 around 2.25 V)]
-      PvdLevel3: [0b011, PVD level3 (VPVD3 around 2.4 V)]
-      PvdLevel4: [0b100, PVD level4 (VPVD4 around 2.55 V)]
-      PvdLevel5: [0b101, PVD level5 (VPVD5 around 2.7 V)]
-      PvdLevel6: [0b110, PVD level6 (VPVD6 around 2.85 V)]
-      PvdIn: [0b111, PVD_IN pin]
-    PVDE:
-      Disabled: [0, PVD Disabled]
-      Enabled: [1, PVD Enabled]
+VMCR:
+  ALS:
+    AvdLevel0: [0, AVD level0 (VAVD0 around 1.7 V)]
+    AvdLevel1: [1, AVD level1 (VAVD1 around 2.1 V)]
+    AvdLevel2: [2, AVD level2 (VAVD2 around 2.5 V)]
+    AvdLevel3: [3, AVD level3 (VAVD3 around 2.8 V)]
+  AVDEN:
+    Disabled: [0, Peripheral voltage monitor on VDDA disabled]
+    Enabled: [1, Peripheral voltage monitor on VDDA enabled]
+  PLS:
+    PvdLevel0: [0b000, PVD level0 (VPVD0 around 1.95 V)]
+    PvdLevel1: [0b001, PVD level1 (VPVD1 around 2.1 V)]
+    PvdLevel2: [0b010, PVD level2 (VPVD2 around 2.25 V)]
+    PvdLevel3: [0b011, PVD level3 (VPVD3 around 2.4 V)]
+    PvdLevel4: [0b100, PVD level4 (VPVD4 around 2.55 V)]
+    PvdLevel5: [0b101, PVD level5 (VPVD5 around 2.7 V)]
+    PvdLevel6: [0b110, PVD level6 (VPVD6 around 2.85 V)]
+    PvdIn: [0b111, PVD_IN pin]
+  PVDE:
+    Disabled: [0, PVD Disabled]
+    Enabled: [1, PVD Enabled]
 
-  VMSR:
-    PVDO:
-      _read:
-        AboveThreshold: [0, "VDD is equal or higher than the PVD threshold selected through the PLS[2:0] bits."]
-        BelowThreshold: [1, "VDD is lower than the PVD threshold selected through the PLS[2:0] bits"]
-    VDDIO2RDY:
-      _read:
-        BelowThreshold: [0, VDDIO2 is below the threshold of the VDDIO2 voltage monitor]
-        AboveThreshold: [1, VDDIO2 is equal or above the threshold of the VDDIO2 voltage monitor]
-    AVDO:
-      _read:
-        AboveThreshold: [0, "VDDA is equal or higher than the AVD threshold selected with the ALS[2:0] bits"]
-        BelowThreshold: [1, "VDDA is lower than the AVD threshold selected with the ALS[2:0] bits"]
+VMSR:
+  PVDO:
+    _read:
+      AboveThreshold: [0, "VDD is equal or higher than the PVD threshold selected through the PLS[2:0] bits."]
+      BelowThreshold: [1, "VDD is lower than the PVD threshold selected through the PLS[2:0] bits"]
+  VDDIO2RDY:
+    _read:
+      BelowThreshold: [0, VDDIO2 is below the threshold of the VDDIO2 voltage monitor]
+      AboveThreshold: [1, VDDIO2 is equal or above the threshold of the VDDIO2 voltage monitor]
+  AVDO:
+    _read:
+      AboveThreshold: [0, "VDDA is equal or higher than the AVD threshold selected with the ALS[2:0] bits"]
+      BelowThreshold: [1, "VDDA is lower than the AVD threshold selected with the ALS[2:0] bits"]
 
-  WUSCR:
-    CWUF?:
-      _write:
-        Clear: [1, Writing 1 clears the WUFx wakeup pin flag (bit is cleared to 0 by hardware)]
+WUSCR:
+  CWUF?:
+    _write:
+      Clear: [1, Writing 1 clears the WUFx wakeup pin flag (bit is cleared to 0 by hardware)]
 
-  WUSR:
-    WUF?:
-      _read:
-        NoEventOccurred: [0, No wakeup event occurred]
-        EventOccurred: [1, A wakeup event received from WUFx pin]
+WUSR:
+  WUF?:
+    _read:
+      NoEventOccurred: [0, No wakeup event occurred]
+      EventOccurred: [1, A wakeup event received from WUFx pin]
 
-  WUCR:
-    WUPPUPD?:
-      NoPull: [0, No pull-up or pull-down]
-      PullUp: [1, Pull-up]
-      PullDown: [2, Pull-down]
-    WUPP?:
-      HighLevel: [0, Detection on high level]
-      LowLevel: [1, Detection on low level]
-    WUPEN?:
-      Disabled: [0, An event on WUPx pin does not wakeup the system from Standby mode]
-      Enabled: [1, A rising or falling edge on WUPx pin wakes up the system from Standby mode]
+WUCR:
+  WUPPUPD?:
+    NoPull: [0, No pull-up or pull-down]
+    PullUp: [1, Pull-up]
+    PullDown: [2, Pull-down]
+  WUPP?:
+    HighLevel: [0, Detection on high level]
+    LowLevel: [1, Detection on low level]
+  WUPEN?:
+    Disabled: [0, An event on WUPx pin does not wakeup the system from Standby mode]
+    Enabled: [1, A rising or falling edge on WUPx pin wakes up the system from Standby mode]
 
-  IORETR:
-    JTAGIORETEN:
-      Disabled: [0, IO Retention mode is disabled]
-      Enabled: [1, " IO Retention mode is enabled"]
-    IORETEN:
-      Disabled: [0, IO Retention mode is disabled]
-      Enabled: [1, " IO Retention mode is enabled"]
+IORETR:
+  JTAGIORETEN:
+    Disabled: [0, IO Retention mode is disabled]
+    Enabled: [1, " IO Retention mode is enabled"]
+  IORETEN:
+    Disabled: [0, IO Retention mode is disabled]
+    Enabled: [1, " IO Retention mode is enabled"]
 
-  PRIVCFGR:
-    NSPRIV:
-      Unprivileged: [0, Read and write to PWR functions can be done by privileged or unprivileged access]
-      Privileged: [1, Read and write to PWR functions can be done by privileged access only]
+PRIVCFGR:
+  NSPRIV:
+    Unprivileged: [0, Read and write to PWR functions can be done by privileged or unprivileged access]
+    Privileged: [1, Read and write to PWR functions can be done by privileged access only]

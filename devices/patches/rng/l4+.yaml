@@ -1,10 +1,9 @@
 _include:
- - ./h735.yaml
+  - ./h735.yaml
 
-RNG:
-  CR:
-    _add:
-      CED:
-        description: Clock error detection
-        bitOffset: 5
-        bitWidth: 1
+CR:
+  _add:
+    CED:
+      description: Clock error detection
+      bitOffset: 5
+      bitWidth: 1

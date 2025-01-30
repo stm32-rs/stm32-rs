@@ -1,94 +1,93 @@
-FLASH:
-  _add:
-    CFGR:
-      description: flash configuration register
-      addressOffset: 0x130
-      resetValue: 0x0
-      fields:
-        LVEN:
-          description: Low voltage enable
-          bitOffset: 0
-          bitWidth: 1
-
-  _modify:
-    OPTR:
-      resetValue: 0xFFEFF8AA
-    WRP2AR:
-      addressOffset: 0x30
-    WRP1BR:
-      addressOffset: 0x4C
-
-  KEYR:
-    _modify:
-      KEYR:
-        name: KEY
-
-  OPTKEYR:
-    _modify:
-      OPTKEYR:
-        name: OPTKEY
-
-  PDKEYR:
-    _modify:
-      PDKEYR:
-        name: PDKEY
-
-  SR:
-    _add:
-      PEMPTY:
-        bitOffset: 17
+_add:
+  CFGR:
+    description: flash configuration register
+    addressOffset: 0x130
+    resetValue: 0x0
+    fields:
+      LVEN:
+        description: Low voltage enable
+        bitOffset: 0
         bitWidth: 1
 
-  ECCR:
-    _add:
-      ECCD2:
-        description: ECC2 detection
-        bitOffset: 29
-        bitWidth: 1
-      ECCC2:
-        description: ECC2 correction
-        bitOffset: 28
-        bitWidth: 1
-    _modify:
-      ADDR_ECC:
-        bitWidth: 21
-
+_modify:
   OPTR:
-    _add:
-      nBOOT0:
-        description: nBOOT0 option bit
-        bitOffset: 27
-        bitWidth: 1
-      nSWBOOT0:
-        description: nSWBOOT0 option bit
-        bitOffset: 26
-        bitWidth: 1
-      DBANK:
-        bitOffset: 22
-        bitWidth: 1
-      DB1M:
-        bitOffset: 21
-        bitWidth: 1
+    resetValue: 0xFFEFF8AA
+  WRP2AR:
+    addressOffset: 0x30
+  WRP1BR:
+    addressOffset: 0x4C
 
-    _delete:
-      - DUALBANK
+KEYR:
+  _modify:
+    KEYR:
+      name: KEY
 
-  PCROP1SR:
-    _modify:
-      PCROP1_STRT:
-        bitWidth: 17
+OPTKEYR:
+  _modify:
+    OPTKEYR:
+      name: OPTKEY
 
-  PCROP1ER:
-    _modify:
-      PCROP1_END:
-        bitWidth: 17
+PDKEYR:
+  _modify:
+    PDKEYR:
+      name: PDKEY
 
-  PCROP2SR:
-    _modify:
-      PCROP2_STRT:
-        bitWidth: 17
+SR:
+  _add:
+    PEMPTY:
+      bitOffset: 17
+      bitWidth: 1
 
-  PCROP2ER:
-    _modify:
-      PCROP2_END:
-        bitWidth: 17
+ECCR:
+  _add:
+    ECCD2:
+      description: ECC2 detection
+      bitOffset: 29
+      bitWidth: 1
+    ECCC2:
+      description: ECC2 correction
+      bitOffset: 28
+      bitWidth: 1
+  _modify:
+    ADDR_ECC:
+      bitWidth: 21
+
+OPTR:
+  _add:
+    nBOOT0:
+      description: nBOOT0 option bit
+      bitOffset: 27
+      bitWidth: 1
+    nSWBOOT0:
+      description: nSWBOOT0 option bit
+      bitOffset: 26
+      bitWidth: 1
+    DBANK:
+      bitOffset: 22
+      bitWidth: 1
+    DB1M:
+      bitOffset: 21
+      bitWidth: 1
+
+  _delete:
+    - DUALBANK
+
+PCROP1SR:
+  _modify:
+    PCROP1_STRT:
+      bitWidth: 17
+
+PCROP1ER:
+  _modify:
+    PCROP1_END:
+      bitWidth: 17
+
+PCROP2SR:
+  _modify:
+    PCROP2_STRT:
+      bitWidth: 17
+
+PCROP2ER:
+  _modify:
+    PCROP2_END:
+      bitWidth: 17

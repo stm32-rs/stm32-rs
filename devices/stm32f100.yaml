@@ -17,6 +17,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+BKP:
+  _include:
+    - fields/bkp/bkp.yaml
+    - collect/bkp/dr.yaml
+
 CRC:
   _include:
     - fields/crc/crc_basic.yaml
@@ -65,6 +70,10 @@ IWDG:
 
 MPU:
   _strip: MPU_
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RTC:
   _include:
@@ -139,9 +148,6 @@ WWDG:
 _include:
   - patches/rcc/f1_uart45.yaml
   - patches/bkp/bkp.yaml
-  - fields/bkp/bkp.yaml
-  - collect/bkp/dr.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_cfgr2_prediv.yaml

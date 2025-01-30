@@ -1,13 +1,11 @@
 # Flash Peripheral
 # Applicable to STM32G4
 
-FLASH:
-  ACR:
-    LATENCY:
-      Wait0: [0, "Zero Wait States (Vcore Boost 1 (<= 34MHz), Vcore Normal 1 (<= 30MHz), Vcore 2 (<= 12MHz)"]
-      Wait1: [1, "One Wait State (Vcore Boost 1 (<= 68MHz), Vcore Normal 1 (<= 60MHz), Vcore 2 (<= 24MHz)"]
-      Wait2: [2, "Two Wait States (Vcore Boost 1 (<= 102MHz), Vcore Normal 1 (<= 90MHz), Vcore 2 (<= 26MHz)"]
-      Wait3: [3, "Three Wait States (Vcore Boost 1 (<= 136MHz), Vcore Normal 1 (<= 120MHz)"]
-      Wait4: [4, "Four Wait States (Vcore Boost 1 (<= 170MHz), Vcore Normal 1 (<= 150MHz)"]
-      # This can technically be set up to 15 however 4 is the max needed for the 170MHz operation.
-  
+ACR:
+  LATENCY:
+    Wait0: [0, "Zero Wait States (Vcore Boost 1 (<= 34MHz), Vcore Normal 1 (<= 30MHz), Vcore 2 (<= 12MHz)"]
+    Wait1: [1, "One Wait State (Vcore Boost 1 (<= 68MHz), Vcore Normal 1 (<= 60MHz), Vcore 2 (<= 24MHz)"]
+    Wait2: [2, "Two Wait States (Vcore Boost 1 (<= 102MHz), Vcore Normal 1 (<= 90MHz), Vcore 2 (<= 26MHz)"]
+    Wait3: [3, "Three Wait States (Vcore Boost 1 (<= 136MHz), Vcore Normal 1 (<= 120MHz)"]
+    Wait4: [4, "Four Wait States (Vcore Boost 1 (<= 170MHz), Vcore Normal 1 (<= 150MHz)"]
+    # This can technically be set up to 15 however 4 is the max needed for the 170MHz operation.

@@ -81,10 +81,10 @@ EXTI:
         value: 76
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 FMPI2C?:
   _include:
@@ -115,24 +115,10 @@ IWDG:
     - fields/iwdg/iwdg.yaml
 
 PWR:
-  CR:
-    _add:
-      FISSR:
-        description: Flash Interface Stop while System Run
-        bitOffset: 21
-        bitWidth: 1
-      FMSSR:
-        description: Flash Memory Sleep System Run
-        bitOffset: 20
-        bitWidth: 1
-      MRLVDS:
-        description: Main regulator Low Voltage in Deep Sleep
-        bitOffset: 11
-        bitWidth: 1
-      LPLVDS:
-        description: Low-power regulator Low Voltage in Deep Sleep
-        bitOffset: 10
-        bitWidth: 1
+  _include:
+    - patches/pwr/f4.yaml
+    - patches/pwr/add_sleep.yaml
+    - fields/pwr/pwr_f410_f412_f413_f423.yaml
 
 # Add missing reset/enable bits for SPI 5 (SPI5EN is present)
 RCC:
@@ -293,8 +279,4 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr2_i2csel.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f410_f412_f413_f423.yaml

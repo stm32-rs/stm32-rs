@@ -1,0 +1,18 @@
+CR:
+  _add:
+    FISSR:
+      description: Flash Interface Stop while System Run
+      bitOffset: 21
+      bitWidth: 1
+    FMSSR:
+      description: Flash Memory Sleep System Run
+      bitOffset: 20
+      bitWidth: 1
+    MRLVDS:
+      description: Main regulator Low Voltage in Deep Sleep
+      bitOffset: 11
+      bitWidth: 1
+    LPLVDS:
+      description: Low-power regulator Low Voltage in Deep Sleep
+      bitOffset: 10
+      bitWidth: 1

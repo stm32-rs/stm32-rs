@@ -72,6 +72,11 @@ EXTI:
   _include:
     - fields/exti/common.yaml
 
+FLASH:
+  _include:
+    - fields/flash/flash_wl.yaml
+    - fields/flash/flash_wl_c2.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -88,6 +93,9 @@ HSEM:
   _modify:
     C2ICR:
       access: read-write
+  _include:
+    - fields/hsem/hsem_wl.yaml
+    - collect/hsem/r.yaml
 
 I2C?:
   _include:
@@ -95,6 +103,8 @@ I2C?:
 
 IPCC:
   _strip: IPCC_
+  _include:
+    - fields/ipcc/ipcc_wl.yaml
 
 IWDG:
   _delete:
@@ -104,12 +114,17 @@ IWDG:
     - fields/iwdg/iwdg.yaml
     - fields/iwdg/iwdg_sr.yaml
 
-LPTIM,LPTIM?:
-  _strip:
-    - LPTIM_
-    - LPTIM?_
-
+LPTIM?:
+  _strip: LPTIM?_
+  _include:
+    - fields/lptim/lptim_v1.yaml
+    - fields/lptim/lptim_wl.yaml
+LPTIM1:
+  _include:
+    - fields/lptim/lptim1_wl.yaml
 LPTIM[23]:
+  _include:
+    - fields/lptim/lptim2_wl.yaml
   OR:
     _merge: OR*
 
@@ -141,10 +156,23 @@ LPUART:
   _include:
     - fields/usart/lpuart_wl.yaml
 
+PKA:
+  _include:
+    - fields/pka/pka.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_wl.yaml
+    - fields/pwr/pwr_wl_c2.yaml
+
 RCC:
   _include:
     - fields/rcc/rcc_wl.yaml
     - fields/rcc/rcc_wx_c2.yaml
+
+RNG:
+  _include:
+    - fields/rng/rng_wl.yaml
 
 RTC:
   _include:
@@ -167,6 +195,7 @@ SYSCFG:
 TAMP:
   _include:
     - patches/rtc/tamp_wl.yaml
+    - fields/tamp/tamp_wl.yaml
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
@@ -226,6 +255,10 @@ USART*:
     - fields/usart/usart_v2C.yaml
     - fields/usart/usart_wl.yaml
 
+VREFBUF:
+  _include:
+    - fields/vrefbuf/vrefbuf_wl.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -234,16 +267,3 @@ WWDG:
 _include:
   - fields/comp/comp_wl.yaml
   - fields/dbg/dbg_wl.yaml
-  - fields/flash/flash_wl.yaml
-  - fields/flash/flash_wl_c2.yaml
-  - fields/hsem/hsem_wl.yaml
-  - collect/hsem/r.yaml
-  - fields/ipcc/ipcc_wl.yaml
-  - fields/lptim/lptim_v1.yaml
-  - fields/lptim/lptim_wl.yaml
-  - fields/pka/pka.yaml
-  - fields/pwr/pwr_wl.yaml
-  - fields/pwr/pwr_wl_c2.yaml
-  - fields/tamp/tamp_wl.yaml
-  - fields/rng/rng_wl.yaml
-  - fields/vrefbuf/vrefbuf_wl.yaml

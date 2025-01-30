@@ -1,0 +1,14 @@
+CSR:
+  _modify:
+    EWUP:
+      name: EWUP1
+      description: Enable WKUP1 pin (PA0)
+  _add:
+    EWUP2:
+      description: Enable WKUP1 pin (PC0)
+      bitOffset: 7
+      bitWidth: 1
+    EWUP3:
+      description: Enable WKUP1 pin (PC1)
+      bitOffset: 6
+      bitWidth: 1

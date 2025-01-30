@@ -34,8 +34,20 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CRC:
+  # The SVD calls the RESET field "CR", fix per RM0090
+  CR:
+    _modify:
+      CR:
+        name: RESET
+  _include:
+    - fields/crc/crc_basic.yaml
+    - fields/crc/crc_idr_8bit.yaml
+
 CRYP:
-  _include: patches/cryp/merge_fields.yaml
+  _include:
+    - patches/cryp/merge_fields.yaml
+    - collect/cryp/v2.yaml
 
 DAC:
   _include:
@@ -50,21 +62,16 @@ DMA?:
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
 
-CRC:
-  # The SVD calls the RESET field "CR", fix per RM0090
-  CR:
-    _modify:
-      CR:
-        name: RESET
-  _include:
-    - fields/crc/crc_basic.yaml
-    - fields/crc/crc_idr_8bit.yaml
-
 EXTI:
   _include:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+FLASH:
+  _include:
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency8.yaml
 
 FSMC:
   _modify:
@@ -92,6 +99,10 @@ GPIO[A]:
 GPIO[BI]:
   _include: collect/gpio/v2_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v2.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -112,6 +123,9 @@ PWR:
         description: Regulator voltage scaling output selection
         bitOffset: 14
         bitWidth: 1
+  _include:
+    - patches/pwr/f4.yaml
+    - fields/pwr/pwr_f405_f415_f407_f417.yaml
 
 RCC:
   APB1RSTR:
@@ -132,6 +146,11 @@ RTC:
     - fields/rtc/rtc_common.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4.yaml
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -224,7 +243,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - collect/cryp/v2.yaml
   - patches/rcc/rename_plli2scfgr.yaml
   - patches/rcc/rcc_merge_sw_sws.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
@@ -239,9 +257,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency8.yaml
-  - collect/hash/v2.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
@@ -250,9 +265,5 @@ _include:
   - patches/usb_otg/hs_v1_f4.yaml
   - collect/usb_otg/hs.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/sdio/sdio_f4.yaml
-  - collect/sdio/resp.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f405_f415_f407_f417.yaml

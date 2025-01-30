@@ -76,10 +76,10 @@ EXTI:
     - collect/exti/farray.yaml
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 FMPI2C1:
   _add:
@@ -190,38 +190,11 @@ QUADSPI:
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 PWR:
-  CR:
-    _add:
-      FISSR:
-        description: Flash Interface Stop while System Run
-        bitOffset: 21
-        bitWidth: 1
-      FMSSR:
-        description: Flash Memory Sleep System Run
-        bitOffset: 20
-        bitWidth: 1
-      MRLVDS:
-        description: Main regulator Low Voltage in Deep Sleep
-        bitOffset: 11
-        bitWidth: 1
-      LPLVDS:
-        description: Main regulator Low Voltage in Deep Sleep
-        bitOffset: 10
-        bitWidth: 1
-  CSR:
-    _modify:
-      EWUP:
-        name: EWUP1
-        description: Enable WKUP1 pin (PA0)
-    _add:
-      EWUP2:
-        description: Enable WKUP1 pin (PC0)
-        bitOffset: 7
-        bitWidth: 1
-      EWUP3:
-        description: Enable WKUP1 pin (PC1)
-        bitOffset: 6
-        bitWidth: 1
+  _include:
+    - patches/pwr/f4.yaml
+    - patches/pwr/add_sleep.yaml
+    - patches/pwr/add_ewup.yaml
+    - fields/pwr/pwr_f410_f412_f413_f423.yaml
 
 # Add missing reset bit for SPI 4 (enable bits are present)
 RCC:
@@ -257,6 +230,11 @@ RTC:
     - fields/rtc/rtc_common.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4.yaml
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -370,14 +348,8 @@ _include:
   - fields/rcc/rcc_v2_ckgatenr.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/sdio/sdio_f4.yaml
-  - collect/sdio/resp.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f410_f412_f413_f423.yaml

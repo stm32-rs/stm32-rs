@@ -1,297 +1,296 @@
-PWR:
-  CR1:
-    SRAM[123456]PD:
-      On: [0, SRAMx powered on]
-      Off: [1, SRAMx powered off]
-    ULPMEN:
-      Disabled: [0, BOR level 0 operating in continuous (normal) mode in Standby mode]
-      Enabled: [1, BOR level 0 operating in discontinuous (ultra-low power) mode in Standby mode]
-    RRSB2:
-      Disabled: [0, SRAM2 page2 content not retained in Stop3 and Standby modes]
-      Enabled: [1, SRAM2 page2 content retained in Stop 3 and Standby modes]
-    RRSB1:
-      Disabled: [0, SRAM2 page1 content not retained in Stop3 and Standby modes]
-      Enabled: [1, SRAM2 page1 content retained in Stop 3 and Standby modes]
-    LPMS:
-      Stop0: [0, Stop 0 mode]
-      Stop1: [1, Stop 1 mode]
-      Stop2: [2, Stop 2 mode]
-      Stop3: [3, Stop 3 mode]
-      Standby: [4, "Standby mode (Standby mode also entered if LPMS = 11X in PWR_CR1 with BREN = 1 in PWR_BDCR1)"] # same for [4, 5]
-      Shutdown: [6, "Shutdown mode if BREN = 0 in PWR_BDCR1"] # same for [6, 7]
-    "?~FORCE_USBPWR": # only on U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, OTG_HS PHY power is not maintained during low-power modes]
-      Enabled: [1, OTG_HS PHY power is maintained during low-power modes]
-  CR2:
-    SRDRUN:
-      Disabled: [0, SmartRun domain AHB3 and APB3 clocks disabled by default in Stop 0/1/2 modes]
-      Enabled: [1, SmartRun domain AHB3 and APB3 clocks kept enabled in Stop 0/1/2 modes]
-    FLASHFWU:
-      Disabled: [0, Flash memory enters low-power mode in Stop 0/1 modes (lower-power consumption)]
-      Enabled: [1, Flash memory remains in normal mode in Stop 0/1 modes (faster wake-up time)]
-    SRAM4FWU:
-      Disabled: [0, SRAM4 enters low-power mode in Stop 0/1/2 modes (source biasing for lower-power consumption)]
-      Enabled: [1, SRAM4 remains in normal mode in Stop 0/1/2 modes (higher consumption but no SRAM4 wake-up time)]
-    PRAMPDS:
-      Disabled: [0, "FMAC, FDCAN, and USB/OTG_FS/OTG_HS SRAM content retained in Stop modes"]
-      Enabled: [1, "FMAC, FDCAN, and USB/OTG_FS/OTG_HS SRAM content lost in Stop modes"]
-    DC1RAMPDS:
-      Disabled: [0, DCACHE1 SRAM content retained in Stop modes]
-      Enabled: [1, DCACHE1 SRAM content lost in Stop modes]
-    ICRAMPDS:
-      Disabled: [0, ICACHE SRAM content retained in Stop modes]
-      Enabled: [1, ICACHE SRAM content lost in Stop modes]
-    SRAM4PDS:
-      Disabled: [0, SRAM4 content retained in Stop modes]
-      Enabled: [1, SRAM4 content lost in Stop modes]
-    SRAM2PDS?:
-      Disabled: [0, SRAM2 page x content retained in Stop modes]
-      Enabled: [1, SRAM2 page x content lost in Stop modes]
-    SRAM1PDS?:
-      Disabled: [0, SRAM1 page x content retained in Stop modes]
-      Enabled: [1, SRAM1 page x content lost in Stop modes]
-    "?~JPEGRAMPDS": # only on U5Fx, U5Gx
-      Disabled: [0, JPEG SRAM content retained in Stop 0 and Stop 1 modes]
-      Enabled: [1, JPEG SRAM content lost in Stop 0 and Stop 1 modes]
-    "?~DSIRAMPDS": # only on U599, U5A9, U5Fx, U5Gx
-      Disabled: [0, DSI SRAM content retained in Stop 0 and Stop 1 modes]
-      Enabled: [1, DSI SRAM content lost in Stop 0 and Stop 1 modes]
-    "?~GPRAMPDS": # only on U599, U5A9, U5Fx, U5Gx
-      Disabled: [0, Graphic peripherals SRAM content retained in Stop 0 and Stop 1 modes]
-      Enabled: [1, Graphic peripherals SRAM content lost in Stop 0 and Stop 1 modes]
-    "?~SRAM3PDS?": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, SRAM3 page x content retained in Stop modes]
-      Enabled: [1, SRAM3 page x content lost in Stop modes]
-    "?~PKARAMPDS": # only on U545, U585, U5Ax, U5Gx
-      Disabled: [0, PKA SRAM content retained in Stop modes]
-      Enabled: [1, PKA SRAM content lost in Stop modes]
-    "?~DMA2DRAMPDS": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, DMA2D SRAM content retained in Stop modes]
-      Enabled: [1, DMA2D SRAM content lost in Stop modes]
-    "?~DC2RAMPDS": # only on U599, U5A9, U5Fx, U5Gx
-      Disabled: [0, DCACHE2 SRAM content retained in Stop modes]
-      Enabled: [1, DCACHE2 SRAM content lost in Stop modes]
-  CR3:
-    FSTEN:
-      Disabled: [0, LDO/SMPS fast startup disabled (limited inrush current)]
-      Enabled: [1, LDO/SMPS fast startup enabled]
-    REGSEL:
-      LDO: [0, LDO selected]
-      SMPS: [1, SMPS selected]
-  CR4:
-    SRAM1PDS*:
-      Disabled: [0, SRAM1 page x content retained in Stop modes]
-      Enabled: [1, SRAM1 page x content lost in Stop modes]
-    "?~SRAM5PDS*": # only on U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, SRAM5 page x content retained in Stop modes]
-      Enabled: [1, SRAM5 page x content lost in Stop modes]
-    "?~SRAM3PDS*": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, SRAM3 page x content retained in Stop modes]
-      Enabled: [1, SRAM3 page x content lost in Stop modes]
-  CR5:
-    "?~SRAM6PDS*": # only on U5Fx, U5Gx
-      Disabled: [0, SRAM6 page x content retained in Stop modes]
-      Enabled: [1, SRAM6 page x content lost in Stop modes]
-  VOSR:
-    BOOSTEN:
-      Disabled: [0, Booster disabled]
-      Enabled: [1, Booster enabled]
-    VOS:
-      Range4: [0, Range 4 (lowest power)]
-      Range3: [1, Range 3]
-      Range2: [2, Range 2]
-      Range1: [3, Range 1 (highest frequency)]
-    VOSRDY:
-      NotReady: [0, "Not ready, voltage level < VOS selected level"]
-      Ready: [1, "Ready, voltage level ≥ VOS selected level"]
-    BOOSTRDY:
-      NotReady: [0, Power booster not ready]
-      Ready: [1, Power booster ready]
-    "?~VDD11USBDIS": # only on U59x, U5Ax, U5Fx, U5Gx
-      Enabled: [0, VDD11USB enabled]
-      Disabled: [1, VDD11USB disabled]
-    "?~USBBOOSTEN": # only on U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, OTG_HS booster disabled]
-      Enabled: [1, OTG_HS booster enabled]
-    "?~USBPWREN": # only on U59x, U5Ax, U5Fx, U5Gx
-      Disabled: [0, OTG_HS power disabled]
-      Enabled: [1, OTG_HS power enabled]
-    "?~USBBOOSTRDY": # only on U59x, U5Ax, U5Fx, U5Gx
-      NotReady: [0, OTG_HS power booster not ready]
-      Ready: [1, OTG_HS power booster ready]
-  SVMCR:
-    ASV:
-      NotPresent: [0, "VDDA not present: logical and electrical isolation is applied to ignore this supply"]
-      Present: [1, VDDA valid]
-    IO2SV:
-      NotPresent: [0, "VDDIO2 not present: logical and electrical isolation is applied to ignore this supply"]
-      Present: [1, VDDIO2 valid]
-    USV:
-      NotPresent: [0, "VDDUSB not present: logical and electrical isolation is applied to ignore this supply"]
-      Present: [1, VDDUSB valid]
-    AVM2EN:
-      Disabled: [0, VDDA voltage monitor 2 disabled]
-      Enabled: [1, VDDA voltage monitor 2 enabled]
-    AVM1EN:
-      Disabled: [0, VDDA voltage monitor 1 disabled]
-      Enabled: [1, VDDA voltage monitor 1 enabled]
-    IO2VMEN:
-      Disabled: [0, VDDIO2 voltage monitor disabled]
-      Enabled: [1, VDDIO2 voltage monitor enabled]
-    UVMEN:
-      Disabled: [0, VDDUSB voltage monitor disabled]
-      Enabled: [1, VDDUSB voltage monitor enabled]
-    PVDLS:
-      VPVD0: [0, VPVD0 around 2.0 V]
-      VPVD1: [1, VPVD1 around 2.2 V]
-      VPVD2: [2, VPVD2 around 2.4 V]
-      VPVD3: [3, VPVD3 around 2.5 V]
-      VPVD4: [4, VPVD4 around 2.6 V]
-      VPVD5: [5, VPVD5 around 2.8 V]
-      VPVD6: [6, VPVD6 around 2.9 V]
-      PVDIN: [7, External input analog voltage PVD_IN (compared internally to VREFINT)]
-    PVDE:
-      Disabled: [0, PVD disabled]
-      Enabled: [1, PVD enabled]
-  WUCR1:
-    WUPEN?:
-      Disabled: [0, Wakeup pin disabled]
-      Enabled: [1, Wakeup pin enabled]
-  WUCR2:
-    WUPP?:
-      RisingEdge: [0, Detection on high level (rising edge)]
-      FallingEdge: [1, Detection on low level (falling edge)]
-  WUCR3:
-    WUSEL?:
-      WKUPx_0: [0, Wakeup pin WKUPx_0 selected]
-      WKUPx_1: [1, Wakeup pin WKUPx_1 selected]
-      WKUPx_2: [2, Wakeup pin WKUPx_2 selected]
-      WKUPx_3: [3, Wakeup pin WKUPx_3 selected]
-  BDCR1:
-    MONEN:
-      Disabled: [0, Backup domain voltage and temperature monitoring disabled]
-      Enabled: [1, Backup domain voltage and temperature monitoring enabled]
-    BREN:
-      Disabled: [0, Backup RAM content lost in Standby and VBAT modes]
-      Enabled: [1, Backup RAM content preserved in Standby and VBAT modes]
-  BDCR2:
-    VBRS:
-      R_5k: [0, Charge VBAT through a 5 kOhm resistor]
-      R_1k5: [1, Charge VBAT through a 1.5 kOhm resistor]
-    VBE:
-      Disabled: [0, VBAT battery charging disabled]
-      Enabled: [1, VBAT battery charging enabled]
-  DBPR:
-    DBP:
-      Disabled: [0, Write access to backup domain disabled]
-      Enabled: [1, Write access to backup domain enabled]
-  UCPDR:
-    "?~UCPD_STBY": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
-      Disabled:
-        [
-          0,
-          "UCPD configuration is not memorized in Standby mode (Must be in this state after exiting Stop 3 or Standby mode, and before writing any UCPD registers)",
-        ]
-      Enabled: [1, UCPD configuration is memorized in Stop 3 and Standby modes]
-    "?~UCPD_DBDIS": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
-      Enabled: [0, UCPD dead battery pull-down behavior enabled on UCPDx_CC1 and UCPDx_CC2 pins]
-      Disabled: [1, UCPD dead battery pull-down behavior disabled on UCPDx_CC1 and UCPDx_CC2 pins]
-  SECCFGR:
-    APCSEC:
-      NonSecure: [0, PWR_APCR can be read and written with secure or nonsecure access]
-      Secure: [1, PWR_APCR can be read and written only with secure access]
-    VBSEC:
-      NonSecure: [0, "PWR_BDCR1, PWR_BDCR2, and PWR_DBPR can be read and written with secure or nonsecure access"]
-      Secure: [1, "PWR_BDCR1, PWR_BDCR2, and PWR_DBPR can be read and written only with secure access"]
-    VDMSEC:
-      NonSecure: [0, PWR_SVMCR and PWR_CR3 can be read and written with secure or nonsecure access]
-      Secure: [1, PWR_SVMCR and PWR_CR3 can be read and written only with secure access]
-    LPMSEC:
-      NonSecure: [0, "PWR_CR1, PWR_CR2 and CSSF in the PWR_SR can be read and written with secure or nonsecure access"]
-      Secure: [1, "PWR_CR1, PWR_CR2, and CSSF in the PWR_SR can be read and written only with secure access"]
-    WUP?SEC:
-      NonSecure:
-        [
-          0,
-          "Bits related to WKUPx pin in PWR_WUCR1, PWR_WUCR2, PWR_WUCR3, and PWR_WUSCR can be read and written with secure or nonsecure access",
-        ]
-      Secure:
-        [
-          1,
-          "Bits related to WKUPx pin in PWR_WUCR1, PWR_WUCR2, PWR_WUCR3, and PWR_WUSCR can be read and written only with secure access",
-        ]
-  PRIVCFGR:
-    NSPRIV:
-      NonSecure: [0, Read and write to PWR nonsecure functions can be done by privileged or unprivileged access]
-      Secure: [1, Read and write to PWR nonsecure functions can be done by privileged access only]
-    SPRIV:
-      NonSecure: [0, Read and write to PWR secure functions can be done by privileged or unprivileged access]
-      Secure: [1, Read and write to PWR secure functions can be done by privileged access only]
-  SR:
-    SBF:
-      _read:
-        NoStandby: [0, The device did not enter Standby mode]
-        Standby: [1, The device entered Standby mode]
-    STOPF:
-      _read:
-        NoStop: [0, The device did not enter any Stop mode]
-        Stop: [1, The device entered a Stop mode]
-    CSSF:
-      _write:
-        Clear: [1, Clear the STOPF and SBF flags]
-  SVMSR:
-    VDDA2RDY:
-      BelowThreshold: [0, VDDA is below the threshold of the VDDA voltage monitor 2 (around 1.8 V)]
-      AboveThreshold: [1, VDDA is equal or above the threshold of the VDDA voltage monitor 2 (around 1.8 V)]
-    VDDA1RDY:
-      BelowThreshold: [0, VDDA is below the threshold of the VDDA voltage monitor 1 (around 1.6 V)]
-      EqualOrAboveThreshold: [1, VDDA is equal or above the threshold of the VDDA voltage monitor 1 (around 1.6 V)]
-    VDDIO2RDY:
-      BelowThreshold: [0, VDDIO2 is below the threshold of the VDDIO2 voltage monitor]
-      EqualOrAboveThreshold: [1, VDDIO2 is equal or above the threshold of the VDDIO2 voltage monitor]
-    VDDUSBRDY:
-      BelowThreshold: [0, VDDUSB is below the threshold of the VDDUSB voltage monitor]
-      EqualOrAboveThreshold: [1, VDDUSB is equal or above the threshold of the VDDUSB voltage monitor]
-    ACTVOS:
-      Range4: [0, Range 4 (lowest power)]
-      Range3: [1, Range 3]
-      Range2: [2, Range 2]
-      Range1: [3, Range 1 (highest frequency)]
-    ACTVOSRDY:
-      NotReady: [0, "VCORE is above or below the current voltage scaling provided by ACTVOS[1:0]"]
-      Ready: [1, "VCORE is equal to the current voltage scaling provided by ACTVOS[1:0]"]
-    PVDO:
-      EqualOrAboveThreshold: [0, "VDD is equal or above the PVD threshold selected by PVDLS[2:0]"]
-      BelowThreshold: [1, "VDD is below the PVD threshold selected by PVDLS[2:0]"]
-    REGS:
-      LDO: [0, LDO selected]
-      SMPS: [1, SMPS selected]
-  BDSR:
-    TEMPH:
-      BelowHigh: [0, "Temperature < high threshold"]
-      AboveHigh: [1, "Temperature ≥ high threshold"]
-    TEMPL:
-      AboveLow: [0, "Temperature > low threshold"]
-      BelowLow: [1, "Temperature ≤ low threshold"]
-    VBATH:
-      BelowHigh: [0, "VBAT < high threshold"]
-      AboveHigh: [1, "VBAT ≥ high threshold"]
-  WUSR:
-    WUF?:
-      NoWakeup: [0, No wakeup event occurred on WKUPx pin]
-      Wakeup: [1, A wakeup event occurred on WKUPx pin]
-  WUSCR:
-    CWUF?:
-      Clear: [1, Clear the WUFx flag in PWR_WUSR]
-  APCR:
-    APC:
-      Disabled: [0, PWR_PUCRx and PWR_PDCRx are not applied to the I/Os]
-      Enabled: [1, I/O pull-up and pull-down configurations defined in PWR_PUCRx and PWR_PDCRx are applied]
-  PUCR?:
-    PU*:
-      Disabled: [0, Pull-up disabled]
-      Enabled: [1, Pull-up enabled]
-  PDCR?:
-    PD*:
-      Disabled: [0, Pull-down disabled]
-      Enabled: [1, Pull-down enabled]
+CR1:
+  SRAM[123456]PD:
+    On: [0, SRAMx powered on]
+    Off: [1, SRAMx powered off]
+  ULPMEN:
+    Disabled: [0, BOR level 0 operating in continuous (normal) mode in Standby mode]
+    Enabled: [1, BOR level 0 operating in discontinuous (ultra-low power) mode in Standby mode]
+  RRSB2:
+    Disabled: [0, SRAM2 page2 content not retained in Stop3 and Standby modes]
+    Enabled: [1, SRAM2 page2 content retained in Stop 3 and Standby modes]
+  RRSB1:
+    Disabled: [0, SRAM2 page1 content not retained in Stop3 and Standby modes]
+    Enabled: [1, SRAM2 page1 content retained in Stop 3 and Standby modes]
+  LPMS:
+    Stop0: [0, Stop 0 mode]
+    Stop1: [1, Stop 1 mode]
+    Stop2: [2, Stop 2 mode]
+    Stop3: [3, Stop 3 mode]
+    Standby: [4, "Standby mode (Standby mode also entered if LPMS = 11X in PWR_CR1 with BREN = 1 in PWR_BDCR1)"] # same for [4, 5]
+    Shutdown: [6, "Shutdown mode if BREN = 0 in PWR_BDCR1"] # same for [6, 7]
+  "?~FORCE_USBPWR": # only on U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, OTG_HS PHY power is not maintained during low-power modes]
+    Enabled: [1, OTG_HS PHY power is maintained during low-power modes]
+CR2:
+  SRDRUN:
+    Disabled: [0, SmartRun domain AHB3 and APB3 clocks disabled by default in Stop 0/1/2 modes]
+    Enabled: [1, SmartRun domain AHB3 and APB3 clocks kept enabled in Stop 0/1/2 modes]
+  FLASHFWU:
+    Disabled: [0, Flash memory enters low-power mode in Stop 0/1 modes (lower-power consumption)]
+    Enabled: [1, Flash memory remains in normal mode in Stop 0/1 modes (faster wake-up time)]
+  SRAM4FWU:
+    Disabled: [0, SRAM4 enters low-power mode in Stop 0/1/2 modes (source biasing for lower-power consumption)]
+    Enabled: [1, SRAM4 remains in normal mode in Stop 0/1/2 modes (higher consumption but no SRAM4 wake-up time)]
+  PRAMPDS:
+    Disabled: [0, "FMAC, FDCAN, and USB/OTG_FS/OTG_HS SRAM content retained in Stop modes"]
+    Enabled: [1, "FMAC, FDCAN, and USB/OTG_FS/OTG_HS SRAM content lost in Stop modes"]
+  DC1RAMPDS:
+    Disabled: [0, DCACHE1 SRAM content retained in Stop modes]
+    Enabled: [1, DCACHE1 SRAM content lost in Stop modes]
+  ICRAMPDS:
+    Disabled: [0, ICACHE SRAM content retained in Stop modes]
+    Enabled: [1, ICACHE SRAM content lost in Stop modes]
+  SRAM4PDS:
+    Disabled: [0, SRAM4 content retained in Stop modes]
+    Enabled: [1, SRAM4 content lost in Stop modes]
+  SRAM2PDS?:
+    Disabled: [0, SRAM2 page x content retained in Stop modes]
+    Enabled: [1, SRAM2 page x content lost in Stop modes]
+  SRAM1PDS?:
+    Disabled: [0, SRAM1 page x content retained in Stop modes]
+    Enabled: [1, SRAM1 page x content lost in Stop modes]
+  "?~JPEGRAMPDS": # only on U5Fx, U5Gx
+    Disabled: [0, JPEG SRAM content retained in Stop 0 and Stop 1 modes]
+    Enabled: [1, JPEG SRAM content lost in Stop 0 and Stop 1 modes]
+  "?~DSIRAMPDS": # only on U599, U5A9, U5Fx, U5Gx
+    Disabled: [0, DSI SRAM content retained in Stop 0 and Stop 1 modes]
+    Enabled: [1, DSI SRAM content lost in Stop 0 and Stop 1 modes]
+  "?~GPRAMPDS": # only on U599, U5A9, U5Fx, U5Gx
+    Disabled: [0, Graphic peripherals SRAM content retained in Stop 0 and Stop 1 modes]
+    Enabled: [1, Graphic peripherals SRAM content lost in Stop 0 and Stop 1 modes]
+  "?~SRAM3PDS?": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, SRAM3 page x content retained in Stop modes]
+    Enabled: [1, SRAM3 page x content lost in Stop modes]
+  "?~PKARAMPDS": # only on U545, U585, U5Ax, U5Gx
+    Disabled: [0, PKA SRAM content retained in Stop modes]
+    Enabled: [1, PKA SRAM content lost in Stop modes]
+  "?~DMA2DRAMPDS": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, DMA2D SRAM content retained in Stop modes]
+    Enabled: [1, DMA2D SRAM content lost in Stop modes]
+  "?~DC2RAMPDS": # only on U599, U5A9, U5Fx, U5Gx
+    Disabled: [0, DCACHE2 SRAM content retained in Stop modes]
+    Enabled: [1, DCACHE2 SRAM content lost in Stop modes]
+CR3:
+  FSTEN:
+    Disabled: [0, LDO/SMPS fast startup disabled (limited inrush current)]
+    Enabled: [1, LDO/SMPS fast startup enabled]
+  REGSEL:
+    LDO: [0, LDO selected]
+    SMPS: [1, SMPS selected]
+CR4:
+  SRAM1PDS*:
+    Disabled: [0, SRAM1 page x content retained in Stop modes]
+    Enabled: [1, SRAM1 page x content lost in Stop modes]
+  "?~SRAM5PDS*": # only on U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, SRAM5 page x content retained in Stop modes]
+    Enabled: [1, SRAM5 page x content lost in Stop modes]
+  "?~SRAM3PDS*": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, SRAM3 page x content retained in Stop modes]
+    Enabled: [1, SRAM3 page x content lost in Stop modes]
+CR5:
+  "?~SRAM6PDS*": # only on U5Fx, U5Gx
+    Disabled: [0, SRAM6 page x content retained in Stop modes]
+    Enabled: [1, SRAM6 page x content lost in Stop modes]
+VOSR:
+  BOOSTEN:
+    Disabled: [0, Booster disabled]
+    Enabled: [1, Booster enabled]
+  VOS:
+    Range4: [0, Range 4 (lowest power)]
+    Range3: [1, Range 3]
+    Range2: [2, Range 2]
+    Range1: [3, Range 1 (highest frequency)]
+  VOSRDY:
+    NotReady: [0, "Not ready, voltage level < VOS selected level"]
+    Ready: [1, "Ready, voltage level ≥ VOS selected level"]
+  BOOSTRDY:
+    NotReady: [0, Power booster not ready]
+    Ready: [1, Power booster ready]
+  "?~VDD11USBDIS": # only on U59x, U5Ax, U5Fx, U5Gx
+    Enabled: [0, VDD11USB enabled]
+    Disabled: [1, VDD11USB disabled]
+  "?~USBBOOSTEN": # only on U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, OTG_HS booster disabled]
+    Enabled: [1, OTG_HS booster enabled]
+  "?~USBPWREN": # only on U59x, U5Ax, U5Fx, U5Gx
+    Disabled: [0, OTG_HS power disabled]
+    Enabled: [1, OTG_HS power enabled]
+  "?~USBBOOSTRDY": # only on U59x, U5Ax, U5Fx, U5Gx
+    NotReady: [0, OTG_HS power booster not ready]
+    Ready: [1, OTG_HS power booster ready]
+SVMCR:
+  ASV:
+    NotPresent: [0, "VDDA not present: logical and electrical isolation is applied to ignore this supply"]
+    Present: [1, VDDA valid]
+  IO2SV:
+    NotPresent: [0, "VDDIO2 not present: logical and electrical isolation is applied to ignore this supply"]
+    Present: [1, VDDIO2 valid]
+  USV:
+    NotPresent: [0, "VDDUSB not present: logical and electrical isolation is applied to ignore this supply"]
+    Present: [1, VDDUSB valid]
+  AVM2EN:
+    Disabled: [0, VDDA voltage monitor 2 disabled]
+    Enabled: [1, VDDA voltage monitor 2 enabled]
+  AVM1EN:
+    Disabled: [0, VDDA voltage monitor 1 disabled]
+    Enabled: [1, VDDA voltage monitor 1 enabled]
+  IO2VMEN:
+    Disabled: [0, VDDIO2 voltage monitor disabled]
+    Enabled: [1, VDDIO2 voltage monitor enabled]
+  UVMEN:
+    Disabled: [0, VDDUSB voltage monitor disabled]
+    Enabled: [1, VDDUSB voltage monitor enabled]
+  PVDLS:
+    VPVD0: [0, VPVD0 around 2.0 V]
+    VPVD1: [1, VPVD1 around 2.2 V]
+    VPVD2: [2, VPVD2 around 2.4 V]
+    VPVD3: [3, VPVD3 around 2.5 V]
+    VPVD4: [4, VPVD4 around 2.6 V]
+    VPVD5: [5, VPVD5 around 2.8 V]
+    VPVD6: [6, VPVD6 around 2.9 V]
+    PVDIN: [7, External input analog voltage PVD_IN (compared internally to VREFINT)]
+  PVDE:
+    Disabled: [0, PVD disabled]
+    Enabled: [1, PVD enabled]
+WUCR1:
+  WUPEN?:
+    Disabled: [0, Wakeup pin disabled]
+    Enabled: [1, Wakeup pin enabled]
+WUCR2:
+  WUPP?:
+    RisingEdge: [0, Detection on high level (rising edge)]
+    FallingEdge: [1, Detection on low level (falling edge)]
+WUCR3:
+  WUSEL?:
+    WKUPx_0: [0, Wakeup pin WKUPx_0 selected]
+    WKUPx_1: [1, Wakeup pin WKUPx_1 selected]
+    WKUPx_2: [2, Wakeup pin WKUPx_2 selected]
+    WKUPx_3: [3, Wakeup pin WKUPx_3 selected]
+BDCR1:
+  MONEN:
+    Disabled: [0, Backup domain voltage and temperature monitoring disabled]
+    Enabled: [1, Backup domain voltage and temperature monitoring enabled]
+  BREN:
+    Disabled: [0, Backup RAM content lost in Standby and VBAT modes]
+    Enabled: [1, Backup RAM content preserved in Standby and VBAT modes]
+BDCR2:
+  VBRS:
+    R_5k: [0, Charge VBAT through a 5 kOhm resistor]
+    R_1k5: [1, Charge VBAT through a 1.5 kOhm resistor]
+  VBE:
+    Disabled: [0, VBAT battery charging disabled]
+    Enabled: [1, VBAT battery charging enabled]
+DBPR:
+  DBP:
+    Disabled: [0, Write access to backup domain disabled]
+    Enabled: [1, Write access to backup domain enabled]
+UCPDR:
+  "?~UCPD_STBY": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
+    Disabled:
+      [
+        0,
+        "UCPD configuration is not memorized in Standby mode (Must be in this state after exiting Stop 3 or Standby mode, and before writing any UCPD registers)",
+      ]
+    Enabled: [1, UCPD configuration is memorized in Stop 3 and Standby modes]
+  "?~UCPD_DBDIS": # only on U575, U585, U59x, U5Ax, U5Fx, U5Gx
+    Enabled: [0, UCPD dead battery pull-down behavior enabled on UCPDx_CC1 and UCPDx_CC2 pins]
+    Disabled: [1, UCPD dead battery pull-down behavior disabled on UCPDx_CC1 and UCPDx_CC2 pins]
+SECCFGR:
+  APCSEC:
+    NonSecure: [0, PWR_APCR can be read and written with secure or nonsecure access]
+    Secure: [1, PWR_APCR can be read and written only with secure access]
+  VBSEC:
+    NonSecure: [0, "PWR_BDCR1, PWR_BDCR2, and PWR_DBPR can be read and written with secure or nonsecure access"]
+    Secure: [1, "PWR_BDCR1, PWR_BDCR2, and PWR_DBPR can be read and written only with secure access"]
+  VDMSEC:
+    NonSecure: [0, PWR_SVMCR and PWR_CR3 can be read and written with secure or nonsecure access]
+    Secure: [1, PWR_SVMCR and PWR_CR3 can be read and written only with secure access]
+  LPMSEC:
+    NonSecure: [0, "PWR_CR1, PWR_CR2 and CSSF in the PWR_SR can be read and written with secure or nonsecure access"]
+    Secure: [1, "PWR_CR1, PWR_CR2, and CSSF in the PWR_SR can be read and written only with secure access"]
+  WUP?SEC:
+    NonSecure:
+      [
+        0,
+        "Bits related to WKUPx pin in PWR_WUCR1, PWR_WUCR2, PWR_WUCR3, and PWR_WUSCR can be read and written with secure or nonsecure access",
+      ]
+    Secure:
+      [
+        1,
+        "Bits related to WKUPx pin in PWR_WUCR1, PWR_WUCR2, PWR_WUCR3, and PWR_WUSCR can be read and written only with secure access",
+      ]
+PRIVCFGR:
+  NSPRIV:
+    NonSecure: [0, Read and write to PWR nonsecure functions can be done by privileged or unprivileged access]
+    Secure: [1, Read and write to PWR nonsecure functions can be done by privileged access only]
+  SPRIV:
+    NonSecure: [0, Read and write to PWR secure functions can be done by privileged or unprivileged access]
+    Secure: [1, Read and write to PWR secure functions can be done by privileged access only]
+SR:
+  SBF:
+    _read:
+      NoStandby: [0, The device did not enter Standby mode]
+      Standby: [1, The device entered Standby mode]
+  STOPF:
+    _read:
+      NoStop: [0, The device did not enter any Stop mode]
+      Stop: [1, The device entered a Stop mode]
+  CSSF:
+    _write:
+      Clear: [1, Clear the STOPF and SBF flags]
+SVMSR:
+  VDDA2RDY:
+    BelowThreshold: [0, VDDA is below the threshold of the VDDA voltage monitor 2 (around 1.8 V)]
+    AboveThreshold: [1, VDDA is equal or above the threshold of the VDDA voltage monitor 2 (around 1.8 V)]
+  VDDA1RDY:
+    BelowThreshold: [0, VDDA is below the threshold of the VDDA voltage monitor 1 (around 1.6 V)]
+    EqualOrAboveThreshold: [1, VDDA is equal or above the threshold of the VDDA voltage monitor 1 (around 1.6 V)]
+  VDDIO2RDY:
+    BelowThreshold: [0, VDDIO2 is below the threshold of the VDDIO2 voltage monitor]
+    EqualOrAboveThreshold: [1, VDDIO2 is equal or above the threshold of the VDDIO2 voltage monitor]
+  VDDUSBRDY:
+    BelowThreshold: [0, VDDUSB is below the threshold of the VDDUSB voltage monitor]
+    EqualOrAboveThreshold: [1, VDDUSB is equal or above the threshold of the VDDUSB voltage monitor]
+  ACTVOS:
+    Range4: [0, Range 4 (lowest power)]
+    Range3: [1, Range 3]
+    Range2: [2, Range 2]
+    Range1: [3, Range 1 (highest frequency)]
+  ACTVOSRDY:
+    NotReady: [0, "VCORE is above or below the current voltage scaling provided by ACTVOS[1:0]"]
+    Ready: [1, "VCORE is equal to the current voltage scaling provided by ACTVOS[1:0]"]
+  PVDO:
+    EqualOrAboveThreshold: [0, "VDD is equal or above the PVD threshold selected by PVDLS[2:0]"]
+    BelowThreshold: [1, "VDD is below the PVD threshold selected by PVDLS[2:0]"]
+  REGS:
+    LDO: [0, LDO selected]
+    SMPS: [1, SMPS selected]
+BDSR:
+  TEMPH:
+    BelowHigh: [0, "Temperature < high threshold"]
+    AboveHigh: [1, "Temperature ≥ high threshold"]
+  TEMPL:
+    AboveLow: [0, "Temperature > low threshold"]
+    BelowLow: [1, "Temperature ≤ low threshold"]
+  VBATH:
+    BelowHigh: [0, "VBAT < high threshold"]
+    AboveHigh: [1, "VBAT ≥ high threshold"]
+WUSR:
+  WUF?:
+    NoWakeup: [0, No wakeup event occurred on WKUPx pin]
+    Wakeup: [1, A wakeup event occurred on WKUPx pin]
+WUSCR:
+  CWUF?:
+    Clear: [1, Clear the WUFx flag in PWR_WUSR]
+APCR:
+  APC:
+    Disabled: [0, PWR_PUCRx and PWR_PDCRx are not applied to the I/Os]
+    Enabled: [1, I/O pull-up and pull-down configurations defined in PWR_PUCRx and PWR_PDCRx are applied]
+PUCR?:
+  PU*:
+    Disabled: [0, Pull-up disabled]
+    Enabled: [1, Pull-up enabled]
+PDCR?:
+  PD*:
+    Disabled: [0, Pull-down disabled]
+    Enabled: [1, Pull-down enabled]

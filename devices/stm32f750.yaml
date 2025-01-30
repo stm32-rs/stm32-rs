@@ -41,6 +41,10 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
+
 CRC:
   _modify:
     INIT:
@@ -52,6 +56,10 @@ CRC:
     - patches/crc/f7_polysize_rev_in_rev_out.yaml
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_pol.yaml
+
+CRYP:
+  _include:
+    - collect/cryp/v2.yaml
 
 DAC:
   _include:
@@ -75,7 +83,9 @@ EXTI:
     - collect/exti/farray.yaml
 
 FLASH:
-  _include: patches/flash/erserr.yaml
+  _include:
+    - patches/flash/erserr.yaml
+    - fields/flash/flash_v2.yaml
   OPTKEYR:
     _modify:
       OPTKEY:
@@ -99,6 +109,10 @@ GPIO[A]:
   _include: collect/gpio/gpioa_afr.yaml
 GPIO[BD]:
   _include: collect/gpio/v2_derive.yaml
+
+HASH:
+  _include:
+    - collect/hash/v2.yaml
 
 I2C?:
   _include:
@@ -125,6 +139,10 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
+PWR:
+  _include:
+    - fields/pwr/pwr_f7.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -138,6 +156,10 @@ SAI?:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
+
+SDMMC?:
+  _include:
+    - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
 SPI?:
   _include:
@@ -270,7 +292,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/rcc/pllsai.yaml
   - patches/rcc/add_plli2sp.yaml
   - patches/rcc/f7_apbenr.yaml
@@ -295,10 +316,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - fields/pwr/pwr_f7.yaml
-  - fields/pwr/pwr_v2.yaml
-  - fields/flash/flash_v2.yaml
-  - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
@@ -306,8 +323,6 @@ _include:
   - collect/usb_otg/fs.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - collect/hash/v2.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - collect/cryp/v2.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml

@@ -114,6 +114,8 @@ HSEM:
       name: C1IER
     C2IER0:
       name: C2IER
+  _include:
+    - collect/hsem/r.yaml
 
 IPCC:
   _modify:
@@ -227,4 +229,3 @@ WWDG:
 
 _include:
   - patches/adc/wb_adc_common.yaml
-  - collect/hsem/r.yaml

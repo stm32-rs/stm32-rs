@@ -78,10 +78,10 @@ DMA?:
     - collect/dma/st.yaml
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 FMC:
   _include:
@@ -181,6 +181,9 @@ PWR:
       EWUP:
         name: EWUP1
         description: Enable WKUP1 pin
+  _include:
+    - patches/pwr/f4.yaml
+    - fields/pwr/pwr_f446.yaml
 
 # Fix misnamed RCC enable bits, add PLLSAI clock
 RCC:
@@ -235,6 +238,11 @@ SAI?:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4_common.yaml
+    - collect/sdio/resp.yaml
 
 SYSCFG:
   _include:
@@ -366,10 +374,4 @@ _include:
   - collect/usb_otg/hs.yaml
   - patches/usb_otg/hs_fixes_446_469.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/sdio/sdio_f4_common.yaml
-  - collect/sdio/resp.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
   - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f446.yaml

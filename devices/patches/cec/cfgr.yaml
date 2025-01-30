@@ -1,46 +1,45 @@
-CEC:
-  _delete: CFGR
-  _add:
-    CFGR:
-      description: configuration register
-      addressOffset: 0x4
-      size: 0x20
-      access: read-write
-      resetValue: 0x0
-      fields:
-        SFT:
-          bitOffset: 0
-          bitWidth: 3
-          description: Signal Free Time
-        RXTOL:
-          bitOffset: 3
-          bitWidth: 1
-          description: Rx-Tolerance
-        BRESTP:
-          bitOffset: 4
-          bitWidth: 1
-          description: Rx-stop on bit rising error
-        BREGEN:
-          bitOffset: 5
-          bitWidth: 1
-          description: Generate error-bit on bit rising error
-        LBPEGEN:
-          bitOffset: 6
-          bitWidth: 1
-          description: Generate Error-Bit on Long Bit Period Error
-        BRDNOGEN:
-          bitOffset: 7
-          bitWidth: 1
-          description: Avoid Error-Bit Generation in Broadcast
-        SFTOP:
-          bitOffset: 8
-          bitWidth: 1
-          description: SFT Option Bit
-        OAR:
-          bitOffset: 16
-          bitWidth: 15
-          description: Own Address
-        LSTN:
-          bitOffset: 31
-          bitWidth: 1
-          description: Listen mode
+_delete: CFGR
+_add:
+  CFGR:
+    description: configuration register
+    addressOffset: 0x4
+    size: 0x20
+    access: read-write
+    resetValue: 0x0
+    fields:
+      SFT:
+        bitOffset: 0
+        bitWidth: 3
+        description: Signal Free Time
+      RXTOL:
+        bitOffset: 3
+        bitWidth: 1
+        description: Rx-Tolerance
+      BRESTP:
+        bitOffset: 4
+        bitWidth: 1
+        description: Rx-stop on bit rising error
+      BREGEN:
+        bitOffset: 5
+        bitWidth: 1
+        description: Generate error-bit on bit rising error
+      LBPEGEN:
+        bitOffset: 6
+        bitWidth: 1
+        description: Generate Error-Bit on Long Bit Period Error
+      BRDNOGEN:
+        bitOffset: 7
+        bitWidth: 1
+        description: Avoid Error-Bit Generation in Broadcast
+      SFTOP:
+        bitOffset: 8
+        bitWidth: 1
+        description: SFT Option Bit
+      OAR:
+        bitOffset: 16
+        bitWidth: 15
+        description: Own Address
+      LSTN:
+        bitOffset: 31
+        bitWidth: 1
+        description: Listen mode

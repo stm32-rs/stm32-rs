@@ -52,10 +52,10 @@ EXTI:
     - collect/exti/farray.yaml
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 GPIOC:
   _delete:
@@ -97,6 +97,9 @@ PWR:
         description: Low-power regulator Low Voltage in Deep Sleep
         bitOffset: 10
         bitWidth: 1
+  _include:
+    - patches/pwr/f4.yaml
+    - fields/pwr/pwr_f401.yaml
 
 RCC:
   APB1RSTR:
@@ -111,6 +114,11 @@ RTC:
     - fields/rtc/rtc_common.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4.yaml
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -190,15 +198,9 @@ _include:
   - fields/rcc/rcc_v2_dckcfgr_timpre.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - patches/usb_otg/fs_v1_novbussens.yaml
   - collect/usb_otg/fs.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/sdio/sdio_f4.yaml
-  - collect/sdio/resp.yaml
   - patches/i2c/v1_fltr.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f401.yaml

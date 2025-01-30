@@ -12,6 +12,11 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
+CEC:
+  _include:
+    - patches/cec/cfgr.yaml
+    - fields/hdmi_cec.yaml
+
 CAN:
   _strip: CAN_
   _include:
@@ -42,6 +47,10 @@ EXTI:
   _include:
     - fields/exti/common.yaml
 
+Flash:
+  _include:
+    - fields/flash/flash_f04x_f09x.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -62,6 +71,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RTC:
   _derive:
@@ -123,6 +136,10 @@ TIM16:
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/rename_CR1_M0_field.yaml
@@ -140,8 +157,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/cec/cfgr.yaml
-  - fields/hdmi_cec.yaml
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
   - patches/rcc/f0_gpioe.yaml
@@ -152,10 +167,7 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f0x128.yaml
-  - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
-  - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml

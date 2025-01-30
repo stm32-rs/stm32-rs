@@ -86,6 +86,12 @@ EXTI:
     IMR2:
       resetValue: "0xFFFFFFFE"
 
+FLASH:
+  _include:
+    - patches/flash/f3.yaml
+    - fields/flash/flash_f3_common.yaml
+    - fields/flash/flash_f3_acr_hlfcya.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/f3.yaml
@@ -217,6 +223,10 @@ TIM16:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -240,10 +250,6 @@ _include:
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_f3_i2s.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
-  - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - patches/flash/f3.yaml
-  - fields/flash/flash_f3_common.yaml
-  - fields/flash/flash_f3_acr_hlfcya.yaml

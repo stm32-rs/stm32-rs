@@ -90,28 +90,9 @@ EXTI:
   _include:
     - fields/exti/common.yaml
 
-GFXMMU:
+FIREWALL:
   _include:
-    - collect/gfxmmu/lut.yaml
-
-GPIO?:
-  _include:
-    - fields/gpio/v2/common.yaml
-    - collect/gpio/v2.yaml
-
-GPIO[A]:
-  _include: collect/gpio/gpioa_afr.yaml
-GPIO[BCI]:
-  _include: collect/gpio/v2_derive.yaml
-
-I2C?:
-  _include:
-    - fields/i2c/v2.yaml
-
-IWDG:
-  _include:
-    - patches/16bit.yaml
-    - fields/iwdg/iwdg_with_WINR.yaml
+    - fields/fw/fw_l0_l4.yaml
 
 FLASH:
   ACR:
@@ -126,6 +107,33 @@ FLASH:
         bitOffset: 21
       SYSF_ECC:
         bitOffset: 22
+
+GFXMMU:
+  _include:
+    - collect/gfxmmu/lut.yaml
+
+GPIO?:
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCI]:
+  _include: collect/gpio/v2_derive.yaml
+
+HASH:
+  _include:
+    - collect/hash/v2.yaml
+
+I2C?:
+  _include:
+    - fields/i2c/v2.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 MPU:
   _strip: MPU_
@@ -301,6 +309,10 @@ TIM1[67]:
       OC1M_1:
         name: OC1M_3
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART?:
   _strip: USART_
   CR1:
@@ -326,9 +338,6 @@ _include:
   #- patches/usart/merge_BRR_fields.yaml
   - fields/rcc/rcc_l4.yaml
   - patches/tim/group.yaml
-  - collect/tsc/iogcr.yaml
-  - fields/fw/fw_l0_l4.yaml
-  - collect/hash/v2.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml

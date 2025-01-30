@@ -65,6 +65,7 @@ EXTI:
 
 FLASH:
   _include:
+    - fields/flash/flash_v2.yaml
     - patches/flash/latency.yaml
 
 FMC:
@@ -104,6 +105,10 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_f7.yaml
 
 RTC:
   _include:
@@ -213,9 +218,6 @@ _include:
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_f7.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/pwr/pwr_f7.yaml
-  - fields/pwr/pwr_v2.yaml
-  - fields/flash/flash_v2.yaml
   - patches/tim/group.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v2.yaml

@@ -16,11 +16,6 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
-EXTI:
-  _include:
-    - patches/exti/exti_rename.yaml
-    - fields/exti/exti_g0.yaml
-
 DMA*:
   _strip: DMA_
 
@@ -36,6 +31,15 @@ DMA?:
 DMAMUX:
   _include:
     - collect/dma/dmamux.yaml
+
+EXTI:
+  _include:
+    - patches/exti/exti_rename.yaml
+    - fields/exti/exti_g0.yaml
+
+FLASH:
+  _include:
+    - patches/flash/g0.yaml
 
 GPIO?:
   _include:
@@ -159,5 +163,4 @@ _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma2_5ch.yaml
-  - patches/flash/g0.yaml
   - patches/tim/group.yaml

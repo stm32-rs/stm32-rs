@@ -90,6 +90,8 @@ PWR:
     _delete: [UCPD_STBY, UCPD_DBDIS]
   CR4:
     _delete: SRAM5PDS*
+  _include:
+    - fields/pwr/pwr_u5.yaml
 
 RTC:
   _include:
@@ -159,5 +161,4 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

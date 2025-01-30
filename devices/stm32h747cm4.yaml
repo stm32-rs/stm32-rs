@@ -37,6 +37,10 @@ BDMA:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
+
 CRC:
   _include:
     - patches/crc/crc_rename_init.yaml
@@ -93,6 +97,11 @@ FDCAN?:
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
+FLASH:
+  _include:
+    - patches/flash/flash_dual_bank.yaml
+    - collect/flash/bank.yaml
+
 FMC:
   _include:
     - collect/fsmc/sdram.yaml
@@ -109,6 +118,12 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
+HSEM:
+  _include:
+    - patches/hsem/h7_dual.yaml
+    - patches/hsem/h7_dual_cm4.yaml
+    - collect/hsem/r.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -118,6 +133,10 @@ IWDG1:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIM?:
+  _include:
+    - fields/lptim/lptim_v1.yaml
 
 LTDC:
   _include:
@@ -134,6 +153,10 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  _include:
+    - patches/pwr/h7_dual.yaml
 
 RCC:
   _delete:
@@ -152,6 +175,11 @@ RCC:
           description: CSI clock calibration
           bitOffset: 0
           bitWidth: 9
+
+RNG:
+  _include:
+    - fields/rng/rng_v1.yaml
+    - fields/rng/rng_v1_ced.yaml
 
 RTC:
   _include:
@@ -258,31 +286,21 @@ WWDG1:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/h7_common_dualcore.yaml
   - patches/rcc/h7_src_sel.yaml
   - patches/ethernet/h7_combined_desc.yaml
-  - patches/hsem/h7_dual.yaml
-  - patches/hsem/h7_dual_cm4.yaml
-  - collect/hsem/r.yaml
   - patches/flash/h7_dualcore.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/flash/flash_dual_bank.yaml
-  - collect/flash/bank.yaml
   - patches/ramecc/ramecc_new.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
-  - fields/lptim/lptim_v1.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_v3_hrtim.yaml
   - fields/rcc/rcc_h7_revision_v.yaml
-  - fields/rng/rng_v1.yaml
-  - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
   - patches/ethernet/h7_mac.yaml
-  - patches/pwr/h7_dual.yaml
