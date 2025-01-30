@@ -1,22 +1,21 @@
-FLASH:
+_modify:
+  # Fix access and reset values.
+  WRP??R:
+    access: read-write
+    resetValue: 0x000000ff
+KEYR:
   _modify:
-    # Fix access and reset values.
-    WRP??R:
-      access: read-write
-      resetValue: 0x000000ff
-  KEYR:
-    _modify:
-      KEYR:
-        name: KEY
-  OPTKEYR:
-    _modify:
-      OPTKEYR:
-        name: OPTKEY
-  SR:
-    _modify:
-      MISERR:
-        name: MISSERR
-  OPTR:
-    _modify:
-      IDWG_SW:
-        name: IWDG_SW
+    KEYR:
+      name: KEY
+OPTKEYR:
+  _modify:
+    OPTKEYR:
+      name: OPTKEY
+SR:
+  _modify:
+    MISERR:
+      name: MISSERR
+OPTR:
+  _modify:
+    IDWG_SW:
+      name: IWDG_SW

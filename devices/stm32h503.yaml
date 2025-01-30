@@ -62,6 +62,10 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+PWR:
+  _include:
+    - fields/pwr/pwr_h5.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -135,6 +139,5 @@ _include:
   - patches/h5.yaml
   - fields/crs/crs.yaml
   - fields/sbs/sbs.yaml
-  - fields/pwr/pwr_h5.yaml
   - patches/rcc/h503.yaml
   - fields/rcc/rcc_h503.yaml

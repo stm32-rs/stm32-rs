@@ -1,72 +1,71 @@
-FLASH:
-  SR:
-    BSY:
-      _read:
-        NotBusy: [0, no Flash memory operation ongoing]
-        Busy: [1, Flash memory operation ongoing]
-    PGSERR:
-      _W1C:
-        Clear: [1, Clear error flag]
-    PGPERR:
-      _W1C:
-        Clear: [1, Clear error flag]
-    PGAERR:
-      _W1C:
-        Clear: [1, Clear error flag]
-    WRPERR:
-      _W1C:
-        Clear: [1, Clear error flag]
-    OPERR:
-      _W1C:
-        Clear: [1, Clear error flag]
-    EOP:
-      _W1C:
-        Clear: [1, Clear error flag]
+SR:
+  BSY:
+    _read:
+      NotBusy: [0, no Flash memory operation ongoing]
+      Busy: [1, Flash memory operation ongoing]
+  PGSERR:
+    _W1C:
+      Clear: [1, Clear error flag]
+  PGPERR:
+    _W1C:
+      Clear: [1, Clear error flag]
+  PGAERR:
+    _W1C:
+      Clear: [1, Clear error flag]
+  WRPERR:
+    _W1C:
+      Clear: [1, Clear error flag]
+  OPERR:
+    _W1C:
+      Clear: [1, Clear error flag]
+  EOP:
+    _W1C:
+      Clear: [1, Clear error flag]
 
-  ACR:
-    DCRST:
-      NotReset: [0, Data cache is not reset]
-      Reset: [1, Data cache is reset]
-    ICRST:
-      NotReset: [0, Instruction cache is not reset]
-      Reset: [1, Instruction cache is reset]
-    DCEN:
-      Disabled: [0, Data cache is disabled]
-      Enabled: [1, Data cache is enabled]
-    ICEN:
-      Disabled: [0, Instruction cache is disabled]
-      Enabled: [1, Instruction cache is enabled]
-    PRFTEN:
-      Disabled: [0, Prefetch is disabled]
-      Enabled: [1, Prefetch is enabled]
+ACR:
+  DCRST:
+    NotReset: [0, Data cache is not reset]
+    Reset: [1, Data cache is reset]
+  ICRST:
+    NotReset: [0, Instruction cache is not reset]
+    Reset: [1, Instruction cache is reset]
+  DCEN:
+    Disabled: [0, Data cache is disabled]
+    Enabled: [1, Data cache is enabled]
+  ICEN:
+    Disabled: [0, Instruction cache is disabled]
+    Enabled: [1, Instruction cache is enabled]
+  PRFTEN:
+    Disabled: [0, Prefetch is disabled]
+    Enabled: [1, Prefetch is enabled]
 
-  KEYR:
-    KEY: [0, 0xFFFFFFFF]
+KEYR:
+  KEY: [0, 0xFFFFFFFF]
 
-  OPTKEYR:
-    OPTKEY: [0, 0xFFFFFFFF]
+OPTKEYR:
+  OPTKEY: [0, 0xFFFFFFFF]
 
-  CR:
-    LOCK:
-      Unlocked: [0, FLASH_CR register is unlocked]
-      Locked: [1, FLASH_CR register is locked]
-    ERRIE:
-      Disabled: [0, Error interrupt generation disabled]
-      Enabled: [1, Error interrupt generation enabled]
-    EOPIE:
-      Disabled: [0, End of operation interrupt disabled]
-      Enabled: [1, End of operation interrupt enabled]
-    STRT:
-      Start: [1, Trigger an erase operation]
-    PSIZE:
-      PSIZE8: [0, Program x8]
-      PSIZE16: [1, Program x16]
-      PSIZE32: [2, Program x32]
-      PSIZE64: [3, Program x64]
-    SNB: [0, 11] # TODO: this depends on device
-    MER:
-      MassErase: [1, Erase activated for all user sectors]
-    SER:
-      SectorErase: [1, Erase activated for selected sector]
-    PG:
-      Program: [1, Flash programming activated]
+CR:
+  LOCK:
+    Unlocked: [0, FLASH_CR register is unlocked]
+    Locked: [1, FLASH_CR register is locked]
+  ERRIE:
+    Disabled: [0, Error interrupt generation disabled]
+    Enabled: [1, Error interrupt generation enabled]
+  EOPIE:
+    Disabled: [0, End of operation interrupt disabled]
+    Enabled: [1, End of operation interrupt enabled]
+  STRT:
+    Start: [1, Trigger an erase operation]
+  PSIZE:
+    PSIZE8: [0, Program x8]
+    PSIZE16: [1, Program x16]
+    PSIZE32: [2, Program x32]
+    PSIZE64: [3, Program x64]
+  SNB: [0, 11] # TODO: this depends on device
+  MER:
+    MassErase: [1, Erase activated for all user sectors]
+  SER:
+    SectorErase: [1, Erase activated for selected sector]
+  PG:
+    Program: [1, Flash programming activated]

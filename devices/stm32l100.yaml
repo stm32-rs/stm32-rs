@@ -1,6 +1,6 @@
 _svd: ../svd/stm32l100.svd
 
-"ADC,ADC?":
+ADC:
   _include:
     - patches/adc/l1_smpr.yaml
     - collect/adc/jofr_jdr.yaml
@@ -71,6 +71,10 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RCC:
   CR:
@@ -173,7 +177,6 @@ WWDG:
 
 _include:
   - patches/rcc/LSECSSC_LSECSSF.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_l0_l1_common.yaml
   - fields/rcc/rcc_l1.yaml

@@ -31,7 +31,9 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
-  _include: patches/cryp/merge_fields.yaml
+  _include:
+    - patches/cryp/merge_fields.yaml
+    - collect/cryp/v1.yaml
 
 DAC:
   _include:
@@ -70,6 +72,10 @@ GPIO[A]:
 GPIO[BI]:
   _include: collect/gpio/v2_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v1.yaml
+
 I2C?:
   _include:
     - patches/16bit.yaml
@@ -85,6 +91,10 @@ IWDG:
 
 MPU:
   _strip: MPU_
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RCC:
   APB1RSTR:
@@ -165,7 +175,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - collect/cryp/v1.yaml
   - patches/ethernet/f2_f4.yaml
   - patches/ethernet/mmc.yaml
   - patches/rcc/f2.yaml
@@ -175,9 +184,7 @@ _include:
   - fields/rcc/rcc_v2_i2s.yaml
   - fields/rcc/rcc_v2_i2s_pll.yaml
   - patches/adc/adc_common_group_name.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
-  - collect/hash/v1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - patches/usb_otg/fs_v1_novbussens.yaml

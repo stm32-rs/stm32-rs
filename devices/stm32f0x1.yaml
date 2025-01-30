@@ -19,6 +19,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CEC:
+  _include:
+    - patches/cec/cfgr.yaml
+    - fields/hdmi_cec.yaml
+
 CRC:
   _include:
     - patches/crc/f0_init_addr_fix.yaml
@@ -48,6 +53,8 @@ Flash:
       # The SVD says this field is 0 bits, but RM0091 says it's 1 bit.
       RAM_PARITY_CHECK:
         bitWidth: 1
+  _include:
+    - fields/flash/flash_f04x_f09x.yaml
 
 GPIO?:
   _include:
@@ -69,6 +76,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RTC:
   _derive:
@@ -130,6 +141,10 @@ TIM16:
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/rename_CR1_M0_field.yaml
@@ -147,8 +162,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/cec/cfgr.yaml
-  - fields/hdmi_cec.yaml
   - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
   - patches/rcc/f0_v18pwrrstf.yaml
   - patches/rcc/f0_gpioe.yaml
@@ -160,9 +173,6 @@ _include:
   - patches/rcc/f0_hsi48cal.yaml
   - patches/f0_syscfg_comp.yaml
   - patches/tim/group.yaml
-  - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x128.yaml
-  - collect/tsc/iogcr.yaml
   - fields/comp/comp_f0.yaml
-  - fields/flash/flash_f04x_f09x.yaml
   - patches/nvic/2_prio_bits.yaml

@@ -105,6 +105,9 @@ FLASH:
     _modify:
       LATENCY:
         bitWidth: 4
+  _include:
+    - patches/flash/l4+.yaml
+    - fields/flash/flash_l4+.yaml
 
 FMC:
   _include:
@@ -120,6 +123,10 @@ GPIO[A]:
   _include: collect/gpio/gpioa_afr.yaml
 GPIO[BCI]:
   _include: collect/gpio/v2_derive.yaml
+
+HASH:
+  _include:
+    - patches/hash/hash_l4+.yaml
 
 I2C?:
   _include:
@@ -173,6 +180,8 @@ MPU:
 
 PWR:
   _strip: PWR_
+  _include:
+    - fields/pwr/pwr_l4+.yaml
 
 OCTOSPI1:
   DCR1:
@@ -188,6 +197,11 @@ RCC:
     _modify:
       MCOSEL:
         bitWidth: 4
+
+RNG:
+  _include:
+    - patches/rng/l4+.yaml
+    - fields/rng/rng_wl.yaml
 
 RTC:
   MISR:
@@ -320,6 +334,11 @@ TIM1[67]:
       OC1M_1:
         name: OC1M_3
 
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
+
 USART?:
   _strip: USART_
   CR1:
@@ -346,12 +365,8 @@ WWDG:
 _include:
   #- patches/usart/merge_BRR_fields.yaml
   #- patches/usart/rename_CR2_DATAINV_field.yaml
-  - fields/tsc/tsc.yaml
-  - patches/hash/hash_l4+.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
-  - patches/rng/l4+.yaml
-  - fields/rng/rng_wl.yaml
   - patches/octospim/l4+.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/dbgmcu/l4+.yaml
@@ -359,11 +374,8 @@ _include:
   - patches/usb_otg/otg_fs_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
-  - patches/flash/l4+.yaml
-  - fields/flash/flash_l4+.yaml
   - patches/rcc/l4+.yaml
   - fields/rcc/rcc_l4+.yaml
   - patches/tim/group.yaml
-  - fields/pwr/pwr_l4+.yaml
   - patches/pssi/pssi.yaml
   - fields/pssi/pssi.yaml

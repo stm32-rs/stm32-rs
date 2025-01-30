@@ -38,6 +38,10 @@ CAN?:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
+
 CRC:
   _modify:
     INIT:
@@ -52,7 +56,9 @@ CRC:
     - fields/crc/crc_pol.yaml
 
 CRYP:
-  _include: patches/cryp/merge_fields.yaml
+  _include:
+    - patches/cryp/merge_fields.yaml
+    - collect/cryp/v2.yaml
 
 DAC:
   _include:
@@ -125,6 +131,7 @@ FLASH:
   _include:
     - patches/flash/f7_dual_bank.yaml
     - patches/flash/erserr.yaml
+    - fields/flash/flash_v2_dual_bank.yaml
   OPTKEYR:
     _modify:
       OPTKEY:
@@ -151,6 +158,10 @@ GPIO[A]:
 GPIO[BD]:
   _include: collect/gpio/v2_derive.yaml
 
+HASH:
+  _include:
+    - collect/hash/v2.yaml
+
 I2C2:
   _add:
     _interrupts:
@@ -172,6 +183,8 @@ IWDG:
 
 JPEG:
   _strip: JPEG_
+  _include:
+    - collect/jpeg/ram_f7.yaml
 
 LTDC:
   _add:
@@ -188,6 +201,8 @@ LTDC:
 
 MDIOS:
   _strip: MDIOS_
+  _include:
+    - collect/mdios/dinr_doutr.yaml
 
 OTG_HS_*:
   _strip: OTG_HS_
@@ -196,6 +211,10 @@ QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_f7.yaml
 
 RCC:
   PLLCFGR:
@@ -219,6 +238,10 @@ SAI?:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
+
+SDMMC?:
+  _include:
+    - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
 SPI?:
   _include:
@@ -353,12 +376,10 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/ltdc/rename.yaml
   - patches/f7_lptim_interrupt.yaml
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
-  - collect/cryp/v2.yaml
   - patches/rcc/pllsai.yaml
   - patches/rcc/add_plli2sp.yaml
   - patches/rcc/f7_apbenr.yaml
@@ -384,20 +405,13 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - collect/jpeg/ram_f7.yaml
-  - fields/pwr/pwr_f7.yaml
-  - fields/pwr/pwr_v2.yaml
-  - fields/flash/flash_v2_dual_bank.yaml
   - patches/tim/group.yaml
-  - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - collect/hash/v2.yaml
-  - collect/mdios/dinr_doutr.yaml
   - patches/dbgmcu/f7.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml

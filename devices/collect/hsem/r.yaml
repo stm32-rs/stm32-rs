@@ -1,6 +1,5 @@
-HSEM:
-  _array:
-    RLR*:
-      description: Semaphore %s read lock register
-    "R?,R??":
-      description: HSEM register HSEM_R%s
+_array:
+  RLR*:
+    description: Semaphore %s read lock register
+  "R?,R??":
+    description: HSEM register HSEM_R%s

@@ -30,6 +30,11 @@ AES:
 COMP:
   _strip: COMP_
 
+CORDIC:
+  _include:
+    - patches/cordic/g4.yaml
+    - fields/cordic/v1.yaml
+
 DAC?:
   _strip: DAC_
   _include:
@@ -54,6 +59,13 @@ EXTI:
 
 FDCAN:
   _strip: FDCAN_
+
+FLASH:
+  _include:
+    - patches/flash/g4_dual_bank.yaml
+    - patches/flash/g4_dual_bank_optr.yaml
+    - fields/flash/flash_g4.yaml
+    - fields/flash/flash_g4_dual_bank.yaml
 
 GPIO?:
   _include:
@@ -187,16 +199,9 @@ WWDG:
 _include:
   - fields/rcc/g4.yaml
   - collect/comp/csr.yaml
-  - patches/cordic/g4.yaml
-  - fields/cordic/cordic_g4.yaml
-  - fields/cordic/cordic_g4.yaml
   - fields/opamp/opamp_g4_common.yaml
   - fields/opamp/opamp_g4_opamp4_5.yaml
   - fields/opamp/opamp_g4_opamp6.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - fields/rcc/rcc_g4.yaml
   - patches/tim/group.yaml
-  - patches/flash/g4_dual_bank.yaml
-  - patches/flash/g4_dual_bank_optr.yaml
-  - fields/flash/flash_g4.yaml
-  - fields/flash/flash_g4_dual_bank.yaml

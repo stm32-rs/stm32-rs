@@ -1,15 +1,14 @@
-FLASH:
-  CR:
-    _add:
-      BKER:
-        description: Bank erase
-        bitOffset: 11
-        bitWidth: 1
-      MER2:
-        description: Bank 2 Mass erase
-        bitOffset: 15
-        bitWidth: 1
-      SEC_PROT2:
-        description: Securable memory area protection bit for bank 2.
-        bitOffset: 29
-        bitWidth: 1
+CR:
+  _add:
+    BKER:
+      description: Bank erase
+      bitOffset: 11
+      bitWidth: 1
+    MER2:
+      description: Bank 2 Mass erase
+      bitOffset: 15
+      bitWidth: 1
+    SEC_PROT2:
+      description: Securable memory area protection bit for bank 2.
+      bitOffset: 29
+      bitWidth: 1

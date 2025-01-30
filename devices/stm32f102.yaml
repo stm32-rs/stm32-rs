@@ -48,6 +48,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+BKP:
+  _include:
+    - fields/bkp/bkp.yaml
+    - collect/bkp/dr.yaml
+
 CRC:
   _include:
     - fields/crc/crc_basic.yaml
@@ -68,6 +73,10 @@ EXTI:
   _include:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+FLASH:
+  _include:
+    - fields/flash/flash_f1.yaml
 
 FSMC:
   _include:
@@ -96,6 +105,10 @@ IWDG:
 
 MPU:
   _strip: MPU_
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RCC:
   APB1RSTR:
@@ -209,13 +222,9 @@ WWDG:
 
 _include:
   - patches/bkp/bkp.yaml
-  - fields/bkp/bkp.yaml
-  - collect/bkp/dr.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - patches/dbgmcu/rename.yaml
-  - fields/flash/flash_f1.yaml

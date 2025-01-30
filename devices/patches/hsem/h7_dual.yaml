@@ -1,21 +1,20 @@
-HSEM:
-  C1IER:
-    _split: ISE
-    _array:
-      ISE*:
-        description: Interrupt(1) semaphore %s enable bit
-  C1ICR:
-    _split: ISC
-    _array:
-      ISC*:
-        description: Interrupt(1) semaphore %s clear
-  C1ISR:
-    _split: ISF
-    _array:
-      ISF*:
-        description: Interrupt(1) semaphore %s status bit
-  C1MISR:
-    _split: MISF
-    _array:
-      MISF*:
-        description: masked interrupt(1) semaphore %s status bit
+C1IER:
+  _split: ISE
+  _array:
+    ISE*:
+      description: Interrupt(1) semaphore %s enable bit
+C1ICR:
+  _split: ISC
+  _array:
+    ISC*:
+      description: Interrupt(1) semaphore %s clear
+C1ISR:
+  _split: ISF
+  _array:
+    ISF*:
+      description: Interrupt(1) semaphore %s status bit
+C1MISR:
+  _split: MISF
+  _array:
+    MISF*:
+      description: masked interrupt(1) semaphore %s status bit

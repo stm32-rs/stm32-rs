@@ -54,6 +54,10 @@ EXTI:
   _include:
     - patches/exti/exti_rename.yaml
 
+FLASH:
+  _include:
+    - collect/flash/secbbr.yaml
+
 FMC:
   _strip: FMC_
 
@@ -185,7 +189,6 @@ WWDG:
 
 _include:
   - patches/dma/interrupt_names.yaml
-  - collect/flash/secbbr.yaml
   - patches/icache/l5.yaml
   - collect/icache/crr.yaml
   - fields/rcc/rcc_l5.yaml

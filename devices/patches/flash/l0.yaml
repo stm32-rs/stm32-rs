@@ -1,6 +1,5 @@
-FLASH:
-  # Fix write permissions of EOP field
-  SR:
-    _modify:
-      EOP:
-        access: read-write
+# Fix write permissions of EOP field
+SR:
+  _modify:
+    EOP:
+      access: read-write

@@ -39,11 +39,19 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
+AXI:
+  _include:
+    - fields/axi/axi_v1.yaml
+
 BDMA?:
   _include:
     - patches/dma/bdma_v2.yaml
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
+
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
 
 COMP1:
   _strip: COMP1_
@@ -117,6 +125,9 @@ FLASH:
         bitOffset: 31
         bitWidth: 1
         access: read-only
+  _include:
+    - patches/flash/flash_dual_bank.yaml
+    - collect/flash/bank.yaml
 
 FMC:
   _include:
@@ -133,6 +144,10 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
+HSEM:
+  _include:
+    - collect/hsem/r.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -142,6 +157,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIM?:
+  _include:
+    - fields/lptim/lptim_v1.yaml
 
 LTDC:
   _include:
@@ -163,6 +182,11 @@ PSSI:
 RCC:
   _strip:
     - RCC_
+
+RNG:
+  _include:
+    - fields/rng/rng_v1.yaml
+    - fields/rng/rng_v1_ced.yaml
 
 RTC:
   _include:
@@ -292,22 +316,14 @@ WWDG:
 
 _include:
   - patches/h7_common_highmemory.yaml
-  - fields/hdmi_cec.yaml
-  - collect/hsem/r.yaml
   - patches/h7_spdifrx.yaml
   - patches/usb_otg/hs_v2.yaml
   - collect/usb_otg/hs.yaml
-  - patches/flash/flash_dual_bank.yaml
-  - collect/flash/bank.yaml
-  - fields/axi/axi_v1.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_h7.yaml
   - collect/hrtim/h7.yaml
-  - fields/lptim/lptim_v1.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_h7_revision_v.yaml
-  - fields/rng/rng_v1.yaml
-  - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml

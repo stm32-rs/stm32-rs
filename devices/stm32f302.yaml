@@ -70,6 +70,14 @@ EXTI:
     - patches/exti/f3_offset.yaml
     - fields/exti/common.yaml
 
+FLASH:
+  _include:
+    - patches/flash/f3.yaml
+    - patches/flash/f3_obr_rdptr.yaml
+    - fields/flash/flash_f3_common.yaml
+    - fields/flash/flash_f3_acr_hlfcya.yaml
+    - fields/flash/flash_f3_obr_sram_parity_check.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/f3.yaml
@@ -235,6 +243,10 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -271,12 +283,6 @@ _include:
   - fields/rcc/rcc_f3_i2s.yaml
   - fields/rcc/rcc_pllsrc_2bit.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
-  - patches/flash/f3.yaml
-  - patches/flash/f3_obr_rdptr.yaml
-  - fields/flash/flash_f3_common.yaml
-  - fields/flash/flash_f3_obr_sram_parity_check.yaml
-  - fields/flash/flash_f3_acr_hlfcya.yaml

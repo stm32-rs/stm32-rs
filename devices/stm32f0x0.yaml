@@ -31,6 +31,14 @@ EXTI:
   _include:
     - fields/exti/common.yaml
 
+Flash:
+  OBR:
+    _modify:
+      RAM_PARITY_CHECK_:
+        name: RAM_PARITY_CHECK
+  _include:
+    - fields/flash/flash_f0.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -51,6 +59,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RCC:
   AHBENR:
@@ -158,8 +170,5 @@ _include:
   - patches/rcc/f0_usben.yaml
   - patches/rcc/f0_hsi48cal.yaml
   - patches/tim/group.yaml
-  - fields/pwr/pwr_v1.yaml
   - fields/rcc/rcc_f0x0.yaml
-  - patches/flash/f0_ram_parity_check.yaml
-  - fields/flash/flash_f0.yaml
   - patches/nvic/2_prio_bits.yaml

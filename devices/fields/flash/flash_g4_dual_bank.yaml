@@ -1,15 +1,14 @@
 # Flash Peripheral
 # Applicable to STM32G4 category 3 devices only
 
-FLASH:
-  OPTR:
-    DBANK:
-      SingleBankMode: [0, Single-bank mode with 128 bits data read width]
-      DualBankMode: [1, Dual-bank mode with 64 bits data]
-    BFB2:
-      Disabled: [0, Boot from memory bank 1]
-      Enabled: [1, Boot from memory bank 2]
-  CR:
-    BKER:
-      Bank1: [0, Bank 1 is selected for page erase]
-      Bank2: [1, Bank 2 is selected for page erase]
+OPTR:
+  DBANK:
+    SingleBankMode: [0, Single-bank mode with 128 bits data read width]
+    DualBankMode: [1, Dual-bank mode with 64 bits data]
+  BFB2:
+    Disabled: [0, Boot from memory bank 1]
+    Enabled: [1, Boot from memory bank 2]
+CR:
+  BKER:
+    Bank1: [0, Bank 1 is selected for page erase]
+    Bank2: [1, Bank 2 is selected for page erase]

@@ -53,6 +53,10 @@ ADC[12]:
   SQR?:
     SQ*: [0, 19]
 
+AXI:
+  _include:
+    - fields/axi/axi_v1.yaml
+
 BDMA:
   _strip: BDMA_
   _include:
@@ -61,6 +65,12 @@ BDMA:
 
 CORDIC:
   _strip: CORDIC_
+  _include:
+    - fields/cordic/v1.yaml
+
+CEC:
+  _include:
+    - fields/hdmi_cec.yaml
 
 CRC:
   _include:
@@ -155,6 +165,10 @@ GPIO[A]:
 GPIO[BCJK]:
   _include: collect/gpio/v2_derive.yaml
 
+HSEM:
+  _include:
+    - collect/hsem/r.yaml
+
 I2C?:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
@@ -164,6 +178,10 @@ IWDG1:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIM?:
+  _include:
+    - fields/lptim/lptim_v1.yaml
 
 LTDC:
   _add:
@@ -272,6 +290,13 @@ RCC:
       resetValue: "0x00010000"
     C1_APB4LPENR:
       resetValue: "0x0421DEAA"
+
+RNG:
+  _include:
+    - patches/rng/h735.yaml
+    - fields/rng/rng_wl.yaml
+    - fields/rng/rng_v1.yaml
+    - fields/rng/rng_v1_ced.yaml
 
 RTC:
   _include:
@@ -478,21 +503,12 @@ WWDG1:
 # -----------------------------------------------------------------------------
 
 _include:
-  - fields/hdmi_cec.yaml
   - patches/rcc/h7_hsicfgr_csicfgr_735.yaml
   - patches/h7_common_singlecore_735.yaml
   - patches/ethernet/h7_combined_desc.yaml
-  - collect/hsem/r.yaml
   - collect/usb_otg/hs.yaml
-  - fields/axi/axi_v1.yaml
   - patches/gpio/h7_jk.yaml
-  - fields/lptim/lptim_v1.yaml
   - fields/rcc/rcc_h7.yaml
   - fields/rcc/rcc_h7_revision_v.yaml
-  - patches/rng/h735.yaml
-  - fields/rng/rng_wl.yaml
-  - fields/rng/rng_v1.yaml
-  - fields/rng/rng_v1_ced.yaml
   - patches/tim/group.yaml
   - patches/ethernet/h7_mac.yaml
-  - fields/cordic/cordic_h7.yaml

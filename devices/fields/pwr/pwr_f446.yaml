@@ -1,72 +1,68 @@
 # the frame was extract from stm32f469.svd.patched
-PWR:
-  _include:
-    - f4.yaml
-  CR:
-    FISSR:
-      Run: [0, Flash Interface clock run (Default value)]
-      "Off": [1, Flash Interface clock off]
-    FMSSR:
-      Standard: [0, Flash standard mode (Default value)]
-      Forced: [1, Flash forced to be in STOP or DeepPower Down mode (depending of FPDS value bit) by hardware]
-    UDEN:
-      Disabled: [0, Under-drive disable]
-      Enabled: [3, Under-drive enable]
-    ODSWEN:
-      Disabled: [0, Over-drive switching disabled]
-      Enabled: [1, Over-drive switching enabled]
-    ODEN:
-      Disabled: [0, Over-drive disabled]
-      Enabled: [1, Over-drive enabled]
-    VOS:
-      Scale3: [1, Scale 3 mode]
-      Scale2: [2, Scale 2 mode]
-      Scale1: [3, Scale 1 mode (reset value)]
-    ADCDC1: [0, 1]
-    MRUDS:
-      "On": [0, Main regulator ON when the device is in Stop mode]
-      UnderDrive:
-        [
-          1,
-          Main Regulator in under-drive mode and Flash memory in power-down when the device is in Stop under-drive mode,
-        ]
-    LPUDS:
-      "On": [0, Low-power regulator ON if LPDS bit is set when the device is in Stop mode]
-      UnderDrive:
-        [
-          1,
-          Low-power regulator in under-drive mode if LPDS bit is set and Flash memory in power-down when the device is in Stop under-drive mode,
-        ]
+_include:
+  - f4.yaml
+CR:
+  FISSR:
+    Run: [0, Flash Interface clock run (Default value)]
+    "Off": [1, Flash Interface clock off]
+  FMSSR:
+    Standard: [0, Flash standard mode (Default value)]
+    Forced: [1, Flash forced to be in STOP or DeepPower Down mode (depending of FPDS value bit) by hardware]
+  UDEN:
+    Disabled: [0, Under-drive disable]
+    Enabled: [3, Under-drive enable]
+  ODSWEN:
+    Disabled: [0, Over-drive switching disabled]
+    Enabled: [1, Over-drive switching enabled]
+  ODEN:
+    Disabled: [0, Over-drive disabled]
+    Enabled: [1, Over-drive enabled]
+  VOS:
+    Scale3: [1, Scale 3 mode]
+    Scale2: [2, Scale 2 mode]
+    Scale1: [3, Scale 1 mode (reset value)]
+  ADCDC1: [0, 1]
+  MRUDS:
+    "On": [0, Main regulator ON when the device is in Stop mode]
+    UnderDrive:
+      [1, Main Regulator in under-drive mode and Flash memory in power-down when the device is in Stop under-drive mode]
+  LPUDS:
+    "On": [0, Low-power regulator ON if LPDS bit is set when the device is in Stop mode]
+    UnderDrive:
+      [
+        1,
+        Low-power regulator in under-drive mode if LPDS bit is set and Flash memory in power-down when the device is in Stop under-drive mode,
+      ]
 
-  CSR:
-    UDRDY:
-      NotReady: [0, Under-drive is disabled]
-      Ready: [3, Under-drive mode is activated in Stop mode]
-    ODSWRDY:
-      NotReady: [0, Over-drive mode is not active]
-      Ready: [1, Over-drive mode is active on digital area on 1.2 V domain]
-    ODRDY:
-      NotReady: [0, Over-drive mode not ready]
-      Ready: [1, Over-drive mode ready]
-    EWUP1:
-      GPIO:
-        [
-          0,
-          WKUP1 pin is used for general purpose I/O. An event on the WKUP1 pin does not wakeup the device from Standby mode,
-        ]
-      WakeUp:
-        [
-          1,
-          WKUP1 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge or falling on WKUP pin wakes-up the system from Standby mode),
-        ]
-    EWUP2:
-      GPIO:
-        [
-          0,
-          WKUP2 pin is used for general purpose I/O. An event on the WKUP2 pin does not wakeup the device from Standby mode,
-        ]
-      WakeUp:
-        [
-          1,
-          WKUP2 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP2 pin wakes-up the system from Standby mode),
-        ]
+CSR:
+  UDRDY:
+    NotReady: [0, Under-drive is disabled]
+    Ready: [3, Under-drive mode is activated in Stop mode]
+  ODSWRDY:
+    NotReady: [0, Over-drive mode is not active]
+    Ready: [1, Over-drive mode is active on digital area on 1.2 V domain]
+  ODRDY:
+    NotReady: [0, Over-drive mode not ready]
+    Ready: [1, Over-drive mode ready]
+  EWUP1:
+    GPIO:
+      [
+        0,
+        WKUP1 pin is used for general purpose I/O. An event on the WKUP1 pin does not wakeup the device from Standby mode,
+      ]
+    WakeUp:
+      [
+        1,
+        WKUP1 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge or falling on WKUP pin wakes-up the system from Standby mode),
+      ]
+  EWUP2:
+    GPIO:
+      [
+        0,
+        WKUP2 pin is used for general purpose I/O. An event on the WKUP2 pin does not wakeup the device from Standby mode,
+      ]
+    WakeUp:
+      [
+        1,
+        WKUP2 pin is used for wakeup from Standby mode and forced in input pull down configuration (rising edge on WKUP2 pin wakes-up the system from Standby mode),
+      ]

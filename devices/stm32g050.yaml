@@ -42,6 +42,10 @@ EXTI:
     - patches/exti/exti_rename.yaml
     - fields/exti/exti_g0.yaml
 
+FLASH:
+  _include:
+    - patches/flash/g0.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
@@ -162,5 +166,4 @@ _include:
   - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
-  - patches/flash/g0.yaml
   - patches/tim/group.yaml

@@ -66,7 +66,9 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
 
 CRYP:
-  _include: patches/cryp/merge_fields.yaml
+  _include:
+    - patches/cryp/merge_fields.yaml
+    - collect/cryp/v2.yaml
 
 DAC:
   _include:
@@ -102,10 +104,10 @@ EXTI:
     - collect/exti/farray.yaml
 
 FLASH:
-  ACR:
-    _modify:
-      LATENCY:
-        bitWidth: 4
+  _include:
+    - patches/flash/latency_4b.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency16.yaml
 
 FMC:
   _include:
@@ -127,6 +129,10 @@ GPIO[A]:
   _include: collect/gpio/gpioa_afr.yaml
 GPIO[BK]:
   _include: collect/gpio/v2_derive.yaml
+
+HASH:
+  _include:
+    - collect/hash/v2.yaml
 
 I2C?:
   _include:
@@ -161,6 +167,9 @@ PWR:
       ADCDC1:
         bitOffset: 13
         bitWidth: 1
+  _include:
+    - patches/pwr/f4.yaml
+    - fields/pwr/pwr_f469_f479.yaml
 
 # Fix misnamed RCC enable bits
 RCC:
@@ -218,6 +227,11 @@ SAI:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
+
+SDIO:
+  _include:
+    - fields/sdio/sdio_f4.yaml
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -305,7 +319,6 @@ _include:
   - patches/ethernet/mac_regs.yaml
   - patches/ethernet/mmc.yaml
   - patches/ethernet/f2_f4.yaml
-  - collect/cryp/v2.yaml
   - patches/rcc/rcc_merge_rtcsel.yaml
   - fields/rcc/rcc_v2.yaml
   - fields/rcc/rcc_v2_pllcfgr_pllr.yaml
@@ -328,9 +341,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - fields/flash/flash_v1.yaml
-  - fields/flash/flash_latency16.yaml
-  - collect/hash/v2.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml
@@ -340,9 +350,5 @@ _include:
   - collect/usb_otg/hs.yaml
   - patches/usb_otg/hs_fixes_446_469.yaml
   - patches/dbgmcu/dbgmcu.yaml
-  - fields/sdio/sdio_f4.yaml
-  - collect/sdio/resp.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml
-  - patches/pwr/f4.yaml
-  - fields/pwr/pwr_f469_f479.yaml

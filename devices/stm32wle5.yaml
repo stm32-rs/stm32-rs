@@ -102,6 +102,10 @@ EXTI:
         bitWidth: 1
         access: read-write
 
+FLASH:
+  _include:
+    - fields/flash/flash_wl.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/common.yaml
@@ -136,6 +140,9 @@ HSEM:
     _modify:
       MASTERID:
         name: COREID
+  _include:
+    - fields/hsem/hsem_wl.yaml
+    - collect/hsem/r.yaml
 
 I2C?:
   _include:
@@ -149,12 +156,17 @@ IWDG:
     - fields/iwdg/iwdg.yaml
     - fields/iwdg/iwdg_sr.yaml
 
-LPTIM,LPTIM?:
-  _strip:
-    - LPTIM_
-    - LPTIM?_
-
+LPTIM?:
+  _strip: LPTIM?_
+  _include:
+    - fields/lptim/lptim_v1.yaml
+    - fields/lptim/lptim_wl.yaml
+LPTIM1:
+  _include:
+    - fields/lptim/lptim1_wl.yaml
 LPTIM[23]:
+  _include:
+    - fields/lptim/lptim2_wl.yaml
   OR:
     _merge: OR*
 
@@ -186,9 +198,21 @@ LPUART:
   _include:
     - fields/usart/lpuart_wl.yaml
 
+PKA:
+  _include:
+    - fields/pka/pka.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_wl.yaml
+
 RCC:
   _include:
     - fields/rcc/rcc_wl.yaml
+
+RNG:
+  _include:
+    - fields/rng/rng_wl.yaml
 
 RTC:
   _include:
@@ -211,6 +235,7 @@ SYSCFG:
 TAMP:
   _include:
     - patches/rtc/tamp_wl.yaml
+    - fields/tamp/tamp_wl.yaml
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
@@ -267,6 +292,10 @@ USART*:
     - fields/usart/usart_v2C.yaml
     - fields/usart/usart_wl.yaml
 
+VREFBUF:
+  _include:
+    - fields/vrefbuf/vrefbuf_wl.yaml
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -275,13 +304,3 @@ WWDG:
 _include:
   - fields/comp/comp_wl.yaml
   - fields/dbg/dbg_wl.yaml
-  - fields/flash/flash_wl.yaml
-  - fields/hsem/hsem_wl.yaml
-  - collect/hsem/r.yaml
-  - fields/lptim/lptim_v1.yaml
-  - fields/lptim/lptim_wl.yaml
-  - fields/pka/pka.yaml
-  - fields/pwr/pwr_wl.yaml
-  - fields/tamp/tamp_wl.yaml
-  - fields/rng/rng_wl.yaml
-  - fields/vrefbuf/vrefbuf_wl.yaml

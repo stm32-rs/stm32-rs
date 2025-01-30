@@ -51,6 +51,11 @@ AFIO:
     - fields/exti/derive.yaml
     - fields/exti/abcdefg.yaml
 
+BKP:
+  _include:
+    - fields/bkp/bkp.yaml
+    - collect/bkp/dr.yaml
+
 CAN:
   _strip: CAN_
   _include:
@@ -86,6 +91,10 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FLASH:
+  _include:
+    - fields/flash/flash_f1.yaml
+
 FSMC:
   _include:
     - patches/fsmc/fsmc_sramfix_v3.yaml
@@ -114,6 +123,10 @@ IWDG:
 MPU:
   _strip: MPU_
 
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
+
 RCC:
   CFGR:
     _modify:
@@ -131,6 +144,8 @@ SDIO:
     RESPI1:
       name: RESP1
       displayName: RESP1
+  _include:
+    - collect/sdio/resp.yaml
 
 SPI?:
   _include:
@@ -200,15 +215,10 @@ WWDG:
 
 _include:
   - patches/bkp/bkp.yaml
-  - fields/bkp/bkp.yaml
-  - collect/bkp/dr.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f1.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - collect/sdio/resp.yaml
   - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - patches/dbgmcu/rename.yaml
-  - fields/flash/flash_f1.yaml

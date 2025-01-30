@@ -55,6 +55,11 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+CEC:
+  _include:
+    - patches/cec/cfgr.yaml
+    - fields/hdmi_cec.yaml
+
 COMP:
   _add:
     _interrupts:
@@ -80,6 +85,11 @@ DMA?:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
 
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+
 FLASH:
   _modify:
     OBR:
@@ -96,11 +106,11 @@ FLASH:
     _modify:
       BOOT1:
         name: nBOOT1
-
-EXTI:
   _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
+    - patches/flash/f3_obr_rdptr.yaml
+    - fields/flash/flash_f3_common.yaml
+    - fields/flash/flash_f3_obr_sram_parity_check.yaml
+    - fields/flash/flash_f3_obr_vdd_monitor.yaml
 
 GPIOA:
   _modify:
@@ -262,6 +272,10 @@ TIM16:
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -280,8 +294,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/cec/cfgr.yaml
-  - fields/hdmi_cec.yaml
   - patches/nvic/4_prio_bits.yaml
   - patches/rcc/f3.yaml
   - patches/rcc/f3_dac3_dac2.yaml
@@ -290,9 +302,4 @@ _include:
   - fields/rcc/rcc_f373.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
   - fields/rcc/rcc_f1_f3_usb.yaml
-  - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
-  - patches/flash/f3_obr_rdptr.yaml
-  - fields/flash/flash_f3_common.yaml
-  - fields/flash/flash_f3_obr_sram_parity_check.yaml
-  - fields/flash/flash_f3_obr_vdd_monitor.yaml

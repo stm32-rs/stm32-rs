@@ -1,7 +1,6 @@
-HSEM:
-  _modify:
-    _interrupts:
-      HSEM0:
-        name: HSEM1
-        description: HSEM global interrupt 2
-        value: 126
+_modify:
+  _interrupts:
+    HSEM0:
+      name: HSEM1
+      description: HSEM global interrupt 2
+      value: 126

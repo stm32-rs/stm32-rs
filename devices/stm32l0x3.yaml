@@ -65,6 +65,15 @@ EXTI:
   _include:
     - fields/exti/common.yaml
 
+FLASH:
+  _include:
+    - patches/flash/l0.yaml
+    - fields/flash/flash_l0.yaml
+
+FW:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
+
 GPIO?:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
@@ -88,6 +97,10 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_48.yaml
+
+LPTIM:
+  _include:
+    - fields/lptim/lptim_v1.yaml
 
 LPUART1:
   _include:
@@ -192,6 +205,10 @@ TIM2[12]:
 TIM21:
   _include: fields/tim/tim21.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -214,15 +231,10 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/flash/l0.yaml
   - patches/firewall/l0.yaml
   - patches/nvic/l0_prio_bits.yaml
-  - collect/tsc/iogcr.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - fields/dbg/dbg_l0.yaml
-  - fields/flash/flash_l0.yaml
-  - fields/fw/fw_l0_l4.yaml
-  - fields/lptim/lptim_v1.yaml
   - fields/pwr/pwr_l0.yaml
   - fields/rcc/rcc_l0_l1_common.yaml
   - fields/rcc/rcc_l0.yaml

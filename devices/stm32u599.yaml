@@ -110,6 +110,8 @@ PWR:
       VDD11USBDIS:
         bitOffset: 21
         bitWidth: 1
+  _include:
+    - fields/pwr/pwr_u5.yaml
 
 RTC:
   _include:
@@ -182,5 +184,4 @@ WWDG:
 
 _include:
   - patches/u5.yaml
-  - fields/pwr/pwr_u5.yaml
   - fields/rcc/rcc_u5.yaml

@@ -83,6 +83,14 @@ EXTI:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
 
+FIREWALL:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
+
+FLASH:
+  _include:
+    - patches/flash/flash_boot0s.yaml
+
 GPIO?:
   _include:
     - patches/gpio/l4_brr.yaml
@@ -234,6 +242,10 @@ TIM16:
       OC1M_2:
         name: OC1M_3
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -258,9 +270,6 @@ _include:
   - fields/rcc/rcc_l4_usart2_3.yaml
   - fields/rcc/rcc_l4_uart4.yaml
   - patches/tim/group.yaml
-  - collect/tsc/iogcr.yaml
-  - patches/flash/flash_boot0s.yaml
-  - fields/fw/fw_l0_l4.yaml
   - patches/adc/l4_adc_common.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4x1.yaml

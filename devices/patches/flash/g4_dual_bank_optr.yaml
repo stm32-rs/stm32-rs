@@ -1,14 +1,13 @@
-FLASH:
-  _modify:
-    OPTR:
-      resetValue: 0xFFEFF8AA
+_modify:
   OPTR:
-    _add:
-      DBANK:
-        description: Single or dual bank mode
-        bitOffset: 22
-        bitWidth: 1
-      BFB2:
-        description: Bank to boot from
-        bitOffset: 20
-        bitWidth: 1
+    resetValue: 0xFFEFF8AA
+OPTR:
+  _add:
+    DBANK:
+      description: Single or dual bank mode
+      bitOffset: 22
+      bitWidth: 1
+    BFB2:
+      description: Bank to boot from
+      bitOffset: 20
+      bitWidth: 1

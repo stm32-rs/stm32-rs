@@ -66,6 +66,13 @@ EXTI:
     - patches/exti/f3_offset.yaml
     - fields/exti/common.yaml
 
+FLASH:
+  _include:
+    - patches/flash/f3.yaml
+    - patches/flash/f3_obr_rdptr.yaml
+    - fields/flash/flash_f3_acr_hlfcya.yaml
+    - fields/flash/flash_f3_common.yaml
+
 GPIO?:
   _include:
     - fields/gpio/v2/f3.yaml
@@ -86,6 +93,10 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+PWR:
+  _include:
+    - fields/pwr/pwr_v1.yaml
 
 RCC:
   CFGR:
@@ -249,6 +260,10 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC:
+  _include:
+    - collect/tsc/iogcr.yaml
+
 USART*:
   _include:
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -268,11 +283,9 @@ _include:
   - patches/opamp/f3_opamp2.yaml
   - patches/comp/f3_comp246.yaml
   - patches/comp/f3_comp246_inmsel3.yaml
-  - fields/pwr/pwr_v1.yaml
   - patches/tim/group.yaml
   - fields/rcc/rcc_f3.yaml
   - fields/rcc/rcc_pllsrc_1bit.yaml
-  - collect/tsc/iogcr.yaml
   - patches/dbgmcu/f3.yaml
   - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
@@ -281,7 +294,3 @@ _include:
   - fields/hrtim/hrtim.yaml
   - fields/hrtim/common_f3.yaml
   - collect/hrtim/f3.yaml
-  - patches/flash/f3.yaml
-  - patches/flash/f3_obr_rdptr.yaml
-  - fields/flash/flash_f3_common.yaml
-  - fields/flash/flash_f3_acr_hlfcya.yaml

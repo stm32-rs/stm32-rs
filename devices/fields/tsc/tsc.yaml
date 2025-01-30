@@ -1,60 +1,59 @@
-TSC:
-  CR:
-    SSE:
-      Disabled: [0, Spread spectrum disabled]
-      Enabled: [1, Spread spectrum enabled]
-    IODEF:
-      PushPull: [0, I/Os are forced to output push-pull low]
-      Floating: [1, I/Os are in input floating]
-    SYNCPOL:
-      FallingEdge: [0, Falling edge only]
-      RisingEdge: [1, Rising edge and high level]
-    AM:
-      Normal: [0, Normal acquisition mode (acquisition starts as soon as START bit is set)]
-      Synchronized:
-        [
-          1,
-          Synchronized acquisition mode (acquisition starts if START bit is set and when the selected signal is detected on the SYNC input pin),
-        ]
-    START:
-      NoStarted: [0, Acquisition not started]
-      Started: [1, Start a new acquisition]
-    TSCE:
-      Disabled: [0, Touch sensing controller disabled]
-      Enabled: [1, Touch sensing controller enabled]
+CR:
+  SSE:
+    Disabled: [0, Spread spectrum disabled]
+    Enabled: [1, Spread spectrum enabled]
+  IODEF:
+    PushPull: [0, I/Os are forced to output push-pull low]
+    Floating: [1, I/Os are in input floating]
+  SYNCPOL:
+    FallingEdge: [0, Falling edge only]
+    RisingEdge: [1, Rising edge and high level]
+  AM:
+    Normal: [0, Normal acquisition mode (acquisition starts as soon as START bit is set)]
+    Synchronized:
+      [
+        1,
+        Synchronized acquisition mode (acquisition starts if START bit is set and when the selected signal is detected on the SYNC input pin),
+      ]
+  START:
+    NoStarted: [0, Acquisition not started]
+    Started: [1, Start a new acquisition]
+  TSCE:
+    Disabled: [0, Touch sensing controller disabled]
+    Enabled: [1, Touch sensing controller enabled]
 
-  IER:
-    MCEIE:
-      Disabled: [0, Max count error interrupt disabled]
-      Enabled: [1, Max count error interrupt enabled]
-    EOAIE:
-      Disabled: [0, End of acquisition interrupt disabled]
-      Enabled: [1, End of acquisition interrupt enabled]
+IER:
+  MCEIE:
+    Disabled: [0, Max count error interrupt disabled]
+    Enabled: [1, Max count error interrupt enabled]
+  EOAIE:
+    Disabled: [0, End of acquisition interrupt disabled]
+    Enabled: [1, End of acquisition interrupt enabled]
 
-  IOHCR:
-    G?_IO?:
-      Disabled: [0, Gx_IOy Schmitt trigger hysteresis disabled]
-      Enabled: [1, Gx_IOy Schmitt trigger hysteresis enabled]
+IOHCR:
+  G?_IO?:
+    Disabled: [0, Gx_IOy Schmitt trigger hysteresis disabled]
+    Enabled: [1, Gx_IOy Schmitt trigger hysteresis enabled]
 
-  IOASCR:
-    G?_IO?:
-      Disabled: [0, Gx_IOy analog switch disabled (opened)]
-      Enabled: [1, Gx_IOy analog switch enabled (closed)]
+IOASCR:
+  G?_IO?:
+    Disabled: [0, Gx_IOy analog switch disabled (opened)]
+    Enabled: [1, Gx_IOy analog switch enabled (closed)]
 
-  IOSCR:
-    G?_IO?:
-      Disabled: [0, Gx_IOy unused]
-      Enabled: [1, Gx_IOy used as sampling capacitor]
+IOSCR:
+  G?_IO?:
+    Disabled: [0, Gx_IOy unused]
+    Enabled: [1, Gx_IOy used as sampling capacitor]
 
-  IOCCR:
-    G?_IO?:
-      Disabled: [0, Gx_IOy unused]
-      Enabled: [1, Gx_IOy used as channel]
+IOCCR:
+  G?_IO?:
+    Disabled: [0, Gx_IOy unused]
+    Enabled: [1, Gx_IOy used as channel]
 
-  IOGCSR:
-    G?S:
-      Ongoing: [0, Acquisition on analog I/O group x is ongoing or not started]
-      Complete: [1, Acquisition on analog I/O group x is complete]
-    G?E:
-      Disabled: [0, Acquisition on analog I/O group x disabled]
-      Enabled: [1, Acquisition on analog I/O group x enabled]
+IOGCSR:
+  G?S:
+    Ongoing: [0, Acquisition on analog I/O group x is ongoing or not started]
+    Complete: [1, Acquisition on analog I/O group x is complete]
+  G?E:
+    Disabled: [0, Acquisition on analog I/O group x disabled]
+    Enabled: [1, Acquisition on analog I/O group x enabled]

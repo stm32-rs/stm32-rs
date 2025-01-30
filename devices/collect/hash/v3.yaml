@@ -1,17 +1,16 @@
-HASH:
-  _array:
-    HRA?:
-      description: HASH digest register alias %s
-      _modify:
-        H0:
-          name: H
-    HR*:
-      description: HASH digest register %s
-      _modify:
-        H0:
-          name: H
-    CSR*:
-      description: HASH context swap register %s
-      _modify:
-        CS0:
-          name: CS
+_array:
+  HRA?:
+    description: HASH digest register alias %s
+    _modify:
+      H0:
+        name: H
+  HR*:
+    description: HASH digest register %s
+    _modify:
+      H0:
+        name: H
+  CSR*:
+    description: HASH context swap register %s
+    _modify:
+      CS0:
+        name: CS
