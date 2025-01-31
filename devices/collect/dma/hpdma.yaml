@@ -50,6 +50,8 @@ _cluster:
       name: TR2
     "C[1][2-5]BR1":
       name: BR1
+      _derive:
+        BNDT: CH%s.BR1.BNDT
     "C[1][2-5]SAR":
       name: SAR
     "C[1][2-5]DAR":
@@ -60,3 +62,21 @@ _cluster:
       name: BR2
     "C[1][2-5]LLR":
       name: LLR
+      _derive:
+        LA: CH%s.LLR.LA
+        ULL: CH%s.LLR.ULL
+        UDA: CH%s.LLR.UDA
+        USA: CH%s.LLR.USA
+        UB1: CH%s.LLR.UB1
+        UT2: CH%s.LLR.UT2
+        UT1: CH%s.LLR.UT1
+
+    _derive:
+      LBAR: CH%s.LBAR
+      FCR: CH%s.FCR
+      SR: CH%s.SR
+      CR: CH%s.CR
+      TR1: CH%s.TR1
+      TR2: CH%s.TR2
+      SAR: CH%s.SAR
+      DAR: CH%s.DAR
