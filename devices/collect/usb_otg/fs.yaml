@@ -25,6 +25,9 @@ OTG_FS_DEVICE:
       DIEPINT[1-5]: { name: INT }
       DIEPTSIZ[1-5]: { name: TSIZ }
       DTXFSTS[1-5]: { name: TXFSTS }
+      _derive:
+        INT: DIEP0.INT
+        TXFSTS: DIEP0.TXFSTS
     DOEP0:
       description: Device OUT endpoint 0
       DOEPCTL[0]: { name: CTL }
@@ -35,6 +38,8 @@ OTG_FS_DEVICE:
       DOEPCTL[1-5]: { name: CTL }
       DOEPINT[1-5]: { name: INT }
       DOEPTSIZ[1-5]: { name: TSIZ }
+      _derive:
+        INT: DOEP0.INT
 
 OTG_FS_GLOBAL:
   _array:

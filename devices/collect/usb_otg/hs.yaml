@@ -24,12 +24,6 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
       DIEPTSIZ[0]: { name: TSIZ }
       DIEPDMA[0]: { name: DMA }
       DTXFSTS[0]: { name: TXFSTS }
-    DOEP0:
-      description: Device OUT endpoint 0
-      DOEPCTL[0]: { name: CTL }
-      DOEPINT[0]: { name: INT }
-      DOEPTSIZ[0]: { name: TSIZ }
-      DOEPDMA[0]: { name: DMA }
     DIEP%s:
       description: Device IN endpoint X
       DIEPCTL[1-8]: { name: CTL }
@@ -37,12 +31,25 @@ OTG_HS_DEVICE,OTG1_HS_DEVICE:
       DIEPTSIZ[1-8]: { name: TSIZ }
       DIEPDMA[1-8]: { name: DMA }
       DTXFSTS[1-8]: { name: TXFSTS }
+      _derive:
+        INT: DIEP0.INT
+        TXFSTS: DIEP0.TXFSTS
+        DMA: DIEP0.DMA
+    DOEP0:
+      description: Device OUT endpoint 0
+      DOEPCTL[0]: { name: CTL }
+      DOEPINT[0]: { name: INT }
+      DOEPTSIZ[0]: { name: TSIZ }
+      DOEPDMA[0]: { name: DMA }
     DOEP%s:
       description: Device IN endpoint X
       DOEPCTL[1-8]: { name: CTL }
       DOEPINT[1-8]: { name: INT }
       DOEPDMA[1-8]: { name: DMA }
       DOEPTSIZ[1-8]: { name: TSIZ }
+      _derive:
+        INT: DIEP0.INT
+        DMA: DIEP0.DMA
 
 "OTG_HS_GLOBAL,OTG1_HS_GLOBAL":
   _array:
