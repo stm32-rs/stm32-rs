@@ -71,6 +71,10 @@ RCC:
     - patches/rcc/h503.yaml
     - fields/rcc/v3/h503.yaml
 
+RNG:
+  _include:
+    - patches/rng/h503.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml

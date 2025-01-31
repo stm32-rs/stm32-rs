@@ -1,0 +1,30 @@
+_add:
+  NSCR:
+    description: RNG noise source control register
+    addressOffset: 0x0C
+    resetValue: 0x0003FFFF
+    fields:
+      EN_OSC1:
+        description: Each bit drives one oscillator enable signal input of instance number 1, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 0
+        bitWidth: 3
+      EN_OSC2:
+        description: Each bit drives one oscillator enable signal input of instance number 2, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 3
+        bitWidth: 3
+      EN_OSC3:
+        description: Each bit drives one oscillator enable signal input of instance number 3, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 6
+        bitWidth: 3
+      EN_OSC4:
+        description: Each bit drives one oscillator enable signal input of instance number 4, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 9
+        bitWidth: 3
+      EN_OSC5:
+        description: Each bit drives one oscillator enable signal input of instance number 5, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 12
+        bitWidth: 3
+      EN_OSC6:
+        description: Each bit drives one oscillator enable signal input of instance number 6, gated with the RNGEN bit in RNG_CR (set bit to enable the oscillator).
+        bitOffset: 15
+        bitWidth: 3
