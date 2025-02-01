@@ -3,5 +3,6 @@ DCKCFGR2:
     PLL: [0, 48MHz clock from PLL is selected]
     PLLSAI: [1, 48MHz clock from PLLSAI is selected]
   SDMMC?SEL,SDIOSEL:
+    _name: SdSel
     CK48M: [0, 48 MHz clock is selected as SD clock]
     SYSCLK: [1, System clock is selected as SD clock]

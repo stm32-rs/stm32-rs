@@ -36,12 +36,14 @@ CFGR2:
     Enabled: [0, The selected clock is enabled]
     Disabled: [1, The selected clock is disabled]
   PPRE*:
+    _name: PPre
     Div1: [-1, HCLK not divided]
     Div2: [4, HCLK divided by 2]
     Div4: [5, HCLK divided by 4]
     Div8: [6, HCLK divided by 8]
     Div16: [7, HCLK divided by 16]
   HPRE:
+    _name: HPre
     Div1: [-1, SYSCLK not divided]
     Div2: [8, SYSCLK divided by 2]
     Div4: [9, SYSCLK divided by 4]

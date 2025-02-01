@@ -527,6 +527,7 @@ CCIPR1:
     PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected']
     MSIK: [3, MSIK clock selected]
   FDCAN1SEL:
+    _name: FdCanSel
     HSE: [0, HSE clock selected]
     PLL1Q: [1, 'PLL1 "Q" (pll2_q_ck) selected']
     PLL2P: [2, 'PLL2 "P" (pll1_p_ck) selected']
@@ -535,32 +536,46 @@ CCIPR1:
     LSI: [1, LSI selected]
     LSE: [2, LSE selected]
   LPTIM2SEL:
-    PCLK1: [0, PCLK1 selected]
+    _name: LpTimSel
+    PCLK: [0, PCLKx selected]
     LSI: [1, LSI selected]
     HSI16: [2, HSI16 selected]
     MSIK: [3, MSIK selected]
-  SPI?SEL,I2C[124]SEL,UART[45]SEL,USART?SEL:
+  SPI?SEL:
+    _name: SpiSel
+    PCLK: [0, PCLKx selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+  I2C[124]SEL:
+    _name: I2cSel
+    PCLK: [0, PCLKx selected]
+    SYSCLK: [1, SYSCLK selected]
+    HSI16: [2, HSI16 selected]
+    MSIK: [3, MSIK selected]
+  UART[45]SEL,USART?SEL:
+    _name: UartSel
     PCLK: [0, PCLKx selected]
     SYSCLK: [1, SYSCLK selected]
     HSI16: [2, HSI16 selected]
     MSIK: [3, MSIK selected]
 CCIPR2:
+  _derive:
+    USART6SEL: CCIPR1.USART1SEL
+    I2C[56]SEL: CCIPR1.I2C1SEL
+
   OTGHSSEL:
     HSE: [0, HSE selected]
     PLL1P: [1, 'PLL1 "Q" (pll1_q_ck) selected']
     HSE2: [2, HSE/2 selected]
     PLL1P_Div2: [3, 'PLL1 "P" divided by 2 (pll1_p_ck/2) selected']
-  I2C[56]SEL,USART6SEL:
-    PCLK1: [0, PCLK1 selected]
-    SYSCLK: [1, SYSCLK selected]
-    HSI16: [2, HSI16 selected]
-    MSIK: [3, MSIK selected]
   HSPI1SEL:
     SYSCLK: [0, SYSCLK selected]
     PLL1Q: [1, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
     PLL2Q: [2, 'PLL2 "Q" (pll2_q_ck) selected, can be up to 200 MHz']
     PLL3R: [3, 'PLL3 "R" (pll3_r_ck) selected, can be up to 200 MHz']
   OCTOSPISEL:
+    _name: XSpiSel
     SYSCLK: [0, SYSCLK selected]
     MSIK: [1, MSIK selected]
     PLL1Q: [2, 'PLL1 "Q" (pll1_q_ck) selected, can be up to 200 MHz']
@@ -572,6 +587,7 @@ CCIPR2:
     PLL3P: [0, 'PLL3 "P" (pll3_p_ck) selected']
     DSI_PHY_PLL: [1, DSI PHY PLL output selected]
   SDMMCSEL:
+    _name: SdSel
     ICLK: [0, ICLK clock selected]
     PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected, in case higher than 48 MHz is needed (for SDR50 mode)']
   RNGSEL:
@@ -582,6 +598,7 @@ CCIPR2:
     SHSI: [0, SHSI selected]
     SHSI_Div2: [1, "SHSI / 2 selected, can be used in range 4"]
   SAI?SEL:
+    _name: SaiSel
     PLL2P: [0, 'PLL2 "P" (pll2_p_ck) selected']
     PLL3P: [1, 'PLL3 "P" (pll3_p_ck) selected']
     PLL1P: [2, 'PLL1 "P" (pll1_p_ck) selected']
@@ -594,6 +611,11 @@ CCIPR2:
     AUDIOCLK: [3, input pin AUDIOCLK selected]
     MSIK: [4, MSIK clock selected]
 CCIPR3:
+  _derive:
+    I2C3SEL: CCIPR1.I2C1SEL
+    SPI3SEL: CCIPR1.SPI2SEL
+    LPTIM1SEL: CCIPR1.LPTIM2SEL
+
   ADF1SEL:
     HCLK: [0, HCLK selected]
     PLL1P: [1, 'PLL1 "P" (pll1_p_ck) selected']
@@ -610,23 +632,15 @@ CCIPR3:
     HSE: [3, HSE clock selected]
     HSI16: [4, HSI16 clock selected]
     MSIK: [5, MSIK clock selected]
-  LPTIM1SEL:
-    MSIK: [0, MSIK clock selected]
-    LSI: [1, LSI selected]
-    HSI16: [2, HSI16 selected]
-    LSE: [3, LSE selected]
   LPTIM34SEL:
+    _name: LpTim3Sel
     MSIK: [0, MSIK clock selected]
     LSI: [1, LSI selected]
     HSI: [2, HSI selected]
     LSE: [3, LSE selected]
-  I2C3SEL,SPI3SEL:
-    PCLK3: [0, PCLK3 selected]
-    SYSCLK: [1, SYSCLK selected]
-    HSI16: [2, HSI16 selected]
-    MSIK: [3, MSIK selected]
   LPUART1SEL:
-    PCLK3: [0, PCLK3 selected]
+    _name: LpUartSel
+    PCLK: [0, PCLK3 selected]
     SYSCLK: [1, SYSCLK selected]
     HSI16: [2, HSI16 selected]
     LSE: [3, LSE selected]

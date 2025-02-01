@@ -312,10 +312,12 @@ SMPSCR:
 
 CCIPR:
   RNGSEL:
+    _name: RngSel
     CLK48: [0, Use clock as selected by CLK48SEL]
     LSI: [1, LSI clock selected]
     LSE: [2, LSE clock selected]
   ADCSEL:
+    _name: AdcSel
     NoClock: [0, No clock selected]
     PLLSAI1: [1, PLLSAI1R clock selected]
     PLL: [2, PLLP clock selected]
@@ -326,25 +328,24 @@ CCIPR:
     PLL: [2, PLLQ clock selected]
     MSI: [3, MSI clock selected]
   SAI1SEL:
+    _name: SaiSel
     PLLSAI1: [0, PLLSAI1P clock selected]
     PLL: [1, PLLP clock selected]
     HSI16: [2, HSI16 clock selected]
     Ext: [3, External clock input selected]
   "LPTIM[12]SEL":
+    _name: LpTimSel
     PCLK: [0, PCLK clock selected]
     LSI: [1, LSI clock selected]
     HSI16: [2, HSI16 clock selected]
     LSE: [3, LSE clock selected]
   "I2C[13]SEL":
+    _name: I2cSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]
-  LPUART1SEL:
-    PCLK: [0, PCLK clock selected]
-    SYSCLK: [1, SYSCLK clock selected]
-    HSI16: [2, HSI16 clock selected]
-    LSE: [3, LSE clock selected]
-  USART1SEL:
+  "LPUART1SEL,USART1SEL":
+    _name: UartSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]

@@ -1,6 +1,7 @@
 DCKCFGR2:
   LPTIM1SEL:
-    APB1: [0, APB1 clock (PCLK1) selected as LPTILM1 clock]
-    LSI: [1, LSI clock is selected as LPTILM1 clock]
-    HSI: [2, HSI clock is selected as LPTILM1 clock]
-    LSE: [3, LSE clock is selected as LPTILM1 clock]
+    _name: LpTimSel
+    APB: [0, APBx clock (PCLKx) selected as LPTIM1 clock]
+    LSI: [1, LSI clock is selected as LPTIM1 clock]
+    HSI: [2, HSI clock is selected as LPTIM1 clock]
+    LSE: [3, LSE clock is selected as LPTIM1 clock]

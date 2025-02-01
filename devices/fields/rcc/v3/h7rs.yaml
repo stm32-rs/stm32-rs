@@ -49,7 +49,7 @@ CCIPR1:
     PLL3_R: [1, pll3_r selected as peripheral clock]
     PER: [2, per selected as peripheral clock]
   ADFSEL:
-    HCLK1: [0, hclk1 selected as ADF clock]
+    HCLK: [0, hclk_x selected as ADF clock]
     PLL2_p: [1, pll2_p_ck selected as ADF clock]
     PLL3_P: [2, pll3_p_ck selected as ADF clock]
     I2S_CLKIN: [3, I2S_CKIN selected as ADF clock]
@@ -78,67 +78,72 @@ CCIPR1:
     MHz24: [10, The clock frequency provided to the USBPHYC is 24 MHz]
     MHz26: [14, The clock frequency provided to the USBPHYC is 26 MHz]
     MHz32: [11, The clock frequency provided to the USBPHYC is 32 MHz]
-  OCTOSPI1SEL:
-    RCC_HCLK5: [0, hclk5 selected as peripheral clock]
-    PLL2_S: [1, pll2_s_ck selected as peripheral clock]
-    PLL2_T: [2, pll2_t_ck selected as peripheral clock]
-  OCTOSPI2SEL:
-    RCC_HCLK5: [0, hclk5 selected as peripheral clock]
+  OCTOSPI[12]SEL:
+    _name: XSpiSel
+    HCLK: [0, hclk_x selected as peripheral clock]
     PLL2_S: [1, pll2_s_ck selected as peripheral clock]
     PLL2_T: [2, pll2_t_ck selected as peripheral clock]
   SDMMCSEL:
+    _name: SdSel
     PLL2_S: [0, pll1_s selected as peripheral clock]
     PLL2_T: [1, pll2_t selected as peripheral clock]
   FMCSEL:
-    RCC_HCLK5: [0, hclk5 selected as peripheral clock]
+    _name: FmcSel
+    HCLK: [0, hclk_x selected as peripheral clock]
     PLL1_Q: [1, pll1_q selected as peripheral clock]
     PLL2_R: [2, pll2_r selected as peripheral clock]
     HSI_KER: [3, hsi_ker selected as peripheral clock]
 CCIPR2:
   CECSEL:
+    _name: CecSel
     LSE: [0, lse selected as clock]
     LSI: [1, lsi selected as clock]
     CSI_KER: [2, csi_ker divided by 122 selected as clock]
   SPDIFRXSEL:
+    _name: SpdifSel
     PLL1_Q: [0, pll1_q selected as clock]
     PLL2_R: [1, pll2_r selected as clock]
     PLL3_R: [2, pll3_r selected as clock]
     HSI_KER: [3, hsi_ker selected as clock]
   FDCANSEL:
+    _name: FdCanSel
     HSE_KER: [0, hse_ker selected as clock]
     PLL1_Q: [1, pll1_q selected as clock]
     PLL2_P: [2, pll2_p selected as clock]
   LPTIM1SEL:
-    PCLK1: [0, pclk1 selected as peripheral clock]
+    _name: LpTimSel
+    PCLK: [0, pclk_x selected as peripheral clock]
     PLL2_P: [1, pll2_p selected as peripheral clock]
     PLL3_R: [2, pll3_r selected as peripheral clock]
     LSE: [3, lse selected as peripheral clock]
     LSI: [4, lsi selected as peripheral clock]
     PER: [5, per selected as peripheral clock]
-  I2C1I3C1SEL:
-    PCLK1: [0, pclk1 selected as peripheral clock]
-    PLL3_R: [1, pll3_r selected as peripheral clock]
-    HSI_KER: [2, hsi_ker selected as peripheral clock]
-    CSI_KER: [3, csi_ker selected as peripheral clock]
-  I2C23SEL:
-    PCLK1: [0, pclk1 selected as clock]
+  I2C*SEL:
+    _name: I2cSel
+    PCLK: [0, pclk1 selected as clock]
     PLL3_R: [1, pll3_r selected as clock]
     HSI_KER: [2, hsi_ker selected as clock]
     CSI_KER: [3, csi_ker selected as clock]
   SPI23SEL:
+    _name: SpiSel
     PLL1_Q: [0, pll1_q selected as clock]
     PLL2_P: [1, pll2_p selected as clock]
     PLL3_P: [2, pll3_p selected as clock]
     I2S_CKIN: [3, I2S_CKIN selected as clock]
     PER: [4, per selected as clock]
   UART234578SEL:
-    PCLK1: [0, pclk1 selected as clock]
+    _name: UartSel
+    PCLK: [0, pclk1 selected as clock]
     PLL2_Q: [1, pll2_q selected as clock]
     PLL3_Q: [2, pll3_q selected as clock]
     HSI_KER: [3, hsi_ker selected as clock]
     CSI_KER: [4, csi_ker selected as clock]
     LSE: [5, lse selected as clock]
 CCIPR3:
+  _derive:
+    SPI1SEL: CCIPR2.SPI23SEL
+    USART1SEL: CCIPR2.UART234578SEL
+
   SAI2SEL:
     PLL1_Q: [0, pll1_q selected as clock]
     PLL2_P: [1, pll2_p selected as clock]
@@ -152,50 +157,23 @@ CCIPR3:
     PLL3_P: [2, pll3_p selected as clock]
     I2S_CKIN: [3, I2S_CKIN selected as clock]
     PER: [4, per selected as clock]
-  SPI1SEL:
-    PLL1_Q: [0, pll1_q selected as SPI/I2S1 and 7 clock]
-    PLL2_P: [1, pll2_p selected as SPI/I2S1 and 7 clock]
-    PLL3_P: [2, pll3_p selected as SPI/I2S1 and 7 clock]
-    I2S_CKIN: [3, I2S_CKIN selected as SPI/I2S1 and 7 clock]
-    PER: [4, "per selected as SPI/I2S1,and 7 clock"]
   SPI45SEL:
+    _name: Spi4Sel
     PCLK2: [0, pclk2 selected as clock]
     PLL2_Q: [1, pll2_q is selected as clock]
     PLL3_Q: [2, pll3_q is selected as clock]
     HSI_KER: [3, hsi_ker is selected as clock]
     CSI_KER: [4, csi_ker is selected as clock]
     HSE_KER: [5, hse_ker is selected as clock]
-  USART1SEL:
-    PCLK2: [0, pclk2 selected as clock]
-    PLL2_Q: [1, pll2_q selected as clock]
-    PLL3_Q: [2, pll3_q selected as clock]
-    HSI_KER: [3, hsi_ker selected as clock]
-    CSI_KER: [4, csi_ker selected as clock]
-    LSE: [5, lse selected as clock]
+
 CCIPR4:
-  LPTIM23SEL:
-    PCLK4: [0, pclk4 selected as peripheral clock]
-    PLL2_P: [1, pll2_p selected as peripheral clock]
-    PLL3_R: [2, pll3_r selected as peripheral clock]
-    LSE: [3, lse selected as peripheral clock]
-    LSI: [4, lsi selected as peripheral clock]
-    PER: [5, per selected as peripheral clock]
-  LPTIM45SEL:
-    PCLK4: [0, pclk4 selected as peripheral clock]
-    PLL2_P: [1, pll2_p selected as peripheral clock]
-    PLL3_R: [2, pll3_r selected as peripheral clock]
-    LSE: [3, lse selected as peripheral clock]
-    LSI: [4, lsi selected as peripheral clock]
-    PER: [5, per selected as peripheral clock]
-  SPI6SEL:
-    PCLK4: [0, pclk4 selected as peripheral clock]
-    PLL2_Q: [1, pll2_q selected as peripheral clock]
-    PLL3_Q: [2, pll3_q selected as peripheral clock]
-    HSI_KER: [3, hsi_ker selected as peripheral clock]
-    CSI_KER: [4, csi_ker selected as peripheral clock]
-    HSE_KER: [5, hse_ker selected as peripheral clock]
+  _derive:
+    LPTIM*SEL: CCIPR2.LPTIM1SEL
+    SPI6SEL: CCIPR3.SPI45SEL
+
   LPUART1SEL:
-    PCLK4: [0, pclk4 selected as peripheral clock]
+    _name: LpUartSel
+    PCLK: [0, pclk_x selected as peripheral clock]
     PLL2_Q: [1, pll2_q selected as peripheral clock]
     PLL3_Q: [2, pll3_q selected as peripheral clock]
     HSI_KER: [3, hsi_ker selected as peripheral clock]

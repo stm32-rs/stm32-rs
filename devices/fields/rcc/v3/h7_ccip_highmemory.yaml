@@ -3,8 +3,8 @@
 # Domain kernel clock configuration registers (DxCCIPR) and Domain
 # clock configuration registers (DxCFGR)
 
-D1CFGR:
-  "D?CPRE,HPRE":
+CDCFGR1:
+  "HPRE,CDCPRE":
     Div1: [-1, sys_ck not divided]
     Div2: [8, sys_ck divided by 2]
     Div4: [9, sys_ck divided by 4]
@@ -14,16 +14,15 @@ D1CFGR:
     Div128: [13, sys_ck divided by 128]
     Div256: [14, sys_ck divided by 256]
     Div512: [15, sys_ck divided by 512]
-
-D?CFGR:
-  D?PPR*:
+CDCFGR?:
+  CDPPRE*:
     Div1: [-1, rcc_hclk not divided]
     Div2: [4, rcc_hclk divided by 2]
     Div4: [5, rcc_hclk divided by 4]
     Div8: [6, rcc_hclk divided by 8]
     Div16: [7, rcc_hclk divided by 16]
 
-D1CCIPR:
+CDCCIPR:
   CKPERSEL:
     HSI: [0, HSI selected as peripheral clock]
     CSI: [1, CSI selected as peripheral clock]
@@ -45,7 +44,7 @@ D1CCIPR:
     PLL2_R: [2, pll2_r selected as peripheral clock]
     PER: [3, PER selected as peripheral clock]
 
-D2CCIP1R:
+CDCCIP1R:
   SWPSEL,SWPMISEL:
     PCLK: [0, pclk selected as peripheral clock]
     HSI_KER: [1, hsi_ker selected as peripheral clock]
@@ -86,7 +85,7 @@ D2CCIP1R:
     I2S_CKIN: [3, I2S_CKIN selected as peripheral clock]
     PER: [4, PER selected as peripheral clock]
 
-D2CCIP2R:
+CDCCIP2R:
   LPTIM1SEL:
     _name: LpTimSel
     PCLK: [0, rcc_pclk_x selected as peripheral clock]
@@ -127,12 +126,11 @@ D2CCIP2R:
     CSI_KER: [4, csi_ker selected as peripheral clock]
     LSE: [5, LSE selected as peripheral clock]
 
-D3CCIPR:
+SRDCCIPR:
   _derive:
-    SAI*[AB]SEL: D2CCIP1R.SAI1SEL
-    I2C4SEL: D2CCIP2R.I2C123SEL
-    SPI6SEL: D2CCIP1R.SPI45SEL
-    LPTIM*SEL: D2CCIP2R.LPTIM1SEL
+    I2C4SEL: CDCCIP2R.I2C123SEL
+    SPI6SEL: CDCCIP1R.SPI45SEL
+    LPTIM*SEL: CDCCIP2R.LPTIM1SEL
 
   ADCSEL:
     _name: AdcSel

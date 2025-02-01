@@ -10,5 +10,6 @@ CFGR:
     HSI48_Div_PREDIV: [3, HSI48 divided by PREDIV selected as PLL input clock]
 CFGR3:
   USBSW:
+    _name: UsbSw
     HSI48: [0, HSI48 selected as USB clock source]
     PLLCLK: [1, PLL clock selected as USB clock source]

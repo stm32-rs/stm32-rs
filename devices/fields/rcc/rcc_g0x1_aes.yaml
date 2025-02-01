@@ -7,6 +7,7 @@ CCIPR:
     Div4: [0b10, Divide by 4]
     Div8: [0b11, Divide by 8]
   RNGSEL:
+    _name: RngSel
     NoClock: [0b00, No clock selected]
     HSI16: [0b01, HSI16 clock selected]
     SYSCLK: [0b10, SYSCLK clock selected]

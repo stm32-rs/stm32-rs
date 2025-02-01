@@ -61,20 +61,18 @@ CCIPR:
     PLL: [2, PLL clock selected]
     MSI: [3, MSI clock selected]
   "LPTIM[123]SEL":
+    _name: LpTimSel
     PCLK: [0, PCLK clock selected]
     LSI: [1, LSI clock selected]
     HSI16: [2, HSI16 clock selected]
     LSE: [3, LSE clock selected]
   "I2C[123]SEL":
+    _name: I2cSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]
-  LPUART1SEL:
-    PCLK: [0, PCLK clock selected]
-    SYSCLK: [1, SYSCLK clock selected]
-    HSI16: [2, HSI16 clock selected]
-    LSE: [3, LSE clock selected]
-  "USART[12345]SEL":
+  "LPUART1SEL,USART[12345]SEL":
+    _name: UartSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]

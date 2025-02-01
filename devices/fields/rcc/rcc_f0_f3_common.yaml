@@ -1,9 +1,11 @@
 CFGR3:
   U*ART*SW:
+    _name: UartSw
     PCLK: [0, PCLK selected as USART clock source]
     SYSCLK: [1, SYSCLK selected as USART clock source]
     LSE: [2, LSE selected as USART clock source]
     HSI: [3, HSI selected as USART clock source]
   I2C*SW:
+    _name: I2cSw
     HSI: [0, HSI clock selected as I2C clock source]
     SYSCLK: [1, SYSCLK clock selected as I2C clock source]

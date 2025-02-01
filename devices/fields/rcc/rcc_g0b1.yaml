@@ -16,6 +16,7 @@ CRRCR:
   HSI48CAL: [0, 0x1FF]
 CCIPR2:
   FDCANSEL:
+    _name: FdCanSel
     PCLK: [0b00, PCLK clock selected]
     PLLQ: [0b01, PLLQCLK clock selected]
     HSE: [0b10, HSE clock selected]
