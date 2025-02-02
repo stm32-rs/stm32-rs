@@ -47,5 +47,5 @@ CFGR2:
     Div256: [27, PLL clock divided by 256] # Same for [27, 31]
 CFGR3:
   "TIM*SW,HRTIM*SW":
-    PCLK2: [0, PCLK2 clock (doubled frequency when prescaled)]
+    PCLK: [0, PCLKx clock (doubled frequency when prescaled)]
     PLL: [1, PLL vco output (running up to 144 MHz)]

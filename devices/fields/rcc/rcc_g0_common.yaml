@@ -107,11 +107,13 @@ CCIPR:
     TIMP: [0, TIMPCLK clock selected]
     PLLQ: [1, PLLQCLK clock selected]
   # I2C2I2S1SEL handled in rcc_g0.yaml or rcc_g0b.yaml
-  I2C1SEL:
+  I2C[12]SEL:
+    _name: I2cSel
     PCLK: [0b00, PCLK clock selected]
     SYSCLK: [0b01, SYSCLK clock selected]
     HSI16: [0b10, HSI16 clock selected]
-  "USART[123]SEL":
+  USART[123]SEL:
+    _name: UartSel
     PCLK: [0b00, PCLK clock selected]
     SYSCLK: [0b01, SYSCLK clock selected]
     HSI16: [0b10, HSI16 clock selected]

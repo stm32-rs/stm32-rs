@@ -230,34 +230,41 @@ CICR:
 
 CCIPR:
   RNGSEL:
+    _name: RngSel
     PLLQ: [0, PLLQ clock selected]
     LSI: [1, LSI clock selected]
     LSE: [2, LSE clock selected]
     MSI: [3, MSI clock selected]
   ADCSEL:
+    _name: AdcSel
     NoClock: [0, No clock selected]
     HSI16: [1, HSI16 clock selected]
     PLLP: [2, PLLP clock selected]
     SYSCLK: [3, SYSCLK clock selected]
   "LPTIM[123]SEL":
+    _name: LpTimSel
     PCLK: [0, PCLK clock selected]
     LSI: [1, LSI clock selected]
     HSI16: [2, HSI16 clock selected]
     LSE: [3, LSE clock selected]
   "I2C[123]SEL":
+    _name: I2cSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]
   LPUART1SEL:
+    _name: LpUartSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]
     LSE: [3, LSE clock selected]
   SPI2S2SEL:
+    _name: SpiSel
     PLLQ: [1, PLLQ clock selected]
     HSI16: [2, HSI16 clock selected]
     I2S: [3, External input I2S_CKIN selected]
   "USART[12]SEL":
+    _name: UartSel
     PCLK: [0, PCLK clock selected]
     SYSCLK: [1, SYSCLK clock selected]
     HSI16: [2, HSI16 clock selected]

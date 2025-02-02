@@ -16,5 +16,6 @@ CFGR2:
     HSE: [0, HSE oscillator clock selected as PREDIV1 clock entry]
     PLL2: [1, PLL2 selected as PREDIV1 clock entry]
   I2S?SRC:
+    _name: I2sSrc
     SYSCLK: [0, System clock (SYSCLK) selected as I2S clock entry]
     PLL3: [1, PLL3 VCO clock selected as I2S clock entry]

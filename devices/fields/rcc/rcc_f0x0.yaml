@@ -4,5 +4,6 @@ _include:
 
 CFGR3:
   USBSW:
+    _name: UsbSw
     Disabled: [0, USB clock disabled]
     PLLCLK: [1, PLL clock selected as USB clock source]

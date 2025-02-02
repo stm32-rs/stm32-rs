@@ -28,16 +28,13 @@ CFGR:
     PLLQ: [0b1001, PLLQCLK clock selected]
     RTC: [0b1010, RTC clock selected]
     RTCWake: [0b1011, RTC wakeup output selected]
-CCIPR:
-  I2C2SEL:
-    PCLK: [0b00, PCLK clock selected]
-    SYSCLK: [0b01, SYSCLK clock selected]
-    HSI16: [0b10, HSI16 clock selected]
 CCIPR2:
   USBSEL:
+    _name: UsbSel
     PLLQ: [0b01, PLLQCLK clock selected]
     HSE: [0b10, HSE clock selected]
-  "I2S[12]SEL":
+  I2S[12]SEL:
+    _name: I2sSel
     SYSCLK: [0b00, SYSCLK clock selected]
     PLLP: [0b01, PLLPCLK clock selected]
     HSI16: [0b10, HSI16 clock selected]
