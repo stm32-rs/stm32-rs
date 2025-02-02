@@ -1,0 +1,32 @@
+# Description of OPTCR register with nWRP only.
+OPTCR:
+  nWRP*:
+    Active: [0, Write protection active on sector %s]
+    Inactive: [1, Write protection inactive on sector %s]
+  RDP:
+    Level0: [0xAA, Read protection not active]
+    Level2: [0xCC, Chip read protection active]
+    Level1: [-1, Read protection of memories active]
+  nRST_STDBY:
+    Reset: [0, Reset generated when entering Standby mode]
+    NoReset: [1, No reset generated]
+  nRST_STOP:
+    Reset: [0, Reset generated when entering Stop mode]
+    NoReset: [1, No reset generated]
+  BOR_LEV:
+    BOR_Off: [0, Reset threshold level for POR/PDR (around 1.7V)]
+    BOR_Level1: [1, Reset threshold level for VBOR1 (around 2.2 V)]
+    BOR_Level2: [2, Reset threshold level for VBOR2 (around 2.5 V)]
+    BOR_Level3: [3, Reset threshold level for VBOR3 (around 2.8 V)]
+  OPTSTRT:
+    _write:
+      Set: [1, This bit triggers an options operation when set]
+    _read:
+      Complete: [0, Cleared when BSY bit is cleared in SR]
+      Requested: [1, Options modification requested]
+  OPTLOCK:
+    _write:
+      Set: [1, Lock the FLASH_OPTCR register]
+    _read:
+      Unlocked: [0, The write and erase operations in the Option bytes area are disabled]
+      Locked: [1, The write and erase operations in the Option bytes area are enabled]

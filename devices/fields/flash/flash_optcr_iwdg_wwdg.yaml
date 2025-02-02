@@ -1,0 +1,13 @@
+OPTCR:
+  IWDG_STOP:
+    Inactive: [0, IWDG counter frozen in Stop mode]
+    Active: [1, IWDG counter active in Stop mode]
+  IWDG_STDBY:
+    Inactive: [0, IWDG counter frozen in Standby mode]
+    Active: [1, IWDG counter active in Standby mode]
+  IWDG_SW:
+    Hardware: [0, Hardware independant watchdog]
+    Software: [1, Software independant watchdog]
+  WWDG_SW:
+    Hardware: [0, Hardware window watchdog]
+    Software: [1, Software window watchdog]

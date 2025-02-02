@@ -128,7 +128,13 @@ FLASH:
       OPTKEY:
         name: OPTKEYR
   _include:
+    - patches/flash/latency.yaml
+    - patches/flash/optcr_nwrp.yaml
     - fields/flash/flash_v2.yaml
+    - fields/flash/flash_optcr.yaml
+    - fields/flash/flash_optcr_iwdg_wwdg.yaml
+    - fields/flash/flash_optcr1_boot.yaml
+    - collect/flash/optcr_nwrp.yaml
 
 FMC:
   _include:

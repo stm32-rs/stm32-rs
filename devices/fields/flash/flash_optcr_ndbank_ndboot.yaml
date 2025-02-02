@@ -1,0 +1,7 @@
+OPTCR:
+  nDBANK:
+    DualBank: [0, The Flash user area is seen as a single bank with 256 bits read access]
+    SingleBank: [1, The Flash user area is seen as a dual bank with 128 bits read access (dual bank mode feature active)]
+  nDBOOT:
+    Enabled: [0, "Boot always from system memory if boot address is in flash (Dual bank Boot mode), or RAM if Boot address option in RAM"]
+    Disabled: [1, Boot according to boot address option]

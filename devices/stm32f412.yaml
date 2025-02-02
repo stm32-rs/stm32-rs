@@ -75,8 +75,13 @@ EXTI:
 FLASH:
   _include:
     - patches/flash/latency_4b.yaml
+    - patches/flash/optcr_nwrp.yaml
     - fields/flash/flash_v1.yaml
     - fields/flash/flash_latency16.yaml
+    - fields/flash/flash_optcr.yaml
+    - fields/flash/flash_optcr_sprmod.yaml
+    - fields/flash/flash_optcr_wdg.yaml
+    - collect/flash/optcr_nwrp.yaml
 
 FMPI2C1:
   _add:

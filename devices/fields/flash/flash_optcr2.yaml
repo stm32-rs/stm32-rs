@@ -1,0 +1,7 @@
+OPTCR2:
+  PCROP_RDP:
+    PcropKept: [0, "PCROP zone is kept when RDP is decreased: Partial mass erase is done"]
+    PcropErased: [1, "PCROP zone is erased when RDP is decreased: Full mass erase is done"]
+  PCROP*:
+    Inactive: [0, PCROP protection inactive on sector %s]
+    Active: [1, PCROP protection active on sector %s]

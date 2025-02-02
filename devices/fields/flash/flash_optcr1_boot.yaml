@@ -1,0 +1,19 @@
+OPTCR1:
+  BOOT_ADD1:
+    ItcmRam: [0x0000, Boot from ITCM RAM (0x0000 0000)]
+    SystemMemoryBootloader: [0x0040, Boot from System memory bootloader (0x0010 0000)]
+    FlashItcmInterface: [0x0080, Boot from Flash on ITCM interface (0x0020 0000)]
+    FlashAximInterface: [0x2000, Boot from Flash on AXIM interface (0x0800 0000)]
+    DtcmRam: [0x8000, Boot from DTCM RAM (0x2000 0000)]
+    Sram1: [0x8004, Boot from SRAM1 (0x2001 0000)]
+    Sram2: [0x8013, Boot from SRAM2 (0x2003 C000)]
+    BootAddress: [-1, Boot from specified address (granularity of 16KB)]
+  BOOT_ADD0:
+    ItcmRam: [0x0000, Boot from ITCM RAM (0x0000 0000)]
+    SystemMemoryBootloader: [0x0040, Boot from System memory bootloader (0x0010 0000)]
+    FlashItcmInterface: [0x0080, Boot from Flash on ITCM interface (0x0020 0000)]
+    FlashAximInterface: [0x2000, Boot from Flash on AXIM interface (0x0800 0000)]
+    DtcmRam: [0x8000, Boot from DTCM RAM (0x2000 0000)]
+    Sram1: [0x8004, Boot from SRAM1 (0x2001 0000)]
+    Sram2: [0x8013, Boot from SRAM2 (0x2003 C000)]
+    BootAddress: [-1, Boot from specified address (granularity of 16KB)]

@@ -53,6 +53,15 @@ EXTI:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
 
+FLASH:
+  _include:
+    - patches/flash/optcr_nwrp.yaml
+    - fields/flash/flash_v1.yaml
+    - fields/flash/flash_latency8.yaml
+    - fields/flash/flash_optcr.yaml
+    - fields/flash/flash_optcr_wdg.yaml
+    - collect/flash/optcr_nwrp.yaml
+
 FSMC:
   _include:
     - patches/fsmc/fsmc_sramfix_v3.yaml
