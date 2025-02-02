@@ -19,10 +19,8 @@ ADC*_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
 ADC3:
-  _include: patches/adc/jdata.yaml
-
-ADC?:
   _include:
+    - patches/adc/jdata.yaml
     - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_1.yaml

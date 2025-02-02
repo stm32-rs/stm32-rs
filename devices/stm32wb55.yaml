@@ -20,8 +20,6 @@ ADC1:
         description: Regular channel sequence length
   _delete:
     - CCR # this is part of the ADC_Common block.
-
-ADC?:
   _include:
     - patches/adc/offset_en.yaml
     - patches/adc/split.yaml

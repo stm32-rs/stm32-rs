@@ -10,7 +10,7 @@ _derive:
   TIM4: TIM3
   SPI4: SPI1
 
-ADC?:
+ADC[13]:
   _include:
     - patches/adc/g4.yaml
     - fields/adc/adc_v3_g4.yaml

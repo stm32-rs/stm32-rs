@@ -45,8 +45,6 @@ ADC1:
     _interrupts:
       ADC1:
         name: ADC1_2
-
-ADC?:
   _include:
     - patches/adc/split.yaml
     - fields/adc/adc_v3.yaml

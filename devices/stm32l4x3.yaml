@@ -17,7 +17,7 @@ ADC_Common:
 ADC*_*:
   _include: fields/adc/adc_v3_common.yaml
 
-ADC?:
+ADC1:
   _include:
     - patches/adc/split.yaml
     - patches/adc/offset_en.yaml

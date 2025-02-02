@@ -21,25 +21,26 @@ _modify:
   ETHERNET_PTP:
     name: Ethernet_PTP
 
-ADC[23]:
-  _include:
-    - patches/adc/smpx_17.yaml
-
-ADC?:
+ADC1:
   _include:
     - fields/adc/adc_f1_f37x.yaml
+    - fields/adc/adc_f1_common.yaml
+    - fields/adc/adc1_f1.yaml
+    - collect/adc/jofr_jdr.yaml
 
-"ADC[12]":
+ADC2:
   _include:
+    - patches/adc/smpx_17.yaml
+    - fields/adc/adc_f1_f37x.yaml
     - fields/adc/adc_f1_common.yaml
     - collect/adc/jofr_jdr.yaml
 
-ADC1:
-  _include:
-    - fields/adc/adc1_f1.yaml
 ADC3:
   _include:
+    - patches/adc/smpx_17.yaml
+    - fields/adc/adc_f1_f37x.yaml
     - fields/adc/adc3_f1.yaml
+    - collect/adc/jofr_jdr.yaml
 
 AFIO:
   _include:
