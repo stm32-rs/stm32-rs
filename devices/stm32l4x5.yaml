@@ -38,7 +38,7 @@ ADC_Common:
         bitWidth: 4
         access: read-write
 
-ADC?:
+ADC1:
   _include:
     - patches/adc/split.yaml
     - patches/adc/offset_en.yaml

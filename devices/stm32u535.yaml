@@ -7,21 +7,21 @@ ADC12_Common:
   CCR:
     _delete: [DAMDF, DELAY, DUAL]
 
-ADC[124]:
+ADC1:
   _strip: ADC_
   _include:
+    - patches/adc/split.yaml
     - patches/adc/u5_access.yaml
     - fields/adc/adc_u5.yaml
-
-ADC[12]:
-  _include:
-    - patches/adc/split.yaml
     - fields/adc/adc_u5_12.yaml
     - collect/adc/v3.yaml
 
 ADC4:
+  _strip: ADC_
   _include:
+    - patches/adc/u5_access.yaml
     - patches/adc/u5_vsensesel.yaml
+    - fields/adc/adc_u5.yaml
     - fields/adc/adc_u5_4.yaml
     - fields/adc/adc_u5_common.yaml
     - collect/adc/c0_g0_wl.yaml

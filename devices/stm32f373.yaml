@@ -20,12 +20,10 @@ _modify:
     groupName: SYSCFG
     description: System configuration controller
 
-ADC?:
+ADC1:
   _include:
     - fields/adc/adc_f1_f37x.yaml
     - collect/adc/jofr_jdr.yaml
-
-ADC1:
   CR2:
     EXTSEL:
       Tim19Trgo: [0, Timer 19 TRGO event]

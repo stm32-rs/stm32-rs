@@ -48,8 +48,6 @@ ADC1:
         access: read-write
       JADST:
         name: JADSTP
-
-ADC?:
   _include:
     - patches/adc/offset_en.yaml
     - fields/adc/adc_v3_f3.yaml

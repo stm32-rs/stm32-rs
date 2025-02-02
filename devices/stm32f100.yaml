@@ -3,12 +3,9 @@ _svd: ../svd/stm32f100.svd
 _derive:
   UART5: UART4
 
-ADC?:
+ADC1:
   _include:
     - fields/adc/adc_f1_f37x.yaml
-
-"ADC[12]":
-  _include:
     - fields/adc/adc_f1_common.yaml
     - collect/adc/jofr_jdr.yaml
 

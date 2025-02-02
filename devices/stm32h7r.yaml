@@ -2,7 +2,7 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: "*"
 
-ADC?:
+ADC1:
   _strip: ADC_
   CFGR:
     _merge: EXTSEL*
