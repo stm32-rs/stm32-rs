@@ -40,6 +40,11 @@ CCIPR4:
     PLL2_R: [1, PLL2 R Clock selected as clock source (pll2_r_ck)]
     HSI_KER: [2, HSI kernel clock selected as clock source (hsi_ker_ck)]
     CSI_KER: [3, CSI kernel clock selected as clock source (csi_ker_ck)]
+  USBSEL:
+    DISABLE: [0, Disable the clock]
+    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
+    PLL2_Q: [2, PLL2 Q clock selected as clock source (pll2_q_ck)]
+    HSI48: [3, HSI48 clock selected as clock source (hsi48_ker_ck)]
 CCIPR5:
   DAC1SEL:
     LSE: [0, LSE selected as clock source (lse_ck)]
