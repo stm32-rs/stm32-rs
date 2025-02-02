@@ -183,6 +183,13 @@ UCPD1:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v1.yaml
 
+USART?:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/add_udr.yaml
+    - fields/usart/v4/C.yaml
+
 WWDG:
   _include: patches/16bit.yaml
 

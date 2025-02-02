@@ -179,7 +179,7 @@ LPUART1:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - fields/usart/v3/lp_A.yaml
 
 QUADSPI:
   _include:
@@ -324,7 +324,7 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 WWDG:
   _include:

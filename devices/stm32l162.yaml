@@ -118,6 +118,10 @@ TIM10:
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
 
+USART*:
+  _include:
+    - fields/usart/v2/usart.yaml
+
 USB:
   _strip: USB_
   _include:

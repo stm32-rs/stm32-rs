@@ -309,7 +309,8 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - patches/usart/tcbgtc.yaml
+    - fields/usart/v4/B.yaml
 
 WWDG:
   _include:

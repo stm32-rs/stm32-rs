@@ -80,3 +80,41 @@ CR3:
   EIE:
     Disabled: [0, Error interrupt disabled]
     Enabled: [1, Error interrupt enabled]
+
+SR:
+  PE:
+    NoError: [0, No parity error]
+    Error: [1, Parity error]
+  FE:
+    NoError: [0, No Framing error is detected]
+    Error: [1, Framing error or break character is detected]
+  "NE,NF":
+    NoNoise: [0, No noise is detected]
+    Noise: [1, Noise is detected]
+  ORE:
+    NoOverrun: [0, No Overrun error]
+    Overrun: [1, Overrun error is detected]
+  IDLE:
+    NoIdle: [0, No Idle Line is detected]
+    Idle: [1, Idle Line is detected]
+  RXNE:
+    _read:
+      NoData: [0, Data is not received]
+      DataReady: [1, Received data is ready to be read]
+    _W0C:
+      Clear: [0, Clear received data ready flag]
+  TC:
+    _read:
+      TxNotComplete: [0, Transmission is not complete]
+      TxComplete: [1, Transmission is complete]
+    _W0C:
+      Clear: [0, Clear transmission complete flag]
+  TXE:
+    TxNotEmpty: [0, Data is not transferred to the shift register]
+    TxEmpty: [1, Data is transferred to the shift register]
+  LBD:
+    _read:
+      NotDetected: [0, LIN break not detected]
+      Detected: [1, LIN break detected]
+    _W0C:
+      Clear: [0, Clear LIN break detection flag]

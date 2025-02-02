@@ -1,4 +1,9 @@
+_include: common.yaml
+
 CR2:
+  LBCL:
+    Disabled: [0, The clock pulse of the last data bit is not output to the CK pin]
+    Enabled: [1, The clock pulse of the last data bit is output to the CK pin]
   STOP:
     Stop1: [0, 1 stop bit]
     Stop0p5: [1, 0.5 stop bits]
@@ -30,3 +35,15 @@ CR3:
   NACK:
     Disabled: [0, NACK transmission in case of parity error is disabled]
     Enabled: [1, NACK transmission during parity error is enabled]
+
+SR:
+  CTS:
+    _read:
+      NotChanged: [0, No change occurred on the CTS status line]
+      Changed: [1, A change occurred on the CTS status line]
+    _W0C:
+      Clear: [0, Clear CTS toggle detection flag]
+
+GTPR:
+  PSC: [1, 0xFF]
+  GT: [0, 0xFF]

@@ -263,9 +263,7 @@ TIM11:
 
 USART*:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_sample.yaml
-    - fields/usart/uart_usart.yaml
+    - fields/usart/v2/usart.yaml
 
 WWDG:
   _include:

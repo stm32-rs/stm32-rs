@@ -129,11 +129,7 @@ USART?:
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
-    - fields/usart/usart_v2B.yaml
-    - fields/usart/usart_fifoen.yaml
-    - fields/usart/sync_slave.yaml
-    - fields/usart/smartcard.yaml
-    - fields/usart/prescalar.yaml
+    - fields/usart/v4/B.yaml
 
 USB:
   _include:

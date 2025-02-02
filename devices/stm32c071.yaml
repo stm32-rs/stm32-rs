@@ -131,6 +131,12 @@ USART1:
     USART_ISR_ALTERNATE1:
       name: USART_ISR_disabled
 
+USART?:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/B.yaml
+
 USB:
   _strip: USB_
   _include:

@@ -103,7 +103,7 @@ LPUART1:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - fields/usart/v3/lp_A.yaml
 
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
 RCC:
@@ -216,7 +216,7 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 USB:
   _add:

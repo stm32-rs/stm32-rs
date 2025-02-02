@@ -570,15 +570,11 @@ UART10:
 UART*:
   _include:
     - patches/usart/f4_add_UART_GTPR.yaml
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_sample.yaml
-    - fields/usart/uart_uart.yaml
+    - fields/usart/v2/uart.yaml
 
 USART*:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_sample.yaml
-    - fields/usart/uart_usart.yaml
+    - fields/usart/v2/usart.yaml
 
 WWDG:
   _include:

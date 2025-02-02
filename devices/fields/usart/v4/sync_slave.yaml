@@ -7,6 +7,8 @@ CR2:
     Enabled: [1, Slave mode enabled]
 ISR:
   UDR:
+    NoUnderrun: [0, No underrun error]
+    Underrun: [1, underrun error]
 ICR:
   UDRCF:
     Clear: [1, Clear the UDR flag in the ISR register]

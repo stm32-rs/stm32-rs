@@ -147,7 +147,7 @@ LPUART1:
   _include:
     - patches/usart/merge_CR1_DEATx_fields.yaml
     - patches/usart/merge_CR1_DEDTx_fields.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - fields/usart/v3/lp_A.yaml
 
 PWR:
   _strip: PWR_
@@ -325,7 +325,7 @@ USART?:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
     - patches/usart/merge_CR2_ABRMODx_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 WWDG:
   _include:

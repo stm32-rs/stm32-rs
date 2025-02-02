@@ -168,8 +168,7 @@ TIM16:
 USART?:
   _include:
     - patches/usart/g0.yaml
-    - fields/usart/usart_v2C.yaml
-    - fields/usart/usart_wl.yaml
+    - fields/usart/v4/B.yaml
 
 VREFBUF:
   _strip: VREFBUF_

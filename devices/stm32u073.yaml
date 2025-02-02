@@ -125,6 +125,13 @@ TIM16:
 TSC:
   _strip: TSC_
 
+USART?:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/B.yaml
+
 USB:
   _strip: USB_
 

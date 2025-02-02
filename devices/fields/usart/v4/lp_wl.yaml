@@ -1,7 +1,7 @@
 # LPUART in WL family
 _include:
-  - v2/AB_common.yaml
-  - v2/m.yaml
+  - ../v3/AB_common.yaml
+  - ../v3/m.yaml
   - fifoen_common.yaml
 CR1:
   DEAT: [0, 0b11111]
@@ -121,6 +121,8 @@ RQR:
     Break:
       [1, "sets the SBKF flag and request to send a BREAK on the line, as soon as the transmit machine is available"]
 ICR:
+  "*":
+    _W1C: {}
   CMCF:
     Clear: [1, Clears the CMF flag in the ISR register]
   CTSCF:

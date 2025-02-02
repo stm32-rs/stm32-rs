@@ -130,13 +130,11 @@ TIM16:
 
 UART*:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_uart.yaml
+    - fields/usart/v1/uart.yaml
 
 USART*:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_usart.yaml
+    - fields/usart/v1/usart.yaml
 
 WWDG:
   _include:

@@ -13,9 +13,11 @@ CR3:
     Start: [2, WuF active on Start bit detection]
     RXNE: [3, WUF active on RXNE]
 ISR:
+  RWU:
+    Active: [0, Receiver in Active mode]
+    Mute: [1, Receiver in Mute mode]
   "REAK,REACK":
   WUF:
-  RWU:
 ICR:
   WUCF:
     Clear: [1, Clears the WUF flag in the ISR register]
