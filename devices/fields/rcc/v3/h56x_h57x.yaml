@@ -40,6 +40,11 @@ CCIPR3:
     AUDIOCLK: [3, AUDIOCLK clock selected as clock source]
     PER_CK: [4, per_ck clock selected as clock source]
 CCIPR4:
+  USBSEL:
+    DISABLE: [0, Disable the clock]
+    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
+    PLL3_Q: [2, PLL3 Q clock selected as clock source (pll3_q_ck)]
+    HSI48: [3, HSI48 clock selected as clock source (hsi48_ker_ck)]
   I3C*SEL:
     _name: I3CSEL
     PCLK: [0, Peripheral bus clock used as selected as clock source (rcc_pclk_x)]

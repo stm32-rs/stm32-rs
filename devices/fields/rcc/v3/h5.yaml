@@ -48,11 +48,6 @@ CCIPR1:
     Disabled: [0, No internal clock available for timers input capture]
     Enabled: [1, "hsi_ker_ck/1024, hsi_ker_ck/8 and csi_ker_ck/128 selected for timers input capture"]
 CCIPR4:
-  USBSEL:
-    DISABLE: [0, Disable the clock]
-    PLL1_Q: [1, PLL1 Q clock selected as clock source (pll1_q_ck)]
-    PLL2_Q: [2, PLL2 Q clock selected as clock source (pll2_q_ck)]
-    HSI48: [3, HSI48 clock selected as clock source (hsi48_ker_ck)]
   SYSTICKSEL:
     HCLK_DIV8: [0, RCC HLCK divided by 8 selected as clock source (rcc_hclk / 8)]
     LSI_KER: [1, LSI kernel selected as clock source (lsi_ker_ck)]
