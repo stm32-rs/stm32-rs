@@ -138,6 +138,7 @@
 * G0: mark flags in USB CHEPR as W0C/W1T
 * G0: add value enums for EXTICR[2-4]
 * H5, U5: Add cluster definitions for GPDMA channels
+* F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral
 
 Family-specific:
 

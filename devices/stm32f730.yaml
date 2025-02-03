@@ -66,8 +66,21 @@ EXTI:
         name: IM9
 
 FLASH:
+  OPTCR2:
+    _modify:
+      PCROPi:
+        name: PCROP
   _include:
+    - patches/flash/latency.yaml
+    - patches/flash/optcr_nwrp.yaml
+    - patches/flash/optcr2_pcrop.yaml
     - fields/flash/flash_v2.yaml
+    - fields/flash/flash_optcr.yaml
+    - fields/flash/flash_optcr_iwdg_wwdg.yaml
+    - fields/flash/flash_optcr1_boot.yaml
+    - fields/flash/flash_optcr2.yaml
+    - collect/flash/optcr_nwrp.yaml
+    - collect/flash/optcr2_pcrop.yaml
 
 FMC:
   _include:
