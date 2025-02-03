@@ -66,6 +66,14 @@ IWDG:
       size: 16
   _include: fields/iwdg/iwdg_with_WINR.yaml
 
+LPUART:
+  _strip: LPUART_
+  _include:
+    - patches/usart/dedt0.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 RCC:
   _include:
     - patches/rcc/g0.yaml
@@ -154,7 +162,7 @@ UCPD?:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v2.yaml
 
-USART?:
+USART1:
   _include:
     - patches/usart/g0.yaml
     - fields/usart/v4/B.yaml

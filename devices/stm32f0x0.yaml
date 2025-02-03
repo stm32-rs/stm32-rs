@@ -154,7 +154,7 @@ TIM16:
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/rename_CR1_M0_field.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml

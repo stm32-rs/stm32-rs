@@ -317,12 +317,12 @@ TIM1[01]:
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
 
-UART*:
+UART4:
   _include:
     - patches/usart/f4_add_UART_GTPR.yaml
     - fields/usart/v2/uart.yaml
 
-USART*:
+USART1:
   _include:
     - fields/usart/v2/usart.yaml
 

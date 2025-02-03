@@ -145,7 +145,7 @@ USB:
     - fields/usb/g0_usb.yaml
     - collect/usb/chepr.yaml
 
-USART?:
+USART1:
   _include:
     - patches/usart/g0_CR1.yaml
     - fields/usart/v4/B.yaml

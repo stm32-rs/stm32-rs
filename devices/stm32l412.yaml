@@ -208,7 +208,7 @@ TSC:
   _include:
     - collect/tsc/iogcr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -217,9 +217,6 @@ USART*:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/v3/B.yaml
-
-USART3:
-  _include:
     - fields/usart/v3/usart3_B2.yaml
 
 USB:

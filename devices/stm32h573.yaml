@@ -71,6 +71,12 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+LPUART:
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 PWR:
   _include:
     - fields/pwr/pwr_h5.yaml
@@ -171,7 +177,7 @@ UCPD1:
     - patches/ucpd/rxordseten_split.yaml
     - fields/ucpd/ucpd_v1.yaml
 
-USART?:
+USART1:
   _strip: USART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml

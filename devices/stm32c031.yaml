@@ -86,7 +86,7 @@ SPI1:
     - patches/spi/dr8.yaml
   _strip: SPI_
 
-USART?:
+USART1:
   _strip: USART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml

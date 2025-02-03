@@ -46,6 +46,13 @@ JPEG:
   _include:
     - collect/jpeg/ram_h7rs.yaml
 
+LPUART1:
+  _strip: LPUART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 RCC:
   _include:
     - fields/rcc/v3/h7rs.yaml
@@ -126,7 +133,7 @@ UCPD:
     - patches/ucpd/rxordseten_split.yaml
     - fields/ucpd/ucpd_v1.yaml
 
-USART?:
+USART1:
   _strip: USART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml

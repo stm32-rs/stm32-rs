@@ -369,7 +369,7 @@ TIM10:
   _delete:
     - SMCR
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml

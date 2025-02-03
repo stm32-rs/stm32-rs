@@ -193,11 +193,11 @@ TIM10:
         bitOffset: 2
         bitWidth: 1
 
-UART*:
+UART4:
   _include:
     - fields/usart/v1/uart.yaml
 
-USART*:
+USART1:
   _include:
     - fields/usart/v1/usart.yaml
 

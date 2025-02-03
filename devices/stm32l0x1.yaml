@@ -191,7 +191,7 @@ TIM2[12]:
 TIM21:
   _include: fields/tim/tim21.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml

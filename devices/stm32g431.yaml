@@ -82,6 +82,14 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 PWR:
   _strip: PWR_
 
@@ -165,7 +173,7 @@ UCPD1:
 VREFBUF:
   _strip: VREFBUF_
 
-USART*:
+"UART4,USART1":
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml

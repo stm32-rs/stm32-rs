@@ -132,6 +132,10 @@ IWDG1:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LPUART1:
+  _include:
+    - fields/usart/v4/lp_wl.yaml
+
 LTDC:
   _include:
     - patches/ltdc/ltdc.yaml
@@ -274,7 +278,7 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
