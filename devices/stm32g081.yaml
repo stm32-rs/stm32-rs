@@ -2,6 +2,8 @@ _svd: ../svd/stm32g081.svd
 
 _modify:
   name: STM32G081
+  COMP:
+    groupName: COMP
 
 _clear_fields: "*"
 

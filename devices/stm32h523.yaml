@@ -2,6 +2,14 @@ _svd: ../svd/stm32h523.svd
 
 _modify:
   size: 0x20
+  GPIO?:
+    groupName: GPIO
+  GTZC*:
+    groupName: GTZC
+  LPTIM?:
+    groupName: LPTIM
+  TIM?*:
+    groupName: TIM
   ADC:
     name: ADC1
   ADC_S:
