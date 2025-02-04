@@ -1,5 +1,9 @@
 _svd: ../svd/stm32l562.svd
 
+_derive:
+  TIM5: TIM2
+  SEC_TIM5: TIM2
+
 _modify:
   cpu:
     name: CM33
@@ -154,8 +158,6 @@ TIM5:
       TIM5:
         description: TIM5 global interrupt
         value: 48
-  _include:
-    - fields/tim/basic.yaml
 
 TIM[34]:
   _include:

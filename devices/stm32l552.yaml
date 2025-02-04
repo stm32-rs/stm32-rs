@@ -1,5 +1,9 @@
 _svd: ../svd/stm32l552.svd
 
+_derive:
+  TIM5: TIM2
+  SEC_TIM5: TIM2
+
 _modify:
   cpu:
     name: CM33
