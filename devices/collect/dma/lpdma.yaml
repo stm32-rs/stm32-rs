@@ -1,0 +1,42 @@
+SECCFGR:
+  _array:
+    SEC?: {}
+
+PRIVCFGR:
+  _array:
+    PRIV?: {}
+
+?~RCFGLOCKR:
+  _array:
+    LOCK?: {}
+
+MISR:
+  _array:
+    MIS?: {}
+
+SMISR:
+  _array:
+    MIS?: {}
+
+_cluster:
+  CH%s:
+    C?LBAR:
+      name: LBAR
+    C?FCR:
+      name: FCR
+    C?SR:
+      name: SR
+    C?CR:
+      name: CR
+    C?TR1:
+      name: TR1
+    C?TR2:
+      name: TR2
+    C?BR1:
+      name: BR1
+    C?SAR:
+      name: SAR
+    C?DAR:
+      name: DAR
+    C?LLR:
+      name: LLR
