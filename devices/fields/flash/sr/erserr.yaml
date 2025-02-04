@@ -1,0 +1,7 @@
+SR:
+  ERSERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, A write access to the Flash memory is performed by the code while the control register has not been correctly configured]
+    _W1C:
+      Clear: [1, Clear error flag]

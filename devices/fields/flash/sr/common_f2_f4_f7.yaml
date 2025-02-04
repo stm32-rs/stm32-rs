@@ -1,0 +1,35 @@
+SR:
+  BSY:
+    _read:
+      NotBusy: [0, No Flash memory operation ongoing]
+      Busy: [1, Flash memory operation ongoing]
+  PGPERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, The size of the access during the program sequence doesn't correspond to the parallelism configuration PSIZE]
+    _W1C:
+      Clear: [1, Clear error flag]
+  PGAERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, The data to program cannot be contained in the same 128-bit Flash memory row]
+    _W1C:
+      Clear: [1, Clear error flag]
+  WRPERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, The address to be erased/programmed belongs to a write-protected part of the Flash memory]
+    _W1C:
+      Clear: [1, Clear error flag]
+  OPERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, A Flash operation request is detected and cannot be run because of parallelism, alignment, sequence or write protection error]
+    _W1C:
+      Clear: [1, Clear error flag]
+  EOP:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, One or more Flash operations has/have completed successfully]
+    _W1C:
+      Clear: [1, Clear error flag]

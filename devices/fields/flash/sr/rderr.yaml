@@ -1,0 +1,7 @@
+SR:
+  RDERR:
+    _read:
+      Inactive: [0, No error]
+      Active: [1, A read access through the D-bus is performed to an address belonging to a proprietary readout protected Flash sector]
+    _W1C:
+      Clear: [1, Clear error flag]

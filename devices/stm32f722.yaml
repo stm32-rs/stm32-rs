@@ -62,16 +62,27 @@ EXTI:
 
 FLASH:
   _include:
-    - patches/flash/latency.yaml
-    - patches/flash/optcr_nwrp.yaml
-    - patches/flash/optcr2_pcrop.yaml
-    - fields/flash/flash_v2.yaml
-    - fields/flash/flash_optcr.yaml
-    - fields/flash/flash_optcr_iwdg_wwdg.yaml
-    - fields/flash/flash_optcr1_boot.yaml
-    - fields/flash/flash_optcr2.yaml
-    - collect/flash/optcr_nwrp.yaml
-    - collect/flash/optcr2_pcrop.yaml
+    - patches/flash/acr/latency_16_states.yaml
+    - patches/flash/optcr/nwrp.yaml
+    - patches/flash/optcr2/pcrop.yaml
+    - patches/flash/sr/rderr.yaml
+    - fields/flash/acr/common_f7.yaml
+    - fields/flash/acr/latency_16_states.yaml
+    - fields/flash/cr/common_f2_f4_f7.yaml
+    - fields/flash/cr/errie.yaml
+    - fields/flash/cr/mer.yaml
+    - fields/flash/cr/rderrie.yaml
+    - fields/flash/keyr/common.yaml
+    - fields/flash/optcr/common.yaml
+    - fields/flash/optcr/iwdg_wwdg.yaml
+    - fields/flash/optcr1/boot.yaml
+    - fields/flash/optcr2/common.yaml
+    - fields/flash/optkeyr/common.yaml
+    - fields/flash/sr/common_f2_f4_f7.yaml
+    - fields/flash/sr/erserr.yaml
+    - fields/flash/sr/rderr.yaml
+    - collect/flash/optcr/nwrp.yaml
+    - collect/flash/optcr2/pcrop.yaml
 
 FMC:
   _include:

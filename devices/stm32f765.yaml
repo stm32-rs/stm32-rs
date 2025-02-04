@@ -121,19 +121,25 @@ EXTI:
         value: 1
 
 FLASH:
-  OPTKEYR:
-    _modify:
-      OPTKEY:
-        name: OPTKEYR
   _include:
-    - patches/flash/f7_dual_bank.yaml
-    - patches/flash/optcr_nwrp.yaml
-    - fields/flash/flash_v2_dual_bank.yaml
-    - fields/flash/flash_optcr.yaml
-    - fields/flash/flash_optcr_iwdg_wwdg.yaml
-    - fields/flash/flash_optcr_ndbank_ndboot.yaml
-    - fields/flash/flash_optcr1_boot.yaml
-    - collect/flash/optcr_nwrp.yaml
+    - patches/flash/acr/latency_16_states.yaml
+    - patches/flash/cr/mer1_mer2.yaml
+    - patches/flash/optcr/nwrp.yaml
+    - patches/flash/optkeyr/optkeyr.yaml
+    - fields/flash/acr/common_f7.yaml
+    - fields/flash/acr/latency_16_states.yaml
+    - fields/flash/cr/common_f2_f4_f7.yaml
+    - fields/flash/cr/errie.yaml
+    - fields/flash/cr/mer1_mer2.yaml
+    - fields/flash/keyr/common.yaml
+    - fields/flash/optcr/common.yaml
+    - fields/flash/optcr/iwdg_wwdg.yaml
+    - fields/flash/optcr/ndbank_ndboot.yaml
+    - fields/flash/optcr1/boot.yaml
+    - fields/flash/optkeyr/common.yaml
+    - fields/flash/sr/common_f2_f4_f7.yaml
+    - fields/flash/sr/erserr.yaml
+    - collect/flash/optcr/nwrp.yaml
 
 FMC:
   _include:
