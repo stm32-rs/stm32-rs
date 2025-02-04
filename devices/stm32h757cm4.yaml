@@ -1,5 +1,9 @@
 _svd: ../svd/stm32h757cm4.svd
 
+_modify:
+  COMP1:
+    groupName: COMP
+
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
   TIM3:

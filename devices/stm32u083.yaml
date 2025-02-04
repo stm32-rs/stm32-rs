@@ -5,6 +5,8 @@ _clear_fields: "*"
 _modify:
   LCD:
     groupName: LCD
+  TIM?*:
+    groupName: TIM
 
 ADC:
   _strip: ADC_

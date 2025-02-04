@@ -8,6 +8,8 @@ _copy:
     from: GPIOB
 
 _modify:
+  DAC2:
+    groupName: DAC
   ADC:
     name: ADC1
   # Rename in accordance with other devices and reference manual.

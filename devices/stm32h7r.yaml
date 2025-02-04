@@ -2,6 +2,12 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: "*"
 
+_modify:
+  FDCAN1:
+    groupName: FDCAN
+  SPI1:
+    groupName: SPI
+
 ADC1:
   _strip: ADC_
   CFGR:

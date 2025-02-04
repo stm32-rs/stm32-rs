@@ -2,6 +2,10 @@ _svd: ../svd/stm32u031.svd
 
 _clear_fields: "*"
 
+_modify:
+  TIM?*:
+    groupName: TIM
+
 ADC:
   _strip: ADC_
 
