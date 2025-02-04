@@ -151,10 +151,7 @@ TIM9:
 TIM10:
   _include:
     - patches/tim/tim10_14_missing_opm.yaml
-    - fields/tim/basic.yaml
-    - fields/tim/tim_ckd.yaml
-    - fields/tim/ccr.yaml
-    - fields/tim/v1/ccm.yaml
+    - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
   CCMR1_Output:
     _add:
