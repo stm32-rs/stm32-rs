@@ -164,6 +164,7 @@ JPEG:
   _strip: JPEG_
 
 LPTIM?:
+  _strip: LPTIM_
   _include:
     - fields/lptim/lptim_v1.yaml
 
@@ -234,6 +235,9 @@ SAI?:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
+
+SDMMC1:
+  _strip: SDMMC_
 
 SPI?:
   _include:

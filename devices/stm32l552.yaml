@@ -58,6 +58,9 @@ EXTI:
   _include:
     - patches/exti/exti_rename.yaml
 
+FDCAN1:
+  _strip: FDCAN_
+
 FLASH:
   _include:
     - collect/flash/secbbr.yaml
@@ -112,6 +115,9 @@ SAI?:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
+
+SDMMC1:
+  _strip: SDMMC_
 
 SPI?:
   _include:

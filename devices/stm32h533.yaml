@@ -78,6 +78,9 @@ EXTI:
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
+FDCAN1:
+  _strip: FDCAN_
+
 GPDMA?:
   _strip: GPDMA_
   _include:

@@ -21,6 +21,9 @@ EXTI:
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
+FDCAN1:
+  _strip: FDCAN_
+
 GPDMA?:
   _strip: GPDMA_
   _include:
@@ -55,6 +58,9 @@ GTZC1:
 I2C?:
   _include:
     - fields/i2c/v3.yaml
+
+I3C1:
+  _strip: I3C_
 
 IWDG:
   _include:
