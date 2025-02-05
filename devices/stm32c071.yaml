@@ -1,5 +1,7 @@
 _svd: ../svd/stm32c071.svd
 
+_clear_fields: "*"
+
 _modify:
   name: STM32C071
   TIM*:
@@ -19,14 +21,36 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+CRC:
+  _strip: CRC_
+
 CRS:
   _strip: CRS_
 
+DBG:
+  _strip: DBG_
+
+DMA:
+  _strip: DMA_
+
 DMAMUX:
+  _strip: DMAMUX_
   _include:
     - collect/dma/dmamux.yaml
 
+EXTI:
+  _strip: EXTI_
+  _modify:
+    _interrupts:
+      EXTI4_5:
+        name: EXTI4_15
+        description: EXTI line 4 to 15 interrupt
+
+FLASH:
+  _strip: FLASH_
+
 GPIO?:
+  _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
@@ -36,22 +60,34 @@ GPIO[A]:
 GPIO[BCDF]:
   _include: collect/gpio/v2r_derive.yaml
 
-I2C?:
+I2C1:
   _strip: I2C_
 
+IWDG:
+  _strip: IWDG_
+  _include: patches/16bit_with_mask.yaml
+
+PWR:
+  _strip: PWR_
+
+RCC:
+  _strip: RCC_
+
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     #- fields/rtc/v3.yaml
     #- collect/rtc/alarm.yaml
 
 SPI1:
+  _strip: SPI?_
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
 
-SPI?:
-  _strip: SPI?_
+SYSCFG:
+  _strip: SYSCFG_
 
 TIM[123]:
   _strip: TIM?_
@@ -131,6 +167,9 @@ USB:
   _include:
     - collect/usb/chepr.yaml
 
+WWDG:
+  _strip: WWDG_
+  _include: patches/16bit_with_mask.yaml
+
 _include:
-  - patches/c0.yaml
   - patches/nvic/2_prio_bits.yaml

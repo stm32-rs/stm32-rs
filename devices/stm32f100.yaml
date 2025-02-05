@@ -19,6 +19,8 @@ BKP:
     - fields/bkp/bkp.yaml
     - collect/bkp/dr.yaml
 
+CEC: {}
+
 CRC:
   _include:
     - fields/crc/crc_basic.yaml
@@ -30,7 +32,9 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -39,6 +43,8 @@ EXTI:
   _include:
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+FLASH: {}
 
 FSMC:
   _include:
@@ -52,7 +58,7 @@ GPIOA:
     - collect/gpio/f1.yaml
     - collect/gpio/f1_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -82,7 +88,7 @@ RTC:
   _include:
     - fields/rtc/rtc_f1.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

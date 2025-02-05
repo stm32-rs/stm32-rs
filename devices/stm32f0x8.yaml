@@ -12,17 +12,19 @@ ADC:
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
 
-CEC:
-  _include:
-    - patches/cec/cfgr.yaml
-    - fields/hdmi_cec.yaml
-
 CAN:
   _strip: CAN_
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
+
+CEC:
+  _include:
+    - patches/cec/cfgr.yaml
+    - fields/hdmi_cec.yaml
+
+COMP: {}
 
 CRC:
   _include:
@@ -32,13 +34,17 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 DAC:
   _include:
     - fields/dac/dac_common_2ch.yaml
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -61,7 +67,7 @@ GPIO[A]:
 GPIO[F]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - patches/i2c/merge_OAR1_OA1x_fields.yaml
@@ -98,7 +104,7 @@ RTC:
     #- collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
