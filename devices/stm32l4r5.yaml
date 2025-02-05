@@ -138,16 +138,9 @@ MPU:
 
 LPUART1:
   _strip: LPUART_
-  CR1:
-    _modify:
-      TXFNFIE:
-        name: TXEIE
-      RXFNEIE:
-        name: RXNEIE
   _include:
-    - patches/usart/merge_CR1_DEATx_fields.yaml
-    - patches/usart/merge_CR1_DEDTx_fields.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/lp_wl.yaml
 
 PWR:
   _strip: PWR_
@@ -313,19 +306,11 @@ TSC:
   _include:
     - collect/tsc/iogcr.yaml
 
-USART?:
+USART1:
   _strip: USART_
-  CR1:
-    _modify:
-      TXFNFIE:
-        name: TXEIE
-      RXFNEIE:
-        name: RXNEIE
   _include:
-    - patches/usart/merge_CR1_DEDTx_fields.yaml
-    - patches/usart/merge_CR1_DEATx_fields.yaml
-    - patches/usart/merge_CR2_ABRMODx_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/B.yaml
 
 WWDG:
   _include:

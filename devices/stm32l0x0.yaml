@@ -76,7 +76,7 @@ LPUART1:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - fields/usart/v3/lp_A.yaml
 
 PWR:
   CR:
@@ -166,7 +166,7 @@ TIM2[12]:
 TIM21:
   _include: fields/tim/tim21.yaml
 
-USART*:
+USART2:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -174,7 +174,7 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 WWDG:
   _include:

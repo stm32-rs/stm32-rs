@@ -78,6 +78,11 @@ I2C?:
 IWDG:
   _include: patches/16bit.yaml
 
+LPUART1:
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    # TODO: fields
+
 MDF1:
   _strip: MDF_
   _include:
@@ -167,6 +172,13 @@ TIM16:
     - fields/tim/v3/tim16.yaml
     - fields/tim/v3/occe.yaml
     - collect/tim/ccr.yaml
+
+USART1:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/add_udr.yaml
+    - fields/usart/v4/C.yaml
 
 WWDG:
   _include: patches/16bit.yaml

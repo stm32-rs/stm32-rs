@@ -1,0 +1,18 @@
+CR3:
+  TCBGTIE:
+    Disabled: [0, Interrupt inhibited]
+    Enabled: [1, "USART interrupt generated whenever TCBGT=1 in the USART_ISR register"]
+
+ISR:
+  TCBGT:
+    NotCompleted:
+      [
+        0,
+        Transmission is not complete or transmission is complete unsuccessfully (i.e. a NACK is received from the card),
+      ]
+    Completed:
+      [1, Transmission is complete successfully (before Guard time completion and there is no NACK from the smart card)]
+
+ICR:
+  TCBGTCF:
+    Clear: [1, Clear the TCBGT flag in the ISR register]

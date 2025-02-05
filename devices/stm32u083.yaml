@@ -58,6 +58,13 @@ LCD:
 LPTIM?:
   _strip: LPTIM?_
 
+LPUART1:
+  _strip: LPUART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 PWR:
   _strip: PWR_
 
@@ -129,6 +136,13 @@ TIM16:
 
 TSC:
   _strip: TSC_
+
+USART1:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/B.yaml
 
 USB:
   _strip: USB_

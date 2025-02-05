@@ -259,11 +259,11 @@ TSC:
   _include:
     - collect/tsc/iogcr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 USB:
   _strip: USB_

@@ -75,11 +75,17 @@ RQR:
         resets the ABRF flag in the USART_ISR and request an automatic baud rate measurement on the next received data frame,
       ]
 ISR:
+  LBDF:
+    NotDetected: [0, LIN break not detected]
+    Detected: [1, LIN break detected]
+  RTOF:
+    NotReached: [0, Timeout value not reached]
+    Reached: [1, Timeout value reached without any data reception]
+  EOBF:
+    NotReached: [0, End of Block not reached]
+    Reached: [1, End of Block (number of characters) reached]
   ABRF:
   ABRE:
-  EOBF:
-  RTOF:
-  LBDF:
 ICR:
   EOBCF:
     Clear: [1, Clears the EOBF flag in the ISR register]

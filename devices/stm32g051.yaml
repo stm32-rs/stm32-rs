@@ -59,6 +59,12 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LPUART1:
+  _strip: LPUART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 RCC:
   _include:
     - patches/rcc/g0.yaml
@@ -136,11 +142,10 @@ TIM16:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
-USART?:
+USART1:
   _include:
     - patches/usart/g0_CR1.yaml
-    - fields/usart/usart_v2C.yaml
-    - fields/usart/usart_wl.yaml
+    - fields/usart/v4/B.yaml
 
 WWDG:
   _include:

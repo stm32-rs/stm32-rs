@@ -86,8 +86,13 @@ IWDG:
 LPTIM*:
   _strip: LPTIM_
 
-LPUART*:
+LPUART:
   _strip: LPUART_
+  _include:
+    - patches/usart/dedt0.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/lp_wl.yaml
 
 RCC:
   _include:
@@ -151,11 +156,10 @@ TIM16:
       OC1M_2:
         name: OC1M_3
 
-USART?:
+USART1:
   _include:
     - patches/usart/g0.yaml
-    - fields/usart/usart_v2C.yaml
-    - fields/usart/usart_wl.yaml
+    - fields/usart/v4/B.yaml
 
 VREFBUF:
   _strip: VREFBUF_

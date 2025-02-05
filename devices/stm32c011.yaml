@@ -84,6 +84,12 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+USART1:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/B.yaml
+
 WWDG:
   _include: patches/16bit_with_mask.yaml
 

@@ -62,6 +62,12 @@ IWDG:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+LPUART:
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/merge_CR3_WUS_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 PWR:
   _include:
     - fields/pwr/pwr_h5.yaml
@@ -124,16 +130,12 @@ TIM[67]:
   _include:
     - fields/tim/v3/tim6.yaml
 
-USART?:
+USART1:
   _strip: USART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
-    - fields/usart/usart_v2B.yaml
-    - fields/usart/usart_fifoen.yaml
-    - fields/usart/sync_slave.yaml
-    - fields/usart/smartcard.yaml
-    - fields/usart/prescalar.yaml
+    - fields/usart/v4/B.yaml
 
 USB:
   _include:

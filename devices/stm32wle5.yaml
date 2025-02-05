@@ -196,7 +196,7 @@ LPUART:
       TXFNFIE:
         name: TXEIE
   _include:
-    - fields/usart/lpuart_wl.yaml
+    - fields/usart/v4/lp_wl.yaml
 
 PKA:
   _include:
@@ -281,7 +281,7 @@ TIM1[67]:
     - fields/tim/v2/ccm_common.yaml
     - collect/tim/ccr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -289,8 +289,7 @@ USART*:
     - patches/usart/merge_CR2_ABRMODx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR3_SCARCNT_field.yaml
-    - fields/usart/usart_v2C.yaml
-    - fields/usart/usart_wl.yaml
+    - fields/usart/v4/B.yaml
 
 VREFBUF:
   _include:

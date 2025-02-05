@@ -1,0 +1,7 @@
+ISR:
+  _add:
+    UDR:
+      description: "SPI slave underrun error flag\nIn Slave transmission mode, this flag is set when the first clock pulse for data transmission appears while the software has not yet loaded any value into USART_TDR. This flag is reset by setting UDRCF bit in the USART_ICR register.\nNote: If the USART does not support the SPI slave mode, this bit is reserved and kept at reset value. Refer to ."
+      bitOffset: 13
+      bitWidth: 1
+      access: read-only

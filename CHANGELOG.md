@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* USART: refactor and add missing enums
 * STM32H503: Add missing RNG_NSCR register
 * Refactor timers, add enums
 * STM32H5xx: Add H533 (#1129)

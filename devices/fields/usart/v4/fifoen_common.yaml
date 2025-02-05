@@ -30,7 +30,15 @@ CR3:
     Disabled: [0, Interrupt inhibited]
     Enabled: [1, USART interrupt generated when Transmit FIFO reaches the threshold programmed in TXFTCFG]
 ISR:
-  TXFT:
-  RXFT:
-  RXFF:
   TXFE:
+    NotEmpty: [0, TXFIFO not empty.]
+    Empty: [1, TXFIFO empty.]
+  RXFF:
+    NotFull: [0, RXFIFO not full.]
+    Full: [1, RXFIFO Full.]
+  RXFT:
+    NotReached: [0, Receive FIFO does not reach the programmed threshold.]
+    Reached: [1, Receive FIFO reached the programmed threshold.]
+  TXFT:
+    NotReached: [0, TXFIFO does not reach the programmed threshold.]
+    Reached: [1, TXFIFO reached the programmed threshold.]

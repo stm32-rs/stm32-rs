@@ -173,17 +173,13 @@ TIM10:
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
 
-UART*:
+UART4:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_sample.yaml
-    - fields/usart/uart_uart.yaml
+    - fields/usart/v2/uart.yaml
 
-USART*:
+USART1:
   _include:
-    - fields/usart/uart_common.yaml
-    - fields/usart/uart_sample.yaml
-    - fields/usart/uart_usart.yaml
+    - fields/usart/v2/usart.yaml
 
 WWDG:
   _include:

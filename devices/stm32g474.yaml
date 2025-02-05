@@ -81,6 +81,14 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/lp_wl.yaml
+
 VREFBUF:
   _strip: VREFBUF_
 
@@ -175,7 +183,7 @@ UCPD1:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v1.yaml
 
-USART*:
+"UART4,USART1":
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -183,7 +191,7 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2C.yaml
+    - fields/usart/v4/B.yaml
 
 USB:
   _include:

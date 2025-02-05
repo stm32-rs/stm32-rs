@@ -95,6 +95,11 @@ I2C?:
 IWDG:
   _include: patches/16bit.yaml
 
+LPUART1:
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    # TODO: fields
+
 LTDC:
   _strip: LTDC_
 
@@ -191,6 +196,13 @@ UCPD1:
     - patches/ucpd/rxordseten_split.yaml
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v1.yaml
+
+USART1:
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/add_udr.yaml
+    - fields/usart/v4/C.yaml
 
 WWDG:
   _include: patches/16bit.yaml

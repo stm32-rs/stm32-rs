@@ -121,21 +121,49 @@ RQR:
     Break:
       [1, "sets the SBKF flag and request to send a BREAK on the line, as soon as the transmit machine is available"]
 ISR:
-  TEACK:
-  SBKF:
-  CMF:
-  BUSY:
-  CTS:
-  CTSIF:
-  TXE:
-  TC:
-  RXNE:
-  IDLE:
-  ORE:
-  "NF,NE":
-  FE:
   PE:
+    NoError: [0, No parity error]
+    Error: [1, Parity error]
+  FE:
+    NoError: [0, No Framing error is detected]
+    Error: [1, Framing error or break character is detected]
+  "NE,NF":
+    NoNoise: [0, No noise is detected]
+    Noise: [1, Noise is detected]
+  ORE:
+    NoOverrun: [0, No Overrun error]
+    Overrun: [1, Overrun error is detected]
+  IDLE:
+    NoIdle: [0, No Idle Line is detected]
+    Idle: [1, Idle Line is detected]
+  "RXNE,RXFNE":
+    NoData: [0, Data is not received]
+    DataReady: [1, Received data is ready to be read]
+  TC:
+    TxNotComplete: [0, Transmission is not complete]
+    TxComplete: [1, Transmission is complete]
+  "TXE,TXFNF":
+    Full: [0, Transmit FIFO is full]
+    NotFull: [1, Transmit FIFO is not full]
+  CTSIF:
+    NotChanged: [0, No change occurred on the CTS status line]
+    Changed: [1, A change occurred on the CTS status line]
+  CTS:
+    Set: [0, CTS line set]
+    Reset: [1, CTS line reset]
+  BUSY:
+    Idle: [0, USART is idle (no reception)]
+    Busy: [1, Reception on going]
+  CMF:
+    NoMatch: [0, No Character match detected]
+    Match: [1, Character match detected]
+  SBKF:
+    NoBreak: [0, No break character transmitted]
+    Break: [1, Break character transmitted]
+  TEACK:
 ICR:
+  "*":
+    _W1C: {}
   CMCF:
     Clear: [1, Clears the CMF flag in the ISR register]
   CTSCF:

@@ -193,12 +193,9 @@ USART1:
       USART3_USART4:
         description: USART3 + USART4 interrupt
         value: 29
-
-USART?:
   _include:
     - patches/usart/g0.yaml
-    - fields/usart/usart_v2C.yaml
-    - fields/usart/usart_wl.yaml
+    - fields/usart/v4/B.yaml
 
 WWDG:
   _modify:

@@ -8,6 +8,8 @@ _copy:
 
 _derive:
   TIM4: TIM3
+  USART2: USART1
+  USART3: USART1
 
 ADC_Common:
   _include:
@@ -110,7 +112,7 @@ LPUART1:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
-    - fields/usart/lpuart_v2A.yaml
+    - fields/usart/v3/lp_A.yaml
 
 QUADSPI:
   _include:
@@ -207,7 +209,7 @@ TSC:
   _include:
     - collect/tsc/iogcr.yaml
 
-UART?:
+UART4:
   CR2:
     _delete:
       - ADD0_3
@@ -217,8 +219,17 @@ UART?:
         description: Address of the USART node
         bitOffset: 24
         bitWidth: 8
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/v3/B.yaml
 
-USART*:
+USART1:
+  CR3:
+    _strip_end: _
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -226,7 +237,7 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - fields/usart/v3/B.yaml
 
 WWDG:
   _include:

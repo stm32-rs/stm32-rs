@@ -121,15 +121,10 @@ TIM1[67]:
     - collect/tim/ccr.yaml
 
 USART1:
-  _modify:
-    USART_CR1:
-      name: USART_CR1_enabled
-    USART_CR1_ALTERNATE1:
-      name: USART_CR1_disabled
-    USART_ISR:
-      name: USART_ISR_enabled
-    USART_ISR_ALTERNATE1:
-      name: USART_ISR_disabled
+  _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/B.yaml
 
 USB:
   _strip: USB_

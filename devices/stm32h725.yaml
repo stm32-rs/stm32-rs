@@ -185,6 +185,10 @@ LPTIM?:
   _include:
     - fields/lptim/lptim_v1.yaml
 
+LPUART1:
+  _include:
+    - fields/usart/v4/lp_wl.yaml
+
 LTDC:
   _add:
     _interrupts:
@@ -492,7 +496,7 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
-USART*:
+USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -500,7 +504,8 @@ USART*:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
-    - fields/usart/usart_v2B.yaml
+    - patches/usart/tcbgtc.yaml
+    - fields/usart/v4/B.yaml
 
 WWDG1:
   _include:
