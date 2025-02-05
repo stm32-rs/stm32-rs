@@ -74,18 +74,29 @@ EXTI:
 
 FLASH:
   _include:
-    - patches/flash/latency_4b.yaml
-    - patches/flash/optcr_nwrp.yaml
-    - patches/flash/optcr1_nwrp.yaml
-    - fields/flash/flash_v1.yaml
-    - fields/flash/flash_latency16.yaml
-    - fields/flash/flash_optcr.yaml
-    - fields/flash/flash_optcr_bfb2.yaml
-    - fields/flash/flash_optcr_db1m.yaml
-    - fields/flash/flash_optcr_wdg.yaml
-    - fields/flash/flash_optcr1_nwrp.yaml
-    - collect/flash/optcr_nwrp.yaml
-    - collect/flash/optcr1_nwrp.yaml
+    - patches/flash/acr/latency_16_states.yaml
+    - patches/flash/optcr/nwrp.yaml
+    - patches/flash/optcr1/nwrp.yaml
+    - patches/flash/optkeyr/optkeyr.yaml
+    - patches/flash/sr/rderr.yaml
+    - fields/flash/acr/common_f2_f4.yaml
+    - fields/flash/acr/latency_16_states.yaml
+    - fields/flash/cr/common_f2_f4_f7.yaml
+    - fields/flash/cr/errie.yaml
+    - fields/flash/cr/mer_mer1.yaml
+    - fields/flash/keyr/common.yaml
+    - fields/flash/optcr/bfb2.yaml
+    - fields/flash/optcr/common.yaml
+    - fields/flash/optcr/db1m.yaml
+    - fields/flash/optcr/sprmod.yaml
+    - fields/flash/optcr/wdg.yaml
+    - fields/flash/optcr1/nwrp.yaml
+    - fields/flash/optkeyr/common.yaml
+    - fields/flash/sr/common_f2_f4_f7.yaml
+    - fields/flash/sr/pgserr.yaml
+    - fields/flash/sr/rderr.yaml
+    - collect/flash/optcr/nwrp.yaml
+    - collect/flash/optcr1/nwrp.yaml
 
 # Offset of BWTR3 and BWTR4 is incorrect
 FSMC:

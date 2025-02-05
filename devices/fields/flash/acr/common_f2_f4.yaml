@@ -1,0 +1,16 @@
+ACR:
+  DCRST:
+    NoReset: [0, Data cache is not reset]
+    Reset: [1, Data cache is reset]
+  ICRST:
+    NoReset: [0, Instruction cache is not reset]
+    Reset: [1, Instruction cache is reset]
+  DCEN:
+    Disabled: [0, Data cache is disabled]
+    Enabled: [1, Data cache is enabled]
+  ICEN:
+    Disabled: [0, Instruction cache is disabled]
+    Enabled: [1, Instruction cache is enabled]
+  PRFTEN:
+    Disabled: [0, Prefetch is disabled]
+    Enabled: [1, Prefetch is enabled]

@@ -123,18 +123,23 @@ Ethernet_MAC:
         name: MACA3L
 
 FLASH:
-  OPTKEYR:
-    _modify:
-      OPTKEY:
-        name: OPTKEYR
   _include:
-    - patches/flash/latency.yaml
-    - patches/flash/optcr_nwrp.yaml
-    - fields/flash/flash_v2.yaml
-    - fields/flash/flash_optcr.yaml
-    - fields/flash/flash_optcr_iwdg_wwdg.yaml
-    - fields/flash/flash_optcr1_boot.yaml
-    - collect/flash/optcr_nwrp.yaml
+    - patches/flash/acr/latency_16_states.yaml
+    - patches/flash/optcr/nwrp.yaml
+    - patches/flash/optkeyr/optkeyr.yaml
+    - fields/flash/acr/common_f7.yaml
+    - fields/flash/acr/latency_16_states.yaml
+    - fields/flash/cr/common_f2_f4_f7.yaml
+    - fields/flash/cr/errie.yaml
+    - fields/flash/cr/mer.yaml
+    - fields/flash/keyr/common.yaml
+    - fields/flash/optcr/common.yaml
+    - fields/flash/optcr/iwdg_wwdg.yaml
+    - fields/flash/optcr1/boot.yaml
+    - fields/flash/optkeyr/common.yaml
+    - fields/flash/sr/common_f2_f4_f7.yaml
+    - fields/flash/sr/erserr.yaml
+    - collect/flash/optcr/nwrp.yaml
 
 FMC:
   _include:

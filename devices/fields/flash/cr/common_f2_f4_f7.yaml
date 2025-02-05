@@ -1,0 +1,20 @@
+
+CR:
+  LOCK:
+    Unlocked: [0, FLASH_CR register is unlocked]
+    Locked: [1, FLASH_CR register is locked]
+  EOPIE:
+    Disabled: [0, End of operation interrupt disabled]
+    Enabled: [1, End of operation interrupt enabled]
+  STRT:
+    Start: [1, Trigger an erase operation]
+  PSIZE:
+    PSIZE8: [0, Program x8]
+    PSIZE16: [1, Program x16]
+    PSIZE32: [2, Program x32]
+    PSIZE64: [3, Program x64]
+  SNB: [0, 11] # TODO: this depends on device
+  SER:
+    SectorErase: [1, Erase activated for selected sector]
+  PG:
+    Program: [1, Flash programming activated]
