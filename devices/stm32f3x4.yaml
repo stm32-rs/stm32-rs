@@ -43,19 +43,23 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+COMP: {}
+
 CRC:
   _include:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-DAC?:
+DAC1:
   _include:
     - fields/dac/dac_common_2ch.yaml
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -73,7 +77,7 @@ FLASH:
     - fields/flash/acr/hlfcya.yaml
     - fields/flash/flash_f3_common.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - fields/gpio/v2/f3.yaml
     - collect/gpio/v2.yaml
@@ -83,7 +87,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - patches/i2c/merge_OAR1_OA1x_fields.yaml
@@ -93,6 +97,8 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+OPAMP: {}
 
 PWR:
   _include:
@@ -186,7 +192,7 @@ SPI2:
         name: CRCL
         description: CRC length
 
-SPI?:
+SPI[12]:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

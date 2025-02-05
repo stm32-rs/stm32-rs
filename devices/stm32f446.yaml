@@ -45,7 +45,7 @@ ADC1:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
@@ -67,12 +67,22 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DCMI: {}
+
+DMA2:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/dma_v2.yaml
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+    - collect/exti/farray.yaml
 
 FLASH:
   _include:
@@ -136,13 +146,7 @@ FMPI2C1:
   _include:
     - fields/i2c/v2.yaml
 
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-    - collect/exti/farray.yaml
-
-GPIO?:
+GPIO[ABH]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -152,7 +156,9 @@ GPIO[A]:
 GPIO[BH]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+HDMI_CEC: {}
+
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -165,13 +171,18 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
 
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
+
 OTG_HS_*:
   _strip: OTG_HS_
 
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
+#OTG_HS_DEVICE: {}
+#OTG_HS_GLOBAL: {}
+#OTG_HS_HOST: {}
+#OTG_HS_PWRCLK: {}
 
 PWR:
   CR:
@@ -195,6 +206,11 @@ PWR:
   _include:
     - patches/pwr/f4.yaml
     - fields/pwr/pwr_f446.yaml
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 # Fix misnamed RCC enable bits, add PLLSAI clock
 RCC:
@@ -264,7 +280,7 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
@@ -274,6 +290,19 @@ SDIO:
   _include:
     - fields/sdio/sdio_f4_common.yaml
     - collect/sdio/resp.yaml
+
+SPDIFRX: {}
+
+SPI1:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0390
+      TIFRFE:
+        name: FRE
 
 SYSCFG:
   _include:
@@ -303,17 +332,6 @@ SYSCFG:
   PMC:
     _delete:
       - MII_RMII_SEL
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-    - fields/spi/spi_v1.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0390
-      TIFRFE:
-        name: FRE
 
 TIM1:
   _include:
