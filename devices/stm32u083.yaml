@@ -26,6 +26,9 @@ DAC:
 DBGMCU:
   _strip: DBGMCU_
 
+DMA1:
+  _strip: DMA_
+
 DMAMUX:
   _strip: DMAMUX_
 
@@ -45,6 +48,9 @@ GPIO[A]:
   _include: collect/gpio/gpioa_afr.yaml
 GPIO[BCDEF]:
   _include: collect/gpio/v2r_derive.yaml
+
+I2C1:
+  _strip: I2C_
 
 IWDG:
   _strip: IWDG_
@@ -80,6 +86,9 @@ RTC:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
+
+SPI1:
+  _strip: SPI_
 
 SYSCFG:
   _strip: SYSCFG_

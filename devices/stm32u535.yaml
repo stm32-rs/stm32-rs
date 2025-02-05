@@ -39,6 +39,9 @@ EXTI:
   _include:
     - fields/exti/exti_u5.yaml
 
+FDCAN1_RAM:
+  _strip: FDCAN_
+
 GPDMA?:
   _strip: GPDMA_
   _include:
@@ -64,6 +67,7 @@ GTZC1_TZSC:
   _strip: TZSC_
 
 I2C?:
+  _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 

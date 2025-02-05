@@ -53,6 +53,9 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+DFSDM1:
+  _strip: DFSDM_
+
 DMA2D:
   _include:
     - fields/dma/dma2d_v1.yaml

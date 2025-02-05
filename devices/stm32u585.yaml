@@ -54,6 +54,9 @@ EXTI:
   _include:
     - fields/exti/exti_u5.yaml
 
+FDCAN1_RAM:
+  _strip: FDCAN_
+
 FMC:
   _include:
     - patches/fsmc/fsmc_u5.yaml
@@ -84,6 +87,7 @@ GTZC1_TZSC:
   _strip: TZSC_
 
 I2C?:
+  _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 
@@ -169,7 +173,11 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
+SDMMC1:
+  _strip: SDMMC_
+
 SPI?:
+  _strip: SPI_
   _include: patches/spi/rxtxdr.yaml
 
 TAMP:
