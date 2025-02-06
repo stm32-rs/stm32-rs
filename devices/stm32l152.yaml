@@ -10,6 +10,8 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v1.yaml
 
+COMP: {}
+
 CRC:
   DR:
     # The SVD calls the DR field "Data_register"
@@ -31,11 +33,17 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
+DBGMCU: {}
+
+DMA1: {}
+
 EXTI:
   _include:
     - patches/exti/split.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+Flash: {}
 
 FSMC:
   _include:
@@ -43,7 +51,7 @@ FSMC:
     - fields/fsmc/fsmc_sram.yaml
     - collect/fsmc/sram.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - patches/gpio/with_OSPEEDER.yaml
     - fields/gpio/v2/common.yaml
@@ -54,7 +62,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -72,9 +80,15 @@ LCD:
   _include:
     - patches/lcd/ram_segment_40.yaml
 
+OPAMP: {}
+
 PWR:
   _include:
     - fields/pwr/pwr_v1.yaml
+
+RCC: {}
+
+RI: {}
 
 RTC:
   _include:
@@ -84,10 +98,14 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SPI?:
+SDIO: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+SYSCFG: {}
 
 TIM2:
   _include:
