@@ -29,7 +29,7 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
@@ -48,7 +48,9 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA2:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/dma_v2.yaml
@@ -103,7 +105,7 @@ FMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 
-GPIO?:
+GPIO[ABH]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -113,7 +115,7 @@ GPIO[A]:
 GPIO[BH]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -122,17 +124,27 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
 
 OTG_HS_*:
   _strip: OTG_HS_
 
+#OTG_HS_DEVICE: {}
+#OTG_HS_GLOBAL: {}
+#OTG_HS_HOST: {}
+#OTG_HS_PWRCLK: {}
+
 PWR:
   _include:
     - fields/pwr/pwr_f7.yaml
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 RCC:
   _include:
@@ -153,13 +165,15 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/v1_common.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SPI?:
+SDMMC1: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -235,6 +249,8 @@ USART1:
     - patches/usart/merge_CR2_ABRMODx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - fields/usart/v3/C.yaml
+
+USBPHYC: {}
 
 WWDG:
   _include:
