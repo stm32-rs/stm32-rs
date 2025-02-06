@@ -2,30 +2,94 @@ _svd: ../svd/stm32h7r.svd
 
 _clear_fields: "*"
 
+_derive:
+  LPTIM2: LPTIM1
+  LPTIM3: LPTIM1
+  LPTIM5: LPTIM4
+
+  TIM3: TIM2
+  TIM4: TIM2
+  TIM5: TIM2
+  TIM7: TIM6
+  TIM12: TIM9
+  TIM14: TIM13
+  TIM17: TIM16
+
 _modify:
   FDCAN1:
     groupName: FDCAN
   SPI1:
     groupName: SPI
 
+ADC12_common:
+  _strip: ADC_
+
 ADC1:
   _strip: ADC_
   CFGR:
     _merge: EXTSEL*
 
+ADF:
+  _strip: ADF_
+
+CEC:
+  _strip: CEC_
+
+CORDIC:
+  _strip: CORDIC_
+
+CRC:
+  _strip: CRC_
+
+CRS:
+  _strip: CRS_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DCMIPP:
+  _strip: DCMIPP_
+
+DLYB1:
+  _strip: DLYB_
+
 DMA2D:
+  _strip: DMA2D_
   _include:
     - collect/dma/dma2d_clut.yaml
 
+DTS:
+  _strip: DTS_
+
+ETH:
+  _strip: ETH_
+
+EXTI:
+  _strip: EXTI_
+
+FDCAN1:
+  _strip: FDCAN_
+
+FLASH:
+  _strip: FLASH_
+
+FMC:
+  _strip: FMC_
+
 GFXMMU:
+  _strip: GFXMMU_
   _include:
     - collect/gfxmmu/lut.yaml
 
+GFXTIM:
+  _strip: GFXTIM_
+
 GPDMA:
+  _strip: GPDMA_
   _include:
     - collect/dma/gpdma/h7rs_u5.yaml
 
-GPIO?:
+GPIO[ABC]:
   _strip: GPIO?_
   _include:
     - fields/gpio/v3/common.yaml
@@ -38,19 +102,35 @@ GPIO[BC]:
   _include: collect/gpio/v2r_derive.yaml
 
 HASH:
+  _strip: HASH_
   _include:
     - collect/hash/v3.yaml
 
 HPDMA:
+  _strip: HPDMA_
   _include:
     - collect/dma/hpdma.yaml
 
+I2C1_I3C1:
+  _strip: I2C_
+
+ICACHE:
+  _strip: ICACHE_
+
 IWDG:
+  _strip: IWDG_
   _include: patches/16bit_with_mask.yaml
 
 JPEG:
+  _strip: JPEG_
   _include:
     - collect/jpeg/ram_h7rs.yaml
+
+LPTIM1:
+  _strip: LPTIM1_
+
+LPTIM4:
+  _strip: LPTIM4_
 
 LPUART1:
   _strip: LPUART_
@@ -59,29 +139,69 @@ LPUART1:
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+LTDC:
+  _strip: LTDC_
+
+MDIOS:
+  _strip: MDIOS_
+
+OTG_HS:
+  _strip: OTG_
+
+PSSI:
+  _strip: PSSI_
+
+PWR:
+  _strip: PWR_
+
+RAMCFG:
+  _strip: RAMECC_
+
 RCC:
+  _strip: RCC_
   _include:
+    - patches/rcc/h7+.yaml
     - fields/rcc/v3/h7rs.yaml
 
+RNG:
+  _strip: RNG_
+
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SDMMC?:
+SAI1:
+  _strip: SAI_
+
+SBS:
+  _strip: SBS_
+  _include:
+    - patches/sbs/h7+.yaml
+
+SDMMC1:
   _strip: SDMMC_
   _include:
     - collect/sdmmc/fifo.yaml
+
+SPDIFRX:
+  _strip: SPDIFRX_
+
+SPI1:
+  _strip: SPI_
 
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 
 TAMP:
+  _strip: TAMP_
   _include:
     - collect/tamp/bkp.yaml
 
 TIM1:
+  _strip: TIM1_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
@@ -90,6 +210,7 @@ TIM1:
     - collect/tim/ccr.yaml
 
 TIM2:
+  _strip: TIM2_
   CNT:
     _modify:
       UIFCPY_CNT:
@@ -104,10 +225,12 @@ TIM2:
     - collect/tim/ccr.yaml
 
 TIM6:
+  _strip: TIM6_
   _include:
     - fields/tim/v3/tim6.yaml
 
 TIM9:
+  _strip: TIM9_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/ocm1_bit3.yaml
@@ -115,12 +238,14 @@ TIM9:
     - collect/tim/ccr.yaml
 
 TIM13:
+  _strip: TIM13_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v3/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
+  _strip: TIM15_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/ocm1_bit3.yaml
@@ -128,6 +253,7 @@ TIM15:
     - collect/tim/ccr.yaml
 
 TIM16:
+  _strip: TIM16_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v3/tim16.yaml
@@ -135,6 +261,7 @@ TIM16:
     - collect/tim/ccr.yaml
 
 UCPD:
+  _strip: UCPD_
   _include:
     - patches/ucpd/rxordseten_split.yaml
     - fields/ucpd/ucpd_v1.yaml
@@ -146,8 +273,17 @@ USART1:
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
   _include: patches/16bit_with_mask.yaml
 
+XSPI1:
+  _strip: XSPI_
+
+XSPIM1:
+  _strip: XSPIM_
+
 _include:
-  - patches/h7_common_bootflash.yaml
+  - patches/gpio/h7_mnop.yaml

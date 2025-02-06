@@ -5,6 +5,9 @@ _clear_fields: "*"
 _modify:
   COMP1:
     groupName: COMP
+  Flash:
+    name: FLASH
+    groupName: FLASH
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -19,7 +22,7 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
-ADC*_Common:
+ADC3_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
 ADC3:
@@ -35,6 +38,7 @@ ADC3:
     SQ*: [0, 19]
 
 AXI:
+  _strip: AXI_
   _include:
     - fields/axi/axi_v1.yaml
 
@@ -44,9 +48,13 @@ BDMA:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CAN_CCU: {}
+
 CEC:
   _include:
     - fields/hdmi_cec.yaml
+
+COMP1: {}
 
 CRC:
   _include:
@@ -56,22 +64,32 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
+DAC: {}
+
+DBGMCU: {}
+
+DCMI: {}
+
 DFSDM:
   _include:
     - patches/dfsdm/h743.yaml
     - collect/dfsdm/v1.yaml
 
-DMA2D:
-  _include:
-    - patches/dma/dma2d_v2.yaml
-    - fields/dma/dma2d_v2.yaml
+DELAY_Block_SDMMC1: {}
 
-DMA?:
+DMA1:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/h7_dmacr.yaml
     - fields/dma/dma_v3.yaml
     - collect/dma/st.yaml
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
 
 DMAMUX1:
   _strip: DMAMUX_
@@ -88,16 +106,35 @@ DMAMUX2:
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
+Ethernet_DMA: {}
+
+Ethernet_MAC:
+  _include:
+    - patches/ethernet/mac_lpiet_3.yaml
+
+Ethernet_MTL: {}
+
 EXTI:
   _include:
     - patches/exti/h7_singlecore.yaml
     - fields/exti/exti_h7.yaml
 
-FDCAN?:
+FDCAN1:
+  _strip: FDCAN_
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
 FLASH:
+  _modify:
+    PRAR_PRG2:
+      addressOffset: 0x12C
+      alternateRegister: ""
+    KEYR[12]:
+      access: write-only
+    OPTKEYR:
+      access: write-only
+    BOOT_PRGR:
+      access: read-write
   CR1:
     _add:
       # CR2 only. Needed for clusterization
@@ -120,7 +157,7 @@ FMC:
 GPIOA:
   _strip: GPIOA_
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - patches/gpio/add_r_suffix.yaml
     - fields/gpio/v2/common.yaml
@@ -132,10 +169,11 @@ GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
+  _strip: HSEM_
   _include:
     - collect/hsem/r.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - fields/i2c/v2.yaml
@@ -145,7 +183,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM?:
+JPEG: {}
+
+LPTIM[13]:
   _include:
     - fields/lptim/lptim_v1.yaml
 
@@ -159,12 +199,20 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+MDIOS: {}
+
 MDMA:
+  _strip: MDMA_
   _include:
     - collect/dma/mdma.yaml
 
-OTG?_HS_*:
+OPAMP: {}
+
+OTG1_HS_*:
   _strip: OTG_HS_
+
+OTG1_HS_DEVICE:
+  _include: patches/usb_otg/hsdevice.yaml
 
 OTG1_HS_GLOBAL:
   _include: patches/usb_otg/hsglobal.yaml
@@ -172,13 +220,18 @@ OTG1_HS_GLOBAL:
 OTG1_HS_HOST:
   _include: patches/usb_otg/hshost_address_12_15.yaml
 
-OTG1_HS_DEVICE:
-  _include: patches/usb_otg/hsdevice.yaml
+OTG1_HS_PWRCLK: {}
+
+PWR: {}
 
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
+
+RAMECC[123]:
+  _include:
+    - patches/ramecc/ramecc.yaml
 
 RCC:
   _include:
@@ -194,6 +247,7 @@ RNG:
     - fields/rng/rng_v1_ced.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/rtc_common.yaml
@@ -201,7 +255,7 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI4:
   _strip: SAI_
   _include:
     - patches/sai/h7.yaml
@@ -209,13 +263,19 @@ SAI?:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SDMMC1: {}
+
+SPDIFRX: {}
+
+SPI1:
   _include:
     - patches/spi/rxtxdr.yaml
     - patches/spi/h7.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+SWPMI: {}
 
 SYSCFG:
   _include:
@@ -306,19 +366,19 @@ USART1:
     - patches/usart/tcbgtc.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF: {}
+
 WWDG:
   _include:
     - patches/wwdg/h7.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/h7_common_singlecore.yaml
   - patches/ethernet/h7_desc.yaml
   - patches/dbgmcu/h7.yaml
   - patches/ethernet/h7_dma_mr.yaml
   - patches/h7_spdifrx.yaml
   - collect/usb_otg/hs.yaml
-  - patches/ramecc/ramecc.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml

@@ -1,0 +1,24 @@
+WKUPCR:
+  _delete:
+    - WKUPC
+  _add:
+    WKUPC1:
+      description: Clear Wakeup pin flag for WKUPC1
+      bitWidth: 1
+      bitOffset: 0
+    WKUPC2:
+      description: Clear Wakeup pin flag for WKUPC2
+      bitWidth: 1
+      bitOffset: 1
+    WKUPC4:
+      description: Clear Wakeup pin flag for WKUPC4
+      bitWidth: 1
+      bitOffset: 3
+    WKUPC6:
+      description: Clear Wakeup pin flag for WKUPC6
+      bitWidth: 1
+      bitOffset: 5
+WKUPFR:
+  _delete:
+    - WKUPF3
+    - WKUPF5

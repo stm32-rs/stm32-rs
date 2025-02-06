@@ -27,7 +27,7 @@ _modify:
   OctoSPII_O_Manager:
     groupName: OctoSPII_O_Manager
 
-ADC*_Common:
+ADC12_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
 ADC[12]:
@@ -44,16 +44,21 @@ ADC[12]:
     SQ*: [0, 19]
 
 AXI:
+  _strip: AXI_
   _include:
     - fields/axi/axi_v1.yaml
 
-BDMA?:
+BDMA1:
+  _strip: BDMA_
   _include:
     - patches/dma/bdma_v2.yaml
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CAN_CCU: {}
+
 CEC:
+  _strip: CEC_
   _include:
     - fields/hdmi_cec.yaml
 
@@ -68,22 +73,35 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-DFSDM*:
+CRS:
+  _strip: CRS_
+
+DAC1:
+  _strip: DAC_
+
+DBGMCU: {}
+
+DCMI: {}
+
+DFSDM1:
   _strip: DFSDM_
   _include:
     - collect/dfsdm/v1.yaml
 
-DMA2D:
-  _include:
-    - patches/dma/dma2d_v2.yaml
-    - fields/dma/dma2d_v2.yaml
+DELAY_Block_SDMMC1: {}
 
-DMA?:
+DMA1:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/h7_dmacr.yaml
     - fields/dma/dma_v3.yaml
     - collect/dma/st.yaml
+
+DMA2D:
+  _strip: DMA2D_
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
 
 DMAMUX1:
   _strip: DMAMUX?_
@@ -102,11 +120,15 @@ DMAMUX2:
     - collect/dma/h7_dmamux.yaml
 
 EXTI:
+  _delete:
+    _interrupts:
+      - ECC
   _include:
     - patches/exti/h7_singlecore.yaml
     - fields/exti/exti_h7.yaml
 
-FDCAN?:
+FDCAN[12]:
+  _strip: FDCAN_
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
@@ -134,10 +156,11 @@ FLASH:
     - collect/flash/bank.yaml
 
 FMC:
+  _strip: FMC_
   _include:
     - collect/fsmc/sdram.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - patches/gpio/add_r_suffix.yaml
     - fields/gpio/v2/common.yaml
@@ -149,20 +172,26 @@ GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
+  _strip: HSEM_
   _include:
     - collect/hsem/r.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - fields/i2c/v2.yaml
 
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM?:
+JPEG:
+  _strip: JPEG_
+
+LPTIM[13]:
+  _strip: LPTIM_
   _include:
     - fields/lptim/lptim_v1.yaml
 
@@ -176,16 +205,44 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+MDIOS:
+  _strip: MDIOS_
+
 MDMA:
+  _strip: MDMA_
   _include:
     - collect/dma/mdma.yaml
 
-OCTOSPI?:
+OCTOSPI2:
   _include:
     - patches/octospi/h7.yaml
 
+OctoSPII_O_Manager: {}
+
+OPAMP: {}
+
+OTG1_HS_*:
+  _strip: OTG_HS_
+
+OTG1_HS_DEVICE: {}
+OTG1_HS_GLOBAL: {}
+OTG1_HS_HOST: {}
+OTG1_HS_PWRCLK: {}
+
 PSSI:
   _strip: PSSI_
+
+PWR:
+  _strip: PWR_
+  _delete:
+    _interrupts: WWDG1_RST # Doesn't exist at all on these parts
+
+RAMECC:
+  _add:
+    _interrupts:
+      RAMECC:
+        description: ECC diagnostic global interrupt
+        value: 145
 
 RCC:
   _strip:
@@ -196,25 +253,25 @@ RCC:
     - fields/rcc/v3/h7_revision_v.yaml
 
 RNG:
+  _strip: RNG_
   _include:
     - fields/rng/rng_v1.yaml
     - fields/rng/rng_v1_ced.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
 SAI1:
+  _strip: SAI_
   _add:
     _interrupts:
       SAI1:
         description: SAI1 global interrupt
         value: 87
-
-SAI?:
-  _strip: SAI_
   _include:
     - patches/sai/h7.yaml
     - patches/sai/h7_mcken.yaml
@@ -222,13 +279,22 @@ SAI?:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SDMMC1:
+  _strip: SDMMC_
+
+SPDIFRX: {}
+
+SPI1:
   _include:
     - patches/spi/rxtxdr.yaml
     - patches/spi/h7_2.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+SWPMI: {}
+
+SYSCFG: {}
 
 TAMP:
   _strip: TAMP_
@@ -322,7 +388,11 @@ USART1:
     - patches/usart/tcbgtc.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/wwdg/h7.yaml
     - fields/wwdg/wwdg_v2.yaml

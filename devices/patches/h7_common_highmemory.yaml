@@ -20,9 +20,6 @@ ADC1:
     _interrupts:
       - ADC3
 
-AXI:
-  _strip: AXI_
-
 # Work around the DMA_STR? interrupt mess in the SVD.
 # Some interrupts are on DMA2 instead on DMA1 and/or called DMA_STR? without
 # the numeral.
@@ -127,74 +124,3 @@ HRTIM_Common:
 HRTIM_TIMA:
   _delete:
     _interrupts: DMA2_*
-
-BDMA?:
-  _strip: BDMA_
-
-CEC:
-  _strip: CEC_
-
-CRS:
-  _strip: CRS_
-
-DAC1:
-  _strip: DAC_
-
-DMA2D:
-  _strip: DMA2D_
-
-FMC:
-  _strip: FMC_
-
-JPEG:
-  _strip: JPEG_
-
-HSEM:
-  _strip: HSEM_
-
-MDMA:
-  _strip: MDMA_
-
-LPTIM?:
-  _strip: LPTIM_
-
-MDIOS:
-  _strip: MDIOS_
-
-PWR:
-  _strip: PWR_
-  _delete:
-    _interrupts: WWDG1_RST # Doesn't exist at all on these parts
-
-RAMECC:
-  _add:
-    _interrupts:
-      RAMECC:
-        description: ECC diagnostic global interrupt
-        value: 145
-
-RTC:
-  _strip: RTC_
-
-RNG:
-  _strip: RNG_
-
-I2C3:
-  _strip: I2C_
-
-SDMMC?:
-  _strip: SDMMC_
-
-VREFBUF:
-  _strip: VREFBUF_
-
-OTG?_HS_*:
-  _strip: OTG_HS_
-
-FDCAN?:
-  _strip: FDCAN_
-
-WWDG:
-  _strip: WWDG_
-IWDG:
-  _strip: IWDG_

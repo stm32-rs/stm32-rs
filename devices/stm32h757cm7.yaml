@@ -1,8 +1,13 @@
 _svd: ../svd/stm32h757cm7.svd
 
+_delete:
+  - RAMECC? # RAMECC definitions are so terrible
+
 _modify:
   COMP1:
     groupName: COMP
+  Flash:
+    name: FLASH
 
 # TIM3, TIM4, TIM12, TIM13, TIM14 are 16-bit, whilst TIM2 is 32-bit
 _copy:
@@ -17,7 +22,7 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
 
-ADC*_Common:
+ADC3_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
 ADC3:
@@ -33,7 +38,10 @@ ADC3:
   SQR?:
     SQ*: [0, 19]
 
+ART: {}
+
 AXI:
+  _strip: AXI_
   _include:
     - fields/axi/axi_v1.yaml
 
@@ -43,9 +51,14 @@ BDMA:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CAN_CCU: {}
+
 CEC:
+  _strip: CEC_
   _include:
     - fields/hdmi_cec.yaml
+
+COMP1: {}
 
 CRC:
   _include:
@@ -55,27 +68,40 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS:
+  _strip: CRS_
+
 # Applies to the H745/H747/H755/H757
 # CRYP and HASH are unavailable on the H745/H747
 CRYP:
   _include: patches/cryp/merge_fields.yaml
+
+DAC:
+  _strip: DAC_
+
+DBGMCU: {}
+
+DCMI: {}
 
 DFSDM:
   _include:
     - patches/dfsdm/h735_747_753.yaml
     - collect/dfsdm/v1.yaml
 
-DMA2D:
-  _include:
-    - patches/dma/dma2d_v2.yaml
-    - fields/dma/dma2d_v2.yaml
+DELAY_Block_SDMMC1: {}
 
-DMA?:
+DMA1:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/h7_dmacr.yaml
     - fields/dma/dma_v3.yaml
     - collect/dma/st.yaml
+
+DMA2D:
+  _strip: DMA2D_
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
 
 DMAMUX1:
   _strip: DMAMUX?_
@@ -99,12 +125,27 @@ DSIHOST:
     - patches/dsi/h7-desc.yaml
     - collect/dsi/isr.yaml
 
+Ethernet_DMA:
+  DMASBMR:
+    _modify:
+      RB:
+        access: read-write
+      MB:
+        access: read-write
+
+Ethernet_MAC:
+  _include:
+    - patches/ethernet/mac_lpiet_3.yaml
+
+Ethernet_MTL: {}
+
 EXTI:
   _include:
     - patches/exti/h7_dualcore.yaml
     - fields/exti/exti_h7.yaml
 
-FDCAN?:
+FDCAN1:
+  _strip: FDCAN_
   _include:
     - patches/fdcan/fdcan_h7.yaml
 
@@ -114,10 +155,11 @@ FLASH:
     - collect/flash/bank.yaml
 
 FMC:
+  _strip: FMC_
   _include:
     - collect/fsmc/sdram.yaml
 
-GPIO?:
+GPIO[ABC]:
   _strip: GPIO_
   _include:
     - patches/gpio/add_r_suffix.yaml
@@ -134,21 +176,28 @@ HASH:
     - collect/hash/v2.yaml
 
 HSEM:
+  _strip: HSEM_
   _include:
     - patches/hsem/h7_dual.yaml
     - collect/hsem/r.yaml
 
-I2C?:
+I2C1:
+  _strip: I2C_
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - fields/i2c/v2.yaml
 
 IWDG1:
+  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM?:
+JPEG:
+  _strip: JPEG_
+
+LPTIM[13]:
+  _strip: LPTIM_
   _include:
     - fields/lptim/lptim_v1.yaml
 
@@ -162,9 +211,29 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+MDIOS:
+  _strip: MDIOS_
+
 MDMA:
+  _strip: MDMA_
   _include:
     - collect/dma/mdma.yaml
+
+OPAMP: {}
+
+OTG1_HS_*:
+  _strip: OTG_HS_
+
+OTG1_HS_DEVICE: {}
+OTG1_HS_GLOBAL: {}
+OTG1_HS_HOST: {}
+OTG1_HS_PWRCLK: {}
+
+PWR:
+  _strip: PWR_
+  _include:
+    - patches/pwr/add_step_down.yaml
+    - patches/pwr/h7_dual.yaml
 
 QUADSPI:
   _strip: QUADSPI_
@@ -172,9 +241,7 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-PWR:
-  _include:
-    - patches/pwr/h7_dual.yaml
+RAMECC[13]: {}
 
 RCC:
   _delete:
@@ -201,11 +268,13 @@ RCC:
     - fields/rcc/v3/h7_revision_v.yaml
 
 RNG:
+  _strip: RNG_
   _include:
     - fields/rng/rng_v1.yaml
     - fields/rng/rng_v1_ced.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/rtc_common.yaml
@@ -215,8 +284,6 @@ RTC:
 
 SAI4:
   _strip: SAI_
-
-SAI?:
   _include:
     - patches/sai/h7.yaml
     - patches/sai/h7_mcken.yaml
@@ -224,13 +291,17 @@ SAI?:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SDMMC1: {}
+
+SPI1:
   _include:
     - patches/spi/rxtxdr.yaml
     - patches/spi/h7_2.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
+
+SWPMI: {}
 
 SYSCFG:
   _include:
@@ -307,13 +378,16 @@ USART1:
     - patches/usart/tcbgtc.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF: {}
+
 WWDG1:
+  _strip: WWDG_
   _include:
     - patches/wwdg/h7.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/h7_common_dualcore.yaml
+  - patches/h743_hrtim_common.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - patches/flash/h7_dualcore.yaml
   - patches/h7_spdifrx.yaml
