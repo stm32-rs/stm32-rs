@@ -8,6 +8,8 @@ _delete:
 _modify:
   Flash:
     name: FLASH
+  Firewall:
+    name: FW
 
 ADC:
   _include:
@@ -30,7 +32,11 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
-DMA?:
+DBG:
+  _include:
+    - fields/dbg/dbg_l0.yaml
+
+DMA1:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
     - collect/dma/v1.yaml
@@ -44,10 +50,11 @@ FLASH:
     - fields/flash/flash_l0.yaml
 
 FW:
+  _strip: FIREWALL_
   _include:
     - fields/fw/fw_l0_l4.yaml
 
-GPIO?:
+GPIO[AB]:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
     - collect/gpio/v2r.yaml
@@ -57,7 +64,7 @@ GPIO[A]:
 GPIO[B]:
   _include: collect/gpio/v2r_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -79,6 +86,8 @@ LPUART1:
     - fields/usart/v3/lp_A.yaml
 
 PWR:
+  _include:
+    - fields/pwr/pwr_l0.yaml
   CR:
     # LPDS only exists in the L0x0 family
     LPDS:
@@ -126,7 +135,7 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -182,9 +191,6 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - patches/firewall/l0.yaml
   - patches/nvic/l0_prio_bits.yaml
-  - fields/dbg/dbg_l0.yaml
   - fields/nvic/nvic_v1.yaml
-  - fields/pwr/pwr_l0.yaml
   - patches/tim/group.yaml
