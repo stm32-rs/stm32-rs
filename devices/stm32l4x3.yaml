@@ -12,9 +12,10 @@ _modify:
 ADC_Common:
   _include:
     - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common.yaml
     - fields/adc/adc_v3_common_l4+.yaml
 
-ADC*_*:
+ADC123_Common:
   _include: fields/adc/adc_v3_common.yaml
 
 ADC1:
@@ -42,6 +43,8 @@ CAN1:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+COMP: {}
+
 CRC:
   _include:
     - patches/crc/crc_rename_init.yaml
@@ -50,11 +53,15 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 DAC:
   _include:
     - fields/dac/dac_l4xx.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
     - collect/dma/v1.yaml
@@ -72,7 +79,7 @@ FLASH:
   _include:
     - patches/flash/flash_boot0s.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - patches/gpio/l4_brr.yaml
     - fields/gpio/v2/common.yaml
@@ -83,7 +90,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -97,6 +104,8 @@ LCD:
   _include:
     - patches/lcd/ram_segment_40.yaml
 
+LPTIM1: {}
+
 LPUART1:
   _include:
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -104,6 +113,10 @@ LPUART1:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v3/lp_A.yaml
+
+OPAMP: {}
+
+PWR: {}
 
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
 RCC:
@@ -140,6 +153,8 @@ RCC:
     - fields/rcc/rcc_l4.yaml
     - fields/rcc/rcc_l4_usart2_3.yaml
 
+RNG: {}
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -148,18 +163,24 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SPI?:
+SDMMC: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
     - fields/spi/spi_common.yaml
+
+SWPMI1: {}
+
+SYSCFG: {}
 
 TIM1:
   _include:
@@ -272,6 +293,8 @@ USB:
           description: DP pull-up control
           bitOffset: 15
           bitWidth: 1
+
+VREFBUF: {}
 
 WWDG:
   _include:

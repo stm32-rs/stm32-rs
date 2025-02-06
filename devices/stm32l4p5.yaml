@@ -8,8 +8,6 @@ _modify:
   # The SVD calls ADC1 ADC.
   ADC:
     name: ADC1
-  LTCD:
-    groupName: LTCD
 
 _delete:
   - SWPMI1
@@ -42,11 +40,13 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
+
+COMP: {}
 
 CRC:
   INIT:
@@ -58,10 +58,14 @@ CRC:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 DAC:
   _include:
     - patches/dac/dac_l4+.yaml
     - fields/dac/dac_l4+.yaml
+
+DBGMCU: {}
 
 DCMI:
   _include:
@@ -79,14 +83,14 @@ DFSDM1:
     - fields/dfsdm/dfsdm.yaml
     - collect/dfsdm/v1.yaml
 
-DMA2D:
-  _include:
-    - patches/dma/dma2d_l4+.yaml
-
-DMA?:
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_l4+.yaml
 
 DMAMUX:
   _include:
@@ -97,6 +101,8 @@ EXTI:
   _include:
     - patches/exti/l4+.yaml
     - fields/exti/common.yaml
+
+FIREWALL: {}
 
 FLASH:
   ACR:
@@ -112,7 +118,7 @@ FMC:
     - patches/fsmc/fsmc_l4+.yaml
     - patches/fsmc/fsmc_nand.yaml
 
-GPIO?:
+GPIO[ABCI]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -126,14 +132,14 @@ HASH:
   _include:
     - patches/hash/hash_l4+.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
 IWDG:
   _include: patches/16bit.yaml
 
-LPTIM?:
+LPTIM1:
   _add:
     OR:
       description: ??
@@ -173,11 +179,6 @@ LTDC:
 MPU:
   _strip: MPU_
 
-PWR:
-  _strip: PWR_
-  _include:
-    - fields/pwr/pwr_l4+.yaml
-
 OCTOSPI1:
   DCR1:
     _modify:
@@ -186,6 +187,25 @@ OCTOSPI1:
   _include:
     - patches/octospi/l4+.yaml
     - fields/octospi/l4.yaml
+
+OCTOSPIM: {}
+
+OPAMP: {}
+
+#OTG_FS_DEVICE: {}
+
+#OTG_FS_GLOBAL: {}
+
+#OTG_FS_HOST: {}
+
+#OTG_FS_PWRCLK: {}
+
+PSSI: {}
+
+PWR:
+  _strip: PWR_
+  _include:
+    - fields/pwr/pwr_l4+.yaml
 
 RCC:
   CFGR:
@@ -212,14 +232,16 @@ RTC:
     - fields/rtc/v3.yaml
   #  - collect/rtc/alarm.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_l4+.yaml
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SPI?:
+SDMMC[12]: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -342,6 +364,8 @@ USART1:
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/B.yaml
+
+VREFBUF: {}
 
 WWDG:
   _include:

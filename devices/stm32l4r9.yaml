@@ -39,11 +39,13 @@ AES:
     - patches/aes/l4+.yaml
     - fields/aes/v2.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
+
+COMP: {}
 
 CRC:
   _include:
@@ -53,17 +55,25 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
+DAC: {}
+
+DBGMCU: {}
+
+DCMI: {}
+
 DFSDM1:
   _strip: DFSDM_
+
+DMA1:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 DMA2D:
   _include:
     - fields/dma/dma2d_v1.yaml
-
-DMA?:
-  _include:
-    - fields/dma/v1.yaml
-    - collect/dma/v1.yaml
 
 DMAMUX1:
   _include:
@@ -90,11 +100,13 @@ FLASH:
   _include:
     - patches/flash/flash_boot0s.yaml
 
+FMC: {}
+
 GFXMMU:
   _include:
     - collect/gfxmmu/lut.yaml
 
-GPIO?:
+GPIO[ABCI]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -108,7 +120,7 @@ HASH:
   _include:
     - collect/hash/v2.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -120,11 +132,26 @@ IWDG:
 MPU:
   _strip: MPU_
 
+LPTIM1: {}
+
 LPUART1:
   _strip: LPUART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/lp_wl.yaml
+
+LTDC: {}
+
+OCTOSPI1: {}
+
+OCTOSPIM: {}
+
+OPAMP: {}
+
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
 
 PWR:
   _strip: PWR_
@@ -139,6 +166,8 @@ RCC:
   _include:
     - fields/rcc/rcc_l4.yaml
 
+RNG: {}
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -147,16 +176,22 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SPI?:
+SDMMC1: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+SWPMI1: {}
+
+SYSCFG: {}
 
 TIM?:
   _strip: TIM?_
@@ -253,6 +288,8 @@ USART1:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF: {}
+
 WWDG:
   _include:
     - patches/16bit.yaml
@@ -262,6 +299,7 @@ _include:
   #- patches/usart/rename_CR2_DATAINV_field.yaml
   #- patches/usart/rename_LPUART_CR2_DATAINV_field.yaml
   #- patches/usart/merge_BRR_fields.yaml
+  - patches/ltdc/rename.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/usb_otg/fs_remove_prefix.yaml

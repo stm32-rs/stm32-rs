@@ -33,11 +33,13 @@ _modify:
 ADC_Common:
   _include:
     - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common.yaml
     - fields/adc/adc_v3_common_l4+.yaml
 
-ADC*_*:
+ADC12_Common:
   _strip: ADC_
-  _include: fields/adc/adc_v3_common.yaml
+  _include:
+    - fields/adc/adc_v3_common.yaml
 
 ADC1:
   _strip: ADC_
@@ -58,6 +60,8 @@ ADC1:
   SQR?:
     SQ*: [0, 18]
 
+COMP: {}
+
 CRC:
   _include:
     - patches/crc/crc_rename_init.yaml
@@ -66,7 +70,11 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
-DMA?:
+CRS: {}
+
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
     - collect/dma/v1.yaml
@@ -80,7 +88,9 @@ FIREWALL:
   _include:
     - fields/fw/fw_l0_l4.yaml
 
-GPIO?:
+FLASH: {}
+
+GPIO[ABCH]:
   BRR:
     _add:
       BR:
@@ -98,12 +108,14 @@ GPIO[A]:
 GPIO[BCH]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
 IWDG:
   _include: patches/16bit.yaml
+
+LPTIM1: {}
 
 LPUART1:
   _include:
@@ -112,6 +124,10 @@ LPUART1:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v3/lp_A.yaml
+
+OPAMP: {}
+
+PWR: {}
 
 QUADSPI:
   _include:
@@ -157,18 +173,22 @@ RCC:
   _include:
     - fields/rcc/rcc_l4.yaml
 
+RNG: {}
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
     - fields/spi/spi_common.yaml
+
+SYSCFG: {}
 
 TIM1:
   _include:
