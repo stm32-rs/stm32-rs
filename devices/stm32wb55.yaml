@@ -36,10 +36,22 @@ ADC1:
   SQR?:
     SQ*: [0, 18]
 
-AES?:
+ADC_Common: {}
+
+AES[12]:
   _include:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
+
+COMP: {}
+
+CRC: {}
+
+CRS: {}
+
+DBGMCU: {}
+
+DMA[12]: {}
 
 DMAMUX1:
   _include:
@@ -95,7 +107,9 @@ EXTI:
   C2IMR2:
     _split: IM
 
-GPIO?:
+Flash: {}
+
+GPIO[ABCEH]:
   _include:
     - fields/gpio/v2/common.yaml
 
@@ -115,14 +129,14 @@ HSEM:
   _include:
     - collect/hsem/r.yaml
 
+I2C1:
+  _include:
+    - fields/i2c/v2.yaml
+
 IPCC:
   _modify:
     C1TO2SR:
       name: C1TOC2SR
-
-I2C?:
-  _include:
-    - fields/i2c/v2.yaml
 
 IWDG:
   _include: patches/16bit.yaml
@@ -131,6 +145,12 @@ LCD:
   _delete: RAM_COM*
   _include:
     - patches/lcd/ram_segment_40.yaml
+
+LPTIM1: {}
+
+PKA: {}
+
+PWR: {}
 
 QUADSPI:
   _include:
@@ -141,6 +161,8 @@ RCC:
   _include:
     - fields/rcc/rcc_wb.yaml
     - fields/rcc/rcc_wx_c2.yaml
+
+RNG: {}
 
 RTC:
   _include:
@@ -159,7 +181,7 @@ SAI1:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -222,6 +244,8 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC: {}
+
 USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -230,6 +254,8 @@ USART1:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/B.yaml
+
+USB: {}
 
 WWDG:
   _include: patches/16bit.yaml

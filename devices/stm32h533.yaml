@@ -113,8 +113,9 @@ FDCAN1:
   _strip: FDCAN_
 
 FLASH:
-  _strip: FLASH_
-   # - collect/flash/secbbr.yaml
+  _strip:
+    FLASH_
+    # - collect/flash/secbbr.yaml
 
 FMC:
   _strip: FMC_

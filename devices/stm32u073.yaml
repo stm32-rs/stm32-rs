@@ -11,6 +11,8 @@ _modify:
 ADC:
   _strip: ADC_
 
+COMP1: {}
+
 CRC:
   _strip: CRC_
 
@@ -35,7 +37,7 @@ EXTI:
 FLASH:
   _strip: FLASH_
 
-GPIO?:
+GPIO[ABCDEF]:
   _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
@@ -58,7 +60,7 @@ LCD:
   _include:
     - patches/lcd/ram_segment_48.yaml
 
-LPTIM?:
+LPTIM[123]:
   _strip: LPTIM?_
 
 LPUART1:
@@ -67,6 +69,8 @@ LPUART1:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/lp_wl.yaml
+
+OPAMP: {}
 
 PWR:
   _strip: PWR_

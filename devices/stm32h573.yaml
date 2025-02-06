@@ -67,8 +67,9 @@ EXTI:
     - fields/exti/exti_priv.yaml
 
 FDCAN1:
-  _strip: FDCAN_
-   # - collect/flash/secbbr.yaml
+  _strip:
+    FDCAN_
+    # - collect/flash/secbbr.yaml
 
 FLASH:
   _strip: FLASH_
