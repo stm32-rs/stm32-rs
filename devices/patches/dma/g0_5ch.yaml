@@ -3,20 +3,11 @@
 
 ISR:
   _delete:
-    - "GIF[67]"
-    - "TCIF[67]"
-    - "HTIF[67]"
-    - "TEIF[67]"
+    - "*[67]"
 IFCR:
   _delete:
-    - "CGIF[67]"
-    - "CTCIF[67]"
-    - "CHTIF[67]"
-    - "CTEIF[67]"
+    - "*[67]"
 
 _delete:
   _registers:
-    - "CCR[67]"
-    - "CNDTR[67]"
-    - "CPAR[67]"
-    - "CMAR[67]"
+    - "*[67]"

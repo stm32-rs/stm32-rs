@@ -13,6 +13,7 @@ _copy:
     baseAddress: 0x40000400
 
 ADC:
+  _strip: ADC_
   _include:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
@@ -28,13 +29,25 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
-DMA?:
+COMP: {}
+
+CRC:
+  _strip: CRC_
+
+DAC:
+  _strip: DAC_
+
+DBG:
+  _strip: DBG_
+
+DMA1:
   _strip: DMA_
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
 
 DMAMUX:
+  _strip: DMAMUX_
   _include:
     - collect/dma/dmamux.yaml
 
@@ -47,7 +60,7 @@ FLASH:
   _include:
     - patches/flash/g0.yaml
 
-GPIO?:
+GPIO[AB]:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
     - collect/gpio/v2.yaml
@@ -57,16 +70,24 @@ GPIO[A]:
 GPIO[B]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
+  _strip: I2C_
   _include:
     - patches/i2c/g0.yaml
     - fields/i2c/v2.yaml
 
 IWDG:
+  _strip: IWDG_
   _modify:
     "KR,PR,RLR,SR,WINR":
       size: 16
   _include: fields/iwdg/iwdg_with_WINR.yaml
+
+HDMI_CEC:
+  _strip: CEC_
+
+LPTIM1:
+  _strip: LPTIM_
 
 LPUART:
   _strip: LPUART_
@@ -76,6 +97,8 @@ LPUART:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+PWR: {}
+
 RCC:
   _include:
     - patches/rcc/g0.yaml
@@ -84,13 +107,16 @@ RCC:
     - fields/rcc/rcc_g0x1_aes.yaml
     - fields/rcc/rcc_g0x1_cec.yaml
 
+RNG: {}
+
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SPI1:
   _strip: SPI_
   _include:
     - patches/spi/dr8.yaml
@@ -104,10 +130,12 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart4.yaml
 
 TAMP:
+  _strip: TAMP_
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
+  _strip: TIM1_
   _include:
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -157,7 +185,7 @@ TIM16:
       OC1M_2:
         name: OC1M_3
 
-UCPD?:
+UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
     - patches/ucpd/cfgr_missing_r.yaml
@@ -169,14 +197,17 @@ USART1:
     - patches/usart/g0.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
+  _strip: WWDG_
   _modify:
     "CR,CFR,SR":
       size: 16
   _include: fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/g0x1_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
   - patches/tim/group.yaml
