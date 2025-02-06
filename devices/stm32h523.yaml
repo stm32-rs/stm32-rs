@@ -1,5 +1,7 @@
 _svd: ../svd/stm32h523.svd
 
+_clear_fields: "*"
+
 _modify:
   size: 0x20
   GPIO?:
@@ -47,7 +49,7 @@ _modify:
   USART_S:
     name: USART1_S
 
-ADC[12]:
+ADC1:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -63,21 +65,54 @@ ADCC:
   _strip: ADC_
 
 CRC:
+  _strip: CRC_
   _include:
     - patches/crc/crc_rename_init.yaml
     - fields/crc/crc_advanced.yaml
     # - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-EXTI:
+CRS:
+  _strip: CRS_
   _include:
+    - fields/crs/crs.yaml
+
+DAC:
+  _strip: DAC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DCACHE:
+  _strip: DCACHE_
+
+DCMI:
+  _strip: DCMI_
+
+DLYBOS1:
+  _strip: DLYB_
+
+DTS:
+  _strip: DTS_
+
+EXTI:
+  _strip: EXTI_
+  _include:
+    - patches/exti/exti4_5.yaml
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
 FDCAN1:
   _strip: FDCAN_
 
-GPDMA?:
+FLASH:
+  _strip: FLASH_
+  # - collect/flash/secbbr.yaml
+
+FMC:
+  _strip: FMC_
+
+GPDMA1:
   _strip: GPDMA_
   _include:
     - fields/dma/gpdma/h5.yaml
@@ -86,7 +121,8 @@ GPDMA?:
 GPIOC:
   _strip: GPIO_
 
-GPIO?:
+GPIO[ABCDEFGHI]:
+  _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
@@ -104,45 +140,88 @@ GPIO[BCDEFGHI]:
 GTZC1_TZIC:
   _strip: GTZC1_TZIC_
 
+GTZC1_TZSC:
+  _strip: GTZC1_TZSC_
+
+HASH:
+  _strip: HASH_
+
 I2C?:
+  _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 
+I3C1:
+  _strip: I3C_
+
+ICACHE:
+  _strip: ICACHE_
+
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
-LPTIM?:
+LPTIM[12]:
   _strip:
+    - LPTIM_
     - LPTIM?_
 
 LPUART:
+  _strip: LPUART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+OCTOSPI:
+  _strip: OCTOSPI_
+
+PSSI:
+  _strip: PSSI_
+
 PWR:
+  _strip: PWR_
   _include:
     - fields/pwr/pwr_h5.yaml
 
+RAMCFG:
+  _strip: RAMCFG_
+
 RCC:
+  _strip: RCC_
   _include:
     - patches/rcc/h523_h533.yaml
     - fields/rcc/v3/h56x_h57x.yaml
 
+RNG:
+  _strip: RNG_
+
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SBS:
+  _strip: SBS_
+  _include:
+    - patches/sbs/sbs.yaml
+
+SDMMC1:
+  _strip: SDMMC_
+
+SPI1:
+  _strip: SPI_
   _include:
     - patches/spi/rxtxdr.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_cfg1_bpass.yaml
+
+TAMP:
+  _strip: TAMP_
 
 TIM?:
   _strip: TIM?_
@@ -211,33 +290,18 @@ USART1:
     - fields/usart/v4/B.yaml
 
 USB:
+  _strip: USB_
   _include:
     - collect/usb/chepr.yaml
 
 USBSRAM:
   _strip: USBSRAM_CHEP_
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/16bit_with_mask.yaml
     - fields/wwdg/wwdg_v2.yaml
-
-SBS: # TODO: Dont do this, this will be undone by patches/h5.yaml
-  PMCR:
-    _modify:
-      PB6_FMP:
-        name: PB6_FMPLUS
-      PB7_FMP:
-        name: PB7_FMPLUS
-      PB8_FMP:
-        name: PB8_FMPLUS
-
-# todo: Once tested, apply these to the other H5 variants as applicable, or possibly
-# todo place them in the common/h5.yaml
-_include:
-  - patches/h5.yaml
-  - patches/h523_h533.yaml
-
-  # - collect/flash/secbbr.yaml
-
-  - fields/crs/crs.yaml

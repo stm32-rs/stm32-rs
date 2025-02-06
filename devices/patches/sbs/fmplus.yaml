@@ -1,0 +1,9 @@
+PMCR:
+  # Rename these fields on H503 to match other H5 processors
+  _modify:
+    PB6_FMPLUS:
+      name: PB6_FMP
+    PB7_FMPLUS:
+      name: PB7_FMP
+    PB8_FMPLUS:
+      name: PB8_FMP
