@@ -18,7 +18,7 @@ ADC1:
   SQR*:
     SQ*: [0, 18]
 
-ADC*_*:
+ADC12_Common:
   _include: fields/adc/adc_v3_common_g4.yaml
 
 AES:
@@ -34,12 +34,18 @@ CORDIC:
     - patches/cordic/g4.yaml
     - fields/cordic/v1.yaml
 
-DAC?:
+CRC: {}
+
+CRS: {}
+
+DAC1:
   _strip: DAC_
   _include:
     - fields/dac/dac_wl.yaml
     - fields/dac/dac_wl_12bit.yaml
     - fields/dac/dac_wl_8bit.yaml
+
+DBGMCU: {}
 
 DMA1:
   _include:
@@ -59,11 +65,13 @@ EXTI:
 FDCAN:
   _strip: FDCAN_
 
+FMAC: {}
+
 FLASH:
   _include:
     - fields/flash/flash_g4.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -73,7 +81,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -81,6 +89,8 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIMER1: {}
 
 LPUART1:
   _include:
@@ -90,6 +100,8 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+OPAMP: {}
+
 PWR:
   _strip: PWR_
 
@@ -98,6 +110,8 @@ RCC:
   _include:
     - fields/rcc/g4.yaml
     - fields/rcc/rcc_g4.yaml
+
+RNG: {}
 
 RTC:
   _include:
@@ -113,10 +127,12 @@ SAI:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+SYSCFG: {}
 
 TAMP:
   _include:
@@ -170,9 +186,6 @@ UCPD1:
     - patches/ucpd/tx_rx_missing_r.yaml
     - fields/ucpd/ucpd_v1.yaml
 
-VREFBUF:
-  _strip: VREFBUF_
-
 "UART4,USART1":
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -186,6 +199,9 @@ VREFBUF:
 USB:
   _include:
     - patches/usb/g4.yaml
+
+VREFBUF:
+  _strip: VREFBUF_
 
 WWDG:
   _include:
