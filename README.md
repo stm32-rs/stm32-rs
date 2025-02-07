@@ -89,7 +89,6 @@ features = ["stm32f405", "rt"]
 The nightlies should always build and be as stable as the latest release, but
 contain the latest patches and updates.
 
-
 ## Generating Device Crates / Building Locally
 
 * Install `svd2rust`, `svdtools`, and `form`:
@@ -106,6 +105,52 @@ contain the latest patches and updates.
         * `cargo make patch`
 * Generate svd2rust device crates: `make svd2rust`
 * Optional: Format device crates: `make form`
+
+Basically, the full process is:
+
+```
++----------------------------+    +----------------------------+    +----------------------------+    +----------------------------+
+|  ST-supplied SVD archives  |    |   SVD peripheral patches   |    |  Peripheral fields detail  |    | Periph. fields collecting  |
+|      in 'svd/vendor/'      |    |    in 'devices/patches/'   |    |     in 'devices/fields'    |    |    in 'devices/collect'    |
++----------------------------+    +----------------------------+    +----------------------------+    +----------------------------+
+              |                                 |                                 |                                 |
+              |                                 |                             (optional)                        (optional)
+        `make extract`                          |                                 |                                 |
+              |                                 +---------------------------------+---------------------------------+
+              |                                                                   |
+              v                                                                   v
++----------------------------+                                      +----------------------------+
+|   ST-supplied SVD files    |                                      |     SVD device changes     |
+|         in 'svd/'          |                                      |        in 'devices/'       |
++----------------------------+                                      +----------------------------+
+              |                                                                   |
+              +---------------------------------+---------------------------------+
+                                                |
+                                          `make patch`
+                                        (using svdtools)
+                                                |
+                                                v
+                                  +----------------------------+
+                                  |     Patched SVD files      |
+                                  |         in 'svd/'          |
+                                  +----------------------------+
+                                                |
+                                         `make svd2rust`
+                                                |
+                                                v
+                                  +----------------------------+
+                                  |   Generated STM32 crates   |
+                                  |        in 'stm32*/'        |
+                                  +----------------------------+
+                                                |
+                                       `make form` (optional)
+                                                |
+                                                v
+                                  +----------------------------+
+                                  |   Formatted STM32 crates   |
+                                  |        in 'stm32*/'        |
+                                  +----------------------------+
+```
 
 ## Motivation and Objectives
 
@@ -129,46 +174,19 @@ This project is still young and there's a lot to do!
 
 * More peripheral patches need to be written, most of all. See what we've got
   in `devices/` and grab a reference manual!
+  * Each `stm32*.yaml` file is a patch for a specific device SVD.
+  * To avoid repetition, common patches are written per peripheral in
+    `devices/patches`. Search there if a patch you want to add doesn't already
+    exist!
+  * Register fields description in `devices/fields` are not a part of the 
+    CMSIS-SVD specification but enable type-safe friendly-name interface
+    (enumerated values) for highly detailed crates.
+  * `devices/collect` is here for collecting in `array`s, `cluster`s and `derive`s
+    to minimize duplication.
 * Also everything needs testing, and you can't so easily automate finding bugs
   in the SVD files...
 
-## Supported Device Families
-
-[![crates.io](https://img.shields.io/crates/v/stm32c0.svg?label=stm32c0)](https://crates.io/crates/stm32c0)
-[![crates.io](https://img.shields.io/crates/v/stm32f0.svg?label=stm32f0)](https://crates.io/crates/stm32f0)
-[![crates.io](https://img.shields.io/crates/v/stm32f1.svg?label=stm32f1)](https://crates.io/crates/stm32f1)
-[![crates.io](https://img.shields.io/crates/v/stm32f2.svg?label=stm32f2)](https://crates.io/crates/stm32f2)
-[![crates.io](https://img.shields.io/crates/v/stm32f3.svg?label=stm32f3)](https://crates.io/crates/stm32f3)
-[![crates.io](https://img.shields.io/crates/v/stm32f4.svg?label=stm32f4)](https://crates.io/crates/stm32f4)
-[![crates.io](https://img.shields.io/crates/v/stm32f7.svg?label=stm32f7)](https://crates.io/crates/stm32f7)
-[![crates.io](https://img.shields.io/crates/v/stm32g0.svg?label=stm32g0)](https://crates.io/crates/stm32g0)
-[![crates.io](https://img.shields.io/crates/v/stm32g4.svg?label=stm32g4)](https://crates.io/crates/stm32g4)
-[![crates.io](https://img.shields.io/crates/v/stm32h5.svg?label=stm32h5)](https://crates.io/crates/stm32h5)
-[![crates.io](https://img.shields.io/crates/v/stm32h7.svg?label=stm32h7)](https://crates.io/crates/stm32h7)
-[![crates.io](https://img.shields.io/crates/v/stm32l0.svg?label=stm32l0)](https://crates.io/crates/stm32l0)
-[![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
-[![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
-[![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
-[![crates.io](https://img.shields.io/crates/v/stm32mp1.svg?label=stm32mp1)](https://crates.io/crates/stm32mp1)
-[![crates.io](https://img.shields.io/crates/v/stm32u5.svg?label=stm32u0)](https://crates.io/crates/stm32u0)
-[![crates.io](https://img.shields.io/crates/v/stm32u5.svg?label=stm32u5)](https://crates.io/crates/stm32u5)
-[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32wl)](https://crates.io/crates/stm32wl)
-[![crates.io](https://img.shields.io/crates/v/stm32wb.svg?label=stm32wb)](https://crates.io/crates/stm32wb)
-
-Please see the individual crate READMEs for the full list of devices each crate
-supports. All SVDs released by ST for STM32 devices are covered, so probably
-your device is supported to some extent!
-
-**Devices that are nearly identical, like the STM32F405/F415, are supported by
-ST under a single SVD file STM32F405, so if you can't find your exact device
-check if its sibling is supported instead. The crate READMEs make this clear.**
-
-Many peripherals are not yet patched to provide the type-safe friendly-name
-interface (enumerated values); please consider helping out with this!
-
-Check out the full list of supported devices [here](https://stm32-rs.github.io/stm32-rs/).
-
-## Adding New Devices
+### Adding New Devices
 
 * Update SVD zips in `svd/vendor` to include new SVDs.
 * Run `make extract` to extract the new zip files.
@@ -192,7 +210,7 @@ these steps as well:
 * Update this Readme to include the new devices.
 * Add the devices to `workflows/ci.yaml` and `workflows/nightlies.yaml`.
 
-## Updating Existing Devices/Peripherals
+### Updating Existing Devices/Peripherals
 
 * Using Linux, run `make extract` at least once to pull the SVDs out.
 * Edit the device or peripheral YAML (see below for format).
@@ -208,11 +226,10 @@ SVD file, with registers and fields ready to be populated. For single bit wide
 fields with names ending in 'E' or 'D' it additionally generates sample
 "Enabled"/"Disabled" entries to save time.
 
-## Device and Peripheral YAML Format
+### Device and Peripheral YAML Format
 
 Please see the [svdtools](https://github.com/stm32-rs/svdtools) documentation
 for full details of the patch file format.
-
 
 ### Style Guide
 
