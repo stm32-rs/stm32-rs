@@ -142,6 +142,7 @@
 * H5, U5: Add cluster definitions for GPDMA channels
 * F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral
 * F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers
+* Update README.md
 
 Family-specific:
 
