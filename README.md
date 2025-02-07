@@ -109,47 +109,47 @@ contain the latest patches and updates.
 Basically, the full process is:
 
 ```
-+----------------------------+    +----------------------------+    +----------------------------+    +----------------------------+
-|  ST-supplied SVD archives  |    |   SVD peripheral patches   |    |  Peripheral fields detail  |    | Periph. fields collecting  |
-|      in 'svd/vendor/'      |    |    in 'devices/patches/'   |    |     in 'devices/fields'    |    |    in 'devices/collect'    |
-+----------------------------+    +----------------------------+    +----------------------------+    +----------------------------+
-              |                                 |                                 |                                 |
-              |                                 |                             (optional)                        (optional)
-        `make extract`                          |                                 |                                 |
-              |                                 +---------------------------------+---------------------------------+
-              |                                                                   |
-              v                                                                   v
-+----------------------------+                                      +----------------------------+
-|   ST-supplied SVD files    |                                      |     SVD device changes     |
-|         in 'svd/'          |                                      |        in 'devices/'       |
-+----------------------------+                                      +----------------------------+
-              |                                                                   |
-              +---------------------------------+---------------------------------+
-                                                |
-                                          `make patch`
-                                        (using svdtools)
-                                                |
-                                                v
-                                  +----------------------------+
-                                  |     Patched SVD files      |
-                                  |         in 'svd/'          |
-                                  +----------------------------+
-                                                |
-                                         `make svd2rust`
-                                                |
-                                                v
-                                  +----------------------------+
-                                  |   Generated STM32 crates   |
-                                  |        in 'stm32*/'        |
-                                  +----------------------------+
-                                                |
-                                       `make form` (optional)
-                                                |
-                                                v
-                                  +----------------------------+
-                                  |   Formatted STM32 crates   |
-                                  |        in 'stm32*/'        |
-                                  +----------------------------+
++--------------------------+  +------------------------+  +--------------------------+  +--------------------------+
+| ST-supplied SVD archives |  | SVD peripheral patches |  | Peripheral fields detail |  | Perip. fields collecting |
+|     in 'svd/vendor/'     |  |  in 'devices/patches/' |  |    in 'devices/fields'   |  |   in 'devices/collect'   |
++--------------------------+  +------------------------+  +--------------------------+  +--------------------------+
+             |                            |                            |                             |
+             |                            |                        (optional)                    (optional)
+       `make extract`                     |                            |                             |
+             |                            +----------------------------+-----------------------------+
+             |                                                         |
+             v                                                         v
++----------------------------+                            +--------------------------+
+|   ST-supplied SVD files    |                            |    SVD device changes    |
+|         in 'svd/'          |                            |      in 'devices/'       |
++----------------------------+                            +--------------------------+
+              |                                                        |
+              +---------------------------+----------------------------+
+                                          |
+                                    `make patch`
+                                  (using svdtools)
+                                          |
+                                          v
+                              +------------------------+
+                              |   Patched SVD files    |
+                              |       in 'svd/'        |
+                              +------------------------+
+                                          |
+                                   `make svd2rust`
+                                          |
+                                          v
+                              +------------------------+
+                              | Generated STM32 crates |
+                              |      in 'stm32*/'      |
+                              +------------------------+
+                                          |
+                                 `make form` (optional)
+                                          |
+                                          v
+                              +------------------------+
+                              | Formatted STM32 crates |
+                              |      in 'stm32*/'      |
+                              +------------------------+
 ```
 
 ## Motivation and Objectives
