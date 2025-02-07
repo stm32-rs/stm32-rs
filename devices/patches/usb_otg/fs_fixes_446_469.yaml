@@ -11,9 +11,9 @@ OTG_FS_GLOBAL:
       - SDEN
 
   _delete:
-    - GI2CCTL
-    - GPWRDN
-    - GADPCTL
+    - "*GI2CCTL"
+    - "*GPWRDN"
+    - "*GADPCTL"
 
   _modify:
     CID:

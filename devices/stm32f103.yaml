@@ -130,6 +130,9 @@ IWDG:
 MPU:
   _strip: MPU_
 
+OTG_FS_*:
+  _strip: FS_
+
 #OTG_FS_DEVICE: {}
 #OTG_FS_GLOBAL: {}
 #OTG_FS_HOST: {}
@@ -229,7 +232,6 @@ WWDG:
 _include:
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml
   - patches/dbgmcu/rename.yaml

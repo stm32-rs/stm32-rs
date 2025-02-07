@@ -126,9 +126,6 @@ GPDMA1:
     - fields/dma/gpdma/h5.yaml
     - collect/dma/gpdma/h5.yaml
 
-GPIOC:
-  _strip: GPIO_
-
 GPIO[ABCDEFGHI]:
   _strip: GPIO?_
   _include:

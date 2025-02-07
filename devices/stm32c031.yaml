@@ -114,7 +114,7 @@ TIM14:
     - collect/tim/ccr.yaml
 
 TIM1[67]:
-  _strip: [TIM16_, TIM17_]
+  _strip: TIM1?_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/oc1m.yaml

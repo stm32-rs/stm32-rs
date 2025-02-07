@@ -221,9 +221,6 @@ SYSCFG: {}
 
 TAMP: {}
 
-TIM?:
-  _strip: TIM?_
-
 TIM1:
   CCMR2_Output:
     _modify:
@@ -281,7 +278,6 @@ UCPD1:
     - fields/ucpd/ucpd_v1.yaml
 
 USART1:
-  _strip: USART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/add_udr.yaml

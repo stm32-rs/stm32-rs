@@ -148,6 +148,9 @@ OCTOSPIM: {}
 
 OPAMP: {}
 
+OTG_FS_*:
+  _strip: FS_
+
 #OTG_FS_DEVICE: {}
 #OTG_FS_GLOBAL: {}
 #OTG_FS_HOST: {}
@@ -197,9 +200,7 @@ TIM?:
   _strip: TIM?_
 
 TIM??:
-  _strip:
-    - TIM??_
-    - TIM?_
+  _strip: TIM??_
 
 "TIM[1-589],TIM1[0-79]":
   _modify:
@@ -302,7 +303,6 @@ _include:
   - patches/ltdc/rename.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

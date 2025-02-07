@@ -120,6 +120,9 @@ IWDG:
 
 LPTIM1: {}
 
+OTG_FS_*:
+  _strip: OTG_FS_
+
 #OTG_FS_DEVICE: {}
 #OTG_FS_GLOBAL: {}
 #OTG_FS_HOST: {}
@@ -259,7 +262,6 @@ WWDG:
 _include:
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml
   - patches/usb_otg/hs_f73_fixes.yaml

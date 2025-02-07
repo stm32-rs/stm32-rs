@@ -14,8 +14,6 @@ _copy:
     from: ../svd/stm32f777.svd:OTG_HS_HOST
   OTG_HS_DEVICE:
     from: ../svd/stm32f777.svd:OTG_HS_DEVICE
-  OTG_HS_PWRCLK:
-    from: ../svd/stm32f777.svd:OTG_HS_PWRCLK
 
 _rebase:
   # Make I2C1 the base type
@@ -178,10 +176,14 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
-#OTG_FS_DEVICE: {}
-#OTG_FS_GLOBAL: {}
-#OTG_FS_HOST: {}
-#OTG_FS_PWRCLK: {}
+OTG_FS_DEVICE:
+  _strip: OTG_FS_
+OTG_FS_GLOBAL:
+  _strip: OTG_FS_
+OTG_FS_HOST:
+  _strip: OTG_FS_
+OTG_FS_PWRCLK:
+  _strip: FS_
 
 OTG_HS_*:
   _strip: OTG_HS_
@@ -373,7 +375,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_host_addr.yaml
   - patches/usb_otg/fs_v2.yaml
   - collect/usb_otg/fs.yaml

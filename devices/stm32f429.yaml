@@ -165,6 +165,9 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+OTG_FS_*:
+  _strip: FS_
+
 #OTG_FS_DEVICE: {}
 #OTG_FS_GLOBAL: {}
 #OTG_FS_HOST: {}
@@ -333,7 +336,6 @@ _include:
   - fields/eth/eth_mac_cstf.yaml
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - patches/usb_otg/fs_v1_novbussens.yaml

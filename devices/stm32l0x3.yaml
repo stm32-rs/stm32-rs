@@ -238,7 +238,6 @@ USART1:
     - fields/usart/v3/B.yaml
 
 USB:
-  _strip: USB_
   _include:
     - patches/usb/rename_EPxR_EPTYPE_field.yaml
     - fields/usb/usb_with_LPM.yaml
