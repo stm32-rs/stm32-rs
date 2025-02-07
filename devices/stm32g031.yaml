@@ -34,11 +34,9 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
-CRC:
-  _strip: CRC_
+CRC: {}
 
-DBG:
-  _strip: DBG_
+DBG: {}
 
 DMA1:
   _strip: DMA_
@@ -48,7 +46,6 @@ DMA1:
     - collect/dma/v1.yaml
 
 DMAMUX:
-  _strip: DMAMUX_
   _include:
     - collect/dma/dmamux.yaml
 
@@ -77,22 +74,18 @@ GPIO[B]:
   _include: collect/gpio/v2_derive.yaml
 
 I2C1:
-  _strip: I2C_
   _include:
     - patches/i2c/g0.yaml
     - fields/i2c/v2.yaml
 
 IWDG:
-  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM1:
-  _strip: LPTIM_
+LPTIM1: {}
 
 LPUART:
-  _strip: LPUART_
   _include:
     - patches/usart/dedt0.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -109,14 +102,12 @@ RCC:
     - fields/rcc/rcc_g0x1.yaml
 
 RTC:
-  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
 SPI1:
-  _strip: SPI_
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -127,12 +118,10 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
 
 TAMP:
-  _strip: TAMP_
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
-  _strip: TIM1_
   _include:
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -171,11 +160,9 @@ USART1:
     - patches/usart/g0.yaml
     - fields/usart/v4/B.yaml
 
-VREFBUF:
-  _strip: VREFBUF_
+VREFBUF: {}
 
 WWDG:
-  _strip: WWDG_
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg_v2.yaml

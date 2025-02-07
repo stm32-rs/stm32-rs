@@ -106,11 +106,6 @@ TIM[123]:
       SMS_1:
         name: SMS2
 
-TIM*:
-  _strip:
-    - TIM*__
-    - TIM?*_
-
 TIM1:
   _include:
     - fields/tim/v2/tim1.yaml
@@ -133,6 +128,7 @@ TIM3:
     - collect/tim/ccr.yaml
 
 TIM14:
+  _strip: TIM14_
   _include:
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v2/tim13.yaml
@@ -143,6 +139,7 @@ TIM14:
         name: OC1M_3
 
 TIM1[67]:
+  _strip: TIM1?_
   _modify:
     CCMR1:
       name: CCMR1_Input

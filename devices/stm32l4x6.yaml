@@ -130,6 +130,9 @@ LPUART1:
 
 OPAMP: {}
 
+OTG_FS_*:
+  _strip: FS_
+
 #OTG_FS_DEVICE: {}
 #OTG_FS_GLOBAL: {}
 #OTG_FS_HOST: {}
@@ -282,7 +285,6 @@ _include:
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/adc/adc_common_group_name.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
-  - patches/usb_otg/fs_remove_prefix.yaml
   - patches/usb_otg/fs_v1ext.yaml
   - patches/usb_otg/fs_v1.yaml
   - collect/usb_otg/fs.yaml

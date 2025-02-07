@@ -31,14 +31,12 @@ AES:
 
 COMP: {}
 
-CRC:
-  _strip: CRC_
+CRC: {}
 
 DAC:
   _strip: DAC_
 
-DBG:
-  _strip: DBG_
+DBG: {}
 
 DMA1:
   _strip: DMA_
@@ -71,13 +69,11 @@ GPIO[B]:
   _include: collect/gpio/v2_derive.yaml
 
 I2C1:
-  _strip: I2C_
   _include:
     - patches/i2c/g0.yaml
     - fields/i2c/v2.yaml
 
 IWDG:
-  _strip: IWDG_
   _modify:
     "KR,PR,RLR,SR,WINR":
       size: 16
@@ -86,11 +82,9 @@ IWDG:
 HDMI_CEC:
   _strip: CEC_
 
-LPTIM1:
-  _strip: LPTIM_
+LPTIM1: {}
 
 LPUART:
-  _strip: LPUART_
   _include:
     - patches/usart/dedt0.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
@@ -110,14 +104,12 @@ RCC:
 RNG: {}
 
 RTC:
-  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
 SPI1:
-  _strip: SPI_
   _include:
     - patches/spi/dr8.yaml
     - patches/spi/g0_rename_registers.yaml
@@ -130,12 +122,10 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart4.yaml
 
 TAMP:
-  _strip: TAMP_
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
-  _strip: TIM1_
   _include:
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -201,7 +191,6 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _strip: WWDG_
   _modify:
     "CR,CFR,SR":
       size: 16

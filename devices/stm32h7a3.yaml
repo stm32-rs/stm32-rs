@@ -49,7 +49,6 @@ AXI:
     - fields/axi/axi_v1.yaml
 
 BDMA1:
-  _strip: BDMA_
   _include:
     - patches/dma/bdma_v2.yaml
     - fields/dma/bdma.yaml
@@ -58,12 +57,10 @@ BDMA1:
 CAN_CCU: {}
 
 CEC:
-  _strip: CEC_
   _include:
     - fields/hdmi_cec.yaml
 
-COMP1:
-  _strip: COMP1_
+COMP1: {}
 
 CRC:
   _include:
@@ -73,11 +70,9 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-CRS:
-  _strip: CRS_
+CRS: {}
 
-DAC1:
-  _strip: DAC_
+DAC1: {}
 
 DBGMCU: {}
 
@@ -98,7 +93,6 @@ DMA1:
     - collect/dma/st.yaml
 
 DMA2D:
-  _strip: DMA2D_
   _include:
     - patches/dma/dma2d_v2.yaml
     - fields/dma/dma2d_v2.yaml
@@ -112,7 +106,6 @@ DMAMUX1:
     - collect/dma/h7_dmamux.yaml
 
 DMAMUX2:
-  _strip: DMAMUX?_
   _include:
     - patches/dma/h7_dmamux.yaml
     - fields/dma/dmamux_v1.yaml
@@ -156,7 +149,6 @@ FLASH:
     - collect/flash/bank.yaml
 
 FMC:
-  _strip: FMC_
   _include:
     - collect/fsmc/sdram.yaml
 
@@ -172,7 +164,6 @@ GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
-  _strip: HSEM_
   _include:
     - collect/hsem/r.yaml
 
@@ -187,8 +178,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-JPEG:
-  _strip: JPEG_
+JPEG: {}
 
 LPTIM[13]:
   _strip: LPTIM_
@@ -209,7 +199,6 @@ MDIOS:
   _strip: MDIOS_
 
 MDMA:
-  _strip: MDMA_
   _include:
     - collect/dma/mdma.yaml
 
@@ -253,7 +242,6 @@ RCC:
     - fields/rcc/v3/h7_revision_v.yaml
 
 RNG:
-  _strip: RNG_
   _include:
     - fields/rng/rng_v1.yaml
     - fields/rng/rng_v1_ced.yaml

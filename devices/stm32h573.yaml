@@ -209,9 +209,7 @@ TIM?:
   _strip: TIM?_
 
 TIM1?:
-  _strip:
-    - TIM2_
-    - TIM1?_
+  _strip: TIM1?_
 
 TIM[18]:
   _include:
