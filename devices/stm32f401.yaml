@@ -36,7 +36,9 @@ CRC:
     - fields/crc/crc_basic.yaml
     - fields/crc/crc_idr_8bit.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA2:
   _include:
     - patches/dma/dma_v2.yaml
     - fields/dma/dma_v2.yaml
@@ -75,7 +77,7 @@ GPIOC:
     _interrupts:
       - TIM1_UP_TIM10
 
-GPIO?:
+GPIO[ABH]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -85,7 +87,7 @@ GPIO[A]:
 GPIO[BH]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - patches/i2c/v1_fltr.yaml
@@ -98,6 +100,11 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
+
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
 
 PWR:
   CR:
@@ -143,7 +150,7 @@ SDIO:
     - fields/sdio/sdio_f4.yaml
     - collect/sdio/resp.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

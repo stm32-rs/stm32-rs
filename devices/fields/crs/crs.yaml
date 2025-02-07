@@ -1,53 +1,52 @@
-CRS:
-  CR:
-    TRIM: [0, 0x3F]
-    SWSYNC:
-      Sync: [1, A software sync is generated]
-    AUTOTRIMEN:
-      Disabled: [0, Automatic trimming disabled]
-      Enabled: [1, Automatic trimming enabled]
-    CEN:
-      Disabled: [0, Frequency error counter disabled]
-      Enabled: [1, Frequency error counter enabled]
-    "*IE":
-      Disabled: [0, Interrupt disabled]
-      Enabled: [1, Interrupt enabled]
+CR:
+  TRIM: [0, 0x3F]
+  SWSYNC:
+    Sync: [1, A software sync is generated]
+  AUTOTRIMEN:
+    Disabled: [0, Automatic trimming disabled]
+    Enabled: [1, Automatic trimming enabled]
+  CEN:
+    Disabled: [0, Frequency error counter disabled]
+    Enabled: [1, Frequency error counter enabled]
+  "*IE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
 
-  CFGR:
-    SYNCPOL:
-      RisingEdge: [0, SYNC active on rising edge]
-      FallingEdge: [1, SYNC active on falling edge]
-    SYNCSRC:
-      GPIO_AF: [0, GPIO AF (crs_sync_in_1) selected as SYNC signal source]
-      LSE: [1, LSE (crs_sync_in_2) selected as SYNC signal source]
-      USB_SOF: [2, USB SOF (crs_sync_in_3) selected as SYNC signal source]
-    SYNCDIV:
-      NotDivided: [0, SYNC not divided]
-      DivideBy2: [1, SYNC divided by 2]
-      DivideBy4: [2, SYNC divided by 4]
-      DivideBy8: [3, SYNC divided by 8]
-      DivideBy16: [4, SYNC divided by 16]
-      DivideBy32: [5, SYNC divided by 32]
-      DivideBy64: [6, SYNC divided by 64]
-      DivideBy128: [7, SYNC divided by 128]
-    FELIM: [0, 0xFF]
-    RELOAD: [0, 0xFFFF]
+CFGR:
+  SYNCPOL:
+    RisingEdge: [0, SYNC active on rising edge]
+    FallingEdge: [1, SYNC active on falling edge]
+  SYNCSRC:
+    GPIO_AF: [0, GPIO AF (crs_sync_in_1) selected as SYNC signal source]
+    LSE: [1, LSE (crs_sync_in_2) selected as SYNC signal source]
+    USB_SOF: [2, USB SOF (crs_sync_in_3) selected as SYNC signal source]
+  SYNCDIV:
+    NotDivided: [0, SYNC not divided]
+    DivideBy2: [1, SYNC divided by 2]
+    DivideBy4: [2, SYNC divided by 4]
+    DivideBy8: [3, SYNC divided by 8]
+    DivideBy16: [4, SYNC divided by 16]
+    DivideBy32: [5, SYNC divided by 32]
+    DivideBy64: [6, SYNC divided by 64]
+    DivideBy128: [7, SYNC divided by 128]
+  FELIM: [0, 0xFF]
+  RELOAD: [0, 0xFFFF]
 
-  ISR:
-    FECAP: [0, 0xFFFF]
-    FEDIR:
-      UpCounting: [0, Error in up-counting direction]
-      DownCounting: [1, Error in down-counting direction]
-    SYNCMISS:
-      NotSignaled: [0, Signal not set]
-      Signaled: [1, Signal set]
-    SYNCERR:
-      NotSignaled: [0, Signal not set]
-      Signaled: [1, Signal set]
-    "*F":
-      NotSignaled: [0, Signal not set]
-      Signaled: [1, Signal set]
+ISR:
+  FECAP: [0, 0xFFFF]
+  FEDIR:
+    UpCounting: [0, Error in up-counting direction]
+    DownCounting: [1, Error in down-counting direction]
+  SYNCMISS:
+    NotSignaled: [0, Signal not set]
+    Signaled: [1, Signal set]
+  SYNCERR:
+    NotSignaled: [0, Signal not set]
+    Signaled: [1, Signal set]
+  "*F":
+    NotSignaled: [0, Signal not set]
+    Signaled: [1, Signal set]
 
-  ICR:
-    "*C":
-      Clear: [1, Clear flag]
+ICR:
+  "*C":
+    Clear: [1, Clear flag]

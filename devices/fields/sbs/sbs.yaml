@@ -1,97 +1,96 @@
 # System configuration, boot, and security (SBS). Applicable to H5 family, at least.
 
-SBS:
-  HDPLCR:
-    INCR_HDPL:
-      Increment: [0x6A, Increment HDPL value]
+HDPLCR:
+  INCR_HDPL:
+    Increment: [0x6A, Increment HDPL value]
 
-  HDPLSR:
-    HDPL:
-      _read:
-        HDPL0: [0xB4, Protection level reserved for ST code and data]
-        HDPL1: [0x51, Protection level to be used to execute and protect immutable Root of Trust (IROT) stage]
-        HDPL2: [0x8A, Protection level to be used to execute and protect an updatable Root of Trust (UROT) stage]
-        HDPL3: [0x6F, Protection level to be used to execute the application]
-
-  DBGCR:
-    DBG_AUTH_HDPL:
+HDPLSR:
+  HDPL:
+    _read:
+      HDPL0: [0xB4, Protection level reserved for ST code and data]
       HDPL1: [0x51, Protection level to be used to execute and protect immutable Root of Trust (IROT) stage]
       HDPL2: [0x8A, Protection level to be used to execute and protect an updatable Root of Trust (UROT) stage]
       HDPL3: [0x6F, Protection level to be used to execute the application]
-    DBG_UNLOCK:
-      Unlocked: [0xB4, "Debug unlocked when HDPLSR:HDPL is equal to DBG_AUTH_HDPL"]
-    AP_UNLOCK:
-      Unlocked: [0xB4, Device access port unlocked]
 
-  DBGLOCKR:
-    DBGCFG_LOCK:
-      _write:
-        Locked: [0xC3, Debug configuration register (DBGCR) locked]
-        Unlocked: [0xB4, Debug configuration register (DBGCR) unlocked]
-      _read:
-        Locked: [0x6A, Debug configuration register (DBGCR) locked]
-        Unlocked: [0xB4, Debug configuration register (DBGCR) unlocked]
+DBGCR:
+  DBG_AUTH_HDPL:
+    HDPL1: [0x51, Protection level to be used to execute and protect immutable Root of Trust (IROT) stage]
+    HDPL2: [0x8A, Protection level to be used to execute and protect an updatable Root of Trust (UROT) stage]
+    HDPL3: [0x6F, Protection level to be used to execute the application]
+  DBG_UNLOCK:
+    Unlocked: [0xB4, "Debug unlocked when HDPLSR:HDPL is equal to DBG_AUTH_HDPL"]
+  AP_UNLOCK:
+    Unlocked: [0xB4, Device access port unlocked]
 
-  PMCR:
-    PB8_FMP:
-      Disabled: [0, Fast-mode Plus mode on PB8 disabled]
-      Enabled: [1, Fast-mode Plus mode on PB8 enabled]
-    PB7_FMP:
-      Disabled: [0, Fast-mode Plus mode on PB7 disabled]
-      Enabled: [1, Fast-mode Plus mode on PB7 enabled]
-    PB6_FMP:
-      Disabled: [0, Fast-mode Plus mode on PB6 disabled]
-      Enabled: [1, Fast-mode Plus mode on PB6 enabled]
+DBGLOCKR:
+  DBGCFG_LOCK:
+    _write:
+      Locked: [0xC3, Debug configuration register (DBGCR) locked]
+      Unlocked: [0xB4, Debug configuration register (DBGCR) unlocked]
+    _read:
+      Locked: [0x6A, Debug configuration register (DBGCR) locked]
+      Unlocked: [0xB4, Debug configuration register (DBGCR) unlocked]
 
-  FPUIMR:
-    FPU_IE?:
-      Disabled: [0, Interrupt disabled]
-      Enabled: [1, Interrupt enabled]
+PMCR:
+  PB8_FMP:
+    Disabled: [0, Fast-mode Plus mode on PB8 disabled]
+    Enabled: [1, Fast-mode Plus mode on PB8 enabled]
+  PB7_FMP:
+    Disabled: [0, Fast-mode Plus mode on PB7 disabled]
+    Enabled: [1, Fast-mode Plus mode on PB7 enabled]
+  PB6_FMP:
+    Disabled: [0, Fast-mode Plus mode on PB6 disabled]
+    Enabled: [1, Fast-mode Plus mode on PB6 enabled]
 
-  MESR:
-    IPMEE:
-      _read:
-        EraseInProgress: [0, ICACHE erase ongoing]
-        EraseCompleted: [1, ICACHE erase completed]
-      _W1C:
-        Clear: [1, Clear ICACHE erase status flag]
-    MCLR:
-      _read:
-        EraseInProgress: [0, Memory erase in progress]
-        EraseComplete: [1, Memory erase complete]
-      _W1C:
-        Clear: [1, Clear memory erase status flag]
+FPUIMR:
+  FPU_IE?:
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
 
-  CCCSR:
-    RDY?:
-      _read:
-        NotReady: [0, VDDIO compensation cell not ready]
-        Ready: [1, VDDIO compensation cell ready]
-    CS?:
-      Cell: [0, Code from cell selected]
-      CCSWCR: [1, Code from CCSWCR selected]
-    EN?:
-      Disabled: [0, I/O compensation cell disabled]
-      Enabled: [1, I/O compensation cell enabled]
+MESR:
+  IPMEE:
+    _read:
+      EraseInProgress: [0, ICACHE erase ongoing]
+      EraseCompleted: [1, ICACHE erase completed]
+    _W1C:
+      Clear: [1, Clear ICACHE erase status flag]
+  MCLR:
+    _read:
+      EraseInProgress: [0, Memory erase in progress]
+      EraseComplete: [1, Memory erase complete]
+    _W1C:
+      Clear: [1, Clear memory erase status flag]
 
-  CCSWCR:
-    SW_APSRC?: [0, 0xF]
-    SW_ANSRC?: [0, 0xF]
+CCCSR:
+  RDY?:
+    _read:
+      NotReady: [0, VDDIO compensation cell not ready]
+      Ready: [1, VDDIO compensation cell ready]
+  CS?:
+    Cell: [0, Code from cell selected]
+    CCSWCR: [1, Code from CCSWCR selected]
+  EN?:
+    Disabled: [0, I/O compensation cell disabled]
+    Enabled: [1, I/O compensation cell enabled]
 
-  CFGR2:
-    "*L":
-      Disconnected: [0, Flag/Interrupt disconnected from timer break inputs]
-      Connected: [1, Flag/Interrupt connected to timer break inputs]
+CCSWCR:
+  SW_APSRC?: [0, 0xF]
+  SW_ANSRC?: [0, 0xF]
 
-  CNSLCKR:
-    LOCKNSMPU:
-      Unlocked: [0, MPU registers write enabled]
-      Locked: [1, MPU registers write disabled]
-    LOCKNSVTOR:
-      Unlocked: [0, VTOR_NS register write enabled]
-      Locked: [1, VTOR_NS register write disabled]
+CFGR2:
+  "*L":
+    Disconnected: [0, Flag/Interrupt disconnected from timer break inputs]
+    Connected: [1, Flag/Interrupt connected to timer break inputs]
 
-  ECCNMIR:
-    ECCNMI_MASK_EN:
-      Enabled: [0, NMI enabled]
-      Disabled: [1, NMI disabled]
+CNSLCKR:
+  LOCKNSMPU:
+    Unlocked: [0, MPU registers write enabled]
+    Locked: [1, MPU registers write disabled]
+  LOCKNSVTOR:
+    Unlocked: [0, VTOR_NS register write enabled]
+    Locked: [1, VTOR_NS register write disabled]
+
+ECCNMIR:
+  ECCNMI_MASK_EN:
+    Enabled: [0, NMI enabled]
+    Disabled: [1, NMI disabled]

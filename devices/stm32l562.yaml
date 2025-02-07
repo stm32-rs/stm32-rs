@@ -25,7 +25,7 @@ ADC_Common:
         bitOffset: 8
         bitWidth: 4
 
-ADC?:
+ADC[12]:
   _include:
     - patches/adc/split.yaml
     - patches/adc/offset_en.yaml
@@ -51,10 +51,20 @@ AES:
   _include:
     - fields/aes/v2.yaml
 
+COMP: {}
+
+CRC: {}
+
+CRS: {}
+
 DAC:
   _strip: DAC_
 
-DMA?:
+DBGMCU: {}
+
+DCB: {}
+
+DMA1:
   _include:
     - collect/dma/l5.yaml
 
@@ -76,7 +86,7 @@ FLASH:
 FMC:
   _strip: FMC_
 
-GPIO?:
+GPIO[ABCH]:
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2.yaml
@@ -86,7 +96,7 @@ GPIO[A]:
 GPIO[BCH]:
   _include: collect/gpio/v2_derive.yaml
 
-GTZC_MPCBB?:
+GTZC_MPCBB[12]:
   _strip: MPCBB?_
   _array:
     VCTR*:
@@ -98,8 +108,16 @@ GTZC_TZIC:
 GTZC_TZSC:
   _strip: TZSC_
 
+HASH: {}
+
+I2C1: {}
+
+ICACHE: {}
+
 IWDG:
   _include: patches/16bit.yaml
+
+LPTIM1: {}
 
 LPUART1:
   _include:
@@ -107,8 +125,16 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+OCTOSPI1: {}
+
+OPAMP: {}
+
+OTFDEC1: {}
+
 PKA:
   _strip: PKA_
+
+PWR: {}
 
 RCC:
   _include:
@@ -123,7 +149,7 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
@@ -133,10 +159,12 @@ SAI?:
 SDMMC1:
   _strip: SDMMC_
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+
+SYSCFG: {}
 
 TAMP:
   _include:
@@ -211,6 +239,8 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TSC: {}
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -226,6 +256,10 @@ USART1:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/add_udr.yaml
     - fields/usart/v4/B.yaml
+
+USB: {}
+
+VREFBUF: {}
 
 WWDG:
   _include: patches/16bit.yaml

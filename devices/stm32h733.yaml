@@ -29,8 +29,11 @@ _modify:
       offset: 0x0
       size: 0x100
       usage: registers
+  Flash:
+    name: FLASH
+    groupName: FLASH
 
-ADC*_Common:
+ADC12_Common,ADC3_Common:
   _strip: ADC_
   #_include: fields/adc/adc_v3_common_h7.yaml
   CCR:
@@ -56,6 +59,7 @@ ADC1:
     SQ*: [0, 19]
 
 AXI:
+  _strip: AXI_
   _include:
     - fields/axi/axi_v1.yaml
 
@@ -65,9 +69,13 @@ BDMA:
     - fields/dma/bdma.yaml
     - collect/dma/bdma.yaml
 
+CAN_CCU: {}
+
 CEC:
   _include:
     - fields/hdmi_cec.yaml
+
+COMP1: {}
 
 CORDIC:
   _strip: CORDIC_
@@ -82,6 +90,8 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.
 CRYP:
@@ -90,37 +100,7 @@ CRYP:
   "IV[01][LR]R":
     _merge: IV*
 
-DFSDM:
-  _include:
-    - patches/dfsdm/h735_747_753.yaml
-    - collect/dfsdm/v1.yaml
-
-DMA2D:
-  _include:
-    - patches/dma/dma2d_v2.yaml
-    - fields/dma/dma2d_v2.yaml
-
-DMA?:
-  _include:
-    - patches/dma/fcr_wo.yaml
-    - patches/dma/h7_dmacr.yaml
-    - fields/dma/dma_v3.yaml
-    - collect/dma/st.yaml
-
-DMAMUX1:
-  _strip: DMAMUX_
-  _include:
-    - fields/dma/dmamux_v1.yaml
-    - fields/dma/dmamux1_v1.yaml
-    - collect/dma/h7_dmamux.yaml
-
-DMAMUX2:
-  _strip: DMAMUX?_
-  _include:
-    - patches/dma/h7_dmamux.yaml
-    - fields/dma/dmamux_v1.yaml
-    - fields/dma/dmamux2_v1.yaml
-    - collect/dma/h7_dmamux.yaml
+DAC: {}
 
 # Modify the DBGMCU.CR register fields names to be consistent with RM0468.
 # TODO: Interesting aside: the svd lists these controls additionally for D2 and
@@ -145,14 +125,62 @@ DCMI:
         name: DCMI_PSSI
         description: DCMI/PSSI global interrupt
 
+DFSDM:
+  _include:
+    - patches/dfsdm/h735_747_753.yaml
+    - collect/dfsdm/v1.yaml
+
+DELAY_Block_SDMMC1: {}
+
+DMA1:
+  _include:
+    - patches/dma/fcr_wo.yaml
+    - patches/dma/h7_dmacr.yaml
+    - fields/dma/dma_v3.yaml
+    - collect/dma/st.yaml
+
+DMA2D:
+  _include:
+    - patches/dma/dma2d_v2.yaml
+    - fields/dma/dma2d_v2.yaml
+
+DMAMUX1:
+  _strip: DMAMUX_
+  _include:
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux1_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+DMAMUX2:
+  _strip: DMAMUX?_
+  _include:
+    - patches/dma/h7_dmamux.yaml
+    - fields/dma/dmamux_v1.yaml
+    - fields/dma/dmamux2_v1.yaml
+    - collect/dma/h7_dmamux.yaml
+
+Ethernet_MAC:
+  _include:
+    - patches/ethernet/mac_lpiet_3.yaml
+
+Ethernet_DMA: {}
+
+Ethernet_MTL: {}
+
 EXTI:
   _include:
     - patches/exti/h7_singlecore.yaml
     - fields/exti/exti_h7.yaml
 
-FDCAN?:
+FDCAN1:
+  _strip: FDCAN_
   _include:
     - patches/fdcan/fdcan_h7.yaml
+
+FLASH:
+  _modify:
+    OPTKEYR:
+      access: write-only
 
 FMAC:
   _strip: FMAC_
@@ -164,7 +192,7 @@ FMC:
 GPIOA:
   _strip: GPIOA_
 
-GPIO?:
+GPIO[ABCJK]:
   _include:
     - patches/gpio/add_r_suffix.yaml
     - fields/gpio/v2/common.yaml
@@ -176,10 +204,11 @@ GPIO[BCJK]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
+  _strip: HSEM_
   _include:
     - collect/hsem/r.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - fields/i2c/v2.yaml
@@ -189,7 +218,7 @@ IWDG1:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM?:
+LPTIM[13]:
   _include:
     - fields/lptim/lptim_v1.yaml
 
@@ -212,21 +241,29 @@ MDIOS:
   _strip: MDIOS_
 
 MDMA:
+  _strip: MDMA_
   _include:
     - collect/dma/mdma.yaml
 
 # OCTOSPI blocks
-OCTOSPI?:
+OCTOSPI1:
   AR:
     _modify:
       ADRESS:
         name: ADDRESS
 
+OctoSPII_O_Manager: {}
+
+OPAMP: {}
+
 OTFDEC1:
   _strip: OTFDEC_
 
-OTG?_HS_*:
+OTG1_HS_*:
   _strip: OTG_HS_
+
+OTG1_HS_DEVICE:
+  _include: patches/usb_otg/hsdevice.yaml
 
 OTG1_HS_GLOBAL:
   _include: patches/usb_otg/hsglobal.yaml
@@ -248,52 +285,18 @@ OTG1_HS_GLOBAL:
 OTG1_HS_HOST:
   _include: patches/usb_otg/hshost_address_12_15.yaml
 
-OTG1_HS_DEVICE:
-  _include: patches/usb_otg/hsdevice.yaml
+OTG1_HS_PWRCLK: {}
 
 PSSI:
   _strip: PSSI_
 
 # PWR block
 PWR:
-  CR3:
-    _add:
-      SDEXTHP:
-        description: SMPS step-down converter forced ON and in High Power MR mode
-        bitWidth: 1
-        bitOffset: 3
-      SDLEVEL:
-        description: SMPS step-down converter voltage output level selection
-        bitWidth: 2
-        bitOffset: 4
-      SDEXTRDY:
-        description: SMPS step-down converter external supply ready
-        bitWidth: 1
-        bitOffset: 16
-  WKUPCR:
-    _delete:
-      - WKUPC
-    _add:
-      WKUPC1:
-        description: Clear Wakeup pin flag for WKUPC1
-        bitWidth: 1
-        bitOffset: 0
-      WKUPC2:
-        description: Clear Wakeup pin flag for WKUPC2
-        bitWidth: 1
-        bitOffset: 1
-      WKUPC4:
-        description: Clear Wakeup pin flag for WKUPC4
-        bitWidth: 1
-        bitOffset: 3
-      WKUPC6:
-        description: Clear Wakeup pin flag for WKUPC6
-        bitWidth: 1
-        bitOffset: 5
-  WKUPFR:
-    _delete:
-      - WKUPF3
-      - WKUPF5
+  _include:
+    - patches/pwr/add_step_down.yaml
+    - patches/pwr/wkupc1246.yaml
+
+RAMECC[123]: {}
 
 # RCC block
 RCC:
@@ -321,6 +324,7 @@ RNG:
     - fields/rng/rng_v1_ced.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/rtc_common.yaml
@@ -328,7 +332,7 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _strip: SAI_
   _include:
     - patches/sai/h7.yaml
@@ -337,10 +341,12 @@ SAI?:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SDMMC?:
+SDMMC1:
   _strip: SDMMC_
 
-SPI?:
+SPDIFRX: {}
+
+SPI1:
   _include:
     - patches/spi/rxtxdr.yaml
     - patches/spi/h7.yaml
@@ -348,102 +354,12 @@ SPI?:
     - fields/spi/spi_v3_tser.yaml
     - fields/spi/spi_v3_cfg1_udrdet_udrcfg.yaml
 
+SWPMI: {}
+
 # SYSCFG block
 SYSCFG:
-  _add:
-    CFGR:
-      description: Timer break lockup register
-      addressOffset: 0x18
-      resetValue: 0x00000000
-      fields:
-        PVDL:
-          description: Programmable voltage detector lockup bit
-          bitOffset: 2
-          bitWidth: 1
-        FLASHL:
-          description: FLASH double error lockup bit
-          bitOffset: 3
-          bitWidth: 1
-        CM7L:
-          description: CPU lockup bit
-          bitOffset: 6
-          bitWidth: 1
-        BKRAML:
-          description: Backup RAM Double error lockup bit
-          bitOffset: 7
-          bitWidth: 1
-        SRAM4L:
-          description: SRAM4 Double error lockup bit
-          bitOffset: 9
-          bitWidth: 1
-        SRAM2L:
-          description: SRAM2 Double error lockup bit
-          bitOffset: 11
-          bitWidth: 1
-        SRAM1L:
-          description: SRAM1 Double error lockup bit
-          bitOffset: 12
-          bitWidth: 1
-        DTCML:
-          description: DTCM-RAM Double error lockup bit
-          bitOffset: 13
-          bitWidth: 1
-        ITCML:
-          description: ITCM-RAM Double error lockup bit
-          bitOffset: 14
-          bitWidth: 1
-        AXIRAML:
-          description: AXISRAM Double error lockup bit
-          bitOffset: 15
-          bitWidth: 1
-    ADC2ALT:
-      description: ADC2 internal input alternate connection
-      addressOffset: 0x30
-      resetValue: 0x00000000
-      fields:
-        ADC2_ROUT1:
-          description: ADC2 V_INP17 alternate connection
-          bitOffset: 1
-          bitWidth: 1
-        ADC2_ROUT0:
-          description: ADC2 V_INP16 alternate connection
-          bitOffset: 0
-          bitWidth: 1
-    UR18:
-      description: SYSCFG user register 18
-      addressOffset: 0x348
-      access: read-only
-      fields:
-        CPU_FREQ_BOOST:
-          description: CPU maximum frequency boost
-          bitOffset: 0
-          bitWidth: 1
-  _delete:
-    - UR8 # Only one flash bank
-    - UR9
-    - UR10
-  PMCR:
-    _add:
-      BOOSTVDDSEL:
-        description: Analog switch supply voltage selection
-        bitWidth: 1
-        bitOffset: 9
-      I2C5FMP:
-        description: I2C5 Fm+
-        bitWidth: 1
-        bitOffset: 10
-  UR0:
-    _delete:
-      - BKS
-  UR11:
-    _delete:
-      - SA_END_2
-  UR17:
-    _add:
-      TCM_AXI_SHARED_CFG:
-        description: ITCM-RAM/AXI-SRAM size
-        bitOffset: 16
-        bitWidth: 2
+  _include:
+    - patches/syscfg/h73x.yaml
 
 TIM1:
   _modify:
@@ -518,6 +434,8 @@ USART1:
     - patches/usart/tcbgtc.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF: {}
+
 WWDG1:
   _include:
     - patches/wwdg/h7.yaml
@@ -526,7 +444,6 @@ WWDG1:
 # -----------------------------------------------------------------------------
 
 _include:
-  - patches/h7_common_singlecore_735.yaml
   - patches/ethernet/h7_combined_desc.yaml
   - collect/usb_otg/hs.yaml
   - patches/gpio/h7_jk.yaml

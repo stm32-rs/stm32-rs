@@ -83,10 +83,15 @@ DBGMCU:
         description: DBG_CAN_STOP
     _delete: DBG_CAN2_STOP
 
-DMA?:
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
+
+Ethernet_DMA: {}
+Ethernet_MAC: {}
+Ethernet_MMC: {}
+Ethernet_PTP: {}
 
 EXTI:
   _include:
@@ -109,7 +114,7 @@ GPIOA:
     - collect/gpio/f1.yaml
     - collect/gpio/f1_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -124,6 +129,11 @@ IWDG:
 
 MPU:
   _strip: MPU_
+
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
 
 PWR:
   _include:
@@ -152,7 +162,7 @@ SDIO:
   _include:
     - collect/sdio/resp.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

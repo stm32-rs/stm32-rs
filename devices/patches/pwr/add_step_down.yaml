@@ -1,0 +1,14 @@
+CR3:
+  _add:
+    SDEXTHP:
+      description: SMPS step-down converter forced ON and in High Power MR mode
+      bitOffset: 3
+      bitWidth: 1
+    SDLEVEL:
+      description: SMPS step-down converter voltage output level selection
+      bitOffset: 4
+      bitWidth: 2
+    SDEXTRDY:
+      description: SMPS step-down converter external supply ready
+      bitOffset: 16
+      bitWidth: 1

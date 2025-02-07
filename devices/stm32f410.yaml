@@ -57,7 +57,9 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - patches/dma/dma_v2.yaml
     - fields/dma/dma_v2.yaml
@@ -98,11 +100,11 @@ FLASH:
     - fields/flash/sr/rderr.yaml
     - collect/flash/optcr/nwrp.yaml
 
-FMPI2C?:
+FMPI2C1:
   _include:
     - fields/i2c/v2.yaml
 
-GPIO?:
+GPIO[ABH]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -112,7 +114,7 @@ GPIO[A]:
 GPIO[BH]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - patches/i2c/v1_fltr.yaml
@@ -125,6 +127,8 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
+
+LPTIM1: {}
 
 PWR:
   _include:
@@ -192,7 +196,7 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -202,6 +206,8 @@ SPI?:
       # This field has the wrong name in the SVD compared to RM0401
       TIFRFE:
         name: FRE
+
+SPI5:
   _add:
     _interrupts:
       SPI5:

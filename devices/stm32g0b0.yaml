@@ -6,6 +6,7 @@ _modify:
 _clear_fields: "*"
 
 ADC:
+  _strip: ADC_
   _include:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
@@ -16,19 +17,27 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
-DMA*:
+CRC:
+  _strip: CRC_
+
+DBG:
+  _strip: DBG_
+
+DMA1:
   _strip: DMA_
-
-DMA2:
-  _include:
-    - patches/dma/g0_5ch.yaml
-
-DMA?:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
 
+DMA2:
+  _strip: DMA_
+  _include:
+    - patches/dma/g0_5ch.yaml
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
+
 DMAMUX:
+  _strip: DMAMUX_
   _include:
     - collect/dma/dmamux.yaml
 
@@ -41,7 +50,7 @@ FLASH:
   _include:
     - patches/flash/g0.yaml
 
-GPIO?:
+GPIO[AB]:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
     - collect/gpio/v2.yaml
@@ -51,11 +60,13 @@ GPIO[A]:
 GPIO[B]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
+  _strip: I2C_
   _include:
     - fields/i2c/v2.yaml
 
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
@@ -69,12 +80,13 @@ RCC:
     - fields/rcc/rcc_g0b.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SPI1:
   _strip: SPI_
   _include:
     - patches/16bit.yaml
@@ -86,10 +98,12 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart4.yaml
 
 TAMP:
+  _strip: TAMP_
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
+  _strip: TIM1_
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
@@ -133,6 +147,11 @@ TIM16:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+USART1:
+  _include:
+    - patches/usart/g0_CR1.yaml
+    - fields/usart/v4/B.yaml
+
 USB:
   _strip: USB_
   CNTR:
@@ -145,21 +164,16 @@ USB:
     - fields/usb/g0_usb.yaml
     - collect/usb/chepr.yaml
 
-USART1:
-  _include:
-    - patches/usart/g0_CR1.yaml
-    - fields/usart/v4/B.yaml
-
 VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/g0_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma2_5ch.yaml
   - patches/tim/group.yaml

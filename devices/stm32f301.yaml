@@ -32,8 +32,6 @@ ADC1_2:
       - DELAY
       - DUAL
       - MULT
-
-ADC*_*:
   _include:
     - fields/adc/adc_v3_common_single.yaml
     - fields/adc/adc_v3_common_f3_single.yaml
@@ -55,6 +53,8 @@ ADC1:
   SQR?:
     SQ*: [1, 18]
 
+COMP: {}
+
 CRC:
   _include:
     - fields/crc/crc_advanced.yaml
@@ -66,7 +66,9 @@ DAC1:
     - fields/dac/dac_common_1ch.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -90,7 +92,7 @@ FLASH:
     - fields/flash/flash_f3_common.yaml
     - fields/flash/acr/hlfcya.yaml
 
-GPIO?:
+GPIO[ABC]:
   _include:
     - fields/gpio/v2/f3.yaml
     - collect/gpio/v2.yaml
@@ -100,7 +102,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - patches/i2c/merge_OAR1_OA1x_fields.yaml
@@ -111,28 +113,14 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
+OPAMP: {}
+
 PWR:
   _add:
     _interrupts:
       PVD:
         description: PVD through EXTI line detection interrupt
         value: 1
-
-SPI?:
-  _include:
-    - patches/16bit.yaml
-    - patches/spi/dr8.yaml
-    - fields/spi/spi_v2.yaml
-  SR:
-    _modify:
-      # This field has the wrong name in the SVD compared to RM0366
-      TIFRFE:
-        name: FRE
-
-I2S*:
-  _include:
-    - fields/spi/spi_v2_i2s.yaml
-    - fields/spi/spi_SR_UDR_CHSIDE.yaml
 
 RCC:
   CFGR3:
@@ -155,6 +143,17 @@ RTC:
     - fields/rtc/rtc_f3.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
+
+SPI2:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+  SR:
+    _modify:
+      # This field has the wrong name in the SVD compared to RM0366
+      TIFRFE:
+        name: FRE
 
 SYSCFG:
   _delete:

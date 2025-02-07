@@ -32,11 +32,15 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 DAC:
   _include:
     - fields/dac/dac_common_2ch.yaml
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
+
+DBGMCU: {}
 
 DMA1:
   _add:
@@ -48,8 +52,6 @@ DMA1:
       DMA1_CH4_5_6_7:
         description: "DMA channel 4, 5, 6 and 7 interrupts"
         value: 11
-
-DMA?:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -72,7 +74,7 @@ GPIO[A]:
 GPIO[F]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - patches/i2c/merge_OAR1_OA1x_fields.yaml
@@ -120,7 +122,7 @@ RTC:
     #- collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

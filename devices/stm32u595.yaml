@@ -1,5 +1,11 @@
 _svd: ../svd/stm32u595.svd
 
+_clear_fields: "*"
+
+_modify:
+  ICache:
+    name: ICACHE
+
 ADC12_Common:
   _strip: ADC12_
   _include:
@@ -33,6 +39,32 @@ ADC4:
       name: CHSELR1
       alternateRegister: CHSELR0
 
+ADF1:
+  _strip: ADF_
+
+COMP: {}
+
+CORDIC: {}
+
+CRC: {}
+
+CRS: {}
+
+DAC1:
+  _strip: DAC_
+
+DBGMCU: {}
+
+DCACHE1:
+  _strip: DCACHE_
+
+DCB: {}
+
+DCMI: {}
+
+DLYBOS1:
+  _strip: DLYB_
+
 DMA2D:
   _include:
     - fields/dma/dma2d_v2.yaml
@@ -45,19 +77,25 @@ EXTI:
 FDCAN1_RAM:
   _strip: FDCAN_
 
+FLASH:
+  _strip: FLASH_
+
+FMAC: {}
+
 FMC:
   _include:
     - patches/fsmc/fsmc_u5.yaml
     - fields/fsmc/fsmc_sram.yaml
     - fields/fsmc/fsmc_nand.yaml
 
-GPDMA?:
+GPDMA1:
   _strip: GPDMA_
   _include:
     - patches/dma/gpdma_u5_tr1.yaml
     - collect/dma/gpdma/h7rs_u5.yaml
 
-GPIO?:
+GPIO[ABCHIJ]:
+  _strip: GPIO_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
@@ -67,21 +105,43 @@ GPIO[A]:
 GPIO[BCHIJ]:
   _include: collect/gpio/v2r_derive.yaml
 
-GTZC1_MPCBB?:
+GTZC1_MPCBB[1235]:
   _strip: MPCBB?_
   _include:
     - collect/gtzc/h5_u5.yaml
 
+GTZC2_MPCBB4:
+  _strip: MPCBB?_
+  _include:
+    - collect/gtzc/h5_u5.yaml
+
+GTZC[12]_TZIC: {}
+
 GTZC1_TZSC:
   _strip: TZSC_
 
-I2C?:
+GTZC2_TZSC: {}
+
+HASH: {}
+
+I2C1:
   _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 
+ICACHE:
+  _strip: ICACHE_
+
 IWDG:
   _include: patches/16bit.yaml
+
+LPDMA1:
+  _strip: LPDMA_
+
+LPGPIO1:
+  _strip: LPGPIO_
+
+LPTIM[14]: {}
 
 LPUART1:
   _include:
@@ -98,7 +158,14 @@ OCTOSPI[12]:
     - patches/octospi/u5.yaml
     - fields/octospi/u5.yaml
 
+OPAMP: {}
+
+OTG_HS: {}
+
+PSSI: {}
+
 PWR:
+  _strip: PWR_
   CR1:
     _add:
       FORCE_USBPWR:
@@ -112,11 +179,17 @@ PWR:
         bitOffset: 21
         bitWidth: 1
   _include:
+    - patches/pwr/add_cr5.yaml
     - fields/pwr/pwr_u5.yaml
 
+RAMCFG: {}
+
 RCC:
+  _strip: RCC_
   _include:
     - fields/rcc/rcc_u5.yaml
+
+RNG: {}
 
 RTC:
   _include:
@@ -124,11 +197,17 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
+SAI1: {}
+
 SDMMC1:
   _strip: SDMMC_
 
-SPI?:
+SPI1:
   _include: patches/spi/rxtxdr.yaml
+
+SYSCFG: {}
+
+TAMP: {}
 
 TIM?:
   _strip: TIM?_
@@ -181,6 +260,8 @@ TIM16:
     - fields/tim/v3/occe.yaml
     - collect/tim/ccr.yaml
 
+TSC: {}
+
 UCPD1:
   _include:
     - patches/ucpd/rxordseten_split.yaml
@@ -194,8 +275,8 @@ USART1:
     - patches/usart/add_udr.yaml
     - fields/usart/v4/C.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
   _include: patches/16bit.yaml
-
-_include:
-  - patches/u5.yaml

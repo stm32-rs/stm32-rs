@@ -1,8 +1,0 @@
-# Renames the stm32l0xx firewall to "FW" and removes register prefixes
-
-_modify:
-  Firewall:
-    name: FW
-
-FW:
-  _strip: FIREWALL_

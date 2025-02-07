@@ -46,7 +46,7 @@ ADC1:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
@@ -73,16 +73,20 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA2D:
-  _include:
-    - fields/dma/dma2d_v1.yaml
+DBGMCU: {}
 
-DMA?:
+DCMI: {}
+
+DMA2:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/dma_v2.yaml
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
+
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
 
 DSI:
   _add:
@@ -99,6 +103,11 @@ EXTI:
     - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
     - collect/exti/farray.yaml
+
+#Ethernet_DMA: {}
+#Ethernet_MAC: {}
+#Ethernet_MMC: {}
+#Ethernet_PTP: {}
 
 FLASH:
   _include:
@@ -136,7 +145,7 @@ FMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 
-GPIO?:
+GPIO[ABK]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -150,7 +159,7 @@ HASH:
   _include:
     - collect/hash/v2.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -169,13 +178,18 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
+
 OTG_HS_*:
   _strip: OTG_HS_
 
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
+#OTG_HS_DEVICE: {}
+#OTG_HS_GLOBAL: {}
+#OTG_HS_HOST: {}
+#OTG_HS_PWRCLK: {}
 
 PWR:
   CR:
@@ -186,6 +200,11 @@ PWR:
   _include:
     - patches/pwr/f4.yaml
     - fields/pwr/pwr_f469_f479.yaml
+
+QUADSPI:
+  _include:
+    - patches/quadspi/dr_multi_access.yaml
+    - fields/quadspi/quadspi_v1_dual_flash.yaml
 
 # Fix misnamed RCC enable bits
 RCC:
@@ -264,7 +283,7 @@ SDIO:
     - fields/sdio/sdio_f4.yaml
     - collect/sdio/resp.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

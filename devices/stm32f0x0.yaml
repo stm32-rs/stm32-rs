@@ -22,7 +22,9 @@ CRC:
     - fields/crc/crc_advanced.yaml
     - fields/crc/crc_idr_8bit.yaml
 
-DMA?:
+DBGMCU: {}
+
+DMA1:
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
@@ -49,7 +51,7 @@ GPIO[A]:
 GPIO[F]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/i2c/merge_CR2_SADDx_fields.yaml
     - patches/i2c/merge_OAR1_OA1x_fields.yaml

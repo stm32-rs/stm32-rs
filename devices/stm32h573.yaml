@@ -1,6 +1,8 @@
 _svd: ../svd/stm32h573.svd
 
-ADC[12]:
+_clear_fields: "*"
+
+ADC1:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -16,28 +18,69 @@ ADCC:
   _strip: ADC_
 
 AES:
+  _strip: AES_
   _include:
     - fields/aes/v3.yaml
 
+CORDIC:
+  _strip: CORDIC_
+
 CRC:
+  _strip: CRC_
   _include:
     - patches/crc/crc_rename_init.yaml
     - fields/crc/crc_advanced.yaml
     # - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS:
+  _strip: CRS_
+  _include:
+    - fields/crs/crs.yaml
+
+DAC:
+  _strip: DAC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DCACHE:
+  _strip: DCACHE_
+
+DCMI:
+  _strip: DCMI_
+
+DLYBOS1:
+  _strip: DLYB_
+
+DTS:
+  _strip: DTS_
+
 ETH:
   _strip: ETH_
 
 EXTI:
+  _strip: EXTI_
   _include:
+    - patches/exti/exti4_5.yaml
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
 FDCAN1:
-  _strip: FDCAN_
+  _strip:
+    FDCAN_
+    # - collect/flash/secbbr.yaml
 
-GPDMA?:
+FLASH:
+  _strip: FLASH_
+
+FMAC:
+  _strip: FMAC_
+
+FMC:
+  _strip: FMC_
+
+GPDMA1:
   _strip: GPDMA_
   _include:
     - fields/dma/gpdma/h5.yaml
@@ -46,7 +89,8 @@ GPDMA?:
 GPIOC:
   _strip: GPIO_
 
-GPIO?:
+GPIO[ABCHI]:
+  _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
@@ -56,7 +100,7 @@ GPIO[A]:
 GPIO[BCHI]:
   _include: collect/gpio/v2r_derive.yaml
 
-GTZC1_MPCBB?:
+GTZC1_MPCBB[123]:
   _strip: GTZC1_MPCBB?_
   _include:
     - collect/gtzc/h5_u5.yaml
@@ -64,46 +108,102 @@ GTZC1_MPCBB?:
 GTZC1_TZIC:
   _strip: GTZC1_TZIC_
 
-I2C?:
+GTZC1_TZSC:
+  _strip: GTZC1_TZSC_
+
+HASH:
+  _strip: HASH_
+
+I2C1:
+  _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 
+I3C:
+  _strip: I3C_
+
+ICACHE:
+  _strip: ICACHE_
+
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+LPTIM1:
+  _strip: LPTIM_
+
 LPUART:
+  _strip: LPUART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+OCTOSPI:
+  _strip: OCTOSPI_
+
+OTFDEC1:
+  _strip: OTFDEC_
+
+PKA:
+  _strip: PKA_
+
+PSSI:
+  _strip: PSSI_
+
 PWR:
+  _strip: PWR_
   _include:
     - fields/pwr/pwr_h5.yaml
 
+RAMCFG:
+  _strip: RAMCFG_
+
 RCC:
+  _strip: RCC_
   _include:
     - patches/rcc/h56x_h57x.yaml
     - fields/rcc/v3/h56x_h57x.yaml
 
+RNG:
+  _strip: RNG_
+
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SAI?:
+SAES:
+  _strip: SAES_
+
+SAI1:
+  _strip: SAI_
   _include:
     - fields/sai/sai.yaml
 
-SPI?:
+SBS:
+  _strip: SBS_
+  _include:
+    - patches/sbs/fmplus.yaml
+    - patches/sbs/sbs.yaml
+
+SDMMC1:
+  _strip: SDMMC_
+
+SPI1:
+  _strip: SPI_
   _include:
     - patches/spi/rxtxdr.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_cfg1_bpass.yaml
+
+TAMP:
+  _strip: TAMP_
 
 TIM?:
   _strip: TIM?_
@@ -188,19 +288,15 @@ USART1:
     - fields/usart/v4/B.yaml
 
 USB:
+  _strip: USB_
   _include:
     - collect/usb/chepr.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/16bit_with_mask.yaml
     - fields/wwdg/wwdg_v2.yaml
-
-_include:
-  - patches/h5.yaml
-  - patches/h56x_h57x.yaml
-  - patches/h5_security.yaml
-
-  # - collect/flash/secbbr.yaml
-
-  - fields/crs/crs.yaml

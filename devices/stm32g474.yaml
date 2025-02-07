@@ -19,7 +19,7 @@ ADC[13]:
   SQR*:
     SQ*: [0, 18]
 
-ADC*_*:
+ADC12_Common:
   _include: fields/adc/adc_v3_common_g4.yaml
 
 COMP:
@@ -30,12 +30,14 @@ CORDIC:
     - patches/cordic/g4.yaml
     - fields/cordic/v1.yaml
 
-DAC?:
+DAC1:
   _strip: DAC_
   _include:
     - fields/dac/dac_wl.yaml
     - fields/dac/dac_wl_12bit.yaml
     - fields/dac/dac_wl_8bit.yaml
+
+DBGMCU: {}
 
 DMA1:
   _include:
@@ -62,7 +64,11 @@ FLASH:
     - fields/flash/flash_g4.yaml
     - fields/flash/flash_g4_dual_bank.yaml
 
-GPIO?:
+FMAC: {}
+
+FMC: {}
+
+GPIO[ABC]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -72,7 +78,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -80,6 +86,8 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIMER1: {}
 
 LPUART1:
   _include:
@@ -89,8 +97,10 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
-VREFBUF:
-  _strip: VREFBUF_
+OPAMP: {}
+
+PWR:
+  _strip: PWR_
 
 QUADSPI:
   CCR:
@@ -103,14 +113,13 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-PWR:
-  _strip: PWR_
-
 RCC:
   _strip: RCC_
   _include:
     - fields/rcc/g4.yaml
     - fields/rcc/rcc_g4.yaml
+
+RNG: {}
 
 RTC:
   _include:
@@ -126,7 +135,7 @@ SAI:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -196,6 +205,9 @@ UCPD1:
 USB:
   _include:
     - patches/usb/g4.yaml
+
+VREFBUF:
+  _strip: VREFBUF_
 
 WWDG:
   _include:

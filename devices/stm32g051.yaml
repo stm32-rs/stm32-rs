@@ -11,6 +11,7 @@ _copy:
     baseAddress: 0x40000400
 
 ADC:
+  _strip: ADC_
   _include:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
@@ -21,13 +22,25 @@ ADC:
       name: CHSELR1
       alternateRegister: CHSELR0
 
-DMA?:
+COMP: {}
+
+CRC:
+  _strip: CRC_
+
+DAC:
+  _strip: DAC_
+
+DBG:
+  _strip: DBG_
+
+DMA1:
   _strip: DMA_
   _include:
     - fields/dma/v1.yaml
     - collect/dma/v1.yaml
 
 DMAMUX:
+  _strip: DMAMUX_
   _include:
     - collect/dma/dmamux.yaml
 
@@ -40,7 +53,7 @@ FLASH:
   _include:
     - patches/flash/g0.yaml
 
-GPIO?:
+GPIO[AB]:
   _include:
     - fields/gpio/gpio_g0_l0.yaml
     - collect/gpio/v2.yaml
@@ -50,20 +63,30 @@ GPIO[A]:
 GPIO[B]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
+  _strip: I2C_
   _include:
     - fields/i2c/v2.yaml
 
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+HDMI_CEC:
+  _strip: CEC_
+
+LPTIM1:
+  _strip: LPTIM_
 
 LPUART1:
   _strip: LPUART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/lp_wl.yaml
+
+PWR: {}
 
 RCC:
   _include:
@@ -73,12 +96,13 @@ RCC:
     - fields/rcc/rcc_g0x1.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SPI1:
   _strip: SPI_
   _include:
     - patches/16bit.yaml
@@ -89,10 +113,12 @@ SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
 
 TAMP:
+  _strip: TAMP_
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
+  _strip: TIM1_
   _include:
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
@@ -147,13 +173,16 @@ USART1:
     - patches/usart/g0_CR1.yaml
     - fields/usart/v4/B.yaml
 
+VREFBUF:
+  _strip: VREFBUF_
+
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/g0x1_strip.yaml
   - patches/nvic/2_prio_bits.yaml
   - patches/dma/g0_dma1_7ch_only.yaml
   - patches/tim/group.yaml

@@ -71,6 +71,8 @@ CAN1:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
+COMP: {}
+
 CRC:
   _include:
     - patches/crc/crc_rename_init.yaml
@@ -79,9 +81,13 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
+CRS: {}
+
 DAC:
   _include:
     - fields/dac/dac_l4xx.yaml
+
+DBGMCU: {}
 
 DFSDM:
   _strip: DFSDM_
@@ -90,10 +96,23 @@ DFSDM:
       name: FLT1JCHGR
   _include: collect/dfsdm/l4.yaml
 
-DMA?:
+DMA1:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
     - collect/dma/v1.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+
+FIREWALL:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
+
+FLASH:
+  _include:
+    - patches/flash/flash_boot0s.yaml
 
 FMC:
   BCR1:
@@ -134,20 +153,7 @@ FMC:
     - fields/fsmc/fsmc_nand.yaml
     - collect/fsmc/sram.yaml
 
-EXTI:
-  _include:
-    - patches/exti/add_fpu_interrupt.yaml
-    - fields/exti/common.yaml
-
-FIREWALL:
-  _include:
-    - fields/fw/fw_l0_l4.yaml
-
-FLASH:
-  _include:
-    - patches/flash/flash_boot0s.yaml
-
-GPIO?:
+GPIO[ABC]:
   _include:
     - patches/gpio/l4_ascr.yaml
     - patches/gpio/l4_brr.yaml
@@ -159,7 +165,7 @@ GPIO[A]:
 GPIO[BC]:
   _include: collect/gpio/v2_derive.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -173,6 +179,8 @@ LCD:
   _include:
     - patches/lcd/ram_segment_40.yaml
 
+LPTIM1: {}
+
 LPUART1:
   _include:
     - patches/usart/merge_CR1_DEATx_fields.yaml
@@ -180,6 +188,10 @@ LPUART1:
     - patches/usart/merge_CR2_ADDx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v3/lp_A.yaml
+
+OPAMP: {}
+
+PWR: {}
 
 QUADSPI:
   _include:
@@ -248,18 +260,24 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SPI?:
+SDMMC: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
     - fields/spi/spi_common.yaml
+
+SWPMI1: {}
+
+SYSCFG: {}
 
 TIM[18]:
   _include:
@@ -325,6 +343,10 @@ USART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/v3/B.yaml
+
+USB: {}
+
+VREFBUF: {}
 
 WWDG:
   _include:

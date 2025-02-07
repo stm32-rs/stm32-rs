@@ -1,0 +1,25 @@
+CCCSR:
+  _modify:
+    COMP_EN:
+      name: EN
+    COMP_CODESEL:
+      name: CS
+    COMP_RDY:
+      name: READY
+    IOHSLV:
+      name: HSLV
+
+# align names of EXTI configuration registers with other H7 devices
+_modify:
+  EXTICR3:
+    name: EXTICR4
+    access: read-write
+  EXTICR2:
+    name: EXTICR3
+    access: read-write
+  EXTICR1:
+    name: EXTICR2
+    access: read-write
+  EXTICR0:
+    name: EXTICR1
+    access: read-write

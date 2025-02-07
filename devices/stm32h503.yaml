@@ -1,10 +1,12 @@
 _svd: ../svd/stm32h503.svd
 
+_clear_fields: "*"
+
 _modify:
   ADC:
     name: ADC1
 
-ADC?:
+ADC1:
   _strip: ADC_
   _include:
     - patches/adc/split.yaml
@@ -16,15 +18,39 @@ ADC?:
   SQR?:
     SQ*: [0, 19]
 
-EXTI:
+COMP: {}
+
+CRC:
+  _strip: CRC_
+
+CRS:
+  _strip: CRS_
   _include:
+    - fields/crs/crs.yaml
+
+DAC:
+  _strip: DAC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DTS:
+  _strip: DTS_
+
+EXTI:
+  _strip: EXTI_
+  _include:
+    - patches/exti/exti4_5.yaml
     - fields/exti/common.yaml
     - fields/exti/exti_priv.yaml
 
 FDCAN1:
   _strip: FDCAN_
 
-GPDMA?:
+FLASH:
+  _strip: FLASH_
+
+GPDMA1:
   _strip: GPDMA_
   _include:
     - fields/dma/gpdma/h5.yaml
@@ -33,7 +59,8 @@ GPDMA?:
 GPIOC:
   _strip: GPIO_
 
-GPIO?:
+GPIO[ABCH]:
+  _strip: GPIO?_
   _include:
     - fields/gpio/gpio_l5_u5.yaml
     - collect/gpio/v2r.yaml
@@ -55,49 +82,81 @@ GTZC1:
       _array:
         PRIV*: {}
 
-I2C?:
+HASH:
+  _strip: HASH_
+
+I2C1:
+  _strip: I2C_
   _include:
     - fields/i2c/v3.yaml
 
 I3C1:
   _strip: I3C_
 
+ICACHE:
+  _strip: ICACHE_
+
 IWDG:
+  _strip: IWDG_
   _include:
     - patches/iwdg/add_onf.yaml
     - patches/16bit_with_mask.yaml
     - fields/iwdg/h5.yaml
 
+LPTIM1:
+  _strip: LPTIM_
+
 LPUART:
+  _strip: LPUART_
   _include:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - patches/usart/merge_CR3_WUS_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
+OPAMP1: {}
+
 PWR:
+  _strip: PWR_
   _include:
     - fields/pwr/pwr_h5.yaml
 
+RAMCFG:
+  _strip: RAMCFG_
+
 RCC:
+  _strip: RCC_
   _include:
     - patches/rcc/h503.yaml
     - fields/rcc/v3/h503.yaml
 
 RNG:
+  _strip: RNG_
   _include:
     - patches/rng/h503.yaml
 
 RTC:
+  _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-SPI?:
+SBS:
+  _strip: SBS_
+  _include:
+    - patches/sbs/fmplus.yaml
+    - patches/sbs/sbs.yaml
+    - fields/sbs/sbs.yaml
+
+SPI1:
+  _strip: SPI_
   _include:
     - patches/spi/rxtxdr.yaml
     - fields/spi/spi_v3_base.yaml
     - fields/spi/spi_v3_cfg1_bpass.yaml
+
+TAMP:
+  _strip: TAMP_
 
 TIM?:
   _strip: TIM?_
@@ -144,15 +203,12 @@ USART1:
     - fields/usart/v4/B.yaml
 
 USB:
+  _strip: USB_
   _include:
     - collect/usb/chepr.yaml
 
 WWDG:
+  _strip: WWDG_
   _include:
     - patches/16bit_with_mask.yaml
     - fields/wwdg/wwdg_v2.yaml
-
-_include:
-  - patches/h5.yaml
-  - fields/crs/crs.yaml
-  - fields/sbs/sbs.yaml

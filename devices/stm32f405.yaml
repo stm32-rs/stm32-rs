@@ -32,7 +32,7 @@ ADC1:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
@@ -59,7 +59,11 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA?:
+DBGMCU: {}
+
+DCMI: {}
+
+DMA2:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/dma_v2.yaml
@@ -105,7 +109,7 @@ FSMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
 
-GPIO?:
+GPIO[ABI]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -119,7 +123,7 @@ HASH:
   _include:
     - collect/hash/v2.yaml
 
-I2C?:
+I2C1:
   _include:
     - patches/16bit.yaml
     - fields/i2c/v1.yaml
@@ -131,6 +135,15 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg.yaml
+
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
+#OTG_HS_DEVICE: {}
+#OTG_HS_GLOBAL: {}
+#OTG_HS_HOST: {}
+#OTG_HS_PWRCLK: {}
 
 PWR:
   CR:
@@ -176,6 +189,9 @@ RCC:
     - fields/rcc/v2/i2s.yaml
     - fields/rcc/v2/i2s_pll.yaml
 
+RNG:
+  _include: fields/rng/rng_f4.yaml
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -185,15 +201,12 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-RNG:
-  _include: fields/rng/rng_f4.yaml
-
 SDIO:
   _include:
     - fields/sdio/sdio_f4.yaml
     - collect/sdio/resp.yaml
 
-SPI?:
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

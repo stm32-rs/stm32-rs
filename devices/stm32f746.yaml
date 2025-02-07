@@ -32,7 +32,7 @@ ADC1:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
-CAN?:
+CAN1:
   _include:
     - fields/can/can.yaml
     - collect/can/can.yaml
@@ -66,16 +66,18 @@ DAC:
     - fields/dac/dac_wavegen.yaml
     - fields/dac/dac_dmaudr.yaml
 
-DMA2D:
-  _include:
-    - fields/dma/dma2d_v1.yaml
+DBGMCU: {}
 
-DMA?:
+DMA2:
   _include:
     - patches/dma/fcr_wo.yaml
     - patches/dma/dma_v2.yaml
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
+
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
 
 Ethernet_DMA:
   DMABMR:
@@ -99,6 +101,9 @@ Ethernet_MAC:
     _modify:
       MACA2L:
         bitWidth: 32
+
+#Ethernet_MMC: {}
+#Ethernet_PTP: {}
 
 EXTI:
   _include:
@@ -137,7 +142,7 @@ FMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 
-GPIO?:
+GPIO[ABD]:
   _include:
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -151,7 +156,7 @@ HASH:
   _include:
     - collect/hash/v2.yaml
 
-I2C?:
+I2C1:
   _include:
     - fields/i2c/v2.yaml
 
@@ -159,6 +164,8 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
+
+LPTIM1: {}
 
 LTDC:
   _include:
@@ -168,17 +175,27 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+#OTG_FS_DEVICE: {}
+#OTG_FS_GLOBAL: {}
+#OTG_FS_HOST: {}
+#OTG_FS_PWRCLK: {}
+
 OTG_HS_*:
   _strip: OTG_HS_
+
+#OTG_HS_DEVICE: {}
+#OTG_HS_GLOBAL: {}
+#OTG_HS_HOST: {}
+#OTG_HS_PWRCLK: {}
+
+PWR:
+  _include:
+    - fields/pwr/pwr_f7.yaml
 
 QUADSPI:
   _include:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
-
-PWR:
-  _include:
-    - fields/pwr/pwr_f7.yaml
 
 RCC:
   _include:
@@ -198,6 +215,8 @@ RCC:
     - fields/rcc/v2/dckcfgr_saidivr.yaml
     - fields/rcc/v2/dckcfgr2_cecsel.yaml
 
+RNG: {}
+
 RTC:
   _include:
     - patches/rtc/alarm.yaml
@@ -206,17 +225,19 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SAI?:
+SAI1:
   _include:
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SDMMC?:
+SDMMC1:
   _include:
     - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
 
-SPI?:
+SPDIFRX: {}
+
+SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml

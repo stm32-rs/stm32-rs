@@ -1,8 +1,9 @@
 # RAMECC peripheral from scratch
 
 # ramecc.yaml adds monitor fields
-_include:
-  - ramecc.yaml
+"RAMECC,RAMECC?":
+  _include:
+    - ramecc.yaml
 
 _add:
   RAMECC1:
