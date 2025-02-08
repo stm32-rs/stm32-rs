@@ -1,0 +1,17 @@
+_delete:
+  - "HCCHAR1[2-5]"
+  - "HCSPLT1[2-5]"
+  - "HCINT1[2-5]"
+  - "HCINTMSK1[2-5]"
+  - "HCTSIZ1[2-5]"
+  - "HCDMA1[2-5]"
+HCINT0:
+  _add:
+    AHBERR:
+      description: AHB error
+      bitOffset: 2
+      bitWidth: 1
+    NYET:
+      description: Response received interrupt
+      bitOffset: 6
+      bitWidth: 1

@@ -198,10 +198,22 @@ IWDG:
 OTG_FS_*:
   _strip: FS_
 
-#OTG_FS_DEVICE: {}
-#OTG_FS_GLOBAL: {}
-#OTG_FS_HOST: {}
-#OTG_FS_PWRCLK: {}
+OTG_FS_DEVICE:
+  _include:
+    - patches/usb_otg/fs_v1_device_ext.yaml
+    - patches/usb_otg/fs_v1_device.yaml
+    - collect/usb_otg/fs_device.yaml
+OTG_FS_GLOBAL:
+  _include:
+    - patches/usb_otg/fs_v1_global_ext.yaml
+    - patches/usb_otg/fs_v1_global.yaml
+    - collect/usb_otg/fs_global.yaml
+OTG_FS_HOST:
+  _include:
+    - patches/usb_otg/fs_v1_host_ext.yaml
+    - patches/usb_otg/fs_v1_host.yaml
+    - collect/usb_otg/fs_host.yaml
+OTG_FS_PWRCLK: {}
 
 PWR:
   _include:
@@ -369,7 +381,4 @@ WWDG:
 _include:
   - patches/adc/adc_common_group_name.yaml
   - patches/tim/group.yaml
-  - patches/usb_otg/fs_v1ext.yaml
-  - patches/usb_otg/fs_v1.yaml
-  - collect/usb_otg/fs.yaml
   - patches/dbgmcu/dbgmcu.yaml

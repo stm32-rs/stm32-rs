@@ -1,20 +1,19 @@
-OTG_FS_GLOBAL:
-  GCCFG:
-    _delete:
-      - DCDET
-      - PDET
-      - SDET
-      - PS2DET
-      - BCDEN
-      - DCDEN
-      - PDEN
-      - SDEN
-
+GCCFG:
   _delete:
-    - "*GI2CCTL"
-    - "*GPWRDN"
-    - "*GADPCTL"
+    - DCDET
+    - PDET
+    - SDET
+    - PS2DET
+    - BCDEN
+    - DCDEN
+    - PDEN
+    - SDEN
 
-  _modify:
-    CID:
-      resetValue: 0x2000
+_delete:
+  - "*GI2CCTL"
+  - "*GPWRDN"
+  - "*GADPCTL"
+
+_modify:
+  CID:
+    resetValue: 0x2000

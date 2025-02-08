@@ -20,6 +20,18 @@ _modify:
     name: Ethernet_MMC
   ETHERNET_PTP:
     name: Ethernet_PTP
+  USB_OTG_HOST:
+    name: OTG_FS_HOST
+    groupName: USB_OTG_FS
+  USB_OTG_GLOBAL:
+    name: OTG_FS_GLOBAL
+    groupName: USB_OTG_FS
+  USB_OTG_DEVICE:
+    name: OTG_FS_DEVICE
+    groupName: USB_OTG_FS
+  USB_OTG_PWRCLK:
+    name: OTG_FS_PWRCLK
+    groupName: USB_OTG_FS
 
 ADC1:
   _include:
@@ -118,10 +130,26 @@ IWDG:
 MPU:
   _strip: MPU_
 
-#OTG_FS_DEVICE: {}
-#OTG_FS_GLOBAL: {}
-#OTG_FS_HOST: {}
-#OTG_FS_PWRCLK: {}
+OTG_FS_*:
+  _strip: FS_
+
+OTG_FS_DEVICE:
+  _include:
+    - patches/usb_otg/fs_v1_device.yaml
+    - collect/usb_otg/fs_device.yaml
+OTG_FS_GLOBAL:
+  GUSBCFG:
+    _modify:
+      PHYSEL:
+        bitOffset: 6
+  _include:
+    - patches/usb_otg/fs_v1_global.yaml
+    - collect/usb_otg/fs_global.yaml
+OTG_FS_HOST:
+  _include:
+    - patches/usb_otg/fs_v1_host.yaml
+    - collect/usb_otg/fs_host.yaml
+OTG_FS_PWRCLK: {}
 
 PWR:
   _include:
@@ -199,9 +227,6 @@ WWDG:
 _include:
   - patches/bkp/bkp.yaml
   - patches/tim/group.yaml
-  - patches/usb_otg/fs_fixes_107.yaml
-  - patches/usb_otg/fs_v1.yaml
-  - collect/usb_otg/fs.yaml
   - patches/dbgmcu/rename.yaml
   - patches/ethernet/f1.yaml
   - fields/eth/eth_dma_common.yaml

@@ -1,0 +1,44 @@
+_copy:
+  DIEPCTL4:
+    _from: DIEPCTL1
+    addressOffset: 0x180
+  DIEPINT4:
+    _from: DIEPINT1
+    addressOffset: 0x188
+  DIEPTSIZ4:
+    _from: DIEPTSIZ1
+    addressOffset: 0x190
+  DTXFSTS4:
+    _from: DTXFSTS1
+    addressOffset: 0x198
+  DIEPCTL5:
+    _from: DIEPCTL1
+    addressOffset: 0x1A0
+  DIEPINT5:
+    _from: DIEPINT1
+    addressOffset: 0x1A8
+  DIEPTSIZ5:
+    _from: DIEPTSIZ1
+    addressOffset: 0x1B0
+  DTXFSTS5:
+    _from: DTXFSTS1
+    addressOffset: 0x1B8
+
+  DOEPCTL4:
+    _from: DOEPCTL1
+    addressOffset: 0x380
+  DOEPINT4:
+    _from: DOEPINT1
+    addressOffset: 0x388
+  DOEPTSIZ4:
+    _from: DOEPTSIZ1
+    addressOffset: 0x390
+  DOEPCTL5:
+    _from: DOEPCTL1
+    addressOffset: 0x3A0
+  DOEPINT5:
+    _from: DOEPINT1
+    addressOffset: 0x3A8
+  DOEPTSIZ5:
+    _from: DOEPTSIZ1
+    addressOffset: 0x3B0
