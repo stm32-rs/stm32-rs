@@ -48,6 +48,7 @@ ADC1:
         name: JADSTP
   _include:
     - patches/adc/offset_en.yaml
+    - patches/adc/split.yaml
     - fields/adc/adc_v3_f3.yaml
     - collect/adc/v3.yaml
   SQR?:

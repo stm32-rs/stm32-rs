@@ -14,7 +14,7 @@ C*CR:
   SOIE:
     Disabled: [0, Synchronization overrun interrupt disabled]
     Enabled: [1, Synchronization overrun interrupt enabled]
-RG*CR:
+RG?CR:
   GNBREQ: [0, 31]
   GPOL:
     NoEdge: [0, "No event, i.e. no detection nor generation"]
@@ -27,3 +27,28 @@ RG*CR:
   OIE:
     Disabled: [0, Trigger overrun interrupt disabled]
     Enabled: [1, Trigger overrun interrupt enabled]
+CSR:
+  SOF*:
+    NoSyncEvent:
+      [
+        0,
+        "No synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ",
+      ]
+    SyncEvent:
+      [
+        1,
+        "Synchronization event occured on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ",
+      ]
+"CFR,CCFR":
+  CSOF*:
+    _W1C:
+      Clear: [1, Clear synchronization flag]
+RGSR:
+  "OF?":
+    NoTrigger:
+      [0, "No new trigger event occured on DMA request generator channel x, before the request counter underrun"]
+    Trigger: [1, "New trigger event occured on DMA request generator channel x, before the request counter underrun"]
+RGCFR:
+  COF?:
+    _W1C:
+      Clear: [1, Clear overrun flag]

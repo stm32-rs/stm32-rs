@@ -41,6 +41,7 @@ DMAMUX:
       CSOF*:
         access: write-only
   _include:
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

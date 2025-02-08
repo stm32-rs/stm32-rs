@@ -57,11 +57,21 @@ DBGMCU: {}
 DCB: {}
 
 DMA1:
+  _delete: CSELR
   _include:
+    - fields/dma/v1.yaml
     - collect/dma/l5.yaml
 
 DMAMUX1:
+  C5CR:
+    _modify:
+      OIE:
+        name: SOIE
+  RGCFR:
+    _strip: CS
+    _prefix: C
   _include:
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

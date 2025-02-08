@@ -11,6 +11,9 @@ _modify:
   AES?:
     groupName: AES
 
+_derive:
+  DMA2: DMA1
+
 # Rename the L3 field to L to match RM0434
 ADC1:
   SQR1:
@@ -51,10 +54,14 @@ CRS: {}
 
 DBGMCU: {}
 
-DMA[12]: {}
+DMA1:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 DMAMUX1:
   _include:
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

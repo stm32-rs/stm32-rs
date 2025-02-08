@@ -4,3 +4,20 @@ _array:
     description: DMA Multiplexer Channel %s Control register
   RG*CR:
     name: RGCR%s
+
+CSR:
+  _array:
+    SOF*:
+      description: Synchronization Overrun Flag %s
+"CFR,CCFR":
+  _array:
+    CSOF*:
+      description: Synchronization Clear Overrun Flag %s
+RGSR:
+  _array:
+    OF?:
+      description: Generator Overrun Flag %s
+RGCFR:
+  _array:
+    COF?:
+      description: Generator Clear Overrun Flag %s

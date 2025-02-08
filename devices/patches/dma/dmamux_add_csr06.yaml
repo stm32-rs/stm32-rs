@@ -1,0 +1,29 @@
+_add:
+  CSR:
+    displayName: CSR
+    description: DMAMUX request line multiplexer interrupt channel status register
+    addressOffset: 128
+    size: 32
+    access: read-only
+    resetValue: 0
+    resetMask: 4294967295
+    fields:
+      SOF:
+        description: Synchronization Overrun Flag
+        bitOffset: 0
+        bitWidth: 7
+        access: read-only
+  CFR:
+    displayName: CFR
+    description: DMAMUX request line multiplexer interrupt clear flag register
+    addressOffset: 132
+    size: 32
+    access: write-only
+    resetValue: 0
+    resetMask: 4294967295
+    fields:
+      CSOF:
+        description: Synchronization Clear Overrun Flag
+        bitOffset: 0
+        bitWidth: 7
+        access: write-only

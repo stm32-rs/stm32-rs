@@ -35,7 +35,10 @@ DAC:
 
 DBGMCU: {}
 
-DMA1: {}
+DMA1:
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 EXTI:
   _include:
