@@ -213,9 +213,19 @@ OPAMP: {}
 OTG1_HS_*:
   _strip: OTG_HS_
 
-OTG1_HS_DEVICE: {}
-OTG1_HS_GLOBAL: {}
-OTG1_HS_HOST: {}
+OTG1_HS_DEVICE:
+  _include:
+    - patches/usb_otg/hsdevice.yaml
+    - collect/usb_otg/hs_device.yaml
+OTG1_HS_GLOBAL:
+  _include:
+    - patches/usb_otg/hsglobal.yaml
+    - patches/usb_otg/gotgctl.yaml
+    - collect/usb_otg/hs_global.yaml
+OTG1_HS_HOST:
+  _include:
+    - patches/usb_otg/hshost_address_12_15.yaml
+    - collect/usb_otg/hs_host.yaml
 OTG1_HS_PWRCLK: {}
 
 PSSI:
@@ -388,8 +398,6 @@ WWDG:
 _include:
   - patches/h7_common_highmemory.yaml
   - patches/h7_spdifrx.yaml
-  - patches/usb_otg/hs_v2.yaml
-  - collect/usb_otg/hs.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml

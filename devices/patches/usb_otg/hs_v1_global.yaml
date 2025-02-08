@@ -1,0 +1,32 @@
+_delete:
+  _registers:
+    - DIEPTXF6
+    - DIEPTXF7
+
+_modify:
+  GNPTXFSIZ_Host:
+    name: HNPTXFSIZ
+    displayName: HNPTXFSIZ
+
+  GNPTXSTS:
+    name: HNPTXSTS
+
+  TX0FSIZ_Peripheral:
+    name: DIEPTXF0
+    displayName: DIEPTXF0
+    alternateRegister: HNPTXFSIZ
+
+  GRXSTSR_Peripheral:
+    name: GRXSTSR_Device
+    alternateRegister: GRXSTSR_Host
+
+  GRXSTSP_Peripheral:
+    name: GRXSTSP_Device
+    alternateRegister: GRXSTSP_Host
+
+  DIEPTXF3:
+    addressOffset: 0x10C
+  DIEPTXF4:
+    addressOffset: 0x110
+  DIEPTXF5:
+    addressOffset: 0x114

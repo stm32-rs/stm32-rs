@@ -1,0 +1,20 @@
+_modify:
+  DIEPTSIZ4:
+    addressOffset: 0x190
+  "DIEPTSIZ55,DIEPTSIZ5":
+    name: DIEPTSIZ5
+  "DTXFSTS55,DTXFSTS5":
+    name: DTXFSTS5
+  DOEPCTL4:
+    addressOffset: 0x380
+  DOEPCTL5:
+    addressOffset: 0x3A0
+
+DAINTMSK:
+  _modify:
+    OEPINT:
+      name: OEPM
+      description: OUT EP interrupt mask bits
+
+_include:
+  - epena_stall.yaml

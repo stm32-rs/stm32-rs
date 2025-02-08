@@ -208,13 +208,19 @@ OTG1_HS_*:
   _strip: OTG_HS_
 
 OTG1_HS_DEVICE:
-  _include: patches/usb_otg/hsdevice.yaml
+  _include:
+    - patches/usb_otg/hsdevice.yaml
+    - collect/usb_otg/hs_device.yaml
 
 OTG1_HS_GLOBAL:
-  _include: patches/usb_otg/hsglobal.yaml
+  _include:
+    - patches/usb_otg/hsglobal.yaml
+    - collect/usb_otg/hs_global.yaml
 
 OTG1_HS_HOST:
-  _include: patches/usb_otg/hshost_address_12_15.yaml
+  _include:
+    - patches/usb_otg/hshost_address_12_15.yaml
+    - collect/usb_otg/hs_host.yaml
 
 OTG1_HS_PWRCLK: {}
 
@@ -374,7 +380,6 @@ _include:
   - patches/dbgmcu/h7.yaml
   - patches/ethernet/h7_dma_mr.yaml
   - patches/h7_spdifrx.yaml
-  - collect/usb_otg/hs.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml

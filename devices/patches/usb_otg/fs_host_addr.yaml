@@ -1,18 +1,17 @@
-OTG_FS_HOST:
-  _modify:
-    HCCHAR8: { addressOffset: 0x200 }
-    HCINT8: { addressOffset: 0x208 }
-    HCINTMSK8: { addressOffset: 0x20C }
-    HCTSIZ8: { addressOffset: 0x210 }
-    HCCHAR9: { addressOffset: 0x220 }
-    HCINT9: { addressOffset: 0x228 }
-    HCINTMSK9: { addressOffset: 0x22C }
-    HCTSIZ9: { addressOffset: 0x230 }
-    HCCHAR10: { addressOffset: 0x240 }
-    HCINT10: { addressOffset: 0x248 }
-    HCINTMSK10: { addressOffset: 0x24C }
-    HCTSIZ10: { addressOffset: 0x250 }
-    HCCHAR11: { addressOffset: 0x260 }
-    HCINT11: { addressOffset: 0x268 }
-    HCINTMSK11: { addressOffset: 0x26C }
-    HCTSIZ11: { addressOffset: 0x270 }
+_modify:
+  HCCHAR8: { addressOffset: 0x200 }
+  HCINT8: { addressOffset: 0x208 }
+  HCINTMSK8: { addressOffset: 0x20C }
+  HCTSIZ8: { addressOffset: 0x210 }
+  HCCHAR9: { addressOffset: 0x220 }
+  HCINT9: { addressOffset: 0x228 }
+  HCINTMSK9: { addressOffset: 0x22C }
+  HCTSIZ9: { addressOffset: 0x230 }
+  HCCHAR10: { addressOffset: 0x240 }
+  HCINT10: { addressOffset: 0x248 }
+  HCINTMSK10: { addressOffset: 0x24C }
+  HCTSIZ10: { addressOffset: 0x250 }
+  HCCHAR11: { addressOffset: 0x260 }
+  HCINT11: { addressOffset: 0x268 }
+  HCINTMSK11: { addressOffset: 0x26C }
+  HCTSIZ11: { addressOffset: 0x270 }

@@ -253,10 +253,14 @@ OTG1_HS_*:
   _strip: OTG_HS_
 
 OTG1_HS_DEVICE:
-  _include: patches/usb_otg/hsdevice.yaml
+  _include:
+    - patches/usb_otg/hsdevice.yaml
+    - collect/usb_otg/hs_device.yaml
 
 OTG1_HS_GLOBAL:
-  _include: patches/usb_otg/hsglobal.yaml
+  _include:
+    - patches/usb_otg/hsglobal.yaml
+    - collect/usb_otg/hs_global.yaml
   _add:
     _interrupts:
       OTG_HS_EP1_OUT:
@@ -273,7 +277,9 @@ OTG1_HS_GLOBAL:
         description: USB OTG_HS global interrupt
 
 OTG1_HS_HOST:
-  _include: patches/usb_otg/hshost_address_12_15.yaml
+  _include:
+    - patches/usb_otg/hshost_address_12_15.yaml
+    - collect/usb_otg/hs_host.yaml
 
 OTG1_HS_PWRCLK: {}
 
@@ -435,7 +441,6 @@ WWDG1:
 
 _include:
   - patches/ethernet/h7_combined_desc.yaml
-  - collect/usb_otg/hs.yaml
   - patches/gpio/h7_jk.yaml
   - patches/tim/group.yaml
   - patches/ethernet/h7_mac.yaml

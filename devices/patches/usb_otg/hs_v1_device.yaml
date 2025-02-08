@@ -1,0 +1,69 @@
+_delete:
+  _registers:
+    - DIEPCTL6
+    - DIEPCTL7
+    - DIEPINT6
+    - DIEPINT7
+    - DOEPINT6
+    - DOEPINT7
+
+_copy:
+  DIEPDMA0:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-0 DMA address register
+    addressOffset: 0x114
+  DOEPCTL4:
+    _from: DOEPCTL1
+    description: device endpoint-4 control register
+    addressOffset: 0x380
+  DOEPCTL5:
+    _from: DOEPCTL1
+    description: device endpoint-5 control register
+    addressOffset: 0x3A0
+  DOEPTSIZ5:
+    _from: DOEPTSIZ1
+    description: OTG_HS device endpoint-5 transfer size register
+    addressOffset: 0x3B0
+  DOEPDMA0:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-0 DMA address register
+    addressOffset: 0x314
+  DOEPDMA1:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-1 DMA address register
+    addressOffset: 0x334
+  DOEPDMA2:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-2 DMA address register
+    addressOffset: 0x354
+  DOEPDMA3:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-3 DMA address register
+    addressOffset: 0x374
+  DOEPDMA4:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-4 DMA address register
+    addressOffset: 0x394
+  DOEPDMA5:
+    _from: DIEPDMA1
+    description: OTG_HS device endpoint-5 DMA address register
+    addressOffset: 0x3B4
+_modify:
+  DIEPDMA1:
+    addressOffset: 0x134
+  DIEPDMA2:
+    addressOffset: 0x154
+  DIEPDMA3:
+    addressOffset: 0x174
+  DIEPDMA4:
+    addressOffset: 0x194
+  DIEPDMA5:
+    addressOffset: 0x1B4
+
+  DIEPEACHMSK1:
+    addressOffset: 0x44
+  DOEPEACHMSK1:
+    addressOffset: 0x84
+
+_include:
+  - epena_stall.yaml

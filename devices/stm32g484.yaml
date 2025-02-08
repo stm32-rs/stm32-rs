@@ -45,8 +45,9 @@ DAC1:
 DBGMCU: {}
 
 DMA1:
+  IFCR:
+    _prefix: C
   _include:
-    - patches/dma/g4_ifcr.yaml
     - collect/dma/v1.yaml
 
 DMAMUX:

@@ -1,15 +1,14 @@
-OTG_HS_GLOBAL:
-  GCCFG:
-    _delete:
-      - DCDET
-      - PDET
-      - SDET
-      - PS2DET
-      - BCDEN
-      - DCDEN
-      - PDEN
-      - SDEN
+GCCFG:
+  _delete:
+    - DCDET
+    - PDET
+    - SDET
+    - PS2DET
+    - BCDEN
+    - DCDEN
+    - PDEN
+    - SDEN
 
-  _modify:
-    CID:
-      resetValue: 0x2100
+_modify:
+  CID:
+    resetValue: 0x2100

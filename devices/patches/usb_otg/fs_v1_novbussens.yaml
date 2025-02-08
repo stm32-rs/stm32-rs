@@ -1,7 +1,6 @@
-OTG_FS_GLOBAL:
-  GCCFG:
-    _add:
-      NOVBUSSENS:
-        description: Vbus sensing disable option
-        bitOffset: 21
-        bitWidth: 1
+GCCFG:
+  _add:
+    NOVBUSSENS:
+      description: Vbus sensing disable option
+      bitOffset: 21
+      bitWidth: 1
