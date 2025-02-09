@@ -40,6 +40,8 @@ DMA1:
 DMAMUX:
   _strip: DMAMUX_
   _include:
+    - patches/dma/dmamux_split.yaml
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

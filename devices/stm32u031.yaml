@@ -22,9 +22,15 @@ DBGMCU:
 
 DMA1:
   _strip: DMA_
+  _include:
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
 DMAMUX:
   _strip: DMAMUX_
+  _include:
+    - fields/dma/dmamux_v1.yaml
+    - collect/dma/dmamux.yaml
 
 EXTI:
   _strip: EXTI_

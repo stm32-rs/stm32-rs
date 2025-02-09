@@ -108,7 +108,7 @@ DMAMUX1:
 
 DMAMUX2:
   _include:
-    - patches/dma/h7_dmamux.yaml
+    - patches/dma/dmamux_split.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml

@@ -43,11 +43,15 @@ DAC:
     - fields/dac/dac_wl_8bit.yaml
 
 DMA1:
+  IFCR:
+    _prefix: C
   _include:
     - fields/dma/dma_wl.yaml
+    - collect/dma/v1.yaml
 
 DMAMUX:
   _include:
+    - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux_wl.yaml
     - collect/dma/dmamux.yaml
 

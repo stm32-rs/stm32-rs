@@ -93,6 +93,7 @@ DMA2D:
 
 DMAMUX1:
   _include:
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

@@ -42,6 +42,7 @@ DMA1:
 DMAMUX:
   _strip: DMAMUX_
   _include:
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:

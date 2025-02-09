@@ -43,10 +43,13 @@ DMA1:
   IFCR:
     _prefix: C
   _include:
+    - fields/dma/v1.yaml
     - collect/dma/v1.yaml
 
 DMAMUX:
   _include:
+    - patches/dma/dmamux_split.yaml
+    - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
 EXTI:
