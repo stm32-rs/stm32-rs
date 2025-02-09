@@ -199,7 +199,7 @@ SR:
 
 IFCR:
   "*C":
-    _write:
+    _W1C:
       Clear: [1, Clear interrupt flag]
 
 TXDR:

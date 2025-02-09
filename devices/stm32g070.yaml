@@ -112,7 +112,7 @@ SPI1:
   _include:
     - patches/spi/dr8.yaml
     - patches/spi/g0_rename_registers.yaml
-    - fields/spi/spi_v2_without_UDR_CHSIDE.yaml
+    - fields/spi/spi_v2.yaml
   _modify:
     "CR1,CR2,SR,DR,CRCPR,RXCRCR,TXCRCR,I2SCFGR,I2SPR":
       size: 16

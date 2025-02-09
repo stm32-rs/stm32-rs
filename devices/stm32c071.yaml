@@ -67,7 +67,9 @@ I2C1:
 
 IWDG:
   _strip: IWDG_
-  _include: patches/16bit_with_mask.yaml
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 PWR:
   _strip: PWR_
@@ -87,6 +89,8 @@ SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
+    - fields/spi/spi_I2S_ASTRTEN.yaml
 
 SYSCFG:
   _strip: SYSCFG_
@@ -168,7 +172,9 @@ USB:
 
 WWDG:
   _strip: WWDG_
-  _include: patches/16bit_with_mask.yaml
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/nvic/2_prio_bits.yaml

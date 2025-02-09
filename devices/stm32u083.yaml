@@ -95,6 +95,12 @@ RTC:
 
 SPI1:
   _strip: SPI_
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/spi_FRF_FRE.yaml
+    - fields/spi/spi_v2_spi.yaml
 
 SYSCFG:
   _strip: SYSCFG_
@@ -167,3 +173,6 @@ VREFBUF:
 
 WWDG:
   _strip: WWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/wwdg/wwdg_v2.yaml
