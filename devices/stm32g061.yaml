@@ -9,6 +9,10 @@ _copy:
   TIM3:
     from: TIM2
     baseAddress: 0x40000400
+  SPI1:
+    from: ../svd/stm32g051.svd:SPI1
+  SPI2:
+    from: ../svd/stm32g051.svd:SPI2
 
 ADC:
   _strip: ADC_
@@ -106,11 +110,12 @@ RTC:
     - fields/rtc/v3.yaml
     - collect/rtc/alarm.yaml
 
-# TODO: add SPI
-#SPI?:
-#  _include:
-#    - patches/16bit.yaml
-#    - patches/spi/dr8.yaml
+SPI1:
+  _strip: SPI_
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSCFG:
   _include: fields/syscfg/syscfg_g0_usart2.yaml
