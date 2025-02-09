@@ -1,0 +1,1153 @@
+---
+DMA1:
+  DMA_ISR:
+    GIF1:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF1:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF1:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF1:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF2:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF2:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF2:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF2:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF3:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF3:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF3:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF3:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF4:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF4:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF4:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF4:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF5:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF5:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF5:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF5:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF6:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF6:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF6:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF6:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF7:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF7:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF7:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF7:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+  DMA_CCR1:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR2:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR3:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR4:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR5:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR6:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR7:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+TIM15:
+  CR1:
+    CEN:
+      B_0x0: [0, Counter disabled]
+      B_0x1: [1, Counter enabled]
+    UDIS:
+      B_0x0: [0, "UEV enabled. The Update (UEV) event is generated by one of the following events:"]
+      B_0x1: [1, "UEV disabled. The Update event is not generated, shadow registers keep their value (ARR, PSC, CCRx). However the counter and the prescaler are reinitialized if the UG bit is set or if a hardware reset is received from the slave mode controller."]
+    URS:
+      B_0x0: [0, "Any of the following events generate an update interrupt if enabled. These events can be:"]
+      B_0x1: [1, Only counter overflow/underflow generates an update interrupt if enabled]
+    OPM:
+      B_0x0: [0, Counter is not stopped at update event]
+      B_0x1: [1, Counter stops counting at the next update event (clearing the bit CEN)]
+    ARPE:
+      B_0x0: [0, TIMx_ARR register is not buffered]
+      B_0x1: [1, TIMx_ARR register is buffered]
+    CKD:
+      B_0x0: [0, tDTS = tCK_INT]
+      B_0x1: [1, tDTS = 2*tCK_INT]
+      B_0x2: [2, tDTS = 4*tCK_INT]
+      B_0x3: [3, "Reserved, do not program this value"]
+    UIFREMAP:
+      B_0x0: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31.]
+      B_0x1: [1, Remapping enabled. UIF status bit is copied to TIMx_CNT register bit 31.]
+  CR2:
+    CCPC:
+      B_0x0: [0, "CCxE, CCxNE and OCxM bits are not preloaded"]
+      B_0x1: [1, "CCxE, CCxNE and OCxM bits are preloaded, after having been written, they are updated only when a commutation event (COM) occurs (COMG bit set or rising edge detected on TRGI, depending on the CCUS bit)."]
+    CCUS:
+      B_0x0: [0, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only."]
+      B_0x1: [1, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit or when an rising edge occurs on TRGI."]
+    CCDS:
+      B_0x0: [0, CCx DMA request sent when CCx event occurs]
+      B_0x1: [1, CCx DMA requests sent when update event occurs]
+    MMS:
+      B_0x0: [0, Reset - the UG bit from the TIMx_EGR register is used as trigger output (TRGO). If the reset is generated by the trigger input (slave mode controller configured in reset mode) then the signal on TRGO is delayed compared to the actual reset.]
+      B_0x1: [1, "Enable - the Counter Enable signal CNT_EN is used as trigger output (TRGO). It is useful to start several timers at the same time or to control a window in which a slave timer is enable. The Counter Enable signal is generated by a logic AND between CEN control bit and the trigger input when configured in gated mode. When the Counter Enable signal is controlled by the trigger input, there is a delay on TRGO, except if the master/slave mode is selected (see the MSM bit description in TIMx_SMCR register)."]
+      B_0x2: [2, Update - The update event is selected as trigger output (TRGO). For instance a master timer can then be used as a prescaler for a slave timer.]
+      B_0x3: [3, "Compare Pulse - The trigger output send a positive pulse when the CC1IF flag is to be set (even if it was already high), as soon as a capture or a compare match occurred. (TRGO)."]
+      B_0x4: [4, Compare - OC1REFC signal is used as trigger output (TRGO).]
+      B_0x5: [5, Compare - OC2REFC signal is used as trigger output (TRGO).]
+    TI1S:
+      B_0x0: [0, The TIMx_CH1 pin is connected to TI1 input]
+      B_0x1: [1, "The TIMx_CH1, CH2 pins are connected to the TI1 input (XOR combination)"]
+    OIS1:
+      B_0x0: [0, OC1=0 (after a dead-time if OC1N is implemented) when MOE=0]
+      B_0x1: [1, OC1=1 (after a dead-time if OC1N is implemented) when MOE=0]
+    OIS1N:
+      B_0x0: [0, OC1N=0 after a dead-time when MOE=0]
+      B_0x1: [1, OC1N=1 after a dead-time when MOE=0]
+    OIS2:
+      B_0x0: [0, OC2=0 when MOE=0]
+      B_0x1: [1, OC2=1 when MOE=0]
+  SMCR:
+    SMS1:
+      B_0x0: [0, Slave mode disabled - if CEN = 1 then the prescaler is clocked directly by the internal clock.]
+      B_0x4: [4, Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers.]
+      B_0x5: [5, Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled.]
+      B_0x6: [6, Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled.]
+      B_0x7: [7, External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.]
+    TS1:
+      B_0x0: [0, Internal Trigger 0 (ITR0)]
+      B_0x1: [1, Internal Trigger 1 (ITR1)]
+      B_0x2: [2, Internal Trigger 2 (ITR2)]
+      B_0x3: [3, Internal Trigger 3 (ITR3)]
+      B_0x4: [4, TI1 Edge Detector (TI1F_ED)]
+      B_0x5: [5, Filtered Timer Input 1 (TI1FP1)]
+      B_0x6: [6, Filtered Timer Input 2 (TI2FP2)]
+    MSM:
+      B_0x0: [0, No action]
+      B_0x1: [1, The effect of an event on the trigger input (TRGI) is delayed to allow a perfect synchronization between the current timer and its slaves (through TRGO). It is useful if we want to synchronize several timers on a single external event.]
+    SMS2:
+      B_0x0: [0, "Slave mode disabled - if CEN = '1' then the prescaler is clocked directly by the internal clock."]
+    TS2:
+      B_0x0: [0, Internal Trigger 0 (ITR0)]
+      B_0x1: [1, Internal Trigger 1 (ITR1)]
+      B_0x2: [2, Internal Trigger 2 (ITR2)]
+      B_0x3: [3, Internal Trigger 3 (ITR3)]
+  DIER:
+    UIE:
+      B_0x0: [0, Update interrupt disabled]
+      B_0x1: [1, Update interrupt enabled]
+    CC1IE:
+      B_0x0: [0, CC1 interrupt disabled]
+      B_0x1: [1, CC1 interrupt enabled]
+    CC2IE:
+      B_0x0: [0, CC2 interrupt disabled]
+      B_0x1: [1, CC2 interrupt enabled]
+    COMIE:
+      B_0x0: [0, COM interrupt disabled]
+      B_0x1: [1, COM interrupt enabled]
+    TIE:
+      B_0x0: [0, Trigger interrupt disabled]
+      B_0x1: [1, Trigger interrupt enabled]
+    BIE:
+      B_0x0: [0, Break interrupt disabled]
+      B_0x1: [1, Break interrupt enabled]
+    UDE:
+      B_0x0: [0, Update DMA request disabled]
+      B_0x1: [1, Update DMA request enabled]
+    CC1DE:
+      B_0x0: [0, CC1 DMA request disabled]
+      B_0x1: [1, CC1 DMA request enabled]
+    CC2DE:
+      B_0x0: [0, CC2 DMA request disabled]
+      B_0x1: [1, CC2 DMA request enabled]
+    COMDE:
+      B_0x0: [0, COM DMA request disabled]
+      B_0x1: [1, COM DMA request enabled]
+    TDE:
+      B_0x0: [0, Trigger DMA request disabled]
+      B_0x1: [1, Trigger DMA request enabled]
+  SR:
+    UIF:
+      B_0x0: [0, No update occurred.]
+      B_0x1: [1, "Update interrupt pending. This bit is set by hardware when the registers are updated:"]
+    CC1IF:
+      B_0x0: [0, No compare match / No input capture occurred]
+      B_0x1: [1, A compare match or an input capture occurred]
+    COMIF:
+      B_0x0: [0, No COM event occurred]
+      B_0x1: [1, COM interrupt pending]
+    TIF:
+      B_0x0: [0, No trigger event occurred]
+      B_0x1: [1, Trigger interrupt pending]
+    BIF:
+      B_0x0: [0, No break event occurred]
+      B_0x1: [1, An active level has been detected on the break input]
+    CC1OF:
+      B_0x0: [0, No overcapture has been detected]
+      B_0x1: [1, The counter value has been captured in TIMx_CCR1 register while CC1IF flag was already set]
+  EGR:
+    UG:
+      B_0x0: [0, No action]
+      B_0x1: [1, Reinitialize the counter and generates an update of the registers. Note that the prescaler counter is cleared too (anyway the prescaler ratio is not affected).]
+    CC1G:
+      B_0x0: [0, No action]
+      B_0x1: [1, "A capture/compare event is generated on channel 1:"]
+    COMG:
+      B_0x0: [0, No action]
+      B_0x1: [1, "When the CCPC bit is set, it is possible to update the CCxE, CCxNE and OCxM bits"]
+    TG:
+      B_0x0: [0, No action]
+      B_0x1: [1, The TIF flag is set in TIMx_SR register. Related interrupt or DMA transfer can occur if enabled]
+    BG:
+      B_0x0: [0, No action]
+      B_0x1: [1, A break event is generated. MOE bit is cleared and BIF flag is set. Related interrupt or DMA transfer can occur if enabled.]
+  CCMR1_Output:
+    CC1S:
+      B_0x0: [0, CC1 channel is configured as output.]
+      B_0x1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1."]
+      B_0x2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2."]
+      B_0x3: [3, "CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if an internal trigger input is selected through TS bit (TIMx_SMCR register)"]
+    OC1FE:
+      B_0x0: [0, CC1 behaves normally depending on counter and CCR1 values even when the trigger is ON. The minimum delay to activate CC1 output when an edge occurs on the trigger input is 5 clock cycles.]
+      B_0x1: [1, "An active edge on the trigger input acts like a compare match on CC1 output. Then, OC is set to the compare level independently of the result of the comparison. Delay to sample the trigger input and to activate CC1 output is reduced to 3 clock cycles. OCFE acts only if the channel is configured in PWM1 or PWM2 mode."]
+    OC1PE:
+      B_0x0: [0, "Preload register on TIMx_CCR1 disabled. TIMx_CCR1 can be written at anytime, the new value is taken in account immediately."]
+      B_0x1: [1, Preload register on TIMx_CCR1 enabled. Read/Write operations access the preload register. TIMx_CCR1 preload value is loaded in the active register at each update event.]
+    OC1M1:
+      B_0x0: [0, Frozen - The comparison between the output compare register TIMx_CCR1 and the counter TIMx_CNT has no effect on the outputs.]
+      B_0x1: [1, Set channel 1 to active level on match. OC1REF signal is forced high when the counter TIMx_CNT matches the capture/compare register 1 (TIMx_CCR1).]
+    CC2S:
+      B_0x0: [0, CC2 channel is configured as output.]
+      B_0x1: [1, "CC2 channel is configured as input, IC2 is mapped on TI2."]
+      B_0x2: [2, "CC2 channel is configured as input, IC2 is mapped on TI1."]
+      B_0x3: [3, "CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if an internal trigger input is selected through the TS bit (TIMx_SMCR register)"]
+    OC1M2:
+      B_0x0: [0, Frozen - The comparison between the output compare register TIMx_CCR1 and the counter TIMx_CNT has no effect on the outputs.]
+      B_0x1: [1, Set channel 1 to active level on match. OC1REF signal is forced high when the counter TIMx_CNT matches the capture/compare register 1 (TIMx_CCR1).]
+  CCMR1_Input:
+    CC1S:
+      B_0x0: [0, CC1 channel is configured as output]
+      B_0x1: [1, "CC1 channel is configured as input, IC1 is mapped on TI1"]
+      B_0x2: [2, "CC1 channel is configured as input, IC1 is mapped on TI2"]
+      B_0x3: [3, "CC1 channel is configured as input, IC1 is mapped on TRC. This mode is working only if an internal trigger input is selected through TS bit (TIMx_SMCR register)"]
+    IC1PSC:
+      B_0x0: [0, "no prescaler, capture is done each time an edge is detected on the capture input"]
+      B_0x1: [1, capture is done once every 2 events]
+      B_0x2: [2, capture is done once every 4 events]
+      B_0x3: [3, capture is done once every 8 events]
+    IC1F:
+      B_0x0: [0, "No filter, sampling is done at fDTS"]
+      B_0x1: [1, "fSAMPLING=fCK_INT, N=2"]
+      B_0x2: [2, "fSAMPLING=fCK_INT, N=4"]
+      B_0x3: [3, "fSAMPLING=fCK_INT, N=8"]
+      B_0x4: [4, "fSAMPLING=fDTS/2, N=6"]
+      B_0x5: [5, "fSAMPLING=fDTS/2, N=8"]
+      B_0x6: [6, "fSAMPLING=fDTS/4, N=6"]
+      B_0x7: [7, "fSAMPLING=fDTS/4, N=8"]
+      B_0x8: [8, "fSAMPLING=fDTS/8, N=6"]
+      B_0x9: [9, "fSAMPLING=fDTS/8, N=8"]
+      B_0xA: [10, "fSAMPLING=fDTS/16, N=5"]
+      B_0xB: [11, "fSAMPLING=fDTS/16, N=6"]
+      B_0xC: [12, "fSAMPLING=fDTS/16, N=8"]
+      B_0xD: [13, "fSAMPLING=fDTS/32, N=5"]
+      B_0xE: [14, "fSAMPLING=fDTS/32, N=6"]
+      B_0xF: [15, "fSAMPLING=fDTS/32, N=8"]
+    CC2S:
+      B_0x0: [0, CC2 channel is configured as output]
+      B_0x1: [1, "CC2 channel is configured as input, IC2 is mapped on TI2"]
+      B_0x2: [2, "CC2 channel is configured as input, IC2 is mapped on TI1"]
+      B_0x3: [3, "CC2 channel is configured as input, IC2 is mapped on TRC. This mode is working only if an internal trigger input is selected through TS bit (TIMx_SMCR register)"]
+  CCER:
+    CC1E:
+      B_0x0: [0, Capture mode disabled / OC1 is not active (see below)]
+      B_0x1: [1, Capture mode enabled / OC1 signal is output on the corresponding output pin]
+    CC1P:
+      B_0x0: [0, "OC1 active high (output mode) / Edge sensitivity selection (input mode, see below)"]
+      B_0x1: [1, "OC1 active low (output mode) / Edge sensitivity selection (input mode, see below)"]
+    CC1NE:
+      B_0x0: [0, "Off - OC1N is not active. OC1N level is then function of MOE, OSSI, OSSR, OIS1, OIS1N and CC1E bits."]
+      B_0x1: [1, "On - OC1N signal is output on the corresponding output pin depending on MOE, OSSI, OSSR, OIS1, OIS1N and CC1E bits."]
+    CC1NP:
+      B_0x0: [0, OC1N active high]
+      B_0x1: [1, OC1N active low]
+  BDTR:
+    LOCK:
+      B_0x0: [0, LOCK OFF - No bit is write protected]
+      B_0x1: [1, "LOCK Level 1 = DTG bits in TIMx_BDTR register, OISx and OISxN bits in TIMx_CR2 register and BKE/BKP/AOE bits in TIMx_BDTR register can no longer be written"]
+      B_0x2: [2, "LOCK Level 2 = LOCK Level 1 + CC Polarity bits (CCxP/CCxNP bits in TIMx_CCER register, as long as the related channel is configured in output through the CCxS bits) as well as OSSR and OSSI bits can no longer be written."]
+      B_0x3: [3, "LOCK Level 3 = LOCK Level 2 + CC Control bits (OCxM and OCxPE bits in TIMx_CCMRx registers, as long as the related channel is configured in output through the CCxS bits) can no longer be written."]
+    OSSI:
+      B_0x0: [0, "When inactive, OC/OCN outputs are disabled (OC/OCN enable output signal=0)"]
+      B_0x1: [1, "When inactive, OC/OCN outputs are forced first with their idle level as soon as CCxE=1 or CCxNE=1. OC/OCN enable output signal=1)"]
+    OSSR:
+      B_0x0: [0, "When inactive, OC/OCN outputs are disabled (the timer releases the output control which is taken over by the AFIO logic, which forces a Hi-Z state)"]
+      B_0x1: [1, "When inactive, OC/OCN outputs are enabled with their inactive level as soon as CCxE=1 or CCxNE=1 (the output is still controlled by the timer)."]
+    BKE:
+      B_0x0: [0, Break inputs (BRK and CCS clock failure event) disabled]
+    BKP:
+      B_0x0: [0, Break input BRK is active low]
+      B_0x1: [1, Break input BRK is active high]
+    AOE:
+      B_0x0: [0, MOE can be set only by software]
+      B_0x1: [1, MOE can be set by software or automatically at the next update event (if the break input is not be active)]
+    MOE:
+      B_0x0: [0, OC and OCN outputs are disabled or forced to idle state depending on the OSSI bit.]
+      B_0x1: [1, "OC and OCN outputs are enabled if their respective enable bits are set (CCxE, CCxNE in TIMx_CCER register)"]
+    BKF:
+      B_0x0: [0, "No filter, BRK acts asynchronously"]
+      B_0x1: [1, "fSAMPLING=fCK_INT, N=2"]
+      B_0x2: [2, "fSAMPLING=fCK_INT, N=4"]
+      B_0x3: [3, "fSAMPLING=fCK_INT, N=8"]
+      B_0x4: [4, "fSAMPLING=fDTS/2, N=6"]
+      B_0x5: [5, "fSAMPLING=fDTS/2, N=8"]
+      B_0x6: [6, "fSAMPLING=fDTS/4, N=6"]
+      B_0x7: [7, "fSAMPLING=fDTS/4, N=8"]
+      B_0x8: [8, "fSAMPLING=fDTS/8, N=6"]
+      B_0x9: [9, "fSAMPLING=fDTS/8, N=8"]
+      B_0xA: [10, "fSAMPLING=fDTS/16, N=5"]
+      B_0xB: [11, "fSAMPLING=fDTS/16, N=6"]
+      B_0xC: [12, "fSAMPLING=fDTS/16, N=8"]
+      B_0xD: [13, "fSAMPLING=fDTS/32, N=5"]
+      B_0xE: [14, "fSAMPLING=fDTS/32, N=6"]
+      B_0xF: [15, "fSAMPLING=fDTS/32, N=8"]
+    BKDSRM:
+      B_0x0: [0, Break input BRK is armed]
+      B_0x1: [1, Break input BRK is disarmed]
+    BKBID:
+      B_0x0: [0, Break input BRK in input mode]
+      B_0x1: [1, Break input BRK in bidirectional mode]
+  DCR:
+    DBA:
+      B_0x0: [0, "TIMx_CR1,"]
+      B_0x1: [1, "TIMx_CR2,"]
+      B_0x2: [2, "TIMx_SMCR,"]
+    DBL:
+      B_0x0: [0, "1 transfer,"]
+      B_0x1: [1, "2 transfers,"]
+      B_0x2: [2, "3 transfers,"]
+      B_0x11: [17, 18 transfers.]
+  AF1:
+    BKINE:
+      B_0x0: [0, BKIN input disabled]
+      B_0x1: [1, BKIN input enabled]
+    BKCMP1E:
+      B_0x0: [0, COMP1 input disabled]
+      B_0x1: [1, COMP1 input enabled]
+    BKCMP2E:
+      B_0x0: [0, COMP2 input disabled]
+      B_0x1: [1, COMP2 input enabled]
+    BKCMP3E:
+      B_0x0: [0, COMP3 input disabled]
+      B_0x1: [1, COMP3 input enabled]
+    BKINP:
+      B_0x0: [0, BKIN input is active low]
+      B_0x1: [1, BKIN input is active high]
+    BKCMP1P:
+      B_0x0: [0, COMP1 input is active low]
+      B_0x1: [1, COMP1 input is active high]
+    BKCMP2P:
+      B_0x0: [0, COMP2 input is active low]
+      B_0x1: [1, COMP2 input is active high]
+    BKCMP3P:
+      B_0x0: [0, COMP3 input is active low]
+      B_0x1: [1, COMP3 input is active high]
+  TISEL:
+    TI1SEL:
+      B_0x0: [0, TIM15_CH1 input]
+      B_0x1: [1, TIM2_IC1]
+      B_0x2: [2, TIM3_IC1]
+    TI2SEL:
+      B_0x0: [0, TIM15_CH2 input]
+      B_0x1: [1, TIM2_IC2]
+      B_0x2: [2, TIM3_IC2]
+ADC:
+  ADC_ISR:
+    ADRDY:
+      B_0x0: [0, ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, ADC is ready to start conversion]
+    EOSMP:
+      B_0x0: [0, Not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, End of sampling phase reached]
+    EOC:
+      B_0x0: [0, Channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Channel conversion complete]
+    EOS:
+      B_0x0: [0, Conversion sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Conversion sequence complete]
+    OVR:
+      B_0x0: [0, No overrun occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Overrun has occurred]
+    AWD1:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    AWD2:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    AWD3:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    EOCAL:
+      B_0x0: [0, Calibration is not complete]
+      B_0x1: [1, Calibration is complete]
+    CCRDY:
+      B_0x0: [0, Channel configuration update not applied.]
+      B_0x1: [1, Channel configuration update is applied.]
+  ADC_IER:
+    ADRDYIE:
+      B_0x0: [0, ADRDY interrupt disabled.]
+      B_0x1: [1, ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.]
+    EOSMPIE:
+      B_0x0: [0, EOSMP interrupt disabled.]
+      B_0x1: [1, EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.]
+    EOCIE:
+      B_0x0: [0, EOC interrupt disabled]
+      B_0x1: [1, EOC interrupt enabled. An interrupt is generated when the EOC bit is set.]
+    EOSIE:
+      B_0x0: [0, EOS interrupt disabled]
+      B_0x1: [1, EOS interrupt enabled. An interrupt is generated when the EOS bit is set.]
+    OVRIE:
+      B_0x0: [0, Overrun interrupt disabled]
+      B_0x1: [1, Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.]
+    AWD1IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    AWD2IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    AWD3IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    EOCALIE:
+      B_0x0: [0, End of calibration interrupt disabled]
+      B_0x1: [1, End of calibration interrupt enabled]
+    CCRDYIE:
+      B_0x0: [0, Channel configuration ready interrupt disabled]
+      B_0x1: [1, Channel configuration ready interrupt enabled]
+  ADC_CR:
+    ADEN:
+      B_0x0: [0, ADC is disabled (OFF state)]
+      B_0x1: [1, Write 1 to enable the ADC.]
+    ADDIS:
+      B_0x0: [0, No ADDIS command ongoing]
+      B_0x1: [1, Write 1 to disable the ADC. Read 1 means that an ADDIS command is in progress.]
+    ADSTART:
+      B_0x0: [0, No ADC conversion is ongoing.]
+      B_0x1: [1, Write 1 to start the ADC. Read 1 means that the ADC is operating and may be converting.]
+    ADSTP:
+      B_0x0: [0, No ADC stop conversion command ongoing]
+      B_0x1: [1, Write 1 to stop the ADC. Read 1 means that an ADSTP command is in progress.]
+    ADVREGEN:
+      B_0x0: [0, ADC voltage regulator disabled]
+      B_0x1: [1, ADC voltage regulator enabled]
+    ADCAL:
+      B_0x0: [0, Calibration complete]
+      B_0x1: [1, Write 1 to calibrate the ADC. Read at 1 means that a calibration is in progress.]
+  ADC_CFGR1:
+    DMAEN:
+      B_0x0: [0, DMA disabled]
+      B_0x1: [1, DMA enabled]
+    DMACFG:
+      B_0x0: [0, DMA one shot mode selected]
+      B_0x1: [1, DMA circular mode selected]
+    SCANDIR:
+      B_0x0: [0, Upward scan (from CHSEL0 to CHSEL18)]
+      B_0x1: [1, Backward scan (from CHSEL18 to CHSEL0)]
+    RES:
+      B_0x0: [0, 12 bits]
+      B_0x1: [1, 10 bits]
+      B_0x2: [2, 8 bits]
+      B_0x3: [3, 6 bits]
+    ALIGN:
+      B_0x0: [0, Right alignment]
+      B_0x1: [1, Left alignment]
+    EXTSEL:
+      B_0x0: [0, TRG0]
+      B_0x1: [1, TRG1]
+      B_0x2: [2, TRG2]
+      B_0x3: [3, TRG3]
+      B_0x4: [4, TRG4]
+      B_0x5: [5, TRG5]
+      B_0x6: [6, TRG6]
+      B_0x7: [7, TRG7]
+    EXTEN:
+      B_0x0: [0, Hardware trigger detection disabled (conversions can be started by software)]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+    OVRMOD:
+      B_0x0: [0, ADC_DR register is preserved with the old data when an overrun is detected.]
+      B_0x1: [1, ADC_DR register is overwritten with the last conversion result when an overrun is detected.]
+    CONT:
+      B_0x0: [0, Single conversion mode]
+      B_0x1: [1, Continuous conversion mode]
+    WAIT:
+      B_0x0: [0, Wait conversion mode off]
+      B_0x1: [1, Wait conversion mode on]
+    AUTOFF:
+      B_0x0: [0, Auto-off mode disabled]
+      B_0x1: [1, Auto-off mode enabled]
+    DISCEN:
+      B_0x0: [0, Discontinuous mode disabled]
+      B_0x1: [1, Discontinuous mode enabled]
+    CHSELRMOD:
+      B_0x0: [0, Each bit of the ADC_CHSELR register enables an input]
+      B_0x1: [1, ADC_CHSELR register is able to sequence up to 8 channels]
+    AWD1SGL:
+      B_0x0: [0, Analog watchdog 1 enabled on all channels]
+      B_0x1: [1, Analog watchdog 1 enabled on a single channel]
+    AWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled]
+      B_0x1: [1, Analog watchdog 1 enabled]
+    AWD1CH:
+      B_0x0: [0, ADC analog input Channel 0 monitored by AWD]
+      B_0x1: [1, ADC analog input Channel 1 monitored by AWD]
+      B_0x11: [17, ADC analog input Channel 17 monitored by AWD]
+      B_0x12: [18, ADC analog input Channel 18 monitored by AWD]
+  ADC_CFGR2:
+    OVSE:
+      B_0x0: [0, Oversampler disabled]
+      B_0x1: [1, Oversampler enabled]
+    OVSR:
+      B_0x0: [0, 2x]
+      B_0x1: [1, 4x]
+      B_0x2: [2, 8x]
+      B_0x3: [3, 16x]
+      B_0x4: [4, 32x]
+      B_0x5: [5, 64x]
+      B_0x6: [6, 128x]
+      B_0x7: [7, 256x]
+    OVSS:
+      B_0x0: [0, No shift]
+      B_0x1: [1, Shift 1-bit]
+      B_0x2: [2, Shift 2-bits]
+      B_0x3: [3, Shift 3-bits]
+      B_0x4: [4, Shift 4-bits]
+      B_0x5: [5, Shift 5-bits]
+      B_0x6: [6, Shift 6-bits]
+      B_0x7: [7, Shift 7-bits]
+      B_0x8: [8, Shift 8-bits]
+    TOVS:
+      B_0x0: [0, All oversampled conversions for a channel are done consecutively after a trigger]
+      B_0x1: [1, Each oversampled conversion for a channel needs a trigger]
+    LFTRIG:
+      B_0x0: [0, Low Frequency Trigger Mode disabled]
+      B_0x1: [1, Low Frequency Trigger Mode enabled]
+    CKMODE:
+      B_0x0: [0, "ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)"]
+      B_0x1: [1, PCLK/2 (Synchronous clock mode)]
+      B_0x2: [2, PCLK/4 (Synchronous clock mode)]
+      B_0x3: [3, PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)]
+  ADC_SMPR:
+    SMP1:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 3.5 ADC clock cycles]
+      B_0x2: [2, 7.5 ADC clock cycles]
+      B_0x3: [3, 12.5 ADC clock cycles]
+      B_0x4: [4, 19.5 ADC clock cycles]
+      B_0x5: [5, 39.5 ADC clock cycles]
+      B_0x6: [6, 79.5 ADC clock cycles]
+      B_0x7: [7, 160.5 ADC clock cycles]
+    SMP2:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 3.5 ADC clock cycles]
+      B_0x2: [2, 7.5 ADC clock cycles]
+      B_0x3: [3, 12.5 ADC clock cycles]
+      B_0x4: [4, 19.5 ADC clock cycles]
+      B_0x5: [5, 39.5 ADC clock cycles]
+      B_0x6: [6, 79.5 ADC clock cycles]
+      B_0x7: [7, 160.5 ADC clock cycles]
+    SMPSEL0:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL1:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL2:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL3:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL4:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL5:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL6:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL7:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL8:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL9:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL10:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL11:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL12:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL13:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL14:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL15:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL16:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL17:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL18:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+  ADC_CHSELRMOD0:
+    CHSEL0:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL1:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL2:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL3:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL4:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL5:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL6:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL7:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL8:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL9:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL10:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL11:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL12:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL13:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL14:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL15:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL16:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL17:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL18:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+  ADC_CHSELRMOD1:
+    SQ8:
+      B_0x0: [0, CH0]
+      B_0x1: [1, CH1]
+      B_0xC: [12, CH12]
+      B_0xD: [13, CH13]
+      B_0xE: [14, CH14]
+      B_0xF: [15, No channel selected (End of sequence)]
+  ADC_AWD2CR:
+    AWD2CH0:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH1:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH2:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH3:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH4:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH5:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH6:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH7:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH8:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH9:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH10:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH11:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH12:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH13:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH14:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH15:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH16:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH17:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH18:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+  ADC_AWD3CR:
+    AWD3CH0:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH1:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH2:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH3:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH4:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH5:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH6:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH7:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH8:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH9:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH10:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH11:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH12:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH13:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH14:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH15:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH16:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH17:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH18:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+  ADC_CCR:
+    PRESC:
+      B_0x0: [0, input ADC clock not divided]
+      B_0x1: [1, input ADC clock divided by 2]
+      B_0x2: [2, input ADC clock divided by 4]
+      B_0x3: [3, input ADC clock divided by 6]
+      B_0x4: [4, input ADC clock divided by 8]
+      B_0x5: [5, input ADC clock divided by 10]
+      B_0x6: [6, input ADC clock divided by 12]
+      B_0x7: [7, input ADC clock divided by 16]
+      B_0x8: [8, input ADC clock divided by 32]
+      B_0x9: [9, input ADC clock divided by 64]
+      B_0xA: [10, input ADC clock divided by 128]
+      B_0xB: [11, input ADC clock divided by 256]
+    VREFEN:
+      B_0x0: [0, VREFINT disabled]
+      B_0x1: [1, VREFINT enabled]
+    TSEN:
+      B_0x0: [0, "Temperature sensor disabled, DAC_OUT1 connected to ADC channel 12"]
+      B_0x1: [1, Temperature sensor enabled]
+    VBATEN:
+      B_0x0: [0, "VBAT channel disabled, DAC_OUT2 connected to ADC channel 14"]
+      B_0x1: [1, VBAT channel enabled]
+VREFBUF:
+  VREFBUF_CSR:
+    ENVR:
+      B_0x0: [0, Internal voltage reference mode disable (external voltage reference mode).]
+      B_0x1: [1, Internal voltage reference mode (reference buffer enable or hold mode) enable.]
+    HIZ:
+      B_0x0: [0, VREF+ pin is internally connected to the voltage reference buffer output.]
+      B_0x1: [1, VREF+ pin is high impedance.]
+    VRS:
+      B_0x0: [0, Voltage reference set to VREF_OUT1 (around 2.048 V).]
+      B_0x1: [1, Voltage reference set to VREF_OUT2 (around 2.5 V).]
+    VRR:
+      B_0x0: [0, the voltage reference buffer output is not ready.]
+      B_0x1: [1, the voltage reference buffer output reached the requested level.]

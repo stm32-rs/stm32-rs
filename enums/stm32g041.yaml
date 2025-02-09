@@ -1,0 +1,374 @@
+---
+DMA1:
+  DMA_ISR:
+    GIF1:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF1:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF1:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF1:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF2:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF2:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF2:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF2:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF3:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF3:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF3:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF3:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF4:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF4:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF4:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF4:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF5:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF5:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF5:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF5:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF6:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF6:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF6:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF6:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF7:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF7:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF7:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF7:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+  DMA_CCR1:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR2:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR3:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR4:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR5:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR6:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR7:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]

@@ -1,0 +1,66 @@
+---
+EXTI:
+  EXTI_RTSR1:
+    RT22:
+      B_0x0: [0, Rising trigger disabled (for event and interrupt) for input line]
+      B_0x1: [1, Rising trigger enabled (for event and interrupt) for input line]
+  EXTI_FTSR1:
+    FT22:
+      B_0x0: [0, falling trigger disabled (for event and interrupt) for input line]
+      B_0x1: [1, falling trigger enabled (for event and interrupt) for input line]
+  EXTI_SWIER1:
+    SWI22:
+      B_0x0: [0, Writing 0 has no effect.]
+      B_0x1: [1, Writing 1 to this bit triggers an event on line 22.]
+  EXTI_PR1:
+    PIF22:
+      B_0x0: [0, No trigger request occurred.]
+      B_0x1: [1, Trigger request occurred.]
+  EXTI_RTSR2:
+    RT45:
+      B_0x0: [0, Rising trigger disabled (for event and interrupt) for input line]
+      B_0x1: [1, Rising trigger enabled (for event and interrupt) for input line]
+  EXTI_FTSR2:
+    FT45:
+      B_0x0: [0, Falling trigger disabled (for event and interrupt) for input line]
+      B_0x1: [1, Falling trigger enabled (for event and interrupt) for input line]
+  EXTI_SWIER2:
+    SWI45:
+      B_0x0: [0, Writing 0 has no effect.]
+      B_0x1: [1, Writing 1 to this bit triggers an event on line 45.]
+  EXTI_PR2:
+    PIF45:
+      B_0x0: [0, No trigger request occurred.]
+      B_0x1: [1, Trigger request occurred.]
+  EXTI_C1IMR1:
+    IM:
+      B_0x0: [0, Wake-up with interrupt request from line x is masked.]
+      B_0x1: [1, Wake-up with Interrupt request from line x is unmasked.]
+  EXTI_C1EMR1:
+    EM22:
+      B_0x0: [0, Event request from line 22 is masked.]
+      B_0x1: [1, Event request from line 22 is unmasked.]
+  EXTI_C1IMR2:
+    IM46:
+      B_0x0: [0, Wake-up with interrupt request from line 46 is masked.]
+      B_0x1: [1, Wake-up with interrupt request from line 46 is unmasked.]
+  EXTI_C1EMR2:
+    EM41:
+      B_0x0: [0, Event request from line 41 is masked.]
+      B_0x1: [1, Event request from line 41 is unmasked.]
+  EXTI_C2IMR1:
+    IM:
+      B_0x0: [0, Wake-up with interrupt request from line x is masked.]
+      B_0x1: [1, Wake-up with Interrupt request from line x is unmasked.]
+  EXTI_C2EMR1:
+    EM22:
+      B_0x0: [0, Event request from line 22 is masked.]
+      B_0x1: [1, Event request from line 22 is unmasked.]
+  EXTI_C2IMR2:
+    IM46:
+      B_0x0: [0, Wake-up with interrupt request from line 46 is masked.]
+      B_0x1: [1, Wake-up with interrupt request from line 46 is unmasked.]
+  EXTI_C2EMR2:
+    EM41:
+      B_0x0: [0, Event request from line 41 is masked.]
+      B_0x1: [1, Event request from line 41 is unmasked.]

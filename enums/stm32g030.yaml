@@ -1,0 +1,1104 @@
+---
+ADC:
+  ADC_ISR:
+    ADRDY:
+      B_0x0: [0, ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, ADC is ready to start conversion]
+    EOSMP:
+      B_0x0: [0, Not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, End of sampling phase reached]
+    EOC:
+      B_0x0: [0, Channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Channel conversion complete]
+    EOS:
+      B_0x0: [0, Conversion sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Conversion sequence complete]
+    OVR:
+      B_0x0: [0, No overrun occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Overrun has occurred]
+    AWD1:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    AWD2:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    AWD3:
+      B_0x0: [0, No analog watchdog event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog event occurred]
+    EOCAL:
+      B_0x0: [0, Calibration is not complete]
+      B_0x1: [1, Calibration is complete]
+    CCRDY:
+      B_0x0: [0, Channel configuration update not applied.]
+      B_0x1: [1, Channel configuration update is applied.]
+  ADC_IER:
+    ADRDYIE:
+      B_0x0: [0, ADRDY interrupt disabled.]
+      B_0x1: [1, ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.]
+    EOSMPIE:
+      B_0x0: [0, EOSMP interrupt disabled.]
+      B_0x1: [1, EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.]
+    EOCIE:
+      B_0x0: [0, EOC interrupt disabled]
+      B_0x1: [1, EOC interrupt enabled. An interrupt is generated when the EOC bit is set.]
+    EOSIE:
+      B_0x0: [0, EOS interrupt disabled]
+      B_0x1: [1, EOS interrupt enabled. An interrupt is generated when the EOS bit is set.]
+    OVRIE:
+      B_0x0: [0, Overrun interrupt disabled]
+      B_0x1: [1, Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.]
+    AWD1IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    AWD2IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    AWD3IE:
+      B_0x0: [0, Analog watchdog interrupt disabled]
+      B_0x1: [1, Analog watchdog interrupt enabled]
+    EOCALIE:
+      B_0x0: [0, End of calibration interrupt disabled]
+      B_0x1: [1, End of calibration interrupt enabled]
+    CCRDYIE:
+      B_0x0: [0, Channel configuration ready interrupt disabled]
+      B_0x1: [1, Channel configuration ready interrupt enabled]
+  ADC_CR:
+    ADEN:
+      B_0x0: [0, ADC is disabled (OFF state)]
+      B_0x1: [1, Write 1 to enable the ADC.]
+    ADDIS:
+      B_0x0: [0, No ADDIS command ongoing]
+      B_0x1: [1, Write 1 to disable the ADC. Read 1 means that an ADDIS command is in progress.]
+    ADSTART:
+      B_0x0: [0, No ADC conversion is ongoing.]
+      B_0x1: [1, Write 1 to start the ADC. Read 1 means that the ADC is operating and may be converting.]
+    ADSTP:
+      B_0x0: [0, No ADC stop conversion command ongoing]
+      B_0x1: [1, Write 1 to stop the ADC. Read 1 means that an ADSTP command is in progress.]
+    ADVREGEN:
+      B_0x0: [0, ADC voltage regulator disabled]
+      B_0x1: [1, ADC voltage regulator enabled]
+    ADCAL:
+      B_0x0: [0, Calibration complete]
+      B_0x1: [1, Write 1 to calibrate the ADC. Read at 1 means that a calibration is in progress.]
+  ADC_CFGR1:
+    DMAEN:
+      B_0x0: [0, DMA disabled]
+      B_0x1: [1, DMA enabled]
+    DMACFG:
+      B_0x0: [0, DMA one shot mode selected]
+      B_0x1: [1, DMA circular mode selected]
+    SCANDIR:
+      B_0x0: [0, Upward scan (from CHSEL0 to CHSEL18)]
+      B_0x1: [1, Backward scan (from CHSEL18 to CHSEL0)]
+    RES:
+      B_0x0: [0, 12 bits]
+      B_0x1: [1, 10 bits]
+      B_0x2: [2, 8 bits]
+      B_0x3: [3, 6 bits]
+    ALIGN:
+      B_0x0: [0, Right alignment]
+      B_0x1: [1, Left alignment]
+    EXTSEL:
+      B_0x0: [0, TRG0]
+      B_0x1: [1, TRG1]
+      B_0x2: [2, TRG2]
+      B_0x3: [3, TRG3]
+      B_0x4: [4, TRG4]
+      B_0x5: [5, TRG5]
+      B_0x6: [6, TRG6]
+      B_0x7: [7, TRG7]
+    EXTEN:
+      B_0x0: [0, Hardware trigger detection disabled (conversions can be started by software)]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+    OVRMOD:
+      B_0x0: [0, ADC_DR register is preserved with the old data when an overrun is detected.]
+      B_0x1: [1, ADC_DR register is overwritten with the last conversion result when an overrun is detected.]
+    CONT:
+      B_0x0: [0, Single conversion mode]
+      B_0x1: [1, Continuous conversion mode]
+    WAIT:
+      B_0x0: [0, Wait conversion mode off]
+      B_0x1: [1, Wait conversion mode on]
+    AUTOFF:
+      B_0x0: [0, Auto-off mode disabled]
+      B_0x1: [1, Auto-off mode enabled]
+    DISCEN:
+      B_0x0: [0, Discontinuous mode disabled]
+      B_0x1: [1, Discontinuous mode enabled]
+    CHSELRMOD:
+      B_0x0: [0, Each bit of the ADC_CHSELR register enables an input]
+      B_0x1: [1, ADC_CHSELR register is able to sequence up to 8 channels]
+    AWD1SGL:
+      B_0x0: [0, Analog watchdog 1 enabled on all channels]
+      B_0x1: [1, Analog watchdog 1 enabled on a single channel]
+    AWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled]
+      B_0x1: [1, Analog watchdog 1 enabled]
+    AWD1CH:
+      B_0x0: [0, ADC analog input Channel 0 monitored by AWD]
+      B_0x1: [1, ADC analog input Channel 1 monitored by AWD]
+      B_0x11: [17, ADC analog input Channel 17 monitored by AWD]
+      B_0x12: [18, ADC analog input Channel 18 monitored by AWD]
+  ADC_CFGR2:
+    OVSE:
+      B_0x0: [0, Oversampler disabled]
+      B_0x1: [1, Oversampler enabled]
+    OVSR:
+      B_0x0: [0, 2x]
+      B_0x1: [1, 4x]
+      B_0x2: [2, 8x]
+      B_0x3: [3, 16x]
+      B_0x4: [4, 32x]
+      B_0x5: [5, 64x]
+      B_0x6: [6, 128x]
+      B_0x7: [7, 256x]
+    OVSS:
+      B_0x0: [0, No shift]
+      B_0x1: [1, Shift 1-bit]
+      B_0x2: [2, Shift 2-bits]
+      B_0x3: [3, Shift 3-bits]
+      B_0x4: [4, Shift 4-bits]
+      B_0x5: [5, Shift 5-bits]
+      B_0x6: [6, Shift 6-bits]
+      B_0x7: [7, Shift 7-bits]
+      B_0x8: [8, Shift 8-bits]
+    TOVS:
+      B_0x0: [0, All oversampled conversions for a channel are done consecutively after a trigger]
+      B_0x1: [1, Each oversampled conversion for a channel needs a trigger]
+    LFTRIG:
+      B_0x0: [0, Low Frequency Trigger Mode disabled]
+      B_0x1: [1, Low Frequency Trigger Mode enabled]
+    CKMODE:
+      B_0x0: [0, "ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)"]
+      B_0x1: [1, PCLK/2 (Synchronous clock mode)]
+      B_0x2: [2, PCLK/4 (Synchronous clock mode)]
+      B_0x3: [3, PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)]
+  ADC_SMPR:
+    SMP1:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 3.5 ADC clock cycles]
+      B_0x2: [2, 7.5 ADC clock cycles]
+      B_0x3: [3, 12.5 ADC clock cycles]
+      B_0x4: [4, 19.5 ADC clock cycles]
+      B_0x5: [5, 39.5 ADC clock cycles]
+      B_0x6: [6, 79.5 ADC clock cycles]
+      B_0x7: [7, 160.5 ADC clock cycles]
+    SMP2:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 3.5 ADC clock cycles]
+      B_0x2: [2, 7.5 ADC clock cycles]
+      B_0x3: [3, 12.5 ADC clock cycles]
+      B_0x4: [4, 19.5 ADC clock cycles]
+      B_0x5: [5, 39.5 ADC clock cycles]
+      B_0x6: [6, 79.5 ADC clock cycles]
+      B_0x7: [7, 160.5 ADC clock cycles]
+    SMPSEL0:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL1:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL2:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL3:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL4:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL5:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL6:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL7:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL8:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL9:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL10:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL11:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL12:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL13:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL14:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL15:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL16:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL17:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+    SMPSEL18:
+      B_0x0: [0, "Sampling time of CHANNELx use the setting of SMP1[2:0] register."]
+      B_0x1: [1, "Sampling time of CHANNELx use the setting of SMP2[2:0] register."]
+  ADC_CHSELR_0:
+    CHSEL0:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL1:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL2:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL3:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL4:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL5:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL6:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL7:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL8:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL9:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL10:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL11:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL12:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL13:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL14:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL15:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL16:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL17:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+    CHSEL18:
+      B_0x0: [0, Input Channel-x is not selected for conversion]
+      B_0x1: [1, Input Channel-x is selected for conversion]
+  ADC_CHSELR_1:
+    SQ8:
+      B_0x0: [0, CH0]
+      B_0x1: [1, CH1]
+      B_0xC: [12, CH12]
+      B_0xD: [13, CH13]
+      B_0xE: [14, CH14]
+      B_0xF: [15, No channel selected (End of sequence)]
+  ADC_AWD2CR:
+    AWD2CH0:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH1:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH2:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH3:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH4:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH5:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH6:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH7:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH8:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH9:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH10:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH11:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH12:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH13:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH14:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH15:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH16:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH17:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+    AWD2CH18:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD2]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD2]
+  ADC_AWD3CR:
+    AWD3CH0:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH1:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH2:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH3:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH4:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH5:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH6:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH7:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH8:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH9:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH10:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH11:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH12:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH13:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH14:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH15:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH16:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH17:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+    AWD3CH18:
+      B_0x0: [0, ADC analog channel-x is not monitored by AWD3]
+      B_0x1: [1, ADC analog channel-x is monitored by AWD3]
+  ADC_CCR:
+    PRESC:
+      B_0x0: [0, input ADC clock not divided]
+      B_0x1: [1, input ADC clock divided by 2]
+      B_0x2: [2, input ADC clock divided by 4]
+      B_0x3: [3, input ADC clock divided by 6]
+      B_0x4: [4, input ADC clock divided by 8]
+      B_0x5: [5, input ADC clock divided by 10]
+      B_0x6: [6, input ADC clock divided by 12]
+      B_0x7: [7, input ADC clock divided by 16]
+      B_0x8: [8, input ADC clock divided by 32]
+      B_0x9: [9, input ADC clock divided by 64]
+      B_0xA: [10, input ADC clock divided by 128]
+      B_0xB: [11, input ADC clock divided by 256]
+    VREFEN:
+      B_0x0: [0, VREFINT disabled]
+      B_0x1: [1, VREFINT enabled]
+    TSEN:
+      B_0x0: [0, Temperature sensor disabled]
+      B_0x1: [1, Temperature sensor enabled]
+    VBATEN:
+      B_0x0: [0, VBAT channel disabled]
+      B_0x1: [1, VBAT channel enabled]
+DMA1:
+  DMA_ISR:
+    GIF1:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF1:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF1:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF1:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF2:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF2:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF2:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF2:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF3:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF3:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF3:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF3:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF4:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF4:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF4:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF4:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF5:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF5:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF5:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF5:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF6:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF6:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF6:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF6:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF7:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF7:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF7:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF7:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+  DMA_CCR1:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR2:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR3:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR4:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR5:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR6:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+  DMA_CCR7:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+TAMP:
+  TAMP_CR1:
+    TAMP1E:
+      B_0x0: [0, Tamper detection on TAMP_IN1 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN1 is enabled.]
+    TAMP2E:
+      B_0x0: [0, Tamper detection on TAMP_IN2 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN2 is enabled.]
+    TAMP3E:
+      B_0x0: [0, Tamper detection on TAMP_IN3 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN3 is enabled.]
+    ITAMP3E:
+      B_0x0: [0, Internal tamper 3 disabled.]
+      B_0x1: [1, "Internal tamper 3 enabled: a tamper is generated when the LSE frequency is below or above thresholds."]
+    ITAMP4E:
+      B_0x0: [0, Internal tamper 4 disabled.]
+      B_0x1: [1, Internal tamper 4 enabled. a tamper is generated when the HSE frequency is below or above thresholds.]
+    ITAMP5E:
+      B_0x0: [0, Internal tamper 5 disabled.]
+      B_0x1: [1, "Internal tamper 5 enabled: a tamper is generated when the RTC calendar reaches its maximum value, on the 31st of December 99, at 23:59:59. The calendar is then frozen and cannot overflow."]
+    ITAMP6E:
+      B_0x0: [0, Internal tamper 6 disabled.]
+      B_0x1: [1, "Internal tamper 6 enabled: a tamper is generated in case of ST manufacturer readout."]
+  TAMP_CR2:
+    TAMP1NOER:
+      B_0x0: [0, Tamper 1 event erases the backup registers.]
+      B_0x1: [1, Tamper 1 event does not erase the backup registers.]
+    TAMP2NOER:
+      B_0x0: [0, Tamper 2 event erases the backup registers.]
+      B_0x1: [1, Tamper 2 event does not erase the backup registers.]
+    TAMP3NOER:
+      B_0x0: [0, Tamper 3 event erases the backup registers.]
+      B_0x1: [1, Tamper 3 event does not erase the backup registers.]
+    TAMP1MSK:
+      B_0x0: [0, Tamper 1 event generates a trigger event and TAMP1F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 1 event generates a trigger event. TAMP1F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP2MSK:
+      B_0x0: [0, Tamper 2 event generates a trigger event and TAMP2F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 2 event generates a trigger event. TAMP2F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP3MSK:
+      B_0x0: [0, Tamper 3 event generates a trigger event and TAMP3F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 3 event generates a trigger event. TAMP3F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP1TRG:
+      B_0x0: [0, If TAMPFLT different from 00 Tamper 1 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT equal 00 Tamper 1 input staying high triggers a tamper detection event.]
+    TAMP2TRG:
+      B_0x0: [0, If TAMPFLT different from 00 Tamper 2 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT equal 00 Tamper 2 input staying high triggers a tamper detection event.]
+    TAMP3TRG:
+      B_0x0: [0, If TAMPFLT different from 00 Tamper 3 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT equal 00 Tamper 3 input staying high triggers a tamper detection event.]
+  TAMP_FLTCR:
+    TAMPFREQ:
+      B_0x0: [0, RTCCLK / 32768 (1Hz when RTCCLK = 32768Hz)]
+      B_0x1: [1, RTCCLK / 16384 (2Hz when RTCCLK = 32768Hz)]
+      B_0x2: [2, RTCCLK / 8192 (4Hz when RTCCLK = 32768Hz)]
+      B_0x3: [3, RTCCLK / 4096 (8Hz when RTCCLK = 32768Hz)]
+      B_0x4: [4, RTCCLK / 2048 (16Hz when RTCCLK = 32768Hz)]
+      B_0x5: [5, RTCCLK / 1024 (32Hz when RTCCLK = 32768Hz)]
+      B_0x6: [6, RTCCLK / 512 (64Hz when RTCCLK = 32768Hz)]
+      B_0x7: [7, RTCCLK / 256 (128Hz when RTCCLK = 32768Hz)]
+    TAMPFLT:
+      B_0x0: [0, Tamper event is activated on edge of TAMP_INx input transitions to the active level (no internal pull-up on TAMP_INx input).]
+      B_0x1: [1, Tamper event is activated after 2 consecutive samples at the active level.]
+      B_0x2: [2, Tamper event is activated after 4 consecutive samples at the active level.]
+      B_0x3: [3, Tamper event is activated after 8 consecutive samples at the active level.]
+    TAMPPRCH:
+      B_0x0: [0, 1 RTCCLK cycle]
+      B_0x1: [1, 2 RTCCLK cycles]
+      B_0x2: [2, 4 RTCCLK cycles]
+      B_0x3: [3, 8 RTCCLK cycles]
+    TAMPPUDIS:
+      B_0x0: [0, Precharge TAMP_INx pins before sampling (enable internal pull-up)]
+      B_0x1: [1, Disable precharge of TAMP_INx pins.]
+  TAMP_IER:
+    TAMP1IE:
+      B_0x0: [0, Tamper 1 interrupt disabled.]
+      B_0x1: [1, Tamper 1 interrupt enabled.]
+    TAMP2IE:
+      B_0x0: [0, Tamper 2 interrupt disabled.]
+      B_0x1: [1, Tamper 2 interrupt enabled.]
+    TAMP3IE:
+      B_0x0: [0, Tamper 3 interrupt disabled.]
+      B_0x1: [1, Tamper 3 interrupt enabled..]
+    ITAMP3IE:
+      B_0x0: [0, Internal tamper 3 interrupt disabled.]
+      B_0x1: [1, Internal tamper 3 interrupt enabled.]
+    ITAMP4IE:
+      B_0x0: [0, Internal tamper 4 interrupt disabled.]
+      B_0x1: [1, Internal tamper 4 interrupt enabled.]
+    ITAMP5IE:
+      B_0x0: [0, Internal tamper 5 interrupt disabled.]
+      B_0x1: [1, Internal tamper 5 interrupt enabled.]
+    ITAMP6IE:
+      B_0x0: [0, Internal tamper 6 interrupt disabled.]
+      B_0x1: [1, Internal tamper 6 interrupt enabled.]
+RTC:
+  RTC_TR:
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+  RTC_DR:
+    WDU:
+      B_0x0: [0, forbidden]
+      B_0x1: [1, Monday]
+      B_0x7: [7, Sunday]
+  RTC_ICSR:
+    ALRAWF:
+      B_0x0: [0, Alarm A update not allowed]
+      B_0x1: [1, Alarm A update allowed]
+    ALRBWF:
+      B_0x0: [0, Alarm B update not allowed]
+      B_0x1: [1, Alarm B update allowed]
+    WUTWF:
+      B_0x0: [0, Wakeup timer configuration update not allowed except in initialization mode]
+      B_0x1: [1, Wakeup timer configuration update allowed]
+    SHPF:
+      B_0x0: [0, No shift operation is pending]
+      B_0x1: [1, A shift operation is pending]
+    INITS:
+      B_0x0: [0, Calendar has not been initialized]
+      B_0x1: [1, Calendar has been initialized]
+    RSF:
+      B_0x0: [0, Calendar shadow registers not yet synchronized]
+      B_0x1: [1, Calendar shadow registers synchronized]
+    INITF:
+      B_0x0: [0, Calendar registers update is not allowed]
+      B_0x1: [1, Calendar registers update is allowed]
+    INIT:
+      B_0x0: [0, Free running mode]
+      B_0x1: [1, "Initialization mode used to program time and date register (RTC_TR and RTC_DR), and prescaler register (RTC_PRER). Counters are stopped and start counting from the new value when INIT is reset."]
+  RTC_CR:
+    WUCKSEL:
+      B_0x0: [0, RTC/16 clock is selected]
+      B_0x1: [1, RTC/8 clock is selected]
+      B_0x2: [2, RTC/4 clock is selected]
+      B_0x3: [3, RTC/2 clock is selected]
+    TSEDGE:
+      B_0x0: [0, RTC_TS input rising edge generates a timestamp event]
+      B_0x1: [1, RTC_TS input falling edge generates a timestamp event]
+    REFCKON:
+      B_0x0: [0, RTC_REFIN detection disabled]
+      B_0x1: [1, RTC_REFIN detection enabled]
+    BYPSHAD:
+      B_0x0: [0, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken from the shadow registers, which are updated once every two RTCCLK cycles."]
+      B_0x1: [1, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken directly from the calendar counters."]
+    FMT:
+      B_0x0: [0, 24 hour/day format]
+      B_0x1: [1, AM/PM hour format]
+    ALRAE:
+      B_0x0: [0, Alarm A disabled]
+      B_0x1: [1, Alarm A enabled]
+    ALRBE:
+      B_0x0: [0, Alarm B disabled]
+      B_0x1: [1, Alarm B enabled]
+    WUTE:
+      B_0x0: [0, Wakeup timer disabled]
+      B_0x1: [1, Wakeup timer enabled]
+    TSE:
+      B_0x0: [0, timestamp disable]
+      B_0x1: [1, timestamp enable]
+    ALRAIE:
+      B_0x0: [0, Alarm A interrupt disabled]
+      B_0x1: [1, Alarm A interrupt enabled]
+    ALRBIE:
+      B_0x0: [0, Alarm B interrupt disable]
+      B_0x1: [1, Alarm B interrupt enable]
+    WUTIE:
+      B_0x0: [0, Wakeup timer interrupt disabled]
+      B_0x1: [1, Wakeup timer interrupt enabled]
+    TSIE:
+      B_0x0: [0, Timestamp interrupt disable]
+      B_0x1: [1, Timestamp interrupt enable]
+    ADD1H:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Adds 1 hour to the current time. This can be used for summer time change]
+    SUB1H:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Subtracts 1 hour to the current time. This can be used for winter time change.]
+    COSEL:
+      B_0x0: [0, Calibration output is 512Hz]
+      B_0x1: [1, Calibration output is 1Hz]
+    POL:
+      B_0x0: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0]), or when a TAMPxF/ITAMPxF is asserted (if TAMPOE = 1)."]
+      B_0x1: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0]), or when a TAMPxF/ITAMPxF is asserted (if TAMPOE = 1)."]
+    OSEL:
+      B_0x0: [0, Output disabled]
+      B_0x1: [1, Alarm A output enabled]
+      B_0x2: [2, Alarm B output enabled]
+      B_0x3: [3, Wakeup output enabled]
+    COE:
+      B_0x0: [0, Calibration output disabled]
+      B_0x1: [1, Calibration output enabled]
+    ITSE:
+      B_0x0: [0, internal event timestamp disabled]
+      B_0x1: [1, internal event timestamp enabled]
+    TAMPTS:
+      B_0x0: [0, Tamper detection event does not cause a RTC timestamp to be saved]
+      B_0x1: [1, Save RTC timestamp on tamper detection event]
+    TAMPOE:
+      B_0x0: [0, The tamper flag is not routed on TAMPALRM]
+      B_0x1: [1, "The tamper flag is routed on TAMPALRM, combined with the signal provided by OSEL and with the polarity provided by POL."]
+    TAMPALRM_PU:
+      B_0x0: [0, No pull-up is applied on TAMPALRM output]
+      B_0x1: [1, A pull-up is applied on TAMPALRM output]
+    TAMPALRM_TYPE:
+      B_0x0: [0, TAMPALRM is push-pull output]
+      B_0x1: [1, TAMPALRM is open-drain output]
+  RTC_CALR:
+    CALP:
+      B_0x0: [0, No RTCCLK pulses are added.]
+      B_0x1: [1, One RTCCLK pulse is effectively inserted every 211 pulses (frequency increased by 488.5ppm).]
+  RTC_SHIFTR:
+    ADD1S:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Add one second to the clock/calendar]
+  RTC_TSTR:
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+  RTC_ALRMAR:
+    MSK1:
+      B_0x0: [0, Alarm A set if the seconds match]
+      B_0x1: [1, "Seconds don't care in alarm A comparison"]
+    MSK2:
+      B_0x0: [0, Alarm A set if the minutes match]
+      B_0x1: [1, "Minutes don't care in alarm A comparison"]
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+    MSK3:
+      B_0x0: [0, Alarm A set if the hours match]
+      B_0x1: [1, "Hours don't care in alarm A comparison"]
+    WDSEL:
+      B_0x0: [0, "DU[3:0] represents the date units"]
+      B_0x1: [1, "DU[3:0] represents the week day. DT[1:0] is don't care."]
+    MSK4:
+      B_0x0: [0, Alarm A set if the date/day match]
+      B_0x1: [1, "Date/day don't care in alarm A comparison"]
+  RTC_ALRMASSR:
+    MASKSS:
+      B_0x0: [0, No comparison on sub seconds for alarm A. The alarm is set when the seconds unit is incremented (assuming that the rest of the fields match).]
+      B_0x1: [1, "SS[14:1] are don't care in alarm A comparison. Only SS[0] is compared."]
+  RTC_ALRMBR:
+    MSK1:
+      B_0x0: [0, Alarm B set if the seconds match]
+      B_0x1: [1, "Seconds don't care in alarm B comparison"]
+    MSK2:
+      B_0x0: [0, Alarm B set if the minutes match]
+      B_0x1: [1, "Minutes don't care in alarm B comparison"]
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+    MSK3:
+      B_0x0: [0, Alarm B set if the hours match]
+      B_0x1: [1, "Hours don't care in alarm B comparison"]
+    WDSEL:
+      B_0x0: [0, "DU[3:0] represents the date units"]
+      B_0x1: [1, "DU[3:0] represents the week day. DT[1:0] is don't care."]
+    MSK4:
+      B_0x0: [0, Alarm B set if the date and day match]
+      B_0x1: [1, "Date and day don't care in alarm B comparison"]
+  RTC_ALRMBSSR:
+    MASKSS:
+      B_0x0: [0, No comparison on sub seconds for alarm B. The alarm is set when the seconds unit is incremented (assuming that the rest of the fields match).]
+      B_0x1: [1, "SS[14:1] are don't care in alarm B comparison. Only SS[0] is compared."]
+      B_0x2: [2, "SS[14:2] are don't care in alarm B comparison. Only SS[1:0] are compared."]
+      B_0x3: [3, "SS[14:3] are don't care in alarm B comparison. Only SS[2:0] are compared."]
+      B_0xC: [12, "SS[14:12] are don't care in alarm B comparison. SS[11:0] are compared."]
+      B_0xD: [13, "SS[14:13] are don't care in alarm B comparison. SS[12:0] are compared."]
+      B_0xE: [14, "SS[14] is don't care in alarm B comparison. SS[13:0] are compared."]
+      B_0xF: [15, All 15 SS bits are compared and must match to activate alarm.]

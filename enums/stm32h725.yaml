@@ -1,0 +1,2236 @@
+---
+ADC1:
+  ADC_ISR:
+    ADRDY:
+      B_0x0: [0, ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, ADC is ready to start conversion]
+    EOSMP:
+      B_0x0: [0, not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, End of sampling phase reached]
+    EOC:
+      B_0x0: [0, Regular channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Regular channel conversion complete]
+    EOS:
+      B_0x0: [0, Regular Conversions sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Regular Conversions sequence complete]
+    OVR:
+      B_0x0: [0, No overrun occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Overrun has occurred]
+    JEOC:
+      B_0x0: [0, Injected channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected channel conversion complete]
+    JEOS:
+      B_0x0: [0, Injected conversion sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected conversions complete]
+    AWD1:
+      B_0x0: [0, No analog watchdog 1 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 1 event occurred]
+    AWD2:
+      B_0x0: [0, No analog watchdog 2 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 2 event occurred]
+    AWD3:
+      B_0x0: [0, No analog watchdog 3 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 3 event occurred]
+    JQOVF:
+      B_0x0: [0, No injected context queue overflow occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected context queue overflow has occurred]
+    LDORDY:
+      B_0x0: [0, ADC LDO voltage regulator disabled]
+      B_0x1: [1, ADC LDO voltage regulator enabled]
+  ADC_IER:
+    ADRDYIE:
+      B_0x0: [0, ADRDY interrupt disabled]
+      B_0x1: [1, ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.]
+    EOSMPIE:
+      B_0x0: [0, EOSMP interrupt disabled.]
+      B_0x1: [1, EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.]
+    EOCIE:
+      B_0x0: [0, EOC interrupt disabled.]
+      B_0x1: [1, EOC interrupt enabled. An interrupt is generated when the EOC bit is set.]
+    EOSIE:
+      B_0x0: [0, EOS interrupt disabled]
+      B_0x1: [1, EOS interrupt enabled. An interrupt is generated when the EOS bit is set.]
+    OVRIE:
+      B_0x0: [0, Overrun interrupt disabled]
+      B_0x1: [1, Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.]
+    JEOCIE:
+      B_0x0: [0, JEOC interrupt disabled.]
+      B_0x1: [1, JEOC interrupt enabled. An interrupt is generated when the JEOC bit is set.]
+    JEOSIE:
+      B_0x0: [0, JEOS interrupt disabled]
+      B_0x1: [1, JEOS interrupt enabled. An interrupt is generated when the JEOS bit is set.]
+    AWD1IE:
+      B_0x0: [0, Analog watchdog 1 interrupt disabled]
+      B_0x1: [1, Analog watchdog 1 interrupt enabled]
+    AWD2IE:
+      B_0x0: [0, Analog watchdog 2 interrupt disabled]
+      B_0x1: [1, Analog watchdog 2 interrupt enabled]
+    AWD3IE:
+      B_0x0: [0, Analog watchdog 3 interrupt disabled]
+      B_0x1: [1, Analog watchdog 3 interrupt enabled]
+    JQOVFIE:
+      B_0x0: [0, Injected Context Queue Overflow interrupt disabled]
+      B_0x1: [1, Injected Context Queue Overflow interrupt enabled. An interrupt is generated when the JQOVF bit is set.]
+  ADC_CR:
+    ADEN:
+      B_0x0: [0, ADC is disabled (OFF state)]
+      B_0x1: [1, Write 1 to enable the ADC.]
+    ADDIS:
+      B_0x0: [0, no ADDIS command ongoing]
+      B_0x1: [1, Write 1 to disable the ADC. Read 1 means that an ADDIS command is in progress.]
+    ADSTART:
+      B_0x0: [0, No ADC regular conversion is ongoing.]
+      B_0x1: [1, Write 1 to start regular conversions. Read 1 means that the ADC is operating and eventually converting a regular channel.]
+    JADSTART:
+      B_0x0: [0, No ADC injected conversion is ongoing.]
+      B_0x1: [1, Write 1 to start injected conversions. Read 1 means that the ADC is operating and eventually converting an injected channel.]
+    ADSTP:
+      B_0x0: [0, No ADC stop regular conversion command ongoing]
+      B_0x1: [1, Write 1 to stop regular conversions ongoing. Read 1 means that an ADSTP command is in progress.]
+    JADSTP:
+      B_0x0: [0, No ADC stop injected conversion command ongoing]
+      B_0x1: [1, Write 1 to stop injected conversions ongoing. Read 1 means that an ADSTP command is in progress.]
+    BOOST:
+      B_0x0: [0, used when ADC clock ≤ 6.25 MHz]
+      B_0x1: [1, used when 6.25 MHz < ADC clock frequency≤ 12.5 MHz]
+      B_0x2: [2, used when 12.5 MHz < ADC clock ≤25.0 MHz]
+      B_0x3: [3, used when 25.0 MHz < ADC clock ≤ 50.0 MHz]
+    ADCALLIN:
+      B_0x0: [0, Writing ADCAL will launch a calibration without the Linearity calibration.]
+      B_0x1: [1, Writing ADCAL will launch a calibration with he Linearity calibration.]
+    ADVREGEN:
+      B_0x0: [0, ADC Voltage regulator disabled]
+      B_0x1: [1, ADC Voltage regulator enabled.]
+    DEEPPWD:
+      B_0x0: [0, ADC not in deep-power down]
+      B_0x1: [1, ADC in deep-power-down (default reset state)]
+    ADCALDIF:
+      B_0x0: [0, Writing ADCAL will launch a calibration in Single-ended inputs Mode.]
+      B_0x1: [1, Writing ADCAL will launch a calibration in Differential inputs Mode.]
+    ADCAL:
+      B_0x0: [0, Calibration complete]
+      B_0x1: [1, Write 1 to calibrate the ADC. Read at 1 means that a calibration in progress.]
+  ADC_CFGR:
+    DMNGT:
+      B_0x0: [0, Regular conversion data stored in DR only]
+      B_0x1: [1, DMA One Shot Mode selected]
+      B_0x2: [2, DFSDM mode selected]
+      B_0x3: [3, DMA Circular Mode selected]
+    RES:
+      B_0x0: [0, 16 bits]
+      B_0x1: [1, 14 bits in legacy mode (not optimized power consumption)]
+      B_0x2: [2, 12 bits in legacy mode (not optimized power consumption)]
+      B_0x5: [5, 14 bits]
+      B_0x6: [6, 12 bits]
+      B_0x3: [3, 10 bits]
+      B_0x7: [7, 8 bits]
+    EXTSEL:
+      B_0x0: [0, Event 0]
+      B_0x1: [1, Event 1]
+      B_0x2: [2, Event 2]
+      B_0x3: [3, Event 3]
+      B_0x4: [4, Event 4]
+      B_0x5: [5, Event 5]
+      B_0x6: [6, Event 6]
+      B_0x7: [7, Event 7]
+      B_0x1F: [31, Event 31]
+    EXTEN:
+      B_0x0: [0, Hardware trigger detection disabled (conversions can be launched by software)]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+    OVRMOD:
+      B_0x0: [0, ADC_DR register is preserved with the old data when an overrun is detected.]
+      B_0x1: [1, ADC_DR register is overwritten with the last conversion result when an overrun is detected.]
+    CONT:
+      B_0x0: [0, Single conversion mode]
+      B_0x1: [1, Continuous conversion mode]
+    AUTDLY:
+      B_0x0: [0, Auto-delayed conversion mode off]
+      B_0x1: [1, Auto-delayed conversion mode on]
+    DISCEN:
+      B_0x0: [0, Discontinuous mode for regular channels disabled]
+      B_0x1: [1, Discontinuous mode for regular channels enabled]
+    DISCNUM:
+      B_0x0: [0, 1 channel]
+      B_0x1: [1, 2 channels]
+      B_0x7: [7, 8 channels]
+    JDISCEN:
+      B_0x0: [0, Discontinuous mode on injected channels disabled]
+      B_0x1: [1, Discontinuous mode on injected channels enabled]
+    JQM:
+      B_0x0: [0, "JSQR Mode 0: The Queue is never empty and maintains the last written configuration into JSQR."]
+      B_0x1: [1, "JSQR Mode 1: The Queue can be empty and when this occurs, the software and hardware triggers of the injected sequence are both internally disabled just after the completion of the last valid injected sequence."]
+    AWD1SGL:
+      B_0x0: [0, Analog watchdog 1 enabled on all channels]
+      B_0x1: [1, Analog watchdog 1 enabled on a single channel]
+    AWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled on regular channels]
+      B_0x1: [1, Analog watchdog 1 enabled on regular channels]
+    JAWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled on injected channels]
+      B_0x1: [1, Analog watchdog 1 enabled on injected channels]
+    JAUTO:
+      B_0x0: [0, Automatic injected group conversion disabled]
+      B_0x1: [1, Automatic injected group conversion enabled]
+    AWD1CH:
+      B_0x0: [0, ADC analog input channel-0 monitored by AWD1]
+      B_0x1: [1, ADC analog input channel-1 monitored by AWD1]
+      B_0x12: [18, ADC analog input channel-19 monitored by AWD1]
+    JQDIS:
+      B_0x0: [0, Injected Queue enabled]
+      B_0x1: [1, Injected Queue disabled]
+  ADC_CFGR2:
+    ROVSE:
+      B_0x0: [0, Regular Oversampling disabled]
+      B_0x1: [1, Regular Oversampling enabled]
+    JOVSE:
+      B_0x0: [0, Injected Oversampling disabled]
+      B_0x1: [1, Injected Oversampling enabled]
+    OVSS:
+      B_0x0: [0, No right shift]
+      B_0x1: [1, Shift right 1-bit]
+      B_0x2: [2, Shift right 2-bits]
+      B_0x3: [3, Shift right 3-bits]
+      B_0x4: [4, Shift right 4-bits]
+      B_0x5: [5, Shift right 5-bits]
+      B_0x6: [6, Shift right 6-bits]
+      B_0x7: [7, Shift right 7-bits]
+      B_0x8: [8, Shift right 8-bits]
+      B_0x9: [9, Shift right 9-bits]
+      B_0xA: [10, Shift right 10-bits]
+      B_0xB: [11, Shift right 11-bits]
+    TROVS:
+      B_0x0: [0, All oversampled conversions for a channel are done consecutively following a trigger]
+      B_0x1: [1, Each oversampled conversion for a channel needs a new trigger]
+    ROVSM:
+      B_0x0: [0, "Continued mode: When injected conversions are triggered, the oversampling is temporary stopped and continued after the injection sequence (oversampling buffer is maintained during injected sequence)"]
+      B_0x1: [1, "Resumed mode: When injected conversions are triggered, the current oversampling is aborted and resumed from start after the injection sequence (oversampling buffer is zeroed by injected sequence start)"]
+    RSHIFT1:
+      B_0x0: [0, Right-shifting disabled]
+      B_0x1: [1, Data is right-shifted 1-bit.]
+    OSVR:
+      B_0x0: [0, 1x (no oversampling)]
+      B_0x1: [1, 2x]
+    LSHIFT:
+      B_0x0: [0, No left shift]
+      B_0x1: [1, Shift left 1-bit]
+      B_0x2: [2, Shift left 2-bits]
+      B_0x3: [3, Shift left 3-bits]
+      B_0x4: [4, Shift left 4-bits]
+      B_0x5: [5, Shift left 5-bits]
+      B_0x6: [6, Shift left 6-bits]
+      B_0x7: [7, Shift left 7-bits]
+      B_0x8: [8, Shift left 8-bits]
+      B_0x9: [9, Shift left 9-bits]
+      B_0xA: [10, Shift left 10-bits]
+      B_0xB: [11, Shift left 11-bits]
+      B_0xC: [12, Shift left 12-bits]
+      B_0xD: [13, Shift left 13-bits]
+      B_0xE: [14, Shift left 14-bits]
+      B_0xF: [15, Shift left 15-bits]
+  ADC_SMPR1:
+    SMP0:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP1:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP2:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP3:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP4:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP5:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP6:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP7:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP8:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP9:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+  ADC_SMPR2:
+    SMP10:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP11:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP12:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP13:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP14:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP15:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP16:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP17:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP18:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+    SMP19:
+      B_0x0: [0, 1.5 ADC clock cycles]
+      B_0x1: [1, 2.5 ADC clock cycles]
+      B_0x2: [2, 8.5 ADC clock cycles]
+      B_0x3: [3, 16.5 ADC clock cycles]
+      B_0x4: [4, 32.5 ADC clock cycles]
+      B_0x5: [5, 64.5 ADC clock cycles]
+      B_0x6: [6, 387.5 ADC clock cycles]
+      B_0x7: [7, 810.5 ADC clock cycles]
+  ADC_PCSEL:
+    PCSEL0:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL1:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL2:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL3:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL4:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL5:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL6:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL7:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL8:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL9:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL10:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL11:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL12:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL13:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL14:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL15:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL16:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL17:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL18:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+    PCSEL19:
+      B_0x0: [0, "Input Channel x (Vinp x) is not pre selected for conversion, the ADC conversion result with this channel shows wrong result."]
+      B_0x1: [1, Input Channel x (Vinp x) is pre selected for conversion]
+  ADC_SQR1:
+    L:
+      B_0x0: [0, 1 conversion]
+      B_0x1: [1, 2 conversions]
+      B_0xF: [15, 16 conversions]
+  ADC_JSQR:
+    JL:
+      B_0x0: [0, 1 conversion]
+      B_0x1: [1, 2 conversions]
+      B_0x2: [2, 3 conversions]
+      B_0x3: [3, 4 conversions]
+    JEXTSEL:
+      B_0x0: [0, Event 0]
+      B_0x1: [1, Event 1]
+      B_0x2: [2, Event 2]
+      B_0x3: [3, Event 3]
+      B_0x4: [4, Event 4]
+      B_0x5: [5, Event 5]
+      B_0x6: [6, Event 6]
+      B_0x7: [7, Event 7]
+      B_0x1F: [31, "Event 31:"]
+    JEXTEN:
+      B_0x0: [0, "If JQDIS=0 (queue enabled), Hardware and software trigger detection disabled and"]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+  ADC_OFR1:
+    SSATE:
+      B_0x0: [0, Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format).]
+      B_0x1: [1, Offset is subtracted and result is saturated to maintain result size.]
+  ADC_OFR2:
+    SSATE:
+      B_0x0: [0, Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format).]
+      B_0x1: [1, Offset is subtracted and result is saturated to maintain result size.]
+  ADC_OFR3:
+    SSATE:
+      B_0x0: [0, Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format).]
+      B_0x1: [1, Offset is subtracted and result is saturated to maintain result size.]
+  ADC_OFR4:
+    SSATE:
+      B_0x0: [0, Offset is subtracted maintaining data integrity and extending result size (9-bit and 17-bit signed format).]
+      B_0x1: [1, Offset is subtracted and result is saturated to maintain result size.]
+ADC3:
+  ADC_ISR:
+    ADRDY:
+      B_0x0: [0, ADC not yet ready to start conversion (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, ADC is ready to start conversion]
+    EOSMP:
+      B_0x0: [0, not at the end of the sampling phase (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, End of sampling phase reached]
+    EOC:
+      B_0x0: [0, Regular channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Regular channel conversion complete]
+    EOS:
+      B_0x0: [0, Regular Conversions sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Regular Conversions sequence complete]
+    OVR:
+      B_0x0: [0, No overrun occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Overrun has occurred]
+    JEOC:
+      B_0x0: [0, Injected channel conversion not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected channel conversion complete]
+    JEOS:
+      B_0x0: [0, Injected conversion sequence not complete (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected conversions complete]
+    AWD1:
+      B_0x0: [0, No analog watchdog 1 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 1 event occurred]
+    AWD2:
+      B_0x0: [0, No analog watchdog 2 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 2 event occurred]
+    AWD3:
+      B_0x0: [0, No analog watchdog 3 event occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Analog watchdog 3 event occurred]
+    JQOVF:
+      B_0x0: [0, No injected context queue overflow occurred (or the flag event was already acknowledged and cleared by software)]
+      B_0x1: [1, Injected context queue overflow has occurred]
+  ADC_IER:
+    ADRDYIE:
+      B_0x0: [0, ADRDY interrupt disabled]
+      B_0x1: [1, ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.]
+    EOSMPIE:
+      B_0x0: [0, EOSMP interrupt disabled.]
+      B_0x1: [1, EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.]
+    EOCIE:
+      B_0x0: [0, EOC interrupt disabled.]
+      B_0x1: [1, EOC interrupt enabled. An interrupt is generated when the EOC bit is set.]
+    EOSIE:
+      B_0x0: [0, EOS interrupt disabled]
+      B_0x1: [1, EOS interrupt enabled. An interrupt is generated when the EOS bit is set.]
+    OVRIE:
+      B_0x0: [0, Overrun interrupt disabled]
+      B_0x1: [1, Overrun interrupt enabled. An interrupt is generated when the OVR bit is set.]
+    JEOCIE:
+      B_0x0: [0, JEOC interrupt disabled.]
+      B_0x1: [1, JEOC interrupt enabled. An interrupt is generated when the JEOC bit is set.]
+    JEOSIE:
+      B_0x0: [0, JEOS interrupt disabled]
+      B_0x1: [1, JEOS interrupt enabled. An interrupt is generated when the JEOS bit is set.]
+    AWD1IE:
+      B_0x0: [0, Analog watchdog 1 interrupt disabled]
+      B_0x1: [1, Analog watchdog 1 interrupt enabled]
+    AWD2IE:
+      B_0x0: [0, Analog watchdog 2 interrupt disabled]
+      B_0x1: [1, Analog watchdog 2 interrupt enabled]
+    AWD3IE:
+      B_0x0: [0, Analog watchdog 3 interrupt disabled]
+      B_0x1: [1, Analog watchdog 3 interrupt enabled]
+    JQOVFIE:
+      B_0x0: [0, Injected Context Queue Overflow interrupt disabled]
+      B_0x1: [1, Injected Context Queue Overflow interrupt enabled. An interrupt is generated when the JQOVF bit is set.]
+  ADC_CR:
+    ADEN:
+      B_0x0: [0, ADC is disabled (OFF state)]
+      B_0x1: [1, Write 1 to enable the ADC.]
+    ADDIS:
+      B_0x0: [0, no ADDIS command ongoing]
+      B_0x1: [1, Write 1 to disable the ADC. Read 1 means that an ADDIS command is in progress.]
+    ADSTART:
+      B_0x0: [0, No ADC regular conversion is ongoing.]
+      B_0x1: [1, Write 1 to start regular conversions. Read 1 means that the ADC is operating and eventually converting a regular channel.]
+    JADSTART:
+      B_0x0: [0, No ADC injected conversion is ongoing.]
+      B_0x1: [1, Write 1 to start injected conversions. Read 1 means that the ADC is operating and eventually converting an injected channel.]
+    ADSTP:
+      B_0x0: [0, No ADC stop regular conversion command ongoing]
+      B_0x1: [1, Write 1 to stop regular conversions ongoing. Read 1 means that an ADSTP command is in progress.]
+    JADSTP:
+      B_0x0: [0, No ADC stop injected conversion command ongoing]
+      B_0x1: [1, Write 1 to stop injected conversions ongoing. Read 1 means that an ADSTP command is in progress.]
+    ADVREGEN:
+      B_0x0: [0, ADC Voltage regulator disabled]
+      B_0x1: [1, ADC Voltage regulator enabled.]
+    DEEPPWD:
+      B_0x0: [0, ADC not in Deep-power down]
+      B_0x1: [1, ADC in Deep-power-down (default reset state)]
+    ADCALDIF:
+      B_0x0: [0, Writing ADCAL launches a calibration in Single-ended inputs mode.]
+      B_0x1: [1, Writing ADCAL launches a calibration in Differential inputs mode.]
+    ADCAL:
+      B_0x0: [0, Calibration complete]
+      B_0x1: [1, Write 1 to calibrate the ADC. Read at 1 means that a calibration in progress.]
+  ADC_CFGR:
+    DMAEN:
+      B_0x0: [0, DMA disabled]
+      B_0x1: [1, DMA enabled]
+    DMACFG:
+      B_0x0: [0, DMA One Shot mode selected]
+      B_0x1: [1, DMA Circular mode selected]
+    DFSDMCFG:
+      B_0x0: [0, DFSDM mode disabled]
+      B_0x1: [1, DFSDM mode enabled]
+    RES:
+      B_0x0: [0, 12-bit]
+      B_0x1: [1, 10-bit]
+      B_0x2: [2, 8-bit]
+      B_0x3: [3, 6-bit]
+    EXTSEL0:
+      B_0x0: [0, adc_ext_trg0]
+      B_0x1: [1, adc_ext_trg1]
+      B_0x2: [2, adc_ext_trg2]
+      B_0x3: [3, adc_ext_trg3]
+      B_0x4: [4, adc_ext_trg4]
+      B_0x5: [5, adc_ext_trg5]
+      B_0x6: [6, adc_ext_trg6]
+      B_0x7: [7, adc_ext_trg7]
+      B_0x1F: [31, adc_ext_trg31]
+    EXTSEL1:
+      B_0x0: [0, adc_ext_trg0]
+      B_0x1: [1, adc_ext_trg1]
+      B_0x2: [2, adc_ext_trg2]
+      B_0x3: [3, adc_ext_trg3]
+      B_0x4: [4, adc_ext_trg4]
+      B_0x5: [5, adc_ext_trg5]
+      B_0x6: [6, adc_ext_trg6]
+      B_0x7: [7, adc_ext_trg7]
+      B_0x1F: [31, adc_ext_trg31]
+    EXTSEL2:
+      B_0x0: [0, adc_ext_trg0]
+      B_0x1: [1, adc_ext_trg1]
+      B_0x2: [2, adc_ext_trg2]
+      B_0x3: [3, adc_ext_trg3]
+      B_0x4: [4, adc_ext_trg4]
+      B_0x5: [5, adc_ext_trg5]
+      B_0x6: [6, adc_ext_trg6]
+      B_0x7: [7, adc_ext_trg7]
+      B_0x1F: [31, adc_ext_trg31]
+    EXTSEL3:
+      B_0x0: [0, adc_ext_trg0]
+      B_0x1: [1, adc_ext_trg1]
+      B_0x2: [2, adc_ext_trg2]
+      B_0x3: [3, adc_ext_trg3]
+      B_0x4: [4, adc_ext_trg4]
+      B_0x5: [5, adc_ext_trg5]
+      B_0x6: [6, adc_ext_trg6]
+      B_0x7: [7, adc_ext_trg7]
+      B_0x1F: [31, adc_ext_trg31]
+    EXTSEL4:
+      B_0x0: [0, adc_ext_trg0]
+      B_0x1: [1, adc_ext_trg1]
+      B_0x2: [2, adc_ext_trg2]
+      B_0x3: [3, adc_ext_trg3]
+      B_0x4: [4, adc_ext_trg4]
+      B_0x5: [5, adc_ext_trg5]
+      B_0x6: [6, adc_ext_trg6]
+      B_0x7: [7, adc_ext_trg7]
+      B_0x1F: [31, adc_ext_trg31]
+    EXTEN:
+      B_0x0: [0, Hardware trigger detection disabled (conversions can be launched by software)]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+    OVRMOD:
+      B_0x0: [0, ADC_DR register is preserved with the old data when an overrun is detected.]
+      B_0x1: [1, ADC_DR register is overwritten with the last conversion result when an overrun is detected.]
+    CONT:
+      B_0x0: [0, Single conversion mode]
+      B_0x1: [1, Continuous conversion mode]
+    AUTDLY:
+      B_0x0: [0, Auto-delayed conversion mode off]
+      B_0x1: [1, Auto-delayed conversion mode on]
+    ALIGN:
+      B_0x0: [0, Right alignment]
+      B_0x1: [1, Left alignment]
+    DISCEN:
+      B_0x0: [0, Discontinuous mode for regular channels disabled]
+      B_0x1: [1, Discontinuous mode for regular channels enabled]
+    DISCNUM:
+      B_0x0: [0, 1 channel]
+      B_0x1: [1, 2 channels]
+      B_0x7: [7, 8 channels]
+    JDISCEN:
+      B_0x0: [0, Discontinuous mode on injected channels disabled]
+      B_0x1: [1, Discontinuous mode on injected channels enabled]
+    JQM:
+      B_0x0: [0, "JSQR mode 0: The Queue is never empty and maintains the last written configuration into JSQR."]
+      B_0x1: [1, "JSQR mode 1: The Queue can be empty and when this occurs, the software and hardware triggers of the injected sequence are both internally disabled just after the completion of the last valid injected sequence."]
+    AWD1SGL:
+      B_0x0: [0, Analog watchdog 1 enabled on all channels]
+      B_0x1: [1, Analog watchdog 1 enabled on a single channel]
+    AWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled on regular channels]
+      B_0x1: [1, Analog watchdog 1 enabled on regular channels]
+    JAWD1EN:
+      B_0x0: [0, Analog watchdog 1 disabled on injected channels]
+      B_0x1: [1, Analog watchdog 1 enabled on injected channels]
+    JAUTO:
+      B_0x0: [0, Automatic injected group conversion disabled]
+      B_0x1: [1, Automatic injected group conversion enabled]
+    AWD1CH:
+      B_0x0: [0, ADC analog input channel 0 monitored by AWD1]
+      B_0x1: [1, ADC analog input channel 1 monitored by AWD1]
+      B_0x12: [18, ADC analog input channel 18 monitored by AWD1]
+    JQDIS:
+      B_0x0: [0, Injected Queue enabled]
+      B_0x1: [1, Injected Queue disabled]
+  ADC_CFGR2:
+    ROVSE:
+      B_0x0: [0, Regular Oversampling disabled]
+      B_0x1: [1, Regular Oversampling enabled]
+    JOVSE:
+      B_0x0: [0, Injected Oversampling disabled]
+      B_0x1: [1, Injected Oversampling enabled]
+    OVSR:
+      B_0x0: [0, 2x]
+      B_0x1: [1, 4x]
+      B_0x2: [2, 8x]
+      B_0x3: [3, 16x]
+      B_0x4: [4, 32x]
+      B_0x5: [5, 64x]
+      B_0x6: [6, 128x]
+      B_0x7: [7, 256x]
+    OVSS:
+      B_0x0: [0, No shift]
+      B_0x1: [1, Shift 1-bit]
+      B_0x2: [2, Shift 2-bits]
+      B_0x3: [3, Shift 3-bits]
+      B_0x4: [4, Shift 4-bits]
+      B_0x5: [5, Shift 5-bits]
+      B_0x6: [6, Shift 6-bits]
+      B_0x7: [7, Shift 7-bits]
+      B_0x8: [8, Shift 8-bits]
+    TROVS:
+      B_0x0: [0, All oversampled conversions for a channel are done consecutively following a trigger]
+      B_0x1: [1, Each oversampled conversion for a channel needs a new trigger]
+    ROVSM:
+      B_0x0: [0, "Continued mode: When injected conversions are triggered, the oversampling is temporary stopped and continued after the injection sequence (oversampling buffer is maintained during injected sequence)"]
+      B_0x1: [1, "Resumed mode: When injected conversions are triggered, the current oversampling is aborted and resumed from start after the injection sequence (oversampling buffer is zeroed by injected sequence start)"]
+    SWTRIG:
+      B_0x0: [0, Software trigger starts the conversion for sampling time control trigger mode]
+      B_0x1: [1, Software trigger starts the sampling for sampling time control trigger mode]
+    BULB:
+      B_0x0: [0, Bulb sampling mode disabled]
+      B_0x1: [1, Bulb sampling mode enabled. The sampling period starts just after the previous end of conversion.]
+    SMPTRIG:
+      B_0x0: [0, Sampling time control trigger mode disabled]
+      B_0x1: [1, Sampling time control trigger mode enabled]
+  ADC_SMPR1:
+    SMP0:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP1:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP2:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP3:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP4:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP5:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP6:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP7:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP8:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP9:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMPPLUS:
+      B_0x1: [1, 2.5 ADC clock cycle sampling time becomes 3.5 ADC clock cycles for the ADC_SMPR1 and ADC_SMPR2 registers.]
+      B_0x0: [0, The sampling time remains set to 2.5 ADC clock cycles remains]
+  ADC_SMPR2:
+    SMP10:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP11:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP12:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP13:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP14:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP15:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP16:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP17:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+    SMP18:
+      B_0x0: [0, 2.5 ADC clock cycles]
+      B_0x1: [1, 6.5 ADC clock cycles]
+      B_0x2: [2, 12.5 ADC clock cycles]
+      B_0x3: [3, 24.5 ADC clock cycles]
+      B_0x4: [4, 47.5 ADC clock cycles]
+      B_0x5: [5, 92.5 ADC clock cycles]
+      B_0x6: [6, 247.5 ADC clock cycles]
+      B_0x7: [7, 640.5 ADC clock cycles]
+  ADC_TR1:
+    AWDFILT:
+      B_0x0: [0, No filtering]
+      B_0x1: [1, two consecutive detection generates an AWDx flag or an interrupt]
+      B_0x7: [7, Eight consecutive detection generates an AWDx flag or an interrupt]
+  ADC_SQR1:
+    L:
+      B_0x0: [0, 1 conversion]
+      B_0x1: [1, 2 conversions]
+      B_0xF: [15, 16 conversions]
+  ADC_JSQR:
+    JL:
+      B_0x0: [0, 1 conversion]
+      B_0x1: [1, 2 conversions]
+      B_0x2: [2, 3 conversions]
+      B_0x3: [3, 4 conversions]
+    JEXTSEL:
+      B_0x0: [0, adc_jext_trg0]
+      B_0x1: [1, adc_jext_trg1]
+      B_0x2: [2, adc_jext_trg2]
+      B_0x3: [3, adc_jext_trg3]
+      B_0x4: [4, adc_jext_trg4]
+      B_0x5: [5, adc_jext_trg5]
+      B_0x6: [6, adc_jext_trg6]
+      B_0x7: [7, adc_jext_trg7]
+      B_0x1F: [31, adc_jext_trg31]
+    JEXTEN:
+      B_0x0: [0, "If JQDIS = 0 (queue enabled), hardware and software trigger detection disabled. Otherwise, the queue is disabled as well as hardware trigger detection (conversions can be launched by software)"]
+      B_0x1: [1, Hardware trigger detection on the rising edge]
+      B_0x2: [2, Hardware trigger detection on the falling edge]
+      B_0x3: [3, Hardware trigger detection on both the rising and falling edges]
+  ADC_OFR1:
+    OFFSETPOS:
+      B_0x0: [0, Negative offset]
+      B_0x1: [1, Positive offset]
+    SATEN:
+      B_0x0: [0, "No saturation control, offset result can be signed"]
+      B_0x1: [1, "Saturation enabled, offset result unsigned and saturated at 0x000 and 0xFFF"]
+  ADC_OFR2:
+    OFFSETPOS:
+      B_0x0: [0, Negative offset]
+      B_0x1: [1, Positive offset]
+    SATEN:
+      B_0x0: [0, "No saturation control, offset result can be signed"]
+      B_0x1: [1, "Saturation enabled, offset result unsigned and saturated at 0x000 and 0xFFF"]
+  ADC_OFR3:
+    OFFSETPOS:
+      B_0x0: [0, Negative offset]
+      B_0x1: [1, Positive offset]
+    SATEN:
+      B_0x0: [0, "No saturation control, offset result can be signed"]
+      B_0x1: [1, "Saturation enabled, offset result unsigned and saturated at 0x000 and 0xFFF"]
+  ADC_OFR4:
+    OFFSETPOS:
+      B_0x0: [0, Negative offset]
+      B_0x1: [1, Positive offset]
+    SATEN:
+      B_0x0: [0, "No saturation control, offset result can be signed"]
+      B_0x1: [1, "Saturation enabled, offset result unsigned and saturated at 0x000 and 0xFFF"]
+ADC3_Common:
+  ADC_CCR:
+    CKMODE:
+      B_0x0: [0, "adc_ker_ck (x = 3) (Asynchronous clock mode), generated at product level (refer to Section 6: Reset and clock control (RCC))"]
+      B_0x1: [1, "adc_hclk/1 (Synchronous clock mode). This configuration must be enabled only if the AHB clock prescaler is set to 1 (HPRE[3:0] = 0XXX in RCC_CFGR register) and if the system clock has a 50% duty cycle."]
+      B_0x2: [2, adc_hclk/2 (Synchronous clock mode)]
+      B_0x3: [3, adc_hclk/4 (Synchronous clock mode)]
+    PRESC:
+      B_0x0: [0, input ADC clock not divided]
+      B_0x1: [1, input ADC clock divided by 2]
+      B_0x2: [2, input ADC clock divided by 4]
+      B_0x3: [3, input ADC clock divided by 6]
+      B_0x4: [4, input ADC clock divided by 8]
+      B_0x5: [5, input ADC clock divided by 10]
+      B_0x6: [6, input ADC clock divided by 12]
+      B_0x7: [7, input ADC clock divided by 16]
+      B_0x8: [8, input ADC clock divided by 32]
+      B_0x9: [9, input ADC clock divided by 64]
+      B_0xA: [10, input ADC clock divided by 128]
+      B_0xB: [11, input ADC clock divided by 256]
+    VREFEN:
+      B_0x0: [0, VREFINT channel disabled]
+      B_0x1: [1, VREFINT channel enabled]
+    TSEN:
+      B_0x0: [0, Temperature sensor channel disabled]
+      B_0x1: [1, Temperature sensor channel enabled]
+    VBATEN:
+      B_0x0: [0, VBAT channel disabled]
+      B_0x1: [1, VBAT channel enabled]
+BDMA:
+  BDMA_ISR:
+    GIF0:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF0:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF0:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF0:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF1:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF1:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF1:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF1:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF2:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF2:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF2:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF2:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF3:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF3:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF3:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF3:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF4:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF4:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF4:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF4:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF5:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF5:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF5:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF5:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF6:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF6:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF6:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF6:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+    GIF7:
+      B_0x0: [0, "no TE, HT or TC event"]
+      B_0x1: [1, "a TE, HT or TC event occurred"]
+    TCIF7:
+      B_0x0: [0, no TC event]
+      B_0x1: [1, a TC event occurred]
+    HTIF7:
+      B_0x0: [0, no HT event]
+      B_0x1: [1, a HT event occurred]
+    TEIF7:
+      B_0x0: [0, no TE event]
+      B_0x1: [1, a TE event occurred]
+  BDMA_CCR0:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR1:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR2:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR3:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR4:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR5:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR6:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+  BDMA_CCR7:
+    EN:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TCIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    HTIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    TEIE:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DIR:
+      B_0x0: [0, read from peripheral]
+      B_0x1: [1, read from memory]
+    CIRC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    MINC:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    PSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    MSIZE:
+      B_0x0: [0, 8 bits]
+      B_0x1: [1, 16 bits]
+      B_0x2: [2, 32 bits]
+    PL:
+      B_0x0: [0, low]
+      B_0x1: [1, medium]
+      B_0x2: [2, high]
+      B_0x3: [3, very high]
+    MEM2MEM:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    DBM:
+      B_0x0: [0, disabled (no memory address switch at the end of the BDMA transfer)]
+      B_0x1: [1, enabled (memory address switched at the end of the BDMA transfer)]
+    CT:
+      B_0x0: [0, memory 0 (addressed by the BDMA_CM0AR pointer)]
+      B_0x1: [1, memory 1 (addressed by the BDMA_CM1AR pointer)]
+CORDIC:
+  CORDIC_CSR:
+    FUNC:
+      B_0x0: [0, Cosine]
+      B_0x1: [1, Sine]
+    PRECISION:
+      B_0x1: [1, (Number of iterations)/4]
+      B_0x2: [2, (Number of iterations)/4]
+      B_0x3: [3, (Number of iterations)/4]
+      B_0x4: [4, (Number of iterations)/4]
+      B_0x5: [5, (Number of iterations)/4]
+      B_0x6: [6, (Number of iterations)/4]
+      B_0x7: [7, (Number of iterations)/4]
+      B_0x8: [8, (Number of iterations)/4]
+      B_0x9: [9, (Number of iterations)/4]
+      B_0xa: [10, (Number of iterations)/4]
+      B_0xb: [11, (Number of iterations)/4]
+      B_0xc: [12, (Number of iterations)/4]
+      B_0xd: [13, (Number of iterations)/4]
+      B_0xe: [14, (Number of iterations)/4]
+      B_0xf: [15, (Number of iterations)/4]
+    IEN:
+      B_0x0: [0, Disabled. No interrupt requests are generated.]
+      B_0x1: [1, Enabled. An interrupt request is generated whenever the RRDY flag is set.]
+    DMAREN:
+      B_0x0: [0, Disabled. No DMA read requests are generated.]
+      B_0x1: [1, Enabled. Requests are generated on the DMA read channel whenever the RRDY flag is set.]
+    DMAWEN:
+      B_0x0: [0, Disabled. No DMA write requests are generated.]
+      B_0x1: [1, Enabled. Requests are generated on the DMA write channel whenever no operation is pending]
+    NRES:
+      B_0x0: [0, Only one 32-bit value (or two 16-bit values if RESSIZE = 1) is transferred to the CORDIC_RDATA register on completion of the next calculation. One read from CORDIC_RDATA resets the RRDY flag.]
+      B_0x1: [1, Two 32-bit values are transferred to the CORDIC_RDATA register on completion of the next calculation. Two reads from CORDIC_RDATA are necessary to reset the RRDY flag.]
+    NARGS:
+      B_0x0: [0, Only one 32-bit write (or two 16-bit values if ARGSIZE = 1) is needed for the next calculation.]
+      B_0x1: [1, Two 32-bit values must be written to the CORDIC_WDATA register to trigger the next calculation.]
+    RESSIZE:
+      B_0x0: [0, 32-bit]
+      B_0x1: [1, 16-bit]
+    ARGSIZE:
+      B_0x0: [0, 32-bit]
+      B_0x1: [1, 16-bit]
+    RRDY:
+      B_0x0: [0, No new result in output register]
+      B_0x1: [1, CORDIC_RDATA register contains new data.]
+DMAMUX1:
+  DMAMUX_C0CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C1CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C2CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C3CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C4CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C5CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C6CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C7CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C8CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C9CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C10CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C11CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C12CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C13CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C14CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_C15CR:
+    SOIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EGE:
+      B_0x0: [0, Event generation disabled]
+      B_0x1: [1, Event generation enabled]
+    SE:
+      B_0x0: [0, Synchronization disabled]
+      B_0x1: [1, Synchronization enabled]
+    SPOL:
+      B_0x0: [0, "No event, i.e. no synchronization nor detection."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG0CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG1CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG2CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG3CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG4CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG5CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG6CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+  DMAMUX_RG7CR:
+    OIE:
+      B_0x0: [0, Interrupt on a trigger overrun event occurrence is disabled]
+      B_0x1: [1, Interrupt on a trigger overrun event occurrence is enabled]
+    GE:
+      B_0x0: [0, DMA request generator channel x disabled]
+      B_0x1: [1, DMA request generator channel x enabled]
+    GPOL:
+      B_0x0: [0, "No event, i.e. no trigger detection nor generation."]
+      B_0x1: [1, Rising edge]
+      B_0x2: [2, Falling edge]
+      B_0x3: [3, Rising and falling edges]
+FMAC:
+  FMAC_X1BUFCFG:
+    FULL_WM:
+      B_0x0: [0, Threshold = 1]
+      B_0x1: [1, Threshold = 2]
+  FMAC_YBUFCFG:
+    EMPTY_WM:
+      B_0x0: [0, Threshold = 1]
+      B_0x1: [1, Threshold = 2]
+  FMAC_PARAM:
+    FUNC:
+      B_0x1: [1, Load X1 buffer]
+    START:
+      B_0x0: [0, Stop execution]
+      B_0x1: [1, Start execution]
+  FMAC_CR:
+    RIEN:
+      B_0x0: [0, Disabled. No read interrupt requests are generated.]
+      B_0x1: [1, Enabled. An interrupt request is generated while the Y buffer EMPTY flag is not set.]
+    WIEN:
+      B_0x0: [0, Disabled. No write interrupt requests are generated.]
+      B_0x1: [1, Enabled. An interrupt request is generated while the X1 buffer FULL flag is not set.]
+    OVFLIEN:
+      B_0x0: [0, Disabled. No interrupts are generated upon overflow detection.]
+      B_0x1: [1, Enabled. An interrupt request is generated if the OVFL flag is set]
+    UNFLIEN:
+      B_0x0: [0, Disabled. No interrupts are generated upon underflow detection.]
+      B_0x1: [1, Enabled. An interrupt request is generated if the UNFL flag is set]
+    SATIEN:
+      B_0x0: [0, Disabled. No interrupts are generated upon saturation detection.]
+      B_0x1: [1, Enabled. An interrupt request is generated if the SAT flag is set]
+    DMAREN:
+      B_0x0: [0, Disable. No DMA requests are generated]
+      B_0x1: [1, Enable. DMA requests are generated while the Y buffer is not empty.]
+    DMAWEN:
+      B_0x0: [0, Disable. No DMA requests are generated]
+      B_0x1: [1, Enable. DMA requests are generated while the X1 buffer is not full.]
+    CLIPEN:
+      B_0x0: [0, "Clipping disabled. Values at the output of the accumulator which exceed the q1.15 range, wrap."]
+      B_0x1: [1, Clipping enabled. Values at the output of the accumulator which exceed the q1.15 range are saturated to the maximum positive or negative value (+1 or -1) according to the sign.]
+    RESET:
+      B_0x0: [0, Reset inactive]
+      B_0x1: [1, Reset active]
+  FMAC_SR:
+    YEMPTY:
+      B_0x0: [0, "Y buffer not empty. If the RIEN bit is set, the interrupt request is asserted until the flag is set. If DMAREN is set, DMA read channel requests are generated until the flag is set."]
+      B_0x1: [1, Y buffer empty.]
+    X1FULL:
+      B_0x0: [0, "X1 buffer not full. If the WIEN bit is set, the interrupt request is asserted until the flag is set. If DMAWEN is set, DMA write channel requests are generated until the flag is set."]
+      B_0x1: [1, X1 buffer full.]
+    OVFL:
+      B_0x0: [0, No overflow detected]
+      B_0x1: [1, "Overflow detected. If the OVFLIEN bit is set, an interrupt is generated."]
+    UNFL:
+      B_0x0: [0, No underflow detected]
+      B_0x1: [1, "Underflow detected. If the UNFLIEN bit is set, an interrupt is generated."]
+    SAT:
+      B_0x0: [0, No saturation detected]
+      B_0x1: [1, "Saturation detected. If the SATIEN bit is set, an interrupt is generated."]
+OTG1_HS_GLOBAL:
+  OTG_HS_GOTGCTL:
+    SRQSCS:
+      B_0x0: [0, Session request failure]
+      B_0x1: [1, Session request success]
+    SRQ:
+      B_0x0: [0, No session request]
+      B_0x1: [1, Session request]
+    VBVALOEN:
+      B_0x0: [0, Override is disabled and vbusvalid signal from the respective PHY selected is used internally by the core]
+      B_0x1: [1, Internally vbusvalid received from the PHY is overridden with VBVALOVAL bit value]
+    VBVALOVAL:
+      B_0x0: [0, "vbusvalid value is '0' when VBVALOEN = 1"]
+      B_0x1: [1, "vbusvalid value is '1' when VBVALOEN = 1"]
+    AVALOEN:
+      B_0x0: [0, Override is disabled and Avalid signal from the respective PHY selected is used internally by the core]
+      B_0x1: [1, Internally Avalid received from the PHY is overridden with AVALOVAL bit value]
+    AVALOVAL:
+      B_0x0: [0, "Avalid value is '0' when AVALOEN = 1"]
+      B_0x1: [1, "Avalid value is '1' when AVALOEN = 1"]
+    BVALOEN:
+      B_0x0: [0, Override is disabled and Bvalid signal from the respective PHY selected is used internally by the core]
+      B_0x1: [1, Internally Bvalid received from the PHY is overridden with BVALOVAL bit value]
+    BVALOVAL:
+      B_0x0: [0, "Bvalid value is '0' when BVALOEN = 1"]
+      B_0x1: [1, "Bvalid value is '1' when BVALOEN = 1"]
+    HNGSCS:
+      B_0x0: [0, Host negotiation failure]
+      B_0x1: [1, Host negotiation success]
+    HNPRQ:
+      B_0x0: [0, No HNP request]
+      B_0x1: [1, HNP request]
+    HSHNPEN:
+      B_0x0: [0, Host Set HNP is not enabled]
+      B_0x1: [1, Host Set HNP is enabled]
+    DHNPEN:
+      B_0x0: [0, HNP is not enabled in the application]
+      B_0x1: [1, HNP is enabled in the application]
+    EHEN:
+      B_0x0: [0, OTG A device state machine is selected]
+      B_0x1: [1, Embedded host state machine is selected]
+    CIDSTS:
+      B_0x0: [0, The OTG_HS controller is in A-device mode]
+      B_0x1: [1, The OTG_HS controller is in B-device mode]
+    DBCT:
+      B_0x0: [0, "Long debounce time, used for physical connections (100 ms + 2.5 Âµs)"]
+      B_0x1: [1, "Short debounce time, used for soft connections (2.5 Âµs)"]
+    ASVLD:
+      B_0x0: [0, A-session is not valid]
+      B_0x1: [1, A-session is valid]
+    BSVLD:
+      B_0x0: [0, B-session is not valid.]
+      B_0x1: [1, B-session is valid.]
+    OTGVER:
+      B_0x0: [0, OTG Version 1.3. OTG1.3 is obsolete for new product development.]
+      B_0x1: [1, OTG Version 2.0. In this version the core supports only data line pulsing for SRP.]
+    CURMOD:
+      B_0x0: [0, Device mode]
+      B_0x1: [1, Host mode]
+  OTG_HS_GINTSTS:
+    CMOD:
+      B_0x0: [0, Device mode]
+      B_0x1: [1, Host mode]
+  OTG_HS_GINTMSK:
+    MMISM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    OTGINT:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    SOFM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    RXFLVLM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    NPTXFEM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    GINAKEFFM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    GONAKEFFM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    ESUSPM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    USBSUSPM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    USBRST:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    ENUMDNEM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    ISOODRPM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    EOPFM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    IEPINT:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    OEPINT:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    IISOIXFRM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    FSUSPM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    RSTDETM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    PRTIM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    HCIM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    PTXFEM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    LPMINTM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    CIDSCHGM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    DISCINT:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    SRQIM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+    WUIM:
+      B_0x0: [0, Masked interrupt]
+      B_0x1: [1, Unmasked interrupt]
+OTFDEC1:
+  OTFDEC_R1CFGR:
+    REG_EN:
+      B_0x0: [0, On-the-fly decryption is disabled for this region.]
+      B_0x1: [1, On-the-fly decryption is enabled for this region. Data are XORed with the corresponding keystream.]
+    CONFIGLOCK:
+      B_0x0: [0, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are allowed."]
+      B_0x1: [1, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are ignored until next OTFDEC reset."]
+    KEYLOCK:
+      B_0x0: [0, Writes to this region KEYRx registers are allowed.]
+      B_0x1: [1, Writes to this region KEYRx registers are ignored until next OTFDEC reset. KEYCRC bitfield is locked.]
+    MODE:
+      B_0x0: [0, Only instruction accesses are decrypted.]
+      B_0x1: [1, Only data accesses are decrypted.]
+      B_0x2: [2, All read accesses are decrypted (instruction or data).]
+      B_0x3: [3, "Only instruction accesses are decrypted, and enhanced encryption mode is activated."]
+  OTFDEC_R2CFGR:
+    REG_EN:
+      B_0x0: [0, On-the-fly decryption is disabled for this region.]
+      B_0x1: [1, On-the-fly decryption is enabled for this region. Data are XORed with the corresponding keystream.]
+    CONFIGLOCK:
+      B_0x0: [0, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are allowed."]
+      B_0x1: [1, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are ignored until next OTFDEC reset."]
+    KEYLOCK:
+      B_0x0: [0, Writes to this region KEYRx registers are allowed.]
+      B_0x1: [1, Writes to this region KEYRx registers are ignored until next OTFDEC reset. KEYCRC bitfield is locked.]
+    MODE:
+      B_0x0: [0, Only instruction accesses are decrypted.]
+      B_0x1: [1, Only data accesses are decrypted.]
+      B_0x2: [2, All read accesses are decrypted (instruction or data).]
+      B_0x3: [3, "Only instruction accesses are decrypted, and enhanced encryption mode is activated."]
+  OTFDEC_R3CFGR:
+    REG_EN:
+      B_0x0: [0, On-the-fly decryption is disabled for this region.]
+      B_0x1: [1, On-the-fly decryption is enabled for this region. Data are XORed with the corresponding keystream.]
+    CONFIGLOCK:
+      B_0x0: [0, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are allowed."]
+      B_0x1: [1, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are ignored until next OTFDEC reset."]
+    KEYLOCK:
+      B_0x0: [0, Writes to this region KEYRx registers are allowed.]
+      B_0x1: [1, Writes to this region KEYRx registers are ignored until next OTFDEC reset. KEYCRC bitfield is locked.]
+    MODE:
+      B_0x0: [0, Only instruction accesses are decrypted.]
+      B_0x1: [1, Only data accesses are decrypted.]
+      B_0x2: [2, All read accesses are decrypted (instruction or data).]
+      B_0x3: [3, "Only instruction accesses are decrypted, and enhanced encryption mode is activated."]
+  OTFDEC_R4CFGR:
+    REG_EN:
+      B_0x0: [0, On-the-fly decryption is disabled for this region.]
+      B_0x1: [1, On-the-fly decryption is enabled for this region. Data are XORed with the corresponding keystream.]
+    CONFIGLOCK:
+      B_0x0: [0, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are allowed."]
+      B_0x1: [1, "Writes to this region CFGR1, STARTADDR, ENDADDR and NONCERx registers are ignored until next OTFDEC reset."]
+    KEYLOCK:
+      B_0x0: [0, Writes to this region KEYRx registers are allowed.]
+      B_0x1: [1, Writes to this region KEYRx registers are ignored until next OTFDEC reset. KEYCRC bitfield is locked.]
+    MODE:
+      B_0x0: [0, Only instruction accesses are decrypted.]
+      B_0x1: [1, Only data accesses are decrypted.]
+      B_0x2: [2, All read accesses are decrypted (instruction or data).]
+      B_0x3: [3, "Only instruction accesses are decrypted, and enhanced encryption mode is activated."]
+  OTFDEC_ISR:
+    SEIF:
+      B_0x0: [0, No security error status. No interrupt pending.]
+      B_0x1: [1, "Security error flag status, with interrupt pending. Actual interrupt generation is dependent on OTFDEC_IER corresponding bit SEIE."]
+    XONEIF:
+      B_0x0: [0, No execute-only error status. No interrupt pending.]
+      B_0x1: [1, "Read access detected on one region with MODE bits set to 00 or 11, or execute access detected on one region with MODE bits set to 01. OTFDEC returns a zeroed value for the illegal access, and an optional interrupt is generated if bit XONEIE is set to “1” in OTFDEC_IER register."]
+    KEIF:
+      B_0x0: [0, OTFDEC is operating properly.]
+      B_0x1: [1, "Read access detected on an enabled encrypted region following an abort event. OTFDEC returns a zeroed value for the read, and an optional interrupt is generated if bit KEIE is set to “1” in OTFDEC_IER register."]
+  OTFDEC_ICR:
+    SEIF:
+      B_0x0: [0, SEIF flag status is not affected]
+      B_0x1: [1, SEIF flag status is cleared in OTFDEC_ISR register]
+    XONEIF:
+      B_0x0: [0, XONEIF flag status is not affected]
+      B_0x1: [1, XONEIF flag status is cleared in OTFDEC_ISR register]
+    KEIF:
+      B_0x0: [0, KEIF flag status is not affected]
+      B_0x1: [1, KEIF flag status is cleared in OTFDEC_ISR register]
+  OTFDEC_IER:
+    SEIE:
+      B_0x0: [0, Interrupt generation on security error SEIF is disabled (masked)]
+      B_0x1: [1, Interrupt generation on security error SEIF is enabled (not masked)]
+    XONEIE:
+      B_0x0: [0, Interrupt generation on execute-only error XONEIF is disabled (masked)]
+      B_0x1: [1, Interrupt generation on execute-only error XONEIF is enabled (not masked)]
+    KEIE:
+      B_0x0: [0, Interrupt generation on key error flag KEIF is disabled (masked)]
+      B_0x1: [1, Interrupt generation on key error flag KEIF is enabled (not masked)]
+PSSI:
+  PSSI_CR:
+    CKPOL:
+      B_0x0: [0, Falling edge active for inputs or rising edge active for outputs]
+      B_0x1: [1, Rising edge active for inputs or falling edge active for outputs.]
+    DEPOL:
+      B_0x0: [0, PSSI_DE active low (0 indicates that data is valid)]
+      B_0x1: [1, PSSI_DE active high (1 indicates that data is valid)]
+    RDYPOL:
+      B_0x0: [0, PSSI_RDY active low (0 indicates that the receiver is ready to receive)]
+      B_0x1: [1, PSSI_RDY active high (1 indicates that the receiver is ready to receive)]
+    EDM:
+      B_0x0: [0, Interface captures 8-bit data on every parallel data clock]
+      B_0x1: [1, "Reserved, must not be selected"]
+      B_0x2: [2, "Reserved, must not be selected"]
+      B_0x3: [3, The interface captures 16-bit data on every parallel data clock]
+    ENABLE:
+      B_0x0: [0, PSSI disabled]
+      B_0x1: [1, PSSI enabled]
+    DERDYCFG:
+      B_0x0: [0, PSSI_DE and PSSI_RDY both disabled]
+      B_0x1: [1, Only PSSI_RDY enabled]
+      B_0x2: [2, Only PSSI_DE enabled]
+      B_0x3: [3, Both PSSI_RDY and PSSI_DE alternate functions enabled]
+      B_0x4: [4, Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_RDY pin (see )]
+      B_0x5: [5, "Only PSSI_RDY function enabled, but mapped to PSSI_DE pin"]
+      B_0x6: [6, "Only PSSI_DE function enabled, but mapped to PSSI_RDY pin"]
+      B_0x7: [7, Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_DE pin (see )]
+    DMAEN:
+      B_0x0: [0, DMA transfers are disabled. The user application can directly access the PSSI_DR register when DMA transfers are disabled.]
+      B_0x1: [1, DMA transfers are enabled (default configuration). A DMA channel in the general-purpose DMA controller must be configured to perform transfers from/to PSSI_DR.]
+    OUTEN:
+      B_0x0: [0, "Receive mode: data is input synchronously with PSSI_PDCK"]
+      B_0x1: [1, "Transmit mode: data is output synchronously with PSSI_PDCK"]
+  PSSI_SR:
+    RTT4B:
+      B_0x1: [1, "FIFO is ready for a four-byte (32-bit) transfer. In receive mode, this means that at least four valid data bytes are in the FIFO. In transmit mode, this means that there are at least four bytes free in the FIFO."]
+      B_0x0: [0, FIFO is not ready for a four-byte transfer]
+    RTT1B:
+      B_0x1: [1, "FIFO is ready for a one byte (32-bit) transfer. In receive mode, this means that at least one valid data byte is in the FIFO. In transmit mode, this means that there is at least one byte free in the FIFO."]
+      B_0x0: [0, FIFO is not ready for a 1-byte transfer]
+  PSSI_RIS:
+    OVR_RIS:
+      B_0x0: [0, No overrun/underrun occurred]
+      B_0x1: [1, "An overrun/underrun occurred: overrun in receive mode, underrun in transmit mode."]
+  PSSI_IER:
+    OVR_IE:
+      B_0x0: [0, No interrupt generation]
+      B_0x1: [1, An interrupt is generated if either an overrun or an underrun error occurred.]
+  PSSI_MIS:
+    OVR_MIS:
+      B_0x0: [0, No interrupt is generated when an overrun/underrun error occurs]
+      B_0x1: [1, An interrupt is generated if there is either an overrun or an underrun error and the OVR_IE bit is set in PSSI_IER.]

@@ -1,0 +1,170 @@
+---
+LCD:
+  LCD_CR:
+    LCDEN:
+      B_0x0: [0, LCD controller disabled]
+      B_0x1: [1, LCD controller enabled]
+    VSEL:
+      B_0x0: [0, Internal source (voltage step-up converter)]
+      B_0x1: [1, External source (VLCD pin)]
+    DUTY:
+      B_0x0: [0, Static duty]
+      B_0x1: [1, 1/2 duty]
+      B_0x2: [2, 1/3 duty]
+      B_0x3: [3, 1/4 duty]
+      B_0x4: [4, 1/8 duty]
+    BIAS:
+      B_0x0: [0, Bias 1/4]
+      B_0x1: [1, Bias 1/2]
+      B_0x2: [2, Bias 1/3]
+    MUX_SEG:
+      B_0x0: [0, SEG pin multiplexing disabled]
+      B_0x1: [1, "SEG[31:28] are multiplexed with SEG[43:40]"]
+    BUFEN:
+      B_0x0: [0, Output buffer disabled]
+      B_0x1: [1, Output buffer enabled]
+  LCD_FCR:
+    HD:
+      B_0x0: [0, Permanent high drive disabled]
+      B_0x1: [1, "Permanent high drive enabled. When HD=1, then the PON bits have to be programmed to001."]
+    SOFIE:
+      B_0x0: [0, LCD start-of-frame interrupt disabled]
+      B_0x1: [1, LCD start-of-frame interrupt enabled]
+    UDDIE:
+      B_0x0: [0, LCD Update display done interrupt disabled]
+      B_0x1: [1, LCD Update display done interrupt enabled]
+    PON:
+      B_0x0: [0, 0 s]
+      B_0x1: [1, 244 s]
+      B_0x2: [2, 488 s]
+      B_0x3: [3, 782 s]
+      B_0x4: [4, 976 ms]
+      B_0x5: [5, 1.22 ms]
+      B_0x6: [6, 1.46 ms]
+      B_0x7: [7, 1.71 ms]
+    DEAD:
+      B_0x0: [0, No dead time]
+      B_0x1: [1, 1 phase period dead time]
+      B_0x2: [2, 2 phase period dead time]
+      B_0x7: [7, 7 phase period dead time]
+    CC:
+      B_0x0: [0, V<sub>LCD0</sub>]
+      B_0x1: [1, V<sub>LCD1</sub>]
+      B_0x2: [2, V<sub>LCD2</sub>]
+      B_0x3: [3, V<sub>LCD3</sub>]
+      B_0x4: [4, V<sub>LCD4</sub>]
+      B_0x5: [5, V<sub>LCD5</sub>]
+      B_0x6: [6, V<sub>LCD6</sub>]
+      B_0x7: [7, V<sub>LCD7</sub>]
+    BLINKF:
+      B_0x0: [0, f<sub>LCD</sub>/8]
+      B_0x1: [1, f<sub>LCD</sub>/16]
+      B_0x2: [2, f<sub>LCD</sub>/32]
+      B_0x3: [3, f<sub>LCD</sub>/64]
+      B_0x4: [4, f<sub>LCD</sub>/128]
+      B_0x5: [5, f<sub>LCD</sub>/256]
+      B_0x6: [6, f<sub>LCD</sub>/512]
+      B_0x7: [7, f<sub>LCD</sub>/1024]
+    BLINK:
+      B_0x0: [0, Blink disabled]
+      B_0x1: [1, "Blink enabled on SEG[0], COM[0] (1 pixel)"]
+      B_0x2: [2, "Blink enabled on SEG[0], all COMs (up to 8 pixels depending on the programmed duty)"]
+      B_0x3: [3, Blink enabled on all SEGs and all COMs (all pixels)]
+    DIV:
+      B_0x0: [0, ck_div = ck_ps/16]
+      B_0x1: [1, ck_div = ck_ps/17]
+      B_0xF: [15, ck_div = ck_ps/31]
+    PS:
+      B_0x0: [0, ck_ps = LCDCLK]
+      B_0x1: [1, ck_ps = LCDCLK/2]
+      B_0xF: [15, ck_ps = LCDCLK/32768]
+  LCD_SR:
+    ENS:
+      B_0x0: [0, LCD controller disabled]
+      B_0x1: [1, LCD controller enabled]
+    SOF:
+      B_0x0: [0, No event]
+      B_0x1: [1, Start-of-frame event occurred.]
+    UDR:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Update display request]
+    UDD:
+      B_0x0: [0, No event]
+      B_0x1: [1, Update Display Request done.]
+    RDY:
+      B_0x0: [0, Not ready]
+      B_0x1: [1, Step-up converter is enabled and ready to provide the correct voltage.]
+    FCRSF:
+      B_0x0: [0, LCD frame control register not yet synchronized]
+      B_0x1: [1, LCD frame control register synchronized]
+  LCD_CLR:
+    SOFC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear SOF flag.]
+    UDDC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear UDD flag.]
+  LCD_RAM0:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM1:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM2:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM3:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM4:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM5:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM6:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM7:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM8:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM9:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM10:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM11:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM12:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM13:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM14:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]
+  LCD_RAM15:
+    SEGMENT_DATA:
+      B_0x0: [0, Pixel inactive]
+      B_0x1: [1, Pixel active]

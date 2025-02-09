@@ -1,0 +1,1381 @@
+---
+RCC:
+  RCC_CR:
+    HSION:
+      B_0x0: [0, HSI16 oscillator OFF]
+      B_0x1: [1, HSI16 oscillator ON]
+    HSIKERON:
+      B_0x0: [0, No effect on HSI16 oscillator.]
+      B_0x1: [1, HSI16 oscillator is forced ON even in Stop mode.]
+    HSIRDY:
+      B_0x0: [0, HSI16 oscillator not ready]
+      B_0x1: [1, HSI16 oscillator ready]
+    HSEON:
+      B_0x0: [0, HSE oscillator OFF]
+      B_0x1: [1, HSE oscillator ON]
+    HSERDY:
+      B_0x0: [0, HSE oscillator not ready]
+      B_0x1: [1, HSE oscillator ready]
+    HSEBYP:
+      B_0x0: [0, HSE crystal oscillator not bypassed]
+      B_0x1: [1, HSE crystal oscillator bypassed with external clock]
+    CSSON:
+      B_0x0: [0, Clock security system OFF (clock detector OFF)]
+      B_0x1: [1, "Clock security system ON (Clock detector ON if the HSE oscillator is stable, OFF if not)."]
+    PLLON:
+      B_0x0: [0, PLL OFF]
+      B_0x1: [1, PLL ON]
+    PLLRDY:
+      B_0x0: [0, PLL unlocked]
+      B_0x1: [1, PLL locked]
+  RCC_CFGR:
+    SW:
+      B_0x0: [0, "Reserved, must be kept at reset value"]
+      B_0x1: [1, HSI16 selected as system clock]
+      B_0x2: [2, HSE selected as system clock]
+      B_0x3: [3, PLL selected as system clock]
+    SWS:
+      B_0x0: [0, "Reserved, must be kept at reset value"]
+      B_0x1: [1, HSI16 oscillator used as system clock]
+      B_0x2: [2, HSE used as system clock]
+      B_0x3: [3, PLL used as system clock]
+    HPRE:
+      B_0x8: [8, SYSCLK divided by 2]
+      B_0x9: [9, SYSCLK divided by 4]
+      B_0xA: [10, SYSCLK divided by 8]
+      B_0xB: [11, SYSCLK divided by 16]
+      B_0xC: [12, SYSCLK divided by 64]
+      B_0xD: [13, SYSCLK divided by 128]
+      B_0xE: [14, SYSCLK divided by 256]
+      B_0xF: [15, SYSCLK divided by 512]
+    PPRE1:
+      B_0x4: [4, HCLK divided by 2]
+      B_0x5: [5, HCLK divided by 4]
+      B_0x6: [6, HCLK divided by 8]
+      B_0x7: [7, HCLK divided by 16]
+    PPRE2:
+      B_0x4: [4, HCLK divided by 2]
+      B_0x5: [5, HCLK divided by 4]
+      B_0x6: [6, HCLK divided by 8]
+      B_0x7: [7, HCLK divided by 16]
+    MCOSEL:
+      B_0x0: [0, "MCO output disabled, no clock on MCO"]
+      B_0x1: [1, SYSCLK system clock selected]
+      B_0x2: [2, "Reserved, must be kept at reset value"]
+      B_0x3: [3, HSI16 clock selected]
+      B_0x4: [4, HSE clock selected]
+      B_0x5: [5, Main PLL clock selected]
+      B_0x6: [6, LSI clock selected]
+      B_0x7: [7, LSE clock selected]
+      B_0x8: [8, Internal HSI48 clock selected]
+    MCOPRE:
+      B_0x0: [0, MCO is divided by 1]
+      B_0x1: [1, MCO is divided by 2]
+      B_0x2: [2, MCO is divided by 4]
+      B_0x3: [3, MCO is divided by 8]
+      B_0x4: [4, MCO is divided by 16]
+  RCC_PLLCFGR:
+    PLLSRC:
+      B_0x0: [0, No clock sent to PLL]
+      B_0x1: [1, No clock sent to PLL]
+      B_0x2: [2, HSI16 clock selected as PLL clock entry]
+      B_0x3: [3, HSE clock selected as PLL clock entry]
+    PLLM:
+      B_0x0: [0, PLLM = 1]
+      B_0x1: [1, PLLM = 2]
+      B_0x2: [2, PLLM = 3]
+      B_0x3: [3, PLLM = 4]
+      B_0x4: [4, PLLM = 5]
+      B_0x5: [5, PLLM = 6]
+      B_0x6: [6, PLLM = 7]
+      B_0x7: [7, PLLM = 8]
+      B_0x8: [8, PLLSYSM = 9]
+      B_0xF: [15, PLLSYSM= 16]
+    PLLN:
+      B_0x0: [0, PLLN = 0 wrong configuration]
+      B_0x1: [1, PLLN = 1 wrong configuration]
+      B_0x7: [7, PLLN = 7 wrong configuration]
+      B_0x8: [8, PLLN = 8]
+      B_0x9: [9, PLLN = 9]
+      B_0x7F: [127, PLLN = 127]
+    PLLPEN:
+      B_0x0: [0, PLL P clock output disable]
+      B_0x1: [1, PLL P clock output enable]
+    PLLP:
+      B_0x0: [0, PLLP = 7]
+      B_0x1: [1, PLLP = 17]
+    PLLQEN:
+      B_0x0: [0, PLL Q clock output disable]
+      B_0x1: [1, PLL Q clock output enable]
+    PLLQ:
+      B_0x0: [0, PLLQ = 2]
+      B_0x1: [1, PLLQ = 4]
+      B_0x2: [2, PLLQ = 6]
+      B_0x3: [3, PLLQ = 8]
+    PLLREN:
+      B_0x0: [0, PLL R clock output disable]
+      B_0x1: [1, PLL R clock output enable]
+    PLLR:
+      B_0x0: [0, PLLR = 2]
+      B_0x1: [1, PLLR = 4]
+      B_0x2: [2, PLLR = 6]
+      B_0x3: [3, PLLR = 8]
+    PLLPDIV:
+      B_0x0: [0, PLL P clock is controlled by the bit PLLP]
+      B_0x1: [1, Reserved.]
+      B_0x2: [2, PLL P clock = VCO / 2]
+      B_0x1F: [31, PLL P clock = VCO / 31]
+  RCC_CIER:
+    LSIRDYIE:
+      B_0x0: [0, LSI ready interrupt disabled]
+      B_0x1: [1, LSI ready interrupt enabled]
+    LSERDYIE:
+      B_0x0: [0, LSE ready interrupt disabled]
+      B_0x1: [1, LSE ready interrupt enabled]
+    HSIRDYIE:
+      B_0x0: [0, HSI16 ready interrupt disabled]
+      B_0x1: [1, HSI16 ready interrupt enabled]
+    HSERDYIE:
+      B_0x0: [0, HSE ready interrupt disabled]
+      B_0x1: [1, HSE ready interrupt enabled]
+    PLLRDYIE:
+      B_0x0: [0, PLL lock interrupt disabled]
+      B_0x1: [1, PLL lock interrupt enabled]
+    LSECSSIE:
+      B_0x0: [0, Clock security interrupt caused by LSE clock failure disabled]
+      B_0x1: [1, Clock security interrupt caused by LSE clock failure enabled]
+    HSI48RDYIE:
+      B_0x0: [0, HSI48 ready interrupt disabled]
+      B_0x1: [1, HSI48 ready interrupt enabled]
+  RCC_CIFR:
+    LSIRDYF:
+      B_0x0: [0, No clock ready interrupt caused by the LSI oscillator]
+      B_0x1: [1, Clock ready interrupt caused by the LSI oscillator]
+    LSERDYF:
+      B_0x0: [0, No clock ready interrupt caused by the LSE oscillator]
+      B_0x1: [1, Clock ready interrupt caused by the LSE oscillator]
+    HSIRDYF:
+      B_0x0: [0, No clock ready interrupt caused by the HSI16 oscillator]
+      B_0x1: [1, Clock ready interrupt caused by the HSI16 oscillator]
+    HSERDYF:
+      B_0x0: [0, No clock ready interrupt caused by the HSE oscillator]
+      B_0x1: [1, Clock ready interrupt caused by the HSE oscillator]
+    PLLRDYF:
+      B_0x0: [0, No clock ready interrupt caused by PLL lock]
+      B_0x1: [1, Clock ready interrupt caused by PLL lock]
+    CSSF:
+      B_0x0: [0, No clock security interrupt caused by HSE clock failure]
+      B_0x1: [1, Clock security interrupt caused by HSE clock failure]
+    LSECSSF:
+      B_0x0: [0, No clock security interrupt caused by LSE clock failure]
+      B_0x1: [1, Clock security interrupt caused by LSE clock failure]
+    HSI48RDYF:
+      B_0x0: [0, No clock ready interrupt caused by the HSI48 oscillator]
+      B_0x1: [1, Clock ready interrupt caused by the HSI48 oscillator]
+  RCC_CICR:
+    LSIRDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, LSIRDYF cleared]
+    LSERDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, LSERDYF cleared]
+    HSIRDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear HSIRDYF flag]
+    HSERDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear HSERDYF flag]
+    PLLRDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear PLLRDYF flag]
+    CSSC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear CSSF flag]
+    LSECSSC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear LSECSSF flag]
+    HSI48RDYC:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear the HSI48RDYC flag]
+  RCC_AHB1RSTR:
+    DMA1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DMA1]
+    DMA2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DMA2]
+    DMAMUX1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DMAMUX1]
+    CORDICRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset CORDIC]
+    FMACRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset FMAC]
+    FLASHRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset Flash memory interface]
+    CRCRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset CRC]
+  RCC_AHB2RSTR:
+    GPIOARST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port A]
+    GPIOBRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port B]
+    GPIOCRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port C]
+    GPIODRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port D]
+    GPIOERST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port E]
+    GPIOFRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port F]
+    GPIOGRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset IO port G]
+    ADC12RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset ADC12 interface]
+    ADC345RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset ADC345]
+    DAC1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DAC1]
+    DAC2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DAC2]
+    DAC3RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DAC3]
+    DAC4RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset DAC4]
+    AESRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset AES]
+    RNGRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset RNG]
+  RCC_AHB3RSTR:
+    FMCRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset FSMC]
+    QSPIRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset QUADSPI]
+  RCC_APB1RSTR1:
+    TIM2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM2]
+    TIM3RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM3]
+    TIM4RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM3]
+    TIM5RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM5]
+    TIM6RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM7]
+    TIM7RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM7]
+    CRSRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset CRS]
+    SPI2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SPI2]
+    SPI3RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SPI3]
+    USART2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset USART2]
+    USART3RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset USART3]
+    UART4RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset UART4]
+    UART5RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset UART5]
+    I2C1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset I2C1]
+    I2C2RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset I2C2]
+    USBRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset USB device]
+    FDCANRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset the FDCAN]
+    PWRRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset PWR]
+    I2C3RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset I2C3 interface]
+    LPTIM1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset LPTIM1]
+  RCC_APB1RSTR2:
+    LPUART1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset LPUART1]
+    I2C4RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset I2C4]
+    UCPD1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset UCPD1]
+  RCC_APB2RSTR:
+    SYSCFGRST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SYSCFG + COMP + OPAMP + VREFBUF]
+    TIM1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM1 timer]
+    SPI1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SPI1]
+    TIM8RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM8 timer]
+    USART1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset USART1]
+    SPI4RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SPI4]
+    TIM15RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM15 timer]
+    TIM16RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM16 timer]
+    TIM17RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM17 timer]
+    TIM20RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset TIM20]
+    SAI1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset SAI1]
+    HRTIM1RST:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Reset HRTIM1]
+  RCC_AHB1ENR:
+    DMA1EN:
+      B_0x0: [0, DMA1 clock disable]
+      B_0x1: [1, DMA1 clock enable]
+    DMA2EN:
+      B_0x0: [0, DMA2 clock disable]
+      B_0x1: [1, DMA2 clock enable]
+    DMAMUX1EN:
+      B_0x0: [0, DMAMUX1 clock disabled]
+      B_0x1: [1, DMAMUX1 clock enabled]
+    CORDICEN:
+      B_0x0: [0, CORDIC clock disabled]
+      B_0x1: [1, CORDIC clock enabled]
+    FMACEN:
+      B_0x0: [0, FMAC clock disabled]
+      B_0x1: [1, FMAC clock enabled]
+    FLASHEN:
+      B_0x0: [0, Flash memory interface clock disable]
+      B_0x1: [1, Flash memory interface clock enable]
+    CRCEN:
+      B_0x0: [0, CRC clock disable]
+      B_0x1: [1, CRC clock enable]
+  RCC_AHB2ENR:
+    GPIOAEN:
+      B_0x0: [0, IO port A clock disabled]
+      B_0x1: [1, IO port A clock enabled]
+    GPIOBEN:
+      B_0x0: [0, IO port B clock disabled]
+      B_0x1: [1, IO port B clock enabled]
+    GPIOCEN:
+      B_0x0: [0, IO port C clock disabled]
+      B_0x1: [1, IO port C clock enabled]
+    GPIODEN:
+      B_0x0: [0, IO port D clock disabled]
+      B_0x1: [1, IO port D clock enabled]
+    GPIOEEN:
+      B_0x0: [0, IO port E clock disabled]
+      B_0x1: [1, IO port E clock enabled]
+    GPIOFEN:
+      B_0x0: [0, IO port F clock disabled]
+      B_0x1: [1, IO port F clock enabled]
+    GPIOGEN:
+      B_0x0: [0, IO port G clock disabled]
+      B_0x1: [1, IO port G clock enabled]
+    ADC12EN:
+      B_0x0: [0, ADC12 clock disabled]
+      B_0x1: [1, ADC12 clock enabled]
+    ADC345EN:
+      B_0x0: [0, ADC345 clock disabled]
+      B_0x1: [1, ADC345 clock enabled]
+    DAC1EN:
+      B_0x0: [0, DAC1 clock disabled]
+      B_0x1: [1, DAC1 clock enabled]
+    DAC2EN:
+      B_0x0: [0, DAC2 clock disabled]
+      B_0x1: [1, DAC2 clock enabled]
+    DAC3EN:
+      B_0x0: [0, DAC3 clock disabled]
+      B_0x1: [1, DAC3 clock enabled]
+    DAC4EN:
+      B_0x0: [0, DAC4 clock disabled]
+      B_0x1: [1, DAC4 clock enabled]
+    AESEN:
+      B_0x0: [0, AES clock disabled]
+      B_0x1: [1, AES clock enabled]
+    RNGEN:
+      B_0x0: [0, RNG disabled]
+      B_0x1: [1, RNG enabled]
+  RCC_AHB3ENR:
+    FMCEN:
+      B_0x0: [0, FSMC clock disable]
+      B_0x1: [1, FSMC clock enable]
+    QSPIEN:
+      B_0x0: [0, QUADSPI clock disable]
+      B_0x1: [1, QUADSPI clock enable]
+  RCC_APB1ENR1:
+    TIM2EN:
+      B_0x0: [0, TIM2 clock disabled]
+      B_0x1: [1, TIM2 clock enabled]
+    TIM3EN:
+      B_0x0: [0, TIM3 clock disabled]
+      B_0x1: [1, TIM3 clock enabled]
+    TIM4EN:
+      B_0x0: [0, TIM4 clock disabled]
+      B_0x1: [1, TIM4 clock enabled]
+    TIM5EN:
+      B_0x0: [0, TIM5 clock disabled]
+      B_0x1: [1, TIM5 clock enabled]
+    TIM6EN:
+      B_0x0: [0, TIM6 clock disabled]
+      B_0x1: [1, TIM6 clock enabled]
+    TIM7EN:
+      B_0x0: [0, TIM7 clock disabled]
+      B_0x1: [1, TIM7 clock enabled]
+    CRSEN:
+      B_0x0: [0, CRS clock disabled]
+      B_0x1: [1, CRS clock enabled]
+    RTCAPBEN:
+      B_0x0: [0, RTC APB clock disabled]
+      B_0x1: [1, RTC APB clock enabled]
+    WWDGEN:
+      B_0x0: [0, Window watchdog clock disabled]
+      B_0x1: [1, Window watchdog clock enabled]
+    SPI2EN:
+      B_0x0: [0, SPI2 clock disabled]
+      B_0x1: [1, SPI2 clock enabled]
+    SPI3EN:
+      B_0x0: [0, SPI3 clock disabled]
+      B_0x1: [1, SPI3 clock enabled]
+    USART2EN:
+      B_0x0: [0, USART2 clock disabled]
+      B_0x1: [1, USART2 clock enabled]
+    USART3EN:
+      B_0x0: [0, USART3 clock disabled]
+      B_0x1: [1, USART3 clock enabled]
+    UART4EN:
+      B_0x0: [0, UART4 clock disabled]
+      B_0x1: [1, UART4 clock enabled]
+    UART5EN:
+      B_0x0: [0, UART5 clock disabled]
+      B_0x1: [1, UART5 clock enabled]
+    I2C1EN:
+      B_0x0: [0, I2C1 clock disabled]
+      B_0x1: [1, I2C1 clock enabled]
+    I2C2EN:
+      B_0x0: [0, I2C2 clock disabled]
+      B_0x1: [1, I2C2 clock enabled]
+    USBEN:
+      B_0x0: [0, USB device clock disabled]
+      B_0x1: [1, USB device clock enabled]
+    FDCANEN:
+      B_0x0: [0, FDCAN clock disabled]
+      B_0x1: [1, FDCAN clock enabled]
+    PWREN:
+      B_0x0: [0, Power interface clock disabled]
+      B_0x1: [1, Power interface clock enabled]
+    I2C3EN:
+      B_0x0: [0, I2C3 clock disabled]
+      B_0x1: [1, I2C3 clock enabled]
+    LPTIM1EN:
+      B_0x0: [0, LPTIM1 clock disabled]
+      B_0x1: [1, LPTIM1 clock enabled]
+  RCC_APB1ENR2:
+    LPUART1EN:
+      B_0x0: [0, LPUART1 clock disable]
+      B_0x1: [1, LPUART1 clock enable]
+    I2C4EN:
+      B_0x0: [0, I2C4 clock disabled]
+      B_0x1: [1, I2C4 clock enabled]
+    UCPD1EN:
+      B_0x0: [0, UCPD1 clock disable]
+      B_0x1: [1, UCPD1 clock enable]
+  RCC_APB2ENR:
+    SYSCFGEN:
+      B_0x0: [0, SYSCFG + COMP + VREFBUF + OPAMP clock disabled]
+      B_0x1: [1, SYSCFG + COMP + VREFBUF + OPAMP clock enabled]
+    TIM1EN:
+      B_0x0: [0, TIM1 timer clock disabled]
+      B_0x1: [1, TIM1P timer clock enabled]
+    SPI1EN:
+      B_0x0: [0, SPI1 clock disabled]
+      B_0x1: [1, SPI1 clock enabled]
+    TIM8EN:
+      B_0x0: [0, TIM8 timer clock disabled]
+      B_0x1: [1, TIM8 timer clock enabled]
+    USART1EN:
+      B_0x0: [0, USART1clock disabled]
+      B_0x1: [1, USART1clock enabled]
+    SPI4EN:
+      B_0x0: [0, SPI4 clock disabled]
+      B_0x1: [1, SPI4 clock enabled]
+    TIM15EN:
+      B_0x0: [0, TIM15 timer clock disabled]
+      B_0x1: [1, TIM15 timer clock enabled]
+    TIM16EN:
+      B_0x0: [0, TIM16 timer clock disabled]
+      B_0x1: [1, TIM16 timer clock enabled]
+    TIM17EN:
+      B_0x0: [0, TIM17 timer clock disabled]
+      B_0x1: [1, TIM17 timer clock enabled]
+    TIM20EN:
+      B_0x0: [0, TIM20 clock disabled]
+      B_0x1: [1, TIM20 clock enabled]
+    SAI1EN:
+      B_0x0: [0, SAI1 clock disabled]
+      B_0x1: [1, SAI1 clock enabled]
+    HRTIM1EN:
+      B_0x0: [0, HRTIM1 clock disabled]
+      B_0x1: [1, HRTIM1 clock enable]
+  RCC_AHB1SMENR:
+    DMA1SMEN:
+      B_0x0: [0, DMA1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, DMA1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    DMA2SMEN:
+      B_0x0: [0, DMA2 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, DMA2 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    DMAMUX1SMEN:
+      B_0x0: [0, DMAMUX1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, DMAMUX1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    CORDICSMEN:
+      B_0x0: [0, CORDICSM clocks disabled.]
+      B_0x1: [1, CORDICSM clocks enabled.]
+    FMACSMEN:
+      B_0x0: [0, FMACSM clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, FMACSM clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    FLASHSMEN:
+      B_0x0: [0, Flash memory interface clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, Flash memory interface clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SRAM1SMEN:
+      B_0x0: [0, SRAM1 interface clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SRAM1 interface clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    CRCSMEN:
+      B_0x0: [0, CRC clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, CRC clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+  RCC_AHB2SMENR:
+    GPIOASMEN:
+      B_0x0: [0, IO port A clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port A clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIOBSMEN:
+      B_0x0: [0, IO port B clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port B clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIOCSMEN:
+      B_0x0: [0, IO port C clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port C clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIODSMEN:
+      B_0x0: [0, IO port D clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port D clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIOESMEN:
+      B_0x0: [0, IO port E clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port E clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIOFSMEN:
+      B_0x0: [0, IO port F clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port F clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    GPIOGSMEN:
+      B_0x0: [0, IO port G clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, IO port G clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    CCMSRAMSMEN:
+      B_0x0: [0, CCM SRAM interface clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, CCM SRAM interface clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SRAM2SMEN:
+      B_0x0: [0, SRAM2 interface clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SRAM2 interface clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    ADC12SMEN:
+      B_0x0: [0, ADC12 clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, ADC12 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    ADC345SMEN:
+      B_0x0: [0, ADC345 clock disabled]
+      B_0x1: [1, ADC345 clock enabled]
+    DAC1SMEN:
+      B_0x0: [0, DAC1 clock disabled]
+      B_0x1: [1, DAC1 clock enabled during sleep and stop modes]
+    DAC2SMEN:
+      B_0x0: [0, DAC2 clock disabled]
+      B_0x1: [1, DAC2 clock enabled during sleep and stop modes]
+    DAC3SMEN:
+      B_0x0: [0, DAC3 clock disabled]
+      B_0x1: [1, DAC3 clock enabled during sleep and stop modes]
+    DAC4SMEN:
+      B_0x0: [0, DAC4 clock disabled]
+      B_0x1: [1, DAC4 clock enabled during sleep and stop modes]
+    AESSMEN:
+      B_0x0: [0, AESM clocks disabled]
+      B_0x1: [1, AESM clocks enabled]
+    RNGEN:
+      B_0x0: [0, RNG disabled]
+      B_0x1: [1, RNG enabled]
+  RCC_AHB3SMENR:
+    FMCSMEN:
+      B_0x0: [0, FSMC clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, FSMC clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    QSPISMEN:
+      B_0x0: [0, QUADSPI clock disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, QUADSPI clock enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+  RCC_APB1SMENR1:
+    TIM2SMEN:
+      B_0x0: [0, TIM2 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM2 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM3SMEN:
+      B_0x0: [0, TIM3 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM3 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM4SMEN:
+      B_0x0: [0, TIM4 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM4 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM5SMEN:
+      B_0x0: [0, TIM5 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM5 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM6SMEN:
+      B_0x0: [0, TIM6 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM6 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM7SMEN:
+      B_0x0: [0, TIM7 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM7 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    CRSSMEN:
+      B_0x0: [0, CRS clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, CRS clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    RTCAPBSMEN:
+      B_0x0: [0, RTC APB clock disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, RTC APB clock enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    WWDGSMEN:
+      B_0x0: [0, Window watchdog clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, Window watchdog clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SPI2SMEN:
+      B_0x0: [0, SPI2 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SPI2 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SPI3SMEN:
+      B_0x0: [0, SPI3 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SPI3 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    USART2SMEN:
+      B_0x0: [0, USART2 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, USART2 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    USART3SMEN:
+      B_0x0: [0, USART3 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, USART3 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    UART4SMEN:
+      B_0x0: [0, UART4 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, UART4 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    UART5SMEN:
+      B_0x0: [0, UART5 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, UART5 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    I2C1SMEN:
+      B_0x0: [0, I2C1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, I2C1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    I2C2SMEN:
+      B_0x0: [0, I2C2 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, I2C2 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    USBSMEN:
+      B_0x0: [0, USB device clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, USB device clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    FDCANSMEN:
+      B_0x0: [0, FDCAN clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, FDCAN clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    PWRSMEN:
+      B_0x0: [0, Power interface clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, Power interface clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    I2C3SMEN:
+      B_0x0: [0, I2C3 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, I2C3 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    LPTIM1SMEN:
+      B_0x0: [0, LPTIM1 clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, LPTIM1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+  RCC_APB1SMENR2:
+    LPUART1SMEN:
+      B_0x0: [0, LPUART1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, LPUART1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    I2C4SMEN:
+      B_0x0: [0, I2C4 clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, I2C4 clock enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    UCPD1SMEN:
+      B_0x0: [0, UCPD1 clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, UCPD1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+  RCC_APB2SMENR:
+    SYSCFGSMEN:
+      B_0x0: [0, SYSCFG + COMP + VREFBUF + OPAMP clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SYSCFG + COMP + VREFBUF + OPAMP clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM1SMEN:
+      B_0x0: [0, TIM1 timer clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM1P timer clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SPI1SMEN:
+      B_0x0: [0, SPI1 clocks disabled by the clock gating during<sup>(1)</sup> Sleep and Stop modes]
+      B_0x1: [1, SPI1 clocks enabled by the clock gating during<sup>(1)</sup> Sleep and Stop modes]
+    TIM8SMEN:
+      B_0x0: [0, TIM8 timer clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM8 timer clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    USART1SMEN:
+      B_0x0: [0, USART1clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, USART1clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SPI4SMEN:
+      B_0x0: [0, SPI4 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SPI4 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop mode]
+    TIM15SMEN:
+      B_0x0: [0, TIM15 timer clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM15 timer clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop mode]
+    TIM16SMEN:
+      B_0x0: [0, TIM16 timer clocks disabled by the clock gating during Sleep and Stop modes]
+      B_0x1: [1, TIM16 timer clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM17SMEN:
+      B_0x0: [0, TIM17 timer clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM17 timer clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    TIM20SMEN:
+      B_0x0: [0, TIM20 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, TIM20 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    SAI1SMEN:
+      B_0x0: [0, SAI1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, SAI1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+    HRTIM1SMEN:
+      B_0x0: [0, HRTIM1 clocks disabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+      B_0x1: [1, HRTIM1 clocks enabled by the clock gating<sup>(1)</sup> during Sleep and Stop modes]
+  RCC_CCIPR:
+    USART1SEL:
+      B_0x0: [0, PCLK selected as USART1 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as USART1 clock]
+      B_0x2: [2, HSI16 clock selected as USART1 clock]
+      B_0x3: [3, LSE clock selected as USART1 clock]
+    USART2SEL:
+      B_0x0: [0, PCLK selected as USART2 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as USART2 clock]
+      B_0x2: [2, HSI16 clock selected as USART2 clock]
+      B_0x3: [3, LSE clock selected as USART2 clock]
+    USART3SEL:
+      B_0x0: [0, PCLK selected as USART3 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as USART3 clock]
+      B_0x2: [2, HSI16 clock selected as USART3 clock]
+      B_0x3: [3, LSE clock selected as USART3 clock]
+    UART4SEL:
+      B_0x0: [0, PCLK selected as UART4 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as UART4 clock]
+      B_0x2: [2, HSI16 clock selected as UART4 clock]
+      B_0x3: [3, LSE clock selected as UART4 clock]
+    UART5SEL:
+      B_0x0: [0, PCLK selected as UART5 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as UART5 clock]
+      B_0x2: [2, HSI16 clock selected as UART5 clock]
+      B_0x3: [3, LSE clock selected as UART5 clock]
+    LPUART1SEL:
+      B_0x0: [0, PCLK selected as LPUART1 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as LPUART1 clock]
+      B_0x2: [2, HSI16 clock selected as LPUART1 clock]
+      B_0x3: [3, LSE clock selected as LPUART1 clock]
+    I2C1SEL:
+      B_0x0: [0, PCLK selected as I2C1 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as I2C1 clock]
+      B_0x2: [2, HSI16 clock selected as I2C1 clock]
+    I2C2SEL:
+      B_0x0: [0, PCLK selected as I2C2 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as I2C2 clock]
+      B_0x2: [2, HSI16 clock selected as I2C2 clock]
+    I2C3SEL:
+      B_0x0: [0, PCLK selected as I2C3 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as I2C3 clock]
+      B_0x2: [2, HSI16 clock selected as I2C3 clock]
+    LPTIM1SEL:
+      B_0x0: [0, PCLK selected as LPTIM1 clock]
+      B_0x1: [1, LSI clock selected as LPTIM1 clock]
+      B_0x2: [2, HSI16 clock selected as LPTIM1 clock]
+      B_0x3: [3, LSE clock selected as LPTIM1 clock]
+    SAI1SEL:
+      B_0x0: [0, System clock selected as SAI clock]
+      B_0x1: [1, PLL Q clock selected as SAI clock]
+      B_0x2: [2, Clock provided on I2S_CKIN pin selected as SAI clock]
+      B_0x3: [3, HSI16 clock selected as SAI clock]
+    I2S23SEL:
+      B_0x0: [0, System clock selected as I2S23 clock]
+      B_0x1: [1, PLL Q clock selected as I2S23 clock]
+      B_0x2: [2, Clock provided on I2S_CKIN pin is selected as I2S23 clock]
+      B_0x3: [3, HSI16 clock selected as I2S23 clock.]
+    CLK48SEL:
+      B_0x0: [0, HSI48 clock selected as 48 MHz clock]
+      B_0x2: [2, PLL Q clock (PLL48M1CLK) selected as 48 MHz clock]
+      B_0x3: [3, "Reserved, must be kept at reset value"]
+    ADC12SEL:
+      B_0x0: [0, No clock selected]
+      B_0x1: [1, PLL P clock selected as ADC1/2 clock]
+      B_0x2: [2, System clock selected as ADC1/2 clock]
+    ADC345SEL:
+      B_0x0: [0, No clock selected]
+      B_0x1: [1, PLL P clock selected as ADC345 clock]
+      B_0x2: [2, System clock selected as ADC3/4/5 clock]
+      B_0x3: [3, Reserved.]
+  RCC_BDCR:
+    LSEON:
+      B_0x0: [0, LSE oscillator OFF]
+      B_0x1: [1, LSE oscillator ON]
+    LSERDY:
+      B_0x0: [0, LSE oscillator not ready]
+      B_0x1: [1, LSE oscillator ready]
+    LSEBYP:
+      B_0x0: [0, LSE oscillator not bypassed]
+      B_0x1: [1, LSE oscillator bypassed]
+    LSEDRV:
+      B_0x0: [0, Xtal mode lower driving capability]
+      B_0x1: [1, Xtal mode medium low driving capability]
+      B_0x2: [2, Xtal mode medium high driving capability]
+      B_0x3: [3, Xtal mode higher driving capability]
+    LSECSSON:
+      B_0x0: [0, CSS on LSE (32 kHz external oscillator) OFF]
+      B_0x1: [1, CSS on LSE (32 kHz external oscillator) ON]
+    LSECSSD:
+      B_0x0: [0, No failure detected on LSE (32 kHz oscillator)]
+      B_0x1: [1, Failure detected on LSE (32 kHz oscillator)]
+    RTCSEL:
+      B_0x0: [0, No clock]
+      B_0x1: [1, LSE oscillator clock used as RTC clock]
+      B_0x2: [2, LSI oscillator clock used as RTC clock]
+      B_0x3: [3, HSE oscillator clock divided by 32 used as RTC clock]
+    RTCEN:
+      B_0x0: [0, RTC clock disabled]
+      B_0x1: [1, RTC clock enabled]
+    BDRST:
+      B_0x0: [0, Reset not activated]
+      B_0x1: [1, Reset the entire RTC domain]
+    LSCOEN:
+      B_0x0: [0, Low speed clock output (LSCO) disable]
+      B_0x1: [1, Low speed clock output (LSCO) enable]
+    LSCOSEL:
+      B_0x0: [0, LSI clock selected]
+      B_0x1: [1, LSE clock selected]
+  RCC_CSR:
+    LSION:
+      B_0x0: [0, LSI oscillator OFF]
+      B_0x1: [1, LSI oscillator ON]
+    LSIRDY:
+      B_0x0: [0, LSI oscillator not ready]
+      B_0x1: [1, LSI oscillator ready]
+    RMVF:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Clear the reset flags]
+    OBLRSTF:
+      B_0x0: [0, No reset from Option Byte loading occurred]
+      B_0x1: [1, Reset from Option Byte loading occurred]
+    PINRSTF:
+      B_0x0: [0, No reset from NRST pin occurred]
+      B_0x1: [1, Reset from NRST pin occurred]
+    BORRSTF:
+      B_0x0: [0, No BOR occurred]
+      B_0x1: [1, BOR occurred]
+    SFTRSTF:
+      B_0x0: [0, No software reset occurred]
+      B_0x1: [1, Software reset occurred]
+    IWDGRSTF:
+      B_0x0: [0, No independent watchdog reset occurred]
+      B_0x1: [1, Independent watchdog reset occurred]
+    WWDGRSTF:
+      B_0x0: [0, No window watchdog reset occurred]
+      B_0x1: [1, Window watchdog reset occurred]
+    LPWRRSTF:
+      B_0x0: [0, No illegal mode reset occurred]
+      B_0x1: [1, Illegal mode reset occurred]
+  RCC_CRRCR:
+    HSI48ON:
+      B_0x0: [0, HSI48 oscillator OFF]
+      B_0x1: [1, HSI48 oscillator ON]
+    HSI48RDY:
+      B_0x0: [0, HSI48 oscillator not ready]
+      B_0x1: [1, HSI48 oscillator ready]
+  RCC_CCIPR2:
+    I2C4SEL:
+      B_0x0: [0, PCLK selected as I2C4 clock]
+      B_0x1: [1, System clock (SYSCLK) selected as I2C4 clock]
+      B_0x2: [2, HSI16 clock selected as I2C4 clock]
+    QSPISEL:
+      B_0x0: [0, system clock selected as QUADSPI kernel clock]
+      B_0x1: [1, HSI16 clock selected as QUADSPI kernel clock]
+      B_0x2: [2, PLL Q clock selected as QUADSPI kernel clock]
+PWR:
+  PWR_CR1:
+    LPMS:
+      B_0x0: [0, Stop 0 mode]
+      B_0x1: [1, Stop 1 mode]
+      B_0x3: [3, Standby mode]
+    DBP:
+      B_0x0: [0, Access to RTC and Backup registers disabled]
+      B_0x1: [1, Access to RTC and Backup registers enabled]
+    VOS:
+      B_0x0: [0, Cannot be written (forbidden by hardware)]
+      B_0x1: [1, Range 1]
+      B_0x2: [2, Range 2]
+      B_0x3: [3, Cannot be written (forbidden by hardware)]
+  PWR_CR2:
+    PVDE:
+      B_0x0: [0, Programmable voltage detector disable.]
+      B_0x1: [1, Programmable voltage detector enable.]
+    PVDLS:
+      B_0x0: [0, V<sub>PVD0</sub> PVD threshold 0]
+      B_0x1: [1, V<sub>PVD1</sub> PVD threshold 1]
+      B_0x2: [2, V<sub>PVD2</sub> PVD threshold 2]
+      B_0x3: [3, V<sub>PVD3</sub> PVD threshold 3]
+      B_0x4: [4, V<sub>PVD4</sub> PVD threshold 4]
+      B_0x5: [5, V<sub>PVD5</sub> PVD threshold 5]
+      B_0x6: [6, V<sub>PVD6</sub> PVD threshold 6]
+      B_0x7: [7, External input analog voltage PVD_IN (compared internally to V<sub>REFINT</sub>)]
+    PVMEN1:
+      B_0x0: [0, PVM1 (V<sub>DDA</sub> monitoring vs. 1.62V threshold) disable.]
+      B_0x1: [1, PVM1 (V<sub>DDA</sub> monitoring vs. 1.62V threshold) enable.]
+    PVMEN2:
+      B_0x0: [0, PVM2 (V<sub>DDA</sub> monitoring vs. 1.8 V threshold) disable.]
+      B_0x1: [1, PVM2 (V<sub>DDA</sub> monitoring vs. 1.8 V threshold) enable.]
+  PWR_CR3:
+    RRS:
+      B_0x0: [0, SRAM2 is powered off in Standby mode (SRAM2 content is lost).]
+      B_0x1: [1, SRAM2 is powered by the low-power regulator in Standby mode (SRAM2 content is kept).]
+    UCPD1_STDBY:
+      B_0x0: [0, "Write 0 immediately after standby exit when using UCPD1, (and before writing any UCPD1 registers)."]
+      B_0x1: [1, Write 1 just before entering standby when using UCPD1.]
+    UCPD1_DBDIS:
+      B_0x0: [0, Enable USB Type-C dead battery pull-down behavior on UCPD1_CC1 and UCPD1_CC2 pins.]
+      B_0x1: [1, Disable USB Type-C dead battery pull-down behavior on UCPD1_CC1 and UCPD1_CC2 pins.]
+    EIWUL:
+      B_0x0: [0, Internal wakeup line disable.]
+      B_0x1: [1, Internal wakeup line enable.]
+  PWR_CR4:
+    WP1:
+      B_0x0: [0, Detection on high level (rising edge)]
+      B_0x1: [1, Detection on low level (falling edge)]
+    WP2:
+      B_0x0: [0, Detection on high level (rising edge)]
+      B_0x1: [1, Detection on low level (falling edge)]
+    WP3:
+      B_0x0: [0, Detection on high level (rising edge)]
+      B_0x1: [1, Detection on low level (falling edge)]
+    WP4:
+      B_0x0: [0, Detection on high level (rising edge)]
+      B_0x1: [1, Detection on low level (falling edge)]
+    WP5:
+      B_0x0: [0, Detection on high level (rising edge)]
+      B_0x1: [1, Detection on low level (falling edge)]
+    VBE:
+      B_0x0: [0, V<sub>BAT</sub> battery charging disable]
+      B_0x1: [1, V<sub>BAT</sub> battery charging enable]
+    VBRS:
+      B_0x0: [0, Charge V<sub>BAT</sub> through a 5 kOhms resistor]
+      B_0x1: [1, Charge V<sub>BAT</sub> through a 1.5 kOhms resistor]
+  PWR_SR1:
+    SBF:
+      B_0x0: [0, The device did not enter the Standby mode]
+      B_0x1: [1, The device entered the Standby mode]
+  PWR_SR2:
+    REGLPS:
+      B_0x0: [0, The low-power regulator is not ready]
+      B_0x1: [1, The low-power regulator is ready]
+    REGLPF:
+      B_0x0: [0, The regulator is ready in main mode (MR)]
+      B_0x1: [1, The regulator is in low-power mode (LPR)]
+    VOSF:
+      B_0x0: [0, The regulator is ready in the selected voltage range]
+      B_0x1: [1, The regulator output voltage is changing to the required voltage level]
+    PVDO:
+      B_0x0: [0, V<sub>DD</sub> is above the selected PVD threshold]
+      B_0x1: [1, V<sub>DD</sub> is below the selected PVD threshold]
+    PVMO1:
+      B_0x0: [0, V<sub>DDA</sub> voltage is above PVM1 threshold (around 1.62 V).]
+      B_0x1: [1, V<sub>DDA</sub> voltage is below PVM1 threshold (around 1.62 V).]
+    PVMO2:
+      B_0x0: [0, V<sub>DDA</sub> voltage is above PVM2 threshold (around 1.8 V).]
+      B_0x1: [1, V<sub>DDA</sub> voltage is below PVM2 threshold (around 1.8 V).]
+  PWR_CR5:
+    R1MODE:
+      B_0x0: [0, Main regulator in range 1 boost mode.]
+      B_0x1: [1, Main regulator in range 1 normal mode.]
+FDCAN:
+  FDCAN_DBTP:
+    TDC:
+      B_0x0: [0, Transceiver delay compensation disabled]
+      B_0x1: [1, Transceiver delay compensation enabled]
+  FDCAN_TEST:
+    LBCK:
+      B_0x0: [0, "Reset value, Loop Back mode is disabled"]
+      B_0x1: [1, Loop Back mode is enabled (see Power down (Sleep mode))]
+    TX:
+      B_0x0: [0, "Reset value, FDCANx_TX TX is controlled by the CAN core, updated at the end of the CAN bit time"]
+      B_0x1: [1, Sample point can be monitored at pin FDCANx_TX]
+      B_0x2: [2, Dominant (0) level at pin FDCANx_TX]
+      B_0x3: [3, Recessive (1) at pin FDCANx_TX]
+    RX:
+      B_0x0: [0, The CAN bus is dominant (FDCANx_RX = 0)]
+      B_0x1: [1, The CAN bus is recessive (FDCANx_RX = 1)]
+  FDCAN_CCCR:
+    INIT:
+      B_0x0: [0, Normal operation]
+      B_0x1: [1, Initialization started]
+    CCE:
+      B_0x0: [0, The CPU has no write access to the protected configuration registers.]
+      B_0x1: [1, The CPU has write access to the protected configuration registers (while CCCR.INIT = 1).]
+    ASM:
+      B_0x0: [0, Normal CAN operation]
+      B_0x1: [1, Restricted operation Mode active]
+    CSA:
+      B_0x0: [0, No clock stop acknowledged]
+      B_0x1: [1, FDCAN may be set in power down by stopping APB clock and kernel clock.]
+    CSR:
+      B_0x0: [0, No clock stop requested]
+      B_0x1: [1, "Clock stop requested. When clock stop is requested, first INIT and then CSA is set after all pending transfer requests have been completed and the CAN bus reached idle."]
+    MON:
+      B_0x0: [0, Bus monitoring mode disabled]
+      B_0x1: [1, Bus monitoring mode enabled]
+    DAR:
+      B_0x0: [0, Automatic retransmission of messages not transmitted successfully enabled]
+      B_0x1: [1, Automatic retransmission disabled]
+    TEST:
+      B_0x0: [0, "Normal operation, register TEST holds reset values"]
+      B_0x1: [1, "Test Mode, write access to register TEST enabled"]
+    FDOE:
+      B_0x0: [0, FD operation disabled]
+      B_0x1: [1, FD operation enabled]
+    BRSE:
+      B_0x0: [0, Bit rate switching for transmissions disabled]
+      B_0x1: [1, Bit rate switching for transmissions enabled]
+    PXHD:
+      B_0x0: [0, Protocol exception handling enabled]
+      B_0x1: [1, Protocol exception handling disabled]
+    EFBI:
+      B_0x0: [0, Edge filtering disabled]
+      B_0x1: [1, Two consecutive dominant tq required to detect an edge for hard synchronization]
+    TXP:
+      B_0x0: [0, disabled]
+      B_0x1: [1, enabled]
+    NISO:
+      B_0x0: [0, CAN FD frame format according to ISO11898-1]
+      B_0x1: [1, CAN FD frame format according to Bosch CAN FD Specification V1.0]
+  FDCAN_TSCC:
+    TSS:
+      B_0x0: [0, Timestamp counter value always 0x0000]
+      B_0x1: [1, Timestamp counter value incremented according to TCP]
+      B_0x2: [2, "External timestamp counter from TIM3 value (tim3_cnt[0:15])"]
+      B_0x3: [3, Same as 00.]
+  FDCAN_TOCC:
+    ETOC:
+      B_0x0: [0, Timeout counter disabled]
+      B_0x1: [1, Timeout counter enabled]
+    TOS:
+      B_0x0: [0, Continuous operation]
+      B_0x1: [1, Timeout controlled by Tx event FIFO]
+      B_0x2: [2, Timeout controlled by Rx FIFO 0]
+      B_0x3: [3, Timeout controlled by Rx FIFO 1]
+  FDCAN_ECR:
+    RP:
+      B_0x0: [0, The receive error counter is below the error passive level of 128.]
+      B_0x1: [1, The receive error counter has reached the error passive level of 128.]
+  FDCAN_PSR:
+    LEC:
+      B_0x0: [0, "No Error: No error occurred since LEC has been reset by successful reception or transmission."]
+      B_0x1: [1, "Stuff Error: More than 5 equal bits in a sequence have occurred in a part of a received message where this is not allowed."]
+      B_0x2: [2, "Form Error: A fixed format part of a received frame has the wrong format."]
+      B_0x3: [3, "AckError: The message transmitted by the FDCAN was not acknowledged by another node."]
+      B_0x4: [4, "Bit1Error: During the transmission of a message (with the exception of the arbitration field), the device wanted to send a recessive level (bit of logical value 1), but the monitored bus value was dominant."]
+      B_0x5: [5, "Bit0Error: During the transmission of a message (or acknowledge bit, or active error flag, or overload flag), the device wanted to send a dominant level (data or identifier bit logical value 0), but the monitored bus value was recessive. During Bus_Off recovery this status is set each time a sequence of 11 recessive bits has been monitored. This enables the CPU to monitor the proceeding of the Bus_Off recovery sequence (indicating the bus is not stuck at dominant or continuously disturbed)."]
+      B_0x6: [6, "CRCError: The CRC check sum of a received message was incorrect. The CRC of an incoming message does not match with the CRC calculated from the received data."]
+      B_0x7: [7, "NoChange: Any read access to the Protocol status register re-initializes the LEC to 7. When the LEC shows the value 7, no CAN bus event was detected since the last CPU read access to the Protocol status register."]
+    ACT:
+      B_0x0: [0, "Synchronizing: node is synchronizing on CAN communication."]
+      B_0x1: [1, "Idle: node is neither receiver nor transmitter."]
+      B_0x2: [2, "Receiver: node is operating as receiver."]
+      B_0x3: [3, "Transmitter: node is operating as transmitter."]
+    EP:
+      B_0x0: [0, The FDCAN is in the Error_Active state. It normally takes part in bus communication and sends an active error flag when an error has been detected.]
+      B_0x1: [1, The FDCAN is in the Error_Passive state.]
+    EW:
+      B_0x0: [0, Both error counters are below the Error_Warning limit of 96.]
+      B_0x1: [1, At least one of error counter has reached the Error_Warning limit of 96.]
+    BO:
+      B_0x0: [0, The FDCAN is not Bus_Off.]
+      B_0x1: [1, The FDCAN is in Bus_Off state.]
+    RESI:
+      B_0x0: [0, Last received FDCAN message did not have its ESI flag set.]
+      B_0x1: [1, Last received FDCAN message had its ESI flag set.]
+    RBRS:
+      B_0x0: [0, Last received FDCAN message did not have its BRS flag set.]
+      B_0x1: [1, Last received FDCAN message had its BRS flag set.]
+    REDL:
+      B_0x0: [0, "Since this bit was reset by the CPU, no FDCAN message has been received."]
+      B_0x1: [1, Message in FDCAN format with EDL flag set has been received.]
+    PXE:
+      B_0x0: [0, No protocol exception event occurred since last read access]
+      B_0x1: [1, Protocol exception event occurred]
+  FDCAN_IR:
+    RF0N:
+      B_0x0: [0, No new message written to Rx FIFO 0]
+      B_0x1: [1, New message written to Rx FIFO 0]
+    RF0F:
+      B_0x0: [0, Rx FIFO 0 not full]
+      B_0x1: [1, Rx FIFO 0 full]
+    RF0L:
+      B_0x0: [0, No Rx FIFO 0 message lost]
+      B_0x1: [1, Rx FIFO 0 message lost]
+    RF1N:
+      B_0x0: [0, No new message written to Rx FIFO 1]
+      B_0x1: [1, New message written to Rx FIFO 1]
+    RF1F:
+      B_0x0: [0, Rx FIFO 1 not full]
+      B_0x1: [1, Rx FIFO 1 full]
+    RF1L:
+      B_0x0: [0, No Rx FIFO 1 message lost]
+      B_0x1: [1, Rx FIFO 1 message lost]
+    HPM:
+      B_0x0: [0, No high-priority message received]
+      B_0x1: [1, High-priority message received]
+    TC:
+      B_0x0: [0, No transmission completed]
+      B_0x1: [1, Transmission completed]
+    TCF:
+      B_0x0: [0, No transmission cancellation finished]
+      B_0x1: [1, Transmission cancellation finished]
+    TFE:
+      B_0x0: [0, Tx FIFO non-empty]
+      B_0x1: [1, Tx FIFO empty]
+    TEFN:
+      B_0x0: [0, Tx event FIFO unchanged]
+      B_0x1: [1, Tx handler wrote Tx event FIFO element.]
+    TEFF:
+      B_0x0: [0, Tx event FIFO Not full]
+      B_0x1: [1, Tx event FIFO full]
+    TEFL:
+      B_0x0: [0, No Tx event FIFO element lost]
+      B_0x1: [1, Tx event FIFO element lost]
+    TSW:
+      B_0x0: [0, No timestamp counter wrap-around]
+      B_0x1: [1, Timestamp counter wrapped around]
+    MRAF:
+      B_0x0: [0, No Message RAM access failure occurred]
+      B_0x1: [1, Message RAM access failure occurred]
+    TOO:
+      B_0x0: [0, No timeout]
+      B_0x1: [1, Timeout reached]
+    ELO:
+      B_0x0: [0, CAN error logging counter did not overflow.]
+      B_0x1: [1, Overflow of CAN error logging counter occurred.]
+    EP:
+      B_0x0: [0, Error_Passive status unchanged]
+      B_0x1: [1, Error_Passive status changed]
+    EW:
+      B_0x0: [0, Error_Warning status unchanged]
+      B_0x1: [1, Error_Warning status changed]
+    BO:
+      B_0x0: [0, Bus_Off status unchanged]
+      B_0x1: [1, Bus_Off status changed]
+    WDI:
+      B_0x0: [0, No message RAM watchdog event occurred]
+      B_0x1: [1, Message RAM watchdog event due to missing READY]
+    PEA:
+      B_0x0: [0, No protocol error in arbitration phase]
+      B_0x1: [1, "Protocol error in arbitration phase detected (PSR.LEC different from 0,7)"]
+    PED:
+      B_0x0: [0, No protocol error in data phase]
+      B_0x1: [1, "Protocol error in data phase detected (PSR.DLEC different from 0,7)"]
+    ARA:
+      B_0x0: [0, No access to reserved address occurred]
+      B_0x1: [1, Access to reserved address occurred]
+  FDCAN_IE:
+    RF0NE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    RF0FE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    RF0LE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    RF1NE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    RF1FE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    RF1LE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    HPME:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TCE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TCFE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TFEE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TEFNE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TEFFE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TEFLE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TSWE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    MRAFE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    TOOE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    ELOE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EPE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    EWE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    BOE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+    WDIE:
+      B_0x0: [0, Interrupt disabled]
+      B_0x1: [1, Interrupt enabled]
+  FDCAN_ILE:
+    EINT0:
+      B_0x0: [0, Interrupt line fdcan_intr1_it disabled]
+      B_0x1: [1, Interrupt line fdcan_intr1_it enabled]
+    EINT1:
+      B_0x0: [0, Interrupt line fdcan_intr0_it disabled]
+      B_0x1: [1, Interrupt line fdcan_intr0_it enabled]
+  FDCAN_RXGFC:
+    RRFE:
+      B_0x0: [0, Filter remote frames with 29-bit standard IDs]
+      B_0x1: [1, Reject all remote frames with 29-bit standard IDs]
+    RRFS:
+      B_0x0: [0, Filter remote frames with 11-bit standard IDs]
+      B_0x1: [1, Reject all remote frames with 11-bit standard IDs]
+    ANFE:
+      B_0x0: [0, Accept in Rx FIFO 0]
+      B_0x1: [1, Accept in Rx FIFO 1]
+      B_0x2: [2, Reject]
+      B_0x3: [3, Reject]
+    ANFS:
+      B_0x0: [0, Accept in Rx FIFO 0]
+      B_0x1: [1, Accept in Rx FIFO 1]
+      B_0x2: [2, Reject]
+      B_0x3: [3, Reject]
+    LSS:
+      B_0x0: [0, No standard message ID filter]
+    LSE:
+      B_0x0: [0, No extended message ID filter]
+  FDCAN_HPMS:
+    MSI:
+      B_0x0: [0, No FIFO selected]
+      B_0x1: [1, FIFO overrun]
+      B_0x2: [2, Message stored in FIFO 0]
+      B_0x3: [3, Message stored in FIFO 1]
+    FLST:
+      B_0x0: [0, Standard filter list]
+      B_0x1: [1, Extended filter list]
+  FDCAN_RXF0S:
+    F0F:
+      B_0x0: [0, Rx FIFO 0 not full]
+      B_0x1: [1, Rx FIFO 0 full]
+    RF0L:
+      B_0x0: [0, No Rx FIFO 0 message lost]
+      B_0x1: [1, "Rx FIFO 0 message lost, also set after write attempt to Rx FIFO 0 of size 0"]
+  FDCAN_RXF1S:
+    F1F:
+      B_0x0: [0, Rx FIFO 1 not full]
+      B_0x1: [1, Rx FIFO 1 full]
+    RF1L:
+      B_0x0: [0, No Rx FIFO 1 message lost]
+      B_0x1: [1, "Rx FIFO 1 message lost, also set after write attempt to Rx FIFO 1 of size 0"]
+  FDCAN_TXBC:
+    TFQM:
+      B_0x0: [0, Tx FIFO operation]
+      B_0x1: [1, Tx queue operation.]
+  FDCAN_TXFQS:
+    TFQF:
+      B_0x0: [0, Tx FIFO/queue not full]
+      B_0x1: [1, Tx FIFO/queue full]
+  FDCAN_TXBRP:
+    TRP:
+      B_0x0: [0, No transmission request pending]
+      B_0x1: [1, Transmission request pending]
+  FDCAN_TXBAR:
+    AR:
+      B_0x0: [0, No transmission request added]
+      B_0x1: [1, Transmission requested added.]
+  FDCAN_TXBCR:
+    CR:
+      B_0x0: [0, No cancellation pending]
+      B_0x1: [1, Cancellation pending]
+  FDCAN_TXBTO:
+    TO:
+      B_0x0: [0, No transmission occurred]
+      B_0x1: [1, Transmission occurred]
+  FDCAN_TXBCF:
+    CF:
+      B_0x0: [0, No transmit buffer cancellation]
+      B_0x1: [1, Transmit buffer cancellation finished]
+  FDCAN_TXBTIE:
+    TIE:
+      B_0x0: [0, Transmission interrupt disabled]
+      B_0x1: [1, Transmission interrupt enable]
+  FDCAN_TXBCIE:
+    CFIE:
+      B_0x0: [0, Cancellation finished interrupt disabled]
+      B_0x1: [1, Cancellation finished interrupt enabled]
+  FDCAN_TXEFS:
+    EFF:
+      B_0x0: [0, Tx event FIFO not full]
+      B_0x1: [1, Tx event FIFO full]
+  FDCAN_CKDIV:
+    PDIV:
+      B_0x0: [0, Divide by 1]
+      B_0x1: [1, Divide by 2]
+      B_0x2: [2, Divide by 4]
+      B_0x3: [3, Divide by 6]
+      B_0x4: [4, Divide by 8]
+      B_0x5: [5, Divide by 10]
+      B_0x6: [6, Divide by 12]
+      B_0x7: [7, Divide by 14]
+      B_0x8: [8, Divide by 16]
+      B_0x9: [9, Divide by 18]
+      B_0xA: [10, Divide by 20]
+      B_0xB: [11, Divide by 22]
+      B_0xC: [12, Divide by 24]
+      B_0xD: [13, Divide by 26]
+      B_0xE: [14, Divide by 28]
+      B_0xF: [15, Divide by 30]
