@@ -1,0 +1,3348 @@
+---
+RTC:
+  RTC_TR:
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+  RTC_DR:
+    WDU:
+      B_0x0: [0, forbidden]
+      B_0x1: [1, Monday]
+      B_0x7: [7, Sunday]
+  RTC_ICSR:
+    ALRAWF:
+      B_0x0: [0, Alarm A update not allowed]
+      B_0x1: [1, Alarm A update allowed]
+    ALRBWF:
+      B_0x0: [0, Alarm B update not allowed]
+      B_0x1: [1, Alarm B update allowed]
+    WUTWF:
+      B_0x0: [0, Wakeup timer configuration update not allowed except in initialization mode]
+      B_0x1: [1, Wakeup timer configuration update allowed]
+    SHPF:
+      B_0x0: [0, No shift operation is pending]
+      B_0x1: [1, A shift operation is pending]
+    INITS:
+      B_0x0: [0, Calendar has not been initialized]
+      B_0x1: [1, Calendar has been initialized]
+    RSF:
+      B_0x0: [0, Calendar shadow registers not yet synchronized]
+      B_0x1: [1, Calendar shadow registers synchronized]
+    INITF:
+      B_0x0: [0, Calendar registers update is not allowed]
+      B_0x1: [1, Calendar registers update is allowed]
+    INIT:
+      B_0x0: [0, Free running mode]
+      B_0x1: [1, "Initialization mode used to program time and date register (RTC_TR and RTC_DR), and prescaler register (RTC_PRER). Counters are stopped and start counting from the new value when INIT is reset."]
+  RTC_CR:
+    WUCKSEL:
+      B_0x0: [0, RTC/16 clock is selected]
+      B_0x1: [1, RTC/8 clock is selected]
+      B_0x2: [2, RTC/4 clock is selected]
+      B_0x3: [3, RTC/2 clock is selected]
+    TSEDGE:
+      B_0x0: [0, RTC_TS input rising edge generates a timestamp event]
+      B_0x1: [1, RTC_TS input falling edge generates a timestamp event]
+    REFCKON:
+      B_0x0: [0, RTC_REFIN detection disabled]
+      B_0x1: [1, RTC_REFIN detection enabled]
+    BYPSHAD:
+      B_0x0: [0, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken from the shadow registers, which are updated once every two RTCCLK cycles."]
+      B_0x1: [1, "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken directly from the calendar counters."]
+    FMT:
+      B_0x0: [0, 24 hour/day format]
+      B_0x1: [1, AM/PM hour format]
+    ALRAE:
+      B_0x0: [0, Alarm A disabled]
+      B_0x1: [1, Alarm A enabled]
+    ALRBE:
+      B_0x0: [0, Alarm B disabled]
+      B_0x1: [1, Alarm B enabled]
+    WUTE:
+      B_0x0: [0, Wakeup timer disabled]
+      B_0x1: [1, Wakeup timer enabled]
+    TSE:
+      B_0x0: [0, timestamp disable]
+      B_0x1: [1, timestamp enable]
+    ALRAIE:
+      B_0x0: [0, Alarm A interrupt disabled]
+      B_0x1: [1, Alarm A interrupt enabled]
+    ALRBIE:
+      B_0x0: [0, Alarm B interrupt disable]
+      B_0x1: [1, Alarm B interrupt enable]
+    WUTIE:
+      B_0x0: [0, Wakeup timer interrupt disabled]
+      B_0x1: [1, Wakeup timer interrupt enabled]
+    TSIE:
+      B_0x0: [0, Timestamp interrupt disable]
+      B_0x1: [1, Timestamp interrupt enable]
+    ADD1H:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Adds 1 hour to the current time. This can be used for summer time change]
+    SUB1H:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Subtracts 1 hour to the current time. This can be used for winter time change.]
+    COSEL:
+      B_0x0: [0, Calibration output is 512 Hz]
+      B_0x1: [1, Calibration output is 1 Hz]
+    POL:
+      B_0x0: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0]), or when a TAMPxF/ITAMPxF is asserted (if TAMPOE = 1)."]
+      B_0x1: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0]), or when a TAMPxF/ITAMPxF is asserted (if TAMPOE = 1)."]
+    OSEL:
+      B_0x0: [0, Output disabled]
+      B_0x1: [1, Alarm A output enabled]
+      B_0x2: [2, Alarm B output enabled]
+      B_0x3: [3, Wakeup output enabled]
+    COE:
+      B_0x0: [0, Calibration output disabled]
+      B_0x1: [1, Calibration output enabled]
+    ITSE:
+      B_0x0: [0, internal event timestamp disabled]
+      B_0x1: [1, internal event timestamp enabled]
+    TAMPTS:
+      B_0x0: [0, Tamper detection event does not cause a RTC timestamp to be saved]
+      B_0x1: [1, Save RTC timestamp on tamper detection event]
+    TAMPOE:
+      B_0x0: [0, The tamper flag is not routed on TAMPALRM]
+      B_0x1: [1, "The tamper flag is routed on TAMPALRM, combined with the signal provided by OSEL and with the polarity provided by POL."]
+    TAMPALRM_PU:
+      B_0x0: [0, No pull-up is applied on TAMPALRM output]
+      B_0x1: [1, A pull-up is applied on TAMPALRM output]
+    TAMPALRM_TYPE:
+      B_0x0: [0, TAMPALRM is push-pull output]
+      B_0x1: [1, TAMPALRM is open-drain output]
+  RTC_CALR:
+    CALP:
+      B_0x0: [0, No RTCCLK pulses are added.]
+      B_0x1: [1, One RTCCLK pulse is effectively inserted every 211 pulses (frequency increased by 488.5Â ppm).]
+  RTC_SHIFTR:
+    ADD1S:
+      B_0x0: [0, No effect]
+      B_0x1: [1, Add one second to the clock/calendar]
+  RTC_TSTR:
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+  RTC_ALRMAR:
+    MSK1:
+      B_0x0: [0, Alarm A set if the seconds match]
+      B_0x1: [1, "Seconds don't care in alarm A comparison"]
+    MSK2:
+      B_0x0: [0, Alarm A set if the minutes match]
+      B_0x1: [1, "Minutes don't care in alarm A comparison"]
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+    MSK3:
+      B_0x0: [0, Alarm A set if the hours match]
+      B_0x1: [1, "Hours don't care in alarm A comparison"]
+    WDSEL:
+      B_0x0: [0, "DU[3:0] represents the date units"]
+      B_0x1: [1, "DU[3:0] represents the week day. DT[1:0] is don't care."]
+    MSK4:
+      B_0x0: [0, Alarm A set if the date/day match]
+      B_0x1: [1, "Date/day don't care in alarm A comparison"]
+  RTC_ALRMASSR:
+    MASKSS:
+      B_0x0: [0, No comparison on sub seconds for alarm A. The alarm is set when the seconds unit is incremented (assuming that the rest of the fields match).]
+      B_0x1: [1, "SS[14:1] are don't care in alarm A comparison. Only SS[0] is compared."]
+  RTC_ALRMBR:
+    MSK1:
+      B_0x0: [0, Alarm B set if the seconds match]
+      B_0x1: [1, "Seconds don't care in alarm B comparison"]
+    MSK2:
+      B_0x0: [0, Alarm B set if the minutes match]
+      B_0x1: [1, "Minutes don't care in alarm B comparison"]
+    PM:
+      B_0x0: [0, AM or 24-hour format]
+      B_0x1: [1, PM]
+    MSK3:
+      B_0x0: [0, Alarm B set if the hours match]
+      B_0x1: [1, "Hours don't care in alarm B comparison"]
+    WDSEL:
+      B_0x0: [0, "DU[3:0] represents the date units"]
+      B_0x1: [1, "DU[3:0] represents the week day. DT[1:0] is don't care."]
+    MSK4:
+      B_0x0: [0, Alarm B set if the date and day match]
+      B_0x1: [1, "Date and day don't care in alarm B comparison"]
+  RTC_ALRMBSSR:
+    MASKSS:
+      B_0x0: [0, No comparison on sub seconds for alarm B. The alarm is set when the seconds unit is incremented (assuming that the rest of the fields match).]
+      B_0x1: [1, "SS[14:1] are don't care in alarm B comparison. Only SS[0] is compared."]
+      B_0x2: [2, "SS[14:2] are don't care in alarm B comparison. Only SS[1:0] are compared."]
+      B_0x3: [3, "SS[14:3] are don't care in alarm B comparison. Only SS[2:0] are compared."]
+      B_0xC: [12, "SS[14:12] are don't care in alarm B comparison. SS[11:0] are compared."]
+      B_0xD: [13, "SS[14:13] are don't care in alarm B comparison. SS[12:0] are compared."]
+      B_0xE: [14, "SS[14] is don't care in alarm B comparison. SS[13:0] are compared."]
+      B_0xF: [15, All 15 SS bits are compared and must match to activate alarm.]
+  RTC_CFGR:
+    OUT2_RMP:
+      B_0x0: [0, RTC_OUT2 is mapped on PB2]
+      B_0x1: [1, RTC_OUT2 is mapped on PI8]
+PSSI:
+  PSSI_CR:
+    CKPOL:
+      B_0x0: [0, Falling edge active for inputs or rising edge active for outputs]
+      B_0x1: [1, Rising edge active for inputs or falling edge active for outputs.]
+    DEPOL:
+      B_0x0: [0, PSSI_DE active low (0 indicates that data is valid)]
+      B_0x1: [1, PSSI_DE active high (1 indicates that data is valid)]
+    RDYPOL:
+      B_0x0: [0, PSSI_RDY active low (0 indicates that the receiver is ready to receive)]
+      B_0x1: [1, PSSI_RDY active high (1 indicates that the receiver is ready to receive)]
+    EDM:
+      B_0x0: [0, Interface captures 8-bit data on every parallel data clock]
+      B_0x1: [1, "Reserved, must not be selected"]
+      B_0x2: [2, "Reserved, must not be selected"]
+      B_0x3: [3, The interface captures 16-bit data on every parallel data clock]
+    ENABLE:
+      B_0x0: [0, PSSI disabled]
+      B_0x1: [1, PSSI enabled]
+    DERDYCFG:
+      B_0x0: [0, PSSI_DE and PSSI_RDY both disabled]
+      B_0x1: [1, Only PSSI_RDY enabled]
+      B_0x2: [2, Only PSSI_DE enabled]
+      B_0x3: [3, Both PSSI_RDY and PSSI_DE alternate functions enabled]
+      B_0x4: [4, Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_RDY pin (see )]
+      B_0x5: [5, "Only PSSI_RDY function enabled, but mapped to PSSI_DE pin"]
+      B_0x6: [6, "Only PSSI_DE function enabled, but mapped to PSSI_RDY pin"]
+      B_0x7: [7, Both PSSI_RDY and PSSI_DE features enabled - bidirectional on PSSI_DE pin (see )]
+    DMAEN:
+      B_0x0: [0, DMA transfers are disabled. The user application can directly access the PSSI_DR register when DMA transfers are disabled.]
+      B_0x1: [1, DMA transfers are enabled (default configuration). A DMA channel in the general-purpose DMA controller must be configured to perform transfers from/to PSSI_DR.]
+    OUTEN:
+      B_0x0: [0, "Receive mode: data is input synchronously with PSSI_PDCK"]
+      B_0x1: [1, "Transmit mode: data is output synchronously with PSSI_PDCK"]
+  PSSI_SR:
+    RTT4B:
+      B_0x1: [1, "FIFO is ready for a four-byte (32-bit) transfer. In receive mode, this means that at least four valid data bytes are in the FIFO. In transmit mode, this means that there are at least four bytes free in the FIFO."]
+      B_0x0: [0, FIFO is not ready for a four-byte transfer]
+    RTT1B:
+      B_0x1: [1, "FIFO is ready for a one byte (32-bit) transfer. In receive mode, this means that at least one valid data byte is in the FIFO. In transmit mode, this means that there is at least one byte free in the FIFO."]
+      B_0x0: [0, FIFO is not ready for a 1-byte transfer]
+  PSSI_RIS:
+    OVR_RIS:
+      B_0x0: [0, No overrun/underrun occurred]
+      B_0x1: [1, "An overrun/underrun occurred: overrun in receive mode, underrun in transmit mode."]
+  PSSI_IER:
+    OVR_IE:
+      B_0x0: [0, No interrupt generation]
+      B_0x1: [1, An interrupt is generated if either an overrun or an underrun error occurred.]
+  PSSI_MIS:
+    OVR_MIS:
+      B_0x0: [0, No interrupt is generated when an overrun/underrun error occurs]
+      B_0x1: [1, An interrupt is generated if there is either an overrun or an underrun error and the OVR_IE bit is set in PSSI_IER.]
+Flash:
+  FLASH_CR1:
+    LOCK1:
+      B_0x0: [0, FLASH_CR1 register unlocked]
+      B_0x1: [1, FLASH_CR1 register locked]
+    PG1:
+      B_0x0: [0, Internal buffer disabled for write operations to bank 1]
+      B_0x1: [1, Internal buffer enabled for write operations to bank 1]
+    SER1:
+      B_0x0: [0, sector erase not requested on bank 1]
+      B_0x1: [1, sector erase requested on bank 1]
+    BER1:
+      B_0x0: [0, bank erase not requested on bank 1]
+      B_0x1: [1, bank erase requested on bank 1]
+    SSN1:
+      B_0x0: [0, Sector 0 of user Flash bank 1 selected]
+      B_0x1: [1, Sector 1 of user Flash bank 1 selected]
+      B_0xF: [15, Sector 15 of user Flash bank 1 selected]
+      B_0x3F: [63, Sector 63 of user Flash bank 1 selected]
+      B_0x7F: [127, Sector 127 of user Flash bank 1 selected]
+    EOPIE1:
+      B_0x0: [0, no interrupt generated at the end of a program operation to bank 1.]
+      B_0x1: [1, interrupt enabled when at the end of a program operation to bank 1.]
+    WRPERRIE1:
+      B_0x0: [0, no interrupt generated when a protection error occurs on bank 1]
+      B_0x1: [1, interrupt generated when a protection error occurs on bank 1.]
+    PGSERRIE1:
+      B_0x0: [0, no interrupt generated when a sequence error occurs on bank 1]
+      B_0x1: [1, interrupt generated when sequence error occurs on bank 1.]
+    STRBERRIE1:
+      B_0x0: [0, no interrupt generated when a strobe error occurs on bank 1]
+      B_0x1: [1, interrupt generated when strobe error occurs on bank 1.]
+    INCERRIE1:
+      B_0x0: [0, no interrupt generated when a inconsistency error occurs on bank 1]
+      B_0x1: [1, interrupt generated when a inconsistency error occurs on bank 1.]
+    RDPERRIE1:
+      B_0x0: [0, no interrupt generated when a read protection error occurs on bank 1]
+      B_0x1: [1, an interrupt is generated when a read protection error occurs on bank 1]
+    RDSERRIE1:
+      B_0x0: [0, no interrupt generated when a secure error occurs on bank 1]
+      B_0x1: [1, an interrupt is generated when a secure error occurs on bank 1]
+    SNECCERRIE1:
+      B_0x0: [0, no interrupt generated when an ECC single correction error occurs on bank 1]
+      B_0x1: [1, interrupt generated when an ECC single correction error occurs on bank 1]
+    DBECCERRIE1:
+      B_0x0: [0, no interrupt generated when an ECC double detection error occurs on bank 1]
+      B_0x1: [1, interrupt generated if an ECC double detection error occurs on bank 1]
+    CRCENDIE1:
+      B_0x0: [0, no interrupt generated when CRC computation complete on bank 1]
+      B_0x1: [1, interrupt generated when CRC computation complete on bank 1]
+    CRCRDERRIE1:
+      B_0x0: [0, no interrupt generated when a CRC read error occurs on bank 1]
+      B_0x1: [1, interrupt generated when a CRC read error occurs on bank 1]
+  FLASH_SR1:
+    BSY1:
+      B_0x0: [0, "no programming, erase or option byte change operation being executed on bank 1"]
+      B_0x1: [1, "programming, erase or option byte change operation being executed on bank 1"]
+    WBNE1:
+      B_0x0: [0, write buffer of bank 1 empty or full]
+      B_0x1: [1, write buffer of bank 1 waiting data to complete]
+    QW1:
+      B_0x0: [0, "no write, erase or option byte change operations waiting in the operation queues of bank 1"]
+      B_0x1: [1, "at least one write, erase or option byte change operation is waiting in the operation queue of bank 1"]
+    CRC_BUSY1:
+      B_0x0: [0, no CRC calculation ongoing on bank 1]
+      B_0x1: [1, CRC calculation ongoing on bank 1]
+    EOP1:
+      B_0x0: [0, no programming operation completed on bank 1]
+      B_0x1: [1, a programming operation completed on bank 1]
+    WRPERR1:
+      B_0x0: [0, no write protection error occurs on bank 1]
+      B_0x1: [1, a write protection error occurs on bank 1]
+    PGSERR1:
+      B_0x0: [0, no sequence error occurs on bank 1]
+      B_0x1: [1, a sequence error occurs on bank 1]
+    STRBERR1:
+      B_0x0: [0, no strobe error occurs on bank 1]
+      B_0x1: [1, a strobe error occurs on bank 1]
+    INCERR1:
+      B_0x0: [0, no inconsistency error occurs on bank 1]
+      B_0x1: [1, a inconsistency error occurs on bank 1]
+    RDPERR1:
+      B_0x0: [0, no read protection error occurs on bank 1]
+      B_0x1: [1, a read protection error occurs on bank 1]
+    RDSERR1:
+      B_0x0: [0, no secure error occurs on bank 1]
+      B_0x1: [1, a secure error occurs on bank 1]
+    SNECCERR1:
+      B_0x0: [0, no ECC single correction error occurs on bank 1]
+      B_0x1: [1, ECC single correction error occurs on bank 1]
+    DBECCERR1:
+      B_0x0: [0, no ECC double detection error occurred on bank 1]
+      B_0x1: [1, ECC double detection error occurred on bank 1]
+    CRCEND1:
+      B_0x0: [0, CRC computation not complete on bank 1]
+      B_0x1: [1, CRC computation complete on bank 1]
+    CRCRDERR1:
+      B_0x0: [0, no protected area detected inside address read by CRC on bank 1]
+      B_0x1: [1, a protected area has been detected inside address read by CRC on bank 1. CRC result is very likely incorrect.]
+  FLASH_CRCCR1:
+    CRC_SECT:
+      B_0x0: [0, sector 0 of bank 1 for CRC]
+      B_0x1: [1, sector 1 of bank 1 for CRC]
+      B_0xF: [15, sector 15 of bank 1 for CRC]
+      B_0x3F: [63, sector 63 of bank 1 for CRC]
+      B_0x7F: [127, sector 127 of bank 1 for CRC]
+    CRC_BURST:
+      B_0x0: [0, every burst has a size of 4 Flash words (128-bit)]
+      B_0x1: [1, every burst has a size of 16 Flash words (128-bit)]
+      B_0x2: [2, every burst has a size of 64 Flash words (128-bit)]
+      B_0x3: [3, every burst has a size of 256 Flash words (128-bit)]
+  FLASH_CR2:
+    LOCK2:
+      B_0x0: [0, FLASH_CR2 register unlocked]
+      B_0x1: [1, FLASH_CR2 register locked]
+    SER2:
+      B_0x0: [0, sector erase not requested on bank 2]
+      B_0x1: [1, sector erase requested on bank 2]
+    BER2:
+      B_0x0: [0, bank erase not requested on bank 2]
+      B_0x1: [1, bank erase requested on bank 2]
+    SSN2:
+      B_0x0: [0, Sector 0 of user Flash bank 2 selected]
+      B_0x1: [1, Sector 1of user Flash bank 2 selected]
+      B_0x3F: [63, Sector 63 of user Flash bank 2 selected]
+      B_0x7F: [127, Sector 127 of user Flash bank 2 selected]
+    EOPIE2:
+      B_0x0: [0, no interrupt generated at the end of a program operation to bank 2.]
+      B_0x1: [1, interrupt enabled when at the end of a program operation to bank 2.]
+    WRPERRIE2:
+      B_0x0: [0, no interrupt generated when a protection error occurs on bank 2]
+      B_0x1: [1, interrupt generated when a protection error occurs on bank 2.]
+    PGSERRIE2:
+      B_0x0: [0, no interrupt generated when a sequence error occurs on bank 2]
+      B_0x1: [1, interrupt generated when sequence error occurs on bank 2.]
+    STRBERRIE2:
+      B_0x0: [0, no interrupt generated when a strobe error occurs on bank 2]
+      B_0x1: [1, interrupt generated when strobe error occurs on bank 2.]
+    INCERRIE2:
+      B_0x0: [0, no interrupt generated when a inconsistency error occurs on bank 2]
+      B_0x1: [1, interrupt generated when a inconsistency error occurs on bank 2.]
+    RDPERRIE2:
+      B_0x0: [0, no interrupt generated when a read protection error occurs on bank 2]
+      B_0x1: [1, an interrupt is generated when a read protection error occurs on bank 2]
+    RDSERRIE2:
+      B_0x0: [0, no interrupt generated when a secure error occurs on bank 2]
+      B_0x1: [1, an interrupt is generated when a secure error occurs on bank 2]
+    SNECCERRIE2:
+      B_0x0: [0, no interrupt generated when an ECC single correction error occurs on bank 2]
+      B_0x1: [1, interrupt generated when an ECC single correction error occurs on bank 2]
+    DBECCERRIE2:
+      B_0x0: [0, no interrupt generated when an ECC double detection error occurs on bank 2]
+      B_0x1: [1, interrupt generated if an ECC double detection error occurs on bank 2]
+    CRCENDIE2:
+      B_0x0: [0, no interrupt generated when CRC computation complete on bank 2]
+      B_0x1: [1, interrupt generated when CRC computation complete on bank 2]
+    CRCRDERRIE2:
+      B_0x0: [0, no interrupt generated when a CRC read error occurs on bank 2]
+      B_0x1: [1, interrupt generated when a CRC read error occurs on bank 2]
+  FLASH_SR2:
+    BSY2:
+      B_0x0: [0, no write or erase operation is executed on bank 2]
+      B_0x1: [1, a write or an erase operation is being executed on bank 2.]
+    WBNE2:
+      B_0x0: [0, write buffer of bank 2 empty or full]
+      B_0x1: [1, write buffer of bank 2 waiting data to complete]
+    QW2:
+      B_0x0: [0, no write or erase operation is waiting in the operation queues of bank 2]
+      B_0x1: [1, at least one write or erase operation is pending in the operation queues of bank 2]
+    CRC_BUSY2:
+      B_0x0: [0, no CRC calculation ongoing on bank 2]
+      B_0x1: [1, CRC calculation ongoing on bank 2.]
+    EOP2:
+      B_0x0: [0, no programming operation completed on bank 2]
+      B_0x1: [1, a programming operation completed on bank 2]
+    WRPERR2:
+      B_0x0: [0, no write protection error occurred on bank 2]
+      B_0x1: [1, a write protection error occurred on bank 2]
+    PGSERR2:
+      B_0x0: [0, no sequence error occurred on bank 2]
+      B_0x1: [1, a sequence error occurred on bank 2.]
+    STRBERR2:
+      B_0x0: [0, no strobe error occurred on bank 2]
+      B_0x1: [1, a strobe error occurred on bank 2.]
+    INCERR2:
+      B_0x0: [0, no inconsistency error occurred on bank 2]
+      B_0x1: [1, an inconsistency error occurred on bank 2.]
+    RDPERR2:
+      B_0x0: [0, no read protection error occurs on bank 2]
+      B_0x1: [1, a read protection error occurs on bank 2]
+    RDSERR2:
+      B_0x0: [0, no secure error occurs on bank 2]
+      B_0x1: [1, a secure error occurs on bank 2]
+    SNECCERR2:
+      B_0x0: [0, no ECC single correction error occurs on bank 2]
+      B_0x1: [1, ECC single correction error occurs on bank 2]
+    DBECCERR2:
+      B_0x0: [0, no ECC double detection error occurs on bank 2]
+      B_0x1: [1, ECC double detection error occurs on bank 2]
+    CRCEND2:
+      B_0x0: [0, CRC computation not complete on bank 2]
+      B_0x1: [1, CRC computation complete on bank 2]
+    CRCRDERR2:
+      B_0x0: [0, no protected area inside the address read by CRC on bank 2]
+      B_0x1: [1, a protected area inside the address read by CRC on bank 2. CRC result is very likely incorrect.]
+  FLASH_CRCCR2:
+    CRC_SECT:
+      B_0x0: [0, sector 0 of bank 2 for CRC]
+      B_0x1: [1, sector 1 of bank 2 for CRC]
+      B_0x3F: [63, sector 63 of bank 2 for CRC]
+      B_0x7F: [127, sector 127 of bank 2 for CRC]
+    CRC_BURST:
+      B_0x0: [0, every burst has a size of 4 Flash words (128 bit)]
+      B_0x1: [1, every burst has a size of 16 Flash words (128-bit)]
+      B_0x2: [2, every burst has a size of 64 Flash words (128-bit)]
+      B_0x3: [3, every burst has a size of 256 Flash words (128-bit)]
+DFSDM1:
+  DFSDM_CH0CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH0AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH1CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH1AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH2CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH2AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH3CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH3AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH4CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH4AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH5CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH5AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH6CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH6AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_CH7CFGR1:
+    SITP:
+      B_0x0: [0, SPI with rising edge to strobe data]
+      B_0x1: [1, SPI with falling edge to strobe data]
+      B_0x2: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+      B_0x3: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+    SPICKSEL:
+      B_0x0: [0, "clock coming from external CKINy input - sampling point according SITP[1:0]"]
+      B_0x1: [1, "clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    SCDEN:
+      B_0x0: [0, Input channel y will not be guarded by the short-circuit detector]
+      B_0x1: [1, Input channel y will be continuously guarded by the short-circuit detector]
+    CKABEN:
+      B_0x0: [0, Clock absence detector disabled on channel y]
+      B_0x1: [1, Clock absence detector enabled on channel y]
+    CHEN:
+      B_0x0: [0, Channel y disabled]
+      B_0x1: [1, Channel y enabled]
+    CHINSEL:
+      B_0x0: [0, Channel inputs are taken from pins of the same channel y.]
+      B_0x1: [1, Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8).]
+    DATMPX:
+      B_0x0: [0, Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected.]
+      B_0x1: [1, "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register."]
+    DATPACK:
+      B_0x0: [0, "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y."]
+      B_0x1: [1, "Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples:"]
+    CKOUTDIV:
+      B_0x0: [0, Output clock generation is disabled (CKOUT signal is set to low state)]
+    CKOUTSRC:
+      B_0x0: [0, Source for output clock is from system clock]
+      B_0x1: [1, Source for output clock is from audio clock]
+    DFSDMEN:
+      B_0x0: [0, DFSDM interface disabled]
+      B_0x1: [1, DFSDM interface enabled]
+  DFSDM_CH7AWSCDR:
+    AWFORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT0CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT0CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT0ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT0ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT0FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT1CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT1CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT1ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT1ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT1FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT2CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT2CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT2ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT2ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT2FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT3CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT3CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT3ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT3ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT3FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT4CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT4CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT4ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT4ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT4FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT5CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT5CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT5ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT5ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT5FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT6CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT6CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT6ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT6ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT6FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+  DFSDM_FLT7CR1:
+    DFEN:
+      B_0x0: [0, DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped.]
+      B_0x1: [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting."]
+    JSWSTART:
+      B_0x0: [0, "Writing '0â has no effect."]
+      B_0x1: [1, "Writing '1â makes a request to convert the channels in the injected conversion group, causing JCIP to become '1â at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing '1â has no effect if JSYNC=1."]
+    JSYNC:
+      B_0x0: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger]
+    JSCAN:
+      B_0x0: [0, One channel conversion is performed from the injected channel group and next the selected channel from this group is selected.]
+      B_0x1: [1, "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel."]
+    JDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read injected data]
+      B_0x1: [1, The DMA channel is enabled to read injected data]
+    JEXTEN:
+      B_0x0: [0, Trigger detection is disabled]
+      B_0x1: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x2: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+      B_0x3: [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+    RSWSTART:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â makes a request to start a conversion on the regular channel and causes RCIP to become '1â. If RCIP=1 already, writing to RSWSTART has no effect. Writing '1â has no effect if RSYNC=1."]
+    RCONT:
+      B_0x0: [0, The regular channel is converted just once for each conversion request]
+      B_0x1: [1, The regular channel is converted repeatedly after each conversion request]
+    RSYNC:
+      B_0x0: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+      B_0x1: [1, Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0]
+    RDMAEN:
+      B_0x0: [0, The DMA channel is not enabled to read regular data]
+      B_0x1: [1, The DMA channel is enabled to read regular data]
+    RCH:
+      B_0x0: [0, Channel 0 is selected as the regular channel]
+      B_0x1: [1, Channel 1 is selected as the regular channel]
+    FAST:
+      B_0x0: [0, Fast conversion mode disabled]
+      B_0x1: [1, Fast conversion mode enabled]
+    AWFSEL:
+      B_0x0: [0, Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift]
+      B_0x1: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  DFSDM_FLT7CR2:
+    JEOCIE:
+      B_0x0: [0, Injected end of conversion interrupt is disabled]
+      B_0x1: [1, Injected end of conversion interrupt is enabled]
+    REOCIE:
+      B_0x0: [0, Regular end of conversion interrupt is disabled]
+      B_0x1: [1, Regular end of conversion interrupt is enabled]
+    JOVRIE:
+      B_0x0: [0, Injected data overrun interrupt is disabled]
+      B_0x1: [1, Injected data overrun interrupt is enabled]
+    ROVRIE:
+      B_0x0: [0, Regular data overrun interrupt is disabled]
+      B_0x1: [1, Regular data overrun interrupt is enabled]
+    AWDIE:
+      B_0x0: [0, Analog watchdog interrupt is disabled]
+      B_0x1: [1, Analog watchdog interrupt is enabled]
+    SCDIE:
+      B_0x0: [0, short-circuit detector interrupt is disabled]
+      B_0x1: [1, short-circuit detector interrupt is enabled]
+    CKABIE:
+      B_0x0: [0, Detection of channel input clock absence interrupt is disabled]
+      B_0x1: [1, Detection of channel input clock absence interrupt is enabled]
+  DFSDM_FLT7ISR:
+    JEOCF:
+      B_0x0: [0, No injected conversion has completed]
+      B_0x1: [1, An injected conversion has completed and its data may be read]
+    REOCF:
+      B_0x0: [0, No regular conversion has completed]
+      B_0x1: [1, A regular conversion has completed and its data may be read]
+    JOVRF:
+      B_0x0: [0, No injected conversion overrun has occurred]
+      B_0x1: [1, "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already '1â. JDATAR is not affected by overruns"]
+    ROVRF:
+      B_0x0: [0, No regular conversion overrun has occurred]
+      B_0x1: [1, "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already '1â. RDATAR is not affected by overruns"]
+    AWDF:
+      B_0x0: [0, No Analog watchdog event occurred]
+      B_0x1: [1, The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers.]
+    JCIP:
+      B_0x0: [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+      B_0x1: [1, "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to '1â being written to JSWSTART or to a trigger detection"]
+    RCIP:
+      B_0x0: [0, No request to convert the regular channel has been issued]
+      B_0x1: [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  DFSDM_FLT7ICR:
+    CLRJOVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the JOVRF bit in the DFSDM_FLTxISR register"]
+    CLRROVRF:
+      B_0x0: [0, "Writing '0â has no effect"]
+      B_0x1: [1, "Writing '1â clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  DFSDM_FLT7FCR:
+    FORD:
+      B_0x0: [0, FastSinc filter type]
+      B_0x1: [1, Sinc1 filter type]
+TAMP:
+  TAMP_CR1:
+    TAMP1E:
+      B_0x0: [0, Tamper detection on TAMP_IN1 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN1 is enabled.]
+    TAMP2E:
+      B_0x0: [0, Tamper detection on TAMP_IN2 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN2 is enabled.]
+    TAMP3E:
+      B_0x0: [0, Tamper detection on TAMP_IN3 is disabled.]
+      B_0x1: [1, Tamper detection on TAMP_IN3 is enabled.]
+    ITAMP1E:
+      B_0x0: [0, Internal tamper 1 disabled.]
+      B_0x1: [1, "Internal tamper 1 enabled: a tamper is generated when the RTC power domain supply is below or above thresholds."]
+    ITAMP2E:
+      B_0x0: [0, Internal tamper 2 disabled.]
+      B_0x1: [1, "Internal tamper 2 enabled: a tamper is generated when the temperature is below or above thresholds."]
+    ITAMP3E:
+      B_0x0: [0, Internal tamper 3 disabled.]
+      B_0x1: [1, "Internal tamper 3 enabled: a tamper is generated when the LSE frequency is below or above thresholds."]
+    ITAMP4E:
+      B_0x0: [0, Internal tamper 4 disabled.]
+      B_0x1: [1, Internal tamper 4 enabled. a tamper is generated when the HSE frequency is below or above thresholds.]
+    ITAMP5E:
+      B_0x0: [0, Internal tamper 5 disabled.]
+      B_0x1: [1, "Internal tamper 5 enabled: a tamper is generated when the RTC calendar reaches its maximum value, on the 31st of December 99, at 23:59:59. The calendar is then frozen and cannot overflow."]
+    ITAMP6E:
+      B_0x0: [0, Internal tamper 6 disabled.]
+      B_0x1: [1, "Internal tamper 6 enabled: a tamper is generated in case of ST manufacturer readout."]
+    ITAMP8E:
+      B_0x0: [0, Internal tamper 8 disabled.]
+      B_0x1: [1, "Internal tamper 8 enabled: a tamper is generated when the TAMP_CNT overflows."]
+  TAMP_CR2:
+    TAMP1NOER:
+      B_0x0: [0, Tamper 1 event erases the backup registers.]
+      B_0x1: [1, Tamper 1 event does not erase the backup registers.]
+    TAMP2NOER:
+      B_0x0: [0, Tamper 2 event erases the backup registers.]
+      B_0x1: [1, Tamper 2 event does not erase the backup registers(1).]
+    TAMP3NOER:
+      B_0x0: [0, Tamper 3 event erases the backup registers.]
+      B_0x1: [1, Tamper 3 event does not erase the backup registers(1).]
+    TAMP1MSK:
+      B_0x0: [0, Tamper 1 event generates a trigger event and TAMP1F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 1 event generates a trigger event. TAMP1F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP2MSK:
+      B_0x0: [0, Tamper 2 event generates a trigger event and TAMP2F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 2 event generates a trigger event. TAMP2F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP3MSK:
+      B_0x0: [0, Tamper 3 event generates a trigger event and TAMP3F must be cleared by software to allow next tamper event detection.]
+      B_0x1: [1, Tamper 3 event generates a trigger event. TAMP3F is masked and internally cleared by hardware. The backup registers are not erased.]
+    TAMP1TRG:
+      B_0x0: [0, If TAMPFLT â  00 Tamper 1 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT â  00 Tamper 1 input staying high triggers a tamper detection event.]
+    TAMP2TRG:
+      B_0x0: [0, If TAMPFLT â  00 Tamper 2 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT â  00 Tamper 2 input staying high triggers a tamper detection event.]
+    TAMP3TRG:
+      B_0x0: [0, If TAMPFLT â  00 Tamper 3 input staying low triggers a tamper detection event.]
+      B_0x1: [1, If TAMPFLT â  00 Tamper 3 input staying high triggers a tamper detection event.]
+  TAMP_FLTCR:
+    TAMPFREQ:
+      B_0x0: [0, RTCCLK / 32768 (1 Hz when RTCCLK = 32768 Hz)]
+      B_0x1: [1, RTCCLK / 16384 (2 Hz when RTCCLK = 32768 Hz)]
+      B_0x2: [2, RTCCLK / 8192 (4 Hz when RTCCLK = 32768 Hz)]
+      B_0x3: [3, RTCCLK / 4096 (8 Hz when RTCCLK = 32768 Hz)]
+      B_0x4: [4, RTCCLK / 2048 (16 Hz when RTCCLK = 32768 Hz)]
+      B_0x5: [5, RTCCLK / 1024 (32 Hz when RTCCLK = 32768 Hz)]
+      B_0x6: [6, RTCCLK / 512 (64 Hz when RTCCLK = 32768 Hz)]
+      B_0x7: [7, RTCCLK / 256 (128 Hz when RTCCLK = 32768 Hz)]
+    TAMPFLT:
+      B_0x0: [0, Tamper event is activated on edge of TAMP_INx input transitions to the active level (no internal pull-up on TAMP_INx input).]
+      B_0x1: [1, Tamper event is activated after 2 consecutive samples at the active level.]
+      B_0x2: [2, Tamper event is activated after 4 consecutive samples at the active level.]
+      B_0x3: [3, Tamper event is activated after 8 consecutive samples at the active level.]
+    TAMPPRCH:
+      B_0x0: [0, 1 RTCCLK cycle]
+      B_0x1: [1, 2 RTCCLK cycles]
+      B_0x2: [2, 4 RTCCLK cycles]
+      B_0x3: [3, 8 RTCCLK cycles]
+    TAMPPUDIS:
+      B_0x0: [0, Precharge TAMP_INx pins before sampling (enable internal pull-up)]
+      B_0x1: [1, Disable precharge of TAMP_INx pins.]
+  TAMP_ATCR1:
+    TAMP1AM:
+      B_0x0: [0, Tamper 1 detection mode is passive.]
+      B_0x1: [1, Tamper 1 detection mode is active.]
+    TAMP2AM:
+      B_0x0: [0, Tamper 2 detection mode is passive.]
+      B_0x1: [1, Tamper 2 detection mode is active.]
+    TAMP3AM:
+      B_0x0: [0, Tamper 3 detection mode is passive.]
+      B_0x1: [1, Tamper 3 detection mode is active.]
+    ATOSEL1:
+      B_0x0: [0, TAMPOUTSEL1 = TAMP_OUT1]
+      B_0x1: [1, TAMPOUTSEL1 = TAMP_OUT2]
+      B_0x2: [2, TAMPOUTSEL1 = TAMP_OUT3]
+    ATOSEL2:
+      B_0x0: [0, TAMPOUTSEL2 = TAMP_OUT1]
+      B_0x1: [1, TAMPOUTSEL2 = TAMP_OUT2]
+      B_0x2: [2, TAMPOUTSEL2 = TAMP_OUT3]
+    ATOSEL3:
+      B_0x0: [0, TAMPOUTSEL3 = TAMP_OUT1]
+      B_0x1: [1, TAMPOUTSEL3 = TAMP_OUT2]
+      B_0x2: [2, TAMPOUTSEL3 = TAMP_OUT3]
+    ATCKSEL:
+      B_0x0: [0, RTCCLK is selected]
+      B_0x1: [1, RTCCLK/2 is selected when (PREDIV_A+1) = 128 (actually selects 1st flip flop output)]
+      B_0x2: [2, RTCCLK/4 is selected when (PREDIV_A+1) = 128 (actually selects 2nd flip flop output)]
+      B_0x7: [7, RTCCLK/128 is selected when (PREDIV_A+1) = 128 (actually selects 7th flip flop output)]
+    ATOSHARE:
+      B_0x0: [0, Each active tamper input TAMP_INi is compared with its dedicated output TAMP_OUTi]
+      B_0x1: [1, "Each active tamper input TAMP_INi is compared with TAMPOUTSELx as defined below, with TAMPOUTSELx defined by ATOSELx bits."]
+    FLTEN:
+      B_0x0: [0, Active tamper filtering disable]
+      B_0x1: [1, "Active tamper filtering enable: a tamper event is detected when 2 comparison mismatches occur out of 4 consecutive samples."]
+  TAMP_IER:
+    TAMP1IE:
+      B_0x0: [0, Tamper 1 interrupt disabled.]
+      B_0x1: [1, Tamper 1 interrupt enabled.]
+    TAMP2IE:
+      B_0x0: [0, Tamper 2 interrupt disabled.]
+      B_0x1: [1, Tamper 2 interrupt enabled.]
+    TAMP3IE:
+      B_0x0: [0, Tamper 3 interrupt disabled.]
+      B_0x1: [1, Tamper 3 interrupt enabled..]
+    ITAMP1IE:
+      B_0x0: [0, Internal tamper 1 interrupt disabled.]
+      B_0x1: [1, Internal tamper 1 interrupt enabled]
+    ITAMP2IE:
+      B_0x0: [0, Internal tamper 2 interrupt disabled.]
+      B_0x1: [1, Internal tamper 2 interrupt enabled.]
+    ITAMP3IE:
+      B_0x0: [0, Internal tamper 3 interrupt disabled.]
+      B_0x1: [1, Internal tamper 3 interrupt enabled.]
+    ITAMP4IE:
+      B_0x0: [0, Internal tamper 4 interrupt disabled.]
+      B_0x1: [1, Internal tamper 4 interrupt enabled.]
+    ITAMP5IE:
+      B_0x0: [0, Internal tamper 5 interrupt disabled.]
+      B_0x1: [1, Internal tamper 5 interrupt enabled.]
+    ITAMP6IE:
+      B_0x0: [0, Internal tamper 6 interrupt disabled.]
+      B_0x1: [1, Internal tamper 6 interrupt enabled.]
+    ITAMP8IE:
+      B_0x0: [0, Internal tamper 8 interrupt disabled.]
+      B_0x1: [1, Internal tamper 8 interrupt enabled.]
+  TAMP_CFGR:
+    OUT3_RMP:
+      B_0x0: [0, TAMP_OUT3 is mapped on PI8]
+      B_0x1: [1, TAMP_OUT3 is mapped on PC13]
+RCC:
+  RCC_CR:
+    HSION:
+      B_0x0: [0, HSI is OFF]
+      B_0x1: [1, HSI is ON (default after reset)]
+    HSIKERON:
+      B_0x0: [0, no effect on HSI (default after reset)]
+      B_0x1: [1, HSI is forced to ON even in Stop mode]
+    HSIRDY:
+      B_0x0: [0, HSI clock is not ready (default after reset)]
+      B_0x1: [1, HSI clock is ready]
+    HSIDIV:
+      B_0x0: [0, "division by 1, hsi(_ker)_ck = 64 MHz (default after reset)"]
+      B_0x1: [1, "division by 2, hsi(_ker)_ck = 32 MHz"]
+      B_0x2: [2, "division by 4, hsi(_ker)_ck = 16 MHz"]
+      B_0x3: [3, "division by 8, hsi(_ker)_ck = 8 MHz"]
+    HSIDIVF:
+      B_0x0: [0, new division ratio not yet propagated to hsi(_ker)_ck (default after reset)]
+      B_0x1: [1, hsi(_ker)_ck clock frequency reflects the new HSIDIV value (default register value when the]
+    CSION:
+      B_0x0: [0, CSI is OFF (default after reset)]
+      B_0x1: [1, CSI is ON]
+    CSIRDY:
+      B_0x0: [0, CSI clock is not ready (default after reset)]
+      B_0x1: [1, CSI clock is ready]
+    CSIKERON:
+      B_0x0: [0, no effect on CSI (default after reset)]
+      B_0x1: [1, CSI is forced to ON even in Stop mode]
+    HSI48ON:
+      B_0x0: [0, HSI48 is OFF (default after reset)]
+      B_0x1: [1, HSI48 is ON]
+    HSI48RDY:
+      B_0x0: [0, HSI48 clock is not ready (default after reset)]
+      B_0x1: [1, HSI48 clock is ready]
+    CPUCKRDY:
+      B_0x0: [0, CPU related clocks are not available (default after reset)]
+      B_0x1: [1, CPU related clocks are available]
+    CDCKRDY:
+      B_0x0: [0, CPU domain clocks are not available (default after reset)]
+      B_0x1: [1, CPU domain clocks are available]
+    HSEON:
+      B_0x0: [0, HSE is OFF (default after reset)]
+      B_0x1: [1, HSE is ON]
+    HSERDY:
+      B_0x0: [0, HSE clock is not ready (default after reset)]
+      B_0x1: [1, HSE clock is ready]
+    HSEBYP:
+      B_0x0: [0, HSE oscillator not bypassed (default after reset)]
+      B_0x1: [1, HSE oscillator bypassed with an external clock]
+    HSECSSON:
+      B_0x0: [0, CSS on HSE OFF (clock detector OFF) (default after reset)]
+      B_0x1: [1, "CSS on HSE ON (clock detector ON if the HSE oscillator is stable, OFF if not)."]
+    HSEEXT:
+      B_0x0: [0, HSE in analog mode (default after reset)]
+      B_0x1: [1, HSE in digital mode]
+    PLL1ON:
+      B_0x0: [0, PLL1 OFF (default after reset)]
+      B_0x1: [1, PLL1 ON]
+    PLL1RDY:
+      B_0x0: [0, PLL1 unlocked (default after reset)]
+      B_0x1: [1, PLL1 locked]
+    PLL2ON:
+      B_0x0: [0, PLL2 OFF (default after reset)]
+      B_0x1: [1, PLL2 ON]
+    PLL2RDY:
+      B_0x0: [0, PLL2 unlocked (default after reset)]
+      B_0x1: [1, PLL2 locked]
+    PLL3ON:
+      B_0x0: [0, PLL3 OFF (default after reset)]
+      B_0x1: [1, PLL3 ON]
+    PLL3RDY:
+      B_0x0: [0, PLL3 unlocked (default after reset)]
+      B_0x1: [1, PLL3 locked]
+  RCC_CFGR:
+    SW:
+      B_0x0: [0, HSI selected as system clock (hsi_ck) (default after reset)]
+      B_0x1: [1, CSI selected as system clock (csi_ck)]
+      B_0x2: [2, HSE selected as system clock (hse_ck)]
+      B_0x3: [3, "PLL1 selected as system clock (pll1_p_ck for sys_ck, pll1_r_ck for traceclk)"]
+    SWS:
+      B_0x0: [0, HSI used as system clock (hsi_ck) (default after reset)]
+      B_0x1: [1, CSI used as system clock (csi_ck)]
+      B_0x2: [2, HSE used as system clock (hse_ck)]
+      B_0x3: [3, PLL1 used as system clock (pll1_p_ck)]
+    STOPWUCK:
+      B_0x0: [0, HSI selected as wake up clock from system Stop (default after reset)]
+      B_0x1: [1, CSI selected as wake up clock from system Stop]
+    STOPKERWUCK:
+      B_0x0: [0, HSI selected as wake up clock from system Stop (default after reset)]
+      B_0x1: [1, CSI selected as wake up clock from system Stop]
+    RTCPRE:
+      B_0x0: [0, no clock (default after reset)]
+      B_0x1: [1, no clock]
+      B_0x2: [2, HSE/2]
+      B_0x3: [3, HSE/3]
+      B_0x4: [4, HSE/4]
+      B_0x3E: [62, HSE/62]
+      B_0x3F: [63, HSE/63]
+    TIMPRE:
+      B_0x0: [0, "The timers kernel clock is equal to rcc_hclk1 if CDPPRE1 or CDPPRE2 corresponds to a division by 1 or 2, else it is equal to 2 x Frcc_pclk1 or 2 x Frcc_pclk2 (default after reset)"]
+      B_0x1: [1, "The timers kernel clock is equal to 2 x Frcc_pclk1 or 2 x Frcc_pclk2 if CDPPRE1 or CDPPRE2 corresponds to a division by 1, 2or 4, else it is equal to 4 x Frcc_pclk1 or 4 x Frcc_pclk2."]
+    MCO1PRE:
+      B_0x0: [0, prescaler disabled (default after reset)]
+      B_0x1: [1, division by 1 (bypass)]
+      B_0x2: [2, division by 2]
+      B_0x3: [3, division by 3]
+      B_0x4: [4, division by 4]
+      B_0xF: [15, division by 15]
+    MCO1SEL:
+      B_0x0: [0, HSI clock selected (hsi_ck) (default after reset)]
+      B_0x1: [1, LSE oscillator clock selected (lse_ck)]
+      B_0x2: [2, HSE clock selected (hse_ck)]
+      B_0x3: [3, PLL1 clock selected (pll1_q_ck)]
+      B_0x4: [4, HSI48 clock selected (hsi48_ck)]
+    MCO2PRE:
+      B_0x0: [0, prescaler disabled (default after reset)]
+      B_0x1: [1, division by 1 (bypass)]
+      B_0x2: [2, division by 2]
+      B_0x3: [3, division by 3]
+      B_0x4: [4, division by 4]
+      B_0xF: [15, division by 15]
+    MCO2SEL:
+      B_0x0: [0, system clock selected (sys_ck) (default after reset)]
+      B_0x1: [1, PLL2 oscillator clock selected (pll2_p_ck)]
+      B_0x2: [2, HSE clock selected (hse_ck)]
+      B_0x3: [3, PLL1 clock selected (pll1_p_ck)]
+      B_0x4: [4, CSI clock selected (csi_ck)]
+      B_0x5: [5, LSI clock selected (lsi_ck)]
+  RCC_CDCFGR1:
+    HPRE:
+      B_0x8: [8, rcc_hclk3 = sys_cdcpre_ck / 2]
+      B_0x9: [9, rcc_hclk3 = sys_cdcpre_ck / 4]
+      B_0xA: [10, rcc_hclk3 = sys_cdcpre_ck / 8]
+      B_0xB: [11, rcc_hclk3 = sys_cdcpre_ck / 16]
+      B_0xC: [12, rcc_hclk3 = sys_cdcpre_ck / 64]
+      B_0xD: [13, rcc_hclk3 = sys_cdcpre_ck / 128]
+      B_0xE: [14, rcc_hclk3 = sys_cdcpre_ck / 256]
+      B_0xF: [15, rcc_hclk3 = sys_cdcpre_ck / 512]
+    CDPPRE:
+      B_0x4: [4, rcc_pclk3 = rcc_hclk3 / 2]
+      B_0x5: [5, rcc_pclk3 = rcc_hclk3 / 4]
+      B_0x6: [6, rcc_pclk3 = rcc_hclk3 / 8]
+      B_0x7: [7, rcc_pclk3 = rcc_hclk3 / 16]
+    CDCPRE:
+      B_0x8: [8, sys_ck divided by 2]
+      B_0x9: [9, sys_ck divided by 4]
+      B_0xA: [10, sys_ck divided by 8]
+      B_0xB: [11, sys_ck divided by 16]
+      B_0xC: [12, sys_ck divided by 64]
+      B_0xD: [13, sys_ck divided by 128]
+      B_0xE: [14, sys_ck divided by 256]
+      B_0xF: [15, sys_ck divided by 512]
+  RCC_CDCFGR2:
+    CDPPRE1:
+      B_0x4: [4, rcc_pclk1 = rcc_hclk1 / 2]
+      B_0x5: [5, rcc_pclk1 = rcc_hclk1 / 4]
+      B_0x6: [6, rcc_pclk1 = rcc_hclk1 / 8]
+      B_0x7: [7, rcc_pclk1 = rcc_hclk1 / 16]
+    CDPPRE2:
+      B_0x4: [4, rcc_pclk2 = rcc_hclk1 / 2]
+      B_0x5: [5, rcc_pclk2 = rcc_hclk1 / 4]
+      B_0x6: [6, rcc_pclk2 = rcc_hclk1 / 8]
+      B_0x7: [7, rcc_pclk2 = rcc_hclk1 / 16]
+  RCC_SRDCFGR:
+    SRDPPRE:
+      B_0x4: [4, rcc_pclk4 = rcc_hclk4 / 2]
+      B_0x5: [5, rcc_pclk4 = rcc_hclk4 / 4]
+      B_0x6: [6, rcc_pclk4 = rcc_hclk4 / 8]
+      B_0x7: [7, rcc_pclk4 = rcc_hclk4 / 16]
+  RCC_PLLCKSELR:
+    PLLSRC:
+      B_0x0: [0, HSI selected as PLL clock (hsi_ck) (default after reset)]
+      B_0x1: [1, CSI selected as PLL clock (csi_ck)]
+      B_0x2: [2, HSE selected as PLL clock (hse_ck)]
+      B_0x3: [3, no clock send to DIVMx divider and PLLs]
+    DIVM1:
+      B_0x0: [0, prescaler disabled]
+      B_0x1: [1, division by 1 (bypass)]
+      B_0x2: [2, division by 2]
+      B_0x3: [3, division by 3]
+      B_0x20: [32, division by 32 (default after reset)]
+      B_0x3F: [63, division by 63]
+    DIVM2:
+      B_0x0: [0, prescaler disabled]
+      B_0x1: [1, division by 1 (bypass)]
+      B_0x2: [2, division by 2]
+      B_0x3: [3, division by 3]
+      B_0x20: [32, division by 32 (default after reset)]
+      B_0x3F: [63, division by 63]
+    DIVM3:
+      B_0x0: [0, prescaler disabled (default after reset)]
+      B_0x1: [1, division by 1 (bypass)]
+      B_0x2: [2, division by 2]
+      B_0x3: [3, division by 3]
+      B_0x20: [32, division by 32 (default after reset)]
+      B_0x3F: [63, division by 63]
+  RCC_PLLCFGR:
+    PLL1VCOSEL:
+      B_0x0: [0, wide VCO range from 128 to 560 MHz (default after reset)]
+      B_0x1: [1, medium VCO range from 150 to 420 MHz]
+    PLL1RGE:
+      B_0x0: [0, PLL1 input (ref1_ck) clock range frequency between 1 and 2 MHz (default after reset)]
+      B_0x1: [1, PLL1 input (ref1_ck) clock range frequency between 2 and 4 MHz]
+      B_0x2: [2, PLL1 input (ref1_ck) clock range frequency between 4 and 8 MHz]
+      B_0x3: [3, PLL1 input (ref1_ck) clock range frequency between 8 and 16 MHz]
+    PLL2VCOSEL:
+      B_0x0: [0, wide VCO range 128 to 560 MHz (default after reset)]
+      B_0x1: [1, medium VCO range 150 to 420 MHz]
+    PLL2RGE:
+      B_0x0: [0, PLL2 input (ref2_ck) clock range frequency between 1 and 2 MHz (default after reset)]
+      B_0x1: [1, PLL2 input (ref2_ck) clock range frequency between 2 and 4 MHz]
+      B_0x2: [2, PLL2 input (ref2_ck) clock range frequency between 4 and 8 MHz]
+      B_0x3: [3, PLL2 input (ref2_ck) clock range frequency between 8 and 16 MHz]
+    PLL3VCOSEL:
+      B_0x0: [0, wide VCO range 128 to 560 MHz (default after reset)]
+      B_0x1: [1, medium VCO range 150 to 420 MHz]
+    PLL3RGE:
+      B_0x0: [0, PLL3 input (ref3_ck) clock range frequency between 1 and 2 MHz (default after reset)]
+      B_0x1: [1, PLL3 input (ref3_ck) clock range frequency between 2 and 4 MHz]
+      B_0x2: [2, PLL3 input (ref3_ck) clock range frequency between 4 and 8 MHz]
+      B_0x3: [3, PLL3 input (ref3_ck) clock range frequency between 8 and 16 MHz]
+    DIVP1EN:
+      B_0x0: [0, pll1_p_ck output disabled]
+      B_0x1: [1, pll1_p_ck output enabled (default after reset)]
+    DIVQ1EN:
+      B_0x0: [0, pll1_q_ck output disabled]
+      B_0x1: [1, pll1_q_ck output enabled (default after reset)]
+    DIVR1EN:
+      B_0x0: [0, pll1_r_ck output disabled]
+      B_0x1: [1, pll1_r_ck output enabled (default after reset)]
+    DIVP2EN:
+      B_0x0: [0, pll2_p_ck output disabled]
+      B_0x1: [1, pll2_p_ck output enabled (default after reset)]
+    DIVQ2EN:
+      B_0x0: [0, pll2_q_ck output disabled]
+      B_0x1: [1, pll2_q_ck output enabled (default after reset)]
+    DIVR2EN:
+      B_0x0: [0, pll2_r_ck output disabled]
+      B_0x1: [1, pll2_r_ck output enabled (default after reset)]
+    DIVP3EN:
+      B_0x0: [0, pll3_p_ck output disabled]
+      B_0x1: [1, pll3_p_ck output enabled (default after reset)]
+    DIVQ3EN:
+      B_0x0: [0, pll3_q_ck output disabled]
+      B_0x1: [1, pll3_q_ck output enabled (default after reset)]
+    DIVR3EN:
+      B_0x0: [0, pll3_r_ck output disabled]
+      B_0x1: [1, pll3_r_ck output enabled (default after reset)]
+  RCC_PLL1DIVR:
+    DIVN1:
+      B_0x6: [6, wrong configuration]
+      B_0x7: [7, DIVN1 = 8]
+      B_0x80: [128, DIVN1 = 129 (default after reset)]
+      B_0x1A3: [419, DIVN1 = 420]
+    DIVP1:
+      B_0x0: [0, not allowed]
+      B_0x1: [1, pll1_p_ck = vco1_ck / 2 (default after reset)]
+      B_0x2: [2, not allowed]
+      B_0x3: [3, pll1_p_ck = vco1_ck / 4]
+      B_0x7F: [127, pll1_p_ck = vco1_ck / 128]
+    DIVQ1:
+      B_0x0: [0, pll1_q_ck = vco1_ck]
+      B_0x1: [1, pll1_q_ck = vco1_ck / 2 (default after reset)]
+      B_0x2: [2, pll1_q_ck = vco1_ck / 3]
+      B_0x3: [3, pll1_q_ck = vco1_ck / 4]
+      B_0x7F: [127, pll1_q_ck = vco1_ck / 128]
+    DIVR1:
+      B_0x0: [0, pll1_r_ck = vco1_ck]
+      B_0x1: [1, pll1_r_ck = vco1_ck / 2 (default after reset)]
+      B_0x2: [2, pll1_r_ck = vco1_ck / 3]
+      B_0x3: [3, pll1_r_ck = vco1_ck / 4]
+      B_0x7F: [127, pll1_r_ck = vco1_ck / 128]
+  RCC_PLL2DIVR:
+    DIVN2:
+      B_0x6: [6, wrong configuration]
+      B_0x7: [7, DIVN2 = 8]
+      B_0x80: [128, DIVN2 = 129 (default after reset)]
+      B_0x1A3: [419, DIVN2 = 420]
+    DIVP2:
+      B_0x0: [0, pll2_p_ck = vco2_ck]
+      B_0x1: [1, pll2_p_ck = vco2_ck / 2 (default after reset)]
+      B_0x2: [2, pll2_p_ck = vco2_ck / 3]
+      B_0x3: [3, pll2_p_ck = vco2_ck / 4]
+      B_0x7F: [127, pll2_p_ck = vco2_ck / 128]
+    DIVQ2:
+      B_0x0: [0, pll2_q_ck = vco2_ck]
+      B_0x1: [1, pll2_q_ck = vco2_ck / 2 (default after reset)]
+      B_0x2: [2, pll2_q_ck = vco2_ck / 3]
+      B_0x3: [3, pll2_q_ck = vco2_ck / 4]
+      B_0x7F: [127, pll2_q_ck = vco2_ck / 128]
+    DIVR2:
+      B_0x0: [0, pll2_r_ck = vco2_ck]
+      B_0x1: [1, pll2_r_ck = vco2_ck / 2 (default after reset)]
+      B_0x2: [2, pll2_r_ck = vco2_ck / 3]
+      B_0x3: [3, pll2_r_ck = vco2_ck / 4]
+      B_0x7F: [127, pll2_r_ck = vco2_ck / 128]
+  RCC_PLL3DIVR:
+    DIVN3:
+      B_0x6: [6, wrong configuration]
+      B_0x7: [7, DIVN3 = 8]
+      B_0x80: [128, DIVN3 = 129 (default after reset)]
+      B_0x1A3: [419, DIVN3 = 420]
+    DIVP3:
+      B_0x0: [0, pll3_p_ck = vco3_ck]
+      B_0x1: [1, pll3_p_ck = vco3_ck / 2 (default after reset)]
+      B_0x2: [2, pll3_p_ck = vco3_ck / 3]
+      B_0x3: [3, pll3_p_ck = vco3_ck / 4]
+      B_0x7F: [127, pll3_p_ck = vco3_ck / 128]
+    DIVQ3:
+      B_0x0: [0, pll3_q_ck = vco3_ck]
+      B_0x1: [1, pll3_q_ck = vco3_ck / 2 (default after reset)]
+      B_0x2: [2, pll3_q_ck = vco3_ck / 3]
+      B_0x3: [3, pll3_q_ck = vco3_ck / 4]
+      B_0x7F: [127, pll3_q_ck = vco3_ck / 128]
+    DIVR3:
+      B_0x0: [0, pll3_r_ck = vco3_ck]
+      B_0x1: [1, pll3_r_ck = vco3_ck / 2 (default after reset)]
+      B_0x2: [2, pll3_r_ck = vco3_ck / 3]
+      B_0x3: [3, pll3_r_ck = vco3_ck / 4]
+      B_0x7F: [127, pll3_r_ck = vco3_ck / 128]
+  RCC_CDCCIPR:
+    FMCSEL:
+      B_0x0: [0, rcc_hclk3 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll1_q_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll2_r_ck selected as kernel peripheral clock]
+      B_0x3: [3, per_ck selected as kernel peripheral clock]
+    OCTOSPISEL:
+      B_0x0: [0, rcc_hclk3 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll1_q_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll2_r_ck selected as kernel peripheral clock]
+      B_0x3: [3, per_ck selected as kernel peripheral clock]
+    SDMMCSEL:
+      B_0x0: [0, pll1_q_ck selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_r_ck selected as kernel peripheral clock]
+    CKPERSEL:
+      B_0x0: [0, hsi_ker_ck selected as per_ck clock (default after reset)]
+      B_0x1: [1, csi_ker_ck selected as per_ck clock]
+      B_0x2: [2, hse_ck selected as per_ck clock]
+      B_0x3: [3, "reserved, the per_ck clock is disabled"]
+  RCC_CDCCIP1R:
+    SAI1SEL:
+      B_0x0: [0, pll1_q_ck selected as SAI1 and DFSDM1 Aclk kernel clock (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as SAI1 and DFSDM1 Aclk kernel clock]
+      B_0x2: [2, pll3_p_ck selected as SAI1 and DFSDM1 Aclk kernel clock]
+      B_0x3: [3, I2S_CKIN selected as SAI1 and DFSDM1 Aclk kernel clock]
+      B_0x4: [4, per_ck selected as SAI1 and DFSDM1 Aclk kernel clock]
+    SAI2ASEL:
+      B_0x0: [0, pll1_q_ck selected as SAI2 kernel clock A (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as SAI2 kernel clock A]
+      B_0x2: [2, pll3_p_ck selected as SAI2 kernel clock A]
+      B_0x3: [3, I2S_CKIN selected as SAI2 kernel clock A]
+      B_0x4: [4, per_ck selected as SAI2 kernel clock A]
+      B_0x5: [5, spdifrx_symb_ck selected as SAI2 kernel clock A]
+    SAI2BSEL:
+      B_0x0: [0, pll1_q_ck selected as SAI2 kernel clock B (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as SAI2 kernel clock B]
+      B_0x2: [2, pll3_p_ck selected as SAI2 kernel clock B]
+      B_0x3: [3, I2S_CKIN selected as SAI2 kernel clock B]
+      B_0x4: [4, per_ck selected as SAI2 kernel clock B]
+      B_0x5: [5, spdifrx_symb_ck selected as SAI2 kernel clock B]
+    SPI123SEL:
+      B_0x0: [0, "pll1_q_ck selected as SPI/I2S1,2 and 3 kernel clock (default after reset)"]
+      B_0x1: [1, "pll2_p_ck selected as SPI/I2S1,2 and 3 kernel clock"]
+      B_0x2: [2, "pll3_p_ck selected as SPI/I2S1,2 and 3 kernel clock"]
+      B_0x3: [3, "I2S_CKIN selected as SPI/I2S1,2 and 3 kernel clock"]
+      B_0x4: [4, "per_ck selected as SPI/I2S1,2 and 3 kernel clock"]
+    SPI45SEL:
+      B_0x0: [0, rcc_pclk2 clock selected as kernel clock (default after reset)]
+      B_0x1: [1, pll2_q_ck is selected as kernel clock]
+      B_0x2: [2, pll3_q_ck is selected as kernel clock]
+      B_0x3: [3, hsi_ker_ck is selected as kernel clock]
+      B_0x4: [4, csi_ker_ck is selected as kernel clock]
+      B_0x5: [5, hse_ck is selected as kernel clock]
+    SPDIFRXSEL:
+      B_0x0: [0, pll1_q_ck selected as SPDIFRX kernel clock (default after reset)]
+      B_0x1: [1, pll2_r_ck selected as SPDIFRX kernel clock]
+      B_0x2: [2, pll3_r_ck selected as SPDIFRX kernel clock]
+      B_0x3: [3, hsi_ker_ck selected as SPDIFRX kernel clock]
+    DFSDM1SEL:
+      B_0x0: [0, rcc_pclk2 selected as DFSDM1 Clk kernel clock (default after reset)]
+      B_0x1: [1, sys_ck selected as DFSDM1 Clk kernel clock]
+    FDCANSEL:
+      B_0x0: [0, hse_ck clock selected as FDCAN kernel clock (default after reset)]
+      B_0x1: [1, pll1_q_ck selected as FDCAN kernel clock]
+      B_0x2: [2, pll2_q_ck selected as FDCAN kernel clock]
+      B_0x3: [3, "reserved, the kernel clock is disabled"]
+    SWPMISEL:
+      B_0x0: [0, rcc_pclk1 selected as SWPMI kernel clock (default after reset)]
+      B_0x1: [1, hsi_ker_ck selected as SWPMI kernel clock]
+  RCC_CDCCIP2R:
+    USART234578SEL:
+      B_0x0: [0, rcc_pclk1 selected as kernel clock (default after reset)]
+      B_0x1: [1, pll2_q_ck selected as kernel clock]
+      B_0x2: [2, pll3_q_ck selected as kernel clock]
+      B_0x3: [3, hsi_ker_ck selected as kernel clock]
+      B_0x4: [4, csi_ker_ck selected as kernel clock]
+      B_0x5: [5, lse_ck selected as kernel clock]
+    USART16910SEL:
+      B_0x0: [0, rcc_pclk2 selected as kernel clock (default after reset)]
+      B_0x1: [1, pll2_q_ck selected as kernel clock]
+      B_0x2: [2, pll3_q_ck selected as kernel clock]
+      B_0x3: [3, hsi_ker_ck selected as kernel clock]
+      B_0x4: [4, csi_ker_ck selected as kernel clock]
+      B_0x5: [5, lse_ck selected as kernel clock]
+    RNGSEL:
+      B_0x0: [0, hsi48_ck selected as kernel clock (default after reset)]
+      B_0x1: [1, pll1_q_ck selected as kernel clock]
+      B_0x2: [2, lse_ck selected as kernel clock]
+      B_0x3: [3, lsi_ck selected as kernel clock]
+    I2C123SEL:
+      B_0x0: [0, rcc_pclk1 selected as kernel clock (default after reset)]
+      B_0x1: [1, pll3_r_ck selected as kernel clock]
+      B_0x2: [2, hsi_ker_ck selected as kernel clock]
+      B_0x3: [3, csi_ker_ck selected as kernel clock]
+    USBSEL:
+      B_0x0: [0, Disable the kernel clock (default after reset)]
+      B_0x1: [1, pll1_q_ck selected as kernel clock]
+      B_0x2: [2, pll3_q_ck selected as kernel clock]
+      B_0x3: [3, hsi48_ck selected as kernel clock]
+    CECSEL:
+      B_0x0: [0, lse_ck selected as kernel clock (default after reset)]
+      B_0x1: [1, lsi_ck selected as kernel clock]
+      B_0x2: [2, csi_ker_ck divided by 122 selected as kernel clock]
+      B_0x3: [3, "reserved, the kernel clock is disabled"]
+    LPTIM1SEL:
+      B_0x0: [0, rcc_pclk1 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll3_r_ck selected as kernel peripheral clock]
+      B_0x3: [3, lse_ck selected as kernel peripheral clock]
+      B_0x4: [4, lsi_ck selected as kernel peripheral clock]
+      B_0x5: [5, per_ck selected as kernel peripheral clock]
+  RCC_SRDCCIPR:
+    LPUART1SEL:
+      B_0x0: [0, rcc_pclk4 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_q_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll3_q_ck selected as kernel peripheral clock]
+      B_0x3: [3, hsi_ker_ck selected as kernel peripheral clock]
+      B_0x4: [4, csi_ker_ck selected as kernel peripheral clock]
+      B_0x5: [5, lse_ck selected as kernel peripheral clock]
+    I2C4SEL:
+      B_0x0: [0, rcc_pclk4 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll3_r_ck selected as kernel peripheral clock]
+      B_0x2: [2, hsi_ker_ck selected as kernel peripheral clock]
+      B_0x3: [3, csi_ker_ck selected as kernel peripheral clock]
+    LPTIM2SEL:
+      B_0x0: [0, rcc_pclk4 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll3_r_ck selected as kernel peripheral clock]
+      B_0x3: [3, lse_ck selected as kernel peripheral clock]
+      B_0x4: [4, lsi_ck selected as kernel peripheral clock]
+      B_0x5: [5, per_ck selected as kernel peripheral clock]
+    LPTIM3SEL:
+      B_0x0: [0, rcc_pclk4 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_p_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll3_r_ck selected as kernel peripheral clock]
+      B_0x3: [3, lse_ck selected as kernel peripheral clock]
+      B_0x4: [4, lsi_ck selected as kernel peripheral clock]
+      B_0x5: [5, per_ck selected as kernel peripheral clock]
+    ADCSEL:
+      B_0x0: [0, pll2_p_ck selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll3_r_ck selected as kernel peripheral clock]
+      B_0x2: [2, per_ck selected as kernel peripheral clock]
+    DFSDM2SEL:
+      B_0x0: [0, rcc_pclk4 selected as DFSDM2 Clk kernel clock (default after reset)]
+      B_0x1: [1, sys_ck selected as DFSDM2 Clk kernel clock]
+    SPI6SEL:
+      B_0x0: [0, rcc_pclk4 selected as kernel peripheral clock (default after reset)]
+      B_0x1: [1, pll2_q_ck selected as kernel peripheral clock]
+      B_0x2: [2, pll3_q_ck selected as kernel peripheral clock]
+      B_0x3: [3, hsi_ker_ck selected as kernel peripheral clock]
+      B_0x4: [4, csi_ker_ck selected as kernel peripheral clock]
+      B_0x5: [5, hse_ck selected as kernel peripheral clock]
+      B_0x6: [6, I2S_CKIN selected as kernel peripheral clock]
+  RCC_CIER:
+    LSIRDYIE:
+      B_0x0: [0, LSI ready interrupt disabled (default after reset)]
+      B_0x1: [1, LSI ready interrupt enabled]
+    LSERDYIE:
+      B_0x0: [0, LSE ready interrupt disabled (default after reset)]
+      B_0x1: [1, LSE ready interrupt enabled]
+    HSIRDYIE:
+      B_0x0: [0, HSI ready interrupt disabled (default after reset)]
+      B_0x1: [1, HSI ready interrupt enabled]
+    HSERDYIE:
+      B_0x0: [0, HSE ready interrupt disabled (default after reset)]
+      B_0x1: [1, HSE ready interrupt enabled]
+    CSIRDYIE:
+      B_0x0: [0, CSI ready interrupt disabled (default after reset)]
+      B_0x1: [1, CSI ready interrupt enabled]
+    HSI48RDYIE:
+      B_0x0: [0, HSI48 ready interrupt disabled (default after reset)]
+      B_0x1: [1, HSI48 ready interrupt enabled]
+    PLL1RDYIE:
+      B_0x0: [0, PLL1 lock interrupt disabled (default after reset)]
+      B_0x1: [1, PLL1 lock interrupt enabled]
+    PLL2RDYIE:
+      B_0x0: [0, PLL2 lock interrupt disabled (default after reset)]
+      B_0x1: [1, PLL2 lock interrupt enabled]
+    PLL3RDYIE:
+      B_0x0: [0, PLL3 lock interrupt disabled (default after reset)]
+      B_0x1: [1, PLL3 lock interrupt enabled]
+    LSECSSIE:
+      B_0x0: [0, LSE CSS interrupt disabled (default after reset)]
+      B_0x1: [1, LSE CSS interrupt enabled]
+  RCC_CIFR:
+    LSIRDYF:
+      B_0x0: [0, no clock ready interrupt caused by the LSI (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the LSI]
+    LSERDYF:
+      B_0x0: [0, no clock ready interrupt caused by the LSE (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the LSE]
+    HSIRDYF:
+      B_0x0: [0, no clock ready interrupt caused by the HSI (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the HSI]
+    HSERDYF:
+      B_0x0: [0, no clock ready interrupt caused by the HSE (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the HSE]
+    CSIRDYF:
+      B_0x0: [0, no clock ready interrupt caused by the CSI (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the CSI]
+    HSI48RDYF:
+      B_0x0: [0, no clock ready interrupt caused by the HSI48 oscillator (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by the HSI48 oscillator]
+    PLL1RDYF:
+      B_0x0: [0, no clock ready interrupt caused by PLL1 lock (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by PLL1 lock]
+    PLL2RDYF:
+      B_0x0: [0, no clock ready interrupt caused by PLL2 lock (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by PLL2 lock]
+    PLL3RDYF:
+      B_0x0: [0, no clock ready interrupt caused by PLL3 lock (default after reset)]
+      B_0x1: [1, clock ready interrupt caused by PLL3 lock]
+    LSECSSF:
+      B_0x0: [0, no failure detected on the external 32 kHz oscillator (default after reset)]
+      B_0x1: [1, failure detected on the external 32 kHz oscillator]
+    HSECSSF:
+      B_0x0: [0, no clock security interrupt caused by HSE clock failure (default after reset)]
+      B_0x1: [1, clock security interrupt caused by HSE clock failure]
+  RCC_CICR:
+    LSIRDYC:
+      B_0x0: [0, LSIRDYF no effect (default after reset)]
+      B_0x1: [1, LSIRDYF cleared]
+    LSERDYC:
+      B_0x0: [0, LSERDYF no effect (default after reset)]
+      B_0x1: [1, LSERDYF cleared]
+    HSIRDYC:
+      B_0x0: [0, HSIRDYF no effect (default after reset)]
+      B_0x1: [1, HSIRDYF cleared]
+    HSERDYC:
+      B_0x0: [0, HSERDYF no effect (default after reset)]
+      B_0x1: [1, HSERDYF cleared]
+    CSIRDYC:
+      B_0x0: [0, CSIRDYF no effect (default after reset)]
+      B_0x1: [1, CSIRDYF cleared]
+    HSI48RDYC:
+      B_0x0: [0, HSI48RDYF no effect (default after reset)]
+      B_0x1: [1, HSI48RDYF cleared]
+    PLL1RDYC:
+      B_0x0: [0, PLL1RDYF no effect (default after reset)]
+      B_0x1: [1, PLL1RDYF cleared]
+    PLL2RDYC:
+      B_0x0: [0, PLL2RDYF no effect (default after reset)]
+      B_0x1: [1, PLL2RDYF cleared]
+    PLL3RDYC:
+      B_0x0: [0, PLL3RDYF no effect (default after reset)]
+      B_0x1: [1, PLL3RDYF cleared]
+    LSECSSC:
+      B_0x0: [0, LSECSSF no effect (default after reset)]
+      B_0x1: [1, LSECSSF cleared]
+    HSECSSC:
+      B_0x0: [0, HSECSSF no effect (default after reset)]
+      B_0x1: [1, HSECSSF cleared]
+  RCC_BDCR:
+    LSEON:
+      B_0x0: [0, LSE oscillator OFF (default after Backup domain reset)]
+      B_0x1: [1, LSE oscillator ON]
+    LSERDY:
+      B_0x0: [0, LSE oscillator not ready (default after Backup domain reset)]
+      B_0x1: [1, LSE oscillator ready]
+    LSEBYP:
+      B_0x0: [0, LSE oscillator not bypassed (default after Backup domain reset)]
+      B_0x1: [1, LSE oscillator bypassed]
+    LSEDRV:
+      B_0x0: [0, lowest drive (default after Backup domain reset)]
+      B_0x1: [1, medium-low drive]
+      B_0x2: [2, medium-high drive]
+      B_0x3: [3, highest drive]
+    LSECSSON:
+      B_0x0: [0, CSS on 32 kHz oscillator OFF (default after Backup domain reset)]
+      B_0x1: [1, CSS on 32 kHz oscillator ON]
+    LSECSSD:
+      B_0x0: [0, no failure detected on 32 kHz oscillator (default after Backup domain reset)]
+      B_0x1: [1, failure detected on 32 kHz oscillator]
+    LSEEXT:
+      B_0x0: [0, LSE in analog mode (default after Backup domain reset)]
+      B_0x1: [1, LSE in digital mode (do not use if RTC is active).]
+    RTCSEL:
+      B_0x0: [0, no clock (default after Backup domain reset)]
+      B_0x1: [1, LSE selected as RTC clock]
+      B_0x2: [2, LSI selected as RTC clock]
+      B_0x3: [3, HSE divided by RTCPRE value selected as RTC clock]
+    RTCEN:
+      B_0x0: [0, rtc_ck disabled (default after Backup domain reset)]
+      B_0x1: [1, rtc_ck enabled]
+    VSWRST:
+      B_0x0: [0, reset not activated (default after Backup domain reset)]
+      B_0x1: [1, resets the entire VSW domain]
+  RCC_CSR:
+    LSION:
+      B_0x0: [0, LSI is OFF (default after reset)]
+      B_0x1: [1, LSI is ON]
+    LSIRDY:
+      B_0x0: [0, LSI clock is not ready (default after reset)]
+      B_0x1: [1, LSI clock is ready]
+  RCC_AHB3RSTR:
+    MDMARST:
+      B_0x0: [0, does not reset MDMA block (default after reset)]
+      B_0x1: [1, resets MDMA block]
+    DMA2DRST:
+      B_0x0: [0, does not reset DMA2D block (default after reset)]
+      B_0x1: [1, resets DMA2D block]
+    JPGDECRST:
+      B_0x0: [0, does not reset JPGDEC block (default after reset)]
+      B_0x1: [1, resets JPGDEC block]
+    FMCRST:
+      B_0x0: [0, does not reset FMC block (default after reset)]
+      B_0x1: [1, resets FMC block]
+    OCTOSPI1RST:
+      B_0x0: [0, does not reset OCTOSPI1 and OCTOSPI1 delay blocks (default after reset)]
+      B_0x1: [1, resets OCTOSPI1 and OCTOSPI1 delay blocks]
+    SDMMC1RST:
+      B_0x0: [0, does not reset SDMMC1 and SDMMC1 delay blocks (default after reset)]
+      B_0x1: [1, resets SDMMC1 and SDMMC1 delay blocks]
+    OCTOSPI2RST:
+      B_0x0: [0, does not reset the OCTOSPI2 and OCTOSPI2 delay block (default after reset)]
+      B_0x1: [1, resets the OCTOSPI2 and OCTOSPI2 delay block]
+    OCTOSPIMRST:
+      B_0x0: [0, does not reset the OCTOSPIM (default after reset)]
+      B_0x1: [1, resets the OCTOSPIM]
+    OTFD1RST:
+      B_0x0: [0, does not reset the OTFD1 (default after reset)]
+      B_0x1: [1, resets the OTFD1]
+    OTFD2RST:
+      B_0x0: [0, does not reset the OTFD2 (default after reset)]
+      B_0x1: [1, resets the OTFD2]
+    GFXMMURST:
+      B_0x0: [0, does not reset the GFXMMU (default after reset)]
+      B_0x1: [1, resets the GFXMMU]
+  RCC_AHB1RSTR:
+    DMA1RST:
+      B_0x0: [0, does not reset DMA1 and DMAMUX1 blocks (default after reset)]
+      B_0x1: [1, resets DMA1 and DMAMUX1 blocks]
+    DMA2RST:
+      B_0x0: [0, does not reset DMA2 and DMAMUX2 blocks (default after reset)]
+      B_0x1: [1, resets DMA2 and DMAMUX2 blocks]
+    ADC12RST:
+      B_0x0: [0, does not reset ADC1 and 2 blocks (default after reset)]
+      B_0x1: [1, resets ADC1 and 2 blocks]
+    CRCRST:
+      B_0x0: [0, does not reset CRC block (default after reset)]
+      B_0x1: [1, resets CRC block]
+    USB1OTGRST:
+      B_0x0: [0, does not reset USB1OTG block (default after reset)]
+      B_0x1: [1, resets USB1OTG block]
+  RCC_AHB2RSTR:
+    DCMI_PSSIRST:
+      B_0x0: [0, does not reset the DCMI/PSSI block (default after reset)]
+      B_0x1: [1, resets the DCMI/PSSI block]
+    HSEMRST:
+      B_0x0: [0, does not reset HSEM block (default after reset)]
+      B_0x1: [1, resets HSEM block]
+    CRYPTRST:
+      B_0x0: [0, does not reset cryptography block (default after reset)]
+      B_0x1: [1, resets cryptography block]
+    HASHRST:
+      B_0x0: [0, does not reset hash block (default after reset)]
+      B_0x1: [1, resets hash block]
+    RNGRST:
+      B_0x0: [0, does not reset RNG block (default after reset)]
+      B_0x1: [1, resets RNG block]
+    SDMMC2RST:
+      B_0x0: [0, does not reset SDMMC2 and SDMMC2 delay blocks (default after reset)]
+      B_0x1: [1, resets SDMMC2 and SDMMC2 delay blocks]
+    BDMA1RST:
+      B_0x0: [0, does not reset DMA block (default after reset)]
+      B_0x1: [1, resets DMA block]
+  RCC_AHB4RSTR:
+    GPIOARST:
+      B_0x0: [0, does not reset the GPIOA block (default after reset)]
+      B_0x1: [1, resets the GPIOA block]
+    GPIOBRST:
+      B_0x0: [0, does not reset the GPIOB block (default after reset)]
+      B_0x1: [1, resets the GPIOB block]
+    GPIOCRST:
+      B_0x0: [0, does not reset the GPIOC block (default after reset)]
+      B_0x1: [1, resets the GPIOC block]
+    GPIODRST:
+      B_0x0: [0, does not reset the GPIOD block (default after reset)]
+      B_0x1: [1, resets the GPIOD block]
+    GPIOERST:
+      B_0x0: [0, does not reset the GPIOE block (default after reset)]
+      B_0x1: [1, resets the GPIOE block]
+    GPIOFRST:
+      B_0x0: [0, does not reset the GPIOF block (default after reset)]
+      B_0x1: [1, resets the GPIOF block]
+    GPIOGRST:
+      B_0x0: [0, does not reset the GPIOG block (default after reset)]
+      B_0x1: [1, resets the GPIOG block]
+    GPIOHRST:
+      B_0x0: [0, does not reset the GPIOH block (default after reset)]
+      B_0x1: [1, resets the GPIOH block]
+    GPIOIRST:
+      B_0x0: [0, does not reset the GPIOI block (default after reset)]
+      B_0x1: [1, resets the GPIOI block]
+    GPIOJRST:
+      B_0x0: [0, does not reset the GPIOJ block (default after reset)]
+      B_0x1: [1, resets the GPIOJ block]
+    GPIOKRST:
+      B_0x0: [0, does not reset the GPIOK block (default after reset)]
+      B_0x1: [1, resets the GPIOK block]
+    BDMA2RST:
+      B_0x0: [0, does not reset the DMA and DMAMUX blocks (default after reset)]
+      B_0x1: [1, resets the DMA and DMAMUX blocks]
+  RCC_APB3RSTR:
+    LTDCRST:
+      B_0x0: [0, does not reset the LTDC block (default after reset)]
+      B_0x1: [1, resets the LTDC block]
+  RCC_APB1LRSTR:
+    TIM2RST:
+      B_0x0: [0, does not reset the TIM2 block (default after reset)]
+      B_0x1: [1, resets the TIM2 block]
+    TIM3RST:
+      B_0x0: [0, does not reset the TIM3 block (default after reset)]
+      B_0x1: [1, resets the TIM3 block]
+    TIM4RST:
+      B_0x0: [0, does not reset the TIM4 block (default after reset)]
+      B_0x1: [1, resets the TIM4 block]
+    TIM5RST:
+      B_0x0: [0, does not reset the TIM5 block (default after reset)]
+      B_0x1: [1, resets the TIM5 block]
+    TIM6RST:
+      B_0x0: [0, does not reset the TIM6 block (default after reset)]
+      B_0x1: [1, resets the TIM6 block]
+    TIM7RST:
+      B_0x0: [0, does not reset the TIM7 block (default after reset)]
+      B_0x1: [1, resets the TIM7 block]
+    TIM12RST:
+      B_0x0: [0, does not reset the TIM12 block (default after reset)]
+      B_0x1: [1, resets the TIM12 block]
+    TIM13RST:
+      B_0x0: [0, does not reset the TIM13 block (default after reset)]
+      B_0x1: [1, resets the TIM13 block]
+    TIM14RST:
+      B_0x0: [0, does not reset the TIM14 block (default after reset)]
+      B_0x1: [1, resets the TIM14 block]
+    LPTIM1RST:
+      B_0x0: [0, does not reset the LPTIM1 block (default after reset)]
+      B_0x1: [1, resets the LPTIM1 block]
+    SPI2RST:
+      B_0x0: [0, does not reset the SPI2 block (default after reset)]
+      B_0x1: [1, resets the SPI2 block]
+    SPI3RST:
+      B_0x0: [0, does not reset the SPI3 block (default after reset)]
+      B_0x1: [1, resets the SPI3 block]
+    SPDIFRXRST:
+      B_0x0: [0, does not reset the SPDIFRX block (default after reset)]
+      B_0x1: [1, resets the SPDIFRX block]
+    USART2RST:
+      B_0x0: [0, does not reset the USART2 block (default after reset)]
+      B_0x1: [1, resets the USART2 block]
+    USART3RST:
+      B_0x0: [0, does not reset the USART3 block (default after reset)]
+      B_0x1: [1, resets the USART3 block]
+    UART4RST:
+      B_0x0: [0, does not reset the UART4 block (default after reset)]
+      B_0x1: [1, resets the UART4 block]
+    UART5RST:
+      B_0x0: [0, does not reset the UART5 block (default after reset)]
+      B_0x1: [1, resets the UART5 block]
+    I2C1RST:
+      B_0x0: [0, does not reset the I2C1 block (default after reset)]
+      B_0x1: [1, resets the I2C1 block]
+    I2C2RST:
+      B_0x0: [0, does not reset the I2C2 block (default after reset)]
+      B_0x1: [1, resets the I2C2 block]
+    I2C3RST:
+      B_0x0: [0, does not reset the I2C3 block (default after reset)]
+      B_0x1: [1, resets the I2C3 block]
+    CECRST:
+      B_0x0: [0, does not reset the HDMI-CEC block (default after reset)]
+      B_0x1: [1, resets the HDMI-CEC block]
+    DAC1RST:
+      B_0x0: [0, does not reset the DAC1 (default after reset)]
+      B_0x1: [1, resets the DAC1]
+    UART7RST:
+      B_0x0: [0, does not reset the UART7 block (default after reset)]
+      B_0x1: [1, resets the UART7 block]
+    UART8RST:
+      B_0x0: [0, does not reset the UART8 block (default after reset)]
+      B_0x1: [1, resets the UART8 block]
+  RCC_APB1HRSTR:
+    CRSRST:
+      B_0x0: [0, does not reset CRS (default after reset)]
+      B_0x1: [1, resets CRS]
+    SWPMIRST:
+      B_0x0: [0, does not reset the SWPMI block (default after reset)]
+      B_0x1: [1, resets the SWPMI block]
+    OPAMPRST:
+      B_0x0: [0, does not reset the OPAMP block (default after reset)]
+      B_0x1: [1, resets the OPAMP block]
+    MDIOSRST:
+      B_0x0: [0, does not reset the MDIOS block (default after reset)]
+      B_0x1: [1, resets the MDIOS block]
+    FDCANRST:
+      B_0x0: [0, does not reset the FDCAN block (default after reset)]
+      B_0x1: [1, resets the FDCAN block]
+  RCC_APB2RSTR:
+    TIM1RST:
+      B_0x0: [0, does not reset the TIM1 block (default after reset)]
+      B_0x1: [1, resets the TIM1 block]
+    TIM8RST:
+      B_0x0: [0, does not reset the TIM8 block (default after reset)]
+      B_0x1: [1, resets the TIM8 block]
+    USART1RST:
+      B_0x0: [0, does not reset the USART1 block (default after reset)]
+      B_0x1: [1, resets the USART1 block]
+    USART6RST:
+      B_0x0: [0, does not reset the USART6 block (default after reset)]
+      B_0x1: [1, resets the USART6 block]
+    UART9RST:
+      B_0x0: [0, does not reset the UART9 block (default after reset)]
+      B_0x1: [1, resets the UART9 block]
+    USART10RST:
+      B_0x0: [0, does not reset the USART10 block (default after reset)]
+      B_0x1: [1, resets the USART10 block]
+    SPI1RST:
+      B_0x0: [0, does not reset the SPI1 block (default after reset)]
+      B_0x1: [1, resets the SPI1 block]
+    SPI4RST:
+      B_0x0: [0, does not reset the SPI4 block (default after reset)]
+      B_0x1: [1, resets the SPI4 block]
+    TIM15RST:
+      B_0x0: [0, does not reset the TIM15 block (default after reset)]
+      B_0x1: [1, resets the TIM15 block]
+    TIM16RST:
+      B_0x0: [0, does not reset the TIM16 block (default after reset)]
+      B_0x1: [1, resets the TIM16 block]
+    TIM17RST:
+      B_0x0: [0, does not reset the TIM17 block (default after reset)]
+      B_0x1: [1, resets the TIM17 block]
+    SPI5RST:
+      B_0x0: [0, does not reset the SPI5 block (default after reset)]
+      B_0x1: [1, resets the SPI5 block]
+    SAI1RST:
+      B_0x0: [0, does not reset the SAI1 (default after reset)]
+      B_0x1: [1, resets the SAI1]
+    SAI2RST:
+      B_0x0: [0, does not reset the SAI2 block (default after reset)]
+      B_0x1: [1, resets the SAI2 block]
+    DFSDM1RST:
+      B_0x0: [0, does not reset DFSDM1 block (default after reset)]
+      B_0x1: [1, resets DFSDM1 block]
+  RCC_APB4RSTR:
+    SYSCFGRST:
+      B_0x0: [0, does not reset the SYSCFG block (default after reset)]
+      B_0x1: [1, resets the SYSCFG block]
+    LPUART1RST:
+      B_0x0: [0, does not reset the LPUART1 block (default after reset)]
+      B_0x1: [1, resets the LPUART1 block]
+    SPI6RST:
+      B_0x0: [0, does not reset the SPI6 block (default after reset)]
+      B_0x1: [1, resets the SPI6 block]
+    I2C4RST:
+      B_0x0: [0, does not reset the I2C4 block (default after reset)]
+      B_0x1: [1, resets the I2C4 block]
+    LPTIM2RST:
+      B_0x0: [0, does not reset the LPTIM2 block (default after reset)]
+      B_0x1: [1, resets the LPTIM2 block]
+    LPTIM3RST:
+      B_0x0: [0, does not reset the LPTIM3 block (default after reset)]
+      B_0x1: [1, resets the LPTIM3 block]
+    DAC2RST:
+      B_0x0: [0, does not reset the DAC2 (default after reset)]
+      B_0x1: [1, resets the DAC2]
+    COMP12RST:
+      B_0x0: [0, does not reset the COMP1 and 2 blocks (default after reset)]
+      B_0x1: [1, resets the COMP1 and 2 blocks]
+    VREFRST:
+      B_0x0: [0, does not reset the VREF block (default after reset)]
+      B_0x1: [1, resets the VREF block]
+    DTSRST:
+      B_0x0: [0, does not reset the DTS block (default after reset)]
+      B_0x1: [1, resets the DTS block]
+    DFSDM2RST:
+      B_0x0: [0, does not reset the DFSDM2 block (default after reset)]
+      B_0x1: [1, resets the DFSDM2 block]
+  RCC_SRDAMR:
+    BDMA2AMEN:
+      B_0x0: [0, BDMA2 and DMAMUX2 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, BDMA2 and DMAMUX2 peripheral clocks enabled when the SmartRun domain is in Run.]
+    GPIOAMEN:
+      B_0x0: [0, GPIO peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, GPIO peripheral clocks enabled when the SmartRun domain is in Run.]
+    LPUART1AMEN:
+      B_0x0: [0, LPUART1 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, LPUART1 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock is enabled when the SmartRun domain is in Stop mode.]
+    SPI6AMEN:
+      B_0x0: [0, SPI6 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, SPI6 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock is enabled when the SmartRun domain is in Stop mode.]
+    I2C4AMEN:
+      B_0x0: [0, I2C4 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, I2C4 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock is enabled when the SmartRun domain is in Stop mode.]
+    LPTIM2AMEN:
+      B_0x0: [0, LPTIM2 peripheral clocks are disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, LPTIM2 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock is enabled when the SmartRun domain is in Stop mode.]
+    LPTIM3AMEN:
+      B_0x0: [0, LPTIM3 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, LPTIM3 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock is enabled when the SmartRun domain is in Stop mode.]
+    DAC2AMEN:
+      B_0x0: [0, DAC2 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, DAC2 peripheral clocks enabled when the SmartRun domain is in Run.]
+    COMP12AMEN:
+      B_0x0: [0, COMP1 and 2 peripheral clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, COMP1 and 2 peripheral clocks enabled when the SmartRun domain is in Run.]
+    VREFAMEN:
+      B_0x0: [0, VREF clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, VREF clocks enabled when the SmartRun domain is in Run or Stop mode.]
+    RTCAMEN:
+      B_0x0: [0, RTC bus clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, RTC bus clocks enabled when the SmartRun domain is in Run.]
+    DTSAMEN:
+      B_0x0: [0, DTS clocks disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, DTS clocks enabled when the SmartRun domain is in Run.]
+    DFSDM2AMEN:
+      B_0x0: [0, DFSDM2 clock disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, DFSDM2 peripheral clocks enabled when the SmartRun domain is in Run mode. Kernel clock enabled when the SmartRun domain is in Stop mode.]
+    BKPRAMAMEN:
+      B_0x0: [0, Backup RAM clock disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, Backup RAM clock enabling is controlled by the SmartRun domain state.]
+    SRDSRAMAMEN:
+      B_0x0: [0, SRDSRAM clock disabled when the CPU is in CStop (default after reset)]
+      B_0x1: [1, SRDSRAM bus clock enabled when the SmartRun domain is in Run.]
+  RCC_CKGAENR:
+    AXICKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI interconnect matrix clock is enabled on bus transaction request.]
+    AHBCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master AHB clock is enabled on bus transaction request.]
+    CPUCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master CPU clock is enabled on bus transaction request.]
+    SDMMCCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master SDMMC clock is enabled on bus transaction request.]
+    MDMACKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master MDMA clock is enabled on bus transaction request.]
+    DMA2DCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master DMA2D clock is enabled on bus transaction request.]
+    LTDCCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master LTDC clock is enabled on bus transaction request.]
+    GFXMMUMCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix master GFXMMU clock is enabled on bus transaction request.]
+    AHB12CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave AHB12 clock is enabled on bus transaction request.]
+    AHB34CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave AHB34 clock is enabled on bus transaction request.]
+    FLIFTCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave FLIFT clock is enabled on bus transaction request.]
+    OCTOSPI2CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave OCTOSPI2 clock is enabled on bus transaction request.]
+    FMCCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave FMC clock is enabled on bus transaction request.]
+    OCTOSPI1CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave OCTOSPI1 clock is enabled on bus transaction request.]
+    AXIRAM1CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave SRAM1 clock is enabled on bus transaction request.]
+    AXIRAM2CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave SRAM2 clock is enabled on bus transaction request.]
+    AXIRAM3CKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave SRAM3 clock is enabled on bus transaction request.]
+    GFXMMUSCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled]
+      B_0x1: [1, The clock gating is enabled. The AXI matrix slave GFXMMU clock is enabled on bus transaction request.]
+    ECCRAMCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The ECC clock is enabled only during a RAM access.]
+    EXTICKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The clock is enabled after an event detection and stopped again when the event flag is cleared.]
+    JTAGCKG:
+      B_0x0: [0, The clock gating is disabled. The clock is always enabled.]
+      B_0x1: [1, The clock gating is enabled. The clock is disabled except if a JTAG connection has been detected]
+  RCC_RSR:
+    RMVF:
+      B_0x0: [0, reset of the reset flags not activated (default after power-on reset)]
+      B_0x1: [1, resets the value of the reset flags]
+    CDRSTF:
+      B_0x0: [0, no CPU domain power-switch reset occurred]
+      B_0x1: [1, CPU domain power-switch (ePOD2) reset occurred (default after power-on reset)]
+    BORRSTF:
+      B_0x0: [0, no BOR reset occurred]
+      B_0x1: [1, BOR reset occurred (default after power-on reset)]
+    PINRSTF:
+      B_0x0: [0, no reset from pin occurred]
+      B_0x1: [1, reset from pin occurred (default after power-on reset)]
+    PORRSTF:
+      B_0x0: [0, no POR/PDR reset occurred]
+      B_0x1: [1, POR/PDR reset occurred (default after power-on reset)]
+    SFTRSTF:
+      B_0x0: [0, no CPU software reset occurred (default after power-on reset)]
+      B_0x1: [1, a system reset has been generated by the CPU]
+    IWDGRSTF:
+      B_0x0: [0, no independent watchdog reset occurred (default after power-on reset)]
+      B_0x1: [1, independent watchdog reset occurred]
+    WWDGRSTF:
+      B_0x0: [0, no window watchdog reset occurred from WWDG (default after power-on reset)]
+      B_0x1: [1, window watchdog reset occurred from WWDG]
+    LPWRRSTF:
+      B_0x0: [0, no illegal reset occurred (default after power-on reset)]
+      B_0x1: [1, illegal CD DStop or CD DStop2 or CPU CStop reset occurred]
+  RCC_AHB3ENR:
+    MDMAEN:
+      B_0x0: [0, MDMA peripheral clock disabled (default after reset)]
+      B_0x1: [1, MDMA peripheral clock enabled]
+    DMA2DEN:
+      B_0x0: [0, DMA2D peripheral clock disabled (default after reset)]
+      B_0x1: [1, DMA2D peripheral clock enabled]
+    JPGDECEN:
+      B_0x0: [0, JPGDEC peripheral clock disabled (default after reset)]
+      B_0x1: [1, JPGDEC peripheral clock enabled]
+    FMCEN:
+      B_0x0: [0, FMC peripheral clocks disabled (default after reset)]
+      B_0x1: [1, FMC peripheral clocks enabled]
+    OCTOSPI1EN:
+      B_0x0: [0, OCTOSPI1 and OCTOSPI1 delay clock disabled (default after reset)]
+      B_0x1: [1, OCTOSPI1 and OCTOSPI1 delay clock enabled]
+    SDMMC1EN:
+      B_0x0: [0, SDMMC1 and SDMMC1 delay clock disabled (default after reset)]
+      B_0x1: [1, SDMMC1 and SDMMC1 delay clock enabled]
+    OCTOSPI2EN:
+      B_0x0: [0, OCTOSPI2 and OCTOSPI2 delay clock disabled (default after reset)]
+      B_0x1: [1, OCTOSPI2 OCTOSPI2 delay clock enabled]
+    OCTOSPIMEN:
+      B_0x0: [0, OCTOSPIM clock disabled (default after reset)]
+      B_0x1: [1, OCTOSPIM clock enabled]
+    OTFD1EN:
+      B_0x0: [0, OTFD1 clock disabled (default after reset)]
+      B_0x1: [1, OTFD1 clock enabled]
+    OTFD2EN:
+      B_0x0: [0, OTFD2 clock disabled (default after reset)]
+      B_0x1: [1, OTFD2 clock enabled]
+    GFXMMUEN:
+      B_0x0: [0, GFXMMU clock disabled (default after reset)]
+      B_0x1: [1, GFXMMU clock enabled]
+  RCC_AHB1ENR:
+    DMA1EN:
+      B_0x0: [0, DMA1 clock disabled (default after reset)]
+      B_0x1: [1, DMA1 clock enabled]
+    DMA2EN:
+      B_0x0: [0, DMA2 clock disabled (default after reset)]
+      B_0x1: [1, DMA2 clock enabled]
+    ADC12EN:
+      B_0x0: [0, ADC1 and 2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, ADC1 and 2 peripheral clocks enabled]
+    CRCEN:
+      B_0x0: [0, CRC peripheral clock disabled (default after reset)]
+      B_0x1: [1, CRC peripheral clock enabled]
+    USB1OTGEN:
+      B_0x0: [0, USB1OTG peripheral clocks disabled (default after reset)]
+      B_0x1: [1, USB1OTG peripheral clocks enabled]
+    USB1ULPIEN:
+      B_0x0: [0, USB1ULPI PHY clocks disabled (default after reset)]
+      B_0x1: [1, USB1ULPI PHY clocks enabled]
+  RCC_AHB2ENR:
+    DCMI_PSSIEN:
+      B_0x0: [0, DCMI/PSSI peripheral clock disabled (default after reset)]
+      B_0x1: [1, DCMI/PSSI peripheral clock enabled]
+    HSEMEN:
+      B_0x0: [0, HSEM peripheral clock disabled (default after reset)]
+      B_0x1: [1, HSEM peripheral clock enabled]
+    CRYPTEN:
+      B_0x0: [0, CRYPT peripheral clock disabled (default after reset)]
+      B_0x1: [1, CRYPT peripheral clock enabled]
+    HASHEN:
+      B_0x0: [0, HASH peripheral clock disabled (default after reset)]
+      B_0x1: [1, HASH peripheral clock enabled]
+    RNGEN:
+      B_0x0: [0, RNG peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "RNG peripheral clocks enabled:"]
+    SDMMC2EN:
+      B_0x0: [0, SDMMC2 and SDMMC2 delay clock disabled (default after reset)]
+      B_0x1: [1, SDMMC2 and SDMMC2 delay clock enabled]
+    BDMA1EN:
+      B_0x0: [0, DMA clock disabled (default after reset)]
+      B_0x1: [1, DMA clock enabled]
+    AHBSRAM1EN:
+      B_0x0: [0, AHBSRAM1 interface clock is disabled. (default after reset)]
+      B_0x1: [1, AHBSRAM1 interface clock is enabled.]
+    AHBSRAM2EN:
+      B_0x0: [0, AHBSRAM2 interface clock is disabled. (default after reset)]
+      B_0x1: [1, AHBSRAM2 interface clock is enabled.]
+  RCC_AHB4ENR:
+    GPIOAEN:
+      B_0x0: [0, GPIOA peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOA peripheral clock enabled]
+    GPIOBEN:
+      B_0x0: [0, GPIOB peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOB peripheral clock enabled]
+    GPIOCEN:
+      B_0x0: [0, GPIOC peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOC peripheral clock enabled]
+    GPIODEN:
+      B_0x0: [0, GPIOD peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOD peripheral clock enabled]
+    GPIOEEN:
+      B_0x0: [0, GPIOE peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOE peripheral clock enabled]
+    GPIOFEN:
+      B_0x0: [0, GPIOF peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOF peripheral clock enabled]
+    GPIOGEN:
+      B_0x0: [0, GPIOG peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOG peripheral clock enabled]
+    GPIOHEN:
+      B_0x0: [0, GPIOH peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOH peripheral clock enabled]
+    GPIOIEN:
+      B_0x0: [0, GPIOI peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOI peripheral clock enabled]
+    GPIOJEN:
+      B_0x0: [0, GPIOJ peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOJ peripheral clock enabled]
+    GPIOKEN:
+      B_0x0: [0, GPIOK peripheral clock disabled (default after reset)]
+      B_0x1: [1, GPIOK peripheral clock enabled]
+    BDMA2EN:
+      B_0x0: [0, BDMA2 and DMAMUX2 clock disabled (default after reset)]
+      B_0x1: [1, BDMA2 and DMAMUX2 clock enabled]
+    BKPRAMEN:
+      B_0x0: [0, Backup RAM clock disabled (default after reset)]
+      B_0x1: [1, Backup RAM clock enabled]
+    SRDSRAMEN:
+      B_0x0: [0, SRDSRAM clock disabled (default after reset)]
+      B_0x1: [1, SRDSRAM clock enabled]
+  RCC_APB3ENR:
+    LTDCEN:
+      B_0x0: [0, LTDC peripheral clock disabled (default after reset)]
+      B_0x1: [1, LTDC peripheral clock provided to the LTDC block]
+    WWDGEN:
+      B_0x0: [0, WWDG peripheral clock disable (default after reset)]
+      B_0x1: [1, WWDG peripheral clock enabled]
+  RCC_APB1LENR:
+    TIM2EN:
+      B_0x0: [0, TIM2 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM2 peripheral clock enabled]
+    TIM3EN:
+      B_0x0: [0, TIM3 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM3 peripheral clock enabled]
+    TIM4EN:
+      B_0x0: [0, TIM4 peripheral clock disable (default after reset)]
+      B_0x1: [1, TIM4 peripheral clock enabled]
+    TIM5EN:
+      B_0x0: [0, TIM5 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM5 peripheral clock enabled]
+    TIM6EN:
+      B_0x0: [0, TIM6 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM6 peripheral clock enabled]
+    TIM7EN:
+      B_0x0: [0, TIM7 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM7 peripheral clock enabled]
+    TIM12EN:
+      B_0x0: [0, TIM12 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM12 peripheral clock enabled]
+    TIM13EN:
+      B_0x0: [0, TIM13 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM13 peripheral clock enabled]
+    TIM14EN:
+      B_0x0: [0, TIM14 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM14 peripheral clock enabled]
+    LPTIM1EN:
+      B_0x0: [0, LPTIM1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, LPTIM1 peripheral clocks enabled]
+    SPI2EN:
+      B_0x0: [0, SPI2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, SPI2 peripheral clocks enabled]
+    SPI3EN:
+      B_0x0: [0, SPI3 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, SPI3 peripheral clocks enabled]
+    SPDIFRXEN:
+      B_0x0: [0, SPDIFRX peripheral clocks disabled (default after reset)]
+      B_0x1: [1, SPDIFRX peripheral clocks enabled]
+    USART2EN:
+      B_0x0: [0, USART2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, USART2 peripheral clocks enabled]
+    USART3EN:
+      B_0x0: [0, USART3 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, USART3 peripheral clocks enabled]
+    UART4EN:
+      B_0x0: [0, UART4 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, UART4 peripheral clocks enabled]
+    UART5EN:
+      B_0x0: [0, UART5 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, UART5 peripheral clocks enabled]
+    I2C1EN:
+      B_0x0: [0, I2C1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, I2C1 peripheral clocks enabled]
+    I2C2EN:
+      B_0x0: [0, I2C2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, I2C2 peripheral clocks enabled]
+    I2C3EN:
+      B_0x0: [0, I2C3 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, I2C3 peripheral clocks enabled]
+    CECEN:
+      B_0x0: [0, HDMI-CEC peripheral clock disabled (default after reset)]
+      B_0x1: [1, HDMI-CEC peripheral clock enabled]
+    DAC1EN:
+      B_0x0: [0, DAC1 peripheral clock disabled (default after reset)]
+      B_0x1: [1, DAC1 peripheral clock enabled]
+    UART7EN:
+      B_0x0: [0, UART7 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, UART7 peripheral clocks enabled]
+    UART8EN:
+      B_0x0: [0, UART8 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, UART8 peripheral clocks enabled]
+  RCC_APB1HENR:
+    CRSEN:
+      B_0x0: [0, CRS peripheral clock disabled (default after reset)]
+      B_0x1: [1, CRS peripheral clock enabled]
+    SWPMIEN:
+      B_0x0: [0, SWPMI peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "SWPMI peripheral clocks enabled:"]
+    OPAMPEN:
+      B_0x0: [0, OPAMP peripheral clock disabled (default after reset)]
+      B_0x1: [1, OPAMP peripheral clock enabled]
+    MDIOSEN:
+      B_0x0: [0, MDIOS peripheral clock disabled (default after reset)]
+      B_0x1: [1, MDIOS peripheral clock enabled]
+    FDCANEN:
+      B_0x0: [0, FDCAN peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "FDCAN peripheral clocks enabled:"]
+  RCC_APB2ENR:
+    TIM1EN:
+      B_0x0: [0, TIM1 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM1 peripheral clock enabled]
+    TIM8EN:
+      B_0x0: [0, TIM8 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM8 peripheral clock enabled]
+    USART1EN:
+      B_0x0: [0, USART1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "USART1 peripheral clocks enabled:"]
+    USART6EN:
+      B_0x0: [0, USART6 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "USART6 peripheral clocks enabled:"]
+    UART9EN:
+      B_0x0: [0, UART9 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "UART9 peripheral clocks enabled:"]
+    USART10EN:
+      B_0x0: [0, USART10 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "USART10 peripheral clocks enabled:"]
+    SPI1EN:
+      B_0x0: [0, SPI1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "SPI1 peripheral clocks enabled:"]
+    SPI4EN:
+      B_0x0: [0, SPI4 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "SPI4 peripheral clocks enabled:"]
+    TIM15EN:
+      B_0x0: [0, TIM15 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM15 peripheral clock enabled]
+    TIM16EN:
+      B_0x0: [0, TIM16 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM16 peripheral clock enabled]
+    TIM17EN:
+      B_0x0: [0, TIM17 peripheral clock disabled (default after reset)]
+      B_0x1: [1, TIM17 peripheral clock enabled]
+    SPI5EN:
+      B_0x0: [0, SPI5 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "SPI5 peripheral clocks enabled:"]
+    SAI1EN:
+      B_0x0: [0, SAI1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, "SAI1 peripheral clocks enabled:"]
+    SAI2EN:
+      B_0x0: [0, SAI2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, SAI2 peripheral clocks enabled]
+    DFSDM1EN:
+      B_0x0: [0, DFSDM1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, DFSDM1 peripheral clocks enabled]
+  RCC_APB4ENR:
+    SYSCFGEN:
+      B_0x0: [0, SYSCFG peripheral clock disabled (default after reset)]
+      B_0x1: [1, SYSCFG peripheral clock enabled]
+    LPUART1EN:
+      B_0x0: [0, LPUART1 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, LPUART1 peripheral clocks enabled]
+    SPI6EN:
+      B_0x0: [0, SPI6 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, SPI6 peripheral clocks enabled]
+    I2C4EN:
+      B_0x0: [0, I2C4 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, I2C4 peripheral clocks enabled]
+    LPTIM2EN:
+      B_0x0: [0, LPTIM2 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, LPTIM2 peripheral clocks enabled]
+    LPTIM3EN:
+      B_0x0: [0, LPTIM3 peripheral clocks disabled (default after reset)]
+      B_0x1: [1, LPTIM3 peripheral clocks enabled]
+    DAC2EN:
+      B_0x0: [0, DAC2 peripheral clock disabled (default after reset)]
+      B_0x1: [1, DAC2 peripheral clock enabled]
+    COMP12EN:
+      B_0x0: [0, COMP1 and 2 peripheral clock disabled (default after reset)]
+      B_0x1: [1, COMP1 and 2 peripheral clock enabled]
+    VREFEN:
+      B_0x0: [0, VREF peripheral clock disabled (default after reset)]
+      B_0x1: [1, VREF peripheral clock enabled]
+    RTCAPBEN:
+      B_0x0: [0, The register clock interface of the RTC (APB) is disabled]
+      B_0x1: [1, The register clock interface of the RTC (APB) is enabled (default after reset)]
+    DTSEN:
+      B_0x0: [0, DTS peripheral clock disabled (default after reset)]
+      B_0x1: [1, DTS peripheral clock enabled]
+    DFSDM2EN:
+      B_0x0: [0, DFSDM2peripheral peripheral clock disabled (default after reset)]
+      B_0x1: [1, DFSDM2peripheral peripheral clock enabled]
+  RCC_AHB3LPENR:
+    MDMALPEN:
+      B_0x0: [0, MDMA peripheral clock disabled during CSleep mode]
+      B_0x1: [1, MDMA peripheral clock enabled during CSleep mode (default after reset)]
+    DMA2DLPEN:
+      B_0x0: [0, DMA2D peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DMA2D peripheral clock enabled during CSleep mode (default after reset)]
+    JPGDECLPEN:
+      B_0x0: [0, JPGDEC peripheral clock disabled during CSleep mode]
+      B_0x1: [1, JPGDEC peripheral clock enabled during CSleep mode (default after reset)]
+    FLITFLPEN:
+      B_0x0: [0, FLITF clock disabled during CSleep mode]
+      B_0x1: [1, FLITF clock enabled during CSleep mode (default after reset)]
+    FMCLPEN:
+      B_0x0: [0, FMC peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "FMC peripheral clocks enabled during CSleep mode (default after reset):"]
+    OCTOSPI1LPEN:
+      B_0x0: [0, OCTOSPI1 and OCTOSPI1 delay clock disabled during CSleep mode]
+      B_0x1: [1, OCTOSPI1 and OCTOSPI1 delay clock enabled during CSleep mode (default after reset)]
+    SDMMC1LPEN:
+      B_0x0: [0, SDMMC1 and SDMMC1 delay clock disabled during CSleep mode]
+      B_0x1: [1, SDMMC1 and SDMMC1 delay clock enabled during CSleep mode (default after reset)]
+    OCTOSPI2LPEN:
+      B_0x0: [0, OCTOSPI2 and OCTOSPI2 delay clock disabled during CSleep mode]
+      B_0x1: [1, OCTOSPI2 and OCTOSPI2 delay clock enabled during CSleep mode (default after reset)]
+    OCTOSPIMLPEN:
+      B_0x0: [0, OCTOSPIM interface clock disabled during CSleep mode]
+      B_0x1: [1, OCTOSPIM interface clock enabled during CSleep mode (default after reset)]
+    OTFD1LPEN:
+      B_0x0: [0, OTFD1 interface clock disabled during CSleep mode]
+      B_0x1: [1, OTFD1 interface clock enabled during CSleep mode (default after reset)]
+    OTFD2LPEN:
+      B_0x0: [0, OTFD2 interface clock disabled during CSleep mode]
+      B_0x1: [1, OTFD2 interface clock enabled during CSleep mode (default after reset)]
+    GFXMMULPEN:
+      B_0x0: [0, GFXMMU interface clock disabled during CSleep mode]
+      B_0x1: [1, GFXMMU interface clock enabled during CSleep mode (default after reset)]
+    AXISRAM2LPEN:
+      B_0x0: [0, AXISRAM2 interface clock disabled during CSleep mode]
+      B_0x1: [1, AXISRAM2 interface clock enabled during CSleep mode (default after reset)]
+    AXISRAM3LPEN:
+      B_0x0: [0, AXISRAM3 interface clock disabled during CSleep mode]
+      B_0x1: [1, AXISRAM3 interface clock enabled during CSleep mode (default after reset)]
+    DTCM1LPEN:
+      B_0x0: [0, DTCM1 interface clock disabled during CSleep mode]
+      B_0x1: [1, DTCM1 interface clock enabled during CSleep mode (default after reset)]
+    DTCM2LPEN:
+      B_0x0: [0, DTCM2 interface clock disabled during CSleep mode]
+      B_0x1: [1, DTCM2 interface clock enabled during CSleep mode (default after reset)]
+    ITCMLPEN:
+      B_0x0: [0, ITCM interface clock disabled during CSleep mode]
+      B_0x1: [1, ITCM interface clock enabled during CSleep mode (default after reset)]
+    AXISRAM1LPEN:
+      B_0x0: [0, AXISRAM1 interface clock disabled during CSleep mode]
+      B_0x1: [1, AXISRAM1 interface clock enabled during CSleep mode (default after reset)]
+  RCC_AHB1LPENR:
+    DMA1LPEN:
+      B_0x0: [0, DMA1 clock disabled during CSleep mode]
+      B_0x1: [1, DMA1 clock enabled during CSleep mode (default after reset)]
+    DMA2LPEN:
+      B_0x0: [0, DMA2 clock disabled during CSleep mode]
+      B_0x1: [1, DMA2 clock enabled during CSleep mode (default after reset)]
+    ADC12LPEN:
+      B_0x0: [0, ADC1 and 2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, ADC1 and 2 peripheral clocks enabled during CSleep mode (default after reset)]
+    CRCLPEN:
+      B_0x0: [0, CRC peripheral clock disabled during CSleep mode]
+      B_0x1: [1, CRC peripheral clock enabled during CSleep mode (default after reset)]
+    USB1OTGLPEN:
+      B_0x0: [0, USB1OTG peripheral clock disabled during CSleep mode]
+      B_0x1: [1, USB1OTG peripheral clock enabled during CSleep mode (default after reset)]
+    USB1ULPILPEN:
+      B_0x0: [0, USB_PHY1 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, USB_PHY1 peripheral clock enabled during CSleep mode (default after reset)]
+  RCC_AHB2LPENR:
+    DCMI_PSSILPEN:
+      B_0x0: [0, DCMI/PSSI peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DCMI/PSSI peripheral clock enabled during CSleep mode (default after reset)]
+    CRYPTLPEN:
+      B_0x0: [0, CRYPT peripheral clock disabled during CSleep mode]
+      B_0x1: [1, CRYPT peripheral clock enabled during CSleep mode (default after reset)]
+    HASHLPEN:
+      B_0x0: [0, HASH peripheral clock disabled during CSleep mode]
+      B_0x1: [1, HASH peripheral clock enabled during CSleep mode (default after reset)]
+    RNGLPEN:
+      B_0x0: [0, RNG peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, RNG peripheral clock enabled during CSleep mode (default after reset)]
+    SDMMC2LPEN:
+      B_0x0: [0, SDMMC2 and SDMMC2 delay clock disabled during CSleep mode]
+      B_0x1: [1, SDMMC2 and SDMMC2 delay clock enabled during CSleep mode (default after reset)]
+    DFSDMDMALPEN:
+      B_0x0: [0, DFSDMDMA clock disabled during CSleep mode]
+      B_0x1: [1, DFSDMDMA clock enabled during CSleep mode (default after reset)]
+    AHBSRAM1LPEN:
+      B_0x0: [0, AHBSRAM1 clock disabled during CSleep mode]
+      B_0x1: [1, AHBSRAM1 clock enabled during CSleep mode (default after reset)]
+    AHBSRAM2LPEN:
+      B_0x0: [0, AHBSRAM2 clock disabled during CSleep mode]
+      B_0x1: [1, AHBSRAM2 clock enabled during CSleep mode (default after reset)]
+  RCC_AHB4LPENR:
+    GPIOALPEN:
+      B_0x0: [0, GPIOA peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOA peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOBLPEN:
+      B_0x0: [0, GPIOB peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOB peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOCLPEN:
+      B_0x0: [0, GPIOC peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOC peripheral clock enabled during CSleep mode (default after reset)]
+    GPIODLPEN:
+      B_0x0: [0, GPIOD peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOD peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOELPEN:
+      B_0x0: [0, GPIOE peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOE peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOFLPEN:
+      B_0x0: [0, GPIOF peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOF peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOGLPEN:
+      B_0x0: [0, GPIOG peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOG peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOHLPEN:
+      B_0x0: [0, GPIOH peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOH peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOILPEN:
+      B_0x0: [0, GPIOI peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOI peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOJLPEN:
+      B_0x0: [0, GPIOJ peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOJ peripheral clock enabled during CSleep mode (default after reset)]
+    GPIOKLPEN:
+      B_0x0: [0, GPIOK peripheral clock disabled during CSleep mode]
+      B_0x1: [1, GPIOK peripheral clock enabled during CSleep mode (default after reset)]
+    BDMA2LPEN:
+      B_0x0: [0, BDMA2 and DMAMUX2 clock disabled during CSleep mode]
+      B_0x1: [1, BDMA2 and DMAMUX2 clock enabled during CSleep mode (default after reset)]
+    BKPRAMLPEN:
+      B_0x0: [0, Backup RAM clock disabled during CSleep mode]
+      B_0x1: [1, Backup RAM clock enabled during CSleep mode (default after reset)]
+    SRDSRAMLPEN:
+      B_0x0: [0, SRDSRAM clock disabled during CSleep mode]
+      B_0x1: [1, SRDSRAM clock enabled during CSleep mode (default after reset)]
+  RCC_APB3LPENR:
+    LTDCLPEN:
+      B_0x0: [0, LTDC clock disabled during CSleep mode]
+      B_0x1: [1, LTDC clock provided to the LTDC during CSleep mode (default after reset)]
+    WWDGLPEN:
+      B_0x0: [0, WWDG clock disable during CSleep mode]
+      B_0x1: [1, WWDG clock enabled during CSleep mode (default after reset)]
+  RCC_APB1LLPENR:
+    TIM2LPEN:
+      B_0x0: [0, TIM2 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM2 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM3LPEN:
+      B_0x0: [0, TIM3 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM3 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM4LPEN:
+      B_0x0: [0, TIM4 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM4 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM5LPEN:
+      B_0x0: [0, TIM5 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM5 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM6LPEN:
+      B_0x0: [0, TIM6 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM6 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM7LPEN:
+      B_0x0: [0, TIM7 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM7 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM12LPEN:
+      B_0x0: [0, TIM12 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM12 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM13LPEN:
+      B_0x0: [0, TIM13 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM13 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM14LPEN:
+      B_0x0: [0, TIM14 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM14 peripheral clock enabled during CSleep mode (default after reset)]
+    LPTIM1LPEN:
+      B_0x0: [0, LPTIM1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, LPTIM1 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPI2LPEN:
+      B_0x0: [0, SPI2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI2 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPI3LPEN:
+      B_0x0: [0, SPI3 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI3 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPDIFRXLPEN:
+      B_0x0: [0, SPDIFRX peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPDIFRX peripheral clocks enabled during CSleep mode (default after reset)]
+    USART2LPEN:
+      B_0x0: [0, USART2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, USART2 peripheral clocks enabled during CSleep mode (default after reset)]
+    USART3LPEN:
+      B_0x0: [0, USART3 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "USART3 peripheral clocks enabled during CSleep mode (default after reset):"]
+    UART4LPEN:
+      B_0x0: [0, UART4 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, UART4 peripheral clocks enabled during CSleep mode (default after reset)]
+    UART5LPEN:
+      B_0x0: [0, UART5 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, UART5 peripheral clocks enabled during CSleep mode (default after reset)]
+    I2C1LPEN:
+      B_0x0: [0, I2C1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "I2C1 peripheral clocks enabled during CSleep mode (default after reset):"]
+    I2C2LPEN:
+      B_0x0: [0, I2C2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "I2C2 peripheral clocks enabled during CSleep mode (default after reset):"]
+    I2C3LPEN:
+      B_0x0: [0, I2C3 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "I2C3 peripheral clocks enabled during CSleep mode (default after reset):"]
+    CECLPEN:
+      B_0x0: [0, HDMI-CEC peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, HDMI-CEC peripheral clocks enabled during CSleep mode (default after reset)]
+    DAC1LPEN:
+      B_0x0: [0, DAC1 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DAC1 peripheral clock enabled during CSleep mode (default after reset)]
+    UART7LPEN:
+      B_0x0: [0, UART7 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "UART7 peripheral clocks enabled during CSleep mode (default after reset):"]
+    UART8LPEN:
+      B_0x0: [0, UART8 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, "UART8 peripheral clocks enabled during CSleep mode (default after reset):"]
+  RCC_APB1HLPENR:
+    CRSLPEN:
+      B_0x0: [0, CRS peripheral clock disabled during CSleep mode]
+      B_0x1: [1, CRS peripheral clock enabled during CSleep mode (default after reset)]
+    SWPMILPEN:
+      B_0x0: [0, SWPMI peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SWPMI peripheral clocks enabled during CSleep mode (default after reset)]
+    OPAMPLPEN:
+      B_0x0: [0, OPAMP peripheral clock disabled during CSleep mode]
+      B_0x1: [1, OPAMP peripheral clock enabled during CSleep mode (default after reset)]
+    MDIOSLPEN:
+      B_0x0: [0, MDIOS peripheral clock disabled during CSleep mode]
+      B_0x1: [1, MDIOS peripheral clock enabled during CSleep mode (default after reset)]
+    FDCANLPEN:
+      B_0x0: [0, FDCAN peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, FDCAN peripheral clocks enabled during CSleep mode (default after reset)]
+  RCC_APB2LPENR:
+    TIM1LPEN:
+      B_0x0: [0, TIM1 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM1 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM8LPEN:
+      B_0x0: [0, TIM8 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM8 peripheral clock enabled during CSleep mode (default after reset)]
+    USART1LPEN:
+      B_0x0: [0, USART1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, USART1 peripheral clocks enabled during CSleep mode (default after reset)]
+    USART6LPEN:
+      B_0x0: [0, USART6 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, USART6 peripheral clocks enabled during CSleep mode (default after reset)]
+    UART9LPEN:
+      B_0x0: [0, UART9 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, UART9 peripheral clocks enabled during CSleep mode (default after reset)]
+    USART10LPEN:
+      B_0x0: [0, USART10 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, USART10 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPI1LPEN:
+      B_0x0: [0, SPI1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI1 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPI4LPEN:
+      B_0x0: [0, SPI4 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI4 peripheral clocks enabled during CSleep mode (default after reset)]
+    TIM15LPEN:
+      B_0x0: [0, TIM15 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM15 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM16LPEN:
+      B_0x0: [0, TIM16 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM16 peripheral clock enabled during CSleep mode (default after reset)]
+    TIM17LPEN:
+      B_0x0: [0, TIM17 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, TIM17 peripheral clock enabled during CSleep mode (default after reset)]
+    SPI5LPEN:
+      B_0x0: [0, SPI5 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI5 peripheral clocks enabled during CSleep mode (default after reset)]
+    SAI1LPEN:
+      B_0x0: [0, SAI1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SAI1 peripheral clocks enabled during CSleep mode (default after reset)]
+    SAI2LPEN:
+      B_0x0: [0, SAI2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SAI2 peripheral clocks enabled during CSleep mode (default after reset)]
+    DFSDM1LPEN:
+      B_0x0: [0, DFSDM1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, DFSDM1 peripheral clocks enabled during CSleep mode (default after reset)]
+  RCC_APB4LPENR:
+    SYSCFGLPEN:
+      B_0x0: [0, SYSCFG peripheral clock disabled during CSleep mode]
+      B_0x1: [1, SYSCFG peripheral clock enabled during CSleep mode (default after reset)]
+    LPUART1LPEN:
+      B_0x0: [0, LPUART1 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, LPUART1 peripheral clocks enabled during CSleep mode (default after reset)]
+    SPI6LPEN:
+      B_0x0: [0, SPI6 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, SPI6 peripheral clocks enabled during CSleep mode (default after reset)]
+    I2C4LPEN:
+      B_0x0: [0, I2C4 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, I2C4 peripheral clocks enabled during CSleep mode (default after reset)]
+    LPTIM2LPEN:
+      B_0x0: [0, LPTIM2 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, LPTIM2 peripheral clocks enabled during CSleep mode (default after reset)]
+    LPTIM3LPEN:
+      B_0x0: [0, LPTIM3 peripheral clocks disabled during CSleep mode]
+      B_0x1: [1, LPTIM3 peripheral clocks enabled during CSleep mode (default after reset)]
+    DAC2LPEN:
+      B_0x0: [0, DAC2 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DAC2 peripheral clock enabled during CSleep mode (default after reset)]
+    COMP12LPEN:
+      B_0x0: [0, COMP1 and 2 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, COMP1 and 2 peripheral clock enabled during CSleep mode (default after reset)]
+    VREFLPEN:
+      B_0x0: [0, VREF peripheral clock disabled during CSleep mode]
+      B_0x1: [1, VREF peripheral clock enabled during CSleep mode (default after reset)]
+    RTCAPBLPEN:
+      B_0x0: [0, The register clock interface of the RTC (APB) is disabled during CSleep mode]
+      B_0x1: [1, The register clock interface of the RTC (APB) is enabled during CSleep mode (default after reset)]
+    DTSLPEN:
+      B_0x0: [0, DTS peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DTS peripheral clock enabled during CSleep mode (default after reset)]
+    DFSDM2LPEN:
+      B_0x0: [0, DFSDM2 peripheral clock disabled during CSleep mode]
+      B_0x1: [1, DFSDM2 peripheral clock enabled during CSleep mode (default after reset)]
