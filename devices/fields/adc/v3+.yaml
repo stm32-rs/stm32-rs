@@ -1,0 +1,103 @@
+# ADC as used on the L4/G4/WB family
+
+CR:
+  DEEPPWD:
+    NotDeepPowerDown: [0, ADC not in Deep-power down]
+    DeepPowerDown: [1, ADC in Deep-power-down (default reset state)]
+  ADVREGEN:
+    Disabled: [0, ADC Voltage regulator disabled]
+    Enabled: [1, ADC Voltage regulator enabled]
+
+CFGR:
+  JQDIS:
+    Enabled: [0, Injected Queue enabled]
+    Disabled: [1, Injected Queue disabled]
+  ALIGN:
+    Right: [0, Right alignment]
+    Left: [1, Left alignment]
+  RES:
+    Bits12: [0, 12-bit]
+    Bits10: [1, 10-bit]
+    Bits8: [2, 8-bit]
+    Bits6: [3, 6-bit]
+  "?~DFSDMCFG":
+    Disabled: [0, DFSDM mode disabled]
+    Enabled: [1, DFSDM mode enabled]
+  DMACFG:
+    OneShot: [0, DMA One Shot mode selected]
+    Circular: [1, DMA Circular mode selected]
+  DMAEN:
+    Disabled: [0, DMA disabled]
+    Enabled: [1, DMA enabled]
+
+CFGR2:
+  ROVSM:
+    ContinuedMode:
+      [
+        0,
+        "When injected conversions are triggered, the oversampling is temporary stopped and continued after the injection sequence (oversampling buffer is maintained during injected sequence)",
+      ]
+    ResumedMode:
+      [
+        1,
+        "When injected conversions are triggered, the current oversampling is aborted and resumed from start after the injection sequence (oversampling buffer is zeroed by injected sequence start)",
+      ]
+  "TOVS,TROVS":
+    Automatic: [0, All oversampled conversions for a channel are run following a trigger]
+    Triggered: [1, Each oversampled conversion for a channel needs a new trigger]
+  OVSS:
+    NoShift: [0, No right shift applied to oversampling result]
+    Shift1: [1, Shift oversampling result right by 1 bit]
+    Shift2: [2, Shift oversampling result right by 2 bits]
+    Shift3: [3, Shift oversampling result right by 3 bits]
+    Shift4: [4, Shift oversampling result right by 4 bits]
+    Shift5: [5, Shift oversampling result right by 5 bits]
+    Shift6: [6, Shift oversampling result right by 6 bits]
+    Shift7: [7, Shift oversampling result right by 7 bits]
+    Shift8: [8, Shift oversampling result right by 8 bits]
+  OVSR:
+    Ratio2: [0, Oversampling ratio of 2]
+    Ratio4: [1, Oversampling ratio of 4]
+    Ratio8: [2, Oversampling ratio of 8]
+    Ratio16: [3, Oversampling ratio of 16]
+    Ratio32: [4, Oversampling ratio of 32]
+    Ratio64: [5, Oversampling ratio of 64]
+    Ratio128: [6, Oversampling ratio of 128]
+    Ratio256: [7, Oversampling ratio of 256]
+  JOVSE:
+    Disabled: [0, Injected Oversampling disabled]
+    Enabled: [1, Injected Oversampling enabled]
+  ROVSE:
+    Disabled: [0, Regular Oversampling disabled]
+    Enabled: [1, Regular Oversampling enabled]
+
+SMPR?:
+  "SMP?,SMP??":
+    Cycles2_5: [0, 2.5 ADC clock cycles]
+    Cycles6_5: [1, 6.5 ADC clock cycles]
+    Cycles12_5: [2, 12.5 ADC clock cycles]
+    Cycles24_5: [3, 24.5 ADC clock cycles]
+    Cycles47_5: [4, 47.5 ADC clock cycles]
+    Cycles92_5: [5, 92.5 ADC clock cycles]
+    Cycles247_5: [6, 247.5 ADC clock cycles]
+    Cycles640_5: [7, 640.5 ADC clock cycles]
+TR1:
+  "[HL]T1": [0, 0xFFF]
+"TR[23]":
+  "[HL]T?": [0, 0xFF]
+
+DR:
+  RDATA: [0, 0xFFFF]
+
+OFR?:
+  OFFSET_EN:
+    Disabled: [0, Offset disabled]
+    Enabled: [1, Offset enabled]
+  OFFSET_CH: [0, 31]
+  OFFSET: [0, 0xFFF]
+
+JDR?:
+  JDATA: [0, 0xFFFF]
+
+CALFACT:
+  CALFACT_[DS]: [0, 0x7F]

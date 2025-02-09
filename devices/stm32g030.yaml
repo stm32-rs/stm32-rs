@@ -14,8 +14,8 @@ _clear_fields: "*"
 ADC:
   _strip: ADC_
   _include:
-    - fields/adc/c0_g0_wl.yaml
-    - collect/adc/c0_g0_wl.yaml
+    - fields/adc/v5.yaml
+    - collect/adc/v5.yaml
   _modify:
     CHSELR_0:
       name: CHSELR0

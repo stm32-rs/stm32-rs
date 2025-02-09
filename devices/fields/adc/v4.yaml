@@ -1,7 +1,6 @@
-# ADC v3 with H7 specific fields
+# 16-bit ADC as used on the H7 family
 
 _include:
-  - ../../patches/adc/split.yaml
   - adc_v3.yaml
 CR:
   ADVREGEN:
@@ -103,6 +102,10 @@ JSQR:
     LPTIM1_OUT: [18, LPTIM1_OUT event]
     LPTIM2_OUT: [19, LPTIM2_OUT event]
     LPTIM3_OUT: [20, LPTIM3_OUT event]
+
+DR:
+  RDATA: [0, 0xFFFFFFFF]
+
 OFR?:
   SSATE:
     Disabled:
@@ -110,11 +113,15 @@ OFR?:
     Enabled: [1, Offset is subtracted and result is saturated to maintain result size]
   OFFSET_CH: [0, 31]
   OFFSET: [0, 0x3FFFFFF]
+
+JDR?:
+  JDATA: [0, 0xFFFFFFFF]
+
 PCSEL:
   PCSEL*:
     NotPreselected: [0, Input channel x is not pre-selected]
     Preselected: [1, Pre-select input channel x]
 CALFACT:
-  CALFACT_?: [0, 2047]
+  CALFACT_[DS]: [0, 2047]
 CALFACT2:
   LINCALFACT: [0, 0x3FFFFFFF]

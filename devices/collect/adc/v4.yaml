@@ -1,0 +1,12 @@
+# ADC as used on the H7 family
+
+_include: v3.yaml
+
+CFGR2:
+  _array:
+    RSHIFT?:
+      description: Right-shift data after Offset %s correction
+CR:
+  _array:
+    LINCALRDYW?:
+      description: Linearity calibration ready Word %s

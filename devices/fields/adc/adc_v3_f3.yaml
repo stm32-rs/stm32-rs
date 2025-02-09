@@ -32,8 +32,8 @@ CFGR:
     Bits8: [2, 8-bit]
     Bits6: [3, 6-bit]
   DMACFG:
-    OneShot: [0, DMA One Shot Mode selected]
-    Circular: [1, DMA circular mode selected]
+    OneShot: [0, DMA One Shot mode selected]
+    Circular: [1, DMA Circular mode selected]
   DMAEN:
     Disabled: [0, DMA disabled]
     Enabled: [1, DMA enabled]
@@ -67,11 +67,19 @@ TR1:
   "[HL]T1": [0, 0xFFF]
 "TR[23]":
   "[HL]T?": [0, 0xFF]
+
+DR:
+  RDATA: [0, 0xFFFF]
+
 OFR?:
   OFFSET_EN:
     Disabled: [0, Offset disabled]
     Enabled: [1, Offset enabled]
   OFFSET_CH: [0, 31]
   OFFSET: [0, 0xFFF]
+
+JDR?:
+  JDATA: [0, 0xFFFF]
+
 CALFACT:
-  CALFACT_?: [0, 0x7F]
+  CALFACT_[DS]: [0, 0x7F]

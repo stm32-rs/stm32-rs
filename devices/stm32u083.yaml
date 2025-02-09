@@ -10,6 +10,14 @@ _modify:
 
 ADC:
   _strip: ADC_
+  _modify:
+    CHSELR:
+      name: CHSELR0
+    CHSELR_ALTERNATE:
+      name: CHSELR1
+  _include:
+    - fields/adc/v5.yaml
+    - collect/adc/v5.yaml
 
 AES:
   _strip: AES_

@@ -20,16 +20,17 @@ ADC1:
     - fields/adc/adc_u5.yaml
     - fields/adc/adc_u5_12.yaml
     - collect/adc/v3.yaml
+    - collect/adc/pcsel.yaml
 
 ADC4:
   _strip: ADC_
   _include:
     - patches/adc/u5_access.yaml
-    - fields/adc/adc_u5.yaml
     - patches/adc/u5_vsensesel.yaml
+    - fields/adc/adc_u5.yaml
     - fields/adc/adc_u5_4.yaml
     - fields/adc/adc_u5_common.yaml
-    - collect/adc/c0_g0_wl.yaml
+    - collect/adc/v5.yaml
   _modify:
     PWR:
       name: PWRR
