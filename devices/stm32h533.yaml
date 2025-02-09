@@ -58,7 +58,8 @@ ADC1:
   _include:
     - patches/adc/split.yaml
     - fields/adc/adc_v3.yaml
-    - fields/adc/adc_h5.yaml
+    - fields/adc/v3+.yaml
+    - fields/adc/sampling.yaml
     - collect/adc/v3.yaml
   CFGR:
     _merge: EXTSEL*

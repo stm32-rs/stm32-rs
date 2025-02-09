@@ -39,6 +39,12 @@ ADC_Common:
         access: read-write
 
 ADC1:
+  CFGR:
+    _add:
+      JQDIS:
+        description: Injected Queue disable
+        bitOffset: 31
+        bitWidth: 1
   _include:
     - patches/adc/split.yaml
     - patches/adc/offset_en.yaml

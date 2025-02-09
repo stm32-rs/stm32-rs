@@ -27,14 +27,18 @@ ADC3_Common:
 
 ADC3:
   _include:
+    - patches/adc/h7_reset.yaml
+    - patches/adc/split_pcsel.yaml
     - patches/adc/jdata.yaml
     - patches/adc/offset.yaml
     - patches/adc/h7.yaml
     - patches/adc/h7_2.yaml
     - patches/adc/h7_boost_rev_v.yaml
+    - patches/adc/split.yaml
     - fields/adc/adc_h7_revision_v.yaml
-    - fields/adc/adc_v3_h7.yaml
-    - collect/adc/v3.yaml
+    - fields/adc/v4.yaml
+    - collect/adc/v4.yaml
+    - collect/adc/pcsel.yaml
   SQR?:
     SQ*: [0, 19]
 
