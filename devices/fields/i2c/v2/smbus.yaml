@@ -1,0 +1,48 @@
+CR1:
+  PECEN:
+    Disabled: [0, PEC calculation disabled]
+    Enabled: [1, PEC calculation enabled]
+  ALERTEN:
+    Disabled:
+      [
+        0,
+        "In device mode (SMBHEN=Disabled) Releases SMBA pin high and Alert Response Address Header disabled (0001100x) followed by NACK. In host mode (SMBHEN=Enabled) SMBus Alert pin (SMBA) not supported",
+      ]
+    Enabled:
+      [
+        1,
+        "In device mode (SMBHEN=Disabled) Drives SMBA pin low and Alert Response Address Header enabled (0001100x) followed by ACK.In host mode (SMBHEN=Enabled) SMBus Alert pin (SMBA) supported",
+      ]
+  SMBDEN:
+    Disabled: [0, Device default address disabled. Address 0b1100001x is NACKed]
+    Enabled: [1, Device default address enabled. Address 0b1100001x is ACKed]
+  SMBHEN:
+    Disabled: [0, Host address disabled. Address 0b0001000x is NACKed]
+    Enabled: [1, Host address enabled. Address 0b0001000x is ACKed]
+
+CR2:
+  PECBYTE:
+    _read:
+      NoPec: [0, No PEC transfer]
+      Pec: [1, PEC transmission/reception is requested]
+    _W1S:
+      Pec: [1, PEC transmission/reception is requested]
+
+ISR:
+  ALERT:
+    NoAlert: [0, SMBA alert is not detected]
+    Alert: [1, SMBA alert event is detected on SMBA pin]
+  TIMEOUT:
+    NoTimeout: [0, No timeout occured]
+    Timeout: [1, Timeout occured]
+  PECERR:
+    Match: [0, Received PEC does match with PEC register]
+    NoMatch: [1, Received PEC does not match with PEC register]
+
+ICR:
+  ALERTCF:
+    Clear: [1, Clears the ALERT flag in ISR register]
+  TIMOUTCF:
+    Clear: [1, Clears the TIMOUT flag in ISR register]
+  PECCF:
+    Clear: [1, Clears the PEC flag in ISR register]

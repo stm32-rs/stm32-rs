@@ -53,6 +53,8 @@ GPIO[BCDF]:
 
 I2C1:
   _strip: I2C_
+  _include:
+    - fields/i2c/v2.yaml
 
 IWDG:
   _strip: IWDG_
