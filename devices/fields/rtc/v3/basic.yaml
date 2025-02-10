@@ -1,0 +1,208 @@
+TR:
+  PM:
+    AM: [0, AM or 24-hour format]
+    PM: [1, PM]
+  HT: [0, 3]
+  HU: [0, 15]
+  MNT: [0, 7]
+  MNU: [0, 15]
+  ST: [0, 7]
+  SU: [0, 15]
+DR:
+  YT: [0, 15]
+  YU: [0, 15]
+  WDU: [1, 7]
+  MT: [0, 1]
+  MU: [0, 15]
+  DT: [0, 3]
+  DU: [0, 15]
+
+SSR:
+  SS: [0, 65535]
+
+ICSR:
+  RECALPF:
+    _read:
+      Pending:
+        [
+          1,
+          "The RECALPF status flag is automatically set to 1 when software writes to the RTC_CALR register, indicating that the RTC_CALR register is blocked. When the new calibration settings are taken into account, this bit returns to 0",
+        ]
+  INIT:
+    FreeRunningMode: [0, Free running mode]
+    InitMode:
+      [
+        1,
+        "Initialization mode used to program time and date register (RTC_TR and RTC_DR), and prescaler register (RTC_PRER). Counters are stopped and start counting from the new value when INIT is reset.",
+      ]
+  INITF:
+    _read:
+      NotAllowed: [0, Calendar registers update is not allowed]
+      Allowed: [1, Calendar registers update is allowed]
+  RSF:
+    _read:
+      NotSynced: [0, Calendar shadow registers not yet synchronized]
+      Synced: [1, Calendar shadow registers synchronized]
+    _W0C:
+      Clear: [0, This flag is cleared by software by writing 0]
+  INITS:
+    _read:
+      NotInitalized: [0, Calendar has not been initialized]
+      Initalized: [1, Calendar has been initialized]
+  SHPF:
+    _read:
+      NoShiftPending: [0, No shift operation is pending]
+      ShiftPending: [1, A shift operation is pending]
+
+PRER:
+  PREDIV_A: [0, 0x7F]
+  PREDIV_S: [0, 0x7FFF]
+
+CR:
+  OUT2EN:
+    Disabled: [0, RTC output 2 disable]
+    Enabled: [1, RTC output 2 enable]
+  TAMPALRM_TYPE:
+    PushPull: [0, TAMPALRM is push-pull output]
+    OpenDrain: [1, TAMPALRM is open-drain output]
+  TAMPALRM_PU:
+    NoPullUp: [0, No pull-up is applied on TAMPALRM output]
+    PullUp: [1, A pull-up is applied on TAMPALRM output]
+  COE:
+    Disabled: [0, Calibration output disabled]
+    Enabled: [1, Calibration output enabled]
+  OSEL:
+    Disabled: [0, Output disabled]
+    AlarmA: [1, Alarm A output enabled]
+    AlarmB: [2, Alarm B output enabled]
+    Wakeup: [3, Wakeup output enabled]
+  POL:
+    High: [0, "The pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
+    Low: [1, "The pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL[1:0])"]
+  COSEL:
+    CalFreq_512Hz: [0, Calibration output is 512 Hz (with default prescaler setting)]
+    CalFreq_1Hz: [1, Calibration output is 1 Hz (with default prescaler setting)]
+  BKP:
+    DSTNotChanged: [0, Daylight Saving Time change has not been performed]
+    DSTChanged: [1, Daylight Saving Time change has been performed]
+  SUB1H:
+    _write:
+      Sub1:
+        [1, Subtracts 1 hour to the current time. This can be used for winter time change outside initialization mode]
+  ADD1H:
+    _write:
+      Add1: [1, Adds 1 hour to the current time. This can be used for summer time change outside initialization mode]
+  TSIE:
+    Disabled: [0, Time-stamp Interrupt disabled]
+    Enabled: [1, Time-stamp Interrupt enabled]
+  ALR[AB]IE:
+    Disabled: [0, Alarm Interrupt disabled]
+    Enabled: [1, Alarm Interrupt enabled]
+  TSE:
+    Disabled: [0, Timestamp disabled]
+    Enabled: [1, Timestamp enabled]
+  ALR[AB]E:
+    Disabled: [0, Alarm disabled]
+    Enabled: [1, Alarm enabled]
+  FMT:
+    TwentyFourHour: [0, 24 hour/day format]
+    AmPm: [1, AM/PM hour format]
+  BYPSHAD:
+    ShadowReg:
+      [
+        0,
+        "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken from the shadow registers, which are updated once every two RTCCLK cycles",
+      ]
+    BypassShadowReg:
+      [
+        1,
+        "Calendar values (when reading from RTC_SSR, RTC_TR, and RTC_DR) are taken directly from the calendar counters",
+      ]
+  REFCKON:
+    Disabled: [0, RTC_REFIN detection disabled]
+    Enabled: [1, RTC_REFIN detection enabled]
+  TSEDGE:
+    RisingEdge: [0, RTC_TS input rising edge generates a time-stamp event]
+    FallingEdge: [1, RTC_TS input falling edge generates a time-stamp event]
+
+WPR:
+  KEY:
+    Deactivate1: [0xCA, Key 1]
+    Deactivate2: [0x53, Key 2]
+    Activate: [0x0, Activate write protection (any value that is not the keys)]
+
+CALR:
+  CALP:
+    NoChange: [0, No RTCCLK pulses are added]
+    IncreaseFreq: [1, "One RTCCLK pulse is effectively inserted every 2^11 pulses (frequency increased by 488.5 ppm)"]
+  CALW8:
+    EightSeconds: [1, "When CALW8 is set to ‘1’, the 8-second calibration cycle period is selected"]
+  CALW16:
+    SixteenSeconds:
+      [
+        1,
+        "When CALW16 is set to ‘1’, the 16-second calibration cycle period is selected.This bit must not be set to ‘1’ if CALW8=1",
+      ]
+
+  CALM: [0, 511]
+
+SHIFTR:
+  ADD1S:
+    _write:
+      Add1: [1, Add one second to the clock/calendar]
+  SUBFS: [0, 32767]
+
+TSTR:
+  PM:
+    AM: [0, AM or 24-hour format]
+    PM: [1, PM]
+
+ALRM[AB]R:
+  MSK*:
+    Mask: [0, Alarm set if the date/day match]
+    NotMask: [1, "Date/day don’t care in Alarm comparison"]
+  WDSEL:
+    DateUnits: [0, "DU[3:0] represents the date units"]
+    WeekDay: [1, "DU[3:0] represents the week day. DT[1:0] is don’t care."]
+  DT: [0, 3]
+  DU: [0, 15]
+  PM:
+    AM: [0, AM or 24-hour format]
+    PM: [1, PM]
+  HT: [0, 3]
+  HU: [0, 15]
+  MNT: [0, 7]
+  MNU: [0, 15]
+  ST: [0, 7]
+  SU: [0, 15]
+
+ALRM?SSR:
+  SS: [0, 0x7FFF]
+
+SR:
+  TSOVF:
+    Overflow: [1, This flag is set by hardware when a time-stamp event occurs while TSF is already set]
+  TSF:
+    TimestampEvent: [1, This flag is set by hardware when a time-stamp event occurs]
+  ALR[AB]F:
+    Match:
+      [
+        1,
+        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm register (RTC_ALRxBR),
+      ]
+
+MISR:
+  TSOVMF:
+    Overflow: [1, This flag is set by hardware when a time-stamp event occurs while TSF is already set]
+  TSMF:
+    TimestampEvent: [1, This flag is set by hardware when a time-stamp event occurs]
+  ALR[AB]MF:
+    Match:
+      [
+        1,
+        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm register (RTC_ALRMxR),
+      ]
+
+SCR:
+  "*":
+    Clear: [1, Clear interrupt flag]

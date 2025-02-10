@@ -85,7 +85,7 @@ RTC:
   _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
-    #- fields/rtc/v3/common.yaml
+    - fields/rtc/v3/basic.yaml
     #- collect/rtc/alarm.yaml
 
 SPI1:
