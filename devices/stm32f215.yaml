@@ -181,7 +181,7 @@ RTC:
     TSDR: DR
   _include:
     - patches/rtc/rtc_cr.yaml
-    - fields/rtc/v2_basic_wakeup.yaml
+    - fields/rtc/v2/basic_wakeup.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
