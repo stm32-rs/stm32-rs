@@ -166,8 +166,8 @@ RTC:
   _include:
     - patches/rtc/l0.yaml
     - patches/rtc/alarm.yaml
-    - fields/rtc/rtc_common.yaml
-    - fields/rtc/rtc_l0.yaml
+    - fields/rtc/v2/common.yaml
+    - fields/rtc/v2/l0.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 

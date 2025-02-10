@@ -320,8 +320,8 @@ RTC:
   _strip: RTC_
   _include:
     - patches/rtc/alarm.yaml
-    - fields/rtc/rtc_common.yaml
-    - fields/rtc/rtc_h7.yaml
+    - fields/rtc/v2/common.yaml
+    - fields/rtc/v2/h7.yaml
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 

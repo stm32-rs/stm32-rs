@@ -1,0 +1,22 @@
+CR:
+  TAMPOE:
+    Disabled: [0, The tamper flag is not routed on TAMPALRM]
+    Enabled:
+      [
+        1,
+        "The tamper flag is routed on TAMPALRM, combined with the signal provided by OSEL and with the polarity provided by POL",
+      ]
+  TAMPTS:
+    Disabled: [0, Tamper detection event does not cause a RTC timestamp to be saved]
+    Enabled: [1, Save RTC timestamp on tamper detection event]
+  ITSE:
+    Disabled: [0, Internal event timestamp disabled]
+    Enabled: [1, Internal event timestamp enabled]
+
+SR:
+  ITSF:
+    TimestampEvent: [1, This flag is set by hardware when a timestamp on the internal event occurs]
+
+MISR:
+  ITSMF:
+    TimestampEvent: [1, This flag is set by hardware when a timestamp on the internal event occurs]

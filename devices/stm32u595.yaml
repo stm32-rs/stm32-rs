@@ -196,7 +196,7 @@ RNG: {}
 RTC:
   _include:
     - patches/rtc/alarm.yaml
-    - fields/rtc/v3.yaml
+    - fields/rtc/v3/common.yaml
     - collect/rtc/alarm.yaml
 
 SAI1: {}
