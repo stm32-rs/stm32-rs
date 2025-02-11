@@ -202,8 +202,16 @@ GPIO[BCJK]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
-  _strip: HSEM_
+  _strip:
+    - HSEM_
+    - C1
+  CR:
+    _modify:
+      COREID:
+        name: MASTERID
   _include:
+    - patches/hsem/isem.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:

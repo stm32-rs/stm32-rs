@@ -173,7 +173,13 @@ HASH:
 
 HSEM:
   _strip: HSEM_
+  CR:
+    _modify:
+      MASTERID:
+        bitWidth: 4
   _include:
+    - patches/hsem/isem.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:
