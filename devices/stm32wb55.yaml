@@ -10,6 +10,8 @@ _modify:
     groupName: SYSCFG
   AES?:
     groupName: AES
+  HSEM:
+    groupName: HSEM
 
 _derive:
   DMA2: DMA1
@@ -133,7 +135,25 @@ HSEM:
       name: C1IER
     C2IER0:
       name: C2IER
+  C[12]IER:
+    _split:
+      ISEm:
+        name: ISE%s
+  C[12]ICR:
+    _split:
+      ISCm:
+        name: ISC%s
+  C[12]ISR:
+    _split:
+      ISFm:
+        name: ISF%s
+  C[12]MISR:
+    _split:
+      MISFm:
+        name: MISF%s
   _include:
+    - fields/hsem/common.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:

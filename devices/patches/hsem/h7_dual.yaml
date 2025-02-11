@@ -1,20 +1,8 @@
-C1IER:
+C[12]IER:
   _split: ISE
-  _array:
-    ISE*:
-      description: Interrupt(1) semaphore %s enable bit
-C1ICR:
+C[12]ICR:
   _split: ISC
-  _array:
-    ISC*:
-      description: Interrupt(1) semaphore %s clear
-C1ISR:
+C[12]ISR:
   _split: ISF
-  _array:
-    ISF*:
-      description: Interrupt(1) semaphore %s status bit
-C1MISR:
+C[12]MISR:
   _split: MISF
-  _array:
-    MISF*:
-      description: masked interrupt(1) semaphore %s status bit

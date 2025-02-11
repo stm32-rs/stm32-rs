@@ -194,8 +194,14 @@ GPIO[BCJK]:
   _include: collect/gpio/v2_derive.yaml
 
 HSEM:
-  _strip: HSEM_
+  _strip:
+    - HSEM_
+    - C1
   _include:
+    - patches/hsem/isem.yaml
+    - patches/hsem/h7_single.yaml
+    - fields/hsem/common.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:

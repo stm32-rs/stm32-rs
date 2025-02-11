@@ -171,6 +171,8 @@ HSEM:
   _strip: HSEM_
   _include:
     - patches/hsem/h7_dual.yaml
+    - fields/hsem/common.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:

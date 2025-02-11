@@ -1,0 +1,16 @@
+IER,C[12]IER:
+  _array:
+    "ISE[0-9]*":
+      description: Interrupt semaphore %s enable bit
+ICR,C[12]ICR:
+  _array:
+    "ISC[0-9]*":
+      description: Interrupt semaphore %s clear bit
+ISR,C[12]ISR:
+  _array:
+    "ISF[0-9]*":
+      description: Interrupt semaphore %s status bit before enable (mask)
+MISR,C[12]MISR:
+  _array:
+    "MISF[0-9]*":
+      description: Masked interrupt semaphore %s status bit after enable (mask)

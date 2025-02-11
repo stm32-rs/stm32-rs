@@ -127,29 +127,9 @@ GPIO[B]:
 
 HSEM:
   _strip: HSEM_
-  _modify:
-    IER:
-      name: C1IER
-    ICR:
-      name: C1ICR
-    ISR:
-      name: C1ISR
-    MISR:
-      name: C1MISR
-  "R[0-9],R1[0-5]":
-    _modify:
-      MASTERID:
-        name: COREID
-  "RLR[0-9],RLR1[0-5]":
-    _modify:
-      MASTERID:
-        name: COREID
-  CR:
-    _modify:
-      MASTERID:
-        name: COREID
   _include:
-    - fields/hsem/hsem_wl.yaml
+    - fields/hsem/common.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:

@@ -165,6 +165,10 @@ GPIO[BC]:
 
 HSEM:
   _include:
+    - patches/hsem/isem.yaml
+    - patches/hsem/h7_single.yaml
+    - fields/hsem/common.yaml
+    - collect/hsem/fields.yaml
     - collect/hsem/r.yaml
 
 I2C1:
