@@ -53,17 +53,10 @@ ICSR:
     _read:
       NoShiftPending: [0, No shift operation is pending]
       ShiftPending: [1, A shift operation is pending]
-  WUTWF:
-    _read:
-      UpdateNotAllowed: [0, Wakeup timer configuration update not allowed]
-      UpdateAllowed: [1, Wakeup timer configuration update allowed]
 
 PRER:
   PREDIV_A: [0, 0x7F]
   PREDIV_S: [0, 0x7FFF]
-
-WUTR:
-  WUT: [0, 0xFFFF]
 
 CR:
   OUT2EN:
@@ -75,19 +68,6 @@ CR:
   TAMPALRM_PU:
     NoPullUp: [0, No pull-up is applied on TAMPALRM output]
     PullUp: [1, A pull-up is applied on TAMPALRM output]
-  TAMPOE:
-    Disabled: [0, The tamper flag is not routed on TAMPALRM]
-    Enabled:
-      [
-        1,
-        "The tamper flag is routed on TAMPALRM, combined with the signal provided by OSEL and with the polarity provided by POL",
-      ]
-  TAMPTS:
-    Disabled: [0, Tamper detection event does not cause a RTC timestamp to be saved]
-    Enabled: [1, Save RTC timestamp on tamper detection event]
-  ITSE:
-    Disabled: [0, Internal event timestamp disabled]
-    Enabled: [1, Internal event timestamp enabled]
   COE:
     Disabled: [0, Calibration output disabled]
     Enabled: [1, Calibration output enabled]
@@ -115,27 +95,15 @@ CR:
   TSIE:
     Disabled: [0, Time-stamp Interrupt disabled]
     Enabled: [1, Time-stamp Interrupt enabled]
-  WUTIE:
-    Disabled: [0, Wakeup timer interrupt disabled]
-    Enabled: [1, Wakeup timer interrupt enabled]
-  ALRBIE:
-    Disabled: [0, Alarm B Interrupt disabled]
-    Enabled: [1, Alarm B Interrupt enabled]
-  ALRAIE:
-    Disabled: [0, Alarm A interrupt disabled]
-    Enabled: [1, Alarm A interrupt enabled]
+  ALR[AB]IE:
+    Disabled: [0, Alarm Interrupt disabled]
+    Enabled: [1, Alarm Interrupt enabled]
   TSE:
     Disabled: [0, Timestamp disabled]
     Enabled: [1, Timestamp enabled]
-  WUTE:
-    Disabled: [0, Wakeup timer disabled]
-    Enabled: [1, Wakeup timer enabled]
-  ALRBE:
-    Disabled: [0, Alarm B disabled]
-    Enabled: [1, Alarm B enabled]
-  ALRAE:
-    Disabled: [0, Alarm A disabled]
-    Enabled: [1, Alarm A enabled]
+  ALR[AB]E:
+    Disabled: [0, Alarm disabled]
+    Enabled: [1, Alarm enabled]
   FMT:
     TwentyFourHour: [0, 24 hour/day format]
     AmPm: [1, AM/PM hour format]
@@ -156,13 +124,6 @@ CR:
   TSEDGE:
     RisingEdge: [0, RTC_TS input rising edge generates a time-stamp event]
     FallingEdge: [1, RTC_TS input falling edge generates a time-stamp event]
-  WUCKSEL:
-    Div16: [0, RTC/16 clock is selected]
-    Div8: [1, RTC/8 clock is selected]
-    Div4: [2, RTC/4 clock is selected]
-    Div2: [3, RTC/2 clock is selected]
-    ClockSpare: [4, ck_spre (usually 1 Hz) clock is selected]
-    ClockSpareWithOffset: [6, "ck_spre (usually 1 Hz) clock is selected and 2^16 is added to the WUT counter value"]
 
 WPR:
   KEY:
@@ -196,7 +157,7 @@ TSTR:
     AM: [0, AM or 24-hour format]
     PM: [1, PM]
 
-ALRM?R:
+ALRM[AB]R:
   MSK*:
     Mask: [0, Alarm set if the date/day match]
     NotMask: [1, "Date/day don’t care in Alarm comparison"]
@@ -219,49 +180,29 @@ ALRM?SSR:
   SS: [0, 0x7FFF]
 
 SR:
-  ITSF:
-    TimestampEvent: [1, This flag is set by hardware when a timestamp on the internal event occurs]
   TSOVF:
     Overflow: [1, This flag is set by hardware when a time-stamp event occurs while TSF is already set]
   TSF:
     TimestampEvent: [1, This flag is set by hardware when a time-stamp event occurs]
-  WUTF:
-    Zero: [1, This flag is set by hardware when the wakeup auto-reload counter reaches 0]
-  ALRBF:
+  ALR[AB]F:
     Match:
       [
         1,
-        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm B register (RTC_ALRMBR),
-      ]
-  ALRAF:
-    Match:
-      [
-        1,
-        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm A register (RTC_ALRMAR),
+        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm register (RTC_ALRxBR),
       ]
 
 MISR:
-  ITSMF:
-    TimestampEvent: [1, This flag is set by hardware when a timestamp on the internal event occurs]
   TSOVMF:
     Overflow: [1, This flag is set by hardware when a time-stamp event occurs while TSF is already set]
   TSMF:
     TimestampEvent: [1, This flag is set by hardware when a time-stamp event occurs]
-  WUTMF:
-    Zero: [1, This flag is set by hardware when the wakeup auto-reload counter reaches 0]
-  ALRBMF:
+  ALR[AB]MF:
     Match:
       [
         1,
-        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm B register (RTC_ALRMBR),
-      ]
-  ALRAMF:
-    Match:
-      [
-        1,
-        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm A register (RTC_ALRMAR),
+        This flag is set by hardware when the time/date registers (RTC_TR and RTC_DR) match the Alarm register (RTC_ALRMxR),
       ]
 
 SCR:
   "*":
-    Clear: [1, Clear interrupt flag by writing 1]
+    Clear: [1, Clear interrupt flag]
