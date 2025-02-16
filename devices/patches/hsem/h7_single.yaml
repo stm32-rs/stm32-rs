@@ -1,0 +1,9 @@
+_modify:
+  ICR:
+    access: read-write
+CR:
+  _modify:
+    "?~MASTERID":
+      bitWidth: 4
+    "?~COREID":
+      name: MASTERID
