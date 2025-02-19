@@ -135,7 +135,7 @@ CCR5:
     Disabled: [0, No effect of OC5REF on OC1REFC]
     Enabled: [1, OC1REFC is the logical AND of OC1REFC and OC5REF]
 DMAR:
-  DMAB: [0, 0xFFFF]
+  DMAB: [0, 0xFFFFFFFF]
 OR1:
   TI1_RMP:
     IO: [0, TIM1 input capture 1 is connected to I/O]

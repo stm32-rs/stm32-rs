@@ -241,6 +241,7 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/icpsc.yaml
+    - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml

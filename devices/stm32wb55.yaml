@@ -238,6 +238,7 @@ TIM1:
         name: IC1F
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/dmab_32.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
 
