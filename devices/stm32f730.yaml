@@ -210,8 +210,8 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/v2/tim1_16bit.yaml
     - patches/tim/icpsc.yaml
-    - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/add_cc5if.yaml
     - patches/tim/dmab_32.yaml
@@ -222,8 +222,8 @@ TIM1:
 
 TIM[25]:
   _include:
+    - patches/tim/v2/16bit.yaml
     - patches/tim/icpsc.yaml
-    - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/tim2_common_32bit.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -232,8 +232,9 @@ TIM[25]:
 
 TIM3:
   _include:
+    - patches/tim/v2/16bit.yaml
+    - patches/tim/v2/arr_16bit.yaml
     - patches/tim/icpsc.yaml
-    - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -242,11 +243,15 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/v2/16bit.yaml
+    - patches/tim/v2/arr_16bit.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM9:
   _include:
+    - patches/tim/v2/16bit.yaml
+    - patches/tim/v2/arr_16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
@@ -257,6 +262,8 @@ TIM9:
 
 TIM13:
   _include:
+    - patches/tim/v2/16bit.yaml
+    - patches/tim/v2/arr_16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
