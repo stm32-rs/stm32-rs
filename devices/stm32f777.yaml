@@ -343,6 +343,7 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/v2/add_sms_bit3.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
@@ -362,6 +363,7 @@ TIM1:
 
 TIM[25]:
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/v2/add_sms_bit3.yaml
     - patches/tim/tim_o24ce.yaml
     - patches/tim/icpsc.yaml
@@ -400,6 +402,7 @@ TIM5:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/v2/add_sms_bit3.yaml
     - patches/tim/tim_o24ce.yaml
     - patches/tim/icpsc.yaml
@@ -416,12 +419,14 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/v2/tim6.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM9:
   _include:
+    - patches/tim/v2/tim9.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml
     - patches/tim/v2/add_uifcpy.yaml
@@ -434,6 +439,7 @@ TIM9:
 
 TIM10:
   _include:
+    - patches/tim/v2/tim10.yaml
     - patches/tim/tim10_14_missing_opm.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/uifremap_fix.yaml

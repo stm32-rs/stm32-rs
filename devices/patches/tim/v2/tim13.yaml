@@ -1,0 +1,5 @@
+_include:
+  - arr_16bit.yaml
+_modify:
+  "CR1,DIER,SR,EGR,CCER,PSC,CCR?":
+    size: 16

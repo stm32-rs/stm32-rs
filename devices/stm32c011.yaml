@@ -115,7 +115,10 @@ TIM3:
   _modify:
     CNT_alternate:
       name: CNT_remap
+    "ARR,CCR?":
+      resetMask: 0xffff
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml

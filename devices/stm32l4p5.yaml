@@ -349,6 +349,7 @@ TIM5:
 
 TIM[34]:
   _include:
+    - patches/tim/v2/tim3_with_mask.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -357,14 +358,6 @@ TIM[34]:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
-  CNT:
-    _modify:
-      CNT:
-        bitWidth: 16
-  ARR:
-    _modify:
-      ARR:
-        bitWidth: 16
   CR1:
     UIFREMAP:
       Disabled: [0, No remapping. UIF status bit is not copied to TIMx_CNT register bit 31]

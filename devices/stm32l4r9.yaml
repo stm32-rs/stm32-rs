@@ -322,6 +322,7 @@ TIM5:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3_with_mask.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -330,14 +331,6 @@ TIM3:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
-  CNT:
-    _modify:
-      CNT:
-        bitWidth: 16
-  ARR:
-    _modify:
-      ARR:
-        bitWidth: 16
 
 TIM6:
   _include:
