@@ -1,0 +1,19 @@
+_include:
+  - tim3.yaml
+
+_modify:
+  "ARR,CCR?":
+    resetMask: 0xffff
+
+CNT:
+  _modify:
+    CNT:
+      bitWidth: 16
+ARR:
+  _modify:
+    ARR:
+      bitWidth: 16
+CCR?:
+  _modify:
+    CCR?:
+      bitWidth: 16
