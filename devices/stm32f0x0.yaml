@@ -125,7 +125,7 @@ SYSCFG:
 
 TIM1:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim1.yaml
@@ -133,7 +133,7 @@ TIM1:
 
 TIM3:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim3.yaml
@@ -141,24 +141,24 @@ TIM3:
 
 TIM6:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM14:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
-    - patches/16bit.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
