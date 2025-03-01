@@ -1,0 +1,15 @@
+_add:
+  CNT32:
+    displayName: CNT32
+    description: 32-bit counter register
+    alternateRegister: CNT
+    addressOffset: 36
+    size: 32
+    access: read-write
+    resetValue: 0
+    fields:
+      CNT:
+        description: counter value
+        bitOffset: 0
+        bitWidth: 32
+        access: read-write

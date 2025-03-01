@@ -1,11 +1,14 @@
 _include:
-  - tim3.yaml
+  - arr_16bit.yaml
+  - add_cnt16.yaml
 
 _modify:
+  "CR1,CR2,DIER,SR,EGR,CCER,PSC,CCR?,DCR,DMAR,CNT16":
+    size: 16
   "ARR,CCR?":
     resetMask: 0xffff
 
-CNT:
+"CNT,CNT16":
   _modify:
     CNT:
       bitWidth: 16
