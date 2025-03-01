@@ -310,6 +310,7 @@ TIM??:
 
 TIM[18]:
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -331,6 +332,8 @@ TIM8:
 
 TIM[25]:
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
+    - patches/tim/v2/add_cnt32.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -349,6 +352,7 @@ TIM5:
 
 TIM[34]:
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
     - patches/tim/v2/tim3_with_mask.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
@@ -368,11 +372,13 @@ TIM4:
 
 TIM6:
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - fields/tim/v2/tim6.yaml
     - fields/tim/tim_uifremap.yaml
 
 TIM15:
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -382,6 +388,7 @@ TIM15:
 
 TIM1[67]:
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml

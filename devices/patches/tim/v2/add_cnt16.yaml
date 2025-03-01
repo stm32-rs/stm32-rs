@@ -1,0 +1,15 @@
+_add:
+  CNT16:
+    displayName: CNT16
+    description: 16-bit counter register
+    alternateRegister: CNT
+    addressOffset: 36
+    size: 16
+    access: read-write
+    resetValue: 0
+    fields:
+      CNT:
+        description: counter value
+        bitOffset: 0
+        bitWidth: 16
+        access: read-write

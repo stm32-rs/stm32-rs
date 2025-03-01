@@ -101,6 +101,7 @@ SYSCFG:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr3.yaml
@@ -115,13 +116,9 @@ TIM1:
 
 TIM3:
   _strip: TIM3_
-  _modify:
-    CNT_alternate:
-      name: CNT_remap
-    "ARR,CCR?":
-      resetMask: 0xffff
   _include:
-    - patches/tim/v2/tim3.yaml
+    - patches/tim/v2/cnt_alternate.yaml
+    - patches/tim/v2/tim3_with_mask.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
@@ -135,6 +132,7 @@ TIM3:
 TIM14:
   _strip: TIM14_
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/oc1m.yaml
     - fields/tim/v2/tim13.yaml
@@ -143,6 +141,7 @@ TIM14:
 TIM1[67]:
   _strip: TIM1?_
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/oc1m.yaml
     - fields/tim/v2/tim16.yaml

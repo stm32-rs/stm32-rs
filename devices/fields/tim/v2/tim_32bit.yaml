@@ -1,0 +1,9 @@
+# 32bit timer peripheral with 4 channel
+# Applies to Advanced-control (ac) and General-purpose (gp) timers
+
+CNT32:
+  CNT: [0, 0xFFFFFFFF]
+ARR:
+  ARR: [0, 0xFFFFFFFF]
+CCR?:
+  CCR: [0, 0xFFFFFFFF]

@@ -157,20 +157,29 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
     - patches/tim/v2/tim2.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
-    - patches/tim/tim2_cnt_32bit.yaml
     - patches/tim/v2/oc1m1.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM3:
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 16
+  CNT:
+    _modify:
+      CNT:
+        description: Counter value
+        bitWidth: 16
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
     - patches/tim/v2/tim3.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
-    - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/tim_ccrx_16bit.yaml
     - patches/tim/v2/oc1m1.yaml
     - fields/tim/v2/tim3.yaml

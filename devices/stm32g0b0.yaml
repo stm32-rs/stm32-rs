@@ -124,11 +124,20 @@ TIM1:
         description: TIM1 break, update, trigger and commutation interrupts
 
 TIM3:
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 16
+  CNT:
+    _modify:
+      CNT:
+        description: Counter value
+        bitWidth: 16
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
     - patches/tim/v2/tim3.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
-    - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/tim_ccrx_16bit.yaml
     - patches/tim/v2/oc1m1.yaml
     - fields/tim/v2/tim3.yaml
