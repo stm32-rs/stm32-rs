@@ -6,16 +6,14 @@ _clear_fields: "*"
 _copy:
   TIM3:
     from: TIM2
-  TIM4:
-    from: TIM2
   TIM12:
     from: TIM2
   TIM13:
     from: TIM2
-  TIM14:
-    from: TIM2
 
 _derive:
+  TIM4: TIM3
+  TIM14: TIM13
   I2C3: I2C1
 
 # Fix invalid groupName
@@ -318,6 +316,7 @@ TAMP:
 
 TIM[18]:
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -329,14 +328,16 @@ TIM[18]:
 
 TIM2:
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
-TIM[34]:
+TIM3:
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -345,10 +346,12 @@ TIM[34]:
 
 TIM6:
   _include:
+    - patches/tim/v2/tim6.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM12:
   _include:
+    - patches/tim/v2/tim9.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim9.yaml
@@ -356,8 +359,9 @@ TIM12:
   _delete:
     - CCR[34]
 
-TIM1[34]:
+TIM13:
   _include:
+    - patches/tim/v2/tim13.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim13.yaml
@@ -367,11 +371,13 @@ TIM1[34]:
 
 TIM15:
   _include:
+    - patches/tim/v2/tim15.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM1[67]:
   _include:
+    - patches/tim/v2/tim16.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
