@@ -8,16 +8,14 @@ _copy:
     from: ../svd/stm32h7b0.svd:CAN_CCU
   TIM3:
     from: TIM2
-  TIM4:
-    from: TIM2
   TIM12:
     from: TIM2
   TIM13:
     from: TIM2
-  TIM14:
-    from: TIM2
 
 _derive:
+  TIM4: TIM3
+  TIM14: TIM13
   I2C3: I2C1
 
 # Fix invalid groupName
@@ -342,7 +340,7 @@ TIM2:
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
-TIM[34]:
+TIM3:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
@@ -363,7 +361,7 @@ TIM12:
   _delete:
     - CCR[34]
 
-TIM1[34]:
+TIM13:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
