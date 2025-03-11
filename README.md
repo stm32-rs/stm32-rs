@@ -96,8 +96,8 @@ contain the latest patches and updates.
       current version used by stm32-rs
     * Otherwise, build using `cargo` (double check versions against `scripts/tool_install.sh`):
         * `cargo install form --version 0.12.1`
-        * `cargo install svdtools --version 0.4.4`
-        * `cargo install svd2rust --version 0.35.0`
+        * `cargo install svdtools --version 0.4.5`
+        * `cargo install svd2rust --version 0.36.0`
 * Install rustfmt: `rustup component add rustfmt`
 * Generate patched SVD files: `make patch` (you probably want `-j` for all `make` invocations)
     * Alternatively you could install `cargo-make` runner and then use it instead of `make`. Works on MS Windows natively:
@@ -178,7 +178,7 @@ This project is still young and there's a lot to do!
   * To avoid repetition, common patches are written per peripheral in
     `devices/patches`. Search there if a patch you want to add doesn't already
     exist!
-  * Register fields description in `devices/fields` are not a part of the 
+  * Register fields description in `devices/fields` are not a part of the
     CMSIS-SVD specification but enable type-safe friendly-name interface
     (enumerated values) for highly detailed crates.
   * `devices/collect` is here for collecting in `array`s, `cluster`s and `derive`s
