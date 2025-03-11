@@ -19,7 +19,7 @@ import yaml
 VERSION = {
     "default": "0.16.0",
 }
-SVD2RUST_VERSION = "0.35.0"
+SVD2RUST_VERSION = "0.36.0"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["atomics", "critical-section", "defmt", "rt", "stm32c011", "stm32c031", "stm32c071"],
