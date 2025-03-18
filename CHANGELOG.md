@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * TIM1/8 DMAR fix
+* HPDMA derive registers between CH and CH2D clusters
 * USART: refactor and add missing enums
 * STM32H503: Add missing RNG_NSCR register
 * Refactor timers, add enums
