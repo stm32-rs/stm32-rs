@@ -161,6 +161,7 @@ SYSCFG: {}
 
 TIM2:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/rename_TIM2_CCR3_CCR3.yaml
     - patches/tim/l1_ccs.yaml
     - patches/tim/icpsc.yaml
@@ -170,10 +171,12 @@ TIM2:
 
 TIM6:
   _include:
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM9:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/omp.yaml
     - patches/tim/l1_ccs.yaml
     - patches/tim/l1_tim9_ccer.yaml
@@ -182,7 +185,9 @@ TIM9:
     - collect/tim/ccr.yaml
 
 TIM10:
+  _delete: CR2
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim10_14_missing_opm.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/v1/tim10.yaml

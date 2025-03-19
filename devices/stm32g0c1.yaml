@@ -144,6 +144,7 @@ TAMP:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
@@ -157,6 +158,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/tim2_cnt_32bit.yaml
     - patches/tim/v2/oc1m1.yaml
     - fields/tim/v2/tim2.yaml
@@ -164,6 +166,7 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/tim_ccrx_16bit.yaml
     - patches/tim/v2/oc1m1.yaml
@@ -172,16 +175,19 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/v2/tim6.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM14:
   _include:
+    - patches/tim/v2/tim13.yaml
     - patches/tim/v2/oc1m.yaml
     - fields/tim/v2/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
   _include:
+    - patches/tim/v2/tim15.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - fields/tim/v2/tim15.yaml
@@ -189,6 +195,7 @@ TIM15:
 
 TIM16:
   _include:
+    - patches/tim/v2/tim16.yaml
     - patches/tim/v2/oc1m.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml

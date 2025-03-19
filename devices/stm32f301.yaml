@@ -181,6 +181,7 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -195,6 +196,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/tim_o24ce.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -203,6 +205,7 @@ TIM2:
 
 TIM6:
   _include:
+    - patches/tim/v2/tim6.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM15:
@@ -214,6 +217,7 @@ TIM15:
         bitWidth: 1
         access: read-write
   _include:
+    - patches/tim/v2/tim15.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
@@ -226,6 +230,7 @@ TIM16:
         bitWidth: 1
         access: read-write
   _include:
+    - patches/tim/v2/tim16.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 

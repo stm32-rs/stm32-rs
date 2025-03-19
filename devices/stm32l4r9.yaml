@@ -262,17 +262,10 @@ TIM[25]:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3_with_mask.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
-  CNT:
-    _modify:
-      CNT:
-        bitWidth: 16
-  ARR:
-    _modify:
-      ARR:
-        bitWidth: 16
 
 TIM[67]:
   _include:
