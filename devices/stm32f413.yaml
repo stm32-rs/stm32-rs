@@ -544,6 +544,7 @@ TIM1[01]:
 
 UART4:
   _include:
+    - patches/usart/v1.yaml
     - patches/usart/f4_add_UART_GTPR.yaml
     - fields/usart/v2/uart.yaml
 
@@ -586,6 +587,7 @@ USART1:
     _interrupts:
       - USART7
   _include:
+    - patches/usart/v1.yaml
     - fields/usart/v2/usart.yaml
 
 USART2:
