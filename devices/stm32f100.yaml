@@ -136,10 +136,12 @@ TIM16:
 
 UART4:
   _include:
+    - patches/usart/v1.yaml
     - fields/usart/v1/uart.yaml
 
 USART1:
   _include:
+    - patches/usart/v1.yaml
     - fields/usart/v1/usart.yaml
 
 WWDG:

@@ -230,6 +230,7 @@ TIM1[01]:
 
 USART1:
   _include:
+    - patches/usart/v1.yaml
     - fields/usart/v2/usart.yaml
 
 WWDG:
