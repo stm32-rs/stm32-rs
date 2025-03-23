@@ -229,6 +229,15 @@ Family-specific:
 * WL:
   * Update vendor SVD bundle to v1.2 (#1093)
 
+Contributors to this release:
+
+[@adamgreig] [@astapleton] [@burrbull] [@David-OConnor] [@dotcypress]
+[@datdenkikniet] [@Elemecca] [@eZioPan] [@FerdinandvHagen] [@FrigoreD] [@hydra]
+[@ianic] [@iostat] [@jonathanherbst] [@jspngh] [@kevswims] [@liamkinne]
+[@mattthebaker] [@newAM] [@noppej] [@rblaze] [@reitermarkus] [@richardeoin]
+[@RootCubed] [@sorki] [@tdaede] [@Urhengulas] [@usbalbin] [@vinchatl]
+[@YruamaLairba]
+
 ## [v0.15.1] 2022-07-04
 
 * Updated to svd2rust 0.24.1 to fix critical codegen issue (#751)
@@ -1003,6 +1012,8 @@ work in this release!
 [v0.2.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/stm32-rs/stm32-rs/compare/7b47b4...v0.2.0
 
+[@adamgreig]: https://github.com/adamgreig
+[@astapleton]: https://github.com/astapleton
 [@ajfrantz]: https://github.com/ajfrantz
 [@albru123]: https://github.com/albru123
 [@almusil]: https://github.com/almusil
@@ -1021,6 +1032,7 @@ work in this release!
 [@cyrusmetcalf]: https://github.com/cyrusmetcalf
 [@David-OConnor]: https://github.com/David-OConnor
 [@davidlattimore]: https://github.com/davidlattimore
+[@datdenkikniet]: https://github.com/datdenkikniet
 [@DerFetzer]: https://github.com/DerFetzer
 [@dgoodland]: https://github.com/dgoodland
 [@diondokter]: https://github.com/diondokter
@@ -1029,14 +1041,21 @@ work in this release!
 [@diseraluca]: https://github.com/diseraluca
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
+[@Elemecca]: https://github.com/Elemecca
 [@eupn]: https://github.com/eupn
+[@eZioPan]: https://github.com/eZioPan
+[@FerdinandvHagen]: https://github.com/FerdinandvHagen
+[@FrigoreD]: https://github.com/FrigoreD
 [@Geens]: https://github.com/Geens
 [@Gekkio]: https://github.com/Gekkio
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
+[@hydra]: https://github.com/hydra
+[@ianic]: https://github.com/ianic
 [@ijager]: https://github.com/ijager
+[@iostat]: https://github.com/iostat
 [@jamwaffles]: https://github.com/jamwaffles
 [@JarLob]: https://github.com/JarLob
 [@jessebraham]: https://github.com/jessebraham
@@ -1044,6 +1063,7 @@ work in this release!
 [@jhbruhn]: https://github.com/jhbruhn
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
+[@jonathanherbst]: https://github.com/jonathanherbst
 [@jordens]: https://github.com/jordens
 [@jorgeig-space]: https://github.com/jorgeig-space
 [@jspngh]: https://github.com/jspngh
@@ -1054,6 +1074,7 @@ work in this release!
 [@korken89]: https://github.com/korken89
 [@larchuto]: https://github.com/larchuto
 [@LeonSkoog]: https://github.com/LeonSkoog
+[@liamkinne]: https://github.com/liamkinne
 [@lichtfeind]: https://github.com/lichtfeind
 [@lochsh]: https://github.com/lochsh
 [@lulf]: https://github.com/lulf
@@ -1066,10 +1087,12 @@ work in this release!
 [@mattcarp12]: https://github.com/mattcarp12
 [@MattCatz]: https://github.com/MattCatz
 [@mattico]: https://github.com/mattico
+[@mattthebaker]: https://github.com/mattthebaker
 [@maximeborges]: https://github.com/maximeborges
 [@newAM]: https://github.com/newAM
 [@nickray]: https://github.com/nickray
 [@noslaver]: https://github.com/noslaver
+[@noppej]: https://github.com/noppej
 [@octronics]: https://github.com/octronics
 [@ofauchon]: https://github.com/ofauchon
 [@oldsheep68]: https://github.com/oldsheep68
@@ -1081,11 +1104,13 @@ work in this release!
 [@qwandor]: https://github.com/qwandor
 [@ra-kete]: https://github.com/ra-kete
 [@Rahix]: https://github.com/Rahix
+[@rblaze]: https://github.com/rblaze
 [@reitermarkus]: https://github.com/reitermarkus
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
 [@rmsc]: https://github.com/rmsc
+[@RootCubed]: https://github.com/RootCubed
 [@ryan-summers]: https://github.com/ryan-summers
 [@samcrow]: https://github.com/samcrow
 [@sephamorr]: https://github.com/sephamorr
@@ -1097,6 +1122,7 @@ work in this release!
 [@systec-ms]: https://github.com/systec-ms
 [@tachiniererin]: https://github.com/tachiniererin
 [@taylorh140]: https://github.com/taylorh140
+[@tdaede]: https://github.com/tdaede
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
 [@tim-seoss]: https://github.com/tim-seoss
@@ -1105,6 +1131,9 @@ work in this release!
 [@TomDeRybel]: https://github.com/TomDeRybel
 [@torkeldanielsson]: https://github.com/torkeldanielsson
 [@TwoHandz]: https://github.com/TwoHandz
+[@Urhengulas: https://github.com/Urhengulas
+[@usbalbin]: https://github.com/usbalbin
+[@vinchatl]: https://github.com/vinchatl
 [@wallacejohn]: https://github.com/wallacejohn
 [@Wassasin]: https://github.com/Wassasin
 [@Windfisch]: https://github.com/Windfisch
