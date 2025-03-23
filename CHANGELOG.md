@@ -2,203 +2,241 @@
 
 ## [Unreleased]
 
-* TIM1/8 DMAR fix
-* HPDMA derive registers between CH and CH2D clusters
-* USART: refactor and add missing enums
-* STM32H503: Add missing RNG_NSCR register
-* Refactor timers, add enums
-* Add placeholders for all peripherals
-* STM32H5xx: Add H533 (#1129)
-* Fix DMA & collect
-* G4: Fix swapped reset values for SPI4 CR1 and CR2 by deriving SPI4 from SPI1 (#957)
-* STM32H5xx: Update SVD to version 1.7 and add H523 (#1124)
-* TIM3's CCRx is 16-bit for G0Bx and G0C0
-* Format yamls: remove unneeded quotes
-* Apply existing RTC patches for new families, RTC alarm arrays
-* Update L4/L4+ source to v1.4
-* Manual enum names for EXRI & GPIO
-* AES enums & patches
-* HPDMA: clusters
-* Derive GPIO registers
-* H5: Array gpio registers
-* Update STM32H7 source to v1.9
-* HRTIM H7 fixe EECR3
-* H5: Add RCC defitions for H56x/H573
-* MP15x: Strip prefixes from peripherals
-* MP15x: Fix DIGBYP bit access in RCC_BDCR
-* Fix yaml parsing errors
-* H7: add bit TRBUFF of DMA_SxCR of H747 cm4
-* H7: add H723/25/30/33/42/50/55/A3/B0
-* Fix inconsistencies for HRTIM_TIMF - stm32g4x4
-* HRTIM H7: delete DLL
-* HRTIM H7 & G4 fixes and enums
-* HRTIM: remove timer block suffixes from register/field names
-* HRTIM: derive identical registers
-* HRTIM: specify TIM events for each block
-* Collent in field arrays: ADC, GPIO, CAN, DSI, EXTI, SAI, DMA, TIM
-* ADC: C0+G0+WL field arrays
-* Derive SYSCFG EXTI fields
-* L1 TIM9: add CCER
-* Update STM32H5 source to v1.4
-* Update STM32F3 source to V1.3
-* Update STM32L0 source to v1.4
-* F373 GPIOC LCKR, collect GPIO.BRR
-* Update STM32L1 source to v1.4
-* Update STM32F4 to V2.0 archive source
-* Update STM32F7 to V2.4 archive source
-* Update WL, WB source to v1.2
-* modify `LP_Timer1` interrupt instead of adding new
-* Remove workaround for bug in duckscript's `mv`
-* move `_array` and `_cluster` patches to `devices/collect`
-* rename `devices/common_patches` to just `devices/patches`
-* move field related patches from `peripherals` to `devices/fields`
-* Replace `makehtml.py` with `svdtools html`
-* Updated to `svd2rust` 0.36.0, `svdtools` 0.4.5, `form` 0.12.1, use tools binaries for CI
-* Use `svd2rust.toml` config, use custom ident suffixes
-* Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt`
+* Updated to `svd2rust` 0.36.0, `svdtools` 0.4.5, `form` 0.12.1, use tools binaries for CI (#1174)
+* Use `svd2rust.toml` config, use custom ident suffixes (#948)
+* Replace `makehtml.py` with `svdtools html` (#881)
+* Remove workaround for bug in duckscript's `mv` (#981)
+* move `_array` and `_cluster` patches to `devices/collect` (#980)
+* rename `devices/common_patches` to just `devices/patches` (#1066)
+* move field related patches from `peripherals` to `devices/fields` (#1067)
+* Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt` (#949)
 * Show avaliable device features if no one selected (#998)
-* Add `download.sh` for fast source archives update
-* Add Open-CMSIS `svdconv` to for more checks
-* Add `cargo make` `yamls` task for easy compare
-* Add `derivePathType` to CMSIS-SVD schema
-* Add possibility to publish crates with different versions
+* Add `download.sh` for fast source archives update (#1134)
+* Add Open-CMSIS `svdconv` to for more checks (#908)
+* Add `cargo make` `yamls` task for easy compare (#1050)
+* Add `derivePathType` to CMSIS-SVD schema (#1025)
+* Add possibility to publish crates with different versions (#1145)
 * Enable atomic operations on register support, Rust edition 2021 (#846)
-* files in devices/patches moved to subdirectories
+* files in devices/patches moved to subdirectories (#1066)
 * remove excutable file perm bit from yaml file (#854)
-* rename `KEY` field variants of `IWDG_KR` ([#866])
-* DMAMUX: merge registers in arrays
-* move merge CAN FB fields in patch file
-* Fix G0 TIM1 CCMR?_Input fields
-* G4, L5, U5 TIM common fixes
-* STM32U0xx initial support
-* STM32U5xx: Update SVD to version 1.2 and add variants for xx=35,45,95,A5,99,A9 (#844)
-* STM32U5xx: Update SVD to version 1.3 (#890)
-* Fix several array descriptions
-* Fix ADC SMPR fieldFs in L1
-* Fix ADC SQR ranges
-* Fix missing ADC.SMPR.SMPx_x
-* Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names
-* Fix ADC SR OVR enums
-* Fix ADC modifiedWriteValues
-* Add ADC enums for L4, L5, G0, H5, WB
-* Fix ETH_MACFFR bitOffsets
-* Fix adding OTG_FS GCCFG NOVBUSSENS
-* GFXMMU LUT cluster
-* Add missing CAN registers to l4x3/x5
-* Remove CAN from F101/102
-* Remove CAN2 from F103, rename CAN1 to CAN
-* Fix L5 DMA cluster
-* Fix writeConstraint bugs
-* STM32G491: Add FDCAN2 peripheral
-* Fix typo in STM32G491 FDCAN2 patch
-* DMA ISR fixes for G0, G4
-* F103: USB RESP1 fix name
-* F4: collect SDIO RESP
-* Fix DAC for stm32f4 (#921)
-* `PWR` peripherals for STM32F4 ([#857])
-* tools_install: support `$CARGO_HOME` environment variable
-* Split `mmaps_pr` workflow on `mmaps_pr_generate` and `mmaps_pr_compare`
-* Update RNG for stm32h735
-* H5: Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios
-* TIM: rename & clean files
-* 16-bit registers: IWDG, WWDG, U*ART
-* Add GPIOx:HSLVR
-* Add dual bank flash related fields to g4 cat 3 devices
-* Merge USART BRR fields on G4
-* Add G4 DAC peripheral
-* Fix incorrectly used `_read`, `_modify`
-* G4:COMP fix and collect array
-* Add USART v2C peripheral on G4
-* doc on `RNG` peripheral for STM32F4 ([#870])
-* `isDefault` for some RCC enums
-* H7: fix GPIO register reset values (#973)
-* H735: add I2C5
-* Doc `QUADSPI` peripheral ([#875])
-    * `DR` register can be access by 1 byte, half word and full word. Use `.dr8()`, `.dr16()`, `.dr()` to access this register.
+* TIM1/8 DMAR fix (#1172)
+* HPDMA derive registers between CH and CH2D clusters (#1164)
+* USART: refactor and add missing enums (#1156)
+* Refactor timers, add enums (#1133)
+* Add placeholders for all peripherals (#1163)
+* Fix DMA & collect (#1167)
+* Format yamls: remove unneeded quotes (#1099)
+* Apply existing RTC patches for new families, RTC alarm arrays (#1120)
+* Manual enum names for EXRI & GPIO (#964)
+* AES enums & patches (#1058)
+* HPDMA: clusters (#1140)
+* Derive GPIO registers (#1144)
+* Fix yaml parsing errors (#1002)
+* Collent in field arrays: ADC, GPIO, CAN, DSI, EXTI, SAI, DMA, TIM (#1097
+* ADC: C0+G0+WL field arrays (#1051)
+* Derive SYSCFG EXTI fields (#1108)
+* modify `LP_Timer1` interrupt instead of adding new (#902)
+* rename `KEY` field variants of `IWDG_KR` (#866)
+* DMAMUX: merge registers in arrays (#873)
+* move merge CAN FB fields in patch file (#904)
+* G4, L5, U5 TIM common fixes (#912)
+* Fix several array descriptions (#916)
+* Fix ADC SQR ranges (#1102)
+* Fix missing ADC.SMPR.SMPx_x (#1000)
+* Fix EXTI_IMR_IM9 field, H7 DMAMUX cluster names (#891)
+* Fix ADC SR OVR enums (#882)
+* Fix ADC modifiedWriteValues (#1062)
+* Add ADC enums for L4, L5, G0, H5, WB (#1062)
+* Fix ETH_MACFFR bitOffsets (#903)
+* Fix adding OTG_FS GCCFG NOVBUSSENS (#909)
+* GFXMMU LUT cluster (#906)
+* Fix writeConstraint bugs (#911)
+* DMA ISR fixes for G0, G4 (#910)
+* tools_install: support `$CARGO_HOME` environment variable (#953)
+* Split `mmaps_pr` workflow on `mmaps_pr_generate` and `mmaps_pr_compare` (#949)
+* TIM: rename & clean files (#800)
+* Add GPIOx:HSLVR (#956)
+* Fix incorrectly used `_read`, `_modify` (#968)
+* `isDefault` for some RCC enums (#929)
+* Doc `QUADSPI` peripheral (#875)
+  `DR` register can be access by 1 byte, half word and full word. Use `.dr8()`, `.dr16()`, `.dr()` to access this register.
+* 16-bit registers: IWDG, WWDG, U*ART (#1177)
 * 16-bit SPI registers, add DR8 (#993) (fixed)
 * 16-bit I2C registers (#995)
-* U5: Strip prefixes from peripheral registers
-* U5: Add ADC, DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, PWR, RCC peripherals
-* U5: MDF cluster
-* U5/H5: collect GTZC registers in arrays
-* H7: add stm32h7r/s devices (#972)
-* WB: add `RCC`, `SYSCFG` enums
-* Update G4 source to 2.2
-* G4: fix FDCAN interrupt numbers being swapped
-* G0X1, G4, H5, H7R/S, L5, U5: Add UCPD peripheral
-* G4A1: Add FDCAN2 and rename USB peripheral
-* G4A1: Add BCDR and adjust to be closer to G491
-* G491 and G4A1: Add TIM20
-* G471: Add OPAMP6
-* G0: fix typo in HSIDIV (Div3 -> Div4)
-* C071: Update svd zip to v1.2, add c071 and cleanup c0xx
-* G0B1: make TIM4 16-bit timer
-* C0,G0,H5: merge USB CHEP[0-7]R registers into array
-* G0B1: force ARR field width to 16 bit when SVD describes ARR as 32-bit field for 16-bit timer.
-* C0,G0,H5: fix field names in cmmr1_output registers
-* G0: describe USB CHEP?R register
-* doc on `SYSCFG` peripheral for STM32F4 ([#852])
-* LCD: fix and unify RAM registers
-* G0: mark interrupt flags in USB ISTR as W0C
-* G0: mark flags in USB CHEPR as W0C/W1T
-* G0: add value enums for EXTICR[2-4]
-* H5, U5: Add cluster definitions for GPDMA channels
-* F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral
-* F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers
-* Update README.md
+* U5/H5: collect GTZC registers in arrays (#1056)
+* G0X1, G4, H5, H7R/S, L5, U5: Add UCPD peripheral (#1001)
+* C0,G0,H5: merge USB CHEP[0-7]R registers into array (#1036)
+* C0,G0,H5: fix field names in cmmr1_output registers (#1038)
+* LCD: fix and unify RAM registers (#1083)
+* H5, U5: Add cluster definitions for GPDMA channels (#1121)
+* F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral (#1157)
+* F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers (#1161)
+* Update README.md (#1152)
+* HRTIM:
+  * H7 & G4 fixes and enums (#1021) (#1022)
+  * Remove timer block suffixes from register/field names (#1023)
+  * Derive identical registers (#1025)
+  * Specify TIM events for each block (#1030)
 
 Family-specific:
 
-* GO:
-  * Update vendor SVD bundle from v1.1 to v1.6 (#947)
-    * remove Cortex-M0+ core peripherals (use `cortex-m` crate instead)
-    * add enums for `RCC` & `SYSCFG`
-    * `DMA?:IFCR` changed from read-only (wrong) to write-only
-    * split `ADC:CHSELR1:CHSEL` into separate 1-bit fields
-    * correct multiple fields in
-      `EXTI`, `FLASH`, `PWR`, `RCC`, `TAMP`, and `SYSCFG`
-    * G030/G031/G041:
-      * rename `DMA` to `DMA1`
-      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
-        (replaced by `DMA1_Channel_4_5_DMAMUX` in `DMA1`)
-      * move `PVD` interrupt from `EXTI` to `PWR`
-      * move `ITLINE*` registers from `SYSCFG_ITLINE` to `SYSCFG`
-    * G050/G051/G061:
-      * add missing peripherals `AES` (G061), `COMP`, `DBG`, `DMA1`, `EXTI`,
-        `FLASH`, `GPIO?`, `LPUART1` (G0x1), `PWR`, `RCC`, `RNG` (G061),
-        `RTC`, `SPI?`, `SYSCFG`, and `TAMP`
-      * `USART?:CR1`: change `RXFNEIE` to `RXNEIE` and `TXFNEIE` to `TXEIE`
-      * remove `DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` interrupt
-        from `DMAMUX` (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
-      * remove register prefix from `LPTIM[12]` (G0x1)
-    * G070/G071/G081:
-      * remove non-existent registers `HWCFG*`, `VERR`, `IPIDR`, and `SIDR`
-        from `ADC`, `RTC`, and `TAMP`
-      * rename `DMA` to `DMA1`
-      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
-        (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
-      * split `SYSCFG_VREFBUF` peripheral into `SYSCFG` and `VREFBUF` (G0x1)
-    * G0B0:
-      * add missing peripherals `ADC`, `EXTI`, `FLASH`, `I2C3`,
-        `PWR`, `RCC`, `RTC`, `SPI?`, `SYSCFG`, `TAMP`, `TIM4`, `USB`
-      * `USART?`: many changes to `CR1` and `ISR`
-      * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX` (replaced by
-        `DMA1_Channel_4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` in `DMA1`)
-      * rename `I2C2` interrupt to `I2C2_I2C3`
-      * rename `TIM3` interrupt to `TIM3_TIM4`
-    * G0B1/G0C1:
-      * add missing peripheral `SYSCFG`
-      * fix `SPI` register sizes
-      * remove `TIM6_DAC` interrupt
-      * `USART?`: many changes to `CR1` and `ISR`
-      * add `DMA?` interrupts
+* CO:
+  * Initial support (#765)
 
-[#852]: https://github.com/stm32-rs/stm32-rs/pull/852
-[#854]: https://github.com/stm32-rs/stm32-rs/pull/854
-[#857]: https://github.com/stm32-rs/stm32-rs/pull/857
-[#866]: https://github.com/stm32-rs/stm32-rs/pull/866
-[#870]: https://github.com/stm32-rs/stm32-rs/pull/870
-[#875]: https://github.com/stm32-rs/stm32-rs/pull/875
+* F1:
+  * F103: USB RESP1 fix name (#927)
+  * Remove CAN from F101/102 (#935)
+  * Remove CAN2 from F103, rename CAN1 to CAN (#941)
+
+* F3:
+  * Update vendor SVD bundle to v1.3 (#1059)
+  * F373 GPIOC LCKR, collect GPIO.BRR (#943)
+
+* F4:
+  * Update vendor SVD bundle to v2.0 (#1060)
+  * doc on `SYSCFG` peripheral for STM32F4 (#852)
+  * `PWR` peripherals for STM32F4 (#857)
+  * doc on `RNG` peripheral for STM32F4 (#870)
+  * Fix DAC for stm32f4 (#921)
+  * F4: collect SDIO RESP (#932)
+
+* F7:
+  * Update vendor SVD bundle to v2.4 (#1085)
+
+* GO:
+  * Update vendor SVD bundle from v1.1 to v1.6 (#947) (#1012) (#1049)
+  * remove Cortex-M0+ core peripherals (use `cortex-m` crate instead)
+  * add enums for `RCC` & `SYSCFG`
+  * `DMA?:IFCR` changed from read-only (wrong) to write-only
+  * split `ADC:CHSELR1:CHSEL` into separate 1-bit fields
+  * correct multiple fields in
+    `EXTI`, `FLASH`, `PWR`, `RCC`, `TAMP`, and `SYSCFG`
+  * Fix TIM1 CCMR?_Input fields (#912)
+  * Fix typo in HSIDIV (Div3 -> Div4) (#1015)
+  * G0B1: make TIM4 16-bit timer (#1035)
+  * G0B1: force ARR field width to 16 bit when SVD describes ARR as 32-bit field for 16-bit timer (#1038)
+  * G0: describe USB CHEP?R register (#1039)
+  * Mark interrupt flags in USB ISTR as W0C (#1088)
+  * Mark flags in USB CHEPR as W0C/W1T (#1088)
+  * Add value enums for EXTICR[2-4] (#1088)
+  * G030/G031/G041:
+    * rename `DMA` to `DMA1`
+    * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
+      (replaced by `DMA1_Channel_4_5_DMAMUX` in `DMA1`)
+    * move `PVD` interrupt from `EXTI` to `PWR`
+    * move `ITLINE*` registers from `SYSCFG_ITLINE` to `SYSCFG`
+  * G050/G051/G061:
+    * add missing peripherals `AES` (G061), `COMP`, `DBG`, `DMA1`, `EXTI`,
+      `FLASH`, `GPIO?`, `LPUART1` (G0x1), `PWR`, `RCC`, `RNG` (G061),
+      `RTC`, `SPI?`, `SYSCFG`, and `TAMP`
+    * `USART?:CR1`: change `RXFNEIE` to `RXNEIE` and `TXFNEIE` to `TXEIE`
+    * remove `DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` interrupt
+      from `DMAMUX` (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
+    * remove register prefix from `LPTIM[12]` (G0x1)
+  * G070/G071/G081:
+    * remove non-existent registers `HWCFG*`, `VERR`, `IPIDR`, and `SIDR`
+      from `ADC`, `RTC`, and `TAMP`
+    * rename `DMA` to `DMA1`
+    * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX`
+      (replaced by `DMA1_Channel_4_5_6_7_DMAMUX` in `DMA1`)
+    * split `SYSCFG_VREFBUF` peripheral into `SYSCFG` and `VREFBUF` (G0x1)
+  * G0B0:
+    * add missing peripherals `ADC`, `EXTI`, `FLASH`, `I2C3`,
+      `PWR`, `RCC`, `RTC`, `SPI?`, `SYSCFG`, `TAMP`, `TIM4`, `USB`
+    * `USART?`: many changes to `CR1` and `ISR`
+    * remove `DMA_Channel4_5_6_7` interrupt from `DMAMUX` (replaced by
+      `DMA1_Channel_4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5` in `DMA1`)
+    * rename `I2C2` interrupt to `I2C2_I2C3`
+    * rename `TIM3` interrupt to `TIM3_TIM4`
+  * G0B1/G0C1:
+    * add missing peripheral `SYSCFG`
+    * fix `SPI` register sizes
+    * remove `TIM6_DAC` interrupt
+    * `USART?`: many changes to `CR1` and `ISR`
+    * add `DMA?` interrupts
+    * TIM3's CCRx is 16-bit (#1119)
+
+* G4:
+  * Update vendor SVD bundle to v2.2 (#1087)
+  * Fix inconsistencies for HRTIM_TIMF - stm32g4x4 (#860)
+  * Add dual bank flash related fields to g4 cat 3 devices (#880)
+  * STM32G491: Add FDCAN2 peripheral (#915)
+  * Fix typo in STM32G491 FDCAN2 patch (#917)
+  * Fix swapped reset values for SPI4 CR1 and CR2 by deriving SPI4 from SPI1 (#957)
+  * Merge USART BRR fields (#959)
+  * Add USART v2C peripheral (#960)
+  * Add DAC peripheral (#961)
+  * COMP fix and collect array (#969)
+  * Fix FDCAN interrupt numbers being swapped (#996)
+  * G4A1: Add FDCAN2 and rename USB peripheral (#1003)
+  * G4A1: Add BCDR and adjust to be closer to G491 (#1004)
+  * G491 and G4A1: Add TIM20 (#1004)
+  * G471: Add OPAMP6 (#1005)
+
+* H5:
+  * Update vendor SVD bundle to v1.7 (#1086) (#1124)
+  * Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios (#956)
+  * Add H523 (#1124)
+  * STM32H503: Add missing RNG_NSCR register (#1148)
+  * STM32H5xx: Add H533 (#1129)
+  * Array gpio registers (#1053)
+  * Add RCC defitions for H56x/H573 (#1033)
+
+* H7:
+  * Update vendor SVD bundle to v1.9 (#1092)
+  * H735: add I2C5 (#864)
+  * Update RNG for stm32h735 (#925)
+  * Add bit TRBUFF of DMA_SxCR of H747 cm4 (#958)
+  * Add stm32h7r/s devices (#972)
+  * Fix GPIO register reset values (#973)
+  * HRTIM H7 fix EECR3 (#1042)
+  * HRTIM H7: delete DLL (#1044)
+  * Add H723/25/30/33/42/50/55/A3/B0 (#1107)
+
+* L0:
+  * Update vendor SVD bundle to v1.4 (#1081)
+
+* L1:
+  * Update vendor SVD bundle to v1.4 (#1080)
+  * L1 TIM9: add CCER (#905)
+  * Fix ADC SMPR fieldFs in L1 (#1085)
+
+* L4:
+  * Update L4/L4+ vendor SVD bundles to v1.4 (#1084)
+  * Add missing CAN registers to l4x3/x5 (#914)
+
+* L5:
+  * Fix DMA cluster (#922)
+
+* MP1:
+  * Fix DIGBYP bit access in RCC_BDCR (#1011)
+  * Strip prefixes from peripherals (#1014)
+
+* U0:
+  * Initial support (#1057)
+
+* U5:
+  * Update vendor SVD bundle to 1.3 (#844) (#890)
+  * Add U535,45,95,A5,99,A9 (#844)
+  * Strip prefixes from peripheral registers (#983)
+  * Add ADC, DMA2D, EXTI, FMC, GPIO, I2C, OCTOSPI, PWR, RCC peripherals (#986)
+  * MDF cluster (#1055)
+
+* WB:
+  * Update vendor SVD bundle to v1.2 (#1093)
+  * Add `RCC`, `SYSCFG` enums (#777)
+
+* WL:
+  * Update vendor SVD bundle to v1.2 (#1093)
+
+Contributors to this release:
+
+[@adamgreig] [@astapleton] [@burrbull] [@David-OConnor] [@dotcypress]
+[@datdenkikniet] [@Elemecca] [@eZioPan] [@FerdinandvHagen] [@FrigoreD] [@hydra]
+[@ianic] [@iostat] [@jonathanherbst] [@jspngh] [@kevswims] [@liamkinne]
+[@mattthebaker] [@newAM] [@noppej] [@rblaze] [@reitermarkus] [@richardeoin]
+[@RootCubed] [@sorki] [@tdaede] [@Urhengulas] [@usbalbin] [@vinchatl]
+[@YruamaLairba]
 
 ## [v0.15.1] 2022-07-04
 
@@ -974,6 +1012,8 @@ work in this release!
 [v0.2.1]: https://github.com/stm32-rs/stm32-rs/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/stm32-rs/stm32-rs/compare/7b47b4...v0.2.0
 
+[@adamgreig]: https://github.com/adamgreig
+[@astapleton]: https://github.com/astapleton
 [@ajfrantz]: https://github.com/ajfrantz
 [@albru123]: https://github.com/albru123
 [@almusil]: https://github.com/almusil
@@ -992,6 +1032,7 @@ work in this release!
 [@cyrusmetcalf]: https://github.com/cyrusmetcalf
 [@David-OConnor]: https://github.com/David-OConnor
 [@davidlattimore]: https://github.com/davidlattimore
+[@datdenkikniet]: https://github.com/datdenkikniet
 [@DerFetzer]: https://github.com/DerFetzer
 [@dgoodland]: https://github.com/dgoodland
 [@diondokter]: https://github.com/diondokter
@@ -1000,14 +1041,21 @@ work in this release!
 [@diseraluca]: https://github.com/diseraluca
 [@dotcypress]: https://github.com/dotcypress
 [@ehntoo]: https://github.com/ehntoo
+[@Elemecca]: https://github.com/Elemecca
 [@eupn]: https://github.com/eupn
+[@eZioPan]: https://github.com/eZioPan
+[@FerdinandvHagen]: https://github.com/FerdinandvHagen
+[@FrigoreD]: https://github.com/FrigoreD
 [@Geens]: https://github.com/Geens
 [@Gekkio]: https://github.com/Gekkio
 [@HarkonenBade]: https://github.com/HarkonenBade
 [@helgrind]: https://github.com/helgrind
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
+[@hydra]: https://github.com/hydra
+[@ianic]: https://github.com/ianic
 [@ijager]: https://github.com/ijager
+[@iostat]: https://github.com/iostat
 [@jamwaffles]: https://github.com/jamwaffles
 [@JarLob]: https://github.com/JarLob
 [@jessebraham]: https://github.com/jessebraham
@@ -1015,6 +1063,7 @@ work in this release!
 [@jhbruhn]: https://github.com/jhbruhn
 [@jkristell]: https://github.com/jkristell
 [@jonas-schievink]: https://github.com/jonas-schievink
+[@jonathanherbst]: https://github.com/jonathanherbst
 [@jordens]: https://github.com/jordens
 [@jorgeig-space]: https://github.com/jorgeig-space
 [@jspngh]: https://github.com/jspngh
@@ -1025,6 +1074,7 @@ work in this release!
 [@korken89]: https://github.com/korken89
 [@larchuto]: https://github.com/larchuto
 [@LeonSkoog]: https://github.com/LeonSkoog
+[@liamkinne]: https://github.com/liamkinne
 [@lichtfeind]: https://github.com/lichtfeind
 [@lochsh]: https://github.com/lochsh
 [@lulf]: https://github.com/lulf
@@ -1037,10 +1087,12 @@ work in this release!
 [@mattcarp12]: https://github.com/mattcarp12
 [@MattCatz]: https://github.com/MattCatz
 [@mattico]: https://github.com/mattico
+[@mattthebaker]: https://github.com/mattthebaker
 [@maximeborges]: https://github.com/maximeborges
 [@newAM]: https://github.com/newAM
 [@nickray]: https://github.com/nickray
 [@noslaver]: https://github.com/noslaver
+[@noppej]: https://github.com/noppej
 [@octronics]: https://github.com/octronics
 [@ofauchon]: https://github.com/ofauchon
 [@oldsheep68]: https://github.com/oldsheep68
@@ -1052,11 +1104,13 @@ work in this release!
 [@qwandor]: https://github.com/qwandor
 [@ra-kete]: https://github.com/ra-kete
 [@Rahix]: https://github.com/Rahix
+[@rblaze]: https://github.com/rblaze
 [@reitermarkus]: https://github.com/reitermarkus
 [@rfuest]: https://github.com/rfuest
 [@richard7770]: https://github.com/richard7770
 [@richardeoin]: https://github.com/richardeoin
 [@rmsc]: https://github.com/rmsc
+[@RootCubed]: https://github.com/RootCubed
 [@ryan-summers]: https://github.com/ryan-summers
 [@samcrow]: https://github.com/samcrow
 [@sephamorr]: https://github.com/sephamorr
@@ -1068,6 +1122,7 @@ work in this release!
 [@systec-ms]: https://github.com/systec-ms
 [@tachiniererin]: https://github.com/tachiniererin
 [@taylorh140]: https://github.com/taylorh140
+[@tdaede]: https://github.com/tdaede
 [@therealprof]: https://github.com/therealprof
 [@thinxer]: https://github.com/thinxer
 [@tim-seoss]: https://github.com/tim-seoss
@@ -1076,6 +1131,9 @@ work in this release!
 [@TomDeRybel]: https://github.com/TomDeRybel
 [@torkeldanielsson]: https://github.com/torkeldanielsson
 [@TwoHandz]: https://github.com/TwoHandz
+[@Urhengulas: https://github.com/Urhengulas
+[@usbalbin]: https://github.com/usbalbin
+[@vinchatl]: https://github.com/vinchatl
 [@wallacejohn]: https://github.com/wallacejohn
 [@Wassasin]: https://github.com/Wassasin
 [@Windfisch]: https://github.com/Windfisch
