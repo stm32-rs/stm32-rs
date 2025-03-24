@@ -405,6 +405,8 @@ UART4:
     - fields/usart/v2/uart.yaml
 
 UART[4]:
+  _derive:
+    CR3: USART1.CR3
   _include: collect/usart/v1_v2_derive.yaml
 
 USART1:
