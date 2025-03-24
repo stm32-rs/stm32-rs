@@ -71,6 +71,7 @@
 * H5, U5: Add cluster definitions for GPDMA channels (#1121)
 * F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral (#1157)
 * F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers (#1161)
+* F1, F2, F4: Derive identical UART registers from USART1, add GPTR.PSC
 * Update README.md (#1152)
 * HRTIM:
   * H7 & G4 fixes and enums (#1021) (#1022)

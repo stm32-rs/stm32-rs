@@ -137,7 +137,11 @@ TIM16:
 UART4:
   _include:
     - patches/usart/v1.yaml
+    - patches/usart/f4_add_UART_GTPR.yaml
     - fields/usart/v1/uart.yaml
+
+UART[4]:
+  _include: collect/usart/v1_v2_derive.yaml
 
 USART1:
   _include:

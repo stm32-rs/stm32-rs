@@ -3,6 +3,7 @@ _add:
     description: Guard Time and Prescaler Register
     addressOffset: 0x18
     access: read-write
+    size: 16
     fields:
       PSC:
         description: IrDA Low-Power pulse width peripheral clock prescaler
