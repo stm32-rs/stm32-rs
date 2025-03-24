@@ -407,11 +407,6 @@ UART4:
 UART[4]:
   _derive:
     CR3: USART1.CR3
-  #CR3:
-  #  _derive:
-  #    RTSE: USART1.CR3.RTSE
-  #    CTSE: USART1.CR3.CTSE
-  #    CTSE: USART1.CR3.CTSE
   _include: collect/usart/v1_v2_derive.yaml
 
 USART1:
