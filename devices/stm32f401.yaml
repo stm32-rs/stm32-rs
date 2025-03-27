@@ -204,6 +204,7 @@ TIM3:
     - collect/tim/ccr.yaml
 
 TIM9:
+  _delete: CR2
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/tim9_ic1f.yaml

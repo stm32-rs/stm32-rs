@@ -523,12 +523,18 @@ TIM3:
     - collect/tim/ccr.yaml
 
 TIM7:
-  _include:
-    - fields/tim/v1/tim6.yaml
+  _modify:
+    CNT:
+      access: read-write
   CR1:
     _delete: UIFREMAP
   CNT:
     _delete: UIFCPY
+    _modify:
+      CNT:
+        access: ""
+  _include:
+    - fields/tim/v1/tim6.yaml
 
 TIM12:
   _include:
