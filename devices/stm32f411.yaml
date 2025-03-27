@@ -203,6 +203,10 @@ TIM[25]:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim2.yaml
     - collect/tim/ccr.yaml
+
+TIM5:
+  _include: collect/tim/v1/tim5_derive.yaml
+
 TIM3:
   _delete:
     _interrupts:
@@ -228,6 +232,9 @@ TIM1[01]:
     - patches/tim/icpsc.yaml
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
+
+TIM11:
+  _include: collect/tim/v1/tim11_derive.yaml
 
 USART1:
   _include:
