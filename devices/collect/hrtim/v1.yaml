@@ -45,11 +45,19 @@ HRTIM_Master:
       CMP[1-4]: {}
       CPT[12]: {}
       SET[12]: {}
+  IS[R]:
+    _derive:
+      CMP%s: HRTIM_Master.ISR.CMP%s
+      REP: HRTIM_Master.ISR.REP
+      UPD: HRTIM_Master.ISR.UPD
   ICR:
     _array:
       CMP[1-4]C: {}
       CPT[12]C: {}
       SET[12]C: {}
+  IC[R]:
+    _derive:
+      "*C": HRTIM_Master.ICR.CMP%sC
   DIER:
     _array:
       CMP[1-4]IE: {}
@@ -60,6 +68,10 @@ HRTIM_Master:
         description: Output %s set interrupt enable
       SET[12]DE:
         description: Output %s set DMA request enable
+  DIE[R]:
+    _derive:
+      "*DE": HRTIM_Master.DIER.CMP%sDE
+      "*IE": HRTIM_Master.DIER.CMP%sIE
   FLTR:
     _array:
       FLT[1-6]EN: {}
