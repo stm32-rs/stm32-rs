@@ -30,16 +30,34 @@ HRTIM_Master:
     SET2R: SET1R
     RST2R: RST1R
     CPT2CR: CPT1CR
+  CR:
+    _derive:
+      CKPSC: HRTIM_Master.CR.CKPSC
+      CONT: HRTIM_Master.CR.CONT
+      RETRIG: HRTIM_Master.CR.RETRIG
+      HALF: HRTIM_Master.CR.HALF
+      SYNCRST: HRTIM_Master.CR.SYNCRST
+      SYNCSTRT: HRTIM_Master.CR.SYNCSTRT
+      DACSYNC: HRTIM_Master.CR.DACSYNC
+      PREEN: HRTIM_Master.CR.PREEN
   ISR:
     _array:
       CMP[1-4]: {}
       CPT[12]: {}
       SET[12]: {}
+  IS[R]:
+    _derive:
+      CMP%s: HRTIM_Master.ISR.CMP%s
+      REP: HRTIM_Master.ISR.REP
+      UPD: HRTIM_Master.ISR.UPD
   ICR:
     _array:
       CMP[1-4]C: {}
       CPT[12]C: {}
       SET[12]C: {}
+  IC[R]:
+    _derive:
+      "*C": HRTIM_Master.ICR.CMP%sC
   DIER:
     _array:
       CMP[1-4]IE: {}
@@ -50,6 +68,10 @@ HRTIM_Master:
         description: Output %s set interrupt enable
       SET[12]DE:
         description: Output %s set DMA request enable
+  DIE[R]:
+    _derive:
+      "*DE": HRTIM_Master.DIER.CMP%sDE
+      "*IE": HRTIM_Master.DIER.CMP%sIE
   FLTR:
     _array:
       FLT[1-6]EN: {}
@@ -82,20 +104,12 @@ HRTIM_Master:
 
   CR:
     _derive:
-      CKPSC: HRTIM_TIMA.CR.CKPSC
-      CONT: HRTIM_TIMA.CR.CONT
-      RETRIG: HRTIM_TIMA.CR.RETRIG
-      HALF: HRTIM_TIMA.CR.HALF
       PSHPLL: HRTIM_TIMA.CR.PSHPLL
-      SYNCRST: HRTIM_TIMA.CR.SYNCRST
-      SYNCSTRT: HRTIM_TIMA.CR.SYNCSTRT
       DELCMP2: HRTIM_TIMA.CR.DELCMP2
       DELCMP4: HRTIM_TIMA.CR.DELCMP4
       TREPU: HRTIM_TIMA.CR.TREPU
       TRSTU: HRTIM_TIMA.CR.TRSTU
       MSTU: HRTIM_TIMA.CR.MSTU
-      DACSYNC: HRTIM_TIMA.CR.DACSYNC
-      PREEN: HRTIM_TIMA.CR.PREEN
       UPDGAT: HRTIM_TIMA.CR.UPDGAT
 
 HRTIM_Common:

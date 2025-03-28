@@ -55,26 +55,26 @@ HRTIM_Master:
     CKPSC: [0, 7]
   ISR:
     UPD:
-      NoEvent: [0, No master update interrupt occurred]
-      Event: [1, Master update interrupt occurred]
+      NoEvent: [0, No timer update interrupt occurred]
+      Event: [1, Timer update interrupt occurred]
     SYNC:
       NoEvent: [0, No sync input interrupt occurred]
       Event: [1, Sync input interrupt occurred]
     REP:
-      NoEvent: [0, No master repetition interrupt occurred]
-      Event: [1, Master repetition interrupt occurred]
+      NoEvent: [0, No timer repetition interrupt occurred]
+      Event: [1, Timer repetition interrupt occurred]
     "CMP[1-4]":
-      NoEvent: [0, No master compare interrupt occurred]
-      Event: [1, Master compare interrupt occurred]
+      NoEvent: [0, No compare interrupt occurred]
+      Event: [1, Compare interrupt occurred]
   ICR:
     "*C":
       _W1C:
         Clear: [1, Clears associated flag in ISR register]
   DIER:
-    "M*DE,SYNCDE":
+    "*DE":
       Disabled: [0, DMA request disabled]
       Enabled: [1, DMA request enabled]
-    "M*IE,SYNCIE":
+    "*IE":
       Disabled: [0, Interrupt disabled]
       Enabled: [1, Interrupt enabled]
   CNTR:
@@ -193,54 +193,12 @@ HRTIM_Master:
       _W1C:
         Clear: [1, Clears associated flag in ISR register]
   DIER:
-    DLYPRTDE:
-      Disabled: [0, Delayed protection DMA request disabled]
-      Enabled: [1, Delayed protection DMA request enabled]
-    RSTDE:
-      Disabled: [0, Timer x counter reset/roll-over DMA request disabled]
-      Enabled: [1, Timer x counter reset/roll-over DMA request enabled]
-    "RST[12]DE":
-      Disabled: [0, Tx output reset DMA request disabled]
-      Enabled: [1, Tx output reset DMA request enabled]
-    "SET[12]DE":
-      Disabled: [0, Tx output set DMA request disabled]
-      Enabled: [1, Tx output set DMA request enabled]
-    "CPT[12]DE":
-      Disabled: [0, Capture DMA request disabled]
-      Enabled: [1, Capture DMA request enabled]
-    UPDDE:
-      Disabled: [0, Update DMA request disabled]
-      Enabled: [1, Update DMA request enabled]
-    REPDE:
-      Disabled: [0, Repetition DMA request disabled]
-      Enabled: [1, Repetition DMA request enabled]
-    "CMP[1-4]DE":
-      Disabled: [0, Compare DMA request disabled]
-      Enabled: [1, Compare DMA request enabled]
-    DLYPRTIE:
-      Disabled: [0, Delayed protection interrupt disabled]
-      Enabled: [1, Delayed protection interrupt enabled]
-    RSTIE:
-      Disabled: [0, Timer x counter/reset roll-over interrupt disabled]
-      Enabled: [1, Timer x counter/reset roll-over interrupt enabled]
-    "RST[12]IE":
-      Disabled: [0, Tx output reset interrupt disabled]
-      Enabled: [1, Tx output reset interrupt enabled]
-    "SET[12]IE":
-      Disabled: [0, Tx output set interrupt disabled]
-      Enabled: [1, Tx output set interrupt enabled]
-    "CPT[12]IE":
-      Disabled: [0, Capture interrupt disabled]
-      Enabled: [1, Capture interrupt enabled]
-    UPDIE:
-      Disabled: [0, Update interrupt disabled]
-      Enabled: [1, Update interrupt enabled]
-    REPIE:
-      Disabled: [0, Repetition interrupt disabled]
-      Enabled: [1, Repetition interrupt enabled]
-    "CMP[1-4]IE":
-      Disabled: [0, Compare interrupt disabled]
-      Enabled: [1, Compare interrupt enabled]
+    "*DE":
+      Disabled: [0, DMA request disabled]
+      Enabled: [1, DMA request enabled]
+    "*IE":
+      Disabled: [0, Interrupt disabled]
+      Enabled: [1, Interrupt enabled]
   CNTR:
     CNT: [0, 0xFFFF]
   PERR:
