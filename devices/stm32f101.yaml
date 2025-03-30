@@ -152,6 +152,10 @@ SPI1:
     - fields/spi/spi_v1_without_FRF_FRE.yaml
 
 TIM1:
+  CCMR[12]_Input:
+    _modify:
+      IC[24]F:
+        bitOffset: 12
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml

@@ -96,6 +96,10 @@ SPI1:
     - fields/spi/dff.yaml
 
 TIM1:
+  CCMR[12]_Input:
+    _modify:
+      IC[24]F:
+        bitOffset: 12
   _include:
     - patches/tim/icpsc.yaml
     - fields/tim/tim_mms_ts_sms.yaml
