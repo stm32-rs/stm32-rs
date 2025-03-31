@@ -336,15 +336,6 @@ TIM[25]:
   _delete:
     - OR2
 
-TIM5:
-  OR:
-    _modify:
-      TI4_RMP:
-        bitOffset: 6
-    _delete:
-      - ETR1_RMP
-      - ITR1_RMP
-
 TIM2:
   OR:
     _delete:
@@ -354,6 +345,16 @@ TIM2:
       ITR1_RMP:
         bitOffset: 10
         bitWidth: 2
+
+TIM5:
+  _include: collect/tim/tim5_derive.yaml
+  OR:
+    _modify:
+      TI4_RMP:
+        bitOffset: 6
+    _delete:
+      - ETR1_RMP
+      - ITR1_RMP
 
 TIM3:
   _include:

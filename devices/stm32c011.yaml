@@ -89,11 +89,13 @@ SYSCFG:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/ccmr3.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
+    - patches/tim/v2/oc5m.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
 
@@ -126,6 +128,9 @@ TIM1[67]:
     - patches/tim/v2/oc1m.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
+
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
 
 USART1:
   _strip: USART_

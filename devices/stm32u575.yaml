@@ -274,7 +274,9 @@ TIM1:
       OC4M_bit3:
         name: OC4M_3
   _include:
+    - patches/tim/ccmr3.yaml
     - patches/tim/v2/ocm1_bit3.yaml
+    - patches/tim/v2/oc5m.yaml
     - fields/tim/v3/tim1.yaml
     - collect/tim/ccr.yaml
 

@@ -224,9 +224,11 @@ TAMP:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/ccmr3.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/v3/tim1.yaml
     - collect/tim/ccr.yaml
 
