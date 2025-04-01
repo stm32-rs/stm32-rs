@@ -4,17 +4,9 @@
 
 CR2:
   _modify:
-    MMS:
-      name: MMS_L
     MMS_1:
-      name: MMS_H
-SMCR:
-  _modify:
-    TS:
-      name: TS_L
-    TS_1:
-      name: TS_H
-    SMS:
-      name: SMS_L
-    SMS_1:
-      name: SMS_H
+      name: MMS_3
+
+_include:
+  - sms.yaml
+  - ts.yaml

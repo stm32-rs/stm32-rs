@@ -282,6 +282,8 @@ TIM6:
 
 TIM15:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v3/tim9.yaml

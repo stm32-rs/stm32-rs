@@ -1,14 +1,14 @@
 # Extended functionality for GP and Advanced timers. Applicable to H5.
 
 CR2:
-  MMS_L: [0, 7]
-  MMS_H: [0, 1]
+  MMS: [0, 7]
+  MMS_3: [0, 1]
 
 SMCR:
-  TS_L: [0, 7]
-  TS_H: [0, 3]
-  SMS_L: [0, 7]
-  SMS_H: [0, 1]
+  TS: [0, 7]
+  TS2: [0, 3]
+  SMS: [0, 7]
+  SMS_3: [0, 1]
   SMSPS:
     Update: [0, "SMSM[3:0] is preloaded from Update event"]
     Index: [1, "SMSM[3:0] is preloaded from Index event"]

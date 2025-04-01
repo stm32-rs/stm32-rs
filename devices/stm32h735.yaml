@@ -375,6 +375,7 @@ TIM1:
       TIM_CC:
         name: TIM1_CC
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -386,6 +387,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -394,6 +396,7 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -406,6 +409,7 @@ TIM6:
 
 TIM12:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim9.yaml
@@ -415,6 +419,7 @@ TIM12:
 
 TIM13:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim13.yaml
@@ -424,6 +429,7 @@ TIM13:
 
 TIM15:
   _include:
+    - patches/tim/ts.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 

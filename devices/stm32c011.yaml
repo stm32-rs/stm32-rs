@@ -89,6 +89,8 @@ SYSCFG:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr3.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
@@ -105,6 +107,8 @@ TIM3:
     CNT_alternate:
       name: CNT_remap
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/oc1m.yaml

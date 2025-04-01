@@ -24,6 +24,7 @@
 * HPDMA derive registers between CH and CH2D clusters (#1164)
 * USART: refactor and add missing enums (#1156)
 * Refactor timers, add enums (#1133)
+* TIM: fix TS/SMS field names (#1186)
 * Add placeholders for all peripherals (#1163)
 * Fix DMA & collect (#1167)
 * Format yamls: remove unneeded quotes (#1099)
