@@ -173,6 +173,7 @@ TIM[18]:
       OIS5:
         bitOffset: 16
   _include:
+    - patches/tim/sms.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -185,6 +186,7 @@ TIM8:
 
 TIM2:
   _include:
+    - patches/tim/sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/v2/tim2.yaml
@@ -199,6 +201,7 @@ TIM5:
 
 TIM3:
   _include:
+    - patches/tim/sms.yaml
     - patches/tim/v2/add_uifcpy.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - patches/tim/v2/ocm_bit3.yaml
@@ -224,6 +227,7 @@ TIM6:
 
 TIM15:
   _include:
+    - patches/tim/sms.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml

@@ -249,6 +249,9 @@ TIM1:
       OC5M2:
         name: OC5M_3
   _include:
+    - patches/tim/mms.yaml
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr3.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - patches/tim/icpsc.yaml
@@ -257,6 +260,8 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/tim2_common_32bit.yaml
     - patches/tim/v2/add_uifcpy.yaml
@@ -269,6 +274,7 @@ TIM6:
 
 TIM15:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v3/tim15.yaml
     - collect/tim/ccr.yaml

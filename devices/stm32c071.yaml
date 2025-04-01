@@ -118,6 +118,8 @@ TIM[123]:
 
 TIM1:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/v2/tim1.yaml
@@ -128,6 +130,10 @@ TIM2:
     CNT_ALTERNATE1:
       name: CNT_remap
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
 
@@ -136,6 +142,8 @@ TIM3:
     CNT_ALTERNATE1:
       name: CNT_remap
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
 

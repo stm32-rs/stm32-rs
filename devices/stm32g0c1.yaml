@@ -144,6 +144,8 @@ TAMP:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - patches/tim/v2/oc3m.yaml
@@ -157,6 +159,8 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/tim2_cnt_32bit.yaml
     - patches/tim/v2/oc1m1.yaml
     - fields/tim/v2/tim2.yaml
@@ -164,6 +168,8 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/tim_cnt_16bit_l.yaml
     - patches/tim/tim_ccrx_16bit.yaml
     - patches/tim/v2/oc1m1.yaml
@@ -182,6 +188,8 @@ TIM14:
 
 TIM15:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - fields/tim/v2/tim15.yaml

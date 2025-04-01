@@ -216,41 +216,15 @@ TIM?:
 TIM??:
   _strip: TIM??_
 
-"TIM[1-589],TIM1[0-79]":
-  _modify:
-    CCMR1:
-      name: CCMR1_Input
-    "CCMR1_ALTERNATE,CCMR1_ALTERNATE1":
-      name: CCMR1_Output
-    "?~CCMR2":
-      name: CCMR2_Input
-    "?~CCMR2_ALTERNATE":
-      name: CCMR2_Output
-    "?~CCMR3":
-      name: CCMR3_Output
-
-"TIM[1-589],TIM1[0-59]":
-  CCMR1_Output:
-    _modify:
-      OC1M_1:
-        name: OC1M_3
-      OC2M_1:
-        name: OC2M_3
-  "?~CCMR2_Output":
-    _modify:
-      OC3M_1:
-        name: OC3M_3
-      OC4M_1:
-        name: OC4M_3
-  "?~CCMR3_Output":
-    _modify:
-      OC5M_1:
-        name: OC5M_3
-      OC6M_1:
-        name: OC6M_3
-
 TIM[18]:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/ccmr3.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
@@ -260,6 +234,11 @@ TIM8:
 
 TIM[25]:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
@@ -269,6 +248,11 @@ TIM5:
 
 TIM3:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
@@ -288,11 +272,16 @@ TIM6:
 
 TIM15:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM1[67]:
   _include:
+    - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
   CCMR1_Output:

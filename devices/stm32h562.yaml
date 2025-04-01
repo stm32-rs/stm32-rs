@@ -243,6 +243,9 @@ TIM6:
 
 TIM12:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
+    - patches/tim/mms.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - fields/tim/v3/tim9.yaml
@@ -259,6 +262,8 @@ TIM14:
 
 TIM15:
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/v2/oc1m.yaml
     - patches/tim/v2/oc2m.yaml
     - fields/tim/v3/tim15.yaml

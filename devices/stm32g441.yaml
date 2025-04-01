@@ -142,6 +142,7 @@ TAMP:
 
 TIM1:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
@@ -150,6 +151,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_32bit.yaml
@@ -158,6 +160,7 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
@@ -171,6 +174,7 @@ TIM6:
 
 TIM15:
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/v2/tim_20bit.yaml
     - fields/tim/v3/tim15.yaml
     - collect/tim/ccr.yaml
