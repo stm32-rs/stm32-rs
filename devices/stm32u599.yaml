@@ -236,7 +236,18 @@ TIM1:
         name: OC4M
       OC4M_bit3:
         name: OC4M_3
+  CCMR3_Output:
+    _modify:
+      OC6M:
+        name: OC6M_3
+      OC6M1:
+        name: OC6M
+      OC5M1:
+        name: OC5M
+      OC5M2:
+        name: OC5M_3
   _include:
+    - patches/tim/ccmr3.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/v3/tim1.yaml

@@ -352,6 +352,9 @@ TIM1[67]:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
+
 USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml

@@ -137,9 +137,13 @@ TIM11:
     - patches/tim/icpsc.yaml
 
 TIM1[01]:
+  _delete: [CR2, CCR2]
   _include:
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
+
+TIM1[1]:
+  _include: collect/tim/tim11_derive.yaml
 
 USART1:
   _include:

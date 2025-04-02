@@ -118,6 +118,8 @@ TIM[123]:
 
 TIM1:
   _include:
+    - patches/tim/ccmr3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
 
@@ -162,6 +164,9 @@ TIM1[67]:
   _include:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
+
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
 
 USART1:
   _strip: USART_

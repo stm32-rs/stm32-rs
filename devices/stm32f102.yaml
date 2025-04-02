@@ -193,6 +193,10 @@ SPI[12]:
     - fields/spi/dff.yaml
 
 TIM8:
+  CCMR[12]_Input:
+    _modify:
+      IC[24]F:
+        bitOffset: 12
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml

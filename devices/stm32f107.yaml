@@ -4,6 +4,7 @@ _derive:
   UART5: UART4
   TIM11: TIM13
   TIM14: TIM13
+  TIM8: TIM1
   CAN2: CAN1
 
 _copy:
@@ -174,7 +175,7 @@ SPI1:
     - patches/spi/dr8.yaml
     - fields/spi/spi_v1_without_FRF_FRE.yaml
 
-TIM[18]:
+TIM1:
   _include:
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml

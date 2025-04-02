@@ -2,6 +2,9 @@ _svd: ../svd/stm32h503.svd
 
 _clear_fields: "*"
 
+_derive:
+  TIM7: TIM6
+
 _modify:
   ADC:
     name: ADC1
@@ -163,8 +166,10 @@ TIM?:
 
 TIM1:
   _include:
+    - patches/tim/ccmr3.yaml
     - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
     - fields/tim/tim1_advanced.yaml
     - fields/tim/tim_common_ext.yaml
     - fields/tim/v3/tim1.yaml
@@ -191,7 +196,7 @@ TIM3:
     - fields/tim/v3/tim3.yaml
     - collect/tim/ccr.yaml
 
-TIM[67]:
+TIM6:
   _include:
     - fields/tim/v3/tim6.yaml
 

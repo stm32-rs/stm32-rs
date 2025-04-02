@@ -228,6 +228,9 @@ TIM[18]:
       IC2PCS:
         name: IC2PSC
 
+TIM8:
+  _include: collect/tim/tim8_derive.yaml
+
 TIM2:
   CNT:
     _modify:

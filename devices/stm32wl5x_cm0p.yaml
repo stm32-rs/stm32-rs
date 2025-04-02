@@ -231,6 +231,9 @@ TIM1[67]:
     - fields/tim/v2/ccm_common.yaml
     - collect/tim/ccr.yaml
 
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
+
 TZIC: {}
 
 TZSC:
