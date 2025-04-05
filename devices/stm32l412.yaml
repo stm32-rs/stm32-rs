@@ -17,6 +17,18 @@ _clear_fields: "*"
 # ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
 # SCR, MISR, SR, ICSR added
 
+_copy:
+  TIM1:
+    from: ../svd/stm32l4x1.svd:TIM1
+  TIM2:
+    from: ../svd/stm32l4x1.svd:TIM2
+  TIM6:
+    from: ../svd/stm32l4x1.svd:TIM6
+  TIM15:
+    from: ../svd/stm32l4x1.svd:TIM15
+  TIM16:
+    from: ../svd/stm32l4x1.svd:TIM16
+
 _derive:
   USART3: USART1
 
@@ -192,24 +204,28 @@ SYSCFG: {}
 
 TIM1:
   _include:
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/rep_16b.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
+  CCMR1_Input:
+    _modify:
+      IC2PCS:
+        name: IC2PSC
 
 TIM2:
+  CNT:
+    _modify:
+      CNT_H:
+        bitWidth: 16
   _include:
-    - patches/tim/tim2_arr.yaml
-    - patches/tim/tim2_cr.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
-  CNT:
-    _merge:
-      CNT: CNT*
 
 TIM6:
   _include:
@@ -224,6 +240,10 @@ TIM16:
   _include:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
 
 TSC:
   _include:
