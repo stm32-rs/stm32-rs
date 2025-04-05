@@ -141,6 +141,7 @@ TAMP:
 
 TIM1:
   _include:
+    - patches/tim/g0_tim1_ts.yaml
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/dmab_32.yaml
@@ -151,6 +152,7 @@ TIM3:
   _delete:
     _interrupts: TIM2
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml

@@ -224,6 +224,7 @@ TAMP:
 TIM1:
   _strip: TIM1_
   _include:
+    - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/ccmr3.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
@@ -241,6 +242,7 @@ TIM2:
       CNT:
         bitWidth: 32
   _include:
+    - patches/tim/tim1_mms_ts_sms.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/ccmr2_alternate.yaml
     - patches/tim/v2/ocm_bit3.yaml
@@ -255,6 +257,8 @@ TIM6:
 TIM9:
   _strip: TIM9_
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v3/tim9.yaml
@@ -270,6 +274,8 @@ TIM13:
 TIM15:
   _strip: TIM15_
   _include:
+    - patches/tim/sms.yaml
+    - patches/tim/ts.yaml
     - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/ocm1_bit3.yaml
     - fields/tim/v3/tim15.yaml

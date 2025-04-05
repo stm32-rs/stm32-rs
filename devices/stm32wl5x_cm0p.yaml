@@ -192,6 +192,7 @@ TIM1:
     CCMR3OutputComparemode:
       name: CCMR3_Output
   _include:
+    - patches/tim/ts.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim1_wl.yaml
     - fields/tim/tim_gp1.yaml
