@@ -1,5 +1,17 @@
 _svd: ../svd/stm32l4x3.svd
 
+_copy:
+  TIM1:
+    from: ../svd/stm32l4x1.svd:TIM1
+  TIM2:
+    from: ../svd/stm32l4x1.svd:TIM2
+  TIM6:
+    from: ../svd/stm32l4x1.svd:TIM6
+  TIM15:
+    from: ../svd/stm32l4x1.svd:TIM15
+  TIM16:
+    from: ../svd/stm32l4x1.svd:TIM16
+
 _modify:
   # The SVD calls ADC1 ADC.
   ADC:
@@ -184,19 +196,25 @@ SYSCFG: {}
 
 TIM1:
   _include:
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
-    - patches/tim/rep_16b.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
+  CCMR1_Input:
+    _modify:
+      IC2PCS:
+        name: IC2PSC
 
 TIM2:
+  CNT:
+    _modify:
+      CNT_H:
+        bitWidth: 16
   _include:
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/tim2_common_32bit.yaml
-    - patches/tim/v2/add_ocm_bit3.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
@@ -205,17 +223,10 @@ TIM6:
   _include:
     - fields/tim/v2/tim6.yaml
 
-TIM1[5]:
-  _include: patches/tim/l4_tim15_ch2.yaml
-
 TIM15:
   _include:
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
 
 TIM16:
   _include:

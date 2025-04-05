@@ -410,6 +410,7 @@ Family-specific:
     * Add CRSEN to APB1ENR1 (#580)
     * Fix bit offset for CRC and USART bits in RCC (#571)
     * Fix LCD RAM_COM register size and arrayify (#552)
+    * Copy L4x2-6 timers from L4x1
 * L5:
     * Fix TIM15 CCR2 address offset (#518)
 * H7:
