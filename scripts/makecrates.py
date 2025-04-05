@@ -19,7 +19,7 @@ import yaml
 VERSION = {
     "default": "0.16.0",
 }
-SVD2RUST_VERSION = "0.36.0"
+SVD2RUST_VERSION = "0.36.1"
 
 CRATE_DOC_FEATURES = {
     "stm32c0": ["atomics", "critical-section", "defmt", "rt", "stm32c011", "stm32c031", "stm32c071"],
@@ -84,8 +84,8 @@ rust-version = "1.65"
 [dependencies]
 critical-section = {{ version = "1.0", optional = true }}
 cortex-m = "0.7.7"
-cortex-m-rt = {{ version = "0.7.3", optional = true }}
-defmt = {{ version = "0.3.5", optional = true }}
+cortex-m-rt = {{ version = "0.7.5", optional = true }}
+defmt = {{ version = "1", optional = true }}
 vcell = "0.1.3"
 portable-atomic = {{ version = "1", default-features = false, optional = true }}
 
