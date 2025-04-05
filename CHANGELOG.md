@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 
-* Updated to `svd2rust` 0.36.0, `svdtools` 0.4.5, `form` 0.12.1, use tools binaries for CI (#1174)
+* Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.12.1, use tools binaries for CI (#1174)
+* bump `defmt` depencency to 1.0
 * Use `svd2rust.toml` config, use custom ident suffixes (#948)
 * Replace `makehtml.py` with `svdtools html` (#881)
 * Remove workaround for bug in duckscript's `mv` (#981)
