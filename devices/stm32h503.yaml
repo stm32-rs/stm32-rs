@@ -186,6 +186,9 @@ TIM2:
     - fields/tim/v3/tim2.yaml
     - collect/tim/ccr.yaml
 
+TIM[2]:
+  _include: collect/tim/v3/tim2_derive.yaml
+
 TIM3:
   _include:
     - patches/tim/tim2_mms_ts_sms.yaml
@@ -195,6 +198,9 @@ TIM3:
     - fields/tim/tim_common_ext.yaml
     - fields/tim/v3/tim3.yaml
     - collect/tim/ccr.yaml
+
+TIM[3]:
+  _include: collect/tim/v3/tim3_derive.yaml
 
 TIM6:
   _include:

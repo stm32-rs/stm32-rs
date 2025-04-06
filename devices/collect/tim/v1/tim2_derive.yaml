@@ -1,0 +1,50 @@
+_derive:
+  CR1: TIM1.CR1
+  CCMR1_Output: TIM1.CCMR1_Output
+  CCMR1_Input: TIM1.CCMR1_Input
+  CCMR2_Output: TIM1.CCMR2_Output
+  CCMR2_Input: TIM1.CCMR2_Input
+  PSC: TIM1.PSC
+  DCR: TIM1.DCR
+
+CR2:
+  _derive:
+    TI1S: TIM1.CR2.TI1S
+    MMS: TIM1.CR2.MMS
+    CCDS: TIM1.CR2.CCDS
+
+SMCR:
+  ETP: TIM1.CR2.ETP
+  ECE: TIM1.CR2.ECE
+  ETPS: TIM1.CR2.ETPS
+  ETF: TIM1.CR2.ETF
+  MSM: TIM1.CR2.MSM
+  SMS: TIM1.CR2.SMS
+
+DIER:
+  _derive:
+    TDE: TIM1.DIER.TDE
+    CC%sDE: TIM1.DIER.CC%sDE
+    UDE: TIM1.DIER.UDE
+    TIE: TIM1.DIER.TIE
+    CC%sIE: TIM1.DIER.CC%sIE
+    UIE: TIM1.DIER.UIE
+
+SR:
+  _derive:
+    CC%sOF: TIM1.SR.CC%sOF
+    TIF: TIM1.SR.TIF
+    CC%sIF: TIM1.SR.CC%sIF
+    UIF: TIM1.SR.UIF
+
+EGR:
+  _derive:
+    TG: TIM1.EGR.TG
+    CC%sG: TIM1.EGR.CC%sG
+    UG: TIM1.EGR.UG
+
+CCER:
+  _derive:
+    CC%sP: TIM1.CCER.CC%sP
+    CC%sE: TIM1.CCER.CC%sE
+    CC%sNP: TIM1.CCER.CC%sNP
