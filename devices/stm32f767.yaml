@@ -236,8 +236,17 @@ OTG_HS_DEVICE:
     - patches/usb_otg/hsdevice.yaml
     - collect/usb_otg/hs_device.yaml
 OTG_HS_GLOBAL:
+  _modify:
+    OTG_DIEPTXF8:
+      name: DIEPTXF8
+    HNPTXFSIZ_Host:
+      name: HNPTXFSIZ
+    DIEPTXF0_Device:
+      name: DIEPTXF0
+      alternateRegister: HNPTXFSIZ
+    GNPTXSTS:
+      name: HNPTXSTS
   _include:
-    - patches/usb_otg/hsglobal.yaml
     - patches/usb_otg/gotgctl.yaml
     - collect/usb_otg/hs_global.yaml
 OTG_HS_HOST:

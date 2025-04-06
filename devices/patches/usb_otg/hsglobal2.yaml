@@ -1,0 +1,17 @@
+_modify:
+  OTG_DIEPTXF8:
+    name: DIEPTXF8
+    resetValue: 0x02001200
+  HNPTXFSIZ_Host:
+    name: HNPTXFSIZ
+  DIEPTXF0_Device:
+    name: DIEPTXF0
+    alternateRegister: HNPTXFSIZ
+  GNPTXSTS,HNPTXSTS:
+    name: HNPTXSTS
+  GRXSTSR_Device:
+    alternateRegister: GRXSTSR_Host
+  GRXSTSP_Device:
+    alternateRegister: GRXSTSP_Host
+  DIEPTXF7:
+    addressOffset: 0x11C

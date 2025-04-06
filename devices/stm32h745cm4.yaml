@@ -210,7 +210,7 @@ OTG1_HS_DEVICE:
     - collect/usb_otg/hs_device.yaml
 OTG1_HS_GLOBAL:
   _include:
-    - patches/usb_otg/hsglobal.yaml
+    - patches/usb_otg/hsglobal2.yaml
     - patches/usb_otg/gotgctl.yaml
     - collect/usb_otg/hs_global.yaml
 OTG1_HS_HOST:
