@@ -1,0 +1,48 @@
+_delete:
+  - CR2
+  - SMCR
+  - CCMR2*
+  - CCR[234]
+  - DCR
+  - DMAR
+  - AF?
+
+CR1:
+  _delete: [CMS, DIR]
+
+DIER:
+  _delete:
+    - TDE
+    - CC?DE
+    - UDE
+    - TIE
+    - CC[234]IE
+
+SR:
+  _delete:
+    - CC[234]OF
+    - TIF
+    - CC[234]IF
+
+EGR:
+  _delete:
+    - TG
+    - CC[234]G
+
+CCMR1_Input:
+  _delete:
+    - IC2*
+    - CC2S
+
+CCMR1_Output:
+  _delete:
+    - OC2*
+    - CC2S
+
+CCER:
+  _delete:
+    - CC[234]*
+
+TISEL:
+  _delete:
+    - TI[234]SEL

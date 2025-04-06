@@ -1,0 +1,88 @@
+"?~CR2":
+  "?~OIS?N":
+    Reset: [0, "OCxN=0 after a dead-time when MOE=0"]
+    Set: [1, "OCxN=1 after a dead-time when MOE=0"]
+  "?~OIS?":
+    Reset: [0, "OCx=0 (after a dead-time if OCx(N) is implemented) when MOE=0"]
+    Set: [1, "OCx=1 (after a dead-time if OCx(N) is implemented) when MOE=0"]
+
+DIER:
+  "?~CC?DE":
+    Disabled: [0, CCx DMA request disabled]
+    Enabled: [1, CCx DMA request enabled]
+  CC?IE:
+    Disabled: [0, CCx interrupt disabled]
+    Enabled: [1, CCx interrupt enabled]
+SR:
+  CC?OF:
+    _read:
+      NoOvercapture: [0, No overcapture has been detected]
+      Overcapture: [1, The counter value has been captured in TIMx_CCRx register while CCxIF flag was already set]
+    _W0C:
+      Clear: [0, Clear flag]
+  CC?IF:
+    _read:
+      NoMatch: [0, No campture/compare has been detected]
+      Match:
+        [
+          1,
+          "If CC1 is an output: The content of the counter TIMx_CNT matches the content of the TIMx_CCR1 register. If CC1 is an input: The counter value has been captured in TIMx_CCR1 register.",
+        ]
+    _W0C:
+      Clear: [0, Clear flag]
+EGR:
+  CC?G:
+    _write:
+      Trigger:
+        [
+          1,
+          "If CC1 is an output: CC1IF flag is set, Corresponding interrupt or DMA request is sent if enabled. If CC1 is an input: The current value of the counter is captured in TIMx_CCR1 register.",
+        ]
+
+CCMR?_Input:
+  IC?F:
+    _name: ICFilter
+    NoFilter: [0, "No filter, sampling is done at fDTS"]
+    FCK_INT_N2: [1, "fSAMPLING=fCK_INT, N=2"]
+    FCK_INT_N4: [2, "fSAMPLING=fCK_INT, N=4"]
+    FCK_INT_N8: [3, "fSAMPLING=fCK_INT, N=8"]
+    FDTS_Div2_N6: [4, "fSAMPLING=fDTS/2, N=6"]
+    FDTS_Div2_N8: [5, "fSAMPLING=fDTS/2, N=8"]
+    FDTS_Div4_N6: [6, "fSAMPLING=fDTS/4, N=6"]
+    FDTS_Div4_N8: [7, "fSAMPLING=fDTS/4, N=8"]
+    FDTS_Div8_N6: [8, "fSAMPLING=fDTS/8, N=6"]
+    FDTS_Div8_N8: [9, "fSAMPLING=fDTS/8, N=8"]
+    FDTS_Div16_N5: [10, "fSAMPLING=fDTS/16, N=5"]
+    FDTS_Div16_N6: [11, "fSAMPLING=fDTS/16, N=6"]
+    FDTS_Div16_N8: [12, "fSAMPLING=fDTS/16, N=8"]
+    FDTS_Div32_N5: [13, "fSAMPLING=fDTS/32, N=5"]
+    FDTS_Div32_N6: [14, "fSAMPLING=fDTS/32, N=6"]
+    FDTS_Div32_N8: [15, "fSAMPLING=fDTS/32, N=8"]
+  IC?PSC:
+    _name: ICPrescaler
+    NoPrescaler: [0, "No prescaler, capture is done each time an edge is detected on the capture input"]
+    TwoEvents: [1, Capture is done once every 2 events]
+    FourEvents: [2, Capture is done once every 4 events]
+    EightEvents: [3, Capture is done once every 8 events]
+
+CCMR?_Output:
+  OC?FE:
+    Disabled: [0, Fast output disabled]
+    Enabled: [1, Fast output enabled]
+  OC?PE:
+    Disabled: [0, Preload register on CCRx disabled. New values written to CCRx are taken into account immediately]
+    Enabled: [1, Preload register on CCRx enabled. Preload value is loaded into active register on each update event]
+CCMR[12]_Output:
+  CC?S:
+    Output: [0, CCx channel is configured as output]
+
+CCER:
+  "?~CC?NE":
+    Disabled: [0, Complementary output disabled]
+    Enabled: [1, Complementary output enabled]
+  CC?E:
+    Disabled: [0, Capture disabled]
+    Enabled: [1, Capture enabled]
+  CC?P:
+    RisingEdge: [0, Noninverted/rising edge]
+    FallingEdge: [1, Inverted/falling edge]
