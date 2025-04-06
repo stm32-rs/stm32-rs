@@ -5,3 +5,22 @@ _include:
   - ../trigger.yaml
   - ../ccr.yaml
   - ccm.yaml
+
+SMCR:
+  MSM:
+    NoSync: [0, No action]
+    Sync:
+      - 1
+      - The effect of an event on the trigger input (TRGI) is delayed to allow a perfect synchronization between the current timer and its slaves (through TRGO). It is useful if we want to synchronize several timers on a single external event.
+  SMS:
+    Disabled: [0, "Slave mode disabled - if CEN = ‘1 then the prescaler is clocked directly by the internal clock."]
+    Reset_Mode:
+      - 4
+      - Reset Mode - Rising edge of the selected trigger input (TRGI) reinitializes the counter and generates an update of the registers.
+    Gated_Mode:
+      - 5
+      - Gated Mode - The counter clock is enabled when the trigger input (TRGI) is high. The counter stops (but is not reset) as soon as the trigger becomes low. Both start and stop of the counter are controlled.
+    Trigger_Mode:
+      - 6
+      - Trigger Mode - The counter starts at a rising edge of the trigger TRGI (but it is not reset). Only the start of the counter is controlled.
+    Ext_Clock_Mode: [7, External Clock Mode 1 - Rising edges of the selected trigger (TRGI) clock the counter.]

@@ -1,0 +1,39 @@
+_delete:
+  - CCMR2*
+  - CCR[34]
+  - DCR
+  - DMAR
+  - AF?
+
+CR1:
+  _delete: [CMS, DIR]
+
+CR2:
+  _delete: CCDS
+
+SMCR:
+  _delete: [ETP, ECE, ETPS, ETF]
+
+DIER:
+  _delete:
+    - TDE
+    - CC?DE
+    - UDE
+    - CC[34]IE
+
+SR:
+  _delete:
+    - CC[34]OF
+    - CC[34]IF
+
+EGR:
+  _delete:
+    - CC[34]G
+
+CCER:
+  _delete:
+    - CC[34]*
+
+TISEL:
+  _delete:
+    - TI[34]SEL

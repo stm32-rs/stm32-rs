@@ -403,23 +403,20 @@ TIM6:
 
 TIM12:
   _include:
+    - patches/tim/v2/tim12_from_tim2.yaml
     - patches/tim/ts.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim9.yaml
     - collect/tim/ccr.yaml
-  _delete:
-    - CCR[34]
 
 TIM13:
   _include:
-    - patches/tim/ts.yaml
+    - patches/tim/v2/tim13_from_tim2.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim13.yaml
     - collect/tim/ccr.yaml
-  _delete:
-    - CCR[234]
 
 TIM15:
   _include:
