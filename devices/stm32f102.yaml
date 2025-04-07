@@ -26,6 +26,12 @@ _add:
         value: 39
 
 ADC1:
+  DR:
+    _add:
+      ADC2DATA:
+        description: ADC2 data
+        bitOffset: 16
+        bitWidth: 16
   _include:
     - patches/adc/smpx_17.yaml
     - fields/adc/adc_f1_f37x.yaml
@@ -33,17 +39,26 @@ ADC1:
     - fields/adc/adc1_f1.yaml
     - collect/adc/jofr_jdr.yaml
 
+ADC[1]:
+  _include: collect/adc/v1/adc1_derive.yaml
+
 ADC2:
   _include:
     - fields/adc/adc_f1_f37x.yaml
     - fields/adc/adc_f1_common.yaml
     - collect/adc/jofr_jdr.yaml
 
+ADC[2]:
+  _include: collect/adc/v1/adc2_derive.yaml
+
 ADC3:
   _include:
     - fields/adc/adc_f1_f37x.yaml
     - fields/adc/adc3_f1.yaml
     - collect/adc/jofr_jdr.yaml
+
+ADC[3]:
+  _include: collect/adc/v1/adc3_derive.yaml
 
 AFIO:
   _include:
