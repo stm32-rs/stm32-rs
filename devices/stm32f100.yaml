@@ -9,6 +9,9 @@ ADC1:
     - fields/adc/adc_f1_common.yaml
     - collect/adc/jofr_jdr.yaml
 
+ADC[1]:
+  _include: collect/adc/v1/adc1_derive.yaml
+
 AFIO:
   _include:
     - fields/exti/derive.yaml

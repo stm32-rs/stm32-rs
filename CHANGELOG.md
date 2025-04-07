@@ -92,6 +92,7 @@ Family-specific:
   * F103: USB RESP1 fix name (#927)
   * Remove CAN from F101/102 (#935)
   * Remove CAN2 from F103, rename CAN1 to CAN (#941)
+  * Derive ADC registers/fields
 
 * F3:
   * Update vendor SVD bundle to v1.3 (#1059)
