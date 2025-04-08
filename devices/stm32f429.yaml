@@ -27,6 +27,9 @@ ADC1:
     - fields/adc/adc_v2/adc_v2_extsel_c.yaml
     - collect/adc/jofr_jdr.yaml
 
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
+
 CAN1:
   _include:
     - fields/can/can.yaml

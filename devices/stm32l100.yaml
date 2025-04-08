@@ -5,6 +5,9 @@ ADC:
     - patches/adc/l1_smpr.yaml
     - collect/adc/jofr_jdr.yaml
 
+AD[C]:
+  _include: collect/adc/derive_sq.yaml
+
 AES:
   _include:
     - patches/aes/fields.yaml

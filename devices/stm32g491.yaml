@@ -7,6 +7,7 @@ _copy:
     from: TIM2
 
 _derive:
+  ADC3: ADC1
   TIM4: TIM3
   FDCAN2:
     _from: FDCAN
@@ -15,7 +16,7 @@ _derive:
     _from: TIM1
     baseAddress: 0x40015000
 
-ADC[13]:
+ADC1:
   _include:
     - patches/adc/g4.yaml
     - fields/adc/adc_v3_g4.yaml
@@ -23,6 +24,9 @@ ADC[13]:
     - collect/adc/v3.yaml
   SQR*:
     SQ*: [0, 18]
+
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
 
 ADC12_Common:
   _include: fields/adc/adc_v3_common_g4.yaml

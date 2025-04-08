@@ -190,6 +190,7 @@ Family-specific:
 
 * H7:
   * Update vendor SVD bundle to v1.9 (#1092)
+  * H72x/3x: add ADC3 fields
   * H735: add I2C5 (#864)
   * Update RNG for stm32h735 (#925)
   * Add bit TRBUFF of DMA_SxCR of H747 cm4 (#958)

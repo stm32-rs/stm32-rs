@@ -24,6 +24,9 @@ ADC2:
     - fields/adc/adc_v2/adc_v2_extsel_d.yaml
     - collect/adc/jofr_jdr.yaml
 
+ADC[2]:
+  _include: collect/adc/derive_sq.yaml
+
 AES:
   _include:
     - patches/aes/fields.yaml

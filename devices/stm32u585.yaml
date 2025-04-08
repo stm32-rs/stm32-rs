@@ -23,6 +23,9 @@ ADC1:
     - fields/adc/adc_u5_12.yaml
     - collect/adc/v3.yaml
 
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
+
 ADC4:
   _strip: ADC_
   _include:
