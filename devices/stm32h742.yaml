@@ -37,6 +37,9 @@ ADC3:
   SQR?:
     SQ*: [0, 19]
 
+ADC[3]:
+  _include: collect/adc/derive_sq.yaml
+
 AXI:
   _strip: AXI_
   _include:

@@ -36,9 +36,13 @@ ADC1:
     - patches/adc/l4+.yaml
     - fields/adc/adc_v3.yaml
     - fields/adc/adc_v3_l4.yaml
+    - fields/adc/awd0_18.yaml
     - collect/adc/v3.yaml
   SQR?:
     SQ*: [0, 18]
+
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
 
 AES:
   _include:

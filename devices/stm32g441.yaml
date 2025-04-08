@@ -18,6 +18,9 @@ ADC1:
   SQR*:
     SQ*: [0, 18]
 
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
+
 ADC12_Common:
   _include: fields/adc/adc_v3_common_g4.yaml
 

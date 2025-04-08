@@ -46,6 +46,9 @@ ADC1:
       Exti15: [6, EXTI line15]
       Jswstart: [7, JSWSTART]
 
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
+
 CAN:
   _delete:
     _interrupts:

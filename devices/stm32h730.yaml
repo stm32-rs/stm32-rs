@@ -45,10 +45,19 @@ ADC12_Common,ADC3_Common:
 
 ADC3:
   _strip: ADC_
+  _include:
+    - patches/adc/split.yaml
+    - fields/adc/adc_v3.yaml
+    - fields/adc/adc_h5.yaml
+    - fields/adc/awd0_18.yaml
+    - collect/adc/v3.yaml
   CFGR:
     _merge: EXTSEL?
-  _include:
-    - fields/adc/adc_h7_revision_v.yaml
+  SQR?:
+    SQ*: [0, 19]
+
+ADC[3]:
+  _include: collect/adc/derive_sq.yaml
 
 ADC1:
   _strip: ADC_
@@ -59,6 +68,9 @@ ADC1:
     - collect/adc/v3.yaml
   SQR?:
     SQ*: [0, 19]
+
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
 
 AXI:
   _strip: AXI_
