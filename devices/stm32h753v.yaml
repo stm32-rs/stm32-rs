@@ -78,7 +78,10 @@ CRYP:
   "IV[01][LR]R":
     _merge: IV*
 
-DAC: {}
+DAC:
+  _include:
+    - patches/dac/tsel_4bit.yaml
+    - fields/dac/h75x.yaml
 
 DBGMCU: {}
 

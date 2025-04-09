@@ -42,6 +42,9 @@ CRS:
 
 DAC:
   _strip: DAC_
+  _include: fields/dac/h5_u5.yaml
+  MCR:
+    _merge: HFSEL?
 
 DBGMCU:
   _strip: DBGMCU_

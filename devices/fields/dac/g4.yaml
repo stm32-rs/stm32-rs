@@ -1,0 +1,51 @@
+_include:
+  - v6.yaml
+
+SWTRGR:
+  SWTRIGB[12]:
+    NoTrigger: [0, No trigger]
+    Trigger: [1, Trigger for sawtooth increment]
+
+STR[12]:
+  STRSTDATA[12]: [0, 0xFFF]
+  STDIR[12]:
+    Decrement: [0, Decrement]
+    Increment: [1, Increment]
+  STINCDATA[12]: [0, 0xFFFF]
+
+CR,STMODR:
+  TSEL?,STRSTTRIGSEL?:
+    Swtrig: [0, Software trigger]
+    Tim8Trgo: [1, Timer 8 TRGO event]
+    Tim7Trgo: [2, Timer 7 TRGO event]
+    Tim15Trgo: [3, Timer 15 TRGO event]
+    Tim2Trgo: [4, Timer 2 TRGO event]
+    Tim4Trgo: [5, Timer 4 TRGO event]
+    Exti9: [6, EXTI line 9]
+    Tim6Trgo: [7, Timer 6 TRGO event]
+    Tim3Trgo: [8, Timer 3 TRGO event]
+    HrtimDacReset1: [9, hrtim_dac_reset_trg1]
+    HrtimDacReset2: [10, hrtim_dac_reset_trg2]
+    HrtimDacReset3: [11, hrtim_dac_reset_trg3]
+    HrtimDacReset4: [12, hrtim_dac_reset_trg4]
+    HrtimDacReset5: [13, hrtim_dac_reset_trg5]
+    HrtimDacReset6: [14, hrtim_dac_reset_trg6]
+    HrtimDacX: [15, hrtim_dac_trgX]
+
+STMODR:
+  STINCTRIGSEL?:
+    Swtrig: [0, Software sawtooth increment trigger]
+    Tim8Trgo: [1, Timer 8 TRGO event]
+    Tim7Trgo: [2, Timer 7 TRGO event]
+    Tim15Trgo: [3, Timer 15 TRGO event]
+    Tim2Trgo: [4, Timer 2 TRGO event]
+    Tim4Trgo: [5, Timer 4 TRGO event]
+    Exti10: [6, EXTI line 10]
+    Tim6Trgo: [7, Timer 6 TRGO event]
+    Tim3Trgo: [8, Timer 3 TRGO event]
+    HrtimDacStep1: [9, hrtim_dac_step_trg1]
+    HrtimDacStep2: [10, hrtim_dac_step_trg2]
+    HrtimDacStep3: [11, hrtim_dac_step_trg3]
+    HrtimDacStep4: [12, hrtim_dac_step_trg4]
+    HrtimDacStep5: [13, hrtim_dac_step_trg5]
+    HrtimDacStep6: [14, hrtim_dac_step_trg6]

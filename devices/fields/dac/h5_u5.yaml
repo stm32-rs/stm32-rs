@@ -1,0 +1,17 @@
+_include:
+  - v6.yaml
+
+CR:
+  TSEL?:
+    Swtrig: [0, Software trigger]
+    Tim1Trgo: [1, Timer 1 TRGO event]
+    Tim2Trgo: [2, Timer 2 TRGO event]
+    Tim4Trgo: [3, Timer 4 TRGO event]
+    Tim5Trgo: [4, Timer 5 TRGO event]
+    Tim6Trgo: [5, Timer 6 TRGO event]
+    Tim7Trgo: [6, Timer 7 TRGO event]
+    Tim8Trgo: [7, Timer 8 TRGO event]
+    Tim15Trgo: [8, Timer 15 TRGO event]
+    Lptim1Ch1: [11, LPTIM1 CH1 event]
+    Lptim2Ch1: [12, LPTIM2 CH1 event]
+    Exti9: [13, EXTI line 9]

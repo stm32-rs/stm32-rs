@@ -27,6 +27,8 @@ CRS:
 
 DAC:
   _strip: DAC_
+  _include:
+    - fields/dac/u0.yaml
 
 DBGMCU:
   _strip: DBGMCU_

@@ -1,0 +1,15 @@
+_include:
+  - v3.yaml
+
+CR:
+  TSEL?:
+    Swtrig: [0, Software trigger]
+    Tim1Trgo: [1, Timer 1 TRGO event]
+    Tim2Trgo: [2, Timer 2 TRGO event]
+    Tim3Trgo: [3, Timer 3 TRGO event]
+    Tim6Trgo: [5, Timer 6 TRGO event]
+    Tim7Trgo: [6, Timer 7 TRGO event]
+    Tim15Trgo: [8, Timer 15 TRGO event]
+    Lptim1Out: [11, LPTIM1 OUT event]
+    Lptim2Out: [12, LPTIM2 OUT event]
+    Exti9: [13, EXTI line 9]

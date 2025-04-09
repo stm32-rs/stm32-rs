@@ -74,7 +74,10 @@ CRC:
 
 CRS: {}
 
-DAC1: {}
+DAC1:
+  _include:
+    - patches/dac/tsel_4bit.yaml
+    - fields/dac/h7_high.yaml
 
 DBGMCU: {}
 

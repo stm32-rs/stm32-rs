@@ -1,0 +1,61 @@
+_include:
+  - 8bit.yaml
+  - 12bit.yaml
+  - wavegen.yaml
+  - dmaudr.yaml
+
+"CR,CR?":
+  CEN?:
+    Normal: [0, DAC Channel X Normal operating mode]
+    Calibration: [1, DAC Channel X calibration mode]
+  DMAEN?:
+    Disabled: [0, DAC Channel X DMA mode disabled]
+    Enabled: [1, DAC Channel X DMA mode enabled]
+  TEN?:
+    Disabled: [0, DAC Channel X trigger disabled]
+    Enabled: [1, DAC Channel X trigger enabled]
+  EN?:
+    Disabled: [0, DAC Channel X disabled]
+    Enabled: [1, DAC Channel X enabled]
+
+"SWTRGR,SWTRIGR":
+  SWTRIG?:
+    NoTrigger: [0, No trigger]
+    Trigger: [1, Trigger]
+
+DOR?:
+  DACC?DOR: [0, 4095]
+
+SR:
+  BWST?:
+    Idle: [0, "There is no write operation of DAC_SHSR1 ongoing: DAC_SHSR1 can be written"]
+    Busy: [1, "There is a write operation of DAC_SHSR1 ongoing: DAC_SHSR1 cannot be written"]
+  CAL_FLAG?:
+    Lower: [0, Calibration trimming value is lower than the offset correction value]
+    Equal_Higher: [1, Calibration trimming value is equal or greater than the offset correction value]
+
+CCR:
+  OTRIM?: [0, 0x1F]
+
+MCR:
+  MODE?:
+    NormalPinBuffer: [0b000, Normal mode - DAC channelx is connected to external pin with Buffer enabled]
+    NormalPinChipBuffer:
+      [0b001, Normal mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer enabled]
+    NormalPinNoBuffer: [0b010, Normal mode - DAC channelx is connected to external pin with Buffer disabled]
+    NormalChipNoBuffer: [0b011, Normal mode - DAC channelx is connected to on chip peripherals with Buffer disabled]
+    SHPinBuffer: [0b100, "S&H mode - DAC channelx is connected to external pin with Buffer enabled"]
+    SHPinChipBuffer:
+      [0b101, "S&H mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer enabled"]
+    SHPinNoBuffer:
+      [0b110, "S&H mode - DAC channelx is connected to external pin and to on chip peripherals with Buffer disabled"]
+    SHChipNoBuffer: [0b111, "S&H mode - DAC channelx is connected to on chip peripherals with Buffer disabled"]
+
+SHSR?:
+  TSAMPLE?: [0, 1023]
+
+SHHR:
+  THOLD?: [0, 1023]
+
+SHRR:
+  TREFRESH?: [0, 255]

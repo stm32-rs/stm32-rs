@@ -1,0 +1,36 @@
+_include:
+  - v3.yaml
+
+DHR12[RL][12]:
+  DACC?DHRB: [0, 4095]
+
+DHR8R[12]:
+  DACC?DHRB: [0, 255]
+
+DOR?:
+  DACC?DORB: [0, 4095]
+
+SR:
+  DAC[12]RDY:
+    NotReady: [0, DAC channelX is not yet ready to accept the trigger nor output data]
+    Ready: [1, DAC channelX is ready to accept the trigger or output data]
+  DORSTAT[12]:
+    Dor: [0, "DOR[11:0] is used actual DAC output"]
+    Dorb: [1, "DORB[11:0] is used actual DAC output"]
+
+MCR:
+  DMADOUBLE[12]:
+    Normal: [0, DMA Normal mode selected]
+    DoubleData: [1, DMA Double data mode selected]
+  SINFORMAT[12]:
+    Unsigned: [0, Input data is in unsigned format]
+    Signed: [1, "Input data is in signed format (2's complement). The MSB bit represents the sign."]
+  HFSEL:
+    Disabled: [0, High frequency interface mode disabled]
+    More80Mhz: [1, High frequency interface mode enabled for AHB clock frequency > 80 MHz]
+    More160Mhz: [2, High frequency interface mode enabled for AHB clock frequency >160 MHz]
+
+"?~AUTOCR":
+  AUTOMODE:
+    Disabled: [0, DAC Autonomous mode disabled]
+    Enabled: [1, DAC Autonomous mode enabled]

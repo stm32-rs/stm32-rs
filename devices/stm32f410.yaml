@@ -46,19 +46,13 @@ CRC:
 
 DAC:
   CR:
-    _delete:
-      - DMAUDRIE2
-      - DMAEN2
-      - MAMP2
-      - WAVE2
-      - TSEL2
-      - TEN2
-      - BOFF2
-      - EN2
+    _delete: "*2"
+    TSEL?:
+      Tim5Trgo: [3, Timer 5 TRGO event]
+      Exti9: [6, EXTI line 9]
+      SOFTWARE: [7, Software trigger]
   _include:
-    - fields/dac/dac_f410.yaml
-    - fields/dac/dac_wavegen.yaml
-    - fields/dac/dac_dmaudr.yaml
+    - fields/dac/v2.yaml
 
 DBGMCU: {}
 

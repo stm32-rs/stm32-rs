@@ -81,7 +81,10 @@ CRS:
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
-DAC1: {}
+DAC1:
+  _include:
+    - patches/dac/tsel_4bit.yaml
+    - fields/dac/h7_high.yaml
 
 DBGMCU: {}
 
