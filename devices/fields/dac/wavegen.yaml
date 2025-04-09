@@ -1,0 +1,20 @@
+# These are the extra DAC features on fancier devices.
+
+CR:
+  WAVE?:
+    Disabled: [0, Wave generation disabled]
+    Noise: [1, Noise wave generation enabled]
+    Triangle: [-1, Triangle wave generation enabled]
+  MAMP?:
+    Amp1: [0b0000, Unmask bit0 of LFSR/ triangle amplitude equal to 1]
+    Amp3: [0b0001, "Unmask bits[1:0] of LFSR/ triangle amplitude equal to 3"]
+    Amp7: [0b0010, "Unmask bits[2:0] of LFSR/ triangle amplitude equal to 7"]
+    Amp15: [0b0011, "Unmask bits[3:0] of LFSR/ triangle amplitude equal to 15"]
+    Amp31: [0b0100, "Unmask bits[4:0] of LFSR/ triangle amplitude equal to 31"]
+    Amp63: [0b0101, "Unmask bits[5:0] of LFSR/ triangle amplitude equal 63"]
+    Amp127: [0b0110, "Unmask bits[6:0] of LFSR/ triangle amplitude equal to 127"]
+    Amp255: [0b0111, "Unmask bits[7:0] of LFSR/ triangle amplitude equal to 255"]
+    Amp511: [0b1000, "Unmask bits[8:0] of LFSR/ triangle amplitude equal to 511"]
+    Amp1023: [0b1001, "Unmask bits[9:0] of LFSR/ triangle amplitude equal to 1023"]
+    Amp2047: [0b1010, "Unmask bits[10:0] of LFSR/ triangle amplitude equal to 2047"]
+    Amp4095: [-1, "Unmask bits[11:0] of LFSR/ triangle amplitude equal to 4095"]

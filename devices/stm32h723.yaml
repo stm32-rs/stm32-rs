@@ -106,7 +106,9 @@ CRC:
 
 CRS: {}
 
-DAC: {}
+DAC:
+  _include:
+    - fields/dac/h7.yaml
 
 # Modify the DBGMCU.CR register fields names to be consistent with RM0468.
 # TODO: Interesting aside: the svd lists these controls additionally for D2 and

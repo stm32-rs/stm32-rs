@@ -1,0 +1,11 @@
+_include:
+  - v1.yaml
+CR:
+  TSEL?:
+    Tim6Trgo: [0, Timer 6 TRGO event]
+    Tim3Trgo: [1, Timer 3 TRGO event]
+    Tim7Trgo: [2, Timer 7 CH3 event]
+    Tim15Trgo: [3, Timer 15 TRGO event]
+    Tim2Trgo: [4, Timer 2 TRGO event]
+    Exti9: [6, EXTI line9]
+    Software: [7, Software trigger]

@@ -74,7 +74,9 @@ CRC:
 
 CRS: {}
 
-DAC1: {}
+DAC1:
+  _include:
+    - fields/dac/h7.yaml
 
 DBGMCU: {}
 

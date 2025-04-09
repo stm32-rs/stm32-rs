@@ -64,7 +64,10 @@ CRC:
 
 CRS: {}
 
-DAC: {}
+DAC:
+  _include:
+    - patches/dac/dac_l4+.yaml
+    - fields/dac/l4+.yaml
 
 DBGMCU: {}
 

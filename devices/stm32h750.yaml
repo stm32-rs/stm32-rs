@@ -74,6 +74,8 @@ CRYP: {}
 
 DAC:
   _strip: DAC_
+  _include:
+    - fields/dac/h7.yaml
 
 DBGMCU: {}
 

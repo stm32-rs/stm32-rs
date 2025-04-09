@@ -1,0 +1,13 @@
+_include:
+  - v3.yaml
+
+"CR,CR?":
+  TSEL?:
+    TIM6_TRGO: [0, "TIM6_TRGO event trigger for DAC conversion, if TEN is enabled"]
+    TIM8_TRGO: [1, TIM8_TRGO]
+    TIM7_TRGO: [2, "TIM7_TRGO  (Note: Reserved on STM32L45xxx and STM32L46xxx devices)"]
+    TIM5_TRGO: [3, TIM5_TRGO]
+    TIM2_TRGO: [4, TIM2_TRGO]
+    TIM4_TRGO: [5, TIM4_TRGO]
+    EXTI9: [6, External pin]
+    SWTRIG: [7, Software triger]

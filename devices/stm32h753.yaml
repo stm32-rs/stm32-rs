@@ -77,7 +77,9 @@ CRYP:
   "IV[01][LR]R":
     _merge: IV*
 
-DAC: {}
+DAC:
+  _include:
+    - fields/dac/h7.yaml
 
 DBGMCU: {}
 

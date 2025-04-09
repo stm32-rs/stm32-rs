@@ -1,0 +1,21 @@
+_include:
+  - v3.yaml
+
+"CR,CR?":
+  TSEL?:
+    SWTRIG: [0, SWTRIG1]
+    TIM1_TRGO: [1, dac_chx_trg1]
+    TIM2_TRGO: [2, dac_chx_trg2]
+    TRG3: [3, dac_chx_trg3]
+    TRG4: [4, dac_chx_trg4]
+    TRG5: [5, dac_chx_trg5]
+    TRG6: [6, dac_chx_trg6]
+    TRG7: [7, dac_chx_trg7]
+    TRG8: [8, dac_chx_trg8]
+    TRG9: [9, dac_chx_trg9]
+    TRG10: [10, dac_chx_trg10]
+    LPTIM1_OUT: [11, dac_chx_trg11]
+    LPTIM2_OUT: [12, dac_chx_trg12]
+    LPTIM3_OUT: [13, dac_chx_trg13]
+    EXTI9: [14, dac_chx_trg14]
+    TRG15: [15, dac_chx_trg15]

@@ -75,7 +75,9 @@ CRS: {}
 CRYP:
   _include: patches/cryp/merge_fields.yaml
 
-DAC: {}
+DAC:
+  _include:
+    - fields/dac/h7.yaml
 
 DBGMCU: {}
 
