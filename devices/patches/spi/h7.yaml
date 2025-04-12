@@ -1,6 +1,10 @@
 _modify:
   "CGFR,I2SCFGR":
     name: I2SCFGR
+  TXCRC:
+    access: read-only
+  RXCRC:
+    access: read-only
 
 CR1:
   _modify:
