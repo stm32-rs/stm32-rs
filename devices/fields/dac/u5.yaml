@@ -1,5 +1,5 @@
 _include:
-  - v3.yaml
+  - v6.yaml
 
 CR:
   TSEL?:
@@ -12,7 +12,6 @@ CR:
     Tim7Trgo: [6, Timer 7 TRGO event]
     Tim8Trgo: [7, Timer 8 TRGO event]
     Tim15Trgo: [8, Timer 15 TRGO event]
-    Lptim1Out: [11, LPTIM1 OUT event]
-    Lptim2Out: [12, LPTIM2 OUT event]
+    Lptim1Ch1: [11, LPTIM1 CH1 event]
+    Lptim3Ch1: [12, LPTIM3 CH1 event]
     Exti9: [13, EXTI line 9]
-    Lptim2or3Out: [14, LPTIM2 (DAC1)/ LPTIM3 (DAC2) OUT event]

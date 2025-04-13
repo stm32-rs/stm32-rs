@@ -16,7 +16,7 @@ STR[12]:
 CR,STMODR:
   TSEL?,STRSTTRIGSEL?:
     Swtrig: [0, Software trigger]
-    Tim8Trgo: [1, Timer 8 TRGO event]
+    Tim1or8Trgo: [1, Timer 8 (DAC1, DAC2, DAC4) or Timer 1 (DAC3) TRGO event]
     Tim7Trgo: [2, Timer 7 TRGO event]
     Tim15Trgo: [3, Timer 15 TRGO event]
     Tim2Trgo: [4, Timer 2 TRGO event]
@@ -30,12 +30,12 @@ CR,STMODR:
     HrtimDacReset4: [12, hrtim_dac_reset_trg4]
     HrtimDacReset5: [13, hrtim_dac_reset_trg5]
     HrtimDacReset6: [14, hrtim_dac_reset_trg6]
-    HrtimDacX: [15, hrtim_dac_trgX]
+    HrtimDacX: [15, hrtim_dac_trg1 (DAC1, DAC4), hrtim_dac_trg2 (DAC2), hrtim_dac_trg3 (DAC3)]
 
 STMODR:
   STINCTRIGSEL?:
     Swtrig: [0, Software sawtooth increment trigger]
-    Tim8Trgo: [1, Timer 8 TRGO event]
+    Tim1or8Trgo: [1, Timer 8 (DAC1, DAC2, DAC4) or Timer 1 (DAC3) TRGO event]
     Tim7Trgo: [2, Timer 7 TRGO event]
     Tim15Trgo: [3, Timer 15 TRGO event]
     Tim2Trgo: [4, Timer 2 TRGO event]
