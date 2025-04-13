@@ -256,6 +256,8 @@ USART1:
     - fields/usart/v3/B.yaml
 
 USB:
+  _include:
+    - collect/usb/epxr.yaml
   _add:
     _interrupts:
       USB_FS:

@@ -185,6 +185,8 @@ USART1:
 
 USB:
   _strip: USB_
+  _include:
+    - collect/usb/chepr.yaml
 
 VREFBUF:
   _strip: VREFBUF_

@@ -287,7 +287,9 @@ USART1:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/v3/B.yaml
 
-USB_SRAM: {}
+USB_SRAM:
+  _include:
+    - collect/usb/epxr.yaml
 
 VREFBUF: {}
 
