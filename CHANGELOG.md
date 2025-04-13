@@ -75,6 +75,7 @@
 * F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers (#1161)
 * F1, F2, F4: Derive identical UART registers from USART1, add GPTR.PSC (#1179)
 * CCMR3_Output fix
+* Add DAC enums
 * Derive TIM registers
 * Update README.md (#1152)
 * HRTIM:

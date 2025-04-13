@@ -1,0 +1,12 @@
+_include:
+  - v3.yaml
+
+"CR,CR?":
+  TSEL?:
+    Swtrig: [0, Software trigger]
+    Tim1Trgo: [1, Timer 1 TRGO event]
+    Tim2Trgo: [2, Timer 2 TRGO event]
+    Lptim1Out: [11, LPTIM1 OUT event]
+    Lptim2Out: [12, LPTIM2 OUT event]
+    Lptim3Out: [13, LPTIM3 OUT event]
+    EXTI9: [14, dac_chx_trg14]

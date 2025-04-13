@@ -66,6 +66,12 @@ CRS: {}
 
 DAC:
   _strip: DAC_
+  _include:
+    - fields/dac/l5.yaml
+  CR:
+    _merge:
+      - TSEL1?
+      - TSEL2?
 
 DBGMCU: {}
 

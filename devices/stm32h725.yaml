@@ -106,7 +106,10 @@ CRC:
 
 CRS: {}
 
-DAC: {}
+DAC:
+  _include:
+    - patches/dac/tsel_4bit.yaml
+    - fields/dac/h73x.yaml
 
 # Modify the DBGMCU.CR register fields names to be consistent with RM0468.
 # TODO: Interesting aside: the svd lists these controls additionally for D2 and

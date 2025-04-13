@@ -83,7 +83,36 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
-DAC[12]: {}
+DAC1:
+  CR:
+    TSEL?:
+      Tim6Trgo: [0, Timer 6 TRGO event]
+      Tim3Trgo: [1, Timer 3 TRGO event]
+      Tim7Trgo: [2, Timer 7 TRGO event]
+      Tim5Trgo: [3, Timer 5 TRGO event]
+      Tim2Trgo: [4, Timer 2 TRGO event]
+      Tim4Trgo: [5, Timer 4 TRGO event]
+      Exti9: [6, EXTI line 9]
+      Software: [7, Software trigger]
+
+DAC2:
+  CR:
+    _merge:
+      WAVE1: WAVE*
+      MAMP1: MAMP*
+    TSEL1:
+      Tim6Trgo: [0, Timer 6 TRGO event]
+      Tim3Trgo: [1, Timer 3 TRGO event]
+      Tim7Trgo: [2, Timer 7 TRGO event]
+      Tim18Trgo: [3, Timer 18 TRGO event]
+      Tim2Trgo: [4, Timer 2 TRGO event]
+      Tim4Trgo: [5, Timer 4 TRGO event]
+      Exti9: [6, EXTI line 9]
+      Software: [7, Software trigger]
+
+DAC[12]:
+  _include:
+    - fields/dac/v2.yaml
 
 DBGMCU: {}
 

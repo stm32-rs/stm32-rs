@@ -67,9 +67,15 @@ CRC:
     - fields/crc/crc_pol.yaml
 
 DAC1:
+  CR:
+    TSEL1:
+      Tim6Trgo: [0, Timer 6 TRGO event]
+      Tim15Trgo: [3, Timer 15 TRGO event]
+      Tim2Trgo: [4, Timer 2 TRGO event]
+      Exti9: [6, EXTI line 9]
+      Software: [7, Software trigger]
   _include:
-    - fields/dac/dac_common_1ch.yaml
-    - fields/dac/dac_dmaudr.yaml
+    - fields/dac/v2.yaml
 
 DBGMCU: {}
 
