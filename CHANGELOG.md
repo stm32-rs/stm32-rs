@@ -67,7 +67,7 @@
 * 16-bit I2C registers (#995)
 * U5/H5: collect GTZC registers in arrays (#1056)
 * G0X1, G4, H5, H7R/S, L5, U5: Add UCPD peripheral (#1001)
-* C0,G0,H5: merge USB CHEP[0-7]R registers into array (#1036)
+* C0,G0,H5,U0: merge USB CHEP[0-7]R registers into array (#1036)
 * C0,G0,H5: fix field names in cmmr1_output registers (#1038)
 * LCD: fix and unify RAM registers (#1083)
 * H5, U5: Add cluster definitions for GPDMA channels (#1121)

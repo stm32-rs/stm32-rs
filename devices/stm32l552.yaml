@@ -273,7 +273,9 @@ USART1:
     - patches/usart/add_udr.yaml
     - fields/usart/v4/B.yaml
 
-USB: {}
+USB:
+  _include:
+    - collect/usb/epxr.yaml
 
 VREFBUF: {}
 
