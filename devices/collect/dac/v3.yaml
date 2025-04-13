@@ -1,0 +1,80 @@
+_include:
+  - array.yaml
+
+_array:
+  SHSR[12]:
+    description: DAC channel%s sample and hold sample time register
+    _strip_end: "1"
+  "?~STR[12]":
+    _strip_end: "1"
+
+CR:
+  _array:
+    EN[12]:
+      description: DAC channel%s enable
+    TEN[12]:
+      description: DAC channel%s trigger enable
+    WAVE[12]:
+      description: DAC channel%s noise/triangle wave generation enable
+    MAMP[12]:
+      description: DAC channel%s mask/amplitude selector
+    DMAEN[12]:
+      description: DAC channel%s DMA enable
+    DMAUDRIE[12]:
+      description: DAC channel%s DMA Underrun Interrupt enable
+    CEN[12]:
+      description: DAC channel%s calibration enable
+
+"SWTRGR,SWTRIGR":
+  _array:
+    SWTRIG[12]:
+      description: DAC channel%s software trigger
+"?~DHR12RD":
+  _array:
+    DACC[12]DHR:
+      description: DAC channel%s 12-bit right-aligned data
+"?~DHR12LD":
+  _array:
+    DACC[12]DHR:
+      description: DAC channel%s 12-bit left-aligned data
+"?~DHR8RD":
+  _array:
+    DACC[12]DHR:
+      description: DAC channel%s 8-bit right-aligned data
+SR:
+  _array:
+    DMAUDR[12]:
+      description: DAC channel%s DMA underrun flag
+    CAL_FLAG[12]:
+      description: DAC channel%s calibration offset status
+    BWST[12]:
+      description: DAC channel%s busy writing sample time flag
+    "?~DAC[12]RDY":
+      description: DAC channel%s ready status bit
+    "?~DORSTAT[12]":
+      description: DAC channel%s output register status bit
+CCR:
+  _array:
+    OTRIM[12]:
+      description: DAC channel%s offset trimming value
+MCR:
+  _array:
+    MODE[12]:
+      description: DAC channel%s mode
+    "?~DMADOUBLE[12]":
+      description: DAC channel%s DMA double data mode
+    "?~SINFORMAT[12]":
+      description: Enable signed format for DAC channel%s
+SHHR:
+  _array:
+    THOLD[12]:
+      description: DAC channel%s hold time (only valid in Sample and hold mode)
+SHRR:
+  _array:
+    TREFRESH[12]:
+      description: DAC channel%s refresh time (only valid in Sample and hold mode)
+
+"?~STMODR":
+  _array:
+    STRSTTRIGSEL[12]: {}
+    STINCTRIGSEL[12]: {}

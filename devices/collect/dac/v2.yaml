@@ -1,0 +1,34 @@
+_include:
+  - array.yaml
+
+CR:
+  _array:
+    EN[12]:
+      description: DAC channel%s enable
+    BOFF[12]:
+      description: DAC channel%s output buffer disable
+    TEN[12]:
+      description: DAC channel%s trigger enable
+    WAVE[12]:
+      description: DAC channel%s noise/triangle wave generation enable
+    MAMP[12]:
+      description: DAC channel%s mask/amplitude selector
+    DMAEN[12]: {}
+    "?~DMAUDRIE[12]":
+      description: DAC channel%s DMA Underrun Interrupt enable
+SWTRIGR:
+  _array:
+    SWTRIG[12]: {}
+"?~DHR12RD":
+  _array:
+    DACC[12]DHR: {}
+"?~DHR12LD":
+  _array:
+    DACC[12]DHR:
+      description: DAC channel%s 12-bit left-aligned data
+"?~DHR8RD":
+  _array:
+    DACC[12]DHR: {}
+"?~SR":
+  _array:
+    DMAUDR[12]: {}

@@ -42,7 +42,9 @@ CRS:
 
 DAC:
   _strip: DAC_
-  _include: fields/dac/h5.yaml
+  _include:
+    - fields/dac/h5.yaml
+    - collect/dac/v3.yaml
   MCR:
     _merge: HFSEL?
 
