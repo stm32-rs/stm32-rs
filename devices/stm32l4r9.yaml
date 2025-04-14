@@ -108,7 +108,9 @@ FLASH:
   _include:
     - patches/flash/flash_boot0s.yaml
 
-FMC: {}
+FMC:
+  _include:
+    - collect/fsmc/sram.yaml
 
 GFXMMU:
   _include:

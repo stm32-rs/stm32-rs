@@ -100,6 +100,11 @@ FMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+    - collect/fsmc/sd_derive.yaml
+
 GPIO[ABH]:
   _include:
     - fields/gpio/v2/common.yaml

@@ -81,7 +81,13 @@ FLASH:
 
 FMAC: {}
 
-FMC: {}
+FMC:
+  _include:
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABC]:
   _include:

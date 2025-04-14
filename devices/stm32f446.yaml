@@ -115,6 +115,11 @@ FMC:
     - collect/fsmc/nand_v1.yaml
     - collect/fsmc/sd.yaml
 
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+    - collect/fsmc/sd_derive.yaml
+
 FMPI2C1:
   _modify:
     ISR:

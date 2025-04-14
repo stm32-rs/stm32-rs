@@ -103,7 +103,9 @@ FIREWALL:
 
 FLASH: {}
 
-FMC: {}
+FMC:
+  _include:
+    - collect/fsmc/sram.yaml
 
 GPIO[ABCI]:
   _include:

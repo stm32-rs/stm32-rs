@@ -1,11 +1,11 @@
 # FMC as used in STM32F7
 
 SDCR?:
-  RPIPE:
+  "?~RPIPE":
     NoDelay: [0, No clock cycle delay]
     Clocks1: [1, One clock cycle delay]
     Clocks2: [2, Two clock cycles delay]
-  RBURST:
+  "?~RBURST":
     Disabled: [0, Single read requests are not managed as bursts]
     Enabled: [1, Single read requests are always managed as bursts]
   "SDCLK,CLK":
@@ -69,7 +69,7 @@ SDRTR:
     Clear: [1, Refresh Error Flag is cleared]
 
 SDSR:
-  BUSY:
+  "?~BUSY":
     NotBusy: [0, SDRAM Controller is ready to accept a new request]
     Busy: [1, SDRAM Controller is not ready to accept a new request]
   MODES?:

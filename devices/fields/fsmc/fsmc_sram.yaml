@@ -2,7 +2,7 @@ BCR?:
   CBURSTRW:
     Enabled: [1, Write operations are performed in synchronous mode]
     Disabled: [0, Write operations are always performed in asynchronous mode]
-  CPSIZE:
+  "?~CPSIZE":
     NoBurstSplit: [0, No burst split when crossing page boundary]
     Bytes128: [1, 128 bytes CRAM page size]
     Bytes256: [2, 256 bytes CRAM page size]
@@ -23,6 +23,9 @@ BCR?:
   WAITCFG:
     BeforeWaitState: [0, NWAIT signal is active one data cycle before wait state]
     DuringWaitState: [1, NWAIT signal is active during wait state]
+  "?~WRAPMOD":
+    Disabled: [0, Direct wrapped burst is not enabled]
+    Enabled: [1, Direct wrapped burst is enabled]
   WAITPOL:
     ActiveLow: [0, NWAIT active low]
     ActiveHigh: [1, NWAIT active high]
@@ -32,6 +35,7 @@ BCR?:
   FACCEN:
     Disabled: [0, Corresponding NOR Flash memory access is disabled]
     Enabled: [1, Corresponding NOR Flash memory access is enabled]
+  # TODO: fix
   MWID:
     Bits8: [0, Memory data bus width 8 bits]
     Bits16: [1, Memory data bus width 16 bits]

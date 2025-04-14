@@ -80,6 +80,12 @@ FMAC:
 
 FMC:
   _strip: FMC_
+  _include:
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPDMA1:
   _strip: GPDMA_

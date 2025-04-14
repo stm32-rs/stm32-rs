@@ -63,6 +63,10 @@ FSMC:
     - fields/fsmc/fsmc_sram.yaml
     - collect/fsmc/sram.yaml
 
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+
 GPIOA:
   _include:
     - fields/gpio/v1/common.yaml

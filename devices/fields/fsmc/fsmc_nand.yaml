@@ -14,7 +14,7 @@
   PWID:
     Bits8: [0, External memory device width 8 bits]
     Bits16: [1, External memory device width 16 bits]
-  PTYP:
+  "?~PTYP":
     NANDFlash: [1, NAND Flash]
   PBKEN:
     Disabled: [0, Corresponding memory bank is disabled]
@@ -60,3 +60,9 @@
 
 "ECCR,ECCR?":
   ECC: [0, 0xFFFFFFFF]
+
+"?~PIO?":
+  IOHIZ: [0, 255]
+  IOHOLD: [1, 255]
+  IOWAIT: [1, 255]
+  IOSET: [0, 255]

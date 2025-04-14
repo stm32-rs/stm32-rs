@@ -89,6 +89,10 @@ FSMC:
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
 
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+
 GPIO[ABI]:
   _include:
     - fields/gpio/v2/common.yaml

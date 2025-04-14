@@ -1,24 +1,8 @@
 PMEM*:
-  _modify:
-    MEMHIZx:
-      name: MEMHIZ
-    MEMHOLDx:
-      name: MEMHOLD
-    MEMWAITx:
-      name: MEMWAIT
-    MEMSETx:
-      name: MEMSET
+  _strip_end: x
 PATT*:
-  _modify:
-    ATTHIZx:
-      name: ATTHIZ
-    ATTHOLDx:
-      name: ATTHOLD
-    ATTWAITx:
-      name: ATTWAIT
-    ATTSETx:
-      name: ATTSET
+  _strip_end: x
 ECCR*:
-  _modify:
-    ECCx:
-      name: ECC
+  _strip_end: x
+"?~PIO*":
+  _strip_end: x

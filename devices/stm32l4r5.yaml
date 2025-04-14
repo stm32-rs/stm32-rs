@@ -125,7 +125,9 @@ FLASH:
       SYSF_ECC:
         bitOffset: 22
 
-FMC: {}
+FMC:
+  _include:
+    - collect/fsmc/sram.yaml
 
 GFXMMU:
   _include:

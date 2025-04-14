@@ -75,6 +75,12 @@ FLASH:
 
 FMC:
   _strip: FMC_
+  _include:
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GFXMMU:
   _strip: GFXMMU_
