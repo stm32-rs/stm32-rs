@@ -132,12 +132,6 @@ FLASH:
     - patches/flash/flash_boot0s.yaml
 
 FMC:
-  BCR1:
-    _add:
-      WRAPMOD:
-        description: WRAPMOD
-        bitOffset: 10
-        bitWidth: 1
   "BCR[2-4]":
     _add:
       WFDIS:
@@ -150,6 +144,8 @@ FMC:
         bitOffset: 20
         bitWidth: 1
   BCR?:
+    _delete:
+      - WRAPMOD
     _add:
       CPSIZE:
         description: CRAM page size
@@ -169,6 +165,10 @@ FMC:
     - fields/fsmc/fsmc_wfdis.yaml
     - fields/fsmc/fsmc_nand.yaml
     - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABC]:
   _include:

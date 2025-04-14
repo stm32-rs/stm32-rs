@@ -122,8 +122,17 @@ FLASH:
 
 FMC:
   _include:
+    - patches/fsmc/bwtr_clean.yaml
     - patches/fsmc/fsmc_l4+.yaml
     - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABCI]:
   _include:

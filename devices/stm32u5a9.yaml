@@ -101,9 +101,15 @@ FMAC: {}
 
 FMC:
   _include:
+    - patches/fsmc/bcr_clean.yaml
     - patches/fsmc/fsmc_u5.yaml
     - fields/fsmc/fsmc_sram.yaml
     - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GFXMMU:
   _strip: GFXMMU_

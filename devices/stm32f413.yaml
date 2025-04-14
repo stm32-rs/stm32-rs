@@ -162,7 +162,12 @@ FMPI2C1:
 FSMC:
   _include:
     - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
     - collect/fsmc/sram.yaml
+
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABF]:
   _include:

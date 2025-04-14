@@ -91,6 +91,20 @@ FMAC:
 
 FMC:
   _strip: FMC_
+  PCR:
+    _merge: TAR*
+  _include:
+    - patches/fsmc/bcr_clean.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPDMA1:
   _strip: GPDMA_

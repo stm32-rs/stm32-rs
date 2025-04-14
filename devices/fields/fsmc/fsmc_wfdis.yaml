@@ -1,11 +1,16 @@
 BCR1:
+  "?~FMCEN":
+    Disabled: [0, Disable the FMC controller]
+    Enabled: [1, Enable the FMC controller]
+  "?~BMAP":
+    Default: [0, Default mapping]
+    Swapped: [1, NOR/PSRAM bank and SDRAM bank 1/bank2 are swapped]
+    Remapped: [2, SDRAM Bank2 remapped on FMC bank2 and still accessible at default mapping]
   WFDIS:
     Enabled: [0, Write FIFO enabled]
     Disabled: [1, Write FIFO disabled]
   CCLKEN:
-    Enabled: [1, The FMC_CLK is only generated during the synchronous memory access (read/write transaction)]
     Disabled:
-      [
-        0,
-        The FMC_CLK is generated continuously during asynchronous and synchronous access. The FMC_CLK clock is activated when the CCLKEN is set,
-      ]
+      - 0
+      - The FMC_CLK is generated continuously during asynchronous and synchronous access. The FMC_CLK clock is activated when the CCLKEN is set
+    Enabled: [1, The FMC_CLK is only generated during the synchronous memory access (read/write transaction)]

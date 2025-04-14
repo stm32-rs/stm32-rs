@@ -97,7 +97,24 @@ FLASH:
     - fields/flash/acr/hlfcya.yaml
     - fields/flash/flash_f3_obr_sram_parity_check.yaml
 
-FMC: {}
+FMC:
+  BCR1:
+    _add:
+      WRAPMOD:
+        description: Wrapped burst mode support
+        bitOffset: 10
+        bitWidth: 1
+  _include:
+    - patches/fsmc/bwtr_clean.yaml
+    - patches/fsmc/fsmc_nand.yaml
+    - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_nand.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/nand_v1.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABC]:
   _include:

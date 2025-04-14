@@ -149,12 +149,6 @@ FSMC:
         description: Continuous clock enable
         bitOffset: 20
         bitWidth: 1
-    WFDIS:
-      Enabled: [0, Write FIFO enabled]
-      Disabled: [1, Write FIFO disabled]
-    CCLKEN:
-      Enabled: [1, FSMC_CLK is generated continuously during asynchronous and synchronous access]
-      Disabled: [0, FSMC_CLK is only generated during the synchronous memory access]
   # Delete WRAPMOD field from BCR1, BCR2, BCR3, BCR4
   BCR?:
     _delete:
@@ -167,7 +161,12 @@ FSMC:
   _include:
     - patches/fsmc/fsmc_sramfix_common.yaml
     - fields/fsmc/fsmc_sram.yaml
+    - fields/fsmc/fsmc_wfdis.yaml
     - collect/fsmc/sram.yaml
+
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABH]:
   _include:

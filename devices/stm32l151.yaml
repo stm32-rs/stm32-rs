@@ -56,6 +56,10 @@ FSMC:
     - fields/fsmc/fsmc_sram.yaml
     - collect/fsmc/sram.yaml
 
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+
 GPIO[ABC]:
   _include:
     - patches/gpio/with_OSPEEDER.yaml
