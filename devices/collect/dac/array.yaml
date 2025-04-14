@@ -1,0 +1,21 @@
+_array:
+  DHR12R[12]:
+    description: channel%s 12-bit right-aligned data holding register
+    _modify:
+      DACC[12]DHR:
+        name: DACCDHR
+  DHR12L[12]:
+    description: channel%s 12-bit left aligned data holding register
+    _modify:
+      DACC[12]DHR:
+        name: DACCDHR
+  DHR8R[12]:
+    description: channel%s 8-bit right aligned data holding register
+    _modify:
+      DACC[12]DHR:
+        name: DACCDHR
+  DOR[12]:
+    description: channel%s data output register
+    _modify:
+      DACC[12]DOR:
+        name: DACCDOR
