@@ -237,7 +237,10 @@ SDMMC1:
   _strip: SDMMC_
 
 SPI1:
-  _include: patches/spi/rxtxdr.yaml
+  _include:
+    - patches/spi/u5.yaml
+    - patches/spi/rxtxdr.yaml
+    - fields/spi/spi_v4.yaml
 
 SYSCFG: {}
 

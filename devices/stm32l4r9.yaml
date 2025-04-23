@@ -212,6 +212,10 @@ SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/spi_FRF_FRE.yaml
+    - fields/spi/spi_v2_spi.yaml
 
 SWPMI1: {}
 

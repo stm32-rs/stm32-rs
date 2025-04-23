@@ -191,9 +191,10 @@ SPDIFRX:
 
 SPI1:
   _strip: SPI_
-
-SPI?:
-  _include: patches/spi/rxtxdr.yaml
+  _include:
+    - patches/spi/rxtxdr.yaml
+    - fields/spi/spi_v4.yaml
+    - fields/spi/spi_v3_i2s.yaml
 
 TAMP:
   _strip: TAMP_
