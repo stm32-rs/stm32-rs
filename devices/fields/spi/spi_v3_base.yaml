@@ -119,36 +119,9 @@ CFG2:
   MSSI: [0, 15]
 
 IER:
-  MODFIE:
-    Masked: [0, Mode fault interrupt masked]
-    NotMasked: [1, Mode fault interrupt not masked]
-  TIFREIE:
-    Masked: [0, TI frame format error interrupt masked]
-    NotMasked: [1, TI frame format error interrupt not masked]
-  CRCEIE:
-    Masked: [0, CRC error interrupt masked]
-    NotMasked: [1, CRC error interrupt not masked]
-  OVRIE:
-    Masked: [0, Overrun interrupt masked]
-    NotMasked: [1, Overrun interrupt not masked]
-  UDRIE:
-    Masked: [0, Underrun interrupt masked]
-    NotMasked: [1, Underrun interrupt not masked]
-  TXTFIE:
-    Masked: [0, Transmission transfer filled interrupt masked]
-    NotMasked: [1, Transmission transfer filled interrupt not masked]
-  EOTIE:
-    Masked: [0, End-of-transfer interrupt masked]
-    NotMasked: [1, End-of-transfer interrupt not masked]
-  DXPIE:
-    Masked: [0, Duplex transfer complete interrupt masked]
-    NotMasked: [1, Duplex transfer complete interrupt not masked]
-  TXPIE:
-    Masked: [0, TX space available interrupt masked]
-    NotMasked: [1, TX space available interrupt not masked]
-  RXPIE:
-    Masked: [0, RX data available interrupt masked]
-    NotMasked: [1, RX data available interrupt not masked]
+  "*IE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
 
 SR:
   CTSIZE: [0, 65535]
