@@ -167,10 +167,10 @@ FMC:
   _strip: FMC_
   _include:
     - patches/fsmc/bcr_clean.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_wfdis.yaml
-    - fields/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sd.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 

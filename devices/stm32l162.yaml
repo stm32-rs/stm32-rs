@@ -52,8 +52,8 @@ Flash: {}
 
 FSMC:
   _include:
-    - patches/fsmc/fsmc_sramfix_common.yaml
-    - fields/fsmc/fsmc_sram.yaml
+    - patches/fsmc/sramfix_common.yaml
+    - fields/fsmc/sram.yaml
     - collect/fsmc/sram.yaml
 
 FSM[C]:

@@ -161,8 +161,8 @@ FMPI2C1:
 
 FSMC:
   _include:
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_wfdis.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
     - collect/fsmc/sram.yaml
 
 FSM[C]:

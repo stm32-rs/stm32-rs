@@ -135,10 +135,10 @@ FSMC:
       CLK:
         name: SDCLK
   _include:
-    - patches/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sd.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
     - collect/fsmc/sd.yaml

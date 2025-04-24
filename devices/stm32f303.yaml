@@ -106,9 +106,9 @@ FMC:
         bitWidth: 1
   _include:
     - patches/fsmc/bwtr_clean.yaml
-    - patches/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_nand.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/nand.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
 

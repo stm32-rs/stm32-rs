@@ -144,12 +144,12 @@ FLASH:
 FMC:
   _include:
     - patches/fsmc/bwtr_clean.yaml
-    - patches/fsmc/fsmc_sramfix.yaml
-    - patches/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_wfdis.yaml
-    - fields/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sd.yaml
+    - patches/fsmc/sramfix.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/sd.yaml
 
