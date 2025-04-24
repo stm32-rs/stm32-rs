@@ -79,6 +79,7 @@
 * Use arrays for DAC channels
 * Derive TIM registers
 * Update README.md (#1152)
+* Add SPI enums for G4, U5, H7+
 * HRTIM:
   * H7 & G4 fixes and enums (#1021) (#1022)
   * Remove timer block suffixes from register/field names (#1023)

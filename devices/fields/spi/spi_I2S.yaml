@@ -28,6 +28,10 @@ I2SCFGR:
   CHLEN:
     SixteenBit: [0, 16-bit wide]
     ThirtyTwoBit: [1, 32-bit wide]
+  "?~ASTRTEN":
+    AsyncStartDisabled: [0, Asynchronous start disabled]
+    AsyncStartEnabled: [1, Asynchronous start enabled]
+
 I2SPR:
   MCKOE:
     Disabled: [0, Master clock output is disabled]

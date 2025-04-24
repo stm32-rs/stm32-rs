@@ -211,8 +211,8 @@ SPI1:
   _strip: SPI_
   _include:
     - patches/spi/rxtxdr.yaml
-    - fields/spi/spi_v3_base.yaml
-    - fields/spi/spi_v3_cfg1_bpass.yaml
+    - fields/spi/spi_v4.yaml
+    - fields/spi/spi_v3_i2s.yaml
 
 TAMP:
   _strip: TAMP_

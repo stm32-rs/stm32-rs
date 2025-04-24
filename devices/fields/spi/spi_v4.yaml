@@ -1,0 +1,23 @@
+_include:
+  - spi_v3_base.yaml
+
+CFG1:
+  BPASS:
+    Disabled: [0, Bypass is disabled]
+    Enabled: [1, Bypass is enabled]
+CFG2:
+  RDIOP:
+    High: [0, high level of the signal means the slave is ready for communication]
+    Low: [1, low level of the signal means the slave is ready for communication]
+  RDIOM:
+    Active: [0, RDY signal is defined internally fixed as permanently active (RDIOP setting has no effect)]
+    Pin:
+      - 1
+      - RDY signal is overtaken from alternate function input (at master case) or output (at slave case) of the dedicated pin (RDIOP setting takes effect)
+"?~AUTOCR":
+  TRIGEN:
+    Disabled: [0, Hardware control disabled]
+    Enabled: [1, Hardware control enabled]
+  TRIGPOL:
+    RaisingEdge: [0, trigger is active on raising edge]
+    FallingEdge: [1, trigger is active on falling edge]

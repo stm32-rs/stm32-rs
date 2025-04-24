@@ -1,3 +1,7 @@
+_include:
+  - spi_v3_base.yaml
+  - spi_v3_i2s.yaml
+
 CFG1:
   UDRDET:
     StartOfFrame: [0, Underrun is detected at begin of data frame]
@@ -5,3 +9,9 @@ CFG1:
     StartOfSlaveSelect: [2, Underrun is detected at begin of active SS signal]
   UDRCFG:
     RepeatTransmitted: [2, Slave repeats last transmitted data frame]
+CR2:
+  TSER: [0, 65535]
+SR:
+  TSERF:
+    NotLoaded: [0, Additional number of SPI data to be transacted not yet loaded]
+    Loaded: [1, Additional number of SPI data to be transacted was reloaded]

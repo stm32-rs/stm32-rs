@@ -119,36 +119,9 @@ CFG2:
   MSSI: [0, 15]
 
 IER:
-  MODFIE:
-    Masked: [0, Mode fault interrupt masked]
-    NotMasked: [1, Mode fault interrupt not masked]
-  TIFREIE:
-    Masked: [0, TI frame format error interrupt masked]
-    NotMasked: [1, TI frame format error interrupt not masked]
-  CRCEIE:
-    Masked: [0, CRC error interrupt masked]
-    NotMasked: [1, CRC error interrupt not masked]
-  OVRIE:
-    Masked: [0, Overrun interrupt masked]
-    NotMasked: [1, Overrun interrupt not masked]
-  UDRIE:
-    Masked: [0, Underrun interrupt masked]
-    NotMasked: [1, Underrun interrupt not masked]
-  TXTFIE:
-    Masked: [0, Transmission transfer filled interrupt masked]
-    NotMasked: [1, Transmission transfer filled interrupt not masked]
-  EOTIE:
-    Masked: [0, End-of-transfer interrupt masked]
-    NotMasked: [1, End-of-transfer interrupt not masked]
-  DXPIE:
-    Masked: [0, Duplex transfer complete interrupt masked]
-    NotMasked: [1, Duplex transfer complete interrupt not masked]
-  TXPIE:
-    Masked: [0, TX space available interrupt masked]
-    NotMasked: [1, TX space available interrupt not masked]
-  RXPIE:
-    Masked: [0, RX data available interrupt masked]
-    NotMasked: [1, RX data available interrupt not masked]
+  "*IE":
+    Disabled: [0, Interrupt disabled]
+    Enabled: [1, Interrupt enabled]
 
 SR:
   CTSIZE: [0, 65535]
@@ -205,54 +178,14 @@ IFCR:
 TXDR:
   TXDR: [0, 0xFFFFFFFF]
 
+RXCRC:
+  RXCRC: [0, 0xFFFFFFFF]
+
+TXCRC:
+  TXCRC: [0, 0xFFFFFFFF]
+
 CRCPOLY:
   CRCPOLY: [0, 0xFFFFFFFF]
 
 UDRDR:
   UDRDR: [0, 0xFFFFFFFF]
-
-I2SCFGR:
-  MCKOE:
-    Disabled: [0, Master clock output disabled]
-    Enabled: [1, Master clock output enabled]
-  ODD:
-    Even: [0, Real divider value is I2SDIV*2]
-    Odd: [1, Real divider value is I2SDIV*2 + 1]
-  I2SDIV: [0, 255]
-  DATFMT:
-    RightAligned: [0, The data inside RXDR and TXDR are right aligned]
-    LeftAligned: [1, The data inside RXDR and TXDR are left aligned]
-  WSINV:
-    Disabled: [0, Word select inversion disabled]
-    Enabled: [1, Word select inversion enabled]
-  FIXCH:
-    NotFixed: [0, The channel length in slave mode is different from 16 or 32 bits (CHLEN not taken into account)]
-    Fixed: [1, The channel length in slave mode is supposed to be 16 or 32 bits (according to CHLEN)]
-  CKPOL:
-    SampleOnRising: [0, Signals are sampled on rising and changed on falling clock edges]
-    SampleOnFalling: [1, Signals are sampled on falling and changed on rising clock edges]
-  CHLEN:
-    Bits16: [0, 16 bit per channel]
-    Bits32: [1, 32 bit per channel]
-  DATLEN:
-    Bits16: [0, 16 bit data length]
-    Bits24: [1, 24 bit data length]
-    Bits32: [2, 32 bit data length]
-  PCMSYNC:
-    Short: [0, Short PCM frame synchronization]
-    Long: [1, Long PCM frame synchronization]
-  I2SSTD:
-    Philips: [0, I2S Philips standard]
-    LeftAligned: [1, MSB/left justified standard]
-    RightAligned: [2, LSB/right justified standard]
-    PCM: [3, PCM standard]
-  I2SCFG:
-    SlaveTransmit: [0, "Slave, transmit"]
-    SlaveReceive: [1, "Slave, recteive"]
-    MasterTransmit: [2, "Master, transmit"]
-    MasterReceive: [3, "Master, receive"]
-    SlaveFullDuplex: [4, "Slave, full duplex"]
-    MasterFullDuplex: [5, "Master, full duplex"]
-  I2SMOD:
-    SPI: [0, SPI mode selected]
-    I2S: [1, I2S/PCM mode selected]
