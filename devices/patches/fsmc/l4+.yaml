@@ -47,10 +47,6 @@ BTR?:
       bitWidth: 2
 
 BWTR?:
-  _delete:
-    - CLKDIV
-    - DATLAT
-
   _add:
     BUSTURN:
       description: Bus turnaround phase duration

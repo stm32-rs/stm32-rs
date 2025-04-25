@@ -109,7 +109,19 @@ FLASH:
   _include:
     - patches/flash/flash_boot0s.yaml
 
-FMC: {}
+FMC:
+  _include:
+    - patches/fsmc/bwtr_clean.yaml
+    - patches/fsmc/l4+.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
+    - fields/fsmc/nand.yaml
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GFXMMU:
   _include:

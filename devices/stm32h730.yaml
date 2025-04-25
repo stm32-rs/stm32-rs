@@ -204,7 +204,18 @@ FMAC:
 
 FMC:
   _include:
-    - collect/fsmc/sdram.yaml
+    - patches/fsmc/bcr_clean.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
+    - collect/fsmc/sram.yaml
+    - collect/fsmc/sd.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+    - collect/fsmc/sd_derive.yaml
 
 GPIO[ABCJK]:
   _include:

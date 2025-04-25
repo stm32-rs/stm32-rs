@@ -105,11 +105,18 @@ FSMC:
       addressOffset: 0x11C
       alternateRegister: ""
   _include:
-    - patches/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_nand.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
+    - collect/fsmc/sd.yaml
+
+FSM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+    - collect/fsmc/sd_derive.yaml
 
 GPIO[ABI]:
   _include:

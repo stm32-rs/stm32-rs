@@ -116,23 +116,22 @@ FMC:
       addressOffset: 0x11C
       alternateRegister: ""
   SDCR2:
-    _add:
-      RPIPE:
-        description: Read pipe
-        bitOffset: 13
-        bitWidth: 2
-      RBURST:
-        description: Burst read
-        bitOffset: 12
-        bitWidth: 1
+    _modify:
+      CLK:
+        name: SDCLK
   _include:
-    - patches/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sram.yaml
-    - fields/fsmc/fsmc_nand.yaml
-    - fields/fsmc/fsmc_sd.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/nand.yaml
+    - fields/fsmc/sd.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
     - collect/fsmc/sd.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
+    - collect/fsmc/sd_derive.yaml
 
 GPIO[ABK]:
   _include:

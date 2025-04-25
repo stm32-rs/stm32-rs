@@ -104,7 +104,21 @@ FIREWALL:
 
 FLASH: {}
 
-FMC: {}
+FMC:
+  BCR?:
+    _delete: WRAPMOD
+  _include:
+    - patches/fsmc/bwtr_clean.yaml
+    - patches/fsmc/sramfix_common.yaml
+    - patches/fsmc/nand.yaml
+    - fields/fsmc/sram.yaml
+    - fields/fsmc/bcr1.yaml
+    - fields/fsmc/nand.yaml
+    - collect/fsmc/sram.yaml
+
+FM[C]:
+  _include:
+    - collect/fsmc/sram_derive.yaml
 
 GPIO[ABCI]:
   _include:
