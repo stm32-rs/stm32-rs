@@ -86,6 +86,7 @@
   * Remove timer block suffixes from register/field names (#1023)
   * Derive identical registers (#1025)
   * Specify TIM events for each block (#1030)
+* LPTIM v1/2
 
 Family-specific:
 

@@ -126,7 +126,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM1: {}
+LPTIM1:
+  _include:
+    - fields/lptim/v1.yaml
 
 OTG_FS_*:
   _strip: OTG_FS_

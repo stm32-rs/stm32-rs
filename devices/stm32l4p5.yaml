@@ -170,6 +170,8 @@ LPTIM1:
           description: Option register bit 1
           bitOffset: 1
           bitWidth: 1
+  _include:
+    - fields/lptim/v1.yaml
 
   CR:
     _add:

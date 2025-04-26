@@ -14,6 +14,7 @@ _copy:
 _derive:
   TIM4: TIM3
   TIM14: TIM13
+  LPTIM3: LPTIM1
 
 # Fix invalid groupName
 _modify:
@@ -241,9 +242,9 @@ IWDG1:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM[13]:
+LPTIM1:
   _include:
-    - fields/lptim/lptim_v1.yaml
+    - fields/lptim/v1b.yaml
 
 LPUART1:
   _include:

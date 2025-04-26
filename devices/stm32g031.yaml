@@ -86,7 +86,9 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM1: {}
+LPTIM1:
+  _include:
+    - fields/lptim/v1b.yaml
 
 LPUART:
   _include:

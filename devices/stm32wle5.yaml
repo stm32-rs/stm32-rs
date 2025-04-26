@@ -5,6 +5,9 @@ _clear_fields: "*"
 _delete:
   - SYSCFG_continue
 
+_derive:
+  LPTIM3: LPTIM2
+
 _modify:
   name: STM32WLE5
   TIM*:
@@ -146,14 +149,12 @@ IWDG:
 LPTIM1:
   _strip: LPTIM?_
   _include:
-    - fields/lptim/lptim_v1.yaml
-    - fields/lptim/lptim_wl.yaml
+    - fields/lptim/v2.yaml
     - fields/lptim/lptim1_wl.yaml
-LPTIM[23]:
+LPTIM2:
   _strip: LPTIM?_
   _include:
-    - fields/lptim/lptim_v1.yaml
-    - fields/lptim/lptim_wl.yaml
+    - fields/lptim/v2.yaml
     - fields/lptim/lptim2_wl.yaml
   OR:
     _merge: OR*
