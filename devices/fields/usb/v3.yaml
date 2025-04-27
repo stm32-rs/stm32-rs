@@ -6,7 +6,7 @@ CNTR:
   SUSPEN:
     NoEffect: [0, No effect]
     Suspend: [1, Enter L1/L2 suspend]
-  L1RESUME:
+  "L1RESUME,L1RES":
     NoEffect: [0, No effect]
     WakeupResume: [1, Send 50us remote-wakeup signaling to host / Send L1 resume signaling to device]
 LPMCSR:
@@ -15,7 +15,7 @@ LPMCSR:
     Ack: [1, The valid LPM Token will be ACK / ACK answer]
 CHEP?R:
   _modify:
-    "STATRX,STATTX":
+    STAT[RT]X:
       access: read-write
   STATTX:
     _read:
@@ -117,7 +117,7 @@ ISTR:
   SOF:
     _read:
       NotStartOfFrame: [0, NotStartOfFrame]
-      StartOfFrame: [1, A SOF packet arrived through the USB bus]
+      StartOfFrame: [1, Beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus]
     _W0C:
       Clear: [0, Clear flag]
   ESOF:

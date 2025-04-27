@@ -347,6 +347,8 @@ USART1:
 
 USB:
   _include:
+    - patches/usb/add_bcdr.yaml
+    - fields/usb/v2.yaml
     - collect/usb/epxr.yaml
 
 VREFBUF: {}

@@ -1,7 +1,7 @@
 # Extends USB peripheral with Low-Power Mode
 
 _include:
-  - usb.yaml
+  - v1.yaml
 
 CNTR:
   L1REQM:
@@ -20,15 +20,6 @@ ISTR:
       Received: [1, LPM command to enter the L1 state is successfully received and acknowledged]
     _W0C:
       Clear: [0, Clear flag]
-LPMCSR:
-  BESL: [0, 0b1111]
-  REMWAKE:
-  LPMACK:
-    Nyet: [0, the valid LPM Token will be NYET]
-    Ack: [1, the valid LPM Token will be ACK]
-  LPMEN:
-    Disabled: [0, enable the LPM support within the USB device]
-    Enabled: [1, no LPM transactions are handled]
 BCDR:
   DPPU:
     Disabled: [0, signalize disconnect to the host when needed by the user software]

@@ -275,8 +275,13 @@ USB:
         description: USB event interrupt through EXTI
         value: 67
   _include:
-    - fields/usb/usb_with_LPM.yaml
+    - fields/usb/v2_with_LPM.yaml
     - collect/usb/epxr.yaml
+  #_array:
+  #  COUNT?_RX: {}
+  #  COUNT?_TX: {}
+  #  ADDR?_RX: {}
+  #  ADDR?_TX: {}
 
 WWDG:
   _include: patches/16bit.yaml

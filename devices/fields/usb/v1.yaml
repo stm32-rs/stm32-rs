@@ -62,7 +62,7 @@ CNTR:
   FSUSP:
     NoEffect: [0, No effect]
     Suspend: [1, Enter suspend mode. Clocks and static power dissipation in the analog transceiver are left unaffected]
-  LPMODE:
+  "LPMODE,LP_MODE":
     Disabled: [0, No low-power mode]
     Enabled: [1, Enter low-power mode]
   PDWN:
@@ -73,11 +73,11 @@ CNTR:
     Reset: [1, "Force a reset of the USB peripheral, exactly like a RESET signaling on the USB"]
 ISTR:
   CTR:
-    Completed: [1, endpoint has successfully completed a transaction]
+    Completed: [1, Endpoint has successfully completed a transaction]
   PMAOVR:
     _read:
       NotOverrun: [0, Overrun is not occurred]
-      Overrun: [1, microcontroller has not been able to respond in time to an USB memory request]
+      Overrun: [1, Microcontroller has not been able to respond in time to an USB memory request]
     _W0C:
       Clear: [0, Clear flag]
   ERR:
@@ -89,36 +89,36 @@ ISTR:
   WKUP:
     _read:
       NotWakeup: [0, NotWakeup]
-      Wakeup: [1, activity is detected that wakes up the USB peripheral]
+      Wakeup: [1, Activity is detected that wakes up the USB peripheral]
     _W0C:
       Clear: [0, Clear flag]
   SUSP:
     _read:
       NotSuspend: [0, NotSuspend]
-      Suspend: [1, "no traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
+      Suspend: [1, "No traffic has been received for 3 ms, indicating a suspend mode request from the USB bus"]
     _W0C:
       Clear: [0, Clear flag]
   RESET:
     _read:
       NotReset: [0, NotReset]
-      Reset: [1, peripheral detects an active USB RESET signal at its inputs]
+      Reset: [1, Peripheral detects an active USB RESET signal at its inputs]
     _W0C:
       Clear: [0, Clear flag]
   SOF:
     _read:
       NotStartOfFrame: [0, NotStartOfFrame]
-      StartOfFrame: [1, beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus]
+      StartOfFrame: [1, Beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus]
     _W0C:
       Clear: [0, Clear flag]
   ESOF:
     _read:
       NotExpectedStartOfFrame: [0, NotExpectedStartOfFrame]
-      ExpectedStartOfFrame: [1, an SOF packet is expected but not received]
+      ExpectedStartOfFrame: [1, An SOF packet is expected but not received]
     _W0C:
       Clear: [0, Clear flag]
   DIR:
-    To: [0, data transmitted by the USB peripheral to the host PC]
-    From: [1, data received by the USB peripheral from the host PC]
+    To: [0, Data transmitted by the USB peripheral to the host PC]
+    From: [1, Data received by the USB peripheral from the host PC]
   EP_ID: [0, 0b1111]
 FNR:
   RXDP:
@@ -137,6 +137,9 @@ DADDR:
 BTABLE:
   BTABLE: [0, 0b1111111111111]
 EP*R:
+  _modify:
+    STAT_[RT]X:
+      access: read-write
   CTR_RX:
     _W0C: {}
   DTOG_RX:

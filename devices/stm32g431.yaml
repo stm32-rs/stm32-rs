@@ -212,7 +212,8 @@ UCPD1:
 
 USB:
   _include:
-    - patches/usb/g4.yaml
+    - patches/usb/add_bcdr.yaml
+    - fields/usb/v2.yaml
     - collect/usb/epxr.yaml
 
 VREFBUF:

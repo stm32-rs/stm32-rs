@@ -310,6 +310,7 @@ USART1:
 
 USB:
   _include:
+    - fields/usb/v2_with_LPM.yaml
     - collect/usb/epxr.yaml
 
 VREFBUF: {}

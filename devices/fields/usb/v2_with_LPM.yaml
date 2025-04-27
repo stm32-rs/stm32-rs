@@ -1,0 +1,14 @@
+# Extends USB peripheral with Low-Power Mode
+
+_include:
+  - v2.yaml
+
+LPMCSR:
+  BESL: [0, 0xf]
+  REMWAKE:
+  LPMACK:
+    Nyet: [0, The valid LPM Token will be NYET]
+    Ack: [1, The valid LPM Token will be ACK]
+  LPMEN:
+    Disabled: [0, No LPM transactions are handled]
+    Enabled: [1, Enable the LPM support within the USB device]
