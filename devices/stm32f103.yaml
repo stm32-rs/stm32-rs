@@ -188,7 +188,19 @@ SDIO:
     RESPI1:
       name: RESP1
       displayName: RESP1
+  DCTRL:
+    _modify:
+      PWSTART:
+        name: RWSTART
+      PWSTOP:
+        name: RWSTOP
+  FIFOCNT:
+    _modify:
+      FIF0COUNT:
+        name: FIFOCOUNT
   _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1-ata.yaml
     - collect/sdio/resp.yaml
 
 SPI1:

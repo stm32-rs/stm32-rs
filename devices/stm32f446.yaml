@@ -320,7 +320,8 @@ SAI1:
 
 SDIO:
   _include:
-    - fields/sdio/sdio_f4_common.yaml
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1.yaml
     - collect/sdio/resp.yaml
 
 SPDIFRX: {}

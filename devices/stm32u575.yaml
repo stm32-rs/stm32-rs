@@ -261,6 +261,10 @@ SAI1: {}
 
 SDMMC1:
   _strip: SDMMC_
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - collect/sdio/resp.yaml
+    - collect/sdio/fifo.yaml
 
 SPI1:
   _strip: SPI_

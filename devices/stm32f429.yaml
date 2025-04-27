@@ -273,7 +273,8 @@ SAI:
 
 SDIO:
   _include:
-    - fields/sdio/sdio_f4.yaml
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1-ata.yaml
     - collect/sdio/resp.yaml
 
 SPI1:

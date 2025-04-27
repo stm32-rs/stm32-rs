@@ -304,7 +304,10 @@ SAI4:
     - collect/sai/ch.yaml
     - collect/sai/pdm.yaml
 
-SDMMC1: {}
+SDMMC1:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - collect/sdio/respr.yaml
 
 SPDIFRX: {}
 

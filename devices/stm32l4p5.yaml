@@ -4,6 +4,7 @@ _clear_fields: "*"
 
 _derive:
   TIM7: TIM6
+  SDMMC2: SDMMC1
 
 _modify:
   DMAMUX1:
@@ -257,7 +258,11 @@ SAI1:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SDMMC[12]: {}
+SDMMC1:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - collect/sdio/respr.yaml
+    - collect/sdio/fifo.yaml
 
 SPI1:
   _include:

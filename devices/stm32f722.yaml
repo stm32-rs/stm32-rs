@@ -126,9 +126,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIM1:
-  _include:
-    - fields/lptim/v1.yaml
+LPTIM1: {}
 
 OTG_FS_*:
   _strip: OTG_FS_
@@ -205,7 +203,11 @@ SAI1:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SDMMC1: {}
+SDMMC1:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1.yaml
+    - collect/sdio/resp.yaml
 
 SPI1:
   _include:
