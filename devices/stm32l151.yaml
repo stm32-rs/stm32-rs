@@ -113,6 +113,7 @@ SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - fields/spi/spi_v1.yaml
 
 SYSCFG: {}
 
@@ -159,7 +160,7 @@ USART1:
 USB:
   _strip: USB_
   _include:
-    - fields/usb/usb.yaml
+    - fields/usb/v1.yaml
     - collect/usb/epxr.yaml
 
 WWDG:

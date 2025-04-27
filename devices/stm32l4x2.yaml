@@ -328,7 +328,7 @@ USB:
         description: USB event interrupt through EXTI
         value: 67
   _include:
-    - fields/usb/usb_with_LPM.yaml
+    - fields/usb/v2_with_LPM.yaml
     - collect/usb/epxr.yaml
 
 VREFBUF: {}

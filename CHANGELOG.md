@@ -76,6 +76,7 @@
 * F1, F2, F4: Derive identical UART registers from USART1, add GPTR.PSC (#1179)
 * CCMR3_Output fix
 * Add DAC enums
+* USB v2
 * Use arrays for DAC channels
 * Derive TIM registers
 * Update README.md (#1152)

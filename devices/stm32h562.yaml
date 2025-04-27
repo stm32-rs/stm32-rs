@@ -318,6 +318,7 @@ USART1:
 USB:
   _strip: USB_
   _include:
+    - fields/usb/v3.yaml
     - collect/usb/chepr.yaml
 
 VREFBUF:

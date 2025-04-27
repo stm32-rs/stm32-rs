@@ -294,7 +294,13 @@ USART1:
 
 USB:
   _include:
+    - fields/usb/v2_with_LPM.yaml
     - collect/usb/epxr.yaml
+  #_array:
+  #  COUNT?_RX: {}
+  #  COUNT?_TX: {}
+  #  ADDR?_RX: {}
+  #  ADDR?_TX: {}
 
 WWDG:
   _include: patches/16bit.yaml
