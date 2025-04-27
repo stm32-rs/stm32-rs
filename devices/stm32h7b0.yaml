@@ -16,6 +16,7 @@ _derive:
   TIM4: TIM3
   TIM14: TIM13
   I2C3: I2C1
+  LPTIM3: LPTIM1
 
 # Fix invalid groupName
 _modify:
@@ -217,10 +218,10 @@ IWDG:
 JPEG:
   _strip: JPEG_
 
-LPTIM[13]:
+LPTIM1:
   _strip: LPTIM_
   _include:
-    - fields/lptim/lptim_v1.yaml
+    - fields/lptim/v1b.yaml
 
 LPUART1:
   _include:

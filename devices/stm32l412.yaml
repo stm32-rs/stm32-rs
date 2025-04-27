@@ -131,7 +131,9 @@ I2C1:
 IWDG:
   _include: patches/16bit.yaml
 
-LPTIM1: {}
+LPTIM1:
+  _include:
+    - fields/lptim/v2.yaml
 
 LPUART1:
   _include:

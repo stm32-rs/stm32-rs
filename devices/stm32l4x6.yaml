@@ -149,7 +149,9 @@ LCD:
   _include:
     - patches/lcd/ram_segment_40.yaml
 
-LPTIM1: {}
+LPTIM1:
+  _include:
+    - fields/lptim/v1.yaml
 
 LPUART1:
   _include:

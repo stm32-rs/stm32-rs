@@ -88,6 +88,8 @@ HDMI_CEC:
 
 LPTIM1:
   _strip: LPTIM_
+  _include:
+    - fields/lptim/v1b.yaml
 
 LPUART1:
   _strip: LPUART_

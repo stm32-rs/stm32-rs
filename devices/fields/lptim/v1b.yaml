@@ -1,0 +1,13 @@
+_include:
+  - v1.yaml
+
+CR:
+  RSTARE:
+    Disabled: [0, CNT Register reads do not trigger reset]
+    Enabled: [1, CNT Register reads trigger reset of LPTIM]
+  COUNTRST:
+    _write:
+      Reset: [1, Trigger synchronous reset of CNT (3 LPTimer core clock cycles)]
+    _read:
+      Idle: [0, Triggering of reset is possible]
+      Busy: [1, "Reset in progress, do not write 1 to this field"]

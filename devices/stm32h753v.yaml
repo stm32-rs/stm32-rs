@@ -21,6 +21,7 @@ _copy:
 _derive:
   TIM4: TIM3
   TIM14: TIM13
+  LPTIM3: LPTIM1
 
 ADC3_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
@@ -216,9 +217,9 @@ IWDG:
 
 JPEG: {}
 
-LPTIM[13]:
+LPTIM1:
   _include:
-    - fields/lptim/lptim_v1.yaml
+    - fields/lptim/v1b.yaml
 
 LPUART1:
   _include:
