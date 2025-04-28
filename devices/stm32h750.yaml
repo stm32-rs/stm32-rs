@@ -305,6 +305,10 @@ SAI4:
 
 SDMMC1:
   _strip: SDMMC_
+  _delete: [SDMMC_VER, SDMMC_ID]
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - collect/sdio/respr.yaml
 
 SPDIFRX: {}
 

@@ -155,7 +155,15 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-SDIO: {}
+SDIO:
+  FIFO:
+    _modify:
+      FIF0Data:
+        name: FIFOData
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1-ata.yaml
+    - collect/sdio/resp.yaml
 
 SPI1:
   _include:

@@ -205,6 +205,9 @@ SBS:
 
 SDMMC1:
   _strip: SDMMC_
+  _include:
+    - collect/sdio/respr.yaml
+    - collect/sdio/fifo.yaml
 
 SPI1:
   _strip: SPI_

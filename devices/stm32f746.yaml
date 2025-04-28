@@ -267,6 +267,9 @@ SAI1:
 SDMMC1:
   _include:
     - patches/sdio_sdmmc/f745_f750_f765_f7x6_f7x7_f7x9.yaml
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1.yaml
+    - collect/sdio/resp.yaml
 
 SPDIFRX: {}
 

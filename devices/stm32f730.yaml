@@ -208,7 +208,11 @@ SAI1:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SDMMC1: {}
+SDMMC1:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1.yaml
+    - collect/sdio/resp.yaml
 
 SPI1:
   _include:

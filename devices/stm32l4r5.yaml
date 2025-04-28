@@ -11,6 +11,8 @@ _modify:
 _copy:
   TIM3:
     from: TIM2
+  SDMMC1:
+    from: ../svd/stm32l4p5.svd:SDMMC1
 
 _derive:
   TIM4: TIM3
@@ -280,7 +282,11 @@ SAI1:
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
 
-SDMMC1: {}
+SDMMC1:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - collect/sdio/respr.yaml
+    - collect/sdio/fifo.yaml
 
 SPI1:
   _include:
