@@ -68,7 +68,9 @@ CRC:
     - fields/crc/crc_idr_32bit.yaml
     - fields/crc/crc_pol.yaml
 
-CRS: {}
+CRS:
+  _include:
+    - fields/crs/crs.yaml
 
 # Merge the hundreds of individual bit fields into single fields for the
 # crypt key/iv registers.

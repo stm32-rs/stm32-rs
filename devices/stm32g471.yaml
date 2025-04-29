@@ -41,7 +41,9 @@ CORDIC:
 
 CRC: {}
 
-CRS: {}
+CRS:
+  _include:
+    - fields/crs/crs.yaml
 
 DAC1:
   _strip: DAC_

@@ -76,6 +76,8 @@ CRC:
 
 CRS:
   _strip: CRS_
+  _include:
+    - fields/crs/crs.yaml
 
 # Applies to the H7A3/H7B3
 # CRYP and HASH are unavailable on the H7A3

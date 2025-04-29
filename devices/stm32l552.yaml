@@ -54,7 +54,9 @@ COMP: {}
 
 CRC: {}
 
-CRS: {}
+CRS:
+  _include:
+    - fields/crs/crs.yaml
 
 DAC:
   _strip: DAC_

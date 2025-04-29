@@ -39,6 +39,10 @@ CORDIC:
     - patches/cordic/g4.yaml
     - fields/cordic/v1.yaml
 
+CRS:
+  _include:
+    - fields/crs/crs.yaml
+
 DAC1:
   _strip: DAC_
   _include:
