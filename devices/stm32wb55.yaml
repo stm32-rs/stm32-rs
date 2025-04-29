@@ -56,7 +56,9 @@ COMP: {}
 
 CRC: {}
 
-CRS: {}
+CRS:
+  _include:
+    - fields/crs/crs.yaml
 
 DBGMCU: {}
 

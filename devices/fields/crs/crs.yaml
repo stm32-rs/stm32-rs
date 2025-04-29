@@ -21,14 +21,14 @@ CFGR:
     LSE: [1, LSE (crs_sync_in_2) selected as SYNC signal source]
     USB_SOF: [2, USB SOF (crs_sync_in_3) selected as SYNC signal source]
   SYNCDIV:
-    NotDivided: [0, SYNC not divided]
-    DivideBy2: [1, SYNC divided by 2]
-    DivideBy4: [2, SYNC divided by 4]
-    DivideBy8: [3, SYNC divided by 8]
-    DivideBy16: [4, SYNC divided by 16]
-    DivideBy32: [5, SYNC divided by 32]
-    DivideBy64: [6, SYNC divided by 64]
-    DivideBy128: [7, SYNC divided by 128]
+    Div1: [0, SYNC not divided]
+    Div2: [1, SYNC divided by 2]
+    Div4: [2, SYNC divided by 4]
+    Div8: [3, SYNC divided by 8]
+    Div16: [4, SYNC divided by 16]
+    Div32: [5, SYNC divided by 32]
+    Div64: [6, SYNC divided by 64]
+    Div128: [7, SYNC divided by 128]
   FELIM: [0, 0xFF]
   RELOAD: [0, 0xFFFF]
 
@@ -37,13 +37,7 @@ ISR:
   FEDIR:
     UpCounting: [0, Error in up-counting direction]
     DownCounting: [1, Error in down-counting direction]
-  SYNCMISS:
-    NotSignaled: [0, Signal not set]
-    Signaled: [1, Signal set]
-  SYNCERR:
-    NotSignaled: [0, Signal not set]
-    Signaled: [1, Signal set]
-  "*F":
+  "SYNC*,*F":
     NotSignaled: [0, Signal not set]
     Signaled: [1, Signal set]
 

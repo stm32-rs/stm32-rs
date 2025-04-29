@@ -67,7 +67,9 @@ CRC:
     - fields/crc/crc_idr_8bit.yaml
     - fields/crc/crc_pol.yaml
 
-CRS: {}
+CRS:
+  _include:
+    - fields/crs/crs.yaml
 
 DAC:
   _include:
