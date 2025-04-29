@@ -67,7 +67,10 @@ DCACHE:
 
 DCB: {}
 
-DCMI: {}
+DCMI:
+  _include:
+    - fields/dcmi/v2.yaml
+    - collect/dcmi/dcmi.yaml
 
 DLYBOS:
   _strip: DLYB_

@@ -130,11 +130,11 @@ DBGMCU:
         name: DBGSLEEP_D1
 
 DCMI:
-  _modify:
-    _interrupts:
-      DCMI:
-        name: DCMI_PSSI
-        description: DCMI/PSSI global interrupt
+  _include:
+    - patches/dcmi/dcmi.yaml
+    - patches/dcmi/byte.yaml
+    - fields/dcmi/v2.yaml
+    - collect/dcmi/dcmi.yaml
 
 DFSDM:
   _include:

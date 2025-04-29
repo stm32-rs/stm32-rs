@@ -1,0 +1,19 @@
+_include:
+  - v1.yaml
+
+CR:
+  OELS:
+    Odd: [0, "Interface captures first line after the frame start, second one being dropped"]
+    Even: [1, "Interface captures second line from the frame start, first one being dropped"]
+  LSM:
+    All: [0, Interface captures all received lines]
+    Half: [1, Interface captures one line out of two]
+  OEBS:
+    Odd: [0, "Interface captures first data (byte or double byte) from the frame/line start, second one being dropped"]
+    Even:
+      [1, " Interface captures second data (byte or double byte) from the frame/line start, first one being dropped"]
+  BSM:
+    All: [0, Interface captures all received data]
+    EveryOther: [1, Interface captures every other byte from the received data]
+    Fourth: [2, Interface captures one byte out of four]
+    TwoOfFour: [3, Interface captures two bytes out of four]
