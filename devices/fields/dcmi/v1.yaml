@@ -1,19 +1,4 @@
 CR:
-  OELS:
-    Odd: [0, "Interface captures first line after the frame start, second one being dropped"]
-    Even: [1, "Interface captures second line from the frame start, first one being dropped"]
-  LSM:
-    All: [0, Interface captures all received lines]
-    Half: [1, Interface captures one line out of two]
-  OEBS:
-    Odd: [0, "Interface captures first data (byte or double byte) from the frame/line start, second one being dropped"]
-    Even:
-      [1, " Interface captures second data (byte or double byte) from the frame/line start, first one being dropped"]
-  BSM:
-    All: [0, Interface captures all received data]
-    EveryOther: [1, Interface captures every other byte from the received data]
-    Fourth: [2, Interface captures one byte out of four]
-    TwoOfFour: [3, Interface captures two bytes out of four]
   ENABLE:
     Disabled: [0, DCMI disabled]
     Enabled: [1, DCMI enabled]
@@ -188,15 +173,12 @@ ESUR:
   FSU:
 
 CWSTRT:
-  VST:
-  HOFFCNT:
+  VST: [0, 0x1FFF]
+  HOFFCNT: [0, 0x3FFF]
 
 CWSIZE:
-  VLINE:
-  CAPCNT:
+  VLINE: [0, 0x3FFF]
+  CAPCNT: [0, 0x3FFF]
 
 DR:
-  Byte3:
-  Byte2:
-  Byte1:
-  Byte0:
+  BYTE?: [0, 0xFF]

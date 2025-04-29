@@ -84,7 +84,11 @@ DAC:
 
 DBGMCU: {}
 
-DCMI: {}
+DCMI:
+  _include:
+    - patches/dcmi/byte.yaml
+    - fields/dcmi/v2.yaml
+    - collect/dcmi/dcmi.yaml
 
 DFSDM:
   _include:

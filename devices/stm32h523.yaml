@@ -99,6 +99,9 @@ DCACHE:
 
 DCMI:
   _strip: DCMI_
+  _include:
+    - fields/dcmi/v2.yaml
+    - collect/dcmi/dcmi.yaml
 
 DLYBOS1:
   _strip: DLYB_
