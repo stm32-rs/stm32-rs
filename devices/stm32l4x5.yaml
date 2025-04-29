@@ -87,7 +87,10 @@ CAN1:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - patches/comp/l4xx_comp_reg_rename.yaml
+    - fields/comp/l4x6.yaml
 
 CRC:
   _include:
@@ -370,6 +373,4 @@ _include:
   - patches/adc/adc_common_group_name.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/adc/adc_common_group_name.yaml
-  - patches/comp/l4xx_comp_reg_rename.yaml
-  - fields/comp/comp_l4x6.yaml
   - fields/opamp/opamp_l4.yaml

@@ -48,7 +48,9 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - fields/comp/f3.yaml
 
 CRC:
   _include:
@@ -311,7 +313,6 @@ _include:
   - patches/comp/f3_comp246_inmsel3.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/f3.yaml
-  - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml
   - patches/hrtim/v1.yaml
   - patches/hrtim/f3_interrupts.yaml

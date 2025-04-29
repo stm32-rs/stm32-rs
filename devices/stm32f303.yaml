@@ -53,7 +53,9 @@ CAN:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - fields/comp/f3.yaml
 
 CRC:
   _include:
@@ -301,5 +303,4 @@ _include:
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/tim/group.yaml
   - patches/dbgmcu/f3.yaml
-  - fields/comp/comp_f3.yaml
   - fields/opamp/opamp_f3.yaml

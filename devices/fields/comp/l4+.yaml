@@ -1,0 +1,28 @@
+_include:
+  - common.yaml
+
+COMP?_CSR:
+  PWRMODE:
+    High: [0, High speed]
+    Medium: [1, Medium speed]
+    Low: [3, Ultra low power]
+
+COMP1_CSR:
+  BLANKING:
+    Disabled: [0, No blanking]
+    TIM1OC5: [1, TIM1 OC5 selected as blanking source]
+    TIM2OC3: [2, TIM2 OC3 selected as blanking source]
+  INPSEL:
+    External: [0, external IO - PC5]
+    PB2: [1, PB2]
+
+COMP2_CSR:
+  BLANKING:
+    Disabled: [0, No blanking]
+    TIM15OC1: [4, TIM15 OC1 selected as blanking source]
+  WINMODE:
+    Disabled: [0, Input plus of Comparator 2 is not connected to Comparator 1]
+    Enabled: [1, Input plus of Comparator 2 is connected with input plus of Comparator 1]
+  INPSEL:
+    PB4: [0, PB4]
+    PB6: [1, PB6]

@@ -24,6 +24,10 @@ CEC:
     - patches/cec/cfgr.yaml
     - fields/hdmi_cec.yaml
 
+COMP:
+  _include:
+    - fields/comp/f0.yaml
+
 CRC:
   _include:
     - patches/crc/f0_init_addr_fix.yaml
@@ -197,5 +201,4 @@ WWDG:
 _include:
   - patches/f0_syscfg_comp.yaml
   - patches/tim/group.yaml
-  - fields/comp/comp_f0.yaml
   - patches/nvic/2_prio_bits.yaml

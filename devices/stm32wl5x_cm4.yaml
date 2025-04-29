@@ -47,7 +47,9 @@ AES:
   _include:
     - fields/aes/v2.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - fields/comp/wl.yaml
 
 CRC:
   _include:
@@ -280,5 +282,4 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  - fields/comp/comp_wl.yaml
   - fields/dbg/dbg_wl.yaml

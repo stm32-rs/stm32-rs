@@ -57,7 +57,10 @@ CAN1:
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - patches/comp/l4xx_comp_reg_rename.yaml
+    - fields/comp/l4x1.yaml
 
 CRC:
   _include:
@@ -312,6 +315,4 @@ WWDG:
 _include:
   - patches/tim/group.yaml
   - patches/adc/l4_adc_common.yaml
-  - patches/comp/l4xx_comp_reg_rename.yaml
-  - fields/comp/comp_l4x1.yaml
   - fields/opamp/opamp_l4.yaml
