@@ -39,7 +39,11 @@ CORDIC:
     - patches/cordic/g4.yaml
     - fields/cordic/v1.yaml
 
-CRC: {}
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 CRS:
   _include:

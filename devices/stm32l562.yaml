@@ -60,7 +60,15 @@ AES:
 
 COMP: {}
 
-CRC: {}
+CRC:
+  POL:
+    _modify:
+      Polynomialcoefficients:
+        name: POL
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 CRS:
   _include:

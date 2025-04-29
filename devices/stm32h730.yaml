@@ -101,9 +101,8 @@ CRC:
   _include:
     - patches/crc/crc_rename_init.yaml
     - patches/crc/h7_addr_fix.yaml
-    - fields/crc/crc_advanced.yaml
-    - fields/crc/crc_idr_32bit.yaml
-    - fields/crc/crc_pol.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 CRS:
   _include:

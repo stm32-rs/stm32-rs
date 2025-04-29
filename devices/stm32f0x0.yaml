@@ -19,7 +19,8 @@ ADC:
 CRC:
   _include:
     - patches/crc/f0_init_addr_fix.yaml
-    - fields/crc/crc_advanced.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v2.yaml
     - fields/crc/crc_idr_8bit.yaml
 
 DBGMCU: {}

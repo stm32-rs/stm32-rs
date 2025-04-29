@@ -34,7 +34,11 @@ ADC:
     - fields/adc/c0_g0_wl.yaml
     - collect/adc/c0_g0_wl.yaml
 
-CRC: {}
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 DBG: {}
 
