@@ -56,9 +56,8 @@ COMP: {}
 
 CRC:
   _include:
-    - fields/crc/crc_advanced.yaml
-    - fields/crc/crc_idr_8bit.yaml
-    - fields/crc/crc_pol.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr8.yaml
 
 DAC1:
   CR:

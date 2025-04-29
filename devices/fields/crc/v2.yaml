@@ -1,0 +1,16 @@
+# CRC peripheral with reversal features.
+# Documented from STM32F0xx reference manual.
+# Additionally use crc_idr_8bit.yaml or crc_idr_32bit.yaml as appropriate.
+
+_include:
+  - v1.yaml
+  - crc_rev.yaml
+
+DR8:
+  DR8: [0, 255]
+
+DR16:
+  DR16: [0, 65535]
+
+INIT:
+  INIT: [0, 4294967295]

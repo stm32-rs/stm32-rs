@@ -26,6 +26,10 @@ COMP: {}
 
 CRC:
   _strip: CRC_
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 DAC:
   _strip: DAC_

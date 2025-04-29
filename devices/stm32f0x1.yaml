@@ -30,9 +30,8 @@ CRC:
   _include:
     - patches/crc/f0_init_addr_fix.yaml
     - patches/crc/crc_add_pol.yaml
-    - fields/crc/crc_advanced.yaml
-    - fields/crc/crc_idr_8bit.yaml
-    - fields/crc/crc_pol.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr8.yaml
 
 CRS:
   _include:
