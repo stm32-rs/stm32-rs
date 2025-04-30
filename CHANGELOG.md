@@ -78,6 +78,7 @@
 * CRC enums and fixes
 * Add DAC enums
 * DCMI enums
+* DFSDM enums and fixes
 * SDIO/SDMMC v1
 * USB v2
 * Use arrays for DAC channels

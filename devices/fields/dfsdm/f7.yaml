@@ -1,4 +1,4 @@
-CH0CFGR1:
+CHCFG0R1:
   DFSDMEN:
     Disabled: [0, DFSDM interface disabled]
     Enabled: [1, DFSDM interface enabled]
@@ -6,7 +6,7 @@ CH0CFGR1:
     SYSCLK: [0, Source for output clock is from system clock]
     AUDCLK: [1, Source for output clock is from audio clock]
   CKOUTDIV: [0, 0xFF]
-CH?CFGR1:
+CHCFG?R1:
   DATPACK:
     Standard:
       [
@@ -70,11 +70,11 @@ CH?CFGR1:
     Manchester: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
     ManchesterInverted: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
 
-CH?CFGR2:
+CHCFG?R2:
   OFFSET: [0, 0xFFFFFF]
   DTRBS: [0, 0x1F]
 
-CH?AWSCDR:
+AWSCD?R:
   AWFORD:
     FastSinc: [0, FastSinc filter type]
     Sinc1: [1, Sinc1 filter type]
@@ -84,17 +84,14 @@ CH?AWSCDR:
   BKSCD: [0, 0xF]
   SCDT: [0, 0xFF]
 
-CH?WDATR:
+CHWDAT?R:
   WDATA: [0, 0xFFFF]
 
-CH?DATINR:
+CHDATIN?R:
   INDAT1: [0, 0xFFFF]
   INDAT0: [0, 0xFFFF]
 
-CH?DLYR:
-  PLSSKP: [0, 0x3F]
-
-FLT?CR1:
+DFSDM[0123]_CR1:
   AWFSEL:
     Output:
       [
@@ -140,7 +137,6 @@ FLT?CR1:
     FallingEdge: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
     BothEdges:
       [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
-  JEXTSEL: [0, 0x1F]
   JDMAEN:
     Disabled: [0, The DMA channel is not enabled to read injected data]
     Enabled: [1, The DMA channel is enabled to read injected data]
@@ -178,7 +174,7 @@ FLT?CR1:
     Enabled:
       [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting"]
 
-FLT0CR2:
+DFSDM0_CR2:
   CKABIE:
     Disabled: [0, Detection of channel input clock absence interrupt is disabled]
     Enabled: [1, Detection of channel input clock absence interrupt is enabled]
@@ -186,7 +182,7 @@ FLT0CR2:
     Disabled: [0, Short-circuit detector interrupt is disabled]
     Enabled: [1, Short-circuit detector interrupt is enabled]
 
-FLT?CR2:
+DFSDM[0123]_CR2:
   AWDCH:
     Disabled: [0, Analog watchdog is disabled on channel y]
     Enabled: [1, Analog watchdog is enabled on channel y]
@@ -209,7 +205,7 @@ FLT?CR2:
     Disabled: [0, Injected end of conversion interrupt is disabled]
     Enabled: [1, Injected end of conversion interrupt is enabled]
 
-FLT?ISR:
+DFSDM[0123]_ISR:
   SCDF:
     Clear: [0, No short-circuit detector event occurred on channel y]
     Set:
@@ -260,7 +256,7 @@ FLT?ISR:
     Clear: [0, No injected conversion has completed]
     Set: [1, An injected conversion has completed and its data may be read]
 
-FLT?ICR:
+DFSDM[0123]_ICR:
   CLRSCDF: [0, 0xFF]
   CLRCKABF: [0, 0xFF]
   CLRROVRF:
@@ -270,10 +266,10 @@ FLT?ICR:
     _write:
       Clear: [1, "Writing ‘1’ clears the JOVRF bit in the DFSDM_FLTxISR register"]
 
-FLT?JCHGR:
+DFSDM[0123]_JCHGR:
   JCHG: [0, 0xFF]
 
-FLT?FCR:
+DFSDM[0123]_FCR:
   FORD:
     FastSinc: [0, FastSinc filter type]
     Sinc1: [1, Sinc1 filter type]
@@ -284,37 +280,37 @@ FLT?FCR:
   FOSR: [0, 1023]
   IOSR: [0, 255]
 
-FLT?JDATAR:
+DFSDM[0123]_JDATAR:
   JDATA: [0, 0xFFFFFF]
   JDATACH: [0, 0x7]
 
-FLT?RDATAR:
+DFSDM[0123]_RDATAR:
   RDATA: [0, 0xFFFFFF]
   RDATACH: [0, 7]
 
-FLT?AWHTR:
+DFSDM[0123]_AWHTR:
   AWHT: [0, 0xFFFFFF]
   BKAWH: [0, 0xF]
 
-FLT?AWLTR:
+DFSDM[0123]_AWLTR:
   AWLT: [0, 0xFFFFFF]
   BKAWL: [0, 0xF]
 
-FLT?AWSR:
+DFSDM[0123]_AWSR:
   AWHTF: [0, 0xF]
   AWLTF: [0, 0xF]
 
-FLT?AWCFR:
+DFSDM[0123]_AWCFR:
   CLRAWHTF: [0, 0xF]
   CLRAWLTF: [0, 0xF]
 
-FLT?EXMAX:
+DFSDM[0123]_EXMAX:
   EXMAX: [0, 0xFFFFFF]
   EXMAXCH: [0, 0x7]
 
-FLT?EXMIN:
+DFSDM[0123]_EXMIN:
   EXMIN: [0, 0xFFFFFF]
   EXMINCH: [0, 0x7]
 
-FLT?CNVTIMR:
+DFSDM[0123]_CNVTIMR:
   CNVCNT: [0, 0xFFFFFFF]

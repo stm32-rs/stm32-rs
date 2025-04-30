@@ -98,6 +98,12 @@ DMAMUX1:
     - fields/dma/dmamux_v1.yaml
     - collect/dma/dmamux.yaml
 
+DFSDM1:
+  _include:
+    - patches/dfsdm/jextsel.yaml
+    - fields/dfsdm/v1+.yaml
+    - collect/dfsdm/v1.yaml
+
 EXTI:
   _include:
     - patches/exti/exti_rename.yaml

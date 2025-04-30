@@ -1,0 +1,319 @@
+CH0CFGR1:
+  DFSDMEN:
+    Disabled: [0, DFSDM interface disabled]
+    Enabled: [1, DFSDM interface enabled]
+  CKOUTSRC:
+    SYSCLK: [0, Source for output clock is from system clock]
+    AUDCLK: [1, Source for output clock is from audio clock]
+  CKOUTDIV: [0, 0xFF]
+CH?CFGR1:
+  DATPACK:
+    Standard:
+      [
+        0,
+        "Standard: input data in DFSDM_CHyDATINR register are stored only in INDAT0[15:0]. To empty DFSDM_CHyDATINR register one sample must be read by the DFSDM filter from channel y",
+      ]
+    Interleaved:
+      [
+        1,
+        ": Interleaved: input data in DFSDM_CHyDATINR register are stored as two samples: –first sample in INDAT0[15:0] (assigned to channel y) –second sample INDAT1[15:0] (assigned to channel y)",
+      ]
+    Dual:
+      [
+        2,
+        "Dual: input data in DFSDM_CHyDATINR register are stored as two samples: –first sample INDAT0[15:0] (assigned to channel y) –second sample INDAT1[15:0] (assigned to channel y+1)",
+      ]
+  DATMPX:
+    External:
+      [
+        0,
+        Data to channel y are taken from external serial inputs as 1-bit values. DFSDM_CHyDATINR register is write protected,
+      ]
+    ADC:
+      [
+        1,
+        "Data to channel y are taken from internal analog to digital converter ADCy+1 output register update as 16-bit values (if ADCy+1 is available). Data from ADCs are written into INDAT0[15:0] part of DFSDM_CHyDATINR register",
+      ]
+    Internal:
+      [
+        2,
+        "Data to channel y are taken from internal DFSDM_CHyDATINR register by direct CPU/DMA write. There can be written one or two 16-bit data samples according DATPACK[1:0] bit field setting",
+      ]
+  CHINSEL:
+    SameChannel: [0, Channel inputs are taken from pins of the same channel y]
+    FollowingChannel: [1, "Channel inputs are taken from pins of the following channel (channel (y+1) modulo 8)"]
+  CHEN:
+    Disabled: [0, Channel y disabled]
+    Enabled: [1, Channel y enabled]
+  CKABEN:
+    Disabled: [0, Clock absence detector disabled on channel y]
+    Enabled: [1, Clock absence detector enabled on channel y]
+  SCDEN:
+    Disabled: [0, Input channel y will not be guarded by the short-circuit detector]
+    Enabled: [1, Input channel y will be continuously guarded by the short-circuit detector]
+  SPICKSEL:
+    CKIN: [0, "Clock coming from external CKINy input - sampling point according SITP[1:0]"]
+    CKOUT: [1, "Clock coming from internal CKOUT output - sampling point according SITP[1:0]"]
+    CKOUTSecondFalling:
+      [
+        2,
+        Clock coming from internal CKOUT - sampling point on each second CKOUT falling edge. For connection to external Σ∆ modulator which divides its clock input (from CKOUT) by 2 to generate its output serial communication clock (and this output clock change is active on each clock input rising edge),
+      ]
+    CKOUTSecondRising:
+      [
+        3,
+        Clock coming from internal CKOUT output - sampling point on each second CKOUT rising edge. For connection to external Σ∆ modulator which divides its clock input (from CKOUT) by 2 to generate its output serial communication clock (and this output clock change is active on each clock input falling edge),
+      ]
+  SITP:
+    SPIRisingEdge: [0, SPI with rising edge to strobe data]
+    SPIFallingEdge: [1, SPI with falling edge to strobe data]
+    Manchester: [2, "Manchester coded input on DATINy pin: rising edge = logic 0, falling edge = logic 1"]
+    ManchesterInverted: [3, "Manchester coded input on DATINy pin: rising edge = logic 1, falling edge = logic 0"]
+
+CH?CFGR2:
+  OFFSET: [0, 0xFFFFFF]
+  DTRBS: [0, 0x1F]
+
+CH?AWSCDR:
+  AWFORD:
+    FastSinc: [0, FastSinc filter type]
+    Sinc1: [1, Sinc1 filter type]
+    Sinc2: [2, Sinc2 filter type]
+    Sinc3: [3, Sinc3 filter type]
+  AWFOSR: [0, 0x1F]
+  BKSCD: [0, 0xF]
+  SCDT: [0, 0xFF]
+
+CH?WDATR:
+  WDATA: [0, 0xFFFF]
+
+CH?DATINR:
+  INDAT1: [0, 0xFFFF]
+  INDAT0: [0, 0xFFFF]
+
+"?~CH?DLYR":
+  PLSSKP: [0, 0x3F]
+
+FLT?CR1:
+  AWFSEL:
+    Output:
+      [
+        0,
+        Analog watchdog on data output value (after the digital filter). The comparison is done after offset correction and shift,
+      ]
+    Transceiver: [1, Analog watchdog on channel transceivers value (after watchdog filter)]
+  FAST:
+    Disabled: [0, Fast conversion mode disabled]
+    Enabled: [1, Fast conversion mode enabled]
+  RCH:
+    Channel0: [0, Channel 0 is selected as regular channel]
+    Channel1: [1, Channel 1 is selected as regular channel]
+    Channel2: [2, Channel 2 is selected as regular channel]
+    Channel3: [3, Channel 3 is selected as regular channel]
+    Channel4: [4, Channel 4 is selected as regular channel]
+    Channel5: [5, Channel 5 is selected as regular channel]
+    Channel6: [6, Channel 6 is selected as regular channel]
+    Channel7: [7, Channel 7 is selected as regular channel]
+  RDMAEN:
+    Disabled: [0, The DMA channel is not enabled to read regular data]
+    Enabled: [1, The DMA channel is enabled to read regular data]
+  RSYNC:
+    NoLaunch: [0, Do not launch a regular conversion synchronously with DFSDM_FLT0]
+    Launch:
+      [
+        1,
+        Launch a regular conversion in this DFSDM_FLTx at the very moment when a regular conversion is launched in DFSDM_FLT0,
+      ]
+  RCONT:
+    Once: [0, The regular channel is converted just once for each conversion request]
+    Continuous: [1, The regular channel is converted repeatedly after each conversion request]
+  RSWSTART:
+    _write:
+      Start:
+        [
+          1,
+          "Writing ‘1’ makes a request to start a conversion on the regular channel and causes RCIP to become ‘1’. If RCIP=1 already, writing to RSWSTART has no effect. Writing ‘1’ has no effect if RSYNC=1",
+        ]
+  JEXTEN:
+    Disabled: [0, Trigger detection is disabled]
+    RisingEdge: [1, Each rising edge on the selected trigger makes a request to launch an injected conversion]
+    FallingEdge: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
+    BothEdges:
+      [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
+  JDMAEN:
+    Disabled: [0, The DMA channel is not enabled to read injected data]
+    Enabled: [1, The DMA channel is enabled to read injected data]
+  JSCAN:
+    Single:
+      [
+        0,
+        One channel conversion is performed from the injected channel group and next the selected channel from this group is selected,
+      ]
+    Series:
+      [
+        1,
+        "The series of conversions for the injected group channels is executed, starting over with the lowest selected channel",
+      ]
+  JSYNC:
+    Disabled: [0, Do not launch an injected conversion synchronously with DFSDM_FLT0]
+    Enabled:
+      [
+        1,
+        Launch an injected conversion in this DFSDM_FLTx at the very moment when an injected conversion is launched in DFSDM_FLT0 by its JSWSTART trigger,
+      ]
+  JSWSTART:
+    _write:
+      Start:
+        [
+          1,
+          "Writing ‘1’ makes a request to convert the channels in the injected conversion group, causing JCIP to become ‘1’ at the same time. If JCIP=1 already, then writing to JSWSTART has no effect. Writing ‘1’ has no effect if JSYNC=1",
+        ]
+  DFEN:
+    Disabled:
+      [
+        0,
+        DFSDM_FLTx is disabled. All conversions of given DFSDM_FLTx are stopped immediately and all DFSDM_FLTx functions are stopped,
+      ]
+    Enabled:
+      [1, "DFSDM_FLTx is enabled. If DFSDM_FLTx is enabled, then DFSDM_FLTx starts operating according to its setting"]
+
+FLT0CR2:
+  CKABIE:
+    Disabled: [0, Detection of channel input clock absence interrupt is disabled]
+    Enabled: [1, Detection of channel input clock absence interrupt is enabled]
+  SCDIE:
+    Disabled: [0, Short-circuit detector interrupt is disabled]
+    Enabled: [1, Short-circuit detector interrupt is enabled]
+
+FLT?CR2:
+  AWDCH:
+    Disabled: [0, Analog watchdog is disabled on channel y]
+    Enabled: [1, Analog watchdog is enabled on channel y]
+  EXCH:
+    Disabled: [0, Extremes detector does not accept data from channel y]
+    Enabled: [1, Extremes detector accepts data from channel y]
+  AWDIE:
+    Disabled: [0, Analog watchdog interrupt is disabled]
+    Enabled: [1, Analog watchdog interrupt is enabled]
+  ROVRIE:
+    Disabled: [0, Regular data overrun interrupt is disabled]
+    Enabled: [1, Regular data overrun interrupt is enabled]
+  JOVRIE:
+    Disabled: [0, Injected data overrun interrupt is disabled]
+    Enabled: [1, Injected data overrun interrupt is enabled]
+  REOCIE:
+    Disabled: [0, Regular end of conversion interrupt is disabled]
+    Enabled: [1, Regular end of conversion interrupt is enabled]
+  JEOCIE:
+    Disabled: [0, Injected end of conversion interrupt is disabled]
+    Enabled: [1, Injected end of conversion interrupt is enabled]
+
+FLT?ISR:
+  SCDF:
+    Clear: [0, No short-circuit detector event occurred on channel y]
+    Set:
+      [
+        1,
+        "The short-circuit detector counter reaches, on channel y, the value programmed in the DFSDM_CHyAWSCDR registers",
+      ]
+  CKABF:
+    Clear: [0, Clock signal on channel y is present.]
+    Set: [1, Clock signal on channel y is not present]
+  RCIP:
+    NotInProgress: [0, No request to convert the regular channel has been issued]
+    InProgress:
+      [1, The conversion of the regular channel is in progress or a request for a regular conversion is pending]
+  JCIP:
+    NotInProgress:
+      [0, No request to convert the injected channel group (neither by software nor by trigger) has been issued]
+    InProgress:
+      [
+        1,
+        "The conversion of the injected channel group is in progress or a request for a injected conversion is pending, due either to ‘1’ being written to JSWSTART or to a trigger detection",
+      ]
+  AWDF:
+    Clear: [0, No Analog watchdog event occurred]
+    Set:
+      [
+        1,
+        The analog watchdog block detected voltage which crosses the value programmed in the DFSDM_FLTxAWLTR or DFSDM_FLTxAWHTR registers,
+      ]
+  ROVRF:
+    Clear: [0, No regular conversion overrun has occurred]
+    Set:
+      [
+        1,
+        "A regular conversion overrun has occurred, which means that a regular conversion finished while REOCF was already ‘1’. RDATAR is not affected by overruns",
+      ]
+  JOVRF:
+    Clear: [0, No injected conversion overrun has occurred]
+    Set:
+      [
+        1,
+        "An injected conversion overrun has occurred, which means that an injected conversion finished while JEOCF was already ‘1’. JDATAR is not affected by overruns",
+      ]
+  REOCF:
+    Clear: [0, No regular conversion has completed]
+    Set: [1, A regular conversion has completed and its data may be read]
+  JEOCF:
+    Clear: [0, No injected conversion has completed]
+    Set: [1, An injected conversion has completed and its data may be read]
+
+FLT?ICR:
+  CLRSCDF: [0, 0xFF]
+  CLRCKABF: [0, 0xFF]
+  CLRROVRF:
+    _write:
+      Clear: [1, "Writing ‘1’ clears the ROVRF bit in the DFSDM_FLTxISR register"]
+  CLRJOVRF:
+    _write:
+      Clear: [1, "Writing ‘1’ clears the JOVRF bit in the DFSDM_FLTxISR register"]
+
+FLT?JCHGR:
+  JCHG: [0, 0xFF]
+
+FLT?FCR:
+  FORD:
+    FastSinc: [0, FastSinc filter type]
+    Sinc1: [1, Sinc1 filter type]
+    Sinc2: [2, Sinc2 filter type]
+    Sinc3: [3, Sinc3 filter type]
+    Sinc4: [4, Sinc4 filter type]
+    Sinc5: [5, Sinc5 filter type]
+  FOSR: [0, 1023]
+  IOSR: [0, 255]
+
+FLT?JDATAR:
+  JDATA: [0, 0xFFFFFF]
+  JDATACH: [0, 0x7]
+
+FLT?RDATAR:
+  RDATA: [0, 0xFFFFFF]
+  RDATACH: [0, 7]
+
+FLT?AWHTR:
+  AWHT: [0, 0xFFFFFF]
+  BKAWH: [0, 0xF]
+
+FLT?AWLTR:
+  AWLT: [0, 0xFFFFFF]
+  BKAWL: [0, 0xF]
+
+FLT?AWSR:
+  AWHTF: [0, 0xF]
+  AWLTF: [0, 0xF]
+
+FLT?AWCFR:
+  CLRAWHTF: [0, 0xF]
+  CLRAWLTF: [0, 0xF]
+
+FLT?EXMAX:
+  EXMAX: [0, 0xFFFFFF]
+  EXMAXCH: [0, 0x7]
+
+FLT?EXMIN:
+  EXMIN: [0, 0xFFFFFF]
+  EXMINCH: [0, 0x7]
+
+FLT?CNVTIMR:
+  CNVCNT: [0, 0xFFFFFFF]

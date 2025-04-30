@@ -97,6 +97,12 @@ DFSDM1:
       _from: CH6DATINR
       addressOffset: 0xF0
       description: CH7DATINR
+  _include:
+    - patches/dfsdm/jchgr.yaml
+    - patches/dfsdm/dfsdm_v1.yaml
+    - patches/dfsdm/jextsel.yaml
+    - fields/dfsdm/v1+.yaml
+    - collect/dfsdm/v1.yaml
 
 DMA1:
   _include:

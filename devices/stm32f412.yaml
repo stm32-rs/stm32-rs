@@ -1,5 +1,9 @@
 _svd: ../svd/stm32f412.svd
 
+_copy:
+  DFSDM:
+    from: ../svd/stm32f413.svd:DFSDM2
+
 _rebase:
   # Make I2C1 the base type
   I2C1: I2C3
@@ -62,8 +66,9 @@ DBGMCU: {}
 
 DFSDM:
   _include:
-    - patches/dfsdm/dfsdm_v2.yaml
-    - collect/dfsdm/v2.yaml
+    - patches/dfsdm/dfsdm_v1.yaml
+    - fields/dfsdm/v1.yaml
+    - collect/dfsdm/v1.yaml
 
 DMA2:
   _include:

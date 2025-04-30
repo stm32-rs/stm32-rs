@@ -1,8 +1,7 @@
-_include: dfsdm_v1.yaml
-
-_modify:
-  FLT1CHGR:
-    name: FLT1JCHGR
+_include:
+  - dfsdm_v1.yaml
+  - jextsel.yaml
+  - jchgr.yaml
 
 # Remove non-existant DLYR fields.
 _delete:

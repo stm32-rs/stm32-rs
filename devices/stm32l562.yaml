@@ -88,6 +88,12 @@ DBGMCU: {}
 
 DCB: {}
 
+DFSDM1:
+  _include:
+    - patches/dfsdm/jextsel.yaml
+    - fields/dfsdm/v1+.yaml
+    - collect/dfsdm/v1.yaml
+
 DMA1:
   _delete: CSELR
   _include:
