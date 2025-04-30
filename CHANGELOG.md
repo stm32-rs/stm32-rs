@@ -10,7 +10,7 @@
 * move `_array` and `_cluster` patches to `devices/collect` (#980)
 * rename `devices/common_patches` to just `devices/patches` (#1066)
 * move field related patches from `peripherals` to `devices/fields` (#1067)
-* Normalised docs. Split (for `cargo make`) `form` task on `form` and `fmt` (#949)
+* Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt` (#949)
 * Show available device features if no one selected (#998)
 * Add `download.sh` for fast source archives update (#1134)
 * Add Open-CMSIS `svdconv` to for more checks (#908)
