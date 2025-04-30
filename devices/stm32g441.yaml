@@ -31,6 +31,9 @@ AES:
 
 COMP:
   _strip: COMP_
+  _include:
+    - patches/comp/g4.yaml
+    - collect/comp/csr.yaml
 
 CORDIC:
   _include:
@@ -229,8 +232,6 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/comp/g4.yaml
-  - collect/comp/csr.yaml
   - fields/opamp/opamp_g4_common.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/tim/group.yaml
