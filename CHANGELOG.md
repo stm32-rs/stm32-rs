@@ -3,15 +3,15 @@
 ## [Unreleased]
 
 * Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.12.1, use tools binaries for CI (#1174)
-* bump `defmt` depencency to 1.0
+* bump `defmt` dependency to 1.0
 * Use `svd2rust.toml` config, use custom ident suffixes (#948)
 * Replace `makehtml.py` with `svdtools html` (#881)
 * Remove workaround for bug in duckscript's `mv` (#981)
 * move `_array` and `_cluster` patches to `devices/collect` (#980)
 * rename `devices/common_patches` to just `devices/patches` (#1066)
 * move field related patches from `peripherals` to `devices/fields` (#1067)
-* Normalized docs. Split (for `cargo make`) `form` task on `form` and `fmt` (#949)
-* Show avaliable device features if no one selected (#998)
+* Normalised docs. Split (for `cargo make`) `form` task on `form` and `fmt` (#949)
+* Show available device features if no one selected (#998)
 * Add `download.sh` for fast source archives update (#1134)
 * Add Open-CMSIS `svdconv` to for more checks (#908)
 * Add `cargo make` `yamls` task for easy compare (#1050)
@@ -19,7 +19,7 @@
 * Add possibility to publish crates with different versions (#1145)
 * Enable atomic operations on register support, Rust edition 2021 (#846)
 * files in devices/patches moved to subdirectories (#1066)
-* remove excutable file perm bit from yaml file (#854)
+* remove executable file perm bit from yaml file (#854)
 * TIM1/8 DMAR fix (#1172)
 * HPDMA derive registers between CH and CH2D clusters (#1164)
 * USART: refactor and add missing enums (#1156)
@@ -95,7 +95,7 @@
 
 Family-specific:
 
-* CO:
+* C0:
   * Initial support (#765)
 
 * F1:
@@ -119,7 +119,7 @@ Family-specific:
 * F7:
   * Update vendor SVD bundle to v2.4 (#1085)
 
-* GO:
+* G0:
   * Update vendor SVD bundle from v1.1 to v1.6 (#947) (#1012) (#1049)
   * remove Cortex-M0+ core peripherals (use `cortex-m` crate instead)
   * add enums for `RCC` & `SYSCFG`
@@ -191,7 +191,7 @@ Family-specific:
 
 * H5:
   * Update vendor SVD bundle to v1.7 (#1086) (#1124)
-  * Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitios (#956)
+  * Add CRS, WWDG, IWDG, I2C, SBS, PWR, GPIO, EXTI, GPDMA, SPI, UART, RCC, TIM1-8 definitions (#956)
   * Add H523 (#1124)
   * STM32H503: Add missing RNG_NSCR register (#1148)
   * STM32H5xx: Add H533 (#1129)
