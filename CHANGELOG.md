@@ -229,6 +229,9 @@ Family-specific:
   * Fix DIGBYP bit access in RCC_BDCR (#1011)
   * Strip prefixes from peripherals (#1014)
 
+* N6:
+  * Initial support (#1211)
+
 * U0:
   * Initial support (#1057)
 

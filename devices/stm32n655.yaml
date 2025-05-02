@@ -2,113 +2,172 @@ _svd: ../svd/stm32n655.svd
 
 _clear_fields: "*"
 
-ADC1: {}
+ADC1:
+  _strip: ADC_
 
-ADC12: {}
+ADC12:
+  _strip: ADC12_
 
-ADF: {}
+ADF:
+  _strip: ADF_
 
-BSEC: {}
+BSEC:
+  _strip: BSEC_
 
-CACHEAXI: {}
+CACHEAXI:
+  _strip: CACHEAXI_
 
-CRC: {}
+CRC:
+  _strip: CRC_
 
-CRYP: {}
+CRYP:
+  _strip: CRYP_
 
-CSI: {}
+CSI:
+  _strip: CSI_
 
-DBGMCU: {}
+DBGMCU:
+  _strip: DBGMCU_
 
-DCMI: {}
+DCMI:
+  _strip: DCMI_
 
-DCMIPP: {}
+DCMIPP:
+  _strip: DCMIPP_
 
-DLYBSD: {}
+DLYBSD:
+  _strip: DLYBSD_
 
-DMA2D: {}
+DMA2D:
+  _strip: DMA2D_
 
-DTS: {}
+DTS:
+  _strip: DTS_
 
-ETH: {}
+ETH:
+  _strip: ETH_
 
-EXTI: {}
+EXTI:
+  _strip: EXTI_
 
-FDCAN1: {}
+FDCAN1:
+  _strip: FDCAN_
 
-FMC1: {}
+FMC1:
+  _strip: FMC_
 
-GFXMMU: {}
+GFXMMU:
+  _strip: GFXMMU_
 
-GFXTIM: {}
+GFXTIM:
+  _strip: GFXTIM_
 
-GPDMA: {}
+GPDMA:
+  _strip: GPDMA_
 
-GPIO[A-Q]: {}
+GPIO[A-Q]:
+  _strip: GPIO?_
 
-HASH: {}
+HASH:
+  _strip: HASH_
 
-HDP: {}
+HDP:
+  _strip: HDP_
 
-HPDMA: {}
+HPDMA:
+  _strip: HPDMA_
 
-I2C1: {}
+I2C1:
+  _strip: I2C_
 
-I3C1: {}
+I3C1:
+  _strip: I3C_
 
-ICACHE: {}
+IAC:
+  _strip: IAC_
 
-IWDG: {}
+ICACHE:
+  _strip: ICACHE_
 
-JPEG: {}
+IWDG:
+  _strip: IWDG_
 
-LPTIM[12345]: {}
+JPEG:
+  _strip: JPEG_
 
-LPUART1: {}
+LPTIM[12345]:
+  _strip: LPTIM?_
 
-LTDC: {}
+LPUART1:
+  _strip: LPUART_
 
-MCE1: {}
+LTDC:
+  _strip: LTDC_
 
-MDF1: {}
+MCE1:
+  _strip: MCE_
 
-MDIOS: {}
+MDF1:
+  _strip: MDF_
 
-OTG1: {}
+MDIOS:
+  _strip: MDIOS_
 
-PKA: {}
+OTG1:
+  _strip: OTG_
 
-PSSI: {}
+PKA:
+  _strip: PKA_
 
-PWR: {}
+PSSI:
+  _strip: PSSI_
 
-RAMCFG: {}
+PWR:
+  _strip: PWR_
 
-RCC: {}
+RAMCFG:
+  _strip: RAMCFG_
 
-IAC: {}
+RCC:
+  _strip: RCC_
 
-RIFSC: {}
+RIFSC:
+  _strip: RIFSC_
 
-RISAF: {}
+RISAF:
+  _strip: RISAF_
 
-RNG: {}
+RNG:
+  _strip: RNG_
 
-RTC: {}
+RTC:
+  _strip: RTC_
 
-SAES: {}
+SAES:
+  _strip: SAES_
 
-SAI1: {}
+SAI1:
+  _strip: SAI_
 
-SDMMC1: {}
+SDMMC1:
+  _strip: SDMMC_
 
-SPDIFRX: {}
+SPDIFRX:
+  _strip: SPDIFRX_
 
-SPI1: {}
+SPI1:
+  _strip: SPI_
 
-SYSCFG: {}
+SYSCFG:
+  _strip: SYSCFG_
 
-TAMP: {}
+TAMP:
+  _strip: TAMP_
+
+TIM*:
+  _strip:
+    - TIM?_
+    - TIM??_
 
 TIM[18]: {}
 
@@ -126,16 +185,23 @@ TIM15: {}
 
 TIM1[67]: {}
 
-UCPD: {}
+UCPD:
+  _strip: UCPD_
 
-USART1: {}
+USART1:
+  _strip: USART_
 
-VENC: {}
+VENC:
+  _strip: VENC_
 
-VREFBUF: {}
+VREFBUF:
+  _strip: VREFBUF_
 
-WWDG: {}
+WWDG:
+  _strip: WWDG_
 
-XSPI1: {}
+XSPI1:
+  _strip: XSPI_
 
-XSPIM: {}
+XSPIM:
+  _strip: XSPIM_

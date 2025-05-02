@@ -2,103 +2,160 @@ _svd: ../svd/stm32n645.svd
 
 _clear_fields: "*"
 
-ADC1: {}
+ADC1:
+  _strip: ADC_
 
-ADC12: {}
+ADC12:
+  _strip: ADC12_
 
-ADF: {}
+ADF:
+  _strip: ADF_
 
-BSEC: {}
+BSEC:
+  _strip: BSEC_
 
-CACHEAXI: {}
+CACHEAXI:
+  _strip: CACHEAXI_
 
-CRC: {}
+CRC:
+  _strip: CRC_
 
-CSI: {}
+CSI:
+  _strip: CSI_
 
-DBGMCU: {}
+DBGMCU:
+  _strip: DBGMCU_
 
-DCMI: {}
+DCMI:
+  _strip: DCMI_
 
-DCMIPP: {}
+DCMIPP:
+  _strip: DCMIPP_
 
-DLYBSD: {}
+DLYBSD:
+  _strip: DLYBSD_
 
-DMA2D: {}
+DMA2D:
+  _strip: DMA2D_
 
-DTS: {}
+DTS:
+  _strip: DTS_
 
-ETH: {}
+ETH:
+  _strip: ETH_
 
-EXTI: {}
+EXTI:
+  _strip: EXTI_
 
-FDCAN1: {}
+FDCAN1:
+  _strip: FDCAN_
 
-FMC1: {}
+FMC1:
+  _strip: FMC_
 
-GFXMMU: {}
+GFXMMU:
+  _strip: GFXMMU_
 
-GFXTIM: {}
+GFXTIM:
+  _strip: GFXTIM_
 
-GPDM[A-Q]: {}
+GPDMA:
+  _strip: GPDMA_
 
-HASH: {}
+GPIO[A-Q]:
+  _strip: GPIO?_
 
-HDP: {}
+HASH:
+  _strip: HASH_
 
-HPDMA: {}
+HDP:
+  _strip: HDP_
 
-I2C1: {}
+HPDMA:
+  _strip: HPDMA_
 
-I3C1: {}
+I2C1:
+  _strip: I2C_
 
-ICACHE: {}
+I3C1:
+  _strip: I3C_
 
-IWDG: {}
+IAC:
+  _strip: IAC_
 
-JPEG: {}
+ICACHE:
+  _strip: ICACHE_
 
-LPTIM[12345]: {}
+IWDG:
+  _strip: IWDG_
 
-LPUART1: {}
+JPEG:
+  _strip: JPEG_
 
-LTDC: {}
+LPTIM[12345]:
+  _strip: LPTIM?_
 
-MDF1: {}
+LPUART1:
+  _strip: LPUART_
 
-MDIOS: {}
+LTDC:
+  _strip: LTDC_
 
-OTG1: {}
+MDF1:
+  _strip: MDF_
 
-PSSI: {}
+MDIOS:
+  _strip: MDIOS_
 
-PWR: {}
+OTG1:
+  _strip: OTG_
 
-RAMCFG: {}
+PSSI:
+  _strip: PSSI_
 
-RCC: {}
+PWR:
+  _strip: PWR_
 
-IAC: {}
+RAMCFG:
+  _strip: RAMCFG_
 
-RIFSC: {}
+RCC:
+  _strip: RCC_
 
-RISAF: {}
+RIFSC:
+  _strip: RIFSC_
 
-RNG: {}
+RISAF:
+  _strip: RISAF_
 
-RTC: {}
+RNG:
+  _strip: RNG_
 
-SAI1: {}
+RTC:
+  _strip: RTC_
 
-SDMMC1: {}
+SAI1:
+  _strip: SAI_
 
-SPDIFRX: {}
+SDMMC1:
+  _strip: SDMMC_
 
-SPI1: {}
+SPDIFRX:
+  _strip: SPDIFRX_
 
-SYSCFG: {}
+SPI1:
+  _strip: SPI_
 
-TAMP: {}
+SYSCFG:
+  _strip: SYSCFG_
+
+TAMP:
+  _strip: TAMP_
+
+TIM*:
+  _strip:
+    - TIM?_
+    - TIM??_
 
 TIM[18]: {}
 
@@ -116,16 +173,23 @@ TIM15: {}
 
 TIM1[67]: {}
 
-UCPD: {}
+UCPD:
+  _strip: UCPD_
 
-USART1: {}
+USART1:
+  _strip: USART_
 
-VENC: {}
+VENC:
+  _strip: VENC_
 
-VREFBUF: {}
+VREFBUF:
+  _strip: VREFBUF_
 
-WWDG: {}
+WWDG:
+  _strip: WWDG_
 
-XSPI1: {}
+XSPI1:
+  _strip: XSPI_
 
-XSPIM: {}
+XSPIM:
+  _strip: XSPIM_
