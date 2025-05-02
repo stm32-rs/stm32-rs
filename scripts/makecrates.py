@@ -218,8 +218,11 @@ def read_device_table():
 def make_device_rows(table, family):
     rows = []
     for device, dt in table[family].items():
-        links = "[{}]({}), [st.com]({})".format(
-            dt['rm'], dt['rm_url'], dt['url'])
+        if 'rm' in dt:
+            links = "[{}]({}), [st.com]({})".format(
+                dt['rm'], dt['rm_url'], dt['url'])
+        else:
+            links = "[st.com]({})".format(dt['url'])
         members = ", ".join(m for m in dt['members'])
         rows.append("| {} | {} | {} |".format(device, members, links))
     return "\n".join(sorted(rows))
