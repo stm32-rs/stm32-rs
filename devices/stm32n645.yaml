@@ -13,6 +13,8 @@ ADF:
 
 BSEC:
   _strip: BSEC_
+  _include:
+    - collect/bsec/n6.yaml
 
 CACHEAXI:
   _strip: CACHEAXI_
@@ -55,6 +57,8 @@ FMC1:
 
 GFXMMU:
   _strip: GFXMMU_
+  _include:
+    - collect/gfxmmu/lut.yaml
 
 GFXTIM:
   _strip: GFXTIM_
