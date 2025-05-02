@@ -3,7 +3,7 @@ _include: v1.yaml
 "HRTIM_TIM[B-F]":
   RSTR:
     _derive:
-      TIMACMP1: HRTIM_TIMA.RSTR.TIMACMP1
+      TIM?CMP[1-4]: HRTIM_TIMA.RSTR.TIMACMP1
 
 HRTIM_Common:
   EECR3:

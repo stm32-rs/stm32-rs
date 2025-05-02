@@ -9,16 +9,9 @@ _include: v1.yaml
     _derive:
       INTLVD: HRTIM_TIMA.CR.INTLVD
       RSYNCU: HRTIM_TIMA.CR.RSYNCU
-
-"HRTIM_TIM[B-E]":
   RSTR:
     _derive:
-      TIMFCMP1: HRTIM_TIMA.RSTR.TIMFCMP1
-
-HRTIM_TIM[F]:
-  RSTR:
-    _derive:
-      TIMECMP1: HRTIM_TIMA.RSTR.TIMFCMP1
+      TIM?CMP[1-4]: HRTIM_TIMA.RSTR.TIMFCMP1
 
 HRTIM_Common:
   _derive:
