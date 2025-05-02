@@ -4,6 +4,22 @@ _include: v1.yaml
     CR2: HRTIM_TIMA.CR2
     EEFR3: HRTIM_TIMA.EEFR3
 
+"HRTIM_TIM[B-F]":
+  CR:
+    _derive:
+      INTLVD: HRTIM_TIMA.CR.INTLVD
+      RSYNCU: HRTIM_TIMA.CR.RSYNCU
+
+"HRTIM_TIM[B-E]":
+  RSTR:
+    _derive:
+      TIMFCMP1: HRTIM_TIMA.RSTR.TIMFCMP1
+
+HRTIM_TIM[F]:
+  RSTR:
+    _derive:
+      TIMECMP1: HRTIM_TIMA.RSTR.TIMFCMP1
+
 HRTIM_Common:
   _derive:
     BDTFUPR: BDTAUPR
@@ -30,9 +46,3 @@ HRTIM_Common:
         dimIncrement: 8
       FLT[1-6]CRES:
         dimIncrement: 8
-
-"HRTIM_TIM[B-F]":
-  CR:
-    _derive:
-      INTLVD: HRTIM_TIMA.CR.INTLVD
-      RSYNCU: HRTIM_TIMA.CR.RSYNCU

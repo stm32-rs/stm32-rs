@@ -1,1 +1,6 @@
 _include: v1.yaml
+
+"HRTIM_TIM[B-F]":
+  RSTR:
+    _derive:
+      TIMACMP1: HRTIM_TIMA.RSTR.TIMACMP1
