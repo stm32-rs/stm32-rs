@@ -1,0 +1,207 @@
+_svd: ../svd/stm32n657.svd
+
+_clear_fields: "*"
+
+ADC1:
+  _strip: ADC_
+
+ADC12:
+  _strip: ADC12_
+
+ADF:
+  _strip: ADF_
+
+BSEC:
+  _strip: BSEC_
+
+CACHEAXI:
+  _strip: CACHEAXI_
+
+CRC:
+  _strip: CRC_
+
+CRYP:
+  _strip: CRYP_
+
+CSI:
+  _strip: CSI_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DCMI:
+  _strip: DCMI_
+
+DCMIPP:
+  _strip: DCMIPP_
+
+DLYBSD:
+  _strip: DLYBSD_
+
+DMA2D:
+  _strip: DMA2D_
+
+DTS:
+  _strip: DTS_
+
+ETH:
+  _strip: ETH_
+
+EXTI:
+  _strip: EXTI_
+
+FDCAN1:
+  _strip: FDCAN_
+
+FMC1:
+  _strip: FMC_
+
+GFXMMU:
+  _strip: GFXMMU_
+
+GFXTIM:
+  _strip: GFXTIM_
+
+GPDMA:
+  _strip: GPDMA_
+
+GPIO[A-Q]:
+  _strip: GPIO?_
+
+HASH:
+  _strip: HASH_
+
+HDP:
+  _strip: HDP_
+
+HPDMA:
+  _strip: HPDMA_
+
+I2C1:
+  _strip: I2C_
+
+I3C1:
+  _strip: I3C_
+
+IAC:
+  _strip: IAC_
+
+ICACHE:
+  _strip: ICACHE_
+
+IWDG:
+  _strip: IWDG_
+
+JPEG:
+  _strip: JPEG_
+
+LPTIM[12345]:
+  _strip: LPTIM?_
+
+LPUART1:
+  _strip: LPUART_
+
+LTDC:
+  _strip: LTDC_
+
+MCE1:
+  _strip: MCE_
+
+MDF1:
+  _strip: MDF_
+
+MDIOS:
+  _strip: MDIOS_
+
+OTG1:
+  _strip: OTG_
+
+PKA:
+  _strip: PKA_
+
+PSSI:
+  _strip: PSSI_
+
+PWR:
+  _strip: PWR_
+
+RAMCFG:
+  _strip: RAMCFG_
+
+RCC:
+  _strip: RCC_
+
+RIFSC:
+  _strip: RIFSC_
+
+RISAF:
+  _strip: RISAF_
+
+RNG:
+  _strip: RNG_
+
+RTC:
+  _strip: RTC_
+
+SAES:
+  _strip: SAES_
+
+SAI1:
+  _strip: SAI_
+
+SDMMC1:
+  _strip: SDMMC_
+
+SPDIFRX:
+  _strip: SPDIFRX_
+
+SPI1:
+  _strip: SPI_
+
+SYSCFG:
+  _strip: SYSCFG_
+
+TAMP:
+  _strip: TAMP_
+
+TIM*:
+  _strip:
+    - TIM?_
+    - TIM??_
+
+TIM[18]: {}
+
+TIM[25]: {}
+
+TIM[34]: {}
+
+"TIM[67],TIM18": {}
+
+"TIM9,TIM12": {}
+
+TIM1[34]: {}
+
+TIM15: {}
+
+TIM1[67]: {}
+
+UCPD:
+  _strip: UCPD_
+
+USART1:
+  _strip: USART_
+
+VENC:
+  _strip: VENC_
+
+VREFBUF:
+  _strip: VREFBUF_
+
+WWDG:
+  _strip: WWDG_
+
+XSPI1:
+  _strip: XSPI_
+
+XSPIM:
+  _strip: XSPIM_

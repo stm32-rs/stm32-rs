@@ -38,6 +38,7 @@ CRATE_DOC_FEATURES = {
     "stm32g0": ["atomics", "critical-section", "defmt", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
     "stm32g4": ["atomics", "critical-section", "defmt", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
     "stm32mp1": ["atomics", "critical-section", "defmt", "rt", "stm32mp157"],
+    "stm32n6": ["atomics", "critical-section", "defmt", "rt", "stm32n645", "stm32n655", "stm32n647", "stm32n657"],
     "stm32u0": ["atomics", "critical-section", "defmt", "rt", "stm32u031", "stm32u083"],
     "stm32u5": ["atomics", "critical-section", "defmt", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
     "stm32wl": ["atomics", "critical-section", "defmt", "rt", "stm32wle5", "stm32wl5x_cm4"],
@@ -61,6 +62,7 @@ CRATE_DOC_TARGETS = {
     "stm32g0": "thumbv6m-none-eabi",
     "stm32g4": "thumbv7em-none-eabihf",
     "stm32mp1": "thumbv7em-none-eabihf",
+    "stm32n6": "thumbv8m.main-none-eabi",
     "stm32u0": "thumbv6m-none-eabi",
     "stm32u5": "thumbv8m.main-none-eabi",
     "stm32wl": "thumbv7em-none-eabi",
@@ -216,8 +218,11 @@ def read_device_table():
 def make_device_rows(table, family):
     rows = []
     for device, dt in table[family].items():
-        links = "[{}]({}), [st.com]({})".format(
-            dt['rm'], dt['rm_url'], dt['url'])
+        if 'rm' in dt:
+            links = "[{}]({}), [st.com]({})".format(
+                dt['rm'], dt['rm_url'], dt['url'])
+        else:
+            links = "[st.com]({})".format(dt['url'])
         members = ", ".join(m for m in dt['members'])
         rows.append("| {} | {} | {} |".format(device, members, links))
     return "\n".join(sorted(rows))

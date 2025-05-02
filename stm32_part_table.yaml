@@ -776,6 +776,21 @@ stm32mp1:
     members:
       - STM32MP153
 
+stm32n6:
+  stm32n6x5:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32n6x5.html
+    members:
+      - STM32N645
+      - STM32N655
+  stm32n6x7:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32n6x7.html
+    members:
+      - STM32N647
+      - STM32N657
+    rm: RM0486
+    rm_title: STM32N647/657xx Arm® -based 32-bit MCUs
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0486-stm32n647657xx-armbased-32bit-mcus-stmicroelectronics.pdf
+
 stm32u0:
   stm32u0xx:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32u0-series.html
