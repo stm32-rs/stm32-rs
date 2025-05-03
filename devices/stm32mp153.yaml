@@ -29,6 +29,11 @@ RTC:
     - fields/rtc/v3/common.yaml
     - collect/rtc/alarm.yaml
 
+SAI1:
+  _strip: SAI_
+  _include:
+    - patches/sai/fsdef-rw.yaml
+
 SPI?:
   _include: patches/spi/rxtxdr.yaml
 

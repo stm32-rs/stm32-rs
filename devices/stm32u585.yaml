@@ -273,7 +273,9 @@ RTC:
 
 SAES: {}
 
-SAI1: {}
+SAI1:
+  _include:
+    - patches/sai/fsdef-rw.yaml
 
 SDMMC1:
   _strip: SDMMC_

@@ -152,6 +152,8 @@ SAES:
 
 SAI1:
   _strip: SAI_
+  _include:
+    - patches/sai/fsdef-rw.yaml
 
 SDMMC1:
   _strip: SDMMC_

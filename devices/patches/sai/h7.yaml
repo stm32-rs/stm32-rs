@@ -1,3 +1,4 @@
+_include: fsdef-rw.yaml
 "?CR1":
   _modify:
     SAI?EN:
@@ -11,7 +12,3 @@
       description: No fixed divider between MCLK and FS
       bitOffset: 19
       bitWidth: 1
-"?FRCR":
-  _modify:
-    FSDEF:
-      access: read-write
