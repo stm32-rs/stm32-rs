@@ -6,3 +6,9 @@ _include: v1.yaml
   RSTR:
     _derive:
       TIM?CMP[1-4]: HRTIM_TIMA.RSTR.TIMBCMP1
+
+  CPT1CR:
+    _derive:
+      T?1SET: HRTIM_TIMA.CPT1CR.TB1SET
+      T?1RST: HRTIM_TIMA.CPT1CR.TB1RST
+      T?CMP[12]: HRTIM_TIMA.CPT1CR.TB1CMP1

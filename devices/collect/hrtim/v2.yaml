@@ -14,6 +14,12 @@ _include: v1.yaml
     _derive:
       TIM?CMP[1-4]: HRTIM_TIMA.RSTR.TIMFCMP1
 
+  CPT1CR:
+    _derive:
+      T?1SET: HRTIM_TIMA.CPT1CR.TF1SET
+      T?1RST: HRTIM_TIMA.CPT1CR.TF1RST
+      T?CMP[12]: HRTIM_TIMA.CPT1CR.TF1CMP1
+
 HRTIM_Common:
   _derive:
     BDTFUPR: BDTAUPR
