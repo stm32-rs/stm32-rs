@@ -209,6 +209,7 @@ Family-specific:
   * HRTIM H7 fix EECR3 (#1042)
   * HRTIM H7: delete DLL (#1044)
   * Add H723/25/30/33/42/50/55/A3/B0 (#1107)
+  * RAMECC fixes & collect
 
 * L0:
   * Update vendor SVD bundle to v1.4 (#1081)

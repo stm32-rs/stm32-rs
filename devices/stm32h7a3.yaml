@@ -12,6 +12,8 @@ _copy:
     from: TIM2
   TIM13:
     from: TIM2
+  RAMECC:
+    from: ../svd/stm32h742.svd:RAMECC2
 
 _derive:
   ADC2: ADC1
@@ -269,6 +271,9 @@ RAMECC:
       RAMECC:
         description: ECC diagnostic global interrupt
         value: 145
+  _include:
+    - patches/ramecc/h7.yaml
+    - collect/ramecc/m.yaml
 
 RCC:
   _strip:

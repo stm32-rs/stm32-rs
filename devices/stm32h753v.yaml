@@ -17,11 +17,14 @@ _copy:
     from: TIM2
   TIM13:
     from: TIM2
+  RAMECC1:
+    from: RAMECC2
 
 _derive:
   TIM4: TIM3
   TIM14: TIM13
   LPTIM3: LPTIM1
+  RAMECC2: RAMECC1
 
 ADC3_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
@@ -270,9 +273,14 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-RAMECC[123]:
+RAMECC[13]:
   _include:
-    - patches/ramecc/ramecc.yaml
+    - patches/ramecc/h7.yaml
+    - collect/ramecc/m.yaml
+
+RAMECC3:
+  _include:
+    - collect/ramecc/derive.yaml
 
 RCC:
   _include:
