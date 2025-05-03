@@ -1,8 +1,5 @@
 _svd: ../svd/stm32h755cm7.svd
 
-_delete:
-  - RAMECC? # RAMECC definitions are so terrible
-
 _modify:
   COMP1:
     groupName: COMP
@@ -17,11 +14,14 @@ _copy:
     from: TIM2
   TIM13:
     from: TIM2
+  RAMECC1:
+    from: RAMECC2
 
 _derive:
   TIM4: TIM3
   TIM14: TIM13
   LPTIM3: LPTIM1
+  RAMECC2: RAMECC1
 
 ADC3_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
@@ -262,7 +262,14 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-RAMECC[13]: {}
+RAMECC[13]:
+  _include:
+    - patches/ramecc/h7.yaml
+    - collect/ramecc/m.yaml
+
+RAMECC3:
+  _include:
+    - collect/ramecc/derive.yaml
 
 RCC:
   _delete:
@@ -417,7 +424,6 @@ _include:
   - patches/ethernet/h7_combined_desc.yaml
   - patches/flash/h7_dualcore.yaml
   - patches/h7_spdifrx.yaml
-  - patches/ramecc/ramecc_new.yaml
   - patches/gpio/h7_ijk.yaml
   - patches/hrtim/h7.yaml
   - fields/hrtim/hrtim.yaml

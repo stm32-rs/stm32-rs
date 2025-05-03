@@ -10,11 +10,14 @@ _copy:
     from: TIM2
   TIM13:
     from: TIM2
+  RAMECC1:
+    from: RAMECC2
 
 _derive:
   TIM4: TIM3
   TIM14: TIM13
   LPTIM3: LPTIM1
+  RAMECC2: RAMECC1
 
 # Fix invalid groupName
 _modify:
@@ -333,7 +336,14 @@ PWR:
     - patches/pwr/add_step_down.yaml
     - patches/pwr/wkupc1246.yaml
 
-RAMECC[123]: {}
+RAMECC[13]:
+  _include:
+    - patches/ramecc/h7.yaml
+    - collect/ramecc/m.yaml
+
+RAMECC3:
+  _include:
+    - collect/ramecc/derive.yaml
 
 # RCC block
 RCC:
