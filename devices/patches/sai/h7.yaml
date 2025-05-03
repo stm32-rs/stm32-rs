@@ -11,3 +11,7 @@
       description: No fixed divider between MCLK and FS
       bitOffset: 19
       bitWidth: 1
+"?FRCR":
+  _modify:
+    FSDEF:
+      access: read-write
