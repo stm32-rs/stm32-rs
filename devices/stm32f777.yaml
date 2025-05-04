@@ -81,6 +81,7 @@ DFSDM:
     DFSDM3_CR1:
       addressOffset: 0x280
   _include:
+    - patches/dfsdm/f7.yaml
     - fields/dfsdm/f7.yaml
     - collect/dfsdm/f7.yaml
 

@@ -290,19 +290,31 @@ DFSDM[0123]_RDATAR:
 
 DFSDM[0123]_AWHTR:
   AWHT: [0, 0xFFFFFF]
-  BKAWH: [0, 0xF]
+  BKAWH?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog high threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog high threshold event]
 
 DFSDM[0123]_AWLTR:
   AWLT: [0, 0xFFFFFF]
-  BKAWL: [0, 0xF]
+  BKAWL?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog low threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog low threshold event]
 
 DFSDM[0123]_AWSR:
-  AWHTF: [0, 0xF]
-  AWLTF: [0, 0xF]
+  AWHTF?:
+    NoError: [0, No high threshold error]
+    Error: [1, A high threshold error on channel y]
+  AWLTF?:
+    NoError: [0, No low threshold error]
+    Error: [1, A low threshold error on channel y]
 
 DFSDM[0123]_AWCFR:
-  CLRAWHTF: [0, 0xF]
-  CLRAWLTF: [0, 0xF]
+  CLRAWHTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWHTF[y] bit"]
+  CLRAWLTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWLTF[y] bit"]
 
 DFSDM[0123]_EXMAX:
   EXMAX: [0, 0xFFFFFF]

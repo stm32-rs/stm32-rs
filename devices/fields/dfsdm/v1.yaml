@@ -293,19 +293,31 @@ FLT?RDATAR:
 
 FLT?AWHTR:
   AWHT: [0, 0xFFFFFF]
-  BKAWH: [0, 0xF]
+  BKAWH?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog high threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog high threshold event]
 
 FLT?AWLTR:
   AWLT: [0, 0xFFFFFF]
-  BKAWL: [0, 0xF]
+  BKAWL?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog low threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog low threshold event]
 
 FLT?AWSR:
-  AWHTF: [0, 0xF]
-  AWLTF: [0, 0xF]
+  AWHTF?:
+    NoError: [0, No high threshold error]
+    Error: [1, A high threshold error on channel y]
+  AWLTF?:
+    NoError: [0, No low threshold error]
+    Error: [1, A low threshold error on channel y]
 
 FLT?AWCFR:
-  CLRAWHTF: [0, 0xF]
-  CLRAWLTF: [0, 0xF]
+  CLRAWHTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWHTF[y] bit"]
+  CLRAWLTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWLTF[y] bit"]
 
 FLT?EXMAX:
   EXMAX: [0, 0xFFFFFF]
