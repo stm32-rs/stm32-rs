@@ -200,7 +200,9 @@ RTC:
     - fields/rtc/v3/common.yaml
     - collect/rtc/alarm.yaml
 
-SAI1: {}
+SAI1:
+  _include:
+    - patches/sai/fsdef-rw.yaml
 
 SDMMC:
   _strip: SDMMC_
