@@ -284,6 +284,8 @@ RAMECC3:
 
 RCC:
   _include:
+    - patches/rcc/h735.yaml
+    - patches/rcc/h7_usb2otghs.yaml
     - patches/rcc/h7_common_singlecore.yaml
     - patches/rcc/h7_src_sel.yaml
     - patches/rcc/h7_hsicfgr_csicfgr_rev_v.yaml

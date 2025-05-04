@@ -1,3 +1,4 @@
+_include: h7_usb1otghs.yaml
 _modify:
   CIFR:
     access: read-only
@@ -43,11 +44,3 @@ C1_APB1LLPENR:
     USART8LPEN:
       name: UART8LPEN
       description: UART8 Peripheral Clocks Enable During CSleep Mode
-AHB1ENR,C1_AHB1ENR:
-  _modify:
-    USB1OTGHSEN:
-      name: USB1OTGEN
-AHB1LPENR,C1_AHB1LPENR:
-  _modify:
-    USB1OTGHSLPEN:
-      name: USB1OTGLPEN

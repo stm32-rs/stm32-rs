@@ -210,6 +210,7 @@ Family-specific:
   * HRTIM H7: delete DLL (#1044)
   * Add H723/25/30/33/42/50/55/A3/B0 (#1107)
   * RAMECC fixes & collect
+  * RCC - Unify usbotg field naming and remove invalid fields (#1219)
 
 * L0:
   * Update vendor SVD bundle to v1.4 (#1081)

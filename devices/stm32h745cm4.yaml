@@ -280,6 +280,7 @@ RCC:
           bitOffset: 0
           bitWidth: 9
   _include:
+    - patches/rcc/h7_usb1otghs.yaml
     - patches/rcc/h7_common_dualcore.yaml
     - patches/rcc/h7_src_sel.yaml
     - fields/rcc/v3/h7.yaml
