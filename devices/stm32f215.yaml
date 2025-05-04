@@ -184,7 +184,9 @@ RCC:
     - fields/rcc/v2/i2s.yaml
     - fields/rcc/v2/i2s_pll.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _derive:

@@ -249,6 +249,8 @@ RNG:
     _interrupts:
       RNG:
         value: 80
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:

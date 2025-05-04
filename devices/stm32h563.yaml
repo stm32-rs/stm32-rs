@@ -187,6 +187,8 @@ RCC:
 
 RNG:
   _strip: RNG_
+  _include:
+    - fields/rng/v2.yaml
 
 RTC:
   _strip: RTC_

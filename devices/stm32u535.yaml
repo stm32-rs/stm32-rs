@@ -192,7 +192,9 @@ RCC:
   _include:
     - fields/rcc/rcc_u5.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v2.yaml
 
 RTC:
   _include:

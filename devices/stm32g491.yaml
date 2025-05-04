@@ -146,7 +146,9 @@ RCC:
     - fields/rcc/g4.yaml
     - fields/rcc/rcc_g4.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:

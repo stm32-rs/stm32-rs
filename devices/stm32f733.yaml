@@ -195,7 +195,9 @@ RTC:
     - collect/rtc/alarm.yaml
     - collect/rtc/bkpr.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 SAI1:
   _include:

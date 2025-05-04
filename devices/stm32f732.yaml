@@ -187,7 +187,9 @@ RCC:
     - patches/rcc/rcc_merge_rtcsel.yaml
     - fields/rcc/v2/f7.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:

@@ -161,7 +161,9 @@ RCC:
     - fields/rcc/rcc_l0_l1_common.yaml
     - fields/rcc/rcc_l0.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:
