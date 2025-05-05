@@ -355,4 +355,6 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

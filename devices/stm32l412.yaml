@@ -288,7 +288,9 @@ USB:
   #  ADDR?_TX: {}
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
 
 # Most of the other patches for this device are common with the L4x2 device.
 _include:

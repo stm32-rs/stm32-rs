@@ -223,7 +223,7 @@ SPI1:
 TAMP:
   _strip: TAMP_
   _include:
-    - collect/tamp/bkp.yaml
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _strip: TIM1_
@@ -310,7 +310,9 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _include: patches/16bit_with_mask.yaml
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 XSPI1:
   _strip: XSPI_

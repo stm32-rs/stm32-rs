@@ -171,6 +171,8 @@ SYSCFG:
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM*:
   _strip:
@@ -207,6 +209,9 @@ VREFBUF:
 
 WWDG:
   _strip: WWDG_
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 XSPI1:
   _strip: XSPI_
