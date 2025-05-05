@@ -169,6 +169,9 @@ TIM16:
 
 TSC:
   _strip: TSC_
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 USART1:
   _strip: USART_

@@ -307,7 +307,10 @@ TIM16:
     - fields/tim/v3/occe.yaml
     - collect/tim/ccr.yaml
 
-TSC: {}
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 USART1:
   _include:

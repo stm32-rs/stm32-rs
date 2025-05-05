@@ -295,7 +295,10 @@ SYSCFG: {}
 TAMP:
   _strip: TAMP_
 
-TSC: {}
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 TIM1:
   _strip: TIM1_
