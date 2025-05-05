@@ -80,6 +80,7 @@
 * DCMI enums
 * DFSDM enums and fixes
 * SDIO/SDMMC v1
+* TSC enums and arrays
 * USB v2
 * Use arrays for DAC channels
 * Derive TIM registers

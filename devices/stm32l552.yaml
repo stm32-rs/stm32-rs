@@ -295,7 +295,10 @@ TIM1[67]:
 TIM17:
   _include: collect/tim/tim17_derive.yaml
 
-TSC: {}
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 UCPD1:
   _include:
