@@ -32,7 +32,7 @@ _add:
         resetValue: 0x00000000
         access: write-only
         fields:
-          KEYR:
+          KEY1R:
             description: Bank access configuration unlock key
             bitOffset: 0
             bitWidth: 32
