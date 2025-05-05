@@ -214,6 +214,7 @@ Family-specific:
   * Add H723/25/30/33/42/50/55/A3/B0 (#1107)
   * RAMECC fixes & collect
   * RCC - Unify usbotg field naming and remove invalid fields (#1219)
+  * Flash - Make dual core devices naming consistent with single core devices (#1222)
 
 * L0:
   * Update vendor SVD bundle to v1.4 (#1081)
