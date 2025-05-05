@@ -102,6 +102,8 @@ DCMI:
 DFSDM1:
   _strip: DFSDM_
   _include:
+    - patches/dfsdm/split.yaml
+    - fields/dfsdm/v1.yaml
     - collect/dfsdm/v1.yaml
 
 DELAY_Block_SDMMC1: {}

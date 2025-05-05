@@ -1,16 +1,19 @@
+_include:
+  - split.yaml
+
 # Add fake DFSDMEN and CKOUTSRC fields to channel registers beyond 0
 # to permit them to be clustered.
 CH[1-7]CFGR1:
   _add:
     DFSDMEN:
-      description: DFSDMEN
+      description: DFSDMEN (CH0CFGR1 only)
       bitOffset: 31
       bitWidth: 1
     CKOUTSRC:
-      description: CKOUTSRC
+      description: CKOUTSRC (CH0CFGR1 only)
       bitOffset: 30
       bitWidth: 1
     CKOUTDIV:
-      description: CKOUTDIV
+      description: CKOUTDIV (CH0CFGR1 only)
       bitOffset: 16
       bitWidth: 8

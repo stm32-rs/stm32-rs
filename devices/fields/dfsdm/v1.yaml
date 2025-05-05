@@ -91,7 +91,7 @@ CH?DATINR:
   INDAT1: [0, 0xFFFF]
   INDAT0: [0, 0xFFFF]
 
-CH?DLYR:
+"?~CH?DLYR":
   PLSSKP: [0, 0x3F]
 
 FLT?CR1:
@@ -140,7 +140,6 @@ FLT?CR1:
     FallingEdge: [2, Each falling edge on the selected trigger makes a request to launch an injected conversion]
     BothEdges:
       [3, Both rising edges and falling edges on the selected trigger make requests to launch injected conversions]
-  JEXTSEL: [0, 0x1F]
   JDMAEN:
     Disabled: [0, The DMA channel is not enabled to read injected data]
     Enabled: [1, The DMA channel is enabled to read injected data]
@@ -294,19 +293,31 @@ FLT?RDATAR:
 
 FLT?AWHTR:
   AWHT: [0, 0xFFFFFF]
-  BKAWH: [0, 0xF]
+  BKAWH?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog high threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog high threshold event]
 
 FLT?AWLTR:
   AWLT: [0, 0xFFFFFF]
-  BKAWL: [0, 0xF]
+  BKAWL?:
+    NotAssigned: [0, Break i signal is not assigned to an analog watchdog low threshold event]
+    Assigned: [1, Break i signal is assigned to an analog watchdog low threshold event]
 
 FLT?AWSR:
-  AWHTF: [0, 0xF]
-  AWLTF: [0, 0xF]
+  AWHTF?:
+    NoError: [0, No high threshold error]
+    Error: [1, A high threshold error on channel y]
+  AWLTF?:
+    NoError: [0, No low threshold error]
+    Error: [1, A low threshold error on channel y]
 
 FLT?AWCFR:
-  CLRAWHTF: [0, 0xF]
-  CLRAWLTF: [0, 0xF]
+  CLRAWHTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWHTF[y] bit"]
+  CLRAWLTF?:
+    _W1C:
+      Clear: [1, "Clear the corresponding AWLTF[y] bit"]
 
 FLT?EXMAX:
   EXMAX: [0, 0xFFFFFF]

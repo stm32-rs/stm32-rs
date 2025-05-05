@@ -109,10 +109,11 @@ DBGMCU: {}
 
 DFSDM:
   _strip: DFSDM_
-  _modify:
-    FLT1CHGR:
-      name: FLT1JCHGR
-  _include: collect/dfsdm/l4.yaml
+  _include:
+    - patches/dfsdm/jchgr.yaml
+    - patches/dfsdm/dfsdm_v1.yaml
+    - fields/dfsdm/v1.yaml
+    - collect/dfsdm/v1.yaml
 
 DMA1:
   _include:

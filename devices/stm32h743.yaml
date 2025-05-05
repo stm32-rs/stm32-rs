@@ -19,6 +19,8 @@ _copy:
     from: TIM2
   RAMECC1:
     from: RAMECC2
+  DFSDM:
+    from: ../svd/stm32h753.svd:DFSDM
 
 _derive:
   TIM4: TIM3
@@ -90,7 +92,8 @@ DCMI:
 
 DFSDM:
   _include:
-    - patches/dfsdm/h743.yaml
+    - patches/dfsdm/h735_747_753.yaml
+    - fields/dfsdm/v1+.yaml
     - collect/dfsdm/v1.yaml
 
 DELAY_Block_SDMMC1: {}
