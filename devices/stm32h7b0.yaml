@@ -307,8 +307,8 @@ RCC:
 RNG:
   _strip: RNG_
   _include:
-    - fields/rng/rng_v1.yaml
-    - fields/rng/rng_v1_ced.yaml
+    - patches/rng/h735.yaml
+    - fields/rng/v2.yaml
 
 RTC:
   _strip: RTC_

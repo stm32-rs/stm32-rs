@@ -277,7 +277,6 @@ RAMECC3:
 
 RCC:
   _include:
-    - patches/rcc/h735.yaml
     - patches/rcc/h7_usb2otghs.yaml
     - patches/rcc/h7_common_singlecore.yaml
     - patches/rcc/h7_src_sel.yaml
@@ -288,8 +287,7 @@ RCC:
 
 RNG:
   _include:
-    - fields/rng/rng_v1.yaml
-    - fields/rng/rng_v1_ced.yaml
+    - fields/rng/v1.yaml
 
 RTC:
   _strip: RTC_

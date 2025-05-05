@@ -255,7 +255,9 @@ RCC:
     - fields/rcc/v2/dckcfgr_saidivr.yaml
     - fields/rcc/v2/dckcfgr2_cecsel.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:

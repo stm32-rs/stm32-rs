@@ -218,7 +218,10 @@ RCC:
   _include:
     - fields/rcc/rcc_l4.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - patches/rng/l4+.yaml
+    - fields/rng/v2.yaml
 
 RTC:
   _include:

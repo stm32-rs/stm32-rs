@@ -201,7 +201,9 @@ RCC:
     - fields/rcc/rcc_wb.yaml
     - fields/rcc/rcc_wx_c2.yaml
 
-RNG: {}
+RNG:
+  _include:
+    - fields/rng/v1.yaml
 
 RTC:
   _include:

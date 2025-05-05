@@ -79,6 +79,7 @@
 * Add DAC enums
 * DCMI enums
 * DFSDM enums and fixes
+* RNG enums
 * SDIO/SDMMC v1
 * TSC enums and arrays
 * USB v2
