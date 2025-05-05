@@ -333,6 +333,8 @@ SYSCFG: {}
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM8:
   _modify:

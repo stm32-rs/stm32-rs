@@ -342,7 +342,9 @@ USB:
 VREFBUF: {}
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
 
 _include:
   - patches/dma/interrupt_names.yaml
