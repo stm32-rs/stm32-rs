@@ -163,6 +163,8 @@ LPDMA1:
 
 LPGPIO1:
   _strip: LPGPIO_
+  _include:
+    - collect/lpgpio/lp.yaml
 
 LPTIM[14]: {}
 
