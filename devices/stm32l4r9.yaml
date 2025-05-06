@@ -179,7 +179,10 @@ LPUART1:
 
 LTDC: {}
 
-OCTOSPI1: {}
+OCTOSPI1:
+  _include:
+    - patches/octospi/l4+.yaml
+    - fields/octospi/l4.yaml
 
 OCTOSPIM: {}
 

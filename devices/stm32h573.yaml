@@ -173,6 +173,13 @@ LPUART:
 
 OCTOSPI:
   _strip: OCTOSPI_
+  CR:
+    _modify:
+      FSEL:
+        name: MSEL
+        description: External memory select
+  _include:
+    - fields/octospi/u5.yaml
 
 OTFDEC1:
   _strip: OTFDEC_

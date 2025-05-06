@@ -201,10 +201,6 @@ MPU:
   _strip: MPU_
 
 OCTOSPI1:
-  DCR1:
-    _modify:
-      CSHT:
-        bitWidth: 6
   _include:
     - patches/octospi/l4+.yaml
     - fields/octospi/l4.yaml

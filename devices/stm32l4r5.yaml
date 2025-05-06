@@ -196,7 +196,17 @@ LPUART1:
 
 LTDC: {}
 
-OCTOSPI1: {}
+OCTOSPI1:
+  DCR2:
+    _add:
+      WRAPSIZE:
+        bitOffset: 16
+        bitWidth: 3
+        description: Wrap size
+  _include:
+    - patches/octospi/ddm.yaml
+    - patches/octospi/add_wrap.yaml
+    - fields/octospi/l4.yaml
 
 OCTOSPIM: {}
 

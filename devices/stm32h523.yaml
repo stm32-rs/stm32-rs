@@ -201,6 +201,8 @@ LPUART:
 
 OCTOSPI:
   _strip: OCTOSPI_
+  _include:
+    - fields/octospi/u5.yaml
 
 PSSI:
   _strip: PSSI_

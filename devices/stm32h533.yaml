@@ -209,6 +209,8 @@ LPUART:
 
 OCTOSPI:
   _strip: OCTOSPI_
+  _include:
+    - fields/octospi/u5.yaml
 
 OTFDEC1:
   _strip: OTFDEC_

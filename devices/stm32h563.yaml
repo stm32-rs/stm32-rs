@@ -167,6 +167,13 @@ LPUART:
 
 OCTOSPI:
   _strip: OCTOSPI_
+  CR:
+    _modify:
+      FSEL:
+        name: MSEL
+        description: External memory select
+  _include:
+    - fields/octospi/u5.yaml
 
 PSSI:
   _strip: PSSI_
