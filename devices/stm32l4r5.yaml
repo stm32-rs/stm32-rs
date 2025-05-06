@@ -194,7 +194,10 @@ LPUART1:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/lp_wl.yaml
 
-LTDC: {}
+LTDC:
+  _include:
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
 OCTOSPI1:
   DCR2:

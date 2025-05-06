@@ -186,6 +186,9 @@ LPUART1:
 
 LTDC:
   _strip: LTDC_
+  _include:
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
 MDF1:
   _strip: MDF_
