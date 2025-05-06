@@ -29,6 +29,9 @@ _modify:
   OctoSPII_O_Manager:
     groupName: OctoSPII_O_Manager
 
+_rebase:
+  OCTOSPI1: OCTOSPI2
+
 ADC12_Common:
   _include: fields/adc/adc_v3_common_h7.yaml
 
@@ -252,9 +255,19 @@ MDMA:
   _include:
     - collect/dma/mdma.yaml
 
-OCTOSPI2:
+OCTOSPI1:
+  WCCR:
+    _modify:
+      IMODE:
+        bitWidth: 3
+      IDTR:
+        bitOffset: 3
+      ISIZE:
+        bitOffset: 4
+        bitWidth: 2
   _include:
     - patches/octospi/h7.yaml
+    - fields/octospi/l5.yaml
 
 OctoSPII_O_Manager: {}
 

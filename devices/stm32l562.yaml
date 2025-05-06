@@ -182,7 +182,14 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
-OCTOSPI1: {}
+OCTOSPI1:
+  DCR1:
+    _modify:
+      MTYP:
+        bitWidth: 3
+  _include:
+    - patches/octospi/ddm.yaml
+    - fields/octospi/l5.yaml
 
 OPAMP: {}
 
