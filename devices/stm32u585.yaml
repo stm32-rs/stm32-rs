@@ -2,6 +2,10 @@ _svd: ../svd/stm32u585.svd
 
 _clear_fields: "*"
 
+_copy:
+  LPGPIO1:
+    from: ../svd/stm32u535.svd:LPGPIO1
+
 # This SVD calls this ADC12, but ADC12_Common in most others
 _modify:
   ADC12:
@@ -172,6 +176,8 @@ LPDMA1:
 
 LPGPIO1:
   _strip: LPGPIO_
+  _include:
+    - collect/lpgpio/lp.yaml
 
 LPTIM[14]: {}
 
