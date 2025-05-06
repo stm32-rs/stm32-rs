@@ -161,6 +161,9 @@ LPUART1:
 
 LTDC:
   _strip: LTDC_
+  _include:
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
 MDIOS:
   _strip: MDIOS_
