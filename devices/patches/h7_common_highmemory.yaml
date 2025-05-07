@@ -78,6 +78,26 @@ _add:
         description: USART10 global interrupt
         value: 141
 
+DMA1:
+  _interrupts:
+    _modify:
+      DMA_STR0:
+        name: DMA1_STR0
+      DMA_STR1:
+        name: DMA1_STR1
+      DMA_STR2:
+        name: DMA1_STR2
+      DMA_STR3:
+        name: DMA1_STR3
+      DMA_STR4:
+        name: DMA1_STR4
+      DMA_STR5:
+        name: DMA1_STR5
+      DMA_STR6:
+        name: DMA1_STR6
+      DMA_STR7:
+        name: DMA1_STR7
+
 DMA2:
   _add:
     _interrupts:

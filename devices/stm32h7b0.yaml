@@ -170,6 +170,7 @@ FLASH:
         bitWidth: 1
         access: read-only
   _include:
+    - patches/flash/h7_hi_mem.yaml
     - patches/flash/flash_dual_bank.yaml
     - collect/flash/bank.yaml
 
