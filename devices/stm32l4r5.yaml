@@ -111,7 +111,8 @@ DMA1:
 
 DMA2D:
   _include:
-    - fields/dma/dma2d_v1.yaml
+    - patches/dma/dma2d_l4+.yaml
+    - fields/dma/dma2d_v2.yaml
 
 DMAMUX1:
   _include:

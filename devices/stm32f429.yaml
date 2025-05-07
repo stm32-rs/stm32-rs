@@ -71,7 +71,9 @@ DMA2:
     - fields/dma/dma_v2.yaml
     - collect/dma/st.yaml
 
-DMA2D: {}
+DMA2D:
+  _include:
+    - fields/dma/dma2d_v1.yaml
 
 #Ethernet_DMA: {}
 #Ethernet_MAC: {}
