@@ -3,6 +3,13 @@
 
 _include: dma2d_common.yaml
 
+CR:
+  MODE:
+    MemoryToMemory: [0, Memory-to-memory (FG fetch only)]
+    MemoryToMemoryPFC: [1, Memory-to-memory with PFC (FG fetch only with FG PFC active)]
+    MemoryToMemoryPFCBlending: [2, Memory-to-memory with blending (FG and BG fetch with PFC and blending)]
+    RegisterToMemory: [3, Register-to-memory]
+
 "[FB]GOR,OOR":
   LO: [0, 16383]
 "[FB]GPFCCR":

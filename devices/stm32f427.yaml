@@ -75,6 +75,8 @@ DMA2:
 
 DMA2D:
   _strip: DMA2D_
+  _include:
+    - fields/dma/dma2d_v1.yaml
 
 #Ethernet_DMA: {}
 #Ethernet_MAC: {}

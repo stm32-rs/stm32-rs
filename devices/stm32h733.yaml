@@ -284,10 +284,10 @@ MDMA:
 
 # OCTOSPI blocks
 OCTOSPI1:
-  AR:
-    _modify:
-      ADRESS:
-        name: ADDRESS
+  _include:
+    - patches/octospi/address.yaml
+    - patches/octospi/ddm.yaml
+    - fields/octospi/l4.yaml
 
 OctoSPII_O_Manager: {}
 

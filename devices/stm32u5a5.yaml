@@ -171,6 +171,8 @@ LPDMA1:
 
 LPGPIO1:
   _strip: LPGPIO_
+  _include:
+    - collect/lpgpio/lp.yaml
 
 LPTIM[14]: {}
 
@@ -255,7 +257,9 @@ SPI1:
 
 SYSCFG: {}
 
-TAMP: {}
+TAMP:
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   CCMR2_Output:
@@ -343,4 +347,6 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

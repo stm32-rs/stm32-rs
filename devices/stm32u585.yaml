@@ -172,6 +172,8 @@ LPDMA1:
 
 LPGPIO1:
   _strip: LPGPIO_
+  _include:
+    - collect/lpgpio/lp.yaml
 
 LPTIM[14]: {}
 
@@ -296,6 +298,8 @@ SYSCFG: {}
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TSC:
   _include:
@@ -375,4 +379,6 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

@@ -3,6 +3,16 @@
 
 _include: dma2d_common.yaml
 
+CR:
+  MODE:
+    MemoryToMemory: [0, Memory-to-memory (FG fetch only)]
+    MemoryToMemoryPFC: [1, Memory-to-memory with PFC (FG fetch only with FG PFC active)]
+    MemoryToMemoryPFCBlending: [2, Memory-to-memory with blending (FG and BG fetch with PFC and blending)]
+    RegisterToMemory: [3, Register-to-memory (no FG nor BG, only output stage active)]
+    MemoryToMemoryBlendingFixedFG:
+      [100, Memory-to-memory with Blending and fixed color FG (BG fetch only with FG and BG PFC active)]
+    MemoryToMemoryBlendingFixedBG:
+      [101, Memory-to-memory with Blending and fixed color BG (BG fetch only with FG and BG PFC active)]
 "[FB]GPFCCR,OPFCCR":
   RBS:
     Regular: [0, No Red Blue Swap (RGB or ARGB)]

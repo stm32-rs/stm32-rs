@@ -209,6 +209,8 @@ LPUART:
 
 OCTOSPI:
   _strip: OCTOSPI_
+  _include:
+    - fields/octospi/u5.yaml
 
 OTFDEC1:
   _strip: OTFDEC_
@@ -268,6 +270,8 @@ SPI1:
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM?:
   _strip: TIM?_
