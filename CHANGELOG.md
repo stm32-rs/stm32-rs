@@ -110,6 +110,7 @@ Family-specific:
 * F3:
   * Update vendor SVD bundle to v1.3 (#1059)
   * F373 GPIOC LCKR, collect GPIO.BRR (#943)
+  * Add F3x8
 
 * F4:
   * Update vendor SVD bundle to v2.0 (#1060)
