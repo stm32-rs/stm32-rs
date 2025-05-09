@@ -97,6 +97,8 @@ RCC:
   _modify:
     CICR:
       access: write-only
+    CIER:
+      access: read-write
   CR:
     _modify:
       CSSLSEON:
