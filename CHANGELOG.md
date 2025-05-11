@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v0.16.0] 2025-05-13
+
 * Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.13.0, use tools binaries for CI (#1174)
 * bump `defmt` dependency to 1.0 (#1209)
 * Use `svd2rust.toml` config, use custom ident suffixes (#948)
