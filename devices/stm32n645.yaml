@@ -198,7 +198,7 @@ VREFBUF:
 WWDG:
   _strip: WWDG_
   _include:
-    - patches/16bit.yaml
+    - patches/16bit_with_mask.yaml
     - fields/wwdg/wwdg_v2.yaml
 
 XSPI1:
