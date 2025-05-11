@@ -8,6 +8,9 @@
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
 
+* WBA:
+  * Initial support (#1229)
+
 ## [v0.16.0] 2025-05-13
 
 * Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.13.0, use tools binaries for CI (#1174)
@@ -276,7 +279,7 @@ Contributors to this release:
 [@ianic] [@iostat] [@jonathanherbst] [@jspngh] [@kevswims] [@liamkinne]
 [@mattthebaker] [@newAM] [@noppej] [@rblaze] [@reitermarkus] [@richardeoin]
 [@RootCubed] [@sorki] [@tdaede] [@Urhengulas] [@usbalbin] [@vinchatl]
-[@YruamaLairba]
+[@YruamaLairba] [@gkobeaga]
 
 ## [v0.15.1] 2022-07-04
 
@@ -1094,6 +1097,7 @@ work in this release!
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
 [@hydra]: https://github.com/hydra
+[@gkobeaga]: https://github.com/gkobeaga
 [@ianic]: https://github.com/ianic
 [@ijager]: https://github.com/ijager
 [@iostat]: https://github.com/iostat
