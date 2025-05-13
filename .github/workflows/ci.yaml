@@ -35,7 +35,7 @@ jobs:
           - stm32u5
           - stm32wl
           - stm32wb
-          - stm32wba5
+          - stm32wba
 
     env:
       CRATES: ${{ matrix.crate }}

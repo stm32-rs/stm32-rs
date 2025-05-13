@@ -9,7 +9,11 @@ PATCHED_SVDS = set ""
 FORMATTED_SVDS = set ""
 RUST_DIRS = set ""
 for crate in ${crates}
-    crate_yamls = glob_array devices/${crate}*.yaml
+    if eq ${crate} "stm32wb"
+        crate_yamls = glob_array devices/stm32wb[1-5]*.yaml
+    else
+        crate_yamls = glob_array devices/${crate}*.yaml
+    end
     for yaml in ${crate_yamls}
         serie = substring ${yaml} 8
         serie = substring ${serie} -5
