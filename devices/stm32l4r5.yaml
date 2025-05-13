@@ -194,9 +194,22 @@ LPUART1:
     - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
     - fields/usart/v4/lp_wl.yaml
 
-LTDC: {}
+LTDC:
+  _include:
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
-OCTOSPI1: {}
+OCTOSPI1:
+  DCR2:
+    _add:
+      WRAPSIZE:
+        bitOffset: 16
+        bitWidth: 3
+        description: Wrap size
+  _include:
+    - patches/octospi/ddm.yaml
+    - patches/octospi/add_wrap.yaml
+    - fields/octospi/l4.yaml
 
 OCTOSPIM: {}
 

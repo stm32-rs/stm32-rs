@@ -182,6 +182,8 @@ LPDMA1:
 
 LPGPIO1:
   _strip: LPGPIO_
+  _include:
+    - collect/lpgpio/lp.yaml
 
 LPTIM[14]: {}
 
@@ -192,6 +194,9 @@ LPUART1:
 
 LTDC:
   _strip: LTDC_
+  _include:
+    - fields/ltdc/ltdc.yaml
+    - collect/ltdc/layer.yaml
 
 MDF1:
   _strip: MDF_
@@ -355,4 +360,6 @@ VREFBUF:
   _strip: VREFBUF_
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

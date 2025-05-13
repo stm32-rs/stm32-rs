@@ -314,7 +314,9 @@ USB:
   #  ADDR?_TX: {}
 
 WWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml
 
 _include:
   - patches/adc/wb_adc_common.yaml
