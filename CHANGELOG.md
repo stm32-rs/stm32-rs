@@ -2,8 +2,8 @@
 
 ## [Unreleased]
 
-* Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.12.1, use tools binaries for CI (#1174)
-* bump `defmt` dependency to 1.0
+* Updated to `svd2rust` 0.36.1, `svdtools` 0.4.6, `form` 0.13.0, use tools binaries for CI (#1174)
+* bump `defmt` dependency to 1.0 (#1209)
 * Use `svd2rust.toml` config, use custom ident suffixes (#948)
 * Replace `makehtml.py` with `svdtools html` (#881)
 * Remove workaround for bug in duckscript's `mv` (#981)
@@ -74,21 +74,22 @@
 * F2, F4, F7: Add definitions for OPTCR, OPTCR1 and OPTCR2 registers of FLASH peripheral (#1157)
 * F2, F4, F7: Fix several fields of FLASH peripheral and reorganise 'patches', 'fields' and 'collect' according to impacted registers (#1161)
 * F1, F2, F4: Derive identical UART registers from USART1, add GPTR.PSC (#1179)
-* CCMR3_Output fix
-* CRC enums and fixes
-* Add DAC enums
-* DCMI enums
-* DFSDM enums and fixes
-* RNG enums
-* SDIO/SDMMC v1
-* TSC enums and arrays
-* USB v2
-* Use arrays for DAC channels
-* Derive TIM registers
+* CCMR3_Output fix (#1184)
+* CRC enums and fixes (#1206)
+* Add DAC enums (#1196)
+* DCMI enums (#1205)
+* DFSDM enums and fixes (#1218)
+* RNG enums (#1220)
+* SDIO/SDMMC v1 (#1204)
+* OCTOSPI, TAMP, LTDC enums (#1226)
+* TSC enums and arrays (#1221)
+* USB v2 (#1202)
+* Use arrays for DAC channels (#1197)
+* Derive TIM registers (#1184)
 * Update README.md (#1152)
-* Add SPI enums for G4, U5, H7+
-* FMC/FSMC enums, arrays & derives
-* CRS enums
+* Add SPI enums for G4, U5, H7+ (#1199)
+* FMC/FSMC enums, arrays & derives (#1200)
+* CRS enums (#1208)
 * HRTIM:
   * H7 & G4 fixes and enums (#1021) (#1022)
   * Remove timer block suffixes from register/field names (#1023)

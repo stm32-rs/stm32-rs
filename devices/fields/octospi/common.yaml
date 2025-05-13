@@ -69,7 +69,6 @@ DCR1:
         "HyperBus register mode, addressing register space. The memory-mapped accesses in this mode must be non-cacheable, or Indirect read/write modes must be used",
       ]
   DEVSIZE: [0, 0x1F]
-  CSHT: [0, 0x3F]
   DLYBYP:
     DelayBlockEnabled:
       [
@@ -99,7 +98,7 @@ DCR2:
 
 DCR3:
   CSBOUND: [0, 0x1F]
-  MAXTRAN: [0, 0xFF]
+  "?~MAXTRAN": [0, 0xFF]
 
 DCR4:
   REFRESH: [0, 0xFFFFFFFF]
@@ -163,7 +162,7 @@ PIR:
   INTERVAL: [0, 0xFFFF]
 
 CCR:
-  SIOO:
+  "?~SIOO":
     SendEveryTransaction: [0, Send instruction on every transaction]
     SendOnlyFirstCmd: [1, Send instruction only for the first command]
   DQSE:
