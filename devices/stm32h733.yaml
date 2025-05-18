@@ -332,6 +332,8 @@ OTG1_HS_PWRCLK: {}
 
 PSSI:
   _strip: PSSI_
+  _include:
+    - fields/pssi/pssi.yaml
 
 # PWR block
 PWR:

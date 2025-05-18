@@ -173,6 +173,8 @@ OTG_HS:
 
 PSSI:
   _strip: PSSI_
+  _include:
+    - fields/pssi/pssi.yaml
 
 PWR:
   _strip: PWR_

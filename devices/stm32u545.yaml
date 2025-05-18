@@ -182,7 +182,9 @@ OCTOSPI1:
 
 PKA: {}
 
-PSSI: {}
+PSSI:
+  _include:
+    - fields/pssi/pssi.yaml
 
 PWR:
   _strip: PWR_

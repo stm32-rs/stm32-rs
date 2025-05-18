@@ -204,7 +204,9 @@ OTG_FS: {}
 
 PKA: {}
 
-PSSI: {}
+PSSI:
+  _include:
+    - fields/pssi/pssi.yaml
 
 PWR:
   _strip: PWR_

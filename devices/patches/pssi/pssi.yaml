@@ -120,15 +120,15 @@ _add:
         access: read-write
         resetValue: 0x00000000
         fields:
-          Byte3:
+          BYTE3:
             bitOffset: 24
             bitWidth: 8
-          Byte2:
+          BYTE2:
             bitOffset: 16
             bitWidth: 8
-          Byte1:
+          BYTE1:
             bitOffset: 8
             bitWidth: 8
-          Byte0:
+          BYTE0:
             bitOffset: 0
             bitWidth: 8
