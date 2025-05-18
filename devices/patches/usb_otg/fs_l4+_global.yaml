@@ -1,0 +1,320 @@
+GOTGCTL:
+  _add:
+    VBVALOEN:
+      description: VBUS valid override enable
+      bitOffset: 2
+      bitWidth: 1
+      access: read-write
+    VBVALOVAL:
+      description: VBUS valid override value
+      bitOffset: 3
+      bitWidth: 1
+      access: read-write
+    AVALOEN:
+      description: A-peripheral session valid override enable
+      bitOffset: 4
+      bitWidth: 1
+      access: read-write
+    AVALOVAL:
+      description: A-peripheral session valid override value
+      bitOffset: 5
+      bitWidth: 1
+      access: read-write
+    BVALOEN:
+      description: B-peripheral session valid override enable
+      bitOffset: 6
+      bitWidth: 1
+      access: read-write
+    BVALOVAL:
+      description: B-peripheral session valid override value
+      bitOffset: 7
+      bitWidth: 1
+      access: read-write
+    EHEN:
+      description: Embedded host enable
+      bitOffset: 12
+      bitWidth: 1
+      access: read-write
+    OTGVER:
+      description: OTG version
+      bitOffset: 20
+      bitWidth: 1
+      access: read-write
+    CURMOD:
+      description: Current mode of operation
+      bitOffset: 21
+      bitWidth: 1
+      access: read-only
+
+GAHBCFG:
+  _modify:
+    GINT:
+      name: GINTMSK
+
+GUSBCFG:
+  _delete:
+    - CTXPKT
+
+GINTSTS:
+  _add:
+    RSTDET:
+      description: Reset detected interrupt
+      bitOffset: 23
+      bitWidth: 1
+    LPMINT:
+      description: LPM interrupt
+      bitOffset: 27
+      bitWidth: 1
+
+GINTMSK:
+  _add:
+    RSTDETM:
+      description: Reset detected interrupt mask
+      bitOffset: 23
+      bitWidth: 1
+    LPMINTM:
+      description: LPM interrupt mask
+      bitOffset: 27
+      bitWidth: 1
+
+GCCFG:
+  _delete:
+    - VBUSASEN
+    - VBUSBSEN
+    - SOFOUTEN
+
+  _add:
+    DCDET:
+      description: Data contact detection (DCD) status
+      bitOffset: 0
+      bitWidth: 1
+      access: read-only
+    PDET:
+      description: Primary detection (PD) status
+      bitOffset: 1
+      bitWidth: 1
+      access: read-only
+    SDET:
+      description: Secondary detection (SD) status
+      bitOffset: 2
+      bitWidth: 1
+      access: read-only
+    PS2DET:
+      description: DM pull-up detection status
+      bitOffset: 3
+      bitWidth: 1
+      access: read-only
+    BCDEN:
+      description: Battery charging detector (BCD) enable
+      bitOffset: 17
+      bitWidth: 1
+      access: read-write
+    DCDEN:
+      description: Data contact detection (DCD) mode enable
+      bitOffset: 18
+      bitWidth: 1
+      access: read-write
+    PDEN:
+      description: Primary detection (PD) mode enable
+      bitOffset: 19
+      bitWidth: 1
+      access: read-write
+    SDEN:
+      description: Secondary detection (SD) mode enable
+      bitOffset: 20
+      bitWidth: 1
+      access: read-write
+    VBDEN:
+      description: USB VBUS detection enable
+      bitOffset: 21
+      bitWidth: 1
+      access: read-write
+
+GRXSTSR_Device:
+  _add:
+    STSPHST:
+      description: Status phase start
+      bitOffset: 27
+      bitWidth: 1
+
+GRXSTSP_Device:
+  _add:
+    STSPHST:
+      description: ??
+      bitOffset: 27
+      bitWidth: 1
+
+_add:
+  GLPMCFG:
+    description: OTG core LPM configuration register
+    addressOffset: 0x54
+    resetValue: 0x0
+    fields:
+      LPMEN:
+        description: LPM support enable
+        bitOffset: 0
+        bitWidth: 1
+        access: read-write
+      LPMACK:
+        description: LPM token acknowledge enable
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+      BESL:
+        description: Best effort service latency
+        bitOffset: 2
+        bitWidth: 4
+        access: read-write
+      REMWAKE:
+        description: bRemoteWake value
+        bitOffset: 6
+        bitWidth: 1
+        access: read-write
+      L1SSEN:
+        description: L1 Shallow Sleep enable
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      BESLTHRS:
+        description: BESL threshold
+        bitOffset: 8
+        bitWidth: 4
+        access: read-write
+      L1DSEN:
+        description: L1 deep sleep enable
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+      LPMRSP:
+        description: LPM response
+        bitOffset: 13
+        bitWidth: 2
+        access: read-only
+      SLPSTS:
+        description: Port sleep status
+        bitOffset: 15
+        bitWidth: 1
+        access: read-only
+      L1RSMOK:
+        description: Sleep state resume OK
+        bitOffset: 16
+        bitWidth: 1
+        access: read-only
+      LPMCHIDX:
+        description: LPM Channel Index
+        bitOffset: 17
+        bitWidth: 4
+        access: read-write
+      LPMRCNT:
+        description: LPM retry count
+        bitOffset: 21
+        bitWidth: 3
+      SNDLPM:
+        description: Send LPM transaction
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
+      LPMRCNTSTS:
+        description: LPM retry count status
+        bitOffset: 25
+        bitWidth: 3
+        access: read-only
+      ENBESL:
+        description: Enable best effort service latency
+        bitOffset: 28
+        bitWidth: 1
+        access: read-write
+  GPWRDN:
+    description: OTG power down register
+    addressOffset: 0x58
+    resetValue: 0x0
+    access: read-write
+    fields:
+      ADPMEN:
+        description: ADP module enable
+        bitOffset: 0
+        bitWidth: 1
+      ADPIF:
+        description: ADP interrupt flag
+        bitOffset: 23
+        bitWidth: 1
+  GADPCTL:
+    description: OTG ADP timer, control and status register
+    addressOffset: 0x60
+    resetValue: 0x0
+    fields:
+      PRBDSCHG:
+        description: Probe discharge
+        bitOffset: 0
+        bitWidth: 2
+        access: read-write
+      PRBDELTA:
+        description: Probe delta
+        bitOffset: 2
+        bitWidth: 2
+        access: read-write
+      PRBPER:
+        description: Probe period
+        bitOffset: 0
+        bitWidth: 4
+        access: read-write
+      RTIM:
+        description: Ramp time
+        bitOffset: 6
+        bitWidth: 11
+        access: read-only
+      ENAPRB:
+        description: Enable probe
+        bitOffset: 17
+        bitWidth: 1
+        access: read-write
+      ENASNS:
+        description: Enable sense
+        bitOffset: 18
+        bitWidth: 1
+        access: read-write
+      ADPRST:
+        description: ADP reset
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
+      ADPEN:
+        description: ADP enable
+        bitOffset: 20
+        bitWidth: 1
+        access: read-write
+      ADPPRBIF:
+        description: ADP probe interrupt flag
+        bitOffset: 21
+        bitWidth: 1
+        access: read-write
+      ADPSNSIF:
+        description: ADP sense interrupt flag
+        bitOffset: 22
+        bitWidth: 1
+        access: read-write
+      ADPTOIF:
+        description: ADP timeout interrupt flag
+        bitOffset: 23
+        bitWidth: 1
+        access: read-write
+      ADPPRBIM:
+        description: ADP probe interrupt mask
+        bitOffset: 24
+        bitWidth: 1
+        access: read-write
+      ADPSNSIM:
+        description: ADP sense interrupt mask
+        bitOffset: 25
+        bitWidth: 1
+        access: read-write
+      ADPTOIM:
+        description: ADP timeout interrupt mask
+        bitOffset: 26
+        bitWidth: 1
+        access: read-write
+      AR:
+        description: Access request
+        bitOffset: 27
+        bitWidth: 2
+        access: read-write

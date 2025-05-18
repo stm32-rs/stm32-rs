@@ -56,11 +56,8 @@ CAN1:
 COMP: {}
 
 CRC:
-  INIT:
-    _modify:
-      CRC_INIT:
-        name: INIT
   _include:
+    - patches/crc/crc_rename_init.yaml
     - patches/crc/crc_rename_pol.yaml
     - patches/crc/add_dr8.yaml
     - fields/crc/v3_idr8.yaml
@@ -101,6 +98,7 @@ DMA1:
 DMA2D:
   _include:
     - patches/dma/dma2d_l4+.yaml
+    - fields/dma/dma2d_v1.yaml
 
 DMAMUX:
   _include:
@@ -112,7 +110,9 @@ EXTI:
     - patches/exti/l4+.yaml
     - fields/exti/common.yaml
 
-FIREWALL: {}
+FIREWALL:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
 
 FLASH:
   ACR:
@@ -150,13 +150,16 @@ GPIO[BCI]:
 HASH:
   _include:
     - patches/hash/hash_l4+.yaml
+    - collect/hash/v3.yaml
 
 I2C1:
   _include:
     - fields/i2c/v2.yaml
 
 IWDG:
-  _include: patches/16bit.yaml
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 LPTIM1:
   _add:
@@ -206,19 +209,38 @@ OCTOSPI1:
     - patches/octospi/l4+.yaml
     - fields/octospi/l4.yaml
 
-OCTOSPIM: {}
+OCTOSPIM:
+  _include:
+    - patches/octospim/l4+.yaml
 
 OPAMP: {}
 
-#OTG_FS_DEVICE: {}
+OTG_FS_*:
+  _strip: FS_
 
-#OTG_FS_GLOBAL: {}
+OTG_FS_DEVICE:
+  _include:
+    - patches/usb_otg/fs_v1_device_ext.yaml
+    - patches/usb_otg/fs_v1_device.yaml
+    - patches/usb_otg/fs_l4+_device.yaml
+    - collect/usb_otg/fs_device.yaml
+OTG_FS_GLOBAL:
+  _include:
+    - patches/usb_otg/fs_v1_global_ext.yaml
+    - patches/usb_otg/fs_v1_global.yaml
+    - patches/usb_otg/fs_l4+_global.yaml
+    - collect/usb_otg/fs_global.yaml
+OTG_FS_HOST:
+  _include:
+    - patches/usb_otg/fs_v1_host_ext.yaml
+    - patches/usb_otg/fs_v1_host.yaml
+    - patches/usb_otg/fs_l4+_host.yaml
+    - collect/usb_otg/fs_host.yaml
+OTG_FS_PWRCLK: {}
 
-#OTG_FS_HOST: {}
-
-#OTG_FS_PWRCLK: {}
-
-PSSI: {}
+PSSI:
+  _include:
+    - fields/pssi/pssi.yaml
 
 PWR:
   _strip: PWR_
@@ -394,17 +416,12 @@ WWDG:
     - fields/wwdg/wwdg.yaml
 
 _include:
-  #- patches/usart/merge_BRR_fields.yaml
-  #- patches/usart/rename_CR2_DATAINV_field.yaml
   - patches/firewall/l4+.yaml
   - patches/ltdc/rename.yaml
-  - patches/octospim/l4+.yaml
   - patches/dbgmcu/l4_apb_fzr_rename.yaml
   - patches/dbgmcu/l4+.yaml
   - fields/dbg/dbg_l4+.yaml
-  - patches/usb_otg/otg_fs_l4+.yaml
   - patches/comp/l4xx_comp_reg_rename.yaml
   - fields/comp/comp_l4+.yaml
   - patches/tim/group.yaml
   - patches/pssi/pssi.yaml
-  - fields/pssi/pssi.yaml

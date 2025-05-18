@@ -1,0 +1,17 @@
+HFIR:
+  _add:
+    RLDCTRL:
+      description: Reload control
+      bitOffset: 16
+      bitWidth: 1
+
+HCINTMSK*:
+  _delete:
+    - NYET
+
+HCTSIZ*:
+  _add:
+    DOPNG:
+      description: Do Ping
+      bitOffset: 31
+      bitWidth: 1

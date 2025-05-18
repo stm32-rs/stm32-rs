@@ -1,3 +1,6 @@
+_include:
+  - flash_boot0s.yaml
+
 _add:
   CFGR:
     description: flash configuration register
@@ -16,21 +19,6 @@ _modify:
     addressOffset: 0x30
   WRP1BR:
     addressOffset: 0x4C
-
-KEYR:
-  _modify:
-    KEYR:
-      name: KEY
-
-OPTKEYR:
-  _modify:
-    OPTKEYR:
-      name: OPTKEY
-
-PDKEYR:
-  _modify:
-    PDKEYR:
-      name: PDKEY
 
 SR:
   _add:
@@ -54,20 +42,15 @@ ECCR:
 
 OPTR:
   _add:
-    nBOOT0:
-      description: nBOOT0 option bit
-      bitOffset: 27
-      bitWidth: 1
-    nSWBOOT0:
-      description: nSWBOOT0 option bit
-      bitOffset: 26
-      bitWidth: 1
     DBANK:
       bitOffset: 22
       bitWidth: 1
     DB1M:
       bitOffset: 21
       bitWidth: 1
+  _modify:
+    IDWG_SW:
+      name: IWDG_SW
 
   _delete:
     - DUALBANK

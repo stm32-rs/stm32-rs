@@ -111,6 +111,7 @@ DMA1:
 
 DMA2D:
   _include:
+    - patches/dma/dma2d_l4+.yaml
     - fields/dma/dma2d_v1.yaml
 
 DMAMUX1:
@@ -120,6 +121,7 @@ DMAMUX1:
 
 EXTI:
   _include:
+    - patches/exti/l4+.yaml
     - fields/exti/common.yaml
 
 FIREWALL:
@@ -139,6 +141,8 @@ FLASH:
         bitOffset: 21
       SYSF_ECC:
         bitOffset: 22
+  _include:
+    - fields/flash/flash_l4+.yaml
 
 FMC:
   _include:
@@ -170,7 +174,8 @@ GPIO[BCI]:
 
 HASH:
   _include:
-    - collect/hash/v2.yaml
+    - patches/hash/hash_l4+.yaml
+    - collect/hash/v3.yaml
 
 I2C1:
   _include:
@@ -180,9 +185,6 @@ IWDG:
   _include:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
-
-MPU:
-  _strip: MPU_
 
 LPTIM1:
   _include:
@@ -199,6 +201,9 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
+MPU:
+  _strip: MPU_
+
 OCTOSPI1:
   DCR2:
     _add:
@@ -211,7 +216,9 @@ OCTOSPI1:
     - patches/octospi/add_wrap.yaml
     - fields/octospi/l4.yaml
 
-OCTOSPIM: {}
+OCTOSPIM:
+  _include:
+    - patches/octospim/l4+.yaml
 
 OPAMP: {}
 
@@ -222,21 +229,26 @@ OTG_FS_DEVICE:
   _include:
     - patches/usb_otg/fs_v1_device_ext.yaml
     - patches/usb_otg/fs_v1_device.yaml
+    - patches/usb_otg/fs_l4+_device.yaml
     - collect/usb_otg/fs_device.yaml
 OTG_FS_GLOBAL:
   _include:
     - patches/usb_otg/fs_v1_global_ext.yaml
     - patches/usb_otg/fs_v1_global.yaml
+    - patches/usb_otg/fs_l4+_global.yaml
     - collect/usb_otg/fs_global.yaml
 OTG_FS_HOST:
   _include:
     - patches/usb_otg/fs_v1_host_ext.yaml
     - patches/usb_otg/fs_v1_host.yaml
+    - patches/usb_otg/fs_l4+_host.yaml
     - collect/usb_otg/fs_host.yaml
 OTG_FS_PWRCLK: {}
 
 PWR:
   _strip: PWR_
+  _include:
+    - fields/pwr/pwr_l4+.yaml
 
 # SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
 RCC:
@@ -306,6 +318,7 @@ RTC:
 
 SAI1:
   _include:
+    - patches/sai/sai_l4+.yaml
     - patches/sai/sai_v1.yaml
     - fields/sai/sai.yaml
     - collect/sai/ch.yaml
@@ -327,7 +340,10 @@ SPI1:
 
 SWPMI1: {}
 
-SYSCFG: {}
+SYSCFG:
+  _include:
+    - patches/syscfg/l4+.yaml
+    - fields/syscfg/syscfg_l4+.yaml
 
 TIM?:
   _strip: TIM?_
