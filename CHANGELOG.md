@@ -92,6 +92,7 @@
 * Add SPI enums for G4, U5, H7+ (#1199)
 * FMC/FSMC enums, arrays & derives (#1200)
 * CRS enums (#1208)
+* PSSI enums
 * HRTIM:
   * H7 & G4 fixes and enums (#1021) (#1022)
   * Remove timer block suffixes from register/field names (#1023)

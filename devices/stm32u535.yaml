@@ -170,7 +170,9 @@ OCTOSPI1:
     - patches/octospi/u535_u545.yaml
     - fields/octospi/u5.yaml
 
-PSSI: {}
+PSSI:
+  _include:
+    - fields/pssi/pssi.yaml
 
 PWR:
   _strip: PWR_
