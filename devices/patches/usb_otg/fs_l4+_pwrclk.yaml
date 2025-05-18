@@ -4,11 +4,14 @@ PCGCCTL:
       description: Enable sleep clock gating
       bitOffset: 5
       bitWidth: 1
+      access: read-write
     PHYSLEEP:
       description: PHY in Sleep
       bitOffset: 6
       bitWidth: 1
+      access: read-only
     SUSP:
       description: Deep Sleep
       bitOffset: 7
       bitWidth: 1
+      access: read-only

@@ -11,6 +11,7 @@ DCTL:
       description: Deep sleep BESL reject
       bitOffset: 18
       bitWidth: 1
+      access: read-write
 
 DSTS:
   _add:
@@ -47,14 +48,17 @@ DIEPINT?:
       description: IN token received with EP mismatch
       bitOffset: 5
       bitWidth: 1
+      access: read-write
     PKTDRPSTS:
       description: Packet dropped status
       bitOffset: 11
       bitWidth: 1
+      access: read-write
     NAK:
       description: NAK input
       bitOffset: 13
       bitWidth: 1
+      access: read-write
 
 DOEPINT?:
   _delete:
