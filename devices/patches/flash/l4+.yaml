@@ -1,3 +1,6 @@
+_include:
+  - flash_boot0s.yaml
+
 _add:
   CFGR:
     description: flash configuration register
@@ -54,14 +57,6 @@ ECCR:
 
 OPTR:
   _add:
-    nBOOT0:
-      description: nBOOT0 option bit
-      bitOffset: 27
-      bitWidth: 1
-    nSWBOOT0:
-      description: nSWBOOT0 option bit
-      bitOffset: 26
-      bitWidth: 1
     DBANK:
       bitOffset: 22
       bitWidth: 1

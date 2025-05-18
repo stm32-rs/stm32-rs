@@ -1,0 +1,14 @@
+PCGCCTL:
+  _add:
+    ENL1GTG:
+      description: Enable sleep clock gating
+      bitOffset: 5
+      bitWidth: 1
+    PHYSLEEP:
+      description: PHY in Sleep
+      bitOffset: 6
+      bitWidth: 1
+    SUSP:
+      description: Deep Sleep
+      bitOffset: 7
+      bitWidth: 1

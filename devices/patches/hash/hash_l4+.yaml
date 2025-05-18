@@ -1,6 +1,7 @@
 _modify:
   HR0:
     name: HRA0
+    displayName: HRA0
   # strip doesn't work because otherwise we end up with two HRA0 registers...
   HASH_HR0:
     name: HR0
@@ -21,6 +22,7 @@ _modify:
 
 _add:
   HRA1:
+    displayName: HRA1
     description: digest registers
     addressOffset: 0x10
     resetValue: 0x0
@@ -30,6 +32,7 @@ _add:
         bitOffset: 0
         bitWidth: 32
   HRA2:
+    displayName: HRA2
     description: digest registers
     addressOffset: 0x14
     resetValue: 0x0
@@ -39,6 +42,7 @@ _add:
         bitOffset: 0
         bitWidth: 32
   HRA3:
+    displayName: HRA3
     description: digest registers
     addressOffset: 0x18
     resetValue: 0x0
@@ -48,6 +52,7 @@ _add:
         bitOffset: 0
         bitWidth: 32
   HRA4:
+    displayName: HRA4
     description: digest registers
     addressOffset: 0x1C
     resetValue: 0x0
