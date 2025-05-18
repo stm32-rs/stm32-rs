@@ -39,13 +39,13 @@ ACR:
     WS15: [15, 15 wait states]
 
 PDKEYR:
-  PDKEY: [0, 0xFFFFFFFF]
+  PDKEYR: [0, 0xFFFFFFFF]
 
 KEYR:
-  KEY: [0, 0xFFFFFFFF]
+  KEYR: [0, 0xFFFFFFFF]
 
 OPTKEYR:
-  OPTKEY: [0, 0xFFFFFFFF]
+  OPTKEYR: [0, 0xFFFFFFFF]
 
 SR:
   PEMPTY:
@@ -292,7 +292,7 @@ OPTR:
   IWDG_STOP:
     Frozen: [0, Independent watchdog counter is frozen in Stop mode]
     Running: [1, Independent watchdog counter is running in Stop mode]
-  IDWG_SW:
+  IWDG_SW:
     Hardware: [0, Hardware independent watchdog]
     Software: [1, Software independent watchdog]
 

@@ -20,21 +20,6 @@ _modify:
   WRP1BR:
     addressOffset: 0x4C
 
-KEYR:
-  _modify:
-    KEYR:
-      name: KEY
-
-OPTKEYR:
-  _modify:
-    OPTKEYR:
-      name: OPTKEY
-
-PDKEYR:
-  _modify:
-    PDKEYR:
-      name: PDKEY
-
 SR:
   _add:
     PEMPTY:
@@ -63,6 +48,9 @@ OPTR:
     DB1M:
       bitOffset: 21
       bitWidth: 1
+  _modify:
+    IDWG_SW:
+      name: IWDG_SW
 
   _delete:
     - DUALBANK

@@ -141,6 +141,8 @@ FLASH:
         bitOffset: 21
       SYSF_ECC:
         bitOffset: 22
+  _include:
+    - fields/flash/flash_l4+.yaml
 
 FMC:
   _include:
