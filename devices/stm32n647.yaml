@@ -3,6 +3,8 @@ _svd: ../svd/stm32n647.svd
 _clear_fields: "*"
 
 ADC1:
+  PCSEL:
+    _split: PCSEL
   _strip: ADC_
 
 ADC12:
@@ -80,6 +82,8 @@ HPDMA:
 
 I2C1:
   _strip: I2C_
+  _include:
+    - fields/i2c/v3.yaml
 
 I3C1:
   _strip: I3C_
@@ -92,6 +96,9 @@ ICACHE:
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/iwdg/h5.yaml
 
 JPEG:
   _strip: JPEG_
