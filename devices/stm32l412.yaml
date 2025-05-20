@@ -193,10 +193,28 @@ RCC:
     - fields/rcc/rcc_l4.yaml
 
 RNG:
+  _add:
+    _interrupts:
+      RNG:
+        description: RNG global interrupt
+        value: 80
   _include:
     - fields/rng/v1.yaml
 
 RTC:
+  _delete:
+    _interrupts: RNG
+  _add:
+    _interrupts:
+      RTC_TAMP_STAMP:
+        description: Tamper and TimeStamp interrupts
+        value: 2
+      RTC_WKUP:
+        description: RTC Tamper or TimeStamp/CSS on LSE through EXTI line 19 interrupts
+        value: 3
+      RTC_ALARM:
+        description: RTC alarms through EXTI line 18 interrupts
+        value: 41
   _include:
     - patches/rtc/alarm.yaml
     - fields/rtc/v3/common.yaml
