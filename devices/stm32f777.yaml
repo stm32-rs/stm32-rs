@@ -1,5 +1,8 @@
 _svd: ../svd/stm32f777.svd
 
+_delete:
+  - DBGMCU
+
 _rebase:
   USART1: USART6
 
@@ -466,5 +469,6 @@ _include:
   - fields/eth/eth_mmc_common.yaml
   - fields/eth/eth_mmc_mcfhp_mcp.yaml
   - patches/tim/group.yaml
+  - patches/dbgmcu/f7.yaml
   - patches/ethernet/f4_f7.yaml
   - fields/eth/eth_ptp_ppsfreq.yaml

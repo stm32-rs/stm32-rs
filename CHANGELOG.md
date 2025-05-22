@@ -231,6 +231,7 @@ Family-specific:
 * L4:
   * Update L4/L4+ vendor SVD bundles to v1.4 (#1084)
   * Add missing CAN registers to l4x3/x5 (#914)
+  * Fix L412 RTC interrupts
   * L4+ unify patches (#1233)
 
 * L5:
