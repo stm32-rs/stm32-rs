@@ -222,6 +222,7 @@ Family-specific:
 
 * L0:
   * Update vendor SVD bundle to v1.4 (#1081)
+  * Fix RCC CIER register access (#1227)
 
 * L1:
   * Update vendor SVD bundle to v1.4 (#1080)
