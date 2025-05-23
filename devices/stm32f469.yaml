@@ -93,6 +93,7 @@ DMA2D:
     - fields/dma/dma2d_v1.yaml
 
 DSI:
+  _clear_fields: "*"
   _add:
     _interrupts:
       DSIHOST:
