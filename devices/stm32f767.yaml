@@ -102,6 +102,7 @@ DMA2D:
 DSI:
   _strip: DSI_
   _include:
+    - patches/dsi/f7_wpcr.yaml
     - collect/dsi/isr.yaml
 
 Ethernet_DMA:

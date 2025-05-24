@@ -92,7 +92,7 @@
 * Add SPI enums for G4, U5, H7+ (#1199)
 * FMC/FSMC enums, arrays & derives (#1200)
 * CRS enums (#1208)
-* PSSI enums
+* PSSI enums (#1234)
 * HRTIM:
   * H7 & G4 fixes and enums (#1021) (#1022)
   * Remove timer block suffixes from register/field names (#1023)
@@ -109,7 +109,7 @@ Family-specific:
   * F103: USB RESP1 fix name (#927)
   * Remove CAN from F101/102 (#935)
   * Remove CAN2 from F103, rename CAN1 to CAN (#941)
-  * Derive ADC registers/fields
+  * Derive ADC registers/fields (#1194)
 
 * F3:
   * Update vendor SVD bundle to v1.3 (#1059)
@@ -125,6 +125,7 @@ Family-specific:
 
 * F7:
   * Update vendor SVD bundle to v2.4 (#1085)
+  * Fix DSI WPCR indices (#1239)
 
 * G0:
   * Update vendor SVD bundle from v1.1 to v1.6 (#947) (#1012) (#1049)
@@ -222,7 +223,7 @@ Family-specific:
 
 * L0:
   * Update vendor SVD bundle to v1.4 (#1081)
-  * Fix RCC CIER register access (#1227)
+  * Fix RCC CIER register access (#1238)
 
 * L1:
   * Update vendor SVD bundle to v1.4 (#1080)
@@ -232,8 +233,7 @@ Family-specific:
 * L4:
   * Update L4/L4+ vendor SVD bundles to v1.4 (#1084)
   * Add missing CAN registers to l4x3/x5 (#914)
-  * Fix L412 RTC interrupts
-  * Fix L412 RTC interrupt descriptions
+  * Fix L412 RTC interrupts (#1236) (#1240)
   * L4+ unify patches (#1233)
 
 * L5:
