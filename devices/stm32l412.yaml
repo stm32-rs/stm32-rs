@@ -207,10 +207,10 @@ RTC:
   _add:
     _interrupts:
       RTC_TAMP_STAMP:
-        description: Tamper and TimeStamp interrupts
+        description: RTC Tamper or TimeStamp /CSS on LSE through EXTI line 19 interrupts
         value: 2
       RTC_WKUP:
-        description: RTC Tamper or TimeStamp/CSS on LSE through EXTI line 19 interrupts
+        description: RTC Wakeup timer through EXTI line 20 interrupt
         value: 3
       RTC_ALARM:
         description: RTC alarms through EXTI line 18 interrupts
