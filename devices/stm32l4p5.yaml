@@ -216,7 +216,10 @@ OCTOSPIM:
   _include:
     - patches/octospim/l4+.yaml
 
-OPAMP: {}
+OPAMP:
+  _include:
+    - fields/opamp/l4.yaml
+    - collect/opamp/l4.yaml
 
 OTG_FS_*:
   _strip: FS_

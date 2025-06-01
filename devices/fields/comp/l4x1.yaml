@@ -22,7 +22,8 @@ COMP1_CSR:
     VRef: [3, VRefint]
     DAC_CH1: [4, DAC Channel 1]
     DAC_CH2: [5, DAC Channel 2]
-    GPIOx: [6, GPIO selected with INMESEL]
+    PB1: [6, PB1]
+    Extended: [7, GPIO selected with INMESEL]
   INMESEL:
     PC4: [0, PC4]
     PA0: [1, PA0]
@@ -42,7 +43,7 @@ COMP2_CSR:
     DAC_CH1: [4, DAC Channel 1]
     DAC_CH2: [5, DAC Channel 2]
     PB3: [6, PB3]
-    GPIOx: [7, GPIO selected by INMESEL]
+    Extended: [7, GPIO selected by INMESEL]
   INMESEL:
     PB7: [0, PB7]
     PA2: [1, PA2]
