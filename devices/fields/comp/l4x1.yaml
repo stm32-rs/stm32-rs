@@ -1,0 +1,50 @@
+_include:
+  - common.yaml
+
+COMP?_CSR:
+  PWRMODE:
+    HighSpeed: [0, High speed / full power]
+    MediumSpeed: [1, Medium speed / medium power]
+    LowSpeed: [3, Low speed / ultra-low power]
+  BLANKING:
+    NoBlanking: [0, No blanking]
+    TIM1OC5: [4, TIM15 OC1 selected as blanking source]
+
+COMP1_CSR:
+  INPSEL:
+    PC5: [0, PC5 connected to input plus]
+    PB2: [1, PB2 connected to input plus]
+    PA3: [2, PA3 connected to input plus]
+  INMSEL:
+    OneQuarterVRef: [0, 1/4 of VRefint]
+    OneHalfVRef: [1, 1/2 of VRefint]
+    ThreeQuarterVRef: [2, 3/4 of VRefint]
+    VRef: [3, VRefint]
+    DAC_CH1: [4, DAC Channel 1]
+    DAC_CH2: [5, DAC Channel 2]
+    GPIOx: [6, GPIO selected with INMESEL]
+  INMESEL:
+    PC4: [0, PC4]
+    PA0: [1, PA0]
+    PA4: [2, PA4]
+    PA5: [3, PA5]
+
+COMP2_CSR:
+  INPSEL:
+    PB4: [0, PB4 connected to input plus]
+    PB6: [1, PB6 connected to input plus]
+    PA3: [2, PA3 connected to input plus]
+  INMSEL:
+    OneQuarterVRef: [0, 1/4 of VRefint]
+    OneHalfVRef: [1, 1/2 of VRefint]
+    ThreeQuarterVRef: [2, 3/4 of VRefint]
+    VRef: [3, VRefint]
+    DAC_CH1: [4, DAC Channel 1]
+    DAC_CH2: [5, DAC Channel 2]
+    PB3: [6, PB3]
+    GPIOx: [7, GPIO selected by INMESEL]
+  INMESEL:
+    PB7: [0, PB7]
+    PA2: [1, PA2]
+    PA4: [2, PA4]
+    PA5: [3, PA5]

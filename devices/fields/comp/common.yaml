@@ -1,0 +1,29 @@
+COMP?_CSR:
+  LOCK:
+    Unlocked: [0, Comparator CSR bits are read-write]
+    Locked: [1, Comparator CSR bits are read-only]
+  VALUE:
+    Low: [0, Comparator output is low]
+    High: [1, Comparator output is high]
+  SCALEN:
+    Disabled: [0, Voltage scaler disabled]
+    Enabled: [1, Voltage scaler enabled]
+  BRGEN:
+    Disabled: [0, Scaler resistor bridge disabled]
+    Enabled: [1, Scaler resistor bridge enabled]
+  HYST:
+    None: [0, No hysteresis]
+    Low: [1, Low hysteresis]
+    Medium: [2, Medium hysteresis]
+    High: [3, High hysteresis]
+  POLARITY:
+    Normal: [0, Comparator X output value not inverted]
+    Inverted: [1, Comparator X output value inverted]
+  EN:
+    Disabled: [0, Comparator X disabled]
+    Enabled: [1, Comparator X enabled]
+
+COMP2_CSR:
+  WINMODE:
+    Disabled: [0, COMP2 input plus is not connected to COMP1]
+    Enabled: [1, COMP2 input plus is connected to COMP1]

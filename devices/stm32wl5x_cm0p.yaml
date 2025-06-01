@@ -29,7 +29,9 @@ AES:
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - fields/comp/wl.yaml
 
 CRC:
   _include:
@@ -258,6 +260,3 @@ WWDG:
   _include:
     - patches/16bit.yaml
     - fields/wwdg/wwdg.yaml
-
-_include:
-  - fields/comp/comp_wl.yaml

@@ -1,0 +1,77 @@
+OPAMP*_CSR:
+  _add:
+    FORCE_VP:
+      description: FORCE_VP
+      bitOffset: 1
+      bitWidth: 1
+      access: read-write
+    VP_SEL:
+      description: OPAMP Non inverting input selection
+      bitOffset: 2
+      bitWidth: 2
+      access: read-write
+    VM_SEL:
+      description: OPAMP inverting input selection
+      bitOffset: 5
+      bitWidth: 2
+      access: read-write
+    TCM_EN:
+      description: Timer controlled Mux mode enable
+      bitOffset: 7
+      bitWidth: 1
+      access: read-write
+    VMS_SEL:
+      description: OPAMP inverting input secondary selection
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    VPS_SEL:
+      description: OPAMP Non inverting input secondary selection
+      bitOffset: 9
+      bitWidth: 2
+      access: read-write
+    CALON:
+      description: Calibration mode enable
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
+    CALSEL:
+      description: Calibration selection
+      bitOffset: 12
+      bitWidth: 2
+      access: read-write
+    PGA_GAIN:
+      description: Gain in PGA mode
+      bitOffset: 14
+      bitWidth: 4
+      access: read-write
+    USER_TRIM:
+      description: User trimming enable
+      bitOffset: 18
+      bitWidth: 1
+      access: read-write
+    TRIMOFFSETP:
+      description: Offset trimming value (PMOS)
+      bitOffset: 19
+      bitWidth: 5
+      access: read-write
+    TRIMOFFSETN:
+      description: Offset trimming value (NMOS)
+      bitOffset: 24
+      bitWidth: 5
+      access: read-write
+    TSTREF:
+      description: TSTREF
+      bitOffset: 29
+      bitWidth: 1
+      access: read-write
+    OUTCAL:
+      description: OPAMP ouput status flag
+      bitOffset: 30
+      bitWidth: 1
+      access: read-only
+    LOCK:
+      description: OPAMP lock
+      bitOffset: 31
+      bitWidth: 1
+      access: read-write
