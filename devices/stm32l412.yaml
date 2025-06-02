@@ -76,7 +76,10 @@ ADC1:
 ADC[1]:
   _include: collect/adc/derive_sq.yaml
 
-COMP: {}
+COMP:
+  _include:
+    - patches/comp/l4xx_comp_reg_rename.yaml
+    - fields/comp/common.yaml
 
 CRC:
   _include:
@@ -144,7 +147,10 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v3/lp_A.yaml
 
-OPAMP: {}
+OPAMP:
+  _include:
+    - fields/opamp/l4.yaml
+    - collect/opamp/l4.yaml
 
 PWR: {}
 

@@ -28,6 +28,8 @@ ADC12_Common:
 
 COMP:
   _strip: COMP_
+  _include:
+    - collect/comp/csr.yaml
 
 CORDIC:
   _include:
@@ -127,7 +129,10 @@ LPUART1:
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - fields/usart/v4/lp_wl.yaml
 
-OPAMP: {}
+OPAMP:
+  _include:
+    - fields/opamp/g4.yaml
+    - collect/opamp/g4.yaml
 
 PWR:
   _strip: PWR_
@@ -255,10 +260,6 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - collect/comp/csr.yaml
-  - fields/opamp/opamp_g4_common.yaml
-  - fields/opamp/opamp_g4_opamp4_5.yaml
-  - fields/opamp/opamp_g4_opamp6.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/hrtim/v2.yaml
   - fields/hrtim/hrtim.yaml

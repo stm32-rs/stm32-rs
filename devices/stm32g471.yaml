@@ -33,6 +33,9 @@ AES:
 
 COMP:
   _strip: COMP_
+  _include:
+    - patches/comp/g4.yaml
+    - collect/comp/csr.yaml
 
 CORDIC:
   _include:
@@ -129,6 +132,9 @@ OPAMP:
       _from: OPAMP1_TCMR
       addressOffset: 0x2C
       description: OPAMP6 control/status register
+  _include:
+    - fields/opamp/g4.yaml
+    - collect/opamp/g4.yaml
 
 PWR:
   _strip: PWR_
@@ -247,9 +253,5 @@ WWDG:
     - fields/wwdg/wwdg_v2.yaml
 
 _include:
-  - patches/comp/g4.yaml
-  - collect/comp/csr.yaml
-  - fields/opamp/opamp_g4_common.yaml
-  - fields/opamp/opamp_g4_opamp6.yaml
   - patches/usb/rename_USB_FS_peripheral_to_USB.yaml
   - patches/tim/group.yaml

@@ -1,0 +1,38 @@
+_include:
+  - common.yaml
+
+COMP?_CSR:
+  PWRMODE:
+    HighSpeed: [0, High speed / full power]
+    MediumSpeed: [1, Medium speed / medium power]
+    LowSpeed: [3, Low speed / ultra-low power]
+  BLANKING:
+    NoBlanking: [0, No blanking]
+    TIM1OC5: [4, TIM15 OC1 selected as blanking source]
+
+COMP1_CSR:
+  INPSEL:
+    PC5: [0, PC5 connected to input plus]
+    PB2: [1, PB2 connected to input plus]
+  INMSEL:
+    OneQuarterVRef: [0, 1/4 of VRefint]
+    OneHalfVRef: [1, 1/2 of VRefint]
+    ThreeQuarterVRef: [2, 3/4 of VRefint]
+    VRef: [3, VRefint]
+    DAC_CH1: [4, DAC Channel 1]
+    DAC_CH2: [5, DAC Channel 2]
+    PC4: [6, PC4]
+
+COMP2_CSR:
+  INPSEL:
+    PB4: [0, PB4 connected to input plus]
+    PB6: [1, PB6 connected to input plus]
+  INMSEL:
+    OneQuarterVRef: [0, 1/4 of VRefint]
+    OneHalfVRef: [1, 1/2 of VRefint]
+    ThreeQuarterVRef: [2, 3/4 of VRefint]
+    VRef: [3, VRefint]
+    DAC_CH1: [4, DAC Channel 1]
+    DAC_CH2: [5, DAC Channel 2]
+    PB3: [6, PB3]
+    PB7: [7, PB7]
