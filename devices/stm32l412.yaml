@@ -139,7 +139,23 @@ LPTIM1:
   _include:
     - fields/lptim/v2.yaml
 
+LPTIM2:
+  _delete:
+    _interrupts: LPTIM1
+  _add:
+    _interrupts:
+      LPTIM2:
+        description: LPTIM2 global interrupt
+        value: 66
+
 LPUART1:
+  _delete:
+    _interrupts: LPTIM2
+  _add:
+    _interrupts:
+      LPUART1:
+        description: LPUART1 global interrupt
+        value: 70
   _include:
     - patches/usart/merge_CR1_DEATx_fields.yaml
     - patches/usart/merge_CR1_DEDTx_fields.yaml
@@ -169,6 +185,22 @@ QUADSPI:
 # SVD is missing label APB1SMENR1 bit 19 as UART4SMEN
 # STM32L45xx and STM32L46xx devices.
 RCC:
+  _add:
+    _interrupts:
+      RCC:
+        description: RCC global interrupt
+        value: 5
+  _modify:
+    AHB1SMENR:
+      resetValue: "0x00011303"
+    AHB2SMENR:
+      resetValue: "0x0005228F"
+    APB1SMENR1:
+      resetValue: "0xD5E64C11"
+    APB1SMENR2:
+      resetValue: "0x00000021"
+    APB2SMENR:
+      resetValue: "0x00035801"
   APB1ENR1:
     _modify:
       USBF:
@@ -227,6 +259,11 @@ RTC:
     - collect/rtc/alarm.yaml
 
 SPI1:
+  _add:
+    _interrupts:
+      SPI1:
+        description: SPI1 global interrupt
+        value: 35
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
@@ -234,6 +271,15 @@ SPI1:
     - fields/spi/spi_common.yaml
     - fields/spi/spi_FRF_FRE.yaml
     - fields/spi/spi_v2_spi.yaml
+
+SPI2:
+  _delete:
+    _interrupts: SPI1
+  _add:
+    _interrupts:
+      SPI2:
+        description: SPI2 global interrupt
+        value: 36
 
 SYSCFG: {}
 
