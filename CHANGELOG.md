@@ -266,6 +266,9 @@ Family-specific:
   * Update vendor SVD bundle to v1.2 (#1093)
   * Add `RCC`, `SYSCFG` enums (#777)
 
+* WBA:
+  * Initial support (#1229)
+
 * WL:
   * Update vendor SVD bundle to v1.2 (#1093)
 
@@ -276,7 +279,7 @@ Contributors to this release:
 [@ianic] [@iostat] [@jonathanherbst] [@jspngh] [@kevswims] [@liamkinne]
 [@mattthebaker] [@newAM] [@noppej] [@rblaze] [@reitermarkus] [@richardeoin]
 [@RootCubed] [@sorki] [@tdaede] [@Urhengulas] [@usbalbin] [@vinchatl]
-[@YruamaLairba]
+[@YruamaLairba] [@gkobeaga]
 
 ## [v0.15.1] 2022-07-04
 
@@ -1094,6 +1097,7 @@ work in this release!
 [@hnez]: https://github.com/hnez
 [@hoachin]: https://github.com/hoachin
 [@hydra]: https://github.com/hydra
+[@gkobeaga]: https://github.com/gkobeaga
 [@ianic]: https://github.com/ianic
 [@ijager]: https://github.com/ijager
 [@iostat]: https://github.com/iostat
