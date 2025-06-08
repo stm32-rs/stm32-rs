@@ -1,0 +1,93 @@
+_svd: ../svd/stm32wba50.svd
+
+_clear_fields: "*"
+
+ADC4:
+  _strip: ADC_
+
+AES:
+  _strip: AES_
+
+CRC:
+  _strip: CRC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+EXTI:
+  _strip: EXTI_
+
+FLASH:
+  _strip: FLASH_
+
+GPDMA:
+  _strip: GPDMA_
+
+GPIO[ABCH]:
+  _strip: GPIO?_
+
+HASH:
+  _strip: HASH_
+
+HSEM:
+  _strip: HSEM_
+
+I2C3:
+  _strip: I2C_
+
+ICACHE:
+  _strip: ICACHE_
+
+IWDG:
+  _strip: IWDG_
+
+LPTIM1:
+  _strip: LPTIM1_
+
+LPUART1:
+  _strip: LPUART_
+
+PKA:
+  _strip: PKA_
+
+PWR:
+  _strip: PWR_
+
+RAMCFG:
+  _strip: RAMCFG_
+
+RCC:
+  _strip: RCC_
+
+RNG:
+  _strip: RNG_
+
+RTC:
+  _strip: RTC_
+
+SPI3:
+  _strip: SPI_
+
+SYSCFG:
+  _strip: SYSCFG_
+
+TAMP:
+  _strip: TAMP_
+
+TIM1:
+  _strip: TIM1_
+
+TIM16:
+  _strip: TIM16_
+
+TIM2:
+  _strip: TIM2_
+
+TSC:
+  _strip: TSC_
+
+USART1:
+  _strip: USART_
+
+WWDG:
+  _strip: WWDG_

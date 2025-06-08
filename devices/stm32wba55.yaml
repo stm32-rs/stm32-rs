@@ -1,0 +1,109 @@
+_svd: ../svd/stm32wba55.svd
+
+_clear_fields: "*"
+
+ADC4:
+  _strip: ADC_
+
+AES:
+  _strip: AES_
+
+COMP: {}
+
+CRC:
+  _strip: CRC_
+
+DBGMCU:
+  _strip: DBGMCU_
+
+DCB: {}
+
+EXTI:
+  _strip: EXTI_
+
+FLASH:
+  _strip: FLASH_
+
+GPDMA:
+  _strip: GPDMA_
+
+GPIO[ABCH]:
+  _strip: GPIO?_
+
+GTZC1_MPCBB[16]:
+  _strip: GTZC1_MPCBB_
+
+GTZC1_TZIC:
+  _strip: GTZC1_TZIC_
+
+GTZC1_TZSC:
+  _strip: GTZC1_TZSC_
+
+HASH:
+  _strip: HASH_
+
+HSEM:
+  _strip: HSEM_
+
+I2C:
+  _strip: I2C_
+
+ICACHE:
+  _strip: ICACHE_
+
+IWDG:
+  _strip: IWDG_
+
+LPTIM1:
+  _strip: LPTIM_
+
+LPUART1:
+  _strip: LPUART_
+
+PKA:
+  _strip: PKA_
+
+PTACONV: {}
+
+PWR:
+  _strip: PWR_
+
+RAMCFG:
+  _strip: RAMCFG_
+
+RCC:
+  _strip: RCC_
+
+RNG:
+  _strip: RNG_
+
+RTC:
+  _strip: RTC_
+
+SAES:
+  _strip: SAES_
+
+SPI1:
+  _strip: SPI_
+
+SYSCFG:
+  _strip: SYSCFG_
+
+TAMP:
+  _strip: TAMP_
+
+TIM1:
+  _strip: TIM1_
+
+TIM16: {}
+
+TIM2: {}
+
+TSC:
+  _strip: TSC_
+
+USART1:
+  _strip: USART_
+
+WWDG:
+  _strip: WWDG_

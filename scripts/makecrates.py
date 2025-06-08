@@ -42,7 +42,8 @@ CRATE_DOC_FEATURES = {
     "stm32u0": ["atomics", "critical-section", "defmt", "rt", "stm32u031", "stm32u083"],
     "stm32u5": ["atomics", "critical-section", "defmt", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
     "stm32wl": ["atomics", "critical-section", "defmt", "rt", "stm32wle5", "stm32wl5x_cm4"],
-    "stm32wb": ["atomics", "critical-section", "defmt", "rt", "stm32wb55"]
+    "stm32wb": ["atomics", "critical-section", "defmt", "rt", "stm32wb55"],
+    "stm32wba": ["atomics", "critical-section", "defmt", "rt", "stm32wba50", "stm32wba52", "stm32wba54", "stm32wba55"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -66,7 +67,8 @@ CRATE_DOC_TARGETS = {
     "stm32u0": "thumbv6m-none-eabi",
     "stm32u5": "thumbv8m.main-none-eabi",
     "stm32wl": "thumbv7em-none-eabi",
-    "stm32wb": "thumbv7em-none-eabihf"
+    "stm32wb": "thumbv7em-none-eabihf",
+    "stm32wba": "thumbv8m.main-none-eabihf",
 }
 
 CARGO_TOML_TPL = """\
@@ -249,7 +251,9 @@ def main(devices_path, yes, families):
         family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
         if family.startswith('stm32wl'):
             family = 'stm32wl'
-        if family.startswith('stm32wb'):
+        if family.startswith('stm32wba'):
+            family = 'stm32wba'
+        elif family.startswith('stm32wb'):
             family = 'stm32wb'
         device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:
