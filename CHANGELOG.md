@@ -13,6 +13,9 @@ Family-specific:
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
 
+* WB0:
+  * Initial support (#1246)
+
 * WBA:
   * Initial support (#1229)
 

@@ -21,6 +21,7 @@ declare -a arr=(
     "stm32u0-svd"
     "stm32u5_svd"
     "stm32wb_svd"
+    "stm32wb0-svd"
     "stm32wba5-svd"
     "stm32wl-svd"
     "stm32wl3-svd"

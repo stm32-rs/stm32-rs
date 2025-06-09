@@ -21,29 +21,31 @@ VERSION = {
 }
 SVD2RUST_VERSION = "0.36.1"
 
+COMMON_DOC_FEATURES = ["atomics", "critical-section", "defmt", "rt"]
 CRATE_DOC_FEATURES = {
-    "stm32c0": ["atomics", "critical-section", "defmt", "rt", "stm32c011", "stm32c031", "stm32c071"],
-    "stm32f0": ["atomics", "critical-section", "defmt", "rt", "stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
-    "stm32f1": ["atomics", "critical-section", "defmt", "rt", "stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
-    "stm32f2": ["atomics", "critical-section", "defmt", "rt", "stm32f215", "stm32f217"],
-    "stm32f3": ["atomics", "critical-section", "defmt", "rt", "stm32f302", "stm32f303", "stm32f373"],
-    "stm32f4": ["atomics", "critical-section", "defmt", "rt", "stm32f401", "stm32f407", "stm32f413", "stm32f469"],
-    "stm32f7": ["atomics", "critical-section", "defmt", "rt", "stm32f733", "stm32f779"],
-    "stm32h5": ["atomics", "critical-section", "defmt", "rt", "stm32h503", "stm32h533", "stm32h562", "stm32h573"],
-    "stm32h7": ["atomics", "critical-section", "defmt", "rt", "stm32h735", "stm32h750", "stm32h753", "stm32h753v", "stm32h757cm7", "stm32h7b3"],
-    "stm32l0": ["atomics", "critical-section", "defmt", "rt", "stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
-    "stm32l1": ["atomics", "critical-section", "defmt", "rt", "stm32l100", "stm32l151", "stm32l162"],
-    "stm32l4": ["atomics", "critical-section", "defmt", "rt", "stm32l4x1", "stm32l4x5"],
-    "stm32l5": ["atomics", "critical-section", "defmt", "rt", "stm32l562"],
-    "stm32g0": ["atomics", "critical-section", "defmt", "rt", "stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
-    "stm32g4": ["atomics", "critical-section", "defmt", "rt", "stm32g431", "stm32g441", "stm32g474", "stm32g484"],
-    "stm32mp1": ["atomics", "critical-section", "defmt", "rt", "stm32mp157"],
-    "stm32n6": ["atomics", "critical-section", "defmt", "rt", "stm32n645", "stm32n655", "stm32n647", "stm32n657"],
-    "stm32u0": ["atomics", "critical-section", "defmt", "rt", "stm32u031", "stm32u083"],
-    "stm32u5": ["atomics", "critical-section", "defmt", "rt", "stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
-    "stm32wl": ["atomics", "critical-section", "defmt", "rt", "stm32wle5", "stm32wl5x_cm4"],
-    "stm32wb": ["atomics", "critical-section", "defmt", "rt", "stm32wb55"],
-    "stm32wba": ["atomics", "critical-section", "defmt", "rt", "stm32wba50", "stm32wba52", "stm32wba54", "stm32wba55"]
+    "stm32c0": ["stm32c011", "stm32c031", "stm32c071"],
+    "stm32f0": ["stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
+    "stm32f1": ["stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
+    "stm32f2": ["stm32f215", "stm32f217"],
+    "stm32f3": ["stm32f302", "stm32f303", "stm32f373"],
+    "stm32f4": ["stm32f401", "stm32f407", "stm32f413", "stm32f469"],
+    "stm32f7": ["stm32f733", "stm32f779"],
+    "stm32h5": ["stm32h503", "stm32h533", "stm32h562", "stm32h573"],
+    "stm32h7": ["stm32h735", "stm32h750", "stm32h753", "stm32h753v", "stm32h757cm7", "stm32h7b3"],
+    "stm32l0": ["stm32l0x0", "stm32l0x1", "stm32l0x2", "stm32l0x3"],
+    "stm32l1": ["stm32l100", "stm32l151", "stm32l162"],
+    "stm32l4": ["stm32l4x1", "stm32l4x5"],
+    "stm32l5": ["stm32l562"],
+    "stm32g0": ["stm32g030", "stm32g070", "stm32g0b0", "stm32g041", "stm32g081", "stm32g0c1"],
+    "stm32g4": ["stm32g431", "stm32g441", "stm32g474", "stm32g484"],
+    "stm32mp1": ["stm32mp157"],
+    "stm32n6": ["stm32n645", "stm32n655", "stm32n647", "stm32n657"],
+    "stm32u0": ["stm32u031", "stm32u083"],
+    "stm32u5": ["stm32u535", "stm32u545", "stm32u575", "stm32u585", "stm32u595", "stm32u5a5", "stm32u599", "stm32u5a9"],
+    "stm32wl": ["stm32wle5", "stm32wl5x_cm4"],
+    "stm32wb": ["stm32wb55"],
+    "stm32wb0": ["stm32wb05", "stm32wb07", "stm32wb09"],
+    "stm32wba": ["stm32wba50", "stm32wba52", "stm32wba54", "stm32wba55"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -68,6 +70,7 @@ CRATE_DOC_TARGETS = {
     "stm32u5": "thumbv8m.main-none-eabi",
     "stm32wl": "thumbv7em-none-eabi",
     "stm32wb": "thumbv7em-none-eabihf",
+    "stm32wb0": "thumbv6m-none-eabi",
     "stm32wba": "thumbv8m.main-none-eabihf",
 }
 
@@ -253,6 +256,8 @@ def main(devices_path, yes, families):
             family = 'stm32wl'
         if family.startswith('stm32wba'):
             family = 'stm32wba'
+        elif family.startswith('stm32wb0'):
+            family = 'stm32wb0'
         elif family.startswith('stm32wb'):
             family = 'stm32wb'
         device = os.path.splitext(yamlfile)[0].lower()
@@ -283,7 +288,7 @@ def main(devices_path, yes, families):
             version = VERSION["default"]
         cargo_toml = CARGO_TOML_TPL.format(
             family=ufamily, crate=crate_name, version=version, features=features,
-            docs_features=str(CRATE_DOC_FEATURES[crate]),
+            docs_features=str(COMMON_DOC_FEATURES + CRATE_DOC_FEATURES[crate]),
             doc_target=CRATE_DOC_TARGETS[crate])
         readme = README_TPL.format(
             family=ufamily, crate=crate_name, device=devices[family][0],
