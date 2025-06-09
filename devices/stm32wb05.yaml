@@ -1,0 +1,80 @@
+_svd: ../svd/stm32wb05.svd
+
+_clear_fields: "*"
+
+_modify:
+  BLUE_REG:
+    name: BLUE
+  GLOBALSTATMACH_REG:
+    name: GLOBALSTATMACH
+  RADIO_CONTROL_REG:
+    name: RADIO_CONTROL
+  RADIO_REG_REG:
+    name: RADIO
+  RRM_REG:
+    name: RRM
+  WAKEUP_REG:
+    name: WAKEUP
+
+ADC: {}
+
+BLUE: {}
+
+CRC:
+  _strip: CRC_
+
+DMA:
+  _strip: DMA_
+
+DMAMUX: {}
+
+FLASH_CTRL: {}
+
+GLOBALSTATMACH: {}
+
+GPIO[AB]: {}
+
+I2C1:
+  _strip: I2C_
+
+IWDG:
+  _strip: IWDG_
+
+LPUART: {}
+
+PKA:
+  _strip: PKA_
+
+PWRC: {}
+
+RADIO:
+  _strip: RADIO_
+
+RADIO_CONTROL:
+  _strip: RADIO_CONTROL_
+
+RCC: {}
+
+RNG:
+  _strip: RNG_
+
+RRM: {}
+
+RTC:
+  _strip: RTC_
+
+SPI3:
+  _strip: SPIx_
+
+SYSTEM_CTRL: {}
+
+TIM2: {}
+
+TIM16: {}
+
+TIM17: {}
+
+USART: {}
+
+WAKEUP:
+  _strip: WAKEUP_

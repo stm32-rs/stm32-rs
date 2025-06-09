@@ -16,10 +16,12 @@
 [![crates.io](https://img.shields.io/crates/v/stm32l1.svg?label=stm32l1)](https://crates.io/crates/stm32l1)
 [![crates.io](https://img.shields.io/crates/v/stm32l4.svg?label=stm32l4)](https://crates.io/crates/stm32l4)
 [![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32l5)](https://crates.io/crates/stm32l5)
-[![crates.io](https://img.shields.io/crates/v/stm32l5.svg?label=stm32n6)](https://crates.io/crates/stm32n6)
 [![crates.io](https://img.shields.io/crates/v/stm32mp1.svg?label=stm32mp1)](https://crates.io/crates/stm32mp1)
-[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32wl)](https://crates.io/crates/stm32wl)
+[![crates.io](https://img.shields.io/crates/v/stm32n6.svg?label=stm32n6)](https://crates.io/crates/stm32n6)
+[![crates.io](https://img.shields.io/crates/v/stm32u0.svg?label=stm32u0)](https://crates.io/crates/stm32u0)
+[![crates.io](https://img.shields.io/crates/v/stm32u5.svg?label=stm32u5)](https://crates.io/crates/stm32u5)
 [![crates.io](https://img.shields.io/crates/v/stm32wb.svg?label=stm32wb)](https://crates.io/crates/stm32wb)
+[![crates.io](https://img.shields.io/crates/v/stm32wl.svg?label=stm32wl)](https://crates.io/crates/stm32wl)
 [![Matrix](https://img.shields.io/matrix/stm32-rs:matrix.org)](https://matrix.to/#/#stm32-rs:matrix.org)
 
 This repository provides Rust device support crates for all STM32
