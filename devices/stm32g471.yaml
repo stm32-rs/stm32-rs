@@ -238,6 +238,22 @@ UCPD1:
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/v4/B.yaml
 
+USART1:
+  _modify:
+    ISR:
+      resetValue: 0xC0
+
+UART4:
+  _include:
+    - patches/usart/delete_smartmode.yaml
+    - patches/usart/delete_sync.yaml
+    - collect/usart/v4/common_derive.yaml
+    - collect/usart/v4/uart_derive.yaml
+
+LPUART[1]:
+  _include:
+    - collect/usart/v4/common_derive.yaml
+
 USB:
   _include:
     - patches/usb/add_bcdr.yaml
