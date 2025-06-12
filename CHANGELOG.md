@@ -5,6 +5,11 @@
 * Updated to `svdtools` 0.5.0
 * refactor COMP & OPAMP on F3/G4/L4
 
+Family-specific:
+
+* G4:
+  * UART: remove missing fields, derive UART/LPUART from USART
+
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
 

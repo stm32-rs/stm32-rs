@@ -1,0 +1,22 @@
+CR1:
+  _delete:
+    - EOBIE
+CR2:
+  _delete:
+    - CLKEN
+CR3:
+  _delete:
+    - TCBGTIE
+    - SCARCNT
+    - SCEN
+    - NACK
+GTPR:
+  _delete:
+    - GT
+ISR:
+  _delete:
+    - TCBGT
+    - EOBF
+ICR:
+  _delete:
+    - EOBCF
