@@ -1,0 +1,66 @@
+_svd: ../svd/stm32wb09.svd
+
+_clear_fields: "*"
+
+ADC: {}
+
+BLUE: {}
+
+CRC:
+  _strip: CRC_
+
+DMA:
+  _strip: DMA_
+
+DMAMUX: {}
+
+FLASH_CTRL: {}
+
+GLOBALSTATMACH: {}
+
+GPIO[AB]: {}
+
+I2C1:
+  _strip: I2C_
+
+IWDG:
+  _strip: IWDG_
+
+LPUART: {}
+
+PKA:
+  _strip: PKA_
+
+PWRC: {}
+
+RADIO:
+  _strip: RADIO_
+
+RADIO_CONTROL:
+  _strip: RADIO_CONTROL_
+
+RCC: {}
+
+RRM: {}
+
+RTC:
+  _strip: RTC_
+
+SPI3:
+  _strip: SPIx_
+
+SYSTEM_CTRL: {}
+
+TIM2: {}
+
+TIM16: {}
+
+TIM17: {}
+
+TRNG:
+  _strip: TRNG_
+
+USART: {}
+
+WAKEUP:
+  _strip: WAKEUP_
