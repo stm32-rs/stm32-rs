@@ -4,6 +4,10 @@ _include:
   - ../v3/AB_common.yaml
   - ../v3/m.yaml
   - fifoen_common.yaml
+CR2:
+  STOP:
+    Stop1: [0, 1 stop bit]
+    Stop2: [2, 2 stop bit]
 RQR:
   TXFRQ:
     Discard: [1, Set the TXE flags. This allows to discard the transmit data]
