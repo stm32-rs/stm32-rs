@@ -8,7 +8,7 @@
 Family-specific:
 
 * G4:
-  * UART: remove missing fields, derive UART/LPUART from USART
+  * UART: remove missing fields, derive UART/LPUART from USART (#1247)
 
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
