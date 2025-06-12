@@ -1,4 +1,5 @@
 _derive:
+  RQR: USART1.RQR
   BRR: USART1.BRR
   RTOR: USART1.RTOR
 CR1:
@@ -22,9 +23,6 @@ CR3:
 GTPR:
   _derive:
     PSC: USART1.GTPR.PSC
-RQR:
-  _derive:
-    ABRRQ: USART1.RQR.ABRRQ
 ISR:
   _derive:
     LBDF: USART1.ISR.LBDF
