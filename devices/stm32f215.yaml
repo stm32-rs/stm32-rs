@@ -24,6 +24,7 @@ ADC[1]:
 
 CAN2:
   _include:
+    - patches/can/rst_val.yaml
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
