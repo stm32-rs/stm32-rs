@@ -1,0 +1,27 @@
+# used in STM32WB0 for field arrays
+
+AFRH:
+  _modify:
+    AFSEL*:
+      description: Alternate function selection
+  _add:
+    AFSEL8:
+      bitOffset: 0
+      bitWidth: 4
+      access: read-write
+      description: Alternate function selection
+    AFSEL9:
+      bitOffset: 4
+      bitWidth: 4
+      access: read-write
+      description: Alternate function selection
+    AFSEL10:
+      bitOffset: 8
+      bitWidth: 4
+      access: read-write
+      description: Alternate function selection
+    AFSEL11:
+      bitOffset: 12
+      bitWidth: 4
+      access: read-write
+      description: Alternate function selection

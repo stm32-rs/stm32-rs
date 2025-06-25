@@ -117,7 +117,7 @@ GPIO[ABC]:
     - collect/gpio/v2r.yaml
 
 GPIO[A]:
-  _include: collect/gpio/gpioa_afr.yaml
+  _include: collect/gpio/gpioa_afsel.yaml
 GPIO[BC]:
   _include: collect/gpio/v2r_derive.yaml
 

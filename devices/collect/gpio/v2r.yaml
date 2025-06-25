@@ -38,7 +38,8 @@ LCKR:
       description: Port x lock pin %s
 AFR[LH]:
   _array:
-    "AFR*,AFSEL*": {}
+    "?~AFSEL*": {}
+    "?~AFR*": {}
 
 "?~HSLVR":
   _array:
@@ -47,3 +48,19 @@ AFR[LH]:
 "?~SECCFGR":
   _array:
     SEC*: {}
+
+"?~PRIVCFGR":
+  _array:
+    PRIV*: {}
+
+"?~RCFGLOCKR":
+  _array:
+    RLOCK*: {}
+
+"?~DELAYR[LH]":
+  _array:
+    DELAY*: {}
+
+"?~PIOCFGR[LH]":
+  _array:
+    PIOCFG*: {}

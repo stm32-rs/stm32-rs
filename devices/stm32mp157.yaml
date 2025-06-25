@@ -18,6 +18,17 @@ DSI:
   _include:
     - collect/dsi/isr.yaml
 
+GPIO[A-K]:
+  _strip: GPIO?_
+  _include:
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[B-K]:
+  _include: collect/gpio/v2_derive.yaml
+
 IWDG1:
   _strip: IWDG_
   _modify:
