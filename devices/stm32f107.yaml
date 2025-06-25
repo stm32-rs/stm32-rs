@@ -75,6 +75,7 @@ BKP:
 CAN1:
   _strip: CAN_
   _include:
+    - patches/can/rst_val.yaml
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
