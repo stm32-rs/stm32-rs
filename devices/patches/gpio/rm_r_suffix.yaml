@@ -1,0 +1,20 @@
+# The SVD is just quite different to the RM for all these registers.
+# We'll go with the RM convention even though it is inconsistent too.
+MODER:
+  _strip: [MODER]
+  _prefix: MODE
+OSPEEDR:
+  _strip: OSPEEDR
+  _prefix: OSPEED
+PUPDR:
+  _strip: PUPDR
+  _prefix: PUPD
+IDR:
+  _strip: IDR
+  _prefix: ID
+ODR:
+  _strip: ODR
+  _prefix: OD
+AFR[LH]:
+  _strip: AFR
+  _prefix: AFSEL

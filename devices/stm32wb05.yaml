@@ -22,6 +22,10 @@ BLUE: {}
 
 CRC:
   _strip: CRC_
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 DMA:
   _strip: DMA_
@@ -32,7 +36,23 @@ FLASH_CTRL: {}
 
 GLOBALSTATMACH: {}
 
-GPIO[AB]: {}
+GPIOA:
+  _include:
+    - patches/gpio/add_pin4-7.yaml
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
+GPIOB:
+  _include:
+    - patches/gpio/add_pin8-11.yaml
+    - patches/gpio/add_pin8-11_afsel.yaml
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
+GPIO[A]:
+  _include: collect/gpio/gpioa_afsel.yaml
+GPIO[B]:
+  _include: collect/gpio/v2r_derive.yaml
 
 I2C1:
   _strip: I2C_

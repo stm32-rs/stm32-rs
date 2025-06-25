@@ -71,6 +71,14 @@ GPDMA:
 
 GPIO[A-Q]:
   _strip: GPIO?_
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
+    - collect/gpio/v2r.yaml
+
+GPIO[A]:
+  _include: collect/gpio/gpioa_afsel.yaml
+GPIO[B-Q]:
+  _include: collect/gpio/v2r_derive.yaml
 
 HASH:
   _strip: HASH_

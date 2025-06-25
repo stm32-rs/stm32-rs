@@ -4,6 +4,8 @@
 
 * Updated to `svdtools` 0.5.0
 * refactor COMP & OPAMP on F3/G4/L4
+* Fix bug in GPIO AFSEL collect
+* Add GPIO for WB0/N6/MP1
 
 Family-specific:
 

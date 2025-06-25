@@ -1,0 +1,180 @@
+# used in STM32WB0 for field arrays
+
+MODER:
+  _add:
+    MODE8:
+      bitOffset: 16
+      bitWidth: 2
+      access: read-write
+    MODE9:
+      bitOffset: 18
+      bitWidth: 2
+      access: read-write
+    MODE10:
+      bitOffset: 20
+      bitWidth: 2
+      access: read-write
+    MODE11:
+      bitOffset: 22
+      bitWidth: 2
+      access: read-write
+OTYPER:
+  _add:
+    OT8:
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    OT9:
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+    OT10:
+      bitOffset: 10
+      bitWidth: 1
+      access: read-write
+    OT11:
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
+OSPEEDR:
+  _add:
+    OSPEED8:
+      bitOffset: 16
+      bitWidth: 2
+      access: read-write
+    OSPEED9:
+      bitOffset: 18
+      bitWidth: 2
+      access: read-write
+    OSPEED10:
+      bitOffset: 20
+      bitWidth: 2
+      access: read-write
+    OSPEED11:
+      bitOffset: 22
+      bitWidth: 2
+      access: read-write
+PUPDR:
+  _add:
+    PUPD8:
+      bitOffset: 16
+      bitWidth: 2
+      access: read-write
+    PUPD9:
+      bitOffset: 18
+      bitWidth: 2
+      access: read-write
+    PUPD10:
+      bitOffset: 20
+      bitWidth: 2
+      access: read-write
+    PUPD11:
+      bitOffset: 22
+      bitWidth: 2
+      access: read-write
+IDR:
+  _add:
+    ID8:
+      bitOffset: 8
+      bitWidth: 1
+      access: read-only
+    ID9:
+      bitOffset: 9
+      bitWidth: 1
+      access: read-only
+    ID10:
+      bitOffset: 10
+      bitWidth: 1
+      access: read-only
+    ID11:
+      bitOffset: 11
+      bitWidth: 1
+      access: read-only
+ODR:
+  _add:
+    OD8:
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    OD9:
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+    OD10:
+      bitOffset: 10
+      bitWidth: 1
+      access: read-write
+    OD11:
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
+BSRR:
+  _add:
+    BS8:
+      bitOffset: 8
+      bitWidth: 1
+      access: write-only
+    BS9:
+      bitOffset: 9
+      bitWidth: 1
+      access: write-only
+    BS10:
+      bitOffset: 10
+      bitWidth: 1
+      access: write-only
+    BS11:
+      bitOffset: 11
+      bitWidth: 1
+      access: write-only
+    BR8:
+      bitOffset: 24
+      bitWidth: 1
+      access: write-only
+    BR9:
+      bitOffset: 25
+      bitWidth: 1
+      access: write-only
+    BR10:
+      bitOffset: 26
+      bitWidth: 1
+      access: write-only
+    BR11:
+      bitOffset: 27
+      bitWidth: 1
+      access: write-only
+LCKR:
+  _add:
+    LCK8:
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    LCK9:
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+    LCK10:
+      bitOffset: 10
+      bitWidth: 1
+      access: read-write
+    LCK11:
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
+BRR:
+  _add:
+    BR8:
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    BR9:
+      bitOffset: 9
+      bitWidth: 1
+      access: read-write
+    BR10:
+      bitOffset: 10
+      bitWidth: 1
+      access: read-write
+    BR11:
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
