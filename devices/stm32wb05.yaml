@@ -29,8 +29,16 @@ CRC:
 
 DMA:
   _strip: DMA_
+  _include:
+    - patches/dma/wb0.yaml
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
-DMAMUX: {}
+DMAMUX:
+  _array:
+    C?CR: {}
+  _include:
+    - fields/dma/dmamux/wb05.yaml
 
 FLASH_CTRL: {}
 
@@ -56,9 +64,16 @@ GPIO[B]:
 
 I2C1:
   _strip: I2C_
+  _include:
+    - fields/i2c/v2.yaml
+  CR1:
+    delete: WUPEN
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
 LPUART: {}
 
