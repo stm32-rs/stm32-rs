@@ -18,6 +18,7 @@ Family-specific:
 
 * WB0:
   * Initial support (#1246)
+  * CRC, DMA, I2C, SPI, TIM, USART
 
 * WBA:
   * Initial support (#1229)

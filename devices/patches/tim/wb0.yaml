@@ -1,0 +1,15 @@
+_modify:
+  CCMR1:
+    name: CCMR1_Output
+  CCMR1_in:
+    name: CCMR1_Input
+  "?~CCMR2":
+    name: CCMR2_Output
+  "?~CCMR2_in":
+    name: CCMR2_Input
+  "?~CCMR3":
+    name: CCMR3_Output
+  "?~CCMR3_in":
+    name: CCMR3_Input
+CCMR?_Output:
+  _strip_end: _2_0

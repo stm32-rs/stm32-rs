@@ -1,0 +1,16 @@
+CR1:
+  _modify:
+    RXNEIE_RXFNEIE:
+      name: RXNEIE
+    TXEIE_TXFNFIE:
+      name: TXEIE
+RQR:
+  _delete: ABRRQ
+ISR:
+  _modify:
+    RXNE_RXFNE:
+      name: RXNE
+    TXE_TXFNF:
+      name: TXE
+    "?~NECF":
+      name: NCF

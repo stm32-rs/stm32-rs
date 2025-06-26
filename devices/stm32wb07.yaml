@@ -2,6 +2,11 @@ _svd: ../svd/stm32wb07.svd
 
 _clear_fields: "*"
 
+_derive:
+  I2C2: I2C1
+  SPI2: SPI1
+  SPI3: SPI1
+
 ADC: {}
 
 BLUE: {}
@@ -15,8 +20,16 @@ CRC:
 
 DMA:
   _strip: DMA_
+  _include:
+    - patches/dma/wb0.yaml
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
-DMAMUX: {}
+DMAMUX:
+  _array:
+    C?CR: {}
+  _include:
+    - fields/dma/dmamux/wb06.yaml
 
 FLASH_CTRL: {}
 
@@ -42,14 +55,21 @@ GPIO[B]:
 
 I2C1:
   _strip: I2C_
-
-I2C2:
-  _strip: I2C2_
+  _include:
+    - fields/i2c/v2.yaml
+  CR1:
+    delete: WUPEN
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
-LPUART: {}
+LPUART:
+  _include:
+    - patches/usart/lp_wb0.yaml
+    - fields/usart/v4/lp_wb0.yaml
 
 PKA:
   _strip: PKA_
@@ -72,15 +92,36 @@ RRM: {}
 RTC:
   _strip: RTC_
 
-SPI[123]:
+SPI1:
   _strip: SPI?_
+  _modify:
+    I2SPR:
+      resetValue: 2
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSTEM_CTRL: {}
 
-TIM1: {}
+TIM[1]:
+  CCMR1:
+    _modify:
+      OC1M:
+        name: OC1M_3
+TIM1:
+  SMCR:
+    _strip_end: _2_0
+  _include:
+    - patches/tim/wb0.yaml
+    - fields/tim/v2/tim1_wb0.yaml
+    - collect/tim/ccr.yaml
 
 USART:
   _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/B.yaml
 
 WAKEUP:
   _strip: WAKEUP_
