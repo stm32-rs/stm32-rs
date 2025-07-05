@@ -29,8 +29,16 @@ CRC:
 
 DMA:
   _strip: DMA_
+  _include:
+    - patches/dma/wb0.yaml
+    - fields/dma/v1.yaml
+    - collect/dma/v1.yaml
 
-DMAMUX: {}
+DMAMUX:
+  _array:
+    C?CR: {}
+  _include:
+    - fields/dma/dmamux/wb05.yaml
 
 FLASH_CTRL: {}
 
@@ -56,11 +64,22 @@ GPIO[B]:
 
 I2C1:
   _strip: I2C_
+  _include:
+    - fields/i2c/v2.yaml
+  CR1:
+    delete: WUPEN
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
 
-LPUART: {}
+LPUART:
+  _include:
+    - patches/usart/lp_wb0.yaml
+    - patches/usart/m_x.yaml
+    - fields/usart/v4/lp_wb0.yaml
 
 PKA:
   _strip: PKA_
@@ -85,16 +104,39 @@ RTC:
 
 SPI3:
   _strip: SPIx_
+  _modify:
+    I2SPR:
+      resetValue: 2
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - fields/spi/spi_v2.yaml
 
 SYSTEM_CTRL: {}
 
-TIM2: {}
+TIM2:
+  SMCR:
+    _strip_end: _2_0
+  _include:
+    - patches/tim/wb0.yaml
+    - patches/tim/ts.yaml
+    - fields/tim/v2/tim3.yaml
+    - collect/tim/ccr.yaml
 
-TIM16: {}
+TIM1[67]:
+  _include:
+    - patches/tim/wb0.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
-TIM17: {}
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
 
-USART: {}
+USART:
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - patches/usart/m_x.yaml
+    - fields/usart/v4/C.yaml
 
 WAKEUP:
   _strip: WAKEUP_

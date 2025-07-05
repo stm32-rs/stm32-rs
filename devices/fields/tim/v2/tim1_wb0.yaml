@@ -1,0 +1,38 @@
+_include:
+  - ../basic.yaml
+  - ../tim_16bit.yaml
+  - ../com_break.yaml
+  - ../tim_gp1.yaml
+  - ../external.yaml
+  - ../trigger.yaml
+  - ../tim_ckd.yaml
+  - ../ccpc.yaml
+  - ../bdtr_common.yaml
+  - ../ccr.yaml
+  - ../ccxnp.yaml
+  - ../v1/occe.yaml
+  - ccm_extended.yaml
+
+RCR:
+  REP: [0, 0xFFFF]
+
+SR:
+  B2IF:
+    _read:
+      NoTrigger: [0, No break event occurred]
+      Trigger:
+        [
+          1,
+          "An active level has been detected on the break 2 input. An interrupt is generated if BIE=1 in the TIMx_DIER register",
+        ]
+    _W0C:
+      Clear: [0, Clear flag]
+
+EGR:
+  B2G:
+    _write:
+      Trigger:
+        [
+          1,
+          A break 2 event is generated. MOE bit is cleared and B2IF flag is set. Related interrupt can occur if enabled,
+        ]

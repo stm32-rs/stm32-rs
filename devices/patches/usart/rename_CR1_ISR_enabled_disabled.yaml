@@ -12,7 +12,13 @@ _delete:
   - "*ISR_ALTERNATE*"
 CR1:
   _modify:
-    TXFNFIE:
+    "TXEIE_TXFNFIE,TXFNFIE":
       name: TXEIE
-    RXFNEIE:
+    "RXNEIE_RXFNEIE,RXFNEIE":
       name: RXNEIE
+ISR:
+  _modify:
+    "?~RXNE_RXFNE":
+      name: RXNE
+    "?~TXE_TXFNF":
+      name: TXE

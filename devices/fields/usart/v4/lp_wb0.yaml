@@ -1,0 +1,28 @@
+# LPUART in WL family
+_include:
+  - ../v3/uart_common.yaml
+  - ../v3/m.yaml
+  - fifoen_common.yaml
+CR2:
+  STOP:
+    Stop1: [0, 1 stop bit]
+    Stop2: [2, 2 stop bit]
+RQR:
+  TXFRQ:
+    Discard: [1, Set the TXE flags. This allows to discard the transmit data]
+BRR:
+  BRR: [0, 0xFFFFF]
+PRESC:
+  PRESCALER:
+    Div1: [0b0000, "/1"]
+    Div2: [0b0001, "/2"]
+    Div4: [0b0010, "/4"]
+    Div6: [0b0011, "/6"]
+    Div8: [0b0100, "/8"]
+    Div10: [0b0101, "/10"]
+    Div12: [0b0110, "/12"]
+    Div16: [0b0111, "/16"]
+    Div32: [0b1000, "/32"]
+    Div64: [0b1001, "/64"]
+    Div128: [0b1010, "/128"]
+    Div256: [0b1011, "/256"]
