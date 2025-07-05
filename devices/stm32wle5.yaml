@@ -20,10 +20,6 @@ ADC:
     - collect/adc/c0_g0_wl.yaml
 
 AES:
-  CR:
-    _modify:
-      CHMOD10:
-        name: CHMOD
   DINR:
     _modify:
       AES_DINR:
@@ -45,6 +41,7 @@ AES:
       AES_SUSP?R:
         name: SUSP
   _include:
+    - patches/aes/chmod.yaml
     - fields/aes/v2.yaml
 
 COMP:

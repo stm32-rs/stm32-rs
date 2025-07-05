@@ -25,6 +25,7 @@ ADC:
 AES:
   _strip: AES_
   _include:
+    - patches/aes/chmod.yaml
     - fields/aes/v2.yaml
 
 COMP: {}

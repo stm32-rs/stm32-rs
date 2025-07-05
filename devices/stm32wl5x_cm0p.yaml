@@ -21,11 +21,8 @@ ADC:
     - collect/adc/c0_g0_wl.yaml
 
 AES:
-  CR:
-    _modify:
-      CHMOD10:
-        name: CHMOD
   _include:
+    - patches/aes/chmod.yaml
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 

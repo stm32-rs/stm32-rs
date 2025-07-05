@@ -56,6 +56,7 @@ AES:
       AES_SUSP?R:
         name: SUSP
   _include:
+    - patches/aes/chmod.yaml
     - fields/aes/v2.yaml
 
 COMP: {}

@@ -27,6 +27,7 @@ ADCC:
 AES:
   _strip: AES_
   _include:
+    - patches/aes/chmod.yaml
     - fields/aes/v3.yaml
 
 CORDIC:

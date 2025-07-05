@@ -7,9 +7,15 @@ ADC4:
 
 AES:
   _strip: AES_
+  _include:
+    - patches/aes/chmod.yaml
 
 CRC:
   _strip: CRC_
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 DBGMCU:
   _strip: DBGMCU_
@@ -22,30 +28,46 @@ FLASH:
 
 GPDMA:
   _strip: GPDMA_
+  _include:
+    - collect/dma/gpdma/wba.yaml
 
 GPIO[ABCH]:
   _strip: GPIO?_
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
 
 HASH:
   _strip: HASH_
 
 HSEM:
   _strip: HSEM_
+  _include:
+    - patches/hsem/i_split.yaml
+    - collect/hsem/fields.yaml
+    - collect/hsem/r.yaml
 
 I2C3:
   _strip: I2C_
+  _include:
+    - fields/i2c/v3.yaml
 
 ICACHE:
   _strip: ICACHE_
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/iwdg/h5.yaml
 
 LPTIM1:
   _strip: LPTIM1_
 
 LPUART1:
   _strip: LPUART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/lp_wb0.yaml
 
 PKA:
   _strip: PKA_
@@ -61,33 +83,76 @@ RCC:
 
 RNG:
   _strip: RNG_
+  _include:
+    - fields/rng/v2.yaml
 
 RTC:
   _strip: RTC_
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3/basic.yaml
+    - fields/rtc/v3/wakeup.yaml
+    - collect/rtc/alarm.yaml
 
 SPI3:
   _strip: SPI_
+  _include:
+    - patches/spi/rxtxdr.yaml
+    - fields/spi/spi_v4.yaml
 
 SYSCFG:
   _strip: SYSCFG_
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _strip: TIM1_
+  _include:
+    - patches/tim/ccmr3.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/tim1_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/v3/tim1.yaml
+    - collect/tim/ccr.yaml
 
 TIM16:
   _strip: TIM16_
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
 TIM2:
   _strip: TIM2_
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/v3/tim2_uif.yaml
+    - collect/tim/ccr.yaml
 
 TSC:
   _strip: TSC_
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 USART1:
   _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/wba.yaml
 
 WWDG:
   _strip: WWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/wwdg/wwdg_v2.yaml
