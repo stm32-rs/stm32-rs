@@ -10,6 +10,10 @@ AES:
 
 CRC:
   _strip: CRC_
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr32.yaml
 
 DBGMCU:
   _strip: DBGMCU_
@@ -22,6 +26,8 @@ FLASH:
 
 GPDMA:
   _strip: GPDMA_
+  _include:
+    - collect/dma/gpdma/wba.yaml
 
 GPIO[ABCH]:
   _strip: GPIO?_
@@ -34,12 +40,17 @@ HSEM:
 
 I2C3:
   _strip: I2C_
+  _include:
+    - fields/i2c/v3.yaml
 
 ICACHE:
   _strip: ICACHE_
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/iwdg/h5.yaml
 
 LPTIM1:
   _strip: LPTIM1_
@@ -67,12 +78,17 @@ RTC:
 
 SPI3:
   _strip: SPI_
+  _include:
+    - patches/spi/rxtxdr.yaml
+    - fields/spi/spi_v4.yaml
 
 SYSCFG:
   _strip: SYSCFG_
 
 TAMP:
   _strip: TAMP_
+  _include:
+    - collect/rtc/tamp_bkpr.yaml
 
 TIM1:
   _strip: TIM1_
@@ -88,6 +104,9 @@ TSC:
 
 USART1:
   _strip: USART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/wba.yaml
 
 WWDG:
   _strip: WWDG_

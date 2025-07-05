@@ -73,6 +73,9 @@ I2C1:
 
 IWDG:
   _strip: IWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/iwdg/h5.yaml
 
 LCD:
   _delete: LCD_RAM*
