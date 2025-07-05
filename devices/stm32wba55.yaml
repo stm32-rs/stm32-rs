@@ -7,6 +7,8 @@ ADC4:
 
 AES:
   _strip: AES_
+  _include:
+    - patches/aes/chmod.yaml
 
 COMP: {}
 
@@ -35,9 +37,13 @@ GPDMA:
 
 GPIO[ABCH]:
   _strip: GPIO?_
+  _include:
+    - fields/gpio/gpio_l5_u5.yaml
 
 GTZC1_MPCBB[16]:
   _strip: GTZC1_MPCBB_
+  _include:
+    - collect/gtzc/h5_u5.yaml
 
 GTZC1_TZIC:
   _strip: GTZC1_TZIC_
@@ -50,6 +56,10 @@ HASH:
 
 HSEM:
   _strip: HSEM_
+  _include:
+    - patches/hsem/i_split.yaml
+    - collect/hsem/fields.yaml
+    - collect/hsem/r.yaml
 
 I2C:
   _strip: I2C_
@@ -70,6 +80,9 @@ LPTIM1:
 
 LPUART1:
   _strip: LPUART_
+  _include:
+    - patches/usart/rename_CR1_ISR_enabled_disabled.yaml
+    - fields/usart/v4/lp_wb0.yaml
 
 PKA:
   _strip: PKA_
@@ -87,9 +100,16 @@ RCC:
 
 RNG:
   _strip: RNG_
+  _include:
+    - fields/rng/v2.yaml
 
 RTC:
   _strip: RTC_
+  _include:
+    - patches/rtc/alarm.yaml
+    - fields/rtc/v3/basic.yaml
+    - fields/rtc/v3/wakeup.yaml
+    - collect/rtc/alarm.yaml
 
 SAES:
   _strip: SAES_
@@ -110,13 +130,40 @@ TAMP:
 
 TIM1:
   _strip: TIM1_
+  _include:
+    - patches/tim/ccmr3.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/tim1_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/v3/tim1.yaml
+    - collect/tim/ccr.yaml
 
-TIM16: {}
+TIM16:
+  _strip: TIM_
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
 
-TIM2: {}
+TIM2:
+  _strip: TIM_
+  _include:
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/tim2_mms_ts_sms.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - fields/tim/tim_common_ext.yaml
+    - fields/tim/v3/tim2_uif.yaml
+    - collect/tim/ccr.yaml
 
 TSC:
   _strip: TSC_
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
 
 USART1:
   _strip: USART_
@@ -126,3 +173,6 @@ USART1:
 
 WWDG:
   _strip: WWDG_
+  _include:
+    - patches/16bit_with_mask.yaml
+    - fields/wwdg/wwdg_v2.yaml

@@ -22,6 +22,7 @@ Family-specific:
 
 * WBA:
   * Initial support (#1229)
+  * Apply exisiting patches
 
 ## [v0.16.0] 2025-05-13
 
