@@ -26,6 +26,7 @@ ADC:
 
 AES:
   _include:
+    - patches/aes/chmod.yaml
     - patches/aes/fields.yaml
     - fields/aes/v2.yaml
 
