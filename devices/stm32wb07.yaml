@@ -2,6 +2,14 @@ _svd: ../svd/stm32wb07.svd
 
 _clear_fields: "*"
 
+_modify:
+  GPIO?:
+    groupName: GPIO
+  SPI?:
+    groupName: SPI
+  TIM[1-9]*:
+    groupName: TIM
+
 _derive:
   I2C2: I2C1
   SPI2: SPI1
