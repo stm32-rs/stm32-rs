@@ -2,6 +2,12 @@ _svd: ../svd/stm32wb09.svd
 
 _clear_fields: "*"
 
+_modify:
+  GPIO?:
+    groupName: GPIO
+  TIM[1-9]*:
+    groupName: TIM
+
 ADC: {}
 
 BLUE: {}

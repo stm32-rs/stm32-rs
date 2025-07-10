@@ -2,6 +2,16 @@ _svd: ../svd/stm32n655.svd
 
 _clear_fields: "*"
 
+_modify:
+  ADC12:
+    groupName: ADC
+  GPIO?:
+    groupName: GPIO
+  TIM[1-9]*:
+    groupName: TIM
+  XSPIM:
+    groupName: XSPI
+
 ADC1:
   _strip: ADC_
 

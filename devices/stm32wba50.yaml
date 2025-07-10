@@ -2,6 +2,10 @@ _svd: ../svd/stm32wba50.svd
 
 _clear_fields: "*"
 
+_modify:
+  TIM[1-9]*:
+    groupName: TIM
+
 ADC4:
   _strip: ADC_
 

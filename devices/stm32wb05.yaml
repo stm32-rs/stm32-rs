@@ -3,18 +3,28 @@ _svd: ../svd/stm32wb05.svd
 _clear_fields: "*"
 
 _modify:
+  GPIO?:
+    groupName: GPIO
   BLUE_REG:
     name: BLUE
+    groupName: BLUE
   GLOBALSTATMACH_REG:
     name: GLOBALSTATMACH
+    groupName: GLOBALSTATMACH
   RADIO_CONTROL_REG:
     name: RADIO_CONTROL
+    groupName: RADIO_CONTROL
   RADIO_REG_REG:
     name: RADIO
+    groupName: RADIO
   RRM_REG:
     name: RRM
+    groupName: RRM
   WAKEUP_REG:
     name: WAKEUP
+    groupName: WAKEUP
+  TIM[1-9]*:
+    groupName: TIM
 
 ADC: {}
 
