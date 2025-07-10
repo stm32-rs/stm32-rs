@@ -10,6 +10,10 @@
 
 Family-specific:
 
+* F4:
+* doc on `OTG_FS_*` with standalone `OTG_FS_*` section ([#855])
+
+
 * G4:
   * UART: remove missing fields, derive UART/LPUART from USART (#1247)
 
@@ -23,6 +27,8 @@ Family-specific:
 * WBA:
   * Initial support (#1229)
   * Apply exisiting patches
+
+[#855]: https://github.com/stm32-rs/stm32-rs/pull/855
 
 ## [v0.16.0] 2025-05-13
 

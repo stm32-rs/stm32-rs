@@ -1,0 +1,153 @@
+# this file is for STM32F401, F411, F405, F407, F427, F429
+# and can be included into (currently non-exist) F417, F437, F439 yaml in future
+#
+# for maintainer of F412, F413, F423, F446, F469, F479:
+# this file might not be suitable for these devices,
+# double check if you want to include
+
+DIEPMSK:
+  _add:
+    NAKM:
+      description: NAK interrupt mask
+      bitOffset: 13
+      bitWidth: 1
+DOEPMSK:
+  _add:
+    NAKMSK:
+      description: NAK interrupt mask
+      bitOffset: 13
+      bitWidth: 1
+    BERRM:
+      description: NAK interrupt mask
+      bitOffset: 12
+      bitWidth: 1
+    OUTPKTERRM:
+      description: Out packet error mask
+      bitOffset: 8
+      bitWidth: 1
+    STSPHSRXM:
+      description: Status phase received for control write mask
+      bitOffset: 5
+      bitWidth: 1
+DIEPCTL0:
+  _modify:
+    EPTYP:
+      description: "Endpoint type\nHardcoded to '00' for control"
+    USBAEP:
+      description: "USB active endpoint\nThis bit is always set to 1, indicating that control endpoint 0 is always active in all configurations and interfaces"
+DIEPCTL1:
+  _add:
+    SODDFRM:
+      description: Set odd frame
+      bitOffset: 29
+      bitWidth: 1
+DIEPCTL[1-3]:
+  _modify:
+    SD0PID_SEVNFRM: # 2 flags are occupied same bit field, "split" them
+      name: SD0PID
+      description: "Set DATA0 PID"
+    EONUM_DPID: # 2 flags are occupied same bit field, "split" them
+      name: EONUM
+      description: "Even/odd frame"
+  _add:
+    SEVNFRM: # this flag is "split" from `SD0PID_SEVNFRM` field
+      description: Set even frame
+      bitOffset: 28
+      bitWidth: 1
+      access: write-only
+    DPID: # this flag is "split" from `EONUM_DPID` field
+      description: Endpoint data PID
+      bitOffset: 16
+      bitWidth: 1
+      access: read-only
+  _delete:
+    - "SODDFRM_SD1PID"
+DOEPCTL0:
+  _modify:
+    EPDIS:
+      description: "Endpoint disable\nThe application CANNOT disable control OUT endpoint 0.\nEndpoint disable"
+    EPTYP:
+      description: "Endpoint type\nHardcoded to '00' for control"
+    USBAEP:
+      description: "USB active endpoint\nThis bit is always set to 1, indicating that control endpoint 0 is always active in all configurations and interfaces"
+DOEPCTL[1-3]:
+  _modify:
+    SD0PID_SEVNFRM: # 2 flags are occupied same bit field, "split" them
+      name: SD0PID
+      description: Set DATA0 PID
+    EONUM_DPID: # 2 flags are occupied same bit field, "split" them
+      name: EONUM
+      description: Even/odd frame
+  _add:
+    # some other file has remove SODDFRM_SD1PID and create SODDFRM
+    # we need to create SD1PID itself
+    SD1PID:
+      description: Set DATA1 PID
+      bitOffset: 29
+      bitWidth: 1
+      access: write-only
+    SEVNFRM: # this flag is "split" from `SD0PID_SEVNFRM` field
+      description: Set odd frame
+      bitOffset: 28
+      bitWidth: 1
+      access: write-only
+    DPID: # this flag is "split" from `EONUM_DPID` field
+      description: Endpoint data PID
+      bitOffset: 16
+      bitWidth: 1
+      access: read-only
+DIEPINT[0-3]:
+  _add:
+    NAK:
+      description: NAK input
+      bitOffset: 13
+      bitWidth: 1
+      access: read-write
+    PKTDRPSTS:
+      description: Packet dropped status
+      bitOffset: 11
+      bitWidth: 1
+      access: read-write
+    INEPNM:
+      description: IN token received with EP mismatch
+      bitOffset: 5
+      bitWidth: 1
+      access: read-write
+DOEPINT[0-3]:
+  _delete:
+    - B2BSTUP
+  _add:
+    NAK:
+      description: NAK input
+      bitOffset: 13
+      bitWidth: 1
+      access: read-write
+    BERR:
+      description: Babble error interrupt
+      bitOffset: 12
+      bitWidth: 1
+      access: read-write
+    OUTPKTERR:
+      description: OUT packet error
+      bitOffset: 8
+      bitWidth: 1
+      access: read-write
+    STSPHSRX:
+      description: Status phase received for control write
+      bitOffset: 5
+      bitWidth: 1
+      access: read-write
+DIEPTSIZ[1-3]:
+  _delete:
+    - MCNT
+DOEPTSIZ[1-3]:
+  _modify:
+    RXDPID_STUPCNT:
+      name: RXDPID
+      description: Received data PID
+  _add:
+    STUPCNT:
+      description: SETUP packet count
+      bitOffset: 29
+      bitWidth: 2
+      access: read-write

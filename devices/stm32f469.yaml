@@ -193,12 +193,14 @@ OTG_FS_DEVICE:
   _strip: OTG_FS_
   _include:
     - patches/usb_otg/fs_v2_device.yaml
+    #- patches/usb_otg/fs_f4_device.yaml # read fs_f4.yaml before activate this
     - collect/usb_otg/fs_device.yaml
 OTG_FS_GLOBAL:
   _strip: OTG_FS_
   _include:
     - patches/usb_otg/fs_fixes_446_469.yaml
     - patches/usb_otg/fs_v2_global.yaml
+    #- fields/usb_otg/otg_fs_global_f4.yaml # read fs_f4.yaml before activate this
     - collect/usb_otg/fs_global.yaml
 OTG_FS_HOST:
   _strip: OTG_FS_

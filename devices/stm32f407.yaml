@@ -152,21 +152,31 @@ OTG_FS_*:
 
 OTG_FS_DEVICE:
   _include:
-    - patches/usb_otg/fs_v1_device_ext.yaml
+    # the file below create DIEP*[4-5] and DOEP*[4-5], which is not exist for this device
+    # but there are some other registers created in the same file
+    # I will just comment it out for now, until we can safely remove it
+    #- patches/usb_otg/fs_v1_device_ext.yaml
     - patches/usb_otg/fs_v1_device.yaml
+    - patches/usb_otg/fs_f4_device.yaml
+    - fields/usb_otg/otg_fs_device_f4.yaml
     - collect/usb_otg/fs_device.yaml
 OTG_FS_GLOBAL:
   _include:
-    - patches/usb_otg/fs_v1_global_ext.yaml
+    #- patches/usb_otg/fs_v1_global_ext.yaml
     - patches/usb_otg/fs_v1_global.yaml
     - patches/usb_otg/fs_v1_novbussens.yaml
+    - patches/usb_otg/fs_f4_global.yaml
+    - fields/usb_otg/otg_fs_global_f4.yaml
     - collect/usb_otg/fs_global.yaml
 OTG_FS_HOST:
   _include:
-    - patches/usb_otg/fs_v1_host_ext.yaml
+    #- patches/usb_otg/fs_v1_host_ext.yaml
     - patches/usb_otg/fs_v1_host.yaml
+    - fields/usb_otg/otg_fs_host_f4.yaml
     - collect/usb_otg/fs_host.yaml
-OTG_FS_PWRCLK: {}
+OTG_FS_PWRCLK:
+  _include:
+    - fields/usb_otg/otg_fs_pwrclk_f4.yaml
 
 OTG_HS_*:
   _strip: OTG_HS_

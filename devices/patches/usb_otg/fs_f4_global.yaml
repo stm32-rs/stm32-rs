@@ -1,0 +1,46 @@
+# this file is for STM32F401, F411, F405, F407, F427, F429
+# and can be included into (currently non-exist) F417, F437, F439 yaml in future
+#
+# for maintainer of F412, F413, F423, F446, F469, F479:
+# this file might not be suitable for these devices,
+# double check if you want to include
+
+_modify:
+  GNPTXSTS:
+    name: HNPTXSTS
+GAHBCFG:
+  _modify:
+    GINT:
+      name: GINTMSK
+GUSBCFG:
+  _modify:
+    CTXPKT:
+      description: "Corrupt Tx packet\nNever set this bit to 1. This bit is for debug purposes only"
+    PHYSEL:
+      access: read-only
+GINTSTS:
+  _modify:
+    IPXFR_INCOMPISOOUT: # 2 state flags are occupied same bit field, "split" them
+      name: IPXFR
+      description: "Incomplete periodic transfer"
+  _add:
+    INCOMPISOOUT: # this flag is "split" from `IPXFR_INCOMPISOOUT` field
+      description: "Incomplete isochronous OUT transfer"
+      bitOffset: 21
+      bitWidth: 1
+      access: read-write
+GINTMSK:
+  _modify:
+    IPXFRM_IISOOXFRM: # 2 state flags are occupied same bit field, "split" them
+      name: IPXFRM
+      description: Incomplete periodic transfer mask
+  _add:
+    IISOOXFRM:
+      description: "Incomplete isochronous OUT transfer mask"
+      bitOffset: 21
+      bitWidth: 1
+      access: read-write
+HPTXFSIZ:
+  _modify:
+    PTXFSIZ:
+      name: PTXFD
