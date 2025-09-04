@@ -138,6 +138,9 @@ TIM12:
     - patches/tim/tim9_ic1f.yaml
     - fields/tim/v1/tim9.yaml
     - collect/tim/ccr.yaml
+  _modify:
+    ARR:
+      resetValue: 0xFFFF
 
 TIM13:
   _include:
