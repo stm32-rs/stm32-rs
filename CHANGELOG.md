@@ -8,6 +8,7 @@
 * Fix bug in GPIO AFSEL collect
 * Fix groupNames
 * Add GPIO for WB0/N6/MP1
+* Modified stm32f100 TIM12_ARR reset value
 
 Family-specific:
 
