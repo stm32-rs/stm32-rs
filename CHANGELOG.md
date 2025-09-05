@@ -13,7 +13,7 @@
 Family-specific:
 
 * F7:
-  * F74, F75: Add fields to DBGMCU.CR (#1260)
+  * F74, F75: Add fields to DBGMCU.CR (#1260) and SYSCFG (#1265)
 
 * G4:
   * UART: remove missing fields, derive UART/LPUART from USART (#1247)
