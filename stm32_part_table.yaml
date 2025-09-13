@@ -828,12 +828,35 @@ stm32wl:
       - STM32WL5X (CM0+)
 
 stm32wb:
-  stm32wb55:
+  stm32wb10:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wbx0-value-line.html
+    rm: RM0478
+    rm_title: STM32WB10
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0478-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-54-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WB10
+  stm32wb15:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wbx5.html
+    rm: RM0473
+    rm_title: STM32WB15
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0473-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WB15
+  stm32wb30-50:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32wbx0-value-line.html
+    rm: RM0471
+    rm_title: STM32WB30 and STM32WB50
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0471-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-or-802154-radio-solution-stmicroelectronics.pdf
+    members:
+      - STM32WB30
+      - STM32WB50
+  stm32wb35-55:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32wbx5.html
     rm: RM0434
-    rm_title: STM32WBx5
-    rm_url: https://www.st.com/resource/en/reference_manual/dm00318631-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
+    rm_title: STM32WB35 and STM32WB55
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0434-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf
     members:
+      - STM32WB35
       - STM32WB55
 
 stm32wb0:

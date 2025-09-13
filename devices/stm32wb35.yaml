@@ -1,0 +1,99 @@
+_svd: ../svd/stm32wb35.svd
+
+_modify:
+  name: STM32WB35
+  AES?:
+    groupName: AES
+  HSEM:
+    groupName: HSEM
+
+_derive:
+  DMA2: DMA1
+
+DMA1: {}
+
+DMAMUX: {}
+
+CRC: {}
+
+IWDG: {}
+
+COMP: {}
+
+I2C1: {}
+
+Flash: {}
+
+QUADSPI: {}
+
+RCC: {}
+
+PWR: {}
+
+SYSCFG: {}
+
+RNG: {}
+
+AES1: {}
+
+AES2: {}
+
+HSEM: {}
+
+ADC: {}
+
+GPIO[ABCEH]:
+  _include:
+    - fields/gpio/v2/common.yaml
+
+GPIO[A-E]: #H
+  _include: collect/gpio/v2.yaml
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCE]:
+  _include: collect/gpio/v2_derive.yaml
+
+TIM2: {}
+
+TIM16: {}
+
+TIM17: {}
+
+TIM1: {}
+
+LPTIM1: {}
+
+SAI1: {}
+
+SPI1: {}
+
+RTC: {}
+
+DBGMCU: {}
+
+PKA: {}
+
+IPCC: {}
+
+EXTI: {}
+
+CRS: {}
+
+USART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/B.yaml
+
+USB:
+  _include:
+    - fields/usb/v2_with_LPM.yaml
+    - collect/usb/epxr.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

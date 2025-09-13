@@ -1,0 +1,78 @@
+_svd: ../svd/stm32wb10.svd
+
+_modify:
+  name: STM32WB10
+  HSEM:
+    groupName: HSEM
+
+ADC: {}
+
+CRC: {}
+
+DBGMCU: {}
+
+DMA1: {}
+
+DMAMUX: {}
+
+EXTI: {}
+
+Flash: {}
+
+GPIO[ABCEH]:
+  _include:
+    - fields/gpio/v2/common.yaml
+
+GPIO[A-E]: #H
+  _include: collect/gpio/v2.yaml
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCE]:
+  _include: collect/gpio/v2_derive.yaml
+
+HSEM: {}
+
+I2C1: {}
+
+IPCC: {}
+
+IWDG: {}
+
+LPTIM1: {}
+
+PKA: {}
+
+PWR: {}
+
+RCC: {}
+
+RNG: {}
+
+RTC: {}
+
+SPI1: {}
+
+SYSCFG: {}
+
+TIM1: {}
+
+TIM2: {}
+
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
+
+USART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/B.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml

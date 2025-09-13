@@ -1,0 +1,120 @@
+_svd: ../svd/stm32wb50.svd
+
+_modify:
+  name: STM32WB50
+  AES?:
+    groupName: AES
+  HSEM:
+    groupName: HSEM
+
+_derive:
+  DMA2: DMA1
+
+ADC: {}
+
+AES2: {}
+
+CRC: {}
+
+DBGMCU: {}
+
+DMA1: {}
+
+DMAMUX: {}
+
+EXTI: {}
+
+Flash: {}
+
+GPIO[ABCEH]:
+  _include:
+    - fields/gpio/v2/common.yaml
+
+GPIO[A-E]: #H
+  _include: collect/gpio/v2.yaml
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BCE]:
+  _include: collect/gpio/v2_derive.yaml
+
+HSEM: {}
+
+I2C1: {}
+
+IPCC: {}
+
+IWDG: {}
+
+LPTIM1: {}
+
+PKA: {}
+
+PWR: {}
+
+RCC: {}
+
+RNG: {}
+
+RTC: {}
+
+SPI1: {}
+
+SYSCFG: {}
+
+TIM1:
+  CCMR1_Input:
+    _modify:
+      C1F:
+        name: IC1F
+  _include:
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/dmab_32.yaml
+    - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
+
+TIM2:
+  _include:
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/basic.yaml
+    - fields/tim/tim_32bit.yaml
+    - fields/tim/tim_gp1.yaml
+    - fields/tim/tim_ckd.yaml
+    - fields/tim/ccr.yaml
+    - fields/tim/v2/ccm_extended.yaml
+    - collect/tim/ccr.yaml
+  CNT:
+    _add:
+      UIFREMAP_CNT:
+        description: Counter value when CR1.UIFREMAP=1
+        bitOffset: 0
+        bitWidth: 31
+    _modify:
+      UIFCPY:
+        description: Copy of ISR.UIF when CR1.UIFREMAP=1
+      CNT_H:
+        bitWidth: 16
+        bitOffset: 16
+      CNT_L:
+        bitOffset: 0
+
+TIM1[67]:
+  _include:
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
+
+TIM17:
+  _include: collect/tim/tim17_derive.yaml
+
+USART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v4/B.yaml
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg_v2.yaml
