@@ -9,12 +9,6 @@ D3CFGR:
       description: D3 domain APB4 prescaler
       bitOffset: 4
       bitWidth: 3
-D1CCIPR:
-  _add:
-    DSISEL:
-      description: kernel clock source selection
-      bitOffset: 8
-      bitWidth: 1
 
 CSICFGR:
   _modify:
@@ -132,17 +126,6 @@ AHB1RSTR:
       description: ART block reset
       bitOffset: 14
       bitWidth: 1
-AHB1ENR,C1_AHB1ENR:
-  _add:
-    ARTEN:
-      description: ART Clock Enable
-      bitOffset: 14
-      bitWidth: 1
-AHB2ENR,C1_AHB2ENR:
-  _modify:
-    CAMITFEN:
-      name: DCMIEN
-      description: DCMI peripheral clock
 AHB1LPENR:
   _add:
     ARTLPEN:
@@ -160,24 +143,6 @@ AHB2LPENR,C1_AHB2LPENR:
     CAMITFLPEN:
       name: DCMILPEN
       description: DCMI peripheral clock enable during csleep mode
-AHB3ENR:
-  _add:
-    DTCM1EN:
-      description: D1 DTCM1 block enable
-      bitOffset: 28
-      bitWidth: 1
-    DTCM2EN:
-      description: D1 DTCM2 block enable
-      bitOffset: 29
-      bitWidth: 1
-    ITCM1EN:
-      description: D1 ITCM block enable
-      bitOffset: 30
-      bitWidth: 1
-    AXISRAMEN:
-      description: AXISRAM block enable
-      bitOffset: 31
-      bitWidth: 1
 C1_AHB3LPENR:
   _modify:
     FLITFLPEN:
