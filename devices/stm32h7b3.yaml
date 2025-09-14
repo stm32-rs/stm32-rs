@@ -129,7 +129,6 @@ DMA2D:
 DMAMUX1:
   _strip: DMAMUX?_
   _include:
-    - patches/dma/dmamux_split.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux1_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -137,7 +136,7 @@ DMAMUX1:
 DMAMUX2:
   _strip: DMAMUX?_
   _include:
-    - patches/dma/dmamux_split.yaml
+    - patches/dma/dmamux_cof.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -379,11 +378,12 @@ TIM8:
     CRR6:
       name: CCR6
       displayName: CCR6
+  _include:
+    - patches/tim/icpsc.yaml
 
 TIM[18]:
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/dmab_32.yaml
@@ -447,25 +447,6 @@ TIM1[67]:
 
 TIM17:
   _include: collect/tim/tim17_derive.yaml
-
-USART2:
-  _add:
-    _interrupts:
-      USART2:
-        description: USART2 global interrupt
-        value: 38
-USART3:
-  _add:
-    _interrupts:
-      USART3:
-        description: USART3 global interrupt
-        value: 39
-USART6:
-  _add:
-    _interrupts:
-      USART6:
-        description: USART6 global interrupt
-        value: 71
 
 USART1:
   _include:

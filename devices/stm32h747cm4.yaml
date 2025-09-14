@@ -1,5 +1,7 @@
 _svd: ../svd/stm32h747cm4.svd
 
+_clear_fields: "*"
+
 _modify:
   COMP1:
     groupName: COMP
@@ -105,15 +107,15 @@ DMA2D:
     - fields/dma/dma2d_v2.yaml
 
 DMAMUX1:
+  _strip: DMAMUX1_
   _include:
-    - patches/dma/dmamux_split.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux1_v1.yaml
     - collect/dma/h7_dmamux.yaml
 
 DMAMUX2:
   _include:
-    - patches/dma/dmamux_split.yaml
+    - patches/dma/dmamux_cof.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -281,7 +283,6 @@ RCC:
   _include:
     - patches/rcc/h7_usb1otghs.yaml
     - patches/rcc/h7_common_dualcore.yaml
-    - patches/rcc/h7_src_sel.yaml
     - fields/rcc/v3/h7.yaml
     - fields/rcc/v3/hrtim.yaml
     - fields/rcc/v3/h7_revision_v.yaml
@@ -329,7 +330,6 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/dmab_32.yaml

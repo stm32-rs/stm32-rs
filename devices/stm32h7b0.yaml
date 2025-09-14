@@ -127,7 +127,6 @@ DMA2D:
 DMAMUX1:
   _strip: DMAMUX?_
   _include:
-    - patches/dma/dmamux_split.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux1_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -135,7 +134,7 @@ DMAMUX1:
 DMAMUX2:
   _strip: DMAMUX?_
   _include:
-    - patches/dma/dmamux_split.yaml
+    - patches/dma/dmamux_cof.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -372,11 +371,12 @@ TIM8:
     CRR6:
       name: CCR6
       displayName: CCR6
+  _include:
+    - patches/tim/icpsc.yaml
 
 TIM[18]:
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/dmab_32.yaml
