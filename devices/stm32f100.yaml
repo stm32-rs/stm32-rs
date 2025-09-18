@@ -64,6 +64,23 @@ FSMC:
     - patches/fsmc/sramfix_v3.yaml
     - fields/fsmc/sram.yaml
     - collect/fsmc/sram.yaml
+  _modify:
+    BCR1:
+      resetValue: 0x30DB
+    BCR2:
+      resetValue: 0x30D2
+    BCR3:
+      resetValue: 0x30D2
+    BCR4:
+      resetValue: 0x30D2
+    BTR1:
+      resetValue: 0x0FFFFFFF
+    BTR2:
+      resetValue: 0x0FFFFFFF
+    BTR3:
+      resetValue: 0x0FFFFFFF
+    BTR4:
+      resetValue: 0x0FFFFFFF
 
 FSM[C]:
   _include:
@@ -122,16 +139,25 @@ TIM1:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim1.yaml
     - collect/tim/ccr.yaml
+  _modify:
+    ARR:
+      resetValue: 0xFFFF
 
 TIM2:
   _include:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim3.yaml
     - collect/tim/ccr.yaml
+  _modify:
+    ARR:
+      resetValue: 0xFFFF
 
 TIM6:
   _include:
     - fields/tim/v1/tim6.yaml
+  _modify:
+    ARR:
+      resetValue: 0xFFFF
 
 TIM12:
   _include:
@@ -147,6 +173,9 @@ TIM13:
     - patches/tim/tim10_14_missing_opm.yaml
     - fields/tim/v1/tim13.yaml
     - collect/tim/ccr.yaml
+  _modify:
+    ARR:
+      resetValue: 0xFFFF
 
 TIM15:
   _include:
