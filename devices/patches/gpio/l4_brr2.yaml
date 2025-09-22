@@ -1,0 +1,8 @@
+BRR:
+  _add:
+    BR:
+      description: These bits are write-only. A read to these bits returns the value 0x0000
+      access: write-only
+      bitOffset: 0
+      bitWidth: 16
+  _split: [BR]
