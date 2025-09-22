@@ -1,38 +1,22 @@
-_svd: ../svd/stm32l4x2.svd
-
-_clear_fields: "*"
-
-_delete:
-  - USB_FS
+_svd: ../svd/stm32l433.svd
 
 _copy:
   TIM1:
-    from: ../svd/stm32l4x1.svd:TIM1
+    from: ../svd/stm32l451.svd:TIM1
   TIM2:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM3:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM6:
-    from: ../svd/stm32l4x1.svd:TIM6
+    from: ../svd/stm32l451.svd:TIM2
   TIM15:
-    from: ../svd/stm32l4x1.svd:TIM15
-  TIM16:
-    from: ../svd/stm32l4x1.svd:TIM16
-
-_derive:
-  USART3: USART1
+    from: ../svd/stm32l451.svd:TIM15
 
 _modify:
-  USB_SRAM:
-    name: USB
-    # without quotes, get less readable value 1073768448
-    baseAddress: "0x40006800"
-
   # The SVD calls ADC1 ADC.
   ADC:
     name: ADC1
   DAC1:
     name: DAC
+  USB_SRAM:
+    name: USB
+    baseAddress: "0x40006800"
 
 ADC_Common:
   _include:
@@ -41,26 +25,18 @@ ADC_Common:
     - fields/adc/adc_v3_common_l4+.yaml
 
 ADC123_Common:
-  _strip: ADC_
   _include: fields/adc/adc_v3_common.yaml
 
 ADC1:
-  _strip: ADC_
-  _modify:
-    _interrupts:
-      ADC1:
-        name: ADC1_2
   _include:
     - patches/adc/split.yaml
+    - patches/adc/offset_en.yaml
+    - patches/adc/l4+.yaml
+    - patches/adc/dr_rdata.yaml
     - fields/adc/adc_v3.yaml
     - fields/adc/adc_v3_l4.yaml
     - fields/adc/awd0_18.yaml
     - collect/adc/v3.yaml
-  CFGR:
-    _merge: EXTSEL*
-  DIFSEL:
-    _merge:
-      DIFSEL: DIFSEL*
   SQR?:
     SQ*: [0, 18]
 
@@ -75,6 +51,7 @@ AES:
 
 CAN1:
   _include:
+    - patches/can/l4x3_missing_regs.yaml
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
@@ -82,7 +59,7 @@ CAN1:
 COMP:
   _include:
     - patches/comp/l4xx_comp_reg_rename.yaml
-    - fields/comp/l4x1.yaml
+    - fields/comp/l4x6.yaml
 
 CRC:
   _include:
@@ -102,14 +79,6 @@ DAC:
 
 DBGMCU: {}
 
-DFSDM:
-  _strip: DFSDM_
-  _include:
-    - patches/dfsdm/jchgr.yaml
-    - patches/dfsdm/dfsdm_v1.yaml
-    - fields/dfsdm/v1.yaml
-    - collect/dfsdm/v1.yaml
-
 DMA1:
   _include:
     - fields/dma/dma_v1_with_remapping.yaml
@@ -124,7 +93,9 @@ FIREWALL:
   _include:
     - fields/fw/fw_l0_l4.yaml
 
-FLASH: {}
+FLASH:
+  _include:
+    - patches/flash/flash_boot0s.yaml
 
 GPIO[ABC]:
   _include:
@@ -153,7 +124,7 @@ LCD:
 
 LPTIM1:
   _include:
-    - fields/lptim/v2.yaml
+    - fields/lptim/v1.yaml
 
 LPUART1:
   _include:
@@ -166,72 +137,43 @@ LPUART1:
 OPAMP:
   _include:
     - fields/opamp/l4.yaml
-    - collect/opamp/l4.yaml
 
 PWR: {}
 
-QUADSPI:
-  _include:
-    - patches/quadspi/dr_multi_access.yaml
-    - fields/quadspi/quadspi_v1_dual_flash.yaml
-
-# SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
 # SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
-# SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
-# SVD incorrectly omits APB1ENR1 bit 1 (TIM3RST), which is present for
-# SVD incorrectly shifts CRCRST 11 bits instead of 12
-# SVD incorrectly labels APB1SMENR1 bit 17 as USART1SMEN instead of USART2SMEN
-# SVD incorrectly labels APB1SMENR1 bit 18 as USART2SMEN instead of USART3SMEN
-# SVD is missing label APB1SMENR1 bit 19 as UART4SMEN
-# STM32L45xx and STM32L46xx devices.
 RCC:
   APB1ENR1:
     _modify:
-      USART1EN:
-        name: USART3EN
-        description: USART3 clock enable
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
       USBF:
         name: USBFSEN
         description: USB FS clock enable
-      SPI1EN:
-        name: SPI2EN
-        description: SPI2 clock enable
-  APB1RSTR1:
+
+  # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
+  AHB1ENR:
     _modify:
-      USART1RST:
-        name: USART3RST
-        description: USART3 reset
-    _add:
-      TIM3RST:
-        description: TIM3 timer reset
-        bitOffset: 1
-        bitWidth: 1
-        access: read-write
+      CRCEN:
+        bitOffset: 12
   AHB1RSTR:
     _modify:
       CRCRST:
         bitOffset: 12
-  APB1SMENR1:
-    _delete:
-      - USART1SMEN
+  AHB1SMENR:
     _modify:
-      USART2SMEN:
-        bitOffset: 17
+      CRCSMEN:
+        bitOffset: 12
+
+  APB1RSTR1:
     _add:
-      USART3SMEN:
-        description: USART3 clocks enable during Sleep and Stop modes
-        bitOffset: 18
+      USBFSRST:
+        description: USB FS reset
+        bitOffset: 26
         bitWidth: 1
-        access: read-write
-      UART4SMEN:
-        description: UART4 clocks enable during Sleep and Stop modes
-        bitOffset: 19
-        bitWidth: 1
-        access: read-write
   _include:
     - fields/rcc/rcc_l4.yaml
     - fields/rcc/rcc_l4_usart2_3.yaml
-    - fields/rcc/rcc_l4_uart4.yaml
 
 RNG:
   _include:
@@ -279,10 +221,6 @@ TIM1:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Input:
-    _modify:
-      IC2PCS:
-        name: IC2PSC
 
 TIM2:
   CNT:
@@ -295,15 +233,6 @@ TIM2:
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
-    - collect/tim/ccr.yaml
-
-TIM3:
-  _include:
-    - patches/tim/v2/tim3.yaml
-    - patches/tim/v2/ocm_bit3.yaml
-    - patches/tim/tim_ch_16bit_l.yaml
-    - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
 
 TIM6:
@@ -343,14 +272,14 @@ USART1:
     - fields/usart/v3/B.yaml
 
 USB:
+  _include:
+    - fields/usb/v2.yaml
+    - collect/usb/epxr.yaml
   _add:
     _interrupts:
       USB_FS:
         description: USB event interrupt through EXTI
         value: 67
-  _include:
-    - fields/usb/v2_with_LPM.yaml
-    - collect/usb/epxr.yaml
 
 VREFBUF: {}
 
@@ -359,8 +288,7 @@ WWDG:
     - patches/16bit.yaml
     - fields/wwdg/wwdg.yaml
 
-# Most of the patches and includes for this device are shared with the L412,
-# so update the common patch file below instead.
 _include:
   - patches/tim/group.yaml
+  - patches/dma/interrupt_names.yaml
   - patches/adc/l4_adc_common.yaml

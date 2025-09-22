@@ -1,22 +1,10 @@
-_svd: ../svd/stm32l4x6.svd
+_svd: ../svd/stm32l496.svd
 
 _clear_fields: "*"
 
 _copy:
-  TIM1:
-    from: ../svd/stm32l4x1.svd:TIM1
-  TIM2:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM3:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM6:
-    from: ../svd/stm32l4x1.svd:TIM6
-  TIM8:
-    from: ../svd/stm32l4x1.svd:TIM8
   TIM15:
-    from: ../svd/stm32l4x1.svd:TIM15
-  TIM16:
-    from: ../svd/stm32l4x1.svd:TIM16
+    from: ../svd/stm32l451.svd:TIM15
 
 _derive:
   TIM4: TIM3
@@ -85,7 +73,7 @@ DCMI:
     - fields/dcmi/v2.yaml
     - collect/dcmi/dcmi.yaml
 
-DFSDM:
+DFSDM1:
   _strip: DFSDM_
   _include:
     - patches/dfsdm/jchgr.yaml
@@ -104,7 +92,6 @@ DMA2D:
 
 EXTI:
   _include:
-    - patches/exti/add_fpu_interrupt.yaml
     - fields/exti/common.yaml
 
 FIREWALL:
@@ -260,12 +247,8 @@ TIM[18]:
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/v2/tim1.yaml
+    - fields/tim/v2/tim1_l4.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Input:
-    _modify:
-      IC2PCS:
-        name: IC2PSC
 
 TIM8:
   _include: collect/tim/tim8_derive.yaml
