@@ -67,19 +67,9 @@ FSMC:
   _modify:
     BCR1:
       resetValue: 0x30DB
-    BCR2:
+    BCR[2-4]:
       resetValue: 0x30D2
-    BCR3:
-      resetValue: 0x30D2
-    BCR4:
-      resetValue: 0x30D2
-    BTR1:
-      resetValue: 0x0FFFFFFF
-    BTR2:
-      resetValue: 0x0FFFFFFF
-    BTR3:
-      resetValue: 0x0FFFFFFF
-    BTR4:
+    BTR[1-4]:
       resetValue: 0x0FFFFFFF
 
 FSM[C]:
