@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Updated to `svd2rust` 0.37.0
 * Updated to `svdtools` 0.5.0
 * refactor COMP & OPAMP on F3/G4/L4
 * Fix BxCAN resetValues
