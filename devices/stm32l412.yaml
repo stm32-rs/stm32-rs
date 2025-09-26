@@ -17,21 +17,6 @@ _clear_fields: "*"
 # ISR, TAMPCR, OR, BKP0R, and BKP31R removed.
 # SCR, MISR, SR, ICSR added
 
-_copy:
-  TIM1:
-    from: ../svd/stm32l4x1.svd:TIM1
-  TIM2:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM6:
-    from: ../svd/stm32l4x1.svd:TIM6
-  TIM15:
-    from: ../svd/stm32l4x1.svd:TIM15
-  TIM16:
-    from: ../svd/stm32l4x1.svd:TIM16
-
-_derive:
-  USART3: USART1
-
 _modify:
   USB_SRAM:
     name: USB
@@ -111,15 +96,8 @@ FIREWALL:
 FLASH: {}
 
 GPIO[ABCH]:
-  BRR:
-    _add:
-      BR:
-        description: These bits are write-only. A read to these bits returns the value 0x0000
-        access: write-only
-        bitOffset: 0
-        bitWidth: 16
-    _split: [BR]
   _include:
+    - patches/gpio/l4_brr2.yaml
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
 
@@ -286,24 +264,18 @@ SYSCFG: {}
 TIM1:
   _include:
     - patches/tim/v2/oc5m_bit3.yaml
-    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
-    - fields/tim/v2/tim1.yaml
+    - fields/tim/v2/tim1_l4.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Input:
-    _modify:
-      IC2PCS:
-        name: IC2PSC
 
 TIM2:
   CNT:
-    _modify:
-      CNT_H:
-        bitWidth: 16
+    _merge:
+      CNT: CNT*
   _include:
-    - patches/tim/v2/ocm_bit3.yaml
-    - patches/tim/tim2_common_32bit.yaml
+    - patches/tim/tim2_arr.yaml
+    - patches/tim/tim2_cr.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim2.yaml
     - collect/tim/ccr.yaml
@@ -321,10 +293,6 @@ TIM16:
   _include:
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Output:
-    _modify:
-      OC1M_2:
-        name: OC1M_3
 
 TSC:
   _include:

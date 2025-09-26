@@ -5,6 +5,8 @@ _clear_fields: "*"
 _copy:
   TIM3:
     from: TIM2
+  TIM15:
+    from: ../svd/stm32g474.svd:TIM15
 
 _derive:
   ADC3: ADC1
@@ -74,7 +76,6 @@ DMAMUX:
 
 EXTI:
   _include:
-    - patches/exti/add_fpu_interrupt.yaml
     - patches/exti/g4.yaml
     - fields/exti/common.yaml
 
@@ -82,8 +83,8 @@ FDCAN:
   _strip: FDCAN_
 
 FLASH:
+  _strip: FLASH_
   _include:
-    - patches/flash/g4_dual_bank.yaml
     - patches/flash/g4_dual_bank_optr.yaml
     - fields/flash/flash_g4.yaml
     - fields/flash/flash_g4_dual_bank.yaml
@@ -122,7 +123,7 @@ IWDG:
     - patches/16bit.yaml
     - fields/iwdg/iwdg_with_WINR.yaml
 
-LPTIMER1:
+LPTIM1:
   _include:
     - fields/lptim/v1b.yaml
 
@@ -190,29 +191,45 @@ TAMP:
   _include:
     - collect/rtc/tamp_bkpr.yaml
 
+TIM?:
+  _strip: TIM?_
+
 TIM1:
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/ccmr3.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
     - fields/tim/v3/tim1.yaml
     - collect/tim/ccr.yaml
 
 TIM2:
+  CNT:
+    _modify:
+      UIFCPY_CNT:
+        name: UIFCPY
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
-    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/v2/tim_32bit.yaml
     - fields/tim/v3/tim2.yaml
     - collect/tim/ccr.yaml
 
 TIM3:
+  CNT:
+    _modify:
+      UIFCPY_CNT:
+        name: UIFCPY
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
-    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/ccmr1_alternate.yaml
+    - patches/tim/ccmr2_alternate.yaml
+    - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/v2/tim_20bit.yaml
     - fields/tim/v3/tim3.yaml
     - collect/tim/ccr.yaml
@@ -230,7 +247,9 @@ TIM15:
     - collect/tim/ccr.yaml
 
 TIM16:
+  _strip: TIM16_
   _include:
+    - patches/tim/ccmr1_alternate.yaml
     - patches/tim/v2/tim_20bit.yaml
     - fields/tim/v3/tim16.yaml
     - collect/tim/ccr.yaml
