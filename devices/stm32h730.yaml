@@ -55,8 +55,6 @@ ADC3:
     - fields/adc/adc_h5.yaml
     - fields/adc/awd0_18.yaml
     - collect/adc/v3.yaml
-  CFGR:
-    _merge: EXTSEL?
   SQR?:
     SQ*: [0, 19]
 
@@ -125,21 +123,8 @@ DAC:
     - fields/dac/h73x.yaml
     - collect/dac/v3.yaml
 
-# Modify the DBGMCU.CR register fields names to be consistent with RM0468.
-# TODO: Interesting aside: the svd lists these controls additionally for D2 and
-#       D3, while the RM0468 specifies those as reserved bits, while still having
-#       clock controls specified for D2, D3. Thus, it may not be unthinkable that
-#       the same name changes need to be done for D2, D3, even though the reference
-#       manual does not specify them. OR: perhaps remove the D2, D3 fields instead?
 DBGMCU:
-  CR:
-    _modify:
-      DBGSTBD1:
-        name: DBGSTBY_D1
-      DBGSTPD1:
-        name: DBGSTOP_D1
-      DBGSLPD1:
-        name: DBGSLEEP_D1
+  _strip: DBGMCU_
 
 DCMI:
   _include:
@@ -177,7 +162,7 @@ DMAMUX1:
 
 DMAMUX2:
   _include:
-    - patches/dma/dmamux_split.yaml
+    - patches/dma/dmamux_cof.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -419,7 +404,6 @@ TIM1:
         name: TIM1_CC
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/rep_16b.yaml
