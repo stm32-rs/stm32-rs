@@ -8,14 +8,6 @@ HRTIM_Common:
     _modify:
       SYSFLTE:
         name: SYSFLTIE
-  OENR:
-    _modify:
-      TF1ODS:
-        name: TF1OEN
-        description: Bit 10 - Timer F Output 1 Enable
-      TF2ODS:
-        name: TF2OEN
-        description: Bit 11 - Timer F Output 2 Enable
   ADC1R:
     _strip:
       - AD1T

@@ -117,7 +117,7 @@ DMAMUX1:
 
 DMAMUX2:
   _include:
-    - patches/dma/dmamux_split.yaml
+    - patches/dma/dmamux_cof.yaml
     - fields/dma/dmamux_v1.yaml
     - fields/dma/dmamux2_v1.yaml
     - collect/dma/h7_dmamux.yaml
@@ -276,7 +276,6 @@ RCC:
   _include:
     - patches/rcc/h7_usb2otghs.yaml
     - patches/rcc/h7_common_singlecore.yaml
-    - patches/rcc/h7_src_sel.yaml
     - fields/rcc/v3/h7.yaml
     - fields/rcc/v3/hrtim.yaml
     - fields/rcc/v3/h7_revision_y.yaml
@@ -325,7 +324,6 @@ SYSCFG:
 TIM1:
   _include:
     - patches/tim/ts.yaml
-    - patches/tim/icpsc.yaml
     - patches/tim/v2/oc4m_bit3.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/rep_16b.yaml
@@ -356,13 +354,6 @@ TIM3:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim3.yaml
     - collect/tim/ccr.yaml
-
-TIM4:
-  _add:
-    _interrupts:
-      TIM4:
-        description: TIM4 global interrupt
-        value: 30
 
 TIM6:
   _include:
