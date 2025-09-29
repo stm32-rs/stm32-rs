@@ -15,14 +15,30 @@
 
 Family-specific:
 
+* C0:
+  * Update archive to v1.5
+
 * F7:
   * F74, F75: Add fields to DBGMCU.CR (#1260) and SYSCFG (#1265)
 
 * G4:
+  * Update archive to v3.0
   * UART: remove missing fields, derive UART/LPUART from USART (#1247)
+
+* H5:
+  * Update archive to v1.9
+
+* H7:
+  * Update archive to v2.8
+
+* H7+:
+  * Update archive to v1.3
 
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
+
+* L4+:
+  * Update archive to v1.6
 
 * WB0:
   * Initial support (#1246)
@@ -30,6 +46,7 @@ Family-specific:
 
 * WBA:
   * Initial support (#1229)
+  * Update archive to v1.0
   * Apply exisiting patches
 
 ## [v0.16.0] 2025-05-13

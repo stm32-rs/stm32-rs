@@ -204,9 +204,6 @@ LTDC:
     - fields/ltdc/ltdc.yaml
     - collect/ltdc/layer.yaml
 
-MPU:
-  _strip: MPU_
-
 OCTOSPI1:
   _include:
     - patches/octospi/l4+.yaml

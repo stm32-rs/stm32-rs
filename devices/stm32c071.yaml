@@ -95,7 +95,7 @@ RTC:
     #- collect/rtc/alarm.yaml
 
 SPI1:
-  _strip: SPI?_
+  _strip: SPI_
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
