@@ -1,5 +1,8 @@
 _svd: ../svd/stm32l433.svd
 
+_delete:
+  - USB_FS
+
 _copy:
   TIM1:
     from: ../svd/stm32l451.svd:TIM1
