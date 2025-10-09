@@ -109,6 +109,7 @@ FSMC:
       addressOffset: 0x11C
       alternateRegister: ""
   _include:
+    - patches/fsmc/bcr_btr_reset.yaml
     - patches/fsmc/nand.yaml
     - fields/fsmc/sram.yaml
     - fields/fsmc/nand.yaml
@@ -310,6 +311,7 @@ TIM3:
 TIM6:
   _include:
     - fields/tim/v1/tim6.yaml
+    - patches/tim/tim6_arr_reset.yaml
 
 TIM9:
   _delete: CR2

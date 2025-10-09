@@ -1,0 +1,9 @@
+_svd: ../svd/stm32f415.svd
+
+FSMC:
+  _include:
+    - patches/fsmc/bcr_btr_reset.yaml
+
+TIM6:
+  _include:
+    - patches/tim/tim6_arr_reset.yaml
