@@ -68,6 +68,7 @@ EXTI:
 
 Flash:
   _include:
+    - patches/flash/acr/rst_val.yaml
     - fields/flash/flash_f04x_f09x.yaml
 
 GPIO?:
@@ -109,6 +110,7 @@ RCC:
         bitOffset: 20
         bitWidth: 1
   _include:
+    - patches/rcc/rst_val.yaml
     - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
     - patches/rcc/f0_v18pwrrstf.yaml
     - patches/rcc/f0_gpioe.yaml
