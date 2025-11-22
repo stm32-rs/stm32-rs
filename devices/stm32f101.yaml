@@ -81,7 +81,9 @@ DAC:
     - fields/dac/f1.yaml
     - collect/dac/v2.yaml
 
-DBGMCU: {}
+DBGMCU:
+  _include:
+    - patches/dbgmcu/f1_xl.yaml
 
 DMA1:
   _include:

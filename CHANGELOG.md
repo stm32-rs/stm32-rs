@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-* Updated to `svd2rust` 0.37.0
+* Updated to `svd2rust` 0.37.1
 * Updated to `svdtools` 0.5.0
 * refactor COMP & OPAMP on F3/G4/L4
 * Fix BxCAN resetValues
@@ -18,6 +18,9 @@ Family-specific:
 
 * C0:
   * Update archive to v1.5
+
+* F1:
+  * Add fields to DBGMCU.CR
 
 * F7:
   * F74, F75: Add fields to DBGMCU.CR (#1260) and SYSCFG (#1265)

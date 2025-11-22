@@ -1,0 +1,16 @@
+CR:
+  _delete:
+    - DBG_TIM1[567]_STOP
+  _add:
+    DBG_TIM9_STOP:
+      description: TIM9 counter stopped when core is halted
+      bitOffset: 28
+      bitWidth: 1
+    DBG_TIM10_STOP:
+      description: TIM10 counter stopped when core is halted
+      bitOffset: 29
+      bitWidth: 1
+    DBG_TIM11_STOP:
+      description: TIM11 counter stopped when core is halted
+      bitOffset: 30
+      bitWidth: 1

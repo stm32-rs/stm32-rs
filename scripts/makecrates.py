@@ -19,7 +19,7 @@ import yaml
 VERSION = {
     "default": "0.16.0",
 }
-SVD2RUST_VERSION = "0.37.0"
+SVD2RUST_VERSION = "0.37.1"
 
 COMMON_DOC_FEATURES = ["atomics", "critical-section", "defmt", "rt"]
 CRATE_DOC_FEATURES = {
