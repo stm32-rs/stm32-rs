@@ -12,6 +12,7 @@
 * Add GPIO for WB0/N6/MP1
 * Modified stm32f100 TIM12_ARR reset value
 * Modified reset values for multiple registers in stm32f100.svd
+* Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files
 
 Family-specific:
 

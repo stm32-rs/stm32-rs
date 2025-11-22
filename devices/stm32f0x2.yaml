@@ -11,6 +11,7 @@ ADC:
     - patches/adc/f0_fixes.yaml
     - fields/adc/adc_aditf4_v1_1_RM0091.yaml
     - collect/adc/f0_l0.yaml
+    - patches/adc/rst_val.yaml
 
 CAN:
   _strip: CAN_
@@ -67,6 +68,7 @@ EXTI:
 
 Flash:
   _include:
+    - patches/flash/acr/rst_val.yaml
     - fields/flash/flash_f04x_f09x.yaml
 
 GPIO?:
@@ -108,6 +110,7 @@ RCC:
         bitOffset: 20
         bitWidth: 1
   _include:
+    - patches/rcc/rst_val.yaml
     - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
     - patches/rcc/f0_v18pwrrstf.yaml
     - patches/rcc/f0_gpioe.yaml
@@ -129,6 +132,7 @@ RTC:
 
 SPI1:
   _include:
+    - patches/spi/rst_val.yaml
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
@@ -140,6 +144,7 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/tim1_rst_val.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim1.yaml
@@ -147,6 +152,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/tim2_rst_val.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim2.yaml
@@ -161,20 +167,24 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/tim6_rst_val.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM14:
   _include:
+    - patches/tim/tim14_rst_val.yaml
     - fields/tim/v1/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
   _include:
+    - patches/tim/tim15_rst_val.yaml
     - fields/tim/v1/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
+    - patches/tim/tim16_rst_val.yaml
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
