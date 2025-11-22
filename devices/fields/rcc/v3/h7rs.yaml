@@ -11,7 +11,7 @@ PLLCKSELR:
     HSE: [2, HSE selected as PLL clock]
     None: [3, No clock sent to DIVMx dividers and PLLs]
 PLLCFGR:
-  DIV??EN:
+  PLL?[PQRST]EN:
     Disabled: [0, Clock ouput is disabled]
     Enabled: [1, Clock output is enabled]
   PLL?RGE:
@@ -48,17 +48,17 @@ CCIPR1:
     PLL2_P: [0, pll2_p selected as peripheral clock]
     PLL3_R: [1, pll3_r selected as peripheral clock]
     PER: [2, per selected as peripheral clock]
-  ADFSEL:
+  ADF1SEL:
     HCLK1: [0, hclk1 selected as ADF clock]
     PLL2_p: [1, pll2_p_ck selected as ADF clock]
     PLL3_P: [2, pll3_p_ck selected as ADF clock]
     I2S_CLKIN: [3, I2S_CKIN selected as ADF clock]
     CSI_KER: [4, csi_ker_ck selected as ADF clock]
     HSI_KER: [5, hsi_ker_ck selected as ADF clock]
-  ETHPHY_CLK_SEL:
+  ETH1PHYCKSEL:
     HSE_KER: [0, hse_ker selected as clock source]
     PLL3_S: [1, pll3_s selected clock source]
-  ETH1_REF_CLK_SEL:
+  ETH1REFCKSEL:
     ETH_RMII_REF: [0, ETH_RMII_REF selected as peripheral clock]
     HSE_KER: [1, hse_ker selected as peripheral clock]
     ETH_CLK_FB: [2, eth_clk_fb selected as peripheral clock]
@@ -78,15 +78,15 @@ CCIPR1:
     MHz24: [10, The clock frequency provided to the USBPHYC is 24 MHz]
     MHz26: [14, The clock frequency provided to the USBPHYC is 26 MHz]
     MHz32: [11, The clock frequency provided to the USBPHYC is 32 MHz]
-  OCTOSPI1SEL:
+  XSPI1SEL:
     RCC_HCLK5: [0, hclk5 selected as peripheral clock]
     PLL2_S: [1, pll2_s_ck selected as peripheral clock]
     PLL2_T: [2, pll2_t_ck selected as peripheral clock]
-  OCTOSPI2SEL:
+  XSPI2SEL:
     RCC_HCLK5: [0, hclk5 selected as peripheral clock]
     PLL2_S: [1, pll2_s_ck selected as peripheral clock]
     PLL2_T: [2, pll2_t_ck selected as peripheral clock]
-  SDMMCSEL:
+  SDMMC12SEL:
     PLL2_S: [0, pll1_s selected as peripheral clock]
     PLL2_T: [1, pll2_t selected as peripheral clock]
   FMCSEL:
