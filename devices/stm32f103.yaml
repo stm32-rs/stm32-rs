@@ -86,12 +86,28 @@ DAC:
     - collect/dac/v2.yaml
 
 DBGMCU:
+  _include:
+    - patches/dbgmcu/f1_xl.yaml
   CR:
     _modify:
       DBG_CAN1_STOP:
         name: DBG_CAN_STOP
         description: DBG_CAN_STOP
-    _delete: DBG_CAN2_STOP
+    _delete:
+      - DBG_CAN2_STOP
+    _add:
+      DBG_TIM12_STOP:
+        description: TIM12 counter stopped when core is halted
+        bitOffset: 25
+        bitWidth: 1
+      DBG_TIM13_STOP:
+        description: TIM13 counter stopped when core is halted
+        bitOffset: 26
+        bitWidth: 1
+      DBG_TIM14_STOP:
+        description: TIM14 counter stopped when core is halted
+        bitOffset: 27
+        bitWidth: 1
 
 DMA1:
   _include:
