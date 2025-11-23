@@ -1,1 +1,80 @@
 _svd: ../svd/stm32wl33.svd
+
+_clear_fields: "*"
+
+ADC: {}
+
+AES:
+  _strip: AES_
+
+COMP: {}
+
+CRC:
+  _strip: CRC_
+
+DAC: {}
+
+DBGMCU: {}
+
+DMA:
+  _strip: DMA_
+
+DMAMUX: {}
+
+DYNAMIC_REG: {}
+
+FLASH_CTRL: {}
+
+GPIO[AB]: {}
+
+I2C[12]: {}
+
+IWDG:
+  _strip: IWDG_
+
+LCD:
+  _strip: LCD_
+
+LCSC:
+  _strip: LCSC_
+
+LPAWUR: {}
+
+LPUART: {}
+
+MISC: {}
+
+MR_SUBG: {}
+
+PWRC: {}
+
+RCC: {}
+
+RETAINED: {}
+
+RNG:
+  _strip:
+    - RNG_
+    - RNG
+
+RTC:
+  _strip: RTC_
+
+SPI:
+  _strip: SPI_
+
+SPI3: {}
+
+STATIC: {}
+
+STATUS: {}
+
+SWITCHABLE: {}
+
+SYSTEM_CTRL: {}
+
+TIM2: {}
+
+TIM16: {}
+
+USART: {}
