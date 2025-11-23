@@ -10,17 +10,22 @@
 * Fix groupNames
 * Add `V` to device name of `STM32H743/53` v-series
 * Add GPIO for WB0/N6/MP1
-* Modified stm32f100 TIM12_ARR reset value
-* Modified reset values for multiple registers in stm32f100.svd
-* Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files
 
 Family-specific:
 
 * C0:
   * Update archive to v1.5
 
+* F0:
+  * Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files (#1274)
+
 * F1:
   * Add fields to DBGMCU.CR
+  * Modified stm32f100 TIM12_ARR reset value (#1264)
+  * Modified reset values for multiple registers in stm32f100.svd (#1269)
+
+* F4:
+  * Modified reset values for multiple registers in stm32f405/407/415/417/427/429/437/439 svd files (#1272)
 
 * F7:
   * F74, F75: Add fields to DBGMCU.CR (#1260) and SYSCFG (#1265)
