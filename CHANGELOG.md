@@ -18,6 +18,7 @@ Family-specific:
 
 * F0:
   * Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files (#1274)
+  * Updated reset values for multiple registers in the stm32f0x0 SVD file
 
 * F1:
   * Add fields to DBGMCU.CR
