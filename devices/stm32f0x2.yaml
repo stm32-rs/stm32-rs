@@ -132,7 +132,8 @@ RTC:
 
 SPI1:
   _include:
-    - patches/spi/rst_val.yaml
+    - patches/spi/cr2_rst_val.yaml
+    - patches/spi/i2spr_rst_val.yaml
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml

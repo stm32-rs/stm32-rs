@@ -2,6 +2,7 @@ _svd: ../svd/stm32f0x0.svd
 
 ADC:
   _include:
+    - patches/adc/rst_val.yaml
     - patches/adc/f0_cfgr2_ckmode.yaml
     - patches/adc/f0_fixes.yaml
     - fields/adc/adc_aditf4_v1_1.yaml
@@ -35,6 +36,9 @@ EXTI:
     - fields/exti/common.yaml
 
 Flash:
+  _modify:
+    OBR:
+      resetValue: 0x3FFFF02
   OBR:
     _modify:
       RAM_PARITY_CHECK_:
@@ -80,6 +84,7 @@ RCC:
         bitOffset: 16
         bitWidth: 1
   _include:
+    - patches/rcc/rst_val.yaml
     - patches/rcc/rename_CIR_HSI14RDYIE_field.yaml
     - patches/rcc/f0_no_hdmi_cec.yaml
     - patches/rcc/f0_v18pwrrstf.yaml
@@ -105,6 +110,7 @@ SPI1:
       - CHSIDE
       - UDR
   _include:
+    - patches/spi/cr2_rst_val.yaml
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - patches/spi/rename_dff_tifrfe.yaml
@@ -126,6 +132,7 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/tim1_rst_val.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim1.yaml
@@ -133,6 +140,7 @@ TIM1:
 
 TIM3:
   _include:
+    - patches/tim/tim3_rst_val.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim3.yaml
@@ -140,20 +148,24 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/tim6_rst_val.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM14:
   _include:
+    - patches/tim/tim14_rst_val.yaml
     - fields/tim/v1/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM15:
   _include:
+    - patches/tim/tim15_rst_val.yaml
     - fields/tim/v1/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
+    - patches/tim/tim16_rst_val.yaml
     - fields/tim/v1/tim16.yaml
     - collect/tim/ccr.yaml
 
