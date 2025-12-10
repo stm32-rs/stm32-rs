@@ -53,6 +53,7 @@ Family-specific:
 * WB0:
   * Initial support (#1246)
   * CRC, DMA, I2C, SPI, TIM, USART
+  * Added ramret2 & ramret3 fields to WB09 pwrc cr2 register
 
 * WBA:
   * Initial support (#1229)
