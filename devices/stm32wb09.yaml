@@ -76,7 +76,18 @@ LPUART:
 PKA:
   _strip: PKA_
 
-PWRC: {}
+PWRC:
+  _modify:
+    CR2:
+      _add:
+        RAMRET2:
+          derivedFrom: RAMRET1
+          description: "RAM2 retention during low power mode"
+          bitOffset: 6
+        RAMRET3:
+          derivedFrom: RAMRET1
+          description: "RAM3 retention during low power mode"
+          bitOffset: 7
 
 RADIO:
   _strip: RADIO_
