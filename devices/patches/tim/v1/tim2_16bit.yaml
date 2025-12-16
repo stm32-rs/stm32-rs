@@ -1,0 +1,5 @@
+_modify:
+  "[BD-Z]*,CR?,CCMR*,CCER":
+    size: 16
+  ARR:
+    resetValue: 0xffffffff
