@@ -53,7 +53,7 @@ Family-specific:
 * WB0:
   * Initial support (#1246)
   * CRC, DMA, I2C, SPI, TIM, USART
-  * Added missing registers and fields to WB09 PWRC peripheral (#1280)
+  * Added missing registers and fields to WB09 PWRC peripheral (#1281)
 
 * WBA:
   * Initial support (#1229)
