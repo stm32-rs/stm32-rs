@@ -77,17 +77,8 @@ PKA:
   _strip: PKA_
 
 PWRC:
-  _modify:
-    CR2:
-      _add:
-        RAMRET2:
-          derivedFrom: RAMRET1
-          description: "RAM2 retention during low power mode"
-          bitOffset: 6
-        RAMRET3:
-          derivedFrom: RAMRET1
-          description: "RAM3 retention during low power mode"
-          bitOffset: 7
+  _include:
+    - patches/pwr/add_regs_wb09.yaml
 
 RADIO:
   _strip: RADIO_
