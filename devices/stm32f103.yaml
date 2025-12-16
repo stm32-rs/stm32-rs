@@ -228,6 +228,7 @@ SPI1:
 
 TIM1:
   _include:
+    - patches/tim/v1/tim1_16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -236,6 +237,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim_o24ce.yaml
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v1/tim3.yaml
@@ -243,15 +245,18 @@ TIM2:
 
 TIM6:
   _include:
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM9:
   _include:
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim9.yaml
     - collect/tim/ccr.yaml
 
 TIM10:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim10_14_missing_opm.yaml
     - fields/tim/v1/tim10.yaml
     - collect/tim/ccr.yaml
