@@ -5,6 +5,7 @@ DBG:
   _modify:
     IDCODE:
       resetValue: 0x1000044C
+      resetMask: 0xFFFFFFFF
 
 FLASH:
   _strip: FLASH_
