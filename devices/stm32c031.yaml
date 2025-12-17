@@ -48,6 +48,8 @@ EXTI:
 
 FLASH:
   _strip: FLASH_
+  _include:
+    - patches/flash/c0_bit_width.yaml
 
 GPIO?:
   _strip: GPIO?_
@@ -76,6 +78,8 @@ PWR:
 
 RCC:
   _strip: RCC_
+  _include:
+    - patches/rcc/c0_rst_val.yaml
 
 RTC:
   _strip: RTC_

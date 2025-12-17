@@ -15,6 +15,8 @@ Family-specific:
 
 * C0:
   * Update archive to v1.5
+  * Updated reset values for multiple regsiters in stm32c011/31/71
+  * Updated bit widths for multiple flash register subfields in stm32c011/31/71
 
 * F0:
   * Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files (#1274)
