@@ -1,0 +1,101 @@
+_modify:
+  CR2:
+    _add:
+      RAMRET2:
+        description: "RAM2 retention during low power mode"
+        bitOffset: 6
+        bitWidth: 1
+        access: read-write
+      RAMRET3:
+        description: "RAM3 retention during low power mode"
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+
+_add:
+  _registers:
+    SDWN_WUEN:
+      description: "Contains Shutdown wakeup enable fields for IO."
+      addressOffset: 0x3c
+      access: read-write
+      fields:
+        WUEN:
+          description: "PB0 I/O wakeup from shutdown enable."
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+    SDWN_WUPOL:
+      description: "Contains Shutdown wakeup polarity fields for IO."
+      addressOffset: 0x40
+      access: read-write
+      fields:
+        WUPOL:
+          description: "PB0 I/O wakeup from shutdown polarity."
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+    SDWN_WUF:
+      description: "Contains Shutdown wakeup flags for IO. This register is reset on PORESETn."
+      addressOffset: 0x44
+      access: read-write
+      fields:
+        WUF:
+          description: "PB0 I/O wakeup from shutdown flag."
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+    TRIMR:
+      description: "This register provides the trimming values applied by hardware."
+      addressOffset: 0x90
+      access: read
+      fields:
+        RFD_REG_TRIM:
+          description: "RF LDO trimming."
+          bitOffset: 0
+          bitWidth: 4
+          access: read
+        TRIM_MR:
+          description: "Main regulator voltage trimming."
+          bitOffset: 4
+          bitWidth: 4
+          access: read
+        SMPS_TRIM:
+          description: "SMPS output voltage trimming."
+          bitOffset: 8
+          bitWidth: 3
+          access: read
+    ENGTRIM:
+      description: "This register allows the software to overwrite the hardware trimming values."
+      addressOffset: 0x94
+      access: read-write
+      fields:
+        TRIMRFDREGEN:
+          description: "RFD_REG_TRIM software overwrite enable."
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        RFD_REG_TRIM:
+          description: "RF LDO trimming chosen by the software."
+          bitOffset: 1
+          bitWidth: 4
+          access: read-write
+        TRIMMREN:
+          description: "TRIM_MR software overwrite enable."
+          bitOffset: 5
+          bitWidth: 1
+          access: read-write
+        TRIM_MR:
+          description: "Main regulator voltage trimming chosen by the software."
+          bitOffset: 6
+          bitWidth: 4
+          access: read-write
+        SMPSTRIMEN:
+          description: "SMPS_TRIM software overwrite enable."
+          bitOffset: 10
+          bitWidth: 1
+          access: read-write  
+        SMPS_TRIM:
+          description: "SMPS output voltage trimming chosen by the software."
+          bitOffset: 11
+          bitWidth: 3
+          access: read-write
