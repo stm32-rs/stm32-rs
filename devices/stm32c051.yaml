@@ -1,0 +1,13 @@
+_svd: ../svd/stm32c051.svd
+
+DBG:
+  _strip: DBG_
+  _modify:
+    IDCODE:
+      resetValue: 0x1000044C
+      resetMask: 0xFFFFFFFF
+
+FLASH:
+  _strip: FLASH_
+  _include:
+    - patches/flash/c0_bit_width.yaml
