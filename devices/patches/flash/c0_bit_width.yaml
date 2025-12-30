@@ -8,19 +8,11 @@ SECR:
   _modify:
     SEC_SIZE:
       bitWidth: 7
-PCROP1BER:
+PCROP1[AB]SR:
   _modify:
-    PCROP1B_END:
+    PCROP1[AB]_STRT:
       bitWidth: 9
-PCROP1BSR:
+PCROP1[AB]ER:
   _modify:
-    PCROP1B_STRT:
-      bitWidth: 9
-PCROP1ASR:
-  _modify:
-    PCROP1A_STRT:
-      bitWidth: 9
-PCROP1AER:
-  _modify:
-    PCROP1A_END:
+    PCROP1[AB]_END:
       bitWidth: 9
