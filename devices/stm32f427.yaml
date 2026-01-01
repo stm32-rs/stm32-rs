@@ -307,6 +307,7 @@ SYSCFG:
 
 TIM1:
   _include:
+    - patches/tim/v1/tim1_16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -318,6 +319,7 @@ TIM2:
 
 TIM[25]:
   _include:
+    - patches/tim/v1/tim2_16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -329,6 +331,7 @@ TIM5:
 
 TIM3:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -337,12 +340,13 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim6.yaml
-    - patches/tim/tim6_arr_reset.yaml
 
 TIM9:
   _delete: CR2
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/icpsc.yaml
     - patches/tim/tim9_ic1f.yaml
     - fields/tim/v1/tim9.yaml
@@ -350,6 +354,7 @@ TIM9:
 
 TIM1[01]:
   _include:
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim10_14_missing_opm.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/v1/tim10.yaml

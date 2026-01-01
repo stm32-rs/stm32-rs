@@ -199,11 +199,8 @@ SYSCFG:
     - fields/syscfg/syscfg_l0.yaml
 
 TIM2:
-  _modify:
-    CCR?:
-      size: 16
   _include:
-    - patches/tim/size16b.yaml
+    - patches/tim/v1/16bit.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim2_l0.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -212,12 +209,12 @@ TIM2:
 
 TIM6:
   _include:
-    - patches/tim/size16b.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/v1/tim6.yaml
 
 TIM2[12]:
   _include:
-    - patches/tim/size16b.yaml
+    - patches/tim/v1/16bit.yaml
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/tim2x.yaml
