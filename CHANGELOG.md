@@ -10,7 +10,7 @@
 * Fix groupNames
 * Add `V` to device name of `STM32H743/53` v-series
 * Add GPIO for WB0/N6/MP1
-* Read/write F0/F1/F2/F4/L0/L1 TIM 16-bit registers by word 
+* Read/write F0/F1/F2/F4/L0/L1/C0/F3/F7/G0/H7/L4/L5/U0/WB/WL TIM 16-bit registers by word 
 
 Family-specific:
 

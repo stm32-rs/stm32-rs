@@ -132,6 +132,7 @@ TAMP:
 
 TIM1:
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/g0_tim1_ts.yaml
     - patches/tim/v2/g0_tim1_ccmr_input.yaml
     - patches/tim/v2/oc5m_bit3.yaml
@@ -141,6 +142,7 @@ TIM1:
 
 TIM2:
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/ts.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/v2/tim2.yaml
@@ -148,6 +150,7 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/ts.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/v2/tim3.yaml
@@ -155,12 +158,14 @@ TIM3:
 
 TIM14:
   _include:
+    - patches/tim/v2/tim13.yaml
     - patches/tim/icpsc.yaml
     - fields/tim/v2/tim13.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
+    - patches/tim/v2/tim16.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
   CCMR1_Output:
