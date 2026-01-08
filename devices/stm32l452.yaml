@@ -1,4 +1,4 @@
-_svd: ../svd/stm32l4x2.svd
+_svd: ../svd/stm32l452.svd
 
 _clear_fields: "*"
 
@@ -7,17 +7,11 @@ _delete:
 
 _copy:
   TIM1:
-    from: ../svd/stm32l4x1.svd:TIM1
+    from: ../svd/stm32l451.svd:TIM1
   TIM2:
-    from: ../svd/stm32l4x1.svd:TIM2
+    from: ../svd/stm32l451.svd:TIM2
   TIM3:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM6:
-    from: ../svd/stm32l4x1.svd:TIM6
-  TIM15:
-    from: ../svd/stm32l4x1.svd:TIM15
-  TIM16:
-    from: ../svd/stm32l4x1.svd:TIM16
+    from: ../svd/stm32l451.svd:TIM2
 
 _derive:
   USART3: USART1
@@ -278,10 +272,6 @@ TIM1:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Input:
-    _modify:
-      IC2PCS:
-        name: IC2PSC
 
 TIM2:
   CNT:
