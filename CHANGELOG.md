@@ -48,6 +48,7 @@ Family-specific:
   * Update archive to v1.3
 
 * L4:
+  * Update archive to v1.9
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
 
 * L4+:
