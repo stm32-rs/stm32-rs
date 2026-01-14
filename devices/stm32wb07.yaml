@@ -121,6 +121,7 @@ TIM1:
   SMCR:
     _strip_end: _2_0
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/wb0.yaml
     - fields/tim/v2/tim1_wb0.yaml
     - collect/tim/ccr.yaml

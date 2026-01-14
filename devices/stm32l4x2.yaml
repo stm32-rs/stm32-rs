@@ -272,6 +272,7 @@ SYSCFG: {}
 
 TIM1:
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/v2/oc5m_bit3.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/dmab_32.yaml
@@ -289,6 +290,7 @@ TIM2:
       CNT_H:
         bitWidth: 16
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -297,6 +299,7 @@ TIM2:
 
 TIM3:
   _include:
+    - patches/tim/v2/tim3.yaml
     - patches/tim/v2/ocm_bit3.yaml
     - patches/tim/tim_ch_16bit_l.yaml
     - fields/tim/tim_mms_ts_sms.yaml
@@ -305,15 +308,18 @@ TIM3:
 
 TIM6:
   _include:
+    - patches/tim/v2/tim6.yaml
     - fields/tim/v2/tim6.yaml
 
 TIM15:
   _include:
+    - patches/tim/v2/tim15.yaml
     - fields/tim/v2/tim15.yaml
     - collect/tim/ccr.yaml
 
 TIM16:
   _include:
+    - patches/tim/v2/tim16.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
   CCMR1_Output:

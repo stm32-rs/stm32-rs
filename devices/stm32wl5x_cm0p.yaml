@@ -191,6 +191,7 @@ TIM1:
     CCMR3OutputComparemode:
       name: CCMR3_Output
   _include:
+    - patches/tim/v2/tim1.yaml
     - patches/tim/ts.yaml
     - patches/tim/dmab_32.yaml
     - fields/tim/tim1_wl.yaml
@@ -205,6 +206,7 @@ TIM1:
 TIM2:
   _strip: TIM2_
   _include:
+    - patches/tim/v2/tim2.yaml
     - patches/tim/tim2_common_32bit.yaml
     - fields/tim/tim2_wl.yaml
     - fields/tim/tim_gp1.yaml
@@ -224,6 +226,7 @@ TIM1[67]:
     _delete:
       - BKF
   _include:
+    - patches/tim/v2/tim16.yaml
     - fields/tim/basic.yaml
     - fields/tim/tim_ckd.yaml
     - fields/tim/ccr1.yaml

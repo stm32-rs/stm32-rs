@@ -131,6 +131,7 @@ TIM[123]:
 
 TIM1:
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/ccmr3.yaml
@@ -139,10 +140,9 @@ TIM1:
     - collect/tim/ccr.yaml
 
 TIM2:
-  _modify:
-    CNT_ALTERNATE1:
-      name: CNT_remap
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
+    - patches/tim/v2/add_cnt32.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - patches/tim/sms.yaml
@@ -151,10 +151,9 @@ TIM2:
     - collect/tim/ccr.yaml
 
 TIM3:
-  _modify:
-    CNT_ALTERNATE1:
-      name: CNT_remap
   _include:
+    - patches/tim/v2/cnt_alternate.yaml
+    - patches/tim/v2/tim3_with_mask.yaml
     - patches/tim/sms.yaml
     - patches/tim/ts.yaml
     - fields/tim/v2/tim3.yaml
@@ -163,6 +162,7 @@ TIM3:
 TIM14:
   _strip: TIM14_
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - patches/tim/ccmr1_alternate.yaml
     - fields/tim/v2/tim13.yaml
     - collect/tim/ccr.yaml
@@ -183,6 +183,7 @@ TIM1[67]:
       OC1M_1:
         name: OC1M_3
   _include:
+    - patches/tim/v2/add_cnt16.yaml
     - fields/tim/v2/tim16.yaml
     - collect/tim/ccr.yaml
 
