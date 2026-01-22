@@ -1,0 +1,12 @@
+# As specified in the WL5x RM
+
+CFGR1:
+  EXTSEL:
+    TIM1_TRGO2: [0, Timer 1 TRGO 2 event]
+    TIM1_CC4: [1, Timer 1 CC4 event]
+    TIM2_TRGO: [2, Timer 2 TRGO event]
+    TIM2_CH4: [3, Timer 2 CH4 event]
+    #Reserved1: [4, Reserved - not forbidden but it has no effect]
+    TIM2_CH3: [5, Timer 2 CH3 event]
+    #Reserved2: [6, Reserved - not forbidden but it has no effect]
+    EXTI11: [7, EXTI line 11 event]
