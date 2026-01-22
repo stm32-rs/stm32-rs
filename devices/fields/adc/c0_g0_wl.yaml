@@ -139,15 +139,7 @@ CFGR1:
     RisingEdge: [1, Hardware trigger detection on the rising edge]
     FallingEdge: [2, Hardware trigger detection on the falling edge]
     BothEdges: [3, Hardware trigger detection on both the rising and falling edges]
-  EXTSEL:
-    TIM1_TRGO: [0, Timer 1 TRGO event]
-    TIM1_CC4: [1, Timer 1 CC4 event]
-    TIM2_TRGO: [2, Timer 2 TRGO event]
-    TIM2_CH4: [3, Timer 2 CH4 event]
-    #Reserved1: [4, Reserved - not forbidden but it has no effect]
-    TIM2_CH3: [5, Timer 2 CH3 event]
-    #Reserved2: [6, Reserved - not forbidden but it has no effect]
-    EXTI_LINE11: [7, EXTI line 11 event]
+  # EXTSEL specified in a separate file
   ALIGN:
     Right: [0, Right alignment]
     Left: [1, Left alignment]
