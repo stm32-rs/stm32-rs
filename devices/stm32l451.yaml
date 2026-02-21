@@ -1,61 +1,38 @@
-_svd: ../svd/stm32l4x5.svd
-
-_copy:
-  TIM1:
-    from: ../svd/stm32l4x1.svd:TIM1
-  TIM2:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM3:
-    from: ../svd/stm32l4x1.svd:TIM2
-  TIM6:
-    from: ../svd/stm32l4x1.svd:TIM6
-  TIM8:
-    from: ../svd/stm32l4x1.svd:TIM8
-  TIM15:
-    from: ../svd/stm32l4x1.svd:TIM15
-  TIM16:
-    from: ../svd/stm32l4x1.svd:TIM16
+_svd: ../svd/stm32l451.svd
 
 _derive:
+  USART3: USART1
   TIM4: TIM3
 
 _modify:
-  # The SVD calls this ADC123_Common and ADC_Common in the rest,
-  # we'll prefer the more sensible (and better for sorting) ADC_Common
-  ADC123_Common:
-    name: ADC_Common
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
   DAC1:
     name: DAC
+
+# TIM3 is 16-bit, whilst TIM2 is 32-bit
+_copy:
+  TIM3:
+    from: TIM2
 
 ADC_Common:
   _include:
     - patches/adc/l4+common.yaml
     - fields/adc/adc_v3_common.yaml
     - fields/adc/adc_v3_common_l4+.yaml
-  CCR:
-    _modify:
-      MULT:
-        name: DUAL
-        description: Dual ADC mode selection
-      TSEN:
-        name: CH18SEL
-        description: CH18 selection (Vbat)
-      VBATEN:
-        name: CH17SEL
-        description: CH17 selection (temperature)
-    _add:
-      PRESC:
-        description: ADC prescaler
-        bitOffset: 18
-        bitWidth: 4
-        access: read-write
+
+ADC123_Common:
+  _include: fields/adc/adc_v3_common.yaml
 
 ADC1:
+  _modify:
+    _interrupts:
+      ADC1:
+        name: ADC1_2
   _include:
     - patches/adc/split.yaml
     - patches/adc/offset_en.yaml
-    - patches/adc/l4_smpr.yaml
-    - patches/adc/l4_sqr1.yaml
     - patches/adc/l4+.yaml
     - patches/adc/dr_rdata.yaml
     - fields/adc/adc_v3.yaml
@@ -68,13 +45,7 @@ ADC1:
 ADC[1]:
   _include: collect/adc/derive_sq.yaml
 
-# Add correct AES interrupt at 79
 AES:
-  _add:
-    _interrupts:
-      AES:
-        description: AES global interrupt
-        value: 79
   _include:
     - patches/aes/fields.yaml
     - patches/aes/l4.yaml
@@ -82,7 +53,6 @@ AES:
 
 CAN1:
   _include:
-    - patches/can/l4x3_missing_regs.yaml
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
@@ -90,7 +60,7 @@ CAN1:
 COMP:
   _include:
     - patches/comp/l4xx_comp_reg_rename.yaml
-    - fields/comp/l4x6.yaml
+    - fields/comp/l4x1.yaml
 
 CRC:
   _include:
@@ -105,7 +75,7 @@ CRS:
 
 DAC:
   _include:
-    - fields/dac/l45x.yaml
+    - fields/dac/l4.yaml
     - collect/dac/v3.yaml
 
 DBGMCU: {}
@@ -136,25 +106,8 @@ FLASH:
   _include:
     - patches/flash/flash_boot0s.yaml
 
-FMC:
-  BCR?:
-    _delete: WRAPMOD
-  _include:
-    - patches/fsmc/bwtr_clean.yaml
-    - patches/fsmc/sramfix_common.yaml
-    - patches/fsmc/nand.yaml
-    - fields/fsmc/sram.yaml
-    - fields/fsmc/bcr1.yaml
-    - fields/fsmc/nand.yaml
-    - collect/fsmc/sram.yaml
-
-FM[C]:
-  _include:
-    - collect/fsmc/sram_derive.yaml
-
 GPIO[ABC]:
   _include:
-    - patches/gpio/l4_ascr.yaml
     - patches/gpio/l4_brr.yaml
     - fields/gpio/v2/common.yaml
     - collect/gpio/v2.yaml
@@ -202,59 +155,53 @@ QUADSPI:
     - patches/quadspi/dr_multi_access.yaml
     - fields/quadspi/quadspi_v1_dual_flash.yaml
 
-# SVD incorrectly labels APB1ENR1 bit 15 as SP3EN instead of SPI3EN.
-# SVD does not include APB1ENR1 bit 10, RTCAPBEN
-# SVD does not include APB1SMENR1 bit 10, RTCAPBSMEN
-# SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
+# SVD incorrectly labels APB1ENR1 bit 18 as USART1EN instead of USART3EN.
+# SVD incorrectly labels APB1ENR1 bit 14 as SPI1EN instead of SPI2EN.
+# SVD incorrectly shifts CRCRST 11 bits instead of 12
+# SVD incorrectly labels APB1SMENR1 bit 17 as USART1SMEN instead of USART2SMEN
+# SVD incorrectly labels APB1SMENR1 bit 18 as USART2SMEN instead of USART3SMEN
+# SVD is missing label APB1SMENR1 bit 19 as UART4SMEN
 RCC:
   APB1ENR1:
     _modify:
-      SP3EN:
-        name: SPI3EN
-        description: SPI peripheral 3 clock enable
-    _add:
-      RTCAPBEN:
-        description: Enables the real time clock (RTC) peripheral
-        bitOffset: 10
-        bitWidth: 1
-        access: read-write
-      CRSEN:
-        description: Clock Recovery System clock enable (this bit is reserved for STM32L47x/L48x devices)
-        bitOffset: 24
-        bitWidth: 1
-        access: read-write
-  APB1SMENR1:
-    _add:
-      RTCAPBSMEN:
-        description: RTC APB clock enable during Sleep and Stop modes
-        bitOffset: 10
-        bitWidth: 1
-        access: read-write
-  AHB1ENR:
+      USART1EN:
+        name: USART3EN
+        description: USART3 clock enable
+      SPI1EN:
+        name: SPI2EN
+        description: SPI peripheral 2 clock enable
+  APB1RSTR1:
     _modify:
-      CRCEN:
-        bitOffset: 12
+      USART1RST:
+        name: USART3RST
+        description: USART3 reset
   AHB1RSTR:
     _modify:
       CRCRST:
         bitOffset: 12
-  AHB1SMENR:
+  APB1SMENR1:
+    _delete:
+      - USART1SMEN
     _modify:
-      CRCSMEN:
-        bitOffset: 12
+      USART2SMEN:
+        bitOffset: 17
+    _add:
+      USART3SMEN:
+        description: USART3 clocks enable during Sleep and Stop modes
+        bitOffset: 18
+        bitWidth: 1
+        access: read-write
+      UART4SMEN:
+        description: UART4 clocks enable during Sleep and Stop modes
+        bitOffset: 19
+        bitWidth: 1
+        access: read-write
   _include:
-    - patches/rcc/l4_crrcr.yaml
     - fields/rcc/rcc_l4.yaml
     - fields/rcc/rcc_l4_usart2_3.yaml
     - fields/rcc/rcc_l4_uart4.yaml
-    - fields/rcc/rcc_l4_uart5.yaml
 
-# RNG interrupt is incorrectly listed as 79 instead of 80
 RNG:
-  _modify:
-    _interrupts:
-      RNG:
-        value: 80
   _include:
     - fields/rng/v1.yaml
 
@@ -300,10 +247,6 @@ TIM[18]:
     - fields/tim/tim_mms_ts_sms.yaml
     - fields/tim/v2/tim1.yaml
     - collect/tim/ccr.yaml
-  CCMR1_Input:
-    _modify:
-      IC2PCS:
-        name: IC2PSC
 
 TIM8:
   _include: collect/tim/tim8_derive.yaml
@@ -360,17 +303,11 @@ USART1:
   _include:
     - patches/usart/merge_CR1_DEDTx_fields.yaml
     - patches/usart/merge_CR1_DEATx_fields.yaml
-    - patches/usart/merge_CR2_ABRMODx_fields.yaml
     - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
     - patches/usart/rename_CR2_DATAINV_field.yaml
     - patches/usart/merge_BRR_fields.yaml
     - fields/usart/v3/B.yaml
-
-USB:
-  _include:
-    - patches/usb/add_bcdr.yaml
-    - fields/usb/v2.yaml
-    - collect/usb/epxr.yaml
 
 VREFBUF: {}
 
@@ -381,8 +318,4 @@ WWDG:
 
 _include:
   - patches/tim/group.yaml
-  - patches/dma/interrupt_names.yaml
-  - patches/adc/adc_common_group_name.yaml
-  - patches/adc/adc_common_group_name.yaml
-  - patches/dbgmcu/l4_apb_fzr_rename.yaml
-  - patches/adc/adc_common_group_name.yaml
+  - patches/adc/l4_adc_common.yaml
