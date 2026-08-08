@@ -41,6 +41,7 @@ Family-specific:
 
 * H5:
   * Update archive to v1.9
+  * RCC: Add NoReset variant to reset fields (#1292)
   * TIM: Add missing TIM12 peripheral to STM32H523
   * USB: CHEPnR.DTOGRX and DTOGTX are now also readable (#1291)
 
