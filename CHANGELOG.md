@@ -31,7 +31,7 @@ Family-specific:
   * Modified reset values for multiple registers in stm32f101, stm32f102, stm32f103, stm32f107, and updated stm32f100 yaml to use a common patch
 
 * F2:
-  * Reverted RTS_TSDR to old definition rather than deriving from DR
+  * Reverted RTC_TSDR to old definition rather than deriving from DR
   * Updated reset values
   * Modified bit offset in SYSCFG_CMPCR
 
