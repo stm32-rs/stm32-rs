@@ -64,13 +64,7 @@ FSMC:
     - patches/fsmc/sramfix_v3.yaml
     - fields/fsmc/sram.yaml
     - collect/fsmc/sram.yaml
-  _modify:
-    BCR1:
-      resetValue: 0x30DB
-    BCR[2-4]:
-      resetValue: 0x30D2
-    BTR[1-4]:
-      resetValue: 0x0FFFFFFF
+    - patches/fsmc/bcr_btr_reset.yaml
 
 FSM[C]:
   _include:

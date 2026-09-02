@@ -28,6 +28,7 @@ Family-specific:
   * Add fields to DBGMCU.CR
   * Modified stm32f100 TIM12_ARR reset value (#1264)
   * Modified reset values for multiple registers in stm32f100.svd (#1269)
+  * Modified reset values for multiple registers in stm32f101, stm32f102, stm32f103, stm32f107, and updated stm32f100 yaml to use a common patch
 
 * F4:
   * Modified reset values for multiple registers in stm32f405/407/415/417/427/429/437/439 svd files (#1272)
