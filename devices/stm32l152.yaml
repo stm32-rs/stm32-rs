@@ -53,6 +53,7 @@ Flash: {}
 FSMC:
   _include:
     - patches/fsmc/sramfix_common.yaml
+    - patches/fsmc/bcr_btr_reset.yaml
     - fields/fsmc/sram.yaml
     - collect/fsmc/sram.yaml
 
@@ -101,7 +102,8 @@ RI: {}
 
 RTC:
   _include:
-    - patches/rtc/alarm.yaml
+    - patches/rtc/alarm_without_derive.yaml
+    - patches/rtc/tsssr.yaml
     - patches/rtc/rtc_cr.yaml
     - fields/rtc/v2/common.yaml
     - collect/rtc/alarm.yaml
@@ -120,6 +122,7 @@ SDIO:
 SPI1:
   _include:
     - patches/16bit.yaml
+    - patches/spi/l1_cr2_rst_val.yaml
     - patches/spi/dr8.yaml
     - fields/spi/spi_v1.yaml
 
