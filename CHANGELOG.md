@@ -50,6 +50,9 @@ Family-specific:
 * H7+:
   * Update archive to v1.3
 
+# L1:
+  * Updated reset values for l100, l151, l152, l162 registers.
+
 * L4:
   * Fix L412 LPTIM2, LPUART1, SPI1/2 and RCC interrupts and correct RCC SMENR register reset values (#1244)
 
