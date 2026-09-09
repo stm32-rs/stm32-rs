@@ -34,6 +34,7 @@ ADC[1]:
 
 CAN1:
   _include:
+    - patches/can/rst_val.yaml
     - fields/can/can.yaml
     - collect/can/can.yaml
     - collect/can/filter_bank.yaml
@@ -115,13 +116,6 @@ FLASH:
 
 # Offset of BWTR3 and BWTR4 is incorrect
 FSMC:
-  _modify:
-    BWTR3:
-      addressOffset: 0x114
-      alternateRegister: ""
-    BWTR4:
-      addressOffset: 0x11C
-      alternateRegister: ""
   "BCR[2-4]":
     _add:
       CCLKEN:
@@ -140,6 +134,7 @@ FSMC:
         name: SDCLK
   _include:
     - patches/fsmc/bcr_btr_reset.yaml
+    - patches/fsmc/bwtr_offset.yaml
     - patches/fsmc/nand.yaml
     - fields/fsmc/sram.yaml
     - fields/fsmc/nand.yaml
@@ -159,7 +154,10 @@ GPIO[ABI]:
     - collect/gpio/v2.yaml
 
 GPIO[A]:
-  _include: collect/gpio/gpioa_afr.yaml
+  _include: 
+    - patches/gpio/f4_gpioa_reset_values.yaml
+    - collect/gpio/gpioa_afr.yaml
+
 GPIO[BI]:
   _include: collect/gpio/v2_derive.yaml
 
@@ -255,6 +253,7 @@ RCC:
     - patches/rcc/add_gpiojk.yaml
     - patches/rcc/rcc_merge_sw_sws.yaml
     - patches/rcc/rcc_merge_rtcsel.yaml
+    - patches/rcc/f42_f43_reset_values.yaml
     - fields/rcc/v2/common.yaml
     - fields/rcc/v2/i2s.yaml
     - fields/rcc/v2/i2s_pll.yaml
