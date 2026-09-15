@@ -56,6 +56,9 @@ Family-specific:
 * L4+:
   * Update archive to v1.6
 
+* U0:
+  * Fix number of interrupt priority bits (NVIC_PRIO_BITS) for stm32u031/73/83
+
 * WB0:
   * Initial support (#1246)
   * CRC, DMA, I2C, SPI, TIM, USART
