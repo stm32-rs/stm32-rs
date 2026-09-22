@@ -1,9 +1,26 @@
 _svd: ../svd/stm32f439.svd
 
+CAN1:
+  _include:
+    - patches/can/rst_val.yaml
+    
 FMC:
   _include:
     - patches/fsmc/bcr_btr_reset.yaml
+    - patches/fsmc/bwtr_offset.yaml
 
 TIM6:
   _include:
     - patches/tim/tim6_arr_reset.yaml
+  
+GPIO[A]:
+  _include:
+    - patches/gpio/f4_gpioa_reset_values.yaml
+
+RCC:
+  _include:
+    - patches/rcc/f42_f43_reset_values.yaml
+
+SYSCFG:
+  _include:
+    - patches/syscfg/f4_common.yaml
