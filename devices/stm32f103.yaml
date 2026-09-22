@@ -137,6 +137,7 @@ FSMC:
     - fields/fsmc/nand.yaml
     - collect/fsmc/sram.yaml
     - collect/fsmc/nand_v1.yaml
+    - patches/fsmc/bcr_btr_reset.yaml
 
 FSM[C]:
   _include:
@@ -225,6 +226,7 @@ SPI1:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
     - fields/spi/spi_v1_without_FRF_FRE.yaml
+    - patches/spi/i2spr_rst_val.yaml
 
 TIM1:
   _include:

@@ -91,6 +91,7 @@ FSMC:
     - patches/fsmc/bwtr_clean.yaml
     - patches/fsmc/sramfix_v3.yaml
     - patches/fsmc/nand.yaml
+    - patches/fsmc/bcr_btr_reset.yaml
     - fields/fsmc/sram.yaml
     - fields/fsmc/nand.yaml
     - collect/fsmc/sram.yaml
@@ -192,7 +193,6 @@ RNG:
 RTC:
   _derive:
     TSTR: TR
-    TSDR: DR
   _include:
     - patches/rtc/rtc_cr.yaml
     - fields/rtc/v2/basic.yaml
@@ -210,9 +210,12 @@ SPI1:
   _include:
     - patches/16bit.yaml
     - patches/spi/dr8.yaml
+    - patches/spi/i2spr_rst_val.yaml
     - fields/spi/spi_v1.yaml
 
-SYSCFG: {}
+SYSCFG:
+  _include:
+    - patches/syscfg/f2_common.yaml
 
 TIM1:
   _include:

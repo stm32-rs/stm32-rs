@@ -102,6 +102,7 @@ FSMC:
     - patches/fsmc/sramfix_v3.yaml
     - fields/fsmc/sram.yaml
     - collect/fsmc/sram.yaml
+    - patches/fsmc/bcr_btr_reset.yaml
 
 FSM[C]:
   _include:
@@ -214,6 +215,10 @@ SPI[12]:
     - patches/spi/dr8.yaml
     - fields/spi/spi_common.yaml
     - fields/spi/dff.yaml
+
+SPI1:
+  _include:
+    - patches/spi/i2spr_rst_val.yaml
 
 TIM8:
   CCMR[12]_Input:
