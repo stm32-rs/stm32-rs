@@ -1,0 +1,297 @@
+_svd: ../svd/stm32l443.svd
+
+_delete:
+  - USB_FS
+
+_copy:
+  TIM1:
+    from: ../svd/stm32l451.svd:TIM1
+  TIM2:
+    from: ../svd/stm32l451.svd:TIM2
+  TIM15:
+    from: ../svd/stm32l451.svd:TIM15
+
+_modify:
+  # The SVD calls ADC1 ADC.
+  ADC:
+    name: ADC1
+  DAC1:
+    name: DAC
+  USB_SRAM:
+    name: USB
+    baseAddress: "0x40006800"
+
+ADC_Common:
+  _include:
+    - patches/adc/l4+common.yaml
+    - fields/adc/adc_v3_common.yaml
+    - fields/adc/adc_v3_common_l4+.yaml
+
+ADC123_Common:
+  _include: fields/adc/adc_v3_common.yaml
+
+ADC1:
+  _include:
+    - patches/adc/split.yaml
+    - patches/adc/offset_en.yaml
+    - patches/adc/l4+.yaml
+    - patches/adc/dr_rdata.yaml
+    - fields/adc/adc_v3.yaml
+    - fields/adc/adc_v3_l4.yaml
+    - fields/adc/awd0_18.yaml
+    - collect/adc/v3.yaml
+  SQR?:
+    SQ*: [0, 18]
+
+ADC[1]:
+  _include: collect/adc/derive_sq.yaml
+
+AES:
+  _include:
+    - patches/aes/fields.yaml
+    - patches/aes/l4.yaml
+    - fields/aes/v2.yaml
+
+CAN1:
+  _include:
+    - patches/can/l4x3_missing_regs.yaml
+    - fields/can/can.yaml
+    - collect/can/can.yaml
+    - collect/can/filter_bank.yaml
+
+COMP:
+  _include:
+    - patches/comp/l4xx_comp_reg_rename.yaml
+    - fields/comp/l4x6.yaml
+
+CRC:
+  _include:
+    - patches/crc/crc_rename_init.yaml
+    - patches/crc/crc_rename_pol.yaml
+    - patches/crc/add_dr8.yaml
+    - fields/crc/v3_idr8.yaml
+
+CRS:
+  _include:
+    - fields/crs/crs.yaml
+
+DAC:
+  _include:
+    - fields/dac/l4.yaml
+    - collect/dac/v3.yaml
+
+DBGMCU: {}
+
+DMA1:
+  _include:
+    - fields/dma/dma_v1_with_remapping.yaml
+    - collect/dma/v1.yaml
+
+EXTI:
+  _include:
+    - patches/exti/add_fpu_interrupt.yaml
+    - fields/exti/common.yaml
+
+FIREWALL:
+  _include:
+    - fields/fw/fw_l0_l4.yaml
+
+FLASH:
+  _include:
+    - patches/flash/flash_boot0s.yaml
+
+GPIO[ABC]:
+  _include:
+    - patches/gpio/l4_brr.yaml
+    - fields/gpio/v2/common.yaml
+    - collect/gpio/v2.yaml
+
+GPIO[A]:
+  _include: collect/gpio/gpioa_afr.yaml
+GPIO[BC]:
+  _include: collect/gpio/v2_derive.yaml
+
+I2C1:
+  _include:
+    - fields/i2c/v2.yaml
+
+IWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/iwdg/iwdg_with_WINR.yaml
+
+LCD:
+  _delete: RAM_COM*
+  _include:
+    - patches/lcd/ram_segment_40.yaml
+
+LPTIM1:
+  _include:
+    - fields/lptim/v1.yaml
+
+LPUART1:
+  _include:
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - fields/usart/v3/lp_A.yaml
+
+OPAMP:
+  _include:
+    - fields/opamp/l4.yaml
+
+PWR: {}
+
+# SVD incorrectly labels APB1ENR1 bit 26 as USBF instead of USBFSEN.
+RCC:
+  APB1ENR1:
+    _modify:
+      SP3EN:
+        name: SPI3EN
+        description: SPI peripheral 3 clock enable
+      USBF:
+        name: USBFSEN
+        description: USB FS clock enable
+
+  # SVD incorrectly shifts CRCEN/CRCRST/CRCSMEN  11 bits instead of 12
+  AHB1ENR:
+    _modify:
+      CRCEN:
+        bitOffset: 12
+  AHB1RSTR:
+    _modify:
+      CRCRST:
+        bitOffset: 12
+  AHB1SMENR:
+    _modify:
+      CRCSMEN:
+        bitOffset: 12
+
+  APB1RSTR1:
+    _add:
+      USBFSRST:
+        description: USB FS reset
+        bitOffset: 26
+        bitWidth: 1
+  _include:
+    - fields/rcc/rcc_l4.yaml
+    - fields/rcc/rcc_l4_usart2_3.yaml
+
+RNG:
+  _include:
+    - fields/rng/v1.yaml
+
+RTC:
+  _include:
+    - patches/rtc/alarm.yaml
+    - patches/rtc/rtc_cr.yaml
+    - fields/rtc/v2/common.yaml
+    - collect/rtc/alarm.yaml
+    - collect/rtc/bkpr.yaml
+
+SAI1:
+  _include:
+    - patches/sai/sai_v1.yaml
+    - fields/sai/sai.yaml
+    - collect/sai/ch.yaml
+
+SDMMC:
+  _include:
+    - patches/sdio_sdmmc/cardstatus.yaml
+    - fields/sdio/v1-ata.yaml
+    - collect/sdio/resp.yaml
+
+SPI1:
+  _include:
+    - patches/16bit.yaml
+    - patches/spi/dr8.yaml
+    - patches/spi/rename_dff_tifrfe.yaml
+    - fields/spi/spi_common.yaml
+    - fields/spi/spi_FRF_FRE.yaml
+    - fields/spi/spi_v2_spi.yaml
+
+SWPMI1: {}
+
+SYSCFG: {}
+
+TIM1:
+  _include:
+    - patches/tim/v2/tim1.yaml
+    - patches/tim/v2/oc5m_bit3.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/dmab_32.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/v2/tim1.yaml
+    - collect/tim/ccr.yaml
+
+TIM2:
+  CNT:
+    _modify:
+      CNT_H:
+        bitWidth: 16
+  _include:
+    - patches/tim/v2/tim2.yaml
+    - patches/tim/v2/ocm_bit3.yaml
+    - patches/tim/tim2_common_32bit.yaml
+    - fields/tim/tim_mms_ts_sms.yaml
+    - fields/tim/v2/tim2.yaml
+    - collect/tim/ccr.yaml
+
+TIM6:
+  _include:
+    - patches/tim/v2/tim6.yaml
+    - fields/tim/v2/tim6.yaml
+
+TIM15:
+  _include:
+    - patches/tim/v2/tim15.yaml
+    - fields/tim/v2/tim15.yaml
+    - collect/tim/ccr.yaml
+
+TIM16:
+  _include:
+    - patches/tim/v2/tim16.yaml
+    - fields/tim/v2/tim16.yaml
+    - collect/tim/ccr.yaml
+  CCMR1_Output:
+    _modify:
+      OC1M_2:
+        name: OC1M_3
+
+TSC:
+  _include:
+    - fields/tsc/tsc.yaml
+    - collect/tsc/iogcr.yaml
+
+USART1:
+  _include:
+    - patches/usart/merge_CR1_DEDTx_fields.yaml
+    - patches/usart/merge_CR1_DEATx_fields.yaml
+    - patches/usart/merge_CR2_ABRMODx_fields.yaml
+    - patches/usart/merge_CR2_ADDx_fields.yaml
+    - patches/usart/rename_CR2_DATAINV_field.yaml
+    - patches/usart/merge_BRR_fields.yaml
+    - fields/usart/v3/B.yaml
+
+USB:
+  _include:
+    - fields/usb/v2.yaml
+    - collect/usb/epxr.yaml
+  _add:
+    _interrupts:
+      USB_FS:
+        description: USB event interrupt through EXTI
+        value: 67
+
+VREFBUF: {}
+
+WWDG:
+  _include:
+    - patches/16bit.yaml
+    - fields/wwdg/wwdg.yaml
+
+_include:
+  - patches/tim/group.yaml
+  - patches/dma/interrupt_names.yaml
+  - patches/adc/l4_adc_common.yaml
