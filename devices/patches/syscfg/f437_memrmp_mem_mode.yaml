@@ -1,0 +1,13 @@
+MEMRMP:
+  _modify:
+    MEM_MODE:
+      bitWidth: 3
+  _add:
+    FB_MODE:
+      description: Flash bank mode selection
+      bitOffset: 8
+      bitWidth: 1
+    SWP_FMC:
+      description: FMC memory mapping swap
+      bitOffset: 10
+      bitWidth: 2

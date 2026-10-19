@@ -31,6 +31,9 @@ Family-specific:
 
 * F4:
   * Modified reset values for multiple registers in stm32f405/407/415/417/427/429/437/439 svd files (#1272)
+  * Modified reset values for CAN, GPIOA and RCC peripheral registers for f405/407/415/417/427/429/437/439
+  * Fixed address offsets for FSMC_BWTR3 and BWTR4 registers for f415/f417/f437/f439
+  * Fixed fields of SYSCFG_MEMRMP registers for F415,F417,F437
 
 * F7:
   * F74, F75: Add fields to DBGMCU.CR (#1260) and SYSCFG (#1265)
