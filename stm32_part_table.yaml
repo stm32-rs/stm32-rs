@@ -21,6 +21,35 @@ stm32c0:
       - STM32C031
       - STM32C071
 
+stm32c5:
+  stm32c53x:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32c53x-542.html
+    rm: RM0522
+    rm_title: STM32C53x/542
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0522-stm32c5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32C531
+      - STM32C532
+      - STM32C542
+  stm32c55x:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32c55x-562.html
+    rm: RM0522
+    rm_title: STM32C55x/562
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0522-stm32c5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32C551
+      - STM32C552
+      - STM32C562
+  stm32c59x:
+    url: https://www.st.com/en/microcontrollers-microprocessors/stm32c59x-5a3.html
+    rm: RM0522
+    rm_title: STM32C59x/5A3
+    rm_url: https://www.st.com/resource/en/reference_manual/rm0522-stm32c5-series-armbased-32bit-mcus-stmicroelectronics.pdf
+    members:
+      - STM32C591
+      - STM32C593
+      - STM32C5a3
+
 stm32f0:
   stm32f0x0:
     url: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x0-value-line.html
