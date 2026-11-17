@@ -20,6 +20,10 @@ Family-specific:
   * Updated reset values for multiple regsiters in stm32c011/31/71
   * Updated bit widths for multiple flash register subfields in stm32c011/31/71
 
+* C5:
+  * Added new STM32C5 device family
+  * Added archive v1.0
+
 * F0:
   * Updated reset values for multiple registers in the stm32f0x1/2/8 SVD files (#1274)
   * Updated reset values for multiple registers in the stm32f0x0 SVD file
