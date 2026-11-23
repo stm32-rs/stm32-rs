@@ -70,6 +70,7 @@ BDCR:
     "On": [1, LSE oscillator On]
 "A?B?RSTR,A?B??RSTR":
   "*RST":
+    NoReset: [0, Stop resetting the selected module]
     Reset: [1, Reset the selected module]
 RSR,C1_RSR:
   "*RSTF":
