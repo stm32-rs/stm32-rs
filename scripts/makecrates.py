@@ -24,6 +24,7 @@ SVD2RUST_VERSION = "0.37.1"
 COMMON_DOC_FEATURES = ["atomics", "critical-section", "defmt", "rt"]
 CRATE_DOC_FEATURES = {
     "stm32c0": ["stm32c011", "stm32c031", "stm32c071"],
+    "stm32c5": ["stm32c531", "stm32c532", "stm32c542", "stm32c551", "stm32c552", "stm32c562", "stm32c591", "stm32c593", "stm32c5a3"],
     "stm32f0": ["stm32f0x0", "stm32f0x1", "stm32f0x2", "stm32f0x8"],
     "stm32f1": ["stm32f100", "stm32f101", "stm32f102", "stm32f103", "stm32f107"],
     "stm32f2": ["stm32f215", "stm32f217"],
@@ -50,6 +51,7 @@ CRATE_DOC_FEATURES = {
 
 CRATE_DOC_TARGETS = {
     "stm32c0": "thumbv6m-none-eabi",
+    "stm32c5": "thumbv8m.main-none-eabihf",
     "stm32f0": "thumbv6m-none-eabi",
     "stm32f1": "thumbv7m-none-eabi",
     "stm32f2": "thumbv7m-none-eabi",
