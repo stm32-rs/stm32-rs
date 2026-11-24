@@ -1,3 +1,9 @@
 _svd: ../svd/stm32c532.svd
 
 _clear_fields: "*"
+
+FDCAN[12]:
+  _strip: FDCAN_
+
+_include:
+  patches/c5_common.yaml

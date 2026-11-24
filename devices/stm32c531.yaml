@@ -1,3 +1,6 @@
 _svd: ../svd/stm32c531.svd
 
 _clear_fields: "*"
+
+_include:
+  patches/c5_common.yaml
