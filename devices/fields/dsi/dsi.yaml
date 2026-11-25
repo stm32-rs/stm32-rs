@@ -1,0 +1,440 @@
+CR:
+  EN:
+    B_0x0: [0, DSI Host disabled (under reset)]
+    B_0x1: [1, DSI Host enabled]
+LCOLCR:
+  COLC:
+    B_0x0: [0, 16-bit configuration 1]
+    B_0x1: [1, 16-bit configuration 2]
+    B_0x2: [2, 16-bit configuration 3]
+    B_0x3: [3, 18-bit configuration 1]
+    B_0x4: [4, 18-bit configuration 2]
+    B_0x5: [5, 24-bit]
+  LPE:
+    B_0x0: [0, Loosely packet variant disabled]
+    B_0x1: [1, Loosely packet variant enabled]
+LPCR:
+  DEP:
+    B_0x0: [0, Data enable pin active high (default)]
+    B_0x1: [1, Data enable pin active low]
+  VSP:
+    B_0x0: [0, Shutdown pin active high (default)]
+    B_0x1: [1, Shutdown pin active low]
+  HSP:
+    B_0x0: [0, HSYNC pin active high (default)]
+    B_0x1: [1, VSYNC pin active low]
+PCR:
+  ETTXE:
+    B_0x0: [0, EoTp transmission is disabled.]
+    B_0x1: [1, EoTp transmission is enabled.]
+  ETRXE:
+    B_0x0: [0, EoTp reception is disabled.]
+    B_0x1: [1, EoTp reception is enabled.]
+  BTAE:
+    B_0x0: [0, Bus-turn-around request is disabled.]
+    B_0x1: [1, Bus-turn-around request is enabled.]
+  ECCRXE:
+    B_0x0: [0, ECC reception is disabled.]
+    B_0x1: [1, ECC reception is enabled.]
+  CRCRXE:
+    B_0x0: [0, CRC reception is disabled.]
+    B_0x1: [1, CRC reception is enabled.]
+MCR:
+  CMDM:
+    B_0x0: [0, DSI Host is configured in video mode.]
+    B_0x1: [1, DSI Host is configured in command mode.]
+VMCR:
+  VMT:
+    B_0x0: [0, Non-burst with sync pulses.]
+    B_0x1: [1, Non-burst with sync events.]
+  LPVSAE:
+    B_0x0: [0, Return to low-power inside the VSA is disabled.]
+    B_0x1: [1, Return to low-power inside the VSA is enabled]
+  LPVBPE:
+    B_0x0: [0, Return to low-power inside the VBP is disabled.]
+    B_0x1: [1, Return to low-power inside the VBP is enabled.]
+  LPVFPE:
+    B_0x0: [0, Return to low-power inside the VFP is disabled.]
+    B_0x1: [1, Return to low-power inside the VFP is enabled.]
+  LPVAE:
+    B_0x0: [0, Return to low-power inside the VACT is disabled.]
+    B_0x1: [1, Return to low-power inside the VACT is enabled.]
+  LPHBPE:
+    B_0x0: [0, Return to low-power inside the HBP period is disabled.]
+    B_0x1: [1, Return to low-power inside the HBP period is enabled.]
+  LPHFPE:
+    B_0x0: [0, Return to low-power inside the HFP period is disabled.]
+    B_0x1: [1, Return to low-power inside the HFP period is enabled.]
+  FBTAAE:
+    B_0x0: [0, Acknowledge response at the end of a frame is disabled.]
+    B_0x1: [1, Acknowledge response at the end of a frame is enabled.]
+  LPCE:
+    B_0x0: [0, Command transmission in low-power mode is disabled.]
+    B_0x1: [1, Command transmission in low-power mode is enabled.]
+  PGE:
+    B_0x0: [0, Pattern generator is disabled.]
+    B_0x1: [1, Pattern generator is enabled.]
+  PGM:
+    B_0x0: [0, Color bars (horizontal or vertical).]
+    B_0x1: [1, BER pattern (vertical only).]
+  PGO:
+    B_0x0: [0, Vertical color bars.]
+    B_0x1: [1, Horizontal color bars.]
+CMCR:
+  TEARE:
+    B_0x0: [0, Tearing effect acknowledge request is disabled.]
+    B_0x1: [1, Tearing effect acknowledge request is enabled.]
+  ARE:
+    B_0x0: [0, Acknowledge request is disabled.]
+    B_0x1: [1, Acknowledge request is enabled.]
+  GSW0TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GSW1TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GSW2TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GSR0TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GSR1TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GSR2TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  GLWTX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  DSW0TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  DSW1TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  DSR0TX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  DLWTX:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+  MRDPS:
+    B_0x0: [0, High-speed]
+    B_0x1: [1, Low-power]
+GPSR:
+  CMDFE:
+    B_0x0: [0, Write payload FIFO not empty]
+    B_0x1: [1, Write payload FIFO empty]
+  CMDFF:
+    B_0x0: [0, Write payload FIFO not full]
+    B_0x1: [1, Write payload FIFO full]
+  PWRFE:
+    B_0x0: [0, Write payload FIFO not empty]
+    B_0x1: [1, Write payload FIFO empty]
+  PWRFF:
+    B_0x0: [0, Write payload FIFO not full]
+    B_0x1: [1, Write payload FIFO full]
+  PRDFE:
+    B_0x0: [0, Read payload FIFO not empty]
+    B_0x1: [1, Read payload FIFO empty]
+  PRDFF:
+    B_0x0: [0, Read payload FIFO not full]
+    B_0x1: [1, Read payload FIFO ful.]
+  RCB:
+    B_0x0: [0, No read command on going]
+    B_0x1: [1, Read command on going]
+CLCR:
+  DPCC:
+    B_0x0: [0, Clock lane is in low-power mode.]
+    B_0x1: [1, Clock lane runs in high-speed mode.]
+  ACR:
+    B_0x0: [0, Automatic clock lane control disabled]
+    B_0x1: [1, Automatic clock lane control enabled]
+PCTLR:
+  DEN:
+    B_0x0: [0, The digital section of the D-PHY is in the reset state.]
+    B_0x1: [1, The digital section of the D-PHY is enabled.]
+  CKE:
+    B_0x0: [0, D-PHY clock lane module is disabled.]
+    B_0x1: [1, D-PHY clock lane module is enabled.]
+PCONFR:
+  NL:
+    B_0x0: [0, One data lane (lane 0)]
+    B_0x1: [1, Two data lanes (lanes 0 and 1) - Reset value]
+  SW_TIME:
+PUCR:
+  URCL:
+    B_0x0: [0, No ULPS request]
+    B_0x1: [1, Request ULPS mode on clock lane]
+  UECL:
+    B_0x0: [0, No exit request]
+    B_0x1: [1, Exit ULPS mode on clock lane]
+  URDL:
+    B_0x0: [0, No ULPS request]
+    B_0x1: [1, Request ULPS mode on all active data lane UECL]
+  UEDL:
+    B_0x0: [0, No exit request]
+    B_0x1: [1, Exit ULPS mode on all active data lane URDL]
+IER0:
+  AE*IE:
+    B_0x0: [0, Interrupt on acknowledge error 0 disabled]
+    B_0x1: [1, Interrupt on acknowledge error 0 enabled]
+  PE*IE:
+    B_0x0: [0, Interrupt on PHY error 0 disabled]
+    B_0x1: [1, Interrupt on PHY error 0 enabled]
+IER1:
+  TOHSTXIE:
+    B_0x0: [0, Interrupt on timeout high-speed transmission disabled]
+    B_0x1: [1, Interrupt on timeout high-speed transmission enabled]
+  TOLPRXIE:
+    B_0x0: [0, Interrupt on timeout low-power reception disabled]
+    B_0x1: [1, Interrupt on timeout low-power reception enabled]
+  ECCSEIE:
+    B_0x0: [0, Interrupt on ECC single-bit error disabled]
+    B_0x1: [1, Interrupt on ECC single-bit error enabled]
+  ECCMEIE:
+    B_0x0: [0, Interrupt on ECC multi-bit error disabled]
+    B_0x1: [1, Interrupt on ECC multi-bit error enabled]
+  CRCEIE:
+    B_0x0: [0, Interrupt on CRC error disabled]
+    B_0x1: [1, Interrupt on CRC error enabled]
+  PSEIE:
+    B_0x0: [0, Interrupt on packet size error disabled]
+    B_0x1: [1, Interrupt on packet size error enabled]
+  EOTPEIE:
+    B_0x0: [0, Interrupt on EoTp error disabled]
+    B_0x1: [1, Interrupt on EoTp error enabled]
+  LPWREIE:
+    B_0x0: [0, Interrupt on LTDC payload write error disabled]
+    B_0x1: [1, Interrupt on LTDC payload write error enabled]
+  GCWREIE:
+    B_0x0: [0, Interrupt on generic command write error disabled]
+    B_0x1: [1, Interrupt on generic command write error enabled]
+  GPWREIE:
+    B_0x0: [0, Interrupt on generic payload write error disabled]
+    B_0x1: [1, Interrupt on generic payload write error enabled]
+  GPTXEIE:
+    B_0x0: [0, Interrupt on generic payload transmit error disabled]
+    B_0x1: [1, Interrupt on generic payload transmit error enabled]
+  GPRDEIE:
+    B_0x0: [0, Interrupt on generic payload read error disabled]
+    B_0x1: [1, Interrupt on generic payload read error enabled]
+  GPRXEIE:
+    B_0x0: [0, Interrupt on generic payload receive error disabled]
+    B_0x1: [1, Interrupt on generic payload receive error enabled]
+VSCR:
+  EN:
+    B_0x0: [0, Register update is disabled.]
+    B_0x1: [1, Register update is enabled.]
+  UR:
+    B_0x0: [0, No update requested]
+    B_0x1: [1, Register update requested]
+LCVCIDR:
+  VCID:
+LCCCR:
+  COLC:
+    B_0x0: [0, 16-bit configuration 1]
+    B_0x1: [1, 16-bit configuration 2]
+    B_0x2: [2, 16-bit configuration 3]
+    B_0x3: [3, 18-bit configuration 1]
+    B_0x4: [4, 18-bit configuration 2]
+    B_0x5: [5, 24-bit]
+  LPE:
+    B_0x0: [0, Loosely packed variant disabled]
+    B_0x1: [1, Loosely packed variant enabled]
+VMCCR:
+  VMT:
+    B_0x0: [0, Non-burst with sync pulses]
+    B_0x1: [1, Non-burst with sync events]
+  LPVSAE:
+    B_0x0: [0, Return to low-power inside the VSA is disabled.]
+    B_0x1: [1, Return to low-power inside the VSA is enabled]
+  LPVBPE:
+    B_0x0: [0, Return to low-power inside the VBP is disabled.]
+    B_0x1: [1, Return to low-power inside the VBP is enabled.]
+  LPVFPE:
+    B_0x0: [0, Return to low-power inside the VFP is disabled.]
+    B_0x1: [1, Return to low-power inside the VFP is enabled.]
+  LPVAE:
+    B_0x0: [0, Return to low-power inside the VACT is disabled.]
+    B_0x1: [1, Return to low-power inside the VACT is enabled.]
+  LPHBPE:
+    B_0x0: [0, Return to low-power inside the HBP period is disabled.]
+    B_0x1: [1, Return to low-power inside the HBP period is enabled.]
+  LPHFE:
+    B_0x0: [0, Return to low-power inside the HFP period is disabled.]
+    B_0x1: [1, Return to low-power inside the HFP period is enabled.]
+  FBTAAE:
+    B_0x0: [0, Acknowledge response at the end of a frame is disabled.]
+    B_0x1: [1, Acknowledge response at the end of a frame is enabled.]
+  LPCE:
+    B_0x0: [0, Command transmission in low-power mode is disabled.]
+    B_0x1: [1, Command transmission in low-power mode is enabled.]
+WCFGR:
+  DSIM:
+    B_0x0: [0, Video mode]
+    B_0x1: [1, Adapted command mode]
+  COLMUX:
+    B_0x0: [0, 16-bit configuration 1]
+    B_0x1: [1, 16-bit configuration 2]
+    B_0x2: [2, 16-bit configuration 3]
+    B_0x3: [3, 18-bit configuration 1]
+    B_0x4: [4, 18-bit configuration 2]
+    B_0x5: [5, 24-bit]
+  TESRC:
+    B_0x0: [0, DSI Link]
+    B_0x1: [1, External pin]
+  TEPOL:
+    B_0x0: [0, rising edge.]
+    B_0x1: [1, falling edge.]
+  AR:
+    B_0x0: [0, automatic refresh mode disabled]
+    B_0x1: [1, automatic refresh mode enabled]
+  VSPOL:
+    B_0x0: [0, LTDC halted on a falling edge]
+    B_0x1: [1, LTDC halted on a rising edge]
+WCR:
+  COLM:
+    B_0x0: [0, Full color mode]
+    B_0x1: [1, Eight color mode]
+  SHTDN:
+    B_0x0: [0, display ON]
+    B_0x1: [1, display OFF]
+  LTDCEN:
+    B_0x0: [0, LTDC disabled]
+    B_0x1: [1, LTDC enabled]
+  DSIEN:
+    B_0x0: [0, DSI disabled]
+    B_0x1: [1, DSI enabled]
+WIER:
+  TEIE:
+    B_0x0: [0, Tearing effect interrupt disabled]
+    B_0x1: [1, Tearing effect interrupt enabled]
+  ERIE:
+    B_0x0: [0, End of refresh interrupt disabled]
+    B_0x1: [1, End of refresh interrupt enabled]
+  PLLLIE:
+    B_0x0: [0, PLL lock interrupt disabled]
+    B_0x1: [1, PLL lock interrupt enabled]
+  PLLUIE:
+    B_0x0: [0, PLL unlock interrupt disabled]
+    B_0x1: [1, PLL unlock interrupt enabled]
+  RRIE:
+    B_0x0: [0, Regulator ready interrupt disabled]
+    B_0x1: [1, Regulator ready interrupt enabled]
+WISR:
+  TEIF:
+    B_0x0: [0, No tearing effect event occurred]
+    B_0x1: [1, Tearing effect event occurred]
+  ERIF:
+    B_0x0: [0, No end of refresh event occurred]
+    B_0x1: [1, End of refresh event occurred]
+  BUSY:
+    B_0x0: [0, No transfer on going]
+    B_0x1: [1, Transfer on going]
+  PLLLS:
+    B_0x0: [0, PLL is unlocked.]
+    B_0x1: [1, PLL is locked.]
+  PLLLIF:
+    B_0x0: [0, No PLL lock event occurred]
+    B_0x1: [1, PLL lock event occurred]
+  PLLUIF:
+    B_0x0: [0, No PLL unlock event occurred]
+    B_0x1: [1, PLL unlock event occurred]
+  RRS:
+    B_0x0: [0, Regulator is not ready.]
+    B_0x1: [1, Regulator is ready.]
+  RRIF:
+    B_0x0: [0, No regulator ready event occurred]
+    B_0x1: [1, Regulator ready event occurred]
+WPCR0:
+  SWCL:
+    B_0x0: [0, Regular clock lane pin configuration]
+    B_0x1: [1, Swapped clock lane pin]
+  SWDL0:
+    B_0x0: [0, Regular clock lane pin configuration]
+    B_0x1: [1, Swapped clock lane pin]
+  SWDL1:
+    B_0x0: [0, Regular clock lane pin configuration]
+    B_0x1: [1, Swapped clock lane pin]
+  HSICL:
+    B_0x0: [0, Normal data configuration]
+    B_0x1: [1, Inverted data configuration]
+  HSIDL0:
+    B_0x0: [0, Normal data signal configuration]
+    B_0x1: [1, Inverted data signal configuration]
+  HSIDL1:
+    B_0x0: [0, Normal data signal configuration]
+    B_0x1: [1, Inverted data signal configuration]
+  FTXSMCL:
+    B_0x0: [0, No effect]
+    B_0x1: [1, Force the clock lane in TX Stop mode]
+  FTXSMDL:
+    B_0x0: [0, No effect]
+    B_0x1: [1, Force the data lanes in TX Stop mode]
+  CDOFFDL:
+    B_0x0: [0, Contention detection on data lane ON]
+    B_0x1: [1, Contention detection on data lane OFF]
+  TDDL:
+    B_0x0: [0, No effect]
+    B_0x1: [1, Force data lanes in RX mode after a BTA]
+  PDEN:
+    B_0x0: [0, Pull-down on lanes disabled]
+    B_0x1: [1, Pull-down on lanes enabled]
+  TCLKPREPEN:
+    B_0x0: [0, Default value is used for t<sub>CLK-PREPARE</sub>]
+    B_0x1: [1, Programmable value is used for t<sub>CLK-PREPARE</sub>]
+  TCLKZEROEN:
+    B_0x0: [0, Default value is used for t<sub>CLK-ZERO</sub>.]
+    B_0x1: [1, Programmable value is used for t<sub>CLK-ZERO</sub>.]
+  THSPREPEN:
+    B_0x0: [0, Default value is used for t<sub>HS-PREPARE</sub>.]
+    B_0x1: [1, Programmable value is used for t<sub>HS-PREPARE</sub>.]
+  THSTRAILEN:
+    B_0x0: [0, Default value is used for T<sub>HS-TRAIL</sub>.]
+    B_0x1: [1, Programmable value is used for T<sub>HS-TRAIL</sub>.]
+  THSZEROEN:
+    B_0x0: [0, Default value is used for t<sub>HS-ZERO</sub>.]
+    B_0x1: [1, Programmable value is used for t<sub>HS-ZERO</sub>.]
+  TLPXDEN:
+    B_0x0: [0, Default value is used for T<sub>LPX</sub> for the data lanes.]
+    B_0x1: [1, Programmable value is used for T<sub>LPX</sub> for the data lanes.]
+  THSEXITEN:
+    B_0x0: [0, Default value is used for t<sub>HS-EXIT</sub>.]
+    B_0x1: [1, Programmable value is used for t<sub>HS-EXIT</sub>.]
+  TLPXCEN:
+    B_0x0: [0, Default value is used for t<sub>LPX</sub> for the clock lane.]
+    B_0x1: [1, Programmable value is used for t<sub>LPX</sub> for the clock lane.]
+  TCLKPOSTEN:
+    B_0x0: [0, Default value is used for t<sub>CLKPOST</sub>.]
+    B_0x1: [1, Programmable value is used for t<sub>CLKPOST</sub>.]
+WPCR1:
+  SDDC:
+    B_0x0: [0, No effect]
+    B_0x1: [1, Activate additional current path on all lanes]
+  FLPRXLPM:
+    B_0x0: [0, No effect]
+    B_0x1: [1, LPRX is forced in low-power mode.]
+WRPCR:
+  PLLEN:
+    B_0x0: [0, PLL disabled]
+    B_0x1: [1, PLL enabled]
+  IDF:
+    B_0x0: [0, PLL input divided by 1]
+    B_0x1: [1, PLL input divided by 1]
+    B_0x2: [2, PLL input divided by 2]
+    B_0x3: [3, PLL input divided by 3]
+    B_0x4: [4, PLL input divided by 4]
+    B_0x5: [5, PLL input divided by 5]
+    B_0x6: [6, PLL input divided by 6]
+    B_0x7: [7, PLL input divided by 7]
+  ODF:
+    B_0x0: [0, PLL output divided by 1]
+    B_0x1: [1, PLL output divided by 2]
+    B_0x2: [2, PLL output divided by 4]
+    B_0x3: [3, PLL output divided by 8]
+  REGEN:
+    B_0x0: [0, regulator disabled]
+    B_0x1: [1, regulator enabled]
